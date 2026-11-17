@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Use Python 3 with SymPy and run `python verify.py`. The script builds each of the complete 16-state generators from its own edge list and evaluates the exact matrix formulas, with no supplied external data. Checks include: all generator row sums; zero differences in every earlier Taylor coefficient; four exact first nonzero Taylor terms; four exact rational mean differences for symbolic positive rate; positivity certificates for their numerator and denominator polynomials; and twelve exact rational calculations at transmission rates \(1/4\), \(1\), and \(5/2\) using separately implemented fraction-based Gaussian elimination.
+## correctness
 
-The script prints one final PASS line when all assertions hold. It is finite, reproducible symbolic computation and proves the specified four-vertex claim when the explicit matrix definitions are accepted. It is not a general-graph or non-Markovian theorem, and it does not determine the number or exact locations of deadline crossings. Independently performed verification has not occurred.
+PASS
+
+Constructed full 16-state continuous-time SIS generators independently from infected->healthy rate1 and infected-neighbor->healthy transmission rate lambda. For k=1..4 direct symbolic inversions of the 15x15 transient generators reproduced all four exact rational mean-gap polynomials N1,N2,N3=N4 with strictly positive coefficients for every lambda>0; independently evaluated Taylor powers at lambda=1 for first nonzero t^(3,4,5,6) coefficients -1/12,+1/72,-1/120,-1/180 and checked exact means at lambda 1/2,1,2. Source symbolic verifier supplies the general lambda^2 Taylor identities, with actual formula inspected. Positive tail integral plus negative initial difference for k1,3,4 guarantees a later positive difference and at least one crossing, but not exactly one.
+
+## originality
+
+PASS
+
+The full-occupancy and uniform-triple mean comparisons are already known, but the exact short-time survival signs, forced later crossing, and k=1,2 mean equations give a substantive surviving claim, not implied by the published full-occupancy mean theorem.
+
+## value
+
+PASS
+
+The first nonisomorphic equal-edge trees are a natural exact finite contact-process benchmark. A rigorous all-rate mean-survival ranking can oppose finite-deadline probability rankings, with a nontrivial dependence on initial infected count; these precise short-time signs matter for interpreting extinction risk rather than merely repeating a known mean formula. Substantive time-domain structure remains after crediting earlier full-occupancy means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

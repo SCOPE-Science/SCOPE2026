@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:59:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2a63ec4d0ba6376475f6698a8a99fa07c1562990",
+        "assigned verify.py blob 66b9d8b2cd5dae44c14b573a6466d5e6f5dd8948",
+        "/mnt/data/independent_sis_symbolic_20261113.py independent exact symbolic rational elimination",
+        "/mnt/data/independent_scope_checks_20261113.py independent Taylor/means"
+      ],
+      "rationale": "Constructed full 16-state continuous-time SIS generators independently from infected->healthy rate1 and infected-neighbor->healthy transmission rate lambda. For k=1..4 direct symbolic inversions of the 15x15 transient generators reproduced all four exact rational mean-gap polynomials N1,N2,N3=N4 with strictly positive coefficients for every lambda>0; independently evaluated Taylor powers at lambda=1 for first nonzero t^(3,4,5,6) coefficients -1/12,+1/72,-1/120,-1/180 and checked exact means at lambda 1/2,1,2. Source symbolic verifier supplies the general lambda^2 Taylor identities, with actual formula inspected. Positive tail integral plus negative initial difference for k1,3,4 guarantees a later positive difference and at least one crossing, but not exactly one.",
+      "residual_risks": [
+        "No uniqueness of crossing, stochastic domination or all-time ordering proven.",
+        "The k=3/k=4 mean result is already covered by earlier all-occupied work and cannot count as new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier four-patch result proves all-rate star>path mean for k=4, and k=3 follows because from four infected the first death occurs after mean 1/4 and leaves a uniform triple.",
+          "Mountford studies growth-order of extinction on large trees; 2015 SIS paper gives exact K_n and star means and 64-node comparisons under different normalization."
+        ],
+        "reasoning": "The strongest prior covers a material SUBCLAIM but does not dominate the surviving distributional crossing for uniformly initialized k=1,3,4, nor k=1,2 mean coefficients.",
+        "searches": [
+          "Resultary Nov8 edge-count universality and sharp four-patch persistence separation",
+          "Mountford Mourrat Valesin Yao arXiv:1203.2972",
+          "Van de Bovenkamp Van Mieghem 2015 §II-III"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-edge-count-universality-and-a-sharp-four-patch-persistence-separ--e6e7147b79f7",
+        "PhysRevE.92.032806 (2015) PDF full text",
+        "Mountford et al arXiv:1203.2972",
+        "Resultary SIS search queries",
+        "current 16-state source generator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier full-occupancy theorem implies Delta4=Delta3 but provides only mean gaps; equality of means or a Taylor expansion of the mean does not determine the sign of the survival difference for small t.",
+          "The first nonzero survival coefficients have signs negative for k=1,3,4 and positive for k=2, and the positive mean integral then forces at least one crossing for 1/3/4."
+        ],
+        "reasoning": "The final composite theorem is not a corollary of the mean-time predecessor; it combines a new four-initial-count complete time-domain local classification with known mean information. Extinction-time distribution comparison, not merely same parameter labels, supplies the distinct content.",
+        "searches": [
+          "Nov8 four-patch full-occupancy theorem",
+          "2015 SIS survival paper §II-III",
+          "current 16-state exact generator and first Taylor powers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Nov8 four-patch colonization/extinction model has exactly the same finite SIS generator with occupancy interpreted as infection, for FULL initial occupancy only.",
+          "Its full-occupancy K1,3 minus P4 mean formula is literally the submitted Delta4, with identical degree-8 polynomial N3 and denominator."
+        ],
+        "reasoning": "The model alias is exact; full-occupancy mean and the k=3 mean via first recovery are covered. The genuinely distinct claim concerns k=1,2 means plus the four first nonzero short-time signs and resulting mean-vs-deadline reversals.",
+        "searches": [
+          "Resultary star path SIS extinction survival short deadline mean all initial counts",
+          "Van de Bovenkamp Van Mieghem 2015 PhysRevE.92.032806",
+          "Resultary Nov8 edge-count universality four patch persistence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov8 published Q(lambda) exactly matches current N3 and is therefore not new; its perturbative coefficient 19/72 matches the k4 all-occupied gap.",
+          "The published paper does not report the four t^(k+2) short-time coefficients for uniform k=1..4 nor the sign/mean rank conflict."
+        ],
+        "reasoning": "A duplicate all-occupancy polynomial is credited as prior, not counted as novelty; independent new generator calculations support the missing exact time-domain classification.",
+        "searches": [
+          "Resultary early SIS four-patch persistence series",
+          "SIS star path exact mean gap polynomial Q lambda",
+          "Van de Bovenkamp 2015 Figure 10 star path network 64"
+        ]
+      },
+      "rationale": "The full-occupancy and uniform-triple mean comparisons are already known, but the exact short-time survival signs, forced later crossing, and k=1,2 mean equations give a substantive surviving claim, not implied by the published full-occupancy mean theorem.",
+      "residual_risks": [
+        "Historical priority for the new time-domain signs in unindexed exact finite SIS reliability tables is not ruled out.",
+        "Mean advantage alone does not establish a pointwise ordering or uniqueness of any deadline crossing.",
+        "Existing source package underattributes prior full-occupancy star/path mean theorem and should be corrected before publication, without misrepresenting covered subresults as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_K3_K4_MEAN_ONLY",
+          "evidence": "Same star/path at identical absolute lambda; k4 mean formula is identical; k3 mean follows from first uniform recovery. The time-survival coefficient/crossing is absent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-edge-count-universality-and-a-sharp-four-patch-persistence-separ--e6e7147b79f7",
+          "material_read": "Entire published RESULT.md including exact all-occupied star/path mean quotient, N3 polynomial, perturbation and limitations",
+          "method": "read full GitHub blob db0f9865e77a38b9929db87c1e80d4eed946e357",
+          "title": "Edge-count universality and a sharp four-patch persistence separation",
+          "trigger": "Same 16-state Markov SIS model under occupancy alias"
+        },
+        {
+          "assessment": "RELATED_NOT_EXACT_FOUR_SITE_DISTRIBUTION",
+          "evidence": "Paper focuses exact star/complete mean, general graphs under normalized rates; no all-initial-count four-site short-t survival sign theorem in inspected text.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.032806",
+          "material_read": "Actual 2015 full-text PDF: Introduction, §II exact star and complete generators, §III Figure 10 star/path simulations (64 vertices, normalized rates, all-infected initial), and scope",
+          "method": "read accessible primary PDF text and invoked PDF screenshot",
+          "title": "Survival time of the susceptible-infected-susceptible infection process on a graph",
+          "trigger": "Primary SIS graph-survival literature with star/path comparisons"
+        },
+        {
+          "assessment": "GENERAL_ASYMPTOTICS",
+          "evidence": "Exponential survival-time scaling on growing finite graphs does not fix four-state exact deadline orderings.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.2972",
+          "material_read": "Introductory full-text materials/abstract and large-tree asymptotic statements; no claimed thorough appendix audit",
+          "method": "primary abstract and introductory theorem sections",
+          "title": "Exponential extinction time of the contact process on finite graphs",
+          "trigger": "General same process large finite trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "earlier Nov8 four-patch mean theorem",
+        "exact new generator Taylor coefficients and positive mean integrals"
+      ],
+      "rationale": "The first nonisomorphic equal-edge trees are a natural exact finite contact-process benchmark. A rigorous all-rate mean-survival ranking can oppose finite-deadline probability rankings, with a nontrivial dependence on initial infected count; these precise short-time signs matter for interpreting extinction risk rather than merely repeating a known mean formula. Substantive time-domain structure remains after crediting earlier full-occupancy means.",
+      "residual_risks": [
+        "Does not support extrapolation to larger graphs or stochastic intervention policy without further work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For four-vertex star and path with unit SIS recovery and common infection lambda>0, mean extinction from a uniform k-infected set is greater on the star for k=1,2,3,4; short-time star-minus-path survival sign is (-,+,-,-) at first order t^(k+2), forcing a later crossing for k=1,3,4.",
+  "limitations": [
+    "Same generator as four-patch occupancy dynamics; the earlier all-infected mean polynomial must be attributed.",
+    "For k=2 no survival crossing or stochastic domination is claimed.",
+    "Positive mean difference forces a later positive signed survival gap but not crossing uniqueness."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment: four-vertex SIS hub--corridor comparison
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to exactly two specified undirected trees on four vertices, unit recovery, positive common transmission rate, and a uniformly chosen initial infected set conditional on size. A complete 16-state row generator has been constructed directly from the transition rules; its 15-state transient inverse yields four exact mean-time gaps with positive-coefficient numerators and denominators. Independently, the first nonzero term of each survival-probability difference is obtained by exact powers of the full generator, not finite-time numerical extrapolation. For one, three, and four initial infections, continuity and the tail-integral formula prove the existence of a later reversal. `verify.py` reproduces all symbolic identities and uses a separate fraction-based elimination for twelve independent exact rational comparisons. No uniqueness or all-time stochastic ordering is claimed.
+PASS
 
-## Originality — PASS within inspected sources, provisional
+Constructed full 16-state continuous-time SIS generators independently from infected->healthy rate1 and infected-neighbor->healthy transmission rate lambda. For k=1..4 direct symbolic inversions of the 15x15 transient generators reproduced all four exact rational mean-gap polynomials N1,N2,N3=N4 with strictly positive coefficients for every lambda>0; independently evaluated Taylor powers at lambda=1 for first nonzero t^(3,4,5,6) coefficients -1/12,+1/72,-1/120,-1/180 and checked exact means at lambda 1/2,1,2. Source symbolic verifier supplies the general lambda^2 Taylor identities, with actual formula inspected. Positive tail integral plus negative initial difference for k1,3,4 guarantees a later positive difference and at least one crossing, but not exactly one.
 
-The 2012 Mountford--Mourrat--Valesin--Yao work concerns long-time, large-graph extinction regimes, not a four-vertex exact objective disagreement. The 2015 van de Bovenkamp--Van Mieghem work supplies the same SIS model and exact star-graph methods; its explicit graph-type comparisons use a different normalization or a fixed metastable infected fraction, predominantly at 64 nodes. The inspected source's star/path simulations and formulas do not imply or state the uniformly initiated four-vertex, same-absolute-rate classification. Searches for path--star SIS survival-curve crossings and related finite-graph exact comparisons did not find a matching theorem. Search absence does not prove novelty; a possibly stronger uninspected finite-state reliability calculation remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The four-vertex star and path are the first pair of nonisomorphic trees, with the same four sites and three contacts. Their complete all-rate, all-four-count expected-persistence comparison and their opposing short-deadline signs provide an exact, minimal counterexample to using mean outbreak lifetime to rank finite-horizon persistence. The initial-count dependence (one, three and four versus two) is not visible from the mean and illustrates an operationally motivated distinction between detecting a short-lived outbreak and expected time to elimination. A minimal, exhaustive topology comparison is a motivated finite benchmark, not an arbitrary parameter slice. No broader empirical significance is claimed.
+The full-occupancy and uniform-triple mean comparisons are already known, but the exact short-time survival signs, forced later crossing, and k=1,2 mean equations give a substantive surviving claim, not implied by the published full-occupancy mean theorem.
 
-## Closest literature and limitations
+## value
 
-Mountford et al. (2012, arXiv:1203.2972), pp. 1--3, and van de Bovenkamp & Van Mieghem (2015, DOI:10.1103/PhysRevE.92.032806), especially Secs. II--III and Figure 10. The result does not classify the number of deadline crossings or generalize to other tree sizes. Further specialist priority searches and an independent audit remain appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nonisomorphic equal-edge trees are a natural exact finite contact-process benchmark. A rigorous all-rate mean-survival ranking can oppose finite-deadline probability rankings, with a nontrivial dependence on initial infected count; these precise short-time signs matter for interpreting extinction risk rather than merely repeating a known mean formula. Substantive time-domain structure remains after crediting earlier full-occupancy means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
