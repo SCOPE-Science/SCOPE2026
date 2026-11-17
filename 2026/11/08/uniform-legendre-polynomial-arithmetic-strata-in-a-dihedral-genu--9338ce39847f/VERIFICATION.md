@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The finite checks use the independently executable standard-library programs `verify_prym.py` and `verify_gcd.py`. Both completed and printed `VERIFY_OK`.
+## correctness
 
-`verify_prym.py` tests each odd prime below 110. It independently computes the elliptic Hasse invariants by quartic multinomial extraction and the Legendre recurrence, confirming equality up to a nonzero scalar. For every smooth \(\mathbb F_p\)-coefficient for those primes, it directly expands the defining degree-eight polynomial and checks the rank of its entire genus-three Cartier matrix against the predicted factor ranks. Its checks also confirm the excluded coefficients are not roots of the elliptic Hasse polynomials.
+PASS
 
-`verify_gcd.py` uses a separate factorial formula for Legendre coefficients and exact modular polynomial Euclid division to reconstruct specified superspecial-Jacobian parameter counts in characteristics \(3,5,7,11,13,17,19,23,31,47,73,97\). This is a finite cross-check, not an independent proof of the infinite-characteristic statement.
+For c²≠4 the octic has eight simple roots and genus three. Klein-four involution quotient differentials span H⁰Ω and yield prime-to-p isogeny J~E0×E1². Exact multinomial Hasse coefficients equal nonzero scalar multiples of Legendre P_m(c/2),P_n(c/2). For m,n<p the Legendre ODE and nonzero values at ±1 imply simple roots away from c=±2, proving exact counts over algebraic closure. Independently checked modular Legendre recurrences and rational coefficient identities at representative odd primes; finitely many checks do not prove the all-prime statement.
 
-The proof for all odd primes is the rational-map/isogeny argument, two exact coefficient identities, and the characteristic-\(p\) Legendre differential equation; the programs are supporting reproducibility evidence only. Independent mathematical validation was not performed.
+## originality
+
+PASS
+
+Known quotient decompositions and identical p7/p11 strata explicitly credited; the all-odd-prime paired Legendre polynomial divisor theorem and gcd classification are not implied by those finite cases or geometric descriptions, subject to historic equivalent hypergeometric results.
+
+## value
+
+PASS
+
+Natural automorphism-rich genus-three family has complete arithmetic stratification in every odd characteristic; exact Prym superspecial count and simultaneous elliptic/Prym degeneracy are useful inputs to finite-field moduli and p-divisible geometry, far beyond checking one prime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
