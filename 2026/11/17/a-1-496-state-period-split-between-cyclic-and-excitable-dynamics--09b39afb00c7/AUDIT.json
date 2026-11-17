@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exactly 531441 distinct base-three state codes are enumerated under two explicit local deterministic maps on verified isomorphic graph labelings. Independent C++17 implementations (memoized active-path closure and indegree pruning plus backward propagation) agree on the exact complete 8-pair table, all primitive orbits, and maxima 19 versus 21; the edge-list implementation directly asserts every count. Deterministic finite functional digraph proofs justify all least-period and preperiod labels, not a sampled extrapolation. Explicit witness 4234 confirms the mismatch.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df: all bicliques have equal eventual periods pointwise",
+        "arxiv:1610.07320v1: synchronization criterion and asymptotic excitation rate on arbitrary graphs",
+        "Earlier Petersen/prism paired-period classification covers a symmetric 10-vertex cubic graph, not the 12-vertex asymmetric Frucht graph."
+      ],
+      "reasoning": "The biclique equality assumes complete bipartite adjacency, not true for the nonbipartite cubic Frucht graph. Arbitrary-graph maximum cycle circulation and synchronization do not supply the full finite-state joint least-period table; indeed a common asymptotic rate is compatible with distinct least periods. The Petersen result supplies a close qualitative precedent, but is a fixed-graph theorem with no all-cubic implication. The Frucht graph has trivial automorphism group, unlike Petersen.",
+      "searches": [
+        "period equivalence of CCA and GHM on general graphs different primitive periods period doubling",
+        "Greenberg Hastings cyclic cellular automata arbitrary graph periodic primitive periods 2016",
+        "2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df"
+      ]
+    },
+    "checked_sources": [
+      "2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374",
+      "2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df",
+      "arxiv:1610.07320v1",
+      "arxiv:patt-sol/9303002",
+      "MathWorld: Frucht Graph, canonical LCF encoding",
+      "Earlier Petersen/prism joint-period claim and slogan (deduplication statement check only; historical mathematics not re-audited)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374: H-specific counts are a strict marginal of the new table",
+        "2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df: pointwise equality for complete bipartite graphs",
+        "arxiv:1610.07320v1: Theorem 3 is about synchronization and excitation-rate limits",
+        "Earlier Petersen/prism joint-period claim shows the same exceptional (8,4) *period type*; neither its 4800 population nor its 120-automorphism classes imply the Frucht 1496 population."
+      ],
+      "reasoning": "No cited prior work implies the eight joint populations. The old GHM census is recoverable by summing the new table over CCA periods and therefore is expressly not claimed as new. The biclique comparison gives an inapplicable family statement, not a general-graph theorem. The period type is covered on Petersen; the Frucht-specific exact count and symmetry-free occurrence are not covered or implied by that statement.",
+      "searches": [
+        "2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374",
+        "2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df",
+        "arxiv:1610.07320v1",
+        "arxiv:patt-sol/9303002"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374: Frucht GHM-only full census",
+        "Gravner–Lyu–Sivakoff 2016: two model definitions and general theorem",
+        "Earlier Petersen/prism joint-period claim: 4,800 states of (CCA 8,GHM 4) on the Petersen graph; no Frucht statement"
+      ],
+      "reasoning": "A paired period table is equivalent to an exact count by the two coordinate eventual-period maps on identical starting colorings; the GHM marginal cannot recover their joint coupling. No located period-eight/four table on Frucht matched this object. The eight/four *type* is already known for the Petersen graph; it is not claimed new. No graph-isomorphism or parameter substitution transfers Petersen states to the nonisomorphic 12-vertex Frucht graph.",
+      "searches": [
+        "Frucht graph CCA versus GHM paired eventual periods 1496 exceptional initial states CCA eight GHM four",
+        "asymmetric Frucht graph cyclic cellular automaton Greenberg Hastings joint period table one 531441 period doubling",
+        "Frucht graph three-color cyclic cellular automaton CCA successor-contact 12 vertices exact attractors first-entry clock",
+        "Frucht graph CCA GHM joint-period cross-tabulation exact 1496"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374: 74-cell GHM-only table for this graph",
+        "Two exhaustive new 531441-state reconstructions yield the same eight-class joint table",
+        "Earlier Petersen/prism exact table has discrepancy 4800 for Petersen, zero for prism, not Frucht 1496."
+      ],
+      "reasoning": "The published GHM-only table matches the H-marginal but contains no period label for the CCA trajectory of each same initial state. Searches of mathematical records did not identify a published joint table; an unindexed table cannot be excluded.",
+      "searches": [
+        "Frucht graph CCA versus GHM paired eventual periods 1496 exceptional initial states CCA eight GHM four",
+        "Frucht graph cyclic automaton period 8 Greenberg Hastings period 4",
+        "Frucht graph 1496 cyclic cellular automaton"
+      ]
+    },
+    "rationale": "The precise Frucht-graph pointwise joint-period census is not established by accessible literature. An earlier complete Petersen/prism study **already** found period-eight CCA versus period-four GHM configurations (4,800 on the symmetric Petersen); this qualitative type is credited. The present noncovered contribution is the exact 1,496-state split on a canonical cubic graph with trivial automorphism group, demonstrating persistence without spatial symmetry. GHM-only Frucht results and biclique equality do not imply the asymmetric census. Historical priority remains uncertain.",
+    "residual_risks": [
+      "Absolute priority cannot be proved by finite indexed searches; an unindexed exact joint census is possible.",
+      "The 1993 source was read at abstract level only, not used to declare full-text noncoverage.",
+      "The exact population 1496 currently has an exhaustive finite proof, not a closed graph-theoretic derivation or uniform-family extension.",
+      "The mismatch type itself had already been demonstrated on the Petersen graph; the value claim is confined to the canonical asymmetric-graph boundary and its exact joint classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly these maps and describes their asymptotic activity/synchronization on general graphs, but does not tabulate primitive eventual periods paired by initial state for the Frucht graph",
+        "evidence": [
+          "arxiv:1610.07320v1, eqs. (1)–(2) and Theorem 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+        "material_read": "Full-text HTML introduction, exact model definitions (equations 1–2), Section 2 Theorem 3 and corollary, activity-limit statement, and proof of Theorem 3 in Section 4",
+        "method": "Read lawful arXiv full HTML text",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Most relevant general-graph comparison of CCA and GHM"
+      },
+      {
+        "assessment": "GHM counts and 21-step maximum are directly covered and credited. CCA and the joint period pairs are absent, so the published marginal does not imply the new table.",
+        "evidence": [
+          "2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374",
+          "GHM orbit totals 1,1912,22,10,2,28,4"
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/8/SCOPE-a-twenty-one-step-excitation-transient-on-the-asymmetric-frucht--7b215d08f374/RESULT.md",
+        "material_read": "Entire primary RESULT.md including 18-edge list, full period/transient census, main proof and limitations; census.json period and edge content",
+        "method": "Read public full scientific text and associated census through read-only repository access",
+        "title": "A twenty-one-step excitation transient on the asymmetric Frucht graph",
+        "trigger": "Same canonical graph and same GHM map, covering one entire marginal"
+      },
+      {
+        "assessment": "Proves per-initial-state period equality on complete bipartite graphs, not on the Frucht graph. The new table gives a canonical finite counterexample to extrapolation beyond bicliques.",
+        "evidence": [
+          "2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df",
+          "Biclique \\(p_C(x)=p_H(x)\\) for all \\(K_{a,b}\\) initial states"
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/11/1/SCOPE-matched-eventual-periods-but-different-transient-clocks-for-thre--29320e9e89df/RESULT.md",
+        "material_read": "Full RESULT.md main theorem, all-shore assumptions, 49-support proof, exact period basin theorem and limits",
+        "method": "Read public full scientific text through read-only repository access",
+        "title": "Matched eventual periods but different transient clocks for three-state excitable dynamics on bicliques",
+        "trigger": "Strongest specific paired CCA/GHM eventual-period theorem"
+      },
+      {
+        "assessment": "Concerns excitable automata and phase transitions on lattices; the abstract does not announce a finite joint Frucht census; this partial inspection is not treated as proof of noncoverage.",
+        "evidence": [
+          "arxiv:patt-sol/9303002, first public 1993-03-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+        "material_read": "Public abstract and dated bibliographic record; full text not inspected",
+        "method": "Read arXiv abstract and timestamp",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "Earliest day-verified public model source and conceptual provenance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "09b39afb-00c7-4d35-8365-43d6528bb640",
+  "value": {
+    "rationale": "Two classical excitable rules have known pointwise equal periods on bicliques and an earlier eight/four discrepancy on the highly symmetric Petersen graph. The canonical asymmetric 12-vertex Frucht graph, with no nonidentity spatial automorphisms, offers a natural structural test of whether such a discrepancy depends on symmetry. The exact 1496-configuration exceptional class proves it does not; the all-state eight-pair census quantifies this structural contrast, while crediting the earlier period type. This is a complete natural finite comparison, not a claim of the first eight/four mismatch or an arbitrary graph slice.",
+    "status": "PASS"
+  }
+}
