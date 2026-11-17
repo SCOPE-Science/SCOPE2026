@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The irreducible four-state generator and autonomous occupancy marginal yield two independent stationary balance equations. Solving them gives exact sensitivity and false-positive rates. A signed derivative establishes global uniqueness over every positive clearing rate; the reciprocal identity follows by dividing the rational expression by the clearing rate. The standard-library rational checker independently solves the four-state chain for 1296 parameter quadruples. It corroborates but does not replace the algebraic proof. All event rates are strictly positive; endpoints occur only as limits.
+PASS
 
-## Originality: PASS, within inspected evidence
+The autonomous Z marginal has pi=alpha/(alpha+beta). Stationary balances lambda(pi-r)=delta*q and alpha*q+lambda*pi=(alpha+beta+lambda+delta)*r produce D=delta²+(alpha+beta+lambda)delta+alpha*lambda, S=lambda(alpha+delta)/D, F=alpha*lambda/D, J=lambda*delta/D. The derivative lambda(alpha*lambda-delta²)/D² and zero endpoint limits prove the unique global maximizer sqrt(alpha*lambda); dividing by delta proves reciprocal symmetry. All rates positive ensure unique stationary law. Inspected rational solver verify.py and exact algebra independently; finite tests do not replace proof.
 
-The closest ecological primary source is Rhodes et al. (2011), whose Methods acknowledge that false-positive risk from old signs cannot be calculated while occupancy changes unless occupancy dynamics are specified. Its calculation assumes fixed occupancy; that assumption does not give the joint stationary diagnostic law in the finding. Guillera-Arroita et al. (2010) optimize replication designs under constant occupancy/detection, Miller et al. (2011) handle misidentification rather than physical signal persistence, and Fukaya and Royle (2013) formulate hidden-Markov observation models without the exact marker-reset optimum in inspected material. Actual cross-literature and database queries found no directly covering statement. This is a best-knowledge comparison, not a uniqueness certificate: the full Rhodes source could not be reloaded beyond the accessible initial Methods pages, and engineering/telegraph-sensor priority remains a risk.
+## originality
 
-## Value: PASS
+PASS
 
-The model closes a concrete diagnostic gap identified in the indirect-sign literature: it calculates *both* false positives and false negatives in an occupancy-switching environment, rather than giving a memory-length warning with fixed occupancy. The geometric-mean optimum, independence from the extinction rate, and exact reciprocal pairing provide a non-arbitrary benchmark for comparing marker lifetimes or recording media under equal-weight sensitivity/specificity. The result makes no claims about general individual-trace decay, prevalence-weighted losses, or empirical calibration.
+No earlier mathematically implying result found in inspected material; search is not universal novelty proof. Earlier motivating claims do not logically imply a unique optimum delta=sqrt(alpha lambda) because they lack the parameterized stationary marker transition law; comparison is model-conditional rather than title matching.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The joint ecology/diagnostic object is motivated by persistence of indirect signs after extinction and missed short-lived traces; the rate-independent optimal balanced discrimination threshold is a non-obvious and useful quantitative benchmark, not arbitrary parameter sampling. The physically realistic multi-trace case and field calibration remain outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

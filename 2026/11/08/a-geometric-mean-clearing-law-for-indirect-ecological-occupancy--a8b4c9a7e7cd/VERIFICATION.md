@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-Exact analytic verification starts from the four-state stationary master equations and derives the conditional sensitivity, false-positive rate, unique maximizing clearing rate, and reciprocal symmetry, including the strictly positive parameter domain. `verify.py` independently reconstructs the finite-state generator and solves its stationary law with rational arithmetic over 1296 parameter quadruples, checking all four stationary equations, both conditional error expressions, and reciprocal equal-discrimination identities. Run with `python3 verify.py` using Python 3 standard library only. Finite parameter checks do not establish the universal theorem; the algebra in RESULT.md does. No claim of independent validation, field calibration, or biological universality is made.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The autonomous Z marginal has pi=alpha/(alpha+beta). Stationary balances lambda(pi-r)=delta*q and alpha*q+lambda*pi=(alpha+beta+lambda+delta)*r produce D=delta²+(alpha+beta+lambda)delta+alpha*lambda, S=lambda(alpha+delta)/D, F=alpha*lambda/D, J=lambda*delta/D. The derivative lambda(alpha*lambda-delta²)/D² and zero endpoint limits prove the unique global maximizer sqrt(alpha*lambda); dividing by delta proves reciprocal symmetry. All rates positive ensure unique stationary law. Inspected rational solver verify.py and exact algebra independently; finite tests do not replace proof.
+
+## originality
+
+PASS
+
+No earlier mathematically implying result found in inspected material; search is not universal novelty proof. Earlier motivating claims do not logically imply a unique optimum delta=sqrt(alpha lambda) because they lack the parameterized stationary marker transition law; comparison is model-conditional rather than title matching.
+
+## value
+
+PASS
+
+The joint ecology/diagnostic object is motivated by persistence of indirect signs after extinction and missed short-lived traces; the rate-independent optimal balanced discrimination threshold is a non-obvious and useful quantitative benchmark, not arbitrary parameter sampling. The physically realistic multi-trace case and field calibration remain outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
