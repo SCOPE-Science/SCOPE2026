@@ -1,19 +1,21 @@
-# Scientific review: contact-refined cusp and fat-line Hilbert series
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is in \(K_0(\operatorname{Var}_k)[z][[Q]]\), for arbitrary fields \(k\) and all \(u,n,j\ge0\). The proof uses the exact inclusion \(t^{d+2}k[[t]]\subset I\) for any cusp ideal whose least valuation is \(d\), giving a uniform projective-line classification of reduced punctual Hilbert loci in every colength at least two. Direct reduction modulo \(x=t^2\) yields the two affine-line contact-one strata at colength two and three and the stable contact-two locus from colength four onward. The resulting \(G_g^x\) specializes to the independently published unrefined cusp Hilbert zeta function. The full fat-branch formula is then an exact application of Corollary 6.8 of arXiv:2610.34676v1, not an extrapolation from examples. Independent row-echelon enumerations over two finite fields confirm the first four colengths and the initial plane agreement for one attached branch. They are checks, not substitutes for the complete proof.
+PASS
 
-## Originality — PASS (best-knowledge, not priority certification)
+For R=k[[t^2,t^3]], a proper finite-colength ideal of least valuation d contains t^{d+2}k[[t]] because multiplication by its unit-normalized least-valuation element carries the conductor t^2k[[t]] into I. This yields the full P^1 colength-n family for each n>=2 (and unique ideals at n=0,1). Modulo x=t^2, colengths 2,3 each have an A^1 contact-one stratum and one contact-two boundary; n>=4 has only contact two and class 1+L. Their exact motivic sum is the claimed G. The general x^u-germ substitution is explicitly a stated premise, Huang--Jiang--Oblomkov Corollary 6.8, not derived from finite experiments. The n=0 and u=0 cases and G(Q,1)=(1+L Q^2)/(1-Q) match. Independent symbolic specialization verified; check of the general substitution is conditional on the cited primary theorem, whose complete text was inaccessible during this run.
 
-The 2026 motivating paper, Section 6.4 and Question 11.4, specifically asks for contact-refined input for unibranch singularities, including \(y^p=x^q\). It proves the general substitution formula for adding a fat branch but neither states the explicit cusp contact coefficients nor this instantiated family. The closely related 2023 paper (arXiv:2305.06411), Section 7.2, supplies only the contact-forgetting identity \((1+\mathbb LQ^2)/(1-Q)\); that identity does not determine the contact statistic, and substituting it alone cannot determine the family with attached fat line. General reduced-curve rationality theorems give neither coefficients nor contact refinements. Searches for the cusp formula, equivalent \(A_2\) presentations, added-branch equivalents, and prior exact claims found no stronger statement that implies the entire claim. Uninspected implicit consequences of older semigroup or knot-homology work remain a residual historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The explicit \(A_2\) cusp is the first singular unibranch instance of the concrete computation requested in Question 11.4. The answer identifies both exceptional low-colength contact strata, their dimensions, and the stable stratum, providing the missing input needed for a closed rational series for every multiplicity \(u\) of the added branch. This is an infinite, naturally defined, nonreduced curve family, with all contacts and lengths determined rather than a one-off exercise or numerical sample. The previously known unrefined cusp series alone cannot recover these data.
+Best-of-knowledge PASS. The complete cusp contact calculation and all-u specialization fill the basic (2,3) unibranch input omitted from the Huang--Jiang--Oblomkov general modification result. Sōma--Watari and Huang--Jiang give the Hilbert strata or unrefined zeta but not the full x-contact series or nonreduced fat-line family. A same-day higher-odd-cusp paper explicitly restricts to d>=2 and cites d=1 as previously known: this creates residual contemporaneous priority uncertainty rather than a proved earlier covering theorem.
 
-## Closest sources and limitations
+## value
 
-Huang--Jiang--Oblomkov, *Sheaves on nodal singularities I*, arXiv:2610.34676v1, Sections 4, 6.4, 11.2; Huang--Jiang, *Punctual Quot schemes and Cohen--Lenstra series of the cusp singularity*, arXiv:2305.06411, Section 7.2; Bejleri--Ranganathan--Vakil, *Motivic Hilbert zeta functions of curves are rational* (2020). Scope is punctual motives of the specific cusp and its fat-line additions, not all unibranch germs, independently thickened tangent branches, full Hilbert scheme structures, or independent validation. External historical coverage cannot be exhaustively excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Complete contact-graded motivic Hilbert coefficients for the elementary A2 unibranch cusp are a natural missing input identified in Question 11.4 of the motivating paper. They determine every colength and arbitrary thick-line multiplicity via a prior transformation, which unrefined cusp data cannot determine. The contribution is an exact natural infinite classification, not merely the known substitution theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
