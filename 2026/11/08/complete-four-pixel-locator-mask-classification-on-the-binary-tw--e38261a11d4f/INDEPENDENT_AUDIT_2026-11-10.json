@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T19:20:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-four-pixel-locator-mask-classification-on-the-binary-tw--e38261a11d4f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-four-pixel-locator-mask-classification-on-the-binary-tw--e38261a11d4f/verify_direct.py"
+      ],
+      "rationale": "Literal scan of all 15 masks (choose(6,4)) and all 2^16 two-by-eight binary arrays gives 12 spanning masks with the identical 64 solutions and three two-column masks with zero solutions. A two-column mask contains both sites in each of its two columns, forcing duplicate all-zero windows on swapping row translation. Exact 16-site, four-bit windows constitute an exhaustive bijection test. Translation orbits of 64 arrays split 16×4; complementation/reversal merge them into two 32-member classes, and row-XOR alternation was independently confirmed. Source's verify_direct.py was read, plus independent clean enumeration of the finite domain.",
+      "residual_risks": [
+        "Finite cross-checks cannot substitute for general proofs; exact finite enumeration applies only to stated domains."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horan–Stevens 2015 sections 2–3 and Theorems 3.5/3.9–3.11 provide constructions and obstructions for tree, forest and cycle masks."
+        ],
+        "reasoning": "General construction/existence conditions do not classify every labeled 2×8 array or show the same 64 arrays solve twelve literal masks, some disconnected.",
+        "searches": [
+          "binary 2x8 de Bruijn torus four pixel masks 64 universal arrays 12 shapes",
+          "arxiv:1505.04065"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-four-pixel-locator-mask-classification-on-the-binary-tw--e38261a11d4f/RESULT.md",
+        "arxiv:1505.04065",
+        "https://mathweb.ucsd.edu/~ronspubs/14_03_combs.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree/forest locating theorems address selected connected shapes; comb sequences have one-dimensional query translations."
+        ],
+        "reasoning": "Neither theorem determines the 2×8 two-row row-swap constraints, exhaustive same-set statement, or four translation orbits.",
+        "searches": [
+          "arxiv:1505.04065",
+          "Alhakim Butler Graham De Bruijn Sequences with Varying Combs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A perfect locator mask is a universal toroidal cyclic window, i.e. a de Bruijn torus in a prescribed shape."
+        ],
+        "reasoning": "Different relative mask shapes are distinct incidence questions, and simultaneous universality is not reducible to ordinary one-dimensional length-four de Bruijn cycles.",
+        "searches": [
+          "binary 2x8 de Bruijn torus four pixel masks 64 universal arrays 12 shapes",
+          "arxiv:1505.04065",
+          "de Bruijn torus four pixel locating universal array 2x8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full scan comprises exactly 65,536 binary arrays × 15 four-site masks; 64 winners for each spanning mask and zero for others."
+        ],
+        "reasoning": "No located prior table supplies these full exact solution sets and orbit distributions; the exhaustive count was checked independently, not used as proof of historical novelty.",
+        "searches": [
+          "binary 2x8 de Bruijn torus four pixel masks 64 universal arrays 12 shapes",
+          "arxiv:1505.04065"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Horan and Stevens study general locating arrays and de Bruijn torus constructions, including connected-tree and cycle criteria, not a complete census of all 2×8 arrays for all 15 literal four-site masks. The 12 masks have identical 64 realizing arrays, including disconnected geometries, a stronger simultaneous exact finite assertion not implied by those construction/existence results.",
+      "residual_risks": [
+        "A prior unindexed small torus/cyclic locating array census may already exist.",
+        "Only 2×8 binary arrays and masks within 2×3 window; no larger-family theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction criteria and decoding, not exact all-arrays 2×8 census",
+          "evidence": [
+            "Theorems 3.9–3.11 treat trees, forests and cycles; assigned twelve-mask simultaneous exact classification not stated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.04065",
+          "material_read": "Accessible article HTML: definitions, Sections 2–3, Theorems 3.5, 3.9–3.11 and associated discussion",
+          "method": "Primary source HTML full text with targeted theorem inspection",
+          "title": "Locating Patterns in the De Bruijn Torus",
+          "trigger": "Primary source on same torus locating arrays and nonrectangular windows"
+        },
+        {
+          "assessment": "One-dimensional comb query, residual priority risk",
+          "evidence": [
+            "One-dimensional cyclic comb construction does not impose both row translations."
+          ],
+          "identifier_or_url": "https://mathweb.ucsd.edu/~ronspubs/14_03_combs.pdf",
+          "material_read": "Citation/description in complete assigned RESULT and external abstract; no independent full PDF review",
+          "method": "Bibliographic comparison only",
+          "title": "De Bruijn Sequences with Varying Combs",
+          "trigger": "Potential alias with sparse-window cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-four-pixel-locator-mask-classification-on-the-binary-tw--e38261a11d4f/RESULT.md",
+        "arxiv:1505.04065",
+        "https://mathweb.ucsd.edu/~ronspubs/14_03_combs.pdf"
+      ],
+      "rationale": "The 2×8 torus with sixteen translations and binary four-pixel windows is the natural smallest perfect-location scale (2^4 windows). Classifying every four-site local mask, all successful arrays and their symmetry orbit structure is a motivated complete finite design result, not an arbitrary numerical table. It identifies a universality equivalence across distinct masks.",
+      "residual_risks": [
+        "A prior unindexed small torus/cyclic locating array census may already exist.",
+        "Only 2×8 binary arrays and masks within 2×3 window; no larger-family theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A prior unindexed small torus/cyclic locating array census may already exist.",
+    "Only 2×8 binary arrays and masks within 2×3 window; no larger-family theorem.",
+    "No public change-set released owing to privacy-cleanup blocker."
+  ],
+  "schema_version": 1
+}

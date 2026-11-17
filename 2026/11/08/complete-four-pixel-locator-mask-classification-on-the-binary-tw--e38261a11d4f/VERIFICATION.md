@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-From the directory containing both included scripts, execute:
+## correctness
 
-```bash
-python verify_direct.py
-python verify_independent.py
-```
+PASS
 
-`verify_direct.py` exhausts all \(65{,}536\) labeled binary arrays for each of the fifteen four-site masks, checks all sixteen translated windows, computes the four translation orbits and two classes under row and column translation, complementation, and column reversal, and verifies the alternating row-XOR property.
+Literal scan of all 15 masks (choose(6,4)) and all 2^16 two-by-eight binary arrays gives 12 spanning masks with the identical 64 solutions and three two-column masks with zero solutions. A two-column mask contains both sites in each of its two columns, forcing duplicate all-zero windows on swapping row translation. Exact 16-site, four-bit windows constitute an exhaustive bijection test. Translation orbits of 64 arrays split 16×4; complementation/reversal merge them into two 32-member classes, and row-XOR alternation was independently confirmed. Source's verify_direct.py was read, plus independent clean enumeration of the finite domain.
 
-`verify_independent.py` independently builds both rows as length-eight tuples, evaluates four-bit tuple windows for all fifteen masks, and checks the orbit-generated classification. Neither program calls a remote service or assumes a random sample.
+## originality
 
-Observed outputs: `DIRECT_OK` and `INDEPENDENT_OK`. The programs prove the stated *finite* classification when their exhaustive loops and exact equality predicates are inspected; they do not establish an infinite family or historical priority. No independent scientific audit was conducted.
+PASS
+
+PASS best-of-knowledge: Horan and Stevens study general locating arrays and de Bruijn torus constructions, including connected-tree and cycle criteria, not a complete census of all 2×8 arrays for all 15 literal four-site masks. The 12 masks have identical 64 realizing arrays, including disconnected geometries, a stronger simultaneous exact finite assertion not implied by those construction/existence results.
+
+## value
+
+PASS
+
+The 2×8 torus with sixteen translations and binary four-pixel windows is the natural smallest perfect-location scale (2^4 windows). Classifying every four-site local mask, all successful arrays and their symmetry orbit structure is a motivated complete finite design result, not an arbitrary numerical table. It identifies a universality equivalence across distinct masks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
