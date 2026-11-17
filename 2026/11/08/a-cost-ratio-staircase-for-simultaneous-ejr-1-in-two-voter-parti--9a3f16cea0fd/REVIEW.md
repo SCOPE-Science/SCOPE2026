@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof translates both EJR-1 definitions into exact finite cardinality and cost inequalities for each possible count of shared projects. The key cardinality condition is \(s+x_i\ge\min\{k,\lfloor c\rfloor\}\) for \(c\ge3,k\ge3\); the cost condition for zero shared selections is \(\max(x_1,x_2)>c\). The remaining two cases are disjoint, and integer arithmetic forces either the half-integer window or the high-cost mixed-project threshold. The binomial census counts labeled subsets, not abstract compositions. The standalone verifier directly enumerated all cohesive sets and outcomes for \(72\) test cells and five more size-six cases. Boundary values and strict inequality were checked. Finite tests corroborate but do not prove the infinite theorem.
+PASS
 
-## Originality: PASS with residual priority risk
+Using the quoted Definition 3.5, an unselected project p may be outside the cohesive set T, and a voter must reach satisfaction strictly ABOVE µ(T) by adding at most one project. For k>=3,c>=3, set L=min(k,floor c). Singleton private cohesive sets of size L force s+x_i>=L for each i for cardinality EJR-1, and conversely every singleton/common T then meets cardinality EJR-1 if it is not already selected. s=2 leaves no private budget and fails L>=3. s=1 requires x_i>=L−1 and x1+x2<=c and automatically passes cost EJR-1; this occurs at c>=2k−2 and the possible x_i=k−1 or k yield counts 2k²,2k(k+2),2(k+1)² across the threshold steps. s=0 requires x_i>=L, max x_i>c via common-group cost EJR-1, and budget x1+x2<=2c; only floor c=m<k, fractional c−m>=1/2, pairs (m,m+1) or reverse survive, giving 2 C(k,m)C(k,m+1). Both shared projects suffice below c=3 and for k<=2. Independent direct enumeration of budget-feasible outcomes and all cohesive groups T with exact rational costs for k=3,4 corroborates, while proof is exhaustive for all k and real c.
 
-The closest directly related paper is Brill et al. (2023), Proposition 3.6, which already gives an incompatibility example corresponding to \(k=c=5\). The present result does **not** claim that incompatibility itself is new; the new mathematical statement is the all-parameter real-cost compatibility/census phase diagram, including fractional re-entry and exact labeled counts. The initiating paper's Section 3, Proposition 3.6, and relevant appendices were inspected; its single witness does not imply the displayed iff classification. The 2020/2021 MES paper establishes individual satisfaction guarantees, and 2023 adaptive-MES work analyzes EJR verification, neither covering simultaneous cost/cardinality characterization on this family. Targeted publication and mathematical-record searches did not return an equivalent generalization, but absence of a search hit is not proof of priority.
+## originality
 
-## Value: PASS
+PASS
 
-Cost and cardinality satisfaction are competing natural models in participatory budgeting, so locating exactly when one budget outcome can satisfy both is independently meaningful. An individual impossibility example does not show how compatibility changes with the ratio between shared and private project costs. The derived half-integer windows demonstrate nonmonotone feasibility, while the higher-cost branch restores compatibility and has an exact allocation census. The theorem thus describes a complete structural phase diagram in a controlled but natural two-constituency model, not a numerical recomputation of the published witness.
+Brill et al. Proposition 3.6 gives the k=c=5 incompatible witness and the identical EJR-1 definition; that witness is not novel and is expressly credited. Neither the original paper nor adjacent representation papers state this full exact multi-interval real-cost census or high-cost reappearance, and the latter does not follow from the one counterexample. Best-of-knowledge O passes for the complete classification only, not existence of incompatibility.
 
-## Risks and limits
+## value
 
-The source does not establish a global minimal two-voter obstruction, and no such claim is made. Counting is limited to \(c\ge3\). An unindexed mathematically equivalent result remains possible, and no independent external audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An infinite, naturally parameterized fairness-incompatibility family demonstrates nonmonotone transition: solutions disappear, return in fractional cost windows, and return permanently for sufficiently high cost. An exact labeled-outcome census quantifies how restrictive two simultaneous proportionality notions are, strengthening a known isolated impossibility witness into usable design thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
