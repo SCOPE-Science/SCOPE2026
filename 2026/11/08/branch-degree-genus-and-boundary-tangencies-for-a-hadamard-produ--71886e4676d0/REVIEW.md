@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The coordinatewise multiplication map has no base locus for a general pair of conics avoiding the coordinate vertices; ampleness yields finiteness and intersection degree eight. Canonical adjunction gives a ramification divisor of bidegree \((4,4)\). A fully projective exact finite-field witness proves the smoothness condition is nonempty in characteristic zero. The four-plus-eight branch-axis configuration follows from local fold and product-boundary coordinate models and twelve demonstrably distinct images. The projection formula forces the branch degree sixteen and the normalization degree one. Genus and total delta then follow by adjunction and the plane genus formula. Limit: singularities away from the axes are not classified.
+## correctness
 
-**Originality: PASS, with provisional priority.** The 2015 foundational Hadamard-products preprint concerns linear spaces; the later hypersurface and general-variety preprints inspected do not state this branch theorem for two conics. published-finding corpus comparisons for the same object, the genus/degree numerical tuple, possible equivalences with general \((2,2)\) maps, and the coordinate-axis multiplicities returned unrelated findings, rather than a stronger statement. Classical ramification and degree formulas are prior knowledge and not claimed as new. A specialized earlier branch computation or an implicit corollary of a stronger general discriminant calculation remains a priority risk. The full 2024 Bocci--Carlini monograph was not accessible; its public preview was checked but cannot establish noncoverage.
+PASS
 
-**Mathematical value: PASS.** A pair of conics is the first natural nonlinear test case after linear-space Hadamard products. Determining the precise branch normalization and axis tangencies identifies the special interaction between the degree-eight covering and the coordinatewise multiplication boundary; the axis intersection cycle is an exact natural invariant, not a chosen numerical slice. The genus and delta constrain, but do not pretend to resolve, the remaining singularity distribution.
+For generic conics parametrized by independent triples of binary quadratics, absence of coordinate-vertex zeros makes [Ai(s)Ti(t)] a basepoint-free (2,2) morphism. Ampleness makes it finite and intersection gives degree 8. Riemann-Hurwitz yields (4,4) ramification; the exact mod-101 coefficient witness checks all projective charts and makes smoothness a nonempty generic open, so connected smooth (4,4) gives genus 9. For each coordinate line, zeros of first/second coordinate quadratics and two critical points of the other ratio give eight smooth transverse folds; simultaneous coordinate zeros give four immersed tangencies with contact order two. The exact witness has twelve distinct branch images (verified 12 residues), forcing deg B=16 from R.(2,2)=16, birational normalization, and delta=(15*14/2)-9=96. No assertion about off-axis singularity types. Independent SymPy mod-101 Groebner/gcd and target-coordinate checks reconstruct the necessary finite certificate; finite-field witness proves only openness, not the geometric theorem by itself.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Existing Hadamard-product literature includes the general framework for linear spaces/hypersurfaces and standard (2,2) ramification formulas, and a 2026-10-26 exceptional diagonal-conic Galois cover of degree 8 whose branch is four lines. The submitted statement is for generic ordered smooth conics, for which the smooth irreducible genus-nine ramification, degree-sixteen branch normalization and exact twelve-point axis tangency pattern do not follow from that nongeneric diagonal case. Resultary searches did not find a matching generic conic-branch statement. Older finite-cover and Hadamard-conic literature, including an unread 2024 monograph, remains a priority risk.
+
+## value
+
+PASS
+
+The exact coordinate-boundary tangency partition for an eightfold natural projective Hadamard map is a motivated and nontrivial generic ramification classification. The twelve-point axis incidence gives geometric information beyond automatic degree and canonical-class calculations and can constrain further discriminant/singularity studies. The theorem does not claim an off-axis node/cusp classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
