@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-word recurrence gives an inductive proof that conjugate products have their first disagreement at the penultimate position. It identifies the first mismatch of \(f(n+F_k)\) and \(f(n)\) at \(F_{k+1}-2\); for \(k\ge4\) this index has a Zeckendorf encoding of exactly \(k-1\) digits. Intersecting the two-output discrepancy test with the four-state canonical-validity automaton yields at most \(8s_k\) states. A shortest accepted word of length \(k-1\) forces at least \(k\) states, establishing \(s_k\ge\lceil k/8\rceil\). The verification script checks finite instances independently of the proof. No computed finite case is taken as a proof of an infinite statement.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-The 2026 primary paper by Moradi–Popoli–Shallit–Vukusic proves MSD-first \(O(\log c)\), but its exact minimality theorem applies to LSD-first inputs. It supplies no matching bound specialized to MSD-first Fibonacci shifts. The companion 2026 paper discusses shifts and arithmetic automata but does not establish this lower bound. Earlier structural almost-commutation is acknowledged as background, not credited as new. Search comparisons against research databases and accessible previous records did not identify an overlapping automaton-state claim. Unindexed works, a thesis, or an implicit derivation not recognized in inspected literature remain priority risks.
+PASS
 
-## Value — PASS
-The result supplies a uniform infinite family for which the logarithmic MSD-first upper bound is genuinely necessary. The first-disagreement formula isolates a precise, structural explanation linking Fibonacci-word combinatorics with deterministic state complexity, addressing the unquantified MSD-first minimality direction left by the source paper. The constant \(1/8\) is not claimed optimal.
+For Fibonacci words W_j=W_(j-1) W_(j-2) the near-commutation W_j W_(j-1) and W_(j-1) W_j agrees through the first F_(j+1)-2 positions and differs in the final two, by induction. The infinite Fibonacci word starts W_k W_(k-1) W_k, so comparison with shift F_k gives first mismatch at n=F_(k+1)-2 for all k>=4. This nonzero first mismatch has canonical Zeckendorf word length k-1. Taking an arbitrary s-state MSD DFAO for the shift, product with the 2-state last-digit Fibonacci DFAO and a 4-state valid Zeckendorf recognizer yields a <=8s-state DFA accepting exactly canonical first differences. Shortest accepted word length k-1 forces >=k distinct prefix states, so 8s>=k. The published O(log F_k)=O(k) MSD upper bound gives Theta(k). Independent morphic-word checks corroborated first disagreement for k=4..16, not an infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known Moradi–Popoli–Shallit–Vukusic theorem proves MSD upper bounds for all shifts, but no MSD lower bound along c=F_k; its exact LSD theorem uses the reverse input direction. A separate November 2 Resultary exact-k theorem concerns c=F_k-2, not c=F_k, and its Myhill–Nerode witnesses do not imply this shifted-family first disagreement. The present explicit infinite subfamily lower bound survives those implications.
+
+## value
+
+PASS
+
+Asymptotically tight state-complexity lower bound on a natural infinite Fibonacci shift sequence addresses a motivated open gap between general upper constructions and lower limits. The exact near-commutation witness is independent of arbitrary small cases and could guide minimal automaton analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
