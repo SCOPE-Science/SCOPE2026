@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:50:40.026575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the inspected actual RESULT.md and original verify.py, the resolvent of LJ gives T_c(t)=[[ (1-2it)/(1+it), it/(1+it) ],[1,0]] and T_h(t,u)=[[ (1-i(t+u))/(1+it), iu/(1+it) ],[1,0]]. Rebuilt the two monodromies independently in symbolic algebra; both determinants equal -ab/[(1+ia)(1+ib)], of modulus strictly less than 1. Direct Schur–Cohn evaluation factors the respective strict-stability gaps as 8ab(1-4ab)(1+2(a+b)^2)/[(1+a²)²(1+b²)²] and 4(1-(a+b)²)((a+b)^4+a²+b²)/[(1+a²)²(1+b²)²]. Reconstructed det(I+M)=2(1-4ab)/D or 2(1-(a+b)²)/D; the threshold root is -1 and other root strictly inside disk. Beyond the boundary there is exactly one expanding multiplier. Equal-history data yield z_1/z_0=(1-ia)/(1+ia) of modulus 1 and cannot lie in the decaying one-dimensional monodromy eigenspace. Independent spectral samples confirm the factors, without replacing proof. Quantifiers limited to positive a,b, L>0 and exactly two-period prescribed steps on A=B=LJ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shehu arxiv:2609.18373 Theorem 1 covers A=B=LJ for all constant t and proves the sharp uniform 1/(2L) limit.",
+          "Ou–Themelis–Latafat 2026 analyzes a convex-subdifferential backward operator; LJ is skew and not such an operator."
+        ],
+        "reasoning": "Broader-in-operator fixed-step and conditional adaptive results do not imply a necessary-and-sufficient two-period prescribed-step Floquet classification for this test instance.",
+        "searches": [
+          "exact sharp stability alternating two-period forward reflected backward reflected splitting matched skew current previous gradient step spectral radius",
+          "https://arxiv.org/abs/2609.18373",
+          "https://arxiv.org/abs/2607.20113",
+          "https://arxiv.org/abs/2609.15936"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.18373",
+        "https://arxiv.org/abs/2607.20113",
+        "https://arxiv.org/abs/2609.15936",
+        "Resultary query: exact sharp stability alternating two-period forward reflected backward reflected splitting matched skew current previous gradient step spectral radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shehu fixed-step root criterion on matched skew is implied by setting a=b=t in each submitted formula.",
+          "Conversely, the known one-variable t<1/2 theorem cannot decide at a=0.1,b=2: current method stable (4ab=0.8), history-scaled unstable (a+b=2.1)."
+        ],
+        "reasoning": "The submitted theorem strictly contains the known diagonal check but is not a corollary of it; the off-diagonal step-allocation phenomenon is the essential new statement.",
+        "searches": [
+          "https://arxiv.org/abs/2609.18373",
+          "https://arxiv.org/abs/2607.20113",
+          "exact sharp stability alternating two-period forward reflected backward reflected splitting matched skew current previous gradient step spectral radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shehu, Theorem 1 and characteristic equation (3), has fixed t only; both period-two updates reduce to that scheme at a=b=t.",
+          "Muñoz García–Roldán 2026 contains the prior-step stored-difference convention but not a proved exact arbitrary-alternation two-method classification."
+        ],
+        "reasoning": "Equal-step diagonal is known, but no searched previous theorem gives the simultaneous off-diagonal pair of Schur frontiers and the strict inclusion between the two stable regions.",
+        "searches": [
+          "exact sharp stability alternating two-period forward reflected backward reflected splitting matched skew current previous gradient step spectral radius",
+          "https://arxiv.org/abs/2609.18373",
+          "https://arxiv.org/abs/2607.20113"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant indexed SCOPE records concern constant-step skew FRB, optimal tuning or distinct alternating BDF/PDHG recurrences; no identical table for both T_c,T_h was identified."
+        ],
+        "reasoning": "The calculated two-dimensional step regions were checked against exact previously published named formulas, not just a title lookup; absence of a matching numerical table alone is not proof of priority.",
+        "searches": [
+          "exact sharp stability alternating two-period forward reflected backward reflected splitting matched skew current previous gradient step spectral radius",
+          "Resultary semantic: matched skew FRB alternating step Floquet exact stability"
+        ]
+      },
+      "rationale": "The matched-skew constant-step t=1/2 threshold was proved by Shehu and is credited; it supplies only the diagonal a=b, where both new boundaries agree. The variable-step FRB linesearch work uses previous-step weighting, but adaptive step restrictions do not imply the exact stability regions for arbitrary prescribed two-cycles or their contrast. A new comparison of the two updates on exactly the same skew inclusion and sharp off-diagonal Floquet diagram survives. Best-of-knowledge, with specialist-periodic-splitting priority risk.",
+      "residual_risks": [
+        "A specialized older Floquet calculation for exactly the same periodic skew splitting may predate the indexed results.",
+        "Full source of the July variable-step FRB paper was not retrievable in this run; mathematical comparison relies on its identified algorithm and theorem scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_CONSTANT_STEP",
+          "evidence": [
+            "Theorem 1 t=1/2 on A=B=LJ, no alternating t_k specification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.18373",
+          "material_read": "Full accessible arXiv HTML including Sections 1 and 2, both theorem statements, fixed-step characteristic equation (3), proof and generalized skew phase diagram",
+          "method": "Read primary source HTML and compared precise matrices and parameter quantifiers",
+          "title": "The sharp step-size constant for one-call reflection splittings on monotone inclusions",
+          "trigger": "Identical A=B=LJ and sharp constant-step theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "Variable-step convention is previously known; whether this paper has further unindexed special stability statements remains risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.20113",
+          "material_read": "Original assignment RESULT.md quoted its equations (3.5)/(4.1); external arXiv page was not accessible in this run, so full paper NOT read",
+          "method": "Citation-level comparison only; no whole-paper NOT_COVERING inference",
+          "title": "Forward-Reflected-Backward algorithm with Linesearch",
+          "trigger": "Defines previous-step reflection convention in the exact algorithmic setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coefficient on the reused gradient is a motivated choice in variable-step reflected splitting. On a canonical sharp fixed-step counterexample, the exact boundaries differ drastically: 4ab<1 allows an arbitrarily large individual step, whereas a+b<1 does not. This is a useful sharp algorithmic stability stress test, not claimed as a general nonlinear or adaptive convergence result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Sharp two-period Floquet boundaries 4ab<1 (current-scaled reflection) and a+b<1 (history-scaled reflection) on matched-skew A=B=LJ, including neutral and unstable boundaries.",
+  "limitations": [
+    "PUBLICATION_BLOCKED_PRIVACY: source metadata not sanitized; no GitHub writes or source modifications. Scientific verdict independent from transport/publication readiness."
+  ],
+  "schema_version": 1
+}

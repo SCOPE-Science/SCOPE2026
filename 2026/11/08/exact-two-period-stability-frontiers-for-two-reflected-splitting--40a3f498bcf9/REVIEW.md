@@ -1,22 +1,21 @@
-# Scientific review: exact two-period stability of reflected splitting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two updates are defined on the same nontrivial maximally monotone skew inclusion with alternating positive scaled steps. Direct complexification gives explicit two-step monodromy matrices. A classical Schur–Cohn test produces strictly positive factors times, respectively, \(1-4ab\) and \(1-(a+b)^2\), so the proposed conditions are necessary and sufficient, not just numerical heuristics. The boundary eigenvalue is exactly \(-1\); the other multiplier lies inside the disk, whereas above the threshold exactly one multiplier lies outside. The equal-history initialization necessarily excites the nondecaying or growing mode because its first-iterate ratio has modulus one. A fresh symbolic and numerical checker confirms the algebra but is not used as a substitute for proof.
+PASS
 
-## Originality — PASS, with historical-priority reservations
+From the inspected actual RESULT.md and original verify.py, the resolvent of LJ gives T_c(t)=[[ (1-2it)/(1+it), it/(1+it) ],[1,0]] and T_h(t,u)=[[ (1-i(t+u))/(1+it), iu/(1+it) ],[1,0]]. Rebuilt the two monodromies independently in symbolic algebra; both determinants equal -ab/[(1+ia)(1+ib)], of modulus strictly less than 1. Direct Schur–Cohn evaluation factors the respective strict-stability gaps as 8ab(1-4ab)(1+2(a+b)^2)/[(1+a²)²(1+b²)²] and 4(1-(a+b)²)((a+b)^4+a²+b²)/[(1+a²)²(1+b²)²]. Reconstructed det(I+M)=2(1-4ab)/D or 2(1-(a+b)²)/D; the threshold root is -1 and other root strictly inside disk. Beyond the boundary there is exactly one expanding multiplier. Equal-history data yield z_1/z_0=(1-ia)/(1+ia) of modulus 1 and cannot lie in the decaying one-dimensional monodromy eigenspace. Independent spectral samples confirm the factors, without replacing proof. Quantifiers limited to positive a,b, L>0 and exactly two-period prescribed steps on A=B=LJ.
 
-The September 2026 sharp-step source analyzes constant steps on the identical matched-skew test and therefore yields only the diagonal case \(a=b\). The July 2026 variable-step linesearch source gives a previous-step-weighted reflection rule and a Lyapunov-based convergence theory, but not the arbitrary prescribed alternating-step phase boundary or its contrast with current-step weighting. The September adaptive reflected method requires a convex-subdifferential backward operator, which a nonzero skew operator is not. Searches for periodic/alternating reflected splitting, skew Floquet stability, and variable-step conventions did not identify a prior result that implies both exact thresholds. Such searches cannot establish absolute historical uniqueness; specialized unindexed stability calculations remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The two algebraic frontiers answer a motivated design question: how to transport the stored-gradient correction across changing stepsizes. They show that ostensibly similar one-call schemes have qualitatively different admissible schedules, and that a very large individual step can be harmless under one convention yet destabilizing under the other. This is a nontrivial exact boundary for a canonical monotone inclusion already known to be extremal for fixed steps, not an arbitrary parameter tweak. The result is a reference test, not a general convergence theorem.
+The matched-skew constant-step t=1/2 threshold was proved by Shehu and is credited; it supplies only the diagonal a=b, where both new boundaries agree. The variable-step FRB linesearch work uses previous-step weighting, but adaptive step restrictions do not imply the exact stability regions for arbitrary prescribed two-cycles or their contrast. A new comparison of the two updates on exactly the same skew inclusion and sharp off-diagonal Floquet diagram survives. Best-of-knowledge, with specialist-periodic-splitting priority risk.
 
-## Closest literature and limitations
+## value
 
-- Y. Shehu (2026), arXiv:2609.18373: sharp constant-step matched-skew frontier.
-- F. Muñoz García and F. Roldán (2026), arXiv:2607.20113: variable-step gradient-history convention and adaptive linesearch.
-- H. Ou, A. Themelis, P. Latafat (2026), arXiv:2609.15936: adaptive reflected splitting with backward convex-subdifferential assumption; abstract examined, not the full document.
-- The claim is for prescribed two-period positive steps, two-dimensional linear skew operators, and exact arithmetic. It does not cover arbitrary variable steps, nonlinear operators, or practical linesearch schedules.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coefficient on the reused gradient is a motivated choice in variable-step reflected splitting. On a canonical sharp fixed-step counterexample, the exact boundaries differ drastically: 4ab<1 allows an arbitrarily large individual step, whereas a+b<1 does not. This is a useful sharp algorithmic stability stress test, not claimed as a general nonlinear or adaptive convergence result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
