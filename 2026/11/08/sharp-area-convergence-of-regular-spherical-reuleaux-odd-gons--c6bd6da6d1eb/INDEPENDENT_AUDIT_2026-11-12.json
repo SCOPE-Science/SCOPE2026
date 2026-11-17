@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:00:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For w in (0,pi/2], n odd≥3, the spherical cosine rule yields sin(rho)=sin(w/2)/cos(pi/(2n)), short arc aperture alpha_n=2 asin(sin(pi/(2n))/cos(w/2)), and Gauss–Bonnet gives area 2pi−n alpha_n(1+cos w), perimeter n alpha_n sin w. Setting h(t)=asin(sin t/c), t=pi/(2n), h′′(t)>0 and h′′′ increasing on 0<t≤pi/6, c² in [1/2,1), makes h(t)/t and [h(t)−t/c]/t³ increasing. Therefore area increases, perimeter decreases, normalized n² deficit decreases strictly to pi³ sin²(w/2)/(12c); n=3 upper sharp and n→∞ lower sharp. Width pi/2 endpoint matches published spherical formula. Direct independent high-precision evaluation for four widths and eight odd n per width confirmed all bounds. The analytic derivative and Gauss–Bonnet steps, not finite tests, establish the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General spherical Barbier identity relates perimeter and area of all constant-width bodies.",
+          "Liu–Chang–Su prove area order statements among reduced spherical polygons, not monotonicity of n² defect for these disk intersections."
+        ],
+        "reasoning": "A general relation A+L cot(w/2)=2pi has no sharp n-dependence; the new h′′′ argument is required.",
+        "searches": [
+          "https://arxiv.org/abs/2009.13268",
+          "https://arxiv.org/abs/2411.11462",
+          "regular spherical Reuleaux polygons odd n area perimeter convergence disk normalized n squared deficit monotonic"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2009.13268",
+        "https://arxiv.org/abs/2411.11462",
+        "https://doi.org/10.1007/s00010-013-0237-3",
+        "https://doi.org/10.1007/s00013-021-01698-7",
+        "regular spherical Reuleaux polygons odd n area perimeter convergence disk normalized n squared deficit monotonic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known spherical constant-width isoperimetric/Barbier results fix extremal area relationships, not the finite-corner n² decay rate.",
+          "Direct h′′′ positivity supplies stronger comparisons of every odd n and sharp constants."
+        ],
+        "reasoning": "Published special endpoint and qualitative inequalities do not imply the all-width quantitative assertion without new calculation.",
+        "searches": [
+          "https://arxiv.org/abs/2009.13268",
+          "https://doi.org/10.1007/s00010-013-0237-3",
+          "https://doi.org/10.1007/s00013-021-01698-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Chang–Su treat reduced regular spherical polygons with geodesic sides, rather than curved disk-intersection Reuleaux bodies.",
+          "At w=pi/2 the endpoint Reuleaux boundary becomes geodesic and matches a published area expression."
+        ],
+        "reasoning": "At the shared geodesic special width the endpoint formula is prior; the all-width curved shape and normalized deficit hierarchy are distinct.",
+        "searches": [
+          "regular spherical Reuleaux polygons odd n area perimeter convergence disk normalized n squared deficit monotonic",
+          "https://arxiv.org/abs/2009.13268",
+          "Lassak Width of spherical convex bodies 2015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact area at w=pi/2 is consistent with A_n=2pi−2n asin(sqrt2 sin(pi/(2n))).",
+          "No n-indexed table or known numerical sequence determines strict n² monotonicity at every width."
+        ],
+        "reasoning": "Even knowledge of the formula does not by itself document the claimed sharp global monotonic normalized inequality; exact width parameter matters.",
+        "searches": [
+          "regular spherical Reuleaux n-gon area formulas",
+          "regular spherical Reuleaux polygons odd n area perimeter convergence disk normalized n squared deficit monotonic"
+        ]
+      },
+      "rationale": "PASS for strict monotonicity of n² spherical Reuleaux odd-gon area deficit, sharp all-width constants and perimeter correspondence; prior spherical reduced straight-edge polygon areas, spherical Barbier identity, and width pi/2 area formula are not novel. The geometric Reuleaux disk intersections are curved except for the limiting geodesic arcs at width pi/2; regular reduced straight-edge spherical polygons in Liu–Chang–Su are different bodies. Historical Leichtweiss article unavailable; possible equivalent old formula/rate remains risk.",
+      "residual_risks": [
+        "Older Leichtweiss 2005 full text could contain an equivalent all-width closed formula or normalized comparison and remained inaccessible.",
+        "The w=pi/2 formula and general Barbier relation predate the result; originality must attach to sharp normalized hierarchy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED different straight-edge reduced polygons; width pi/2 boundary formulas/inequalities partly relevant",
+          "evidence": "Regular reduced spherical polygons use great-circle arcs; the new objects are cap intersections with circular arcs at w<pi/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.13268",
+          "material_read": "Full available arXiv text including statements and Section 4 proof for reduced geodesic polygons",
+          "method": "Read primary arXiv full PDF and HTML",
+          "title": "The Area of Reduced Spherical Polygons",
+          "trigger": "Closest exact regular-spherical polygon area and n-monotonicity statements"
+        },
+        {
+          "assessment": "SOURCE EVIDENCE; independently checked formula/derivative logic",
+          "evidence": "h(t)=asin(sin t/c), h′′>0 and h′′′ increasing by positive rational log derivative.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-area-convergence-of-regular-spherical-reuleaux-odd-gons--c6bd6da6d1eb",
+          "material_read": "Full RESULT.md and verify.py from assigned blobs",
+          "method": "GitHub source file read",
+          "title": "Sharp area convergence of regular spherical Reuleaux odd-gons (assigned record)",
+          "trigger": "Definition and proof of exact area profile"
+        },
+        {
+          "assessment": "Primary full text not independently read; residual-risk source",
+          "evidence": "Definition and qualitative constant-width prior are credited; no full-document absence claim.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-013-0237-3",
+          "material_read": "Bibliographic record/related primary theorem citations; no claimed full article reading",
+          "method": "Metadata and cited snippets",
+          "title": "Width of spherical convex bodies",
+          "trigger": "Defines regular spherical constant-width Reuleaux family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp and globally monotone n⁻² convergence supplies a natural quantitative hierarchy between Reuleaux spherical triangles and disk, including equality/nonattainment cases, for a geometrically motivated constant-width family; not a routine consequence of the known spherical Barbier identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2009.13268",
+    "https://arxiv.org/abs/2411.11462",
+    "https://doi.org/10.1007/s00010-013-0237-3",
+    "https://doi.org/10.1007/s00013-021-01698-7",
+    "regular spherical Reuleaux polygons odd n area perimeter convergence disk normalized n squared deficit monotonic"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Older Leichtweiss 2005 full text could contain an equivalent all-width closed formula or normalized comparison and remained inaccessible.",
+    "The w=pi/2 formula and general Barbier relation predate the result; originality must attach to sharp normalized hierarchy."
+  ],
+  "schema_version": 1
+}

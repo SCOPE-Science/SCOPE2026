@@ -1,19 +1,21 @@
-# Scientific review: sharp area convergence of regular spherical Reuleaux odd-gons
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem covers all odd integer corner counts at least three and every width \(0<w\le\pi/2\) on the unit sphere. The boundary-arc formula follows from two separate spherical cosine laws; the area formula follows from Gauss–Bonnet including the \(n\) corner turns. The strictly increasing third derivative of \(h(t)=\arcsin(\sin t/\cos(w/2))\) proves strict monotonicity of the normalized cubic Taylor remainder. This produces both sharp bounds and the limit. The packaged symbolic and independent numerical verifier completed successfully; it does not stand in place of the analytical proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+For w in (0,pi/2], n odd≥3, the spherical cosine rule yields sin(rho)=sin(w/2)/cos(pi/(2n)), short arc aperture alpha_n=2 asin(sin(pi/(2n))/cos(w/2)), and Gauss–Bonnet gives area 2pi−n alpha_n(1+cos w), perimeter n alpha_n sin w. Setting h(t)=asin(sin t/c), t=pi/(2n), h′′(t)>0 and h′′′ increasing on 0<t≤pi/6, c² in [1/2,1), makes h(t)/t and [h(t)−t/c]/t³ increasing. Therefore area increases, perimeter decreases, normalized n² deficit decreases strictly to pi³ sin²(w/2)/(12c); n=3 upper sharp and n→∞ lower sharp. Width pi/2 endpoint matches published spherical formula. Direct independent high-precision evaluation for four widths and eight odd n per width confirmed all bounds. The analytic derivative and Gauss–Bonnet steps, not finite tests, establish the theorem.
 
-The new content is the global, sharp, strictly decreasing normalized \(n^2\) area-deficit hierarchy for all allowed spherical widths. Lassak's construction and the spherical Barbier identity are already known. Liu and Chang give the exact regular spherical polygon area at \(w=\pi/2\), a special case explicitly credited. Full-text comparisons also considered spherical extremal inequalities, a same-family asymmetry result and the analogous hyperbolic Reuleaux metric profile; none implies the stated strict all-width normalized hierarchy. Leichtweiss's potentially relevant 2005 primary paper was identified but unavailable in full, leaving a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result quantifies the approach of a canonical spherical fixed-width approximation family to a disk, with strict area/perimeter ordering and an optimal two-sided \(n^{-2}\) convergence scale. This sharp finite-corner comparison answers an intrinsic question that general constant-width extremal theorems do not quantify.
+PASS for strict monotonicity of n² spherical Reuleaux odd-gon area deficit, sharp all-width constants and perimeter correspondence; prior spherical reduced straight-edge polygon areas, spherical Barbier identity, and width pi/2 area formula are not novel. The geometric Reuleaux disk intersections are curved except for the limiting geodesic arcs at width pi/2; regular reduced straight-edge spherical polygons in Liu–Chang–Su are different bodies. Historical Leichtweiss article unavailable; possible equivalent old formula/rate remains risk.
 
-## Scope and limits
+## value
 
-No assertion is made about irregular constant-width bodies, widths above \(\pi/2\), curvature outside the unit sphere, or Hausdorff-distance rates. The endpoint formula and general area–perimeter identity are acknowledged prior art. An independent scholarly audit has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp and globally monotone n⁻² convergence supplies a natural quantitative hierarchy between Reuleaux spherical triangles and disk, including equality/nonattainment cases, for a geometrically motivated constant-width family; not a routine consequence of the known spherical Barbier identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
