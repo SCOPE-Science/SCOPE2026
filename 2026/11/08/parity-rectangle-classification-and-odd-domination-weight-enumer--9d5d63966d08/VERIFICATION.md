@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction checks
 
-Run `python3 check_binary.py` and `python3 check_linear.py` using Python 3.10 or later in the directory containing those files. Both programs are standalone standard-library scripts; there are no external data files, network calls, or packages. Their captured stdout is included in `direct_output.txt` and `affine_output.txt`.
+# Independent mathematical audit
 
-`check_binary.py` enumerates every subset on each of the nine boards with \(2\le m,n\le4\), tests all closed-neighborhood parity conditions directly using cell incidence masks, then compares every coefficient with the theorem's polynomial. All nine cases passed, including \(W_{3,3}(z)=6z^3+9z^5+z^9\).
+## correctness
 
-`check_linear.py` constructs a different representation: the binary augmented closed-neighborhood matrix, its complete reduced-row-echelon form, and the full affine family of solutions. It compares full weight distributions and affine dimensions against the theorem for all thirty-six boards with \(2\le m,n\le7\). All thirty-six passed. For example, \(5\times5\) has dimension eight and 256 solutions, while the largest tested board \(7\times7\) has nullity twelve, 4096 solutions and minimum weight seven with fourteen minimizers.
+PASS
 
-These checks are finite and are not offered as a substitute for the symbolic proof. They do not inspect the completeness of the historical literature. No independent scholarly audit has been performed.
+Over F_2, the closed-neighborhood odd parity equation is x_ij=1+r_i+c_j. Row and column summation yields the necessary and sufficient consistency conditions (n+1)r_i=n+T and (m+1)c_j=m+T. Their four parity regimes classify all feasible labeled patterns uniquely; odd–odd patterns are (A×B)∪(A^c×B^c) with both |A| and |B| odd. Counting produces the complete weight enumerator; minimizing ab+(m-a)(n-b) over odd a,b yields the exact min-cardinality and all min multiplicities. Independent exhaustive neighborhood checks for every 2≤m,n≤4 reproduce every coefficient without using row/column parametrization; submitted two verifier sources were read. The symbolic derivation, not that bounded enumeration, proves the all-size theorem.
+
+## originality
+
+PASS
+
+Peters–Goldwasser–Young (2017) prove universal solvability for Cartesian products and specifically classify whether Kn square Km is solvable, not the full weight polynomial of a single all-on target. Curtis–Earl–Livingston–Shader (2018) give a general Sylvester nullity method, not solution weight data. A published 2026 Hamming-product nullity formula determines only total solution counts, which are explicitly prior, and specifically disclaims minimum weight and weight histogram. Giffen–Parker treats parity domination and complete bipartite hosts, whereas the rook graph is the line graph L(Kmn). No inspected source yields the enumerator and minimizing patterns; historical risk remains from unindexed Lights Out coding theory.
+
+## value
+
+PASS
+
+Beyond the prior kernel nullity and universal-solvability decision, the full weight distribution and exact minimum press patterns for the natural Cartesian rook board provide structurally interpretable parity-rectangle solutions. There is an all-(m,n) sharp parity dichotomy and nontrivial exact counts of minimizers, motivated by minimizing presses, rather than merely re-evaluating a known total. Algebra is elementary but the complete exact combinatorial classification is useful and mathematically natural.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
