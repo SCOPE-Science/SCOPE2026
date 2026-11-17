@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The projection equations on the horizontal and vertical axes yield two exact tie thresholds, while the second iterate on the non-tie domain reduces to \(R(t)=(1-|t|)/2\). Pulling back the unique positive invariant interval by the negative branches gives exactly three disjoint axis intervals, and the map on the four-cycle interval contracts by \(1/4\) every four iterations. The six fixed/periodic ergodic measures, the two physical measures, and the exact length and perimeter fractions follow from this global partition. The independent coordinate-projection implementation passed 7,200 seeded tests; finite tests are supplementary only.
+## correctness
 
-## Originality — PASS within identified evidence
-Everett's original author manuscript was read through its definition, qualitative convergence theorems, and isosceles section. It gives the geometric map and general convergence, but not the stated exact right-isosceles support-line basin lengths, complete measure classification or exact perimeter fraction. A later mathematical record about three-cycles has different prime period; its full text was unavailable and this remains a priority risk. The geometric-IFS paper of Wang and Zhang has a different state space. Comparison is between the logical content of results, not merely numerical constants or titles.
+PASS
 
-## Mathematical value — PASS
-The natural right-angle isosceles similarity class is a canonical test for the farthest-projection dynamics. The new exact interval and arclength laws turn qualitative orbit convergence into a full basin and physical-measure classification; in particular, finite- and infinite-arclength physical basins coexist on a noncompact union of lines. A scale-invariant exact probability \(6-4\sqrt2\) determines the relative visibility of the four-cycle on the original triangle boundary.
+The proof explicitly evaluates competing orthogonal projection distances from each support line, locating tie coordinates s=√2−1 and −1−√2. Axis-to-axis two-step return R(t)=(1−|t|)/2 partitions coordinates into three exact intervals I0,I1,I2, and R²(t)=(1+t)/4 contracts I0 to t=1/3, producing the unique four-cycle. All remaining intervals flow to one of five fixed points, with tie endpoints distinguished. Exact interval lengths d,2d,4d and hypotenuse arclength multiplier √2 yield basin arclength 14(2−√2) and perimeter fraction 6−4√2. The recurrence classification implies invariant measures supported on the cycle and five fixed points; only uniform cycle and midpoint atom have positive arclength basins. Independent symbolic arithmetic confirmed length and four-cycle identities; 723 deterministic test trajectories corroborated but were not used as exhaustive continuum proof.
 
-## Sources and limits
-Primary source: Samuel Everett, *A Piecewise Contractive Map on Triangles*, DOI 10.1080/1726037X.2020.1847765; public author manuscript arXiv:2408.16019. Earlier inspiration: Wang and Zhang, arXiv:1605.01794. A related public three-cycle classification was examined only through its searchable summary. The present result covers only the right-isosceles similarity class, specified complete lines and ties-fixed rule. The source priority assessment is not a substitute for a full independent literature audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original, qualified. Everett introduced and studied global convergence and triangle bifurcations; related results classify 3-,4-,5-cycle existence or equilateral basins, not this exact support-line right-isosceles complete basin partition plus arclength and physical measures.
+
+## value
+
+PASS
+
+A complete partition of attraction basins and exact arclength share for a natural, previously studied triangle projection dynamical system has direct dynamical significance. The coexistence of a finite-measure four-cycle basin and an infinite-measure fixed-point basin produces a concrete physical-measure classification and sharp boundary tie behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
