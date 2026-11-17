@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical scope
+# Independent mathematical audit
 
-Run `python check.py` with Python 3, NumPy and SciPy. The checker operates on finite sums and prints the normalized one-decade increments for three small values of \(k\), then `PASSED 100 checks`.
+## correctness
 
-The exact identity used is the sum of negative-binomial weights over the opposite part: for fixed \(M=m\), \(\sum_{n\ge0}c_k(n)e^{-\beta(\mu+Jm)n}=[1-e^{-\beta(\mu+Jm)}]^{-k}\). Its implementation is also compared with independently enumerated truncated two-dimensional sums, and with the exactly factorized zero-interaction case. The displayed high-temperature increments check the predicted coefficient to increasing accuracy rather than establishing any limiting assertion.
+PASS
 
-Analytical verification: a three-range estimate of the exact one-part series gives the coefficient of the logarithm; restricting the total occupation to the interior power window and tilting the interaction coupling gives the joint Laplace transform \((b-a)(1+t)^{-k}\); uniform weak compositions yield independent Dirichlet fractions; rescaling inverse temperature in the partition ratio gives gamma total energy and its moments. The argument applies to all fixed integers \(k\ge1\) and all fixed positive \(\mu,J\), not merely to the finite numerical cases.
+Weak-composition c_k(m)=binom(m+k-1,k-1) yields exact positive two-total sum and one-dimensional geometric resummation. In R<=m<=epsilon/beta, the summand is beta^-k/(J^k(k-1)!m)(1+O(1/R+epsilon)); small/large tails are only O(beta^-k). The harmonic bulk gives the coefficient; replacing J by (1+t)J proves the joint Uniform/Gamma Laplace law on interior log windows. Both totals diverge, so conditional composition shares converge independently to simplex Lebesgue (Dirichlet). Beta temperature tilt gives Gamma energy and moment uniform integrability. Independent direct truncated double sums agree with independently resummed series for k=1,2,3 at beta=.4.
 
-No independent external audit or formal certification was performed. No statement is made about a thermodynamic limit in graph size or a physical phase transition.
+## originality
+
+PASS
+
+The exact four-site k=2 log-uniform/Gamma law is published separately and the general high-temperature power/log order and equipartition are earlier work; these are not independent novelty. The surviving result is the full natural K_{k,k} all-k exact coefficient and two independent Dirichlet composition factors with joint Gamma/log-scale law. The inspected broader work does not state an all-k exact joint limit or its coefficient; an implicit general flat-direction theorem remains risk.
+
+## value
+
+PASS
+
+The physically motivated integer-occupation gas has a marginal flat direction; identifying the full Gibbs measure (temperature exponent, interaction energy, microscopic shares), not only partition growth, is a meaningful all-k classification and normalization benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
