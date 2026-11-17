@@ -1,19 +1,21 @@
-# Review of a boundary-atom metric-star spline norm
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem's full parameter domain is an integer arm count \(m\ge2\) and a strictly positive atom mass \(w\). The arclength-plus-atom Hilbert-space inner product is positive definite on the \((m+1)\)-dimensional continuous piecewise-affine space. The proof computes the Gram inverse by a rank-one update, then computes the signed kernels at each vertex, including the atomic contribution. Positivity of explicit factored difference polynomials proves ordinary-leaf dominance; convexity and an actual strict sign conflict prove absence of interior maximizers. A positive-coefficient derivative certificate proves strict monotonicity, and the precise cubic equation proves the two-arm transition. The proof accounts for every equality case. Independent exact-rational Gram inversion and a symbolic identity checker ran successfully; finite tests are supplementary, not the basis of universal quantifiers.
+PASS
 
-## Originality
+On an m≥2 unit-edge real metric star with arclength plus w>0 Dirac at exactly one OUTER leaf, nodal Gram G_w=G_0+w e1e1^T is positive definite and Sherman–Morrison gives the stated inverse. At ordinary leaf, the affine kernel has negative common center and positive outer endpoint values, plus positive atom q; exact absolute-linear integral J(a,b)=(a²+b²)/(2(a+b)) yields the rational Λ_m(w). Explicit positive-polynomial differences prove R_ordinary>R_hub and R_atom for all m,w; affine kernel convexity, with strict sign disagreement, excludes all interior normers. Differentiating gives a coefficientwise positive derivative; rank-one limits and the m=2 cubic give the unique crossover. Since P1=1, negative-part mass gives exact positivity defect and witnesses. Independently formed exact rational Gram inverses and absolute kernel integrals in SymPy for m=2,3,4,6 and w=1/10,1,4: all twelve cases match Λ and the proposed norming leaves. Actual verify_leaf_atom.py read and symbolic identities/finitude checked; symbolic algebra plus positivity reasoning establishes universal claims.
 
-**PASS, with residual literature risk.** The closest previously available star model with a hub atom applies to a different supported measure and cannot imply a leaf-supported atom's exact norm or the movement of norming points from the perturbed leaf to the others. The ordinary atom-free case is an acknowledged limiting endpoint, not claimed as new. Oswald's 2006 full preprint concerns simplicial finite-element meshes, an interval upper bound, and a higher-dimensional instability construction; it does not provide a boundary-atom metric-star norm. Hangelbroek–Narcowich–Sun–Ward (2010), read through its projector and main-results sections, derives general bounds for kernel-generated approximation on manifolds, not the stated finite graph/Dirac model. Targeted published mathematical-record and primary-literature searches returned no equivalent or stronger theorem, but unindexed preprints and specialized graph finite-element notes remain possible. No negative search result alone is treated as a proof of originality.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Exact endpoint operator norms are natural stability invariants for least-squares finite-element projection. This theorem isolates how a single highly localized observation alters worst-case stability: arbitrarily small positive point mass increases the norm, yet the extremizers occur at the *unobserved* leaves, not at the observed location. The dimension-dependent crossing of norm \(2\) for precisely two arms, the monotonicity for every positive weight, the limiting constants and exact positivity-loss witnesses provide a complete, motivated classification rather than an arbitrary parameter sample.
+Earlier exact weighted-metric-star spline formula assumes purely diffuse edge measures; a different same-day mixed-measure theorem places a positive atom at the hub and obtains a different norm/threshold and norming leaves. Neither permits relocating the atom to a single OUTER leaf via an isometric symmetry of the star (center has degree m). Oswald concerns Euclidean triangulations and a uniform-bound counterexample, not this atomic graph. The new rank-one perturbation at a leaf, strict increase and movement of worst evaluation to other leaves survive best-of-knowledge with residual specialist literature risk.
 
-## Limitations and closest sources
+## value
 
-The result concerns real first-order continuous splines on unit-length metric-star arms with exactly one atomic mass at a leaf; it does not treat arbitrary edge lengths, interior knots, or multiple atoms. The main external comparisons are Peter Oswald, arXiv:math/0611573 (2006-11-19), and Hangelbroek et al., arXiv:1005.2424 (2010-05-13). An equivalent theorem in inaccessible specialist literature remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Computes a sharp stability constant and all extremizers for a natural mixed-measure finite-element projector. The boundary mass causes counterintuitive amplification at other leaves and crosses the numerical threshold 2 in a two-arm family; positivity loss and sensitivity are mathematically motivated, not just an arbitrary rational number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
