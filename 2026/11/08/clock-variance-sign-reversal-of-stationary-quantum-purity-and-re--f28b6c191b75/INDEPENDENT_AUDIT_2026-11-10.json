@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T07:59:25.175819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent two-stage Coxian T=E_a+B E_b with a,b>0,0<=q<=1, the equilibrium age A has transform z(w)=(1-L_T(iw))/(iw E[T])=ab(b+aq+iw)/((b+aq)(a+iw)(b+iw)). In energy basis rho*_{jk}=rho0_{jk}z(omega_jk). The exact purity-minus-Hilbert–Schmidt-overlap term is sum |rho0_jk|²(|z|²-Re z); direct independent SymPy reduction yielded a² b q(b−a+aq) omega² /((b+aq)² (a²+omega²)(b²+omega²)), and the variance calculation gives identical prefactor (ab/2)(1−CV²). All kernel terms are >=0, strict exactly for nonzero-gap coherences equivalently [H,rho0]!=0. For q=0 and q=1−b/a when a>b the entire T Laplace transform simplifies to Exp(a)/Exp(b), respectively. Differentiating u/((a²+u)(b²+u)) yields unique u=ab maximizer unless zero prefactor. The reset mixed-state quantity is HS overlap, not Uhlmann fidelity. None of these steps depends on finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sevilla–Valdés-Hernández parameterizes arbitrary renewal distributions, but no general sign-of-(1−CV²) theorem can hold for all clocks; their formula alone does not state this Coxian all-H classification.",
+          "Erlang thresholds study gamma-shape and other spectral kernels; for shape14 sign can depend on gap, not a covering CV criterion."
+        ],
+        "reasoning": "The broad clock setting is not a stronger sign theorem for this Coxian subfamily; a direct algebraic specialization is essential. Fixed-mean qubit optimizers have a different objective.",
+        "searches": [
+          "Sevilla–Valdés-Hernández 2022 general reset-time distributions full primary",
+          "Resultary: thirteen Erlang stages preserve quantum purity overlap; fourteen reverse",
+          "Resultary: sharp fixed-mean stationary purity for renewal reset qubit"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2209.05643",
+        "https://arxiv.org/abs/2307.07485",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-fourteen-stage-erlang-threshold-for-stationary-quantum-p--919cdbfeb5ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The current theorem is mathematically derivable after inserting L_T(s)=a/(a+s)(1−q+qb/(b+s)), simplifying |z|²−Re z, and separately computing CV².",
+          "No earlier cited result states the sign is independent of H and rho0 for noncommuting Coxian clocks."
+        ],
+        "reasoning": "Prior formulas are sufficient premises for a new exact specialized derivation; distinction is one of previously explicit implication versus nontrivial motivated parameter classification. Risk of earlier unnoticed algebraic corollary remains.",
+        "searches": [
+          "Sevilla–Valdés-Hernández 2022 Eqs. spectral stationary rho and purity",
+          "Kulkarni–Majumdar 2023 section Poisson purity equals pure-state fidelity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier renewal-state transform controls stationary coherences for arbitrary clocks but does not exhibit the specialized sign factorization.",
+          "Poisson resetting makes |z|²=Re z for all gaps; here two-exponential Coxian q branch gives both signs, with exponentially distributed equality points."
+        ],
+        "reasoning": "The general transform is an input rather than an equivalent theorem asserting a universal two-stage CV sign and explicit parameter crossing. Earlier Poisson equality is a boundary case.",
+        "searches": [
+          "Resultary: stationary quantum renewal reset purity fidelity exponential Coxian two phase variance crossover c squared",
+          "Sevilla–Valdés-Hernández arXiv:2209.05643",
+          "Kulkarni–Majumdar arXiv:2307.07485"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published background includes the stationarity transform but no Coxian parameter phase table.",
+          "Current q_c=1−b/a and omega=sqrt(ab) are derived as exact optimizers, not imported from a matching table."
+        ],
+        "reasoning": "No existing specific Coxian phase table was found in the searched result index and primary material; this alone is not proof of absolute novelty.",
+        "searches": [
+          "Resultary published semantic search Coxian two-stage quantum reset purity",
+          "arxiv:2209.05643 general renewal spectral formulas",
+          "arxiv:2307.07485 Poisson equality"
+        ]
+      },
+      "rationale": "The general renewal-reset density-matrix spectral formula of Sevilla & Valdés-Hernández and Poisson equality observation are explicitly older premises. The inspected accessible primary text does not state the exact two-stage Coxian CV² sign factorization, unique q crossover, distributional exponential coincidence and sharp balanced-qubit witness. Related Erlang-reset phase theorems concern an integer-shape Gamma family not this independently switched two-exponential clock. Since the old general equations algebraically imply the result after nontrivial specialization, originality is provisional but this meaningful exact classification survives best-of-knowledge comparison.",
+      "residual_risks": [
+        "The specialized factorization is algebraically implied by older general renewal expressions; may have appeared in overlooked Coxian-reset literature.",
+        "Only indexed summary, not full text, of the Kulkarni–Majumdar Poisson paper was available in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND: supplies general spectral-renewal framework; does not directly state the full two-stage Coxian CV sign phase diagram",
+          "evidence": [
+            "General arbitrary waiting-time transform; no exact q_c clock variance classification observed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.05643",
+          "material_read": "Full publicly accessible primary PDF, stationary state and energy-basis transform, purity and fidelity formulas and renewal-age discussion",
+          "method": "arXiv lawful PDF text, inspected relevant formulas and PDF screenshot",
+          "title": "Dynamics of closed quantum systems under stochastic resetting",
+          "trigger": "Foundational quantum renewal stationary transform and purity/fidelity"
+        },
+        {
+          "assessment": "SPECIAL_CASE: Poisson only, not arbitrary switched Coxian sign reversal",
+          "evidence": [
+            "Poisson clock stationary purity equals reset pure-state overlap in the cited model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+          "material_read": "Indexed arXiv primary description and relevant section pointer; not claimed complete full text inspection",
+          "method": "Public preprint abstract and description",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "Prior Poisson purity–fidelity equality"
+        },
+        {
+          "assessment": "Different waiting-time family; not considered full-text NOT_COVERING",
+          "evidence": [
+            "Integer-shape Erlang k=14 first gap-dependent reversal, not two-stage Coxian q_c."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-fourteen-stage-erlang-threshold-for-stationary-quantum-p--919cdbfeb5ac",
+          "material_read": "Published Resultary statement and summary only",
+          "method": "Resultary semantic search",
+          "title": "A sharp fourteen-stage Erlang threshold for stationary quantum purity–fidelity reversal",
+          "trigger": "Similar spectrum-dependent sign reversals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of stationary quantum purity relative to reset overlap changes at a universal variance threshold independent of Hamiltonian spectrum or Hilbert-space dimension for all noncommuting states; the Coxian family has an explicit sharp phase boundary and gap that maximizes the effect. This resolves a motivated renewal-clock phenomenology question rather than reporting a numerical simulation or textbook rewrite. The mixed-state fidelity distinction is important.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2209.05643",
+    "https://arxiv.org/abs/2307.07485",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-fourteen-stage-erlang-threshold-for-stationary-quantum-p--919cdbfeb5ac"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Applies to stationary equilibrium-renewal ensemble of finite-dimensional closed Hamiltonian, not finite time or arbitrary renewal clocks.",
+    "For mixed rho0 the comparison O=tr(rho*rho0) is HS overlap only, not Uhlmann fidelity."
+  ],
+  "residual_risks": [
+    "The specialized factorization is algebraically implied by older general renewal expressions; may have appeared in overlooked Coxian-reset literature.",
+    "Only indexed summary, not full text, of the Kulkarni–Majumdar Poisson paper was available in this run."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BACKGROUND: supplies general spectral-renewal framework; does not directly state the full two-stage Coxian CV sign phase diagram",
+      "evidence": [
+        "General arbitrary waiting-time transform; no exact q_c clock variance classification observed."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2209.05643",
+      "material_read": "Full publicly accessible primary PDF, stationary state and energy-basis transform, purity and fidelity formulas and renewal-age discussion",
+      "method": "arXiv lawful PDF text, inspected relevant formulas and PDF screenshot",
+      "title": "Dynamics of closed quantum systems under stochastic resetting",
+      "trigger": "Foundational quantum renewal stationary transform and purity/fidelity"
+    },
+    {
+      "assessment": "SPECIAL_CASE: Poisson only, not arbitrary switched Coxian sign reversal",
+      "evidence": [
+        "Poisson clock stationary purity equals reset pure-state overlap in the cited model."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+      "material_read": "Indexed arXiv primary description and relevant section pointer; not claimed complete full text inspection",
+      "method": "Public preprint abstract and description",
+      "title": "Generating Entanglement by Quantum Resetting",
+      "trigger": "Prior Poisson purity–fidelity equality"
+    },
+    {
+      "assessment": "Different waiting-time family; not considered full-text NOT_COVERING",
+      "evidence": [
+        "Integer-shape Erlang k=14 first gap-dependent reversal, not two-stage Coxian q_c."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-fourteen-stage-erlang-threshold-for-stationary-quantum-p--919cdbfeb5ac",
+      "material_read": "Published Resultary statement and summary only",
+      "method": "Resultary semantic search",
+      "title": "A sharp fourteen-stage Erlang threshold for stationary quantum purity–fidelity reversal",
+      "trigger": "Similar spectrum-dependent sign reversals"
+    }
+  ]
+}
