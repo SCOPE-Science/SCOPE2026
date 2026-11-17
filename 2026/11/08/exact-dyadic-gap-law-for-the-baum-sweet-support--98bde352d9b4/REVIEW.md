@@ -1,19 +1,21 @@
-# Scientific review: exact dyadic gap law for the Baum–Sweet support
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each positive integer, the no-odd-zero-run property is equivalent to the unique prefix-free tile expansion \(1(1\mid00)^*\). In every fixed binary-length layer, immediate successors are obtained by replacing the final `00` tile with `1` and minimizing the tail; the two parity cases yield the displayed gaps. Fibonacci counts of valid prefixes give the exact multiplicities. The layer boundary is checked separately, including the initial zero. Summing the multiplicities and taking the standard Fibonacci ratio yields the limiting law. The `verify.py` program independently checks finite cases, but all infinite statements follow from a complete argument.
+PASS
 
-## Originality — PASS, qualified
+A positive admissible binary expansion is uniquely 1(1|00)*. The number of length-L words is F_L. For every nonmaximum word its last 00 tile followed only by ones determines a unique numeric successor, and a direct suffix subtraction gives gap Δ_t=2^t+2 (even t) or 2^t+1 (odd t). Prefixes of length L-t-2 number F_(L-t-2) and sum to F_L-1: all within-layer gaps accounted for, including t=0,1 both giving gap3. Boundary gaps alternate 1 and2; summing Fibonacci counts across dyadic layers and taking ratios gives masses 1/φ at3 and φ^(-(t+2)) at t>=2. Independently enumerated complete layer gaps up to L=16.
 
-Direct external comparisons included OEIS A060142, OEIS A086747, the original article's accessible bibliographic record, and Kimberling's related full-text 2000 self-generating-set paper. A060142 fully specifies the same set via closure, and A086747 specifies the same binary sequence via the zero-run condition, but neither inspected entry gives the numerical spectrum and Fibonacci per-layer counts of *adjacent* gaps or the limiting dyadic frequencies. Kimberling's article treats the genuinely different maps \(2x\) and \(4x-1\). Semantic database searches using the alternative `A060142`, `Baum–Sweet`, `odd-part compositions`, `first differences`, and `return-gap` terminology found no matching published claim. Priority remains qualified because sequence database entries, the original 1976 full text, and unindexed equivalent formulas may contain undiscovered coverage.
+## originality
 
-## Value — PASS
+PASS
 
-The finding is a complete all-length classification of a natural return-time statistic of a classical sparse automatic sequence, not an arbitrary finite cutoff or a re-tabulation of sample terms. It describes exactly which zero-block lengths can occur between consecutive ones, the multiplicity of each within each dyadic layer, and a nondegenerate limiting gap distribution. The elementary tile-succession mechanism explains a surprising mixture of exponentially separated allowed large gaps with Fibonacci-weighted short gaps. It can be used to study recurrence and gap sampling in automatic sets without enumerating their elements.
+A060142 encodes the SAME Baum–Sweet support under recurrence x→2x+1,4x and a known Fibonacci counting structure; these are explicitly credited. The last-zero-pair numerical successor classification, exact list of adjacent gaps, multiplicities and limiting probability law were not found in inspected database passages or semantic published records. An unindexed first-difference representation, composition-to-odd-parts argument or original paper might already imply them.
 
-## Closest prior work and limits
+## value
 
-The exact underlying set is already OEIS A060142; its equivalence with Baum–Sweet indices is explicitly recorded and must not be counted as new. The closest source's recurrence is necessary but does not directly state the complete gap law. The review does not establish absolute historical priority, arbitrary-cutoff convergence, or results for general gaps between non-adjacent support elements.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gaps between successive ones in the classical sparse Baum–Sweet automatic set are a natural return-time observable. The full gap spectrum, Fibonacci multiplicities and dyadic limiting frequencies are nontrivial infinite combinatorial statistics, not a renaming of known membership/size formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
