@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The Laurent norm formula follows by the Euler gamma integral and determines the allowable basis exactly. The polynomial recursion, interlacing proof, reciprocity, Euler boundary-crossing identity and one-sided mode formula establish the stated theorem for every integer logarithmic order.
+# Independent mathematical audit
 
-`python CHECK.py` executed on the present extracted files and passed 293 assertions (symbolic generating-series identities, rational Sturm counts, independent quadrature and derivative-jump identities). The finite checks do not certify the infinite order range; that follows from the written induction and Euler-polynomial sign argument.
+## correctness
 
-The scope is fixed off-diagonal points on the punctured disk, \(t>-1\), integer \(q\ge1\). Published prior work on general radial zeros, complete cusp models, and logarithmic boundary weights was compared; equivalent results under different terminology remain a publication-priority risk. Independent audit has not been performed.
+PASS
+
+Integration of Laurent monomials gives pi Gamma(q)/(n+t+1)^q for n>=-ceil(t). Differential geometric series yields exactly the given E_q recursion; interlacing roots proves real negativity and simplicity; reciprocity at alpha=1/2 and Euler-polynomial boundary values show crossings only at claimed alpha. A new Laurent coefficient 1_{t>k}(t-k)^q u^(-k-1)/(pi Gamma(q)) yields qth jump and all lower derivatives continuous. Independently rebuilt symbolic E_q for q=1..8, Euler boundary/reciprocal identities and exact rational Sturm physical counts for alpha=1/3,1/2,3/4,1. This is not a proof merely from finite q checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge new weighted-puncture family zero-fibre law jointly with a sharp C^(q-1)/non-C^q parameter defect. Classical generalized Eulerian/Euler polynomial root identities and radial Bergman machinery expressly credited; neither alone computes this parameterized kernel statement in the inspected primary sources.
+
+## value
+
+PASS
+
+The model is a natural isolated singular-weight benchmark for Lu Qi-Keng zeros and weighted Bergman parameter dependence. Sharp complete parity/half-integer root phase boundaries and derivative-order failure at pole onset are independently useful exact structural facts, beyond an arbitrary parameter substitution or a single low-order computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
