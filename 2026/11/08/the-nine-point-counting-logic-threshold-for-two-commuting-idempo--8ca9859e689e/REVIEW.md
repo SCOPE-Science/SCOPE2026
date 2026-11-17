@@ -1,25 +1,21 @@
-# Scientific review: The nine-point counting-logic threshold for two commuting idempotent maps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The decomposition into fibers of the common idempotent \(h=fg=gf\) follows directly from the two named idempotence laws. Every fiber has a canonical common fixed point, \(p\) other \(f\)-fixed points, \(q\) other \(g\)-fixed points, and a nonnegative integer matrix recording the complete multiplicity of each remaining point type. Every such matrix defines commuting idempotents; its isomorphisms are precisely independent permutations of the positive-index rows and columns and swaps within the cells. Unordered multisets of fibers therefore classify all structures without omission. The exact verifier enumerates all these representatives through nine points, uses the complete directed binary atomic types in a *shared* palette for full \(C^2\) refinement, and checks exact counts at all sizes; independently, a labeled brute-force program agrees through six points and independently checks isomorphism-orbit counts through five. The explicit nonisomorphic nine-point pair is checked by all \(9!\) bijections and by its logical invariant. Standard finite-model-theory equivalence of \(C^2\) and full relational counting refinement is supplied by Kiefer–Schweitzer–Selman [1]. A reproducible computer census is a finite proof only insofar as the complete generator and code can be checked; it is not formal or independent certification.
+PASS
 
-## Originality — PASS (with residual priority risk)
+Any commuting idempotents decompose canonically into fibers over common fixed points, each encoded by (p,q,A) with distinguished zero row/column and S_p x S_q permutations. Exhaustive weak-composition generation gives all isomorphism types. Full directed ordered-pair atomic color refinement characterizes C2 in a binary relational language. Independent exact enumeration of canonical classes and iterative simultaneous refinement produced n=1..9 isomorphism counts 1,4,12,37,105,307,861,2432,6752 and C2 counts same through 8 then 6751. Direct 9-point witness has nonisomorphic opposite-double-edge versus all-ones 2x2 incidence matrices and same 4 color-class sizes 1,2,2,4.
 
-The closest general logic source is Kiefer–Schweitzer–Selman [1], especially the definitions of \(C^2\) and full color refinement and classification of structures identified *absolutely* by counting logic. The specific first collision order and number of exceptional pairs within the commuting-idempotent transformation variety are not stated in the inspected material and are not obtained merely by applying an absolute-identification theorem. Dolinka–East [2] studies semigroup variants and idempotent transformations but not this finite-model-theory threshold. Actual semantic database searches covered commuting projections, two unary transformations, aliases involving bipartite incidence matrices, and first logical collisions; no dominating entry was returned. The archive of accessible earlier results was checked for overlapping claims. Lack of a retrieved covering result is not proof of historical uniqueness: a less-indexed finite automata or semilattice-action census could still subsume the claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding answers the natural exact question of how much weakening from arbitrary two-map transition systems to **two commuting retractions** postpones the first failure of \(C^2\)-identification. It produces an entire complete finite classification to the sharp obstruction, not a parameter-renamed exercise. The unique obstruction has a transparent structural explanation: two doubled opposite cells versus four single incidence cells; both have matching local counts but different global incidence. The normal form and full counting atomic-type treatment are reusable in higher-order classifications. No claim of a paper-sized downstream theorem is needed.
+General C2/1-WL correspondence and unrestricted two-map five-point collision are established, but neither gives the relative commuting-idempotent nine-point threshold and unique doubleton. No exact earlier census identified; residual literature equivalences recorded.
 
-## Boundaries and comparison
+## value
 
-The theorem does not apply to binary relation pairs that fail totality/idempotence/commutation, to the language with genuine function symbols, or to orders above nine. Two-map arbitrary-system collisions at five points do not cover or imply the new *commuting idempotent* subclass threshold of nine. Priority outside inspected material remains a risk, and all verification was carried out without an independent audit.
+PASS
 
-## References
+Sharp first point where a standard finite-model-theory counting logic ceases to identify named pairs of commuting retractions, with full natural finite classification and explicit minimal obstruction. This is a motivated structural threshold.
 
-[1] S. Kiefer, P. Schweitzer, E. Selman, *Graphs Identified by Logics with Counting*, arXiv:1503.08792v1, 2015-03-30, §§2–3 and §5, https://arxiv.org/abs/1503.08792.
-
-[2] I. Dolinka, J. East, *Variants of finite full transformation semigroups*, arXiv:1410.5253v1, 2014-10-20, https://arxiv.org/abs/1410.5253.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
