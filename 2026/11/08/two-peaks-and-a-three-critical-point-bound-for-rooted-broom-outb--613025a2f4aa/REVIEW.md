@@ -1,20 +1,21 @@
-# Scientific review: Two peaks and a three-critical-point bound for rooted-broom outbreak variance
+# Independent mathematical audit
 
-## Correctness
-PASS. The root component decomposes exactly into an independent binomial leaf count and a truncated-geometric path count. Exact moment identities give the polynomial in RESULT.md. The derivative has three sign changes by Descartes' rule; exact inequalities show the signs +,-,+,- at p=0,2/3,3/4,1 throughout the claimed integer range. Together they prove exactly three simple interior stationary points and the sharp two-maxima upper bound **within rooted brooms**. The attached exact checker checks finite instantiations and direct edge-mask calculations, but is not used to substitute for infinite proof.
+## correctness
 
-## Originality
-PASS to the extent supported by inspected evidence. Moore--Newman (1999), Kenah--Robins (2007), Sharkey et al. (2013), and Nogawa--Hasegawa--Nemoto (2016) provide close modeling background, but their examined results do not establish the exact rooted-broom variance-curve critical-point bound and two-peak parameter regime. In particular, bimodality of an outbreak-size distribution is not bimodality of the variance as transmission probability changes. The nearest compared mathematical statements involve comparisons between sources, not two maxima of one source's variance. Searches are not a proof of historical uniqueness.
+PASS
 
-## Value
-PASS. Two distinct variance peaks show that finite-tree outbreak uncertainty can have separated transmission windows even with homogeneous independent bonds. The complete three-critical-point bound in the canonical rooted-broom family and the infinite robust interval of leaf counts give structural content beyond an isolated numerical instance.
+The root component decomposes exactly as 1+Bin(m,p)+Y_L, where P(Y_L>=j)=p^j. Computing E[Y_L] and E[Y_L²] gives the stated polynomial. For m>=3,L>=3 its derivative coefficient signs are +,-,+,-, hence at most three positive roots counted with multiplicity. The correction terms W_L′(3/4)=112−A_L−B_L decrease for L>=14 and satisfy A_14+B_14<75/2; W_L′(2/3)<45. For the stated m interval these and the two endpoint derivatives have signs +,-,+,-, forcing exactly three simple roots. Independently evaluated exact rational polynomial signs for representative m,L, and separately checked Descartes patterns. Finite examples do not prove the infinite parameter bounds.
 
-## Closest literature and limitations
-- Moore and Newman, arXiv:cond-mat/9911492 (1999): independent-edge epidemic percolation and thresholds on small-world networks.
-- Kenah and Robins, PMCID:PMC2215389 (2007): general SIR with random infectious periods is not equivalent to independent bond percolation.
-- Sharkey et al., PMCID:PMC4541714 (2013): exact Markovian SIR moment equations on finite trees, but a different process and observable.
-- Nogawa et al., arXiv:1602.00803 (2016): cluster-size PDF bimodality at fixed probability, not variance-curve bimodality.
+## originality
 
-Limits: only rooted brooms are classified; neither global minimum size nor all finite trees are classified. No independent historical-priority audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite rooted tree percolation, SIR and Cayley-tree cluster distributions have extensive prior theory. The inspected references do not state the rooted-broom variance-versus-p phase portrait. A bimodal size distribution at fixed p does not imply two peaks of variance as p changes; SIR recovery-induced variance excess is a different model, even for a tree.
+
+## value
+
+PASS
+
+The non-unimodal root-outbreak-variance curve on a natural broom family is a motivated finite-tree counterexample, while the three-critical-point structural bound and explicit all-L existence interval give reusable exact boundaries. This is not merely a numerical witness or a claim of smallest possible tree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_broom.py` using Python 3 and the standard library. The checker reconstructs the variance polynomial from the root-leaf and path contributions. For small graphs, it independently enumerates all open/closed edge states with exact rational probabilities; it also verifies the closed-form and moment identities, derivative endpoint identities, correction inequalities, and selected large-parameter sign brackets.
+## correctness
 
-# Analytic versus finite checks
+PASS
 
-The theorem holds for every integer \(L\ge14\) and \(136\le m\le149\) by the rational bounds and decreasing-correction argument in RESULT.md. The finite examples in the checker do not constitute the infinite proof and do not establish a globally smallest graph. The use of Descartes' rule counts positive roots with multiplicity, so three disjoint sign brackets imply exactly three simple roots, without numerical root solving.
+The root component decomposes exactly as 1+Bin(m,p)+Y_L, where P(Y_L>=j)=p^j. Computing E[Y_L] and E[Y_L²] gives the stated polynomial. For m>=3,L>=3 its derivative coefficient signs are +,-,+,-, hence at most three positive roots counted with multiplicity. The correction terms W_L′(3/4)=112−A_L−B_L decrease for L>=14 and satisfy A_14+B_14<75/2; W_L′(2/3)<45. For the stated m interval these and the two endpoint derivatives have signs +,-,+,-, forcing exactly three simple roots. Independently evaluated exact rational polynomial signs for representative m,L, and separately checked Descartes patterns. Finite examples do not prove the infinite parameter bounds.
 
-# Scope
+## originality
 
-All transmission edges are mutually independent. No claim is made about heterogeneous, dependent, or random-duration SIR dynamics; no independent external validation has been completed.
+PASS
+
+Finite rooted tree percolation, SIR and Cayley-tree cluster distributions have extensive prior theory. The inspected references do not state the rooted-broom variance-versus-p phase portrait. A bimodal size distribution at fixed p does not imply two peaks of variance as p changes; SIR recovery-induced variance excess is a different model, even for a tree.
+
+## value
+
+PASS
+
+The non-unimodal root-outbreak-variance curve on a natural broom family is a motivated finite-tree counterexample, while the three-critical-point structural bound and explicit all-L existence interval give reusable exact boundaries. This is not merely a numerical witness or a claim of smallest possible tree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
