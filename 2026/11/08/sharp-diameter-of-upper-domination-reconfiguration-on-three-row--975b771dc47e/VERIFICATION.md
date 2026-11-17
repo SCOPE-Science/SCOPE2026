@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Reproducibility: execute `python3 verify_rook.py` and `python3 verify_words.py` with Python 3. No external packages are needed. The corresponding captured standard outputs are in `verify_rook.out` and `verify_words.out`.
+# Independent mathematical audit
 
-The rook-board script directly tests all candidate minimal dominating vertex subsets of size at least \(n\) and checks all one-vertex exchanges for \(4\le n\le7\). The word script verifies the exact counts and all-pairs graph diameter, with exhaustive BFS for \(4\le n\le9\). Both tests passed when run independently. These finite checks are supplementary to the general proof in `RESULT.md` and do not establish historical priority or provide independent scholarly validation.
+## correctness
+
+PASS
+
+Domination iff all rows or all columns hit; minimum-removal test classifies maximum cardinality n as exactly one token in each column while missing some row. Any legal one-token move stays within its column, proving jumps=slides and induced non-surjective ternary Hamming graph. Inclusion-exclusion gives 3*2^n-3, degree sum gives 3n(2^{n-1}+1). Reconstructed constructive upper paths for constant/single-shared support words and first-extinction lower witness a^n vs b^k c^{n-k} to prove n+k-1. Independent all-pairs BFS for n=4,5,6,7 verified vertex/edge counts and diameters 5,6,8,9; finite checks only corroborate proof.
+
+## originality
+
+PASS
+
+Brešar 2005 provides general upper-domination product inequality, not optimum-space reconfiguration. Suzuki-Mouawad-Nishimura 2014 investigate adding/removing domination tokens with budget rather than fixed-size inclusion-minimal max-sets. Complexity and integer-programming sources also do not imply this exact ternary word-state graph and diameter. Searched alias non-surjective words and rook reconfiguration; no direct prior equivalence found.
+
+## value
+
+PASS
+
+Upper domination number alone does not determine motion between its max minimal witnesses. Exact state graph, jumps=slides and an asymptotically 50% detour over unrestricted Hamming movement reveal nontrivial geometry of a natural unbounded graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

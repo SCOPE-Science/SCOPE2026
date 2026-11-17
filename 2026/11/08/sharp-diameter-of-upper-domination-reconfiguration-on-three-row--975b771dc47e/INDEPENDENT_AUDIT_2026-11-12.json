@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:21:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Domination iff all rows or all columns hit; minimum-removal test classifies maximum cardinality n as exactly one token in each column while missing some row. Any legal one-token move stays within its column, proving jumps=slides and induced non-surjective ternary Hamming graph. Inclusion-exclusion gives 3*2^n-3, degree sum gives 3n(2^{n-1}+1). Reconstructed constructive upper paths for constant/single-shared support words and first-extinction lower witness a^n vs b^k c^{n-k} to prove n+k-1. Independent all-pairs BFS for n=4,5,6,7 verified vertex/edge counts and diameters 5,6,8,9; finite checks only corroborate proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar Electronic Journal of Combinatorics 12 (2005) N12 product bound",
+          "AbouEisha arXiv:1609.01510 complexity"
+        ],
+        "reasoning": "Published general upper-domination inequalities and complexity algorithms give no stronger exact theorem for the exchange graph of maximum inclusion-minimal dominating sets.",
+        "searches": [
+          "Resultary: rook graph K3 Cartesian Kn upper domination minimal dominating sets token jumping sliding non-surjective ternary words diameter",
+          "Resultary: upper domination reconfiguration ternary non surjective word graph diameter",
+          "web: Brešar upper domination Cartesian product rook Suzuki Mouawad Nishimura dominating set reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v12i1n12/pdf",
+        "https://arxiv.org/abs/1401.5714",
+        "https://arxiv.org/abs/1609.01510",
+        "https://doi.org/10.1007/s00186-023-00831-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Suzuki TAR dominated sets threshold k",
+          "Candidate optimum exchange moves fixed n under inclusion-minimality"
+        ],
+        "reasoning": "The TAR reachability graph permits intermediate nonoptimal sets and cardinality changes; hence its conclusions do not imply token-slide/jump equality or sharp distance inside the upper-domination graph.",
+        "searches": [
+          "Resultary: rook graph K3 Cartesian Kn upper domination minimal dominating sets token jumping sliding non-surjective ternary words diameter",
+          "Resultary: upper domination reconfiguration ternary non surjective word graph diameter",
+          "web: Brešar upper domination Cartesian product rook Suzuki Mouawad Nishimura dominating set reconfiguration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook max-minimal domination as words missing one of three symbols",
+          "Suzuki arXiv:1401.5714 TAR reconfiguration"
+        ],
+        "reasoning": "The non-surjective ternary Hamming graph is identified exactly; published TAR models use different legal state sets and adjacency and do not give its diameter.",
+        "searches": [
+          "Resultary: rook graph K3 Cartesian Kn upper domination minimal dominating sets token jumping sliding non-surjective ternary words diameter",
+          "Resultary: upper domination reconfiguration ternary non surjective word graph diameter",
+          "web: Brešar upper domination Cartesian product rook Suzuki Mouawad Nishimura dominating set reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent enumerations non-surjective ternary word graphs n=4..7",
+          "Burdett-Haythorpe-Newcombe 2023 rook board benchmark values"
+        ],
+        "reasoning": "Previously reported upper-domination numbers or finite rook benchmark tables do not imply unbounded exact graph diameter or its constructive all-pairs bound.",
+        "searches": [
+          "Resultary: rook graph K3 Cartesian Kn upper domination minimal dominating sets token jumping sliding non-surjective ternary words diameter",
+          "Resultary: upper domination reconfiguration ternary non surjective word graph diameter",
+          "web: Brešar upper domination Cartesian product rook Suzuki Mouawad Nishimura dominating set reconfiguration"
+        ]
+      },
+      "rationale": "Brešar 2005 provides general upper-domination product inequality, not optimum-space reconfiguration. Suzuki-Mouawad-Nishimura 2014 investigate adding/removing domination tokens with budget rather than fixed-size inclusion-minimal max-sets. Complexity and integer-programming sources also do not imply this exact ternary word-state graph and diameter. Searched alias non-surjective words and rook reconfiguration; no direct prior equivalence found.",
+      "residual_risks": [
+        "An unindexed exact diameter theorem for non-surjective ternary word graphs may exist.",
+        "Finite BFS through n=7 is only supporting test for all-n proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General inequality; neither optimum exchange configurations nor diameter treated",
+          "evidence": "Brešar 2005 main upper domination inequality",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v12i1n12/pdf",
+          "material_read": "Full short primary article, definition and product inequality proof",
+          "method": "lawful freely available publisher PDF and page screenshot",
+          "title": "Vizing-like conjecture for the upper domination of Cartesian products of graphs—the proof",
+          "trigger": "upper domination of Cartesian products including rook products"
+        },
+        {
+          "assessment": "Addition/removal with cardinality budget, not maximum inclusion-minimal fixed-cardinality swaps",
+          "evidence": "Suzuki et al. 2014 introduction and model",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+          "material_read": "Intro, definitions and primary TAR state graph formulation in full primary PDF",
+          "method": "lawful arXiv PDF and screenshot",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "same word reconfiguration concept under domination"
+        },
+        {
+          "assessment": "Does not establish absence of any exchange result in unseen sections",
+          "evidence": "integer programming/benchmark focus",
+          "identifier_or_url": "https://doi.org/10.1007/s00186-023-00831-2",
+          "material_read": "Bibliographic metadata and described problem focus, not full paper",
+          "method": "public bibliographic metadata",
+          "title": "Binary programming formulations for the upper domination problem",
+          "trigger": "numerical rook upper-domination values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Upper domination number alone does not determine motion between its max minimal witnesses. Exact state graph, jumps=slides and an asymptotically 50% detour over unrestricted Hamming movement reveal nontrivial geometry of a natural unbounded graph family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed exact diameter theorem for non-surjective ternary word graphs may exist.",
+    "Finite BFS through n=7 is only supporting test for all-n proof."
+  ],
+  "schema_version": 1
+}

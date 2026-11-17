@@ -1,11 +1,21 @@
-# Scientific review of the three-row upper-domination mobility theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The row-or-column coverage criterion is exact; inclusion-minimality gives the upper \(n\)-set characterization for \(n\ge4\). Every legal optimum exchange stays in its column, yielding the non-surjective ternary Hamming subgraph. The vertex and edge enumeration are combinatorial identities. The proof of the sharp diameter uses explicit legal replacement paths in every alphabet-support case and a first-symbol-extinction lower bound. Independently implemented exhaustive checks give matching values through the stated finite ranges; they are not used as an infinite proof.
+## correctness
 
-**Originality: PASS, with historical limitations.** Brešar (2005) proves a product inequality for upper domination, not an optimum exchange graph theorem. Suzuki–Mouawad–Nishimura (2014) analyze addition/removal graphs on all small dominating sets, a different state and adjacency model. AbouEisha et al. (2016) focus on complexity classes. Burdett–Haythorpe–Newcombe (2023) describe upper domination programs and numerical rook cases, without the exact optimum graph or diameter. Mathematical-record searches for upper rook domination, word-model aliases, and diameter parameters returned no statement covering this theorem; the closest hits concern other domination variants and rook homology. Accessible earlier claims were compared by implication, not merely titles. This does not exclude unpublished or unindexed prior knowledge.
+PASS
 
-**Value: PASS.** Upper domination is a natural extremal property, but the numerical optimum alone says nothing about motion between distinct optima. The sharp \(n+\lfloor n/2\rfloor-1\) transport law, complete connectivity, equality of restrictive and unrestricted exchange models, and exact state and edge counts explain a nontrivial constrained configuration space. The diameter exceeds its ambient Hamming counterpart by about 50%, so the result is not just a renamed upper-domination calculation.
+Domination iff all rows or all columns hit; minimum-removal test classifies maximum cardinality n as exactly one token in each column while missing some row. Any legal one-token move stays within its column, proving jumps=slides and induced non-surjective ternary Hamming graph. Inclusion-exclusion gives 3*2^n-3, degree sum gives 3n(2^{n-1}+1). Reconstructed constructive upper paths for constant/single-shared support words and first-extinction lower witness a^n vs b^k c^{n-k} to prove n+k-1. Independent all-pairs BFS for n=4,5,6,7 verified vertex/edge counts and diameters 5,6,8,9; finite checks only corroborate proof.
 
-**Main residual risk:** an exact non-surjective ternary-word diameter or rook upper-domination exchange theorem may exist under an unindexed name. No result outside the specified family is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brešar 2005 provides general upper-domination product inequality, not optimum-space reconfiguration. Suzuki-Mouawad-Nishimura 2014 investigate adding/removing domination tokens with budget rather than fixed-size inclusion-minimal max-sets. Complexity and integer-programming sources also do not imply this exact ternary word-state graph and diameter. Searched alias non-surjective words and rook reconfiguration; no direct prior equivalence found.
+
+## value
+
+PASS
+
+Upper domination number alone does not determine motion between its max minimal witnesses. Exact state graph, jumps=slides and an asymptotically 50% detour over unrestricted Hamming movement reveal nontrivial geometry of a natural unbounded graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
