@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The two ordinary Python 3 verification programs are standalone, do not read remote resources, and have no nonstandard dependencies. They can be executed from any current directory using their relative or absolute paths.
+## correctness
 
-`verify_translation.py` implements exact integer polynomial arithmetic and verifies all equations describing the normalized conic, tangent incidence, other intersection point, and next tangent. It also checks translation-coset and reversal counts over quadratic extensions for \(p=3,5,7,11,13\). Successful completion prints `VERIFY_TRANSLATION_OK`.
+PASS
 
-`verify_flags.py` implements the ground-field and degree-two extension field operations independently, enumerates every pair of rational finite conic and tangent parameters, checks the tangent incidence equation, follows the actual two-step geometric correspondence, and distinguishes simple versus repeated-vertex cycles. For \(p=3,5,7,11\) and extension degrees one and two, the number of unoriented simple polygons is respectively \(0,1,0,2,0,3,0,5\). Successful completion prints `VERIFY_FLAGS_OK`.
+The proof normalizes the two smooth triple-contact conics over F_q using their Frobenius-fixed points to C:XZ-Y²=0 and D:XZ-Y²+YZ=0. The tangent incidence identity (s-t)²+t=0 is verified symbolically. Finite rational flags have t=-u², s=u-u² and the exact Poncelet map u→u−1; this yields q/p oriented cosets, precisely the single degenerate F_p coset, and a fixed-point-free reversal pairing on the remaining cosets. Therefore N=(q-p)/(2p) for all odd q=p^r. This rules out simple prime-field polygons without denying geometric closure. Independent exact F_{p²} coset counts for p=3,5,7,11,13 corroborated counts 1,2,3,5,6 and the integer incidence identity; the proof, not those tests, covers all r. Characteristic 2 and other contact types are outside scope.
 
-The proof of the theorem for all odd prime powers is symbolic and combinatorial, not inferred from these finite computations. Characteristic two, conic pairs of type \((4)\), and polygon counts using non-rational vertices or tangent points are outside the claim. No independent mathematical audit has occurred.
+## originality
+
+PASS
+
+The arithmetic classification of fully F_q-rational, simple Poncelet characteristic-p polygons for each (3,1)-contact conic pair is distinct from classical geometric p-periodicity over an algebraic closure. A full previously published osculating-conic-arrangement result supplies arithmetic moduli and symmetry but no finite-field flag-orbit polygon enumeration. Best-of-knowledge originality, with an explicit risk of a classical finite-geometric equivalent.
+
+## value
+
+PASS
+
+A natural arithmetic refinement of the characteristic-p Poncelet porism: exact finite-extension counts and a sharp prime-field nonexistence boundary despite universal geometric closure. It classifies every simple rational polygon in the fixed natural intersection type, not a finite example or an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
