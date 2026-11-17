@@ -1,11 +1,21 @@
-# Scientific review: fixed Fourier frequency deletions
+# Independent mathematical audit
 
-**Correctness — PASS.** The sharp operator norm of each convolution is the normalized \(L^1\) norm of its kernel. A reverse-triangle bound by \(|h|\) neutralizes the apparent singularity at zero, so Fourier averaging on compact complements yields the exact limit without an unjustified exchange of divergent integrals. Pairing opposite fast phases proves strict positive cost for any nonzero continuous perturbation. Direct trigonometric integration produces the central-deletion constant. The standalone numerical checker is corroboration, not the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** A 2020 preprint with verified primary MSC codes in harmonic analysis was inspected: it determines unpunctured multidimensional simplex-band asymptotics for dimension at least two, not a fixed hole in a symmetric one-dimensional interval. The directly relevant 2024 preprint on full Lebesgue constants was inspected through its mathematical sections and compared at the statement level. Its displayed \(D_n-1\) is inside a signed antiderivative, not inside an \(L^1\) norm; this distinction prevents the prior formulas from implying the claimed constant. The 2023 primary paper treats ordinary Dirichlet properties. Other nearby published finite-cyclic projection formulas address fixed short blocks or finite groups, rather than a growing symmetric interval with fixed holes. No matching explicit notch limit was identified. Prior publication under another name remains possible.
+PASS
 
-**Mathematical value — PASS.** A prescribed missing frequency is an intrinsic Fourier filter-design constraint. The result shows that it incurs a nonvanishing sharp endpoint cost in the large-bandwidth limit, with the zero-frequency notch quantified exactly; it is not simply the known common logarithmic growth of both norms.
+For complex continuous f on the normalized 2π circle, sharp convolution operator norm equals normalized L1 of the continuous kernel. The fixed perturbation gap is bounded pointwise by |h|, avoiding false singular domination at t=0. Uniform angular trigonometric approximation away from t=0 and the Riemann–Lebesgue lemma yield the phase-average limit, followed by ε→0. Paired phases u and u+π give nonnegative and strictly positive angular cost on each open set where h≠0; h_F is nonzero. Explicit angular splitting for h=1 reduces to (2/π)(t/2−tan(t/4)) on (0,π), integrating to 1/2−4 log2/π². Independent quadrature n=32,128,512 gave gaps 0.2036470,0.2151803,0.2180814 versus 0.2190780289, corroboration only.
 
-**Limitations.** The hole set must remain fixed. The proof does not yield a universal onset index, error rate, or fixed-hole classification beyond the positive integral constant. The background source is a prior analysis of full Lebesgue constants, not a publication claim for this theorem. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The principal theorem is the strictly positive finite asymptotic endpoint norm penalty for removing ANY fixed, finite nonempty set of frequencies, with a sharp central missing-mode constant. Complete primary mathematical sections inspected for unmodified Lebesgue constants and multi-dimensional simplex supports do not imply this fixed-hole difference; Resultary boundary-notch result uses a moving endpoint hole. Best-of-knowledge PASS, not proof of global priority.
+
+## value
+
+PASS
+
+A fixed spectral notch is a natural frequency-selective filtering constraint. The theorem quantifies a universal strictly positive endpoint instability cost despite identical leading logarithmic growth; the exact missing-mean penalty is useful for Fourier filter design and not a routine restatement of full Dirichlet norm asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
