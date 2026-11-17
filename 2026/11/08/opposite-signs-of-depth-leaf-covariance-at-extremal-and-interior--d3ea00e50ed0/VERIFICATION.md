@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library and no external data. It exhaustively reconstructs the binary search tree from each of the \(n!\) insertion orders for \(3\le n\le8\), then independently evaluates internal leaves and rank depths. Exact rational comparisons cover the conditional local-maxima lemma, the direct covariance, and the claimed closed formulas. For every key of every order \(3\le n\le120\), it also checks reconstruction from conditional minimum events and the predicted signs.
+## correctness
 
-The verified output from the packaged program is:
+PASS
 
-`VERIFY_OK 423989 exact assertions; exhaustive n<=8; all ranks n<=120`
+Read the complete assigned RESULT.md, including the Cartesian-tree representation of key leaves as local maxima, ancestor interval-minimum representation of depth, beta-conditional local maxima lemma with boundary corrections, telescoping rational formulas and sign argument. Independently enumerated all n! insertion permutations for each 3<=n<=7, built the actual BST, and checked Cov(D_ni,L_n) at every key: agreement with endpoints, second ranks, and interior G(i)+G(n+1-i) exactly. For t>=3 G(t)<0 and the second-rank cubic is positive for n>=4; limits follow from the rational formulas. Enumeration corroborates rather than replaces the full proof.
 
-The remaining infinite-order claim is established by the exact indicator decomposition, conditional integration, telescoping and sign arguments in `RESULT.md`; finite enumeration is not an infinite proof. The verifier does not establish independent peer validation, historical novelty, stronger probability bounds, or the corresponding result for nonuniform insertion orders.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the surviving full statement, not any already-known specialization. The exact interior law and strict sign separation are not entailed merely by the two endpoint formulas; the conditional interval-minimum calculation is substantive additional work.
+
+## value
+
+PASS
+
+A key-level global-local dependence law reveals that search depth correlates positively with total leaves only at the two extreme ranks and negatively at all interior ranks, with exact finite rational values and a bulk limit. This complete rank-resolved classification is useful for sensitivity of search cost to tree fringe structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
