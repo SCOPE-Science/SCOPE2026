@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A fully explicit 696-pair discrete-Morse matching on all 1,412 nonempty faces has an exhaustive 5,004-incidence acyclicity certificate and exactly one critical vertex and 19 critical two-cells. Forman's cellular reduction therefore proves the integral sphere wedge. A second Morse order, a separate matching-extension face enumeration and independent mod-two boundary ranks confirm distinct computational layers. The exact dihedral character follows from 24 orientation-signed Lefschetz sums, using the established homology concentration.
+## correctness
 
-**Originality — PASS against inspected sources.** The exact object has also been searched as the hexagonal antiprism, the square of a 12-cycle, the circulant graph of steps one and two, the extendable-matching/1-factor complex, and a perfect-matching-facet complex. Bayer–Jelić Milutinović–Vega [1] cover honeycomb graph families, and Chandrakar–Singh [2] cover open polygonal line tilings. Those classifications do not specialize to the present cyclic four-regular graph. Indexed nearby matching-complex and hexagonal-prism results address different objects and provide no implication of this classification or character. Negative search results do not establish global priority, and possible unindexed equivalents remain a risk.
+PASS
 
-**Value — PASS.** The hexagonal antiprism is a canonical dihedrally symmetric polyhedral graph, and the exact contrast between a pure five-dimensional extendability complex and its 19 two-sphere homotopy type is a meaningful structural example in the perfect-matching literature. Its complete rational symmetry character and 120 minimal extendability obstructions give testable structure beyond facet counts or an Euler characteristic, without asserting a broader classification.
+From the actual 24-edge C12^2 graph, independently enumerated all 36 perfect matchings and exactly 1,412 nonempty extendible faces (f=(24,180,476,480,216,36)). Reconstructed the 696-pair sequential acyclic face matching and topologically sorted all 5,004 oriented Hasse covers, leaving one 0-cell and nineteen 2-cells; Forman implies integral wedge of 19 S^2 with no 1-cell attachments. Independently computed oriented-face Lefschetz traces for all 24 dihedral elements: rotations (19,-1,1,-1,1,-1,-5,-1,1,-1,1,-1), reflections alternating 1,-3; averaging gives fixed ranks 0 for full group and 1 for rotations. Non-shellability follows from pure dimension five with nonzero reduced H2. Checked actual RESULT.md and verify.py Git blobs; no extrapolation to other antiprisms.
 
-**Limitations.** The statement is for the specified twelve-vertex graph, not arbitrary antiprisms. Rational symmetry does not assert an integral equivariant splitting or a genuine equivariant wedge equivalence. Bibliographic completeness cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature
-[1] Bayer–Jelić Milutinović–Vega, *Perfect Matching Complexes of Honeycomb Graphs*, arXiv:2209.02803v1; main constructions and honeycomb classifications inspected.
-[2] Chandrakar–Singh, *Perfect Matching Complexes of Polygonal Line Tilings*, arXiv:2407.05809v1; introduction, definitions and polygonal line classifications inspected.
+Best-of-knowledge noncovered exact finite graph and *perfect-matching extendibility* complex, including a full rational dihedral character, not an ordinary matching complex or honeycomb strip. Earlier sources compared by object, simplex predicate and theorem implication; no stronger indexed theorem for this C12^2 complex identified.
+
+## value
+
+PASS
+
+The extendibility restriction turns a natural canonical 4-regular antiprism graph into a pure five-dimensional complex with lower-degree wedge homotopy, and exact dihedral action is a distinct representation invariant. The finite object is geometrically natural and the homotopy/character are nontrivial exact invariants not deduced from standard cycle matching-complex formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

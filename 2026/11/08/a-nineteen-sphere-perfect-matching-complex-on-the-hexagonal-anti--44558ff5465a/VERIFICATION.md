@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory. It reconstructs the 12-vertex, 24-edge graph; enumerates all perfect matchings by least-uncovered-vertex recursion; enumerates the resulting complex a second way by testing every matching for extendibility; and checks all complex faces. It builds two complete acyclic discrete-Morse matchings with opposite element orders and tests all 5,004 incidences by full topological sorting. The first gives 696 pairs and the critical cells \((1,0,19,0,0,0)\) in dimensions zero to five; by the discrete-Morse theorem this proves the integral wedge of nineteen two-spheres.
+## correctness
 
-A separate full mod-two boundary calculation gives ranks \((23,157,300,180,36)\); this is an independent finite homology cross-check, not a substitute for the integral homotopy proof. Signed fixed-face Lefschetz sums calculate the natural dihedral character on every group element; the calculation uses the already-proved concentration of rational homology in degree two. The output of the exact replay is in `verify_output.txt`.
+PASS
 
-Limits: finite proof for this specific graph only. No integral equivariant splitting or family classification is proved. External independent audit was not performed.
+From the actual 24-edge C12^2 graph, independently enumerated all 36 perfect matchings and exactly 1,412 nonempty extendible faces (f=(24,180,476,480,216,36)). Reconstructed the 696-pair sequential acyclic face matching and topologically sorted all 5,004 oriented Hasse covers, leaving one 0-cell and nineteen 2-cells; Forman implies integral wedge of 19 S^2 with no 1-cell attachments. Independently computed oriented-face Lefschetz traces for all 24 dihedral elements: rotations (19,-1,1,-1,1,-1,-5,-1,1,-1,1,-1), reflections alternating 1,-3; averaging gives fixed ranks 0 for full group and 1 for rotations. Non-shellability follows from pure dimension five with nonzero reduced H2. Checked actual RESULT.md and verify.py Git blobs; no extrapolation to other antiprisms.
+
+## originality
+
+PASS
+
+Best-of-knowledge noncovered exact finite graph and *perfect-matching extendibility* complex, including a full rational dihedral character, not an ordinary matching complex or honeycomb strip. Earlier sources compared by object, simplex predicate and theorem implication; no stronger indexed theorem for this C12^2 complex identified.
+
+## value
+
+PASS
+
+The extendibility restriction turns a natural canonical 4-regular antiprism graph into a pure five-dimensional complex with lower-degree wedge homotopy, and exact dihedral action is a distinct representation invariant. The finite object is geometrically natural and the homotopy/character are nontrivial exact invariants not deduced from standard cycle matching-complex formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
