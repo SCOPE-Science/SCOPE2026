@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Finite computations and proof boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` with standard-library Python 3. It directly tests all linear maps on the three-dimensional Heisenberg Lie algebra over F2 and F3, enumerates induced 4-by-4 maps and central data for the five-dimensional Heisenberg Lie algebra over F2, checks matrix idempotence and all basic Lie brackets, and reports counts by linear-algebra rank. It compares complete predicted exact rank polynomials against the direct counts. An independent centered-weight calculation compares the finite q=2 rank distribution to the limiting discrete Gaussian at m=10, 20, and 40.
+## correctness
 
-Observed output:
-```
-DIRECT_H3_OK 2 {0: 1, 1: 12, 3: 1}
-DIRECT_H3_OK 3 {0: 1, 1: 36, 3: 1}
-DIRECT_H5_BINARY_OK {0: 1, 1: 240, 2: 960, 5: 1}
-DISCRETE_GAUSSIAN_OK 10 L1_error 0.0290225741
-DISCRETE_GAUSSIAN_OK 20 L1_error 0.0018382579
-DISCRETE_GAUSSIAN_OK 40 L1_error 7.1875e-06
-VERIFY_OK
-```
+PASS
 
-This verifies small finite cases and numerical convergence only. It does not prove any infinite limit, validate all prime-power extensions by brute force, or certify originality. The proof in RESULT.md supplies the classification, finite-field counting, and dominated-convergence argument for the infinite statements.
+Every idempotent Lie endomorphism has central scalar c=0 or1; c=1 gives identity, c=0 gives isotropic projection and central functional. Count isotropic frames, complements, functionals to obtain b_{m,r}. Independent exact arithmetic checks m<=6 q=2,3 centered weight identity with exponent (8mr-5r²+3r)/2. Complete square and uniform Euler-product bounds give fixed-q discrete Gaussian, total-variation convergence, and maximal-rank tail; finite checks only corroborate the asymptotic proof.
+
+## originality
+
+PASS
+
+Earlier Heisenberg retracts enumerator and degree function cover exact finite counts and q->infinity at fixed dimension. They do NOT imply a stated fixed q, m->infinity TV discrete Gaussian with residue shifts and rare tail without additional asymptotic analysis; no exact coverage located in inspected full math.
+
+## value
+
+PASS
+
+The fixed-field high-dimensional rank fluctuations and rare maximal-image law of natural finite Heisenberg Lie retractions provide nontrivial intrinsic asymptotic invariants beyond already known finite-rank counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
