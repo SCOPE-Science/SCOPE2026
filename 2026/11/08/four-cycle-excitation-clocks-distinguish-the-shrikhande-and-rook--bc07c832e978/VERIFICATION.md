@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and observed evidence
+# Independent mathematical audit
 
-The object is a *finite* state space, not a sampled infinite family. Each graph has 16 vertices and every configuration has a unique code in \([0,3^{16}-1]\); the local update is specified completely in `RESULT.md`. `exhaustive_graphs.cpp` enumerates all 43,046,721 successors, eliminates trees feeding directed cycles, measures primitive cycle lengths, and propagates the entry and eventual-period classes. `independent_orbits.cpp` computes the same map using separately constructed masks and follows paths from every unclassified state. Full class tables agree exactly on both graphs. `cycle_reps.cpp` independently lists all 98 or six distinct primitive four-cycle representatives. `analyze_symmetries.py` constructs, verifies and applies all graph automorphisms, whose sizes match the proven upper bounds. `check_graph_invariants.py` verifies the exact strongly regular identity and the excitation-profile counts independently.
+## correctness
 
-Running `python3 verify.py` with a C++17 compiler reconstructs all embedded data. In the recorded replay, the checker printed `VERIFICATION_OK` after confirming each complete class distribution, all 40 CSV records, both automorphism partitions, every expected cycle and entry bound, and `GRAPH_INVARIANTS_OK`. Captured values appear in `verification_output.txt`; source-level assertions check array ranges, every state's eventual classification, and automorphism preservation of adjacency. `rook_A.txt`, `shri_A.txt`, `rook_B.txt`, `shri_B.txt`, the `*_reps.txt` files and `*_symmetry.txt` files contain actual calculation outputs.
+PASS
 
-These checks supply a reproducible exhaustive finite proof, not a statement of independent formal certification. The claim does not assert any property for other graph orders or alphabets. Independent audit has not been performed.
+The Greenberg-Hastings synchronous 3-state threshold-one successor map is explicitly defined for all 3^16 labeled configurations on the 4x4 rook and Shrikhande graphs. Their common SRG adjacency spectrum does not constrain the nonlinear functional-graph census. Reimplemented the entire state traversal independently in C++ from the adjacency difference sets (43,046,721 states per graph), obtained for rook primitive cycles: 1 fixed, 3,987,936 period-3, 98 period-4, periodic states 11,964,201, Tmax=8 with 54,144 maximal-delay states, 19 nonempty (T,P) classes; for Shrikhande: 1 fixed, 4,109,384 period-3, 6 period-4, periodic 12,328,177, Tmax=9 with 96 maximal-delay states, 21 classes. Independently checked complete class CSV and all counts, not sampling. Independently constructed all 1152 rook and 192 Shrikhande automorphisms and their actions on every primitive four-cycle: rook orbits 32,48,18 and Shrikhande orbit 6, stabilizers 36,24,64 and 32; checked distinct firing profiles. Since primitive 4-cycle counts differ, conjugacy of these *finite dynamical maps* is impossible. This exhaustive finite verification proves only these two graphs, not an infinite family.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality follows from statement-level and implication-level comparisons; no identified complete earlier theorem covers the stated surviving exact result. See structured checks, inspected source material and risks.
+
+## value
+
+PASS
+
+The Shrikhande/rook pair is the canonical nonisomorphic cospectral strongly-regular comparison. An exact full nonlinear excitation-clock and symmetry census sharply separates their dynamics even though all ordinary adjacency spectral data agree. Complete finite classifications of natural graph dynamical systems can be useful independent of a general graph-family theorem; all 3^16 initial states and the automorphism orbits are certified, not arbitrary slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
