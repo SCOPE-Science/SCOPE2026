@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact-rational verification
+# Independent mathematical audit
 
-Run `python verify.py` in the same directory. It builds the five-site hypergraph specified in the finding and computes exact \(30\)-transient-state fixation probabilities by the full bit-mask chain. As a separate cross-check, it lumps the two interchangeable leaves into \(22\) transient equivalence classes, constructs that chain from canonical configurations, and exactly compares the single-mutant vectors for \(r=1\), \(r=3/2\), and \(r=2\).
+## correctness
 
-All listed rational fixation probabilities and signs are asserted and substitution-checked. The neutral derivative is computed by differentiating the unreduced transition probabilities and solving the resulting derivative system. The check asserts \(\rho_H'(1)=2036/4965\), \(\rho_M'(1)=2/5\), and positive difference \(10/993\). The uniqueness of the transient solution follows from connectedness and almost-sure absorption, independently of the computation.
+PASS
 
-Checks do **not** establish the number of positive-fitness crossover roots, a root's exact location, or results for other hypergraphs. These are not claimed. No independent external validation has been performed.
+Explicit 30-transient-state Markov backward system matches defined parent-weight / incident-hyperedge full copying. Neutral harmonic weights 1/d_v yield singleton 1/15,2/15,4/15,4/15,4/15. The exact rational solutions at r=3/2 and 2 and derivative system A(1)f’=b’−A’f reproduce slope gap 10/993 and opposite benchmark gaps; finite absorbing chain is nonsingular since all mixed states reach all-mutant state with positive probability. An independent small exact Fraction chain was constructed and evaluated at those parameters, not merely trusting saved logs. Analytic continuity proves a crossing but neither uniqueness nor all-r sign.
+
+## originality
+
+PASS
+
+The exact mixed-size five-site simultaneous group-copying crossover is not covered by known regular uniform-hypergraph strict suppression or ordinary dyadic graph regime transitions. Full primary-model paper Liu–Masuda treats other hypergraph families; the explicit unequal-incidence five-site rational identities appear new on searched evidence.
+
+## value
+
+PASS
+
+An explicit minimal-scale mixed-size group-interaction population exhibits a fitness-dependent amplifier/suppressor reversal that ordinary graph updating cannot model. The exact weak-selection and strong-selection rational inequalities are independently useful witnesses; no unproven global minimality is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
