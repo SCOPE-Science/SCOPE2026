@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact induced-rotation conjugacy is checked branch by branch, including the nontrivial two-step middle branch. Coprimality gives base period \(p+q\); a \(1/q\)-spaced cycle visits the circular hole either \(k\) or \(k+1\) times. The proof accounts for the number of retained points before integrating each height band. The resulting two-sided interior weights and endpoint half-weights sum to one using the actual trapezium area. The irrational statement follows by standard induced irrational-rotation theory. Finite exact computation is corroboration only, not an infinite proof.
+## correctness
 
-## Originality — PASS within inspected sources
-The closest paper, Cockram--Ashwin--Rodrigues, Theorem 3.1 and Eq. (3.7), establishes the invariant trapezium and the IET interpolation. The geometry and generic rotational periodicity are therefore credited. The new claim is the exact two-dimensional area distribution per prime period and its invariance under cone-angle changes. General IET-period papers may recover the set of possible periods but do not in the inspected statements provide these planar weights. published-finding corpus exact/alias queries produced no statement covering them. The full 2025 general-period text was not retrieved, leaving a concrete publication-priority uncertainty.
+PASS
 
-## Value — PASS
-An invariant positive-area component of a piecewise isometry admits an explicit statistical period spectrum, not just a list of periods. The formula quantifies coexistence across \(p+1\) prime periods and the exact 2D areas, and identifies a structural universality in the angular geometry. The weighting by orbit length differs from naive phase counting, giving a relevant methodological distinction.
+At height y, direct three branch formulas identify the horizontal transformation as first return to J_y of circle rotation by λ on length 1+λ; the deleted circular interval has length c=λ y/y*. For λ=p/q, the primitive rotation period N=p+q forms N equispaced points of gap 1/q. In a deletion of length (k+θ)/q the grid loses k or k+1 points with phase fractions 1-θ,θ, giving return periods N-k,N-k-1. Lebesgue sampling of starting points requires size weighting by retained orbit size, so horizontal lengths are (1-θ)(N-k)/q and θ(N-k-1)/q. Uniform c scaling with y integrates each height band to weights 1/2 at endpoints, 1 in middle; total area y*(2q+p)/(2q) yields exact formula, with y* canceling all angles. Irrational rigid rotation and its induced interval exchange prove minimal/unique ergodic on each slice. Independent rational algebra checks p/q=1/2,2/5,3/7,4/9,5/11, including 2/5 fractions 7/24,1/2,5/24. These examples are not the all-p,q proof.
 
-## Boundaries and provenance
-No claims are made about nonzero cone rotations, higher-dimensional exchange, or the full upper-half-plane system. The source's initial public posting is 2023-12-29, while the three-cone details were inspected in a later readable revision. The precise novelty claim is restricted to literature materially checked; independent mathematical evaluation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Cockram–Ashwin–Rodrigues 2023 paper (full relevant updated §3 inspected) supplies the invariant interpolation trapezium, exact 3-IET, and boundary map. Those are premises, not new results. General induced-circle-rotation theory explains periodicity, but the normalized planar law must weight each grid phase by retained number of points and integrate over heights; the primary source and Resultary searches did not show these explicit area proportions or angle independence. Unread broader IET period literature remains priority risk.
+
+## value
+
+PASS
+
+The full natural-area least-period distribution is a genuine dynamical invariant of the invariant trapping polygon, not merely a small sample orbit census. Its exact angles-independence and universal p/q weighting give a reusable physical-space statistic beyond standard rational circle-return qualitative periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
