@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed nine-degree Cartier divisor factors into all 27 lines. Complete finite-field enumeration establishes the exact 45 triple-point geometry and Frobenius branch permutation, and an independent integral lattice computation gives an index-one image of divisor orbit sums in the invariant Picard group. Standard divisor exact sequences then prove the unit and Picard assertions integrally. The localization cohomology sequence and its Frobenius actions prove the stated eigenvalues and all-extension zeta function; no finite sampling is used as a substitute for the infinite-domain arguments. Both scripts were executed successfully and their outputs reproduced.
+## correctness
 
-**Originality — PASS, with substantial priority qualifications.** The 27-line equations, the 45 Eckardt points, the general cubic Picard lattice and the fact that the line complement has no points over the small fields are classical, and are excluded from the priority claim. In particular, Hirschfeld (1981) explicitly studies the latter issue. The claim reviewed as potentially original is the *integral arithmetic Picard/unit classification and complete Frobenius compact-support representation* on this fixed binary open surface. Neither the accessible primary texts of Debarre (2015) and Dolgachev--Duncan (2017), nor the finite-field bounds of Homma--Kim (2014), state that complete package. Sturmfels--Telen (2026) study the same type of open surface from positive geometry, so its uninspected full text is a meaningful residual priority risk. Database and title searches cannot establish uniqueness. The finding makes no claim to independent literature certification.
+PASS
 
-**Value — PASS.** The complement of all exceptional curves is a natural open algebraic surface, not an arbitrary finite configuration. The integral Picard-group vanishing (including index-one descent), extension-dependent units, and mixed-weight Frobenius spectrum determine structural arithmetic and cohomological invariants not recoverable merely from the known small-field point-free observation. The calculation also gives a direct test case for Galois descent of the divisor lattice on a non-split cubic surface. No general theorem for other cubic surfaces is asserted.
+On the smooth characteristic-two Hermitian cubic the degree-nine section factors into all 27 lines. Independent F4 enumeration verifies 45 points/45 ordinary triple intersections, 27 five-point lines, 7 fixed points/3 lines/9 branches, so connected boundary graph b1=64 and Frobenius H1 trace 0. The 27 exceptional classes span the geometric Picard rank 7; a rank-four orbit-sum minor of determinant 1 saturates the Frobenius invariants. This integral input plus finite-field Brauer vanishing/divisor exact sequence yields Pic(U)=0 and unit rank 11 (odd extension) or 20 (even); étale localization gives Hc^2 signs +1/-1 each 32, Hc^3 +2 x11/-2 x9, Hc^4 4, and all-extension Q(Q-2)/(Q-4)(Q-16) counts. Standard localization/cohomological vanishing is used as an algebraic theorem, not inferred from finite data.
 
-**Known limitations.** The complete 1981 Hirschfeld chapter and 2026 Sturmfels--Telen paper were unavailable for full inspection, so priority remains provisional. General statements are proved via the geometric and lattice arguments; the enumerations test only the stated finite fields. No integral-\(\ell\) Frobenius splitting is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 27 lines, 45 Eckardt points and point-free fields are classical; an October 2026 prior record already establishes the invariant rank-four arithmetic Picard lattice and integral line-trace basis. The surviving precise arithmetic open-complement unit lattice and explicit compactly supported Frobenius module were not supplied by the materially inspected antecedents. This is best-of-knowledge priority, not a claim that the natural exact-sequence derivation has never been noted.
+
+## value
+
+PASS
+
+The complete arithmetic Picard/unit structure and Frobenius cohomology of a natural open Hermitian cubic are exact global invariants useful for arithmetic geometry; the calculation determines both integral and rational data rather than just recomputing known point-free examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
