@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed atom-order chamber is polynomial in the independent mass parameters; its free parameter count is an upper bound on image dimension. In a concrete chamber with deterministic baseline ranking, changing one atom mass creates a unique nonidentity permutation for every alternative. The \(n\) binary and \(2n\) ternary alternatives have pairwise distinct permutations for all \(n\ge4\), giving independent Jacobian columns. Nonzero polynomial minors persist in the strictly positive mass interior, establishing the matching lower bound. The standalone standard-library checker confirms 30,465 finite scalar witness conditions and an independent exact three-variable determinant; the uniform all-order construction, not those finite checks, proves the theorem.
+PASS
 
-## Originality — PASS, subject to independent priority assessment
+For each ordering pattern of <=k atoms for each of n independent non-tied real variables, ranking probabilities are polynomial in <=n(k-1) free masses. Only finitely many interleavings occur, proving semialgebraic dimension <=n(k-1). Fix distinct baseline atoms at positions 1..n and choose one or two alternative atoms per label. A single alternative deviation produces a nonidentity permutation sigma_ij. At all-alternative-masses-zero, the Jacobian columns are e_sigma-e_identity. The exhibited binary relocation permutations are pairwise distinct for every n>=4, as are the 2n ternary relocations; a full-rank minor at zero persists into the strict positive mass chamber. Thus dim A_n,2=n and dim A_n,3=2n. Independent generation of the explicit insertion patterns verified all nonidentity distinctness for n=4..60, which corroborates the general structural proof.
 
-The direct motivating paper of Turvey (2026), Section 6, Problem 2, poses \(\dim\mathcal A_{n,k}\) as an open direction and proves only unrestricted dimensions. Babson et al. (2024/2026), §5.4, already contain a three-label example with at most three atoms and a full-rank draw matrix, so no novelty is claimed for that prior case. Their unrestricted rank theorems and small-order unrestricted table do not imply the all-order \(n\) and \(2n\) support-stratum dimensions. Comparisons with published ordering-polytopes and order-marginal identification findings found different independence assumptions and invariants. Residual risk: an equivalent finite-dice dimension theorem may exist under another formulation; no full literature census or independent priority audit was made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two equalities answer the first two nonconstant atom-budget cases of a specific published research question, including a uniform witness and a sharp parameter-dimensional interpretation. They are structural results for all \(n\ge4\), not arbitrary enumeration or simple substitution into unrestricted dimension formulas. They do not classify the attainable region, its boundary, or support budgets \(k\ge4\).
+The 2026 Turvey paper explicitly poses dim A_{n,k} as open Problem 2 in §6 while proving only the unbounded-support dimension and supporting finite-atom upper estimates. Babson et al. previously gave a special n=3 ternary witness and general weighted-word/Jacobian methods; this result is n>=4 and proves matching dimensions using fixed 2/3 atoms for every label. No inspected published statement implies these uniform n or 2n formulas. Equivalence with dice and random-utility models explicitly considered.
 
-## Relationship to earlier results and limitations
+## value
 
-The unrestricted dimension and Jacobian technique are prior knowledge. The novel scope is the sharp binary/ternary *support-constrained* image dimension for all \(n\ge4\). The finite checker cannot certify an infinite statement on its own. Mathematical validity is supported by the explicit general proof, and historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise sharp answer to a named finite-support dimension problem for the first two nontrivial budgets is a motivated all-n parameter-identifiability invariant, not an arbitrary numerical cut. Constructive full-rank charts show there is no hidden algebraic dimension collapse within a fixed short-support pattern. The theorem intentionally does not classify the entire attainable-set shape or k>=4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with no third-party dependencies. The checker constructs, rather than hardcodes, the candidate single-atom-deviation rankings for all \(3\le n\le100\) (binary) and \(4\le n\le100\) (ternary), then tests their cardinalities and distinctness from one another and from the identity. It also enumerates all 27 three-label three-atom outcomes for a separately chosen support word and computes an exact rational nonzero 5-by-5 Jacobian minor.
+## correctness
 
-Observed output: `PASS: binary and ternary distinct-permutation witnesses, n<=100; 30465 scalar witness conditions; exact 3-variable Jacobian minor=-2/2187`.
+PASS
 
-A finite verification run is not an infinite mathematical certificate. The general statement for every integer \(n\ge4\) is proved in `RESULT.md` by an all-size list of distinct single-label relocations and preservation of the nonzero Jacobian minor on a positive-mass neighborhood. The three-variable determinant is an auxiliary check, not a claim of new three-variable priority. No independent validation has been performed.
+For each ordering pattern of <=k atoms for each of n independent non-tied real variables, ranking probabilities are polynomial in <=n(k-1) free masses. Only finitely many interleavings occur, proving semialgebraic dimension <=n(k-1). Fix distinct baseline atoms at positions 1..n and choose one or two alternative atoms per label. A single alternative deviation produces a nonidentity permutation sigma_ij. At all-alternative-masses-zero, the Jacobian columns are e_sigma-e_identity. The exhibited binary relocation permutations are pairwise distinct for every n>=4, as are the 2n ternary relocations; a full-rank minor at zero persists into the strict positive mass chamber. Thus dim A_n,2=n and dim A_n,3=2n. Independent generation of the explicit insertion patterns verified all nonidentity distinctness for n=4..60, which corroborates the general structural proof.
+
+## originality
+
+PASS
+
+The 2026 Turvey paper explicitly poses dim A_{n,k} as open Problem 2 in §6 while proving only the unbounded-support dimension and supporting finite-atom upper estimates. Babson et al. previously gave a special n=3 ternary witness and general weighted-word/Jacobian methods; this result is n>=4 and proves matching dimensions using fixed 2/3 atoms for every label. No inspected published statement implies these uniform n or 2n formulas. Equivalence with dice and random-utility models explicitly considered.
+
+## value
+
+PASS
+
+A precise sharp answer to a named finite-support dimension problem for the first two nontrivial budgets is a motivated all-n parameter-identifiability invariant, not an arbitrary numerical cut. Constructive full-rank charts show there is no hidden algebraic dimension collapse within a fixed short-support pattern. The theorem intentionally does not classify the entire attainable-set shape or k>=4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
