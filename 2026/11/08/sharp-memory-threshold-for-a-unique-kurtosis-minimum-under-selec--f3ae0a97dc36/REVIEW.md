@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The stationary moment hierarchy follows from the polynomial jump generator with the probe-only reset term. Its full degree-two and degree-four systems produce the explicit positive-denominator rational kurtosis. The eight-coefficient certificate for a degree-seven rate derivative and exact root signs produce exactly one positive critical point below the unique quartic threshold and none above it. The separate all-positive bath-derivative certificate proves strict memory monotonicity. Implicit-function arguments prove the optimizer expansions. The included exact symbolic program recomputes the critical identities and checks forty independent rational-parameter moment systems. The Gaussian affine-chain contraction supports existence and moment finiteness; zero resetting is excluded.
+## correctness
 
-**Originality (PASS, qualified).** Santra and Das, arXiv:2603.17027, derive the underlying probe-only model and a closed fourth-moment/kurtosis formula, and plot qualitative regimes. Model, moments, kurtosis and endpoint observations are acknowledged as prior work. The specific global one-minimum/no-minimum theorem, unique quartic critical bath parameter, strict memory-injectivity theorem and optimizer boundary asymptotics were not found in the inspected sections or targeted indexed searches. A mathematically implicit consequence of a known closed formula is a substantive exact extremum classification here because the sign polynomial and its parameter-ordered root structure require proof, rather than mere substitution. Closely related existing full-formula work creates residual priority risk. The 2024 arXiv:2412.09260 convention resets the memory state as well, so its renewal identities do not directly subsume this selective-reset model.
+PASS
 
-**Value (PASS).** The mean-square probe fluctuation decreases at every resetting frequency, yet the distribution's shape parameter can reverse its frequency trend at exactly one optimum only when bath memory is sufficiently short. The sharp material-parameter threshold and both rate-scaling laws give a falsifiable criterion for when tuning reset frequency suppresses non-Gaussian shape rather than merely reducing variance. The monotone bath-response result provides a single stationary shape-based memory diagnostic at fixed rate. This is a nontrivial design/identifiability classification for a specific experimentally motivated stochastic-resetting system, not an arbitrary numerical slice or a generic rewriting of fourth-moment algebra.
+Generator for monomial x^i q^j includes reset term -r 1_{i>0} M_ij, X-Q drift, and independent noises. Positive-parameter quadratic and quartic systems yield M20=2U/(rV), M40=24WH/(r² VJ), κ=6WVH/(U²J)-3; denominators positive for g,r>0. Exact rate derivative has 7th-degree numerator with three parameter-dependent sign roots strictly ordered (p2 root 0.1–0.2, p1 0.4–0.5, p0 0.7–0.75), implying by Descartes exactly one positive minimum for 0<g<g_c and no stationary rate for g≥g_c. The all-positive bath-derivative polynomial ensures strict decrease of κ in g; simple-root implicit expansion yields r*(g)~1/g-5/6 and positive linear extinction at g_c. Contractive reset-time affine recursion justifies unique steady state and moments. Independent SymPy recomputation confirmed p0=6(g+1)²(2g+1)(22g⁴+25g³-15g-6), g_c=0.7459581983862532 and positive-root sign changes at g=0.1,0.5 versus g=0.8,2.
 
-**Scientific limitations.** Infinite-dimensional or non-Gaussian baths, noninstantaneous returns, and physical implementation costs are not addressed. Independent audit and publication-priority certification have not been performed. A published journal version was indexed and its principal sections compared, but uninterrupted direct full-text inspection was limited; the full lawful arXiv HTML was used for the source's method, kurtosis appendix and conclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp rate/parameter classification, beyond the underlying exact stationary kurtosis formula in Santra–Das (2026). The original same-model paper includes the selective reset, moments, limiting regimes and parameter-plane plots but no global one-critical-point/no-critical-point theorem, unique quartic threshold, strict bath-injectivity proof or optimizer asymptotics in inspected sections. Deriving them from known κ requires a nontrivial uniform seventh-degree polynomial sign ordering; not a mere change of variables. A missed implication elsewhere remains possible.
+
+## value
+
+PASS
+
+A sharp parameter bifurcation separates unique finite optimal reset cadence from monotone κ-response, despite variance decreasing with rate throughout. The explicit quartic threshold and two endpoint scaling laws are natural, experimentally interpretable consequences of memory retained by a viscoelastic bath, not an arbitrary small-parameter optimization. Strict monotonicity in bath parameter gives a stationary-shape identifiability criterion within this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

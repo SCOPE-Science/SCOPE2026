@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:57:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-memory-threshold-for-a-unique-kurtosis-minimum-under-selec--f3ae0a97dc36/RESULT.md",
+        "verify.py blob 8c577a9f088585c1bda04da83222a3d90515c1fb",
+        "Independent symbolic derivative and quartic-root checks"
+      ],
+      "rationale": "Generator for monomial x^i q^j includes reset term -r 1_{i>0} M_ij, X-Q drift, and independent noises. Positive-parameter quadratic and quartic systems yield M20=2U/(rV), M40=24WH/(r² VJ), κ=6WVH/(U²J)-3; denominators positive for g,r>0. Exact rate derivative has 7th-degree numerator with three parameter-dependent sign roots strictly ordered (p2 root 0.1–0.2, p1 0.4–0.5, p0 0.7–0.75), implying by Descartes exactly one positive minimum for 0<g<g_c and no stationary rate for g≥g_c. The all-positive bath-derivative polynomial ensures strict decrease of κ in g; simple-root implicit expansion yields r*(g)~1/g-5/6 and positive linear extinction at g_c. Contractive reset-time affine recursion justifies unique steady state and moments. Independent SymPy recomputation confirmed p0=6(g+1)²(2g+1)(22g⁴+25g³-15g-6), g_c=0.7459581983862532 and positive-root sign changes at g=0.1,0.5 versus g=0.8,2.",
+      "residual_risks": [
+        "Full published seventh-degree coefficient identity was inspected and its constant term independently tested; no claim of formal mechanized proof. The result excludes r=0, where no stationary law exists."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1088/1367-2630/ae868c",
+          "https://arxiv.org/abs/2412.09260"
+        ],
+        "reasoning": "The 2026 original paper treats instantaneous and finite-return regimes, broader in protocol but does not provide this sharp positive-r critical-point theorem in inspected sections. The 2024 resetting model has memory renewal, a different generator; its moment identities cannot be substituted for probe-only resetting.",
+        "searches": [
+          "viscoelastic resetting nonrenewal memory retained rate optimize kurtosis stationary",
+          "arxiv:2412.09260 renewal viscoelastic resetting"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1088/1367-2630/ae868c",
+        "https://arxiv.org/abs/2603.17027",
+        "https://arxiv.org/abs/2412.09260",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-memory-threshold-for-a-unique-kurtosis-minimum-under-selec--f3ae0a97dc36/RESULT.md",
+        "Resultary semantic query: selectively reset viscoelastic kurtosis positive g critical 0.745958 derivative"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://doi.org/10.1088/1367-2630/ae868c",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-memory-threshold-for-a-unique-kurtosis-minimum-under-selec--f3ae0a97dc36/RESULT.md"
+        ],
+        "reasoning": "Given the prior rational κ, differentiating in r requires nontrivial factoring into coefficient polynomials; root order and Descartes then imply a global bifurcation, while differentiating in g gives a separate all-positive polynomial. The prior formula permits derivation but does not itself explicitly or mechanically establish these sharp all-rate claims.",
+        "searches": [
+          "Santra Das 2026 instantaneous resetting stationary excess kurtosis Appendix B and conclusion",
+          "Resultary sharp memory threshold kurtosis stationary g_c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-memory-threshold-for-a-unique-kurtosis-minimum-under-selec--f3ae0a97dc36/RESULT.md",
+          "https://doi.org/10.1088/1367-2630/ae868c"
+        ],
+        "reasoning": "Both use the same two-coordinate linear Brownian probe and probe-only Poisson reset. Published κ formula and limits are prior; submitted theorem gives a uniform number-of-critical-points classification in positive rate, not just an equivalent restatement.",
+        "searches": [
+          "Resultary: selective Brownian resetting viscoelastic bath kurtosis threshold minimum",
+          "published Santra Das exact κ stationary probe-only bath retained"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://doi.org/10.1088/1367-2630/ae868c",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-memory-threshold-for-a-unique-kurtosis-minimum-under-selec--f3ae0a97dc36/RESULT.md"
+        ],
+        "reasoning": "Prior paper gives exact formula and plotted κ across parameters, not an enumerated exact critical quartic boundary or optimizer asymptotic table. Full source polynomial derivative certificate is checked; a plot alone does not prove uniqueness.",
+        "searches": [
+          "Resultary: root 22g^4+25g^3-15g-6 kurtosis",
+          "Santra Das 2026 Appendix B kurtosis graph parameter plane"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp rate/parameter classification, beyond the underlying exact stationary kurtosis formula in Santra–Das (2026). The original same-model paper includes the selective reset, moments, limiting regimes and parameter-plane plots but no global one-critical-point/no-critical-point theorem, unique quartic threshold, strict bath-injectivity proof or optimizer asymptotics in inspected sections. Deriving them from known κ requires a nontrivial uniform seventh-degree polynomial sign ordering; not a mere change of variables. A missed implication elsewhere remains possible.",
+      "residual_risks": [
+        "The underlying exact stationary kurtosis was published before this theorem; an overlooked algebraic optimization elsewhere could imply the same sharp threshold.",
+        "The arXiv PDF and 2024 memory-renewal full text were inaccessible in this session; primary open-access journal text was read instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying moments and κ are prior; the global one-minimum quartic threshold not found in inspected statements",
+          "evidence": [
+            "https://doi.org/10.1088/1367-2630/ae868c"
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/ae868c",
+          "material_read": "Open-access published HTML: model, Section 3 instantaneous resetting, discussion of κ and figure A1, Appendix B heading/kurtosis description, Section 5 conclusion, publication metadata July 28 2026",
+          "method": "Web primary full-text HTML with article sections",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Same stochastic equations, resetting convention, exact kurtosis and appendices"
+        },
+        {
+          "assessment": "NOT A FULL TEXT INSPECTION; journal open-access article above supplies substantive same-paper reading",
+          "evidence": [
+            "https://arxiv.org/abs/2603.17027"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.17027",
+          "material_read": "Abstract and record metadata only; arXiv PDF/HTML fetch disabled in this run",
+          "method": "Web abstract and attempted lawful full-text access",
+          "title": "Resetting in a viscoelastic bath: the bath remembers preprint",
+          "trigger": "Same primary paper, prioritize OA/preprint"
+        },
+        {
+          "assessment": "MODEL-DIFFERENT: memory renewal, not probe-only retained bath",
+          "evidence": [
+            "https://arxiv.org/abs/2412.09260"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+          "material_read": "Title, bibliographic context and model-summary comparison; full paper not inspected",
+          "method": "Web result/title",
+          "title": "Viscoelastic stochastic resetting with memory renewal",
+          "trigger": "Alternative memory-reset convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-memory-threshold-for-a-unique-kurtosis-minimum-under-selec--f3ae0a97dc36/RESULT.md",
+        "https://doi.org/10.1088/1367-2630/ae868c"
+      ],
+      "rationale": "A sharp parameter bifurcation separates unique finite optimal reset cadence from monotone κ-response, despite variance decreasing with rate throughout. The explicit quartic threshold and two endpoint scaling laws are natural, experimentally interpretable consequences of memory retained by a viscoelastic bath, not an arbitrary small-parameter optimization. Strict monotonicity in bath parameter gives a stationary-shape identifiability criterion within this model.",
+      "residual_risks": [
+        "No claim of applicability beyond the stated two-Gaussian-coordinate selective-reset model or measurement implementation costs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Fixed linear two-coordinate Gaussian bath, standard thermal normalization, probe-only instantaneous Poisson reset with g,r>0; neither noninstantaneous returns nor r=0 stationary distribution are included. Original κ is prior literature.",
+  "schema_version": 1
+}
