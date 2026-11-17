@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:48:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary linear indexed one-grain channels the zero-or-one overwrite output ball differs from each source in at most one noninitial coordinate. One-flip competitors number N=n-1; nonadjacent two-flip competitors are unequal pairs among derivative bits, minus adjacent derivative transitions, giving k(N-k)-b; adjacent two-flip competitors contribute k-t_1. The sum is N+k(N-k+1)-t_1-b. Derivative runs with given k and initial bit have precisely the four binomial-composition multiplicities in the RESULT; the constant derivatives are handled separately. Handshaking gives the edge count, and minimal penalty t_1+b proves the monotone derivative maximum with all n=1/2 boundary cases. Independently enumerated every distinct channel ball and confusable pair through length 8, checking every degree and edges 0,2,10,36,112,320,864,2240. Universal formulas rely on disjoint combinatorial cases, not finite testing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharov–Roth compute transfer-matrix growth of total confusable pair counts and small independent-set code sizes, but the inspected text does not supply all n vertex degree polynomial.",
+          "Generalized coding bounds do not imply the per-word local multiplicities and all extremizers."
+        ],
+        "reasoning": "Broader coding error classes may include this channel, but a statement about code bounds or aggregate ordered-pair sums does not mathematically determine the multiset of individual graph degrees.",
+        "searches": [
+          "Sharov and Roth 2013 full PDF sections II and IV; sphere-size and weighted ordered-pair counts",
+          "Kashyap Zémor arxiv:1302.6154 grain-correcting bounds",
+          "Gabrys Yaakobi Dolecek arxiv:1307.7087 grain codes"
+        ]
+      },
+      "checked_sources": [
+        "https://ronny.cswp.cs.technion.ac.il/wp-content/uploads/sites/54/2016/05/grains.pdf",
+        "https://ece.iisc.ac.in/~nkashyap/Papers/grains_rate_bounds.pdf",
+        "arxiv:1012.1895",
+        "arxiv:1307.7087",
+        "arxiv:1302.6154",
+        "Resultary one-grain all-length degree distribution query",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-degree-distribution-of-the-binary-one-grain-confusability--ff23909c4911/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A global count sum_x degree(x) determines E(G_n) but does not determine P_n(z), nor max-degree vertex words.",
+          "The degree has additional derivative-run terms t_1+b invisible in the elementary 1+k output-ball cardinality."
+        ],
+        "reasoning": "Aggregate cardinality or asymptotic rate bounds may mechanically include an edge corollary, which is not credited. The exact degree polynomial is not a formal consequence of a scalar edge total.",
+        "searches": [
+          "Sharov Roth grains pdf Section II ordered confusable pairs and Section IV finite code sizes",
+          "arxiv:1307.7087 channel constructions",
+          "Resultary one-grain and deletion-channel semantic searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sharov–Roth define t-confusable source pairs through grain overwrite patterns, which agrees at t=1 with the submitted zero-or-one input channel.",
+          "Source derivative bits and output-ball size 1+k do not alone determine confusability vertex degree: boundary transitions b and orientation t_1 also matter."
+        ],
+        "reasoning": "Search included grain-smearing, granular overwrite, derivative/transition code, confusability neighbors and local degree histogram; code-distance and deletion-read graph are different objects.",
+        "searches": [
+          "Resultary semantic: binary one grain overwrite channel confusability graph exact vertex degree distribution runs derivative words",
+          "Sharov Roth Bounds and Constructions for Granular Media Coding §I-II",
+          "Mazumdar Barg Kashyap grain-error channel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sharov–Roth table values are maximum correctable code sizes at small n/t, not complete degree multiplicity tables.",
+          "No distinct degree-distribution table was identified in the retrieved Resultary findings."
+        ],
+        "reasoning": "A known codebook optimum or output sphere-size profile is not an exact G_n degree histogram; no claim is based solely on negative search.",
+        "searches": [
+          "Sharov Roth 2013 Table II and Table III 1-grain codebook sizes",
+          "Resultary binary one-grain degree distribution search"
+        ]
+      },
+      "rationale": "The granular channel and one-error code bounds are classical; Sharov–Roth 2013 develop exact and asymptotic counts of confusable ordered pairs for coding bounds. Their primary paper discusses pair-count transfer methods, sphere-size heterogeneity and maximum independent-set tables, not an all-length exact vertex-by-vertex degree histogram or run-composition extremizer classification. Other returned semantic search hits address a fundamentally different deletion-reconstruction graph. Aggregate pair counts/edge numbers may be known; the all-vertex polynomial and precise worst-ambiguity sources remain distinct on the examined evidence.",
+      "residual_risks": [
+        "Pair-count transfer matrices in Sharov–Roth may be adaptable to derive local degree laws, but their stated results do not already give this polynomial.",
+        "Other uncatalogued grain-error local-degree tables may predate the submitted calculation.",
+        "One-error binary linear words only; not capacity or maximum independent-set size."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts/confusability machinery and code bound tables, but no found exact all-length per-source degree polynomial",
+          "evidence": [
+            "§I lines 24-46 overwrite, lines 79-85 confusability, §II lines 174-212 ordered pair counting, §IV Tables II-III code sizes"
+          ],
+          "identifier_or_url": "https://ronny.cswp.cs.technion.ac.il/wp-content/uploads/sites/54/2016/05/grains.pdf",
+          "material_read": "Full primary PDF text including definitions/transfer-graph pair counting, sections II/IV and code-size tables; attempted page screenshot (network timeout)",
+          "method": "Lawfully accessible primary PDF indexed text with exact section tracing",
+          "title": "Bounds and Constructions for Granular Media Coding",
+          "trigger": "Closest same channel and potential stronger graph-pair theorem"
+        },
+        {
+          "assessment": "Fractional-cover/code cardinality bounds, not inspected as a complete degree distribution",
+          "evidence": [
+            "Introduction explicitly seeks code rate/cardinality bounds"
+          ],
+          "identifier_or_url": "https://ece.iisc.ac.in/~nkashyap/Papers/grains_rate_bounds.pdf",
+          "material_read": "Primary article abstract, introduction and accessible online PDF excerpt; not all pages checked",
+          "method": "Author OA PDF/search text",
+          "title": "Upper Bounds on the Size of Grain-Correcting Codes",
+          "trigger": "Potential stronger one-grain graph bound"
+        },
+        {
+          "assessment": "All boundary claims and combinatorial enumeration checked",
+          "evidence": [
+            "RESULT equations (1)-(5), proof four parts"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-degree-distribution-of-the-binary-one-grain-confusability--ff23909c4911/RESULT.md",
+          "material_read": "Entire pinned RESULT.md; verify_graph.py and verify_formula.py read; metadata/review/public facing files read",
+          "method": "Git pinned full text",
+          "title": "Exact degree distribution of the binary one-grain confusability graph",
+          "trigger": "Assigned theorem and code"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Degree in the confusability graph counts competing input words, a core local zero-error coding invariant distinct from a channel output-ball size. The full all-length degree profile and extremal words give a meaningful structural classification and can inform degree-sensitive graph bounds; no unsupported claim of a new code-size optimum is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Pair-count transfer matrices in Sharov–Roth may be adaptable to derive local degree laws, but their stated results do not already give this polynomial.",
+    "Other uncatalogued grain-error local-degree tables may predate the submitted calculation.",
+    "One-error binary linear words only; not capacity or maximum independent-set size."
+  ],
+  "schema_version": 1
+}

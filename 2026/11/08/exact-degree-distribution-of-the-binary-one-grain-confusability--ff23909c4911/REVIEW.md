@@ -1,11 +1,21 @@
-# Scientific review: exact degree distribution of the binary one-grain confusability graph
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof partitions every possible confusable source pair by Hamming difference one or two, then treats adjacent and nonadjacent flips separately. Its derivative formula, exhaustive run-composition enumeration, handshaking sum and extremal penalty argument establish the theorem for all integer lengths. Actual independent verifiers reproduced the channel-ball graph through length 9 and the complete degree histogram through length 18. The finite checks complement, rather than replace, the all-length proof.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Mazumdar–Barg–Kashyap (2010), Kashyap–Zémor (2013), Gabrys–Yaakobi–Dolecek (2013), Sharov–Roth (2013), and Cullina–Kiyavash (2014) were compared with the exact theorem. The strongest related work, Sharov–Roth, supplies a weighted-path method counting or bounding confusable ordered pairs, which may encompass the aggregate edge total. Its published statements and methods do not directly yield a degree-enumeration polynomial without tracking each source's incidence count. The novelty claim is therefore the full vertex-degree spectrum and sharp characterization of all maximal-degree sources, not the general channel, derivative notation, code-size machinery, or aggregate pair-count concept. The nearest published published-finding corpus small-grain-code census determines maximum independent sets at a fixed length and does not imply this all-length local law. An earlier unindexed table or equivalent analysis remains possible.
+PASS
 
-**Value — PASS.** Exact confusability degree, in contrast to ordinary output-ball size, measures how many competing source blocks cannot coexist in a zero-error code. The all-length distribution, together with all worst-ambiguity blocks, is a natural and reusable structural classification for a classical storage channel. It supplies exact graph local statistics relevant to degree-sensitive coding bounds and testing, with no unsupported claim of improved optimal code size or channel capacity.
+For binary linear indexed one-grain channels the zero-or-one overwrite output ball differs from each source in at most one noninitial coordinate. One-flip competitors number N=n-1; nonadjacent two-flip competitors are unequal pairs among derivative bits, minus adjacent derivative transitions, giving k(N-k)-b; adjacent two-flip competitors contribute k-t_1. The sum is N+k(N-k+1)-t_1-b. Derivative runs with given k and initial bit have precisely the four binomial-composition multiplicities in the RESULT; the constant derivatives are handled separately. Handshaking gives the edge count, and minimal penalty t_1+b proves the monotone derivative maximum with all n=1/2 boundary cases. Independently enumerated every distinct channel ball and confusable pair through length 8, checking every degree and edges 0,2,10,36,112,320,864,2240. Universal formulas rely on disjoint combinatorial cases, not finite testing.
 
-**Limitations.** At most one grain, binary indexed linear words, no circular boundary; independent validation not performed. Primary sources were inspected in the relevant sections, but historical completeness is not guaranteed; Sharov–Roth's more general pair-count framework is a notable priority-risk comparator. Finite computations alone do not certify the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The granular channel and one-error code bounds are classical; Sharov–Roth 2013 develop exact and asymptotic counts of confusable ordered pairs for coding bounds. Their primary paper discusses pair-count transfer methods, sphere-size heterogeneity and maximum independent-set tables, not an all-length exact vertex-by-vertex degree histogram or run-composition extremizer classification. Other returned semantic search hits address a fundamentally different deletion-reconstruction graph. Aggregate pair counts/edge numbers may be known; the all-vertex polynomial and precise worst-ambiguity sources remain distinct on the examined evidence.
+
+## value
+
+PASS
+
+Degree in the confusability graph counts competing input words, a core local zero-error coding invariant distinct from a channel output-ball size. The full all-length degree profile and extremal words give a meaningful structural classification and can inform degree-sensitive graph bounds; no unsupported claim of a new code-size optimum is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
