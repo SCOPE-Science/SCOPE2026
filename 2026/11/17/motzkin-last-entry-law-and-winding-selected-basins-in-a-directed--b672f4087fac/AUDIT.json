@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "Direct modular edge update yields exact p_i and q_i annihilation recurrence; full lap excludes both species surviving \\(n-1\\) updates; unique last collision gives bijection with n cyclic placements of length \\(n-2\\) Motzkin excursions, each with three colour lifts; exact winding symmetry gives terminal basins and standard Motzkin singularity yields the asymptotic. Exhaustive independent labelled vertex tests n2..10 and edge-word tests n2..11 reproduced from supplied code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Durrett–Griffeath 1993 abstracts concentrate on spiral-core threshold in excitable automata",
+        "1903.12622 §2 concerns infinite-line limiting Bernoulli measures, not finite-ring Motzkin entry-time",
+        "Kůrka–Formenti–Dennunzio 2011/12 exactly matches the particle rule; its entry-time random variable is different and defined on infinite Z"
+      ],
+      "reasoning": "Theorem 3 of Kůrka–Formenti–Dennunzio gives a scaled infinite-line fixed-site waiting-time law. Its proof employs a particle balance Markov chain, but does not cover the finite-ring exact maximum cutoff and Motzkin last-collision population with modulo-three colour-lifting. The 2019 two-sided full source also does not cover this finite rule.",
+      "searches": [
+        "Indexed literature query: Exact fixed and rotating attraction basin populations for directed one-neighbor cyclic cellular automaton and all-orbits n-1 transient bound",
+        "arxiv:patt-sol/9303002",
+        "doi:10.1007/BF01045164",
+        "arxiv:1903.12622",
+        "Full paper: doi:10.46298/dmtcs.2976 (asymmetric gliders, Definition 1 and Theorem 3)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.46298/dmtcs.2976, fully read original 12-page article including screenshots",
+      "arxiv:1903.12622, full HTML text",
+      "arxiv:patt-sol/9303002, dated original abstract",
+      "doi:10.1007/BF01045164, bibliographic abstract",
+      "doi:10.1214/aop/1176989705, bibliographic abstract",
+      "doi:10.1007/BF02178546, abstract/bibliography only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source full text at 1903.12622 §1.2 defines N={-1,0,1}; moving edges in both directions",
+        "General particle annihilation does not determine the finite-n Motzkin last-entry count without a unique extreme-collision classification",
+        "Kůrka–Formenti–Dennunzio 2011/12 exactly matches the particle rule; its entry-time random variable is different and defined on infinite Z"
+      ],
+      "reasoning": "The 2011 finite-time particle arrival formula at one site on infinite Z does not automatically give the maximum over all collisions on a closed length-n ring or the cyclic Motzkin excursion of last collision. Even though the known local process is identical, obtaining the \\(\\(n-1\\)\\) terminal bound and three-to-one colour-lifted count needs the new ring-specific bijection. These statements cannot be treated as implied solely by the 2011 published theorem.",
+      "searches": [
+        "arxiv:1903.12622 full article sections 1–3",
+        "doi:10.1007/BF02178546 abstract and OA access attempt",
+        "Indexed literature query: One-sided three-color cyclic cellular automaton on directed cyclic rings, edge differences as annihilating left-moving particles, conserved winding and rotation basins",
+        "Full paper: doi:10.46298/dmtcs.2976 (asymmetric gliders, Definition 1 and Theorem 3)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The only 1D full-text same-family source 1903.12622 explicitly requires both neighbours and distinguishes left/right particles",
+        "No indexed search hit states the one-sided ring last-entry count \\(3nM_{n-2}\\)",
+        "Kůrka–Formenti–Dennunzio 2011/12 exactly matches the particle rule; its entry-time random variable is different and defined on infinite Z"
+      ],
+      "reasoning": "The particle rule is identical to asymmetric gliders (already known), but the asserted formula is about first global periodic entry on a finite cyclic colour lift, not fixed-site particle appearance in the infinite-line iid model; identical local dynamics does not imply identical finite-volume observables.",
+      "searches": [
+        "Indexed literature query: One-sided three-color cyclic cellular automaton on directed cyclic rings, edge differences as annihilating left-moving particles, conserved winding and rotation basins",
+        "Indexed literature query: cyclic rock paper scissors automaton directed ring annihilation particle dynamics signed edge gradient",
+        "Literature query: one sided cyclic cellular automaton three states directed nearest neighbor ring Motzkin time to stabilize",
+        "Full paper: doi:10.46298/dmtcs.2976 (asymmetric gliders, Definition 1 and Theorem 3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The submitted exact count is a symbolic all-n identity, not a lookup of finite enumerations",
+        "Kůrka–Formenti–Dennunzio 2011/12 exactly matches the particle rule; its entry-time random variable is different and defined on infinite Z"
+      ],
+      "reasoning": "2011 asymmetric-gliders work contains many exact return/arrival probabilities and combinatorial formulas, but not the exact sequence \\(\\(3nM_{n-2}\\)\\) for first global periodic entry of labelled colour rings; no matching formal indexed table found. Simple sequence similarity cannot decide originality.",
+      "searches": [
+        "Indexed literature query: Motzkin first periodic entry directed 3-color cyclic automaton rotating fixed basins",
+        "Literature query: one-way cyclic cellular automaton 3 color directed cycle transient Motzkin paths",
+        "Full paper: doi:10.46298/dmtcs.2976 (asymmetric gliders, Definition 1 and Theorem 3)"
+      ]
+    },
+    "rationale": "The asymmetric-gliders particle recurrence is explicitly in Kůrka–Formenti–Dennunzio (DOI 10.46298/dmtcs.2976) and is not claimed as original. The full 12-page work was inspected, especially Definition 1 and Theorem 3: it studies the first arrival at a fixed site in the infinite-line i.i.d. particle process, not least global periodic-entry on a finite colour ring. The separate \\(n-1\\) sharp bound, 3nM_{\\(n-2\\)} modular-lifted Motzkin extreme count and signed-winding exact basin formulas are not stated or directly implied by that work. Another 2019 full paper is two-sided and infinite-line. Searches of published mathematical records and examined prior papers revealed no covering claim. Unread 1995 particle literature retains qualified priority risk.",
+    "residual_risks": [
+      "The 2011/2012 asymmetric-gliders paper already studies exactly the same moving/stationary annihilation dynamics. Its published infinite-line fixed-site entry-time law is not a covering finite-ring periodic-entry theorem, but it makes the particle coupling and ballot/Motzkin mechanism unsurprising; novelty is confined to the global cyclic constraint/count and winding basin formulas.",
+      "Full text of Belitsky–Ferrari 1995 unavailable because institutional VPN disconnected after public searches failed; an equivalent finite-volume collision count could potentially be present.",
+      "1990–1992 CCA full papers only checked by accessible abstracts; a hidden one-sided special case cannot be categorically excluded.",
+      "Current database and accessible history searches cannot prove worldwide originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlying edge particle recurrence is identical and already known; cannot claim its discovery. Its domain is the bi-infinite lattice with independent particle symbols, and entry time is time-to-next-particle-at-a-fixed-site after an age; its main theorem is a scaled waiting-time distribution, not an exact global ring first-periodic-entry census. This strong same-rule prior does not state the \\(n-1\\) ring deadline, its \\(3nM_{n-2}\\) extreme basin, or the conserved signed-winding vertex-colour basin count.",
+        "evidence": [
+          "Kůrka–Formenti–Dennunzio §3 pp.49–51 defines asymmetric gliders and its infinite-line Bernoulli process",
+          "Definition 1 p.49: particle appearance at fixed site after age n",
+          "Theorem 3 p.51: scaled arrival-time law (2/pi) arctan(sqrt(x))",
+          "DOI 10.46298/dmtcs.2976"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2976/download",
+        "material_read": "Full 12-page published PDF including Definition 1, Sections 3–5, Proposition 1–2, Theorem 3, particle-annihilation proofs and references; multiple page screenshots inspected",
+        "method": "Compared the complete local rule, the exact quantified random variable and domain, and all central propositions/theorem and proof to finite-ring global periodic entry and the algebraically constrained colour lifts",
+        "title": "Asymptotic distribution of entry times in a cellular automaton with annihilating particles",
+        "trigger": "Extremely close matching one stationary and one left-moving annihilating particle dynamical model, with entry times"
+      },
+      {
+        "assessment": "Different rule and domain: symmetric {-1,0,1} neighbourhood on infinite Z, two-direction particle motion; no implication of exact one-sided finite ring last-entry count",
+        "evidence": [
+          "arxiv 1903.12622 §1.2 explicitly N={-1,0,1}, §2 asymptotic invariant-measure limit",
+          "https://arxiv.org/abs/1903.12622"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.12622",
+        "material_read": "Full accessible HTML article, especially Introduction, §1.2 rule/particle definitions, §2 theorems and the remaining full body",
+        "method": "Read the paper’s HTML text and compared neighbourhood, boundary, dynamics and main result to the claimed first-entry count",
+        "title": "Asymptotic behaviour of the one-dimensional “rock-paper-scissors” cyclic cellular automaton",
+        "trigger": "Most plausible same-colour and particle-dynamics primary paper"
+      },
+      {
+        "assessment": "Scaling limits and stable spiral-core thresholds on extended lattices, not a finite directed ring exact entry-time basin; abstract only, not a full-text exclusion",
+        "evidence": [
+          "Posted 1993-03-22 20:17 UTC",
+          "arxiv:patt-sol/9303002 abstract identifies limiting spiral threshold spo(p)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+        "material_read": "arXiv original public abstract and bibliographic posting date",
+        "method": "Compared abstract-defined problem family and main claimed spiral scaling to the finite directed ring theorem",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "Day-resolved public foundational CCA source"
+      },
+      {
+        "assessment": "Uses two nearest neighbours, not this oriented one-neighbour finite ring; no full-body comparison completed, residual risk is acknowledged",
+        "evidence": [
+          "1990 abstract: each site looks at its two nearest neighbours",
+          "DOI 10.1007/BF01045164"
+        ],
+        "identifier_or_url": "doi:10.1007/BF01045164",
+        "material_read": "Bibliography and accessible abstract describing two nearest neighbours and infinite-line fluctuation/fixation",
+        "method": "Compared exact local-neighbour rule and studied observables",
+        "title": "The one-dimensional cyclic cellular automaton: A system with deterministic dynamics that emulates an interacting particle system with stochastic dynamics",
+        "trigger": "Foundational 1990 3-state dynamical model"
+      },
+      {
+        "assessment": "Plausible conceptual overlap. No claim of noncoverage based on abstract; might contain unrecognized equivalent finite-ring formulas. No decisive same-parameter covering statement was observed in material read. Qualified priority risk.",
+        "evidence": [
+          "DOI 10.1007/BF02178546",
+          "Publisher/abstract advertises ballistic annihilation and deterministic surface growth, not a directed finite-ring Motzkin last-entry census"
+        ],
+        "identifier_or_url": "doi:10.1007/BF02178546",
+        "material_read": "Accessible bibliographic entry and abstract context only; full text inaccessible",
+        "method": "Tried arXiv and lawful OA searches, followed by authorized institutional-access tool; institutional VPN unavailable",
+        "title": "Ballistic annihilation and deterministic surface growth",
+        "trigger": "Most relevant general particle-annihilation reduction and possible combinatorial coverage"
+      },
+      {
+        "assessment": "Infinite-line coarsening with both-direction particles rather than exact labelled finite directed-ring periodic-entry time; full-text exclusion not claimed",
+        "evidence": [
+          "1992 abstract identifies infinite-line mean cluster-size ∼c t^{1/2}",
+          "DOI 10.1214/aop/1176989705"
+        ],
+        "identifier_or_url": "doi:10.1214/aop/1176989705",
+        "material_read": "Accessible bibliographic abstract and problem statement",
+        "method": "Compared spatial support, two-neighbour rule and clustering observable",
+        "title": "Clustering in the One-Dimensional Three-Color Cyclic Cellular Automaton",
+        "trigger": "Direct 3-state predecessor with annihilating interfaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b672f408-7fac-4bf8-8ea3-7758b8ec13c3",
+  "value": {
+    "rationale": "The asymmetric-gliders particle reduction is pre-existing. A genuinely finite-ring dynamical gap remains: a sharp global first-periodic-entry time, exact entire last-entry attraction layer 3nM_{\\(n-2\\)}, its \\(n^{-1/2}\\) weight, and winding-based exact terminal basin census of the lifted three-colour rule. These quantify natural global settling properties not settled by the existing infinite-line arrival-time distribution.",
+    "status": "PASS"
+  }
+}
