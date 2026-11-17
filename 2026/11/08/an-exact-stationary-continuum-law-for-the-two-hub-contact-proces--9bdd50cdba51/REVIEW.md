@@ -1,15 +1,21 @@
-# Scientific review: two-hub stationary contact-process limit
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite-state chain has the four rates in the theorem; direct stationary balance establishes uniform first and second moment bounds after scaling by \(\sqrt n\). Locally uniform generator convergence, vanishing rescaled birth–death quadratic variation, and the stationary moment bound force subsequential stationary limits to be invariant for the displayed two-state piecewise-deterministic process. That process has strictly positive switch rates on its compact attracting interval and a unique invariant probability. Its stationary flux must vanish, and integrating the resulting first-order equation gives the normalized exponential-tilted power density. This proves a full-sequence limit for every fixed \(c>0\); uniform integrability justifies the mean formula. The standalone finite-chain verifier independently passed 195 checks. Computations are corroboration, not proof of convergence.
+## correctness
 
-## Originality — PASS, subject to documented historical risk
-The comparison target is the simultaneous finite-graph stationary law and its non-Gaussian \(\sqrt n\) limit, not merely the known framework of two-state switching. Chatterjee–Durrett (arXiv:0912.1699) analyze contact-process persistence on random power-law graphs; Peterson (arXiv:1005.0810) handles heterogeneous complete graphs with eventual extinction and quasi-stationary results; van de Bovenkamp–Van Mieghem (Phys. Rev. E 92, 032806) handle finite-graph SIS extinction times. Their examined results do not cover the distinguished permanent hub on \(K_{2,n}\) with exact stationary law at the \(n^{-1/2}\) transmission scale. Gopalakrishnan et al. (arXiv:q-bio/0607007) study a two-state feedback module with a fixed activation rate and feedback-controlled deactivation, the reverse feedback direction from the present process; it illustrates how related invariant-density methods can be standard without proving this finite epidemic limit. Mazzag–Tignanelli–Smith (J. Theor. Biol. 235 (2005), 121–150) is potentially adjacent stationary-feedback literature; only its abstract and its description in Gopalakrishnan et al. were accessible, so possible equivalent density formulas remain a caveat. Semantic research-record checks and accessible previous mathematical claims gave no covering theorem. Search absence is not a novelty proof, and independent historical priority has not been established.
+PASS
 
-## Mathematical value — PASS
-A fixed two-hub bottleneck makes self-averaging fail on a growing complete bipartite network, despite \(n\) independent recovering ordinary sites. The exact nondegenerate stationary density and the identity \(\Pr(Y=1\mid U=u)=u\) quantify how feedback changes mean-field predictions. At \(c=1\), the closed-form truncated exponential and exact hub-infection fraction supply an interpretable, testable benchmark for source-driven spreading. This is a natural full scaling limit, not an arbitrary finite parameter slice.
+The exact reduced 2(n+1)-state generator has leaf birth rate (c/sqrt(n))(1+y)(n-k), recovery rate k, second-hub infection (c/sqrt(n))k and recovery 1. Stationary first and second moment balances give EK_n<=2c sqrt(n) and EK_n²<=4c²n+2c sqrt(n), yielding tightness and uniform integrability of K_n/sqrt(n). Generator convergence gives the PDMP with du/dt=-u (Y=0), du/dt=1-u (Y=1), upward rate a(1+u), downward rate 1 where a=c². Stationary flux is zero and p1/p0=u/(1-u); solving the transport equation gives exact normalized densities. Strictly positive switching rates and compact invariant attracting strip give uniqueness, so all subsequences converge; UI transfers first moments. Independent differential identities and flux balance checked symbolically. Discrete finite-n numerics alone would not prove convergence.
 
-## Limitations and priorities
-The source is permanent and the second hub is dynamic; no claim is made for pure absorbing contact processes, general fixed hub counts, or different scalings. The model's limiting PDMP belongs to a broader class investigated in gene feedback, so independent literature inspection could discover previously known forms of the limiting density. What has been examined does not imply the finite-graph stationary convergence. Independent review and exhaustive historical priority checks have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearby source-pinned SIS star and balanced bipartite critical windows have different graph geometry, scale and limiting law; finite-hub SIR outbreaks are not the stationary SIS contact process. General two-state signaling-feedback models may possess similar PDMP densities but do not by that fact establish convergence from the specific finite K_{2,n} generator. The exact graph-to-PDMP joint limit survives best-knowledge comparison.
+
+## value
+
+PASS
+
+The fixed two-hub source-pinned network is a canonical bottleneck epidemic graph, with a natural c/sqrt(n) critical window. The exact nondegenerate random stationary mass and conditional hub-infection law quantify a genuine macroscopic stochastic effect invisible to deterministic degree-mean-field closure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

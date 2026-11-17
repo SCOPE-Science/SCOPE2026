@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The result is derived from the exact finite-state generator, stationarity moment identities, a vanishing quadratic-variation limit, and the unique invariant density of a two-state switched affine flow. In particular, the density is not inferred from finite graphs.
+## correctness
 
-Run `python verification.py` with Python 3, NumPy, and SciPy. The script independently constructs the generator for each finite state \((y,k)\), solves stationary linear equations, verifies probability normalization and stationarity residuals, tests the algebraic transport-flux identity at interior points, and compares finite-size stationary moments with the displayed integral predictions. The executed package check passed 195 assertions on three positive parameter choices and finite graph sizes \(80,320,1280\), plus special-function identities at \(c=1\).
+PASS
 
-The finite computations do not establish uniqueness of invariant laws, infinite-size convergence, or historical priority. Those statements require the mathematical proof and literature comparison given in the other accompanying files. There has been no independent scientific audit or validation.
+The exact reduced 2(n+1)-state generator has leaf birth rate (c/sqrt(n))(1+y)(n-k), recovery rate k, second-hub infection (c/sqrt(n))k and recovery 1. Stationary first and second moment balances give EK_n<=2c sqrt(n) and EK_n²<=4c²n+2c sqrt(n), yielding tightness and uniform integrability of K_n/sqrt(n). Generator convergence gives the PDMP with du/dt=-u (Y=0), du/dt=1-u (Y=1), upward rate a(1+u), downward rate 1 where a=c². Stationary flux is zero and p1/p0=u/(1-u); solving the transport equation gives exact normalized densities. Strictly positive switching rates and compact invariant attracting strip give uniqueness, so all subsequences converge; UI transfers first moments. Independent differential identities and flux balance checked symbolically. Discrete finite-n numerics alone would not prove convergence.
+
+## originality
+
+PASS
+
+The nearby source-pinned SIS star and balanced bipartite critical windows have different graph geometry, scale and limiting law; finite-hub SIR outbreaks are not the stationary SIS contact process. General two-state signaling-feedback models may possess similar PDMP densities but do not by that fact establish convergence from the specific finite K_{2,n} generator. The exact graph-to-PDMP joint limit survives best-knowledge comparison.
+
+## value
+
+PASS
+
+The fixed two-hub source-pinned network is a canonical bottleneck epidemic graph, with a natural c/sqrt(n) critical window. The exact nondegenerate random stationary mass and conditional hub-infection law quantify a genuine macroscopic stochastic effect invisible to deterministic degree-mean-field closure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
