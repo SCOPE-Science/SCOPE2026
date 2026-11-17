@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification summary
+# Independent mathematical audit
 
-The proof is symbolic and uses only the divisor recurrence and the formal binomial theorem in \(\mathbb Q[[x_1,\ldots,x_w]]\). The generating-function denominator has constant coefficient \(1\), ensuring that every inverse and coefficient operation is defined formally. The last summation gives the published finite formula, and the proof separately handles an empty prime signature and the one-prime case.
+## correctness
 
-## Reproducible exact checks
+PASS
 
-`check_fink_conjecture.py` has no nonstandard dependencies. It independently implements a proper-divisor recursion on exponent tuples, the nested-binomial sum, and the coefficient recurrence of the rational generating function. Run `python3 check_fink_conjecture.py`. Its 764 positive-exponent cases and six empty/zero-exponent controls all agree, as recorded in `check_output.txt`.
+PASS. The divisor recurrence including the zero exponent vector implies the formal power-series identity H=1/(2 product_j(1-x_j)-1). The key nonstandard step is a valid coefficientwise binomial double-sum identity eliminating (a_j,i_j) backwards; D_j=(1-x_j)D_{j+1}-x_j telescopes to the same denominator. The final i_w sum gives 2^{a_w} and w=1, n=1 and zero exponents are handled. An independent 84-vector exact-integer test crosschecked recursion against the nested sum, subordinate to the proof.
 
-## Limits
+## originality
 
-These finite checks do not certify the infinite identity; the proof in `RESULT.md` does. The related literature comparison is based on inspected accessible sources and cannot exclude all unindexed equivalents. No independent audit has been carried out.
+PASS
+
+Full exact published conjecture resolved, with the original kappa_0 counting values credited; strongest checked literature did not prove the particular positive nested-binomial formula.
+
+## value
+
+PASS
+
+PASS. This resolves the precise positive nested-binomial expansion asked as Fink Conjecture 1, rather than merely computing already-tabulated divisor counts. The multivariate backward elimination is a motivated structural proof of a published open identity and remains useful beyond the finite checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
