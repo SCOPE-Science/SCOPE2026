@@ -1,15 +1,21 @@
-# Assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The map, two cycles and three-step derivative are given explicitly. The invariant positive quadratic form, its determinant, all three branch-displacement dual norms and the sharp radius are derived algebraically. Preservation under the third iterate follows from the matrix identity; continuity and invertibility extend it to the closed ellipses. Branch-word separation and projected vertical margins establish the six-disk count. The included checker verifies the exact identities and samples the boundaries, while the analytical dual-norm argument proves sharpness universally. The proof does not claim arbitrary-island maximality.
+## correctness
 
-## Originality
-PASS within inspected material. Hill–Sturman–Wilson (arXiv:2112.07346 / DOI 10.1007/s00332-022-09790-0) establishes the toral family, its mixing results and the presence of elliptic orbits. Inspection of its preprint and open-access journal text did not reveal the exact six-ellipse area or its sharp centered-itinerary construction. Indexed literature searches for the toral family, three-period ellipses, invariant-ellipse area, and triangular shear returned no equivalent claim. Closest findings concern unrelated absolute-value periodic maps or area contraction of distinct shears. Residual risk: algebraically equivalent estimates under another parameterization or omitted literature.
+PASS
 
-## Value
-PASS. The question is a motivated quantitative refinement of the paper's mixing obstruction: exactly how much positive area is provably protected in the elliptic period-three regime? The answer gives six complete invariant disks, a sharp largest-ellipse construction for a natural metric and branch cylinder, and an exact square-root law at both parameter endpoints, rather than merely repeating existence of an elliptic orbit.
+Reconstructed R,L and M=RLR for two explicit primitive RLR cycles. Exact sympy multiplication verifies detM=1, M^TQM=Q, detQ=3(3η−1)(4η²−9η+3)/(4η⁴)>0 on 1/3<η<(9−√33)/8. The dual Q norm computes all 3 itinerary strips and their sharp minimum radius; 6πr²/sqrt(detQ) yields the stated area, with positive radicand in the open window and sqrt vanishing at endpoints. IMPORTANT SOURCE-PROSE CORRECTION: the sentence claiming same-phase vertical projections merely meet is false (their centers differ by η/3 and each radius is η/3). The disks nevertheless are disjoint by the independent exact Q-distance inequality (η/3)^2 Q_22−4r²=(η−1)(3η³−8η²+5η−1)/(η(3η²−7η+3))>0: η<5/12 gives 3η³−8η²+5η−1<−27η²/4+5η−1<0. Other phases cannot overlap by distinct branch itineraries. This independently closes the proof gap using source equations without altering the final claim. Five exact rational interior parameter checks corroborate but do not prove the interval inequality.
 
-## Scientific limits
-This is a rigorous constructive lower bound, not the total elliptic-island measure; the complement is not classified. The two endpoint parameters themselves are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: earlier full primary work discovers the toral family and its elliptic three-cycles; it does not determine the explicit maximal centered Q-ellipse in the RLR affine itinerary cell or exact six-disk area. No exact prior coverage found in the specific different-map Resultary comparison.
+
+## value
+
+PASS
+
+A quantitative, sharp and explicitly invariant area lower bound within a natural class is valuable for nonuniformly hyperbolic area-preserving maps, with an exact parameter-window endpoint law. It is not falsely presented as the full island area.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
