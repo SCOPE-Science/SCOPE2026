@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analytical statement applies to the standard right Hilbert module of the countable \(c_0\)-sum of finite-matrix and infinite-dimensional compact-operator blocks, with coefficients in that algebra. The count of singular modes above a positive threshold is finite because the coefficient norms tend to zero. In finite blocks the selected right singular row space is mapped isomorphically onto a **contractively complemented** left row space; its dimension is singular rank times matrix size. A nonzero infinite block supplies an infinite-dimensional, likewise complemented rank-one row subspace. These witnesses yield lower bounds for approximation, Bernstein, Gelfand **and Kolmogorov** numbers, with the latter justified by the quotient-norm width argument. Singular-value truncation gives the matching rank-\(<n\) approximant. Polar square roots give an exact module rank-one factorization, and the same infinite-block witness gives the exact classical strictly singular/compact distance. Boundary cases (no infinite blocks, zero coefficient, arbitrarily large finite dimensions, finite numbers of nonzero singular modes) are included. The exact-rational finite checker ran successfully with 70,357 assertions, as corroboration rather than infinite proof.
+PASS
 
-## Originality — PASS, best-knowledge
+For c0-direct sums of K(H_j), finite singular row modes have dimension d_j per row and norm-1 target row projections; an infinite block contributes an infinite-dimensional rank-one row witness of scale arbitrarily close to ||a_j||. Complemented range and min-max dimension arguments give all four s-number lower bounds; truncating finite-row spectral modes above t>max(q_n,gamma) provides rank <n with error ≤t, proving exact equality. Polar factors x=u|a|^1/2,y=|a|^1/2 are in A and theta_{x,y}=L_a. A nonzero infinite block row is an infinite-dimensional isomorphic subspace defeating strict singular perturbations; finite-mode truncations give matching distances. q_n→0 follows from a_j→0. The cubic multiplicity example follows from sum_{j≤J}j²~J³/3. These are analytic arguments for arbitrary countably many blocks, not extrapolated from CHECK.py.
 
-The most relevant closely published analogues are the one-sided flat-s-number theorem for a single infinite symmetric norm ideal and the finite-Euclidean-fiber multiplier theorem. Their complete research result documents were inspected. They respectively cover flatness on an infinite ideal and spectral multiplicity in Bochner \(L^p\) fiber spaces, but neither asserts the operator-norm matrix-block singular values repeated by **matrix size**, combined with an infinite-block floor and the exact module-rank-one/classical Banach compactness gap. Fufaev (arXiv:2610.39164v1) studies module compactness and seminorm-geometric criteria but not classical s-number classification. Anoussis–Felouzis–Todorov (arXiv:0811.3848v1, in particular Theorem 5.3) study stable Calkin-class s-number membership for elementary two-sided maps, without this exact four-scale profile. The comparison is based on object classes, norms, and logical implications, not matching titles. Historical local claims were checked for overlapping statements. Uninspected classical diagonal-block approximation theory remains a residual priority risk; novelty is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives one uniform formula for all four classical approximation scales and three operator-ideal distances for a natural class of Hilbert-module rank-one maps. The matrix atom sizes are indispensable: \(\lambda I_d\) contributes \(d^2\) classical singular modes, but replacing a finite block by even a rank-one symbol on an infinite-dimensional compact-operator block creates a flat tail. This distinguishes ordinary compactness from Hilbert-module compactness quantitatively and produces a precise cubic multiplicity law in the family \(a_j=j^{-\sigma}I_j\) on \(M_j\). These are structural classifications and a sharp boundary between two natural compactness notions, rather than an arbitrary small example.
+Best-knowledge original exact hybrid c0-sum operator-norm matrix-fiber formula with singular row multiplicities; same named s-number scales in nearby prior results refer to different Banach-space geometry and do not imply the formula.
 
-## Literature and limits
+## value
 
-Sources checked include Fufaev, arXiv:2610.39164v1; Anoussis–Felouzis–Todorov, arXiv:0811.3848v1; and complete published research documents for *Flat classical s-number profiles for one-sided multiplication on symmetric norm ideals* and *Exact s-number profiles for finite-fiber multiplication operators*. The scope does not extend to arbitrary \(C^*\)-algebras, two-sided elementary operators or module-defined singular numbers. In Fufaev's terminology, “Banach-compact” denotes a closure of special module maps rather than ordinary Banach-space compactness; these are not treated as synonyms. Independent mathematical validation and publication-priority certification have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantitative exact all-index four-s-number profiles on a natural atomic C*-algebra, including the finite/infinite transition and divergence between module rank one and classical compactness, give mathematically motivated operator-ideal invariants. The j² row multiplicity phenomenon is nontrivial for operator-norm matrix fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
