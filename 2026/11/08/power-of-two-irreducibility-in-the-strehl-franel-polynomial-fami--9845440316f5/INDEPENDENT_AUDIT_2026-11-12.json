@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:58:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://oeis.org/A000172",
+        "https://arxiv.org/abs/2012.02563",
+        "Strehl Franel polynomial irreducibility n power of two Sun conjecture Eisenstein reciprocal central binomial"
+      ],
+      "rationale": "The actual RESULT.md at frozen blob ff2af828... defines F_n correctly, degree d=n/2 for n=2^m. Setting c_j=binom(n,j)^2 binom(2(n-j),n), for 1<=j<=d the inner binomial is even, so 4|c_j. Legendre binary digit sums give v_2(c_0)=1 and v_2(c_d)=2. Thus G_n(X)=X^dF_n(1/X)/2 has integral coefficients, odd leading coefficient, all other coefficients even, and constant coefficient exactly divisible by 2, not 4. It is Eisenstein at 2. Because c_0!=0, reciprocal irreducibility transfers to F_n. Applies for every m>=1, not other indices. Independent exact binomial-valuation checks covered n=2..128, not used for all m.",
+      "residual_risks": [
+        "A differently indexed reciprocal/shifted Strehl polynomial with the same coefficients might be proved elsewhere.",
+        "No exhaustive scan of older number-theory proceedings or OEIS comments proves historical priority."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fourth Franel and prime-index power polynomials have distinct binomial weight/index families."
+        ],
+        "reasoning": "No searched broader theorem showed this precise Strehl-Sun polynomial irreducible at all powers of two; superficially similar Franel names alone imply nothing.",
+        "searches": [
+          "Strehl Franel polynomial irreducibility n power of two Sun conjecture Eisenstein reciprocal central binomial",
+          "arXiv:2012.02563",
+          "Resultary 2026-11-02 prime-index Franel power polynomials"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A000172",
+        "https://arxiv.org/abs/2012.02563",
+        "Strehl Franel polynomial irreducibility n power of two Sun conjecture Eisenstein reciprocal central binomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun 2013 statement is a conjecture rather than an established implication.",
+          "The Franel power and recurrence sources do not contain the central binomial factor binom(2k,n) with required index normalization."
+        ],
+        "reasoning": "No valid implication from the specifically checked prior statements; the full conjecture, if previously proved, would dominate, but was not found.",
+        "searches": [
+          "https://oeis.org/A000172",
+          "https://arxiv.org/abs/2012.02563",
+          "Strehl Franel polynomial irreducibility n power of two Sun conjecture Eisenstein reciprocal central binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun asks irreducibility of sum_k binom(n,k)^2 binom(2k,n) x^(n-k); reciprocal degree n/2 is the exact same polynomial.",
+          "The 2-adic normalized reciprocal has coefficients determined by the binomial row."
+        ],
+        "reasoning": "Reciprocal transformation preserves irreducibility because the polynomial has nonzero constant; it is not a different target. Direct OEIS conjecture does not supply a proof or the claimed subfamily.",
+        "searches": [
+          "Strehl Franel polynomial irreducibility n power of two Sun conjecture Eisenstein reciprocal central binomial",
+          "OEIS:A000172 2013-03-21 Sun comment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000172 gives Franel numbers and the conjecture; the published indexed sequence of integer evaluations is not a factorization theorem."
+        ],
+        "reasoning": "Evaluation at 1 and small-index irreducibility tables cannot prove all powers of two; the valuation argument handles arbitrary m.",
+        "searches": [
+          "https://oeis.org/A000172",
+          "Strehl Franel polynomial irreducibility n power of two Sun conjecture Eisenstein reciprocal central binomial"
+        ]
+      },
+      "rationale": "The 2013 Sun irreducibility conjecture at OEIS A000172 is the true antecedent; this explicit infinite n=2^m Eisenstein subfamily was not in the inspected OEIS statement or the ranked prior findings. Earlier Franel power polynomials and fourth-Franel recurrence papers use different coefficients and cannot cover this polynomial without a proven transformation. Priority remains best-of-knowledge because the 2-adic trick is elementary enough to have appeared unindexed.",
+      "residual_risks": [
+        "A differently indexed reciprocal/shifted Strehl polynomial with the same coefficients might be proved elsewhere.",
+        "No exhaustive scan of older number-theory proceedings or OEIS comments proves historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States the irreducibility conjecture rather than proving power-of-two cases",
+          "evidence": "Original binomial polynomial and 2013 irreducibility comment",
+          "identifier_or_url": "https://oeis.org/A000172",
+          "material_read": "Sun comment dated March 21, 2013 and linked Strehl polynomial information",
+          "method": "full accessible entry text",
+          "title": "OEIS A000172, Franel numbers and Sun conjecture",
+          "trigger": "Exact same binomial sum claimed"
+        },
+        {
+          "assessment": "Self-identical source is not independent prior coverage",
+          "evidence": "Exact reciprocal Eisenstein claim for n=2^m",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-power-of-two-irreducibility-in-the-strehl-franel-polynomial-fami--9845440316f5",
+          "material_read": "Full current theorem and proof from assigned RESULT.md Git blob; cross-checked same result in published index",
+          "method": "full frozen Git blob",
+          "title": "Power-of-two irreducibility in the Strehl–Franel polynomial family",
+          "trigger": "Same-title result in Resultary"
+        },
+        {
+          "assessment": "Insufficient to assert full-document noncoverage; residual risk retained",
+          "evidence": "Different fourth Franel weighting indicated in accessible material",
+          "identifier_or_url": "https://arxiv.org/abs/2012.02563",
+          "material_read": "Public abstract/title and available indexed description, not entire paper",
+          "method": "abstract/index comparison",
+          "title": "A Strehl Version of Fourth Franel Sequence",
+          "trigger": "Franel polynomial alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://oeis.org/A000172",
+        "https://arxiv.org/abs/2012.02563",
+        "Strehl Franel polynomial irreducibility n power of two Sun conjecture Eisenstein reciprocal central binomial"
+      ],
+      "rationale": "Proves an infinite arithmetically distinguished subfamily of an explicit named all-n irreducibility conjecture, not a routine rebranding of a different polynomial. The proof is short, but a rigorous infinite family with no extrapolation is a reusable obstruction and a definite conjectural advance.",
+      "residual_risks": [
+        "A differently indexed reciprocal/shifted Strehl polynomial with the same coefficients might be proved elsewhere.",
+        "No exhaustive scan of older number-theory proceedings or OEIS comments proves historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Claim strictly for n a positive power of 2; no proof for other n; prior historical priority remains best-of-knowledge.",
+  "schema_version": 1
+}
