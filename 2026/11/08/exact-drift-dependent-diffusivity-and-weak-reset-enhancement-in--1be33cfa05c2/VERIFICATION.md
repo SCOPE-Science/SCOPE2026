@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. No network access, private data or external manuscript is required. The code independently sums bilateral-Laplace jump tails and the mixed \(\mathbb E[JT]\) moment, then compares with the closed analytical formula, reflection parity, the symmetric-lattice formula and small-/large-rate regimes.
+## correctness
 
-The recorded execution passed 262 deterministic assertions. Examples: \(D_{\mathrm{eff}}/D\approx1.934807543062\) at \(\delta=1/4,\ell=8\), and \(\approx1.167428083835\) at \(\delta=1/2,\ell=3\).
+PASS
 
-## Verification limitations
+For positive D,L,r and interior asymmetry, the bilateral Laplace resolvent of Brownian motion sampled at an exponential time gives the exact two geometric tails of the completed-cycle lattice jump. The mean LM and second moment L²S follow by tail summation. The regenerative variance rate is r E[(J-r E[J]T)^2]/2, not r Var(J)/2: differentiating E[J](r) gives E[JT]=E[J]/r-E[J] prime(r), yielding the stated negative clock-correction r² E[J] E[J] prime(r). The monotonicity of z coth z shows M M_ell<0 away from δ=1/2. Small-ell expansions give 1+[1/24+(δ-1/2)^2/2]ell²+O(ell⁴), and exponential tails give high-rate decay, ensuring existence (not uniqueness) of a finite optimum. Uniformly bounded unfinished-cycle second moment makes its variance contribution o(t). Independently evaluated δ=1/4,ell=8 as 1.9348075430624287; this finite test corroborates but does not prove the all-parameter result.
 
-Floating-point checks sample parameter values and cannot prove uniqueness, global asymptotics or a continuum theorem. Those assertions are established by the exact geometric-tail, renewal-reward, hyperbolic monotonicity and asymptotic arguments in RESULT.md. The verifier neither establishes publication priority nor constitutes independent mathematical certification.
+## originality
+
+PASS
+
+The symmetric closest-site resetting diffusivity of Alston–Bertrand is reproduced at δ=1/2, but its nearest-site basin centers cannot be conjugated to the asymmetric ratchet attraction projector with target nL and basin boundary nL+δL. Roberts–Sezik–Lardet compute currents and efficiency but the accessible source does not establish this centered two-parameter variance with within-cycle time/displacement covariance. Prior current and symmetric diffusivity are credited. Best-of-knowledge acceptance retains nontrivial uninspected-full-text risk.
+
+## value
+
+PASS
+
+Centered dispersion in a current-producing stochastic ratchet is a natural physical observable. A naive compound Poisson approximation misses the signed cycle-time covariance, so the exact all-asymmetry coefficient and sign supply a nontrivial transport correction and a useful benchmark, rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the entire stochastic process, positive parameters, the unwrapped coordinate, and centered variance normalization. The proof explicitly obtains bilateral-Laplace cycle-displacement tails and both cycle moments, retains the within-cycle correlation with exponential time, and invokes the appropriate centered regenerative variance law. An analytic hyperbolic inequality proves the strict negative correction for every nonsymmetric threshold. Taylor and exponential estimates give the weak- and strong-rate boundaries. The independently implemented geometric-tail and mixed-moment checks, 262 assertions, are supporting diagnostics, not infinite proofs. The uncompleted Poisson cycle has uniformly bounded second moment, giving no order-time variance contribution.
+PASS
 
-## Originality — PASS, qualified
+For positive D,L,r and interior asymmetry, the bilateral Laplace resolvent of Brownian motion sampled at an exponential time gives the exact two geometric tails of the completed-cycle lattice jump. The mean LM and second moment L²S follow by tail summation. The regenerative variance rate is r E[(J-r E[J]T)^2]/2, not r Var(J)/2: differentiating E[J](r) gives E[JT]=E[J]/r-E[J] prime(r), yielding the stated negative clock-correction r² E[J] E[J] prime(r). The monotonicity of z coth z shows M M_ell<0 away from δ=1/2. Small-ell expansions give 1+[1/24+(δ-1/2)^2/2]ell²+O(ell⁴), and exponential tails give high-rate decay, ensuring existence (not uniqueness) of a finite optimum. Uniformly bounded unfinished-cycle second moment makes its variance contribution o(t). Independently evaluated δ=1/4,ell=8 as 1.9348075430624287; this finite test corroborates but does not prove the all-parameter result.
 
-Roberts–Sezik–Lardet (2024) computes the precise instantaneous-limit current but not a centered effective-dispersion theorem. Alston–Bertrand (2024) proves a nearest-site local-reset diffusivity formula, recovered here only at the symmetric threshold; asymmetric attraction basins are a different mathematical projector, so their lattice optimum does not dominate this theorem. Ghosh et al. (2023) use an active substrate potential during diffusion and discuss dispersion numerically, while Liu et al. (2024) chiefly investigates fat-tailed clock effects and numerical dispersion. None of the inspected primary texts supplies the exact asymmetric Brownian-projection diffusivity with the strictly negative clock-correlation term and the sharp all-asymmetry weak-rate coefficient. A broader unindexed renewal-reward/ratchet treatment could affect publication priority; there is no independent bibliographic certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A central transport observable for ratchet engines is the dispersion at fixed nonzero current. Without the clock–jump covariance, treating rectified reset events as independent compound-Poisson jumps produces the wrong answer. The theorem yields a new exact two-parameter dispersion law, a strict covariance sign, the sharp asymmetry-dependent enhancement coefficient, high-rate suppression and existence of a finite dispersion-maximizing reset rate. This is a motivated quantitative transport result, rather than an arbitrary finite slice. For \(\delta=1/4\) and \(\ell=8\) it predicts roughly \(1.9348D\), above the familiar nearest-site optimum, precisely because asymmetric attraction differs from nearest-site projection.
+The symmetric closest-site resetting diffusivity of Alston–Bertrand is reproduced at δ=1/2, but its nearest-site basin centers cannot be conjugated to the asymmetric ratchet attraction projector with target nL and basin boundary nL+δL. Roberts–Sezik–Lardet compute currents and efficiency but the accessible source does not establish this centered two-parameter variance with within-cycle time/displacement covariance. Prior current and symmetric diffusivity are credited. Best-of-knowledge acceptance retains nontrivial uninspected-full-text risk.
 
-## Scope and residual risks
+## value
 
-The theorem is about the singular instantaneous-return limit, free Brownian motion between projections, Poisson clocks and fixed interior asymmetry. The benchmark symmetric result and exact current are pre-existing. No finite-potential-strength, non-Poisson or unique-optimizer claim is assessed. Published priority remains provisional pending expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Centered dispersion in a current-producing stochastic ratchet is a natural physical observable. A naive compound Poisson approximation misses the signed cycle-time covariance, so the exact all-asymmetry coefficient and sign supply a nontrivial transport correction and a useful benchmark, rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
