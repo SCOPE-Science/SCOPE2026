@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The proof establishes the exact product bound for all odd integer bases, all positive finite depths, and all strictly positive level-dependent digit probabilities. Its decisive steps are: reduction to independently minimized root-of-unity factors, uniqueness from the largest modulus, direct diagonalization of a two-by-two Gram matrix, and convergence of infinite products whose logarithms are summable.
+## correctness
 
-Run `python CHECK.py` using only Python's standard library. The checker enumerates all nonzero frequency residues in several odd moduli, evaluates the Fourier transform independently from the finitely supported probability measure and checks its predicted minimizer set; it also checks the two-character eigenvalue and the factor formula. Floating-point testing is finite evidence only, not the universal proof.
+PASS
 
-Independent validation has not been performed. The theorem does not cover zero-one deterministic digit weights, even bases, noninteger frequency differences, general larger frame families, or reconstruction robustness.
+The independent-digit Fourier transform is the product of Bernoulli factors. Each factor has a strict minimum at the two odd-root phases adjacent to -1, i.e. 4k=+/-1 mod b^j; the two solutions mod b^m simultaneously minimize every factor, and minimizing the largest-level factor forces this equality set. Positivity and strictness use 0<w_j<1; b odd makes 4 invertible. Gram eigenvalues are 1+/-|hat nu|. Fair-bias sine products and nonfair products have convergent log corrections. Independent raw discrete Fourier enumeration verified both minimum and equality residues in 18 configurations b=3,5,7 and m=1,2,3 with fair and varying biased weights; infinite-level rate is proved by convergent products, not the bounded tests.
+
+## originality
+
+PASS
+
+The exact finite-level all-bias two-character optimum and two-attainer equality statement is not implied by the checked published full-tower determinant or infinite fair Cantor two-character maximum. Classical Bernoulli-product factorization and nearest-root geometry are acknowledged. Positive best-of-knowledge, with elementary-lemma prior-art risk.
+
+## value
+
+PASS
+
+The minimum Fourier modulus is the exact sharp two-character conditioning invariant of the natural finite Cantor grid; its unexpectedly bias-independent optimizer and superexponential-to-exponential depth transition solve a motivated finite frame-design question rather than an arbitrary sliced computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

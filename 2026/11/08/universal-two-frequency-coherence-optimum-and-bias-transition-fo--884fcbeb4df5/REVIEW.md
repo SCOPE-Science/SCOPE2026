@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier factorization follows from independence. Each odd-order root-of-unity factor has a sharp two-point minimum, and the same two congruence classes modulo the largest scale minimize every factor; the last scale proves there are no other minimizers. The two-character Gram eigenvalues and the positive-convergent asymptotic products follow directly. The independent numerical enumeration is supportive rather than a substitute for the proof.
+## correctness
 
-**Originality — PASS relative to the inspected literature and indexed findings.** The motivating 2026 odd-base Cantor non-frame theorem concerns infinite Fourier frames, not optimal two-character finite-depth coherence. Earlier weighted-fractal-frame theory weights the *exponential vectors*, not the Bernoulli digits, and general finite-group Riesz-tightness studies do not supply the all-weight exact extremizers. Indexed comparisons of finite Fourier norms, valuation-shell concentration and character-pair moment estimates address other operators or objective functions. The standard Bernoulli transform product is explicitly not claimed to be new; the all-weights simultaneous sharp minimization, equality set, and bias-sensitive decay are the subject of the finding. Residual risk: an equivalent elementary calculation may appear in older Riesz-product or Bernoulli-convolution literature under different language.
+PASS
 
-**Value — PASS.** This exact natural frequency-pair design invariant is motivated by quantitative near-orthogonality on finite approximations to non-frame Cantor measures. Uniformly over arbitrary level biases, the optimizer has just two fixed arithmetic classes; the optimized condition number and a sharp asymptotic distinction between balanced and fixed-biased digit laws are useful benchmarks for multiscale Fourier sampling. The claim is deliberately limited to a pair, rather than overinterpreting the result as a global frame construction.
+The independent-digit Fourier transform is the product of Bernoulli factors. Each factor has a strict minimum at the two odd-root phases adjacent to -1, i.e. 4k=+/-1 mod b^j; the two solutions mod b^m simultaneously minimize every factor, and minimizing the largest-level factor forces this equality set. Positivity and strictness use 0<w_j<1; b odd makes 4 invertible. Gram eigenvalues are 1+/-|hat nu|. Fair-bias sine products and nonfair products have convergent log corrections. Independent raw discrete Fourier enumeration verified both minimum and equality residues in 18 configurations b=3,5,7 and m=1,2,3 with fair and varying biased weights; infinite-level rate is proved by convergent products, not the bounded tests.
 
-**Closest literature and limits.** Pont–Liehr–Taylor, *Cantor measures with odd base do not admit Fourier frames* (arXiv:2607.08656); Dutkay–Ranasinghe, *Weighted Fourier frames on fractal measures* (arXiv:1602.04749); Ferguson–Mayeli–Sothanaphan, *Riesz bases of exponentials and multi-tiling in finite abelian groups* (arXiv:1904.04487). The theorem requires odd base, positive digit probabilities, and exactly two frequency characters; it does not infer frame existence or nonexistence for infinite measures.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite-level all-bias two-character optimum and two-attainer equality statement is not implied by the checked published full-tower determinant or infinite fair Cantor two-character maximum. Classical Bernoulli-product factorization and nearest-root geometry are acknowledged. Positive best-of-knowledge, with elementary-lemma prior-art risk.
+
+## value
+
+PASS
+
+The minimum Fourier modulus is the exact sharp two-character conditioning invariant of the natural finite Cantor grid; its unexpectedly bias-independent optimizer and superexponential-to-exponential depth transition solve a motivated finite frame-design question rather than an arbitrary sliced computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
