@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` (Python standard library only). It returns:
+## correctness
 
-```
-CLASSIFICATION_OK 10626
-FINITE_REDUCTION_OK 3432 AFFINE_EQUAL_BASES 2
-VERIFY_OK
-```
+PASS
 
-The complete factor-set implementation is independent of the rectangle classifier and checks every binary word with three ones through length \(23\). The finite-reduction certificate enumerates all ordered triples of nonmaximum gaps with sum at most \(10\), all four positions for the maximum and the three values \(m=M,M+1,M+2\). This is a complete finite base only because the proof in `RESULT.md` establishes a uniform bound and the eventual affine dependence on the maximum gap. The program does not by itself prove infinitely many lengths.
+Factor presence with one 1 is exactly a southwest union of rectangles with corners (a,b),(b,c),(c,d); with two 1s only inner gap b or c is possible and rectangle corners are (a,c),(b,d). Minimal absence is absence with present length-(m-1) prefix/suffix. The zero-one count classification covers 0..4 ones, and every omitted higher-one candidate has an absent proper factor. Counting frontier drops yields |MAW|≤K+13 where K=min(max(a,b,c),max(b,c,d)); if the sum s of three nonmaximal gaps is ≥11, this is < n. For s≤10, the verified finite base of 4×3×C(13,3)=3432 cases plus a rigorously justified eventual affine dependence for the single large gap reduces all lengths to bounded checks. Independent direct substrings/MAW enumerator for all three-one words n=7..14 found max count n and exactly two extremizers, 110^(n-3)1 and 10^(n-3)11. Actual VERIFY.py source inspection shows the full finite certificate and separate direct classification checks.
 
-The program constructs candidate MAWs directly from rectangle memberships without invoking literature data, checks their actual strings against independently enumerated factor sets, and compares integer counts in all residual cases. No external executable, private dataset, mathematical proof assistant, or independent certification is required or claimed.
+## originality
+
+PASS
+
+Best-of-knowledge new exact fixed-weight-three binary MAW capacity and complete four-gap classification. Earlier general MAW algorithms and RLE bounds cover computation or order of growth but not the sharp n bound with exactly two labeled extremizers for every n≥7; no matching theorem located in searched mathematical findings. The gap-frontier classification is more than simply rerunning a general algorithm, though unindexed equivalent fixed-content work remains a risk.
+
+## value
+
+PASS
+
+Minimal absent factors form a natural antifactor basis used in text algorithms and compressed representations; fixing three isolated markers gives a meaningful sparse-string subclass. The full zero-gap structural classification, exact maximum n at every n≥7 and exhaustive equality conditions constitute a natural complete classification and sharp cutoff, not an arbitrary small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
