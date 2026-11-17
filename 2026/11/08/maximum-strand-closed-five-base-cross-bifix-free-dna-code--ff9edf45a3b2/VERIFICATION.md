@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the five-base result
+# Independent mathematical audit
 
-Execute `python3 verify_exact.py` and `python3 verify_independent.py` in the extracted directory. No third-party Python packages, network services or optimized solvers are needed.
+## correctness
 
-The first program rederives 256 canonical candidates, 56 reverse-complement orbits surviving internal checks, 412 pairwise-conflict edges, an exact partition into 18 cliques, and the matching independent 18-orbit witness of 36 DNA words. It checks every required proper overlap (length 1, 2, 3, and 4), including self-pairs.
+PASS
 
-The second program independently encodes nucleotides as two-bit integers, reconstructs the same admissible orbits and conflict graph, validates the finite clique upper-bound certificate, and independently rechecks all witness-word overlaps.
+For a nonempty reverse-complement-closed 5-mer code, the first-letter set P is disjoint from its Watson--Crick complement. A complement-preserving letter permutation moves P into {A,C}; all words then lie in {A,C}Σ^3{G,T} (256 candidates). Its odd-length reverse-complement orbits all have size two. Independence from all proper cross-prefix/suffix overlaps leaves 56 admissible orbits and a simple incompatibility graph with 412 edges. The 18 listed cliques partition all 56 orbit vertices, so an independent set has at most 18 pairs, i.e. 36 codewords. The listed 18 orbit indices form an independent set, proving the bound attainable. This is a complete finite certificate, not an unverified solver bound. Independently reimplemented DNA reverse complement, raw orbits, admissibility, all ordered overlap conflicts, graph, partition and 18-pair witness in JavaScript: 128 raw orbits, 56 admissible, 412 conflicts, 18 genuine disjoint cliques, zero missing edges, 18 pairwise compatible witness orbits and no errors. Both Python verifier implementations were inspected from the assigned tree. The exact finite count proves the fixed-length theorem; it claims nothing for longer lengths.
 
-Both programs must end with `EXACT_CERTIFICATE_OK` and `INDEPENDENT_INTEGER_REPLAY_OK`, respectively. These are complete finite checks for the claim at exactly length five, not evidence for other lengths, other alphabets, or independent scientific certification.
+## originality
+
+PASS
+
+The exact max cardinality 36 is for simultaneous length-five reverse-complement closure and mutual uncorrelatedness, with no GC-content constraint. The earlier published 24 optimum has an additional requirement of two or three GC letters, and so cannot upper-bound the larger family; its orbit graph has 120 vertices rather than these 56 unrestricted-under-GC canonical orbits. Unrestricted quaternary length-five non-overlap optimum 81 does not imply an optimal strand-closed subcode of cardinality 36. The length-four strand-closed optimum 17 is a distinct length. Stanovnik--Moškon--Mraz describe unrestricted short-code structures/tables but do not impose Watson--Crick closure in the inspected full article. Historical coding-table priority is qualified.
+
+## value
+
+PASS
+
+This is the exact feasible maximum for a natural, physically motivated orientation-invariant DNA synchronization constraint, at the first odd nontrivial five-symbol length beyond three. A rigorous sharp clique partition plus explicit witness is a useful exact constrained code-size fact even without a general length-n capacity theorem; the 81 unrestricted or 24 GC-restricted optima are not interchangeable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

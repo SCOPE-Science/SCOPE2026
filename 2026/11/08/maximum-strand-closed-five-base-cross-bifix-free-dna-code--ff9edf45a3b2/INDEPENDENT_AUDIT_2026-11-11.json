@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:07:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty reverse-complement-closed 5-mer code, the first-letter set P is disjoint from its Watson--Crick complement. A complement-preserving letter permutation moves P into {A,C}; all words then lie in {A,C}Σ^3{G,T} (256 candidates). Its odd-length reverse-complement orbits all have size two. Independence from all proper cross-prefix/suffix overlaps leaves 56 admissible orbits and a simple incompatibility graph with 412 edges. The 18 listed cliques partition all 56 orbit vertices, so an independent set has at most 18 pairs, i.e. 36 codewords. The listed 18 orbit indices form an independent set, proving the bound attainable. This is a complete finite certificate, not an unverified solver bound. Independently reimplemented DNA reverse complement, raw orbits, admissibility, all ordered overlap conflicts, graph, partition and 18-pair witness in JavaScript: 128 raw orbits, 56 admissible, 412 conflicts, 18 genuine disjoint cliques, zero missing edges, 18 pairwise compatible witness orbits and no errors. Both Python verifier implementations were inspected from the assigned tree. The exact finite count proves the fixed-length theorem; it claims nothing for longer lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted optimum 81 is an upper bound but not sharp for orientation invariance; GC-balanced maximum 24 is a lower-domain bound not an upper bound for all strand-closed sets."
+        ],
+        "reasoning": "The two nearby stronger-looking prior results are not logically covering this precise combination of two constraints. The exact certificate is independent of earlier tables.",
+        "searches": [
+          "length five reverse complement closed cross bifix free DNA code 36 overlap",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10623-023-01344-z",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-reverse-complement-closure-penalty-for-four-letter-non-o--5b35601c030a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A feasible code with 36 words exceeds the GC-balanced limit, confirming that GC-balanced impossibility cannot transfer.",
+          "An unrestricted 81-word code need not be reverse-complement invariant; its existence cannot establish a closed 36-word witness or sharp 36 upper bound."
+        ],
+        "reasoning": "Neither prior exact optimum implies the new claim. The explicit graph certificate independently settles it.",
+        "searches": [
+          "length five reverse complement closed cross bifix free DNA code 36 overlap",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435/RESULT.md",
+          "https://doi.org/10.1007/s10623-023-01344-z"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cross-bifix-free and non-overlapping are equivalent proper prefix/suffix exclusions; reverse-complement closure is a separate global constraint.",
+          "The submitted orbit graph is a quotient by a fixed-point-free involution on words."
+        ],
+        "reasoning": "Terminology aliases were checked; the unrestricted classic exact q=4,n=5 optimum is not equivalent to the strand-closed constrained optimum.",
+        "searches": [
+          "length five reverse complement closed cross bifix free DNA code 36 overlap",
+          "cross-bifix-free mutually uncorrelated strand-closed reverse-complement codes",
+          "https://doi.org/10.1007/s10623-023-01344-z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary unrestricted exact table records 81 at four letters and length five. The GC-balanced exact table records 24 under an extra restriction. The new 56-vertex/18-clique finite certificate is materially different."
+        ],
+        "reasoning": "No inspected prior database supplies 36 for the exact reverse-complement-closed, unrestricted-GC family; unindexed DNA-code tables are an explicit residual risk.",
+        "searches": [
+          "length five reverse complement closed cross bifix free DNA code 36 overlap",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435/RESULT.md",
+          "https://doi.org/10.1007/s10623-023-01344-z"
+        ]
+      },
+      "rationale": "The exact max cardinality 36 is for simultaneous length-five reverse-complement closure and mutual uncorrelatedness, with no GC-content constraint. The earlier published 24 optimum has an additional requirement of two or three GC letters, and so cannot upper-bound the larger family; its orbit graph has 120 vertices rather than these 56 unrestricted-under-GC canonical orbits. Unrestricted quaternary length-five non-overlap optimum 81 does not imply an optimal strand-closed subcode of cardinality 36. The length-four strand-closed optimum 17 is a distinct length. Stanovnik--Moškon--Mraz describe unrestricted short-code structures/tables but do not impose Watson--Crick closure in the inspected full article. Historical coding-table priority is qualified.",
+      "residual_risks": [
+        "An overlooked historical DNA synchronization design table imposing Watson--Crick closure might already contain size 36.",
+        "The finite result addresses overlap combinatorics only, not laboratory thermodynamic feasibility or DNA read error correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted q=4,n=5 maximum 81 and maximum-code structure do not constrain Watson--Crick-closed codes to optimum 36.",
+          "evidence": [
+            "The short-length table gives unrestricted size 81, whereas every 5-mer optimal 36-set here is forced closed under reverse-complement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "Full open-access HTML article, definitions, main structural theorems and relevant short-code tables including quaternary length five; searched the text for reverse-complement conditions.",
+          "method": "Read primary publisher open-access HTML and its length-five table.",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Closest journal primary text for exact short-block nonoverlapping codes and complete tabulations."
+        },
+        {
+          "assessment": "The extra GC restriction makes this a proper subproblem; its 24 maximum does not imply 36 in the larger problem, and its graph certificate is different.",
+          "evidence": [
+            "Previous theorem assumes exactly two or three GC symbols; current theorem allows all GC counts and proves 36 via 56-orbit/18-clique cover."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435/RESULT.md",
+          "material_read": "Complete published RESULT.md, including canonical 640 GC-balanced words, 120 admissible orbits, 12-clique partition and 24-word witness.",
+          "method": "Read full GitHub source text and compared constraint sets and proof certificates.",
+          "title": "Exact capacity of strand-invariant, GC-balanced, non-overlapping DNA five-mers",
+          "trigger": "Same alphabet, length, reverse-complement closure and overlaps, with extra GC constraint."
+        },
+        {
+          "assessment": "N=4 admits fixed reverse-complement orbits, unlike n=5, and its 17-code theorem cannot imply a five-mer optimum.",
+          "evidence": [
+            "Prior result has word length 4 and maximum 17."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-reverse-complement-closure-penalty-for-four-letter-non-o--5b35601c030a",
+          "material_read": "Published theorem description and exact maximum 17, not full primary source text.",
+          "method": "Statement-level comparison of block length.",
+          "title": "A sharp reverse-complement closure penalty for four-letter non-overlapping DNA codes",
+          "trigger": "Adjacent smaller length with same closure property."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the exact feasible maximum for a natural, physically motivated orientation-invariant DNA synchronization constraint, at the first odd nontrivial five-symbol length beyond three. A rigorous sharp clique partition plus explicit witness is a useful exact constrained code-size fact even without a general length-n capacity theorem; the 81 unrestricted or 24 GC-restricted optima are not interchangeable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1007/s10623-023-01344-z",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-capacity-of-strand-invariant-gc-balanced-non-overlapping-d--b39eb37f2435/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-reverse-complement-closure-penalty-for-four-letter-non-o--5b35601c030a"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Completed C/O/V are best-of-knowledge scientific evaluations, not publication or worldwide priority certification.",
+    "Fixed-length exhaustive finite certificate proves this one exact size; no all-length conclusion.",
+    "Existing confidential operational metadata is not publication-sanitized."
+  ],
+  "residual_risks": [
+    "An overlooked historical DNA synchronization design table imposing Watson--Crick closure might already contain size 36.",
+    "The finite result addresses overlap combinatorics only, not laboratory thermodynamic feasibility or DNA read error correction."
+  ],
+  "schema_version": 1
+}

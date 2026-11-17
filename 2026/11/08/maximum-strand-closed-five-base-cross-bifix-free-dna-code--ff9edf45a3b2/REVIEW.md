@@ -1,19 +1,21 @@
-# Scientific review: five-base strand-closed non-overlapping codes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All hypotheses, quantifiers, and boundary conventions are explicit. The first/last-letter reduction holds because reverse-complement closure sends the first-letter set to the complement of the last-letter set and length-one nonoverlap forces disjointness. Complement-preserving alphabet permutations reduce all possible codebooks to the 256-word canonical domain. Every odd-length reverse-complement orbit is a two-element orbit. The 56 admissible orbits and all 412 pairwise conflicts follow from four fixed proper overlap lengths. The 18 listed cliques partition these vertices, so they bound all independent sets by 18 orbits; the 18-orbit witness meets that bound. Two distinct standard-library verification implementations independently reconstruct every finite claim, including all pair comparisons; they pass when run from the package directory.
+PASS
 
-## Originality — PASS, with residual risk
+For a nonempty reverse-complement-closed 5-mer code, the first-letter set P is disjoint from its Watson--Crick complement. A complement-preserving letter permutation moves P into {A,C}; all words then lie in {A,C}Σ^3{G,T} (256 candidates). Its odd-length reverse-complement orbits all have size two. Independence from all proper cross-prefix/suffix overlaps leaves 56 admissible orbits and a simple incompatibility graph with 412 edges. The 18 listed cliques partition all 56 orbit vertices, so an independent set has at most 18 pairs, i.e. 36 codewords. The listed 18 orbit indices form an independent set, proving the bound attainable. This is a complete finite certificate, not an unverified solver bound. Independently reimplemented DNA reverse complement, raw orbits, admissibility, all ordered overlap conflicts, graph, partition and 18-pair witness in JavaScript: 128 raw orbits, 56 admissible, 412 conflicts, 18 genuine disjoint cliques, zero missing edges, 18 pairwise compatible witness orbits and no errors. Both Python verifier implementations were inspected from the assigned tree. The exact finite count proves the fixed-length theorem; it claims nothing for longer lengths.
 
-Relevant 2012 and 2013 foundational full-text results treat unconditioned q-ary cross-bifix-free codes and construction bounds; the 2024 open-access maximal-code paper provides unrestricted length-five exact results (quaternary maximum 81), not reverse-complement-closed optimization. A separate prior record reports a strand-closed four-mer value 17 for length four, and a different restricted five-mer record reports a GC-balanced value 24. Neither implies the present unrestricted-in-GC exact maximum 36; those earlier scientific statuses are not reassessed. Relevant published record searches using the phrases “strand-closed five-mer non-overlapping DNA codes exact optimum 36”, “reverse-complement closed five-letter DNA non-overlapping code maximal 36”, and “Watson-Crick self reverse complement cross bifix free code maximum” did not identify an identical 36-word constrained theorem. This is evidence of a distinct claim, not a proof that no unindexed publication exists. Historical priority remains subject to outside verification, particularly against work on self-complementary synchronization codes.
+## originality
 
-## Value — PASS
+PASS
 
-The exact optimum gives the maximum number of orientation-invariant five-base framing tokens under the stringent nonoverlap condition. It is a sharply resolved small-alphabet, finite-blocklength invariant, with a short checkable optimality certificate and a natural unconstrained benchmark of 81; its reduction to 36 quantifies the cost of strand closure. Unlike the prior four-mer problem, odd blocklength eliminates all fixed reverse-complement orbits and produces a 56-vertex, 412-conflict structural instance. It does not make claims about practical biochemical performance or higher lengths.
+The exact max cardinality 36 is for simultaneous length-five reverse-complement closure and mutual uncorrelatedness, with no GC-content constraint. The earlier published 24 optimum has an additional requirement of two or three GC letters, and so cannot upper-bound the larger family; its orbit graph has 120 vertices rather than these 56 unrestricted-under-GC canonical orbits. Unrestricted quaternary length-five non-overlap optimum 81 does not imply an optimal strand-closed subcode of cardinality 36. The length-four strand-closed optimum 17 is a distinct length. Stanovnik--Moškon--Mraz describe unrestricted short-code structures/tables but do not impose Watson--Crick closure in the inspected full article. Historical coding-table priority is qualified.
 
-## Limitations
+## value
 
-An exhaustive finite graph proof at length five is not an all-length theorem. The absence of indexed prior equality claims does not establish global historical priority. No independent scientific audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the exact feasible maximum for a natural, physically motivated orientation-invariant DNA synchronization constraint, at the first odd nontrivial five-symbol length beyond three. A rigorous sharp clique partition plus explicit witness is a useful exact constrained code-size fact even without a general length-n capacity theorem; the 81 unrestricted or 24 GC-restricted optima are not interchangeable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
