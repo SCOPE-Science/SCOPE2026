@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The shift-weight computation proves the exact contractive multiplier range, including endpoints. The normalized complete-Pick criterion is applied only to nonvanishing kernels, ensured by \(s\le1\). For \(0<\gamma\le1\), coefficient positivity of \(1-1/K\) is equivalent to a single sharp monomial inequality. For \(\gamma>1\), uncancellable transverse coefficients disqualify dimensions at least two; in the disk the remaining high-exponent cases are excluded by a negative coefficient or a negative second derivative at the boundary. The Gamma-ratio claim follows from a standard asymptotic. The standalone checker verifies finite exact examples but is not substituted for these general arguments.
+## correctness
 
-**Originality — PASS against inspected sources, with residual priority risk.** Dellepiane–Seco (arXiv:2603.03093) analyzes orthogonal polynomials rather than complete-Pick amplitudes. Sau (arXiv:2606.09680) characterizes existence of complete-Pick factors and discusses classical kernels, not the explicit fractional-power monomial threshold. Ahmed–Das–Panja (arXiv:2403.19377) gives a general implicit characterization, which provides theoretical coverage of the decision question but not the stated explicit phase diagram. Luo–Zhu (arXiv:2302.01980) **does** subsume the higher-exponent disk subcase, so the claimed contribution is not that already-known branch; it is the exact fractional-exponent amplitude law and dimension transition. Checked published mathematical records and the accessible same-field research ledger did not display an equivalent threshold. This does not prove global publication priority.
+PASS
 
-**Mathematical value — PASS.** Complete-Pick interpolation of defect kernels is a natural classification problem. Here a single sharp closed-form coefficient separates interpolation-positive and interpolation-negative *contractive* monomial multipliers, including a previously unclassified fractional range, with a polynomially shrinking amplitude fraction and an exact dimension barrier. Noninjective multipliers survive as complete-Pick defects below the classical Hardy exponent, illuminating why the Hardy-space injectivity intuition does not extend unchanged to fractional kernels. Although the elementary coefficient method is known, the full natural parameter and boundary classification is a precise useful invariant rather than an arbitrary finite example.
+The monomial multiplier is a weighted shift on orthogonal monomials with squared weight (alpha_1+1)_m/(gamma+|alpha|)_m. Its exact norm gives admissible squared amplitude 0<=s<=(gamma)_m/m! for 0<gamma<1, and s<=1 for gamma>=1. The normalized zero-free kernel complete Pick test is positivity of F=1-1/K. For 0<gamma<=1 all binomial coefficients b_n=(-1)^(n+1)binom(gamma,n) are nonnegative, and only the degree-m pure first-coordinate coefficient loses s, yielding threshold s<=b_m; inverse (1-sv^m)^(-1) has positive coefficients. For gamma>1,d>=2 a transverse quadratic coefficient -gamma(gamma-1)/2 survives; for d=1,m>=2 degree 2 is negative, and for d=m=1, s<1 gives F<0 near the boundary if 1<gamma<2 and negative quadratic coefficient otherwise. At s=1, K=(1-z zbar)^(-(gamma-1)), CP precisely for 1<gamma<=2. The Gamma quotient yields m^-2gamma relative threshold. Independently computed coefficient of (z wbar)^2 in F at gamma=1/2,m=2,s=1/8 exactly zero, with multiplier maximum s=3/8.
 
-**Closest literature and limits.** The McCullough–Quiggin–Agler–McCarthy criterion is an input, not a new theorem. The 2023 Luo–Zhu higher-exponent disk conclusion is acknowledged as covered. The result does not classify general symbols, weighted domains or complete-Pick *factors*. Residual risk remains from an unlocated equivalent explicit monomial calculation or a broader published theorem resolving the fractional thresholds.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general normalized complete-Pick coefficient test is prior mathematical machinery, and the weighted-Bergman disk high-exponent branch is explicitly covered by Luo–Zhu. The surviving all-dimensional fractional gamma∈(0,1) monomial-amplitude threshold b_m(gamma), its exact contractivity contrast a_m, the dimension obstruction and m^-2gamma loss are a concrete previously unlocated complete natural parameter classification. The Ahmed–Das–Panja general characterization may implicitly decide individual instances, but its inspected full-text main theorems do not state the explicit fractional monomial phase diagram. Best-of-knowledge priority risks remain.
+
+## value
+
+PASS
+
+Complete Pick interpolation of defect kernels is a natural infinite-dimensional classification problem. A sharp explicitly evaluable amplitude boundary splits contractive from complete-Pick monomial defects for every order and dimension, including noninjective symbols below the Hardy exponent, and the surviving fraction of contractive amplitude shrinks as m^-2gamma. The gamma>1 dimension barrier and the gamma=1 endpoint make the result a useful complete phase diagram, rather than an arbitrary handpicked parameter example. Known high-exponent disk part is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
