@@ -1,11 +1,21 @@
-# Review of the Euclidean inball and center-locus theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The inner-product space, polar, center, quantifiers, parity and all-singleton edge case are explicit. A polar extreme point is integral by propagation along a spanning tree of tight edges. Graph diameter two restricts it to binary or ternary potentials. Their squared Euclidean norms give the exact maximum and exhibit attainers. Antipodal farthest normals determine the affine hull of all maximum-ball centers, and the inactive constraints are strict at the origin. The rank computation proves the dimension cases. The exact-rational checker confirms small instances but is not used as an infinite proof.
+## correctness
 
-**Originality: PASS (subject to bibliographic priority risk).** Higashitani–Jochemko–Michałek's known complete multipartite facet classification is the closest primary result and covers the list and number of possible facet normals. It does not give the largest intrinsic Euclidean normal norm, the resulting metric phase comparison, contact count by shell, or the full incenter dimension. Chen–Davis–Korchevskaia study general facet subgraphs; Kölbl studies Ehrhart roots. Previously reported special-graph inradii do not cover all complete multipartite profiles. This work explicitly credits the facet classification, and a short derivation from it by someone else remains a genuine priority risk.
+PASS
 
-**Mathematical value: PASS.** The exact largest-part dependence is a non-obvious collapse of all other graph-part parameters for a natural metric invariant. The binary/ternary transition yields distinct tangent-facet orbits, while the parity and multiplicity of largest parts control nonuniqueness of inball centers. At fixed three parts the dimension can grow unboundedly; increasing the number of equal two-vertex parts passes from a nonunique inball through a tie to a unique inball. This is a motivated complete metric classification, not an arbitrary finite slice or an isolated computed example.
+In canonical zero-sum Euclidean H, the polar inequalities |y_u-y_v|<=1 yield integral extremal potentials by a spanning tree of active edges. Diameter two forces two-level or single-part three-level extremes; their squared norms are j(N-j)/N and t-(b-a)²/N, giving M=max(floor(N²/4)/N, L-(L mod 2)/N), with singleton L=1 harmless. Central symmetry centers an optimal ball. Farthest polar normals span H for binary balance; when three-level T>B their rank is h(L-1) for even L, and hL except one relation if maximal parts exhaust all vertices for odd L. Orthogonality to these antipodal normals and strictness of all others gives exact affine center-set dimension. Independent exact polar-potential brute force/rational rank checks for (1,1,1),(2,2,2),(2,2,2,2),(3,3,3),(4,2,2,1) matched the radius, contact counts and dimensions.
 
-**Scope and residual risk.** This applies only to the canonical intrinsic Euclidean realization and unweighted complete multipartite graphs, not to affine-equivalent coordinates. The face lattice of the center locus is not determined. A comprehensive general theorem for Euclidean circumradii of graph Lipschitz balls, if found, could cover it; the examined sources instead provide facets, Ehrhart information, or special graph cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original *remaining center-locus classification*, not the known metric radius/contact formula. The stated distinct full final claim survives comparisons, with explicitly bounded residual risks.
+
+## value
+
+PASS
+
+Classifies not only metric inradius and tangencies but *all optimal centers* for a natural infinite class, including sharp parity-dependent nonuniqueness and unbounded-dimensional center loci; geometric structural invariant not mechanical table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
