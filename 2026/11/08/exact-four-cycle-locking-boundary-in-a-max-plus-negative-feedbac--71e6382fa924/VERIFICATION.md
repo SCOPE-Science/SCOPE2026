@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 check_exact_phase.py` with Python 3.9+; no nonstandard package is required. The checker enumerates all \(3^4=81\) affine mode words for a four-periodic scalar orbit, performs exact rational Gaussian elimination on each nonsingular word, and intersects parameter inequalities symbolically. The sole singular word `DDDD` is excluded analytically by its inconsistent cyclic sum for \(t>1\). All feasible words and their full parameter intervals are compared with the printed certificate in `RESULT.md`. The checker additionally verifies physical iterates at exact rational representative parameters and both strict-region return Jacobians.
+## correctness
 
-The universal reduction from an arbitrary real planar period-four orbit to a bounded scalar recurrence is established in the proof in `RESULT.md`, not by finite computation. The exhaustive algebraic branch enumeration is finite and exact; it applies to all real \(t\in(3/2,2)\). No numerical optimization, Monte Carlo simulation, timeout-based exclusion, or unproved computer algebra assertion is used.
+PASS
 
-Scope limits: period four only; the boundary orbit is nonsmooth and has no claimed classical linearization there. Literature priority is assessed against accessible primary texts and index results, with the inaccessible 2015 precursor retained as a risk. Independent validation has not been performed.
+For the complete real plane, 3/2<t<2, the periodic-max argument bounds any period-dividing-four orbit in [-1,1]^2. If x-t>=y on an orbit, forced consecutive states contradict four-periodicity, so the scalar recurrence a_{k+2}=max(a_{k+1}+1-t,1-max(0,2a_k)) applies. The finite D,S,H branch partition gives 3^4=81 affine mode systems; all except DDDD are nonsingular and DDDD contradicts t>1. The inspected exact Fraction solver enumerates feasible words HHHH plus rotations HSDD and HSHD (nine words total); HHHH is fixed, the other two cycles are primitive. At 5/3 the cycles coalesce; below neither exists. Strict-branch Jacobian products equal zero and [[4,0],[4,0]], respectively. Independently evaluated exact rational cycles at t=5/3,7/4,19/10, including collision; finite samples are not the proof—the symbolic 81-branch elimination plus analytic global reduction is. No Floquet differentiability asserted on the switching boundary.
+
+## originality
+
+PASS
+
+The 2023 Yamazaki–Ohmori primary paper gives the unnormalized finite-step max-plus negative-feedback map and numerical four-state phase locking, not an all-real-states exact primitive-period-four census or sharp border t=5/3 and the two return matrices. The separate rational negative-feedback limit map and infinite-step oscillator are different dynamics. Best-of-knowledge survival; 2015 Gibo–Ito precursor full text was not accessed.
+
+## value
+
+PASS
+
+An exact global switching-border phase transition for a natural finite-step ultradiscrete oscillator resolves a numerical four-state locking observation, distinguishes an attracting cycle from an unstable one, and supplies a complete interval-wide primitive-four classification rather than a parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: exact four-cycle locking boundary
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem concerns the whole real plane in \(3/2<t<2\), with exact tie conventions inherited from the continuous max operator. The global trapping rectangle for periodic states and the exclusion of first-coordinate self-delay are proved without finite sampling. After this reduction, all 81 words of length four in the exhaustive three-mode alphabet are handled by an exact rational parametric linear-system calculation; only `HHHH` and the cyclic rotations of `HSDD` and `HSHD` survive, with the latter feasible exactly at and above \(t=5/3\). The two displayed primitive cycles satisfy the original map directly. The strict-region Jacobian products are zero and have eigenvalues \(\{4,0\}\). At the boundary, smooth differentiation is correctly withheld. The standalone `check_exact_phase.py` is a full finite branch certificate, not a sampled extrapolation.
+PASS
 
-## Originality
+For the complete real plane, 3/2<t<2, the periodic-max argument bounds any period-dividing-four orbit in [-1,1]^2. If x-t>=y on an orbit, forced consecutive states contradict four-periodicity, so the scalar recurrence a_{k+2}=max(a_{k+1}+1-t,1-max(0,2a_k)) applies. The finite D,S,H branch partition gives 3^4=81 affine mode systems; all except DDDD are nonsingular and DDDD contradicts t>1. The inspected exact Fraction solver enumerates feasible words HHHH plus rotations HSDD and HSHD (nine words total); HHHH is fixed, the other two cycles are primitive. At 5/3 the cycles coalesce; below neither exists. Strict-branch Jacobian products equal zero and [[4,0],[4,0]], respectively. Independently evaluated exact rational cycles at t=5/3,7/4,19/10, including collision; finite samples are not the proof—the symbolic 81-branch elimination plus analytic global reduction is. No Floquet differentiability asserted on the switching boundary.
 
-**PASS within inspected primary sources and indexed work.** Yamazaki and Ohmori (2023, arXiv:2306.00733, equation (8) and associated text) define exactly the same max-plus model and numerically observe locking. They do not provide a symbolic global least-period-four census, the ratio \(T/B=5/3\), or the exact fourth-return matrices. The earlier max-plus model in Ohmori and Yamazaki (2023, arXiv:2305.05908) is the \(T\to\infty\) limiting model, and the generalized oscillator of Ohmori and Yamazaki (2024, arXiv:2402.06230) uses a different piecewise-linear equation. Closest indexed quantitative max-plus recurrence results concern different reset and generalized oscillator maps and do not imply the present all-state phase boundary. The 2015 biological-feedback precursor is known from its abstract and citations but its full text was not inspected; publication-priority risk remains.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The originating dynamical literature specifically uses finite-step max-plus phase locking to understand how discrete four-state oscillations emerge. A complete exact onset threshold and strict two-orbit census answer a natural unresolved quantitative question in that same system. The distinction between an identically-zero fourth-return matrix and a \(4\)-eigenvalue unstable return reveals a nonsmooth border collision rather than a smooth fold. This is not a mere normalization or isolated arbitrary parameter evaluation; it classifies all primitive period-four orbits throughout the first locking window.
+The 2023 Yamazaki–Ohmori primary paper gives the unnormalized finite-step max-plus negative-feedback map and numerical four-state phase locking, not an all-real-states exact primitive-period-four census or sharp border t=5/3 and the two return matrices. The separate rational negative-feedback limit map and infinite-step oscillator are different dynamics. Best-of-knowledge survival; 2015 Gibo–Ito precursor full text was not accessed.
 
-## Scientific limits
+## value
 
-Only the strict region \(3/2<t<2\), the exponent \(m=2\), and primitive period four are classified. No conclusion is drawn for higher primitive periods, complete basins, or the smooth model's threshold. Exact classical Floquet spectra are not asserted at the switching collision. Equivalent older or unindexed accounts remain possible, and no independent review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact global switching-border phase transition for a natural finite-step ultradiscrete oscillator resolves a numerical four-state locking observation, distinguishes an attracting cycle from an unstable one, and supplies a complete interval-wide primitive-four classification rather than a parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
