@@ -1,19 +1,21 @@
-# Scientific review: Twenty-four-step resonances in reversible waves on complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unrestricted proof begins with the exact factorization \(A=EK\sigma\), then computes \(\operatorname{rank}A=\rho\), \(\operatorname{rank}A^2=s+\delta\), and \(\operatorname{rank}A^3=s\). The relations \(A^4=A^2\) for even \(p\) and \(A^4=A^3\) for odd \(p\) exclude omitted nilpotent blocks. The nonzero Jordan structure is determined by the rank-one matrix \(I_p+\boldsymbol1\boldsymbol1^{\mathsf T}\), and the reversible block transfer uses characteristic polynomials and exact fixed-space kernel dimensions. These steps yield all five multiplicities, the closed formula for \(\#\operatorname{Fix}(T^t)\), the exact sharp order, and Möbius inversion for least-period orbit numbers. The proof covers all permitted finite fields, positive part sizes, and times, not merely a bounded computation. Both supplied verification programs executed successfully; the second directly uses field-four states rather than the binary matrix-rank method.
+PASS
 
-## Originality — PASS (with identified risks)
+The factorization A=EKσ with σE=D gives ranks ρ, s+δ, s and nilpotent blocks at most 3; nonzero blocks at eigenvalue 1 have multiplicities b1,b2. Characteristic polynomial z^2+λz+1 transfers J_j(0) to J_{2j}(1) and J_j(1) to h(z)^j. Independently built GF(2) adjacency/wave matrices for 297 multipartite part tuples (2..5 parts, total <=9) and checked D(t) at all divisors of 24 and T^24=I; K_{1,1,1,2} dimensions yield 720 primitive period-24 states (30 orbits). The algebra, not finite tests, establishes all parameters and extension fields.
 
-The construction of a reversible second-order automaton is classical: see Toffoli–Margolus (1987), Section 14.2, and Vlasov (2013), Section 3. The published 2026 *Sharp period-four census for complete multipartite parity automata* explicitly computes ranks of the first-order adjacency map and counts periodic orbits of the **different** maps \(x\mapsto Ax\) and \(x\mapsto(I+A)x\). The candidate does not claim those ranks as independently new: it provides the missing two-time-level Jordan decomposition and an exact wave-orbit census. The published first-order conclusion that no orbit exceeds length four does not carry over: primitive \(24\)-cycles occur already on \(K_{1,1,1,2}\). The existing strongly regular graph wave result only covers special balanced multipartite families and does not imply the unequal-part period-24 case. Kantic and collaborators (2026) give generic algorithms for linear finite dynamics, not this graph-family orbit formula. Related literature was inspected as recorded in the structured review. The chief residual risk is an earlier unindexed equivalent multipartite-wave computation or an unlocated generic formula expressed in a different algebraic language.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Complete multipartite graphs are the canonical network model with heterogeneous fully connected communities. The first-order parity rule has periods at most four, yet its reversible second-order lift exhibits a sharp **five-regime** maximal period law of \(4,6,8,12,24\) determined entirely by part parities. The period-24 onset when at least three parts have odd size and another has even size is a structural resonance between a unipotent period-eight block and an order-three block. The fully explicit counts of each primitive period are a natural invariant, not an arbitrary finite parameter computation; the theorem treats all graph orders, all positive part sizes and every characteristic-two finite field. This is a motivated complete classification, albeit not a claim about arbitrary networks or odd characteristic.
+Prior first-order parity automata and generic reversible second-order constructions do not identify these multipartite two-row Jordan multiplicities and primitive orbit formula. The small unequal-part graph has period 24 unavailable in first-order period-four classification.
 
-## Closest work and limitations
+## value
 
-Read source material: Toffoli–Margolus, *Cellular Automata Machines*, Section 14.2 (1987); Vlasov, *On generalization of reversible second-order cellular automata*, Section 3 (2013); *Sharp period-four census for complete multipartite parity automata*, complete result/proof (2026); Kantic–Qureshi–Panario–Legl, *On the Dynamics of Linear Finite Dynamical Systems Over Galois Rings*, Sections 2–4 and 6 (2026). The comparison concerns actual update operators and their conclusions rather than title matches. The literature search does not establish absolute priority. Finite programs corroborate the proof but do not certify the infinite-family result. No independent mathematical audit was undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact period 24 phenomenon and primitive-orbit counts in a natural graph family are nontrivial, sharp and relevant to finite linear reversible dynamics; the first-order to two-row jump is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

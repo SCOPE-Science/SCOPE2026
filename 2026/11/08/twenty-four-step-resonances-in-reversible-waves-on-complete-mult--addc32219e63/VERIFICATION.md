@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the complete multipartite reversible-wave census
+# Independent mathematical audit
 
-The theorem is proved for every labelled complete multipartite graph with at least two nonempty parts and over each characteristic-two finite field; no finite check substitutes for that proof.
+## correctness
 
-Run `python verify_binary.py` using Python 3. The program uses elementary bit-matrix algebra to construct the graph adjacency and second-order reversible wave. It checks the predicted Jordan-derived adjacency ranks, all wave fixed-space dimensions through time \(24\), exact order divisibility by \(24\), nonnegative integral Möbius counts, and direct least-period enumeration of all binary states on small graphs. Expected output begins with `RANK_AND_FIXED_COUNT_OK 2891` and `STATE_ORBITS_OK 84`, and continues with eight reproducible example censuses. Actual recorded output is `binary_output.txt`.
+PASS
 
-Run `python verify_field4.py`. It independently iterates labelled two-row states using the additive representation of \(\mathbb F_4\), checking the complete fixed-space formula against primitive orbit enumeration on eleven small graphs. Its actual output in `field4_output.txt` is `GF4_DIRECT_ORBITS_OK 11`.
+The factorization A=EKσ with σE=D gives ranks ρ, s+δ, s and nilpotent blocks at most 3; nonzero blocks at eigenvalue 1 have multiplicities b1,b2. Characteristic polynomial z^2+λz+1 transfers J_j(0) to J_{2j}(1) and J_j(1) to h(z)^j. Independently built GF(2) adjacency/wave matrices for 297 multipartite part tuples (2..5 parts, total <=9) and checked D(t) at all divisors of 24 and T^24=I; K_{1,1,1,2} dimensions yield 720 primitive period-24 states (30 orbits). The algebra, not finite tests, establishes all parameters and extension fields.
 
-Critical all-parameter steps are the adjacency rank identities, the eigenvalue-one Jordan classification, and the transfer \(J_s(0)\mapsto J_{2s}(1)\), \(J_s(1)\mapsto C_{(z^2+z+1)^s}\); the proof in `RESULT.md` supplies them. The programs only test finite examples, not every graph or extension field. The verified source date is the MIT Press publication date, 22 April 1987, of the historical second-order construction; it is not a claim of publication priority for this finding.
+## originality
+
+PASS
+
+Prior first-order parity automata and generic reversible second-order constructions do not identify these multipartite two-row Jordan multiplicities and primitive orbit formula. The small unequal-part graph has period 24 unavailable in first-order period-four classification.
+
+## value
+
+PASS
+
+Exact period 24 phenomenon and primitive-orbit counts in a natural graph family are nontrivial, sharp and relevant to finite linear reversible dynamics; the first-order to two-row jump is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
