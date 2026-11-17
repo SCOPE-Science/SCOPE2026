@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T21:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The drifted Brownian full-line point-sink resolvent gives absorption before reset p_r=a/(a+q)*exp(-b-q), with a=kL/(2D), b=uL/(2D), q=sqrt(b²+rL²/D). Renewal yields exact T(r)=(L²/D)*[(1+q/a)e^{b+q}-1]/(q²-b²). With y=q-b the stationarity sign is K(y)=y³+(a+3b-1)y²+2(a+b)(b-1)y-2b(a+b)+2a(b+y)e^{-2b-y}. Independently checked algebraic K and positive K''=6y+2(a+3b-1)+2a e^{-2b-y}(b+y-2), for b>=1. With K(0)<0 and K(infty)>0, strict convexity gives exactly one crossing. For a=eta*b, positive root tends y=1, with first correction c/b= [1/2-1/(1+eta)]/b, giving r*=u/L+(2D/L²)eta/(1+eta)+O(D/[bL²]); optimized T~(L/u)(1+1/eta)e^{1+uL/D}. Independent roots at b=2,10,100,1000 for eta=3 corroborate c=1/4. The uniqueness result is already older, but the strong-outward-drift scaling is not covered by fixed-drift large-reactivity theorems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 26 proves unique optimal positive r for every real drift and every finite sink strength, strictly stronger than submitted restriction b>=1.",
+          "November 8 inward-drift Péclet crossover sends k->infty at fixed b near 1, not outward b->infty with k/u fixed."
+        ],
+        "reasoning": "Prior work dominates the uniqueness part, but its fixed-drift/large-reactivity limit does not determine the joint outward b, K=eta*b->infty expansion or the correction coefficient.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-cubic-root-rounding-of-the-drift-controlled-optimal-resetting-tr--6cb66fe9d205",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-singular-reactivity-rounding-of-the-p-clet-restart-transition--f5b1a084e758",
+          [
+            "tandem exclusion process stationary current unique optimal allocation alpha plus beta fixed budget density rho",
+            "elementary cellular automaton Rule 22 cyclic periodic preimages all zero maximizer unique maximum predecessor count",
+            "randomized two-state generator splitting exact mean semigroup Bernoulli convolution invariant Cantor distribution calibration",
+            "Brownian resetting outward drift partially reactive delta killing trap unique optimal resetting rate Péclet",
+            "partial stochastic resetting contraction a to one Brownian first passage unique optimal rate Ornstein Uhlenbeck limit"
+          ]
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-cubic-root-rounding-of-the-drift-controlled-optimal-resetting-tr--6cb66fe9d205",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-singular-reactivity-rounding-of-the-p-clet-restart-transition--f5b1a084e758",
+        "https://doi.org/10.1103/3s1c-k5vg",
+        "https://arxiv.org/abs/2609.22527",
+        "https://arxiv.org/abs/1301.2489"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem: all-drift uniqueness at finite sink.",
+          "Present result: y*=1+[1/2-1/(1+eta)]/b+O(b^-2), r*=u/L+(2D/L²)eta/(1+eta)+O(D/[bL²]), T* asymptotic exponential."
+        ],
+        "reasoning": "First statement of this submission follows directly from prior theorem; second (joint strong-away-drift reactivity-dependent correction) does not follow from published fixed-drift near-perfect-target asymptotics or from mere resolvent formula without nontrivial expansion.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-cubic-root-rounding-of-the-drift-controlled-optimal-resetting-tr--6cb66fe9d205",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-singular-reactivity-rounding-of-the-p-clet-restart-transition--f5b1a084e758",
+          "https://doi.org/10.1103/3s1c-k5vg"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior theorem uses a=vL/(2D), K=kL/(2D), rho=rL²/D and exactly the same T=(L²/D)[e^{a+sqrt(a²+rho)}(1+sqrt(a²+rho)/K)-1]/rho."
+        ],
+        "reasoning": "Source and submitted parameter transforms coincide on outward v>0; universal uniqueness for all real a directly implies uniqueness for outward b>=1.",
+        "searches": [
+          [
+            "tandem exclusion process stationary current unique optimal allocation alpha plus beta fixed budget density rho",
+            "elementary cellular automaton Rule 22 cyclic periodic preimages all zero maximizer unique maximum predecessor count",
+            "randomized two-state generator splitting exact mean semigroup Bernoulli convolution invariant Cantor distribution calibration",
+            "Brownian resetting outward drift partially reactive delta killing trap unique optimal resetting rate Péclet",
+            "partial stochastic resetting contraction a to one Brownian first passage unique optimal rate Ornstein Uhlenbeck limit"
+          ],
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-cubic-root-rounding-of-the-drift-controlled-optimal-resetting-tr--6cb66fe9d205",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-singular-reactivity-rounding-of-the-p-clet-restart-transition--f5b1a084e758"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact renewal/resolvent objective is known, and the prior Oct 26 paper provides its exact analytic minimization uniqueness for finite parameters.",
+          "No inspected prior table lists the outward strong-drift first-order corrected optimizer r*=u/L+(2D/L²)eta/(1+eta)+o(D/L²)."
+        ],
+        "reasoning": "The raw mean-time formula is a prior ingredient. The nontrivial new claim is asymptotic optimizer extraction in a different joint regime, not recomputing an existing exact value.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-cubic-root-rounding-of-the-drift-controlled-optimal-resetting-tr--6cb66fe9d205",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-singular-reactivity-rounding-of-the-p-clet-restart-transition--f5b1a084e758",
+          "arxiv:2609.22527"
+        ]
+      },
+      "rationale": "The uniqueness for all outward drift b>=1 is already a corollary of the October 26 published ALL-DRIFT finite-k theorem. That is excluded from novelty credit. The distinct strong outward drift limit b->infty at fixed eta=k/u, including first O(D/L²) correction and exponential optimized time, is not implied by prior fixed drift b with k->infty singular-reactivity results; it is the surviving original mathematical claim.",
+      "residual_risks": [
+        "Same-model Mazzolo primary full text not accessible; Oxford authorized retrieval returned vpn_disconnected, so full-paper priority cannot be excluded.",
+        "Global uniqueness is already known and is NOT credited as novel. Novelty is limited to strong-outward joint-scaling correction and optimized time; scope is b->infty with eta>0 fixed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_UNIQUENESS_ONLY",
+          "evidence": "Covers global uniqueness for any drift but does not provide submitted b->infty at a/b=eta fixed correction or optimized T*.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-cubic-root-rounding-of-the-drift-controlled-optimal-resetting-tr--6cb66fe9d205",
+          "material_read": "Full RESULT.md: all-drift uniqueness theorem, exact resolvent and stationary equation, fixed-drift perfect-sink limit and critical crossover",
+          "method": "GitHub full-result mathematical reading",
+          "title": "Cubic-root rounding of the drift-controlled optimal-resetting transition at a partially reactive point trap",
+          "trigger": "Same exact full-line drifted point-sink resetting model, possible dominating uniqueness result"
+        },
+        {
+          "assessment": "MATERIAL_ACCESS_RISK",
+          "evidence": "Source supplies point-sink first-passage resolvent; no valid whole-document NONCOVERING inference can be drawn from abstract.",
+          "identifier_or_url": "https://doi.org/10.1103/3s1c-k5vg",
+          "material_read": "Publisher abstract and bibliographic data; arxiv and OA full-text attempts failed; authorized institutional read blocked by disconnected VPN",
+          "method": "Abstract reading; no full-text inspection",
+          "title": "Diffusion with stochastic resetting in the presence of a delta killing trap: Drift-controlled survival regimes",
+          "trigger": "Exact original sink/resolvent model and possible high-drift optimization"
+        },
+        {
+          "assessment": "DIFFERENT_SCALING",
+          "evidence": "Critical Péclet parameter with inward drift and reaction k->infty is not strong outward drift fixed eta.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-singular-reactivity-rounding-of-the-p-clet-restart-transition--f5b1a084e758",
+          "material_read": "Full RESULT.md, including equations and proof for drift toward the target and k->infty",
+          "method": "GitHub full-result mathematical reading",
+          "title": "Singular reactivity rounding of the Péclet restart transition",
+          "trigger": "Same sink and optimal resetting in a critical regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strong drift away from a partially reactive target is a well-motivated extreme transport regime. Although uniqueness is prior work, the explicit joint strong-drift/strength asymptotic with nonzero reactivity correction to reset design and exponentially increasing optimal mean killing time is a precise scientifically useful fact, not a mere renamed or fixed-drift limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Oxford full-text article access blocked by disconnected VPN after public/OA attempts; cannot state whole-paper noncoverage.",
+    "Strong-outward asymptotic assumes b->infty, eta=k/u>0 held fixed; uniqueness for all drift is earlier mathematical work."
+  ],
+  "schema_version": 1
+}
