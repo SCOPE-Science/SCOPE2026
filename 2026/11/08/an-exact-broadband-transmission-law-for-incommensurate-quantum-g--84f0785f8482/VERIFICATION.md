@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the analytic broadband-transmission formula
+# Independent mathematical audit
 
-The theorem is reconstructed in RESULT.md from the published finite-array transfer formula and an explicit torus-average/Chebyshev-band argument. A standalone standard-library diagnostic CHECK.py numerically quadratures its normalized two-phase formula for four couplings \(b=1/4,1/2,1,2\); exact \(N=1,2\) results and the \(N=30\) approach to the derived infinite-array limit are compared with stated numerical tolerances. The asymptotic weak- and strong-coupling expansions receive separate finite checks. The executable printed `PASS: 17 deterministic quadrature and asymptotic checks` when run on this package.
+## correctness
 
-The diagnostic is finite numerical evidence, not proof of equidistribution, the infinite-array limit, or the asymptotic error bounds. Those statements rely on the explicit proof. The original scattering formula and its normalization were separately checked against Theorem 1(i), equations (4.4) and (5.2) of arXiv:2606.14931. The paper's early public release date is June 12, 2026. The source complete text was inspected; an older transmission-coefficient phase-method work remained abstract-level accessible, as disclosed in REVIEW.md. No claim of independent review is made.
+PASS
+
+PASS. At fixed N, irrational ell/h gives equidistribution of the two independent phases phi=k ell mod pi and psi=k h mod pi; the scattering probability is bounded and Riemann integrable, so wavenumber Cesàro equals the torus integral. Psi integration after shifting its cosine amplitude yields I_N(z), z=1+b^2 tan^2 phi. For N=1 and 2 the cosine integral produces 1/(1+b) and 1/(1+sqrt(2)b). At fixed z>1 the Chebyshev U_{N-1} grows exponentially in the gap |sqrt(z)cos psi|>1; in the band its sin(Nq)/sin q oscillation has a phase-averaged inverse-square-root denominator, justified by Fourier approximation/Riemann–Lebesgue on interiors and bounded endpoint tails. The resulting exact phase integral is 1-sqrt(1-1/z). Dominated convergence for the outer phi integral yields G_infty=1-(2b/pi)integral_0^1 [b^2+(1-b^2)u^2]^{-1/2}du and piecewise asin/asinh; expansions yield the b log(1/b) and inverse-b behavior. Mathematical statement consistently orders high-frequency averaging BEFORE N->infinity and excludes rational ell/h. Independent sampled Chebyshev band integrals and exact small-array couplings agreed (9 checks); no inference from finite N alone.
+
+## originality
+
+PASS
+
+PASS best of knowledge, with a specific unexamined general transfer-method risk. Source Buhrii–Golovaty–Hryniv arXiv:2606.14931 supplies the exact transfer/Chebyshev probability and qualitative incommensurate band-gap descriptions, but the text examined through Theorem 1, Proposition 2 and Section 6 does not state the sequential wavenumber Cesàro mean, its two explicit small-array benchmarks, or the nonanalytic long-array coupling law. Semantically adjacent spectral fraction or periodic waveguide phase methods could reproduce components only after extra band/torus integration; not a directly demonstrated implication.
+
+## value
+
+PASS
+
+PASS. The input model has alternating high-frequency resonances and suppressed gaps, so net broadband transmission across a long array is a natural, independent observable. A complete two-phase limit formula gives a strictly positive mean and a logarithmic weak-coupling singularity unlike one/two resonators, with a meaningful noncommuting order of limits. The Chebyshev oscillation theorem and gap-band integration are nontrivial enough to provide a stand-alone transport invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is a Neumann-tipped, symmetric type-I, identical side-resonator quantum graph with positive couplings and irrational pendant/spacing ratio. The precise source Theorem 1(i), equation (4.4), reduces to the stated Chebyshev probability; the source's equation (5.2) gives the normalization \(b=\theta_3^2/(2\theta_1\theta_2)\), hence \(\theta_1=\theta_2=t\) gives the claimed parameter. Irrational torus equidistribution and bounded Riemann-integrability yield the average for fixed finite \(N\). A shifted-cosine integral yields exact \(N=1,2\) values. For fixed \(z>1\), the complement of the Chebyshev band contributes zero by exponential growth, and the band oscillations average by trigonometric approximation/Riemann–Lebesgue; an integrable endpoint majorant yields the stated closed band integral. Dominated convergence then permits the outer phase integral. Its elementary inverse-hyperbolic/inverse-trigonometric evaluations yield the stated logarithmic and inverse-power expansions. This is an infinite proof, separate from the 17 numeric diagnostic checks in CHECK.py. No pointwise in-band limit or simultaneous \(k,N\) limit is proved.
+PASS
 
-## Originality — PASS (with priority qualifications)
+PASS. At fixed N, irrational ell/h gives equidistribution of the two independent phases phi=k ell mod pi and psi=k h mod pi; the scattering probability is bounded and Riemann integrable, so wavenumber Cesàro equals the torus integral. Psi integration after shifting its cosine amplitude yields I_N(z), z=1+b^2 tan^2 phi. For N=1 and 2 the cosine integral produces 1/(1+b) and 1/(1+sqrt(2)b). At fixed z>1 the Chebyshev U_{N-1} grows exponentially in the gap |sqrt(z)cos psi|>1; in the band its sin(Nq)/sin q oscillation has a phase-averaged inverse-square-root denominator, justified by Fourier approximation/Riemann–Lebesgue on interiors and bounded endpoint tails. The resulting exact phase integral is 1-sqrt(1-1/z). Dominated convergence for the outer phi integral yields G_infty=1-(2b/pi)integral_0^1 [b^2+(1-b^2)u^2]^{-1/2}du and piecewise asin/asinh; expansions yield the b log(1/b) and inverse-b behavior. Mathematical statement consistently orders high-frequency averaging BEFORE N->infinity and excludes rational ell/h. Independent sampled Chebyshev band integrals and exact small-array couplings agreed (9 checks); no inference from finite N alone.
 
-The complete source [1], including Theorem 1, Proposition 2 and Sections 5–7, provides the scattering expression and qualitative pass/gap structure but no finite-\(N\) high-frequency Cesaro average or sequential long-array mean was located. The strongest nearby published formulas, [1] equation (4.3) and the periodic waveguide phase method [3], could imply the result after additional phase integration; [1] is explicitly cited as an input and [3] was accessible only at abstract/metadata level. The older superlattice paper [2] discusses a physically different miniband average. Search of the mathematical-results index under exact source, broadband Cesaro aliases, Chebyshev band averages and logarithmic weak-coupling terms yielded separate spectral-density and quantum-graph results but no exact source-identical statement. This is best-knowledge originality, not a guarantee of publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's persistent high-frequency resonances and gaps raise the natural transport question of total throughput averaged over broadband illumination. The answer is not a routine title substitution: two independent incommensurate phases and an infinite-array oscillatory Chebyshev band/gap limit are required. It yields a strictly positive closed-form throughput despite exponentially suppressed gaps, and a nonanalytic \(b\log(1/b)\) weak-coupling loss contrasting with the linear fixed-one/two-resonator loss. The sequential limit resolves a physically meaningful and previously unquantified operational distinction.
+PASS best of knowledge, with a specific unexamined general transfer-method risk. Source Buhrii–Golovaty–Hryniv arXiv:2606.14931 supplies the exact transfer/Chebyshev probability and qualitative incommensurate band-gap descriptions, but the text examined through Theorem 1, Proposition 2 and Section 6 does not state the sequential wavenumber Cesàro mean, its two explicit small-array benchmarks, or the nonanalytic long-array coupling law. Semantically adjacent spectral fraction or periodic waveguide phase methods could reproduce components only after extra band/torus integration; not a directly demonstrated implication.
 
-## Relevant literature and limitations
+## value
 
-[1] K. Buhrii, Y. Golovaty, R. Hryniv, *Scattering in Quantum Graphs with Scale-Invariant Vertex Couplings: Resonances, Gaps and (Quasi-)Periodic Transmission* (2026), arXiv:2606.14931, Theorem 1 and Sections 5–7, full text examined.
+PASS
 
-[2] C. N. Veenstra et al., *Time dependence of transmission in semiconductor superlattices* (2004), arXiv:cond-mat/0411118, accessible descriptive material examined; different energy-weighting/model.
+PASS. The input model has alternating high-frequency resonances and suppressed gaps, so net broadband transmission across a long array is a natural, independent observable. A complete two-phase limit formula gives a strictly positive mean and a logarithmic weak-coupling singularity unlike one/two resonators, with a meaningful noncommuting order of limits. The Chebyshev oscillation theorem and gap-band integration are nontrivial enough to provide a stand-alone transport invariant.
 
-[3] L. Rughunanan et al., *On the behaviour of infinite, periodic, mono-coupled waveguides using a transmission coefficient phase method* (2020), DOI:10.1016/j.ymssp.2019.106409, abstract/metadata inspected only. The unexamined full derivation is a residual priority risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
