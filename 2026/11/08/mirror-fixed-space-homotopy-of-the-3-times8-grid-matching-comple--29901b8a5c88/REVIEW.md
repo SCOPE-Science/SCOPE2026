@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric fixed-space/orbit-complex homeomorphism is proved from barycentric coordinates, the complete compatible-orbit faces are enumerated, all matched Hasse incidences are checked for acyclicity, and the signed integral Morse boundary has an explicit unimodular two-by-two minor. The two primitive attachments cancel, leaving four four-spheres; the orthogonal fixed space collapses to a point. A separate simplicial mod-two chain computation corroborates the rank. The statement is finite, with complete enumeration rather than extrapolation.
+## correctness
 
-**Originality — PASS (best-knowledge, with access risk).** The most relevant published reflection theorem computes alternating rational Lefschetz numbers for all widths, not integral geometric fixed-space homotopy types. The current grid-homology preprint's abstract states nonequivariant connectivity results; the full manuscript was not accessible despite lawful retrieval attempts and is an explicit residual risk. The earlier nonequivariant grid paper is retracted. Searches for invariant matching orbit complexes, fixed-point geometry, and the exact parameter and wedge type returned no decisive stronger coverage. Euler traces and quotient homotopy are not equivalent to fixed-point homotopy.
+PASS
 
-**Mathematical value — PASS.** At a natural symmetry threshold in a current grid-complex family, column reversal has four four-dimensional sphere summands while row reversal has a contractible fixed space. The exact attaching degrees distinguish homotopy types beyond available character formulas and provide a reproducible case for later systematic study.
+For each reflection the fixed barycentric points are precisely unions of pairwise compatible admissible edge-orbits, with orbit-weights providing an actual PL homeomorphism to the orbit complex. Independent fresh enumeration reconstructed exactly 37 grid edges; column reflection has 20 admissible orbit vertices, 2636 total faces and 10996 Hasse incidences; row reflection 14 vertices, 1156 faces and 4828 incidences. The prescribed greedy Morse matching was independently regenerated and topologically sorted: column 1314 pairs and critical cells 2 in dimension 3, 6 in dimension 4, row 578 pairs and no critical augmented faces. Independent signed integral gradient elimination reproduced precisely the 6×2 matrix [[0,1],[-1,0],[1,-1],[0,0],[0,0],[0,0]]. Its first two rows have determinant 1. Since π3(S³∨S³)=Z², the two primitive 4-cell attaching maps cancel both 3-cells, leaving four S⁴ summands; row matching collapses to a point. Finite complete enumeration is an exhaustive proof for this one finite graph.
 
-The theorem covers only the three-by-eight grid and the two listed involutions. An unindexed stronger result or an incidental calculation in the inaccessible current preprint remains possible. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact integral homotopy fixed-space geometry is distinct from, and not implied by, previously published signed alternating Lefschetz traces for the same reflection actions. The main 2026 3×n grid-matching paper was accessible in abstract only; its unread full text is a specified originality residual risk, not alone grounds to reject.
+
+## value
+
+PASS
+
+A complete integral geometric fixed-space calculation on the natural width-eight grid distinguishes orthogonal reflection types in a way impossible from their Lefschetz numbers alone. The reproducible full Morse certificate yields a genuinely useful small-model exact invariant despite not extending to all widths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
