@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 checker.py` using Python 3's standard library. Successful execution prints exactly `CHECK_OK complete-word tests 28280 histograms 60 pairwise-rotation cases 210`.
+## correctness
 
-The first test enumerates every length-\(n\) word with exactly two nonzero entries for each \(4\le n\le23\), \(2\le q\le4\); it constructs all cyclic factors, checks successor consistency at each candidate register length and compares the answer to the formula. It independently sums each histogram and checks the population identity. The second test uses comparisons between distinct starting residues for three nonzero-label assignments and \(4\le n\le17\).
+PASS
 
-The mathematical argument for arbitrary \(q\) and \(n\) is in `RESULT.md`: only one aligned nonzero value can appear in a common factor at unequal gaps, and the two zero runs bound all other conflicts. The finite checks do not prove the infinite statement. No independent audit or computational certification is asserted.
+For unrestricted deterministic k-symbol feedback, existence iff every pair of equal cyclic k-factors has identical next symbol; thus M=1+max length of equal factors with different successors. With nonzero support {0,d}, unequal symbols preclude matching nonzero contexts, while equal symbols with d<L permit one aligned spike and at most 2d-1 common letters; the zero-run conflict has length L-2. The antipodal same-symbol word has primitive period d. These sharp witnesses yield M=max(L-1,2d),L-1,d-1,d in the four cases stated. Cyclic pair counts n for d<n/2 and n/2 for d=n/2 prove the entire q-ary polynomial for all n>=4. The d=1 boundary and smaller-period exception are included.
+
+## originality
+
+PASS
+
+The classical successor-conflict criterion and published high-complexity binary classes are credited. Exact q>=3 colored two-spike distance classes and full period-word polynomial are not given by the inspected general/binary papers. A generic algorithm for arbitrary sequences does not assert this explicit classification. Best-of-knowledge acceptance retains unindexed predecessor risk.
+
+## value
+
+PASS
+
+A natural complete low-Hamming-weight census of shortest unrestricted nonlinear feedback registers, with genuinely different equal/unequal spike colors and a sharp antipodal primitive-period exception; this exact probability distribution can be reused in low-weight complexity/coding work without re-enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
