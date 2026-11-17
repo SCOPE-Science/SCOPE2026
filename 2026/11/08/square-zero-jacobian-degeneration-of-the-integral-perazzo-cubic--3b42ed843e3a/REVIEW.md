@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct differentiation yields the full relative Jacobian ideal, whose square-zero quotient is controlled by an injective two-by-two presentation matrix over \(\mathbb Z\) and every residue field. The determinant gives the Fitting conic, its nonvanishing mod every prime proves base flatness, and explicit cokernel computations identify the odd-characteristic line bundle on the conic and the characteristic-two pair of line bundles on the reduced line. The section formula follows from these sheaves. The included program checks independent polynomial and finite-degree calculations; finite checks are not used as infinite proofs.
+## correctness
 
-**Originality — PASS, qualified.** Gondim–Russo (arXiv:1312.1618v1, Theorem 4.2) gives the classical equation and reduced singular plane, and explicitly distinguishes the singular scheme; Fiorindo–Mezzetti–Miró-Roig (arXiv:2206.02723v1, Section 6) gives the characteristic-zero geometric context. Neither inspected source determines the integral nilradical sheaf, the degeneration to two line-supported summands in characteristic two, or the flat family with unchanged fibre Hilbert polynomial. The closest searched mathematical-record findings concern different singular schemes (a quartic discotope and a cyclic cubic Hessian). Specialist literature not indexed by the searches may still affect priority.
+PASS
 
-**Value — PASS.** The Perazzo cubic is a canonical nonconical cubic with vanishing Hessian. Its reduced singular plane is invariant in this family, but the scheme-theoretic polar base locus changes support and rank at the bad prime: a conic-supported nilpotent direction becomes two independent line-supported directions. This is a natural integral-degeneration invariant relevant to exact scheme structure, beyond merely detecting reduced singularities or counting points; it provides concrete data for future characteristic-sensitive blowup and polar-map questions, without claiming those analyses are completed.
+The five partial derivatives of x0u²+x1uv+x2v² are (u²,uv,v²,2x0u+x1v,x1u+2x2v), and f lies in (u,v)². Thus the relative Jacobian quotient is the split graded square-zero algebra A⊕M with two-term presentation [[2x0,x1],[x1,2x2]] and determinant Δ=4x0x2−x1². The matrix remains injective modulo every prime because Δ remains nonzero, proving Z-torsion-free graded pieces and flatness. For char≠2 the smooth conic parameterization [s²:2st:t²] factors matrix into a rank-one map and Euler sequence gives i_*O_P1(-1). In char2 the matrix is [[0,x1],[x1,0]], with cokernel O_L(-1)^2 and Fitting ideal (x1²). The free resolution computes the all-degree Hilbert function binom(m+2,2)+2m. Independent symbolic derivative/determinant/Hilbert checks corroborated selected field/degree cases; all-base theorem rests on the resolution.
 
-The statement does not classify all integral models or prove a blowup/resolution theorem. Searches cannot establish absolute priority. Mathematical proofs and computations have been examined within this review, but no external audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gondim–Russo identify the classical Perazzo cubic and reduced singular plane. The Oct18 published exact Jacobian square-zero result covers the same odd-characteristic conic-supported theta sheaf and Hilbert series (after rescaling x1); none of those is claimed new here. That theorem explicitly excludes characteristic two. The integral model flatness and degeneration at two into two nilpotent line directions with doubled Fitting line survive as a motivated new arithmetic-scheme boundary.
+
+## value
+
+PASS
+
+A canonical integral Perazzo model has constant reduced singular plane and Hilbert polynomial but a characteristic-dependent nilpotent sheaf: one conic-supported direction degenerates to two line-supported directions at two. This exact bad-prime scheme structure is a natural geometric degeneration invariant and not a trivial restatement of the known odd-fiber theta-line.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
