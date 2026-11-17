@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T10:52:12.186711Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob f8065570a457434295acf195ee8863aa23ad6903",
+        "assigned verify.py Git blob 013328f3b9e26b16301f9d5dd98bedc21b365512",
+        "Yousef–Ansbacher–Wolpert arXiv:2610.03478, Supplement SX eqs S126–S153"
+      ],
+      "rationale": "For two-state generator Q, u=a(1-exp(-(a+b)t))/(a+b), v=b(1-exp(-(a+b)t))/(a+b), and w=u+(1-u-v)epsilon. The entropy chain rule yields Phi=h(epsilon)+(1-epsilon)h(u)+epsilon h(v)-h(w). Its strict concavity follows from w(1-w)-(1-u-v)^2 epsilon(1-epsilon)=(1-epsilon)u(1-u)+epsilon v(1-v)>0. Fano and interior tests force the maximizer epsilon_t ->0; Phi'(Ct)>0 for each fixed C forces epsilon_t/t->infinity; the stationary equation then gives epsilon_t log(1/t)->a/(a-b). The Taylor error O(t^2/epsilon_t)=o(t) gives F=at(L-log L)+o(t) and the fair-prior equal-rate exact case. Boundary rates fixed positive, a>b, nonuniform as a-b->0. Source verifier code was read and its finite assertions classified as diagnostics; independent proof algebra checked, not a claim that the script was executed here.",
+      "residual_risks": [
+        "Stationarity estimates are pointwise in unequal positive rates; no uniform double scaling near a=b.",
+        "Independent finite high-precision tests were not executed, although the exact identities and Taylor regime were examined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.03478 Eq S144 states F/[t log(1/t)] -> max escape rate for any finite irreducible CTMC; Eq S153 gives optimizer mass on fastest states ->1.",
+          "DOI 10.37190/0208-4147.00246 Theorem 2.1 and 3.1 address general discrete channel optimization."
+        ],
+        "reasoning": "These broader objects imply only the leading order and optimizer concentration, not its 1/log t rate or the absolute t-order constant. A broader model with a weaker observable theorem does not dominate this refinement.",
+        "searches": [
+          "two-state Markov minimax mismatch entropy maximum conditional entropy small time log log asymptotics",
+          "Yousef Ansbacher Wolpert short time Markov rate epsilon optimizer supplemental S144 S153"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03478",
+        "https://math.uni.wroc.pl/~pms/files_doi/g00246/g00246.pdf",
+        "Resultary semantic search: two-state Markov minimax mismatch entropy maximum conditional entropy small time log log asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "S144 proves F/(t log(1/t)) -> a and S153 proves epsilon_t ->0 only; neither bounds the difference at t loglog(1/t) scale.",
+          "The present prior limit epsilon_t log(1/t)->a/(a-b) and F/t=a(L-log L)+o(1) are strictly finer asymptotic data."
+        ],
+        "reasoning": "The first-order formula and qualitative concentration do not imply next-order coefficients; exact dynamic programming of channel capacity would require new asymptotic analysis. No stronger prior theorem discovered in inspected primary sections.",
+        "searches": [
+          "arxiv:2610.03478 Supplemental S126 S144–S153",
+          "Nedić 2025 commitment capacity Eq1.4 Section2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yousef et al. Supplemental Eq S126 identifies minimax mismatch cost with max H(X0|Xt).",
+          "Nedić et al. Eq (1.4) calls the same channel functional commitment capacity."
+        ],
+        "reasoning": "The two formulations agree for a near-identity stochastic channel; neither a generic variational formula nor uniqueness gives the sharp optimizing prior asymptotic. The main prior paper has the optimization identity but does not derive loglog correction.",
+        "searches": [
+          "two-state Markov minimax mismatch entropy maximum conditional entropy small time log log asymptotics",
+          "maximum equivocation binary asymmetric channel small crossover probabilities optimal input distribution asymptotic log log",
+          "arxiv:2610.03478",
+          "doi:10.37190/0208-4147.00246"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results include this original claim and related but different binary Markov, capacity and entropy results.",
+          "No finite table for a continuum two-rate asymptotic appears in the inspected relevant primary formulas."
+        ],
+        "reasoning": "Not a natural database lookup: a,b vary continuously and t tends to zero. Search cannot rule out an unindexed closed-form asymptotic; no exact published numerical table was used to establish priority.",
+        "searches": [
+          "two-state Markov minimax mismatch entropy maximum conditional entropy small time log log asymptotics",
+          "Resultary semantic search: two-state Markov minimax mismatch entropy maximum conditional entropy small time log log asymptotics"
+        ]
+      },
+      "rationale": "Independent comparison of the full relevant main article and Supplemental SX of arXiv:2610.03478 against the fixed two-state singular boundary layer found only the leading escape-rate coefficient and qualitative concentration, not the logarithmic prior rate or absolute-o(t) entropy expansion. The 2025 commitment-capacity paper gives general channel concavity and algorithms, not this limit. Search failure is not novelty proof; equivalent classical binary-channel asymptotics remain a risk.",
+      "residual_risks": [
+        "Unlocated classical commitment-capacity calculation of nearly noiseless asymmetric binary channels might contain the identical expansion.",
+        "Historical bibliographic precedence cannot be guaranteed by bounded targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers identity, leading rate and qualitative prior concentration; not the claimed sharp two-state second-order term.",
+          "evidence": [
+            "Main Eq 37; Supplemental S126, S140, S144, S145–S153."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03478",
+          "material_read": "Full accessible article text, main continuous-time discussion eqs 32–40 and full Supplemental SX eqs S126–S153.",
+          "method": "Opened arXiv abstract/full HTML-text rendering; located and read supplemental theorem and proof to S153.",
+          "title": "Minimax entropy production for arbitrary processes",
+          "trigger": "Same minimax mismatch functional and arbitrary finite-state CTMC."
+        },
+        {
+          "assessment": "Gives general discrete channel optimizer theory, no CTMC small-time loglog asymptotic in reviewed scope.",
+          "evidence": [
+            "Eq 1.4; Lemma 2.1 and Sec 3 purpose."
+          ],
+          "identifier_or_url": "https://math.uni.wroc.pl/~pms/files_doi/g00246/g00246.pdf",
+          "material_read": "Published PDF definitions, Sec 2 concavity and linked theorem sections as parsed text; PDF first page visually inspected.",
+          "method": "Read PDF content and first-page screenshot; compared objective and theorem scope.",
+          "title": "Notes on conditional entropy and commitment capacity",
+          "trigger": "Equivalent maximum-equivocation optimization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2610.03478 equations 37, 40 and supplemental S144–S153",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Quantified optimizer boundary concentration and the t loglog(1/t) correction identify a genuine singular regime invisible to the known leading maximum-escape-rate law, with a distinct symmetric boundary. This provides exact asymptotic cost and prior information for near-identity two-state channels rather than a textbook reparametrization.",
+      "residual_risks": [
+        "Applies only to fixed two-rate chains; no higher-state or near-degeneracy universality established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No full separate numerical verification run; analytic argument was reconstructed."
+  ],
+  "schema_version": 1
+}
