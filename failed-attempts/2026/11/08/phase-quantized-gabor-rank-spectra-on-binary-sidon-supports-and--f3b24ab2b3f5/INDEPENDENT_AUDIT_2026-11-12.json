@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T10:00:48.569150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The N^2 Weyl basis simultaneously diagonalizes the full projector-orbit lifting Gram operator, giving singular values sqrt(N)|A_g(u,v)|. For odd-sized binary-Sidon support, zero shifts give odd nonzero sign sums; every nonzero contributing shift has exactly one unordered pair x+y=u, and Walsh parity gives cos(theta)/sin(theta) amplitudes each N/2 times. Pair resonance is equivalence modulo fourth roots, so rank N(1+binom(s,2)-1/2 sum binom(lambda_j,2)). Root-of-unity phase classes r=ell/gcd(ell,4) yield balanced maximal rank. The norm-one anisotropic Q over F_{2^m} has q+1 odd points, with binary pair sums unique by Q(a+t u)=1+Q(u)(t^2+t). Independent q=2 support S={1,2,3} direct 16 ambiguity coefficients give rank 10 for equal labels and full 16 for generic distinct μ4 cosets; the check.py q≤16 computations do not establish the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem applies to every odd binary-Sidon support and every μ_ell alphabet, so norm-one conics S⊂F_q² are explicitly a special case once Sidon is shown.",
+          "Older theorem also supplies the universal upper rank bound for arbitrary nonconstant moduli, stronger than the submitted equal-modulus case."
+        ],
+        "reasoning": "Changing the supporting Sidon construction does not make the all-support rank theorem novel. The odd-prime conic arcsine result concerns different characteristic and is not needed for rejection.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-conic-gabor-tomography-exact-ranks-and-an-arcsine-singular-value--4c5d28785e62/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-conic-gabor-tomography-exact-ranks-and-an-arcsine-singular-value--4c5d28785e62/RESULT.md",
+        "https://arxiv.org/abs/1503.05800",
+        "https://arxiv.org/abs/1003.3576"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior proof Step 3: s A_g(u,v)=χ(x)(z_y bar z_x+χ(u)z_x bar z_y) in pair shift; Step 1: Weyl columns orthogonal and proportional to A_g. Thus their magnitudes are already 2|cos θ|/s and 2|sin θ|/s in each character halfspace.",
+          "Scale g by sqrt(s) to match the submitted unnormalized window, and use the prior normalized Weyl basis to get sqrt(N) times those exact magnitudes."
+        ],
+        "reasoning": "The nonzero singular multiset is a one-step consequence of the previous explicit ambiguity formula, and conic endpoints are the previous universal expression with s=q+1 and N=q².",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior uses g=(1/sqrt(s))Σz_x 1_S and rank N(1+C-B/2), B=#{x<y:z_x/z_y∈μ4}; exactly the new formula with B=Σ binom(lambda_j,2).",
+          "Prior group is G≈(Z/2)^d with the same unordered pair Sidon property and complex matrix-lifting target."
+        ],
+        "reasoning": "Only unnormalized-vs-normalized window and phase-class count notation differ; mathematical rank and alphabet results coincide.",
+        "searches": [
+          "binary Sidon support finite abelian F2 Gabor projectors phase roots rank singular spectrum equiangular",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior published RESULT.md contains exactly N(1+C-B/2), r=ell/gcd(ell,4), balanced occupancies and sharp phase threshold; its proof specifies all Weyl kernel modes."
+        ],
+        "reasoning": "This is an earlier exact symbolic theorem, not a numerically missing lookup entry.",
+        "searches": [
+          "binary Sidon support finite abelian F2 Gabor projectors phase roots rank singular spectrum equiangular",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: The October 18 prior complete theorem states exactly the general binary-Sidon phase-rank formula, resonance criterion, all-root-alphabet balanced sharp optimum and sharp ceiling for the identical complex-linear Gabor projector operator (prior window normalized by 1/sqrt(s), irrelevant to rank). Its proof already gives each full ambiguity coefficient as a two-term character sum and states the Weyl measurement columns are orthogonal; their magnitudes immediately yield the newly displayed sqrt(N) cos/sin singular-value levels after the harmless rescaling of g. The new norm-one conic is an explicit Sidon instance of that already universal theorem; its rank endpoints and limiting fractions are direct substitutions. No independent nontrivial new classification survives under the statement/implication test.",
+      "residual_risks": [
+        "Phase-quantized singular spectrum is useful but already algebraically implicit in an earlier published exact complex ambiguity formula; an independent novelty claim would require more than restating its amplitudes.",
+        "Older finite-field norm-one conic Sidon constructions may predate both records; no historical priority is asserted.",
+        "The finite test uses nonzero cutoff to distinguish singular coefficients; exact proof uses Walsh parity rather than numerical threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE GENERAL FORMULA AND IMPLICIT SPECTRUM COVERAGE",
+          "evidence": "Identical B(u)-based rank; older two-term complex ambiguity formula plus diagonal column orthogonality determines all new singular values by magnitude.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d/RESULT.md",
+          "material_read": "Entire Finding, five-part proof, kernel classification, root-alphabet optimization and limitations",
+          "method": "Read complete published RESULT.md from GitHub and compared definitions, formulas, scope and proof implications",
+          "title": "Phase-alphabet tomography ranks for binary Sidon supports",
+          "trigger": "Exact same finite exponent-two group, projector lifting and phase-alpha census"
+        },
+        {
+          "assessment": "DIFFERENT CHARACTERISTIC; NOT NEEDED FOR REJECTION",
+          "evidence": "Treats odd-prime 2D quadratic circle; new characteristic-two norm one is different, but general binary-Sidon predecessor dominates it.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-conic-gabor-tomography-exact-ranks-and-an-arcsine-singular-value--4c5d28785e62/RESULT.md",
+          "material_read": "Complete theorem and proofs over odd prime fields, including Weyl normalization",
+          "method": "Read complete published RESULT.md from GitHub and compared definitions, formulas, scope and proof implications",
+          "title": "Conic Gabor tomography: exact ranks and an arcsine singular-value law",
+          "trigger": "Possible stronger finite-conic Gabor rank/singular spectrum"
+        },
+        {
+          "assessment": "GENERAL BACKGROUND, NO CLAIM OF WHOLE-DOCUMENT EXCLUSION",
+          "evidence": "General operator-frame diagonalization belongs to the literature; decisive originality failure is from fully read October 18 theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "ArXiv abstract/bibliographic record and assigned citation; full original article not available in HTML through web interface",
+          "method": "Accessible abstract and bibliographic record only; no full-text NOT_COVERING claim",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Primary Gabor Weyl diagonalization context cited by submitted package"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The conic is a natural finite-geometric support and its singular values are a useful invariant in principle, but the submitted formulas are immediate evaluations of the earlier fully explicit Weyl ambiguity and complete phase-rank theorem; the finite-field conic specializes the universal result. This adds neither a new recovery barrier nor a genuinely unknown precise invariant requiring separate research after the prior formula and proof.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-phase-alphabet-tomography-ranks-for-binary-sidon-supports--1a034131f60d/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-conic-gabor-tomography-exact-ranks-and-an-arcsine-singular-value--4c5d28785e62/RESULT.md",
+    "https://arxiv.org/abs/1503.05800",
+    "https://arxiv.org/abs/1003.3576"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "Phase-quantized singular spectrum is useful but already algebraically implicit in an earlier published exact complex ambiguity formula; an independent novelty claim would require more than restating its amplitudes.",
+    "Older finite-field norm-one conic Sidon constructions may predate both records; no historical priority is asserted.",
+    "The finite test uses nonzero cutoff to distinguish singular coefficients; exact proof uses Walsh parity rather than numerical threshold."
+  ],
+  "schema_version": 1
+}
