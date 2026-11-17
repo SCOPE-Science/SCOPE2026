@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The result is analytical. The following checks were performed on the displayed statements and on the relevant source theorems, not on an unrelated test file.
+# Independent mathematical audit
 
-1. **Domain and quantifiers.** The two real Lorentz weights are positive decreasing, equal to one at the first coordinate, tend to zero, and have divergent first powers. In the first family the boundary exponent \(r>1\) is included. In the second no finite positive exponent is included. Separate ambient duals are constructed as allowed in the claim.
-2. **Norms and closure.** Projective simple tensors satisfy \(\|a\otimes v\|_\pi=\|a\|_Z\|v\|_Z\). Hence the map from the full Banach space \(Z\) into the sup-norm Banach sequence space is a linear isometry; its image is necessarily norm-closed. For each nonzero image sequence, the normalized coordinate span is linearly isometric to \(Z\), so no collapse of basicness or symmetry is possible.
-3. **All-point estimate.** For \(q\in A_w\), apply Hölder in the Lorentz norm, then adjoint duality as in [1, (3.8)]: \(\|(f(e_n))\|_q\le\|f\|\|w\|_q\). Every predual test vector is a bounded bilinear form whose second slice has dual norm at most \(\|B\|\|v\|_Z\).
-4. **Nonstandard obstruction.** The tensor fiber \(X_v=\{a\otimes v:a\in Z\}\) is closed in \(V\) and hereditarily \(\ell_1\). For its canonical image inside \(V^{**}\), the restriction \(V^*\twoheadrightarrow X_v^*\) is surjective and open. Thus dense summability in the larger predual would induce dense summability in \(X_v^*\), contradicting [1, Lemma 2.4]. Relative weak-star convergence is weak convergence inside the fiber by Hahn–Banach extension. Both exact hypotheses of [1, Theorem 3.1] are therefore satisfied; its exclusion is for **every normalized sequence in the fiber**, not just the coordinate basis.
-5. **Elementary exponents.** For the threshold weight \(w_n^r=(\log2)^2/[n(\log(n+1))^2]\); the series converges. For \(q<r\), the power exponent \(q/r<1\) dominates the logarithmic correction and the series diverges. For the empty-spectrum weight, every fixed logarithmic power is asymptotically larger than \(n^{-1/2}\), giving divergence for each finite \(q\).
-6. **Scope and prior implication.** [1, Corollary 3.5] proves existence of one model and [1, Theorem 3.10] proves spaceability of open thresholds; these statements are not substituted for the closed/empty spaceability claim. Full-text results and §8 were read and compared.
+## correctness
 
-No standalone numerical certificate is needed. No finite computation can certify the universal conclusions, and independent audit has not been performed.
+PASS
+
+The projective tensor crossnorm on elementary tensors gives an exact linear isometry Theta:Z=d(w,1)->l_infty((Z completed_tensor_pi Z)**) via Theta(v)_n=J(e_n tensor v). For each nonzero v the normalized coordinates form an isometric 1-symmetric weakly null copy of the Lorentz basis. The Lorentz dual coefficient majorization dominated by w gives l_q evaluations for every q with sum w_n^q finite, including q=r in the logarithmically corrected first weight. For other q, the proof invokes the specific hereditary obstruction [Sliwa, Theorem 3.1] and explicitly checks its H1 via Hahn–Banach restriction to the hereditarily-l1 tensor fiber and H2 via weak-star/weak equivalence on the canonical bidual embedding. This excludes forbidden q for all normalized subsequences and blocks. Integral comparison gives A_w=[r,infinity) for every r>1, or empty, and the tensor isometry turns single realizations into an entire closed infinite-dimensional space. The nonstandard input is imported, not newly reproved; its full original preprint was inaccessible at this run and is an explicit residual verification limitation.
+
+## originality
+
+PASS
+
+PASS at best of knowledge: Theorem 3.10 of the motivating Sliwa paper concerns spaceability of open thresholds (r,infinity); the first paper has single-sequence examples of closed [r,infinity) and empty spectra but §8 distinguishes their linear-spaceability problem. The claimed tensor-in-a-larger-dual construction supplies a new closed linear family with every nonzero member realizing those two spectra, which is not a direct implication of a single example or the hereditary obstruction. Primary full preprint was not accessible; a general tensor-stability/spaceability theorem may still subsume it and this remains a substantial disclosed priority risk, not evidence of failure.
+
+## value
+
+PASS
+
+PASS: Uniform closed-space realizations for the natural closed-threshold and empty summability-density spectra answer the precise gap left after single-sequence realizability and open-threshold spaceability. The projective-tensor linear isometric construction is structural rather than a finite computation or arbitrary slice, and controls original, subsequence and normalized-block spectra simultaneously.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
