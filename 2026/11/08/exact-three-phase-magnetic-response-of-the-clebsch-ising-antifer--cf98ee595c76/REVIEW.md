@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex/edge realization and exchange normalization are explicit. The induced-edge identity reduces all fields to an integer-cardinality optimization. Classification of all maximum independent sets and their pairwise intersections proves the intermediate-cardinality barriers, while the exact Walsh spectrum classifies zero-field minimizers and their multiplicity. The resulting lower envelope has precisely the two positive critical fields and all stated degeneracies. The separate enumerator exhaustively checked all 65,536 spin configurations, the independence polynomial, and rational-field minima. No unproved asymptotic extrapolation is involved.
+PASS
 
-## Originality — PASS on examined evidence
+With down-set S of k spins, exact induced-edge formula H_h=40-16h+(2h-10)k+4e(S) follows from degree 5 and 40 edges. Independent exhaustive integer count over all 2^16 masks on folded-cube generators 1,2,4,8,15 finds independent-set polynomial 1+16z+80z^2+160z^3+120z^4+16z^5; min e(k) for k=6,7,8 is 2,3,4 with 400,80,10 minimizers. Structural argument using alpha=5 and pairwise maximum-independent-set intersections rules out intermediate envelope sectors; -3 Walsh eigenvalue yields exactly 10 zero-field ground states. Independent lower envelope checks yield h=0 count10, h=7/3 count26, h=3 count16, h=5 count393, h=6 count1. Global spin reversal gives negative h. Enumeration is exhaustive for this fixed 16-vertex graph; it does not prove a higher-dimensional analogue.
 
-The existing zero-field folded-hypercube Ising classification, generic field-plateau studies, the Clebsch graph's projective-cube and max-cut structure, and the graph's standard independence data are distinguished explicitly from the proposed result. The central new statement is the exact positive-field phase envelope, particularly the \(h=7/3\) jump to magnetization \(6\), its coexistence count 26, and the sharp exclusion of intermediate spin sectors. Full-text arXiv material examined from Honecker–Schulenburg–Richter and DeVos–Šámal concerns different field models or graph homomorphisms/cuts, respectively. Text and parameter searches found no identical or dominating field theorem. A historical calculation outside examined sources could still cover the result; independent priority remains unresolved.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Clebsch graph is the canonical nonbipartite folded cube and unique strongly regular graph of parameters \((16,5,0,2)\), so its magnetic response is not an arbitrary graph slice. The exact jump is caused by a provable finite induced-edge barrier, not just an enumerated energy table. The full finite classification supplies a reproducible, symmetry-rich benchmark for frustration, plateaux, and critical degeneracies, while separating zero-field maximum-cut information from field-induced behavior.
+Resultary Ising searches identified many field-staircase results on other graphs, a three-state Clebsch Potts field diagram and prior folded-cube zero-field frustration theory. Three-state Potts is not the two-state Ising Hamiltonian, and zero-field extremizers plus independence number do not establish exclusion of intermediate k sectors or all-field degeneracies. No exact prior Clebsch Ising field staircase was located; specialist finite-size studies remain a historical risk.
 
-## Closest literature and limits
+## value
 
-Honecker–Schulenburg–Richter, arXiv:cond-mat/0309425 (2003), treats frustrated quantum lattice magnetization plateaux and discusses an Ising limit on other lattices, not this finite folded cube. DeVos–Šámal, arXiv:math/0602580 (2006), treats the Clebsch graph as a target of homomorphisms and describes cut complements, not its magnetic-field envelope. The graph-description data of MathWorld are also compatible with, but do not contain, the asserted field result. Known zero-field extrema and basic independence-set counting are not separately claimed as new. No independent audit or exhaustive historical priority study has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp zero-temperature response of a canonical strongly regular frustrated graph, including a nontrivial magnetization jump and coexistence degeneracies. The k=6,7,8 induced-edge obstruction is mathematically meaningful beyond recomputing a known independent-set table; fixed finite size is intrinsic to the named Clebsch graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
