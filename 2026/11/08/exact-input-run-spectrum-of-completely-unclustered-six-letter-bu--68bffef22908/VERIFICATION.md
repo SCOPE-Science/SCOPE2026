@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-The accompanying `rotation_enumerator.py` enumerates every length-six tuple over each of the normalized alphabets of sizes one through six, selects primitive lexicographically minimal cyclic representatives, constructs the BWT by sorting all cyclic rotations, and counts the input cyclic transitions.
+## correctness
 
-The separate `cycle_enumerator.py` enumerates last-column candidates directly, tests the six-cycle condition on their stable last-to-first permutations, and computes the same input-run invariant by Hamming distance against the sorted first column. `verify.py` compares both complete sets, the eight histogram cells, the ten multiplicity-partition cells, the exact `census.tsv` table of 384 records, and the alphabet-lifting counts for alphabet sizes one through four.
+PASS
 
-Run:
+The linear output-unclustered condition means the five neighboring pairs of the six-letter BWT last column are unequal; input runs are cyclic. Every primitive length-six necklace uses t<=6 distinct symbols, and unique increasing relabeling reduces to a surjective t-letter canonical necklace. Independently enumerated all t^6 length-six candidates, retained lexicographically minimal primitive rotations, computed actual sorted-rotation BWT, filtered consecutive output equality, and counted cyclic input boundaries. Complete eight histogram cells (t,r)=(3,4):5,(3,6):1,(4,4):14,(4,5):44,(4,6):20,(5,5):72,(5,6):108,(6,6):120 sum to 384. Each normalized object has exactly C(q,t) increasing lifts, giving all three displayed E_q,r polynomials for every q>=1; the 4-run fraction is 7/(2q^2)+O(q^-3). No finite-q extrapolation is used.
 
-```
-python3 verify.py
-```
+## originality
 
-The expected final line is `BWT_LENGTH_SIX_CENSUS_OK 384 8_HISTOGRAM_CELLS 10_PARTITION_CELLS`.
+PASS
 
-All computations use exact integer arithmetic and the Python standard library. The infinite-alphabet-size conclusion follows from order-preserving relabeling and the binomial-lifting argument, not an extrapolation of the finite checks. No independent mathematical audit has been performed.
+The complete input-run enumerator is not implied by the previously stated n=6 minimum, n=8 sharpness count, or all-length existence. Historical novelty is a qualified best-of-knowledge judgment because Kumallagov Appendix A on exactly n=6 was not accessible; no fabricated full-text noncoverage inference is made.
+
+## value
+
+PASS
+
+Counting all primitive necklaces by BOTH BWT maximal fragmentation and original cyclic run count is a natural refined extremal statistic. The eight-cell classification resolves the exceptional length-six boundary uniformly in alphabet size, distinguishes input r=4/5/6, and exposes nontrivial support restrictions and q^-2 rarity beyond the already-known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
