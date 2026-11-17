@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:57:24.471199Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/schur-code-multiplication-and-nilpotence-in-truncated-multi-axis--b2c1ce5b9618/RESULT.md",
+        "2026/11/08/schur-code-multiplication-and-nilpotence-in-truncated-multi-axis--b2c1ce5b9618/verify.py"
+      ],
+      "rationale": "In the local algebra with x_ix_j=0 and x_i^{n_i}=0, every proper ideal is the inverse image of a full-coordinate-support leading subspace after all higher pure-branch tails, because multiplication by x_i forces each tail. For two ideals, branch-leading exponents add and are truncated at n_i; nonzero leading coefficients multiply coordinatewise, so the product leading subspace is the span of restricted Schur products. This proves full equality, associativity, the zero-product iff all coordinate sums reach cutoffs, and nilpotency index max ceil(n_i/a_i). Independently checked a mixed 3-branch code whose Schur square has rank 3, confirming emergence of separated leading branches. The inspected verifier algebraically enumerates 14,062 small-field pairs, but finite evidence does not establish the arbitrary-field assertion.",
+      "residual_risks": [
+        "The full-support code representation presupposes positive degree proper ideals; the unit ideal is a separately adjoined identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Randriambololona develops code products for arbitrary linear codes; the same-ring rank-degeneracy paper concerns associative bilinear forms, not ideal-product multiplication."
+        ],
+        "reasoning": "General coding-theoretic products do not identify which codes arise from branch ideals or prove capped valuation thresholds; a ring-theoretic classification plus explicit product proof is needed.",
+        "searches": [
+          "truncated multiaxis local ring pairwise annihilating branches ideal multiplication Schur product code",
+          "https://arxiv.org/abs/1312.0022",
+          "Resultary:2026/11/2/SCOPE-linear-rank-degeneracy-arrangements-for-associative-pairings-on--86eb0e1718bc"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1201.6076",
+        "https://arxiv.org/abs/1312.0022",
+        "truncated multiaxis local ring pairwise annihilating branches ideal multiplication Schur product code",
+        "Resultary:2026/11/8/SCOPE-ideal-dimension-distributions-and-radical-duality-in-multi-branc--3c121a92d2ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier same-ring theorem classifies proper ideals uniquely and proves palindromic dimension counts; the 2013 code paper defines Schur products; neither proves their identification after branch truncation."
+        ],
+        "reasoning": "The product law is compatible with both prior ingredients but requires a new verification that higher pure tails are forced and all Schur-span generators occur in products, so it is not a directly stated prior corollary.",
+        "searches": [
+          "https://arxiv.org/abs/1312.0022",
+          "https://arxiv.org/abs/1201.6076",
+          "Resultary:2026/11/8/SCOPE-ideal-dimension-distributions-and-radical-duality-in-multi-branc--3c121a92d2ba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same ring appears as a fibre product of truncated one-variable algebras; its previously published ideal normal form uses axis-avoiding rather than full-support codes."
+        ],
+        "reasoning": "The two parametrizations are equivalent with shifted thresholds, but the prior theorem enumerates ideals and duality and does not define or determine arbitrary ideal multiplication.",
+        "searches": [
+          "truncated multiaxis local ring pairwise annihilating branches ideal multiplication Schur product code",
+          "Resultary:2026/11/8/SCOPE-ideal-dimension-distributions-and-radical-duality-in-multi-branc--3c121a92d2ba"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An all-ideal dimension polynomial exists for this ring, and Behboodi–Shojaee include a two-branch example, but neither returned an ideal-pair multiplication table or a nilpotency census."
+        ],
+        "reasoning": "Numerical ideal counts do not determine the multiplicative monoid and cannot mechanically supply the Schur-code product structure.",
+        "searches": [
+          "truncated multiaxis local ring pairwise annihilating branches ideal multiplication Schur product code",
+          "Resultary same-ring ideal dimension census",
+          "https://arxiv.org/abs/1201.6076"
+        ]
+      },
+      "rationale": "Full ideal classification and abstract Schur-code multiplication are credited. Their combination as an exact complete ideal-product monoid with truncation and nilpotence is not stated in the inspected same-ring prior census or code literature.",
+      "residual_risks": [
+        "A more general local-module or filtered-ideal multiplication theorem may make the Schur model an implicit special case.",
+        "The Behboodi–Shojaee paper was not compared page by page this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NORMAL_FORM_COVERED_PRODUCT_NOT_STATED",
+          "evidence": "The prior normal form is credited, with no arbitrary pair-product or nilpotency monoid law.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-ideal-dimension-distributions-and-radical-duality-in-multi-branc--3c121a92d2ba/RESULT.md",
+          "material_read": "Entire RESULT theorem, assumptions, proof, counting and duality sections",
+          "method": "Read original published theorem in full",
+          "title": "Ideal-dimension distributions and radical duality in multi-branch Artinian fibre products",
+          "trigger": "Same exact ring, directly dominating normal-form classification"
+        },
+        {
+          "assessment": "CODING_OPERATION_PRIOR_NOT_RING_MONOID",
+          "evidence": "Coordinatewise code multiplication is established abstractly, without an identification with ideal multiplication in truncated fibre-product rings.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.0022",
+          "material_read": "Accessible original full text with definitions and code-product constructions in §1",
+          "method": "Open-access ar5iv HTML text reading",
+          "title": "On products and powers of linear codes under componentwise multiplication",
+          "trigger": "Abstract Schur product directly matches proposed code operation"
+        },
+        {
+          "assessment": "PARTIAL_SAME_OBJECT",
+          "evidence": "The inspected material addresses cyclic decompositions, not a complete product of arbitrary nonmonomial ideals.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.6076",
+          "material_read": "Abstract and identified Theorem 3.7/Example 4.2 passages; full text not established in this run",
+          "method": "Open-access bibliographic and excerpt inspection",
+          "title": "Commutative Local Rings whose Ideals are Direct Sums of Cyclic Modules",
+          "trigger": "Same pairwise-annihilating branch example and ideal decompositions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1312.0022",
+        "Resultary same-ring ideal census"
+      ],
+      "rationale": "The full multiplicative monoid of ideals is a natural ring invariant stronger than dimension or inclusion census. Explicit Schur data distinguish coupling-preserving ideals from those whose products separate branches; threshold-only zero criteria and nilpotency are complete and uniform over any field, branch number and cutoff. The exact structure answers an independently usable algebraic classification question.",
+      "residual_risks": [
+        "The theorem does not include noncommutative rings or cross-branch nonzero multiplication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only, with precise residual risks in axes.originality.",
+    "Frozen public metadata contains operational source-run identifier; delivery/publishing not ready even though science review is complete."
+  ],
+  "schema_version": 1
+}
