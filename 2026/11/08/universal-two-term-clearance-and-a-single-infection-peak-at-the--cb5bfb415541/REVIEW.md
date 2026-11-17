@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The normalized source mean-field Equations (1)–(3) reduce exactly at the stated tricritical probabilities to the positive two-dimensional system in `RESULT.md` Equation (1). The ratio equation is algebraically exact. A transverse strictly downward crossing of the threshold ratio yields the full one-peak classification. Bounded comparison and stable linear forcing prove global infection clearance and ratio convergence. Successive stable-filter estimates produce the cubic and quartic infection drift; reciprocal-square integration proves both universal coefficients and the stated \(O(t^{-3/2}\log t)\) remainder. The symbolic verifier independently checks the polynomial identities and exact fractions; numerical trajectories support but do not establish infinite-time quantifiers. Risk: all asymptotic statements are pointwise in the initial state and restricted to the exact mean-field model.
+PASS
 
-## Originality: PASS (inspected sources, subject to publication-priority uncertainty)
+The source tricritical lambda,sigma reduce the 3-compartment ODE exactly to sdot=-eta*s+gamma*i-(gamma+eta)*s*i and idot=eta*s*i-gamma*i^2 on the invariant simplex. With r=s/i, R=gamma/eta, rdot=gamma-eta*r-eta*i*r*(r+1) and idot=eta*i^2*(r-R); every r=R crossing is strictly downward; if r0>R a crossing occurs by finite comparison, else i decreases. Eventual i decreases to 0 and r tends R. Stable-filter expansion r-R=-R(R+1)i+R(R+1)(2R+1)i^2+O(i^3) yields idot=-K*i^3+L*i^4+O(i^5) and reciprocal-square integration gives c0=(2K)^-1/2 and c1=L/(2K^2)=(2gamma+eta)/(2gamma(gamma+eta)), remainder O(t^-3/2 log t). Independently checked parameter coefficient algebra and 3 ODE peak regimes; numerical trajectories are not proof of global convergence or asymptotics.
 
-Pires et al., arXiv:2306.08135, Sections II.1 and III already obtain the tricritical parameters and the expected exponent \(1/2\), including a numerical estimate \(0.509\pm0.013\). Their accessible complete article does not give a global one-peak classification or an explicit universal second asymptotic coefficient for the infection trajectory. Lübeck's arXiv:cond-mat/0608339, Section 2, Eq. (15), treats a scalar cubic tricritical normal form and gives the established leading exponent, but no coupled vaccination ratio, no nonzero \(t^{-1}\) coefficient for the published vaccination equations, and no infection-peak criterion. The nearest published comparisons found in public research summaries address distinct multiple-exposure and nonlinear SIRS equations, and do not imply this formula or classification. Keyword, alias, analytic-asymptotics and source-ID searches found no decisive equivalent claim. Risk: semantic searches and public summaries cannot guarantee absence of a stronger unindexed work.
+## originality
 
-## Value: PASS
+PASS
 
-The initiating study establishes tricritical behavior and estimates a critical decay exponent, but that information leaves finite-time clearance coefficients and infection-trajectory shape undetermined. The sharp \(t^{-1}\) correction quantifies the leading impact of the finite-time susceptible-vaccinated adjustment, is independent of the initial infected share, and differs from the zero \(t^{-1}\) term of the standard scalar cubic normal form. The exact initial ratio cutoff distinguishes transient outbreak growth from monotone decline over the entire biologically admissible simplex. These are motivated model-specific quantitative questions, not merely renamed exponent estimates. No global stochastic, lattice, or noncritical claim is inferred.
+The original 2023 Pires et al mean-field paper states tricritical parameter coordinates and 1/2 decay exponent but does not supply universal second coefficient or initial-condition one-peak phase classification in the inspected model/results sections. Related published SIRS tricritical and SEIR critical decays concern different equations.
 
-## Closest literature and residual limits
+## value
 
-1. Pires et al., *Tricritical behavior in epidemic dynamics with vaccination*, https://arxiv.org/abs/2306.08135, first public 2023-06-13. Full source Sections II–IV examined. Owns original equations, tricritical parameters, and known decay exponent.
-2. S. Lübeck, *Tricritical directed percolation*, https://arxiv.org/abs/cond-mat/0608339, Section 2, especially Eqs. (1) and (15). Full accessible article examined; scalar comparison, not coupled epidemic system.
-3. *Global attraction and two-term critical relaxation at the multiple-exposure disease-free degeneracy*, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-global-attraction-and-two-term-critical-relaxation-at-the-multip--45a437e4957f. Published summary examined, full paper not retrievable; dynamics described as Li–Ma multiple-exposure rather than vaccination MVE.
-4. *Universal extinction crossover at the pitchfork edge of a nonlinear SIRS model*, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104. Published summary examined; distinct nonlinear SIRS dynamics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Universal finite-time correction and complete initial-state peak condition solve a natural full-simplex epidemic dynamics question, extending known critical exponents with an explicit correction and a sharp transient behavior classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

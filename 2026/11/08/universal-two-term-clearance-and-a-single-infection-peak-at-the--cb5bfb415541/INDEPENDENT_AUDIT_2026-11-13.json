@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:15:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source tricritical lambda,sigma reduce the 3-compartment ODE exactly to sdot=-eta*s+gamma*i-(gamma+eta)*s*i and idot=eta*s*i-gamma*i^2 on the invariant simplex. With r=s/i, R=gamma/eta, rdot=gamma-eta*r-eta*i*r*(r+1) and idot=eta*i^2*(r-R); every r=R crossing is strictly downward; if r0>R a crossing occurs by finite comparison, else i decreases. Eventual i decreases to 0 and r tends R. Stable-filter expansion r-R=-R(R+1)i+R(R+1)(2R+1)i^2+O(i^3) yields idot=-K*i^3+L*i^4+O(i^5) and reciprocal-square integration gives c0=(2K)^-1/2 and c1=L/(2K^2)=(2gamma+eta)/(2gamma(gamma+eta)), remainder O(t^-3/2 log t). Independently checked parameter coefficient algebra and 3 ODE peak regimes; numerical trajectories are not proof of global convergence or asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2306.08135",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-one-peak-law-and-late-time-reversal-for-infectivity-in-a-two-s--aa9d78c69c34"
+        ],
+        "reasoning": "Other critical decay/peak classifications apply to distinct SIRS or two-strain infection dynamics. Their equations and parameters are not a superfamily that immediately yields this MVE result.",
+        "searches": [
+          "Resultary: tricritical vaccination epidemic peak susceptible infected ratio second order decay t^-1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 5e59d83cbc23ba753fe2a2494aabbd39945b80be and verify.py SHA 9a8e09aec74532ccb19fe479bb31bc76c0c922b7",
+        "https://arxiv.org/pdf/2306.08135",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-one-peak-law-and-late-time-reversal-for-infectivity-in-a-two-s--aa9d78c69c34",
+        "https://arxiv.org/abs/cond-mat/0608339"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2306.08135",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104"
+        ],
+        "reasoning": "Already-established t^-1/2 exponent is weaker than initial-independent c1 and one-peak threshold; extracting these needs ratio dynamics and higher-order stable tracking not supplied by a scalar tricritical normal form.",
+        "searches": [
+          "Resultary: minimal vaccination epidemic mean field Pires Sampaio Filho tricritical two-term inverse time correction global single infected peak"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2306.08135",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104"
+        ],
+        "reasoning": "The original model/equilibrium threshold and leading critical exponent are old; its published Monte Carlo exponent does not imply a universal signed t^-1 term or the exact peak criterion r0>gamma/eta.",
+        "searches": [
+          "Resultary: minimal vaccination epidemic mean field Pires Sampaio Filho tricritical two-term inverse time correction global single infected peak susceptible to infected ratio",
+          "arxiv:2306.08135 Pires vaccination tricritical"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2306.08135"
+        ],
+        "reasoning": "The original paper tables critical exponents from simulations, not coefficients of a full-simplex analytic expansion or initial-state peak classification; no exact parameter table covers the asserted theorem.",
+        "searches": [
+          "Resultary: minimal vaccination epidemic mean field Pires Sampaio Filho tricritical two-term inverse time correction global single infected peak"
+        ]
+      },
+      "rationale": "The original 2023 Pires et al mean-field paper states tricritical parameter coordinates and 1/2 decay exponent but does not supply universal second coefficient or initial-condition one-peak phase classification in the inspected model/results sections. Related published SIRS tricritical and SEIR critical decays concern different equations.",
+      "residual_risks": [
+        "Another dynamical-systems analysis of the exact Pires ODE may derive equivalent ratio and second-order asymptotics without matching terms.",
+        "Numerical finite-time ODE checks do not certify infinite-time error remainder."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for model, transition location and decay exponent but not displayed two-term or global peak theorem in inspected material",
+          "evidence": "Page 3 body text preceding Eq. (10) states sigma_T=1-gamma*(1-eta)/(gamma+eta), while printed Eq. (10) appears to have a plus-sign typo; the ODE-consistent minus is used. Page 7 reports delta~0.509+-0.013.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.08135",
+          "material_read": "12-page PDF, model/mean-field equations in Section II including Eq. (10) tricritical coordinates; Section III Figure 6 critical exponent and results, plus scanned pages 3 and 7",
+          "method": "Lawful primary PDF text plus rendered page inspection",
+          "title": "Tricritical behavior in epidemic dynamics with vaccination",
+          "trigger": "Identical vaccination-epidemic ODE and tricritical parameters"
+        },
+        {
+          "assessment": "Different nonlinear SIRS dynamical system, no verified implication to MVE vaccinated tricritical flow",
+          "evidence": "Published result gives a t^-1/2 transition but not exact Pires MVE first correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104",
+          "material_read": "Published Resultary title and summary only",
+          "method": "Semantic search",
+          "title": "Universal extinction crossover at the pitchfork edge of a nonlinear SIRS model",
+          "trigger": "Potential same cubic decay normal form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Universal finite-time correction and complete initial-state peak condition solve a natural full-simplex epidemic dynamics question, extending known critical exponents with an explicit correction and a sharp transient behavior classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact tricritical parameters, deterministic homogeneous mean-field simplex and i0>0 only; no finite-population or spatial claim.",
+    "Remainder constants are initial-condition dependent, not uniform near disease-free boundary.",
+    "Original Pires source has an apparent sign misprint in displayed tricritical parameter Eq. (10), contradicted by its immediately preceding derivation; the result correctly uses the physical minus-sign value."
+  ],
+  "schema_version": 1
+}
