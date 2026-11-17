@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T01:53:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For normalized Fock basis e_k=z^k/sqrt(k!), A_{h,j} shifts e_k to e_{k+2h} with weight product_(u=1)^h(k-j+u)/sqrt(product_(u=1)^(2h)(k+u)), vanishing when k<j. For fixed indices weights tend to 1, so individual operators are bounded noncompact. Their commutator is a one-diagonal shift with d(k)=w2(k)w1(k+2h2)-w1(k)w2(k+2h1), hence its singular multiset is |d(k)|. Log-weight coefficients alpha=-h(h+2j)/2 and beta=h(2h²+2hj+h-2j²+2j)/4 yield nonresonant coefficient h1h2(lambda1-lambda2) at k^-2; under lambda equality the k^-2 term cancels and k^-3 coefficient is -(h1h2/2)(h1²-h2²), nonzero for distinct pairs because equal lambda and h imply equal j. Sorting tails with positive C proves s_n~Cn^-r, strong/weak Schatten thresholds p>1/r and log residue C^(1/r). Inspected actual CHECK.py exact finite identities and performed independent symbolic log-weight coefficient/parameter checks; finite testing is not used to establish the all-parameter asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2611.01959v1",
+          "https://arxiv.org/abs/2208.03394",
+          "https://arxiv.org/abs/1710.02652",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-schatten-resonance-for-weighted-bergman-monomial-toeplit--29c3c1a75d86/RESULT.md"
+        ],
+        "reasoning": "The Dong–Hu broader class gives boundedness/essential symbols but does not state this noncommutative two-operator coefficient. General banded-matrix singular asymptotics can convert a known leading weight term to s_n order but do not determine when the leading coefficient cancels in this exact family. Bergman monomial Toeplitz resonance involves different normalized shifts.",
+        "searches": [
+          "Fock iterated integration monomial generalized Volterra commutators resonant Schatten singular values cubic decay",
+          "Fock Sobolev generalized integral compact commutator Schatten pairwise resonant cubic decay"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.01959v1",
+        "https://arxiv.org/abs/2208.03394",
+        "https://arxiv.org/abs/1710.02652",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-schatten-resonance-for-weighted-bergman-monomial-toeplit--29c3c1a75d86/RESULT.md",
+        "https://arxiv.org/abs/1702.08157",
+        "https://arxiv.org/abs/1802.08414"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2611.01959v1",
+          "https://arxiv.org/abs/1710.02652",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-schatten-resonance-for-weighted-bergman-monomial-toeplit--29c3c1a75d86/RESULT.md"
+        ],
+        "reasoning": "Formula (50) of Dong–Hu gives w_{h,j}(k). One must additionally expand two shifted products and cancel first/second order terms to infer the coefficient; this is neither identical to nor a direct listed corollary of its essential-norm result. An abstract banded-matrix asymptotic theorem applies only after identifying the family-specific cancellations and positivity.",
+        "searches": [
+          "Fock iterated integration monomial generalized Volterra commutators resonant Schatten singular values cubic decay",
+          "Carleson measures Fock Sobolev integral operators equation 50 versus product commutator cubic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2611.01959v1",
+          "https://arxiv.org/abs/2208.03394"
+        ],
+        "reasoning": "A_{h,j}=I^(h+j) z^h D^j is a single unilateral shift by 2h with weights tending to one. Its commutator is a one-diagonal weighted shift, so singular values are the sorted absolute commutator weights. The same single-weight formula in Dong–Hu is a precursor, but not an evaluation of their pairwise cancellation law.",
+        "searches": [
+          "Fock iterated integration monomial generalized Volterra commutators resonant Schatten singular values cubic decay",
+          "critical iterated Fock integration monomial shift commutator log weight symbol cancellation lambda h+2j"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2611.01959v1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-schatten-resonance-for-weighted-bergman-monomial-toeplit--29c3c1a75d86/RESULT.md"
+        ],
+        "reasoning": "The inspected sources and semantic matches contain no exact grid or formula enumerating h1h2(abs(lambda1-lambda2)) and resonant h1h2/2 abs(h1²-h2²) for this Fock family. A known Bergman Toeplitz exponent jump from 2 to 3 does not equate the two normalized coefficients.",
+        "searches": [
+          "Fock iterated integration monomial generalized Volterra commutators resonant Schatten singular values cubic decay",
+          "Fock integral commutator h1 j1 h2 j2 Schatten threshold 1/3 resonance h+2j"
+        ]
+      },
+      "rationale": "Dong–Hu supplies the single critical Fock integral weighted-shift formula and Calkin compact-perturbation picture, not pairwise product-commutator sharp n^-2/n^-3 constants, resonance condition and endpoint ideal thresholds. Related Bergman Toeplitz cubic resonance has different operator family and is not an implication for this specific Fock model.",
+      "residual_risks": [
+        "A broader pseudodifferential, Toeplitz or asymptotic weighted-shift identity may subsume the family-specific commutator law without matching Fock terminology.",
+        "The 2023 thesis on Fock integration was not fully page-image inspected in this execution; its existing extracted text is not treated as whole-document negative evidence.",
+        "Some related work was indexed only by abstract/summary; priority remains qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRECURSOR_NOT_COVERING_SHARP_COMMUTATOR",
+          "evidence": "Provides normalized single critical shift and essential/Calkin information; no pairwise resonant n^-3 coefficient theorem in inspected material.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01959v1",
+          "material_read": "Original full-text HTML, in particular the critical case and formula (50) of Section 4.2, scope and spectral results",
+          "method": "Read original arXiv HTML in relevant complete sections",
+          "title": "Carleson Measures and Integral Operators on Fock–Sobolev Spaces, Dong–Hu",
+          "trigger": "Identical generalized integral family and its exact critical monomial weights"
+        },
+        {
+          "assessment": "SIMILAR_NOT_DIRECT_IMPLICATION",
+          "evidence": "This is Bergman disk Toeplitz algebra, not Gaussian Fock generalized iterated integrals; no identical normalized commutator coefficients established by this evidence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-schatten-resonance-for-weighted-bergman-monomial-toeplit--29c3c1a75d86/RESULT.md",
+          "material_read": "Published semantic record title/summary and distinct Bergman Toeplitz definition; not entire RESULT.md",
+          "method": "Resultary mathematical summary; comparison limited to stated theorem",
+          "title": "A cubic Schatten resonance for weighted Bergman monomial Toeplitz commutators",
+          "trigger": "Very similar exponent jump 2-to-3 and weak-Schatten endpoint for another natural operator class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp arithmetic resonance transition between two distinct Schatten summability regimes for a naturally defined family of critical Fock generalized integrals is motivated by the noncommutativity of shifts asymptotic to isometries. Exact family-specific positive coefficients and endpoint ideal invariants give nontrivial information beyond known essential compactness and simple single-operator spectra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This is one-variable Gaussian Fock space, integer indices h>=1,j>=0 and fixed pairwise commutators; no general polynomial symbol, multiple nested commutator, or other Fock–Sobolev weight theorem.",
+    "Finite exact algebra and sampled high-precision weights corroborate, but do not independently certify, the analytic expansions for all integer parameters; proof uses elementary product/log asymptotics.",
+    "No verification_output.txt exists in frozen tree; exact CHECK.py and VERIFICATION.md identities and Git blob IDs were inspected."
+  ],
+  "schema_version": 1
+}

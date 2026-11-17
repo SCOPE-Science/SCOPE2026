@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized Gaussian Fock monomial basis gives the exact weighted shift, including the finite low-degree kernel. Analytic logarithmic expansions of finite products give the universal second-order commutator coefficient and, when it vanishes, the nonzero cubic coefficient. Sorting absolute weights into singular values and comparing with a power sequence proves the all-index asymptotic, the sharp strong and weak Schatten criteria, and the logarithmic endpoint. No finite enumeration is used to prove an infinite statement. The included independent-format standard-library checker corroborates the exact identities on a finite grid.
+PASS
 
-## Originality — PASS (qualified best knowledge)
+For normalized Fock basis e_k=z^k/sqrt(k!), A_{h,j} shifts e_k to e_{k+2h} with weight product_(u=1)^h(k-j+u)/sqrt(product_(u=1)^(2h)(k+u)), vanishing when k<j. For fixed indices weights tend to 1, so individual operators are bounded noncompact. Their commutator is a one-diagonal shift with d(k)=w2(k)w1(k+2h2)-w1(k)w2(k+2h1), hence its singular multiset is |d(k)|. Log-weight coefficients alpha=-h(h+2j)/2 and beta=h(2h²+2hj+h-2j²+2j)/4 yield nonresonant coefficient h1h2(lambda1-lambda2) at k^-2; under lambda equality the k^-2 term cancels and k^-3 coefficient is -(h1h2/2)(h1²-h2²), nonzero for distinct pairs because equal lambda and h imply equal j. Sorting tails with positive C proves s_n~Cn^-r, strong/weak Schatten thresholds p>1/r and log residue C^(1/r). Inspected actual CHECK.py exact finite identities and performed independent symbolic log-weight coefficient/parameter checks; finite testing is not used to establish the all-parameter asymptotic.
 
-Dong–Hu (2026, arXiv:2611.01959v1) derives single-integral critical weighted shifts and a Calkin-algebra Laurent Toeplitz picture, but not the product-commutator asymptotic. Alpay–Cerejeiras–Kähler–Kling (2022, arXiv:2208.03394v1) develops a different shift-commutator calculus without this paired critical-integral Schatten threshold. Mengestie (2017) and Mengestie–Worku (2018) give single-operator and linear-difference classifications, respectively. Biya (2023) gives a generalized single-integration Schatten criterion, not the present pairwise cancellation law. Pushnitski (2017) supplies a generic banded matrix singular-asymptotic theorem after its diagonal coefficients are known, but not the exact Fock commutator coefficients or arithmetic resonance. Search terms included "Fock space iterated integration commutators Schatten", "critical generalized integral derivative commutators", and "weighted shift cubic decay". No inspected theorem directly implies the full claim without new coefficient analysis. The principal limitation is possible priority coverage by an older broader symbolic-calculus result; the related thesis could be read through text extraction but not page-image screenshots.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The claim reveals that all pairs of distinct critical integral operators have compact nontrivial commutators, while arithmetic agreement of their first-order drift indices raises the singular-decay exponent from two to three. It gives a complete natural parameter classification of the strongest nontrivial decay mechanism within this family, with exact constants and operator-ideal thresholds. This quantifies a structure invisible to essential norms and Calkin symbols.
+Dong–Hu supplies the single critical Fock integral weighted-shift formula and Calkin compact-perturbation picture, not pairwise product-commutator sharp n^-2/n^-3 constants, resonance condition and endpoint ideal thresholds. Related Bergman Toeplitz cubic resonance has different operator family and is not an implication for this specific Fock model.
 
-## Verification and limitations
+## value
 
-`CHECK.py` runs with Python 3 and no dependencies beyond its standard library. It reports 1,470 exact monomial checks, 98 exact log-coefficient identities, 2,352 pair algebra checks and 12 numerical asymptotic comparisons. These are corroborations, not an exhaustive computational proof. All-parameter correctness is established by the written finite-product Taylor argument. The finding applies only to the explicitly stated monomial, one-variable Gaussian Fock setting; publication priority remains qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A sharp arithmetic resonance transition between two distinct Schatten summability regimes for a naturally defined family of critical Fock generalized integrals is motivated by the noncommutativity of shifts asymptotic to isometries. Exact family-specific positive coefficients and endpoint ideal invariants give nontrivial information beyond known essential compactness and simple single-operator spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
