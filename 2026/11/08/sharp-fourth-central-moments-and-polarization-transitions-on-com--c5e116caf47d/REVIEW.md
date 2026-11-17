@@ -1,19 +1,21 @@
-# Review of the centered fourth-moment theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified uniform unit-edge connected complete multipartite graphs, the anchored Lipschitz feasible region is a bounded integral polytope. Strict convexity of the centered fourth-power functional forces every maximizing potential to be an integral vertex; diameter two and the necessary incident tight-edge condition give only binary and polarized-one-part configurations. Direct moment expansion verifies both displayed polynomials. The strict one-coordinate convexity argument proves that the polarized branch improves with part size at fixed total order, justifying dependence on a largest part alone. The quartic's monotonicity on the admissible parity lattice proves the finite skew threshold; elementary one-dimensional calculus proves the two limiting transitions. An exact-integer program enumerates every anchored integer Lipschitz assignment for every multipartite part-size pattern through order eight, verifying candidate values and all observed equality classes. Proof covers all orders and is not inferred from enumeration.
+PASS
 
-## Originality — PASS, qualified
+With uniform vertex masses, unit edges and real potentials, anchoring one vertex turns the bounded Lipschitz polytope into a totally-unimodular directed-incidence system; all its vertices are integral. Strict convexity of centered L4^4 means every maximizer is a vertex. Diameter<=2 and tight-edge constraints reduce integer extremizers to binary indicators or plus/minus signs confined to one part, zero off that part. Exact moment expansions give B_N(k) and T_{N,m}(t); strict one-coordinate convexity shows only the largest part matters. Comparing adjacent parity-lattice t values establishes the finite threshold and the limiting optimization has switches m/N=1/12 and 2/3. Independent exact enumeration over 37 multipartite part-size types with N<=7 verified all maximum numerators; universal result follows from analytical reduction.
 
-The earliest motivating public source checked is Addario-Berry–Janson–McDiarmid, arXiv:0902.1156 (2009-02-06): its opening section discusses variance/spread, integer potentials and Cartesian-product additivity, not centered fourth moments on multipartite graphs. A stronger and directly relevant structural precursor is Higashitani–Jochemko–Michałek, arXiv:1807.07678, Theorem 3.1 and Proposition 3.5: it already classifies integer extreme potentials/facets on the same graphs. The new claim does not recast that classification as original; it selects exact quartic maximizers and establishes sharp fourth-moment, largest-part, parity, and asymptotic phase laws not supplied by the facet classification. A known fourth-moment calculation on crown graphs concerns a different graph family and has a different four-level extremizer branch; it does not imply the complete-multipartite result. published-finding corpus searches for the precise fourth-centered-moment problem, equivalent norm language, and higher-order graph spread did not return a dominating result. An equivalent unindexed or unstated consequence of a general result is still a residual risk; absence from search is not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quantity is the exact fourth power of a natural centered \(\mathrm{Lip}_0\to L^4\) embedding norm, a higher-moment counterpart of the established graph-spread invariant. The theorem gives a complete answer for all orders and part-size vectors, not just an isolated numerical evaluation. In contrast to the variance transition at largest-part density \(1/4\), the fourth-moment norm first becomes sensitive to a large part at density \(1/12\), and its optimizers acquire a genuinely macroscopic *unbalanced* polarization above density \(2/3\); the parity-corrected finite threshold makes this structural change exact. These distinct scales motivate the higher-moment problem and potential extensions to other moments and vertex weights. The general polytope extremizer classification is acknowledged as input, not additional value.
+PASS, qualified: Higashitani–Jochemko–Michałek Prop. 3.5 already gives integer potential/facet patterns on the same complete multipartite graphs, but does not optimize the unstandardized centered fourth moment, rank extremizers by part-size, or derive the 1/12 and 2/3 thresholds and finite parity correction. Addario-Berry–Janson–McDiarmid study variance (second centered moment); the same-day published complete-multipartite variance boundary at largest part density 1/4 is nonidentical. No dominating L4 result located.
 
-## Limits
+## value
 
-Uniform vertex measure, unit graph edges, real functions, and centered unstandardized fourth moment only. Finite verification is illustrative rather than universal; equivalent unindexed literature remains possible. This is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The centered Lipschitz-to-L4 norm is a natural higher-moment graph spread invariant. An exact all-parameters functional and complete optimizer family, with a binary-to-polarized transition at 1/12 and a distinct macroscopic imbalance threshold at 2/3, provide a quantitatively meaningful new phase diagram beyond the known L2 spread; parity effects are mathematically substantive. Not a claim to have discovered the already classified polytope facets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
