@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the full odd-domination weight enumerator
+# Independent mathematical audit
 
-Run `python3 verify_odd_matrix.py` and `python3 verify_odd_periodic.py` in the directory containing the two scripts. They require the Python 3 standard library only.
+## correctness
 
-The first program independently constructs all \(2n\) equations of \((I+A)\mathbf s=\mathbf1\) for the actual graph (rather than assuming the proof's recurrence), row-reduces over \(\mathbb F_2\), enumerates all binary solutions and checks each against every original equation. It compares every weight count for \(5\le n\le60\) and verifies the kernel dimension. On successful execution the last line is `DIRECT_GF2_MATRIX_PASS_n5_to60`.
+PASS
 
-The second program enumerates all 1,024 binary candidate ten-step words, filters by the derived recurrence and cyclic consistency, reconstructs the inner ring, checks every neighborhood, and compares weight histograms for \(5\le n\le100\). It checks that exactly 64 ten-step words obey the recurrence. Its successful final line is `PERIODIC_RECURRENCE_PASS_n5_to100`.
+Exact GP(n,2) closed-neighborhood GF2 equations give y_i=1+x_{i-1}+x_i+x_{i+1} and x_j+x_{j+1}+x_{j+5}+x_{j+6}=0, hence differences a_j=x_j+x_{j+1} are five-periodic and x has period <=10. Cyclic compatibility leaves 2/4 patterns if 5∤n, 32 if odd multiple of five, and 64 if 10|n. Five-period patterns have weights 3,5,7 with multiplicities 10,12,10; 32 twisted ten-period patterns have weight n. Independent 10-seed enumerator, corrected to deduplicate repeated seeds for n<10, reproduced each weight histogram for n=5..50. General theorem rests on recurrence and complete 32-pattern classification.
 
-The two methods are computationally independent in their primary state construction. The complete mathematical justification for all \(n\ge5\), including sizes and 5/10-periodic classification, is in `RESULT.md`; these programs are finite cross-checks. Historical priority and independent audit are not certified by program execution.
+## originality
+
+PASS
+
+The published same-family Lights Out literature treats homogeneous kernel nullity/weight structure; the submitted problem is the fixed nonzero-syndrome coset (I+A)s=1, whose weight enumerator is not determined by the homogeneous weight enumerator alone. Caro–Klostermeyer odd domination framework and Hatzl–Wagner generic parity algorithms do not evaluate this GP(n,2) affine coset; Wang–Zhang exact-one code problem is stricter, and similarly numbered induced-matching optimum counts edges rather than odd-dominating vertex subsets. Resultary yielded a separate GP(n,3) all-on result and differently defined GP(n,2) domination results, no earlier identical affine enumerator. Best-of-knowledge PASS, with old primary-source gaps.
+
+## value
+
+PASS
+
+Odd domination and Lights Out are standard closed-neighborhood binary codes; determining the complete all-on coset weight distribution on the classic generalized Petersen family is a natural exact invariant. The sharp divisibility-by-five optimum shift and count of exactly ten minimizers provide a structural census beyond general solvability or kernel dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

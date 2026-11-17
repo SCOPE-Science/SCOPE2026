@@ -1,15 +1,21 @@
-# Scientific review: complete odd-domination weight spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-A direct elimination of the inner-ring variables in \((I+A)\mathbf s=\mathbf1\) gives the exact constraint \(x_j+x_{j+1}+x_{j+5}+x_{j+6}=0\). Its first differences are five-periodic, forcing an outer pattern of period at most ten. The proof treats every cyclic boundary regime; no sample-based extrapolation occurs. The base five-pattern count is exhausted by six disjoint combinatorial shape families and their complements. Independent direct matrix and recurrence programs agree for all tested orders, including all weights and solution-space dimensions; the claimed infinite scope follows from the recurrence proof, not from those tests.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The homogeneous closed-neighborhood kernel and its binary weight enumerator for this generalized Petersen family are prior related mathematics; they do not determine the Hamming-weight enumerator of a *specific nonzero-syndrome affine coset* (the all-on game) without an additional solution and intersection computation. The 2016 Torrence–Torrence analysis also provides kernel nullities rather than the present all-on optimum. The 2001 and 2003 odd-domination papers give definitions, general structure, and explicit other graph classes, not the generalized Petersen two-ring weight-spectrum formula. Hatzl–Wagner's general parity linear-algebra treatment does not evaluate this family. Wang–Zhang's exactly-one-neighbor code classification has a different hypothesis and conclusion, and their perfect-code criterion excludes the even inner-step family. A 2024 result quotes the same numerical \(3n/5\) for dominating *induced matching edges*, a different object, and cannot imply a vertex parity-solution enumerator. Searches for parity domination, Lights Out codes, weight enumerators, and generalized Petersen graphs found no covering complete statement. Published results indexed by alternative invariants, unpublished computations, and one inaccessible comparison remain historical-priority risks; absence of a search hit is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-Odd domination is a canonical binary neighborhood constraint, hard to optimize on arbitrary graphs, while generalized Petersen graphs are a standard structured cubic family. The result determines the optimal press count and complete strategy distribution for the canonical all-on Lights Out problem, which is not implied by the homogeneous quiet-strategy enumerator. It is an exact all-order enumeration, not a routine sample: it exposes a sharp divisibility-by-five minimum-size transition, counts *all* solutions at every possible weight, and classifies all extremal solutions via their period. These facts give a tractable benchmark for binary closed-neighborhood codes and odd-neighborhood optimization; no speculative downstream theorem is asserted.
+Exact GP(n,2) closed-neighborhood GF2 equations give y_i=1+x_{i-1}+x_i+x_{i+1} and x_j+x_{j+1}+x_{j+5}+x_{j+6}=0, hence differences a_j=x_j+x_{j+1} are five-periodic and x has period <=10. Cyclic compatibility leaves 2/4 patterns if 5∤n, 32 if odd multiple of five, and 64 if 10|n. Five-period patterns have weights 3,5,7 with multiplicities 10,12,10; 32 twisted ten-period patterns have weight n. Independent 10-seed enumerator, corrected to deduplicate repeated seeds for n<10, reproduced each weight histogram for n=5..50. General theorem rests on recurrence and complete 32-pattern classification.
 
-## Independent verification and restrictions
-Scientific proof and two complete finite checks are supplied. The finite tests do not certify untested orders on their own. The priority check cannot exclude unknown equivalent presentations, and an inaccessible full-text paper is disclosed. The earliest fully day-dated primary reference is the 2003 source; an earlier 2001 publication is acknowledged without inventing its day. No external independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published same-family Lights Out literature treats homogeneous kernel nullity/weight structure; the submitted problem is the fixed nonzero-syndrome coset (I+A)s=1, whose weight enumerator is not determined by the homogeneous weight enumerator alone. Caro–Klostermeyer odd domination framework and Hatzl–Wagner generic parity algorithms do not evaluate this GP(n,2) affine coset; Wang–Zhang exact-one code problem is stricter, and similarly numbered induced-matching optimum counts edges rather than odd-dominating vertex subsets. Resultary yielded a separate GP(n,3) all-on result and differently defined GP(n,2) domination results, no earlier identical affine enumerator. Best-of-knowledge PASS, with old primary-source gaps.
+
+## value
+
+PASS
+
+Odd domination and Lights Out are standard closed-neighborhood binary codes; determining the complete all-on coset weight distribution on the classic generalized Petersen family is a natural exact invariant. The sharp divisibility-by-five optimum shift and count of exactly ten minimizers provide a structural census beyond general solvability or kernel dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
