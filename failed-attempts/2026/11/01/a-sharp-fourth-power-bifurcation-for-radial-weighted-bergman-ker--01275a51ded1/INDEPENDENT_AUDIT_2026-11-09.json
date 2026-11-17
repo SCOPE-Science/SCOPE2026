@@ -1,0 +1,226 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T04:56:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q in {0,1,2,3,4} and real m>=0, monomials have exact unnormalized norms pi*B(n+m+1,q+1), giving K(t)=[pi*q!]^-1 sum_n product_{h=1}^{q+1}(n+m+h)t^n. Applying finite differences gives degree<=q+1 numerator over (1-t)^(q+2). The map t=(s-1)/(s+1) sends |t|<1 exactly to Re(s)>0. Independently derived with SymPy, using this series (not the supplied verify.py), the exact complete Routh first columns. For q=0: (1,2m+1); q=1: (2,4(m+1),2(2m^2+4m+1)); q=2: (6,6(2m+3),8(m+1)(m+2),2(2m+3)(2m^2+6m+1)); q=3: (24,48(m+2),8(2m+3)(2m+5),32(m+1)(m+2)(m+3)(m^2+4m+6)/((2m+3)(2m+5)),8(2m^4+16m^3+40m^2+32m+3)). All positive for m>=0. For q=4: first four Routh entries positive, fifth -64(m-1)(m+1)(m+2)(m+3)(m+4)(m+6)/((2m+3)(2m+7)), last 8(2m+5)(2m^4+20m^3+60m^2+50m+3)>0. Thus exactly two right-half-plane roots for m>1 and none for m<1; coefficients of Q(s) positive for m>=0 forbid a positive real s root; conjugate pair is simple. At m=1 Q(s)=120(s+3)(s^2+3)(s^2+4s+7); only +/-i sqrt(3) are on imaginary axis, yielding t=1-e^{+/-pi*i/3} on the excluded unit circle, and no open-disk root. This covers the m=1 singular Routh row. Finite numerical sample at m=2 corroborates but is not an all-real proof. The scalar t roots are realized by z*conj(w)=t with |z|,|w|<1. No claims for q>=5 or fractional q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57/RESULT.md"
+        ],
+        "reasoning": "Published Nov 1 record is statement-identical and additionally proves transversality of the crossing with d|zero|^2/d(beta)=-49/360. Published Nov 8 fourth-order theorem treats all a>-1 and gives additional zero-vanishing at a=(sqrt(15+2sqrt(19))-5)/2 and reentry at a=1, so strictly dominates the submitted q=4 positive-a slice. Nov 8 first-reentrant boundary-order result likewise covers q=0..3 for t>0, stronger than the submitted m>=0 slice. These are stronger mathematical coverage, not title/keyword coincidences.",
+        "searches": [
+          "Resultary semantic: sharp fourth power bifurcation radial weighted Bergman kernels operator reproducing kernel 4",
+          "Resultary semantic: radial weighted Bergman |z| exponent 2 beta (1-|z| squared)^4 zero free beta <=1 two zeros beta >1",
+          "Resultary complete fourth Jacobi boundary a>-1 real origin exponent reentrant classification"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md",
+        "https://www.researchgate.net/publication/344180333_Zeros_of_new_Bergman_kernels",
+        "https://arxiv.org/abs/2009.04307",
+        "https://oaktrust.library.tamu.edu/items/b6a215a2-ccf5-45ff-887c-153dcf11237b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md"
+        ],
+        "reasoning": "Taking the first published theorem with beta=m_submitted and m_published=q_submitted gives every case in the submitted boxed formula, boundary multiplicities and simple conjugate roots. The earlier theorem even computes the nonzero transverse derivative. No extra unclaimed measure-dependent zero information survives because the two inner products differ only by a constant normalization. The 2026-11-01 metadata date is the same calendar day for both sources; within-day precedence was not independently established, so conclusion is public existing coverage at audit time rather than a claim about hour-of-day priority.",
+        "searches": [
+          "Resultary semantic: sharp fourth power bifurcation radial weighted Bergman kernels operator reproducing kernel 4",
+          "Resultary semantic: radial weighted Bergman |z| exponent 2 beta (1-|z| squared)^4 zero free beta <=1 two zeros beta >1",
+          "published complete RESULT.md: sharp first positive radial-power transition of analytic Bergman-kernel zeros"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md",
+          "https://www.researchgate.net/publication/344180333_Zeros_of_new_Bergman_kernels"
+        ],
+        "reasoning": "Identical weights after parameter renaming: submitted interior m equals published beta, submitted boundary q equals published m. Both require holomorphy on the entire disk and both classify scalar roots of K(z,w)=k(z*conj(w)) in |s|<1. Published RESULT.md gives zero roots for integer boundary order 0..3 for all beta>=0, and precisely two simple conjugate roots for order 4 iff beta>1, with boundary at beta=1. Changing normalized to unnormalized positive area weight scales the kernel by a nonzero constant and leaves zeros invariant. Ghiloufi–Snoun instead defines a punctured-disk meromorphic space allowing negative monomial indices (pp.2-3), which cannot by itself be equated to the analytic whole-disk theorem.",
+        "searches": [
+          "Resultary semantic: sharp fourth power bifurcation radial weighted Bergman kernels operator reproducing kernel 4",
+          "Resultary semantic: radial weighted Bergman |z| exponent 2 beta (1-|z| squared)^4 zero free beta <=1 two zeros beta >1",
+          "Ghiloufi and Snoun 2020 arXiv:2009.04307 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md"
+        ],
+        "reasoning": "Published Resultary record spells out the same complete threshold and counts N=0 except q=4,m>1 where N=2, including the boundary q=4,m=1 exclusion. Full previously published proof supplies symbolic resultant and crossing data rather than only an approximate numerical table. Thus the requested exact zero-count lookup is not new database information.",
+        "searches": [
+          "Resultary semantic: sharp fourth power bifurcation radial weighted Bergman kernels operator reproducing kernel 4",
+          "Resultary semantic: radial weighted Bergman |z| exponent 2 beta (1-|z| squared)^4 zero free beta <=1 two zeros beta >1"
+        ]
+      },
+      "rationale": "FAIL: an already published Resultary full theorem, “Sharp first positive radial-power transition of analytic Bergman-kernel zeros” (publication metadata 2026-11-01), establishes every case of exactly the same full-disk analytic Hilbert-space N(m,q) theorem under renamed parameters, including q=4,m=1 circle crossing and simple conjugate pair for m>1, plus an extra derivative. The 2026-11-08 full fourth-Jacobi theorem strengthens the q=4 case to m>-1. This is statement-level direct coverage, not a title match; the original denominator/area normalization only scales K by a positive factor. Thus no distinct claimed conclusion remains.",
+      "residual_risks": [
+        "Both source metadata carry the publication date 2026-11-01; exact intraday priority is not independently established. The current review rejects duplicated scientific content as of 2026-11-09, not an unsupported assertion of which record was first within that date.",
+        "Older primary literature including other Jacobi/Eulerian kernel results might imply the classification too; this cannot restore originality given direct full public coverage.",
+        "The direct arXiv PDF for Ghiloufi–Snoun could not be fetched; relevant whole-disk/punctured-disk distinction was read in accessible full-text HTML. No whole-document NOT_COVERING assertion is based solely on snippets.",
+        "No scientific files were rewritten or narrowed, and no unproved new corollary was proposed as a substitute."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: identical theorem for boundary orders 0..4 and beta>=0, with extra transverse derivative -49/360.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+            "RESULT.md formula N(q,m) and published derivation of (beta-1) threshold; compare same root fibre domain."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+          "material_read": "Entire frozen published RESULT.md, including Finding, Assumptions, full normalized-kernel derivation, resultants, critical factorization, derivative, references and limitations; blob 63120d3f4ecfba52e5f1e63755fd050a216c7a62.",
+          "method": "Read complete GitHub RESULT.md source blob via read-only connector, verify exact parameter mapping against assigned theorem.",
+          "title": "Sharp first positive radial-power transition of analytic Bergman-kernel zeros",
+          "trigger": "Resultary returned identical pair of parameters and same unit-disk Bergman root threshold"
+        },
+        {
+          "assessment": "COVERING for the submitted q=4,m>=0 claim; strictly stronger because it also treats -1<a<0.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+            "Routh-sign analysis gives 0 zeros for 0<=a<=1, 2 for a>1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+          "material_read": "Entire published RESULT.md, including Cayley quintic, exact Routh column, threshold tau, unit-circle factorization and proof of three regimes; blob 2242714f0abead75e9cc76f8706b621a6d8ac771.",
+          "method": "Full GitHub source inspection and direct correspondence t=a+1, submitted q=4.",
+          "title": "Reentrant Bergman-kernel zeros at the fourth Jacobi boundary order",
+          "trigger": "Same order-four weight and an even wider real origin-exponent range a>-1"
+        },
+        {
+          "assessment": "COVERING the submitted q<=3 zero-free region since t>=1 exceeds every low-order loss threshold; q=4 witnesses partial only.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57/RESULT.md",
+          "material_read": "Complete published RESULT.md with four exact lower-order Routh arrays and q=4 witnesses; blob 17f8acba96c37745e211707ae1b33fa0e13f1aa3.",
+          "method": "Full GitHub file inspection; translate t=submitted m+1.",
+          "title": "The first reentrant boundary order for Jacobi-weighted disk kernels",
+          "trigger": "Same q=0..3 integer boundary orders and all positive Jacobi interior t"
+        },
+        {
+          "assessment": "Not the same Hilbert space for positive origin beta, because negative monomial powers are admitted; its general kernel formulas do not displace the decisive directly covering published analytic whole-disk theorem.",
+          "evidence": [
+            "https://www.researchgate.net/publication/344180333_Zeros_of_new_Bergman_kernels",
+            "Theorem 1, pp.2-4, n>=-floor(beta) basis and meromorphic domain D*; relevant recurrence pp.4-6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.04307",
+          "material_read": "Author-uploaded full-text HTML extract, pp.1-6: definition of meromorphic A^2_{alpha,beta}(D) on punctured disk, basis n>=-floor(beta), Theorem 1 and polynomial recurrence; later mathematical conclusions not exhaustively used for noncoverage.",
+          "method": "Read author-uploaded preprint HTML transcription at https://www.researchgate.net/publication/344180333_Zeros_of_new_Bergman_kernels; direct arXiv PDF retrieval unavailable.",
+          "title": "Zeros of new Bergman kernels",
+          "trigger": "High-relevance 2020 primary paper with precisely the beta-Jacobi radial factors and kernel-zero question."
+        },
+        {
+          "assessment": "Correct complete proof for q<=4; scientific claim is fully covered by published existing theorem.",
+          "evidence": [
+            "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md",
+          "material_read": "Entire RESULT.md, all 7 package files and exact source-tree/blob identities, including verify.py and self-review; RESULT.md blob 121ad58650962b32b3848f7090859e2cd627f9c8.",
+          "method": "Pinned read-only GitHub file and complete Git-tree inspection, independently reconstructed symbolic Routh arrays in private SymPy script.",
+          "title": "Submitted sharp fourth-power bifurcation for radial weighted Bergman kernels",
+          "trigger": "Assigned final theorem and source for C/O/V assessment."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original invariant is mathematically motivated: the classical Lu Qi-Keng property on the natural beta-radial disk family, with a sharp first nonzero boundary exponent and a continuous interior exponent. Nevertheless, as a NEW mathematical result the complete classification and sharp bifurcation have already been proved in a public full theorem with even a stronger transversal formula. Re-deriving the same q<=4 Routh table or presenting a different denominator normalization supplies no new structural lemma, unresolved cutoff, motivating counterexample, or useful exact invariant not implied by the covered published theorem. Correctness/reproducibility alone cannot rescue value; therefore FAIL for independent research acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md",
+    "https://www.researchgate.net/publication/344180333_Zeros_of_new_Bergman_kernels",
+    "https://arxiv.org/abs/2009.04307",
+    "https://oaktrust.library.tamu.edu/items/b6a215a2-ccf5-45ff-887c-153dcf11237b"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Only q=0..4 integer boundary powers and m>=0 real origin powers are claimed; no implication to q>=5 or fractional q.",
+    "Primary older specialist texts not exhaustively surveyed; coverage rejection is decisive independently of that limitation.",
+    "Published identical theorem has same calendar publication date, so no unsupported precise intraday priority inference is made."
+  ],
+  "residual_risks": [
+    "Both source metadata carry the publication date 2026-11-01; exact intraday priority is not independently established. The current review rejects duplicated scientific content as of 2026-11-09, not an unsupported assertion of which record was first within that date.",
+    "Older primary literature including other Jacobi/Eulerian kernel results might imply the classification too; this cannot restore originality given direct full public coverage.",
+    "The direct arXiv PDF for Ghiloufi–Snoun could not be fetched; relevant whole-disk/punctured-disk distinction was read in accessible full-text HTML. No whole-document NOT_COVERING assertion is based solely on snippets.",
+    "No scientific files were rewritten or narrowed, and no unproved new corollary was proposed as a substitute."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING: identical theorem for boundary orders 0..4 and beta>=0, with extra transverse derivative -49/360.",
+      "evidence": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+        "RESULT.md formula N(q,m) and published derivation of (beta-1) threshold; compare same root fibre domain."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-first-positive-radial-power-transition-of-analytic-bergman--3f0a42c5de69/RESULT.md",
+      "material_read": "Entire frozen published RESULT.md, including Finding, Assumptions, full normalized-kernel derivation, resultants, critical factorization, derivative, references and limitations; blob 63120d3f4ecfba52e5f1e63755fd050a216c7a62.",
+      "method": "Read complete GitHub RESULT.md source blob via read-only connector, verify exact parameter mapping against assigned theorem.",
+      "title": "Sharp first positive radial-power transition of analytic Bergman-kernel zeros",
+      "trigger": "Resultary returned identical pair of parameters and same unit-disk Bergman root threshold"
+    },
+    {
+      "assessment": "COVERING for the submitted q=4,m>=0 claim; strictly stronger because it also treats -1<a<0.",
+      "evidence": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+        "Routh-sign analysis gives 0 zeros for 0<=a<=1, 2 for a>1."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa/RESULT.md",
+      "material_read": "Entire published RESULT.md, including Cayley quintic, exact Routh column, threshold tau, unit-circle factorization and proof of three regimes; blob 2242714f0abead75e9cc76f8706b621a6d8ac771.",
+      "method": "Full GitHub source inspection and direct correspondence t=a+1, submitted q=4.",
+      "title": "Reentrant Bergman-kernel zeros at the fourth Jacobi boundary order",
+      "trigger": "Same order-four weight and an even wider real origin-exponent range a>-1"
+    },
+    {
+      "assessment": "COVERING the submitted q<=3 zero-free region since t>=1 exceeds every low-order loss threshold; q=4 witnesses partial only.",
+      "evidence": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57/RESULT.md"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57/RESULT.md",
+      "material_read": "Complete published RESULT.md with four exact lower-order Routh arrays and q=4 witnesses; blob 17f8acba96c37745e211707ae1b33fa0e13f1aa3.",
+      "method": "Full GitHub file inspection; translate t=submitted m+1.",
+      "title": "The first reentrant boundary order for Jacobi-weighted disk kernels",
+      "trigger": "Same q=0..3 integer boundary orders and all positive Jacobi interior t"
+    },
+    {
+      "assessment": "Not the same Hilbert space for positive origin beta, because negative monomial powers are admitted; its general kernel formulas do not displace the decisive directly covering published analytic whole-disk theorem.",
+      "evidence": [
+        "https://www.researchgate.net/publication/344180333_Zeros_of_new_Bergman_kernels",
+        "Theorem 1, pp.2-4, n>=-floor(beta) basis and meromorphic domain D*; relevant recurrence pp.4-6."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2009.04307",
+      "material_read": "Author-uploaded full-text HTML extract, pp.1-6: definition of meromorphic A^2_{alpha,beta}(D) on punctured disk, basis n>=-floor(beta), Theorem 1 and polynomial recurrence; later mathematical conclusions not exhaustively used for noncoverage.",
+      "method": "Read author-uploaded preprint HTML transcription at https://www.researchgate.net/publication/344180333_Zeros_of_new_Bergman_kernels; direct arXiv PDF retrieval unavailable.",
+      "title": "Zeros of new Bergman kernels",
+      "trigger": "High-relevance 2020 primary paper with precisely the beta-Jacobi radial factors and kernel-zero question."
+    },
+    {
+      "assessment": "Correct complete proof for q<=4; scientific claim is fully covered by published existing theorem.",
+      "evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md"
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/16ac3af8778d66585b7a959ea9130ba319e25c70/2026/11/01/a-sharp-fourth-power-bifurcation-for-radial-weighted-bergman-ker--01275a51ded1/RESULT.md",
+      "material_read": "Entire RESULT.md, all 7 package files and exact source-tree/blob identities, including verify.py and self-review; RESULT.md blob 121ad58650962b32b3848f7090859e2cd627f9c8.",
+      "method": "Pinned read-only GitHub file and complete Git-tree inspection, independently reconstructed symbolic Routh arrays in private SymPy script.",
+      "title": "Submitted sharp fourth-power bifurcation for radial weighted Bergman kernels",
+      "trigger": "Assigned final theorem and source for C/O/V assessment."
+    }
+  ]
+}
