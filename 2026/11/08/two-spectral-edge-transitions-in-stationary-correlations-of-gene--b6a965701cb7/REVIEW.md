@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The parameter range, branch probabilities and Lebesgue normalization were reconstructed from the underlying map definitions. The exact center-coordinate Koopman operator has a two-sided nearest-neighbor action on dilated sawtooth functions with a distinct boundary rule; solving its formal resolvent gives the covariance generating function without infinite numerical extrapolation. Singularities and residues were computed on the physical algebraic sheet, with distinct pole, branch and collision regimes. Tests independently compared rational recurrence coefficients against symbolic generating-function coefficients and sampled the original map.
+## correctness
 
-## Originality — PASS (evidence-bounded)
-Takahasi–Yamamoto (2022) constructs the family and studies entropy measures. Saiki–Takahasi–Yorke (2018/2021) establishes the original model, heterochaos and ergodicity. Takahasi (2023) proves general exponential mixing for off-neutral parameters. Takahasi–Tsujii (2024) proves the optimal critical polynomial exponent via a reduced random-walk transfer operator. The general mixing theorems do not determine the explicit center-coordinate resolvent or its two additional off-neutral thresholds. The 2024 paper *does* cover the critical exponent, so the exponent itself is not claimed as new. The transfer-operator connection leaves a genuine possibility of unpublished or unindexed equivalent algebraic resolvents.
+PASS
 
-## Value — PASS
-An observable-specific exact spectral phase diagram is a natural next quantitative invariant after the existing mixing theorems. In particular the two pole/edge thresholds are distinct from the sign change of the center Lyapunov exponent, and the neutral center has a computable amplitude and parity correction. This differentiates dynamical instability from the decay mechanism of a concrete stationary physical observable. The result neither purports to extend the universal exponent nor invents a general theorem for all observables.
+For integer m>=2, 0<a<1/m, p=ma and q=1-ma, Lebesgue-invariant center-coordinate Koopman P satisfies P h0=a h0+q h1, P h_k=p h_(k-1)+q h_(k+1) for k>=1, h_k(y)={m^k y}-1/2, with inner products <h0,h_k>=1/(12m^k). In the formal resolvent, r(z) is the zero-constant solution r=qz+pzr², and coefficient functions u_k=r^k/(1-az-pzr). Summing <h0,u_kh_k> gives the claimed Cgf=[12(1-r/m)(1-az-pzr)]^-1. A positive real pole from r=m occurs only at a<1/[m(m²+1)] and a boundary-factor pole only at a>m/(m²+1); at equality each merges with the +R square-root singularity R=(2sqrt(pq))^-1. Expanding at ±R yields n^-3/2 with explicit positive even/odd amplitudes between thresholds, n^-1/2 at either critical threshold, and the two claimed pure exponential pole regimes outside. Independent exact rational recurrence/formal power-series coefficients agree to 29 terms in the assigned checker, and a separate direct rational walk recurrence for m=2,3,4 at interior/exterior a values reproduces initial C0,C1,C2,C3. This is an analytic all-parameter proof; finite checks are diagnostic.
 
-## Scientific limitations
-The statement is stationary and observable-specific, uses a conventional nonindependent numerical checker, and remains subject to equivalent-formulation publication-priority risk. At transition points the asymptotics are for fixed parameters. Independent external validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A stronger critical-parameter exact covariance *special case* already appeared November 1 for a=1/(2m), including its parity constants and Green–Kubo sum; therefore no novelty is attributed to any neutral-only claim. The independent contribution is the full off-neutral family 0<a<1/m, exact covariance resolvent, and **two distinct off-neutral pole-to-branch thresholds** with amplitudes, not the known n^-3/2 neutral rate. General Takahasi–Tsujii 2024 operator methods prove critical decay order but do not, in inspected statements, supply this complete all-parameter observable-specific phase diagram. Best of knowledge with residual algebraic specializations acknowledged.
+
+## value
+
+PASS
+
+An explicit stationary dynamical observable has two spectral transitions a_-,a_+ that are **not** the center-Lyapunov neutrality a=1/(2m). The exact covariances and sharp pole/branch-edge amplitude laws give a nontrivial quantitative refinement of known qualitative/exponential decay and neutral critical results, useful for separating stability changes from observable-specific memory. The full off-neutral phase diagram is natural, non-implied by the inspected critical-only exact formula, and extends arbitrarily many values of m and continuum a.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
