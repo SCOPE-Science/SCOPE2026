@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness: PASS.** Direct summation of the image-vortex equation makes the weighted-center height constant. The centered dipole vanishes exactly; expanding the uniformly regular image denominators gives the unique quadratic correction. The published \(O(\tau)\) shape asymptotic yields \(Q_2=\tau^{1+2i\Omega}(Q_*+O(\tau))\), and integration proves the remainder \(O(\tau^{5/2})\). The explicit circulations and non-equilateral profile satisfy the Gröbli equations, making the oscillation nonvacuous. The standalone finite checker tests identities and the center velocity but is not used as a proof of the asymptotic theorem.
+
+**Originality: PASS (provisional priority).** Full-text inspection of Yang, arXiv:2611.01014v1, Sections 2, 4, 5 and Appendix A confirms that the known exact center equation and leading collapse asymptotic do not state the quadratic center correction or sharp two-sided logarithmic oscillation. Searches for half-plane, image vortex, Gröbli, center of vorticity, quadrupole and multipole formulations found no directly covering published result. Drivas–Khanikati–Khanikati's collapse-on-surfaces preprint was compared at abstract level only, and generic multipole theory could contain related formulas. These are residual priority risks rather than evidence of novelty by absence alone.
+
+**Value: PASS.** The center is a physically intrinsic collective coordinate for collapsing vortex clusters. Distinguishing the universal wall-driven drift from the first profile-dependent signal, with its exact amplitude and phase, is useful for resolving asymptotic near-collision trajectories and comparison with image-induced drift approximations. The result identifies a sharp, nonvanishing next-order observable, not an arbitrary truncation or recomputation of a known table.
+
+**Scope and residual risks.** The published strong-stable-branch theorem is used as an external premise; the argument does not claim a generic collapse or independent verification of its existence. Priority over potentially relevant general image-vortex multipole results is not fully established. The bound is asymptotic for fixed positive wall distance, not uniform as the collision point approaches the boundary.
+
+Self-review: passed. Independent audit: not yet performed.
