@@ -1,12 +1,21 @@
-# Review of the flat-Möbius boundary-distance law
+# Independent mathematical audit
 
-## Correctness
-PASS. All endpoints are on the single boundary of the flat quotient, and the metric is the ambient intrinsic distance. The universal-cover strip is convex, so exhaustive minima over even and odd glide-reflection lifts reduce exactly to two paths; no other homotopy class can be shorter. The shorter boundary separation is uniform, its two monotone branches integrate to the full CDF, and the threshold cases, density singularity, inverse equivalence, and mean are established by exact algebra and integration. The bundled verifier independently enumerates deck translates and checks all stated formulas in multiple regimes. It cannot replace the proof.
+## correctness
 
-## Originality
-PASS, provisional. The closest inspected source is Croke–Herreros (arXiv:1108.4938v1), whose Theorem 1.2 gives *lens rigidity* of the flat Möbius strip, not the probability law of random boundary distances nor the width cutoff for the weaker full boundary-distance metric. The inspected Croke (2005) paper treats nonrigidity of finite quotients, not this parameterized statistical law. Granata–Carnevale (2016) examine point clouds and graph-distance profiles for a multiply twisted embedded surface, rather than arclength-uniform boundary points in the intrinsic flat quotient. Searches for aliases, distance distributions and probability formulations did not locate an equivalent explicit formula. An unindexed direct glide-reflection computation remains a residual priority risk.
+PASS
 
-## Mathematical value
-PASS. This is the complete law of a natural observable in a canonical nonorientable flat surface, with a sharp transition from width reconstruction to total width invisibility. Exact identification of the equivalence classes of all two-parameter bands distinguishes statistical boundary data from stronger lens data, and the singularity gives a concrete diagnostic for the narrow regime. These statements are useful as explicit benchmarks and counterexamples in boundary inverse problems and metric-measure geometry; the claim is not presented as a general rigidity theorem.
+The universal cover is a convex Euclidean strip and the even/odd deck translates give exhaustive lower envelopes u and sqrt((a-u)^2+(2b)^2). Circular boundary arclength difference folded at a gives U~Unif[0,a]. Equality of branches occurs at r*=a/2+2b^2/a; both branches are monotone on the stated ranges. Pushing forward uniform U yields the stated piecewise CDF and integrable sqrt singularity, no atoms; support endpoint and small-r slope recover b and a when b<a/2. With b>=a/2 the interior route never improves u, proving identical full boundary kernels for all such widths. Independent midpoint integration at (a,b)=(2,.4),(2,1),(4,3) matched analytic means within 1e-9. Numerical deck tests in bundled code are only consistency checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior Croke–Herreros lens rigidity uses scattering maps and travel times, strictly stronger data and different inverse statement. Published Möbius-versus-cylinder random *area*-point distance laws are distinct from arclength-uniform boundary pair statistics. No examined source supplied the exact boundary-pair law, sharp width invisibility or inverse classes. A direct glide-reflection formula might be folkloric and remains residual risk.
+
+## value
+
+PASS
+
+A complete intrinsic boundary-distance distribution for the canonical nonorientable flat surface quantifies the precise information lost by a weak metric observable, with sharp recoverability/invisibility phase boundary. The exact inverse equivalence classes and density singularity are useful geometric counterexamples/benchmarks, not just a routine moment calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
