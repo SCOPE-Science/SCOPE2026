@@ -1,15 +1,21 @@
-# Topology-free exponential attraction for arbitrarily delayed Michaelis–Menten networks — review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rational-link identity \(s|h'(s)|=h(s)-h(s)^2/a\), established by exact differentiation for both signs, gives uniform logarithmic row domination on an invariant multiplicative box. The exact interpolated delay equation and first-crossing Halanay estimate yield the claimed exponential bound. The proof explicitly treats every positive history and arbitrary finite delay; it excludes no special case of graph reducibility. The standalone checker confirms the defining algebra and one reducible example, not the universal theorem.
+## correctness
 
-## Originality — PASS with residual priority risk
-Sontag's arXiv:2610.24351v1 (2026-10-17) Theorem 3 is topology-free but undelayed; its Theorem 6 is delayed but assumes strong connectivity (A2) and nondegeneracy (A3). Blanchini–Breda–Giordano–Liessi (Automatica 2023) prove delayed structural/local stability, not the same global topology-free statement. No matching implication emerged from relevant indexed theorem and historical-claim comparisons. The non-strongly-connected three-node example proves that the new assertion is beyond the *stated assumptions* of delayed Theorem 6. The classical general Halanay mechanism is acknowledged; a possible unlocated broader abstract delay theorem is a real residual priority risk.
+PASS
 
-## Value — PASS
-Topology-free global convergence under arbitrary fixed interaction delays is an interpretable guarantee for modular biochemical and gene-control networks. The explicit history-dependent decay exponent quantifies convergence even when no strong-connectivity condition is available. This is not a tiny parameter slice or a re-expression of the undelayed theorem.
+A positive equilibrium forces b_i>0 or an incoming link at each node. For any c>0 either rational activating or inhibiting link satisfies h(cs)/h(s) between min(c,c^-1) and max(c,c^-1); this gives forward invariance of the history-dependent positive box. In logarithmic coordinates, integrate the partial derivatives of (-d_i x_i+b_i+sum h_ij)/x_i along the geometric interpolation to the equilibrium. The exact diagonal coefficient is ∫(b_i+sum h_ij(z_j))/z_i ds, while off-diagonal coefficients are ∫z_j h_ij'(z_j)/z_i ds. The identity s|h'(s)|=h(s)-h(s)^2/a implies A_i−sum|C_ij|≥δ_r>0 and sum|C_ij|≤B_r on the invariant box. A weighted sup norm, first-crossing comparison with delayed terms and η+B_r(exp(ητ)−1)<δ_r give |log(x_i(t)/bar x_i)|≤r exp(−ηt) for t≥0. This also proves uniqueness of the strictly positive equilibrium. Independent rational checks of both derivative signs and example rates passed; finite samples are not the proof.
 
-## Scientific limitations
-Only continuous strictly positive histories are covered; boundary histories of reducible systems, time-varying delays, non-Hill-one links, and distributed delays are not. Equilibrium existence is an assumption. Computational checks are finite and independent validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The positive-equilibrium-conditional topology-free global convergence for positive delayed histories strengthens the inspected Sontag delayed theorem, whose hypothesis includes a strongly connected graph, while retaining the same Michaelis–Menten family. Its explicit history-dependent exponential rate and reducible-network application are a mathematically specified extension; neither the undelayed topology-free theorem nor structural/local delay theory directly implies the delayed conclusion in the inspected statements. General contraction/functional differential-equation results could nevertheless furnish another proof, so originality is qualified.
+
+## value
+
+PASS
+
+Removing strong-connectivity from arbitrary-delay global attraction is a structural stabilization theorem: reducible biochemical networks are natural and excluded by the existing delayed strong-connectivity hypothesis. It gives a nontrivial explicit rate under an easily interpretable positive-equilibrium assumption, beyond local or finite tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
