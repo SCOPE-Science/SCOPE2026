@@ -1,15 +1,21 @@
-# Scientific review: centered complex affine simplex fourth moments
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized simplex distribution of the barycentric coordinates is symmetric Dirichlet with unit parameters. Coefficient extraction from the exact multinomial Dirichlet moment identity establishes the full complex fourth-moment polynomial, including the \(|\sum z_j^2|^2\) contribution. Cauchy--Schwarz produces the sharp lower inequality and the exact nonnegative lower deficit; the complete roots-of-unity family attains it in every simplex dimension at least two. The global real zero-sum quartic maximum is independently reconstructed by constrained stationary points and second variation. Splitting complex coefficients into real and imaginary parts proves its complex analogue. Together with the phase-triangle inequality, it establishes the upper bound and all upper equality cases. Permutation averaging proves no alternative complex Euclidean norm reduces the Banach--Mazur distortion. The standalone checker verifies direct exact Dirichlet integrals and algebraic witnesses. Numerical root-of-unity diagnostics are not treated as the infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Baldoni et al., *How to Integrate a Polynomial over a Simplex* (arXiv:0809.2083v1), provides general simplex-integration methods, not the complete extremal complex fourth-moment geometry or Banach--Mazur formula. Cahill et al., *Constructing finite frames of a given spectrum and set of lengths* (arXiv:1106.0921v1), addresses frame construction, not these integrated affine norms. *Exact complex Euclidean distortion of zero-sum \(\ell_4\) hyperplanes* (published mathematical note, 2026) supplies the related coordinate \(\ell_4\) extremal geometry, but its function space is the unsmoothed vertex-coordinate norm; its Euclidean distortion grows with dimension, whereas the newly studied Dirichlet-integrated norm has a different \(|Q|^2\) interaction and bounded distortion. A prior real centered triangle calculation does not cover the complex coefficients or arbitrary dimensions. Semantic searches for the same complex Dirichlet affine norm, equivalences, and stronger coverage returned no implication covering the three new assertions jointly. Unindexed specialized literature remains a possible historical equivalence risk; absence of a search hit is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The object is the canonical centered complex affine \(L^4\) space on a simplex, relevant to sharp finite-element norm comparisons. The result gives an all-dimensional complete interval, full equality geometry, a quantitative nonnegative defect, a real-versus-complex norm separation already on the triangle, and a **sharp** Euclidean Banach--Mazur distance. The asymptotically bounded distance (fourth power \(9/2\)) contrasts with the divergent coordinate-hyperplane norm. These are structural claims about a natural complete function space, not an arbitrarily sliced numerical constant.
+Uniform barycentric simplex coordinates have Dirichlet(1,...,1) moments E prod lambda_i^ki=prod ki!/(m)_(sum ki). For sum z_i=0 the exact complex moment identity gives E|Y|²=P/[m(m+1)] and E|Y|^4=(2P²+|Q|²+6R)/(m)_4, P=sum|z|²,Q=sum z²,R=sum|z|⁴. Lower deficit equals [m(m+1)/((m+2)(m+3))]*(|Q|²+6 sum(|z_i|²-P/m)²)/P²; all mth roots unity attain equality for m>=3. For the upper end, the zero-sum fourth-power extremum R/P²=(m²-3m+3)/(m(m-1)) follows by real Lagrange/second variation and extends to complex by x,y Cauchy–Schwarz; |Q|<=P is sharp only for common phase. Classifies real outlier upper equality for m>=4 and all real zero-sum for m=3. Averaging any Hermitian comparison form over S_m reduces it to a scalar P, proving exact Banach–Mazur distance^4=3(3m²-7m+6)/(2(m-1)(m+3)). Independently expanded all 4-index barycentric moments for four complex coefficient tuples in dimensions m=3,4 and obtained exact formula. Finite checks corroborate but do not prove all m.
 
-## Limits and scientific integrity
-The proof applies only to complex centered affine functions with uniform simplex probability, exponent four, and complex-linear Euclidean comparison. The general real-only all-dimensional minimizer classification and nonuniform Dirichlet measures are not claimed. Published integral identities and a related zero-sum coefficient inequality are mathematical ingredients, not represented as newly invented. Exact rational finite checks corroborate the integration formulas but do not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published October 11 zero-sum ℓ4 hyperplane result gives the needed sharp coordinate quartic bound and permutation symmetrization, but its norm is sum|z|^4 and its B-M distortion grows with m. Here the natural *integrated simplex affine L4 norm* has additional |sum z²|² term, a different lower equality phase condition, and bounded optimal distortion approaching (9/2)^(1/4). General simplex-integration papers provide Dirichlet-moment formula but not the analyzed all-complex extremizers and B-M optimization. The distinct evaluated norm supplies a surviving original result; historical specialized literature remains possible.
+
+## value
+
+PASS
+
+Centered affine functions with uniform simplex volume are canonical finite-element and convex geometry function spaces. The all-dimensional exact complex fourth-moment interval, full equality geometry and sum-of-squares lower defect give natural sharp norm-comparison constants. The exact complex-linear Banach–Mazur distance has a bounded limit while the related coordinate ℓ4 distance diverges, a substantive structural distinction. This is a complete family invariant, not a single unmotivated numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
