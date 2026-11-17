@@ -1,0 +1,15 @@
+# Scientific review: exact John ellipsoid of bipartite leaf coronae
+
+## Correctness — PASS
+The proof identifies the signed independent-set convex hull with the edge-inequality polytope of the height-two poset, invokes independent coordinate sign reversals to diagonalize the unique centered John ellipsoid, and reduces containment to squared-semiaxis inequalities. It then supplies an **exact positive dual certificate**: each pendant-edge constraint has weight \((p_i+1)/p_i\), reproducing the logarithmic gradient at every core and leaf coordinate. The global concavity inequality proves uniqueness without a numerical optimization assumption. Product formulas and signed-edge support functions prove the volume and all tangencies. The core facet distance uses the support gap divided by normal length \(\sqrt2\); its uniform bound follows from \(p_i,p_j\in\mathbb Z_{\ge1}\). Exact and independent numerical checks reproduce the formulas in bounded instances.
+
+## Originality — PASS, historical priority provisional
+Ohsugi–Tsuchiya and Okada–Tsuchiya establish the enriched-chain construction and facets; Kohl–Olsen–Sanyal establish unconditional chain-polytope structure. The public record *A sharp entropy bound for John ellipsoids of enriched chain polytopes* establishes a **general convex program** that also applies to these bodies. The precise heterogeneous-star closed form, arbitrary bipartite core-edge insensitivity, full signed facet tangency classification, and sharp noncontact gap are not claims made in the inspected general treatment. The new claim is **not** the general diagonal variational reduction or the classical star optimizer. Prior graph-entropy/John-ellipsoid literature can conceivably contain an equivalent statement in different language; no definitive global priority assertion is made.
+
+## Value — PASS
+Leaf attachment and core-edge addition are canonical graph operations, and John ellipsoids capture a global Euclidean geometry not determined by the facet count. A graph can acquire arbitrarily many genuine new facets without altering this ellipsoid at all, while those facets exhibit a discrete contact transition and a uniform positive clearance once an endpoint has two leaves. The formula holds without any restriction on core size, topology beyond bipartiteness, or homogeneity of leaf multiplicities, and a positive dual certificate makes the mechanism transparent. This is a structural family classification, not an unmotivated finite instance or a nominal substitution into a known table.
+
+## Related work and remaining limits
+The closest earlier geometric treatment supplies the general log-determinant program and a height/width entropy lower bound; it does not isolate this stability phenomenon. Independent review has not been performed; previous mathematical priority under equivalent graph-entropy formulations remains an unresolved risk. The theorem does not cover non-bipartite cores, missing private leaves or arbitrary affine metrics.
+
+Self-review: passed. Independent audit: not yet performed.
