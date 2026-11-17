@@ -1,22 +1,21 @@
-# Review of the rectangular-rook Radau IIA positivity result
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four orthogonal tensor projectors of the positive combinatorial Laplacian give exactly four scalar transition-entry classes. All matrix denominators are positive on the claimed domain. The distance-two polynomial has strictly positive coefficients. The seven admissible small graph profiles are exhaustively listed and their diagonal sign is established by exact rational Bernstein and shift certificates, not mere numerical sampling. At the witness timestep, the negative diagonal formula is exact; three positive-coefficient bivariate quadrant expansions cover every remaining integer profile. The independent square-edge boundary follows from a positive sum-of-squares certificate for the critical parameter, a rational negative witness at the next integer, and Descartes' rule. The attached verifier checks all required algebraic certificates and direct rational matrix inversions. The general proof is symbolic and the finite tests are auxiliary.
+PASS
 
-## Originality — PASS on inspected evidence; residual priority uncertainty
+Four tensor-projector eigenvalues 0,p,q,p+q give D,E_p,E_q,F exactly. Independent SymPy/Sturm checks of all seven pq≤12 pairs found no positive diagonal root and only the expected h=0 off-diagonal roots; independent 15-term bivariate shifted-coefficient expansions for (2,7),(3,5),(4,4) have strictly positive coefficients, covering every pq≥13 integer pair by symmetry. F numerator has strictly positive positive-h coefficients; at h=12/(p+q) D is negative above the threshold. The E_m cubic sign at m=37 has the displayed positive quadratic certificate; m=38 has negative witness at z=15 and Descartes gives exactly two positive zeros. Independently evaluated examples: (2,7) negative diagonal -4937/690899; m=37 positive edge 15/2523067 and m=38 negative edge -10/665323 at z=15. Finite evaluations support but do not replace symbolic infinite-parameter proof.
 
-The general positivity/SSP literature (Horváth 1998; Ketcheson–Macdonald–Gottlieb 2008/2009; Bonaventura–Della Rocca 2015) provides method-dependent restrictions, not the two rook-graph thresholds. A previously available equal-alphabet Hamming classification implies the all-entry verdict on square rook graphs, but cannot imply the unequal-alphabet rectangular classification and does not establish the independently sharp adjacent-entry 37/38 transition. The complete multipartite family and conference-graph classifications concern nonidentical graph structures or different transition questions. Searches for Radau IIA together with rectangular rook/lattice/Cartesian products and equivalent Padé language found no covering mathematical claim. Since some older numerical-positivity literature could not be examined in full, earlier equivalent priority remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The rook graph is the line graph of a complete bipartite network and a canonical two-feature Cartesian product. Distinguishing all-entry Markov positivity from positivity of specific transition classes is important when a numerical heat step is interpreted probabilistically. The two independent sharp cutoffs (total vertex count 12 and square side 37) quantify two distinct mechanisms rather than a minor numerical correction. The global proof treats a genuine infinite, unequal-parameter family and supplies an algebraic positivity decision at every timestep. Arbitrary conductances and complete rectangular time-interval classifications are outside the proved scope.
+The earlier complete square-rook theorem genuinely covers the square all-entry part, but not the unequal rectangular product theorem or separate adjacent threshold 37/38. General absolute-monotonicity results cannot determine these exact graph-specific entries. Best-of-knowledge original surviving assertions remain, with prior square contribution explicitly limited.
 
-## Closest literature and scientific limits
+## value
 
-- Bonaventura and Della Rocca, arXiv:1510.04303v1 (2015): general implicit-method absolute monotonicity, positivity and SSP discussion, but no rectangular rook spectral result in the inspected material.
-- Ketcheson, Macdonald and Gottlieb (2008 postprint/2009 publication): implicit SSP Runge–Kutta order barriers and classical methods, not sharp graph-by-graph endpoint positivity.
-- Horváth (1998): general Runge–Kutta positivity analysis; abstract inspected; full text not verified here.
-- Previously available homogeneous Hamming and complete multipartite special-family theorems: comparison by logical implication, not merely by title.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rook graphs are natural two-factor lattice/line graphs, and the exact all-time stochasticity frontier pq=12 separates a Markov transition from an unphysical negative heat step. The independent 37/38 adjacent entry cutoff exposes a second sign mechanism even where diagonal positivity already fails; this is a motivated exact infinite-parameter classification, not a small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

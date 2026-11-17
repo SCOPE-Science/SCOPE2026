@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:59:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sharp-radau-iia-positivity-thresholds-on-rectangular-rook-gr--9bc97bc029bc/RESULT.md",
+        "GitHub blob verify.py ea9c5e724db7dbca91b00c6d90817706b4924671",
+        "Local separate exact SymPy/Sturm polynomial and shift checks extra_c_checks.py and audit04_checks.py"
+      ],
+      "rationale": "Four tensor-projector eigenvalues 0,p,q,p+q give D,E_p,E_q,F exactly. Independent SymPy/Sturm checks of all seven pq≤12 pairs found no positive diagonal root and only the expected h=0 off-diagonal roots; independent 15-term bivariate shifted-coefficient expansions for (2,7),(3,5),(4,4) have strictly positive coefficients, covering every pq≥13 integer pair by symmetry. F numerator has strictly positive positive-h coefficients; at h=12/(p+q) D is negative above the threshold. The E_m cubic sign at m=37 has the displayed positive quadratic certificate; m=38 has negative witness at z=15 and Descartes gives exactly two positive zeros. Independently evaluated examples: (2,7) negative diagonal -4937/690899; m=37 positive edge 15/2523067 and m=38 negative edge -10/665323 at z=15. Finite evaluations support but do not replace symbolic infinite-parameter proof.",
+      "residual_risks": [
+        "The independent checks use algebraic polynomials and Sturm root counting rather than replaying every original Bernstein-coefficient certificate; those certificates were read at algorithm level in the source, not executed unchanged.",
+        "The result does not characterize all adjacent-sign intervals for nonsquare p≠q, nor stagewise/nonlinear positivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hamming theorem concerns K_q Cartesian-power d and therefore square p=q when d=2; the Oct26 square rook theorem covers all-entry signs for square factors.",
+          "Resultary K_(2,q) means complete bipartite rather than Cartesian product K_2 square K_q; SSP papers address method-wide sufficient conditions."
+        ],
+        "reasoning": "Neither the equal-alphabet case nor the nonisomorphic complete bipartite/multipartite families imply the universal rectangular pq≤12 statement or the independent adjacent-entry sign interval. Universal absolute monotonicity is different from graph-specific all-h positivity.",
+        "searches": [
+          "Resultary semantic search: unconditional Radau IIA Hamming graphs exact dimension alphabet frontier",
+          "Resultary semantic search: reentrant positivity window K_2,q and complete multipartite",
+          "arXiv 1510.04303 Sections 1–2 positivity and SSP"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-reentrant-positivity-window-for-two-stage-radau-iia-diffusion--69d675dac0d5",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unconditional-radau-iia-positivity-on-hamming-graphs-the-exact-d--004ea9bbb553",
+        "https://arxiv.org/abs/1510.04303"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier square rook: all-entry positivity iff square side ≤3, and its diagonal gap; new square all-entry clause follows, but edge sign cutoff at 37/38 does not follow from interval coverage alone.",
+          "New spectral tensor decomposition provides separately E_p,E_q and F for p≠q, and C cases cover all integer rectangles."
+        ],
+        "reasoning": "A theorem determining all-entry positivity intervals for square graphs does not determine whether adjacent entries become negative inside an already-negative diagonal interval; nor can it decide unequal rectangles. These surviving assertions are separate exact mathematical information.",
+        "searches": [
+          "Resultary Oct26 square rook full RESULT.md and Nov8 equal-alphabet Hamming abstract",
+          "Resultary general SSP and complete multipartite semantic queries",
+          "Bonaventura–Della Rocca original paper introductory theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_p square K_q is the rook graph, the line graph of K_(p,q), and a 2-coordinate unequal-alphabet Hamming product; the scalar filter is R(z)=(6-2z)/(z^2+4z+6).",
+          "October 26 square-rook theorem uses exactly the same filter and tensor projectors but sets p=q."
+        ],
+        "reasoning": "Mathematical aliases and Laplacian normalization match the prior square special case, so the square all-entry threshold is not claimed new. Neither an arbitrary unequal p,q classification nor the separate 37/38 adjacent-entry threshold appears in that full earlier statement.",
+        "searches": [
+          "Resultary semantic query: Radau IIA two-stage third-order heat integrator positivity rectangular rook graph K_p Cartesian K_q diagonal adjacent threshold m 37",
+          "Resultary Oct26 square rook full RESULT.md",
+          "Bonaventura–Della Rocca arXiv:1510.04303 positivity for Runge–Kutta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier square rook theorem lists diagonal sign intervals and its q=4 witness, not a tabulation of all seven unequal-pair cases nor adjacency 37/38.",
+          "The seven pairs with pq≤12 are derivable from the new analytic sign proof; no prior matching rectangular table was identified."
+        ],
+        "reasoning": "A list of evaluated examples would not by itself prove the universal integer iff. A covering database was not located, but this absence alone does not certify novelty; the mathematical distinction is the quantified unequal-family theorem and sharp edge sign change.",
+        "searches": [
+          "Resultary semantic search: rook/line graph of complete bipartite graph Radau IIA positive threshold 12 m37",
+          "Oct26 square rook theorem complete text"
+        ]
+      },
+      "rationale": "The earlier complete square-rook theorem genuinely covers the square all-entry part, but not the unequal rectangular product theorem or separate adjacent threshold 37/38. General absolute-monotonicity results cannot determine these exact graph-specific entries. Best-of-knowledge original surviving assertions remain, with prior square contribution explicitly limited.",
+      "residual_risks": [
+        "Unindexed association-scheme/numerical-analysis papers might have an equivalent formula; not every older primary article was available in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS square all-entry threshold, NOT the rectangular p≠q theorem or independently adjacent-edge 37/38 cutoff",
+          "evidence": "Full Oct26 result gives diagonal quartic D_q(x), all-step positivity q=2,3, and positivity gap q≥4; adjacent entries can be negative inside the diagonal gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-reentrant-positivity-window-for-two-stage-radau-iia-diffusion--69d675dac0d5",
+          "material_read": "Entire RESULT.md including theorem, three orbit entry formulas, proof, and references",
+          "method": "Read frozen published text via repository connector",
+          "title": "A reentrant positivity window for two-stage Radau IIA diffusion on square rook graphs",
+          "trigger": "Identical method and square subfamily"
+        },
+        {
+          "assessment": "GENERAL_METHOD, no identified K_p Cartesian K_q exact sign census in materially read sections",
+          "evidence": "The paper studies TR-BDF2, absolute monotonicity, and related methods; these do not yield exact rook spectral sign thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+          "material_read": "Abstract, introduction, method-specific SSP/positivity discussion and relevant early PDF pages; not a whole-document exhaustive search",
+          "method": "Read primary PDF and inspect displayed pages",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Radau/SSP positive-step theory"
+        },
+        {
+          "assessment": "PARTIAL_SQUARE_COVERAGE; full source not inspected",
+          "evidence": "Indexed H(d,q) result handles equal alphabet factors and includes square rook p=q; cannot establish the unequal p,q theorem from its stated parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unconditional-radau-iia-positivity-on-hamming-graphs-the-exact-d--004ea9bbb553",
+          "material_read": "Resultary indexed theorem summary, not its full scientific package",
+          "method": "Semantic search synopsis",
+          "title": "Unconditional Radau IIA positivity on Hamming graphs: exact dimension–alphabet frontier",
+          "trigger": "Potentially stronger Cartesian-product theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-reentrant-positivity-window-for-two-stage-radau-iia-diffusion--69d675dac0d5",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sharp-radau-iia-positivity-thresholds-on-rectangular-rook-gr--9bc97bc029bc/RESULT.md"
+      ],
+      "rationale": "Rook graphs are natural two-factor lattice/line graphs, and the exact all-time stochasticity frontier pq=12 separates a Markov transition from an unphysical negative heat step. The independent 37/38 adjacent entry cutoff exposes a second sign mechanism even where diagonal positivity already fails; this is a motivated exact infinite-parameter classification, not a small numerical improvement.",
+      "residual_risks": [
+        "Only completed endpoint Radau IIA and unit weights; no universal SSP promise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For K_p square K_q, p,q≥2, completed Radau IIA update R(hL) is entrywise nonnegative for every h≥0 iff pq≤12; distance-two entries are positive for h>0; for square p=q=m adjacent transitions have a unique negative h-band exactly when m≥38.",
+  "limitations": [
+    "Originality is best-of-knowledge except where decisive full-text prior coverage is proven. No independent expert publication-priority guarantee.",
+    "Whole-tree Git object was not independently rehashed; only named frozen source blobs were read.",
+    "Existing published source package unchanged; no filesystem or GitHub modifications to research content, no formal/Lean or expert attestation invented."
+  ],
+  "schema_version": 1
+}
