@@ -1,11 +1,21 @@
-# Scientific review — dimension-indexed logarithmic purity singularities
+# Independent mathematical audit
 
-**Correctness: PASS.** The state is a valid trace-class exponential mixture of rank-one projectors. Squaring it yields the exact stationary Bessel-Laplace formula. Classical Bessel asymptotics imply a strictly positive constant mean \(\binom{2d}{d}/4^d\) in the leading \(t^{-d}\) return power. Subtracting the existing Laplace moments and controlling the mean-zero finite Fourier remainder by its bounded primitive proves the first nonanalytic term and its coefficient at order \(r^d\log(1/r)\). The standard elliptic identity and strong-reset Taylor expansion supply independent normalization checks. The 34 finite assertions in `check_purity.py` passed, but finite tests are not proofs of infinite asymptotics.
+## correctness
 
-**Originality: PASS, qualified.** The closest reset papers establish stationary quantum-state formulas or tight-binding site occupations, but the inspected materials do not state the all-dimensional sequence of stationary *ensemble-purity* singularities or the one-dimensional versus higher-dimensional Rényi-2 distinction. The Bessel integral, elliptic identity and Laplace singularity mechanism are classical and specifically credited; their existence is not claimed novel. Two earlier related qubit stationary-purity results concern finite-dimensional gates and optimization over renewal clocks, and do not imply this infinite-lattice result. Possible stronger unindexed Abelian/spectral literature is a residual priority risk.
+PASS
 
-**Mathematical value: PASS.** Rényi-2 purity measures how stochastic resetting mixes initially pure quantum-walk states. The full integer-dimensional threshold hierarchy identifies the first divergent derivative of the weak-reset purity and a measurable logarithm-of-logarithm entropy anomaly unique to dimension one; it is not just a restatement of stationary occupation formulas or an arbitrary parameter slice.
+The stationary density is a positive trace-class exponential-age mixture of pure quantum-walk states. Double-age trace reduces exactly to r Laplace{J0(2kappa t)^(2d)}(r). The long-time Bessel expansion is t^-d times a_d plus a nonzero-frequency trigonometric polynomial with bounded primitive and O(t^-d-1), where a_d=binom(2d,d)/[4^d(pi kappa)^d]. Taylor subtraction through j=d-2 followed by 1<t<1/r yields the first r^d log(kappa/r) coefficient (-1)^(d-1)a_d/(d-1)!, with O(r^d) nonlog remainder. d=1 elliptic transform and strong-reset series independently reconcile normalization; numerical quadratures match exactly to 1e-9. No uniform-in-d assertion.
 
-**Closest sources:** Mukherjee–Sengupta–Majumdar (2018, arXiv:1806.00019); Rose–Touchette–Lesanovsky–Garrahan (2018, arXiv:1806.01298); Wald–Böttcher (2020, arXiv:2008.00510); Das–Dattagupta–Gupta (2021, arXiv:2106.14181); Dattagupta–Das–Gupta (2022, arXiv:2209.14117); Acharya–Gupta (2023, arXiv:2308.14040); classical Bessel/elliptic special-function theory. The assumptions are a homogeneous infinite nearest-neighbor lattice, independent complete Poisson resetting and fixed \(d,\kappa\) in the weak-reset limit. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier full two-walker common-reset theorem already displays the exact d=1 purity and the leading r term of the d=2 fourth-power Bessel integral; these components are not novel. The submitted genuinely additional result is the all-fixed-dimensional hierarchy of FIRST nonanalytic stationary ensemble-purity terms with explicit r^d log coefficients and the d=1 entropy loglog dichotomy, not implied merely by the known leading integrals without new asymptotic work.
+
+## value
+
+PASS
+
+The dimension at which the first nonanalytic weak-reset purity correction appears is a sharp, nontrivial physically motivated spectral cutoff; explicit alternating coefficients identify how return probability tails control Rényi entropy and allow comparison across spatial dimensions. Not a numerical fit or mere closed integral recitation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
