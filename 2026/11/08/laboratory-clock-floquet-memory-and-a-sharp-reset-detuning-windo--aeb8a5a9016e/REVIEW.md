@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The last-reset Poisson mixture is exact, including the no-reset transient; the hopping propagator follows from commuting shifted operators after gauging out the laboratory force. The absolutely convergent Fourier primitive isolates the secular \(J_0\) term and micromotion. Riemann–Lebesgue equidistribution establishes the weak-rate phase limit, and discrete Scheffé plus the Bessel moment identity establish total-variation and second-moment convergence. The \(L^2\) triangle bound proves necessity and sufficiency of the bounded-detuning window. All quantifiers are confined to the specified infinite-lattice, laboratory-clock, independent-Poisson protocol; the proof does not infer an infinite theorem from numerical tests. The extracted checker passed 86 finite diagnostics.
+PASS
 
-## Originality — PASS, with risks
+The commuting lattice shifts permit an exact gauge propagator with site probabilities J_m²(Δ|∫_s^t exp(iz sin ωu)du|). The last-reset age is exponential at rate λ; nonreset remainder has mass exp(−λt), giving an exact periodic-in-laboratory-phase stationary site law with exponential transient. The absolutely convergent Jacobi–Anger primitive A_z separates secular J0(z)a and bounded micromotion. With ρ=λ/ω→0 and z=z*+ξρ+o(ρ) near a simple J0 zero, the fast phase of age X/ρ is asymptotically Haar and independent of Exp(1) X; bounded Bessel probabilities and discrete Scheffé give full-site total-variation convergence. Bessel identity sum m²J_m²(b)=b²/2 plus uniform-integrability yields the stated phase-dependent second moment. The L2 reverse triangle inequality shows bounded second moments iff |z−z*|=O(ρ), with outside-window divergence Δ²J0(z)²/λ². Independently evaluated the first-zero Fourier constants and phase moments by SciPy; read CHECK.py source as finite diagnostics, not proof.
 
-The closest source [Dattagupta–Das–Gupta 2022, arXiv:2209.14117] derives driven tight-binding reset occupation and discusses \(J_0\) localization. The checked Floquet formulas use reset-age time integrals; they do not establish the fixed-laboratory-phase state and sharp detuning window. Acharya–Gupta 2023, arXiv:2308.14040, likewise studies conditional resets and age-only Floquet formulas. Rose–Touchette–Lesanovsky–Garrahan 2018 treats time-homogeneous reset generators, and Mukherjee–Sengupta–Majumdar 2018 considers distinct quantum resetting setups. The dynamical-localization \(J_0\)-zero mechanism is classical, not new. The explicit phase-resolved entire-site crossover and necessity/sufficiency of the weak-reset detuning window are the assessed claim. published-finding corpus semantic queries, equivalent-formulation checks and a claim-only scan of the accessible private ledger found no dominating statement; these do not prove global priority. Unindexed general Floquet-reset specializations and the inaccessible 1986 full text remain limitations. The 2022/2023 authors' reset phase convention cannot be conflated with the explicitly non-restarted clock here.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a natural quantitative competition between near-dynamical localization and a weak reset rate, including a sharp bounded-spread window and its full position law. The laboratory phase has persistent and measurable effects: at resonance the limiting moments at observation phases \(0\) and \(\pi/2\) differ by more than a factor of three in a normalized example. This distinction bears on experimental protocols where resets act on matter but not on the external drive generator. No general theorem for arbitrary periodic systems is asserted.
+Best-of-knowledge PASS for the explicit laboratory-clock phase-resolved reset law and sharp ρ-proportional detuning window; classical J0 dynamical localization, exact renewal representation and related driven-reset models are prior. Dattagupta–Das–Gupta and Acharya–Gupta relevant primary full texts were not wholly available, so the possibility that their time-origin conventions or further analysis already imply the result remains a material historical priority risk. This access issue alone does not prove scientific failure.
 
-## Limits and references
+## value
 
-The theorem covers only fixed-time phase observations, a translation-invariant infinite chain, sinusoidal driving, unitary intervals and complete origin resets with exponential ages. It is a same-model analysis, not an independent scientific certification. Main sources and their scopes are detailed in RESULT.md and AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The physically motivated distinction between a phase clock that continues versus restarts is observable; a sharp λ/ω detuning window and explicit full-site distribution/second-moment phase memory are concrete singular limiting facts beyond routine localization at a Bessel zero. The exact window informs experimental and mathematical near-resonance analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
