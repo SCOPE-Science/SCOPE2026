@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:12:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed stable-set convex hull as join of cycle stable-set polytope and clique singleton vertices, yielding N nonnegative facets, m lifted edge-clique facets and one lifted cycle rank facet. Each lifts a true facet by affine independence. Radius upper bounds follow c_j>=r and normal lengths sqrt(t+2),sqrt(m+a^2t); uniform c=r1 attains min. Active all-positive row(s) force each center coordinate to r, proving uniqueness. Difference F_a(t)=a sqrt(t+2)-sqrt(a^2t+2a+1) strictly decreases; F=1 solves t=a^2-2a-1. Independent numerical contact computations: (a,t)=(2,1) only odd-hole; (3,1) edge, (3,2) both with radius 1/6, (3,3) odd; (4,7) both with radius 1/12. Direct small cases do not establish arbitrary facets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full h-perfect theorem gives r=1/(omega+sqrt omega) when omega>=3, but the joined odd cycle is not h-perfect: its lifted inequality sum x_i+a sum y_j<=a is not an ordinary cycle inequality. For (a,t)=(2,1), true radius 1/5, while h-perfect clique formula 1/(3+sqrt 3)>1/5."
+        ],
+        "reasoning": "Stronger h-perfect theorem is specifically inapplicable, so cannot dominate the present contact transition. 1-wheel literature describes inequalities/extended formulations but not Euclidean ball tangency.",
+        "searches": [
+          "Resultary 2026/11/8 Pentagons are the only odd-hole Euclidean inball obstruction for h-perfect stable-set polytopes",
+          "De Vries Friedrich Perscheid Networks 2020 1-wheel inequalities"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md fa6b1703c4b954421eafe23a0a9eb9699591a912 and verify.py 7139737d9e83fdca941c11d56065b499ccf9e2e9",
+        "Resultary h-perfect 2026/11/8 full RESULT.md 53e79d41ed498d67c3fe9d52098f54c01a379644",
+        "de Vries et al Networks 75 (2020) 86–94 DOI:10.1002/net.21906 full HTML",
+        "Miyazaki arXiv:2205.01409 (abstract/cycle H-description context)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cycle facet system is prior. De Vries et al Theorem 6.1 provides compact extended formulation for 1-wheel inequalities, not an inscribed ball result. H-perfect result cannot be applied to this non-h-perfect join."
+        ],
+        "reasoning": "Known facet inequalities underlie correctness but do not imply the metric contact threshold without calculating lifted norms, active constraints, and uniqueness. Novelty is in exact radius/contact classification.",
+        "searches": [
+          "Miyazaki arXiv:2205.01409 cycle stable-set description",
+          "De Vries Friedrich Perscheid DOI:10.1002/net.21906 full text",
+          "Resultary h-perfect complete RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Related h-perfect and odd-antihole inball theorems concern different polytope classes or graphs; no stated a,t threshold."
+        ],
+        "reasoning": "Euclidean inradius is not an affine-invariant sphere problem; equivalent reformulation as a join does not make published general 1-wheel inequalities a metric-radius answer.",
+        "searches": [
+          "Resultary search odd cycle join complete clique stable set inball",
+          "Resultary odd-antihole inball transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related exact inball data for perfect/h-perfect/odd antihole polytopes do not give the wheel-join normalized lifted rank barrier."
+        ],
+        "reasoning": "No inspected table covers t=a^2-2a-1; this is not asserted as proof of global novelty.",
+        "searches": [
+          "Resultary search clique-joined odd cycle radius",
+          "Resultary h-perfect incenter and odd-antihole table"
+        ]
+      },
+      "rationale": "The genuinely new portion of the complete claim survived statement-level search and primary-source comparisons to best of knowledge; the named known special cases and inaccessible priority risks are explicit.",
+      "residual_risks": [
+        "A previously tabulated inradius of odd wheels or joins might imply the t=1 part, but no full-family a,t classification was found.",
+        "One-wheel inequality theory gives the structural premise, not originality of the facet normals themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_APPLICABLE_NON_H_PERFECT_JOIN",
+          "evidence": "H-perfect requires only nonnegative/clique/odd-cycle inequalities; current graph needs lifted odd-cycle with a>1 hub coefficients; a=2,t=1 contradicts h-perfect predicted radius.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-pentagons-are-the-only-odd-hole-euclidean-inball-obstruction-for--3ae067d97d19",
+          "material_read": "Complete RESULT.md with theorem, proof, and class assumptions",
+          "method": "GitHub full file read",
+          "title": "Pentagons are the only odd-hole Euclidean inball obstruction for h-perfect stable-set polytopes",
+          "trigger": "closest stronger universal-looking inradius formula"
+        },
+        {
+          "assessment": "NONCOVERING_DIFFERENT_OUTPUT",
+          "evidence": "Gives extended formulations and separation of 1-wheel inequalities; no inradius or all-facet tangency threshold.",
+          "identifier_or_url": "https://doi.org/10.1002/net.21906",
+          "material_read": "Accessible full open-access HTML sections 1,3-7, incl theorem 6.1",
+          "method": "Wiley full-text HTML",
+          "title": "An extended formulation for the 1-wheel inequalities of the stable set polytope",
+          "trigger": "exact 1-wheel inequality family may contain lifted odd-hole"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS",
+          "evidence": "Ehrhart algebra rather than Euclidean inradius; assumes cycle H-description from classical graph polytope theory.",
+          "identifier_or_url": "arXiv:2205.01409",
+          "material_read": "Title, metadata, abstract and source representation from package, no full paper",
+          "method": "lawful OA/arxiv search",
+          "title": "Non-Gorenstein locus and almost Gorenstein property of the Ehrhart ring of the stable set polytope of a cycle graph",
+          "trigger": "known initial cycle H-description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete inball contact classification and exact integer tangency locus for a two-parameter family of standard 0/1 polytopes is a natural precise convex-geometric invariant; the jump from N+m contacts to all facets to N+1 is motivated by competition of lifted clique and rank barriers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md fa6b1703c4b954421eafe23a0a9eb9699591a912 and verify.py 7139737d9e83fdca941c11d56065b499ccf9e2e9",
+    "Resultary h-perfect 2026/11/8 full RESULT.md 53e79d41ed498d67c3fe9d52098f54c01a379644",
+    "de Vries et al Networks 75 (2020) 86–94 DOI:10.1002/net.21906 full HTML",
+    "Miyazaki arXiv:2205.01409 (abstract/cycle H-description context)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For P=STAB(C_{2a+1} vee K_t), a>=2, t>=1, unique uniform incenter, exact min of normalized edge and lifted odd-hole radius bounds; for a>=3 all N+2a+2 facets tangent exactly at t=a^2-2a-1, radius 1/[a(a-1)], with complete contact counts elsewhere.",
+  "limitations": [
+    "Only unweighted indicator-coordinate Euclidean balls; affine rescaling changes radii.",
+    "Finite check did not independently enumerate all high-parameter stable sets; general proof relies on known odd-cycle facet description."
+  ],
+  "residual_risks": [
+    "A previously tabulated inradius of odd wheels or joins might imply the t=1 part, but no full-family a,t classification was found.",
+    "One-wheel inequality theory gives the structural premise, not originality of the facet normals themselves."
+  ],
+  "schema_version": 1
+}
