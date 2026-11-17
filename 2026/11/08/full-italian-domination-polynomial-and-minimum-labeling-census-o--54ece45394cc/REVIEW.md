@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transfer entries follow from a complete, nonoverlapping case analysis of the centre and its pendant leaf for each neighbouring-centre pair. Closing walks in the nine pair states bijectively encodes all labelled Italian functions. The minimum argument bounds all weight-one columns by the absence of three consecutive such columns and classifies all weight-two types. The gap-deficit count exhausts every equality case, including the exceptional zero-centre column in the \(n\equiv1\pmod3\) case. The independent brute-force and transfer checks in `verify.py` agree within the documented ranges; finite tests are not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For every labelled sunlet C_n odot K_1, n>=3, the three local center/leaf cases produce exactly the claimed 9-state transfer T_(a,b),(b,c). The trace counts each cyclic center labeling and all admissible private-leaf labels exactly once. Every nonzero center column has weight>=2; the sole weight-one column A=(0,1) cannot occur three consecutively. The sharp lower bound n+ceil(n/3) follows, and length 0/1/2 A-gaps among k non-A columns have deficit 3k-n in {0,1,2}. Types C=(1,1),D=(2,0) are active; type B=(0,2) appears only for two adjacent short gaps when n=1 mod 3. Weighted distinguished-position counting yields the claimed M_n. Independently counted all 3^(2n) labelings for n=3,4,5: minima (4,6),(6,32),(7,20), and total valid assignments 336,2306,15976. Finite tests corroborate, not prove, all n.
 
-Full primary texts inspected: Shao and Zhao (arXiv:2610.00108v1), which enumerates on paths, trees, and cycles, explicitly suggesting broader cactus classes; and Hernández-Ortiz, Montejano and Rodríguez-Velázquez (arXiv:2006.02124v1), which already covers the scalar minimum for all one-leaf coronas but not exact label counts. Equivalent terminology Roman \(\{2\}\)-domination was also searched. Related research-record findings on different domination variants and different graphs were checked. No exact nine-state sunlet enumerator or three-class minimum-function census was identified, but lack of a retrieved result cannot establish historical priority. The 2020 scalar equality is acknowledged and excluded from the novelty claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise count of all minimum Italian functions and the full weighted polynomial on a natural unicyclic cactus family advance a recent counting programme beyond trees and cycles. The new residue-one exceptional minimum-function family cannot be recovered from the known scalar optimum alone, and the finite-state expression provides exact coefficients for every weight and order. This is a motivated natural invariant, not an arbitrary graph slice.
+PASS for the complete all-weights Italian-domination polynomial D_n(z)=tr(T(z)^n), a natural exact invariant not covered by the inspected prior min-only theorem. The minimum-function multiplicity formula and cyclic-gap classification are NOT original: an October 13, 2026 published result states the same counts and optimizers for the same sunlet and Italian/Roman-{2} rule. This important earlier coverage is explicitly excluded from the originality credit, rather than describing the whole minimum census as new. The complete polynomial (including all higher coefficients) is a genuine additional final-claim component beyond the covered minimum.
 
-## Limits and priority risks
+## value
 
-The result is for labelled sunlets only, not general cactus graphs or unlabeled orbits. Unindexed or inaccessible literature may predate the enumeration. The external primary-text comparisons address their stated graph families and results; they do not constitute an exhaustive historical priority certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full weight generating polynomial is a naturally motivated refinement of the domination number and minimum count: it allows exact counting at every weight on all labelled sunlets, not a numerical isolated special case. A fixed-size transfer independent of n is a compact complete classification for a standard graph family, useful for enumerative comparisons. The already-known minimum formula by itself would add no value, and is not counted as the novel contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
