@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** A simple directed cycle cannot traverse two distinct clique blocks of a one-vertex gluing. Each transitive tournament on a block has one sink, and whether it is the hub is counted by two disjoint local choices. The product formula follows by correcting the common all-hub case; strict log-concavity follows from normalized Newton inequalities including the modified leading coefficient. The quadratic discriminant, including its explicit two-endpoint factorization, is necessary and sufficient for three blocks, and the derivative sign arguments give the homogeneous root counts. Independent direct edge-orientation enumeration matches the formula on 168 profiles with at most 14 edges, and exact coefficient/discriminant/threshold identities are corroborated by further finite calculations. Finite checks do not replace the infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** The 2026 Alexandersson–Maia Leite study proves real-rootedness on chordal claw-free graphs; all the present graphs with at least three peripheral blocks have induced claws, so this theorem is inapplicable. Its universal sink-set expansion and the earlier 2019 acyclic-orientation-polynomial framework do not state or immediately yield the exact re-entrant three-block root boundary and the all-size strict log-concavity. Searches of relevant published research records and prior published mathematical claims found no equivalent or stronger family-specific result. General formulas that could in principle be specialized are acknowledged, and unindexed earlier literature remains a priority risk.
+PASS
 
-**Value — PASS.** This gives a sharp all-parameter real-rootedness locus for the smallest claw-containing clique-block family, including **two disjoint real-rooted regimes** when two fixed block sizes differ (e.g. for the other sizes 5 and 6, only the third size 1 or at least 779 is real-rooted). It establishes positive coefficient structure for *all* clique bouquets and an exact root-count contrast in homogeneous examples. These are mathematically motivated tests of the structural real-rootedness questions raised by the recent source, rather than merely a scalar evaluation of a general polynomial.
+Every cycle in the clique bouquet lies within one complete block, so global acyclic orientations are exactly independent transitive block tournaments. A block has a_i! hub-sink and a_i a_i! peripheral-sink orientations. Product C∏(1+a_i z) counts peripheral sinks and the unique all-hub case is corrected from 1 to z, yielding C[∏(1+a_i z)+z−1]. Newton’s inequalities prove strict log-concavity of coefficients (1+e1,e2,...,er), including the modified first inequality using e1>=r. For r=3, discriminant (ab+ac+bc)^2−4abc(1+a+b+c) exactly characterizes real nonzero roots. Independently expanded ∆(a,5,6)=a²−780a+900: it is nonnegative for positive integers a=1 or a>=779. With b=c=k, ∆=k²[k²−4a(k+1)]. Odd homogeneous r have derivative >0 and only the zero real root; even r have exactly one extra negative root by convexity. Full finite exact source checker inspects small graph orientations and many discriminants but unrestricted proof rests on the orientation factorization.
 
-**Closest literature and limits.** Alexandersson–Maia Leite (2026), Sections 2–3, supplies the framework and the chordal claw-free boundary; Hwang et al. (2019) supplies general sink-orientation polynomial identities; Gebhard–Sagan (1999) concerns unique sinks. Only three-block bouquets receive a complete heterogeneous real-rootedness classification. Priority and independent correctness remain unverified externally.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. A 2026 Alexandersson–Maia Leite paper gives real-rootedness for chordal claw-free graphs and a universal sink-set framework, but every bouquet with r>=3 has induced K_1,3; the sufficient theorem does not apply and its accessible abstract does not give the re-entrant three-clique discriminant boundary. Other published clique-bouquet works concern domination/forcing polynomials, not the acyclic sink polynomial. Full potentially relevant new paper could not be obtained from arXiv or lawful OA, and authorized institutional retrieval returned vpn_disconnected; explicitly retain that primary priority risk.
+
+## value
+
+PASS
+
+The smallest chordal family with induced claws exhibits an exact positive log-concavity law yet a sharp nonreal/real/reentrant zeros transition, including large and counterintuitive integer cutoff 779. This is a motivated exact family-level graph polynomial classification, not a cosmetic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

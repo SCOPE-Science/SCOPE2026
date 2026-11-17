@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The executable `artifacts/verify.py` directly constructs the graph with a common hub, enumerates each orientation bitmask for small edge counts, tests global directed acyclicity by indegree elimination, and counts vertices of outdegree zero. A second, symbolic-product route generates the expected coefficients. The two routes agree on 168 graph profiles. The program additionally verifies total orientation counts and strict coefficient log-concavity on 21,824 profiles, polynomial discriminant identity on 44-cubed triples, and the repeated-block threshold on 54-squared pairs, as well as the re-entrant integer phase for block sizes 5 and 6 through 1000. Its expected last line is `VERIFY_OK`.
+# Independent mathematical audit
 
-Exact enumeration here is finite; the unrestricted theorem follows from the self-contained mathematical proof in `RESULT.md`. Mathematical priority and all statements outside the verified finite windows have not been independently audited.
+## correctness
+
+PASS
+
+Every cycle in the clique bouquet lies within one complete block, so global acyclic orientations are exactly independent transitive block tournaments. A block has a_i! hub-sink and a_i a_i! peripheral-sink orientations. Product C∏(1+a_i z) counts peripheral sinks and the unique all-hub case is corrected from 1 to z, yielding C[∏(1+a_i z)+z−1]. Newton’s inequalities prove strict log-concavity of coefficients (1+e1,e2,...,er), including the modified first inequality using e1>=r. For r=3, discriminant (ab+ac+bc)^2−4abc(1+a+b+c) exactly characterizes real nonzero roots. Independently expanded ∆(a,5,6)=a²−780a+900: it is nonnegative for positive integers a=1 or a>=779. With b=c=k, ∆=k²[k²−4a(k+1)]. Odd homogeneous r have derivative >0 and only the zero real root; even r have exactly one extra negative root by convexity. Full finite exact source checker inspects small graph orientations and many discriminants but unrestricted proof rests on the orientation factorization.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. A 2026 Alexandersson–Maia Leite paper gives real-rootedness for chordal claw-free graphs and a universal sink-set framework, but every bouquet with r>=3 has induced K_1,3; the sufficient theorem does not apply and its accessible abstract does not give the re-entrant three-clique discriminant boundary. Other published clique-bouquet works concern domination/forcing polynomials, not the acyclic sink polynomial. Full potentially relevant new paper could not be obtained from arXiv or lawful OA, and authorized institutional retrieval returned vpn_disconnected; explicitly retain that primary priority risk.
+
+## value
+
+PASS
+
+The smallest chordal family with induced claws exhibits an exact positive log-concavity law yet a sharp nonreal/real/reentrant zeros transition, including large and counterintuitive integer cutoff 779. This is a motivated exact family-level graph polynomial classification, not a cosmetic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
