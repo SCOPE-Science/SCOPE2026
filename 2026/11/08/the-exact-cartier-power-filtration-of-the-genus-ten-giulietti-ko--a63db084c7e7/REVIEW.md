@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The tame Kummer normalization has exactly the specified branch orders, yielding genus ten. The ten explicitly indexed holomorphic differentials form a basis, and the Cartier identity is proved for each using a separating parameter. The standalone exact arithmetic checker reconstructs all ten first images and their iterates, giving ranks \((10,6,3,0)\); the matrix is over \(\mathbb F_2\), so semilinear issues do not alter these ranks.
+## correctness
 
-**Originality — PASS, qualified.** The October 2026 paper gives the GK curve's \(a\)-number \(4\), hence first rank \(6\), but its GK section does not supply the second Cartier power rank. Maximality and earlier one-step rank formulas do not entail that exact intermediate rank without an additional image-incidence argument. Direct source and mathematical-index queries found no identical second-rank claim. The older original construction and Elkin's article were not exhaustively checked in complete full text, so historical priority remains a risk.
+PASS
 
-**Value — PASS.** For the first GK maximal curve, the exact second Cartier rank and block lengths are natural invariants of its Jacobian's characteristic-two differential structure, strictly finer than its existing \(a\)-number. The result answers a defined arithmetic geometry gap in a canonical named curve, without claiming extension to a general family or complete Ekedahl–Oort classification.
+Eliminate y to get tame Kummer z^9=F=x(x+1)(x^2+x+1)^3 with ramification multiplicities 1,1,3,3,8 and different 8+8+6+6+8=36, so genus10. At finite branch points and infinity, the ten listed x^a H^floor(i/3) z^-i dx are holomorphic, independent by Kummer character/degree, and form a complete basis. The separating parameter x and char-two decomposition G=U^2+xV^2 give Cartier(G z^-2s dx)=z^-s sqrt(G')dx; explicit polynomial images yield 6 distinct first images, 3 second images, none third. Independent GF(2) polynomial and rank computation reproduced the ten images (index map [-1,0,5,6,-1,7,9,-1,1,-1]) and ranks 10/6/3/0. Over F2 the semilinear matrix iterates as ordinary GF2 matrix.
 
-**Scope and limits.** Only the genus-ten case of GK is addressed. This review is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 2026 closely related Almeida Filho–Tafazolian–Vieira preprint studies a-numbers of characteristic-two covers including GK and reports a-number 4/first Cartier rank 6 in Proposition 6.1 per cited prior work. The exact second-iterate rank and nilpotent block type are a stricter invariant not implied merely by rank 6. Its primary full text was inaccessible in this run (arxiv HTML and PDF disabled, lawful OA unavailable, authorized Oxford VPN disconnected); treat possibility of broader result as a material priority risk, not an invented noncoverage conclusion.
+
+## value
+
+PASS
+
+The first GK curve is a canonical maximal curve; the intermediate nilpotent Cartier filtration is a natural exact invariant of its Jacobian differential structure, finer than the known a-number and relevant to Ekedahl–Oort phenomena. The claim does not pretend to classify the entire curve family or p-divisible group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
