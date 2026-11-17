@@ -1,12 +1,21 @@
-# Review of the Johnson-geodesic rerouting theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-A shortest path of length \(d=|A\setminus B|\) must increase its intersection with \(B\) on every step. Hence the two independent permutations encode all and only geodesics. Fixing the vertices immediately before and after a rerouting rank produces exactly four intermediate choices, which establishes adjacency and all clique counts. A common comparator schedule sorts two arbitrary permutations in at most \(\binom d2\) steps; the reverse-order inversion obstruction gives equality. Vertex transitivity supplies the radius. Independent complete enumeration of paths through \(d=4\) and Cayley BFS through \(d=5\) confirms the key finite identities, without being treated as an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest model is Bonsma (arXiv `1009.3217v1`, 2010). Zara (2003, DOI `10.37236/1683`) classifies constrained *relevant ascending* Johnson paths, not all shortest-path reroutings. Asplund et al. (arXiv `1705.09385v1`) and Gajjar et al. (2024, DOI `10.1007/s00453-024-01263-y`) establish the single-permutation hypercube analogy, but their reviewed results do not determine the paired-synchronous-generator graph, its unique four-cliques, or the exact Johnson diameter. Searches covering Johnson geodesics, paired permutations, and synchronized adjacent swaps found no exact same-claim record. Unindexed equivalent work is an unresolved historical-priority risk; a failed search is not proof of novelty.
+PASS
 
-## Value — PASS
-This classifies all one-vertex reroutings of shortest paths between *every pair* of vertices in the classical Johnson family, not an arbitrary finite instance. The simultaneous-removal/insertion constraint creates local \(K_4\) geometry instead of the hypercube's ordinary permutohedral edges; yet the sharp global diameter remains \(\binom d2\), despite the quadratic-order increase from \(d!\) to \((d!)^2\) states. A single fixed sorting network supplies uniform constructive rerouting. Individual all-pairs distances and shortest-sequence counts remain outside the theorem.
+For J(N,k) endpoints distance d>=1, every shortest path must remove the d distinct A\B elements and insert the d B\A elements once each, so path states are pairs of permutations (sigma,tau), with (d!)^2 states. Holding neighboring intermediate vertices fixed yields exactly four choices at each i: swap i and i+1 in either coordinate, or both; these form edge-disjoint K4, with no inter-index triangles. The Cayley graph has degree 3(d-1), (d-1)(d!)^2/4 maximal four-cliques and (d-1)(d!)^2 triangles. Synchronized fixed bubble-comparator schedule sorts both orderings in <=binom(d,2) steps; inversion reversal in one component gives the matching lower bound, and vertex transitivity makes radius equal to diameter. Independent directly reconstructed paths and edge adjacencies for d<=4, confirming (1,4,36,576) states and (0,1,3,6) diameters; the quantified all-d proof is combinatorial, not extrapolated from tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.
+
+## value
+
+PASS
+
+The exact metric and local clique structure of a natural geodesic-reconfiguration graph is independently useful in shortest-path reconfiguration. Its simultaneous two-permutation moves create a synchronization constraint not present in the familiar hypercube permutohedron, so an exact uniform diameter and clique census are mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

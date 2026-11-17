@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-The theorem is proved for all Johnson graphs and all distinct endpoints in `RESULT.md`, not by extrapolating the finite tests.
+# Independent mathematical audit
 
-To reproduce the two independent finite checks, use Python 3 with no third-party packages:
+## correctness
 
-```sh
-python3 verify_direct.py
-python3 verify_cayley.py
-```
+PASS
 
-`verify_direct.py` explicitly enumerates every shortest path in the Johnson graph with antipodal endpoints in \(J(2d,d)\), for \(1\le d\le4\). For each order it constructs all rerouting edges directly from path-vertex sequences and verifies cardinality, degree, edge and triangle counts, connectivity, and eccentricity. `verify_cayley.py` instead enumerates the Cayley moves on paired permutations for \(1\le d\le5\), checks all reachable states and the exact eccentricity, and then verifies the common bubble-sort comparator schedule on 400 deterministic randomized pairs at every order \(2\le d\le10\). Both produce `*_ALL_PASS` when all assertions hold.
+For J(N,k) endpoints distance d>=1, every shortest path must remove the d distinct A\B elements and insert the d B\A elements once each, so path states are pairs of permutations (sigma,tau), with (d!)^2 states. Holding neighboring intermediate vertices fixed yields exactly four choices at each i: swap i and i+1 in either coordinate, or both; these form edge-disjoint K4, with no inter-index triangles. The Cayley graph has degree 3(d-1), (d-1)(d!)^2/4 maximal four-cliques and (d-1)(d!)^2 triangles. Synchronized fixed bubble-comparator schedule sorts both orderings in <=binom(d,2) steps; inversion reversal in one component gives the matching lower bound, and vertex transitivity makes radius equal to diameter. Independent directly reconstructed paths and edge adjacencies for d<=4, confirming (1,4,36,576) states and (0,1,3,6) diameters; the quantified all-d proof is combinatorial, not extrapolated from tests.
 
-The test families have, respectively, \((d!)^2\) states. For \(d=4\), the direct test enumerates 576 paths, 2592 transitions and 1728 triangles. For \(d=5\), the independent Cayley test traverses 14,400 states and confirms radius/diameter 10. The arguments for arbitrary \(N,k,A,B\), the clique uniqueness, and the infinite diameter formula are mathematical proofs. Independent audit has not been performed.
+## originality
+
+PASS
+
+On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.
+
+## value
+
+PASS
+
+The exact metric and local clique structure of a natural geodesic-reconfiguration graph is independently useful in shortest-path reconfiguration. Its simultaneous two-permutation moves create a synchronization constraint not present in the familiar hypercube permutohedron, so an exact uniform diameter and clique census are mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
