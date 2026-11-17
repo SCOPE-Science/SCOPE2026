@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-Run `python checker.py` using Python 3.10 or newer; it has no nonstandard dependencies. The script enumerates \(n!\) Mallows permutations for each tested market, independently constructs joint first/second selection probabilities and exact exceptional-top probabilities, and compares to the displayed formulas using rational arithmetic. This cross-check does **not** compute a top-cycle majority graph or certify the infinite statement by enumeration. The rigorous infinite proof uses the independent suffix bound, geometric-series limits and Stirling's formula, and invokes the external deterministic top-cycle classification for \(n\ge5\). The uniform limit is treated independently.
+## correctness
 
-Scientific limitations: common center, independent agents, fixed \(0<q<1\) (plus separate \(q=1\) case), strict preferences. The independent audit channel is unperformed.
+PASS
+
+The deterministically equivalent event F_top union F_bottom for n>=5 is cited to Brandt–Chen–Dong–Lederer–Schlenga Theorem 2, not reinvented. Mallows first-choice probabilities are a_n q^(c-1), and second choices conditional on first are b_n q^(h-1-1_{h>c}). Exact distinct-top event probability A_n=n!a_n^n q^{n(n-1)/2}; exactly one duplicate top with two seconds equal to the unchosen house contributes E_n and E_n/A_n→(1+q^2)/(2q(1+q)). Position+label reversal gives bottom symmetry. A conditional suffix union bound makes top∩bottom=o(A_n) for fixed 0<q<1, producing C(q). The q=1 uniform case is calculated separately and yields factor 3. Exact finite first/second event probabilities were independently checked for n=3,4,5; n<5 never tests the external top-cycle classification.
+
+## originality
+
+PASS
+
+The majoritarian-assignment source supplies the exact deterministic exceptional event classification but not its joint top/bottom Mallows probabilities. The Mallows cycle reference concerns cycles of a single random permutation, not this tournament-on-assignments top cycle. Earlier 3-agent top-cycle probability differs in population size and random culture.
+
+## value
+
+PASS
+
+Provides a sharp rare-event probability, explicit fixed-dispersion prefactor and impartial-culture boundary for a nontrivial social-choice object. The deterministic classification and standard Mallows weights are credited; the new probabilistic asymptotic is mathematically motivated rather than a renamed classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
