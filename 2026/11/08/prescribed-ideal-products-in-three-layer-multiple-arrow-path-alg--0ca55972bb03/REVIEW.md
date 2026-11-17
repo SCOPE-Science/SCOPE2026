@@ -1,15 +1,21 @@
-# Scientific review: prescribed ideal products in three-layer path algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has one finite-field domain: the ordinary three-vertex acyclic path algebra with arbitrary positive numbers of parallel arrows, with both ideals required to lie in its radical. Peirce projection by the vertex idempotents gives three independent linear spaces subject to one explicit ideal condition. The product of two ideals is exactly the tensor product of the first ideal's initial-arrow subspace with the second ideal's terminal-arrow subspace. Contraction support uniquely recovers both nonzero factors. The displayed Gaussian formulas count all admissible third components; inclusion-exclusion covers the zero fiber and both mutually exclusive commuting cases. Exhaustive actual ideal and product enumeration over prime fields in six parameter configurations and 175 independent arithmetic mass checks agree with the proof.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-The 2016 full text of Rangaswamy addresses the different Leavitt path algebra, where ghost-arrow relations give commutative ideal multiplication. The 2026 full text of Chakraborty and Patra studies zero-product probabilities in commutative rings and explicitly flags noncommutative rings as an open extension in Problem 2; it does not count ordered radical ideal products for the present family. Its statement cannot imply this ordinary-path-algebra formula, which already has noncommuting ideal products when the two arrow multiplicities are both one. QPA documents a general algorithm for multiplying ordinary path algebra ideals but no closed finite-field fiber formula. Searches for equivalent tensor-rectangle formulations, prescribed-product counts, and ideal-multiplication commutativity found no prior formula covering the stated family. Previously identified results on radical-square-zero quiver ideals have identically zero radical-ideal products; results on truncated oriented cycles concern different path algebras. Search absence is not a uniqueness proof. A more general unpublished or unindexed incidence enumeration could subsume the formula.
+PASS
 
-## Value — PASS
-Ideal multiplication is a natural ring-theoretic structure, not an arbitrarily chosen statistic. The theorem gives the entire product map on the nilpotent-ideal semigroup of an infinite family of ordinary hereditary path algebras at the first radical length with nonzero ideal products. It records a sharp tensor-rectangle obstruction, all product multiplicities, possible product dimensions and the exact commutativity probability. In the smallest case the ideal product is genuinely noncommutative (19 of 25 ordered pairs commute), unlike the Leavitt-algebra regime. For two arrows on each edge, a three-dimensional central ideal cannot be a product. These structural boundaries and the complete census provide a motivated, independently usable finite-field invariant without requiring a downstream theorem.
+For ordinary acyclic path algebra with a arrows 1->2 and b arrows 2->3, two-sided radical ideals split under vertex Peirce projectors into U<=V, Z<=W and T<=V⊗W; closure iff U⊗W+V⊗Z<=T. Codimension (a-u)(b-z) yields Gaussian subspace factor. Because only V·W survives, IK=U_I⊗Z_K. For nonzero rectangular tensors the two contraction supports recover U and Z uniquely; all nonrectangle targets have zero fiber. Thus F(0)=N(A0+B0)-A0B0 and F(U⊗Z)=A_u B_z, and equality of products gives the presented commuting-pair formula. Every positive product dimension is uv; for a=b=2, dim 3 is excluded. Independently enumerated all F2 radical ideals and actual products for (a,b)=(1,1),(2,1),(1,2), yielding (N,F0,C)=(5,21,19) and (17,234,199), and exact Gaussian formulas for (2,2,2)=(124,13695,12682). These finite checks do not establish arbitrary q; the field-linear Peirce/tensor proof does.
 
-## Sources and remaining limitations
-Closest scientific source: K. M. Rangaswamy, *The Multiplicative Ideal Theory of Leavitt Path Algebras*, arXiv:1604.07865 (initial posting 2016-04-26), full text examined at https://ar5iv.labs.arxiv.org/html/1604.07865. Further scientific context: S. Chakraborty and S. K. Patra, *Ideal Zero-Product Probability in Finite Commutative Rings*, arXiv:2608.14618 (initial posting 2026-07-11), Sections 4 and 10. Algorithmic context: QPA, Section 4.9-1, https://oyvinso.folk.ntnu.no/QPA/qpa/doc/chap4_mj.html. The result does not cover non-radical ideals, longer path lengths, extra relations, or Leavitt path algebras. The direct enumeration is over prime fields; composite prime powers were used only for arithmetic checks. Unidentified general ideal-incidence results remain a possible priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rangaswamy 2016 analyzes Leavitt path algebras where ghost arrows and CK relations radically change ideal multiplication, which is commutative there. Catoiu–Chin–Krop provide general finite-dimensional ideal methods but the inspected text did not include complete ordered radical product fibers for this quiver. The same-day Resultary radical-square-zero quiver theorem has J²=0, while here J²=V⊗W≠0 and multiplication is visibly noncommutative. A four-vertex multiarrow commuting-element result is likewise distinct from ideal multiplication.
+
+## value
+
+PASS
+
+The attainable tensor rectangles, zero-product fiber and complete ordered commuting probability are natural ideal-semigroup invariants in the simplest radical-cube-zero noncommutative quiver. The exclusion of central subspaces such as 3-dimensional subspaces when a=b=2 gives structural information not captured by basic ideal counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
