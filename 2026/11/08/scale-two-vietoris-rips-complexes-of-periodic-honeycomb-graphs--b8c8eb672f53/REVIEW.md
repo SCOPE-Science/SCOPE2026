@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-parameter proof classifies every possible clique in the distance-two graph by bipartition and triangular-lattice geometry. It exhibits a relative elementary collapse of the centered tetrahedral subcomplex to the original graph, converts both alternating triangles per facial hexagon to CW disks attached on the same hexagonal loop, and identifies the one-disk-per-face core with the torus. The remaining disks attach nullhomotopically and give exactly the claimed integral sphere summands. The homology and the primitive kernel statement follow from the torus cellular chain complex. Independently constructed finite examples and exact mod-two ranks corroborate the steps without being used as infinite proofs.
+PASS
 
-## Originality — PASS, qualified by literature-access and indexing limitations
+For L≥5 the periodic bipartite degree-three honeycomb H_L has no cycles of length <6 and its only six-cycles are cellular faces (any noncontractible cycle has length ≥2L). On radius-two graph cliques, a simplex of dimension ≥3 is one centered closed-neighborhood tetrahedron; unique midpoints follow from absence of 4-cycles. Every remaining maximal triangle is one of two alternating vertex triples per hexagon. Center tetrahedra collapse relative to H_L by tetrahedron/opposite triangle then each center triangle/opposite distance-two edge; the two exceptional 2-cell boundaries map to the same face hexagon. Attaching one per face gives the torus; the second nullhomotopic attachment wedges L² 2-spheres. The face-cycle boundary map has exactly one integral face relation, giving primitive kernel rank L²−1 and H1=Z², H2=Z^{L²+1}. Independently rebuilt H5 and H6 radius-two face taxonomy, confirming face vectors and 2L² noncentered triangles; finite checks do not replace the all-L cellulation argument.
 
-The closest original work on torus grids (Adams et al., arXiv:2502.07134, Theorems 5.8–5.10) addresses square Cartesian-product grids, not the graph family here. Adamaszek's high-girth collapse assumption is violated. The closest published hexagon-packing result assumes pairwise edge-disjoint 6-cycles, whereas every edge of this family borders two facial 6-cycles. The one-graph Nauru classification cannot imply the uniform result for all \(L\ge5\). Searches for honeycomb/hexagonal Rips scale two, toroidal graph powers and equivalent torus-with-sphere-wedge formulations found no dominating published classification. Remaining risk is unindexed or differently formulated equivalent work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely determines a natural infinite family directly analogous to an actively studied square torus-grid family, but with a genuinely different dimension-two homotopy phenomenon. It identifies an exact geometric source of the summands, all integral homology groups and the primitive loss of cycle homology at the first metric thickening. This is more informative than an isolated face-count or numerical Betti calculation, and the exact graph family is motivated before computing.
+This ordinary integral honeycomb periodic-torus Rips type contains L² sphere summands beyond square-torus Rips results. The published edge-disjoint-six-cycle theorem is inapplicable: every honeycomb edge borders two hexagons. The broader hexagon line-graph CW result concerns line graphs, while a triangle-free cubic honeycomb is not a line graph. No examined source implies the simultaneous torus-plus-spheres formula for all L≥5; some literature may be unindexed.
 
-## Scope and limitations
+## value
 
-All claims require \(L\ge5\), the shortest-path graph metric and inclusive scale two. No result at larger radii, for arbitrary toroidal quotients or for translation-equivariant homotopy types is claimed. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The hexagonal torus graph family is canonical in periodic metric topology, and its extra L² integral 2-sphere classes and primitive persistent facial kernel are structural, nontrivial invariants of an infinite natural family. Both the cell-level explanation and complete all-L ranks are useful beyond the individual finite checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
