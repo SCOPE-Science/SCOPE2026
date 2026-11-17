@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The accompanying `scripts/check_total_matching.py` was executed using Python, NumPy, and SciPy in the same package workspace. It enumerates every facet normal of the published original-coordinate description, including the full lifted nonbalanced family, for \(n=2,3,4\), with \(17\), \(52\), and \(341\) inequalities respectively. The computed Euclidean inradii were \(0.18469903125906464\), \(0.15895738076846547\), and \(0.1381966011250105\). The tangent types were coordinate (8) and full balanced (1) at \(n=2\); coordinate (15) and full balanced (1) at \(n=3\); and coordinate (24) and degree (8) at \(n=4\). The checker also fixed the radius and independently minimized and maximized every candidate center coordinate, finding equality with the predicted uniform center, and screened lifted inequality size orbits for \(2\le n\le30\). The successful final marker was `BALANCED_TOTAL_MATCHING_INBALL_VERIFIED`.
+## correctness
 
-Reproduction: install the versions compatible with `requirements.txt` and invoke `python scripts/check_total_matching.py`. The script relies only on stated numerical tolerances for floating-point LP checks. No finite sample proves the all-integer statement; the separately written analytical proof addresses it. No external audit or external formal verification was performed.
+PASS
+
+The origin and unit coordinate vertices imply full dimension N=n²+2n. The complete Faenza–Ferrarini positive-facet H-description was checked directly against primary Theorem 2/equation (7). Nonnegativity forces any radius-r center coordinate c_i≥r, making r≤b/(||a||1+||a||2) for every positive upper facet and uniform center r*1 attainable at the minimum. Degree denominator n+1+sqrt(n+1); balanced t-biclique denominator t+2+sqrt(1+2/t) strictly increases to n. Lifted coefficients yield S=H0+τm,H=H0+(2τ+τ²)m,B=u+aτ; (u+2)B−S=τ b(u−a)≥0 and positivity of (u+2)B²−H eliminate every unbalanced facet strictly. Comparing bounds gives sharp n=2,3 vs n≥4. Tight whole-biclique or all degree normals plus coordinate lower bounds force unique center; no other contacts. Independent bounded lifted-family n≤30 check and inspected LP script; analytic inequality handles all n.
+
+## originality
+
+PASS
+
+No earlier mathematically implying result found in inspected material; search is not universal novelty proof. The exact metric phase transition, all contacts and unique center require an additional norm comparison beyond the known combinatorial H-description. No stronger checked theorem directly outputs these quantities.
+
+## value
+
+PASS
+
+The canonical total-matching incidence polytope is natural and has a nontrivial irredundant H-description. Its exact intrinsic Euclidean inradius, uniqueness and full tangent-facet census identify a genuine geometric phase transition, useful as an exact benchmark in polyhedral optimization, beyond listing known facets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
