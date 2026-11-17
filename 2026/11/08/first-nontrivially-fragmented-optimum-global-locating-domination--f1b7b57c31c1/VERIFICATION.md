@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python3 check_neighborhoods.py` and `python3 check_gaps.py` in the directory containing those two embedded standalone scripts. They use only the Python standard library. Compare output with `neighborhood_check.txt` and `gap_check.txt`.
+# Independent mathematical audit
 
-The first script explicitly constructs the wheel graph, tests the global locating-dominating property against both graphs for **all** subsets until the minimum size is reached, then obtains the exact token-slide graph, its edge count, and components for every wheel of order 4 through 14. It uses the full definitions rather than the rim-gap lemma.
+## correctness
 
-The second script separately enumerates all cyclic distance words meeting the proved necessary-and-sufficient conditions for three or more selected rim vertices, reconstructs their translated configurations, and forms their slide graphs for orders 7 through 14. At order 14 it independently checks the full dihedral orbit, the two rotation orbits, and that every code has degree one.
+PASS
 
-These two programs provide finite exhaustive verification, not a proof for larger wheels. The only claim beyond the finite cutoff is the general gap-characterization lemma, which is proved in `RESULT.md` under its stated hypotheses. No independent audit or external formal verification has been performed.
+For W_n=K1 join C_(n-1), the hub is isolated in the complement and hence is forced into a global code. For rim length>=6 and at least three chosen rim vertices, the three proved gap conditions (all gaps<=4, at most one gap 4, and no neighboring gaps>=3) characterize all trace distinctions. At r=13 a five-rim code requires gap multiset (2,2,2,3,4) with 3 and 4 separated, yielding exactly 26 dihedral states. Each has one legal slide, giving 13 K2. Independently enumerated ALL graph-neighborhood feasible subsets and slide edges for W4..W14; 11 tuples agree with stated table, including lower cutoff. Finite first-occurrence claim is exactly bounded; no unproved n>14 extension.
+
+## originality
+
+PASS
+
+Hernando–Mora–Pelayo determine the scalar global location-domination number; ordinary/Johnson optimal-code reconfiguration frameworks do not determine adjacency-restricted slides of minimum GLOBAL codes of fixed wheels. Resultary semantic search surfaced this exact record plus different graph/coding families; no earlier W14 13K2 statement was identified. Relevant Honkala–Hudry–Lobstein primary full text inaccessible; its possible specialization is explicitly retained as priority risk.
+
+## value
+
+PASS
+
+An exact first threshold for disconnected MOBILE optimal global locating-domination configurations is a motivated structural obstruction in a standard wheel family. A 13-edge perfect matching of all 26 optimum codes quantifies intrinsic local barriers; finite first-occurrence is exact and mathematically informative, not an arbitrary unmotivated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
