@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Reviewed claim:** Alternating Hessian signature of uniform group coupon collection, with all \(n\ge3\), \(1\le s<n\) and exact harmonic eigenvalues.
+## correctness
 
-## Correctness — PASS
-The Hessian is the second derivative of an exact missing-coupon inclusion-exclusion expression. All denominators are strictly positive near the uniform interior law. The Johnson decomposition uses a proved up/down commutator and norm recursion; the parity signs follow from strictly positive finite differences. The standalone exact-rational checker tests both mathematical routes and actual perturbed expected times. Finite tests do not stand in for the infinite-parameter proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
-The 2025 first-public Berend–Sher preprint, arXiv:2509.17201, proves Schilling’s global nonoptimality conjecture by constructing better package distributions; it explicitly says the previous Hessian method worked in some special cases. That global theorem does not force the uniform point to be a local saddle, nor determine the entire signed spectrum. The companion arXiv:2605.06953 treats uniform expected-time asymptotics, not the nonuniform local Hessian. Gottlieb’s incidence-matrix theorem supplies standard algebra but not these signed coupon functional weights. Targeted scientific-literature searches and implication comparisons found no covering formula. The 2021 Schilling paper could not be read in full, so priority relative to any additional unpublished or unindexed extensions remains a concrete risk. No full-text noncoverage assertion is made for inaccessible sources.
+Inclusion-exclusion sums F(p)=sum_{B proper}(-1)^(n-|B|+1)/(1-r_B(p)). Twice differentiating gives the incidence-matrix quadratic form with denominators (1-C(b,s)/C(n,s))^3. Boolean-lattice up/down decomposition yields harmonic level j eigenvalue 2 sum_b(-1)^(n-b+1) C(b-j,s-j) C(n-s-j,b-s)/(1-C(b,s)/C(n,s))^3 and multiplicity C(n,j)-C(n,j-1). Reindex b=s+k and use N=n-s-j to obtain lambda_j=2(-1)^(j+1) Delta^N[A(k)/(1-P(k))^3] at k=0. Nonnegative forward differences of binomial P,A, with strictness from the P(k)^N coefficient, establish every alternating sign for all n>=3,1<=s<n. Independent exact Fraction check gave (n,s)=(4,2): 3568/125,-432/125 and correct signs for (5,2),(6,3),(7,4). Boundary s=1,n-1 positive level1 only; nontrivial regimes have j1 and j2. Finite rational checks do not replace infinite finite-difference argument.
 
-## Mathematical value — PASS
-The theorem completes the natural local-geometry version of a central optimization question in group coupon collection: it proves *arbitrarily small* improvement is possible at every nontrivial package size and exactly classifies all curvature directions. It sharpens global nonoptimality by a nondegenerate strict-saddle statement and gives explicit multiplicities for stability analysis. It does not identify global minimizers.
+## originality
 
-## Verification and limitations
-Run `python3 verify.py` from the extracted package. The exact-rational check is supplementary to the analytical proof. The original 2021 Schilling article was not accessible for direct full-text examination; its credited special cases are not claimed as new. The paper does not assess a nonuniform law’s distant curvature or the global optimization landscape.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Berend–Sher 2025 preprint/2026 journal proof resolves Schilling global nonoptimality by explicit competitor distributions; their full accessible arXiv HTML §2 explicitly acknowledges Schilling’s Hessian method in some cases but uses a different method and does not derive the all-n,s signed Johnson harmonic spectrum. Original 2021 Schilling source remained inaccessible after OA/arXiv search and authorized access reported disconnected VPN; its special cases are not claimed. No stronger general spectrum was found in actual Resultary search, so the complete new spectrum is provisionally original with this explicit risk.
+
+## value
+
+PASS
+
+The Hessian signature is a natural exact local invariant of the full simplex optimization problem and resolves strict saddle versus local minimizer uniformly by packet size, supplying all signed harmonic multiplicities. It is stronger and structurally different from existence of a distant improving distribution, a meaningful mathematical gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

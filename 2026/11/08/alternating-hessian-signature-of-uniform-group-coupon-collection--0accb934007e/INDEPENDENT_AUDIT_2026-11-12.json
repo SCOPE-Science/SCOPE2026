@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:42:40.144723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inclusion-exclusion sums F(p)=sum_{B proper}(-1)^(n-|B|+1)/(1-r_B(p)). Twice differentiating gives the incidence-matrix quadratic form with denominators (1-C(b,s)/C(n,s))^3. Boolean-lattice up/down decomposition yields harmonic level j eigenvalue 2 sum_b(-1)^(n-b+1) C(b-j,s-j) C(n-s-j,b-s)/(1-C(b,s)/C(n,s))^3 and multiplicity C(n,j)-C(n,j-1). Reindex b=s+k and use N=n-s-j to obtain lambda_j=2(-1)^(j+1) Delta^N[A(k)/(1-P(k))^3] at k=0. Nonnegative forward differences of binomial P,A, with strictness from the P(k)^N coefficient, establish every alternating sign for all n>=3,1<=s<n. Independent exact Fraction check gave (n,s)=(4,2): 3568/125,-432/125 and correct signs for (5,2),(6,3),(7,4). Boundary s=1,n-1 positive level1 only; nontrivial regimes have j1 and j2. Finite rational checks do not replace infinite finite-difference argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berend–Sher Theorem 2.1 produces explicit nonuniform distributions improving uniform F for interior s; §2 says Schilling showed indefinite Hessian in special cases."
+        ],
+        "reasoning": "The prior global result neither implies local saddle (global nonminimizers can be local minima) nor the all-harmonic spectral formula. Schilling's unavailable special-case results remain a priority limitation but not a documented covering theorem.",
+        "searches": [
+          "group coupon collector s-subset draws Hessian eigenvalues uniform probabilities harmonic Johnson scheme local saddle Schilling",
+          "https://arxiv.org/html/2509.17201v2",
+          "https://doi.org/10.1016/j.ipl.2021.106112"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-hessian-signature-of-uniform-group-coupon-collection--0accb934007e",
+        "https://arxiv.org/html/2509.17201v2",
+        "https://doi.org/10.1016/j.ipl.2021.106112",
+        "https://doi.org/10.1090/S0002-9939-1966-0204305-9",
+        "group coupon collector s-subset draws Hessian eigenvalues uniform probabilities harmonic Johnson scheme local saddle Schilling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berend–Sher proves F(nonuniform)<F(uniform), and explicitly does not use Hessian proof; Schilling 2021 special Hessian cases not read."
+        ],
+        "reasoning": "None of the accessible statements implies the full signed spectrum. The first-order stationary fact is symmetry; all-level nonvanishing is additional math.",
+        "searches": [
+          "https://arxiv.org/html/2509.17201v2",
+          "https://doi.org/10.1016/j.ipl.2021.106112",
+          "group coupon collector s-subset draws Hessian eigenvalues uniform probabilities harmonic Johnson scheme local saddle Schilling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berend–Sher arxiv 2509.17201v2 §2 contrasts a Hessian approach with their competitor-distribution proof; neither supplies universal Johnson harmonic eigenvalues."
+        ],
+        "reasoning": "Global nonoptimality and one direction of negative curvature are not equivalent to a full nondegenerate tangent Hessian with exact alternating level signs and multiplicities.",
+        "searches": [
+          "group coupon collector s-subset draws Hessian eigenvalues uniform probabilities harmonic Johnson scheme local saddle Schilling",
+          "https://arxiv.org/html/2509.17201v2",
+          "https://doi.org/10.1016/j.ipl.2021.106112"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Boolean-lattice incidence eigenvalues are standard representation-theoretic input; the new alternating weighted rational sum and its strict finite-difference sign across all n,s are not a table entry identified in checked literature."
+        ],
+        "reasoning": "Classical incidence tables determine each W_{b,s}^T W_{b,s} but do not evaluate the alternating weighted sum's sign; the nonstandard positivity proof is necessary.",
+        "searches": [
+          "group coupon collector s-subset draws Hessian eigenvalues uniform probabilities harmonic Johnson scheme local saddle Schilling",
+          "Gottlieb 1966 incidence matrices",
+          "https://doi.org/10.1090/S0002-9939-1966-0204305-9"
+        ]
+      },
+      "rationale": "Berend–Sher 2025 preprint/2026 journal proof resolves Schilling global nonoptimality by explicit competitor distributions; their full accessible arXiv HTML §2 explicitly acknowledges Schilling’s Hessian method in some cases but uses a different method and does not derive the all-n,s signed Johnson harmonic spectrum. Original 2021 Schilling source remained inaccessible after OA/arXiv search and authorized access reported disconnected VPN; its special cases are not claimed. No stronger general spectrum was found in actual Resultary search, so the complete new spectrum is provisionally original with this explicit risk.",
+      "residual_risks": [
+        "Original 2021 Schilling article not fully read; institution VPN disconnected during authorized attempt; some Hessian examples are prior, exact universal coverage not confirmed.",
+        "No global optimum or uniform strict global minimizer claim in saddle regime; multiplicities label harmonics and numerically coincident eigenvalues are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_FULL_SPECTRUM",
+          "evidence": [
+            "§2 lines 57–69 says Hessian special cases by Schilling and authors use explicit competitors; Thm2.1 gives global strict competitor inequality, not Hessian eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.17201v2",
+          "material_read": "Full accessible HTML: Introduction; §2 Theorem 2.1, §3 proof comparisons, references, and explicit discussion of prior Hessian cases",
+          "method": "Read lawful arxiv HTML 2509.17201v2 sections 1–3",
+          "title": "On a Conjecture on Uniform Group Drawings in the Coupon Collector Problem",
+          "trigger": "Same exact (n,s) coupon package law and Schilling Hessian motivation"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "Berend–Sher §2 states Schilling proves Hessian indefiniteness in some special cases; universal signature not verified against unavailable 2021 article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ipl.2021.106112",
+          "material_read": "Bibliographic metadata and specific secondary description in Berend–Sher §2; original full body not read",
+          "method": "Searched preprint/OA; authorized institutional download returned vpn_disconnected, no bypass",
+          "title": "Results and conjectures on the role of the uniform distribution in the coupon collector’s problem with group drawings",
+          "trigger": "Primary origin of Hessian conjecture; full prior case coverage matters"
+        },
+        {
+          "assessment": "CORRECT_UNIVERSAL_HESSIAN",
+          "evidence": [
+            "Sign proof uses strict nonnegative finite differences, not only experiments."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-hessian-signature-of-uniform-group-coupon-collection--0accb934007e",
+          "material_read": "Complete RESULT.md, METADATA, SLOGAN and verify.py; frozen tree",
+          "method": "Read GitHub RESULT.md and inspected exact-rational verifier; independent Fraction spectrum tests",
+          "title": "Alternating Hessian signature of uniform group coupon collection",
+          "trigger": "Assigned theorem and certificates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Hessian signature is a natural exact local invariant of the full simplex optimization problem and resolves strict saddle versus local minimizer uniformly by packet size, supplying all signed harmonic multiplicities. It is stronger and structurally different from existence of a distant improving distribution, a meaningful mathematical gap.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-hessian-signature-of-uniform-group-coupon-collection--0accb934007e",
+    "https://arxiv.org/html/2509.17201v2",
+    "https://doi.org/10.1016/j.ipl.2021.106112",
+    "https://doi.org/10.1090/S0002-9939-1966-0204305-9",
+    "group coupon collector s-subset draws Hessian eigenvalues uniform probabilities harmonic Johnson scheme local saddle Schilling"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=3, 1<=s<n, positive interior package probabilities; local second variation only.",
+    "Source-access risk from Schilling does not automatically establish a scientific negative result."
+  ],
+  "residual_risks": [
+    "Original 2021 Schilling article not fully read; institution VPN disconnected during authorized attempt; some Hessian examples are prior, exact universal coverage not confirmed.",
+    "No global optimum or uniform strict global minimizer claim in saddle regime; multiplicities label harmonics and numerically coincident eigenvalues are not excluded."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_FULL_SPECTRUM",
+      "evidence": [
+        "§2 lines 57–69 says Hessian special cases by Schilling and authors use explicit competitors; Thm2.1 gives global strict competitor inequality, not Hessian eigenvalues."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2509.17201v2",
+      "material_read": "Full accessible HTML: Introduction; §2 Theorem 2.1, §3 proof comparisons, references, and explicit discussion of prior Hessian cases",
+      "method": "Read lawful arxiv HTML 2509.17201v2 sections 1–3",
+      "title": "On a Conjecture on Uniform Group Drawings in the Coupon Collector Problem",
+      "trigger": "Same exact (n,s) coupon package law and Schilling Hessian motivation"
+    },
+    {
+      "assessment": "UNRESOLVED_FULL_TEXT_PRIORITY_RISK",
+      "evidence": [
+        "Berend–Sher §2 states Schilling proves Hessian indefiniteness in some special cases; universal signature not verified against unavailable 2021 article."
+      ],
+      "identifier_or_url": "https://doi.org/10.1016/j.ipl.2021.106112",
+      "material_read": "Bibliographic metadata and specific secondary description in Berend–Sher §2; original full body not read",
+      "method": "Searched preprint/OA; authorized institutional download returned vpn_disconnected, no bypass",
+      "title": "Results and conjectures on the role of the uniform distribution in the coupon collector’s problem with group drawings",
+      "trigger": "Primary origin of Hessian conjecture; full prior case coverage matters"
+    },
+    {
+      "assessment": "CORRECT_UNIVERSAL_HESSIAN",
+      "evidence": [
+        "Sign proof uses strict nonnegative finite differences, not only experiments."
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-hessian-signature-of-uniform-group-coupon-collection--0accb934007e",
+      "material_read": "Complete RESULT.md, METADATA, SLOGAN and verify.py; frozen tree",
+      "method": "Read GitHub RESULT.md and inspected exact-rational verifier; independent Fraction spectrum tests",
+      "title": "Alternating Hessian signature of uniform group coupon collection",
+      "trigger": "Assigned theorem and certificates"
+    }
+  ]
+}
