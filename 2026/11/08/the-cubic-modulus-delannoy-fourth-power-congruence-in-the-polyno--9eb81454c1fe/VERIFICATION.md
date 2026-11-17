@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external modules. The verifier constructs each \(D_m(X)\) directly from its defining binomial coefficients and performs polynomial multiplication modulo \(p^3\); it separately constructs the claimed comparison polynomial. It checks all coefficients for nine odd primes up to 29, checks the exact normalized fourth-power expansion at 49 integer inputs, checks Guo's convolution identity and its recurrence for 23 indices, and checks the central triple-to-double reduction coefficientwise modulo \(p^2\) for seven primes.
+## correctness
 
-The observed complete output is:
+PASS
 
-```text
-VERIFY_OK primes=9 coefficients=481 lemma_4_2=23 recurrence=21 lemma_4_1=49 intermediate_primes=7 intermediate_coefficients=143 all_exact=True
-```
+Reconstructed the exact Guo normalized triple sum F_p(X)/p and confirmed coefficient integrality. For h<p the binomial-pair product is (-1)^h modulo p^2 because every denominator a≤h is invertible; for h≥p it is initially zero but replacement terms gain p from binom(j+k,k) and p from a central binomial C_iC_j. Chu–Vandermonde collapses k. Every i+j≥p term again acquires two p-factors. Guo's proved convolution identity and full support for r≤(p-1)/2 give the final polynomial identity modulo p², then multiplication by p gives p³. Recomputed coefficients independently for p=3,5,7 (9+17+25 coefficients), rather than relying on a VERIFY_OK log. These tests corroborate, not prove the all-prime claim.
 
-These are finite checks. The unrestricted proof is given in `RESULT.md` and uses two proved published binomial identities; the verifier neither claims to certify all primes nor constitutes independent mathematical audit. It does not test the excluded prime two or a hypothetical modulus \(p^4\).
+## originality
+
+PASS
+
+Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.
+
+## value
+
+PASS
+
+Solves a concrete previously stated p³ supercongruence for every odd prime in a polynomial ring, a meaningful global uniform theorem beyond numerical examples and known modulo-p² results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

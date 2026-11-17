@@ -1,19 +1,21 @@
-# Scientific review: Delannoy fourth-power polynomial supercongruence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is coefficientwise in \(\mathbb Z[X]\) for every odd prime. The exact normalized identity is Guo's proved Lemma 4.1, and the exact convolution identity is Guo's proved Lemma 4.2. The additional argument is fully explicit: below the prime, the paired binomial coefficients differ from \((-1)^h\) only by \(p^2\); above the prime, the replaced terms have *two* independent prime factors, from an addition carry and a large central binomial coefficient. This same two-factor argument truncates the double sum. The remaining binomial sum completes exactly because its nonvanishing indices have support at most \(p-1\). Modular computations independently check polynomial coefficients and both cited identities in bounded cases, but the arbitrary-prime result follows from the algebraic proof, not extrapolation.
+PASS
 
-## Originality — PASS, with historical qualification
+Reconstructed the exact Guo normalized triple sum F_p(X)/p and confirmed coefficient integrality. For h<p the binomial-pair product is (-1)^h modulo p^2 because every denominator a≤h is invertible; for h≥p it is initially zero but replacement terms gain p from binom(j+k,k) and p from a central binomial C_iC_j. Chu–Vandermonde collapses k. Every i+j≥p term again acquires two p-factors. Guo's proved convolution identity and full support for r≤(p-1)/2 give the final polynomial identity modulo p², then multiplication by p gives p³. Recomputed coefficients independently for p=3,5,7 (9+17+25 coefficients), rather than relying on a VERIFY_OK log. These tests corroborate, not prove the all-prime claim.
 
-The strongest directly matching source, Guo (arXiv:1412.7724v1), states the prime-cube assertion as Conjecture 5.2 and proves only the prime-square modulus (Theorem 1.4). The author's alternative Legendre-polynomial manuscript restates the same prime-cube question as Conjecture 1.5. Wang and Zhong (arXiv:2505.05728v1) address first powers of the Delannoy polynomial and different weights, not this quartic supercongruence. Dedicated search for the conjecture, its Legendre equivalent, and prime-cube fourth-power sums found no covering theorem; that failure is not proof of historical uniqueness. Potential unindexed results remain an originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves an explicitly formulated 2014 open congruence for a natural classical polynomial sequence, and its coefficientwise strengthening applies uniformly at all integral and \(p\)-adic arguments. The decisive mechanism is a meaningful second-order carry bound in a published convolution formula, rather than an arbitrary numerical refinement. The new modulus is exactly what the historical conjecture requested.
+Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.
 
-## Closest literature and limits
+## value
 
-See Guo's Theorem 1.4, Lemmas 4.1–4.2, and Conjecture 5.2; the equivalent Conjecture 1.5 in his Legendre manuscript; and Wang–Zhong's different 2025 Delannoy sums. The result does not assert a congruence modulo \(p^4\), does not cover \(p=2\), and has no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solves a concrete previously stated p³ supercongruence for every odd prime in a polynomial ring, a meaningful global uniform theorem beyond numerical examples and known modulo-p² results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

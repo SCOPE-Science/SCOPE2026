@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:56:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact Guo normalized triple sum F_p(X)/p and confirmed coefficient integrality. For h<p the binomial-pair product is (-1)^h modulo p^2 because every denominator a≤h is invertible; for h≥p it is initially zero but replacement terms gain p from binom(j+k,k) and p from a central binomial C_iC_j. Chu–Vandermonde collapses k. Every i+j≥p term again acquires two p-factors. Guo's proved convolution identity and full support for r≤(p-1)/2 give the final polynomial identity modulo p², then multiplication by p gives p³. Recomputed coefficients independently for p=3,5,7 (9+17+25 coefficients), rather than relying on a VERIFY_OK log. These tests corroborate, not prove the all-prime claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo Theorem 1.4 gives the same quartic sum modulo p², and Conjecture 5.2 proposes p³.",
+          "Wang–Zhong Theorem 1.1 concerns sums with a single Delannoy-polynomial factor and different weights/moduli."
+        ],
+        "reasoning": "The extra p-adic factor is not implied by a p² statement, and the linear-factor sum does not specialize to the quartic all-prime polynomial expression.",
+        "searches": [
+          "Delannoy polynomials fourth powers alternating (2k+1) sum modulo p cubed coefficientwise supercongruence Guo conjecture",
+          "arXiv:1412.7724 Theorem 1.4 Lemma 4.1/4.2",
+          "arXiv:2505.05728 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.7724 Theorem 1.4 and Conjecture 5.2",
+        "arXiv:2505.05728 Theorem 1.1",
+        "2026/10/18 Resultary sharp local valuation law 0137a3f4f5cd",
+        "assigned RESULT.md and verify.py from frozen Git blob"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed proof invokes Guo’s established exact identities as inputs and adds second-order carry divisibility and double-to-single collapse.",
+          "The source explicitly labels the p³ evaluated target as a conjecture."
+        ],
+        "reasoning": "The needed p² normalized carry upgrade is the new implication; it is not supplied by the cited p² theorem. The actual proof supplies it for symbolic X. This is best-of-knowledge originality, not absolute priority.",
+        "searches": [
+          "Delannoy polynomials fourth powers alternating (2k+1) sum modulo p cubed coefficientwise supercongruence Guo conjecture",
+          "Guo arXiv:1412.7724 Eq(4.2), Eq(4.3), Conjecture 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo arXiv:1412.7724 Conjecture 5.2 formulates the p^3 sum for integer X; the claimed coefficientwise Z[X] version is strictly stronger than evaluated congruences if considered alone.",
+          "Legendre polynomial manuscript gives a conjecture, not a proof."
+        ],
+        "reasoning": "The polynomial claim specializes to the established conjecture. Equivalence to a *previously proved* Legendre result was not found; a stated conjecture is not coverage.",
+        "searches": [
+          "Delannoy polynomials fourth powers alternating (2k+1) sum modulo p cubed coefficientwise supercongruence Guo conjecture",
+          "Guo Legendre polynomial Conjecture 1.5 arxiv Delannoy fourth power modulo p3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/18 published Resultary local valuation law handles x with p|x(x+1), not arbitrary X.",
+          "Finite source verifier and independent p=3,5,7 coefficient tables do not settle all p."
+        ],
+        "reasoning": "No exact database or bounded table provides the universal coefficientwise assertion; a restricted p-adic valuation law does not subsume it.",
+        "searches": [
+          "Delannoy polynomials fourth powers alternating (2k+1) sum modulo p cubed coefficientwise supercongruence Guo conjecture",
+          "Guo Conjecture 5.2 polynomial coefficientwise finite prime table"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.",
+      "residual_risks": [
+        "Undiscovered later proof of Guo’s conjecture possible; semantic search is not priority certification.",
+        "The all-prime proof relies on the cited published convolution lemmas, not independently reproving their entire arithmetic derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjecture stated but not solved in the inspected source",
+          "evidence": "Theorem 1.4 p²; Lemma 4.1 Eq(4.2), Lemma 4.2 Eq(4.3), Conjecture 5.2 p³",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.7724",
+          "material_read": "Theorem 1.4, Lemmas 4.1–4.2, exact triple expansion, alternating Vandermonde and Conjecture 5.2 near page 9",
+          "method": "ArXiv PDF theorem and lemma sections with an inspected page screenshot",
+          "title": "Some congruences involving powers of Delannoy polynomials",
+          "trigger": "same polynomial, author original conjecture"
+        },
+        {
+          "assessment": "Different Delannoy exponent and modulus; does not imply quartic p³",
+          "evidence": "Theorem 1.1 is linear in D_k(z) with other weighting",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.05728",
+          "material_read": "abstract, introduction, Theorem 1.1 and power/weight comparison",
+          "method": "public arXiv PDF sections",
+          "title": "Congruences for sums of Delannoy numbers and polynomials",
+          "trigger": "plausible modern congruence coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves a concrete previously stated p³ supercongruence for every odd prime in a polynomial ring, a meaningful global uniform theorem beyond numerical examples and known modulo-p² results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd prime p, the fourth-power Delannoy alternating polynomial sum satisfies Guo’s conjectured p^3 congruence coefficientwise in Z[X], with the explicit central-binomial right side.",
+  "limitations": [
+    "p odd only; modulo p³ only, not p⁴ or composite prime powers.",
+    "Independent checks span three small primes; infinite assertion rests on symbolic carry proof and published exact convolution lemmas."
+  ],
+  "schema_version": 1
+}
