@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:56:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Y. H. Harris Kwong, Minimum Periods of S(n,k) Modulo M (1989), Theorem 3.6",
+        "C. Bennett and E. Mosteig (2013), valuation classes for S(n,k)",
+        "Independent Stirling recurrence /mnt/data/independent_math_check_2146.py"
+      ],
+      "rationale": "Inclusion-exclusion yields 120S(n,5)=5^n+10*3^n+5-5*4^n-10*2^n, and splitting n=r+2t gives G_r(t)=(5^r25^t+10*3^r9^t+5)/120 plus error -(2^(2n-3)+2^(n-2))/3 of valuation n-2 for n>=5. For s!=t in Z_2, the 25^h-1 and 9^h-1 lifting identities give v2=3+v2(h); their two terms in the difference 120(G_r(t)-G_r(s)) have valuations 3+v2(h) and 4+v2(h), so division by v2(120)=3 yields v2(G_r(t)-G_r(s))=v2(t-s) without possible cancellation. Finite quotients therefore permute every residue separately on each parity. For n>=k+2 the correction vanishes mod2^k and each period 2^(k+1) visits all half-indices modulo 2^k once per parity. Mod-2 pattern (1,1,0,0) excludes odd eventual shifts, and isometry forces all even eventual shifts divisible by 2^(k+1). At n=k+1 for k>=4, the period fails because the correction difference has valuation k-1, proving sharp onset; for k<=3 earliest allowable n=5. Independently generated the Stirling triangle and verified exact balanced parity fibers and onset for k=1..7 and three offset blocks. The all-precision theorem rests on the 2-adic proof, not the checks.",
+      "residual_risks": [
+        "Applies only to fifth column and powers of two; the previously published least eventual period itself is not new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwong's minimum-period result covers the period of S(n,5) modulo 2^k, without classifying its output multiplicities.",
+          "Bennett-Mosteig Section 2 sets valuation partition objectives; results deal with v2(S(n,k)) and equality of certain valuations, not complete residues. Knowledge of v2 does not fix odd units."
+        ],
+        "reasoning": "Neither a least-period theorem nor valuation congruence-class classification automatically implies surjectivity onto all 2^k residues, one-per-parity counts or sharp first periodic index. No dominating full-fiber result identified in inspected work.",
+        "searches": [
+          "Resultary: Stirling numbers fifth column S(n,5) modulo powers of two uniform residue distribution parity period isometry",
+          "Kwong Minimum Periods Theorem 3.6",
+          "Bennett-Mosteig valuation classes fixed k=5",
+          "Amdeberhan Manna Moll Stirling valuations 2007"
+        ]
+      },
+      "checked_sources": [
+        "https://www.fq.math.ca/Scanned/27-3/kwong.pdf",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL16/Mosteig/mosteig4.pdf",
+        "https://arxiv.org/abs/0707.3104",
+        "Resultary: Stirling numbers fifth column S(n,5) modulo powers of two uniform residue distribution parity period isometry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kwong states the least eventual period for p=2 and k=5 as 2^(precision+1). It does not state one preimage of each residue in each index parity.",
+          "Bennett-Mosteig explicitly centers its analysis on 2-adic valuation strata; that data alone cannot identify which odd residue units appear."
+        ],
+        "reasoning": "The current exact isometry implies the old minimal period but the reverse does not hold, and valuations are coarser invariants than complete residues. The exact sharp onset also requires the explicit correction of valuation n-2, not given by a bare eventual period.",
+        "searches": [
+          "Kwong 1989 primary PDF Theorem 3.6",
+          "Bennett-Mosteig 2013 primary full PDF Sections 2–4",
+          "Resultary: Stirling numbers fifth column S(n,5) modulo powers of two uniform residue distribution parity period isometry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parity branches G_r(t) are 2-adic isometries and thus Haar measure preserving, equivalent to one preimage of each output class modulo 2^k per parity.",
+          "Kwong (1989) establishes length of the least eventual periodic index orbit but not its output histogram."
+        ],
+        "reasoning": "Periodic and 2-adically continuous descriptions agree, but their distinction matters: the new claim is equidistribution/bijective fibers of two parity branches, not the already-known period length.",
+        "searches": [
+          "Resultary: Stirling numbers fifth column S(n,5) modulo powers of two uniform residue distribution parity period isometry",
+          "2-adic interpolation of S(n,5), odd/even n maps with local isometry",
+          "every S(n,5) residue appears twice per period"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact tests for k<=7 verify two appearances per residue, one each parity, including onset at k+2 for k>=4, but do not imply all k.",
+          "Prior index tables and valuation classes do not explicitly supply each output residue's multiplicity per period for every power of two."
+        ],
+        "reasoning": "The all-precision fiber law is a natural exact complete classification and is not reducible to finite known columns or tables without new lifting argument.",
+        "searches": [
+          "Resultary: Stirling numbers fifth column S(n,5) modulo powers of two uniform residue distribution parity period isometry",
+          "OEIS and fixed Stirling column integer tables",
+          "Bennett-Mosteig finite valuation class listings",
+          "Full k=1..7 independently checked fiber tables"
+        ]
+      },
+      "rationale": "The minimum eventual period length is known from Kwong 1989 and is acknowledged. The closest full primary research on fifth-column Stirling numbers describes 2-adic valuations and congruence classes, not all output residues and unique parity preimages. Periodicity and valuation strata alone do not force uniform unit residues; the new full 2-adic isometry and sharp preperiod are a distinct complete fiber result, subject to historical search limitations.",
+      "residual_risks": [
+        "An equivalent fixed-column p-adic analytic interpolation or fiber theorem could exist in unindexed number-theory literature.",
+        "Kwong's least-period result is covered and not claimed original; some valuations in the fifth column were known in 2007–2014."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_PERIOD_ONLY",
+          "evidence": "The period 2^(k+1) is prior; no parity-balanced output-fiber theorem appears in the period statements.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/27-3/kwong.pdf",
+          "material_read": "Five-page primary PDF obtained; materially read introduction, fixed-column period theorem 3.6 and proof setup, not an exhaustive review of every line",
+          "method": "Open full primary PDF text plus page-image inspection",
+          "title": "Minimum Periods of S(n,k) Modulo M",
+          "trigger": "Exactly matching fifth-column minimal periodicity"
+        },
+        {
+          "assessment": "VALUATION_NOT_FULL_OUTPUT_FIBERS",
+          "evidence": "The studied invariant is nu_2(S(n,k)), not full S(n,5) modulo 2^k with one preimage for each parity.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Mosteig/mosteig4.pdf",
+          "material_read": "Full 21-page primary PDF retrieved; materially read introduction, section 2 valuation definitions, Proposition 13 and the section 6.1 fifth-column proof, without inspecting every page",
+          "method": "Open full primary paper text and related landing page",
+          "title": "Congruence Classes of 2-adic Valuations of Stirling Numbers of the Second Kind",
+          "trigger": "Potential earlier fifth-column classification with same congruence parameters"
+        },
+        {
+          "assessment": "SUBMITTED_CLAIM_VERIFIED",
+          "evidence": "Two odd-base functions differ isometrically; even-base correction valuation n-2 yields sharp onset.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-binary-residue-fibers-of-the-fifth-stirling-column-with--a900c8064e91/RESULT.md",
+          "material_read": "Entire frozen RESULT.md and recurrence-based verify.py",
+          "method": "Frozen GitHub file reads",
+          "title": "Uniform binary residue fibers of the fifth Stirling column with sharp preperiod",
+          "trigger": "Identify exact last theorem, 2-adic proof and finite test boundaries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kwong 1989",
+        "Bennett-Mosteig 2013",
+        "Frozen proof and independent recurrence checks"
+      ],
+      "rationale": "Complete residue distribution and earliest periodic onset for a natural fixed Stirling column are meaningful arithmetic invariants beyond previously known period lengths and valuations. The fifth column is the first with uniform full binary residue support, and the explicit 2-adic isometry is a structural explanation rather than a finite counting curiosity. A future researcher can use its exact one-per-parity fiber counts and cutoff when studying Stirling congruences.",
+      "residual_risks": [
+        "No conclusion for other fixed columns or odd prime moduli; historical equivalent remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each k>=1, the Stirling sequence S(n,5) modulo 2^k has least eventual period 2^(k+1) and is exactly two-to-one on every block of that length starting at n>=max(5,k+2), once at each parity, with that starting index optimal. Its parity branches are 2-adic isometric bijections of Z_2; known least period is not asserted as new.",
+  "limitations": [
+    "Applies only to fifth column and powers of two; the previously published least eventual period itself is not new.",
+    "An equivalent fixed-column p-adic analytic interpolation or fiber theorem could exist in unindexed number-theory literature.",
+    "Kwong's least-period result is covered and not claimed original; some valuations in the fifth column were known in 2007–2014.",
+    "No conclusion for other fixed columns or odd prime moduli; historical equivalent remains possible."
+  ],
+  "schema_version": 1
+}
