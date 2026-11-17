@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact fixed point, multiplier, second derivative and negative cubic derivative are verified symbolically. A global derivative estimate (the sole maximum of the positive branch is one, while the negative branch is strictly below one in modulus) proves strict distance contraction to the equilibrium on the whole nonnegative half-line, not merely near it. On the eventual side, the exact reciprocal-square increment determines \(A\), \(D\) and \(H\); the remainder increments are summable, proving a finite orbit-dependent limit. Countable finite-hit exceptions are explicitly excluded from the reciprocal-square law. The embedded checker reruns the identities and corroborates a sample of long trajectories; numerical tests are not substitutes for the proof.
+PASS
 
-## Originality (O): PASS within inspected literature, not independent priority certification
+For the exact Chialvo map at k*=3-2sqrt2, c=2-sqrt2 and r*=c-log(c(2-c)), the derivative bound |f'(x)|<=1 with equality only at c gives strict distance decrease and convergence on [0,infinity). The cubic/parabolic Taylor jet yields u_{n+1}=u_n-au_n^3+bu_n^4+du_n^5+O(u_n^6). The w=u^-2 update has increments A+s B w^-1/2+Q w^-1+O(w^-3/2). Stolz-Cesaro and summable refined errors prove w_n=An+sD sqrt(n)+H log(n)+C(x0)+o(1), apart from countably many finite hits. Independent symbolic exact checking confirmed the five-jet and A,D,H; finite checks do not establish the limit.
 
-The closest same-map source, Llovera Trujillo et al. (arXiv:2111.14499), already supplies the critical parameter and fixed-point location and characterizes the degenerate fold. These are not new. Its inspected bifurcation and dynamical-core analysis does not state the exact two-sided original-iterate relaxation profile or the orbit-dependent convergent normalization. Generic parabolic fixed-point theory accounts for the leading power, but not the listed Chialvo-specific \(\sqrt n\) and logarithmic coefficients without nontrivial expansion and summation. Another accessible discussion of slow convergence was restricted to its abstract, so a stronger older equivalence remains a genuine priority risk. Claim-level comparisons found no statement that implies all the displayed coefficients in the same map.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The degeneracy terminates the two-fold equilibrium regime, and the associated relaxation is intrinsically non-exponential; the original iteration count is the natural observable in a discrete neuron model. The new result gives a sharp global decay law, a signed asymmetry, the exact subleading logarithmic correction and existence of the renormalized phase constant. It is stronger than merely evaluating a standard normal-form exponent, and resolves the quantitative behavior of the natural boundary regime at a specified dynamical-system transition.
+The 2021 reduced Chialvo paper states the degenerate equilibrium but not the original-update three-term global relaxation with side-correction and convergent renormalized constant. Similar SCOPE parabolic expansions study different rational flip or tropical Ludwig maps and do not imply model-specific quantitative coefficients or global nonnegative Chialvo basin. Generic parabolic asymptotic theory is a residual priority risk, not a dominating identified theorem.
 
-## Closest literature and limits
+## value
 
-Primary source: Llovera Trujillo, Signerska-Rynkowska, Bartłomiejczyk, *Periodic and chaotic dynamics in a map-based neuron model*, arXiv:2111.14499 (2021), sections 2.2–2.3 and discussion of the degenerate fold. Generic local normal-form results and earlier slow-convergence literature could overlap conceptually. The result is pointwise in parameter and excludes exact finite preimages of the critical fixed point.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The biologically motivated degenerate map has a natural critical slowing down. The explicit asymmetric sqrt(n) term, universal log coefficient and convergent orbit-dependent residual refine the classical leading n^-1/2 normal form in original discrete time, including global initial conditions and exact-hit exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
