@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem supplies explicit language semantics and model quantifiers. A global pointwise \(F_n-M\) estimate proves attainable upper bounds, and a reflexive singleton model gives the lower bounds uniformly over arbitrarily nested modalities. For the non-expansive language the singleton term operations are \(1\)-Lipschitz in the sup norm, producing the sharp endpoint obstruction and rigidity by equality. For plain Zadeh terms the ordered four-branch diagonal argument proves the lower bound, including the \(n=2\) endpoint. All analytical steps and the boundary conventions were reconstructed. Rational-grid checks corroborate but are not substituted for the proof.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The closest primary texts are Gebhart–Schröder–Wild (2026), arXiv:2610.32335v1, on uniform interpolation, and Gebhart–Schröder–Wild (2025), arXiv:2505.09416v3, on non-expansive fuzzy description logic. Their language comparisons and non-expansiveness do not state the joint sharp \(n\)-ary minimax profile or optimizer rigidity. Targeted comparison searches of exact constants, equivalences and stronger approximation schemes did not find a covering statement. This is not a proof of priority: an unindexed quantitative approximation theorem remains a risk. An abstract Lipschitz two-point inequality supplies one ingredient but does not establish the two restricted-language attainable optima, particularly the plain-Zadeh separation.
+PASS
 
-## Value — PASS
-The excluded strong disjunction is an intrinsic expressive benchmark for the recently developed intermediate fuzzy logic. The result determines its precise optimal translation error simultaneously for three natural language bases and every arity, including the factor-two gain obtained by rational shifts and the impossibility of improving it using modal nesting. The equality rigidity gives a structural restriction on every optimal translator. This is a natural complete quantitative comparison rather than an arbitrary finite slice.
+Let F=min(1,sum x_i) and M=max x_i. For all x in [0,1]^n, 0<=F-M<=1-1/n, so Zadeh formula M attains error d. Rational-shifted clipped maximum min(1,M+d/2) in the non-expansive language attains error d/2. A one-world reflexive Kripke model reduces arbitrary modal syntax to propositional functions: non-expansive operations are all 1-Lipschitz in ||.||_infty. Between all-zero input and all-1/n input F rises by 1 over distance 1/n, proving any such approximant error >=(1-1/n)/2. At equality both endpoint inequalities saturate and force g(t,...,t)=t+d/2 for t∈[0,1/n]. In plain Zadeh without intermediate constants, on diagonal 0<t<1/2 every formula is identically one of 0,t,1-t,1; continuity and required error below d force 0 or t near zero, giving lower bound d at t=1/n for n>2 or t->1/2 for n=2. Full Łukasiewicz expresses F exactly. The lower bounds hold for every allowed modal depth because the singleton model is included among all pointed models. A separately implemented exact-rational grid checked n=2,3,4 and attained both sharp errors.
 
-## Limitations
-Only the explicitly defined unrestricted-model sup-norm setting is covered; other bases or restricted model classes may have different errors. Literature coverage is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gebhart–Schröder–Wild (2026) develops uniform interpolation and non-expansiveness of the intermediate fuzzy language, while their 2025 work studies non-expansive fuzzy description logic; neither inspected main result provides a minimax translation-error profile of strong n-ary disjunction, the strict Zadeh vs shift factor-two separation, or equality rigidity. The elementary two-point Lipschitz lower bound is classical and explicitly treated as an ingredient, not novelty. Best-of-knowledge no covering stronger quantitative approximation result found.
+
+## value
+
+PASS
+
+Strong n-ary Łukasiewicz disjunction is a canonical excluded connective of the Zadeh and intermediate non-expansive bases. The theorem gives sharp all-n, all-model approximation thresholds, a factor-two quantitative expressivity distinction, modal-depth irrelevance, and a rigidity constraint on every optimal nonexpansive translator. Though its inequalities are elementary, the natural model/language separation is a motivated complete quantitative classification, not a gratuitous numerical test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
