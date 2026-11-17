@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T16:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete RESULT.md proof reduces the finite-rank RKHS update to K_t(z,0)=1-qt/(1+tL) h_q((rho z)^q), L=q(1+(q-1)rho^(2q))/(1-rho^(2q))^2. The scalar quadratic has exactly one root y_- in (0,1) and y_+>1; y_- crosses r=rho^q once. The q inverse images are distinct and simple for t>T; equality roots lie on |z|=1. My independent SymPy simplification verified g(r)/(q-g(r)L)=T_q(rho) identically, including critical normalization. As t increases without bound y_-->r^2 and the roots approach rho times qth roots of unity; asymptotic limits follow from exact formula. No claim concerns K_t(z,z).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beckermann et al. Theorem 4.2 treats general finite-rank perturbations and bounds on diagonal kernel ratios; Section 6 has Bergman asymptotics."
+        ],
+        "reasoning": "The general update mechanism applies, but the paper does not provide the exact central K_t(z,0) zero count and crossing as a derived theorem.",
+        "searches": [
+          "arxiv:1812.06560 finite atoms Christoffel-Darboux kernel",
+          "Beckermann et al. 2020 Sections 4 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Assigned source RESULT.md, SLOGAN.txt, METADATA.json, AUDIT.json, VERIFICATION.md and verify_atomic_orbit.py at blob tree 26da25154feb76d35f6e84fa18478082884e6f5b",
+        "arxiv:1812.06560 (selected relevant full-text sections)",
+        "arxiv:1703.05976 (primary text sections)",
+        "Resultary semantic query on Bergman polygon orbit zeros",
+        "Independent symbolic identity check: g(r)/(q-g(r)L)=T_q"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A low-rank identity requires additional cyclic row-sum and discriminant/boundary analysis; radial-weight construction lacks discrete atoms."
+        ],
+        "reasoning": "Prior premises permit deriving a result with new work, but the inspected statements do not logically state/deliver this full classification.",
+        "searches": [
+          "Beckermann et al. arxiv:1812.06560 Theorem 4.2",
+          "Perälä arxiv:1703.05976 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Perälä Theorems 3.3 and 3.5 concern radial weights and fibers with general second argument; radiality fixes central fiber as constant."
+        ],
+        "reasoning": "No equivalent earlier cyclic-atomic zero threshold was located; mere arbitrary zero-count existence does not imply the sharp q-orbit threshold.",
+        "searches": [
+          "Resultary: regular polygon point masses Bergman kernel central zeros sharp mass threshold cyclic orbit Uvarov",
+          "arxiv:1703.05976 §§1,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this record and related regular polygon or radial-weight records, without an older exact threshold table."
+        ],
+        "reasoning": "No tabulated orbit-mass crossing equivalent was found; the search is not proof of nonexistence.",
+        "searches": [
+          "Resultary search regular polygon point masses central zeros",
+          "Perälä arxiv:1703.05976 zeros of Bergman kernels"
+        ]
+      },
+      "rationale": "Older finite-atomic reproducing-kernel perturbation results supply the low-rank identity, not the q-fold central zero crossing or exact orbit-mass threshold; Perälä radial-weight constructions give zeros in noncentral fibers, while any radial-weight central fiber is constant. Searches did not find an earlier theorem implying the exact cyclic threshold. Best-of-knowledge only; no exhaustive priority certification.",
+      "residual_risks": [
+        "No systematic full-text search of all older Uvarov/finite-rank Bergman zero papers; priority remains provisional.",
+        "Published Christoffel–Darboux work is mainly on truncated polynomial kernels, while this theorem uses the full Bergman Hilbert space; these are not interchangeable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_NOT_COVERING_EXACT_CLAIM",
+          "evidence": "Theorem 4.2 gives diagonal ratio bounds and general perturbation formulas; Section 6 concerns Bergman polynomial asymptotics, not exact central root crossing.",
+          "identifier_or_url": "https://www.math.vanderbilt.edu/saffeb/texts/275.pdf",
+          "material_read": "Available searchable complete PDF text; inspected introduction, Theorem 4.2, Examples 4.1–4.2, and Section 6; PDF screenshot request failed 502.",
+          "method": "Published manuscript indexed text",
+          "title": "Perturbations of Christoffel–Darboux Kernels: Detection of Outliers",
+          "trigger": "Area measure plus finitely many atoms"
+        },
+        {
+          "assessment": "DISTINCT_HYPOTHESES",
+          "evidence": "Radial weights can generate zeros away from central fibers; the central fiber of a radial weight stays constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.05976",
+          "material_read": "Original 11-page PDF; read introduction, radial kernel representation and Theorems 3.3/3.5 locations; screenshot page 1 inspected.",
+          "method": "arXiv lawful OA PDF",
+          "title": "Vanishing Bergman kernels on the disk",
+          "trigger": "Bergman-kernel zeros potentially arbitrary counts"
+        },
+        {
+          "assessment": "SELF_MATCH_ONLY",
+          "evidence": "A matching indexed copy of assigned finding is not independent prior art.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-orbit-mass-threshold-for-zeros-of-the-central-bergman-ke--9cc0d7f8436d",
+          "material_read": "Resultary search returned same assigned record title/summary, not independent earlier coverage.",
+          "method": "Resultary indexed record",
+          "title": "A sharp orbit-mass threshold for zeros of the central Bergman kernel",
+          "trigger": "Exact-title search duplication check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated Lu Qi-Keng/atomic RKHS phenomenon: a symmetric polygon of point masses creates arbitrarily many central zeros, with an exact, monotone boundary and two nontrivial asymptotic regimes. This is not just a restatement of the general Woodbury formula; cyclic character and root-location analysis yield a concrete reusable family-specific threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No systematic full-text search of all older Uvarov/finite-rank Bergman zero papers; priority remains provisional.",
+    "Published Christoffel–Darboux work is mainly on truncated polynomial kernels, while this theorem uses the full Bergman Hilbert space; these are not interchangeable."
+  ],
+  "schema_version": 1
+}

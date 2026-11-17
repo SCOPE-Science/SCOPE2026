@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel identity follows from a standard positive finite-rank inverse. Cyclic symmetry reduces the central fiber to \(1-\beta h_q((\rho z)^q)\), with explicit \(\beta,L\); the resulting quadratic has one positive root below one and one above one, and its smaller root decreases strictly with the mass. Its crossing of \(\rho^q\) yields the stated exact threshold, zero count, simplicity, and limiting orbit. The two asymptotic statements are elementary expansions. Algebraic and direct Gram-matrix checks were replayed for several parameters. No finite test is used to establish universal quantifiers.
+## correctness
 
-## Originality — PASS (provisional priority)
-The 2018 Beckermann–Putinar–Saff–Stylianopoulos paper establishes general finite-mass Christoffel-kernel perturbation formulas, but its inspected examples and principal theorems concern diagonal bounds, leverage scores, and off-support asymptotics rather than sharp central-fiber zero counts for an equal interior polygon of masses. Perälä's 2017 radial-weight construction proves that arbitrary finite counts of zeros can occur in other fibers, but its radial center fiber is constant. Putinar's 2021 area-plus-atoms discussion concerns a measure's cloud and moment estimates. Searches of relevant published work and mathematical-record similarities found no explicit claim implying this exact threshold without additional cyclic reduction and root classification. A specialized historical Uvarov/root-location result may have been missed; novelty is not certified independently.
+PASS
 
-## Value — PASS
-The invariant is natural: zeros of the reproducing kernel for the basic disk Bergman measure under symmetric positive point-mass perturbations. The complete classification gives a sharp emergence threshold, exact multiplicities for unbounded polygon order, limiting localization at the atoms, and two contrasting scales (fixed order near the boundary versus large order at fixed radius). In particular, it exhibits central-fiber zeros that are categorically absent for radial weight densities. The finite-rank identity itself is not presented as new; the sharp root phase diagram is the contribution.
+The complete RESULT.md proof reduces the finite-rank RKHS update to K_t(z,0)=1-qt/(1+tL) h_q((rho z)^q), L=q(1+(q-1)rho^(2q))/(1-rho^(2q))^2. The scalar quadratic has exactly one root y_- in (0,1) and y_+>1; y_- crosses r=rho^q once. The q inverse images are distinct and simple for t>T; equality roots lie on |z|=1. My independent SymPy simplification verified g(r)/(q-g(r)L)=T_q(rho) identically, including critical normalization. As t increases without bound y_-->r^2 and the roots approach rho times qth roots of unity; asymptotic limits follow from exact formula. No claim concerns K_t(z,z).
 
-## Scientific limitations
-Only equal interior polygonal atomic perturbations and the central kernel fiber are treated. Historical priority remains subject to broader Uvarov literature not found in the inspected sources. These statements have not received independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Older finite-atomic reproducing-kernel perturbation results supply the low-rank identity, not the q-fold central zero crossing or exact orbit-mass threshold; Perälä radial-weight constructions give zeros in noncentral fibers, while any radial-weight central fiber is constant. Searches did not find an earlier theorem implying the exact cyclic threshold. Best-of-knowledge only; no exhaustive priority certification.
+
+## value
+
+PASS
+
+A motivated Lu Qi-Keng/atomic RKHS phenomenon: a symmetric polygon of point masses creates arbitrarily many central zeros, with an exact, monotone boundary and two nontrivial asymptotic regimes. This is not just a restatement of the general Woodbury formula; cyclic character and root-location analysis yield a concrete reusable family-specific threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
