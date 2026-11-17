@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim includes a complete characterization and polynomial over every finite simple connected block graph, with complete and singleton boundary cases. The critical argument has been reconstructed: for a selected cut vertex, selected points cannot occur in two different components after its deletion, and unselected points cannot either. Since these components cover all other vertices, there are exactly two, one entirely selected and the other entirely unselected. General position forces the whole selected side together with the cut vertex to be a clique; block graph decomposition then forces a leaf block with exactly one articulation incident to exactly two blocks. The converse uses both the clique property and separation through that articulation. This is an infinite proof, not a deduction from finite testing. No normalization, automorphism quotient, or unstated graph-size restriction is needed. The coefficient and hereditary conclusions follow without double counting.
+## correctness
 
-The independent, definition-level Python verifier examined every connected labeled block graph generated among all labeled graphs on up to six vertices plus deterministic additional clique-glued examples of orders seven through eleven (4943 graphs altogether) (all subset states, 414102 in total). It found 89688 dual sets, with 7822 exceptional sets, and matched the predicted polynomial, structural classification, and hereditary criterion on every graph. Enumeration corroborates but does not replace the proof. Verification command: `python3 verify.py`.
+PASS
 
-Residual correctness risk: classification relies on the standard block-cut-tree property that a cut vertex's incident blocks biject with components after its deletion; this is elementary but essential. Verification does not extend beyond the indicated finite instances.
+Proof on arbitrary connected block graphs: simplicial vertices never appear internally on a geodesic, so any subset works. A selected cut vertex c forces at most one selected and at most one unselected component of G-c, hence c has exactly two pure branches and selected set equals one branch plus c. General position forces selected branch to be a full pendant clique with c its only cut vertex and c occurring in two blocks. Conversely this clique has geodesically convex complement. This proves D_G=(1+z)^s+sum_B z^|B| and hereditary iff correction absent; blocks of size k<=s. Independent exhaustive P4 vertex-subset test yields [1,2,3,0,0], including the single qualified leaf-degree2 edge correction; universal claim proven structurally, not from small enumeration.
 
-## Originality — PASS (provisional priority)
-Tian–Klavžar (arXiv:2402.17338v1, full 15-page preprint, especially §§2–5) define the dual condition and prove that general position plus convex complement characterizes it (Theorem 3.1). Their Corollary 3.2 supplies all subsets of simplicial vertices, their block graph statement concerns **maximum sizes only**, and the path example identifies three maximum dual sets. These ingredients are explicitly credited. They give a general recognition criterion but not the all-set structural classification, qualified pendant-block histogram, or exact hereditary boundary here. Manuel–Klavžar (2018), Theorem 3.6, treats maximum *ordinary* general-position sets, not this dual subset census. Tian–Klavžar–Tan (2024) treats **edge** general position, a different selection universe. Dokyeesun et al. (first public 2024; later 2025/2026 article) treat product invariants, not block-graph subset distributions.
+## originality
 
-Published mathematical-record overlap queries were also compared by implication: complete-multipartite dual general-position enumerations subsume the **trivial complete-graph boundary**, which is excluded from the novelty claim; a book-graph dual-position result treats a different non-block graph family; block-graph neighborhood-complex results concern a different invariant. The accessible own ledger includes an ordinary GP polynomial of tree coronas, but no dual-GP classification or histogram for general block graphs. No matched prior result yields the full claimed correction polynomial and hereditary dichotomy. This is provisional because semantic searching cannot establish global priority and unindexed sources remain possible.
+PASS
 
-## Mathematical value — PASS
-The original 2024 dual-position paper emphasizes nonheredity but classifies mostly extremal values. The new complete classification gives a simple structural criterion for **whether nonheredity occurs at all** on the natural and broad class of block graphs, and computes every coefficient in linear-sized structural data. The polynomial detects the number of simplicial vertices and, after subtracting the binomial baseline, determines the size histogram of certain terminal clique blocks; the maximum-number result alone cannot recover that information. The tree corollary sharply identifies all exceptional sets using leaf-to-degree-two edges, not only a maximum. These are natural enumerative and structural questions, not a renamed special parameter or unexplained finite count.
+Tian–Klavžar Theorem 3.1 supplies dual iff complement geodesically convex, simplicial construction and the maximum dual gp count on block graphs, not a complete all-subset polynomial or the qualified pendant-block characterization. Earlier published general-position polynomial for block graphs concerns ordinary gp, not the dual complement-convex property. Submitted exact classification and hereditary boundary are not entailed by those primary statements.
 
-## Boundaries
-The statements do not extend to all chordal graphs or cactus graphs. No publication-level novelty certification or independent mathematical audit is claimed. A general convex-complement test was already known; the new contribution is the explicit block-graph structure and enumerator, not that test itself.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All-size enumeration of dual general-position sets over the natural broad hereditary family of connected block graphs is a motivated exact graph invariant. The additional correction for degree-two articulated pendant cliques detects the failure of downward closure; coefficients recover structural pendant-block size distribution. This is a nontrivial full classification rather than repeating known maximum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

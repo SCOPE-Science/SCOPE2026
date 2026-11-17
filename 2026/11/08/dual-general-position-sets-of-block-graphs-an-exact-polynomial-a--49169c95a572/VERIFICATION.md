@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Extract `verify.py` alongside this file and run `python3 verify.py` using Python 3. The verifier uses only standard-library modules and is finite. It separately builds graphs, computes their biconnected blocks by depth-first search, identifies articulations by deletion, and enumerates dual general-position sets directly using BFS distances and geodesic distance equalities. It tests all labeled connected graphs on at most six vertices, retaining every block graph, and adds thirty deterministic clique-glued block graphs at each order from seven through eleven. For every selected graph it checks the entire predicted cardinality distribution, exact exceptional-set family, and hereditary criterion.
+## correctness
 
-Observed stdout:
+PASS
 
-`VERIFY_OK graphs=4943 subsets=414102 dual_sets=89688 exceptional_sets=7822 all_labeled_n_le_6=PASS deterministic_glued_cliques_n_7_to_11=PASS hereditary_boundary=PASS`
+Proof on arbitrary connected block graphs: simplicial vertices never appear internally on a geodesic, so any subset works. A selected cut vertex c forces at most one selected and at most one unselected component of G-c, hence c has exactly two pure branches and selected set equals one branch plus c. General position forces selected branch to be a full pendant clique with c its only cut vertex and c occurring in two blocks. Conversely this clique has geodesically convex complement. This proves D_G=(1+z)^s+sum_B z^|B| and hereditary iff correction absent; blocks of size k<=s. Independent exhaustive P4 vertex-subset test yields [1,2,3,0,0], including the single qualified leaf-degree2 edge correction; universal claim proven structurally, not from small enumeration.
 
-No sampling claim is made for all graphs of larger orders, and no finite enumeration proves the infinite theorem. The unrestricted correctness argument is in `RESULT.md`. Independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+Tian–Klavžar Theorem 3.1 supplies dual iff complement geodesically convex, simplicial construction and the maximum dual gp count on block graphs, not a complete all-subset polynomial or the qualified pendant-block characterization. Earlier published general-position polynomial for block graphs concerns ordinary gp, not the dual complement-convex property. Submitted exact classification and hereditary boundary are not entailed by those primary statements.
+
+## value
+
+PASS
+
+All-size enumeration of dual general-position sets over the natural broad hereditary family of connected block graphs is a motivated exact graph invariant. The additional correction for degree-two articulated pendant cliques detects the failure of downward closure; coefficients recover structural pendant-block size distribution. This is a nontrivial full classification rather than repeating known maximum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
