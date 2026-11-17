@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:54:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A closed-neighborhood identifying code C is exactly a mask whose 14 bitwise neighborhood intersections are nonempty and pairwise different. Since there are 2^14=16384 masks, enumerating all 0<=|C|<=7 is complete: no masks size<=6 qualify, exactly 268 size-seven codes qualify. A legal slide between two codes changes exactly one chosen vertex to an adjacent nonchosen vertex, equivalent to two bits in the XOR and adjacency of the two changed vertices. Independent full-pair enumeration yields precisely 210 slide edges; connected components have sizes 4 (56) and 22 (2), with degree fingerprints (1,1,1,3) and (1 repeated 21,21), forcing the claimed star forest. This is a true finite exhaustive proof, with no extrapolation to other Heawood-like graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mynhardt–Teshima realizes prescribed graphs as reconfiguration graphs using constructed inputs; Balbuena et al. study locating domination on girth-five graphs and Heawood rather than the exact slide graph of minimum identifying codes."
+        ],
+        "reasoning": "Neither general realization nor minimum locating domination implies the specific Heawood minimum-code slide adjacency census.",
+        "searches": [
+          "Mynhardt–Teshima A note on some variations of the gamma-graph (2017)",
+          "Teshima The i-Graph and Other Variations on the gamma-Graph (2022)",
+          "Balbuena–Foucaud–Hansberg 2015"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1707.02039 Mynhardt–Teshima",
+        "https://dspace.library.uvic.ca/items/740e5c10-d1aa-4992-970b-3711b397f7f5",
+        "arXiv:1407.7263 Balbuena–Foucaud–Hansberg"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An abstract reconfiguration construction theorem does not force the fixed Heawood incidence graph. Unrestricted 658 jump edges have many non-slide transitions, so the current 210-edge graph does not follow."
+        ],
+        "reasoning": "The exact local-move restriction materially changes components and distances, with no previously published implication found.",
+        "searches": [
+          "2017 identifying-code slide framework",
+          "prior Heawood token-jump 22,22,224 components",
+          "submitted exact slide graph 56K_(1,3)+2K_(1,21)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jump allows any one-vertex replacement; slide additionally requires edge adjacency. Previously known Heawood jump components 22,22,224 do not determine 56 claws and two 22-state stars under slides."
+        ],
+        "reasoning": "The different edge predicate changes connectivity; current adjacency-restricted complete reconfiguration graph is not equivalent to the known jump graph.",
+        "searches": [
+          "Resultary query Heawood identifying codes token slide reconfiguration star forest 268 codes 210 edges",
+          "Mynhardt–Teshima 2017 identifying-code reconfiguration",
+          "prior Heawood token-jump 3 components"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "268 is a previously known state count, while the new result needs all 210 adjacency-restricted transitions and full component decomposition."
+        ],
+        "reasoning": "Known code tables do not supply the slide-only edge list or star-forest isomorphism; independent pair enumeration provides the missing exact invariant.",
+        "searches": [
+          "Resultary search for Heawood token slides star forest",
+          "Heawood minimum identifying-code count 268 and token-jump states"
+        ]
+      },
+      "rationale": "No claim-dominating theorem was found in inspected primary sources and published mathematical record searches; originality is best of knowledge with explicit residual risks.",
+      "residual_risks": [
+        "No full reading of the entire Teshima dissertation or every potentially relevant Heawood-code paper; an unindexed exact slide computation may exist.",
+        "The finite result applies only to the Heawood graph; no general projective-plane parameter theorem is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not known to cover fixed Heawood slide graph",
+          "evidence": "Theorem constructs input graphs realizing targets rather than computing this specific input.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.02039",
+          "material_read": "accessible abstract and relevant published description of reconfiguration and realization; complete original PDF not materially read this execution",
+          "method": "arXiv bibliographic summary",
+          "title": "A note on some variations of the gamma-graph",
+          "trigger": "defining identifying-code reconfiguration framework"
+        },
+        {
+          "assessment": "no direct matching result in material read",
+          "evidence": "General identifying-code reconfiguration, but complete fixed Heawood slide census not located.",
+          "identifier_or_url": "https://dspace.library.uvic.ca/items/740e5c10-d1aa-4992-970b-3711b397f7f5",
+          "material_read": "relevant chapter 2 descriptions and open repository excerpts, not all chapters",
+          "method": "institutional repository search",
+          "title": "The i-Graph and Other Variations on the gamma-Graph",
+          "trigger": "thesis with potentially broad reconfiguration results"
+        },
+        {
+          "assessment": "different invariant",
+          "evidence": "Heawood locating domination is distinct from closed-neighborhood identifying-code slides.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.7263",
+          "material_read": "accessible abstract and relevant proposition description, not complete full text",
+          "method": "open source search",
+          "title": "Locating-dominating sets and identifying codes in graphs of girth at least 5",
+          "trigger": "Heawood specific identifying-code / locating-domination baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifying codes are a standard natural code invariant on the canonical Fano incidence graph; token-slide connectivity encodes local reconfiguration feasibility. The complete star-forest fragmentation, despite an existing much more connected unrestricted token-jump graph, is a meaningful finite structural graph classification rather than just another code count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1707.02039 Mynhardt–Teshima",
+    "https://dspace.library.uvic.ca/items/740e5c10-d1aa-4992-970b-3711b397f7f5",
+    "arXiv:1407.7263 Balbuena–Foucaud–Hansberg"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the 14-vertex Fano incidence graph, the complete adjacency-restricted token-slide reconfiguration graph of its 268 minimum size-seven identifying codes is 56 K_(1,3) disjoint union 2 K_(1,21), totaling 210 edges and 58 components.",
+  "limitations": [
+    "All-state finite classification is rigorous for one fixed 14-vertex graph, not a higher-order asymptotic claim.",
+    "Full thesis/source coverage is incomplete, with residual originality risk explicitly retained."
+  ],
+  "residual_risks": [
+    "No full reading of the entire Teshima dissertation or every potentially relevant Heawood-code paper; an unindexed exact slide computation may exist.",
+    "The finite result applies only to the Heawood graph; no general projective-plane parameter theorem is claimed."
+  ],
+  "schema_version": 1
+}
