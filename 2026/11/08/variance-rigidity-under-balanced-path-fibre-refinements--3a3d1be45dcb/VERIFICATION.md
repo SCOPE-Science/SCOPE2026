@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run the accompanying standalone Python 3 program `verify_path_fibre_spread.py`. It uses only the standard library (`fractions.Fraction`) and exact integer enumeration. The observed final marker on replay was `ALL_PATH_FIBRE_VARIANCE_CHECKS_OK`.
+## correctness
 
-The program checks two metric geometries (within-fibre distance one or two), fibre sizes two and three, and lengths three through five as specified in its finite case table. Each profile is normalized by pinning its first value to zero. It checks the analytic deficit decomposition for every enumerated profile; it also checks unbalanced conditional atomic probabilities for three and four fibres. Finally, a two-layer complete-bipartite metric realizes variance \(1/2\), greater than the two-index baseline \(1/4\).
+PASS
 
-The exact summation and equality arguments in `RESULT.md` are the infinite-family proof. The finite checker does not certify all real-valued functions, all dimensions, all conditional measures or novelty in unindexed literature. Independent mathematical review has not been performed.
+PASS: The proposed cross-distances satisfy the triangle inequalities exactly because each within-fibre diameter≤2. Adjacent independent fibre samples give (mi−mi+1)²+vi+vi+1≤1; for gap≥2, the equal-mixture range bound gives (mi−mj)²+2(vi+vj)≤(j−i)². Summation with the variance pair identity proves the stated exact nonnegative deficits and n≥4 sharp bound. Endpoint saturation forces n=4 interior fibre constants by interval intersection; n≥5 positive variance coefficients ensure full rigidity. The separate n=3 identity 9(2/3−Var)=(a+b)²+3v1+3(λ01+λ12) gives precisely the endpoint balance case; n=2 K_2,2 attains Var=1/2. Independent rational feasible profiles for n=3,4,5 confirmed the deficit, n=3 equality and n=2 boundary.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge: Alon–Boppana–Spencer establish spread of an ordinary path; Addario-Berry–Janson–McDiarmid review it and other graph classes. The arbitrary metric-fibre refinement, conditional nonuniform masses, explicit stability deficit and optimizer rigidity transition are neither the ordinary path nor a Cartesian-product identity, and no covering theorem was identified in the relevant inspected literature.
+
+## value
+
+PASS
+
+PASS: Whether replacing path levels by arbitrary metric fibres can increase sharp centered Lipschitz norm is a natural structural question. The result gives a sharp n=2→3 preservation cutoff and n=3→4 optimizer rigidity threshold plus exact stability deficit, nontrivial over arbitrary fibre sizes, internal distances and conditional weights. This is a mathematically useful invariant and equality classification beyond old path spread.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
