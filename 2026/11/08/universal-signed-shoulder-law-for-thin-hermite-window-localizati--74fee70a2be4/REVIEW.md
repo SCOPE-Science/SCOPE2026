@@ -1,15 +1,21 @@
-# Scientific review: Universal signed shoulder law for thin Hermite-window localization annuli
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof uses an exact radial Hermite–Laguerre diagonalization and an explicit finite-degree Poisson–Charlier generating function. Stirling and coefficient extraction produce the correct two-term uniform eigenvalue expansion. Hermite's differential equation gives the identity that cancels all order-dependent terms at an envelope critical point, leaving the universal signed coefficient \(\mp a/6\). Negative curvature and lattice rounding justify the \(O(1)\) maximizing-index localization, while Poisson large-deviation bounds isolate the two outer global shoulders for the second Hermite window. Symbolic checks for thirteen fixed orders and four high-precision integral comparisons corroborate nonstandard intermediate identities; the infinite claims rest on the stated proof, not numerical tests.
+## correctness
 
-## Originality: PASS, subject to bibliographic risk
-The closest prior thin-annulus result for the first Hermite window covers **only the special case** \(k=1\); it is properly acknowledged and contributes no independent new claim here. Abreu–Gröchenig–Romero supply the spectral formula; Keller–Luef supply a general polyanalytic framework; Knutsen treats Gaussian radial masks. Nilsson's full 2021 Charlier/Hermite theorem provides only a leading approximation with a sharp \(O(R^{-1/2})\) error and does not give the critical-point coefficient or spectral shoulder selection. Thus the all-order structural cancellation and the \(k=2\) global law are not covered by the compared statements. A specialized older polynomial-extremum analysis could still imply the finding and remains an explicit risk.
+PASS
 
-## Mathematical value: PASS
-A fixed-area annulus moving outward is a natural sharp localization test. For every fixed Hermite order, the order-independent first correction resolves otherwise indistinguishable paired spectral shoulders; for \(k=2\) it selects the unique asymptotic global *side* and identifies the exact leading norm and gap. This is an operator-level distinction, not just another finite numerical example. No claim of a uniform growing-order result, explicit finite onset, or unique maximizing integer index is made.
+Radial Hermite STFT diagonalization gives the exact eigenvalue integral with Poisson mass times Charlier squared C_k(n;u)^2/(k!u^k). Fixed-k Stirling expansion yields leading e^(−x²/2)H_k(x)^2/k! and first correction F1. The Charlier generating function e^(uv)(1−v)^n gives D=−xH″/2+H‴/3. Applying Hermite differential equation proves the exact identity F1=−xF0/6−(x²+2k−2)H(2H′−xH)/(6k!), and at a nonzero positive critical point 2H′=xH. Nondegenerate peaks persist with O(1) lattice index displacement; discrete rounding contributes only relative O(R^−1). For k=2, G2=e^(−x²/2)(x²−1)^2/2 has global peaks ±√5 exceeding the central peak 0, and Poisson large-deviation tails exclude other indices. Independent Sympy checked the identity at k=1...9, and independent quadrature finds the left peak larger at R=150,500,1500 with the scaled gap approaching the stated coefficient. These finite checks are corroboration, not all-k proof.
 
-## Literature and scope limitations
-The strongest directly compared sources are arXiv:1704.03042, arXiv:1905.07741, arXiv:1907.00848 and DOI:10.1007/s00365-021-09559-w. Bibliographic novelty is provisional pending specialist review. The result applies only to radially symmetric fixed-area annuli and fixed Hermite orders; arbitrary masks or changing widths are outside its scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: k=1 signed shoulder is prior and basic Hermite/Laguerre spectral diagonalization is prior; universal −a/6 stationary Charlier cancellation for every fixed k and global k=2 split-shoulder norm/gap survive.
+
+## value
+
+PASS
+
+The structural fixed-order cancellation resolves a physically natural leading degeneracy in radial time-frequency concentration spectra; k=2 supplies exact leading optimal index and a sharp signed interpeak spectral gap. This is mathematically more than substituting parameters into the prior k=1 case because the Hermite polynomial derivative term cancels universally at arbitrary stationary extrema.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

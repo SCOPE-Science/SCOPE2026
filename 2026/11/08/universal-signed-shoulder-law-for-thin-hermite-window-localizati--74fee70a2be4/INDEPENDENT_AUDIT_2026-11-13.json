@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Radial Hermite STFT diagonalization gives the exact eigenvalue integral with Poisson mass times Charlier squared C_k(n;u)^2/(k!u^k). Fixed-k Stirling expansion yields leading e^(−x²/2)H_k(x)^2/k! and first correction F1. The Charlier generating function e^(uv)(1−v)^n gives D=−xH″/2+H‴/3. Applying Hermite differential equation proves the exact identity F1=−xF0/6−(x²+2k−2)H(2H′−xH)/(6k!), and at a nonzero positive critical point 2H′=xH. Nondegenerate peaks persist with O(1) lattice index displacement; discrete rounding contributes only relative O(R^−1). For k=2, G2=e^(−x²/2)(x²−1)^2/2 has global peaks ±√5 exceeding the central peak 0, and Poisson large-deviation tails exclude other indices. Independent Sympy checked the identity at k=1...9, and independent quadrature finds the left peak larger at R=150,500,1500 with the scaled gap approaching the stated coefficient. These finite checks are corroboration, not all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier published first-Hermite annulus law states the same signed shoulder result only for k=1, a=√2, and gives the resulting O(R^−1) gap.",
+          "Keller--Luef polyanalytic Toeplitz framework and Abreu--Gröchenig--Romero Hermite–Laguerre radial formula supply exact spectral premise, not all-order peak selection."
+        ],
+        "reasoning": "The present k-fixed universal cancellation includes known k=1 and has new k=2 global peak height (a=√5) and higher-k local paired maxima; k=1 is explicitly excluded from independent novelty.",
+        "searches": [
+          "Resultary: Hermite Laguerre short annulus localization Poisson Charlier expansion signed shoulders second Hermite order sqrt5 spectral gap",
+          "web: first Hermite fixed area annulus lower shoulder asymmetry spectral gap",
+          "web: Nilsson On the transition of Charlier polynomials to the Hermite function 2021 theorem 1",
+          "web: higher Landau level annulus localized spectrum asymptotic paired peak sign"
+        ]
+      },
+      "checked_sources": [
+        "Published first-Hermite thin annulus result 2026/11/8/4e06172f4e4e",
+        "Nilsson DOI 10.1007/s00365-021-09559-w",
+        "Abreu--Gröchenig--Romero arXiv:1704.03042",
+        "Keller--Luef arXiv:1905.07741",
+        "Knutsen arXiv:1907.00848"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier k=1 Resultary theorem implies present law for that exact case only.",
+          "Nilsson Theorem 1 is only locally uniform O(a^−1/2) Charlier approximation, equal to the order of the *relative* correction one needs to identify, not its coefficient.",
+          "This result proves F1=−x F0/6−[(x²+2k−2)H(2H′−xH)]/(6k!), so at a nonzero positive stationary envelope peak 2H′=xH and the signed term is universally −x F0/6; k=2 envelope global maxima ±√5."
+        ],
+        "reasoning": "Neither the prior special case nor a leading approximation alone determines the all-k signed extremal coefficient and global second-window selection; they supply only background or covered k1.",
+        "searches": [
+          "Resultary: Hermite Laguerre short annulus localization Poisson Charlier expansion signed shoulders second Hermite order sqrt5 spectral gap",
+          "web: first Hermite fixed area annulus lower shoulder asymmetry spectral gap",
+          "web: Nilsson On the transition of Charlier polynomials to the Hermite function 2021 theorem 1",
+          "web: higher Landau level annulus localized spectrum asymptotic paired peak sign"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson–Charlier polynomials are equivalent to associated Laguerre factors in the exact radial Hermite STFT eigenvalue integral; all such aliases were compared.",
+          "Nilsson (2021/2022), Theorem 1, gives locally uniform leading Charlier-to-Hermite transition of error O(a^−1/2), without explicit all-fixed-k critical-point coefficient."
+        ],
+        "reasoning": "Generic leading asymptotics do not select a sign of a two-peak difference of relative order R^−1/2; the exact polynomial cancellation of the first correction at nondegenerate stationary extrema is a separate computation.",
+        "searches": [
+          "Resultary: Hermite Laguerre short annulus localization Poisson Charlier expansion signed shoulders second Hermite order sqrt5 spectral gap",
+          "web: first Hermite fixed area annulus lower shoulder asymmetry spectral gap",
+          "web: Nilsson On the transition of Charlier polynomials to the Hermite function 2021 theorem 1",
+          "web: higher Landau level annulus localized spectrum asymptotic paired peak sign"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nilsson Theorem 1 provides leading limiting Hermite function and an optimal order bound, not a table of stationary signed Charlier coefficients.",
+          "Independent symbolic factorization checked k=1,...,9; numerical k=2 annulus at radii 150/500/1500 shows predicted lower-index winner."
+        ],
+        "reasoning": "A generic special-function asymptotic table might encode the coefficient; no inspected table directly contains the all-orders −a/6 critical-point law or k=2 global annulus norm/gap. Failed searches alone are not priority proof.",
+        "searches": [
+          "Resultary: Hermite Laguerre short annulus localization Poisson Charlier expansion signed shoulders second Hermite order sqrt5 spectral gap",
+          "web: first Hermite fixed area annulus lower shoulder asymmetry spectral gap",
+          "web: Nilsson On the transition of Charlier polynomials to the Hermite function 2021 theorem 1",
+          "web: higher Landau level annulus localized spectrum asymptotic paired peak sign"
+        ]
+      },
+      "rationale": "Best of knowledge: k=1 signed shoulder is prior and basic Hermite/Laguerre spectral diagonalization is prior; universal −a/6 stationary Charlier cancellation for every fixed k and global k=2 split-shoulder norm/gap survive.",
+      "residual_risks": [
+        "Specialist historical tables of higher Laguerre/Charlier extrema might reproduce the same coefficient",
+        "Finite symbolic checks through k9 do not establish the all-fixed-k identity; the Hermite ODE proof does",
+        "No uniformity claimed in growing k or L or exact finite-onset radius"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the k=1 specialization; does not imply k=2 or general k stationary Charlier cancellation",
+          "evidence": [
+            "k=1 peaks ±√2 and gap 2L/(3e√π R); no higher Hermite orders"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-lower-shoulder-selection-law-for-thin-first-hermite-localiza--4e06172f4e4e",
+          "material_read": "Entire prior published RESULT.md: exact Laguerre/Poisson eigenvalues, first-order Stirling expansion, local extrema, gap and finite-width assumptions",
+          "method": "Read complete primary earlier result and matched k=1 shoulder coefficient with current all-k theorem",
+          "title": "The lower-shoulder selection law for thin first-Hermite localization annuli",
+          "trigger": "Exact first-order k=1 predecessor and same normalization"
+        },
+        {
+          "assessment": "LEADING_CHARRIER_HERMITE_LIMIT only; theorem 1 does not state the coefficient controlling signed two-shoulder localization gaps",
+          "evidence": [
+            "Theorem 1: scaled Charlier polynomial = Hermite function + O(a^(−1/2)), locally uniformly, sharp bound"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00365-021-09559-w",
+          "material_read": "Open complete primary HTML: Introduction, definitions, Theorem 1 and §2 proof structure, locally uniform error rate; no exact all-order stationary peak coefficient or annular operator law in the reviewed material",
+          "method": "Read primary mathematical theorem and checked normalization and error order",
+          "title": "On the Transition of Charlier Polynomials to the Hermite Function",
+          "trigger": "Most plausible direct special-function asymptotic result"
+        },
+        {
+          "assessment": "General radial eigenvalue diagonalization, not the first signed peak-coefficient calculation",
+          "evidence": [
+            "Radial Hermite STFT/Laguerre integrand in pinned RESULT (1), cited original 2017 work"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.03042",
+          "material_read": "Original published model and full text comparison as summarized in pinned proof; this run inspected the pinned normalization and references, no claim of re-reading entire external article",
+          "method": "Inspected precise spectral premise stated in source, compared against new correction",
+          "title": "Harmonic analysis in phase space and finite Weyl–Heisenberg ensembles",
+          "trigger": "Exact Hermite–Laguerre STFT spectral formula premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The structural fixed-order cancellation resolves a physically natural leading degeneracy in radial time-frequency concentration spectra; k=2 supplies exact leading optimal index and a sharp signed interpeak spectral gap. This is mathematically more than substituting parameters into the prior k=1 case because the Hermite polynomial derivative term cancels universally at arbitrary stationary extrema.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Each k, L fixed; asymptotics R=s+L/2→∞ and only positive isolated nondegenerate extrema",
+    "Global selection proved specifically for k=2; other orders only paired local shoulders",
+    "No unique maximizing integer n or finite onset threshold established",
+    "First-Hermite k=1 special case belongs to earlier published result"
+  ],
+  "schema_version": 1
+}
