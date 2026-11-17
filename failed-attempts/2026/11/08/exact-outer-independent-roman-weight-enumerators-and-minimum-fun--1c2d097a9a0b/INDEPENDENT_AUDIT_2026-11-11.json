@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:01:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Zero labels form k nonattacking rooks, in R(k)=binom(m,k)binom(n,k)k! ways. Any t of them have a union of t(m+n-t-1) nonzero neighbors; inclusion-exclusion gives exactly the displayed generating polynomial because the actual summand has z^a(z+z²)^(N-k-a)=z^(N-k)(1+z)^(N-k-a). Each defender can cover at most two zeros, giving minimum N-floor(s/2); even and odd defender pairing/path cases yield stated coefficients. At m=n=2 totality excludes precisely 4z³+2z⁴; elsewhere every positive label has a positive neighbor. Independent literal brute force verified ordinary/total counts 46/40 for (2,2), 310/310 for (2,3), and min coefficients (3,4) and (5,12). The proof, not finite counts, supports every m,n>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 prior theorem gives entire polynomial, all minima and structures, plus exactly the sole difference from ordinary OIRDF.",
+          "Earlier 2022 theorem only gives scalar, but newer November 2 theorem dominates the remaining contribution."
+        ],
+        "reasoning": "The prior complete total polynomial plus its explicit exceptional ordinary/total distinction implies submitted ordinary formula and every min coefficient.",
+        "searches": [
+          "Resultary 2026-11-02 complete OIT Roman polynomial all K_m square K_n",
+          "Cabrera Martínez Kuziak Yero 2022 scalar OIT Roman number"
+        ]
+      },
+      "checked_sources": [
+        "Assigned pinned RESULT.md and nested verification/verify_rook_outer_independent_roman.py",
+        "Full Resultary 2026-11-02 OIT Roman polynomial, exact same rook graphs",
+        "Cabrera Martínez–Kuziak–Yero arXiv:2112.05476v1",
+        "Resultary rook graph OIT Roman polynomial searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior gives totality automatic for m+n>=5 and the 2x2 exceptional invalid positive-isolated labelings; exactly the same zero-set inclusion-exclusion and defender pairing/path counting."
+        ],
+        "reasoning": "For m+n>=5, OIRDF=OITRDF by positive-clique fiber argument. For m=n=2, W_ordinary=W_total+4z³+2z⁴. Therefore the earlier explicit total polynomial determines the submitted complete ordinary polynomial and all minimum multiplicities without a new combinatorial result.",
+        "searches": [
+          "November 2 full prior RESULT.md theorem, Assumptions, Proof steps 2,3,5",
+          "Submitted pinned RESULT.md Proof 1-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior full formula F_mn(z)=sum_k A(k)z^(N-k) sum_t(-1)^t binom(k,t)(1+z)^(N-k-t(m+n-t-1))-1_{2x2}(4z³+2z⁴).",
+          "Submitted ordinary W_mn has z^a(z+z²)^(N-k-a)=z^(N-k)(1+z)^(N-k-a); hence W_mn=F_mn+1_{2x2}(4z³+2z⁴) exactly, and prior identifies the exception."
+        ],
+        "reasoning": "Submitted ordinary W_mn has z^a(z+z²)^(N-k-a)=z^(N-k)(1+z)^(N-k-a); hence W_mn=F_mn+1_{2x2}(4z³+2z⁴) exactly, and prior identifies the exception.",
+        "searches": [
+          "rook graph Cartesian product complete graphs outer-independent Roman domination weight enumerator number minimum functions",
+          "2026/11/02/SCOPE-the-outer-independent-total-roman-polynomial-of-rectangular-rook--7ce8f3eaf83c",
+          "outer independent total Roman polynomial rook graph 2x2 correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior lists coefficients all m,n plus sample B_2,3=12, B_3,3=108, B_3,4=504 and B_4,4=288.",
+          "These are identical exact tables and formulas for ordinary except a fully specified correction at m=n=2; prior already calculates it."
+        ],
+        "reasoning": "The prior coefficient table confirms duplicate exact enumeration.",
+        "searches": [
+          "2026/11/2 SCOPE outer independent total Roman polynomial rook graphs exact labeled weight coefficients",
+          "Resultary full 2026/11/2/SCOPE-the-outer-independent-total-roman-polynomial-of-rectangular-rook--7ce8f3eaf83c"
+        ]
+      },
+      "rationale": "FAIL: a published November 2, 2026 Resultary theorem gives the *complete labelled outer-independent total Roman polynomial* for every rectangular rook graph, all minimum-function multiplicities and exactly the exceptional 2x2 correction. For every other (m,n) the ordinary and total versions coincide; for 2x2 the submitted ordinary polynomial equals that earlier total polynomial PLUS its stated correction. Factoring powers shows identical inclusion-exclusion formula term by term; both even and odd optimal multiplicity expressions are identical. Nothing beyond prior complete formulas remains after such routine rearrangement.",
+      "residual_risks": [
+        "No residual uncertainty about the direct algebraic coverage from the full November 2 theorem.",
+        "Verification of all m,n rests on proof, not brute-force samples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE covering for all m,n with trivial ordinary/total correction",
+          "evidence": "Prior F_mn formula, step 2 2x2 correction, step 5 optimal count cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-outer-independent-total-roman-polynomial-of-rectangular-rook--7ce8f3eaf83c",
+          "material_read": "Entire RESULT.md: theorem, all assumptions, five proof steps, 2x2 exception and exact parity formulas",
+          "method": "GitHub full primary result; blob 29f3832eaf8c7a62198a20b33033bb599bad5b02",
+          "title": "The outer-independent total Roman polynomial of rectangular rook graphs",
+          "trigger": "Same graph class, labels, full generating polynomial and optimizer counts"
+        },
+        {
+          "assessment": "Prior scalar value only; superseded by decisive full 2026-11-02 polynomial",
+          "evidence": "N-floor(min(m,n)/2) scalar minimum (except total 2x2 boundary).",
+          "identifier_or_url": "arXiv:2112.05476v1",
+          "material_read": "Theorem3.4 and relevant section as reproduced/cited in submitted review; original full text not newly fetched in this run",
+          "method": "Pinned source and bibliographic comparison",
+          "title": "Relating the outer-independent total Roman domination number with some classical parameters of graphs",
+          "trigger": "Older scalar optimum for K_m square K_n"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: the natural complete weight census and optimizer classification were already provided by stronger directly relevant prior work. Reversing the known 2x2 correction to recover ordinary Roman functions is a trivial exceptional-boundary algebra adjustment, not a distinct valuable classification. Correctness and exhaustive reproducibility cannot rescue a table already fully determined.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Assigned pinned RESULT.md and nested verification/verify_rook_outer_independent_roman.py",
+    "Full Resultary 2026-11-02 OIT Roman polynomial, exact same rook graphs",
+    "Cabrera Martínez–Kuziak–Yero arXiv:2112.05476v1",
+    "Resultary rook graph OIT Roman polynomial searches"
+  ],
+  "disposition": "failed",
+  "final_claim": "Complete labelled ordinary outer-independent Roman weight polynomial and min-function multiplicities on rook graphs K_m square K_n; total variant differs only by 2x2 polynomial correction.",
+  "limitations": [
+    "No residual uncertainty about the direct algebraic coverage from the full November 2 theorem.",
+    "Verification of all m,n rests on proof, not brute-force samples."
+  ],
+  "residual_risks": [
+    "No residual uncertainty about the direct algebraic coverage from the full November 2 theorem.",
+    "Verification of all m,n rests on proof, not brute-force samples."
+  ],
+  "schema_version": 1
+}
