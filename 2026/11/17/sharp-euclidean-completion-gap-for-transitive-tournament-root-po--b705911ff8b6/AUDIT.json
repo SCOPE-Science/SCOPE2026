@@ -1,0 +1,186 @@
+{
+  "correctness": {
+    "rationale": "Every negative root has an explicit complementary-coordinate positive-root convex witness with norm squared 12/[(n-3)(n-2)(n-1)] for n≥5. The farthest negative highest root satisfies all projection KKT inequalities, while a strictly improving root direction excludes every competitor. Rational low-dimensional certificates cover n=2,3,4. Convexity proves uniqueness over the entire full root polytope. Exact standard-library checks (n=2..16, plus n=30,61,103 projection checks) and 220 independent numerical QPs (n=2..11) were executed from the included paths; finite checks support but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2203.14521 proves face and facet conditions in general quivers, not Euclidean distances between a quiver and its bidirection.",
+        "Public minimum-sphere result https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-simple-roots-control-the-minimum-sphere-of-transitive-tournament--c8c64739a8f1/RESULT.md determines the parabolic center and radial shells, but not projection from negative roots or Hausdorff extrema.",
+        "Public one-skeleton theorem https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9/RESULT.md determines adjacencies and graph diameter, not ambient nearest points.",
+        "Public Poisson-width theorem https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-poisson-width-loss-and-macroscopic-exposed-roots-of-transitive-t--e421231a0d75/RESULT.md determines a random-direction width-loss distribution, a distinct invariant from Hausdorff distance."
+      ],
+      "reasoning": "Face classifications, minimum enclosing balls, one-skeleton data and random-direction support ranges cannot in general determine directed Hausdorff distance. In particular the known sphere center supplies a lemma used in this proof, not the new projection normal inequalities at the negative highest root or comparison with every other vertex. None of the inspected stronger-sounding results subsumes the asserted exact metric claim.",
+      "searches": [
+        "published-finding corpus: Euclidean Hausdorff distance between symmetric edge polytopes of a graph and its one-edge or one-vertex extension, exact facets",
+        "published-finding corpus: directed edge polytopes of acyclic tournaments total orders complete graph Euclidean inradius circumradius Hausdorff distance",
+        "Web: \"directed edge polytope\" \"Hausdorff distance\" \"symmetric\"",
+        "arXiv:2203.14521 main theorems 1.1–1.4",
+        "arXiv:1901.07113 PDF introduction and root-polytope preliminaries"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1901.07113",
+      "arXiv:1903.06595",
+      "arXiv:2001.05191",
+      "arXiv:2203.14521",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-simple-roots-control-the-minimum-sphere-of-transitive-tournament--c8c64739a8f1/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-poisson-width-loss-and-macroscopic-exposed-roots-of-transitive-t--e421231a0d75/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-crosspolytopal-highest-root-deletion-and-a-power-of-two-volume-l--95c090fe6926/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier minimum-sphere result gives the exact vector of parabolic coefficients and radius 2-12/[n(n²-1)], but only distances of positive-root vertices from its sphere center; it does not solve nearest-point problems for negative roots.",
+        "The present worst-case Hausdorff invariant is 2+12/[(n-3)(n-2)(n-1)] squared for n≥5 and has unique extremizer e_n-e_1; it is not the enclosing sphere radius or the mean directional width.",
+        "The earlier highest-root deletion theorem computes lattice-normalized volume loss after discarding one positive root, rather than adding all negative roots; its crosspolytopal section does not imply the distance.",
+        "General face and origin-adjoined root-polytope descriptions supply the convex-hull structure but no Euclidean projection inequality."
+      ],
+      "reasoning": "The nearest prior sphere center implies our supporting minimum-norm lemma after noting its root scalar products; we credit it explicitly and exclude that lemma as a stand-alone novelty. From that premise one still must prove the global complementary-coordinate bound, the highest negative-root KKT inequalities, the strict competitors, and the two exceptional small-dimensional computations. The previous claims are not equivalent to, nor broader than, these joint assertions.",
+      "searches": [
+        "Published full text: https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-simple-roots-control-the-minimum-sphere-of-transitive-tournament--c8c64739a8f1/RESULT.md",
+        "Published full text: https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9/RESULT.md",
+        "Published full text: https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-poisson-width-loss-and-macroscopic-exposed-roots-of-transitive-t--e421231a0d75/RESULT.md",
+        "Published full text: https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-crosspolytopal-highest-root-deletion-and-a-power-of-two-volume-l--95c090fe6926/RESULT.md",
+        "arXiv:2001.05191v2 source definition and faces theorem",
+        "arXiv:1901.07113v2 root preliminaries and triangulation theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Numata–Takahashi–Tamaki arXiv:2203.14521 defines the nonorigin directed-edge convex hull; the corresponding full symmetric root hull is its bidirected completion.",
+        "Setiabrata arXiv:2001.05191 distinguishes the nonorigin convex hull from the origin-adjoined model.",
+        "Targeted published-finding corpus searches returned a nearest-positive-root one-skeleton, an enclosing-sphere theorem and a Poisson random-width theorem, but not a statement of the present point-to-set Hausdorff formula."
+      ],
+      "reasoning": "Equivalent objects were checked under directed edge, transitive tournament, positive type-A roots, symmetric root hull and convex projection terminology. Root-sign reversal only changes the chosen positive system isometrically. The origin-adjoined model is not equivalent: it changes feasible metric projections. No inspected equivalent-formulation theorem implies the exact nonorigin Hausdorff distance or the unique farthest point.",
+      "searches": [
+        "published-finding corpus: Euclidean projection of negative highest root onto convex hull of all positive type A roots without origin, parabolic coefficients on interior simple roots",
+        "published-finding corpus: exact Euclidean Hausdorff distance between full type A root polytope conv(e_i-e_j all i≠j) and positive directed edge polytope of transitive tournament conv(e_i-e_j i<j), farthest negative highest root e_n-e_1, cubic n^{-3} correction",
+        "Web: \"Hausdorff\" \"transitive tournament\" \"polytope\" Euclidean",
+        "Web: \"Hausdorff distance\" \"positive root polytope\" \"full root polytope\"",
+        "Web: \"positive root polytope\" \"projection\" \"Euclidean\" A_n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined mathematical claims in published same-object results did not contain an exact bidirected-versus-transitive root-polytope Hausdorff theorem.",
+        "published-finding corpus ranked records included the positive-root minimum sphere, graph structure, a highest-root deletion volume and directional width loss; no distance table with 8, 9/2, 16/5, or the cubic correction appeared in results.",
+        "No identified primary text contained a matching squared Hausdorff-distance spectrum or a table of opposite-root projections."
+      ],
+      "reasoning": "The finite exceptional dimensions and infinite cubic correction were compared as exact numerical invariants and geometrical statements, not just matching words. These nonmatches do not prove global uniqueness of the finding; records beyond the inspected sources remain a residual historical risk.",
+      "searches": [
+        "published-finding corpus: minimal Euclidean norm point of positive type A root polytope without origin and Euclidean distance from opposite root",
+        "Web: \"transitive tournament\" \"Hausdorff\" \"root polytope\"",
+        "Web: \"distance\" \"negative highest root\" \"positive root polytope\"",
+        "Published geometry records: searched the scientific claims and titles under root polytope / directed edge / full root / transitive tournament"
+      ]
+    },
+    "rationale": "Originality attaches to exact all-dimensional directed-to-symmetric Euclidean Hausdorff separation, its unique external highest-root extremizer and support transition. Earlier work on the same positive-root polytope already gives the parabolic minimum-sphere center; those coefficients are reused and explicitly NOT claimed as a new lemma in isolation. Full literature and public same-object comparisons did not identify any assertion covering the distance and projection theorem. Historical priority remains provisional.",
+    "residual_risks": [
+      "An older or differently named positive-root metric projection/covering-radius theorem could state an equivalent result despite targeted searches.",
+      "The earlier sphere theorem yields the parabolic center used as a lemma; no separate novelty is claimed for that point or its norm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact object and classifies faces but does not give a directed-to-symmetric Hausdorff formula.",
+        "evidence": [
+          "arXiv:2203.14521v1, 2022-03-28, Theorems 1.1–1.4 and Definition 3.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.14521v1",
+        "material_read": "Abstract, introduction, definitions and stated dimension/facet/face theorems, plus PDF front matter.",
+        "method": "Read HTML text and inspect first PDF page.",
+        "title": "Faces of Directed Edge Polytopes",
+        "trigger": "Exactly the nonorigin directed-edge construction and primary MSC 52B05."
+      },
+      {
+        "assessment": "Studies face structure of the origin-adjoined model; no covering metric statement in the material inspected.",
+        "evidence": [
+          "arXiv:2001.05191v1, 2020-01-15, definitions of Q and Q-tilde; Theorems 3.4 and 3.18."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.05191",
+        "material_read": "Abstract and the full mathematical introduction and root-polytope definitions (pages 1–2).",
+        "method": "Inspect PDF first page and read indexed text through the definitions and stated main results.",
+        "title": "Faces of Root Polytopes",
+        "trigger": "Positive type-A root models and the origin-adjoined ambiguity."
+      },
+      {
+        "assessment": "Covers triangulation and refined face enumeration, not the claimed Euclidean metric separation; origin-inclusion convention differs.",
+        "evidence": [
+          "arXiv:1901.07113v1 first public 2019-01-21; v2 pages 1–3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.07113",
+        "material_read": "Abstract, introduction, preliminaries including the full-root and origin-adjoined models on pages 1–3; targeted full-text searches for Hausdorff and distance.",
+        "method": "PDF text inspection, first two page images, and whole-document term searches.",
+        "title": "Classification of Uniform Flag Triangulations of the Boundary of the Full Root Polytope of Type A",
+        "trigger": "Same full type-A root hull and its positive-root subconfiguration."
+      },
+      {
+        "assessment": "Concerned with root-cone triangulations and enumerative chambers, not ambient Hausdorff separation.",
+        "evidence": [
+          "arXiv:1903.06595v1, first public 2019-03-15."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1903.06595",
+        "material_read": "Abstract, introduction, root-cone/Kostant chamber setup and first PDF page.",
+        "method": "Read PDF indexed text and inspect first page image.",
+        "title": "Root Cones and the Resonance Arrangement",
+        "trigger": "Same positive-root configuration and possible stronger root-cone coverage."
+      },
+      {
+        "assessment": "Strong overlap in parabolic coefficients. Its enclosing-sphere theorem does not include the external negative-root projections or Hausdorff distance.",
+        "evidence": [
+          "Its radius is 2-12/[n(n²-1)] squared; its center has simple-root coefficients proportional to h(n-h)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-simple-roots-control-the-minimum-sphere-of-transitive-tournament--c8c64739a8f1/RESULT.md",
+        "material_read": "Complete published RESULT.md (finding, assumptions, proof, verification, limitations and references).",
+        "method": "Read exact published source file.",
+        "title": "Simple roots control the minimum sphere of transitive-tournament directed edge polytopes",
+        "trigger": "Same exact positive-root family and parabolic barycentric formula."
+      },
+      {
+        "assessment": "Classifies edges after deleting origin but not Euclidean distance to symmetric completion.",
+        "evidence": [
+          "Its formulas enumerate edges and simple vertices; metric projection is not an implication."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-1-skeleton-and-simple-vertex-exhaustion-of-transitive-tour--71a9627069b9/RESULT.md",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Read exact published source file.",
+        "title": "Exact 1-skeleton and simple-vertex exhaustion of transitive-tournament root polytopes",
+        "trigger": "Same nonorigin polytope and potentially relevant simplex support."
+      },
+      {
+        "assessment": "Determines Gaussian random-direction width deficit; not the supremum of Euclidean point-to-polytope distances.",
+        "evidence": [
+          "Its loss scale is sqrt(log n/n), whereas the new point-to-set Hausdorff gap tends to sqrt(2)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-poisson-width-loss-and-macroscopic-exposed-roots-of-transitive-t--e421231a0d75/RESULT.md",
+        "material_read": "Complete published RESULT.md, including proof and relationship to prior work.",
+        "method": "Read exact published source file.",
+        "title": "Poisson width loss and macroscopic exposed roots of transitive-tournament polytopes",
+        "trigger": "Exactly the same directed/full pair, with a different metric observable."
+      },
+      {
+        "assessment": "Deletion volume and lattice section geometry concern a different pair of polytopes and do not determine the present Hausdorff gap.",
+        "evidence": [
+          "Its claim is a normalized-volume decrement of 2^(m-2), not Euclidean distance."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-crosspolytopal-highest-root-deletion-and-a-power-of-two-volume-l--95c090fe6926/RESULT.md",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Read exact published source file.",
+        "title": "Crosspolytopal highest-root deletion and a power-of-two volume loss",
+        "trigger": "Highest positive root and possible stronger covering geometric construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b705911f-f8b6-480a-a32b-f930efb4e4ac",
+  "value": {
+    "rationale": "The standard complete transitive-orientation polytope and its bidirected root hull are canonical geometric objects. Exact Hausdorff separation, unique extremal root and full nonvertex projection solve a motivated whole-polytope comparison, while the n=4-to-5 change in the projection support and cubic asymptotic excess are structural features not captured by known face counts or enclosing spheres.",
+    "status": "PASS"
+  }
+}
