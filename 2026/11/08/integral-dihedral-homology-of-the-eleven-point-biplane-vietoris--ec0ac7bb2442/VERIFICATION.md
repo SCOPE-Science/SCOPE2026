@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite exact verification
+# Independent mathematical audit
 
-Run `python3 verify_biplane_dihedral.py` with Python 3 (standard library only). It reconstructs every incidence, all 22-by-22 shortest-path distances, and all 79 maximal radius-two cliques independently of the analytic classification. The exact zero-based list of 34 selected four-cycle columns is printed in `RESULT.md` and hard-coded as a reproducible minor certificate. The script computes the determinant via fraction-free integer Bareiss elimination and obtains \(-1\), thereby verifying the integral spanning condition; the topological deduction from it is spelled out in `RESULT.md`.
+## correctness
 
-Independently, the program enumerates the complete face vector and calculates the mod-two chain boundary ranks, obtaining only ordinary \(\beta_0=1\) and \(\beta_3=21\). These mod-two checks corroborate but do not establish integral torsion-freeness, which is instead provided by the unimodular attaching minor.
+PASS
 
-For every element of the 22-member dihedral subgroup it verifies that the vertex action preserves all maximal simplices, calculates signed traces on all simplicial chain groups by explicit fixed-face enumeration, and converts Lefschetz numbers to degree-three homology traces. For nonidentity rotations the trace is \(-1\); for reflections it is \(+1\). The reflection has five fixed edges (chain sign \(-1\)) and five fixed tetrahedra (chain sign \(+1\)), giving Lefschetz number zero. The analytic pair count and the exact script result agree.
+For cyclic Q={1,3,4,5,9}, the eleven 5-element blocks form a symmetric (11,5,2) design. Distances are two within sides and 1/3 across, yielding 34 H_1 circles at radius 1 and the asserted complete 79-facet radius-two list. The contractible A,B cover intersects in the 55-edge incidence graph, so U≃ΣG≃∨34S²; fifty-five tetrahedral 3-cells attach along incidence four-cycles. I independently reconstructed the rooted BFS chord 34×55 matrix and the listed 34-column minor and obtained exact integer determinant -1, hence 34 primitive attachments kill π_2 and leave 21 independent 3-spheres. Independently enumerated all 4776 nonempty faces and computed all 22 signed dihedral Lefschetz values: identity χ=21, nontrivial rotations -1, and all point/block-swapping reflections +1; yields Q[D22] module 1⊕2W.
 
-No machine output is used as a substitute for the proof of CW attaching-cell consequences or the finite-group rational character decomposition. No independent validation has been performed.
+## originality
+
+PASS
+
+The published 2026-10-25 biplane result proves exactly the 21-sphere integral homotopy and C11 rotation module 1⊕2 Q(ζ11), but it explicitly restricts to simultaneous translations and makes no duality/reflection claim. Its C11 character does not determine the two possible D22 extensions (reflections trace +1 versus -1 or other sign constituents). Here the new reflection trace +1 and 11/10 dual eigenspaces are genuinely additional.
+
+## value
+
+PASS
+
+The point–block duality is intrinsic to the symmetric (11,5,2) design and its order-22 subgroup, and the exact reflection character separates group actions that the known C11 character and nonequivariant wedge cannot distinguish. The result is a motivated complete symmetry invariant of a natural finite incidence metric, not a number selected post hoc.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
