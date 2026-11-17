@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the extracted directory using Python 3. No nonstandard dependencies or external data are needed. The script separately evaluates the exact induced-subgraph formula and enumerates literal feasible allocations; it deliberately does not call the proof's network-flow construction.
+## correctness
 
-Actual output from the packaged source in its staging directory:
+PASS
 
-```
-n3_full= 3375
-n4_random= 3500
-online_weighted_sequences= 1200
-all finite tests passed
-```
+For each pair independently, assigning each positive-weight job to the endpoint with smaller accumulated pair-restricted load gives a last-assigned-job deletion witness after every arrival. Unit-size strong EF1 iff |2x_ij-q_ij|<=1, equivalent to strong EFX, and the odd-multiplicity leftover orientations have base loads b_i. Capacitated Hall on induced subsets gives exactly the ceiling of max_S (sum b_i+|E(H[S])|)/|S|. Direct independent orientation enumeration checked all 27 three-agent and 729 four-agent low-multiplicity profiles, and the two-job-per-spoke star gives fair n-1 vs unrestricted 2.
 
-The first count exhausts all \(5^3\cdot3^3=3375\) pairs of three-agent edge-multiplicity and singleton-count parameter vectors, with all feasible assignments enumerated separately. The second samples 3500 reproducibly seeded four-agent parameter vectors and enumerates their allocations. The final test directly rechecks both ordered strong-EF1 inequalities after each step of 1200 positively weighted, pair-eligible online streams.
+## originality
 
-**Logical verification limits:** No finite enumeration proves the theorem for arbitrary numbers of agents, arbitrarily many jobs, or arbitrary positive real job sizes. These domains are handled by the last-job argument and Hall's theorem in `RESULT.md`. The peak-load equivalence assumes strictly unit-size jobs; the arbitrary-size online assertion does not claim strong EFX. No independent external mathematical audit or formal proof assistant was used.
+PASS
+
+The two-sided pair-restricted strong EF1 formulation and rank-two positive online construction are distinct from published general eligibility impossibility using three eligible agents, and the unit exact cost-minimizing orientation application is not stated by inspected ordinary fairness paper. Capacitated Hall itself is classical. Relevant primary general strong EF1 paper full text inaccessible, so this is best-of-knowledge with material residual risk rather than a certification.
+
+## value
+
+PASS
+
+Eligibility-aware chore fairness is a substantive constrained online allocation problem. The pair-specific last-job invariant, complete characterization of fair unit allocations, exact peak-load optimum and unbounded fairness cost provide useful sharp structural and computational answers beyond textbook orientation facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
