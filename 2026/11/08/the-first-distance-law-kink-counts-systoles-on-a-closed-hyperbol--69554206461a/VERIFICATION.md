@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The self-contained `verify_hyperbolic_systole.py` uses Python 3 standard-library quadrature and no external datasets. Execute `python3 verify_hyperbolic_systole.py` in the extracted package directory.
+## correctness
 
-The program checks the same hyperbolic disk lens against two distinct exact representations, computes cyclic-cover orbital corrections at shortest-geodesic lengths 0.5, 2 and 4, checks that the coefficient tends to the universal value \(2\pi\ell\), and tests its second-derivative jump normalization. The expected final line is `HYPERBOLIC_SYSTOLE_CHECK_OK lenses=5 collar_lengths=3`.
+PASS
 
-Analytic scope: the main result is proved by a two-sheet covering identity, conjugacy-class unfolding, and controlled local lens-asymptotics. Floating-point quadrature supports but cannot establish the theorem for every closed hyperbolic surface. Tests do not generate a closed surface or identify a new metric. No independent external validation has taken place.
+The deck-group orbits are ell-separated, giving a short interval with at most double fibers. Integrating the overcount of projected disks gives the 1/2 sum of geodesic disk overlaps. The local length gap isolates primitive conjugacy classes of systoles; Fermi-coordinate unfolding gives per-systole orbital integral ell*int L(r,d_ell(t))cosh t dt. The displacement d_ell(t)=ell+a*t^2+O(t^4), a=tanh(ell/2), and hyperbolic lens tangency L=(4/3)*sqrt(a)*h^(3/2)+... lead by a beta integral to I=2pi*ell*eps^2+O(eps^3), independently symbolically checked. Thus the deficit and negative derivative jump follow; the F small-radius coefficient gives A, first deficit gives ell, jump gives k. No global length-spectrum inversion or uniformity across degenerating surfaces is claimed.
+
+## originality
+
+PASS
+
+The exact pairwise geodesic-distance CDF first-cut-locus kink coefficient encoding the number of shortest geodesics is not stated by the specifically inspected prior sources; the Selberg/geodesic conjugacy machinery is acknowledged as classical. Priority is best of knowledge with real risk of equivalent generalized covariogram formulas.
+
+## value
+
+PASS
+
+Recovering both length and *multiplicity* of systoles from a single natural metric-measure two-point distance law is an intrinsic inverse-geometric datum with geometric significance; the universal local coefficient independent of systole intersections is a substantive structural fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

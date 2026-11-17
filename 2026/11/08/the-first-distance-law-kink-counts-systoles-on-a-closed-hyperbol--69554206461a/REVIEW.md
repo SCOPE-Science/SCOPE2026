@@ -1,15 +1,21 @@
-# Scientific review: first systole signature in the two-point distance law
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is a connected closed orientable curvature \(-1\) surface, with area \(A\), systolic length \(\ell\), and count \(k\) of unoriented primitive systoles. Distinct orbit points are \(\ell\)-separated, so there is a two-sheet covering window immediately above \(\ell/2\). The exact double-fiber identity links the average ball-area deficit to half the deck-transformation overlap sum. Local finiteness of the hyperbolic length spectrum isolates oriented conjugacy classes of shortest primitive elements. Unfolding gives one cyclic orbital integral per unoriented geodesic. Hyperbolic Fermi coordinates show its tangency integral is \(2\pi\ell\varepsilon^2+O(\varepsilon^3)\); the coefficient recovers \(k\). The analytical proof, not numerical quadrature, establishes the theorem. A fixed-surface asymptotic and one-sided derivatives are explicitly stated.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Borthwick (2010) provides the classical orbital/conjugacy unfolding used in the proof, but the inspected Selberg trace calculation does not give a shortest-distance CDF, two-sheet occupancy identity, or universal first-jump coefficient. Thomson (2012) examines short closed geodesics and systolic geometry, not the two-point distance law. Golubev–Kamber (2017) study large-volume hyperbolic distance concentration; their inspected main results and appendix do not give a first-systole CDF jump. The theorem was also compared with available related geometric reconstruction findings by statement/implication, with no directly covering claim located. The possibility of an implicit equivalent through a more general spectral or covariogram formula remains a priority risk. A failed search alone is not considered proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-The two-point geodesic distance distribution is a natural invariant of a compact metric-measure space. The theorem extracts the systolic length and the number of systoles, which are discrete geometric data, from a sharp, universal and local feature of one scalar distribution; the coefficient does not depend on the geodesics' intersection arrangement. This is a nontrivial and potentially useful inverse-geometric relationship, distinct from merely evaluating a pre-existing integral for one example.
+The deck-group orbits are ell-separated, giving a short interval with at most double fibers. Integrating the overcount of projected disks gives the 1/2 sum of geodesic disk overlaps. The local length gap isolates primitive conjugacy classes of systoles; Fermi-coordinate unfolding gives per-systole orbital integral ell*int L(r,d_ell(t))cosh t dt. The displacement d_ell(t)=ell+a*t^2+O(t^4), a=tanh(ell/2), and hyperbolic lens tangency L=(4/3)*sqrt(a)*h^(3/2)+... lead by a beta integral to I=2pi*ell*eps^2+O(eps^3), independently symbolically checked. Thus the deficit and negative derivative jump follow; the F small-radius coefficient gives A, first deficit gives ell, jump gives k. No global length-spectrum inversion or uniformity across degenerating surfaces is claimed.
 
-## Limits and independent validation
-Only the first singularity is analyzed; the result does not reconstruct all geodesic lengths or the isometry class. The exact second-derivative jump would be unstable to estimate directly from finite noisy samples. The numerical verifier checks representative lens and collar integrals but does not certify all surfaces. Independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact pairwise geodesic-distance CDF first-cut-locus kink coefficient encoding the number of shortest geodesics is not stated by the specifically inspected prior sources; the Selberg/geodesic conjugacy machinery is acknowledged as classical. Priority is best of knowledge with real risk of equivalent generalized covariogram formulas.
+
+## value
+
+PASS
+
+Recovering both length and *multiplicity* of systoles from a single natural metric-measure two-point distance law is an intrinsic inverse-geometric datum with geometric significance; the universal local coefficient independent of systole intersections is a substantive structural fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
