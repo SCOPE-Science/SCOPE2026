@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:46:27.021598Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked exact follower-block decomposition of the combinatorial full Laplacian after a clique and k-a independent-set leaders: clique residual has 2n eigenvalue on zero-sum subspace, independent residual has n eigenvalue; the 2x2 constant-space Schur block yields objective (n-a-1)/(2n)+(n-k+a-1)/n+(2n+a)/(nk+a(n-k+a)). For k/sqrt(n)→c and a/sqrt(n)→s, subtracting a-independent leading terms leaves limiting strictly convex s/2+2/(c+s) on 0<=s<=c, whose minimizer s=min(c,max(0,2-c)). Uniform finite-ratio/derivative control supports endpoint exactness outside 1<c<2, with finite integer ties covered by the limiting statement. Exact fractions independently recomputed all a for n=20,k=4 and 7, verifying unique a=4 with cost 8/5 and a=0 with cost 381/280; also examined pinned script enumerating 502 direct matrix inversions. All-order result is analytic, not just a numerical sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitch–Leonard general theorem characterizes an optimal set via joint centrality and solves paths/cycles as examples.",
+          "Prior complete-bipartite theorem solves K_{p,q} with no within-part edges and takes different asymptotic limits."
+        ],
+        "reasoning": "Generic characterizations require additional n,k-dependent minimization and do not dominate a closed split-graph allocation phase diagram; the prior biclique formula is not directly applicable to a clique join.",
+        "searches": [
+          "arxiv:1407.1569 full sections and Appendix B,C",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-leader-allocation-and-a-square-root-law-on-complete-bipart--3151e2186be2",
+          "Resultary_Search: optimal noise-free leader grounded Laplacian balanced split graph clique independent set square root leader migration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1407.1569",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-leader-allocation-and-a-square-root-law-on-complete-bipart--3151e2186be2",
+        "arxiv:1208.0946 (general leader selection background)",
+        "arxiv:1412.6595 (paths/rings rather than split join)",
+        "Pinned RESULT.md 8de427d0f4923089bc820a1cdfa3e47ae081d5dc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Assigned objective C_{n,k}(a)=(n-a-1)/(2n)+(n-k+a-1)/n+(2n+a)/(nk+a(n-k+a)); differs from prior K_{p,q} objective.",
+          "Unique minimizer scaled a/sqrt(n) has c,2-c,0 regimes, not prior fixed-p k optimizer."
+        ],
+        "reasoning": "The new optimization follows a distinct 2x2 block with clique eigenvalue 2n. Results about biclique no-internal-edge graphs or generic joint centrality cannot produce this sharp triphasic allocation without new graph-specific analysis.",
+        "searches": [
+          "https://arxiv.org/pdf/1407.1569",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-leader-allocation-and-a-square-root-law-on-complete-bipart--3151e2186be2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent objective is trace inverse grounded full-graph Laplacian, up to a global noise factor, on K_n join independent n.",
+          "Symmetry reduces a chosen leader set to clique count a and independent count k-a."
+        ],
+        "reasoning": "Graph-automorphism reduction is valid for split joins but earlier generic graph-centrality statements do not evaluate the optimizer in this particular joint structure.",
+        "searches": [
+          "Resultary_Search: optimal noise-free leader grounded Laplacian balanced split graph clique independent set square root leader migration",
+          "arxiv:1407.1569 joint centrality noiseless leader selection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest full record provides K_{p,q} formula (x-1)/q+(y-1)/p+(p+q)/(pq-xy).",
+          "No checked exact split-graph K_n vee independent-n table or all-budget optimum found."
+        ],
+        "reasoning": "A prior square-root leader phenomenon on a different graph is not numerical equality. Exact K2,3 or other graph-specific nonnesting examples do not imply the n20 four/seven budget split-network witness.",
+        "searches": [
+          "Resultary_Search: optimal noise-free leader grounded Laplacian balanced split graph clique independent set square root leader migration",
+          "Resultary 2026/11/8 exact leader allocation bipartite"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp three-regime clique-leader migration law on balanced split graphs and a strict nonnesting witness. General joint-centrality identity and a recent complete-bipartite exact leader law address different graph structure/parameters; neither provides the assigned rational optimization or simultaneous k~c sqrt(n) phase diagram.",
+      "residual_risks": [
+        "Unindexed prior exact split-graph inverse-grounded-Laplacian optimization may exist.",
+        "Claims restricted to balanced unweighted split join, k<n and noise-free perfect leader limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SELECTION_NOT_SPLIT_GRAPH_OPTIMIZER",
+          "evidence": "Provides general k-leader selection objective/centrality equivalence and exact path/cycle examples, but not balanced split graph K_n join independent K_n, its rational count objective, or a sqrt(n) clique-leader migration law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "Accessible 21-page arXiv PDF; inspected abstract, joint-centrality characterizations, Section V and Appendices B,C statements on paths/cycles, and first-page screenshot",
+          "method": "Targeted primary PDF text including exact graph families and optimizer statements",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks (Fitch and Leonard)",
+          "trigger": "Strong general grounded network leader-selection theory"
+        },
+        {
+          "assessment": "DISTINCT_GRAPH_FAMILY_NOT_DOMINATING",
+          "evidence": "Prior graph K_{p,q} contains no same-part edges, whereas assigned graph K_n vee independent K_n contains a clique and n^2 join edges; its grounded block clique eigenvalues are 2n, not q. Prior large-q small-p sqrt(p) regime does not give assigned balanced n→infty k~c sqrt(n) allocation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-leader-allocation-and-a-square-root-law-on-complete-bipart--3151e2186be2",
+          "material_read": "Complete published Resultary RESULT.md, exact C_{p,q,k}(a), balanced endpoint allocation, fixed-p large-q sqrt(p) law, and non-nested K2,3 witness",
+          "method": "Full published GitHub blob 04b9f4bf03af4e85651290a8f9f5da0f7c1d2eed",
+          "title": "Exact leader allocation and a square-root law on complete bipartite networks",
+          "trigger": "Nearest earlier exact leader-count formula and square-root asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact optimal leader allocation on a naturally heterogeneous yet highly symmetric split core–periphery graph is a meaningful structural classification, with a nontrivial budget-dependent migration and an explicit failure of nested optimal sets. The sqrt-scale parameter transition specifies where the expensive clique infrastructure ceases to be optimal; it is not a cosmetic renaming of a biclique theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1407.1569",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-leader-allocation-and-a-square-root-law-on-complete-bipart--3151e2186be2",
+    "arxiv:1208.0946 (general leader selection background)",
+    "arxiv:1412.6595 (paths/rings rather than split join)",
+    "Pinned RESULT.md 8de427d0f4923089bc820a1cdfa3e47ae081d5dc"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unweighted balanced split graph perfect noise-free leader model; no finite-gain or general split graph theorem.",
+    "Reentrant optimum count has distinct graph and asymptotic from prior complete-bipartite sqrt law."
+  ],
+  "residual_risks": [
+    "Unindexed prior exact split-graph inverse-grounded-Laplacian optimization may exist.",
+    "Claims restricted to balanced unweighted split join, k<n and noise-free perfect leader limit."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_SELECTION_NOT_SPLIT_GRAPH_OPTIMIZER",
+      "evidence": "Provides general k-leader selection objective/centrality equivalence and exact path/cycle examples, but not balanced split graph K_n join independent K_n, its rational count objective, or a sqrt(n) clique-leader migration law.",
+      "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+      "material_read": "Accessible 21-page arXiv PDF; inspected abstract, joint-centrality characterizations, Section V and Appendices B,C statements on paths/cycles, and first-page screenshot",
+      "method": "Targeted primary PDF text including exact graph families and optimizer statements",
+      "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks (Fitch and Leonard)",
+      "trigger": "Strong general grounded network leader-selection theory"
+    },
+    {
+      "assessment": "DISTINCT_GRAPH_FAMILY_NOT_DOMINATING",
+      "evidence": "Prior graph K_{p,q} contains no same-part edges, whereas assigned graph K_n vee independent K_n contains a clique and n^2 join edges; its grounded block clique eigenvalues are 2n, not q. Prior large-q small-p sqrt(p) regime does not give assigned balanced n→infty k~c sqrt(n) allocation.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-leader-allocation-and-a-square-root-law-on-complete-bipart--3151e2186be2",
+      "material_read": "Complete published Resultary RESULT.md, exact C_{p,q,k}(a), balanced endpoint allocation, fixed-p large-q sqrt(p) law, and non-nested K2,3 witness",
+      "method": "Full published GitHub blob 04b9f4bf03af4e85651290a8f9f5da0f7c1d2eed",
+      "title": "Exact leader allocation and a square-root law on complete bipartite networks",
+      "trigger": "Nearest earlier exact leader-count formula and square-root asymptotics"
+    }
+  ]
+}

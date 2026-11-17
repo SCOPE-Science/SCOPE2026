@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The automorphism reduction groups all leader sets by the number chosen from the clique. On each group, the grounded Laplacian has two contrast eigenvalues and one positive-definite two-dimensional mean block. Taking its inverse trace proves the exact rational objective for every declared finite parameter. Uniform convergence of the rescaled objective to the strictly convex \(s/2+2/(c+s)\) proves the three-phase square-root law, while differentiating the rational objective establishes the eventual exact endpoint selections. The 502 exact rational independently inverted follower submatrices and two strict allocation examples passed. Finite tests alone do not prove the infinite theorem.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The exact noisy-leader optimization metric and general joint-centrality formulation are known from Fitch and Leonard (arXiv:1407.1569); this is not claimed new. The 2012 supermodular framework gives approximation bounds (arXiv:1208.0946), exact algorithms in the 2014 work apply to paths and rings (arXiv:1412.6595), and a later resistance-distance treatment analyzes cycles, paths and special trees (arXiv:1708.06873). The relevant portions of these primary full texts were inspected. None of the compared theorems provides this balanced split-graph optimal allocation or the sharp \(k\asymp\sqrt n\) phase diagram. Alias searches included split graph, complete split, dense core-periphery, grounded inverse trace and noise-free leader selection. An inaccessible or unindexed result using a different topology name remains a real publication-priority risk; negative search results do not prove global novelty.
+PASS
 
-## Mathematical value — PASS
-A natural dense-core/periphery network exhibits two distinct, sharp leader-budget thresholds, despite both groups having equal numbers of nodes. The count of optimally pinned core nodes decreases across the intermediate regime, and the exact finite witness shows that no optimal four-leader choice can extend to an optimal seven-leader choice. This makes the theorem useful both as a design benchmark and as a structural test case for greedy or relaxation-based network leadership algorithms.
+Checked exact follower-block decomposition of the combinatorial full Laplacian after a clique and k-a independent-set leaders: clique residual has 2n eigenvalue on zero-sum subspace, independent residual has n eigenvalue; the 2x2 constant-space Schur block yields objective (n-a-1)/(2n)+(n-k+a-1)/n+(2n+a)/(nk+a(n-k+a)). For k/sqrt(n)→c and a/sqrt(n)→s, subtracting a-independent leading terms leaves limiting strictly convex s/2+2/(c+s) on 0<=s<=c, whose minimizer s=min(c,max(0,2-c)). Uniform finite-ratio/derivative control supports endpoint exactness outside 1<c<2, with finite integer ties covered by the limiting statement. Exact fractions independently recomputed all a for n=20,k=4 and 7, verifying unique a=4 with cost 8/5 and a=0 with cost 381/280; also examined pinned script enumerating 502 direct matrix inversions. All-order result is analytic, not just a numerical sample.
 
-## Scope and limitations
-Only the balanced unweighted complete split graph, noise-free leaders and square-root budget asymptotics are covered. No blanket assertion of originality against all unindexed literature and no external proof validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp three-regime clique-leader migration law on balanced split graphs and a strict nonnesting witness. General joint-centrality identity and a recent complete-bipartite exact leader law address different graph structure/parameters; neither provides the assigned rational optimization or simultaneous k~c sqrt(n) phase diagram.
+
+## value
+
+PASS
+
+Exact optimal leader allocation on a naturally heterogeneous yet highly symmetric split core–periphery graph is a meaningful structural classification, with a nontrivial budget-dependent migration and an explicit failure of nested optimal sets. The sqrt-scale parameter transition specifies where the expensive clique infrastructure ceases to be optimal; it is not a cosmetic renaming of a biclique theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
