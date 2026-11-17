@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Running `python3 verify_digit_tiling.py` on the supplied code using Python 3 standard library produced:
+## correctness
 
-```text
-PERIODIC_DIGIT_CHECK_OK tested_signed_integers= 145808 direct_finite_pairs= 1066728 bases=2..5 periods=2..5
-MECHANICAL_SUPPORT_CHECK_OK tested_signed_integers= 10005
-GAP_WITNESS_CHECK_OK lengths=2,4,8,12
-VERIFY_OK exact_integers=yes finite_tests_only=yes
-```
+PASS
 
-The periodic tests use the least-residue signed-digit recurrence and a separate direct Cartesian-product enumeration of all six-digit pairs for uniqueness. The mechanical-support tests use exact rational slopes. The gap tests check the predicted witnesses at four block lengths. These finite computations are consistency checks, not a proof of completeness for arbitrary supports or unbounded integers. The proof in `RESULT.md` independently establishes the infinite assertions using quotient recurrence, finite termination and explicit gap witnesses.
+Modulo q forces a unique signed digit at each position: S positions perform ceil(u/q) and T positions perform floor(u/q), proving injectivity. For positive n repeated quotients reach 1 or 0 and terminate exactly if T is infinite; for negative n they reach -1 or 0 and terminate if S is infinite. A length-R support-gap condition forces termination by h+R for q^h<=|n|<q^(h+1), giving H(n)<=1+q^(R+1)|n|. A run of r positions of one sign followed by the opposite support constructs an exact n=+/-q^j witness with height ratio q^r+q^-j, proving necessity. Mechanical floor-increment supports have counts floor(alpha N), balanced gaps, and growth x^alpha/x^(1-alpha). Independent exact integer residue algorithm checked 241 integers in each of 12 q/support patterns for bases 2,3,5, and exact K arithmetic was not substituted for the symbolic proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for the complete signed-integer coverage iff both supports infinite and sharp bounded-gap iff linear witness-height criterion. The 2026 Ding–Kiss–Niu–Pach–Sándor paper already supplies complementary binary positional injection and polynomial-density context: that at-most-one part is NOT new. Its abstract and accessible citation identify no coverage/height theorem, but its original full text was not obtained; Oxford VPN disconnected. Historical signed-digit representation literature could contain equivalent gap bounds, retained as risk. No claim that search absence proves novelty.
+
+## value
+
+PASS
+
+The difference between injection and coverage is fundamental for subtractive representation functions, and witness magnitude measures quantitative efficiency of unique representations. The theorem characterizes both features exactly for arbitrary complementary positional supports and constructs sharp long-gap counterexamples. This naturally motivated structural criterion is useful independently of any downstream general additive theorem; growth-controlled examples cover every complementary exponent pair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
