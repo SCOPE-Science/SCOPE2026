@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubic ambiguity reduction, primitive dyadic Gauss-sum evaluation, exceptional modulus-two case, full valuation count, and Weyl-space normalization are all derived in the proof. The standalone exact-coefficient tester exhaustively checks the stated zero patterns for dimensions 2 through 128, while numerical amplitude and Gram checks cover smaller dimensions. These finite experiments do not establish the general theorem by themselves.
+## correctness
 
-**Originality — PASS under bounded comparison.** The general Gabor diagonalization and known cubic-chirp ambiguity zeros are prior knowledge (Bojarovska and Flinth, arXiv:1503.05800, Theorem 2.3 and Example 2.3). Neither determines the exact dyadic valuation multiplicities or all singular values. A later article (Li, arXiv:2609.09614) mentions prime-power cubic ambiguity zeros in its abstract but its full text was inaccessible. An earlier equivalent Gauss-sum or Weyl-spectrum result remains possible.
+PASS
 
-**Mathematical value — PASS.** An exact rank fraction and complete positive singular spectrum for a canonical cubic-phase Gabor window have direct structural meaning in matrix tomography. The closed all-dimension result locates every invisible Weyl direction and quantifies the conditioning of its complement.
+Expand (x+a)^3-x³ to get the quadratic Gauss sum coefficient 3a x²+(3a²-b)x; factor v2(a) and evaluate primitive dyadic sums, with exceptional last modulus 2. For valuation t<=k-2, 2^(k-t-1) shifts times 2^(k-t-1) surviving b produce 4^(k-t-1) equal magnitudes. Weyl-character orthogonality converts |A| into sqrt(N)|A| lifted singular values. Independently checked exact cyclotomic zero conditions and squared-magnitude histograms at N=2,4,8,16,32,64, with support sizes 2,6,22,86,342,1366. The unbounded result rests on Gauss-sum proof, not those checks.
 
-**Limitations.** The claim applies to the unnormalized cubic phase on powers of two, to full-data complex-linear lifting only; it does not establish global nonlinear phase retrieval, partial sampling guarantees, historical priority in every vocabulary, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For N=2^k the cubic difference reduces ambiguity A(a,b) to a 2-adic quadratic Gauss sum. Its exact surviving support depends on v2(a), with exceptional terminal m=1 and k=1 cases, producing rank (N²+2)/3, kernel 2(N²-1)/3 and full positive singular-value multiplicities. The general Weyl diagonalization is known, but the all-dyadic valuation-stratified spectrum does not follow from known existence of zero ambiguities or odd-prime formulas. Inaccessible later primary source is a recorded priority risk.
+
+## value
+
+PASS
+
+Complete kernel rank and singular spectrum of a natural arithmetic Gabor window determines precisely which matrix directions its phaseless linear lift can and cannot detect and quantifies conditioning. 2-adic exception separates dyadic systems from known odd-prime calculations; mathematically motivated structural characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
