@@ -1,22 +1,21 @@
-# Scientific review of the full-clustering atom
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** With the precise capped Pareto model, the rescaled extreme weights converge to the intensity \(\lambda\alpha t^{-1-\alpha}dt\) Poisson process. For each fixed extreme cutoff, all hub-hub edges are deterministically present eventually. An explicit truncated-first-moment estimate bounds the fraction of roots adjacent to smaller weights; a conditional law of large numbers for edges to finitely many hubs gives empirical convergence. Poisson thinning yields the analytic mean. The unit atom equivalence is proved exactly by counting points above one and showing a positive chance of fewer than two incident edges when this count is at most one. Finite checks corroborate the algebra but do not establish the infinite theorem. Risk: limits are in distribution, not stronger coupling or almost sure convergence.
+PASS
 
-## Originality
+At Pareto α in (0,1), λ>0, ε_n=(λ/n)^(1/α), the rescaled weights ε_n W_i form a PPP with intensity λα t^(-1-α)dt. For fixed hub threshold δ>0, any two hubs are deterministically adjacent for large n; a uniformly selected root with W<=M has expected lower-hub neighbors at most λαM δ^(1-α)/(1-α), yielding a vanishing fraction of nonclique neighborhoods by taking δ↓0 then M↑infty. For fixed δ, conditional independent nonhub-to-hub edge indicators plus bounded variance give empirical fraction degree>=2, yielding the claimed random PPP functional Q by converging-together. Poisson thinning gives H_w~Poi(λw^α/(1-α)) marginally, and the exact Pareto integral gives E Q=1-exp(-λ/(1-α)). The event N=Π([1,infty))>=2 forces Q=1; if N<=1, an interval of root weights w≈1 has positive chance of H_w<=1 because remaining success parameters are summable, forcing Q<1. Thus P(Q=1)=1-e^-λ(1+λ). Finite numerical integration checker tests identities but not distributional convergence; main analytic proof supplies latter.
 
-**PASS on the currently inspected literature, with a material historical-priority risk.** The 2026 capped-model primary paper establishes random-environment limits for components and degrees, not an exact local-clustering atom in its abstract; its entire full text was inaccessible. The accessible full-text HTML of the highly relevant 2026 Catanzaro–van der Hofstad–Garlaschelli paper was inspected in its central model, main theorems, local clustering discussion, and non-self-averaging statements. It establishes that low-degree nodes are nearly cliques and that average local clustering can fail to self-average **for the exponential kernel**, so those phenomena are explicitly excluded from the originality claim. It cannot directly supply a positive endpoint atom, because exponential edge probabilities never equal one at finite arguments. The 2022/2025 Avena–Garlaschelli–Hazra–Lalli full HTML was inspected; it addresses the exponential model and says that local clustering is not considered. The exact hard-saturation atom remains a genuinely distinct sharp boundary, subject to possible coverage in inaccessible capped-model full text or other unlocated work.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Averages in strongly inhomogeneous graphs can concentrate or fluctuate, and the endpoint structure of their limiting law is a natural diagnostic. The exact positive probability of an empirical clustering coefficient tending to one has a direct mechanism: the existence of at least two universally adjacent extreme hubs. The exact mass \(1-e^{-\lambda}(1+\lambda)\) distinguishes two standard connection rules despite their shared heavy-tail regime and related typical clustering phenomena. This is a motivated invariant of the same natural critical random-graph model, not a numerical slice or a rebranding of general clustering.
+PASS best-of-knowledge after material full-text comparison. Andreis–Avena–Hazra–Matteini (arXiv:2610.29564v1) treat exactly the same hard-capped Pareto critical rank-one graph. Their FULL accessible arXiv HTML was inspected (model Section 1.1, Theorems 1–6, the Poisson environment and giant-component proof in Section 3, connectivity in Section 4, discussion, appendix): their explicit results concern degree, giant size, connectivity, component size and maximum degree, not an empirical local-clustering limit nor its perfect-clustering unit atom. Their discussion attributes earlier clustering non-self-averaging to a distinct exponential soft kernel. Catanzaro–van der Hofstad–Garlaschelli prove local clustering for that soft kernel with p=1-exp(-epsilon W_iW_j), whereas the hard-cap model gives certain hub-hub edges and an atom absent in the soft model. The novelty is the exact empirical local clustering functional, its expectation and unit atom, not any general PPP, degree limit or lack-of-self-averaging mechanism. Residual older literature priority risk remains.
 
-## Closest sources and remaining uncertainty
+## value
 
-- Andreis, Avena, Hazra, Matteini, arXiv:2610.29564: **same capped model**, full text unavailable; abstract read; cannot assert whole-document noncoverage.
-- Catanzaro, van der Hofstad, Garlaschelli, arXiv:2603.13159v1: **closest substantive clustering result**, full HTML with supplementary discussion read; exponential kernel and non-self-averaging already covered; the exact saturation atom is not.
-- Avena, Garlaschelli, Hazra, Lalli, arXiv:2212.08462 and journal article: full HTML read; exponential kernel, wedges/triangles, not local clustering.
-- Public mathematical-result searches returned no claim concerning this exact atom; search absence is not uniqueness proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Perfect local clustering probability for the vertex-averaged statistic is a natural, exact distributional feature of a critical infinite-mean random graph. Hard edge saturation creates deterministic two-hub cliques and a nonzero perfect-clustering atom that distinguishes it sharply from otherwise similar exponential-kernel clustering. The exact atom and expectation are motivated model-discriminating invariants beyond mere generic heavy-tail non-self-averaging.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

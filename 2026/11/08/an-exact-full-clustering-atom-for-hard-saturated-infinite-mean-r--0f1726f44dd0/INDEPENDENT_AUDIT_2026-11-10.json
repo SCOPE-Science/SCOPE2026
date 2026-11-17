@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T00:11:00.175927Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At Pareto α in (0,1), λ>0, ε_n=(λ/n)^(1/α), the rescaled weights ε_n W_i form a PPP with intensity λα t^(-1-α)dt. For fixed hub threshold δ>0, any two hubs are deterministically adjacent for large n; a uniformly selected root with W<=M has expected lower-hub neighbors at most λαM δ^(1-α)/(1-α), yielding a vanishing fraction of nonclique neighborhoods by taking δ↓0 then M↑infty. For fixed δ, conditional independent nonhub-to-hub edge indicators plus bounded variance give empirical fraction degree>=2, yielding the claimed random PPP functional Q by converging-together. Poisson thinning gives H_w~Poi(λw^α/(1-α)) marginally, and the exact Pareto integral gives E Q=1-exp(-λ/(1-α)). The event N=Π([1,infty))>=2 forces Q=1; if N<=1, an interval of root weights w≈1 has positive chance of H_w<=1 because remaining success parameters are summable, forcing Q<1. Thus P(Q=1)=1-e^-λ(1+λ). Finite numerical integration checker tests identities but not distributional convergence; main analytic proof supplies latter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andreis Theorem 3 derives largest component limit 1-Xi for Xi=E[product_z(1-min(Wz,1))|Pi]; Theorem 4 gives connectivity 1-e^-lambda; Theorem 6 concerns maximum degree atom at one. None is the vertex-averaged local-clustering statistic.",
+          "Discussion Section 1.3.1 attributes clustering/non-self-averaging to earlier exponential-kernel model rather than asserting a hard-cap clustering law."
+        ],
+        "reasoning": "The same-model prior proves related but different observables: largest-component/degree/connection events do not determine the exact all-neighbor-clique local-clustering average or the two-hub unit atom. The soft-kernel clustering paper proves a qualitatively similar phenomenon but not hard-capped endpoint probability.",
+        "searches": [
+          "Andreis et al arXiv:2610.29564v1 entire HTML, model and Theorems 1–6",
+          "Catanzaro et al arXiv:2603.13159v1 HTML",
+          "Avena Garlaschelli Hazra Lalli arXiv:2212.08462"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 2590943efa35c335303685e243116c6c9b5eacc8 and verify_local_clustering.py f44f864ffe26966a7c7af17e2a38f400936057a0",
+        "Andreis et al 2026 arXiv:2610.29564v1 FULL official arXiv HTML, 1426 lines, model/Theorems 1–6/Sections 3–4 and discussions",
+        "Catanzaro et al arXiv:2603.13159v1 FULL official arXiv HTML, soft-kernel equation and clustering results",
+        "Avena et al arXiv:2212.08462 related exponential connection kernel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Andreis Section 1.2 lists Theorems 1–6: degree, connectivity, random giant size, dust, distances and maximum degree, with hub count N>=1 governing its connectivity atom 1-e^-lambda.",
+          "Submitted Q(Pi)=E_w P(H_w>=2|Pi) has atom N>=2, 1-(1+lambda)e^-lambda; it is not the same as largest-component non-isolation functional 1-Xi or maximum-degree atom N>=1."
+        ],
+        "reasoning": "This precise comparison of random functionals and thresholds shows no implication from the earlier N>=1 hub and giant/degree results to the submitted N>=2 local-clustering atom without an additional two-neighbor theorem; the earlier paper does not state the latter.",
+        "searches": [
+          "Andreis et al arXiv:2610.29564v1 full accessible HTML",
+          "Catanzaro et al arXiv:2603.13159v1 full accessible HTML",
+          "Avena et al arXiv:2212.08462"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same hard-capped model as Andreis et al employs min(εW_i W_j,1), versus the distinct soft law 1-exp(-εW_iW_j).",
+          "PPP extreme hubs fully link under hard cap but not soft exponentiation."
+        ],
+        "reasoning": "Equivalent graph representation via extreme-weight point process recognized. Existing soft-kernel model is not equivalent at saturation; structural local clustering endpoint law is kernel-dependent.",
+        "searches": [
+          "Resultary query: critical Pareto capped rank one random graph local clustering atom at one Poisson point process",
+          "arXiv:2610.29564 heavy tails reshape connectivity",
+          "arXiv:2603.13159 clustering without geometry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The entire source main results list and keyword search for clustering identify only discussion of the older soft model, not a formula for 1-(1+lambda)e^-lambda in the hard cap."
+        ],
+        "reasoning": "No prior hard-cap exact empirical clustering table or formula found in the inspected nearest primary. It is an infinite n limiting distributional invariant, not a recomputed finite table.",
+        "searches": [
+          "Resultary search: capped Pareto infinite mean local clustering atom",
+          "arXiv:2610.29564v1 full HTML theorem and appendix search for clustering and triangle"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge after material full-text comparison. Andreis–Avena–Hazra–Matteini (arXiv:2610.29564v1) treat exactly the same hard-capped Pareto critical rank-one graph. Their FULL accessible arXiv HTML was inspected (model Section 1.1, Theorems 1–6, the Poisson environment and giant-component proof in Section 3, connectivity in Section 4, discussion, appendix): their explicit results concern degree, giant size, connectivity, component size and maximum degree, not an empirical local-clustering limit nor its perfect-clustering unit atom. Their discussion attributes earlier clustering non-self-averaging to a distinct exponential soft kernel. Catanzaro–van der Hofstad–Garlaschelli prove local clustering for that soft kernel with p=1-exp(-epsilon W_iW_j), whereas the hard-cap model gives certain hub-hub edges and an atom absent in the soft model. The novelty is the exact empirical local clustering functional, its expectation and unit atom, not any general PPP, degree limit or lack-of-self-averaging mechanism. Residual older literature priority risk remains.",
+      "residual_risks": [
+        "Worldwide priority is not certified; a different earlier hard-cap graph paper could contain a comparable local-clustering atom not located by bounded search.",
+        "Existing same-model giant-component limit is a relevant general PPP antecedent and must be credited; novelty is only the different degree>=2 clustering functional and exact atom.",
+        "The earlier institutional PDF attempt returned vpn_disconnected, but lawful arXiv FULL HTML subsequently resolved the relevant access limitation without bypass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering upon direct full-text comparison: same graph, but giant size/degree/connectivity/max-degree observables, not vertex average local clustering or its perfect-clustering atom",
+          "evidence": "Theorem 3: giant proportion 1-Xi; Theorem 4: connectivity atom 1-e^-lambda; Theorem 6 maximum-degree atom at 1; Section 1.3.1 cites soft-model clustering; no exact Q(Pi)=E_w P(H_w>=2|Pi) or 1-(1+lambda)e^-lambda theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2610.29564v1",
+          "material_read": "FULL available arXiv HTML v1: 1426 lines, Sections 1–6, model, Theorems 1–6, PPP giant-size and connectivity proof, appendix and related clustering discussion; theorem/keyword comparisons",
+          "method": "Official arXiv HTML full text (lawful open access), inspected after Oxford fallback was blocked by vpn_disconnected",
+          "title": "Inhomogeneous random graphs: how heavy tails reshape connectivity",
+          "trigger": "EXACT hard-capped Pareto critical graph with same epsilon scaling"
+        },
+        {
+          "assessment": "Noncovering for exact capped kernel: formula p_ij=1-e^-delta W_i W_j cannot yield deterministic fully saturated hub edges",
+          "evidence": "Model equation (1) explicit soft exponential; clustering random limit and non-self-averaging are credited rather than claimed new.",
+          "identifier_or_url": "https://arxiv.org/html/2603.13159v1",
+          "material_read": "Full arXiv HTML: model equation (1), local clustering theorems and Supplement Sections S.I–S.IV",
+          "method": "Official arXiv HTML full mathematical article",
+          "title": "Clustering without geometry in sparse networks with independent edges",
+          "trigger": "Closest previously proved local-clustering and non-self-averaging phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Perfect local clustering probability for the vertex-averaged statistic is a natural, exact distributional feature of a critical infinite-mean random graph. Hard edge saturation creates deterministic two-hub cliques and a nonzero perfect-clustering atom that distinguishes it sharply from otherwise similar exponential-kernel clustering. The exact atom and expectation are motivated model-discriminating invariants beyond mere generic heavy-tail non-self-averaging.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 2590943efa35c335303685e243116c6c9b5eacc8 and verify_local_clustering.py f44f864ffe26966a7c7af17e2a38f400936057a0",
+    "Andreis et al 2026 arXiv:2610.29564v1 FULL official arXiv HTML, 1426 lines, model/Theorems 1–6/Sections 3–4 and discussions",
+    "Catanzaro et al arXiv:2603.13159v1 FULL official arXiv HTML, soft-kernel equation and clustering results",
+    "Avena et al arXiv:2212.08462 related exponential connection kernel"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Average assigns zero to isolated and degree-one roots even though their neighborhoods are vacuously cliques; the clique-neighborhood fraction statement and Cn are distinct.",
+    "Only fixed α in (0,1), λ>0 and specified critical hard cap."
+  ],
+  "residual_risks": [
+    "Worldwide priority is not certified; a different earlier hard-cap graph paper could contain a comparable local-clustering atom not located by bounded search.",
+    "Existing same-model giant-component limit is a relevant general PPP antecedent and must be credited; novelty is only the different degree>=2 clustering functional and exact atom.",
+    "The earlier institutional PDF attempt returned vpn_disconnected, but lawful arXiv FULL HTML subsequently resolved the relevant access limitation without bypass."
+  ],
+  "schema_version": 1
+}
