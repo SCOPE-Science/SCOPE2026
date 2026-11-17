@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The theorem is accompanied by a complete symbolic proof of the primitive-vector character-sum identity, Smith normal form reduction, nonzero boundary terms, and cardinality of the lower-length determinantal cone. The verifier enumerates every Fourier frequency in the six-coordinate quotient for cyclic moduli 2, 3, 4, 8, and 9. Canonical Smith-stratum Fourier coefficients are checked separately in exact integer cyclotomic arithmetic, while the transform-wide cyclic tests use numerical FFTs with a tolerance of \(10^{-5}\). All 4,096 frequencies for the noncyclic ring \(\mathbb F_2[t]/(t^2)\) are evaluated in exact Walsh arithmetic and checked against the full predicted Smith-stratum formula. Execute `python3 verify_commuting_chain.py` with NumPy installed.
+# Independent mathematical audit
 
-A numerical transform cannot prove an all-ring theorem. The proof does not require the numerical verifier. This verification is not an independent mathematical audit or certification.
+## correctness
+
+PASS
+
+The additive decomposition X=xI+[[u1,u2],[u3,0]] and analogous Y is valid even in characteristic two. Commuting iff the two three-vectors have all 2x2 minors zero, so the scalar sums force both traces to vanish. Row/column invariance gives a Smith normal form for frequency W, and exact primitive-vector hyperplane-annihilator sums give Smith-stratum Fourier multipliers, with zero exactly when s+t<=k-2 for t<k; the t=k cases remain positive. Thus nonzero support is exactly the pullback of rank<=1 congruence modulo pi^(k-1). Counting primitive vectors in the lower-length cone yields (q²+q+1)q^(4k)−(q+1)q^(3k+1). Independently exact-Walsh-enumerated all 4096 quotient Fourier coefficients over F2[t]/t², yielding 1408 nonzeros and each predicted Smith multiplier. Ring-universal claim follows from exact annihilator/Smith proof, not enumeration.
+
+## originality
+
+PASS
+
+The precise one-level descent of the commuting-matrix Fourier support across arbitrary finite commutative chain rings is distinct from pre-existing algebraic-geometry descriptions of truncated-ring 2x3 rank-one varieties and from prime-field exponential-sum bounds. No direct covering theorem was identified in bounded searches; specialist harmonic analysis over chain rings could contain an equivalent general fact.
+
+## value
+
+PASS
+
+Exact Fourier support and convolution rank of the canonical commuting-pair incidence relation are natural algebraic and harmonic invariants; a sharp congruence descent independent of ring presentation is a motivated structural theorem, not merely a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
