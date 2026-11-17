@@ -1,15 +1,21 @@
-# Scientific review: midpoint refinement of star splines
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer degree \(d\ge2\), the physical metric star and the two spline spaces are unambiguously defined. The proof explicitly obtains the nodal mass matrices and inverse rows, identifies the signed affine kernel on each edge, integrates its absolute value, and proves strict outer-leaf norming by rational inequalities and convexity of pointwise evaluation. The factorization of the refined-minus-coarse norm has the exact sign switch between degree \(3\) and degree \(4\). The finite exact-arithmetic reproduction is independent of the symbolic universal proof. Potential caveat: evaluation norm means the norm of the integral-functional kernel, not an input function's value, and the norm is taken on real \(L^\infty\).
+## correctness
 
-## Originality — PASS, with residual literature risk
-A claim-level comparison to the previously established metric-star projector result `646e916e-e085-48d1-9ca6-0f900a8cec3b` establishes that the prior result concerns functions affine across entire, unrefined arms, not functions with newly inserted independent midpoint degrees of freedom. The atomic-star, symmetric double-star, and graph projector results have different spline spaces or geometry. Three actual searches of published mathematical findings for the refined-star exact norm and refinement threshold did not return an equivalent or dominating result. Kayumov (2004) was inspected through its accessible full arXiv-rendered text, especially its introduction and main results: the domain is an interval, not a branched star. Diening–Storn–Tscherpel (2020) was inspected through the full HTML paper's introduction and stability/refinement framework: its setting is finite-element meshes on polyhedral domains and its statement does not entail this exact rational branching-degree threshold. Boman (2006) has only an accessible abstract, so completeness of the historical comparison cannot be claimed. Searches do not prove uniqueness in the literature.
+PASS
 
-## Mathematical value — PASS
-Uniform midpoint refinement is a canonical intervention in a finite-element space. The theorem demonstrates that the same refinement can increase or decrease the *sharp* amplification of its orthogonal projector depending solely on branching degree, with a strict transition at four arms and an explicit nonzero asymptotic improvement. Complete localization of norming evaluations makes the statement usable for sharp stability comparisons, rather than just producing one finite graph invariant. This is structurally motivated by mesh refinement and branched-network approximation, not a selected numerical sample or a mere reparameterization of the coarse-star formula.
+PASS: Refined nodal hat Gram is M=A/6 with A hub diagonal 2d, each midpoint 4 and leaf 2, coupling 1 along each incidence. Exact inverted evaluation row kernels on unit edges have opposite-signed endpoint coefficients, so the absolute-kernel integral is (p²+q²)/(2(p+q)). The hub, midpoint, leaf norms are respectively 17/9, (76d+29)/(9(4d+3)), and (1552d²+928d+19)/(9(4d+3)(20d+1)); exact positive differences show only outer leaves are norming. Coarse norm (7d+3)/(3(d+1)). Their difference equals -4(32d³−104d²−77d+2)/[9(d+1)(4d+3)(20d+1)]; cubic sign negative at d=2,3 and positive for d>=4, proving sharp reversal. Separate independent SymPy assembly/inversion and signed-edge exact integration checked d=2,…,8, including norming locations and signs. Finite range corroborates the all-d symbolic proof.
 
-## Limitations and closest literature
-The result is for equal arms, uniform arclength measure, midpoint nodes, real values, and continuous degree-one splines. It is not a general mesh-refinement monotonicity law. Closest primary works: Kayumov, arXiv:math/0408418 (2004), full accessible text inspected; Diening–Storn–Tscherpel, arXiv:2008.01801 (2020), full HTML inspected; Boman, DOI:10.1007/s10543-006-0062-3 (2006), abstract inspected but complete text unavailable; de Boor, DOI:10.1090/S0025-5718-1976-0425432-1 (1976), abstract inspected. The principal residual risk is an older exact network spline formula not indexed under star or graph terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: earlier exact star formulas cover one-element-per-arm coarse projection and broader dimension-free spline stability, not the uniformly midpoint-refined d-star. The new leaf-only norming theorem and d=4 reversal are quantitatively different; no stronger same-configuration exact norm or refinement comparison was found in inspected material. General Lp projection-stability literature supplies methodological context, not the rational thresholds.
+
+## value
+
+PASS
+
+PASS: Refinement is a natural operation in approximation theory, and the direction of change of the sharp L∞ least-squares amplification depends unexpectedly on star degree. The exact sharp d=4 boundary, norming-point classification, and high-degree limiting deficit provide a motivated counterexample to naive monotonicity; this is a genuine family calculation, not an arbitrary one-off instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
