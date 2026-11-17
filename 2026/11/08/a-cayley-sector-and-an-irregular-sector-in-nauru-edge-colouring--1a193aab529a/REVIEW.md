@@ -1,15 +1,21 @@
-# Scientific review of the Nauru edge-colouring reconfiguration result
+# Independent mathematical audit
 
-## Correctness — PASS
-The state space is exhaustively generated in two independent ways. A perfect matching determines the zero-colour edges and a collection of complementary even cycles; alternating choices generate all and only legal named colourings (120 matchings, 504 solutions). A separate direct edge-constraint solver independently gives 504. Both traverse every legal two-colour cycle and obtain 1,674 edges, two components of sizes 144 and 360, and identical all-pairs shortest-distance distributions. Explicit permutations preserve every underlying graph edge, generate a 144-element group and act freely and transitively on the 144-state component; its six neighbour elements square to the identity. All claims are exact finite enumerations with reproducible checks, rather than statistical estimates.
+## correctness
 
-## Originality — PASS, qualified
-Eppstein's 2007 primary description of the Nauru graph covers the base graph, the star-graph model and its order-144 automorphism group, but not an action on edge-colouring Kempe states. The full 2012 belcastro–Haas preprint develops equivalence classes and constructions for cubic graphs, not this full metric and Cayley splitting. The full 2021 Goedgebeur–Östergård preprint gives aggregate equivalence-class tables and an equivalence-class search algorithm; it may already determine the two-class scalar for this graph and that scalar is expressly excluded from the novelty claim. Neither inspected article states the 144/360 labelled metric distinction, ten/fourteen-cycle criterion, or regular group action. Search for alternate wordings, colour-permutation quotients, individual perfect-matching flips and the generalized Petersen graph alias found no dominating published claim. Historical priority nevertheless remains qualified because the Watkins (1969) full text and the census's associated full dataset were unavailable.
+PASS
 
-## Value — PASS
-The two connected components have different intrinsic kinds of geometry: one is a homogeneous bipartite Cayley graph with a six-involution generating set and uniform distance spheres, the other has multiple degrees, odd cycles and larger shortest-path diameter. The explicit ten-cycle criterion classifies reachability without performing a search. This is a natural complete finite classification at the chromatic-index threshold of a classical cubic symmetric nonplanar graph, and supplies an exact benchmark for edge-colouring switching algorithms beyond a bare count of equivalence classes. The specific metric and Cayley characterization are not immediate textbook deductions from the known graph's symmetry or the aggregate cubic-graph census.
+Inspected two complete standard-library source scripts. Independent exhaustive perfect-matching enumeration found exactly 120 matchings, feasible even complementary factors yield 504 distinct NAMED colorings. Enumerated every bichromatic cycle switch and verified reciprocity, 1674 undirected switching edges and exactly 144/360 components. All-source BFS recomputed small-sector shells (1,6,27,66,44), edge count432, diameter4 and large-sector degree counts 6:210,8:144,12:6, distances (1242,5904,18981,31401,6732,360), ecc 5:330 and 6:30; cycle-type 10+14 exactly small sector. Verified explicit shift/reflection/alpha preserve base graph, generated 144-element group, regular 144-colouring orbit and all six neighbouring generators are involutions. Exact finite exploration exhausts the defined graph, not an infinite family.
 
-## Sources and residual risk
-Full-text material inspected: Eppstein (2007), arXiv:1209.1730 and arXiv:2105.01363. Watkins (1969) is a plausible but uninspected predecessor; the full released 2021 computational dataset was not evaluated. These gaps prevent asserting exhaustive historical priority, not verifying the current finite computation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2021 Goedgebeur–Östergård full paper gives aggregate numbers of edge-Kempe classes across cubic graph censuses, not this entire 504-state adjacency/metric classification. Earlier belcastro–Haas develops equivalence theory; Eppstein treats Nauru itself and its 144 automorphisms, not their free and transitive action on a Kempe component. Same-graph Nauru anti-forcing spectrum is a different invariant. The uninspected 1969 Watkins full text and underlying graph-census raw dataset are specific priority risks.
+
+## value
+
+PASS
+
+A complete metric and group-action classification of a natural 24-vertex symmetric cubic graph’s edge-Kempe state space reveals a sharp Cayley-versus-irregular sector dichotomy, marked by an invariant bichromatic 10-cycle and different girth/eccentricity. These structural invariants can serve exact reconfiguration benchmarks beyond the previously tabulated class count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

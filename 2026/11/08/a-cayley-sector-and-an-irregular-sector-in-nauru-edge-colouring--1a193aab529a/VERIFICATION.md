@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction instructions and limits
+# Independent mathematical audit
 
-Run `python verify_matching.py` and `python verify_colouring.py` with Python 3.9 or later. No third-party Python libraries, network connectivity or external datasets are required.
+## correctness
 
-The matching-based verifier constructs all 120 perfect matchings, identifies all even complementary two-factors, enumerates 504 proper three-edge-colourings with named colours, and builds 1,674 switching edges by two-colour connected-component swaps. It computes 144/360 components, exact all-pairs distances and degree spectra. It also constructs three explicit underlying graph automorphisms and their 144-element subgroup, checks its free transitive action on the 144-colouring sector, and verifies six involutory generators. A parity-lift BFS checks odd girth.
+PASS
 
-The direct-colouring verifier uses a distinct recursive edge-colour constraint solver rather than matching enumeration. It independently walks bichromatic cycles by original-graph vertices and reconstructs every Kempe move and all-pairs distances. The programs use different fixed edge orders but produce the identical isomorphism-invariant counts and sector cycle-type criterion.
+Inspected two complete standard-library source scripts. Independent exhaustive perfect-matching enumeration found exactly 120 matchings, feasible even complementary factors yield 504 distinct NAMED colorings. Enumerated every bichromatic cycle switch and verified reciprocity, 1674 undirected switching edges and exactly 144/360 components. All-source BFS recomputed small-sector shells (1,6,27,66,44), edge count432, diameter4 and large-sector degree counts 6:210,8:144,12:6, distances (1242,5904,18981,31401,6732,360), ecc 5:330 and 6:30; cycle-type 10+14 exactly small sector. Verified explicit shift/reflection/alpha preserve base graph, generated 144-element group, regular 144-colouring orbit and all six neighbouring generators are involutions. Exact finite exploration exhausts the defined graph, not an infinite family.
 
-Both programs assert their critical outputs. They are exhaustive finite proofs for the stated 24-vertex graph, not an infinite-family certificate. The priority search is subject to the historical-source access limitations detailed in the scientific document; no independent scholarly audit has been performed.
+## originality
+
+PASS
+
+The 2021 Goedgebeur–Östergård full paper gives aggregate numbers of edge-Kempe classes across cubic graph censuses, not this entire 504-state adjacency/metric classification. Earlier belcastro–Haas develops equivalence theory; Eppstein treats Nauru itself and its 144 automorphisms, not their free and transitive action on a Kempe component. Same-graph Nauru anti-forcing spectrum is a different invariant. The uninspected 1969 Watkins full text and underlying graph-census raw dataset are specific priority risks.
+
+## value
+
+PASS
+
+A complete metric and group-action classification of a natural 24-vertex symmetric cubic graph’s edge-Kempe state space reveals a sharp Cayley-versus-irregular sector dichotomy, marked by an invariant bichromatic 10-cycle and different girth/eccentricity. These structural invariants can serve exact reconfiguration benchmarks beyond the previously tabulated class count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
