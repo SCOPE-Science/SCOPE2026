@@ -1,0 +1,11 @@
+# Scientific review: sparse symmetric three-point first chaos
+
+**Correctness — PASS.** The sixth-moment identity follows from an explicit multinomial expansion of three exponent types. The exact two-coordinate identity proves the optimizer classification, including the exceptional continuum at inverse nonzero probability \(t=5\); the adjacent crossing equation and its strictly monotone ratio prove every support transition. A standalone rational/symbolic checker independently tested the moment identity, the phase equation, rational simplex grids and flat degeneracy. Finite diagnostics corroborate rather than replace the all-parameter proof.
+
+**Originality — PASS (qualified).** The closest accessible complete primary texts are Nayar–Oleszkiewicz's 2011 online paper and Havrilla–Tkocz's 2019 arXiv manuscript. The former provides dimension-free Gaussian even-moment comparison for ultra-sub-Gaussian variables, including the \(t\le3\) boundary; the latter proves Schur concavity only for zero mass at most one half in its three-point case, corresponding to \(t\le2\). Neither inspected theorem states the exact finite-dimensional support staircase, the transition family \(\tau_k\), nor the continuum of optimizers at \(t=5\). A related exact sixth-moment result for exactly two activated signed coordinates has a different joint law and no unbounded support staircase. Whittle's 1960 original was accessible only through its abstract, leaving a real possibility of an implicit historical corollary. Search nonmatches are not proof of bibliographic uniqueness.
+
+**Mathematical value — PASS.** The norm of first-chaos embedding in \(L^6\) is a natural exact Khintchine invariant. Independently thinning the signs creates a sharp Gaussian-to-sparse transition, infinitely many dimension-dependent optimizer-support thresholds accumulating at the transition, a quantitative scaling law, and an exceptional continuum of extremizers. These features are not a mere restatement of the uniform-sign bound or a recomputation of one sample size.
+
+**Limits.** The statement is specific to real independent identically distributed symmetric three-point laws and sixth moments. Historical priority is not independently certified. No non-even exponent or inhomogeneous thinning result is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
