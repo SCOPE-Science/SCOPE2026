@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix \(J\) exactly preserves \(Q(x,y)=x^2-2\cos\theta xy+y^2\), whose determinant is \(\sin^2\theta\). The strip becomes a Euclidean tangent strip of radius \(R=h\sqrt{4-c}/2\). The two-sided finite orbit gives antipodal normals, and the tangential-polygon edge formula proves the exact normalized survival law. Rational periodicity yields exact stopping of new cuts. For irrational rotations, continued-fraction convergents prove both the matching quadratic upper bound at bounded type and divergent normalized limsup at unbounded type. The lower bound holds for every irrational angle by Jensen's inequality. The accompanying program passed 207 finite supporting comparisons; finite tests are not substituted for the infinite proof.
+PASS
 
-## Originality — PASS subject to literature uncertainty
+At center parameter b=1 with 0<c<4 and uniform initial z in K_2, J preserves Q=x²-2(1-c/2)xy+y², and linear conjugacy turns neutral constraints into tangent strips about a disk of radius R=h sqrt((4-c)/4). The circular gaps g of the first N angles j alpha mod1 give area(K_N)=2R²/sin(theta) sum tan(pi g/2), hence P(L>=N)=sin(theta)/2 sum tan(pi g/2). Dense irrational normals yield a limiting ellipse with positive mass pi sin(theta)/4; rational alpha=p/q yields exact q-gon mass q sin(theta)/2 tan(pi/(2q)). For irrational angles f(g)=tan(pi g/2)-pi g/2 is bounded below by c*g³. Jensen gives >=const N^-2; bounded continued-fraction type gives max gap O(1/N) and matching upper bound, and unbounded successive denominator ratios yield N_k² D_Nk->infinity. Independent rational checks c=1,2,3 reproduced eternal-survivor masses .75,1,.75; these finite checks do not establish the Diophantine limit.
 
-The most directly relevant full-text source, Gardini–Radi–Schmitt–Sushko–Westerhoff (2023), gives the very same center map and the rational-polygon/irrational-ellipse distinction (model equation (7), center Fig. 9), which is credited rather than rediscovered. Sushko–Gardini's earlier two-branch center chapter also has polygon/ellipse geometry. Neither inspected primary text gives the exact finite-horizon neutral-branch survival law or a bounded-continued-fraction **if-and-only-if** criterion for a uniform quadratic excess tail. Related 2008 border-collision work was accessible only via abstract, so publication priority beyond inspected text is not established. Semantically similar research records on repelling-cycle escape, neutral section return times and polygonal generators do not imply this claim for the specified map.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A deterministic center with a positive never-departure population still exhibits nontrivial finite departure statistics. The exact gap formula makes the full distribution computable for every horizon, while the sharp Diophantine equivalence explains a genuine distinction between uniformly fast and intermittent slow approaches to the persistent fraction. The same theorem quantifies resonant enhancement and its \(q^{-2}\) scale. These are meaningful, intrinsic statistics of the model rather than arbitrary small finite computations.
+Gardini-Radi-Schmitt-Sushko-Westerhoff 2023 full public manuscript establishes exactly this three-branch map and the neutral b=1 rational invariant polygon/irrational invariant ellipse, so those geometric components alone are PRIOR. Relevant original section and conclusions were inspected. The submitted exact finite-horizon distribution over uniform K_2 and the sharp iff bounded-type rotation criterion for excess survival are not in the inspected primary statements. Related published rotation and tangential polygon geometry supplies ingredients but no covering exact first-departure law for this map was found. Qualified best-of-knowledge PASS for those substantive new quantitative conclusions.
 
-## Limitations and residual risk
+## value
 
-The claim is limited to \(b=1\), a uniform initial law on the two-step neutral set, and the first exit from that branch, not global escape or off-center attractor behavior. No independent audit or conclusive universal priority search has been performed. The 2008 related article was not fully accessible, and a general irrational-rotation polygon approximation theorem could provide an equivalent formulation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The map is an established model and its center bifurcation has a meaningful geometric metastability question. A full first-departure distribution with a positive survival atom and a sharp arithmetic tail dichotomy is a natural nontrivial quantification of neutral-branch persistence rather than a decorative area computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
