@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Compile and run `verify_b.cpp` with a standard C++17 compiler, for example:
+## correctness
 
-```
-g++ -std=c++17 -O2 -Wall -Wextra verify_b.cpp -o verify_b
-./verify_b
-```
+PASS
 
-Expected final line: `CPP_ENUM_AND_LOCAL_PASS`. The bitmask program enumerates every four-set for \(4\le n\le23\); for each set it executes the complete synchronous rule, including stalled cases. It independently checks the closed-form local min--max arrival equation for \(4\le n\le3000\). Its finite range is explicitly bounded.
+On M_(2n)=C_(2n)(1,n), n>=4, cubic first-force obstruction shows Z>=4. Two initial three-blue patterns and their possible fourth supporting seed yield five dihedral orbits of sizes 2n,4n,4n,2n,n; the local arrival-time equation yields their n-parity times and exact three-term generating polynomial. Independently implemented direct synchronous forcing over every four-subset for n=4..10 and reproduced all distributions (even m: n,8n,4n at m-1,m,m+1; odd m:3n,6n,4n at m,m+1,m+2). Source verification programs verify_a.py and verify_b.cpp were inspected, not treated as infinite proofs. Boundary n=3 excluded.
 
-Run `python3 verify_a.py`. Expected final line: `PY_EXHAUSTIVE_PASS`. This program uses ordinary vertex sets, a separate forcing simulator, dihedral canonicalization, and complete four-set enumeration for \(4\le n\le18\); it excludes three-set forcing for \(4\le n\le11\). The C++ program uses a separate implementation and representation.
+## originality
 
-Both programs were replayed successfully from their actual packaged file bytes. Their finite experiments support the independent algebraic/combinatorial argument; neither test alone establishes the infinite statement. The arrival times in the proof are additionally checkable by substitution into the local min--max recurrence for each vertex and each type. The original 2008 source was not read in full; the literature-priority comparison has a stated residual risk. External audit has not been performed.
+PASS
+
+October 25 published work already proves Z=4, 13n minimum sets and seven rotation classes for n>=6, so those counts are prior. Its theorem studies token-jump exchange and has no all-minimum-set synchronous propagation-time distribution. The new complete parity-dependent speed polynomial and explicit five dihedral timing classes survive. Primary Duong et al. (2019/2020) Theorem 5.2 supplies only the zero-forcing number.
+
+## value
+
+PASS
+
+For a classical infinite family of cubic circulant graphs, the speed distribution among all optimum seeds is a natural, reusable finer invariant than Z or the set count. The explicit fastest/slowest seed multiplicities and parity transition meaningfully answer a propagation problem, not a random small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

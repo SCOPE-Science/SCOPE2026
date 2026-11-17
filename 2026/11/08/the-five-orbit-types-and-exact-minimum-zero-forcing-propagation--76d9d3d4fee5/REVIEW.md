@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The classification reduces every potential minimum forcing set to eight local completions of two possible three-blue-vertex patterns, which fall into five explicitly counted dihedral orbits. The five representative propagation histories are specified vertex by vertex and satisfy the exact local min--max forcing-time equation. The parity formula follows from their maxima and orbit sizes. Two independently coded executable verifiers confirm the finite cases, but the all-order argument is combinatorial and does not extrapolate from them. Main boundaries: \(n\ge4\); standard synchronous forcing; minimum four-vertex starts only.
+PASS
 
-## Originality
+On M_(2n)=C_(2n)(1,n), n>=4, cubic first-force obstruction shows Z>=4. Two initial three-blue patterns and their possible fourth supporting seed yield five dihedral orbits of sizes 2n,4n,4n,2n,n; the local arrival-time equation yields their n-parity times and exact three-term generating polynomial. Independently implemented direct synchronous forcing over every four-subset for n=4..10 and reproduced all distributions (even m: n,8n,4n at m-1,m,m+1; odd m:3n,6n,4n at m,m+1,m+2). Source verification programs verify_a.py and verify_b.cpp were inspected, not treated as infinite proofs. Boundary n=3 excluded.
 
-**PASS, with residual historical-priority risk.** The known zero-forcing number of the Möbius ladder is excluded from the new claim. The closest inspected papers address zero-forcing number, the iteration/propagation framework, or zero-forcing-polynomial coefficients generally. None of their inspected conclusions implies a five-orbit classification or the parity-dependent distribution. Primary sources checked include arXiv:1105.1492v1, arXiv:1410.4191v1, arXiv:1801.08910v1, and arXiv:1906.03079v1; relevant older article DOI 10.1016/j.laa.2007.10.009 was not available in full. Previously unindexed equivalent calculations remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The Möbius ladders are a standard infinite family of cubic circulant graphs. Previously knowing that four starts suffice does not determine how many optimum starts exist, how distinct starts compare in propagation time, or which patterns are fastest. The theorem answers all three natural questions uniformly, including a parity-dependent change in the number of fastest starts. The object and precise parameter are motivated by established zero-forcing propagation questions, not by an arbitrary finite subcase.
+October 25 published work already proves Z=4, 13n minimum sets and seven rotation classes for n>=6, so those counts are prior. Its theorem studies token-jump exchange and has no all-minimum-set synchronous propagation-time distribution. The new complete parity-dependent speed polynomial and explicit five dihedral timing classes survive. Primary Duong et al. (2019/2020) Theorem 5.2 supplies only the zero-forcing number.
 
-## Limitations and closest literature
+## value
 
-The result does not compute higher coefficients of the zero-forcing polynomial, nor does it cover other zero-forcing variants or the six-vertex special graph. Literature search does not establish absolute priority, especially given the inaccessible full 2008 primary article. No external mathematical review is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical infinite family of cubic circulant graphs, the speed distribution among all optimum seeds is a natural, reusable finer invariant than Z or the set count. The explicit fastest/slowest seed multiplicities and parity transition meaningfully answer a propagation problem, not a random small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
