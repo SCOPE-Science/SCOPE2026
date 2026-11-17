@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Topological path semantics on each finite rooted Alexandrov star reduces to an explicit root/leaf rule, justified using the established finite up-down path lemma. Every formula is invariant under the root atomic color, the nonempty support of leaf colors, and the pointed root/leaf color. Depth-two formulas characterize every one of these semantic profiles, proving the exact number \(2^{N_{k,m}}\) with \(N_{k,m}=Q\sum_{j=1}^{\min(m,Q)}\binom Qj(j+1)\), \(Q=2^k\). A depth-one indistinguishability pair proves sharpness for \(k\ge1,m\ge2\). The standalone Python checker passed 5456 reachability-input comparisons on one-through-five-leaf stars, independent coordinate checks, and the depth-one witness checks. Finite checks corroborate, rather than establish, the general proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** Bezhanishvili and collaborators (2024, arXiv:2406.16056) already prove the finite Alexandrov up-down path criterion (Lemma 3.6) and mention componentwise global reachability; neither is claimed as new. Gagarin and Fernández-Duque (2026, arXiv:2606.31874) develop the \(\gamma+d\) logic globally and specify its semantics. The 2026 dynamic polyhedral paper extends temporal operators. The inspected technical sections and targeted research-record and literature queries revealed no corresponding exact finite-variable formula-algebra counts, leaf-support stabilization, or sharp depth-two boundary. A historical-priority risk from unindexed specialist work remains.
+PASS
 
-**Value — PASS.** The theorem gives a whole-parameter exact invariant rather than an isolated example. It describes all equivalence classes of formulas, constructs representatives, proves that repeated leaf colors are invisible, and identifies precisely when the algebra stops changing as the star grows. The depth-two sharpness distinguishes the primitive reachability language from its depth-one fragment. Such finite-space semantic normal forms can guide model checking and expressive-power comparison.
+The pinned proof derives both pointwise gamma cases by finite-Alexandrov comparability components, then proves structural induction on profiles (root color b, nonempty leaf color support S, pointed leaf color a or root marker). Distinct profiles have explicit depth-two characteristic formulas using E(C)=gamma(top,C), R=d(top), so all 2^N subsets occur with N=Q Σ_{j=1}^{min(m,Q)} binom(Q,j)(j+1), Q=2^k. The m=Q saturation and k>=1,m>=2 lower bound use explicit depth-one indistinguishable valuations; the k=0,m=1 edge cases are covered. Independent finite direct graph comparison checked 5,456 (A,B) pairs on m=1..5 and all asserted small profile counts. No finite test substitutes for the induction.
 
-**Limitations.** This is fixed-space equivalence for arbitrary Boolean valuations, finite rooted Alexandrov stars, and classical Cantor-derivative-plus-path semantics. It does not classify arbitrary finite posets or temporal polyhedral models, and does not bound formula length of normal forms. The checked literature is not exhaustive. Independent mathematical and priority audits are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original, qualified. General path logic and finite-poset reachability are established; no inspected theorem computes the exact fixed-star semantic algebra or its sharp variable-dependent saturation. Originality depends on fixed-space arbitrary-valuation quotient, not on rediscovering the global modality.
+
+## value
+
+PASS
+
+This determines a natural exact formula algebra and sharp expressive depth for a fixed Alexandrov family. It distinguishes support from leaf multiplicity and identifies an exact Q=2^k stabilization threshold; the universal closed form is not a routine renaming of a known count. A researcher analyzing topological reachability expressivity on finite spaces could use precisely this classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

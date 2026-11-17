@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3 (standard library only). The successful run prints `ALEXANDROV_STAR_GAMMA_ALGEBRA_OK`, then `5456 PATH_PAIRS` and the profile-coordinate table. Independently programmed comparability-component and up-down reachability algorithms are compared against the explicit root/leaf identity for every pair of subsets on all rooted stars with one through five leaves. The checker also enumerates all pointed atomic-color profiles for the listed small variable and leaf counts, tests depth-two formula indicators, and checks the depth-one separating valuations through four leaves. The mathematical proof in `RESULT.md` handles unrestricted finite parameters; no finite experiment is claimed to verify an infinite family exhaustively.
+## correctness
 
-Formal proof-assistant checking and independent mathematical auditing have not been performed. Historical originality is assessed only against the inspected primary literature and research records.
+PASS
+
+The pinned proof derives both pointwise gamma cases by finite-Alexandrov comparability components, then proves structural induction on profiles (root color b, nonempty leaf color support S, pointed leaf color a or root marker). Distinct profiles have explicit depth-two characteristic formulas using E(C)=gamma(top,C), R=d(top), so all 2^N subsets occur with N=Q Σ_{j=1}^{min(m,Q)} binom(Q,j)(j+1), Q=2^k. The m=Q saturation and k>=1,m>=2 lower bound use explicit depth-one indistinguishable valuations; the k=0,m=1 edge cases are covered. Independent finite direct graph comparison checked 5,456 (A,B) pairs on m=1..5 and all asserted small profile counts. No finite test substitutes for the induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge original, qualified. General path logic and finite-poset reachability are established; no inspected theorem computes the exact fixed-star semantic algebra or its sharp variable-dependent saturation. Originality depends on fixed-space arbitrary-valuation quotient, not on rediscovering the global modality.
+
+## value
+
+PASS
+
+This determines a natural exact formula algebra and sharp expressive depth for a fixed Alexandrov family. It distinguishes support from leaf multiplicity and identifies an exact Q=2^k stabilization threshold; the universal closed form is not a routine renaming of a known count. A researcher analyzing topological reachability expressivity on finite spaces could use precisely this classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
