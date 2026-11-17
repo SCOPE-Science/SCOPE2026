@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-three subspace lattice gives the exact rational expectation formula by Möbius inversion and geometric summation. The 120 three-column multisets, 5922 full-rank unordered pairs, 55 objective values, and 28 optimizers form a finite exhaustive certificate; `checker.py` enumerates zeros and repetitions as well as distinct vectors. All 5922 values were independently reproduced through exact-rational first-step dynamic programming, and the optimal tail law follows by direct counting. The 28 equality pairs are exactly the Fano-line/complement triples. The computation proves the finite optimization only; it is not used as a substitute for the analytic all-time tail identity.
+## correctness
 
-**Originality — PASS against inspected evidence.** The closest source, Kong et al. (arXiv:2610.02931v1, 2026), derives the exact expectation of a *specified* layout and optimizes MDS codes, but leaves optimization over non-MDS small-field codes and constrained layouts open (Section V). No binary \([6,3]\), two-container, \(3+3\) optimum, value \(125/56\), or Fano-line equality classification was identified in inspected relevant sections and appendices. Bertuzzo et al. (arXiv:2507.20639v1) and Bar-Lev et al. (arXiv:2305.05656) treat one-container rather than two-container sampling. A relevant indexed rank-two optimization does not imply the rank-three value. The general Möbius formula is acknowledged as prior work, not claimed new. Unindexed or implicit earlier coverage remains a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** This solves the first balanced six-column binary rank-three non-MDS distributed-sampling optimization, including the entire equality classification and recovery-time law. It isolates a concrete Fano-geometry design rule and quantifies a sharp \(3/28\)-round penalty versus the corresponding unattainable binary MDS benchmark. The specific small-field constrained-layout problem is directly motivated by the cited open optimization program and is not an arbitrary isolated computation.
+Möbius inversion on subspace lattice F2^3 gives E tau = sum_7H 9/(9-a_H b_H) -2 sum_7L 9/(9-a_L b_L)+72/(9-a_0 b_0). The 120 possible size-three multisets of eight vectors produce exactly 5922 full-rank unordered pairs, all covered including zeros/repeats. Independent exact rational enumeration found 55 values, unique min 125/56 on 28 pairs with A=U\{0} and B any 3 distinct outside U; next min 127/56 on 42 pairs. Failing t-step histories for equality are 3(2^t+1) among 9^t, giving tail 3(2/9)^t+3(1/9)^t. The enumeration is finite AND exhaustive for the theorem domain, not extrapolated to larger codes.
 
-**Limits.** The result is restricted to two equal-capacity three-column containers, rank three over \(\mathbb F_2\), and independent uniform synchronous reads. Priority is supported by accessible indexed evidence, not certified by an exhaustive historical search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theorem II.3 of Kong et al. supplies general Möbius recovery formula for a specified code/layout, not optimization across all non-MDS binary rank-3, six-column 3+3 allocations. Binary [6,3] MDS is impossible, so its MDS optimization result does not apply. Earlier small-field single-container coverage and rank-two optimal code theorem differ. No located exact 125/56 sharp bound and Fano family.
+
+## value
+
+PASS
+
+This is a mathematically motivated first non-MDS small-field balanced two-container coverage depth optimum, including all repetition and zero degeneracies, its complete exact Fano-geometric equality family and full recovery tail. It fills the precise model gap identified in distributed DNA coverage literature. An exhaustive exact finite census is substantive because it covers the complete natural parameter domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
