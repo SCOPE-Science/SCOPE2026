@@ -1,0 +1,15 @@
+# Mathematical review of the Veronese covering threshold
+
+## Correctness — PASS
+The displayed normalization follows by taking traces of rank-one projectors. The two-center lower bound is an exact squared-distance identity evaluated at a simultaneous zero of two trace-zero quadratic forms. The simultaneous-zero lemma is proved for all symmetric ternary matrices, including zero and rank-two cases, using a zero-diagonal orthonormal basis and connectedness of an indefinite projective conic. The three-center argument uses a global trigonometric covering inequality for three planar projective axes; equality at explicit directions proves the stated radius for this configuration. All radii and center locations are in Frobenius coordinates, and no assertion about the exact optimal three-center radius is made. The standalone verification passed 80,183 finite tests; it is not substituted for the analytic universal proof.
+
+## Originality — PASS (provisional historical priority)
+The November 2026 primary source proves a noncovering theorem for six balls of radius \(1/2\), not the small-count covering-radius transition proved here. Classical Brickman convexity of a two-form joint numerical range *does* already imply the common-zero lemma and the two-center lower bound; these are acknowledged as a known ingredient, not represented as independently new. The combined geometric conclusion that the strict-improvement threshold is exactly three, the classification of all radius-optimal two-center covers, and the explicit attained radius \(\sqrt{21}/8\) are not present in the inspected primary source or retrieved prior indexed results. Equivalence searches were made under rank-one projector, real projective Veronese, joint numerical range, k-center covering, and spectral convex body vocabulary. A pre-existing projective quantization theorem may still imply the full statement.
+
+## Mathematical value — PASS
+The motivating object was introduced to demonstrate a striking failure of six equal-diameter balls in five dimensions. Mapping its radius-versus-ball-count profile is therefore a natural metric-geometric problem, not an arbitrary isolated parameter computation. The theorem exactly identifies the first count that improves the circumradius, shows complete rigidity of two-center optimizers, and gives a geometrically explicit strict three-ball witness with an exact attained radius and interior centers. It does not pretend to solve the much harder global three-center optimum or the diameter-one six-center problem.
+
+## Closest literature and limits
+The main comparison is Arman–Bondarenko–Prymak–Radchenko, arXiv:2611.08198v1, §§1–2, 4–7. The dominant antecedent for the two-center half is Brickman's 1961 convexity theorem, also discussed by Martínez-Legaz (2005). The relevant historical risk is literature on Euclidean k-center quantization of the quadratic Veronese projective plane, for which no direct covering-radius assertion was located. The result covers the Veronese surface, not its convex hull.
+
+Self-review: passed. Independent audit: not yet performed.
