@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The standalone `VERIFY.py` requires only Python 3 standard-library modules. Run it beside the research files with `python3 VERIFY.py`.
+## correctness
 
-It builds every reachable labeled 1-skeleton from two through seven vertices under the exact vertex-or-edge uniform choice rule. For each state it enumerates every possible attachment and checks the expected changes of all degree classes (and the total degree) using `fractions.Fraction`; the cumulative exact transition-term count is **280391**. It also checks the gamma recurrence, normalization, the known edge/mean-degree relation and a 90,000-vertex seeded simulation.
+PASS
 
-The elementary martingale stability lemma and proof of convergence for infinitely many system sizes are written in `RESULT.md` and do **not** follow from the script's finite enumeration. The script does not certify priority over unknown literature or anything outside the stated graph-degree domain. Independent validation has not been performed.
+The eligible-face incidence probability of a vertex of degree k is exactly (k+1)/(n+E_n), giving all conditional degree-count drifts without an independence assumption for the two endpoints of a chosen edge. Edge density x=E_n/n solves stable stochastic approximation to golden ratio phi. The stated bounded martingale-increment stability lemma applies to each fixed degree class by induction; the countable intersection yields simultaneous almost-sure limits. Summing the fixed-point balances gives (1+phi) sum_(k<=K) p_k =1+phi-(K+1)p_K, and the gamma ratio gives K p_K->0, hence normalized distribution and total variation. Correct boundary degree classes and no claim for k=k(n). Independently recomputed p1,p2 and partial mass through 100000 (~0.999999999998).
+
+## originality
+
+PASS
+
+The Krapivsky–Lucas RRSC(2) paper computes only leaf fraction p1 and heuristically anticipates exponent phi+2, expressly identifying p2 and higher degree densities as open calculations. The current exact p2, all-k normalized gamma distribution, almost-sure convergence and positive prefactor are not implied by that exponent or leaf fraction; the fixed-dimension face-selection models are not the same pooled vertex-or-edge rule. Current Resultary results on primordial degree and edge triangle incidence do not cover empirical degree frequencies. Originality accepted best-of-knowledge.
+
+## value
+
+PASS
+
+Complete exact vertex-degree law for the motivating model and a rigorous solution to a clearly stated higher-degree calculation gap; normalization and almost-sure total-variation convergence are useful structural results beyond a guessed tail exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

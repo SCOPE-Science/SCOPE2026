@@ -1,19 +1,21 @@
-# Review of the complete RRSC(2) graph-degree law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The attachment rule implies that every old degree-\(k\) vertex has exactly \(k+1\) favorable old faces; vertex-selected newborns have degree one and edge-selected newborns degree two. Exact linear conditional drifts follow. A bounded-noise stochastic approximation lemma, proved using products and Abel summation rather than unproved independence of weights, establishes the edge-density strong law and a simultaneous degree-class strong law by induction. The gamma ratio determines the tail; cancellation of degree fluxes proves total mass and total-variation convergence. The supplied `VERIFY.py` independently enumerates all reachable labeled histories through seven vertices and compares transition expectations as rational numbers. Simulation provides a separate finite sanity check, not an asymptotic proof.
+PASS
 
-## Originality — PASS (subject to independent historical assessment)
+The eligible-face incidence probability of a vertex of degree k is exactly (k+1)/(n+E_n), giving all conditional degree-count drifts without an independence assumption for the two endpoints of a chosen edge. Edge density x=E_n/n solves stable stochastic approximation to golden ratio phi. The stated bounded martingale-increment stability lemma applies to each fixed degree class by induction; the countable intersection yields simultaneous almost-sure limits. Summing the fixed-point balances gives (1+phi) sum_(k<=K) p_k =1+phi-(K+1)p_K, and the gamma ratio gives K p_K->0, hence normalized distribution and total variation. Correct boundary degree classes and no claim for k=k(n). Independently recomputed p1,p2 and partial mass through 100000 (~0.999999999998).
 
-Krapivsky and Lucas, *Random Recursive Simplicial Complexes* (arXiv:2608.26547, Section VI), give the leaf fraction and leave the two-degree and higher classes uncomputed. Their predicted tail exponent is credited, not claimed new. Fountoulakis et al., *Dynamical Models for Random Simplicial Complexes* (arXiv:1910.12715, Section 1.4 and Remark 3), give fixed-face-dimensional growth distributions; the mixed vertex/edge face selection with degree-one and degree-two births is outside the theorem's stated hypotheses. Published-record searches for the mixed-model law, its degree-two radical and the gamma form found no direct coverage. An unknown reparameterized general preferential-attachment law is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A model's complete vertex-degree law quantifies the local geometry across a macroscopic population. The exact degree-two frequency and the closed law for all higher degrees answer a specifically motivated gap, while the almost-sure normalized law and exact positive tail prefactor make the heuristic scale-free prediction fully quantitative. This value does not rely on downstream applications or a moving-degree result.
+The Krapivsky–Lucas RRSC(2) paper computes only leaf fraction p1 and heuristically anticipates exponent phi+2, expressly identifying p2 and higher degree densities as open calculations. The current exact p2, all-k normalized gamma distribution, almost-sure convergence and positive prefactor are not implied by that exponent or leaf fraction; the fixed-dimension face-selection models are not the same pooled vertex-or-edge rule. Current Resultary results on primordial degree and edge triangle incidence do not cover empirical degree frequencies. Originality accepted best-of-knowledge.
 
-## Limits
+## value
 
-There is no assertion about degree classes scaling with system size, a central limit theorem for counts, the maximum degree, or higher-dimensional models. Historical novelty is provisional; independent assessment has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete exact vertex-degree law for the motivating model and a rigorous solution to a clearly stated higher-degree calculation gap; normalization and almost-sure total-variation convergence are useful structural results beyond a guessed tail exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
