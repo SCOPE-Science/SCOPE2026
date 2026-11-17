@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the extracted standalone script. The script checks all positive pairs \(1\le a,b\le22\), and all \(1\le k\le4(a+b)\). For each triple it independently builds enough of the periodic host to extract every starting-phase length-\(2k\) factor, checks equality of the second half to the binary complement of the first, deduplicates actual strings, and compares with the theorem's formula. It also checks the circular mismatch criterion independently and sums every possible order in 462 unequal-run cases. The saved `checks.txt` gives the actual run output: 44,528 triple comparisons and 462 total-count comparisons, all passed.
+## correctness
 
-A finite verifier does not establish the unbounded part of the theorem, nor does it certify novelty. The general proof uses interval geometry on a circle and a primitive-period argument; it covers arbitrary positive integers without reliance on numerical extrapolation.
+PASS
+
+For phase interval I of the minority run, u-bar(u) at shift k requires k consecutive phases in I symmetric-difference (I-k). Classification of two translated circular arcs yields component lengths for residues 1..p-1, special adjacent r=s,t and balanced all-phase r=s=t. For s<t no k>=p survives, and exact phase counts are 2 below s, s+1 at s, max(0,2s-t+1) at t; balanced admits k=s+2sm. Primitive period and explicit short cases ensure distinct phase words. Independently generated actual binary factors for a,b<=9 and 1<=k<3(a+b).
+
+## originality
+
+PASS
+
+The inspected prior antisquare work studies avoidance/minimal forbidden antisquares, and an exact two-run complemented-factor result describes a different language. The submitted theorem classifies u-bar(u) specifically for every k and run pair; no earlier exact order-by-order host-specific statement was identified. Its elementary proof method does not by itself make the exact all-parameter factor spectrum known.
+
+## value
+
+PASS
+
+For an archetypal nontrivial periodic host, classifying complement-tandem factors by every order and isolating the sharp equality-of-run-length transition gives an exact natural invariant of relevance to antisquare avoidance and periodic-word pattern theory. The infinite vs finite spectrum and exact multiplicities are more than a tautological count or arbitrary tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: complete antisquare spectra of two-block periodic binary words
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated function \(A_{a,b}(k)\) counts distinct contiguous factors \(u\overline u\) of order \(k\), for every \(a,b,k\ge1\). The proof first converts the letterwise complement constraint into containment of an entire length-\(k\) circular interval inside \(I\triangle(I-k)\). It explicitly classifies that set at the interior shifts, its two adjacency shifts and the balanced full-complement shift, including \(k\ge a+b\). A final distinctness argument prevents phase-count/factor-count confusion. Finite checks agree in 44,528 parameter triples, independently counting actual strings and mismatch windows; no finite exhaustive search is used as a proof of unbounded quantifiers. Residual scientific risk: the general circle-interval lemma and phase distinctness must be considered together; neither can be omitted.
+PASS
 
-## Originality — PASS, qualified
+For phase interval I of the minority run, u-bar(u) at shift k requires k consecutive phases in I symmetric-difference (I-k). Classification of two translated circular arcs yields component lengths for residues 1..p-1, special adjacent r=s,t and balanced all-phase r=s=t. For s<t no k>=p survives, and exact phase counts are 2 below s, s+1 at s, max(0,2s-t+1) at t; balanced admits k=s+2sm. Primitive period and explicit short cases ensure distinct phase words. Independently generated actual binary factors for a,b<=9 and 1<=k<3(a+b).
 
-The main comparison is Baranwal et al., *Antisquares and Critical Exponents*, arXiv:2209.09223, especially the introduction, Sections 4–7 and Theorem 11. It studies critical exponents, avoidance and minimal forbidden antisquares. Ng et al., arXiv:1904.09157, studies achievable limits on joint square/antisquare counts and pseudosquare avoidance. Hieronymi et al., arXiv:2102.08207, studies antisquares in characteristic Sturmian words. These are different from an exact order-by-order count of **all** distinct antisquares in each periodic two-block host. The closest accessible previous claims also concern other host classes or other statistics. The complete periodic two-run formula was not identified in the inspected material. This is a qualified search-based judgment, not a proof of worldwide uniqueness; unindexed equivalent work remains a residual risk. The distinction from "2-antipower" (two *different* blocks) is essential: that expression denotes a different property.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Periodic two-run words form the simplest nontrivial two-parameter family for testing complement-pattern incidence. The classification yields every order, each distinct-factor multiplicity, and a rational order-generating function. The arithmetic boundary \(t=2s\) gives an exceptional remote antisquare order, while equality of run lengths produces unbounded resonances at all orders \(s+2sm\). Thus the result is a complete structural classification with a sharp finite/infinite transition, not a finite table, a renaming of a definition or a small parameter increment. Its scope is intentionally confined to two-run periods.
+The inspected prior antisquare work studies avoidance/minimal forbidden antisquares, and an exact two-run complemented-factor result describes a different language. The submitted theorem classifies u-bar(u) specifically for every k and run pair; no earlier exact order-by-order host-specific statement was identified. Its elementary proof method does not by itself make the exact all-parameter factor spectrum known.
 
-## Scientific limits
+## value
 
-Independent audit has not been performed. The result excludes other periodic structures and does not establish a claim about occurrences counted with multiplicity in finite prefixes. Literature-search omissions cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For an archetypal nontrivial periodic host, classifying complement-tandem factors by every order and isolating the sharp equality-of-run-length transition gives an exact natural invariant of relevance to antisquare avoidance and periodic-word pattern theory. The infinite vs finite spectrum and exact multiplicities are more than a tautological count or arbitrary tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
