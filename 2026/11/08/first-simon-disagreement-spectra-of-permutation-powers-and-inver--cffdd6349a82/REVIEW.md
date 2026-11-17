@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns distinct permutations of the same \(q\)-letter alphabet, positive equal powers, and the *first* distinguishing subsequence length. Greedy embedding uses precisely one additional period at every weak descent of the letter rank. Therefore every length-at-most-\(r\) word embeds in either \(r\)-fold power, and the absent words of length \(r+1\) are exactly the descending sort of each size-\(r+1\) multiset. A multiset is absent in both powers exactly when its distinct-letter support is independent in the relative-order inversion graph; independent supports with \(j\) vertices admit \(\binom r{j-1}\) positive multiplicity assignments. The theorem, generating series, sharp bounds, equality cases, and Newton-binomial recovery all follow with the stated quantifiers and endpoint conventions. Direct enumerative checks (488 cases, 127,920 words) and independent-polynomial/rigidity checks (5,912 cases) passed. Computations are supporting finite checks, not infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+For every q>=2 and r>=1, greedy embedding in P^omega uses one new period at each weak descent. At length r+1, each multiset has exactly one absent descending word per permutation, and the two sorts coincide iff its support is independent in the relative inversion graph. Stars-and-bars gives 2[binom(r+q,q-1)-sum_{j>=1}i_j(G)binom(r,j-1)]. Newton forward differences recover all i_j; the one-edge and complete inversion graphs attain and uniquely characterize the bounds. Direct independent scattered-subsequence checks covered 87 small parameter configurations and 8341 literal candidate strings.
 
-Four directly relevant full texts were consulted: *Scattered Factor Universality — The Power of the Remainder* (2021; arXiv:2104.09063), *m-Nearly k-Universal Words — Investigating Simon Congruence* (2022; arXiv:2202.07981), *\(\alpha\)-\(\beta\)-Factorization and the Binary Case of Simon's Congruence* (2023; arXiv:2306.14192), and *Absent Subsequences in Words* (2021; arXiv:2108.13968). Their universality, factorization, and absent-subsequence characterizations are general tools, not the explicit paired equal-power first-disagreement and inversion-graph transform. No inspected paper provided the two-sided witness classification, binomial independent-set formula, extremal equality characterization, or inversion-profile recovery. Related searchable research results concern insertion universality, a one-word binary distribution, and shortest absent subsequences; none covers the paired relative-order theorem. No bibliographic search proves unique priority; an equivalent unindexed specialization remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise invariant is motivated by the first level at which the piecewise-testable (Simon) profiles of two repeated permutation strings separate. The theorem identifies the complete finite witness language, counts it for every exponent, and turns those counts into the independent-set polynomial of a permutation inversion graph. The exact extremizers connect the smallest and largest possible disagreement to adjacent swaps and reversal, while the first coefficient recovers Kendall distance. These constitute a natural complete infinite-family structural classification, not an arbitrarily selected numerical instance or a routine fixed-parameter tabulation.
+The new content is the exact two-order first symmetric-difference witness classification and its inversion-graph transform for all q,r; single-word shortest-absent and generic Simon-equivalence methods do not supply this identity or its sharp extremizers in the inspected relevant text. Best-of-knowledge; not guaranteed absolute priority.
 
-## Closest coverage and limitations
+## value
 
-General single-word universal/absent-subsequence algorithms can compute individual examples, and standard stars-and-bars and Newton inversion supply arithmetic tools; neither alone asserts the paired inversion-support identity. The argument does not cover unequal powers, nonpermutation periods, or higher-length disagreement profiles. Independent verification and an independent priority assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first Simon separation depth and complete number of witnesses between two periodic orders is a natural piecewise-testable invariant, not an arbitrary statistic. The polynomial inversion recovers all common-order increasing-support counts; sharp extrema recover adjacent swaps/reversal and the first coefficient gives Kendall inversion distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

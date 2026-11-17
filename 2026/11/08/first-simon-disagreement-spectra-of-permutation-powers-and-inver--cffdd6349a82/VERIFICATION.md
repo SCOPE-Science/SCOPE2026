@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-15.md",
+      "INDEPENDENT_AUDIT_2026-11-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python verify_distinguishing_spectrum.py` with a standard Python 3 interpreter. The program independently tests literal scattered-subsequence membership and the theorem's combinatorial expression, with no third-party dependencies. It passed 488 parameter cases and 127,920 literal first-layer candidate words; it separately passed 5,912 permutation-pair configurations checking inversion-graph reconstruction, endpoint bounds, and equality rigidity.
+## correctness
 
-The submitted verifier makes finite checks only; the universal claims are derived in `RESULT.md` from greedy embeddings, multiset support, and binomial identities. The experiment does not certify all finite or infinite instances, bibliographic priority, independent audit, or anything about unequal repetition exponents and longer distinguishing words.
+PASS
+
+For every q>=2 and r>=1, greedy embedding in P^omega uses one new period at each weak descent. At length r+1, each multiset has exactly one absent descending word per permutation, and the two sorts coincide iff its support is independent in the relative inversion graph. Stars-and-bars gives 2[binom(r+q,q-1)-sum_{j>=1}i_j(G)binom(r,j-1)]. Newton forward differences recover all i_j; the one-edge and complete inversion graphs attain and uniquely characterize the bounds. Direct independent scattered-subsequence checks covered 87 small parameter configurations and 8341 literal candidate strings.
+
+## originality
+
+PASS
+
+The new content is the exact two-order first symmetric-difference witness classification and its inversion-graph transform for all q,r; single-word shortest-absent and generic Simon-equivalence methods do not supply this identity or its sharp extremizers in the inspected relevant text. Best-of-knowledge; not guaranteed absolute priority.
+
+## value
+
+PASS
+
+The first Simon separation depth and complete number of witnesses between two periodic orders is a natural piecewise-testable invariant, not an arbitrary statistic. The polynomial inversion recovers all common-order increasing-support counts; sharp extrema recover adjacent swaps/reversal and the first coefficient gives Kendall inversion distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
