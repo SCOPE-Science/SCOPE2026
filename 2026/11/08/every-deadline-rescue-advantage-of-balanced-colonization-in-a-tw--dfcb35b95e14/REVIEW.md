@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three transient-state generator, absorption vector and Laplace transform are explicitly derived. The generator is symmetrizable with a positive Dirichlet form, so its cubic denominator has three strictly positive exponential rates. A positive-convolution representation gives a strict derivative of each survival function with respect to \(cd\) for every positive horizon. Endpoint continuity, a fourth-order Taylor calculation and a countervailing singleton-initial-state expansion establish quantifiers and boundaries. The standalone checker independently passed 541 exact/symbolic/numerical assertions; these finite tests are supporting diagnostics, not the infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence, provisional
+Exact transient generator Q=[[-a-b,b,a],[c,-a-c,0],[d,0,-b-d]], exits r=(0,a,b). Its absorption-time Laplace transform is N(z)/D_q(z), with N=ab(a+b+C+2z) and D=z^3+[2(a+b)+C]z^2+[(a+b)^2+ab+(a+b)C+q]z+ab(a+b+C); the law depends only on q. For positive c,d, Q is self-adjoint in positive weights (1,b/c,a/d), and -Q has strictly positive Dirichlet form, so D=prod(z+lambda_j) with positive lambda_j. Differentiate survival transform at fixed C: partial_q Uhat=N/D^2=F_q(z)/D; both factors invert to positive absorption density and a strictly positive convolution of three decaying exponentials. Laplace uniqueness gives partial_q U(t)>0 for each t>0; continuity includes q=0 and q=C²/4 endpoints. Taylor expansion of e11^T exp(Qt)r produces first allocation-sensitive term t^4 ab*q/12 in survival differences. Starting from a singleton has different behavior, and is excluded. Independently verified determinant, rational transform and the derivative of fourth-order coefficient symbolically with SymPy.
 
-The new assertion is strict stochastic ordering of the *entire extinction-time distribution* for every positive deadline and a sharp fourth-order onset, not optimality of the mean extinction time alone. The closest qualitative dispersal-asymmetry paper (Vuilleumier and Possingham, 2006) was read in full; it treats a stochastic multi-patch simulation setting rather than proving this two-patch analytic law. The inspected Eriksson et al. (2014) full text treats local demography and emergence of rescue, not this fixed-budget all-deadline ordering. Etienne–Heesterbeek (2001) and Ross–Pollett (2010) address mean persistence and management, according to accessible abstracts; their complete texts were not available, so possible equivalent historical formulas are a genuine residual priority risk. Exact survival distribution and all-positive-time stochastic order were compared to mean-only, reverse-direction, asymmetric colonization and rescue-effect formulations. No stronger equivalent theorem was established from the materials examined. Failed searches cannot prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-At a fixed total rescue rate, minimizing expected extinction time does not settle chance of extinction before an arbitrary specific deadline. The theorem supplies the stronger, exact all-deadline answer and quantifies why the difference is invisible through cubic order at short horizons. This is a natural ecological reserve-network design benchmark with a nontrivial proof and important initial-condition boundary; it is not a recommendation to change actual conservation policy without validating model assumptions.
+The Oct18 same-model published theorem already gives the exact transform, allocation-product symmetry, a strict Laplace-transform order, and mean/variance optimality. That result explicitly warns that it does NOT assert first-order stochastic dominance: ordering Laplace transforms for all z>0 does not in general imply P(T>t) ordering for every fixed t. The new strictly-positive time-domain convolution argument supplies the stronger all-deadline usual stochastic ordering and fourth-order onset. Ecological simulation and mean-management sources are still weaker or distinct.
 
-## Prior-work limits
+## value
 
-The mean-only corollary is excluded from the originality claim. Two historically relevant complete management articles were inaccessible; terminology from classical phase-type distributions or stochastic reliability could conceal an equivalent theorem. The conclusion is therefore a self-review, not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact fixed-time survival is the natural risk metric when conservation deadlines matter; maximizing mean or every exponential-time transform does not settle fixed positive deadlines. A strictly positive time-domain convolution proof gives an all-t strengthening for heterogeneous mortality, and the fourth-order onset identifies why short-time and mean-only comparisons miss the effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
