@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T11:56:55.322412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-directed-condorcet-cycle-asymptotics-in-the-three-alternat--77d24f0f63aa/RESULT.md",
+        "2026/11/08/sharp-directed-condorcet-cycle-asymptotics-in-the-three-alternat--77d24f0f63aa/verify_mallows.py",
+        "https://arxiv.org/html/2505.06028v1"
+      ],
+      "rationale": "For odd n and fixed 0<phi<1, remote reversal K>= (n+1)/2 has K~Bin(n,p), p=phi^2(2+phi)/[(1+phi)(1+phi+phi^2)]<1/2. The tilted law Q makes C>A balanced while both adjacent margins exceed 1/2 by delta=(1-phi^2)/(2(1+2phi)(2+phi))>0, allowing Hoeffding exponential suppression of adjacent failures on the remote event. Opposite orientation has Chernoff base beta_2 strictly less than beta by exact (1-t)^2(1+t^2)>0 at t=sqrt(phi). Stirling plus a geometric upper-tail summation yields sqrt(2/(pi n))*sqrt(p(1-p))/(1-2p)*beta^n[1+O_phi(1/n)]. Independently enumerated all 6^3 labeled ballots at phi=1/2, finding 32/1029 cycle probability, matching the package. Finite n does not prove asymptotics.",
+      "residual_risks": [
+        "Excludes even electorates, correlated voters, phi=0 and the phi->1 moving-parameter boundary; tilt gap vanishes as phi->1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caizergues et al Section 4.2 Theorem 2 studies the last-ranked candidate winning all pairwise matches with an n^-1 two-coordinate rare tail, whereas the cycle here is one remote reversal with n^-1/2. Their Section 9 expressly proposes majority transitivity as future work. Lackner & Lackner study single-peakedness, a stronger ballot-level property with different event."
+        ],
+        "reasoning": "General independent preference large-deviation framework may provide methods, but no examined theorem mathematically implies the specified cycle-equivalent and orientation ratio.",
+        "searches": [
+          "https://arxiv.org/html/2505.06028v1",
+          "https://arxiv.org/abs/1505.05852",
+          "https://arxiv.org/abs/2006.06875"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2505.06028v1",
+        "https://arxiv.org/abs/1505.05852",
+        "https://arxiv.org/abs/2006.06875",
+        "2026/11/08/sharp-directed-condorcet-cycle-asymptotics-in-the-three-alternat--77d24f0f63aa/RESULT.md",
+        "2026/11/08/sharp-directed-condorcet-cycle-asymptotics-in-the-three-alternat--77d24f0f63aa/verify_mallows.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Condorcet winner of last candidate requires two simultaneous rare pair reversals, not equivalent to Condorcet cycle (one remote reversal while adjacent comparisons remain normal). A single-peaked ballot culture constraint does not give the odd-electorate Mallows cycle asymptotic."
+        ],
+        "reasoning": "Neither prior event implies the new leading exponential base and prefactor by restriction or trivial algebra.",
+        "searches": [
+          "https://arxiv.org/html/2505.06028v1",
+          "https://arxiv.org/abs/1505.05852"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nontransitivity for three alternatives and odd n is exactly the disjoint pair of directed Condorcet cycles. Forward cycle is asymptotic to distant-pair reversal Bin(n,p) majority; conditional tilted neighboring margins stay positive."
+        ],
+        "reasoning": "Checked the event via vote-margin vector, not title alone; a theorem on the three-candidate nontransitivity probability would cover this even if named differently, but searches and inspected nearest primary text did not provide that sharp law.",
+        "searches": [
+          "Resultary semantic: three alternative Mallows phi Condorcet paradox directed majority cycle large n sharp asymptotics rare reversal",
+          "Resultary semantic: directed Condorcet cycles three alternatives Mallows rare event binomial tail exponent",
+          "https://arxiv.org/html/2505.06028v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact closed form in the inspected comparative theorems matched sqrt(2/pi n)*sqrt(p(1-p))/(1-2p)*[2sqrt(p(1-p))]^n with p=phi^2(2+phi)/Z; independently calculated phi=1/2, n=3 cycle=32/1029."
+        ],
+        "reasoning": "A small-n table alone is not novel; the asserted originality is the infinite sharp equivalent, not computed n=3 probability.",
+        "searches": [
+          "Resultary semantic: three alternative Mallows phi Condorcet paradox directed majority cycle large n sharp asymptotics rare reversal",
+          "https://arxiv.org/html/2505.06028v1"
+        ]
+      },
+      "rationale": "The sharp directed-cycle asymptotic for three candidates, including the explicit n^-1/2 constant and exponential separation of the two orientations, is not implied by the examined Mallows Condorcet-WINNER asymptotics or single-peakedness probabilities. Best-of-knowledge assessment, not chronological novelty proof.",
+      "residual_risks": [
+        "Print-only and less-indexed social choice paradox literature could contain an equivalent fixed Mallows parameter asymptotic.",
+        "No assertion uniform as phi approaches 1; at phi=1 impartial culture has positive limiting cycle probability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for cycle law; winner event is different",
+          "evidence": [
+            "Section 4.2 Theorem 2 last-candidate Condorcet winner: n^-1 asymptotic; Section 9 explicitly lists majority-relation transitivity as future work"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.06028v1",
+          "material_read": "Full accessible arXiv HTML including introduction, Sections 4.2, 7, 9 and appendices C.2–C.3 relevant to Mallows",
+          "method": "Read actual primary full-text HTML, compare Theorem 2 and Future Work",
+          "title": "Probability of a Condorcet Winner for Large Electorates: An Analytic Combinatorics Approach",
+          "trigger": "same three-alternative Mallows preferences, large electorates, sharp rare-event asymptotics"
+        },
+        {
+          "assessment": "NOT_COVERING for majority-cycle equivalent",
+          "evidence": [
+            "Study is the likelihood of preference profiles being single-peaked, not probability of a directed majority 3-cycle"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.05852",
+          "material_read": "Accessible primary journal rendering and arXiv abstract, focusing on single-peaked probability theorem",
+          "method": "Primary text/theorem scope inspection",
+          "title": "On the likelihood of single-peaked preferences",
+          "trigger": "Mallows model and rare voting-structure probabilities"
+        },
+        {
+          "assessment": "UNCERTAIN_BACKGROUND, no whole-document noncoverage claimed",
+          "evidence": [
+            "General social-choice smoothed probabilities, not an inspected sharp Mallows three-cycle formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.06875",
+          "material_read": "Abstract and bibliographic description only",
+          "method": "arXiv abstract/source comparison",
+          "title": "The Smoothed Possibility of Social Choice",
+          "trigger": "general smoothed social choice probability background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/sharp-directed-condorcet-cycle-asymptotics-in-the-three-alternat--77d24f0f63aa/RESULT.md",
+        "https://arxiv.org/html/2505.06028v1"
+      ],
+      "rationale": "Majority-cycle probability is a natural social-choice invariant; the explicit sharp constant and separate exponentially suppressed orientation strengthen mere convergence-to-zero for a fixed nonuniform Mallows culture. The derivation identifies which pairwise reversal controls the rare cycle and a sharp first-order asymptotic, potentially useful in probabilistic voting analysis.",
+      "residual_risks": [
+        "Importance is restricted to exactly three alternatives, fixed nonuniform culture and odd n; no universal Mallows theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "All novelty statements are best-of-knowledge. Finite script cannot certify infinite-electorate asymptotic or moving-parameter limits.",
+  "schema_version": 1
+}

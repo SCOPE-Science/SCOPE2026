@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ranking weights are enumerated exactly. The remote-pair event is binomial with \(p=\phi^2(2+\phi)/[(1+\phi)(1+\phi+\phi^2)]<1/2\). Under its probability tilt, the adjacent pairwise comparisons retain the exact positive gap \(\delta=(1-\phi^2)/[2(1+2\phi)(2+\phi)]\), providing exponential control on failures. The opposite cycle has a strictly smaller exponential base by a positive polynomial factorization. The remaining binomial tail has its exact \(n^{-1/2}\) normalization by Stirling and controlled successive-mass ratios. The theorem holds for each fixed \(0<\phi<1\) and odd \(n\to\infty\), not uniformly at \(\phi=1\). Reproducible finite checks: 171 passed. The infinite-population assertion follows from the analytic proof, not numerical experiments.
+PASS
 
-## Originality — PASS within checked evidence; priority not independently certified
+For odd n and fixed 0<phi<1, remote reversal K>= (n+1)/2 has K~Bin(n,p), p=phi^2(2+phi)/[(1+phi)(1+phi+phi^2)]<1/2. The tilted law Q makes C>A balanced while both adjacent margins exceed 1/2 by delta=(1-phi^2)/(2(1+2phi)(2+phi))>0, allowing Hoeffding exponential suppression of adjacent failures on the remote event. Opposite orientation has Chernoff base beta_2 strictly less than beta by exact (1-t)^2(1+t^2)>0 at t=sqrt(phi). Stirling plus a geometric upper-tail summation yields sqrt(2/(pi n))*sqrt(p(1-p))/(1-2p)*beta^n[1+O_phi(1/n)]. Independently enumerated all 6^3 labeled ballots at phi=1/2, finding 32/1029 cycle probability, matching the package. Finite n does not prove asymptotics.
 
-The 2015 Lackner–Lackner preprint (arxiv:1505.05852) establishes Mallows single-peakedness bounds, not this cycle-event equivalent. The closely related 2025 Caizergues et al. paper (arxiv:2505.06028) analyzes the chance that a named candidate is a Condorcet winner; the introduction expressly excludes the probability that the majority relation is transitive (Section 1, 'Related Work'). Its Mallows case computes a different event, including a last-candidate winner rate with two pairwise constraints, and supplies machinery that could be adapted but no inspected statement implying the cycle theorem and its oriented exponential gap. The 2020 Xia paper was accessible at abstract level only; the available abstract supports general smooth probability bounds rather than this exact coefficient. Earlier print-focused treatments of Condorcet probabilities may contain related equivalents; the historical comparison is limited by access.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete fixed-dispersion exponential base, explicit polynomial prefactor, and universal dominant cycle orientation address a natural quantitative question for noisy preference aggregation. The tilted-margins lemma explains why a three-comparison paradox reduces asymptotically to one rare pairwise inversion despite correlated comparisons inside ballots. This is not a generic application of the binomial tail without an additional orientation and joint-margin proof. It gives a reusable benchmark for evaluating large-electorate ranking cultures while remaining restricted to three alternatives.
+The sharp directed-cycle asymptotic for three candidates, including the explicit n^-1/2 constant and exponential separation of the two orientations, is not implied by the examined Mallows Condorcet-WINNER asymptotics or single-peakedness probabilities. Best-of-knowledge assessment, not chronological novelty proof.
 
-## Residual risks and scientific limits
+## value
 
-Full historical priority is unverified; especially Gehrlein's earlier monographic literature was not exhaustively available. The endpoint \(\phi=1\), even electorates, and correlated preference draws are excluded. Full-text inspections were conducted for arxiv:1505.05852 (open journal HTML) and arxiv:2505.06028 (public arXiv HTML). The arxiv:2006.06875 comparison uses the accessible abstract, not a claimed full-text absence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Majority-cycle probability is a natural social-choice invariant; the explicit sharp constant and separate exponentially suppressed orientation strengthen mere convergence-to-zero for a fixed nonuniform Mallows culture. The derivation identifies which pairwise reversal controls the rare cycle and a sharp first-order asymptotic, potentially useful in probabilistic voting analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
