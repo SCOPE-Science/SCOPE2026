@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` is standalone Python, uses no third-party packages or external data, and derives the elementary cellular automaton rule directly from its Boolean local expression. Running `python verify.py` on the extracted package yielded:
+## correctness
 
-```text
-VERIFY_OK odd_sizes=8 single_bit_checks=64 n_max=15
-```
+PASS
 
-The program checks, for every binary output of each odd ring length from 1 through 15, that the explicit inverse maps back to that output under Rule 45. It then enumerates the Boolean derivatives of coordinate zero under every single output-bit flip at each tested ring length, comparing their exact counts with the stated powers of two. For odd lengths through 13 it independently computes the algebraic normal form by the Boolean Möbius transform, verifying its entire support, cardinality and degree. The check can be repeated with the supplied script; these finite checks are evidence of implementation consistency, not substitutes for the proof's universal induction and combinatorial counting.
+The indexed Rule-45 Boolean identity yields x_i=1 XOR y_{i+1} XOR y_{i+2}x_{i+2}; iterating around an odd cycle and using the terminal forced-alternation contradiction closes without division. Finite injectivity proves a global inverse for all outputs. Expanding its nested prefixes gives exactly n+1 squarefree monomials and degree (n+1)/2, while conditioning on independent uniform bits gives influence sequence 1,1/2,1/2,1/4,1/4,..., with all n variables essential. Independent exhaustive maps/influences checked every output of odd n=1,3,5,7,9, not used as the general proof.
 
-No independent audit has been performed.
+## originality
+
+PASS
+
+Previously known odd-ring Rule 45 bijectivity does not determine the all-n inverse coordinate polynomials or their exact independent-uniform Boolean derivatives. A 2022 inverse search discusses low lengths only. Related 2026 quadratic-five-neighbor classification covers reversibility, not these inverse invariants. Best-of-knowledge novelty is qualified because the most directly relevant full thesis was inaccessible this run.
+
+## value
+
+PASS
+
+For a natural nonlinear cellular automaton reversible precisely on odd rings, explicit linear-size inverse circuitry together with sharp radius and bitwise influence spectrum gives structural information unavailable from mere bijectivity. It separates global dependency from strongly nonuniform random-bit sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
