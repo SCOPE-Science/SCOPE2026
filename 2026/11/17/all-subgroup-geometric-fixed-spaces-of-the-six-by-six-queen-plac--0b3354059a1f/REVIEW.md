@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The claim concerns one finite, completely specified simplicial complex and all ten subgroups of its eight-element dihedral group. Barycentric orbit-simplices give an exact PL model of actual geometric fixed points. All fixed face complexes are independently reconstructed from all 2,635 original simplices, with complete subgroup closure. For the only positive-dimensional nontrivial fixed complex, four documented elementary collapses yield a connected graph of twelve vertices and eighteen edges, so its homotopy type is exactly a wedge of seven circles. The other subgroup cases are empty or six points. All eight reduced Lefschetz sums match the fixed-space Euler characteristics.
+
+**Originality: PASS within inspected evidence.** Earlier full mathematical results for six-by-six queens determine the ambient Moore-space wedge and rational dihedral homology character; they do not classify actual geometric fixed spaces. The character implies the Euler values but not connectedness or vanishing higher homology of the half-turn fixed locus. A five-by-five queen complex and the published queen-counting literature concern different claims. Searches for the same fixed spaces, half-turn orbit complexes, symmetry aliases, and purported tables did not find coverage. The residual risk is an unindexed calculation of the same fixed spaces.
+
+**Value: PASS.** The ordinary six-by-six board is the first square queen-placement complex with known integral torsion, making its equivariant fixed-point topology a natural next invariant. The complete subgroup classification gives a graph wedge of rank seven for the half-turn, six components for quarter-turns and diagonal reflections, and emptiness for other subgroup types. These spaces cannot be reconstructed from the ambient rational character alone; the result is a complete finite natural equivariant classification, not a routine re-labeling of a known Betti number.
+
+The claim is confined to the ordinary nonperiodic six-by-six board. No uniform extension or integral quotient-space computation is claimed. Independent mathematical review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
