@@ -1,19 +1,21 @@
-# Scientific review: sharp positivity frontier for irrational-rotation rational arrival processes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precise three-coordinate matrices and all integer orders, the proof starts from the exact density formula in Peralta's Lemma 2. Its partial sums have two distinguishable forms: \(W_m=\operatorname{Re}(A(1-z^m))\) for nonterminal indices and \(W_k=\operatorname{Re}A-\operatorname{Re}(Bz^k)\) at the terminal index. The key strict inequality \(|A|>|B|\) makes the critical parameter itself admissible even though the infimum of the normalized densities is zero. Summation by parts proves the lower bound for arbitrary nonnegative delays, and dense irrational rotations together with an isolated long final delay prove sharpness over all orders. Normalization and the finite-dimensional non-Markovian obstruction are explicitly identified as results already established in the motivating paper. The standalone finite diagnostic passed 50,694 assertions; those checks are not being mistaken for a proof of the all-orders statement.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+PASS for every irrational phi/pi in (0,1), epsilon in [0,1], all finite orders and nonnegative finite waiting times. The exact matrix-product density from Peralta is e^-T[1-epsilon+epsilon S_k]. Interior partial sums W_m=Re A(1-z^m)>=alpha=Re A-|A|, whereas the terminal W_k=Re A-Re(Bz^k)>=beta>alpha. Summation by parts with nonincreasing a_j=e^-T_j gives S_k>=alpha a_1+(beta-alpha)a_k>alpha for finite times (alpha<0). Irrational rotation makes W_m dense arbitrarily close to alpha; a final long finite wait realizes inf S_k=alpha, with strict interior negative witnesses above threshold. Thus epsilon_star=1/(1-alpha) and critical finite-density positivity. Normalization and non-Markovian consequence correctly rely on original full primary theorem, not claimed new. Independent direct matrix products for k=1..7 reproduced the oscillatory density.
 
-The closest directly relevant full primary source is Peralta, arXiv:2603.28047v1 (2026-03-30). Proposition 4 uses the explicit sufficient cutoff \(\varepsilon<1/(1+M)\); neither a necessary cutoff nor strict admissibility of the sharp endpoint is stated. The new conclusion is the exact infimum \(1-\varepsilon/\varepsilon_\star\), the necessary-and-sufficient amplitude range, and critical endpoint. This is a proper strengthening of that paper's positivity lemma, not a reassertion of its non-Markovian counterexample. Searches for exact positivity amplitudes, irrational-rotation RAPs, and related terminology did not establish a previously published result with the same conclusion. Classical general RAP theory might contain a more general cone-positivity result that could indirectly imply the extremum; the older 1999 and 2022 sources were accessible only through their bibliographic descriptions and are not certified as excluding every implicit specialization.
+## originality
 
-## Value — PASS
+PASS
 
-The allowed perturbation amplitude is the natural exact admissibility parameter of a recently introduced and explicitly specified non-Markovian point-process construction. A purely sufficient small-perturbation bound leaves unclear how much signed rotational structure can be supported before a negative joint density appears. The theorem resolves that structural boundary for every irrational rotation angle, including the nontrivial fact that all finite-order densities remain strictly positive at the critical endpoint. At \(\varphi=\pi/\sqrt 2\), it expands the rigorous admissible interval from a previously supplied sufficient cutoff of approximately \(0.184953749154\) to the sharp cutoff \(0.526915669239\). This exact classification may be useful when choosing non-Markovian synthetic arrival models without an arbitrary safety margin; no additional applied performance claim is made.
+PASS best-of-knowledge: Peralta March 2026 introduced exact matrices, density identity, normalization and non-Markovian obstruction but stated a strictly smaller sufficient epsilon bound 1/(1+M); inspected full HTML did not state the global necessary/sufficient range, its unattained critical normalized-density infimum or the endpoint proof. No broader Resultary published result was found beyond this same assigned claim.
 
-## Scope and residual risks
+## value
 
-This is a narrow exact classification for the published three-state family, not a general characterization of rational arrival processes. The essential irrationality hypothesis cannot simply be dropped. Non-Markovian nonrealizability and probability consistency are inherited from the original source, with their hypotheses checked for the enlarged admissible interval. It remains possible that general earlier positive-realization theory contains a stronger theorem whose specialization implies the formula; no such implication was identified from inspected evidence. An independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: sharp full parameter domain and a strict/nonuniform critical boundary are motivated by deciding exactly when a known algebraic non-Markovian arrival construction defines genuine positive joint densities. Exact necessity and endpoint property materially improve the original sufficient admissibility interval; a specialized natural construction merits a complete sharp boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

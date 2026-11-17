@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T23:14:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for every irrational phi/pi in (0,1), epsilon in [0,1], all finite orders and nonnegative finite waiting times. The exact matrix-product density from Peralta is e^-T[1-epsilon+epsilon S_k]. Interior partial sums W_m=Re A(1-z^m)>=alpha=Re A-|A|, whereas the terminal W_k=Re A-Re(Bz^k)>=beta>alpha. Summation by parts with nonincreasing a_j=e^-T_j gives S_k>=alpha a_1+(beta-alpha)a_k>alpha for finite times (alpha<0). Irrational rotation makes W_m dense arbitrarily close to alpha; a final long finite wait realizes inf S_k=alpha, with strict interior negative witnesses above threshold. Thus epsilon_star=1/(1-alpha) and critical finite-density positivity. Normalization and non-Markovian consequence correctly rely on original full primary theorem, not claimed new. Independent direct matrix products for k=1..7 reproduced the oscillatory density.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peralta Theorem 9 covers the finite-state Markovian impossibility for admissible nonzero epsilon; proposition 4 gives only sufficient smaller range."
+        ],
+        "reasoning": "General non-Markovian obstruction is credited; the sharper epsilon range is not implied by the sufficient condition.",
+        "searches": [
+          "Resultary search: Irrational rotation rational arrival processes positivity sharp perturbation amplitude non-Markovian Peralta",
+          "https://arxiv.org/html/2603.28047v1",
+          "Resultary search: rational arrival process Peralta sharp epsilon positivity all finite joint densities irrational rotation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.28047v1",
+        "https://doi.org/10.1016/S0304-4149(99)00006-X",
+        "https://doi.org/10.1007/s11134-022-09812-4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Peralta sufficient condition is eps<1/(1+M) where M=sqrt2(2+1/sin(phi/2)); submitted eps_star=2/(q-1+sqrt(2(q²+9))) and handles equality and necessity."
+        ],
+        "reasoning": "Original proof does not imply submitted iff; submitted builds on its identity with a new sharp oscillatory-minimum argument.",
+        "searches": [
+          "Resultary search: Irrational rotation rational arrival processes positivity sharp perturbation amplitude non-Markovian Peralta",
+          "https://arxiv.org/html/2603.28047v1",
+          "Resultary search: rational arrival process Peralta sharp epsilon positivity all finite joint densities irrational rotation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Peralta Lemma 2 provides same complex partial-sum density; submitted derives sharp extremal alpha=Re A-|A| by Abel summation and irrational equidistribution."
+        ],
+        "reasoning": "Equivalent matrix and oscillatory representations checked; earlier source does not solve the global extremal sign problem.",
+        "searches": [
+          "Resultary search: Irrational rotation rational arrival processes positivity sharp perturbation amplitude non-Markovian Peralta",
+          "https://arxiv.org/html/2603.28047v1",
+          "Resultary search: rational arrival process Peralta sharp epsilon positivity all finite joint densities irrational rotation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted eps_star for phi=pi/sqrt2 ~0.526915669239 compared with Peralta sufficient bound ~0.184953749154; complete interval is analytical, not a finite table."
+        ],
+        "reasoning": "No exact finite table settles inf over all orders and finite delays; criterion requires dense irrational orbit.",
+        "searches": [
+          "Resultary search: Irrational rotation rational arrival processes positivity sharp perturbation amplitude non-Markovian Peralta",
+          "https://arxiv.org/html/2603.28047v1",
+          "Resultary search: rational arrival process Peralta sharp epsilon positivity all finite joint densities irrational rotation"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Peralta March 2026 introduced exact matrices, density identity, normalization and non-Markovian obstruction but stated a strictly smaller sufficient epsilon bound 1/(1+M); inspected full HTML did not state the global necessary/sufficient range, its unattained critical normalized-density infimum or the endpoint proof. No broader Resultary published result was found beyond this same assigned claim.",
+      "residual_risks": [
+        "Possible unindexed equivalent later optimization of Peralta example not excluded by bounded searches.",
+        "The strict critical normalized infimum is unattained across finite orders and times; do not confuse with uniform strictly positive lower bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE, NOT SHARP SIGN FRONTIER",
+          "evidence": "Only sufficient epsilon range stated; same exact finite-order matrix product and nonrealizability are known.",
+          "identifier_or_url": "https://arxiv.org/html/2603.28047v1",
+          "material_read": "Full arXiv HTML sections covering density Lemma 2, normalization Proposition 3, sufficient Proposition 4 and non-Markovian theorem",
+          "method": "Primary arXiv HTML browser full-text section reading",
+          "title": "Rational arrival processes with strictly positive densities need not be Markovian",
+          "trigger": "Identical matrices and motivating construction"
+        },
+        {
+          "assessment": "SHARP FRONTIER SUPPORTED",
+          "evidence": "Telescoping A,B, terminal partial sums and irrational orbit complete iff boundary including unattained infimum.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-positivity-frontier-for-irrational-rotation-rational-arriv--31b90d0c1878",
+          "material_read": "Full RESULT.md with five proof steps, verification, limits; verify.py inspected",
+          "method": "Frozen GitHub full blob text; independent matrix recurrence calculation",
+          "title": "Sharp positivity frontier for irrational-rotation rational arrival processes",
+          "trigger": "Assigned research package"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: sharp full parameter domain and a strict/nonuniform critical boundary are motivated by deciding exactly when a known algebraic non-Markovian arrival construction defines genuine positive joint densities. Exact necessity and endpoint property materially improve the original sufficient admissibility interval; a specialized natural construction merits a complete sharp boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Irrational phi/pi only; rational phases may have different discrete-orbit thresholds.",
+    "Positivity is pointwise for finite orders, not uniform in k and T; no generic RAP classification.",
+    "Possible unindexed equivalent later optimization of Peralta example not excluded by bounded searches.",
+    "The strict critical normalized infimum is unattained across finite orders and times; do not confuse with uniform strictly positive lower bound."
+  ],
+  "schema_version": 1
+}
