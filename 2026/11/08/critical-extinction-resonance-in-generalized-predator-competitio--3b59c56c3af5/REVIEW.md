@@ -1,15 +1,21 @@
-# Scientific review: critical extinction resonance
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is established for the exact source system at \(\delta=\eta(K+\xi)/(B+K)\), \(B>\xi\), positive parameters, and \(1<p\le2\). Positivity and boundedness prevent finite-time loss of solutions. Monotonicity of \(R(x)=(x+\xi)/(B+x)\), logistic comparison and scalar competition prove global extinction of predators and recovery of prey to capacity, including all positive initial conditions. The ratio \((K-x)/y\) obeys an exact stable inhomogeneous scalar linear equation with coefficient tending to \(-1\); its limit is \(K/(B+K)\). A Taylor expansion yields the two relevant nonlinear decay terms, and elementary integration proves each critical correction regime. The endpoint \(p=2\) was assessed separately, because prey feedback has leading rather than subleading order there. The verifier uses exact rational coefficients and finite numerical trajectories, but the analytic argument—not the numerical tests—establishes the infinite-time statements.
+## correctness
 
-## Originality — PASS within inspected evidence
-The July 21, 2026 original manuscript supplies the exact generalized competition model, positivity, boundedness, local boundary stability and many bifurcations, but its Lemma 3.2 uses strict inequalities on either side of the critical invasion surface, and its body, conclusions and appendices do not present the global critical decay/correction trichotomy. The 2022 preprint/2023 publication by Parshad and collaborators treats classical quadratic competition, a subset of the present parameter range that cannot imply the fractional-exponent \(1<p<2\) and \(p=3/2\) correction classification. The 2025 Verma–Goyal–Kottegoda–Parshad patch model studies a different multi-patch system and a single-patch bifurcation case with different mortality assumptions. Semantic research-record searches and accessible historical claims did not identify equivalent coverage. Residual risk: a general abstract nonhyperbolic asymptotic theorem or unlocated model-specific analysis might imply part of this result; independently confirmed priority is not claimed.
+PASS
 
-## Mathematical value — PASS
-The critical invasion equality is a natural nonhyperbolic boundary that the source's strict local stability assertions leave open. The global outcome, quantitative predator extinction clock and its prey-deficit coefficient are biologically interpretable; more distinctively, a second-order competition-versus-feedback balance generates a sharp resonance at \(p=3/2\), separating finite, logarithmic and fractional-power corrections. The law describes a continuum of fractional interference exponents, not a numerical slice or a routine substitution. The quadratic endpoint demonstrates why replacing fractional self-competition by its classical quadratic approximation changes leading extinction amplitudes.
+With B=1+alpha xi>xi, R(x)=(x+xi)/(B+x) is strictly increasing. Logistic prey comparison first gives limsup x<=K. Predator comparison at critical delta=eta R(K) gives y->0; lower logistic comparison then x->K. The exact stable-filter ODE for w=(K-x)/y has coefficient -1+o(1) and forcing ->A=K/(B+K), so w->A. Taylor R(x)-R(K)=-R′(K) A y+o(y) gives y′=-beta y^p-Lambda y^2+o(y^2), Lambda=eta K(B-xi)/(B+K)^3. For 0<r=p-1<1, u=y^-r obeys u′=r beta+r Lambda u^(-(1-r)/r)(1+o(1)), yielding finite shift for r<1/2, logarithm at r=1/2, and fractional-power correction for 1/2<r<1; at p=2 t y->1/(beta+Lambda). Our independent high-precision solve_ivp at T=5000 verified (K-x)/y=0.57173,0.57166,0.57158,0.57158 for p=1.4,1.5,1.75,2 vs A=0.57143. Initial finite numerical test was unstable due near-zero y absolute tolerance; rerunning with tighter tolerance resolved it, not a mathematical contradiction.
 
-## Sources, comparisons and risks
-The primary full text checked was Goyal–Kottegoda–Verma–Parshad, arXiv:2607.18613, particularly model equation (1.2), Theorems 2.1–2.2, Lemma 3.2, Section 3.2, conclusion and Appendix 9.2. The 2022 source arXiv:2208.00153 was checked in its model formulation, theorem overview and competition analysis. The 2025 source arXiv:2510.06111 was checked for its patch and single-patch equations, equilibrium and bifurcation sections. No earlier paper text was assumed inspected merely because it was cited. A general historical coverage risk remains, and the analytical conclusions have no independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goyal et al original published 2026-07-21 proposes this exact predator–prey/food/generalized-competition model, studies equilibrium bifurcation and strict invasion inequalities. Available abstract and assigned citations do not establish a global equality-case extinction clock, matching prey displacement, or sharp p=3/2 correction transition. Resultary semantic searches returned similar extinction laws for DIFFERENT ecological equations with distinct forcing, dimensionality or exponents; no theorem implication is established. This is a best-of-knowledge qualified PASS with explicit full-primary access risk.
+
+## value
+
+PASS
+
+The invasion-equality boundary is biologically and mathematically natural; the sharp p=3/2 transition in first correction distinguishes integrable drift, logarithmic resonance and fractional-power drift across a continuum of fractional nonlinear competitions. Global convergence and prey/predator synchronization make the exact rate useful for perturbation and long-horizon ecology, beyond routine local stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:53:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With B=1+alpha xi>xi, R(x)=(x+xi)/(B+x) is strictly increasing. Logistic prey comparison first gives limsup x<=K. Predator comparison at critical delta=eta R(K) gives y->0; lower logistic comparison then x->K. The exact stable-filter ODE for w=(K-x)/y has coefficient -1+o(1) and forcing ->A=K/(B+K), so w->A. Taylor R(x)-R(K)=-R′(K) A y+o(y) gives y′=-beta y^p-Lambda y^2+o(y^2), Lambda=eta K(B-xi)/(B+K)^3. For 0<r=p-1<1, u=y^-r obeys u′=r beta+r Lambda u^(-(1-r)/r)(1+o(1)), yielding finite shift for r<1/2, logarithm at r=1/2, and fractional-power correction for 1/2<r<1; at p=2 t y->1/(beta+Lambda). Our independent high-precision solve_ivp at T=5000 verified (K-x)/y=0.57173,0.57166,0.57158,0.57158 for p=1.4,1.5,1.75,2 vs A=0.57143. Initial finite numerical test was unstable due near-zero y absolute tolerance; rerunning with tighter tolerance resolved it, not a mathematical contradiction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 original describes high codimension Hopf, BT, homoclinic bifurcations, and 2025 work different two-patch/general competition systems. Similar Resultary critical extinction papers concern different equations and cannot transfer these coefficients."
+        ],
+        "reasoning": "A broad existence/bifurcation framework does not logically imply the exact global critical fractional extinction trichotomy at p=3/2 without stable-filter and asymptotic integration calculations.",
+        "searches": [
+          "predator competition additional food eta x xi delta p extinction 3/2 correction",
+          "arxiv:2607.18613",
+          "arxiv:2510.06111"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.18613",
+        "https://arxiv.org/abs/2208.00153",
+        "https://arxiv.org/abs/2510.06111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original bifurcation abstract contains no p=3/2 logarithmic/resonant rate or global critical beta+Lambda endpoint coefficient; quadratic prior cannot determine 1<p<2 correction cases."
+        ],
+        "reasoning": "Established invasion signs and equilibrium existence do not directly imply asserted first corrections; full primary access limitation is a residual priority risk, not automatic scientific failure.",
+        "searches": [
+          "predator competition additional food eta x xi delta p extinction 3/2 correction",
+          "arxiv:2607.18613",
+          "arxiv:2208.00153"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Model has exactly R(x)=(x+xi)/(B+x) and fractional power y^(p-1) at critical delta=eta R(K); the earlier 2022 study restricts quadratic p=2 while Goyal source focuses bifurcations."
+        ],
+        "reasoning": "Same model identified, but identical local critical rates not found in accessible statements; fractional model and correction normalization are recorded explicitly.",
+        "searches": [
+          "predator competition additional food eta x xi delta p extinction 3/2 correction",
+          "arxiv:2607.18613",
+          "arxiv:2208.00153"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is continuum-in-p and all-positive-initial-states asymptotics; finite phase plots or equilibrium tables cannot contain a uniform proof."
+        ],
+        "reasoning": "No exact database or finite table substitutes for ODE comparison and critical asymptotic analysis.",
+        "searches": [
+          "predator competition additional food eta x xi delta p extinction 3/2 correction",
+          "arxiv:2607.18613"
+        ]
+      },
+      "rationale": "Goyal et al original published 2026-07-21 proposes this exact predator–prey/food/generalized-competition model, studies equilibrium bifurcation and strict invasion inequalities. Available abstract and assigned citations do not establish a global equality-case extinction clock, matching prey displacement, or sharp p=3/2 correction transition. Resultary semantic searches returned similar extinction laws for DIFFERENT ecological equations with distinct forcing, dimensionality or exponents; no theorem implication is established. This is a best-of-knowledge qualified PASS with explicit full-primary access risk.",
+      "residual_risks": [
+        "Source original 54-page 2026 model manuscript not fully available in this run, leaving specialist priority uncertainty.",
+        "Assumptions B>xi, exact critical delta, 1<p<=2 and strictly positive finite initial data essential; no uniform p->2 limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_INCOMPLETE_PRIORITY_RISK",
+          "evidence": "The abstract describes interior equilibria, BT/Hopf/homoclinic bifurcations; no explicit critical extinction correction in available text, cannot assert entire article lacks it.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.18613",
+          "material_read": "Accessible full arXiv abstract, metadata with 54-page length and high-codimension bifurcation claims; full 54-page manuscript not obtained this run.",
+          "method": "arXiv abstract and bibliographic web retrieval",
+          "title": "Additional Food Enhances the Bifurcation Structure of Predator Competition Models",
+          "trigger": "Exact motivating model and invasion equality"
+        },
+        {
+          "assessment": "PARTIAL_CONTEXT",
+          "evidence": "Quadratic p=2 model is a boundary case, not an all-p fractional correction classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.00153",
+          "material_read": "Bibliographic reference and accessible summary only, not full paper",
+          "method": "Primary citation/abstract-level comparison",
+          "title": "Additional food causes predator explosion — unless the predators compete",
+          "trigger": "Quadratic competition endpoint antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invasion-equality boundary is biologically and mathematically natural; the sharp p=3/2 transition in first correction distinguishes integrable drift, logarithmic resonance and fractional-power drift across a continuum of fractional nonlinear competitions. Global convergence and prey/predator synchronization make the exact rate useful for perturbation and long-horizon ecology, beyond routine local stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Source original 54-page 2026 model manuscript not fully available in this run, leaving specialist priority uncertainty.",
+    "Assumptions B>xi, exact critical delta, 1<p<=2 and strictly positive finite initial data essential; no uniform p->2 limit.",
+    "Actual frozen Git tree SHA independently retrieved and exactly matched assignment; computed checks corroborate selected claims but do not replace a proof.",
+    "This is a private independent best-of-knowledge assessment with no external certification; no public-facing file changes submitted."
+  ],
+  "schema_version": 1
+}
