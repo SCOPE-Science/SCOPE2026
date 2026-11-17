@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The theorem is proved directly in `RESULT.md`, without requiring external numerical evidence. A reproducible, independent of the proof-text, exact rational check is included as `check_parity.py`. It enumerates the actual finite tree-growth chains for all walk lengths \(0,1,2,3\) and all sizes \(2\le n\le6\), checks probability normalization, and compares every bipartition distribution to Eulerian or discrete-uniform formulas. The executed script reported 612 exact finite-state checks passed, with no floating-point operations required for the probabilities. The proof of the asymptotic unlabelled total-variation bound uses only the explicit second-moment identity and counting, and is not inferred from finite enumeration. Independent external mathematical validation has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Tree bipartiteness and parity of every genuine edge traversal imply: a new vertex has the start color for an odd walk, and opposite color for an even walk. With uniform start, A-size increments with a/n or (n-a)/n irrespective of adaptive walk transitions. Initial a_2=1 yields discrete uniform via Pólya induction for odd, Eulerian insertion recursion for even. For even, D_n=2a_n-n has E[D_n²]=n/3 for n>=3. Event |D_n|<=n^(3/4), invariant under unlabelled unrooted isomorphisms, has even failure <=1/(3sqrt n) and odd acceptance <= (n^(3/4)+1)/(n-1), proving the stated TV lower bound tending 1.
+
+## originality
+
+PASS
+
+The urn marginals themselves are classical and are credited. Neither the inspected full Random Friend Trees paper nor Anomalous scaling in redirection networks states the walk-rule-independent graph bipartition projection or uniform unlabelled-law separation. Resultary searches returned no earlier published exact parity-universality theorem beyond the assigned work. The unrestricted adaptive edge-following model is essential.
+
+## value
+
+PASS
+
+Bipartition size is a natural isomorphism invariant of a random growing tree. An exact all-n distribution and a one-observation parity test applicable uniformly to arbitrary history-adaptive odd/even walk rules provide a structurally motivated classification despite the urn algebra itself being elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
