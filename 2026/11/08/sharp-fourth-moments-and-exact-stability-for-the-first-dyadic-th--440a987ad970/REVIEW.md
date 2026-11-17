@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Orthogonality of circle characters supplies the exact fourth-moment coefficient identity for the real six-frequency space. Its unique four-term resonance is \(1+1+2=4\). Expanding both displayed deficit identities proves the two inequalities for all complex coefficient triples. Their sums of nonnegative terms force the exact equality cases. A modular argument controls every integer geometric gap at least four; separate enumerations and rational witnesses identify the distinct ternary regime. The included coefficient-enumeration checker verifies every degree-four monomial for tested gaps and symbolic deficit specializations. Its finite tests corroborate, but do not replace, the uniform proof.
+## correctness
 
-## Originality
-**PASS, qualified by historical-literature risk.** Neuwirth's earlier Fourier-analysis work examines integer geometric relations and unconditionality; his three-character Sidon paper concerns a supremum problem. Bonami's classical \(\Lambda(p)\) theory and later Nikolskii estimates provide general bounds, whereas finite Riesz product estimates optimize a different space. The published three-complex-character \(\Lambda(4)\) table (record 5562292e7127) and linked-four-character sharp theorem (record 0b57c5d24021) were examined in full mathematical form: their analytic supports and optimization statements do not imply this six-mode real theorem. Some older exact trigonometric-polynomial literature may remain unindexed, and only selected pages of Bonami's longer paper were examined. Absence from searches is not an assertion of mathematical uniqueness.
+PASS
 
-## Value
-**PASS.** This is a natural complete extremal classification for the first geometrically dyadic real harmonic triple, not a textbook single-integral calculation. Explicit positive deficits give quantitative stability of every extremizing pattern. The distinct sharp generic interval for integer gap at least four and explicit ternary counterexamples identify the precise role of low-gap additive resonances. The theorem supplies exact constants, all extremizers and structural boundary information for sparse real Fourier approximation.
+For real f(t)=Re(u1 exp(it)+u2 exp(2it)+u4 exp(4it)), normalized Haar orthogonality gives E f²=(P+Q+R)/2 and 4E f⁴=3(P²+Q²+R²)/2+6(PQ+PR+QR)+6Re(u1² u2 conjugate(u4)). The single unbalanced zero-sum quadruple is 1+1+2=4. Both displayed lower/upper deficits expand exactly to 3/2 and 45/14 and consist of nonnegative terms; their equality conditions force pure-mode minima and squared magnitudes (3,2,2) with phase lock at the maximum. The signed-count modulo-b argument proves nonresonance uniformly for b>=4, whereas b=3 exhibits explicit counterexamples. Independently checked exact polynomial deficit specializations and the package quartic-tensor checker; no reliance on finite samples for universal claims.
 
-## Scope and residual uncertainties
-Only fourth moments of three real harmonics are treated. The sharp dyadic and larger-gap classifications do not determine the ternary-gap sharp constants. Newer or unindexed equivalent older work remains a residual originality risk, particularly older small-support real \(\Lambda(4)\) calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for the symmetric real six-frequency support {±1,±2,±4}, its two positive deficits, and sharp generic/ternary arithmetic boundary; known lacunary theory and analytic-character tables solve different phase/coefficient spaces.
+
+## value
+
+PASS
+
+The first three-level dyadic real harmonic space is a canonical sparse real Fourier subspace. Complete two-sided sharp norm geometry, exact equality phases and nonnegative deficit identities form a motivated norm classification useful in sparse Fourier approximation, with the b>=4 and b=3 boundary revealing actual arithmetic resonance changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
