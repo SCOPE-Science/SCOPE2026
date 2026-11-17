@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The identification with the \(N_n\)-cross-polytope is exact because disjoint middle-sized subsets are complementary. The signed representation acts linearly on its coordinate sphere. Orbit stabilizer consistency proves the fixed-sphere formula; a transposition has \(b_n/2\) signed-swap blocks and no sign-reversing fixed coordinate. Legendre's valuation identity reduces its determinant to the binary-power condition, hence determines the entire one-dimensional integral \(S_{2n}\)-module. Rational quotient homology follows by finite-group transfer. Armstrong's theorem applies to the simply connected sphere with finite simplicial action; fixed-point transpositions generate the group. The embedded verifier independently reconstructs the signed actions; finite data corroborate, rather than prove, the universal statement.
+## correctness
 
-## Originality
-**PASS, subject to residual indexing risk.** The closest direct sources are Feng–Wang, arXiv:2404.10566, which gives the cross-polytope and homology generators, and Feng, arXiv:2610.17394, which computes rational Betti numbers for the three-subset Kneser series. The newly asserted statement is **not** the known sphere homotopy type. The contribution is the full signed fixed-space description, the complete integral label-permutation orientation character, its power-of-two threshold, and the quotient consequences. Searches for complementary middle-level subset orientation modules, antipodal-pair cross-polytope actions, Kneser independence homology representations, and quotient topology did not locate an implication of this theorem. Results about stable Kneser complexes concern a different subgraph; results about ordinary Kneser *neighborhood* complexes concern a different complex. Generic determinant, transfer, and orbit-space results are acknowledged as tools and do not by themselves state the concrete binomial classification. A classical unindexed equivalent remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The object is a canonical boundary case of the active Kneser-independence and finite-metric Rips series. Ordinary homology gives a rank-one top group, but not its label-permutation action or the quotient topology. The exact sparse exception \(n-1=2^a\) is a genuine structural change: it decides whether the full quotient has top rational homology, while the quotient remains simply connected. The arbitrary-subgroup fixed-sphere criterion further provides a uniform equivariant tool for studying subgroups of its natural large automorphism group. This is a natural infinite-family classification rather than an isolated numeric check.
+The Kneser graph on n-subsets of [2n] is exactly a complement matching, giving the join of N=binom(2n,n)/2 two-point complexes. Its label action is an orthogonal signed permutation on pair coordinates; fixed coordinates are one per orbit precisely when its pair stabilizer does not exchange the halves, proving the PL fixed-sphere statement including d=0. For a transposition, all fixed pairs have positive sign (n>=2), and the b/2 remaining swapped-pair blocks have determinant -1, b=binom(2n-2,n-1). Legendre gives v2(b)=number of ones in n-1, hence b/2 odd iff n-1 is a binary power. Degree gives integral top character; rational transfer plus Armstrong using fixed-point transpositions proves the quotient statements. Independently reconstructed signed permutation matrices and verified all 41064 elements of S4,S6,S8 and fixed transposition dimensions for n=2,3,4; finite checks corroborate but are not the universal proof.
 
-## Closest sources and limits
-Feng–Wang (2024), Sections 3–5, proves the cross-polytope base and homology propagation, without classifying the full symmetric-group homology action. Feng (2026), Sections 2–7, proves rational Betti formulas for a related family, again without these fixed spaces or orbit quotients. Armstrong (1965) supplies the general fundamental-group formula, not its specific application here. The result does not infer integral quotient torsion-freeness, a quotient homotopy type, or a general positive-excess Kneser result. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known nonequivariant cross-polytope sphere is explicitly credited to Feng–Wang; the audited conclusion instead computes its full group orientation, arbitrary-subgroup fixed PL spheres and full quotient topology. Searches under signed middle-subset, complement-pair and Kneser aliases and two relevant primary sources did not identify an implication covering these new equivariant statements. Generic signed determinant/Legendre/Armstrong tools are not claimed new.
+
+## value
+
+PASS
+
+A complete natural S_{2n}-equivariant classification of the zero-excess Kneser sphere, including all subgroup fixed spaces and a sparse binary-power orientation boundary, supplies group and quotient invariants unavailable from nonequivariant sphere Betti ranks; an independently useful structural symmetry result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
