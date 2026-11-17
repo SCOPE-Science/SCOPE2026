@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`. Execute `python3 verify.py` with Python 3 and no third-party dependencies. The code applies the edge-adjacency strong-majority test directly and constructs codes using actual graph distances. Its final run reported:
+## correctness
 
-```
-DIRECT_ALL_COLOURINGS_EXHAUSTIVE_ZERO_OK K5
-DIRECT_ALL_COLOURINGS_EXHAUSTIVE_ZERO_OK K44
-ALL_SINGLETON_CODES_AND_EDGE_TESTS_OK Q4 16 four_cycles 24
-ALL_SINGLETON_CODES_AND_EDGE_TESTS_OK switched_Q4 8 four_cycles 22
-ALL_496_TWO_POINT_CODE_CANDIDATES_OK 40
-VERIFY_OK
-```
+PASS
 
-Finite checks include exhaustive named edge colourings for the two stated small graphs, exhaustive singleton centers in both order-16 examples, and the complete 496 two-point candidates for the order-32 cover. They are not a proof for arbitrarily large graphs. The unrestricted proof uses endpoint colour-degree equations, the connected five-class transition structure, reconstruction of distance layers, and exact edge-counting; those arguments do not require computational extrapolation. Independent mathematical assessment has not been performed.
+Every red edge uv has red-degrees r(u)+r(v)=5; blue edges have sum3, because exactly three of six neighbouring edges are red. This forces the degree-type path 0–3–2–1–4 and 5 distance layers, each vertex with i predecessors and 4−i successors. Connectedness ensures all classes; converse colours consecutive layers alternately. Layer edge double-counting gives sizes (a,4a,6a,4a,a), hence 16a vertices and bipartiteness. Independent breadth-first layer tests found 16/8 centers in Q4 and switched Q4, respectively, with 24/22 four-cycles. This is full proof, finite examples only check sharpness.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct general theorem: named two-colour edge assignments on every connected 4-regular graph correspond bijectively to completely regular radius-four distance codes with the precise Q4 array. Earlier strong-majority hypercube theorem gives Q4 as a special case only; NBC literature discusses colourings of a 4-regular graph, not arbitrary line graphs of quartic graphs.
+
+## value
+
+PASS
+
+Natural exact structural classification translating a local edge-colour condition into completely regular code geometry for all connected quartic graphs, with sharp divisibility, bipartiteness, and different counts on smallest nonisomorphic witnesses. Independent of the already known Q4-only special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
