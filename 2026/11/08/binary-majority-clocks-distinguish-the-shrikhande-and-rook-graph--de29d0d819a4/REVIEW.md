@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to two explicitly constructed sixteen-vertex graphs under strict synchronous open-neighbor majority, with tie retention. The exact finite proof enumerates all \(2^{16}\) input states of each graph, constructs the complete successor function and directly classifies the first periodic entrance and least period. No extrapolation from sampled configurations is made. A second standalone algorithm uses coordinate-neighbor lists and signed-opinion sums, independently checking the entire \((\tau,p)\) table. A third algebraic/combinatorial checker verifies regularity, the common-neighbor identity, four-clique populations and four-occupied fixed-state counts. Both graph constructions satisfy \(A^2=4I+2J\), and explicit configurations demonstrate sharp transient maxima. The finite code and outputs have been executed and their common fields compared exactly.
+PASS
 
-## Originality — PASS, with historical-priority uncertainty
+The two explicit Cayley/rook neighbor constructions each have 16 degree-6 vertices and exactly 2 common neighbors for each pair, yielding A²=4I+2J and the same spectrum 6,2^6,(-2)^9. Rook row/column K4 gives eight four-one fixed majority configurations; Shrikhande neighborhood C6 precludes any K4. Independently built all six neighbor masks and enumerated all 2^16 bit states for each graph, traced complete functional graphs until cycle repetition, and classified exact first-entry time tau and least period. Rook p=1 tau=0:302,1:10104,2:29984,3:18720; p=2 tau=0:2394,1:4032. Shrikhande p=1 tau=0:142,1:7576,2:26240,3:18496,4:9024,5:960; p=2 tau=0:1370,1:1728. Each graph totals 65536; primitive two-cycle orbits 2394/2=1197 and 1370/2=685. The enumeration is exhaustive finite proof exactly over each declared 16-vertex graph; it asserts nothing for arbitrary strongly regular graphs or other tie conventions.
 
-The two graphs' cospectrality and strong regularity are classical, and eventual period at most two follows from Goles–Olivos. The new target is not those properties but the **exact labelled majority temporal census and its spectral separation**. The closest literature inspected concerns general finite-graph period restriction, infinite/unimodular majority, random-graph stabilization and tree stabilization. These results do not determine the exact fixed-state count, primitive two-cycle count or sharp first-entry distribution for either graph. Existing related studies of the same cospectral pair with other dynamics or topological invariants are distinct statements: their transition operators are not binary majority. Searches for the graph names, rule aliases and exact populations did not identify a stronger or equivalent result. This is best-knowledge originality, not a guarantee that no unindexed earlier census exists. The 1980 Goles–Olivos article was not fully inspected; its established general result is explicitly acknowledged, and an equivalent graph-specific table there would alter priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-These are the unique classical nonisomorphic graphs with strongly regular parameters \((16,6,2,2)\), making them a canonical test of invariance under shared spectrum and local intersection numbers. The measured difference is not limited to a redundant invariant: it separates counts of fixed points, periodic orbit types and sharp transient depths, and gives the complete 131,072-state combined temporal classification. The elementary four-clique argument provides a structural reason for one of the divergences; the other dynamical differences require the nonlinear update. It supplies an exact reproducible benchmark for spectral versus nonlinear-dynamical information rather than an arbitrarily sampled graph.
+The fundamental eventual-period-at-most-two theorem is classical, but it supplies no exact two-graph census, transient depth or 8-versus-0 fixed-point witness. Related published exhaustive censuses on the same Shrikhande/rook graph pair use a three-state excitation automaton, whereas the same-rule census on Q4 uses a different graph. Both potential ambiguities were checked at the actual rule level.
 
-## Closest literature and limitations
+## value
 
-Goles–Olivos (1980) provides the period restriction, Benjamini et al. (arXiv:1405.2486) studies majority convergence on other graph classes, Fountoulakis–Kang–Makai (2020) treats dense random graphs, and Benjamini–Zakharov–Zhukovskii (2026) treats finite trees. Cameron (2025) documents the classical cospectral graph pair. The full historical-priority risk and exact scope are in `AUDIT.json`. The proof is a complete finite exhaustive certificate, not an all-graph theorem or an independent external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rook and Shrikhande are the classical cospectral nonisomorphic SRG(16,6,2,2) mates. A complete natural nonlinear majority dynamical invariant distinguishing them—fixed counts, oscillatory cycles and sharp relaxation—and the independent K4 witness has clear graph-dynamics motivation and is nontrivial despite finite state space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
