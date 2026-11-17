@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For each integer b≥2, Lebesgue invariance is immediate from b equal full branches. Integration of the V-shaped f_b on each branch proves mean (2b−1)/(6b) and variance (2b²−2b−1)/(36b²). The transfer operator maps f_b to a symmetric continuous piecewise-affine function with corners at the fixed points j/(b−1); applying it again scales each derivative jump by b^−2. Symmetry and integral preservation force the remaining affine term to be constant, yielding the exact eigenidentity. A finite polynomial sum for ∫f_b P f_b establishes C_b(1)=(b−4)(b−2)(b²−b−1)/(180 b⁴). Duality gives C_b(n)=b^−2(n−1) C_b(1). Stationarity gives finite-N variance and its rational positive limit. A bounded u=∑Pⁿh exists explicitly; m=h+u−u∘T satisfies Pm=0. The reverse-martingale CLT plus bounded telescoping proves the Gaussian limit. Exact-rational independent branch integration tests 18 (b,lag) cases using verify.py; this is corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jenkinson, Pollicott, Vytnova, J. Stat. Phys. 170 (2018), Sections 1 and 4, consider analytic expanding maps and general diffusion-coefficient computation, including doubling with g(x)=2x-1, rather than the piecewise absolute-length observable f_b.",
+        "Jiménez-López and García-Garrido, arXiv:2602.07660v3 Theorem 2.4, derive an integrated covariance formula under assumptions on continuous Hamiltonian flows. Those assumptions do not specify the present b-dependent exact correlation."
+      ],
+      "reasoning": "General Green–Kubo and central-limit frameworks imply existence or formulas in terms of unknown correlations, not the new explicit rational first-lag coefficient, the single transfer eigenvalue or its exact slope sign transition. Known generic formulas are not claimed as novel.",
+      "searches": [
+        "Rigorous computation of diffusion coefficients for expanding maps Jenkinson Pollicott Vytnova",
+        "trajectory arclength expanding map exact covariance distance consecutive iterates",
+        "Expanding integer beta maps absolute displacement observable signed lag autocovariance phase transition slope three four five"
+      ]
+    },
+    "checked_sources": [
+      "Trajectory arclength reveals chaos, arXiv:2602.07660v3 (primary full-text HTML, relevant theorems)",
+      "Global dynamics visualisation from Lagrangian Descriptors, arXiv:2206.04467 (primary rendered full text, mapping section)",
+      "Rigorous Computation of Diffusion Coefficients for Expanding Maps, DOI:10.1007/s10955-017-1930-8 (publisher full-text HTML)",
+      "On the central limit theorem for stationary processes, Gordin (1969), accessible translated primary abstract/theorem",
+      "Published result: Exact conditional phase law and two-scale discrepancy for expanding circle maps (title and scientific summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.07660v3 establishes broad fluctuation scaling when covariance integrability and nonzero variance hold, while the new statement supplies exact C_b(n), sign and sigma_b squared for a discrete map family.",
+        "arXiv:2206.04467 defines the matching discrete path-length form, but its mapping examples are nearly integrable and its reported results are diagnostic visualizations.",
+        "The nearby published conditional-phase result concerns self-displacement modulo the circle, and a summary cannot settle all consequences for absolute interval displacements."
+      ],
+      "reasoning": "The proposed result has the same statistical concept but an object-specific exact all-b computation, not a restatement of the abstract Green–Kubo identity. No inspected full text covers the exact branch-dependent observable and its b=3/4/5 sign change. Residual risk is explicitly retained for inaccessible or unindexed prior calculations.",
+      "searches": [
+        "Exact conditional phase law and two-scale discrepancy for expanding circle maps",
+        "Exact displacement observable |b x mod 1 - x| under integer expanding map T_b, all-lag covariance and central limit variance with sign change at b=4",
+        "arxiv:2602.07660v3 trajectory arclength reveals chaos correlation variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.07660v3 Section 2.2 analyzes time-averaged continuous Hamiltonian speed, rather than absolute discrete jumps in integer-branch interval maps.",
+        "arXiv:2206.04467 Section 4 gives discrete finite-sum path-length descriptors and examples involving standard and higher-dimensional nearly integrable maps, not the full b-fold branch family.",
+        "A related published summary entitled Exact conditional phase law and two-scale discrepancy for expanding circle maps treats conditional modular phases. The summary does not state the raw interval-coordinate absolute-step covariance."
+      ],
+      "reasoning": "Possible aliases include phase-space arclength, Lagrangian descriptor, orbit displacement, beta transformation, expansion-map Green–Kubo variance and transfer-operator spectral decomposition. The raw Euclidean length depends on which interval branch is used, unlike a modular phase. These comparisons do not establish a stronger equivalent formula; the phase result was summary-only and is a residual risk.",
+      "searches": [
+        "Exact displacement observable |b x mod 1 - x| under integer expanding map T_b, all-lag covariance and central limit variance with sign change at b=4",
+        "doubling map absolute displacement consecutive iterates autocorrelation transfer operator",
+        "arclength time average discrete map expanding map exact covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results on trajectory arclength, integer expanding maps, and diffusion coefficients did not identify a table for absolute step length across all integer slopes.",
+        "The 2018 article reports a distinct doubling-map analytic linear observable with exact diffusivity and a Lanford-map numerical example, not the present b-parametric table."
+      ],
+      "reasoning": "A negative search result is not a proof of absence. The closest located examples use different observables or different dynamical systems; no exact database value found directly implies the all-integer rational expression.",
+      "searches": [
+        "Exact Green Kubo diffusivity for Euclidean one-step length of integer expanding circle map and nonmonotone correlations",
+        "Discrete phase-space arclength diagnostic integer beta transformation slopes exact correlation decay factor beta^-2 zero covariance doubling quadrupling",
+        "first-lag covariance of absolute chord length |bx mod1 - x| integer maps uniform Lebesgue"
+      ]
+    },
+    "rationale": "The inspected motivating and discrete descriptor papers contain continuous-flow fluctuation methodology and discrete length definitions, not this exact all-slope step-length covariance. A general rigorous expanding-map diffusivity paper contains a different exact observable. Relevant historical-search records on conditional modular self-displacement phases have only summary-level access and were not asserted fully not-covering. The all-integer branch-specific covariance sign classification is not implied by the checked statements. Historical priority is provisional.",
+    "residual_risks": [
+      "Historical unindexed or differently named exact arithmetic calculation for this specific absolute-step-length observable may exist.",
+      "Full text of the published conditional self-displacement phase record was not accessible; summary-level evidence is not a whole-document novelty exclusion.",
+      "Similar general finite-dimensional transfer arguments are classical; originality is limited to the exact natural family-dependent calculation and sign classification, not the operator technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Continuous-flow speed autocovariance bound and limiting variance identity do not imply the exact all-integer covariance formula for non-geodesic discrete step lengths",
+        "evidence": [
+          "arxiv:2602.07660v3, 2026-11-05 revised text, Section 2.2, especially Theorem 2.4, equations (45)-(74)",
+          "arxiv:2602.07660v1 posted 2026-02-07 UTC"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.07660v3",
+        "material_read": "Full-text HTML sections 1, 2.1, 2.2.1, 2.2.2, 2.2.3 and conclusions; the main Theorem 2.4 and its proof, speed and covariance definitions, applications and reference list were checked",
+        "method": "Accessible arXiv full-text HTML; examined definitions and theorem statements rather than abstract alone",
+        "title": "Trajectory arclength reveals chaos",
+        "trigger": "First-public 2026 source motivating time-averaged arclength and statistical scale"
+      },
+      {
+        "assessment": "Defines discrete orbit-path metric but does not give exact stationary absolute-length covariances for b-fold interval maps",
+        "evidence": [
+          "arxiv:2206.04467, Section 4, equation (31), and Sections 4.1–4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.04467",
+        "material_read": "Accessible arXiv-rendered primary full text including Sections 2 and 4, standard-map discrete path-length expression (31) and further mapping examples",
+        "method": "Read arXiv-rendered primary full text and inspected the relevant discrete-mapping equations",
+        "title": "Global dynamics visualisation from Lagrangian Descriptors. Applications to discrete and continuous systems",
+        "trigger": "Prior discrete arclength/Lagrangian descriptor formulation explicitly cited by the motivating paper"
+      },
+      {
+        "assessment": "Exact doubling-map example uses centered linear coordinate 2x-1 and general method treats analytic observables; it does not explicitly derive the branch-dependent absolute-step-length slope law",
+        "evidence": [
+          "Jenkinson–Pollicott–Vytnova, J. Stat. Phys. 170 (2018), Section 4.1, Proposition 2",
+          "DOI:10.1007/s10955-017-1930-8"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10955-017-1930-8",
+        "material_read": "Open-access publisher HTML: introduction, formulation of diffusion coefficient, general method and Section 4.1 exact doubling-map example",
+        "method": "Examined publisher full-text HTML; compared the map and exact observable rather than a keyword or title",
+        "title": "Rigorous Computation of Diffusion Coefficients for Expanding Maps",
+        "trigger": "Potentially dominating general results on expanding-map asymptotic variances"
+      },
+      {
+        "assessment": "Conditional modular-phase discrepancy is different in formulation and does not state the branch-dependent absolute difference covariance; a stronger hidden implication remains a material residual risk",
+        "evidence": [
+          "Published record summary describes two-level conditional phase density, total-variation discrepancy and rational arc-length resonances"
+        ],
+        "identifier_or_url": "Published searchable record, title as written",
+        "material_read": "Discoverable title and mathematical summary only; full linked repository text was inaccessible",
+        "method": "Compared summary-level mathematical objects, conditioning and conclusions; did not claim full-document noncoverage",
+        "title": "Exact conditional phase law and two-scale discrepancy for expanding circle maps",
+        "trigger": "Same b-fold maps and self-displacement terminology were potentially close to the proposed observable"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb10fa88-b009-4526-b256-6bf51beefe5b",
+  "value": {
+    "rationale": "Discrete finite-sum orbit path length is a natural arclength diagnostic. Existing recent literature motivates its convergence and rates, but effective calibration requires the precise asymptotic variance and serial-memory signs. The theorem supplies the full-lag covariance, finite-sample variance, exact zero-memory exceptions b=2,4, a strict negative b=3 regime and positive b≥5 regime, with a positive Gaussian scaling constant. This is a complete family-wide quantitative classification for an observable with direct motivation, not an arbitrary parameter slice or a claim that vanishing covariance means independence. It also exposes embedding dependence by explicitly choosing interval-coordinate displacement.",
+    "status": "PASS"
+  }
+}
