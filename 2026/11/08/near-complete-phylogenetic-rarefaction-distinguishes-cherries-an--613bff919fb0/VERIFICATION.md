@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Exact verification record
+# Independent mathematical audit
 
-Run `python verify.py` with any recent Python 3 interpreter (standard library only). The checker reconstructs every rooted nonplane binary tree shape on four through eleven leaves, enumerates all sets of exactly two or three deleted taxa, counts each surviving root-to-leaf edge directly, and compares exact rational variances to the closed forms in RESULT.md. This yields 792 independent shape/budget comparisons. The same checker constructs the four-leaf witness and explicit infinite-family instances at parameter values 1, 2, 3 and 5, and checks shape counts and both variance inequalities by exhaustive deletion-set enumeration.
+## correctness
 
-Observed successful output:
+PASS
 
-```
-PASS: exact direct-subset checks: 792
-PASS: sharp four-leaf values and n=6q witness at q=1,2,3,5
-```
+For n>=4 unit-edge rooted full-binary trees, deletion of 2 leaves loses pendant edges plus at most one cherry edge; deletion of 3 adds at most one cherry and one nested pitchfork edge. Their indicators imply VarY2=c/N2(1-c/N2), VarY3=(c(n-2)+3t)/N3-((c(n-2)+t)/N3)^2. Strict monotonicity in feasible c,t recovers shape indices, while 6m-leaf constructions have (c,t)=(2m+1,0) and (2m,2m) and strict reversal. Independently enumerated the 4-leaf direct variance pairs (2/9,0) versus (5/36,11/16). Large-size proof is the clade construction, not finite tests.
 
-The direct calculation uses `fractions.Fraction`, never floating-point tolerances. No external data, scientific libraries, or platform-specific paths are required. The all-integer infinite-family result and shape-index recovery are justified by the symbolic counting proof in RESULT.md; finite checks alone cannot certify their universally quantified conclusions. Model limitations are the unit-edge rooted full-binary structure and fixed-number uniform deletion sampling. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+General rooted PD rarefaction first and second moments were established by Nipperess and Matsen, acknowledged as stronger underlying formulas. The particular inverse recovery of cherry and pitchfork counts from ONLY two near-complete variance statistics and a strict ranking-reversal family at every n=6m are not stated in the full source read or matched published Resultary classifications. Historical independent rediscovery is still possible.
+
+## value
+
+PASS
+
+Recovering two natural clade-shape invariants from near-complete rarefaction variances and an unbounded family reversing comparative uncertainty ranking is a meaningful structural result, not just recomputing known general variance formulas. It is explicitly limited to unit-edge deterministic tree topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
