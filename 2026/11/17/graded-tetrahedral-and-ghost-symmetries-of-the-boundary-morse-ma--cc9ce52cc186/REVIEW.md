@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The complete six-dimensional face-level chain enumeration, differential sign convention and ten-order character reconstruction are specified and implemented by the standalone code. The rank argument uses the previously proved integral wedge homotopy type of the *ordinary boundary* complex, not an unjustified inference from modular ranks: because averaging over a finite-order action is defined after localization away from its order, invariant chain complexes split over the localization, and equality between total rational and total modular ranks prevents hidden drops in either summand. Thus every computed invariant-boundary rank is rationally exact. Direct signed simplicial Lefschetz traces independently equal the differences of the two computed homology traces in all ten conjugacy classes. Rational Specht inner products are nonnegative integers and reconstitute the homology dimensions. Residual risk: dependence on the published nonequivariant homotopy theorem and finite implementation rather than a second hand-derived integral chain reduction.
+
+## Originality
+**PASS, subject to scholarly novelty risk.** Scoville's 2026 homotopy theorem specifies ranks 21 and 24 but not the two graded ghost-by-tetrahedral characters. Lin–Scoville prove the ghost automorphism exists. Previously computed tetrahedral characters apply to the full simplex, pure boundary complex or nonacyclic generalized complex, not this graded ordinary boundary object. The closest relative equivariant theorem gives only the relative regular representation of the inclusion and cannot separate the two absolute graded homology representations. Relevant full result texts and foundational primary literature were compared for implication as well as wording. Searches cannot exclude unindexed equivalents; no absolute uniqueness is claimed.
+
+## Mathematical value
+**PASS.** This is a complete rational representation classification under the actual full automorphism group of the smallest familiar mixed-dimensional ordinary Morse complex. It identifies different ghost-parity dimensions in adjacent homology degrees, makes a nontrivial distinction between full-symmetry and orientation-preserving quotient homology, and resolves two independent graded module structures that the previously known Euler/relative-character information cannot recover. It is not merely a sphere-count recomputation or renaming of a stronger theorem.
+
+## Literature and limitations
+The closest full-text comparisons are Scoville (arXiv:2604.18172), Lin–Scoville (arXiv:1904.10907), the tetrahedral full, pure and generalized Morse-character studies, and the relative tetrahedral Morse-pair study cited in RESULT.md. The result is limited to rational representations on the ordinary tetrahedron-boundary complex and depends on the published nonequivariant classification. Potentially unindexed equivalent research and independent audit remain open.
+
+Self-review: passed. Independent audit: not yet performed.
