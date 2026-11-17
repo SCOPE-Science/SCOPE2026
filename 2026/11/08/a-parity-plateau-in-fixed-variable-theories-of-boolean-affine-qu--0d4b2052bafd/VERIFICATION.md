@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification and limits
 
-Execute `python affine_pebble.py` and `python check_affine_algebra.py` with Python 3, without dependencies. Both programs and their captured outputs accompany the theorem.
+# Independent mathematical audit
 
-The first program independently constructs all affine tuple orbit types for each tested dimension and variable width, enumerates possible one-coordinate pebble moves and iteratively refines atomic-compatible classes until the finite partition stabilizes. It tests ten dimension/width pairs: in particular dimensions 4 and 5 are equivalent at widths five and six, but distinct at seven. This is a finite combinatorial corroboration of a permanent strategy, not a bound on the quantifier depth of the general theorem. The refinement state space reaches 5,585 affine-orbit states at width seven.
+## correctness
 
-The separate program evaluates the recursive first-order even-parity formulas for 71,388 exhaustive/sampled assignments, and independently checks affine-independent canonical witnesses in dimensions 0 through 6. Its finite input range and seeded sampling are explicit in the code. Neither program certifies all dimensions or proves the absence of prior publications; the mathematical proof provides the universal quantifiers. Both outputs are to be replayed against the embedded text files.
+PASS
+
+The recursive even-XOR formulas use no more than r+1 reusable names; affine-independent tuple sentences detect every dimension below the threshold. For equivalence, after dropping a pebble, surviving even dependencies yield the unique affine-span matching; at even k≥6 a full-support k-dependence is the sole invisible obstruction and the chosen affine sum response preserves all smaller even dependencies. Handles k=1–4 separately and all dimensions including d=0.
+
+## originality
+
+PASS
+
+The relevant earlier all-SQS theorem only gives widths ≤5 on nontrivial designs; it does not classify arbitrary k or the parity plateau. Grohe–Otto provides the general pebble framework, not the explicit family-specific threshold.
+
+## value
+
+PASS
+
+Exact and complete finite-variable theories for a natural relational presentation of affine geometry include a nontrivial even/odd width plateau and sharp distinguishability boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
