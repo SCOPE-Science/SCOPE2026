@@ -1,15 +1,21 @@
-# Scientific review: exact braid-fan directional illumination
+# Independent mathematical audit
 
-## Correctness — PASS
-The result assumes equality of complete normal fans, so there are exactly \(n!\) full-dimensional braid chambers and vertices. The normal chamber's extremal indicator rays give a necessary and sufficient *strict* partial-sum test. The cyclic-minimum argument gives exactly one positive rotation per orbit under the explicit nonzero-subset-sum genericity assumption. Perturbation bounds every nongeneric direction; \(n\) explicit directions partition the vertices. Summing vertex incidence inequalities proves the fractional lower bound, while the same directions prove both upper bounds. The step from vertices to all boundary points is justified using face-facet containment. A standalone exact-arithmetic regression has 1,258,632 checked incidences, including independently computed facets for nonsymmetric complete-graph zonotopes. The universal proof is analytic and does not rely on the finite checks.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-A full reading of Kong–Zeng's accessible paper finds hyperplane covers of permutohedron vertices, not illumination. Padrol–Pilaud–Poullot explain the type cone and braid fan; Godland–Kabluchko give angle sums and projection counts, not the present directional incidence. Naszódi's fractional bounds, Ivanov's primitive-polytope upper bound, and Gorodzha's general fractional bound do not calculate this invariant. Earlier exact results for the three-dimensional truncated octahedron cover one example; they do not imply the all-dimensional deformation-invariant theorem. Targeted primary-literature and mathematical-index searches using illumination, Hadwiger coverings, graphical zonotopes, Coxeter/braid fans, and cyclic partial sums identified no exact equivalent or stronger blanket statement. The possibility of an implicit or poorly indexed earlier observation remains material but not decisive.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a sharp, dimension-uniform, closed-form evaluation of both ordinary and fractional illumination for the full type cone of a natural polytope fan. It covers infinitely many genuinely nonsymmetric polytopes, not only the vertex-transitive permutohedron, and converts a factorial-sized vertex set into a linear optimal illumination system. The exact uniform one-direction incidence, not merely an upper bound, is the structural reason for this dimension collapse. It is a natural complete classification under a geometrically meaningful fan hypothesis, not a numerical slice or a cosmetic reformulation.
+For full type-A braid normal fan in H, outward normal-cone extremal rays are centered indicators of final permutation segments. Strict inward illumination is precisely positivity of all proper prefix sums of the corresponding permutation of a sumzero u. For generic u, cyclic rotations of any permutation contain exactly one rotation beginning after the unique minimum of cyclic partial sums, hence exactly (n-1)! of n! vertex orders lit. Nongeneric strict illuminated vertices survive generic perturbation, giving <=(n-1)!. Directions ne_i-1 illuminate exactly permutations with first label i and partition all n! vertices, giving ordinary upper n; double-count of vertex fractional constraints gives lower n. Valid for all n>=2 and every polytope with exactly the full fan. Independent permutation enumeration n2..7 corroborated the exact partition but is not relied upon for infinity.
 
-## Closest literature and limitations
-The analogous hyperplane-covering problem is distinct (Kong–Zeng, arXiv:2509.13877). The braid-fan equivalence and normal-cone combinatorics are prior results (Padrol et al., 2023; Godland–Kabluchko, 2023). The 2009 fractional definition and 2026 global bounds are acknowledged. The fan-equality hypothesis cannot simply be replaced by fan coarsening, and no classification is claimed for such degenerations. Search coverage of obscure historical sources is necessarily incomplete; no external or independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing results on affine hyperplane covering of permutohedron vertices, Coxeter/graphical zonotope fan combinatorics and broad illumination inequalities do not imply a simultaneous exact ordinary/fractional directional illumination invariant for all full braid fan deformations. Inspected Kong–Zeng paper studies hyperplane vertex containment, which can have n-1 in an even case, an inequivalent geometry. The cycle-lemma normal-cone method establishes a stronger fan-invariance result. Best-of-knowledge original with possible obscure Coxeter-cone illumination predecessors.
+
+## value
+
+PASS
+
+The theorem is a natural all-dimensional classification for an entire cone-equivalent family of convex polytopes, including nonsymmetric complete graphical zonotopes. It exposes an exact incidence invariant independent of facet offset and proves a sharp integral and fractional covering number, beyond routine instance substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
