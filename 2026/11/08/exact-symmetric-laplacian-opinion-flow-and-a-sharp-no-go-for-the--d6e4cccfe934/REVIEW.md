@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an operator identity, not an extrapolation from simulation. Each two-qubit exchange pair acts on an opinion observable at *both* endpoints: the adjoint dissipator identities produce the two symmetric conductance contributions. The diagonal Ising Hamiltonian commutes with each opinion observable, and the anchor dissipators give the specified affine drift. Summing over all ordered arcs yields the exact expectation system for arbitrary joint density matrices. Comparing off-diagonal coefficients proves the sharp no-go. Positive semidefiniteness of the symmetric Laplacian proves the variational, convergence, and consensus statements. Both exact three-agent witnesses were independently recomputed with rational arithmetic, and the supplied full-state generator checker passed 48 further finite tests. Tests corroborate the proof but are not its substitute.
+PASS
 
-## Originality — PASS, with delimited prior coverage
+For the literal stated pair of opposite-direction two-site exchange Lindblad jump operators with identical rates, the adjoint dissipator acts on O_i as O_j-O_i and on O_j as O_i-O_j, an operator identity valid for entangled inputs. Summing both ordered pairs yields c_ij=(1-lambda_i)w_ij+(1-lambda_j)w_ji and the exact symmetric-Laplacian first-moment ODE xdot=-(Lambda+L_c)x+Lambda s, since the Ising Hamiltonian commutes with O_i. The Chu-directed FJ off-diagonal coefficient omits (1-lambda_j)w_ji; equality on all initial vectors forces every one of those nonnegative incoming coefficients zero, hence all exchange rates zero. Weighted graph Laplacian quadratic form establishes convergence/anchor uniqueness. Independently checked the rational directed 3-node unanchored witness: actual arithmetic consensus -1/3 versus FJ left-eigenvector consensus -3/5, and the positive symmetric Laplacian. Conditional premise that Chu Eq14 is transcribed exactly is not independently verified from the original full text due access restrictions.
 
-The primary paper (Chu, arXiv:2607.01452, §§3.1–3.4 and Appendix A) prints the full pair-exchange generator and derives a directed Friedkin–Johnsen first-moment equation by treating only those interactions in which the monitored agent is the *first* endpoint. Its Section 4.1.1 attributes deviations between the full system and that reduced equation to inter-agent correlation feedback. The full first-moment closure, the missing incoming-arc contributions, the no-go statement, and the incompatible consensus predictions are not stated there. The primary full text was inspected at the defining equations, inference, numerical comparison, and appendix.
+## originality
 
-Schulman and Sinclair (arXiv:2607.22991, §§1–2) explicitly study symmetric exclusion with reservoirs on general graphs; the diagonal Markov process here belongs to that established class. Mendonça (arXiv:1207.4106) treats the spin/exclusion correspondence. Accordingly, the mathematical identity for a generic exclusion process is **not** being presented as novel. The narrow original content assessed here is the published-opinion-model-specific contradiction and its exact analytical consequences, not a new theorem about exclusion in general. No searched indexed finding or accessible own-claim match established that precise comparison. The main residual risk is an overlooked independent erratum or equivalent diagnosis not indexed in searched sources. This is a same-model, not independent, assessment.
+PASS
 
-## Value — PASS
+Best-of-knowledge survival of precise final claim after source-by-source implication comparison, with listed risks; no worldwide priority certification. The general SSEP generator implies symmetric first moments, but the new result specifically proves the published directed FJ equation (if transcribed exactly) is incompatible with its published equal-rate exchange Lindbladian except at zero exchange. This is a concrete correction to a distinct earlier scientific assertion, not the novelty of symmetric diffusion itself.
 
-The claimed recovery of a directed opinion model is a foundational justification for the published quantum social-network formulation. The exact no-go rules it out for every genuinely interacting parameter choice under the written generator. It also revises the explanation of the numerical full-vs-reduced discrepancy: although the full process generates correlations, its expected opinions cannot receive any feedback from them. A connected directed network with different predicted consensus values, and a positive-stubbornness example with different equilibria, make this a substantive model-interpretation issue rather than a formatting or normalization observation. These results matter when selecting the generator for directional influence and when comparing classical and quantum predictions.
+## value
 
-## Boundaries and residual risk
+PASS
 
-The claim concerns first moments of the *literal* Eq. 14 generator. It does not dismiss quantum correlations or imply that no alternative dissipators can produce a proper FJ lift. The classical exclusion correspondence is prior literature, and some equivalent model-specific discussions might be unindexed. The independent scientific audit remains unperformed.
+Meaningful, falsifiable correction of the claimed classical reduction in a recent specific quantum opinion-dynamics model: changes conserved consensus weighting and anchored equilibrium, and disproves correlation-feedback explanation for first moments. No independent novelty is asserted for classical symmetric-exclusion first-moment closure.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
