@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Shioda--Tate/Mordell--Weil classification, adjunction, height pairings, and standard Zariski-chamber correspondence give exactly the stated fourteen-curve incidence matrix. The standalone exact-arithmetic verifier checks every one of the \(16,384\) subsets, lists all \(24\) minimal obstructions and independently recomputes the coefficient vector by inclusion--exclusion. Results agree: \(Z_X(1)=6656\), and \(102\) supports have size nine.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The classical source lists the \([1,1,2,8]\) extremal surface and group \(\mathbb Z/4\mathbb Z\); prior Zariski-chamber literature proves the general reduction to negative-definite matrices. Inspected sections do not tabulate this graph's forbidden supports or exact polynomial. Searched equivalent formulations and prior claims on distinct elliptic fiber graphs. Unindexed calculations and incomplete historical records remain explicit risks.
+PASS
 
-**Value — PASS.** The four-torsion configuration with its double-intersection \(I_2\) fiber is a natural structurally distinguished member of the classical six semistable extremal surfaces. Identifying every forbidden support, including mixed section/fiber obstructions, gives a complete classification of the surface's Zariski-chamber supports and precise birational geometry beyond a single chamber count.
+Adjunction K=-F and nef F exhaust negative curves as ten fiber (-2)-components plus four torsion (-1)-sections. Torsion-height pairings yield the 14-vertex intersection graph. Independently reconstructed its integer matrix and tested 16,384 subset principal matrices via exact rational Schur pivots; 24 minimal non-PD supports, counts [1,14,90,346,875,1508,1768,1352,600,102], total 6656, maximum size 9 (102). This is exhaustive only after geometric curve exhaustion.
 
-**Limitations.** No claim about positive characteristic, Weyl chambers, chamber volume or full divisor-class equations. General counting methods were known; independent scientific audit has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing classification identifies surface and torsion, and standard Zariski-chamber support criterion is prior work. Exhaustive evaluated four-torsion support polynomial and all 24 minimal obstructions were not found in inspected accessible sources or nearby published related surface records.
+
+## value
+
+PASS
+
+The complete support-size enumerator and explicit finite obstruction antichain of a canonical extremal elliptic surface are natural chamber-geometric invariants useful for cone calculations; not a trivial name substitution from another surface.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

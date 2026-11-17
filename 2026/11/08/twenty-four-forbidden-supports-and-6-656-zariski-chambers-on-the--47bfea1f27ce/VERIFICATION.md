@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification procedure and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` using a Python 3 interpreter and standard library. The verifier constructs the exact negative of the fourteen-curve intersection matrix with cyclic \(I_8\), doubled \(I_2\), and four labeled torsion sections. It tests all \(2^{14}=16384\) subsets by Fraction-valued Schur complements (equivalent to Sylvester positive definiteness). It lists the twenty-four minimal failures, checks that every non-positive-definite support contains at least one, and recomputes the support polynomial from a separate inclusion--exclusion dynamic program. Its full recorded output is in `verification_output.txt`. The check concluded `ALL_EXACT_TESTS_PASSED`.
+## correctness
 
-These finite checks are exhaustive for the explicit matrix. Their geometric interpretation requires the separately supplied adjunction and height-pairing argument proving the list of negative curves is exhaustive. They do not establish any claim about a different surface, or global historical uniqueness. No independent validation has been performed.
+PASS
+
+Adjunction K=-F and nef F exhaust negative curves as ten fiber (-2)-components plus four torsion (-1)-sections. Torsion-height pairings yield the 14-vertex intersection graph. Independently reconstructed its integer matrix and tested 16,384 subset principal matrices via exact rational Schur pivots; 24 minimal non-PD supports, counts [1,14,90,346,875,1508,1768,1352,600,102], total 6656, maximum size 9 (102). This is exhaustive only after geometric curve exhaustion.
+
+## originality
+
+PASS
+
+Existing classification identifies surface and torsion, and standard Zariski-chamber support criterion is prior work. Exhaustive evaluated four-torsion support polynomial and all 24 minimal obstructions were not found in inspected accessible sources or nearby published related surface records.
+
+## value
+
+PASS
+
+The complete support-size enumerator and explicit finite obstruction antichain of a canonical extremal elliptic surface are natural chamber-geometric invariants useful for cone calculations; not a trivial name substitution from another surface.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
