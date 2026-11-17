@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two metric bipartition classes are each verified to be an orientable triangulated torus with integral homology free of ranks \(1,2,1\). The join decomposition and the graded switch sign give exact formulas for the separate homology traces. The standard-library verifier independently checks all 144 automorphisms, all 15 product conjugacy classes, the irreducible multiplicities, and signed Lefschetz numbers on all 5,328 nonempty Rips simplices. The graph-automorphism group is exhaustive by a 24-root-by-3!-neighbor upper bound. The classification is over \(\mathbb Q\); no integral representation lattice decomposition is asserted.
+## correctness
 
-## Originality
-PASS relative to inspected evidence. The strongest primary comparison is *Complete Rips homotopy and persistence of the Nauru graph*, which already establishes the graph-specific join of two tori and the dimensions \(4,4,1\), but does not compute the action on homology. Eppstein (2007) identifies the 144 automorphisms and a torus embedding of the cubic graph, but neither specifies this Rips action. Adamaszek's archived graph-power theory and the circle-metric Rips classification do not imply the new 15-class character. Searches covered Nauru, generalized Petersen \(GP(12,5)\), arrangement \(A(4,3)\), and star-transposition aliases. A hidden or unindexed equivariant calculation remains possible; failed search is not proof of universal novelty.
+PASS
 
-## Value
-PASS. This is the natural symmetry action on the known mixed-dimensional join-of-two-tori Rips complex of a canonical cubic symmetric graph. The fixed line in degree three, absence of invariants in degree four, and top-degree bipartition sign distinguish features that ranks and ordinary persistent homology cannot detect. Exact 15-class irreducible decompositions are natural representation-theoretic invariants rather than arbitrary subparameter computations.
+The source reconstructs GP(12,5) as the 24-permutation star-transposition graph; the 144 distinct S4 x S3 maps saturate the automorphism bound. Its radius-three Rips complex is the simplicial join of two 12-vertex orientable tori (each f=(12,36,24), all vertex links six-cycles and oriented triangle propagation). The integral join formula yields only H3,H4,H5 of ranks 4,4,1. Graded swap signs distinguish side-preserving and side-exchanging elements. Torus signed Lefschetz counts and exact S4/S3 character inner products produce the stated three module decompositions. Independently regenerated all 5328 joined nonempty simplices, 144 maps and signed full-complex Lefschetz identities from the package-defined graph; all 15 class triples agree with character_table.json. The finite enumeration proves this exact finite object, not other graphs/scales.
 
-## Scope and limitations
-Only this graph, this scale, and rational representations are classified. The ordinary homotopy and integral Betti numbers are previously known and not presented as new. The standalone script checks all finite steps. Unindexed equivalences and independent validation remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete full-automorphism rational module in each of the three Rips homology degrees survives best-of-knowledge comparison: the earlier graph-specific result computes the same Rips nonequivariant torus-join and 4/4/1 Betti ranks, but no graded S4 x S3 characters; earlier equivariant results concern the Nauru INDEPENDENCE complex, not this scale-three Rips complex.
+
+## value
+
+PASS
+
+This resolves a natural exact equivariant invariant beyond known nonequivariant homotopy: degrees 3/4/5 have distinct Specht constituents and the globally invariant line occurs only in H3. The canonical highly symmetric Nauru graph and natural Rips filtration motivate the precise group action; a nonequivariant wedge description cannot determine it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
