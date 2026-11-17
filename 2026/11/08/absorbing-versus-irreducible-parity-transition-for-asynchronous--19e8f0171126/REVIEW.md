@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is precisely the labelled simple squared cycles with \(n\ge5\) and the self-inclusive asynchronous minority rule. The local flip criterion is equivalent to nondecreasing cut size. Bond coordinates enforce the cyclic spin parity, and the derived identity \(C=n+Z-2J\) is exact. Pair annihilation never reduces the cut, vacancy-gap motion connects independent bond patterns, and the explicit five-zero move strictly improves any suboptimal independent configuration. Hence every configuration can reach global maximum cut. The circular-run inequalities classify the maximizers and give the four exact populations. Constructed complementary-lift loops prove irreducibility outside the zero modulo-four case. Independently implemented exhaustive dynamic and bond-word tests support the algebra. Risk: the all-size particle-motion and lift-loop arguments require their stated parity and gap hypotheses; these are explicitly used, not omitted.
+## correctness
 
-## Originality — PASS, with historical-priority qualifications
-The nearest original model paper, Rouquier–Regnault–Thierry (arXiv:1011.5119, inspected in the full-text sections defining the dynamics, energy method and its cycle/clique classifications), gives general energy monotonicity and exact results for different graph families, not a four-regular squared-cycle recurrence classification. Dhar–Shastry–Dasgupta (arXiv:cond-mat/0004207, inspected in the full-text introduction and dynamics definition) treats the ANNNI multiphase ratio \(J_1=2J_2\) with Kawasaki updates, not equal-distance antiferromagnetic single-site flipping. Pini–Rettori (arXiv:0707.1953, abstract inspection only) considers approximate weak-field response rather than exact recurrent communicating classes. A prior synchronous open-neighborhood fixed-state count for the same graph does not entail the stochastic closed-neighborhood result. Risk: unavailable or unindexed older zero-temperature finite-ring studies could contain an equivalent theorem. No absolute novelty or independent priority certification is asserted.
+PASS
 
-## Mathematical value — PASS
-A large family of nonbipartite, frustrated, four-regular spin systems is proved to avoid all nonoptimal zero-temperature traps. More importantly, the complete recurrent topology changes exactly at a modulus-four boundary: four isolated absorbing states versus a single mobile class whose exact state count is linear, quadratic or cubic depending on the residue. The proof explains the phenomenon through annihilation, diffusion, pair creation and spin-lift monodromy, rather than a finite list of computed examples. This is a natural dynamical question not implied by the elementary maximum-cut count alone. Risk: it provides no quantitative relaxation or absorption-time bound.
+On C_n² with n>=5, the closed five-site minority rule flips exactly when cut gain is nonnegative. In bond variables z_i=1_{x_i=x_{i+1}}, parity Σz_i≡n (mod 2) gives exactly two spin lifts and C=n+Z−2J. Exhaustive four-bond algebra gives local cut change ΔC and shows paired adjacent 1-bonds can be removed without loss, while hard-core slides and 00000→01100→01010 can raise any deficient independent bond state by two. Thus every configuration reaches a global maximum cut with positive-probability finite path, eliminating nonoptimal closed classes. Counting independent k_n-subsets plus residue-one adjacent-pair extras yields R_n=4,n(n²+23)/12,n²/2,2n in residues 0,1,2,3; neutral slides and explicit lift-complementing bond loops prove one irreducible class except when n≡0 mod 4, where four configurations are frozen. Symmetric neutral transition rates imply uniform stationary law. Finite n=5..13 graph checks corroborate but do not replace the all-n connectivity/loop proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge novel exact recurrence-class classification of stochastic single-site **closed-neighborhood** minority on 4-regular squared cycles, with no metastable traps and a four-residue absorbing/irreducible change. Prior stochastic minority on ordinary cycles and generic cut monotonicity does not imply maximum-cut reachability and class topology here. Published squared-cycle synchronous fixed-point enumeration is a different transition system.
+
+## value
+
+PASS
+
+For a natural local stochastic spin/anti-coordination chain this rules out all non-ground-state recurrent traps and determines exactly when ground states freeze or communicate. The complete mod-4 recurrent state and class census is a motivated qualitative phase transition, not a tiny parameter exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

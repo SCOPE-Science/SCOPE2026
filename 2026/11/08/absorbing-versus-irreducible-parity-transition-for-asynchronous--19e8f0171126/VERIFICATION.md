@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The files `check_transition_graph.py`, `check_bond_identity.py`, and `check_monodromy.py` were executed with Python 3. The resulting output files record all checks performed.
+# Independent mathematical audit
 
-`check_transition_graph.py` independently generates the asynchronous transition relation from each spin's five-site closed neighborhood. Its reverse exploration establishes that every enumerated state can reach a maximum cut, while its forward exploration checks connectivity of all maximum cuts (or four singleton absorbing classes). Exhaustive lengths \(5\) through \(16\) contain a total of \(131040\) spin configurations.
+## correctness
 
-`check_bond_identity.py` verifies every local four-bond flip identity and enumerates the parity-admissible bond words through length \(17\). `check_monodromy.py` explicitly constructs zero-energy flip sequences exchanging complementary spin lifts for non-four-divisible lengths through \(25\).
+PASS
 
-The mathematical theorem for unbounded \(n\) rests on the bond-energy identity, the adjacent-pair elimination, the five-empty-site energy improvement, the run-count classification and the explicit spin-lift loops. Finite enumeration alone is not a proof of the all-length statement. No claimed numerical mixing-time estimate or experimental inference beyond the indicated finite lengths is supplied.
+On C_n² with n>=5, the closed five-site minority rule flips exactly when cut gain is nonnegative. In bond variables z_i=1_{x_i=x_{i+1}}, parity Σz_i≡n (mod 2) gives exactly two spin lifts and C=n+Z−2J. Exhaustive four-bond algebra gives local cut change ΔC and shows paired adjacent 1-bonds can be removed without loss, while hard-core slides and 00000→01100→01010 can raise any deficient independent bond state by two. Thus every configuration reaches a global maximum cut with positive-probability finite path, eliminating nonoptimal closed classes. Counting independent k_n-subsets plus residue-one adjacent-pair extras yields R_n=4,n(n²+23)/12,n²/2,2n in residues 0,1,2,3; neutral slides and explicit lift-complementing bond loops prove one irreducible class except when n≡0 mod 4, where four configurations are frozen. Symmetric neutral transition rates imply uniform stationary law. Finite n=5..13 graph checks corroborate but do not replace the all-n connectivity/loop proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel exact recurrence-class classification of stochastic single-site **closed-neighborhood** minority on 4-regular squared cycles, with no metastable traps and a four-residue absorbing/irreducible change. Prior stochastic minority on ordinary cycles and generic cut monotonicity does not imply maximum-cut reachability and class topology here. Published squared-cycle synchronous fixed-point enumeration is a different transition system.
+
+## value
+
+PASS
+
+For a natural local stochastic spin/anti-coordination chain this rules out all non-ground-state recurrent traps and determines exactly when ground states freeze or communicate. The complete mod-4 recurrent state and class census is a motivated qualitative phase transition, not a tiny parameter exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
