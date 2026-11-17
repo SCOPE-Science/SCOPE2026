@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof uses exact cusp-strip area Jacobians, the curvature-\(-1\) upper-half-plane distance identity, exponential-depth convolution, and an explicit integrable error-band estimate. It is an analytic argument, not a numerical extrapolation. The coefficient is positive for every valid polygon and invariant under changes of horoball cutoff because those cutoff heights cancel exactly.
+## correctness
 
-Run `python -m pip install -r requirements.txt` followed by `python verify_ideal_polygon_distance_tail.py`. The program checks the cusp chart distance normalization for triangle, quadrilateral and pentagon examples; tests the exact triangle and quadrilateral coefficient formulas; and performs fixed-seed area-uniform simulations for an ideal triangle and two distinct ideal quadrilaterals, with \(1{,}500{,}000\) pairs per shape. It ends with `IDEAL_HYPERBOLIC_POLYGON_CUSP_PAIR_TAIL_CHECKS_OK` if all internal finite checks pass.
+PASS
 
-The simulations report finite-threshold values of \(e^R\Pr(D>R)-C(P)R\), which are expected to remain bounded rather than vanish. The proof's asymptotic remainder, and especially historical novelty, are not certified by a finite simulation. No independent audit or independent validation has been performed.
+For each ideal vertex a Möbius cusp chart is exactly a vertical strip of width w_i above height H_i; height u=log(y/H_i) has unnormalized density (w_i/H_i)e^-u. For two distinct cusp vertices the exact hyperbolic distance formula yields d=u+v+log(g_ij H_i H_j)+O(e^-u+e^-v); the convolution of two unit exponentials gives (s+1)e^-s. Integrating transition-layer error costs O(e^-R), and arbitrary chart heights cancel. Core/cusp and same-cusp pairs contribute only O(e^-R). Summing both ordered directions and dividing by ((n−2)pi)^2 gives C(P). For vertices (0,1,t,infty), direct substitution C=2t²/[pi²(t−1)], minimized uniquely at t=2. This argument is not a Monte Carlo extrapolation.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the fixed ideal polygon two-point ambient distance cusp-pair shape coefficient and regular-quadrilateral minimization; no inspected previous statement implies the specific formula.
+
+## value
+
+PASS
+
+Pairwise distances of uniform points in finite-area noncompact regions naturally exhibit competing cusp excursions. The exact shape-sensitive cusp-pair coefficient and quadrilateral isoperimetric-type minimizer distinguish geometry invisible to area alone; they can serve as exact baselines for hyperbolic geometric probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
