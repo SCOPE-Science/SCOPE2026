@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The right kernel of a Gaussian (m−1)×m matrix is an unoriented uniform line. Its independent Gaussian signs give event probability 2^(1-m) and the positive normalized null vector gives the exact half-normal weight law under deterministic column scaling. The barycentric density follows from a rigorous positive radial Jacobian and gamma integration. Under single-column scale tau_m, an exact quotient X0/(X0+tau_m S_m) yields all three regimes by the strong law; the critical density and erfc threshold follow by explicit transformation; the Gaussian-mixture fluctuation follows by independent CLT and delta method; and the ordinary-vertex empirical and squared-weight limits by the strong law. A standalone Cartesian Gaussian-matrix checker and quadrature support finite formulas. Strict positivity of scales and nondegeneracy are explicitly required; finite simulations do not replace limiting proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1911.04184, Section 4.1 recovers Gaussian-polytope origin absorption, and Section 4.2 concerns averaged simplex tangent-cone angles; it does not specify the conditional barycentric weight vector.",
+        "Baryshnikov–Vitale (1994) concerns affine-invariant statistics of Gaussian samples; barycentric coordinates with respect to an externally fixed origin are not affine-invariant under arbitrary translations.",
+        "Moseeva (arXiv:2007.07208), Theorem 1.1, determines weighted Gaussian simplex volume, not its origin-containing barycentric coordinates."
+      ],
+      "reasoning": "The broader conic absorption theorem covers the event probability, not the requested conditional law. Affine projection/volume results do not imply the fixed-origin conditional weight distribution or its inverse-dimension crossover without nontrivial additional analysis.",
+      "searches": [
+        "Grassmann angles and absorption probabilities of Gaussian convex hulls arXiv 1911.04184",
+        "Regular simplices and Gaussian samples Baryshnikov Vitale 1994",
+        "Distribution of the Volume of Weighted Gaussian Simplex arXiv 2007.07208"
+      ]
+    },
+    "checked_sources": [
+      "Wendel, A Problem in Geometric Probability (1962), doi:10.7146/math.scand.a-10655",
+      "Cover and Efron, Geometrical Probability and Random Points on a Hypersphere (1967), Ann. Math. Stat. 38, 213–220",
+      "Baryshnikov and Vitale, Regular simplices and Gaussian samples (1994), doi:10.1007/BF02574000",
+      "Götze, Kabluchko and Zaporozhets, Grassmann angles and absorption probabilities of Gaussian convex hulls, arXiv:1911.04184",
+      "Moseeva, Distribution of the Volume of Weighted Gaussian Simplex, arXiv:2007.07208",
+      "Related scientific records on random simplex sections and weighted affine projections were compared by summary, not as direct technical sources."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wendel and Cover–Efron already imply the factor 2^(1-m), which is explicitly prior work.",
+        "Götze et al. Eq. (23) already supplies the Haar kernel distribution, whose signs drive the containment event.",
+        "Moseeva Theorem 1.1 provides a separate volume law; knowing that scalar volume cannot determine the full vector of barycentric coefficients, and the paper addresses no dimension-dependent exceptional column scale.",
+        "The target result additionally calculates a full joint density; sharp inverse-dimensional condensation and a non-degenerate threshold law; critical Gaussian fluctuations; and the ordinary-vertex bulk shape."
+      ],
+      "reasoning": "The known general kernel principle is a starting lemma; the conditional barycentric distribution and singular high-dimensional consequences are a strictly more specific geometric statistic not stated in the inspected prior literature. Possible unexamined equivalent formulations remain a priority risk.",
+      "searches": [
+        "Wendel 1962 origin convex hull probability",
+        "Cover Efron 1967 origin signs hyperplane",
+        "Gaussian weighted simplex volume Moseeva 2020",
+        "Gaussian simplex positive nullspace barycentric coordinates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wendel (1962) determines the origin-absorption event; Cover and Efron (1967), p.214, formulate the probability via sign patterns.",
+        "Götze–Kabluchko–Zaporozhets (arXiv:1911.04184), Section 3.1 Eq. (23), identifies rotationally invariant Gaussian kernels.",
+        "Our exact conditional weight law is equivalently the positive normalized vector spanning the one-dimensional Gaussian nullspace, after undoing column scales."
+      ],
+      "reasoning": "The cited Gaussian nullspace property implies the basic half-normal representation using additional sign/magnitude independence; none of the inspected statements directly gives the full normalized coordinate density, the critical vanishing-vertex transition, its Gaussian-mixture fluctuations, or the bulk empirical law. The nullspace symmetry is credited as foundational and not itself asserted as novel.",
+      "searches": [
+        "Gaussian random simplex containing origin barycentric coordinates distribution kernel Dirichlet half absolute normals",
+        "conditional Gaussian simplex barycentric weights random null vector independent half normal proportions",
+        "Gaussian simplex origin barycentric coefficients normalized Gaussian nullspace distribution positive",
+        "positive Gaussian null vector normalized absolute normals barycentric simplex density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results exposed published articles on Gaussian simplex volumes, angles, and conic absorption, but no matching table of conditional weights or crossover coefficients.",
+        "The original journal and preprint sources cited in the result do not give a table or database of the target density and critical law."
+      ],
+      "reasoning": "This is an analytic distributional theorem, not a finite combinatorial table. No exact published tabulation of its claimed conditional density and critical crossover was located; absence of search hits alone is not proof of priority.",
+      "searches": [
+        "Gaussian simplex origin conditional barycentric coefficients exact joint density",
+        "weighted Gaussian simplex normal half-normal coordinates law",
+        "normalized positive Gaussian nullspace simplex statistics"
+      ]
+    },
+    "rationale": "Closest primary literature covers Gaussian absorption probability, cone angles, projected-simplex affine invariants and weighted simplex volume, not the joint conditional fixed-origin barycentric density and singular 1/m distinguished-vertex limit with fluctuation and ordinary-coordinate bulk laws. The exact Haar-kernel lemma and Wendel probability are credited; possible equivalent unpublished or inaccessible formulations remain a priority risk.",
+    "residual_risks": [
+      "Exact positive Gaussian nullspace representation is an elementary consequence of known Haar-kernel invariance; an equivalent published normalized-half-normal barycentric law may exist under different terminology.",
+      "Full text of Wendel (1962) and Baryshnikov–Vitale (1994) was not accessible; bibliographic records and related primary treatments were examined.",
+      "Some adjacent published scientific records were available as summaries rather than full manuscripts; none showed a decisive matching implication.",
+      "No external independent validation or exhaustive historical-priority search was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes or is credited with the classical event probability, not claimed new; potential unresolved historical depth",
+        "evidence": "Publisher record gives publication date 1962-06-01, volume 11, pp109-112. Cover–Efron (1967), p214, explicitly attribute the halfspace-probability formula to Wendel.",
+        "identifier_or_url": "doi:10.7146/math.scand.a-10655",
+        "material_read": "Journal metadata and bibliographic description; complete source not accessible",
+        "method": "Publisher record and comparison with Cover–Efron quotation",
+        "title": "A Problem in Geometric Probability",
+        "trigger": "Historical origin-containment probability and archive anchor"
+      },
+      {
+        "assessment": "Covers classical origin containment and expected cone statistics but not the conditional barycentric density and inverse-dimensional exceptional-vertex law",
+        "evidence": "p214, Example (c), attributes the probability for symmetric vectors to Wendel. Later theorems count faces/expected solid angles.",
+        "identifier_or_url": "https://isl.stanford.edu/~cover/papers/paper6.pdf",
+        "material_read": "Full eight-page paper, including p214 and main theorems on cones and their duals",
+        "method": "Primary PDF text and page visual inspection",
+        "title": "Geometrical Probability and Random Points on a Hypersphere",
+        "trigger": "Closest classical sign-pattern probability and conic statistics"
+      },
+      {
+        "assessment": "Affine-invariant projections, not an explicit anchored origin-coordinate result; full-text priority risk remains",
+        "evidence": "Abstract states equality of affine-invariant statistics of Gaussian point sets and projected simplices, with applications to face counts.",
+        "identifier_or_url": "doi:10.1007/BF02574000",
+        "material_read": "Publisher/university bibliographic records and detailed abstract; no complete text",
+        "method": "Institutional bibliographic description",
+        "title": "Regular simplices and Gaussian samples",
+        "trigger": "Affine-equivalence of Gaussian simplices and random projections"
+      },
+      {
+        "assessment": "Theorem 3.1 and Section 4.1 cover the absorption event; do not state the conditional barycentric profile, asymmetric scaling crossover or fluctuations",
+        "evidence": "Eq. (23) states Gaussian-kernel rotational invariance; Section 4.1 recovers Wendel; Section 4.2 gives average angles of Gaussian simplices; no text match for barycentric.",
+        "identifier_or_url": "arxiv:1911.04184",
+        "material_read": "Accessible article in arXiv full HTML, including introduction, Section 3.1 Eq. (23), Section 4.1 and 4.2 and proofs discussion; full text searched for barycentric",
+        "method": "Primary arXiv HTML, section-specific statement comparison and term search",
+        "title": "Grassmann angles and absorption probabilities of Gaussian convex hulls",
+        "trigger": "General Gaussian absorption theorem and Haar kernel overlap"
+      },
+      {
+        "assessment": "Exact law of simplex volume only; volume marginal does not entail anchored origin barycentric distribution",
+        "evidence": "Theorem 1.1, p2, expresses the volume as a product of chi variables multiplied by a deterministic function of column scales.",
+        "identifier_or_url": "arxiv:2007.07208",
+        "material_read": "Primary PDF, abstract, introduction, Theorem 1.1, and opening proof calculations",
+        "method": "Primary arXiv PDF, text and visual statement inspection",
+        "title": "Distribution of the Volume of Weighted Gaussian Simplex",
+        "trigger": "Closest work with independent nonidentically scaled Gaussian vertices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1ffa80b-1fdc-469a-9c93-05126a843795",
+  "value": {
+    "rationale": "The conditional barycentric representation is a natural exact geometric observable for a rare Gaussian simplex that absorbs the origin; unlike the old event probability it detects anisotropic column scales. The entire family of weights exhibits a dimension-dependent singular allocation threshold tau_m≈1/m, an explicit nondegenerate critical law and fluctuation, and a diffuse ordinary-vertex profile, with a sharp distinction between holding an event and allocating its positive coordinates. This exact high-dimensional shape law has plausible uses in random convex feasibility and anisotropic geometric sampling; it is neither an arbitrary finite slice nor a mere restatement of a known Gaussian simplex volume.",
+    "status": "PASS"
+  }
+}
