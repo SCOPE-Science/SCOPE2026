@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Verification of Pappus semitotal-domination reconfiguration
+# Independent mathematical audit
 
-All three verifiers are standalone Python 3 programs that require only the standard library. From the extracted package directory, run:
+## correctness
 
-```sh
-python3 verify_lcf.py
-python3 verify_incidence.py
-python3 verify_symmetry.py
-```
+PASS
 
-Every successful invocation terminates with `VERIFY_OK`. The `.out` files contain the actual recorded successful outputs, not substitutes for running the scripts. The two main programs reconstruct the graph from different data (LCF chords versus Pappus point-line triples) and check their equality through an explicit vertex isomorphism. Both independently enumerate all six-element candidates and legal exchanges, and compute every eccentricity in each \(288\)-vertex mobile component. The orbit program independently enumerates the entire automorphism group through \(9!\) point permutations and one explicit point-line duality.
+Independent graph construction from nine explicit 3-point line triples produces 18 vertices, 27 edges, degree three and diameter four. Exhaustively evaluated all choose(18,6)=18564 six-subsets for closed domination and selected-pair distance<=2: 297 satisfy, precisely 9 are total dominating. The lower bound 2n/(2Delta+1) gives gamma_t2>=6, while explicit 6-sets attain it. Constructed all token-jump and slide edges: exactly 1026 and 432; independently computed components nine isolated vertices plus one 288-state component, jump radius/diameter 6/6, slide 8/10, slide eccentricities 126 at 8, 54 at 9, 108 at 10. Independent NetworkX automorphism enumeration gives order 216. This is complete finite exhaustive proof, not an extrapolation.
 
-## Mathematical checks
+## originality
 
-The lower bound for semitotal domination is \(\gamma_{t2}(G)\ge2|V(G)|/(2\Delta(G)+1)\). For \(18\) vertices and cubic degree, it gives \(\gamma_{t2}\ge6\). The finite scripts produce six-element witnesses, so the minimum is exactly six. There are \(\binom{18}{6}=18564\) candidate subsets; the scripts check all of them with no sampling. Exactly \(297\) qualify, including exactly nine efficient open dominating sets, which form the displayed \(3\times3\) family.
+PASS
 
-The jump graph has \(1026\) undirected edges, nine isolated states and one component of size \(288\), where every vertex has eccentricity six. The slide graph has \(432\) edges and the same component sizes. Its nontrivial component has eccentricities \(8\) for \(126\) states, \(9\) for \(54\) states and \(10\) for \(108\) states. Thus its radius is eight and its diameter is ten. Every isolated state in either graph is exactly an efficient total dominating set.
+PASS best of knowledge: relevant semitotal domination results concern general degree bounds, minimal-set properties or unrelated graph families; Pappus locating-total-code result studies different constraints. Searches found no earlier exact 297-state semitotal six-set census or either reconfiguration metric. Full primary Henning-Marcon 2014 article not accessed; noted risk.
 
-The automorphism enumeration verifies group order \(216\), the orbit sizes \(9,18,54,108,108\), and degree pairs \((0,0),(6,6),(8,8),(6,2),(8,1)\) for jump and slide, respectively.
+## value
 
-## Boundaries
+PASS
 
-The programs certify complete finite calculations on the explicitly supplied Pappus graph only. They do not assert novelty, mathematical publication priority, infinite-family claims or any external independent audit. All inferred numeric edges and metric claims require executing the full delivered source files, not merely trusting the saved outputs.
+PASS: the natural 18-vertex Pappus incidence graph provides a substantive exact reconfiguration counterpoint: efficient open dominating configurations freeze under both exchanges but a 288-state semitotal sector is mobile; two standard moves share components but differ sharply in radius/diameter. The complete finite census plus structural rigidity is a motivated independently usable graph invariant, not arbitrary numerology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
