@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T20:58:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For alpha>=2/3, first floor(3alpha)>=2 excludes 1. For 1/2<alpha<2/3, write floor(alpha(2^n+1))=2^(n−1)+floor(2^n(alpha−1/2)+alpha), let N be first positive excess, then 2^(N−1) is unrepresentable. For alpha=2^-k the nonzero floors are binary powers 1,2,4,... and give full coverage. Exact identity H_n=1+alpha(n−3)−sum_{j<=n}{alpha(2^j+1)}+{alpha(2^(n+1)+1)} follows from sum_{j<=n} s_j−s_(n+1)=n−3. If H_n<0, the entire interval (sum floors+1,..., next floor−1) is absent; intervals disjoint. For h!=0, ∫_0^1 |N^-1 sum_{j<=N}exp(2pi i h 2^j alpha)|²dalpha=1/N by orthogonality; Chebyshev and Borel–Cantelli along N=k² plus interpolation imply a.e. Weyl equidistribution, fractional mean 1/2, H_n/n->alpha−1/2. Independently checked 39 exact rational H_n identities. Finite checks do not imply a.e. theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier SCOPE general theorem assumes exact s_(n+1)=2s_n for all n past fixed N.",
+          "Here s_n=2^n+1 has s_(n+1)=2s_n−1 for every n, never an exact doubling tail."
+        ],
+        "reasoning": "The earlier exact-binary-carry classification cannot be applied by reindexing to a sequence with persistent additive −1 perturbation; no direct implication of this measure-zero and linear-gap law.",
+        "searches": [
+          "complete subset sum floor alpha times (2^n+1) Lebesgue measure null almost every",
+          "Resultary 2026-11-02 Binary-carry budgets at critical doubling boundary full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md, verify.py, REVIEW.md, VERIFICATION.md, SLOGAN.txt, METADATA.json",
+        "Wu–Ma 2026-10-28 arXiv abstract and arXiv PDF/HTML unsuccessful attempts",
+        "Ma–Chen 2022 official publisher abstract; Oxford paper access returned vpn_disconnected",
+        "Resultary exact-doubling tail result full text 2026-11-02",
+        "Resultary dyadic-floor related finding titles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu–Ma abstract: if s_(n+1)<=2s_n, at least one suitable alpha exists; this holds here and is confirmed by dyadic scales.",
+          "2022 abstract: if s_(n+1)<gamma s_n for fixed gamma<2 and nonempty U, then U has positive measure (earlier Chen/Fang result).",
+          "Submitted sequence ratios tend to 2, so no fixed gamma<2 works for all large n."
+        ],
+        "reasoning": "Neither prior implication produces positive measure at the critical boundary; the example quantifies why the uniform gap below 2 matters. Full 2022 text inaccessible, retained as risk.",
+        "searches": [
+          "complete subset sum floor alpha times (2^n+1) Lebesgue measure null almost every",
+          "Wu and Ma A note on a problem of Ma and Chen arXiv:2610.38288v1",
+          "Ma and Chen Hegyvári theorem on complete sequences II Acta Arith 203 (2022) DOI 10.4064/aa210811-30-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted strong completeness means full N0 coverage; Wu–Ma strong completeness ensures existence, while Ma–Chen 2022 defines eventual completeness separately.",
+          "For alpha=2^-k, the floor sequence reduces to binary powers; that constructive example is not the nullity theorem."
+        ],
+        "reasoning": "Existence of a complete scaling is compatible with a measure-zero successful set; the a.e. interval-gap asymptotic is strictly more informative.",
+        "searches": [
+          "complete subset sum floor alpha times (2^n+1) Lebesgue measure null almost every",
+          "Wu–Ma arXiv:2610.38288; exact doubling carry budgets 2026-11-02"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary closest direct title is the present record; related dyadic pure rays and eventual exact doubling have distinct hypotheses."
+        ],
+        "reasoning": "A finite table of admissible dyadic scalings cannot establish nullity or almost-everywhere long gaps, which need the metric equidistribution proof.",
+        "searches": [
+          "complete subset sum floor alpha times (2^n+1) Lebesgue measure null almost every",
+          "floor alpha (2^n+1) strong completeness measure zero critical doubling sequence"
+        ]
+      },
+      "rationale": "Wu–Ma 2026-10-28 supplies existence of some strongly complete scale at critical inequality s_(n+1)<=2s_n, not the measure or a.e. missing-gap law for this particular strictly subdoubling sequence. Ma–Chen 2022 positive measure assumes fixed gamma<2, and its published full text could not be accessed; abstract only. Earlier published SCOPE exact doubling-tail binary carry budgets applies only to *eventual exact equality* s_(n+1)=2s_n, not (2^n+1). No checked published theorem implies the present measure-zero counterexample or explicit linear gap coefficient. Qualified priority remains.",
+      "residual_risks": [
+        "Relevant 2022 primary full text inaccessible after official/authorized routes; may have related near-critical constructions, priority not guaranteed.",
+        "Wu–Ma October 2026 full arXiv text blocked by source retrieval; only abstract/statement as in audit package read, so no whole-document negative implication asserted.",
+        "Conclusion is a.e. not for all alpha<1/2 and does not classify exceptional non-dyadic valid scalings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports critical existence, does not in accessed statements assert nullity or typical gaps; no whole-document NOT_COVERING claim",
+          "evidence": [
+            "2026-10-28 abstract: existence when s_(n+1)<=2s_n for every n or eventually"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.38288",
+          "material_read": "Current arXiv abstract and stated Theorems 1.1/1.2 as described in reviewed mathematical source; attempted arXiv HTML and PDF returned DisabledError",
+          "method": "Official arXiv bibliographic/abstract source; failed full text access",
+          "title": "Wu and Ma, A note on a problem of Ma and Chen",
+          "trigger": "Same scaled subset-sum completeness model at critical growth ratio"
+        },
+        {
+          "assessment": "Abstract discusses gamma<2 sufficient condition and existence; inaccessible full text retained as priority risk",
+          "evidence": [
+            "Published 2022-05-30; abstract cites positive-measure result for fixed 1<gamma<2; full content not read"
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/aa210811-30-3",
+          "material_read": "Official Acta Arithmetica 2022 publisher abstract only; primary PDF is institution-restricted; authorized Oxford request returned vpn_disconnected",
+          "method": "Publisher abstract and authorized access attempt",
+          "title": "Ma and Chen, Hegyvári’s theorem on complete sequences II",
+          "trigger": "Historical positive-measure theorem for scaled sequences"
+        },
+        {
+          "assessment": "Does not cover persistent +1 perturbation s_n=2^n+1; tail must satisfy exact s_(n+1)=2s_n",
+          "evidence": [
+            "Explicit assumption eventual exact doubling, not mere ratio convergence or strict subdoubling"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-carry-budgets-at-the-critical-doubling-boundary-of-comple--f2f7f288d0d7/RESULT.md",
+          "material_read": "Entire scientific RESULT.md including theorem, binary carry proof and special scale counts",
+          "method": "GitHub connector full source read",
+          "title": "Binary-carry budgets at the critical doubling boundary of complete sequences",
+          "trigger": "Published related zero-box-dimension result in exact doubling tails"
+        },
+        {
+          "assessment": "Pure dyadic s_n=2^n, not plus-one; no source-wide assertion",
+          "evidence": [
+            "Pure dyadic ray has different successful scale set"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-binary-weight-gaps-and-critical-completeness-rigidity-for-dyadic--95db2e29874a",
+          "material_read": "Published finding title and indexed summary only",
+          "method": "Resultary published semantic search",
+          "title": "Published binary-weight gaps and critical completeness rigidity for dyadic floor rays",
+          "trigger": "Similar dyadic floor sums and gap metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shows the sharp failure of a positive-measure extension when one replaces uniform ratio gamma<2 by every-point strict ratio<2, despite existence of infinitely many complete scales. The a.e. linear missing-gap coefficient is a quantified natural boundary phenomenon, not just a cheap negative example or random slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, verify.py, REVIEW.md, VERIFICATION.md, SLOGAN.txt, METADATA.json",
+    "Wu–Ma 2026-10-28 arXiv abstract and arXiv PDF/HTML unsuccessful attempts",
+    "Ma–Chen 2022 official publisher abstract; Oxford paper access returned vpn_disconnected",
+    "Resultary exact-doubling tail result full text 2026-11-02",
+    "Resultary dyadic-floor related finding titles"
+  ],
+  "disposition": "passed",
+  "final_claim": "For s_n=2^n+1 (n>=1), the scales alpha with all nonnegative integers representable as distinct-index subset sums of floor(alpha s_n) lie in (0,1/2], include all alpha=2^-k, k>=1, and form a Lebesgue-null set. For almost every alpha in (0,1/2), disjoint gaps I_n are eventually nonempty with cardinality (1/2−alpha)n+o(n).",
+  "limitations": [
+    "Relevant 2022 primary full text inaccessible after official/authorized routes; may have related near-critical constructions, priority not guaranteed.",
+    "Wu–Ma October 2026 full arXiv text blocked by source retrieval; only abstract/statement as in audit package read, so no whole-document negative implication asserted.",
+    "Conclusion is a.e. not for all alpha<1/2 and does not classify exceptional non-dyadic valid scalings."
+  ],
+  "residual_risks": [
+    "Relevant 2022 primary full text inaccessible after official/authorized routes; may have related near-critical constructions, priority not guaranteed.",
+    "Wu–Ma October 2026 full arXiv text blocked by source retrieval; only abstract/statement as in audit package read, so no whole-document negative implication asserted.",
+    "Conclusion is a.e. not for all alpha<1/2 and does not classify exceptional non-dyadic valid scalings."
+  ],
+  "schema_version": 1
+}
