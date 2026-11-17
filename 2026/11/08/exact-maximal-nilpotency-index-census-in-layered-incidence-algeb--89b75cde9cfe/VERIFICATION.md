@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Both checkers use the original incidence-algebra multiplication rule rather than relying exclusively on the closed formulas. They require only a Python 3 standard-library interpreter.
+## correctness
 
-Run `python verify.py` and `python verify_gf4.py` in the directory containing these files. The outputs are stored verbatim in `verification_output.txt` and `verification_gf4_output.txt`. The last expected markers are `LAYERED_INCIDENCE_RADICAL_POWER_CENSUS_PASS` and `LAYERED_INCIDENCE_GF4_EXTENSION_PASS`.
+PASS
 
-The prime-field checker exhaustively enumerates full radical elements for widths \((1,1,1,1),(2,1,2),(2,2,2),(1,2,1,2)\) over \(\mathbb F_2\) and widths \((1,2,1),(2,1,2)\) over \(\mathbb F_3\). It then enumerates consecutive blocks for three more cases, tests nonconsecutive-block independence on 1,536 reproducible randomly chosen inputs, and verifies the width-two formulas using exact fractions for 50 field/height pairs. In particular, the full \(\mathbb F_2\) radical for widths \((2,2,2)\) yields \(928,2592,576\) elements at ranks \(0,1,2\) of the top power.
+The Jacobson radical contains exactly strictly level-increasing matrix blocks (diagonal quotient is a product of fields), hence J^h=0. A product of h-1 radical factors must use every adjacent level exactly once; x^(h-1) has only B_1...B_(h-1) in the first-to-last block, so q^(M-D) other parameters are free. If a partial product has rank r, multiplication by an independent uniform n_i x n_(i+1) matrix is equivalent to a uniform r x n_(i+1) matrix with q^((n_i-r)n_(i+1)) lifts. Gaussian-binomial image-and-surjection counting proves the displayed rank recurrence, all q prime powers and widths. A rank-2/rank-1 absorbing Markov chain yields p2=a^(h-1), p1=(q+1)/q(c^(h-1)-a^(h-1)), and p0 by subtraction. For q=2, three layers of width two, I independently enumerated 256 consecutive-block pairs with product rank populations (58,162,36); multiplying by 16 free remote blocks yields the predicted full radical counts (928,2592,576). I inspected the original GF(4) arithmetic and saved count logs, which are corroboration only.
 
-The second checker constructs \(\mathbb F_4\) as \(\mathbb F_2[t]/(t^2+t+1)\), carries out elimination using explicit extension-field operations, and exhausts the full radicals for widths \((1,2,1)\) and \((2,1,2)\), together with all consecutive-block assignments for widths \((2,2,2)\). Both characteristic-two and odd-characteristic examples are covered.
+## originality
 
-The mathematical proof is independent of these finite experiments. The extension-field checker tests the nonprime-field scope, but no finite collection of checks proves the universal theorem. Historical priority is provisional and independent mathematical review has not been performed.
+PASS
+
+Incidence radical top powers are exactly products of independent rectangular finite-field matrices, so generic random-matrix product results are a genuine plausible antecedent. The inspected Fulman–Goldstein result is the rank distribution of a single rectangular uniform matrix and supplies a counted transition, not the claimed all-width radical census. Earlier poset/incidence works develop algebraic setting; relevant Petrov–Sokolov random-poset Jordan paper is especially plausible but only abstract/short preview accessible, while institutional full-text retrieval was blocked by disconnected VPN. This material access limit alone does not warrant O failure in the absence of evidence of domination. Best-of-knowledge passes with significant residual risks.
+
+## value
+
+PASS
+
+The number of radical elements with maximal nilpotency index is an intrinsic, natural finite-algebra invariant; exact rank refinements at the highest nonzero radical power are structurally meaningful. Arbitrary layer-width profiles avoid ad hoc finite slices, and the explicit width-two Markov asymptotic distinguishes survival rarity from the conditional prevalence of rank-one top powers. Classical rank counting is credited, and no full Jordan classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the incidence algebra of an ordinal sum of \(h\ge2\) nonempty antichains over any finite field. The radical is precisely the strictly upward interval span. In \(x^{h-1}\), only a chain passing through every consecutive level can contribute; hence the sole possible nonzero block is the product of consecutive random rectangular blocks. The number of right extensions of a fixed rank-\(r\) partial product to rank \(s\) follows by an invertible-coordinate reduction and an exact finite-field rank count. This proves the recursion, while the three-state width-two recurrence yields the closed expressions. The asymptotic ratio is a direct consequence of \(a/c=1-q^{-1}\). Exhaustive original-matrix checks in small prime fields and an independent extension-field implementation in \(\mathbb F_4\) passed. No finite enumeration is used to prove the all-parameter statement.
+PASS
 
-## Originality — PASS, provisional
+The Jacobson radical contains exactly strictly level-increasing matrix blocks (diagonal quotient is a product of fields), hence J^h=0. A product of h-1 radical factors must use every adjacent level exactly once; x^(h-1) has only B_1...B_(h-1) in the first-to-last block, so q^(M-D) other parameters are free. If a partial product has rank r, multiplication by an independent uniform n_i x n_(i+1) matrix is equivalent to a uniform r x n_(i+1) matrix with q^((n_i-r)n_(i+1)) lifts. Gaussian-binomial image-and-surjection counting proves the displayed rank recurrence, all q prime powers and widths. A rank-2/rank-1 absorbing Markov chain yields p2=a^(h-1), p1=(q+1)/q(c^(h-1)-a^(h-1)), and p0 by subtraction. For q=2, three layers of width two, I independently enumerated 256 consecutive-block pairs with product rank populations (58,162,36); multiplying by 16 free remote blocks yields the predicted full radical counts (928,2592,576). I inspected the original GF(4) arithmetic and saved count logs, which are corroboration only.
 
-Ladkani's derived-equivalence result and Quinn's incidence-algebra construction do not enumerate maximal-index radical elements; Fulman–Goldstein gives a single-uniform-matrix rank distribution, rather than the stated varying-width incidence-radical power distribution. A published result on Jordan lifts over finite dual numbers concerns a different ambient algebra, not a poset incidence algebra. The current contribution is the exact radical-stratum identification and transfer, its all-width count, and the width-two asymptotic rank-one concentration. Standard Gaussian-binomial matrix-rank formulas are fully credited. The main residual risk is an existing general theorem on ranks of finite-field matrix products, which could imply the transfer formula without an incidence-algebra statement; it was not established to subsume the complete final claim in the literature checked. The abstract of Petrov–Sokolov's later poset/Jordan paper was inspected, but its full text was unavailable here. Accordingly priority is provisional and not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The maximal nilpotency index of a Jacobson-radical element is an intrinsic and natural finite-algebra invariant. The theorem computes the exact maximal-index stratum for every level-size profile and prime-power field, a computation that otherwise ranges over \(q^M\) radical elements. It also determines the canonical-rank refinement at the deepest radical power. The uniform-width-two specialization gives a closed formula and a sharp structural boundary: maximal-index elements become exponentially rare, and their top powers are asymptotically rank one, not full rank. This exact arithmetic classification and limiting behavior are motivated by radical stratification and finite-algebra representation theory, not by an arbitrary numerical slice. General finite-field rank enumeration is an input, not the claimed new result. Further value would come from extension to shorter powers or nonlayered posets; those are not asserted.
+Incidence radical top powers are exactly products of independent rectangular finite-field matrices, so generic random-matrix product results are a genuine plausible antecedent. The inspected Fulman–Goldstein result is the rank distribution of a single rectangular uniform matrix and supplies a counted transition, not the claimed all-width radical census. Earlier poset/incidence works develop algebraic setting; relevant Petrov–Sokolov random-poset Jordan paper is especially plausible but only abstract/short preview accessible, while institutional full-text retrieval was blocked by disconnected VPN. This material access limit alone does not warrant O failure in the absence of evidence of domination. Best-of-knowledge passes with significant residual risks.
 
-## Boundaries and closest literature
+## value
 
-The theorem does not classify all nilpotency indices, Jordan types, or conjugacy classes. It makes no claim about the left-regular rank of a radical element. See the references and comparisons in `RESULT.md` and the structured review for material inspected and historical-priority risks. The prime-field and extension-field checkers are finite corroborations; the proof is the mathematical evidence for arbitrary parameters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number of radical elements with maximal nilpotency index is an intrinsic, natural finite-algebra invariant; exact rank refinements at the highest nonzero radical power are structurally meaningful. Arbitrary layer-width profiles avoid ad hoc finite slices, and the explicit width-two Markov asymptotic distinguishes survival rarity from the conditional prevalence of rank-one top powers. Classical rank counting is credited, and no full Jordan classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
