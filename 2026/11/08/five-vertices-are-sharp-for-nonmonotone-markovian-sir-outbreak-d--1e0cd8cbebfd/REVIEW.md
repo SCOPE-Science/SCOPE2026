@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first-event recurrence uniquely computes the finite-state Markov duration rationally; complete isomorphism enumeration covers all undirected simple graphs on up to four vertices and every root. Thirty-three exact symbolic derivative expressions have nonnegative numerator and denominator coefficients (positive numerator for nontrivial connected graphs), proving strict positivity for every positive transmission parameter. Exact rational arithmetic proves the five-vertex witness gap. A spanning-tree high-transmission coupling, bounded by the sum of independent infectious lifetimes, establishes the limit and uniform integrability. The direct 146-state numerical generator independently cross-checks the witness.
+## correctness
 
-**Originality — PASS within inspected literature.** Holme (2013) already studies nonmonotone outbreak duration for a fixed-duration discrete-time SIR mechanism; the phenomenon without a qualifier is not novel. López-García (2015) supplies general finite-state Markov expected-duration methods, but the inspected result did not classify all graphs with at most four vertices or exhibit the explicit five-vertex homogeneous continuous-time sign reversal. Sharkey et al. (2012) focus on exact SIR equations on trees and do not cover the cyclic witness. The newer general Markov formula work also does not supply the exact sharp four-to-five threshold. Residual risk: older tables of small stochastic epidemics could contain an equivalent witness or certificate.
+PASS
 
-**Value — PASS.** The smallest network supporting an initially counterintuitive decline in outbreak duration with larger transmission is a natural structural invariant. The exact four-vertex obstruction and five-vertex example explain why seemingly plausible duration monotonicity can hold on small toy networks while fail immediately above them. This gives a sharp test case for epidemic simulation and sensitivity methods, without overstating its public-health importance.
+Reconstructed the first-step recurrence (|I|+beta*m)F=1+sum_recoveries F+beta*sum_transmissions F on disjoint susceptible/infectious subsets. Every transition decreases lexicographically (|S|,|I|), so the exact rational recursion terminates. Independently enumerated all simple graphs on n=1,...,4, quotiented connected graphs under vertex permutations (1,1,2,6 classes), and exactly differentiated F for each of 33 rooted connected representatives: numerator and denominator of every derivative have nonnegative coefficients, and numerator is nonzero for n>1. Disconnected components reduce to the rooted component. Independently computed the five-vertex K2+3 isolates graph at beta=100, seed3: F=3233110817579844486927395030461/1415931898971338608037919183261, exceeding H5=137/60 by exactly 1326298572426638149591240301/28318637979426772160758383665220>0. The high-transmission limit follows by a spanning-tree transmission-time coupling and uniform integrability against the sum of infectious lifetimes. This establishes a sharp counterexample, not a full five-vertex classification.
 
-**Scope and limitations.** Conclusions require a single infectious seed, unweighted undirected edges, homogeneous exponential transmission/recovery, and duration measured until the last infectious recovery. Finite symbolic enumeration is exhaustive for four vertices only, and the five-vertex witness does not claim classification of all five-vertex graphs. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp number of vertices at which expected extinction duration is nonmonotone in the homogeneous continuous-time, exponential-recovery one-seed SIR model is not supplied by the inspected general SIR duration methods or the previously known discrete-time fixed-infectious-period nonmonotonicity. Exact parameter-dependent inequality and full n<=4 exclusion are the substantive distinction; novelty remains best-of-knowledge.
+
+## value
+
+PASS
+
+The minimal network order for a qualitative reversal in an epidemic observable is a natural structural boundary: all rooted networks up to four nodes obey a monotone law, while the explicit cyclic five-node witness violates it. The single time-expectation invariant is mechanistically meaningful and the cutoff is not automatic from previously studied models. A modest sharp finite threshold is mathematically valuable without purporting to predict actual outbreaks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

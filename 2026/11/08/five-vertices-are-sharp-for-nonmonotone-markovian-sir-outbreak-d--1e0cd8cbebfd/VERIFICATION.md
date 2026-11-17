@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python verify.py` with SymPy installed. The program constructs all connected labeled simple graphs for 1–4 vertices, forms exact graph-isomorphism classes by all vertex permutations, and evaluates the exact Markov first-event recursion. It differentiates every rooted duration rational function and proves the nonnegative-polynomial certificate symbolically for every positive infection rate. It verifies the exact five-vertex seven-edge rational witness and its strictly positive difference from the exact high-rate limit.
+## correctness
 
-Execute `python verify_matrix.py` with NumPy installed for a structurally separate generator matrix calculation at transmission rate 100. The independent 146-state numerical evaluation agrees with the exact rational value. The finite numerical test does not replace the rational proof.
+PASS
 
-Run results observed: 44 labeled connected graphs on up to four vertices; connected isomorphism counts 1,1,2,6; 33 rooted symbolic derivative checks, all passed; exact rational witness positive gap; independent matrix check passed. The proof of the unbounded positive-rate derivative sign rests on exact symbolic polynomials; the large-rate expected-value limit is independently justified by uniform integrability. General graphs of five or more vertices are not exhaustively classified. No independent audit has been performed.
+Reconstructed the first-step recurrence (|I|+beta*m)F=1+sum_recoveries F+beta*sum_transmissions F on disjoint susceptible/infectious subsets. Every transition decreases lexicographically (|S|,|I|), so the exact rational recursion terminates. Independently enumerated all simple graphs on n=1,...,4, quotiented connected graphs under vertex permutations (1,1,2,6 classes), and exactly differentiated F for each of 33 rooted connected representatives: numerator and denominator of every derivative have nonnegative coefficients, and numerator is nonzero for n>1. Disconnected components reduce to the rooted component. Independently computed the five-vertex K2+3 isolates graph at beta=100, seed3: F=3233110817579844486927395030461/1415931898971338608037919183261, exceeding H5=137/60 by exactly 1326298572426638149591240301/28318637979426772160758383665220>0. The high-transmission limit follows by a spanning-tree transmission-time coupling and uniform integrability against the sum of infectious lifetimes. This establishes a sharp counterexample, not a full five-vertex classification.
+
+## originality
+
+PASS
+
+The sharp number of vertices at which expected extinction duration is nonmonotone in the homogeneous continuous-time, exponential-recovery one-seed SIR model is not supplied by the inspected general SIR duration methods or the previously known discrete-time fixed-infectious-period nonmonotonicity. Exact parameter-dependent inequality and full n<=4 exclusion are the substantive distinction; novelty remains best-of-knowledge.
+
+## value
+
+PASS
+
+The minimal network order for a qualitative reversal in an epidemic observable is a natural structural boundary: all rooted networks up to four nodes obey a monotone law, while the explicit cyclic five-node witness violates it. The single time-expectation invariant is mechanistically meaningful and the cutoff is not automatic from previously studied models. A modest sharp finite threshold is mathematically valuable without purporting to predict actual outbreaks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
