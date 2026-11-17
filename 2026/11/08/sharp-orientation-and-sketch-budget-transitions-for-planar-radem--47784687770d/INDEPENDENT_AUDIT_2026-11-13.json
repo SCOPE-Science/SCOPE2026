@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:00:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD 2x2, Nyström residual A−AwwᵀA/(wᵀAw) is PSD rank one with all three unsquared norms equal to 2det(A)/(wᵀAw) for sign w. Two projective Rademacher directions yield better and worse denominators b(κ+1±(κ−1)t), worse-only probability 2^−m. Reciprocal-affine sum is strictly convex in t for κ>1, so maximal risk at t=0 or1, switched at κ+1=2^m. Uniform circular Gaussian direction integral gives benchmark b√κ; endpoint comparison yields 2^m>=1+√κ. Independent rational endpoint, direct 2x2 residual and angular integration checks, with distinct candidate-cost caveat.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General randomized low-rank approximation bounds cover classes of sketches but do not specify sharp best-of-m planar extremizers.",
+          "Planar Gaussian-vs-Rademacher subspace iteration works with different sketch combination and error metric."
+        ],
+        "reasoning": "General methods and models are broader but their bounds do not entail this sharp exact special-case equality; a special case would count as covered only if the exact formula follows, which it does not from inspected statements.",
+        "searches": [
+          "arxiv:2308.05814",
+          "arxiv:2006.10653",
+          "2026/10/26/SCOPE-sharp-angular-crossover-between-gaussian-and-rademacher-one-colu--739d1784d937"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.05814",
+        "https://arxiv.org/pdf/2006.10653",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Saibaba–Międlar Appendix D concerns multi-column sketches and generic Nyström bounds; no separate best-candidate order statistic.",
+          "Derezinski et al. require approximation regime distinct from exact 2x2 one-column case."
+        ],
+        "reasoning": "Neither inspected general theorem implies the binary selection probability 2^(−m) or joint orientation/Gaussian crossover. Search-result-only planar sketch-and-project work is not treated as proof of noncoverage.",
+        "searches": [
+          "arxiv:2308.05814",
+          "arxiv:2006.10653",
+          "2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For SPD 2x2, nuclear/spectral/Frobenius unsquared residual errors coincide because residual has rank one.",
+          "Best quadratic-score direction is the one minimizing trace residual 2det(A)/(wᵀAw)."
+        ],
+        "reasoning": "Searched equivalent trace/projector residual and two-sign selection formulations; linked all three error norms through exact residual rank, no independent matching theorem located.",
+        "searches": [
+          "planar Rademacher Nyström best of m candidate sketch orientation threshold",
+          "Rademacher 2x2 Nystrom best of multiple vector probes error",
+          "arxiv:2308.05814"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold is b max{2κ/(κ+1),1+(κ−1)2^(−m)}, not a conventional finite lookup table."
+        ],
+        "reasoning": "Continuous condition numbers/orientations are not naturally captured by a finite database; checked prior closed-form projection/sketch risk statements, not only matching titles.",
+        "searches": [
+          "planar Rademacher Nyström best of m candidate sketch orientation threshold",
+          "arxiv:2308.05814"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel self-contained sharp risk law for a natural low-rank approximation benchmark: two-sign Rademacher support, best of m rank-one Nyström candidates, exact worst orientation and Gaussian single-probe comparison. Known general sketch approximation results do not state or mathematically imply the closed-form minimax threshold under identical objective. Different computational budgets and narrow 2D scope are explicit.",
+      "residual_risks": [
+        "Very narrow exact 2x2, one-column, fair-sign and best-of-m error benchmark; may coincide with an unpublished two-point extreme-value calculation.",
+        "m Rademacher candidates use m matrix-vector products vs one Gaussian comparison; theorem does not establish cost-efficiency."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONSHARP_GENERAL_BOUNDS",
+          "evidence": "General multi-column non-Gaussian/sketch-width guarantees do not state best-of-m separately evaluated one-column Rademacher candidates, exact planar sup or Gaussian error crossover.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.05814",
+          "material_read": "Full 37-page arXiv primary text, general framework and Appendix D Theorem D.1 including Nyström bounds",
+          "method": "Read full paper, inspected relevant pages",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "General non-Gaussian and Nyström error theorems might imply exact 2D case"
+        },
+        {
+          "assessment": "DIFFERENT_REGIME",
+          "evidence": "Approximation under stable-rank regimes is not the exact rank-one 2D best-of-candidates objective at arbitrary condition number.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.10653",
+          "material_read": "Full original 24-page PDF, introduction, assumptions, Theorem 1 and projection statements",
+          "method": "Read arXiv primary text and inspected relevant pages",
+          "title": "Precise expressions for random projections: Low-rank approximation and randomized Newton",
+          "trigger": "Rademacher projection formulas might yield bound"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_SUMMARY_ONLY",
+          "evidence": "Optimization of single-step sketch-and-project Bernoulli sparsity, not rank-one Nyström residual best-of-m sample selection; no full-document noncoverage claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb",
+          "material_read": "Title and Resultary record summary only; full scientific document not read",
+          "method": "Resultary semantic search",
+          "title": "An exact orientation-only optimal sparsity law for planar sketch-and-project",
+          "trigger": "Planar optimal Rademacher sparsity source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Under a clearly defined one-column Rademacher Nyström candidate-selection protocol, the exact worst-case orientation and sample-budget crossover and Gaussian reference are useful precise performance baselines for evaluating discrete sketches. It is a narrow but natural exact fact; computational cost asymmetry and restricted dimension are disclosed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2308.05814",
+    "https://arxiv.org/pdf/2006.10653",
+    "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-orientation-and-sketch-budget-transitions-for-planar-radem--47784687770d"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Very narrow exact 2x2, one-column, fair-sign and best-of-m error benchmark; may coincide with an unpublished two-point extreme-value calculation.",
+    "m Rademacher candidates use m matrix-vector products vs one Gaussian comparison; theorem does not establish cost-efficiency.",
+    "Publication transport not ready: operational provenance scope_run_id in public-facing AUDIT.json and METADATA.json (original bytes preserved; no sanitizing edits staged)."
+  ],
+  "schema_version": 1
+}

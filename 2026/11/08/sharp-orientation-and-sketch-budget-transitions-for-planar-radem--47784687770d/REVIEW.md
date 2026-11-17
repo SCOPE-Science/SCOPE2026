@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each nonzero probe the Nyström residual is a positive-semidefinite rank-one matrix. Cayley–Hamilton gives its exact trace from a Rayleigh denominator. Rademacher signs have only two projective directions, making the best-of-\(m\) law an exact two-point order statistic. Strict convexity gives the global orientation maximum; the circle integral gives the Gaussian baseline. Finite independent exact-rational and direct matrix checks pass (33,062 assertions). The infinite-parameter claims are proved analytically, not inferred from finite tests.
+## correctness
 
-## Originality — PASS, qualified
-The closest checked literature is Saibaba–Międlar (2023), Sections 1–3 and Appendix D, and Dereziński–Liang–Liao–Mahoney (2020), Introduction and Theorem 1. The former gives non-Gaussian Nyström sufficient conditions for multi-column sketches and the latter gives approximate high-stable-rank expected-projection expressions. Neither inspected result explicitly gives the exact planar best-of-independent-singletons rotation minimax law, its sharp maximizer exchange, or the precise \(m\)-versus-\(\kappa\) Gaussian-comparison boundary. A specialist exact-example precedent cannot be excluded by searches and remains the principal risk. A previously established Gaussian rank-one planar formula is used only as a comparison, not presented as a separate novelty.
+PASS
 
-## Value — PASS
-Rademacher and Gaussian sketches are often compared as alternatives, while small sketch budgets can be strongly orientation dependent. The exact worst-case performance and minimal number of independent singletons required to match one Gaussian's expected error provide a complete natural numerical-linear-algebra benchmark, clarifying the finite-size limits of approximate distribution universality. The result is deliberately restricted to the smallest nontrivial SPD dimension and does not claim a better total matvec cost.
+For SPD 2x2, Nyström residual A−AwwᵀA/(wᵀAw) is PSD rank one with all three unsquared norms equal to 2det(A)/(wᵀAw) for sign w. Two projective Rademacher directions yield better and worse denominators b(κ+1±(κ−1)t), worse-only probability 2^−m. Reciprocal-affine sum is strictly convex in t for κ>1, so maximal risk at t=0 or1, switched at κ+1=2^m. Uniform circular Gaussian direction integral gives benchmark b√κ; endpoint comparison yields 2^m>=1+√κ. Independent rational endpoint, direct 2x2 residual and angular integration checks, with distinct candidate-cost caveat.
 
-## Boundaries
-All arithmetic and random probes are exact; the method keeps one candidate, not all candidate columns. The expectation is of the unsquared residual norm. High-dimensional, finite-precision, cost-equivalent and squared-error extensions are unproved. Publication precedence is not exhaustively certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel self-contained sharp risk law for a natural low-rank approximation benchmark: two-sign Rademacher support, best of m rank-one Nyström candidates, exact worst orientation and Gaussian single-probe comparison. Known general sketch approximation results do not state or mathematically imply the closed-form minimax threshold under identical objective. Different computational budgets and narrow 2D scope are explicit.
+
+## value
+
+PASS
+
+Under a clearly defined one-column Rademacher Nyström candidate-selection protocol, the exact worst-case orientation and sample-budget crossover and Gaussian reference are useful precise performance baselines for evaluating discrete sketches. It is a narrow but natural exact fact; computational cost asymmetry and restricted dimension are disclosed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

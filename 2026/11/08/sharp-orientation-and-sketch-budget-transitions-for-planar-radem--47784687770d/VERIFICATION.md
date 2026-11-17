@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verification/check.py` from the package root using Python 3 standard libraries. Expected captured output appears in `verification/output.txt`: `PASS: 33062 assertions; exact rational, direct matrix and angular-integral checks`.
+## correctness
 
-Tests use exact fractions for all integer spectral ratios from 2 through 30, candidate counts from 1 through 11, and rational orientation parameters from 0 to 1 in increments of 1/100. They also compute Nyström residuals directly from the defining matrix formula at four angles across five positive spectra, and independently check numerical circle integration for Gaussian probes. Finite tests do not establish convexity, full parameter quantifiers, or the Gaussian integral: those are proven in the manuscript. Checks performed with complete package paths and output reproduced. No independent scientific audit was performed.
+PASS
+
+For SPD 2x2, Nyström residual A−AwwᵀA/(wᵀAw) is PSD rank one with all three unsquared norms equal to 2det(A)/(wᵀAw) for sign w. Two projective Rademacher directions yield better and worse denominators b(κ+1±(κ−1)t), worse-only probability 2^−m. Reciprocal-affine sum is strictly convex in t for κ>1, so maximal risk at t=0 or1, switched at κ+1=2^m. Uniform circular Gaussian direction integral gives benchmark b√κ; endpoint comparison yields 2^m>=1+√κ. Independent rational endpoint, direct 2x2 residual and angular integration checks, with distinct candidate-cost caveat.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel self-contained sharp risk law for a natural low-rank approximation benchmark: two-sign Rademacher support, best of m rank-one Nyström candidates, exact worst orientation and Gaussian single-probe comparison. Known general sketch approximation results do not state or mathematically imply the closed-form minimax threshold under identical objective. Different computational budgets and narrow 2D scope are explicit.
+
+## value
+
+PASS
+
+Under a clearly defined one-column Rademacher Nyström candidate-selection protocol, the exact worst-case orientation and sample-budget crossover and Gaussian reference are useful precise performance baselines for evaluating discrete sketches. It is a narrow but natural exact fact; computational cost asymmetry and restricted dimension are disclosed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
