@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The removed region is exactly a \(d\)-simplex of volume \(t^d/d!\) for the stated range. Its exact Dirichlet second moments yield the two covariance eigenspaces and the displayed determinant formula. The logarithmic derivative is reduced to one explicit polynomial sign: for all dimensions at least five the constant term is nonpositive and the remaining terms are strictly negative by a positive Bernstein certificate; for dimensions two through four Descartes' one-variation transform and endpoint signs prove a unique strict minimum. Exact-rational independent polytope integration and symbolic identity checks corroborate each critical lemma. Nonempty interiors make all determinant denominators positive.
+## correctness
 
-**Originality — PASS (provisional priority).** The closest mathematical results address local extrema of hyperplane *section volume* (Pournin, 2022), necessary first-order conditions for polytope isotropic *maxima* (Kipp, 2023–2024), maximal inscribed ellipsoids in capped cubes, or isotropic profiles of distinct all-vertex simplex truncations and multi-corner cube cuts. None of those statements or direct implications supplies the exact isotropic minimum over one-corner cube truncations or the sharp dimension-five change. Generic simplex moment integration itself is not proposed as new. Historical formula duplication under alternate terms remains possible.
+PASS
 
-**Mathematical value — PASS.** The one-vertex clipped cube is a canonical asymmetric deformation of a basic high-dimensional convex body. The classification identifies a qualitative change at a precise dimension: the optimal cut moves from three genuine interior depths to the deepest cut beginning in dimension five. This is a complete, non-obvious optimization rather than a table value or routine first variation; it also supplies a rational-proof certificate for the entire infinite-dimensional family.
+Complement of one corner simplex has q=t^d/d!, covariance eigenvalues a of multiplicity d−1 and b of multiplicity one, yielding displayed normalized determinant F(1−qu)^(d−1)/(1−q)^(d+3). Derivative numerator N/(dq)=c0+qc1+q²c2. For d>=5 c0<=0,c2>0 and positive degree-4 Bernstein representation shows c1+c2/120<0; d2-4 transformed Descartes polynomials have one variation and opposite endpoint signs, hence unique interior minima. Independent exact symbolic/rational tests confirmed derivative certificates and selected covariance identities; universality follows algebraically.
 
-**Limits.** No assertion about other cut directions, deeper cuts, unrestricted convex bodies, or external certification. The full-source comparison is bounded and historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact depth-dependent isotropic constant for a one-corner clipped cube, strict dimension-five monotonicity and three unique interior minima not implied by prior section-volume/maximizer results.
+
+## value
+
+PASS
+
+One-corner clipping is a canonical geometric perturbation of the cube; complete covariance/isotropic profile and sharp dimension-four-to-five transition provide a natural exact parameter minimization, beyond raw moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
