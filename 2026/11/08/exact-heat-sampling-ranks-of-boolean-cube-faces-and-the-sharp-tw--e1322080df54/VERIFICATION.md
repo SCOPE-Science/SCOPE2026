@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is established by exact Walsh decomposition and a Vandermonde rank argument. No external or independent certification is asserted.
+## correctness
 
-Run `python3 CHECK.py` with NumPy installed. It builds raw-sensor analysis matrices from the graph definition, not from the predicted rank, and checks every \(d\in\{2,3,4,5,6\}\), each face codimension, every band cutoff, and up to three observations. It separately compares the full two-snapshot Gram eigenvalues and optimal determinant formula in dimensions \(2\) through \(7\). The checker prints `CHECK_OK rank_cases= 405  two_time_spectrum_dimensions=6` if the tests pass.
+PASS
 
-The computation is finite and does not prove the general theorem. The infinite-parameter proof depends on elementary Walsh orthogonality, nonvanishing Vandermonde minors for distinct positive heat nodes, and differentiation of a closed determinant product. The reported tests use floating-point tolerance; the formula and proof are exact.
+For normalized cube Laplacian L=I-A/d, normalized Walsh characters of weight j have heat eigenvalue exp(-2tj/d). Restriction to a fixed codimension-c face aggregates 2^c inner Walsh indices by their Hamming weight r, leaving for each free index S a row-scaled m-by-(1+min(c,K-|S|)) Vandermonde matrix at distinct z_j. Thus every block has stated min rank; summing gives exact formula for all d>=1,c,K,m in stated ranges. For c>=2 two restricted degree-one eigencharacters cancel for all time. For c=1 and K=d, the precisely normalized 1/sqrt2 blocks [[1,1],[r^k,r^{k+1}]] give all squared singular values, determinant and unique D-optimal tau; derivative of log determinant changes sign only at r=(d-1)/(d+1). Independent fresh NumPy rank checks for d=2..5, all c,K and m=1,2,3, and block determinant computations at d=2..5 exactly matched predicted rank and determinant up to numeric tolerance; infinite proof is Walsh/Vandermonde.
+
+## originality
+
+PASS
+
+Best-of-knowledge: earlier dynamical-sampling general finite-frame criteria apply to graph eigenspace sensor restrictions, but available sources did not establish the complete Boolean-coordinate-face rank profile, exact full-band singular spectrum or unique D-optimal second time. The closest 2026 Bulai et al. primary paper has only accessible abstract and inaccessible full text (Oxford VPN disconnected), so overlap remains a concrete priority risk; not treated as automatic failure.
+
+## value
+
+PASS
+
+A fully explicit observability and conditioning classification for the most symmetric finite graph resolves a natural dimension-vs-time sensing question. The codimension-two impossibility and codimension-one two-snapshot exact recovery sharpen generic dynamical-frame criteria; the optimal second-time formula is an exact usable experimental-design invariant, rather than a mere substitution into a textbook formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

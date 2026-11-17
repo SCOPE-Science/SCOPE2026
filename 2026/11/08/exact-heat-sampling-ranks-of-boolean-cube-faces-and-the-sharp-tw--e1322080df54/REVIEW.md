@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized Boolean-cube Laplacian diagonalizes in Walsh degree, with eigenvalues \(2|S|/d\). Restriction to a coordinate face identifies hidden-index Walsh modes having equal outside index; time variation separates their hidden Hamming weights by a distinct-node Vandermonde matrix and cannot separate modes of equal hidden weight. This directly establishes the exact rank for all \(d,c,K,m\). In codimension one, the Gram matrices are explicitly two by two and positive definite, and a one-variable derivative gives the unique determinant optimizer. Full unnormalized vertex counting norms and the factor \(1/\sqrt2\) in the block matrix were checked. The standalone finite checker separately corroborates 405 rank instances and six singular-spectrum instances; no finite enumeration is used as an unrestricted proof.
+## correctness
 
-## Originality — PASS relative to checked literature
-The 2014/2017 general orbit-frame criterion and the 2024 graph-space-time characterization give necessary/sufficient eigenspace conditions; they are credited as stronger abstract results. Their statements do not provide an exact all-cutoff rank formula on coordinate faces nor compute these blocks' determinant-optimal two-time heat parameter. The motivating 2026 graph Paley–Wiener study treats path graph numerics and general finite-frame formulas, not the Boolean-cube face family. A 2026 published arithmetic-spectrum D-optimality result uses amplitude/derivative observables, unlike the spatially restricted heat Walsh operator. The exact outcomes here follow after a new object-specific evaluation; priority over all older sources cannot be guaranteed.
+PASS
 
-## Value — PASS
-The hardware-versus-time question is natural for diffusion on a product network: observing half its nodes twice is sufficient for any initial signal, while observing a quarter or fewer in a fixed coordinate face fails even after indefinitely many heat snapshots for a nonconstant band. The exact rank across all bands quantifies what fails, and the full singular spectrum and unique sharp optimal sampling time specify the best two-frame determinant design and its noise interpretation. This is a complete, motivated classification rather than an arbitrary small-number computation, despite the elementary Walsh/Vandermonde ingredients.
+For normalized cube Laplacian L=I-A/d, normalized Walsh characters of weight j have heat eigenvalue exp(-2tj/d). Restriction to a fixed codimension-c face aggregates 2^c inner Walsh indices by their Hamming weight r, leaving for each free index S a row-scaled m-by-(1+min(c,K-|S|)) Vandermonde matrix at distinct z_j. Thus every block has stated min rank; summing gives exact formula for all d>=1,c,K,m in stated ranges. For c>=2 two restricted degree-one eigencharacters cancel for all time. For c=1 and K=d, the precisely normalized 1/sqrt2 blocks [[1,1],[r^k,r^{k+1}]] give all squared singular values, determinant and unique D-optimal tau; derivative of log determinant changes sign only at r=(d-1)/(d+1). Independent fresh NumPy rank checks for d=2..5, all c,K and m=1,2,3, and block determinant computations at d=2..5 exactly matched predicted rank and determinant up to numeric tolerance; infinite proof is Walsh/Vandermonde.
 
-## Closest literature and limits
-See arXiv:2609.25472, arXiv:2411.12670, arXiv:1409.8333, and the published arithmetic-spectrum optimal-horizon result linked in `RESULT.md`. The proof concerns coordinate faces and scalar heat dynamics only, with fixed-time D-optimality rather than minimum-singular-value optimality. An alternative prior statement of this concrete specialization in the control/observability literature remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: earlier dynamical-sampling general finite-frame criteria apply to graph eigenspace sensor restrictions, but available sources did not establish the complete Boolean-coordinate-face rank profile, exact full-band singular spectrum or unique D-optimal second time. The closest 2026 Bulai et al. primary paper has only accessible abstract and inaccessible full text (Oxford VPN disconnected), so overlap remains a concrete priority risk; not treated as automatic failure.
+
+## value
+
+PASS
+
+A fully explicit observability and conditioning classification for the most symmetric finite graph resolves a natural dimension-vs-time sensing question. The codimension-two impossibility and codimension-one two-snapshot exact recovery sharpen generic dynamical-frame criteria; the optimal second-time formula is an exact usable experimental-design invariant, rather than a mere substitution into a textbook formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
