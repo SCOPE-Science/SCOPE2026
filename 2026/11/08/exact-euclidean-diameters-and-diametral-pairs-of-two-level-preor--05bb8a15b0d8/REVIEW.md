@@ -1,19 +1,21 @@
-# Scientific review of exact preorder-polytope diameters
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defining inequalities of the two-level preorder polytope are recovered from all of its order ideals. For fixed lower coordinates, the upper-coordinate slice is the Minkowski sum of a unit cube and a scaled coordinate simplex, since the sum of positive coordinate excesses above one is bounded by the remaining slack. This reconstructs the full polytope as the convex hull of an explicit finite set. Strict convexity puts all diametral endpoints into that set; the two cases of distinct and coinciding excess locations give exact upper bounds. Equality forces two full-height peaks at different coordinates and complementary remaining binary coordinates. All boundaries, including vanishing slack and one-element lower antichains, are covered. Exact verification supplies 4,983,576 assertions, including independent original-inequality lattice checks; the universal theorem rests on the proof.
+PASS
 
-## Originality — PASS (best-knowledge, not independent priority certification)
+The original inequality representation is equivalent to y in [0,1]^n+(m-sum x_i)Delta_n by splitting excess above one. Convex combinations of lower cube vertices and upper simplex/cube vertices produce an exact finite generating set. Comparing squared distances of pairs from it, distinct upper peak indices alone can reach 2(m+1)^2+n-2, with equality forcing zero lower blocks, full peaks at different indices and opposite background bits. Strict convexity excludes nonvertex diametral endpoints. This covers m=1,n=2 and zero slack. Independent exact enumerations checked 9 small (m,n) configurations.
 
-Primary source [1] analyzes the same two-layer polytope and proves enumerative formulas, but no Euclidean diameter or all-extremizers theorem was found in the inspected introduction, definitions, and Section 9.2. Source [2] proves a factorization for the distinct polar-preorder-polytope family via a nonisometric shear. The closest published geometric result [3] concerns diameter pairs of cardinality-weighted star hypergraphic polytopes; its simplex-sum construction and hub-to-leaf equality configurations do not contain the present box-with-variable-slack family as a stated or metric-preserving special case. Searches of public mathematics literature, mathematical-record results, and accessible prior claims identified no direct stronger implication. A differently named or unindexed result is still a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact all-parameter metric classification for a prominent example family in the recent theory of preorder polytopes, where existing results are mainly enumerative. The equality classification yields a complete and nonconstant exponentially growing count of diametral vertex pairs, yet that count is independent of one antichain size even though the diameter grows quadratically in that size. The cube-plus-slack-simplex representation is also a reusable geometric structural description; the result is not merely a numerical approximation or one arbitrary finite example.
+The metric diameter of the full preorder polytope in its standard realization, including every equality pair and the count binom(n,2)*2^(n-2), is not a consequence of the known two-antichain preorder enumerators. The polar ordinal-sum transformation is not Euclidean isometric. Targeted comparable published diameter results address other convex bodies; residual historical uncertainty is explicit.
 
-## Scope and verification limitations
+## value
 
-The result covers only two-layer ordinal sums, the standard ambient metric, and at least two upper elements. It does not establish a diameter formula for general preorders, and it makes no claim about graph diameter. All mathematical searches are nonexhaustive; no independent historical-priority check or independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete diameter graph of the natural two-antichain preorder-polytope family is an intrinsic metric classification, with an unexpected constant-in-m equality count and distinct-peaks rigidity. It is a full structural classification for every m>=1,n>=2 rather than an arbitrary finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

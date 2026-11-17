@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The displayed universal diameter theorem is proved in `RESULT.md`. The accompanying self-contained checker `verify_preorder_diameter.py` uses only Python 3 standard-library integer arithmetic. Run it next to this document with `python3 verify_preorder_diameter.py`.
+## correctness
 
-The checker independently generates points from the cube-plus-simplex representation, evaluates the original order-ideal inequalities, checks every pairwise Euclidean squared distance and the exact set and number of equality pairs for \(1\le m\le4\), \(2\le n\le5\), and independently enumerates actual lattice points directly from the inequalities for \(1\le m\le2\), \(2\le n\le3\). The observed result is `EXACT_CHECKS_OK 4983576`, with no assertion failures.
+PASS
 
-Exhaustive checking over these finite ranges does not constitute a proof for arbitrary \(m,n\); the all-dimensional result follows from the finite convex-hull representation and explicit distance inequalities in `RESULT.md`. No external proof assistant or independent audit has been used.
+The original inequality representation is equivalent to y in [0,1]^n+(m-sum x_i)Delta_n by splitting excess above one. Convex combinations of lower cube vertices and upper simplex/cube vertices produce an exact finite generating set. Comparing squared distances of pairs from it, distinct upper peak indices alone can reach 2(m+1)^2+n-2, with equality forcing zero lower blocks, full peaks at different indices and opposite background bits. Strict convexity excludes nonvertex diametral endpoints. This covers m=1,n=2 and zero slack. Independent exact enumerations checked 9 small (m,n) configurations.
+
+## originality
+
+PASS
+
+The metric diameter of the full preorder polytope in its standard realization, including every equality pair and the count binom(n,2)*2^(n-2), is not a consequence of the known two-antichain preorder enumerators. The polar ordinal-sum transformation is not Euclidean isometric. Targeted comparable published diameter results address other convex bodies; residual historical uncertainty is explicit.
+
+## value
+
+PASS
+
+The complete diameter graph of the natural two-antichain preorder-polytope family is an intrinsic metric classification, with an unexpected constant-in-m equality count and distinct-peaks rigidity. It is a full structural classification for every m>=1,n>=2 rather than an arbitrary finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
