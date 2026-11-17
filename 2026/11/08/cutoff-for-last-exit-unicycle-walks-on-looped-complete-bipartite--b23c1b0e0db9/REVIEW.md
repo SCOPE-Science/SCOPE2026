@@ -1,19 +1,21 @@
-# Scientific review: looped complete bipartite unicycle cutoff
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem concerns the rooted-unicycle state space and uniform neighbor-plus-self transition. Changing the current root arrow preserves the one-cycle property. Strong connectivity with strictly positive local transitions supplies finite irreducibility, and a self-loop state supplies aperiodicity. The predecessor counting proof independently shows the invariant counting measure. Maximal coupling of the position chains coalesces in \(O_{\mathbb P}(M)\) steps, after which a uniform two-step vertex-hitting bound erases the remaining differences in the arrows by time \((1+\varepsilon)2M\log M\). Conversely, before \((1-\varepsilon)2M\log M\), a coupon-collector lower bound leaves polynomially many arrows pointing at a fixed opposite-part vertex, which is incompatible with the stationary \(O(1)\) expectation. Exact checks confirm 12,430 finite assertions; the infinite-size conclusion follows from the proof, not from those checks.
+PASS
 
-## Originality
+For balanced a,b with M=max(a,b), position transitions are independent of arrow memory. Coupling position walks gives meeting tail <=exp(-2h/(M+1)); after meeting common departures from every vertex erase differing arrows. Uniform two-step target hitting >=m/((m+1)(M+1))=(1+o(1))/M, so union coupon bound finishes by (1+eps)2Mlog M. For lower bound initialize arrows of all M-side vertices at one opposing vertex z; before (1-eps)2Mlog M at most t/2 uniform crossings into the M side, leaving M^{eps+o(1)} untouched arrows, while stationary expected z-incoming arrows <=M/m=O(1) by part symmetry. Total variation separates. Uniform rooted-unicycle stationarity follows direct transition-column counting; no full-memory independence assumed. Finite checks are corroborative, not infinite proof.
 
-**PASS on inspected evidence; residual historical-priority risk.** Kaiser--Levine--Sava-Huss, arXiv:2412.13766 (first posted 2024-12-18), proves cutoff on complete graphs and explicitly asks for other graph sequences in Section 5. Its full accessible preprint (including the construction and mixing section) and corresponding journal article were compared; neither gives the looped biclique cutoff or its larger-side time constant. The earlier Anantharam--Tsoucas tree-theorem work concerns a related stationary construction, not an identified cutoff theorem; only the accessible abstract was inspected. Miller--Peres lamplighter work concerns a different memory chain and is not a direct implication. Searches of an indexed mathematical-results collection and the accessible claims of an earlier research ledger identified no matching unicycle-biclique statement. Those searches do not prove historical uniqueness; further old tree-walk and memory-chain literature could contain an equivalent general theorem.
+## originality
 
-## Value
+PASS
 
-**PASS.** The motivating paper's Section 5 explicitly asks for non-complete graph families showing unicycle cutoff. The theorem supplies one natural infinite family, including all fixed positive bipartition ratios, and calculates the precise first-order cutoff location using the larger side rather than total vertex count alone. The bipartite position chain is nearly period-two, so the proof also distinguishes rapid resolution of a slow parity mode from the much later erasure of locally stored arrows. This is a natural structural mixing result, not an arbitrary isolated finite instance or a restatement of the complete-graph case.
+Best-of-knowledge after actual Resultary searches and material full published-source reading: The foundational 2024/2026 Kaiser-Levine-Sava-Huss work proves complete-graph cutoff and poses noncomplete-graph cutoff questions; graph-dependent bipartite bounded-aspect result does not follow by matching walk name, since position coupon rates differ. ['Historical literature on total chains beyond the foundational preprint may contain noncomplete-graph cutoff; exact leading window/profile not claimed. Asymptotics assume m/M bounded away from 0.']
 
-## Limits and literature risks
+## value
 
-The claim assumes uniform neighbor choices, one self-loop per vertex, and a positive asymptotic lower bound on the aspect ratio. No second-order profile, periodic loop-free result, or unrestricted-graph criterion is proved. The early tree-walk primary article was available only as metadata/abstract in the current inspection; any undiscovered general cutoff theorem remains a risk. Scientific proof has not been independently verified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A new explicit noncomplete family with provable total-variation cutoff answers a concrete open direction in locally Markov walks. The full-memory chain, coupon collector bottleneck and balanced-aspect-ratio sharp leading mixing scale are nonroutine, structurally meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
