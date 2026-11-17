@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:47:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite killed continuous-time Markov chain with certain absorption, the Green matrix G=(-Q)^{-1} is entrywise nonnegative and U_m=m! e_a^T G^m 1 for every integer m>=1. Multiplying any group of edges with one source by t>0 changes one row of -Q affinely; the determinant and each cofactor are affine in t. Positivity on all t>0 forces their two coefficients nonnegative. Each positive Green entry has log-rate elasticity between -1 and 1; a positive sum of products of m Green entries has elasticity in [-m,m]. Uniform scaling of all edges gives the -m budget exactly. The single-step exponential attains -m; two transient states A->B (rate a), A->C (t), C->A (b) yield G=[[b,t],[b,a+t]]/(ab) and asymptotically attain +m. Full state-clock factors give a finite positive exponential sum indexed by m state occupancies, with gradient -E N and covariance Hessian. Independent symbolic checks for m=1..6 verify the two-state upper asymptotic. Hypotheses include positive graph-preserving rates, finite state space, and integer raw moments; no arbitrary multi-source bound or variance bound follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nam and Gunawardena give all-moment positive algebraic formulas; Liang and Bao prove the m=1 budget and discuss group control.",
+          "Caswell 2011 reports perturbation analysis of absorbing-chain moments but its complete theorems could not be checked."
+        ],
+        "reasoning": "General exact formulas for moments and derivatives make the bound potentially derivable, but the inspected theorems do not present the sharp m-order one-source bound or occupancy-covariance Hessian. m=1 is covered and is credited.",
+        "searches": [
+          "Universal sharp sensitivity logarithmic elasticity of higher raw moments of first passage time finite Markov chains joint convexity state clock speedup log moments",
+          "https://arxiv.org/abs/2608.08375",
+          "https://doi.org/10.1007/s11538-025-01524-z"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.06368",
+        "https://arxiv.org/abs/2608.08375",
+        "https://doi.org/10.1002/nla.791",
+        "https://doi.org/10.1007/s11538-025-01524-z",
+        "Resultary search: Universal sharp sensitivity logarithmic elasticity of higher raw moments of first passage time finite Markov chains joint convexity state clock speedup log moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 source states local mean sensitivity [-1,1] and a -1 global budget, not the asserted order-m inequalities.",
+          "The supplied positive-affine cofactor argument and one-exact-row structure yield additional all-rate inequalities beyond generic differentiation formulas."
+        ],
+        "reasoning": "The new claim implies the known m=1 statement, not vice versa. Nam/Caswell supply foundational representations, not an identified dominating m>=2 optimal bound; full Caswell comparison is incomplete.",
+        "searches": [
+          "https://arxiv.org/abs/2608.06368",
+          "https://arxiv.org/abs/2608.08375",
+          "https://doi.org/10.1002/nla.791",
+          "Universal sharp sensitivity logarithmic elasticity of higher raw moments of first passage time finite Markov chains joint convexity state clock speedup log moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liang and Bao 2026 Section II Eq.(3) gives the MFPT edge elasticity [-1,1] and -1 sum.",
+          "Moment perturbation theory may phrase the same bound in absorbing-chain fundamental-matrix coordinates."
+        ],
+        "reasoning": "Same-source perturbations can be described by a single-row affine M-matrix inverse; the claim is a uniform bound for all higher raw moments, not merely a formula for differentiating a moment.",
+        "searches": [
+          "Universal sharp sensitivity logarithmic elasticity of higher raw moments of first passage time finite Markov chains joint convexity state clock speedup log moments",
+          "https://arxiv.org/abs/2608.06368",
+          "https://doi.org/10.1002/nla.791"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary search ranked the assigned 2026-11-08 finding and distinct first-passage threshold results; no prior exact table or same lemma in its returned records."
+        ],
+        "reasoning": "The assertion is uniform over network size and real rate parameters, not an entry in a finite numerical database. Search absence is not priority proof.",
+        "searches": [
+          "Universal sharp sensitivity logarithmic elasticity of higher raw moments of first passage time finite Markov chains joint convexity state clock speedup log moments",
+          "Resultary semantic search: higher raw first passage moment universal sharp grouped rate sensitivity"
+        ]
+      },
+      "rationale": "Best-of-knowledge surviving novelty concerns m>=2 sharp architecture-independent same-source bounds, matching positive extremals, and simultaneous log-state-clock convexity. The mean m=1 control budget and general moment formulas are explicitly prior; no stronger primary statement establishing this whole control law was identified. Caswell 2011 complete text remains inaccessible, a genuine priority risk.",
+      "residual_risks": [
+        "Caswell 2011 complete article inaccessible; a stronger all-moment control inequality could be hidden in perturbation theory.",
+        "A general positive-rational-coefficient lemma may render parts of the proof standard; new attribution rests on the exact sharp control/clock statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS mean-only m=1 and budget, no observed higher-moment theorem",
+          "evidence": [
+            "Eq. (3) local s_e in [-1,1] and sum -1, section II models finite absorbing networks"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.06368",
+          "material_read": "Accessible full HTML Sections I, II and response discussion, exact mean formulas",
+          "method": "read arxiv HTML lines and compare hypotheses and rate-scaling",
+          "title": "A Universal Control Budget for First-Passage Kinetics",
+          "trigger": "Same CTMC, same kinetic control, near-identical m=1 inequality"
+        },
+        {
+          "assessment": "PRIOR ingredient, exact higher-moment coverage uncertain",
+          "evidence": [
+            "All raw moments represented algebraically; no verified sharp same-source sensitivity bound in accessible material"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.08375",
+          "material_read": "Bibliographic abstract and described algebraic formulas; complete primary text was not newly inspected",
+          "method": "bibliographic and mathematical implication comparison",
+          "title": "Algebraic formulas for first-passage times of Markov processes in the linear framework: generalising the work of Hill and Kac",
+          "trigger": "All-order moment formulas could imply bound"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE PRIOR, not declared noncovering",
+          "evidence": [
+            "2011 moment sensitivity methodology; full-text unknown, authorized institutional retrieval reported VPN disconnected"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nla.791",
+          "material_read": "Accessible abstract only; lawful OA/arxiv unavailable; institutional full-text request blocked",
+          "method": "abstract comparison and authorized retrieval attempt",
+          "title": "Perturbation analysis of continuous-time absorbing Markov chains",
+          "trigger": "Moment derivative/elasticity theory potentially dominates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Higher raw moments quantify the long passage-time tail, a distinct engineering/statistical objective from the mean. The 2026 mean-budget work motivates the higher-moment question. The result gives tight rate-independent bounds for a whole class of same-source kinetic controls and a globally convex simultaneous state-clock geometry, useful for robust network rate-design rather than an arbitrary finite computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite absorbing CTMC and positive graph-preserving rates only; one-source group for [-m,m].",
+    "No guarantee for multi-source edge groups, noninteger moments, normalized variances or semi-Markov models.",
+    "Oxford access to Caswell full text blocked by disconnected VPN; historical priority qualified."
+  ],
+  "schema_version": 1
+}
