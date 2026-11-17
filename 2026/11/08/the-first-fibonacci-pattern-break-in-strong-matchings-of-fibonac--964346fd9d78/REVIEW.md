@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex set, edge set, compatibility graph, and induced-matching equivalence are explicit. Greedy coloring supplies a valid **upper** bound on clique size because each color class is independent; every branch not strictly dominated by the incumbent is explored, including ties. The 130-vertex compatibility graph for the 130 original edges is completely searched, producing optimum size twelve and exactly twelve optima. All twelve are rechecked pairwise. A separate direct integer-program model, rebuilding graph edges and conflicts using Hamming distance, returns the same optimum for all eight dimensions. The proof of the automorphism group uses uniqueness of the zero vertex by degree, the path-complement relation among singleton vertices, and distance-based coordinate recovery. Its order is two; none of the twelve optima is fixed by reversal, giving six orbits. The detailed machine-readable configurations and outputs accompany the result. The claim has only finite quantifiers; no extrapolation or timeouts establish any assertion.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-The nearest primary sources count *vertex-disjoint* subcubes, a relaxation of the noninterference condition for induced matchings. For one-dimensional cubes, the former counts ordinary matchings and therefore does not imply the induced-matching size or census. The 2015 preprint has been inspected through its definitions, Lemma 2.1, Theorem 2.2, Corollaries 2.4–2.5, and concluding problem; the 2016 full-text paper through its introduction and hypercube-count formulas; the 2013 survey through graph invariants and open problems. Strong edge-coloring sources (Drambyan–Petrosyan 2020, Drambyan 2025 dissertation abstract) optimize the number of color classes, not the size and count of a maximum class; their chromatic-index bounds and exact formula cannot imply this census. General induced-matching bounds likewise do not determine the specific optimum census. Targeted research-record, primary-literature and prior-claim comparisons found no direct coverage; failed searching is not a uniqueness proof, and unindexed related literature remains a risk.
+PASS
 
-## Value — PASS
-The induced-matching number measures how many communication links or parallel edge operations can coexist without any endpoint-to-endpoint crosslink. It is the natural strengthened counterpart of the established ordinary packing invariant in the same Fibonacci cubes. Exact size, *all* maximizers and symmetry classification on the first dimension where the initially simple Fibonacci count fails give a meaningful benchmark and counterexample to an intuitive extension from low dimensions. The result provides test data for prospective recurrences and structural bounds. It is not asserted to be an all-dimensional theorem or a standalone general theory.
+The exact definition of Gamma_n as no-consecutive-one bitstrings and compatibility as all four cross-endpoint Hamming distances >1 correctly reduces induced matchings to cliques of a 130-vertex graph at n=8. A greedy proper coloring gives certified upper bounds at each branch; strict-less-than-best pruning preserves all tied optima. A fresh independently written exact bitset clique branch-and-bound returned maxima and number of optimums for every n=1..8, including n8: 55 vertices, 130 edges, maximum 12, exactly 12 optima, 10283 recursion nodes. Bit reversal is an automorphism, and the source proof fixes zero and singleton vertices to show automorphism group of Gamma_8 has just identity and reversal; the twelve optima pair into six free orbits. Not a nonexhaustive finite sample.
 
-## Restrictions
-The output supplies an exhaustive computational certificate and an explained exhaustive procedure; it does not constitute a formally verified proof in a proof assistant. Independent validation is not claimed. Searches cannot exclude uncatalogued priority, and third-party software is required for the optional independent mixed-integer check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh best-of-knowledge comparison for Finite strong-matching first pattern break in Fibonacci cube dimension eight: no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.
+
+## value
+
+PASS
+
+The natural induced matching (strong matching) invariant of the widely studied Fibonacci cube has an exact finite first deviation from a simple observed Fibonacci pattern; all 12 optimum configurations and six natural symmetry types are classified. Although no all-n theorem follows and the pattern was not a published conjecture, this self-contained exact n=8 natural invariant is independently useful for extremal graph databases and strong-coloring comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
