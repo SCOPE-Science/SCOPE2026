@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every face and edge of the diagonal cuboctahedron has an explicit description. Counting the two types of edge incident normals gives the exact two-value shadow classification and the known spherical-lune expectation identity gives its probability. A separate three-variable constrained optimization proves sharpness, nonattainment at the upper endpoint, and the unique regular equality case. The independent projected-hull checks and solid-angle identity agree with the theorem. The proof excludes only a measure-zero set of viewing directions; nonorthogonal shears are not claimed.
+## correctness
 
-## Originality — PASS (provisional priority)
-The generic edge-dihedral expectation method is already known and is credited, not claimed. The cited earlier papers treat silhouette complexity bounds, stochastic polytope silhouettes, and Coxeter constructions rather than the sharp *axis-family minimum* of octagonal-shadow probability of the cuboctahedron. A related published triaxial-octahedron result concerns a different polytope. Existing central-section statements do not provide the orthogonal projection distribution. A highly relevant external published full text could not be retrieved at one public repository; the resulting residual priority risk is recorded in `AUDIT.json`.
+PASS
 
-## Mathematical value — PASS
-The classification determines the full probability law over a nontrivial continuous two-parameter shape family, rather than one symmetric special case. The sharp global extremum identifies the regular cuboctahedron by a measurable projection complexity statistic and characterizes the entire attainable range. The sharpness proof is not merely numerical; it hinges on a constrained nonlinear trigonometric inequality. The conclusion is restricted to diagonal stretches.
+The 24 square/triangle edges give eight silhouette candidates in each coordinate family, and a projected edge occurs precisely when its outward facet normals have opposite viewing signs. Generic silhouette size is six or eight; the eight-edge event is the weighted triangle-inequality failure. Spherical-lune angle probability delta/pi gives E[H]=8/pi sum_i arccos((1/a_i)/sqrt(sum_j a_j^-2)); solving E[H]=6+2P8 proves the asserted law. For t_i=r_i^2, maximizing F=sum arcsin sqrt(t_i) over the closed simplex has boundary F=pi/2 and the sole interior critical point t_i=1/3, giving sharp rigid minimum. A continuous path toward the simplex boundary gives the unattained maximum P8->1. Independent direction-sampling at regular, (1,2,3), and (1,1,10) stretches corroborated the analytic values; random finite directions are not the proof.
 
-## Limitations
-The numerical tests are supplemental; all analytical conclusions are proved. The result does not cover arbitrary shears or imply reconstruction of all axis parameters from a single shadow probability. Historical novelty remains provisional and requires wider external assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp two-parameter axis-stretch probability law and its unique global minimizer were not mathematically implied by inspected general expected silhouette bounds, regular-cuboctahedron probability or the different triaxial octahedron geometry. Established edge-angle averaging is credited, not claimed new.
+
+## value
+
+PASS
+
+A natural polytope exhibits a full exact random-shadow two-atom law across a nontrivial continuum of shape deformations, and strict extremal rigidity identifies its unique balanced geometry. The result is a meaningful geometric classification beyond a one-shape lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

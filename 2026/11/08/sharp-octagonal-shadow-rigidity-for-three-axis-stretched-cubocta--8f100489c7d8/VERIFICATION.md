@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The exact theorem follows from face incidence, spherical-lune probabilities, and a constrained global optimization. The standalone `verify.py` checks four unrelated positive axis triples, 1,600 directly computed planar projection convex hulls, 1,604 central slice edge-crossing counts (contextual only), and 800,000 uniform view directions against the closed-form law. Its independent solid-angle expression agrees with the dihedral-angle expression to floating-point tolerance in four cases. The unique minimizer is proved analytically; the additional 5,000 random shape tests are supplementary.
+# Independent mathematical audit
 
-Reproduction: run `python verify.py` with Python 3, NumPy and SciPy. The script uses a fixed random seed; no external datasets or private files are required. An actual run returned:
+## correctness
 
-```
-VERIFY_OK shapes=4 directions=800000 projection_hulls=1600 central_sections=1604 independent_cone_formula=4 sharpness_trials=5000
-```
+PASS
 
-No formal proof assistant, exhaustive infinite-angle enumeration, independent human audit, or experimental validation has been performed. Numerical accuracy does not establish mathematical priority.
+The 24 square/triangle edges give eight silhouette candidates in each coordinate family, and a projected edge occurs precisely when its outward facet normals have opposite viewing signs. Generic silhouette size is six or eight; the eight-edge event is the weighted triangle-inequality failure. Spherical-lune angle probability delta/pi gives E[H]=8/pi sum_i arccos((1/a_i)/sqrt(sum_j a_j^-2)); solving E[H]=6+2P8 proves the asserted law. For t_i=r_i^2, maximizing F=sum arcsin sqrt(t_i) over the closed simplex has boundary F=pi/2 and the sole interior critical point t_i=1/3, giving sharp rigid minimum. A continuous path toward the simplex boundary gives the unattained maximum P8->1. Independent direction-sampling at regular, (1,2,3), and (1,1,10) stretches corroborated the analytic values; random finite directions are not the proof.
+
+## originality
+
+PASS
+
+The sharp two-parameter axis-stretch probability law and its unique global minimizer were not mathematically implied by inspected general expected silhouette bounds, regular-cuboctahedron probability or the different triaxial octahedron geometry. Established edge-angle averaging is credited, not claimed new.
+
+## value
+
+PASS
+
+A natural polytope exhibits a full exact random-shadow two-atom law across a nontrivial continuum of shape deformations, and strict extremal rigidity identifies its unique balanced geometry. The result is a meaningful geometric classification beyond a one-shape lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
