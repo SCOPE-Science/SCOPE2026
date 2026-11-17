@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact stationary generator, valid for arbitrary positive trap, propulsion, reset, and rotational-diffusion rates and nonnegative translational diffusivity, has a triangular Fourier–polynomial moment recurrence. Its degree-three solution yields an explicit rational \(\operatorname{Cov}(X,Y^2)\). The denominator is strictly positive; a coefficient sign argument and Descartes' rule prove that the numerator has exactly one positive reset-rate zero with a negative-to-positive sign change. The thermal ordering follows from an exact negative evaluation at \(r=\sqrt{1+d}-1\), positivity of the temperature factor beyond that point, and root uniqueness. A separate Cartesian exact-rational implementation verifies the moment formulas and polynomial identities in 713 assertions. The finite tests corroborate, but do not establish, the general theorem; the proof supplies the general quantifiers.
+## correctness
 
-## Originality — PASS, with stated residual priority risk
-The nearest identical-protocol study is Shee, arXiv:2409.06920 (2024); its inspected model, formulas, discussions, and appendices address mean, second moments, radial fourth moment, and radial kurtosis, not the longitudinal–transverse mixed third cumulant or the all-temperature unique sign-reversal theorem. Kumar–Sadekar–Basu, arXiv:2008.03294 (2020), compute longitudinal marginal skewness under free-space complete resetting, without confinement or the transverse mixed cumulant. Chaudhuri–Dhar, arXiv:2005.14234 (2020), give general trapped-ABP moment methods without the resetting protocol. Ghosh–Mandal, arXiv:2501.05149 (2025), address a different unconfined anisotropic model. Searches using the mixed-cumulant, complete-reset, thermal-shift, and threshold aliases did not reveal an explicit dominating classification. A general moment generator can implicitly determine the rational moment, so uncatalogued derivations or equivalent formulas remain a nonzero publication-priority risk; the claim of originality is the global root theorem and thermal ordering, not the generator technique itself.
+PASS
 
-## Mathematical value — PASS
-The sign of \(\operatorname{Cov}(X,Y^2)\) measures whether unusually forward-directed displacements are associated with greater or smaller transverse squared spread. Longitudinal marginal skewness and radial kurtosis do not determine this mixed cumulant. The exact all-parameter one-crossing property, thermal monotonicity of the critical rate, and sharp thermal and athermal limiting scales give a structural classification over a natural non-equilibrium model rather than an arbitrary parameter slice or a mere numerical sign observation. The scope does not extend to different reset protocols or standardized cumulants.
+Stable harmonic trapping together with positive Poisson joint position-and-heading resetting gives a regenerative stationary distribution and finite polynomial moments. Fourier moments F_(p,q,n)=E[X^pY^q exp(in theta)] satisfy a triangular stationary generator recursion, with base F_(0,0,n)=r/(r+d n²). Explicit recurrence yields EX, EY², EXY² and an exact positive-denominator factor C=2r P_(d,h)(r)/D. Independently verified that polynomial factorization symbolically; coefficients of P are negative at degree 0, strictly positive at degrees 2-4 and nonnegative at 5-6, while the linear sign is arbitrary, hence exactly one Descartes sign variation for every d>0,h>=0 and a unique simple positive zero. Substituting r_T=sqrt(1+d)-1 makes the h factor zero and Q_d(r_T)<0; evaluating at athermal root R0 proves r_T<R(d,h)<=R0 and thermal monotonicity. Dominant balance proves athermal sqrt(5d) and sqrt(3d) limiting scales.
 
-## Scientific sources and risk
-Primary comparison: https://arxiv.org/abs/2409.06920 (first submitted 2024-09-11). Related sources: https://arxiv.org/abs/2008.03294 ; https://arxiv.org/abs/2005.14234 ; https://arxiv.org/abs/2501.05149 . Priority is not independently certified; the model's general published moment framework could facilitate derivation of individual moments without an explicit phase theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Shee primary paper studies exactly the jointly resetting trapped active Brownian particle, deriving mean, MSD and fourth radial moments and kurtosis phase diagrams; it does not state the transverse mixed cubic factor or its unique r zero in the inspected main text/appendices. Other relevant published entries treat free orientational-only resetting or other cumulant orders, not this complete reset/trap covariance. Novelty is qualified and the generator moment recursion as a method is prior.
+
+## value
+
+PASS
+
+The sign of Cov(X,Y²) distinguishes whether longitudinal displacement covaries positively or negatively with transverse fluctuations, a natural anisotropy-related third cumulant when the reset heading picks a preferred axis. The exactly-one-reset-rate boundary for all d,h, its thermal monotonicity and singular asymptotics are a complete nontrivial phase classification, rather than a numerical moment tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

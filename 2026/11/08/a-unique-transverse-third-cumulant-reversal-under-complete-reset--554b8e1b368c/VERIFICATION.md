@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The self-contained `verify.py` uses the Python 3 standard library only. Run it from the extracted package with `python3 verify.py`. Its independent Cartesian real/imaginary Fourier–monomial generator implementation evaluates stationary moments exactly as rational numbers rather than using the factored formula to generate them. It then compares 100 combinations of strictly positive rotational diffusion and resetting, including zero or positive thermal diffusion, against the explicit stationary mean, transverse second moment, mixed raw third moment, and cumulant factorization.
+## correctness
 
-The verification additionally checks all polynomial coefficients, sign restrictions, the exact boundary substitution identity, illustrative thermal threshold ordering, and limiting-scale probes. Replay produced: `PASS: 713 exact-rational assertions and independent limiting checks`; the dimensionless example \(d=1\) gave \(R(1,0)\approx2.011189483675225\), \(R(1,1)\approx0.6552389514134325\), with thermal floor \(\sqrt2-1\approx0.41421356237309515\).
+PASS
 
-The unique-root and monotonicity statements for every permitted parameter are established in `RESULT.md` by polynomial signs, Descartes' rule, the intermediate value theorem, and an exact boundary factorization. A finite verifier is not an independent proof of those quantified statements. The stochastic model assumes a constant-rate clock resetting both position and orientation; other reset protocols are not covered. No external independent audit has been performed.
+Stable harmonic trapping together with positive Poisson joint position-and-heading resetting gives a regenerative stationary distribution and finite polynomial moments. Fourier moments F_(p,q,n)=E[X^pY^q exp(in theta)] satisfy a triangular stationary generator recursion, with base F_(0,0,n)=r/(r+d n²). Explicit recurrence yields EX, EY², EXY² and an exact positive-denominator factor C=2r P_(d,h)(r)/D. Independently verified that polynomial factorization symbolically; coefficients of P are negative at degree 0, strictly positive at degrees 2-4 and nonnegative at 5-6, while the linear sign is arbitrary, hence exactly one Descartes sign variation for every d>0,h>=0 and a unique simple positive zero. Substituting r_T=sqrt(1+d)-1 makes the h factor zero and Q_d(r_T)<0; evaluating at athermal root R0 proves r_T<R(d,h)<=R0 and thermal monotonicity. Dominant balance proves athermal sqrt(5d) and sqrt(3d) limiting scales.
+
+## originality
+
+PASS
+
+The closest Shee primary paper studies exactly the jointly resetting trapped active Brownian particle, deriving mean, MSD and fourth radial moments and kurtosis phase diagrams; it does not state the transverse mixed cubic factor or its unique r zero in the inspected main text/appendices. Other relevant published entries treat free orientational-only resetting or other cumulant orders, not this complete reset/trap covariance. Novelty is qualified and the generator moment recursion as a method is prior.
+
+## value
+
+PASS
+
+The sign of Cov(X,Y²) distinguishes whether longitudinal displacement covaries positively or negatively with transverse fluctuations, a natural anisotropy-related third cumulant when the reset heading picks a preferred axis. The exactly-one-reset-rate boundary for all d,h, its thermal monotonicity and singular asymptotics are a complete nontrivial phase classification, rather than a numerical moment tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
