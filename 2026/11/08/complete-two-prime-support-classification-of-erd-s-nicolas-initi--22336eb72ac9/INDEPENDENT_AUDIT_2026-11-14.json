@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T05:44:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p>=5,b>=2, the sum of lower p-adic layers is S_<b=(2^(a+1)-1)(p^b-1)/(p-1)<n/2; all permitted top-layer divisors below n/2 contribute <n/2, so no equality until the final proper divisor n/2, where equality would require integer 2^(a+1)-1 strictly between p-1 and p. For p>=5,b=1, at x<2^a total <4x<4*2^a<=n; thereafter until n/2 the 2-adic and p blocks cannot reach n; final sum n occurs iff p=2^(a+1)-1. For p=3,b>=2, exact layer formulas show strictly consecutive proper divisors straddle n: n/3,n/2 if a=1; n/4,n/3 if a=2,3 or (4,2); n/6,n/4 otherwise. For p=3,b=1, n=24 is unique nonperfect equality, all other a excluded by consecutive straddles; n=6 also even perfect. Direct independent exact divisor-prefix enumeration checked 1800 cases a<=12, b<=6, odd primes <103 and exactly four expected positive cases. Finite checks corroborate the unbounded proof, not extend its quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older work for every a,b>=1 gives only necessary conditions for b>=3, not their impossibility",
+          "Classical Erdős–Nicolas paper and OEIS define the property for all natural n but do not classify this restricted infinite family"
+        ],
+        "reasoning": "Broader domain (all integers) plus scattered examples does not imply an exact no-higher-exponent theorem; the latest theorem closes the formerly open reduced range for this natural family.",
+        "searches": [
+          "Erdos Nicolas 2^a p^b initial divisor sum numbers b >= 3 24 even perfect classification",
+          "Resultary 2026/9/21 two-prime power reduction Theorem 4",
+          "Erdos Nicolas 1975 divisor-prefix initial sums",
+          "OEIS A064510 A194472"
+        ]
+      },
+      "checked_sources": [
+        "https://www.renyi.hu/~p_erdos/1975-37.pdf",
+        "https://oeis.org/A064510",
+        "https://oeis.org/A194472",
+        "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2/RESULT.md",
+        "Resultary semantic query: Erdos Nicolas 2^a p^b initial divisor sum numbers b >= 3 24 even perfect classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New theorem recovers old b=1 exactly and b=2 exclusion, but additionally forbids every b>=3 without a cutoff",
+          "Old Theorem 4 merely bounded b<=a+v_p(2^(a+1)-1)-1 and p|2^(a+1)-1; admits conditional candidate cases"
+        ],
+        "reasoning": "The new theorem logically implies all earlier two-prime cases and empties their reduced higher-exponent candidate domain; the earlier conditional reduction cannot logically imply the new global exclusion.",
+        "searches": [
+          "Erdos Nicolas 2^a p^b initial divisor sum numbers b >= 3 24 even perfect classification",
+          "Prime-power odd parts in initial-divisor sums Theorems 1–4",
+          "1975 original p89",
+          "OEIS 2 prime factor Erdős Nicolas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Condition is equality T_n(x)=n at some proper divisor x<n; for nonperfect it is exactly Erdős–Nicolas",
+          "Earlier RESULT.md uses precisely this same definition and hypothesis"
+        ],
+        "reasoning": "Identical objects and notation were compared directly, so the new b>=3 universal exclusion is compared against an actual earlier weaker theorem, not merely a title or a numeric sample.",
+        "searches": [
+          "Erdos Nicolas 2^a p^b initial divisor sum numbers b >= 3 24 even perfect classification",
+          "initial prefix divisor sum 2^a p^b Erdős Nicolas",
+          "Resultary prime power odd parts initial divisor sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS includes 24 and even perfect numbers, and additional integers with more prime factors",
+          "Earlier Resultary bounded computation through a<=30 yielded no b>=3 hits, explicitly computational rather than unbounded"
+        ],
+        "reasoning": "No finite sequence table can establish the universal absence for every a,b,p; older finite computations are strictly weaker. Targeted checks found no prior published full classification.",
+        "searches": [
+          "Erdos Nicolas 2^a p^b initial divisor sum numbers b >= 3 24 even perfect classification",
+          "OEIS A064510",
+          "OEIS A194472",
+          "Resultary 2026/9/21 prime-power odd parts"
+        ]
+      },
+      "rationale": "The strongest exact same-family published record from September 21, 2026 reduces b>=3 to bounded-per-a candidates but deliberately leaves them unresolved; the new strict consecutive-prefix inequalities exclude all of them. Earlier b=1/b=2 and 24 itself are attributed, not presented as new.",
+      "residual_risks": [
+        "Possible non-indexed older divisibility folklore may give the same universal b>=3 exclusion",
+        "The source proof for p=3 relies on algebraic prefix formulas and genuine consecutive-divisor comparisons; these were checked against source script and finite arithmetic, not as a separate formal symbolic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICTLY WEAKER: proves b=1 classification, excludes b=2, bounds the still unresolved b>=3 by prime divisibility and exponent cap; explicitly does not establish universal exclusion",
+          "evidence": "Theorem 4 says if b>=3 then p|2^(a+1)-1, p<=2^a, b odd and b<=a+v_p(2^(a+1)-1)-1; limitations acknowledge unresolved candidates",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2/RESULT.md",
+          "material_read": "Full original published RESULT.md, Theorems 1–4, proofs, calculations and limitations",
+          "method": "Read via GitHub connector actual published file from Resultary/2026 and compared hypotheses and missing b>=3 regime",
+          "title": "Prime-power odd parts in initial-divisor sums",
+          "trigger": "Direct earlier published theorem for the identical n=2^a p^b family; strongest known comparison"
+        },
+        {
+          "assessment": "FOUNDATIONAL PRECEDENT: exact initial-divisor equality and nonperfect 24 known since 1975; no full two-prime-support family classification stated on final page",
+          "evidence": "1975 p. 89 equality T_n(m)=n and list beginning 24, 2016, 8190",
+          "identifier_or_url": "https://www.renyi.hu/~p_erdos/1975-37.pdf",
+          "material_read": "Original 26-page French PDF: introduction and final page 89 defining equality and examples",
+          "method": "Read extracted PDF text and inspected original scanned page 89 image",
+          "title": "Répartition des nombres superabondants",
+          "trigger": "Introduced the initial-divisor-sum equality and listed early nonperfect examples"
+        },
+        {
+          "assessment": "TABLE OF EXAMPLES, not a general a,b,p no-solution proof",
+          "evidence": "OEIS A064510 records initial-divisor-sum numbers; A194472 records nonperfect examples",
+          "identifier_or_url": "https://oeis.org/A194472",
+          "material_read": "Entry description and known initial terms and links; no complete full table of all exponents read",
+          "method": "Compared sequence membership examples with infinite parameter theorem",
+          "title": "OEIS A064510 and A194472",
+          "trigger": "Exact integer tables that might dominate finite portion of claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete natural two-prime-support classification and an unbounded elimination of the explicitly open b>=3 candidates is a motivated number-theoretic structural theorem. It transforms a finite-per-exponent screening result into unconditional empty higher-exponent class, not an arbitrary tiny search.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.renyi.hu/~p_erdos/1975-37.pdf",
+    "https://oeis.org/A064510",
+    "https://oeis.org/A194472",
+    "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2/RESULT.md",
+    "Resultary semantic query: Erdos Nicolas 2^a p^b initial divisor sum numbers b >= 3 24 even perfect classification"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all a,b>=1 and odd primes p, n=2^a p^b is an initial-divisor-sum number exactly when n=24 (a=3,b=1,p=3) or b=1 and p=2^(a+1)-1 is Mersenne prime (even perfect). Thus no such b>=2 and 24 is the only nonperfect Erdős–Nicolas example in this two-prime-support even family.",
+  "limitations": "Only 2^a p^b with an odd prime p; not general three-prime support, odd integers or density of Erdős–Nicolas numbers. The original 24/perfect cases and b=2 exclusion are not newly discovered.",
+  "residual_risks": [
+    "Possible non-indexed older divisibility folklore may give the same universal b>=3 exclusion",
+    "The source proof for p=3 relies on algebraic prefix formulas and genuine consecutive-divisor comparisons; these were checked against source script and finite arithmetic, not as a separate formal symbolic proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "STRICTLY WEAKER: proves b=1 classification, excludes b=2, bounds the still unresolved b>=3 by prime divisibility and exponent cap; explicitly does not establish universal exclusion",
+      "evidence": "Theorem 4 says if b>=3 then p|2^(a+1)-1, p<=2^a, b odd and b<=a+v_p(2^(a+1)-1)-1; limitations acknowledge unresolved candidates",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2/RESULT.md",
+      "material_read": "Full original published RESULT.md, Theorems 1–4, proofs, calculations and limitations",
+      "method": "Read via GitHub connector actual published file from Resultary/2026 and compared hypotheses and missing b>=3 regime",
+      "title": "Prime-power odd parts in initial-divisor sums",
+      "trigger": "Direct earlier published theorem for the identical n=2^a p^b family; strongest known comparison"
+    },
+    {
+      "assessment": "FOUNDATIONAL PRECEDENT: exact initial-divisor equality and nonperfect 24 known since 1975; no full two-prime-support family classification stated on final page",
+      "evidence": "1975 p. 89 equality T_n(m)=n and list beginning 24, 2016, 8190",
+      "identifier_or_url": "https://www.renyi.hu/~p_erdos/1975-37.pdf",
+      "material_read": "Original 26-page French PDF: introduction and final page 89 defining equality and examples",
+      "method": "Read extracted PDF text and inspected original scanned page 89 image",
+      "title": "Répartition des nombres superabondants",
+      "trigger": "Introduced the initial-divisor-sum equality and listed early nonperfect examples"
+    },
+    {
+      "assessment": "TABLE OF EXAMPLES, not a general a,b,p no-solution proof",
+      "evidence": "OEIS A064510 records initial-divisor-sum numbers; A194472 records nonperfect examples",
+      "identifier_or_url": "https://oeis.org/A194472",
+      "material_read": "Entry description and known initial terms and links; no complete full table of all exponents read",
+      "method": "Compared sequence membership examples with infinite parameter theorem",
+      "title": "OEIS A064510 and A194472",
+      "trigger": "Exact integer tables that might dominate finite portion of claim"
+    }
+  ]
+}
