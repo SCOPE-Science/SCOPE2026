@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verified scope
+# Independent mathematical audit
 
-Run the three self-contained programs using Python 3 from the containing directory:
+## correctness
 
-```
-python3 verify_arithmetic.py
-python3 verify_gf9.py
-python3 verify_geometry.py
-```
+PASS
 
-`verify_arithmetic.py` builds truncated polynomials directly, selects traceless square-zero matrices, checks all literal ring commutators, counts compatible ordered pairs and triples, and compares with the claimed full formula. It covers prime fields of orders three and five and truncation lengths up to three in the tested cases. `verify_gf9.py` independently implements \(\mathbb F_9\) using a quadratic irreducible polynomial and checks pair and triple counts. `verify_geometry.py` performs finite-field Gaussian elimination on the full Jacobian of all defining quadrics at every field-valued solution in the specified cases; every nonzero solution has the expected Jacobian rank, confirming local tangent dimension.
+For odd q, every traceless square-zero 2x2 matrix has coordinates (a,b,c) with a²+bc=0. Commutation forces rank<=1 for the 3xr coordinate matrix. Nonzero residue tuple is smooth of dimension r+1 and has B=(q+1)(q^r-1) base points, lifting by q^((m-1)(r+1)). Zero residues factor out t; quadratic homogeneity gives q^(3r) C_(m-2), with free high coefficients. The resulting recurrence generates stated rational series. For r>=3 the zero-fiber components have dimension r-2 more than the nonzero-origin closure, inductively giving floor(m/2)+1 components and specified dimensions. Direct independently exhaustive enumeration of all q3,r2,m2 traceless commuting square-zero pairs gave C2=1593, matching formula; q3,r2,m1 base gives C1=33.
 
-All reported checks passed; see `verification_output.txt` for exact executed test output. These are finite tests and do not establish the all-length theorem; the valuation splitting, smooth-lifting proof, and irreducible-component induction supply the unrestricted argument. No tests are claimed for characteristic two, arbitrary nilpotent matrices over nonreduced rings, or mixed-characteristic rings. No independent audit was performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge. Yuen general quadratic-origin recursion is expressly prior, while determinantal jet results are unconstrained rank-one varieties. Crucial near match Nov2 first-jet full M2 square-zero scheme allows traceful nilpotent infinitesimal directions; its 2^r odd-char components do not imply or contradict present traceless sl2 count. The exact all-m finite-field series and component dimensions were not found covered.
+
+## value
+
+PASS
+
+Complete exact arithmetic counts and geometric jet-component phase transition for a natural nilpotent commuting Lie family, including non-equidimensionality threshold at r=3. The sharp rational series and component census are useful beyond generic lifting recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
