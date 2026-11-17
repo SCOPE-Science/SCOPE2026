@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The actual statement is reconstructed from the root-of-unity character identity, pairwise \(L^2\)-orthogonality, the exact majority-covering variational argument, and multinomial probabilities. Strict-majority uniqueness explains the one-class binomial tail. Strong-law occupancy convergence, fixed-subset binomial bounds and Stirling's formula give the long-repetition limit and sharp exponent. The fixed half-support integrand gives an exact fair-binomial obstruction. The standalone checker supplies 19,584 finite corroborating assertions, not an infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** Goda and L'Ecuyer (2022) provide the median lattice rule, the character identity and smooth Korobov worst-case upper bounds, not the exact finite Fourier-slope \(L^2\) majority-occupancy worst-case law or its sharp exponent. Goda and Krieg (2024) use randomized prime sizes and smoothness-weighted spaces. Goda and Suzuki (2025) analyze fully nested digital scrambling, rather than prime rank-one generator slopes. Pan et al. (2026) analyze coefficient reconstruction rather than median integration. The inspected published sources did not identify an assertion that implies the combined statement without new occupancy analysis. Specialist publication-priority overlap remains possible; elementary component lemmas are not asserted novel.
+PASS
 
-**Value: PASS.** The theorem exactly characterizes the previously unquantified interaction of Fourier aliasing with nonlinear median aggregation on a natural finite-dimensional test space. It exposes a sharp one-half bad-generator threshold for a *fixed* smooth integrand and quantifies both an adaptive error floor and its repetition budget through a sharp large-deviation exponent. This is a diagnostic boundary for interpreting high-probability median-lattice integration results, not an assertion about all smoothness-normalized classes.
+Character orthogonality yields Q_{p,z}(f_c)=sqrt(2)c_S and exactly uniform independent slopes S for nonzero prime generators. A positive median of height v forces at least q distinct coefficients >=v; Cauchy norm gives v<=1/sqrt(q), matched by setting the q most occupied coefficients equal. Multinomial law and disjoint majority-class binomial tail are exact; top d=s/2 occupancies always cover a majority and strong law gives eventual q=d. Binomial large deviations on (d-1)-subsets provide -1/2 log(1-4/s^2). For a fixed half-class Fourier function the Bernoulli median event is exactly 1/2. Small sample occupancy enumeration corroborates rather than proves the asymptotic statements.
 
-**Scientific scope and risk.** All claims concern odd prime lattice sizes, odd numbers of independent unshifted generators in two variables, and the specified finite Fourier subspace with an \(L^2\) norm. Classical character and binomial lemmas are prerequisites. An earlier specialist derivation of this exact majority occupancy functional has not been ruled out definitively. Independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goda and L’Ecuyer study construction-free median lattice integration with weighted Korobov norm high-probability upper bounds; here the p-dependent Fourier-slope L2 unit ball gives a different exact worst-case functional and probability law. Related median Fourier coefficient-approximation work has a different target and risk. No exact occupancy theorem in inspected references.
+
+## value
+
+PASS
+
+Exact realized worst-case nonlinear median error and its finite-sample/large-sample occupancy law on a naturally occurring Fourier aliasing subspace give an informative sharp boundary for independent-generator median quadrature; the result is not claimed for smoothness-normalized Korobov balls.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
