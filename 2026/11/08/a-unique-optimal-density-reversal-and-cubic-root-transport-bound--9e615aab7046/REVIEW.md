@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The maximization parameter \(s\) maps strictly increasingly onto all \(0<\rho<1\). The current derivative is the sign-reversed positive factor times a quintic whose coefficients have exactly one sign change, so Descartes' rule and endpoint signs prove exactly one strict global current maximizer at every \(q>0\). The exact derivative of that optimizer is constrained by the polynomial resultant \(16q^6(q-1)^{12}(7q^4+12q^3+94q^2+20q-53)\). The apparent \(q=1\) candidate is excluded by an exact \(1/81\) derivative. Analytic small- and large-rate expansions give opposite derivative signs; they force one actual sign change at the unique positive quartic root. The optimized correlation-length exponent follows by substituting the optimal path into the source's transfer-matrix eigenvalue ratio. The embedded verifier independently checks algebraic identities, 15 exact finite-ring Gibbs balance cases and numerical representatives; analytic arguments establish the quantified statements.
+PASS
 
-## Originality (PASS, qualified)
+The source Gibbs stationary-current parameter s maps (0,infty) bijectively to densities (0,1). Its derivative factors with exactly one positive-root quintic P(s,q) by one Descartes sign change and endpoints; the global maximizer is unique. Differentiating rho(s_*(q),q) and eliminating s gives the exact polynomial resultant 16q^6(q-1)^12(7q^4+12q^3+94q^2+20q-53), independently reconstructed symbolically. Direct evaluation at q=1 yields rho_*′(1)=1/81>0, excluding the spurious q=1 factor. The quartic increases strictly for positive q, crosses once. Weak-q analytic expansion gives derivative -1/4; large-q scaling gives positive derivative (1/3)2^(-2/3)q^(-4/3). This proves the unique reversal. Using the source eigenvalue ratio (q-1)s/((1+s)(1+qs)) on s_*=2^(1/3)q^(-1/3)+O(q^(-2/3)) yields xi_*(q)~2^(-1/3)q^(1/3). The exact original Gibbs/current input is a prior premise, not independently proved by finite experiments.
 
-Full-text examination of arXiv:2606.01568v1, in particular Section III and Appendix B, finds the current formula, transfer-matrix correlation formula, density-above-half observation, and the fixed-density \(q^{1/2}\) law, but not this global optimizer reversal, exact quartic crossover, coupled boundary-layer asymptotics or optimized \(q^{1/3}\) correlation scale. The source formulas are explicit and logically contain the starting data, but the new classification requires an independent quintic sign count, degree-five implicit optimization, nontrivial resultant and two singular limits. Searches for equivalent extrema, parameter aliases and exact threshold numerics found no identical publication. A previous result on a finite two-particle tandem-exclusion generator is about a different observable. An unindexed general optimization theorem or subsequent independent analysis remains a priority risk; database searches do not prove uniqueness.
+## originality
 
-## Value (PASS)
+PASS
 
-Maximum stationary transport is a physically natural target for density selection in a cooperative lattice gas. Its optimizer unexpectedly varies nonmonotonically with recovery rate and has a unique exactly algebraic minimizing point, providing a complete transport-design classification rather than another sample current curve. At strong recovery, optimization creates a new boundary layer in density and changes the clustering exponent from the previously calculated fixed-density square root to a cube root. That is a measurable distinction between operating at fixed crowding and operating at maximum current, with precise constants and a reproducible analytic derivation.
+Strong pre-coverage must be credited: the 2026-10-13 full published exact-optimal-density theorem already proves uniqueness of the global density optimizer and its q^(-1/3) vacancy/current boundary scalings by the same quintic. Those are not novel components. However it does not derive the sign of rho_*′(q), an exact unique minimizer at q_c determined by the new quartic, or the Gibbs correlation length *along the optimizing path*; the original June 2026 primary TEP paper supplies only the stationary current, pair correlations and fixed-density xi~sqrt(q). No checked broader theorem implies the optimizer reversal or optimized exponent 1/3. Thus an original and motivated nontrivial final theorem remains, with the already known ingredients explicitly segregated.
 
-## Sources and limitations
+## value
 
-Source: Ngo Phuoc Nguyen Ngoc, Lam Thi Nhung and Huynh Anh Thi, *Tandem Exclusion Process* (arXiv:2606.01568v1), 1 June 2026, full-text Sections II–IV and Appendix B. Related-model context: Dong et al., *Entrainment and Unit Velocity: Surprises in an Accelerated Exclusion Process* (2012), abstract-level comparison only. The statement does not extend to finite rings, boundary-driven states, or nonstationary efficiency. Independent scientific priority and validity assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A unique parameter-induced reversal in the density that globally maximizes throughput, with a closed algebraic transition q_c and a nontrivial q^(1/3) optimized correlation length versus fixed-density q^(1/2), describes a real global transport-regime change. These facts are motivated directly by the natural stationary-current optimizer and Gibbs correlation length, and neither fact is just a renamed earlier uniqueness/cube-root-current theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
