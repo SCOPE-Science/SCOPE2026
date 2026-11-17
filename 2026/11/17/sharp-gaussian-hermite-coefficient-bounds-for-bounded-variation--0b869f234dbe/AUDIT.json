@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For globally finite-variation real data, Stieltjes integration gives the exact norm as the supremum of phi(t)He_{n-1}(t)/sqrt(n!). A first-order Hermite derivative identity and the exact energy derivative -2x(y')^2/n prove central/innermost-root global maxima. The even root perturbation follows from z''+(s/n)z'+z=0 with fixed initial data and variation of constants; the odd formula and both subleading terms follow from the central-binomial Stirling expansion. The necessary class explicitly allows half-line steps, avoiding a false finite-Lebesgue-L1 attainment premise. Exact integer recurrences and independent root/asymptotic computations in the included verifier passed. Asymptotic remainder is analytical, not deduced from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "NIST DLMF §§18.3, 18.15–18.16 supplies standard orthogonality, asymptotics, and zero properties, but not the complete coefficient-norm-with-variation statement.",
+        "The indexed published finding Sharp bounded-variation Laguerre coefficient norm and its half-line localization (2026-11-08, public published-finding corpus ID ending 6198ef2c90f4) treats Laguerre, not Gaussian Hermite polynomials.",
+        "The generalized Laguerre bounded-variation coefficients finding (2026-11-08, public published-finding corpus ID ending e0cc28c7853e) treats another orthogonal polynomial family; only its indexed summary was available."
+      ],
+      "reasoning": "General orthogonal-polynomial identities can reduce coefficient norms to a primitive maximum, but do not themselves determine the first positive Hermite zero as unique maximum or the explicit parity-dependent subleading constant. The published Laguerre statements cannot algebraically imply the Hermite result without an additional family-specific comparison; no such comparison was found.",
+      "searches": [
+        "published-finding corpus: sharp bounded variation norm of Gaussian Hermite coefficient jump Hermite roots Gaussian density",
+        "published-finding corpus: Hermite coefficients bounded variation sharp root localization weighted Hermite polynomials",
+        "web: Hermite polynomials weighted e^-x^2 extreme value at origin smallest zero",
+        "web: Hermite coefficients bounded variation Gaussian n^-3/4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0401310",
+      "https://arxiv.org/abs/0801.2234",
+      "https://dlmf.nist.gov/18.3",
+      "https://dlmf.nist.gov/18.15",
+      "https://dlmf.nist.gov/18.16",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-bounded-variation-laguerre-coefficient-norm-and-its-half-l--6198ef2c90f4 (indexed summary only)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-hard-edge-transition-for-sharp-generalized-laguerre-bounded-va--e0cc28c7853e (indexed summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krasikov (2004) explicitly places the maximum of exp(-u^2/2)|H_m(u)| near the *largest* Hermite zero in the turning-point region; the present coefficient primitive equals a differently weighted degree-(n-1) polynomial with a *central* maximum.",
+        "Vemuri (2008) obtains exponential rates under paired Gaussian bounds on f and Fourier f; BV test steps do not satisfy those hypotheses.",
+        "Published Laguerre-coefficient results do not contain a Hermite coefficient implication in their accessible summaries."
+      ],
+      "reasoning": "Neither inspected paper proves a stronger proposition that specializes to the exact bounded-variation Gaussian Hermite coefficient norm; their hypotheses and optimizing objects differ. The possible analogous Laguerre proof technique does not by itself supply the Hermite-specific exact constants.",
+      "searches": [
+        "Krasikov, New bounds on the Hermite polynomials, arxiv:math/0401310",
+        "Vemuri, Hermite expansions and Hardy theorem, arxiv:0801.2234",
+        "published-finding corpus: Hermite coefficients bounded variation sharp root localization weighted Hermite polynomials",
+        "web: New bounds Hermite polynomials max e^-x^2/2 turn arxiv literature"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krasikov (arxiv:math/0401310), Introduction and Theorem 1, maximizes physicists Hermite H_k(x) with weight exp(-x^2/2), unlike the Gaussian-primitive weight exp(-x^2) H_{n-1}(x/sqrt(2)).",
+        "Vemuri (arxiv:0801.2234), Introduction and Theorem 2.1, controls Hermite-function coefficients using Gaussian decay of both a function and its Fourier transform.",
+        "DLMF §18.3 gives the two Hermite normalizations and exact orthogonality weights."
+      ],
+      "reasoning": "The primitive of a normalized Gaussian Hermite coefficient has an extra full Gaussian weight and a one-degree shift; it is not the classical Hermite-function weighted maximum or a Hardy-type Hermite coefficient under joint Gaussian decay. The root-localization energy and two-term parity corrections require a separate argument.",
+      "searches": [
+        "published-finding corpus: sharp total variation to Hermite coefficient norm first positive zero",
+        "published-finding corpus: Gaussian BV Hermite coefficient norm probabilists He_n",
+        "web: Gaussian Hermite coefficients total variation first positive zero He_n sharp asymptotic",
+        "web: Hermite expansion coefficients BV function Gaussian weighted variation decay 3/4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available published-finding corpus top-ranked records concerned other Hermite functionals, Laguerre coefficient norms, or Gaussian concentration rather than the exact Gaussian BV-to-Hermite coefficient table.",
+        "DLMF records Hermite normalization and zeros, but its inspected sections do not tabulate the claimed BV coefficient norm and parity correction."
+      ],
+      "reasoning": "The claimed all-degree exact coefficient norm and its O(n^-1) parity split were not recovered as a published exact database entry or table. A negative indexed search is only bounded evidence and is not taken as a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: exact Gaussian Hermite variation coefficient extremizing at smallest Hermite zero",
+        "published-finding corpus: Gaussian Hermite coefficients bounded variation sharp n^{-3/4} extremizer smallest zero correction parity",
+        "web: Gaussian Hermite coefficient n^-3/4 bounded variation parity correction",
+        "NIST DLMF §18.3 and §18.16, standard Hermite formula and zero tables"
+      ]
+    },
+    "rationale": "Actual published-finding corpus and published-literature searches found adjacent Laguerre BV-coefficient and Hermite weighted polynomial-maximal claims but no statement implying the exact Gaussian Hermite BV coefficient norm with first-root localization and two explicit parity corrections. Direct material inspection of Krasikov (2004) and Vemuri (2008) shows different weights/conditions; the indexed Laguerre analog is not conflated with a whole-text negative comparison. Priority remains conditional on accessible coverage.",
+    "residual_risks": [
+      "An unindexed or inaccessible historical theorem about Gaussian Hermite coefficient extrema may subsume part of the statement.",
+      "Full-text inspection of the analogous 2026 Laguerre database entry was not possible; no whole-text negative claim is made about it.",
+      "Comparison searched only accessible own history and actual external retrieval; no global novelty certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distinct polynomial weight and optimization: edge turning-point maximum of |H_m(u)| exp(-u^2/2), not central maximum of |He_{n-1}(x)| phi(x) associated with a Gaussian BV coefficient.",
+        "evidence": "2004-01-23 first public arXiv date; Introduction specifically identifies maxima beyond the largest polynomial zero; DOI or subsequent versions not used as earliest date.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0401310",
+        "material_read": "Full-text HTML rendition, abstract, introduction, Theorem 1 and proof discussion of extremal locations and polynomial differential equation (sections 1–2).",
+        "method": "Primary arXiv full-text inspection",
+        "title": "New Bounds on the Hermite Polynomials",
+        "trigger": "Directly relevant sharp weighted-Hermite polynomial maximum and extremum localization"
+      },
+      {
+        "assessment": "Different Hermite-function normalization and Gaussian bounds on f and its Fourier transform; no BV-seminorm coefficient optimum or parity correction.",
+        "evidence": "First public arXiv date 2008-01-15; §2 Theorem 2.1 describes exponential decay under Gaussian hypotheses.",
+        "identifier_or_url": "https://arxiv.org/abs/0801.2234",
+        "material_read": "Primary arXiv full-text HTML Introduction and §2 theorem/derivation of exponential coefficient decay.",
+        "method": "Primary arXiv full-text inspection",
+        "title": "Hermite expansions and Hardy’s theorem",
+        "trigger": "Potential stronger coefficient-decay theorem with Hermite expansions in the title"
+      },
+      {
+        "assessment": "Supplies classical premises and zero localization background, not an indexed BV coefficient norm theorem.",
+        "evidence": "§18.3 Table 18.3.1 lists physicists and probabilists Hermite systems separately; §18.16(v) lists zero location and asymptotics.",
+        "identifier_or_url": "https://dlmf.nist.gov/18.3",
+        "material_read": "HTML tables of Hermite orthogonality and normalization; Hermite zero subsection §18.16(v).",
+        "method": "Primary mathematical reference inspection",
+        "title": "DLMF §18.3 Definitions and §18.16 Hermite zeros",
+        "trigger": "Check normalizations and possible exact tabulated extrema"
+      },
+      {
+        "assessment": "Indexed claim is Laguerre-specific. The summary neither proves nor excludes the Hermite formula; historical priority risk recorded.",
+        "evidence": "Indexed abstract describes maximum weighted Laguerre primitive and n^-3/4 behavior with localization at 1/2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-bounded-variation-laguerre-coefficient-norm-and-its-half-l--6198ef2c90f4",
+        "material_read": "Search-index summary only; source full text could not be fetched.",
+        "method": "Public research-index summary; no full-text inspection claimed",
+        "title": "Sharp bounded-variation Laguerre coefficient norm and its half-line localization",
+        "trigger": "Most closely analogous indexed BV coefficient theorem, but for Laguerre rather than Hermite"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0b869f23-4dbe-4c79-bbf2-9d05c93629c5",
+  "value": {
+    "rationale": "The global-variation class is a natural nonsmooth input model for Gaussian orthogonal-polynomial coefficients. The exact norm and complete maximizing-jump localization determine the worst discontinuity for every Hermite degree; the nontrivial common n^-3/4 sharp scale plus explicitly opposite n^-1 parity corrections quantify the two distinct central oscillation mechanisms. These are structural all-degree results, not a one-off table entry or a routine reparameterization of the turning-point maximum of Krasikov.",
+    "status": "PASS"
+  }
+}
