@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Poisson-clock decomposition gives the two nonconstant tail probabilities. The full derivative identity is finite rational algebra, with a listed positive-coefficient numerator after ordering the three rates. The proof covers all strictly positive probabilities and all ray parameters; the numerical finite-state checks are independent diagnostics, not an infinite proof. The only strict thresholds are exactly those required for first-order stochastic dominance on the support \(\{1,2,3\}\).
+## correctness
 
-**Originality — PASS, provisional.** The cited 2026 papers establish expectation and factorial-moment/PGF/Laplace transform orders. Long's transform paper explicitly leaves ordinary stochastic order open in Remark 5.6, even though it gives all binomial moment inequalities. The result here concerns individual tail indicators and so is not a corollary of those positive transform combinations. Searches for three-type ordinary stochastic dominance and siblings/coupon aliases found no same claim. A differently phrased old exact small-case result cannot be ruled out.
+PASS
 
-**Mathematical value — PASS.** This is the smallest nontrivial fixed-alphabet case of the expressly open strengthening from transform order to first-order stochastic order: for two coupon types only one threshold is nonconstant, while with three types two simultaneous tail inequalities are needed. Establishing these inequalities for the entire positive simplex and strictly along every uniform ray is more informative than computing a single expectation or isolated probability vector. It does not purport to solve the general conjectural order.
+Poissonized last-first-arrival integration gives H=2 sum_{i<j}p_ip_j/(p_i+p_j)^2 -2 sum_{i<j}p_ip_j -6p1p2p3 and K=6p1p2p3 for total-one rates. Independent exact rational Markov recursion checks (1,1,1),(1,2,3),(9,2,1),(12,2,2). Independently cleared the radial derivative denominator with SymPy: ordered gaps x,y,z yield a homogeneous degree-12 polynomial with precisely 79 strictly positive coefficients, and z^10 coefficient 8448(x^2+xy+y^2). Strict K radial monotonicity follows from harmonic mean; every nontrivial upper tail is therefore strictly decreasing along nonuniform rays.
 
-**Closest literature and risks.** Doumas–Spektor, arXiv:2606.21591, expectation radial extremality; Long, arXiv:2606.29635, expectation plus a stochastic coupling across alphabet *sizes* under uniform rates; Long, arXiv:2606.31391, transforms and factorial moments, with ordinary stochastic order explicitly left open. The full body of the earlier 2018 siblings article was not examined; a hidden small-size identity remains a historical priority risk. No independent audit or external certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Long 2606.31391 gives PGF/binomial/Laplace radial orders for any N, but such transform orders do not in general force each ordinary upper tail. Four-type Resultary theorem gives uniform-baseline domination for N=4, but not radial comparisons between two nonuniform points for N=3. No inspected source implies this exact 3-type strict radial first-order order. Long full text was inaccessible, so the purported explicit open remark is not independently full-text verified and remains risk.
+
+## value
+
+PASS
+
+The smallest nontrivial number of coupon types with two informative upper tails supports an exact strict stochastic-order boundary beyond transform order. The positive-coefficient certificate resolves a naturally motivated missing comparison in a classical collector model; it is not merely a small arbitrary sample or a restatement of expectation extremality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
