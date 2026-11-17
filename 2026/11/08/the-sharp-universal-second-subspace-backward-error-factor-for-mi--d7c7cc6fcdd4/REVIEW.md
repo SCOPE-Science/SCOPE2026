@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal estimate uses a strictly positive affine reciprocal polynomial and an exact three-contact concavity argument. At the stated three-dimensional witness the difference between squared residual and the proposed constant squared times squared iterate norm is an explicitly displayed positive-semidefinite quadratic form; its coefficient matrix is actually positive definite. Both calculations were reconstructed and verified symbolically by the standalone checker. The positive-definite limiting family follows by continuity of the strict quadratic inequality for each smaller proposed constant.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The closest inspected source is Dereziński–Nakatsukasa–Rebrova, arXiv:2604.16075v1, whose Theorem 9 gives \(3/(k^2-1)\) and whose reciprocal-polynomial proof motivates this result; at \(k=2\) that provides only \(1\). Levin–Saff's 1988 Theorem 2.3 gives general \(k^{-2}\) reciprocal-approximation rates, not this weighted spectral extremizer. Binh Lam's 1976 paper is relevant to exact scalar rational approximation, but only its abstract was accessible; scalar approximation is *not* claimed as a new mathematical topic. No matching all-PSD two-dimensional Krylov-subspace sharp-value theorem was found in the inspected literature, the mathematical-record searches or the accessible prior claims. Independent historical-priority verification remains necessary.
+PASS
 
-**Value — PASS.** A sharp and attained finite-step guarantee for the actual backward-error objective supplies a useful initial-iteration benchmark where the motivating theorem is quantitatively vacuous. The explicit three-point spectral measure shows that a scalar uniform rational upper bound is genuinely the worst case for the optimization problem itself, and the positive-definite limiting family rules out explaining sharpness solely through exact singularity.
+Normalize B=A/||A|| with spectrum in [0,1]. Positive affine p(t)=2(1+sqrt2)-4t has |t-p(t)^(-1)| <=E by strict concavity, endpoints -E and interior +E, so trial x=p(B)b/||A|| proves the universal bound via functional calculus. For spectral values (0,1/sqrt2,1) and weights (sqrt2-1,sqrt2,1), independently expanded Q(a,c)=||A(aI+cA)b-b||²-E²||(aI+cA)b||² and verified positive-definite quadratic matrix with leading 3-sqrt2 and det (3sqrt2-4)/8>0, zero at (2(1+sqrt2),-4), proving all competitors have error >=E and attainable equality. SPD approximation follows continuity of strictly positive Q_{E-delta} for each delta>0. No randomized check supplies unrestricted proof.
 
-**Limitations.** Exact arithmetic only; singular extremizer, positive-definite approximation rather than finite SPD equality; no assertion about later MINBERR steps, numerical stability, or nonsymmetric operators. The 1976 scalar rational-approximation source could not be examined in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: The scalar contact polynomial gives upper bound but does not alone force lower bound against all x in K2; the exact positive-semidefinite residual quadratic with three nonzero weights and unique zero supplies that missing implication.
+
+## value
+
+PASS
+
+A sharp attained finite-step bound for the actual Krylov optimization where motivating general result gives only 1 at k=2; three-point spectral-weight witness proves sharpness for genuine matrix systems rather than merely scalar approximation, with SPD limiting sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
