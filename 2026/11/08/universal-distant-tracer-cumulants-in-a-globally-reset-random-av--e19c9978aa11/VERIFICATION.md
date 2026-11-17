@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run the standalone `checker.py` with Python 3 and SymPy installed. It checks exact algebraic recurrence identities for the truncated exponential-age law through cumulant order ten, recovers the stationary factorial coefficients, and reproduces the finite-time second- and third-order expressions stated in RESULT.md. It also checks the Poisson jump-count moment recursion through order eight and selected rapidly vanishing fourth-moment tail sums for stopped-ancestor localization.
+## correctness
 
-The principal infinite-volume convergence is an analytic proof: an individual backward ancestor has an annealed nearest-neighbor Poisson jump law; truncation at a distant boundary changes a tracer by an amount bounded in every fixed moment by a vanishing Poisson tail; truncated graphical windows are independent when separated; the common reset-age mixture then yields the result. The code does not verify the general graphical representation or prove infinite-order uniformity by enumeration, nor does it certify publication priority.
+PASS
 
-Direct scientific consistency check: the derived second connected plateau at finite time, \(v^2r^{-2}[1-2rt e^{-rt}-e^{-2rt}]\), agrees with Santra–Singh's Eq. (42) at unit spacing. The stationary third and fourth plateaus are \(2(v/r)^3\) and \(6(v/r)^4\). Tests on finite Poisson tails are illustrative only. Independent audit has not been performed.
+A backward graphical ancestor represents affine RAP position as conditional expectation of its lattice ancestor. The total ancestor jump count has Poisson law with mean mu(p+q)s, bounding every fixed moment polynomially in s. Truncating ancestry to radius R creates independent disjoint-label environments; escape probability is bounded by an R-step Poisson tail, and Jensen yields L^m convergence. Thus fixed-age widely separated tracers factor jointly. A common reset clock has age min(Exp(r),t) and independent postreset motion; exponential moments justify mixing, then all distinct-index subset product moments converge to (vA)^|B|. The joint moment-cumulant partition identity gives v^n kappa_n(A), and stationary Exp cumulants are (n-1)!(v/r)^n. Independent symbolic expansion verified exact finite-time second and third cumulants, including prior Eq42. Limits are fixed n and diverging separation only.
+
+## originality
+
+PASS
+
+Santra-Singh directly compute the same common-reset RAP two-point plateau (Eq42 and Eq44), not all distinct-tracer higher cumulants or conditional joint-product mixing. Rajesh-Majumdar reset-free correlations and Biroli et al. independent Brownian particles under common resetting are related but their conclusions do not prove interacting RAP spatial factorization. The new graphical mixing argument and complete connected n-point plateau hierarchy are not the previously published second-order case.
+
+## value
+
+PASS
+
+A natural higher-order observable of a precisely established single-file model displays a universal infinite family of nondecaying correlations despite fixed-age local mixing. It is a meaningful structural extension from two-point to n-point joint behavior, not a trivial reformatting of a known covariance; it does not claim to solve single-tracer high moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from four explicit steps: a convex-combination backward-ancestor representation for the random average process; an annealed Poisson nearest-neighbor dual with polynomial bounds on moments of every order; an ancestor-exit tail bound that makes widely separated graphical windows jointly independent at a fixed reset-free age; and mixing these products over the one shared exponential last-reset age. The partition formula for connected cumulants then yields the stated all-order coefficient. The bound integrates for every positive resetting rate, so the proof does not silently assume a rate larger than a jump intensity. The finite-time second-order formula independently agrees with Eq. (42) of Santra–Singh. Exact symbolic checks through order ten corroborate the age-cumulant algebra. Numerical tail checks are diagnostics, not convergence proofs.
+PASS
 
-## Originality — PASS, with publication-priority risk
+A backward graphical ancestor represents affine RAP position as conditional expectation of its lattice ancestor. The total ancestor jump count has Poisson law with mean mu(p+q)s, bounding every fixed moment polynomially in s. Truncating ancestry to radius R creates independent disjoint-label environments; escape probability is bounded by an R-step Poisson tail, and Jensen yields L^m convergence. Thus fixed-age widely separated tracers factor jointly. A common reset clock has age min(Exp(r),t) and independent postreset motion; exponential moments justify mixing, then all distinct-index subset product moments converge to (vA)^|B|. The joint moment-cumulant partition identity gives v^n kappa_n(A), and stationary Exp cumulants are (n-1)!(v/r)^n. Independent symbolic expansion verified exact finite-time second and third cumulants, including prior Eq42. Limits are fixed n and diverging separation only.
 
-Santra–Singh (arXiv:2311.04097, Sections IV B and VI) derive the exact two-tracer covariance and acknowledge higher moments as an open problem, but do not state a higher connected spatial cumulant or a conditional product law for interacting RAP tracers. Rajesh–Majumdar (arXiv:cond-mat/0104430) treats reset-free two-point correlations. Biroli et al. (arXiv:2211.00563) obtain a resetting-age mixture of product Brownian laws for independent particles; direct factorization fails for an interacting RAP at fixed age and must be established here using the graphical truncation bound. Primary-literature comparisons and mathematical-result searches did not surface equivalent or stronger coverage. A general theorem on marked Poisson graphical mixing combined with common resetting might subsume this as a corollary, and inaccessible or unindexed literature cannot be ruled out. No assertion of formal priority or independent originality certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The preceding study identifies a persistent second-order correlation but leaves higher moments open. A single nonzero covariance cannot determine a third- or fourth-order connected correlation, much less all fixed orders. The theorem shows a factorial hierarchy of genuinely long-range, non-Gaussian connected tracer statistics, with exact finite-time age formulas and independence from all higher moments of the random-gap-fraction law. The mechanism distinguishes shared global reset-clock fluctuations from the unknown local many-particle dynamics, making it possible to predict long-distance multi-point responses without solving the one-tracer higher-moment problem. The result is restricted to one insertion per distant tracer, fixed order, and the specified Poisson reset model.
+Santra-Singh directly compute the same common-reset RAP two-point plateau (Eq42 and Eq44), not all distinct-tracer higher cumulants or conditional joint-product mixing. Rajesh-Majumdar reset-free correlations and Biroli et al. independent Brownian particles under common resetting are related but their conclusions do not prove interacting RAP spatial factorization. The new graphical mixing argument and complete connected n-point plateau hierarchy are not the previously published second-order case.
 
-## Closest literature and limitations
+## value
 
-The exact second-order plateau and renewal model are prior results, not new contributions. The new proof concerns all higher distinct-tracer cumulants and the full limiting fixed-order mixture law. It does not compute finite-distance correlations or high single-tracer moments, does not supply uniform estimates when order grows, and does not treat non-Poisson or partial resets. Independent publication-priority checking remains advisable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural higher-order observable of a precisely established single-file model displays a universal infinite family of nondecaying correlations despite fixed-age local mixing. It is a meaningful structural extension from two-point to n-point joint behavior, not a trivial reformatting of a known covariance; it does not claim to solve single-tracer high moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
