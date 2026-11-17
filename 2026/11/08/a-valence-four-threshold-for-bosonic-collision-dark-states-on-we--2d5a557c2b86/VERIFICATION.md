@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof establishes the exact invariant loss-free eigenspace for all integer star degrees and arbitrary positive real couplings and rates. The accompanying `verify_star.py` uses exact integer symmetric amplitude coordinates to construct the full two-boson Hamiltonian without using the proposed incidence projector, then checks that the collision-observability nullity equals the proposed formula. A separate exact rational incidence calculation checks the projector and uniform-pair capture law. The short-time or finite-size checks do not constitute the all-size proof.
+## correctness
 
-To reproduce, execute `python3 verify_star.py` with a Python 3 environment containing SymPy. It should print `EXACT_OK` for each of 13 test cases and finally `STAR_EXACT_ALL_OK`. The tested star degrees range from two through eight leaves; two leaves are a boundary sanity check outside the theorem, while three through eight check the theorem itself. The positive-weight patterns include unit weights and nonuniform small integers. Exact symbolic ranks, inverse Gram identities and diagonal projector entries use rational arithmetic; no floating-point tolerance appears.
+PASS
 
-The projector yields eventual pair-capture probabilities, not finite-time decay constants. No other hopping graphs, vanishing couplings, on-site detuning, added interactions, or unexamined experimental conditions are covered. Historical priority is provisional and is not established by finite tests or an unsuccessful literature search.
+Positive diagonal pair-loss operator D implies every nondecaying H−iD/2 eigenmode is a real-energy H eigenvector with zero collision amplitude; the orthogonal reducing complement decays. In normalized boson basis, the leaf collision equations force hub-leaf coefficients a_i=0, the remaining leaf-pair equations force energy zero and Bc=0. For q>=3, the kernel of B^T would require u_i/w_i+u_j/w_j=0 on each pair; any triangle forces all u_i=0, so rank B=q and dark dimension binom(q,2)−q=q(q−3)/2. The displayed full orthogonal kernel projector and loss eta=1−tr(Pρ) follow; uniform hopping gives 2/(q−1) for a localized leaf pair. Independently constructed the q=4 weighted B with w=(1,2,3,4), verified full rank and the specific exact first-pair loss 179/929 by rational Gram inversion. The supplied separate two-body observability script checks finite instances, not the proof of all q or all positive γ_v.
+
+## originality
+
+PASS
+
+General dark-state quantum detection and two-boson Hamiltonian machinery are established. The identified prior work does not state the weighted-star, contact-only irreversible double-occupancy loss projector for all positive rates, nor the exact q=4 onset and all-pair capture formula. Published Resultary collision-dark results for complete bipartite K_{a,b} require a,b>=2, so they do not include a hub-and-leaves star K_{1,q}. Highly relevant attractive two-exciton star paper is about coherent bound-state trapping, not dissipative contact absorption, but its full text remains inaccessible and is explicitly identified as a priority risk.
+
+## value
+
+PASS
+
+A q-leaf weighted star is a natural centrality/transport model, and collision-induced pair loss asks an experimentally and mathematically motivated asymptotic survival question. The q=4 sharp threshold, full weighted kernel projector and exact initial-pair capture law distinguish protected from unprotected two-boson configurations at all positive loss rates. This is a reusable structural classification of a nontrivial invariant subspace rather than only a finite simulation or a trivial type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
