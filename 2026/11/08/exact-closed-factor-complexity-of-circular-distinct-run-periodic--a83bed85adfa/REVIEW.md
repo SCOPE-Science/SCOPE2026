@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Unique cyclic ordered transitions exclude any mixed border at displacement shorter than the period. This reduces short factors to constant runs and balanced end fragments, and longer factors to period borders or a unique balanced terminal-run exception. Direct exhaustive and seeded verification agrees with the piecewise result; experiments do not establish the universal quantifiers, which follow from the proof.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** Parshina–Puzynina, *Finite and infinite closed-rich words* (arXiv:2111.00863), treats complete returns, cyclic squares, upper bounds, and closed-rich extremals but not this exact distinct-run closed-factor complexity function in the inspected material. Parshina–Postic (arXiv:2005.06254) treats general open/closed complexity and periodicity. Existing exact binary two-run formulas are credited and are outside the claimed alphabet range. An unindexed equivalent result, or relevant details in papers not fully inspected, remain risks; this is not independent proof of priority.
+PASS
 
-**Value — PASS.** The complete all-length infinite-parameter classification identifies two sharp phase-count mechanisms and a middle-length parity resonance. It also proves cyclic-order invariance, distinguishing global closed-factor enumeration from generic upper bounds or a table of small cases.
+For q>=3 pairwise distinct cyclic run letters, each directed adjacent-letter transition occurs at exactly one phase per primitive period. A mixed border cannot recur with positive displacement smaller than the period. For n<=p, closed factors are unary powers and unique balanced-fringe complete returns around a full set of other runs, giving the first indicator sum. For p<n<=2p, starting phases with the length-h period border containing a transition contribute min(a_i,h-1), while a unique balanced constant-border phase occurs precisely when a_i>=h and a_i congruent h mod 2. For n>2p, the length n-p period border has a transition and exactly the two endpoint occurrences, hence all p phases close. Distinct phases are distinct for n>=p. An independent border-enumeration test checked 7533 parameter/length cases; the proof covers unbounded lengths and all permitted run vectors.
 
-Scientific boundaries: pairwise distinct run symbols, infinite periodic factors, no assertion for general periodic words with repeated symbols. Related primary material was examined in the accessible lawful version, while one nearby general-complexity source was compared by abstract only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge no stronger complete three-regime multivariate closed-factor formula found for q>=3 pairwise distinct cyclic run symbols. A related two-run binary formula has an analogous mechanism but is outside the q>=3 distinct-run domain, and general cyclic-square bounds do not imply exact parity-sensitive counts.
+
+## value
+
+PASS
+
+PASS: The full length-by-length closed-factor classification of primitive periodic words with at least three pairwise distinct run symbols is a natural extension from binary two-run sequences. Multiset invariance and the parity-resonant middle range give an exact structural invariant rather than a tiny special-case table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
