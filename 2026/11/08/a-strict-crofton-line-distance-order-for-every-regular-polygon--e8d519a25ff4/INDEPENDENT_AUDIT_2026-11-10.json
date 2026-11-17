@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T04:16:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-strict-crofton-line-distance-order-for-every-regular-polygon--e8d519a25ff4/RESULT.md (blob 51500aa7bee549c746e7525b6be774a3df8e029b)",
+        "2026/11/08/a-strict-crofton-line-distance-order-for-every-regular-polygon--e8d519a25ff4/verify.py"
+      ],
+      "rationale": "Cauchy-Crofton line measure normalizes by polygon perimeter 2nR sin(pi/n). The regular-n-gon support h(theta)=R cos t on each vertex Voronoi cell yields the displayed two-branch F_n exactly, including r<=0 and r>=R. For beta=pi/n, when beta<=alpha=arccos(r/R), F=r beta/(R sin beta); when beta>alpha, F=1+[(r/R)alpha-sin alpha]/sin beta. Both are strictly increasing in beta and meet at alpha, yielding F_n strictly decreasing in n for every 0<r<R and limit r/R. Differentiating establishes C1/not-C2 inradius contact, second derivatives 0 and -1/(R^2 sin^2 beta), and 3/2 circumradius tail. Independent fresh support-angle midpoint integrals agreed for 25 (n,r) pairs to <3e-6; finite numerical checks are corroboration, not proof.",
+      "residual_risks": [
+        "Invariant line measure, centered regular polygons, fixed circumradius, 0<r<R only for strict order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cauchy perimeter identity determines total hit measure but not the truncated support integral or its derivative in n."
+        ],
+        "reasoning": "Standard Crofton formula is a premise; substituting evaluated h_n yields the distribution, but strict side-count order requires additional piecewise comparison across n.",
+        "searches": [
+          "Crofton perimeter/Cauchy formula",
+          "arxiv:1204.2707"
+        ]
+      },
+      "checked_sources": [
+        "U. Bäsel arXiv:1204.2707",
+        "Harutyunyan–Ohanyan DOI:10.1239/aap/1246886615",
+        "Cauchy–Crofton perimeter formula",
+        "Resultary semantic query strict stochastic order of distance to center for motion-invariant random lines intersecting regular n-gons Crofton support function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chord-length distribution and point separation do not specify F_n(r)=P(line intersects disk | line intersects polygon)."
+        ],
+        "reasoning": "No direct corollary from the stated previous chord-length marginal alone: recovering fixed-center offset requires orientation-dependent information, not encoded by chord-length CDF.",
+        "searches": [
+          "arxiv:1204.2707",
+          "doi:10.1239/aap/1246886615"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier invariant-line papers calculate chord length; arXiv:1204.2707 also integrates point-pair Euclidean distances. Neither studied the center offset F_n(r) in the inspected text."
+        ],
+        "reasoning": "Center-offset law is not the chord-length law: conditional chord length depends on both orientation and offset while D_n records absolute signed offset; point-pair distance uses independently sampled interior points.",
+        "searches": [
+          "strict stochastic order of distance to center for motion-invariant random lines intersecting regular n-gons Crofton support function",
+          "arxiv:1204.2707",
+          "doi:10.1239/aap/1246886615"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched Resultary record is current claim; related center-radial interior-uniform-point records use different sampling; no exact same center-offset n-table located."
+        ],
+        "reasoning": "No covering exact database or table seen in inspected source set; lack of hit is not proof of novelty.",
+        "searches": [
+          "strict stochastic order of distance to center for motion-invariant random lines intersecting regular n-gons Crofton support function",
+          "regular polygon chord length distributions"
+        ]
+      },
+      "rationale": "Classical Crofton normalization and polygon chord distributions are not novel. The surviving exact statistic is conditional center-offset/concentric-disk dual hit probability, strict cross-side-count stochastic order for nonnested polygons at fixed circumradius, and contact classification. Direct published-finding search and highly relevant primary texts did not establish this statement; best-of-knowledge priority only.",
+      "residual_risks": [
+        "A classical center-offset probability table or unindexed old source may express the same evaluated support integral or strict order.",
+        "No finite-sample robust inference or alternate sampling law claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECT COVERAGE: different chord/interior-point observables",
+          "evidence": [
+            "Theorem/sections on chord lengths and pairwise distances"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+          "material_read": "Full arXiv HTML introduction, angular chord formulas and point-distance derivations",
+          "method": "Read primary HTML text and compare the probability objects",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Identical regular polygon and kinematic line distribution"
+        },
+        {
+          "assessment": "NOT DIRECT COVERAGE: chord-length CDF rather than fixed-center line offset",
+          "evidence": [
+            "Line-space dp dphi and chord-length distribution theorem"
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1246886615",
+          "material_read": "Accessible complete nine-page text transcription sections 1–4",
+          "method": "Compared line measure, main distribution theorem and normalization",
+          "title": "The chord length distribution function for regular polygons",
+          "trigger": "Earlier regular-polygon line-space probability paper"
+        },
+        {
+          "assessment": "BACKGROUND ONLY: no all-n strict stochastic ordering",
+          "evidence": [
+            "Perimeter proportional to integrated support/width"
+          ],
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Crofton_formula",
+          "material_read": "Definition of kinematic line normalization and perimeter identity",
+          "method": "Statement-level comparison of classical premise",
+          "title": "Crofton formula",
+          "trigger": "Standard perimeter identity may imply a direct special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "U. Bäsel arXiv:1204.2707",
+        "Harutyunyan–Ohanyan DOI:10.1239/aap/1246886615",
+        "Cauchy–Crofton perimeter formula",
+        "Resultary semantic query strict stochastic order of distance to center for motion-invariant random lines intersecting regular n-gons Crofton support function"
+      ],
+      "rationale": "The single-radius ideal probability distinguishes the discrete number of regular polygon sides without nested-set comparisons; sharp boundary regularity and strict all-n stochastic order are exact, mathematically motivated geometric probability facts beyond a direct unnamed table entry.",
+      "residual_risks": [
+        "A classical center-offset probability table or unindexed old source may express the same evaluated support integral or strict order.",
+        "No finite-sample robust inference or alternate sampling law claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Invariant line measure, centered regular polygons, fixed circumradius, 0<r<R only for strict order.",
+    "Numerical midpoint quadratures check 25 finite cases, not infinity."
+  ],
+  "schema_version": 1
+}

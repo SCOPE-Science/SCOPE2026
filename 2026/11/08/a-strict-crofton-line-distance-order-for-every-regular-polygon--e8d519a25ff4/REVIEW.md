@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant line space is conditioned on intersecting the polygon, not sampled with uniform angle after conditioning. A support-interval calculation gives the exact numerator and Cauchy's perimeter identity the denominator. Sector integration proves all three branches and their matching endpoints. Differentiation establishes the stated singularity orders. Splitting a fixed disk ratio at \(\beta=\arccos(r/R)\) gives strictly positive derivatives in both regimes, proving global ordering for all \(n\ge3\). The separately implemented angular quadrature and line-rejection tests pass; none is substituted for the proof.
+PASS
 
-## Originality — PASS (with priority limitations)
+Cauchy-Crofton line measure normalizes by polygon perimeter 2nR sin(pi/n). The regular-n-gon support h(theta)=R cos t on each vertex Voronoi cell yields the displayed two-branch F_n exactly, including r<=0 and r>=R. For beta=pi/n, when beta<=alpha=arccos(r/R), F=r beta/(R sin beta); when beta>alpha, F=1+[(r/R)alpha-sin alpha]/sin beta. Both are strictly increasing in beta and meet at alpha, yielding F_n strictly decreasing in n for every 0<r<R and limit r/R. Differentiating establishes C1/not-C2 inradius contact, second derivatives 0 and -1/(R^2 sin^2 beta), and 3/2 circumradius tail. Independent fresh support-angle midpoint integrals agreed for 25 (n,r) pairs to <3e-6; finite numerical checks are corroboration, not proof.
 
-The closest primary full texts are Harutyunyan–Ohanyan (2009), which treats the chord-length distribution, and Bäsel (2012), which treats chord lengths and interior point distances. Their invariant line model is identical, but their reported quantities do not imply the stated exact offset-from-center distribution merely by matching chord-length marginal laws. Their full texts were inspected for statements on center-distance events, a nested-disk joint-hit law, and across-side-count stochastic order; none was found. The new use of the general support function and Crofton perimeter identity is acknowledged, as is the possibility of an earlier unindexed or differently formulated equivalent. A published-finding corpus semantic search and accessible prior-claim comparison did not reveal a covering result; search absence is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The complete three-phase Crofton line-distance law is a natural inverse geometric probability observable with sharp nonanalytic contact points, and the strict stochastic ordering is global across nonnested regular polygons. One idealized concentric-disk hit probability distinguishes every side count at fixed circumradius, while the limiting circular law gives the exact lower envelope. This is a structural order/classification result, not merely the computation of a chosen small polygon.
+Classical Crofton normalization and polygon chord distributions are not novel. The surviving exact statistic is conditional center-offset/concentric-disk dual hit probability, strict cross-side-count stochastic order for nonnested polygons at fixed circumradius, and contact classification. Direct published-finding search and highly relevant primary texts did not establish this statement; best-of-knowledge priority only.
 
-## Known limits
+## value
 
-No independent audit, exhaustive historical-priority certification, or finite-sample identification guarantee is available. All probabilities concern the invariant-line model rather than independently selected chord endpoints.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The single-radius ideal probability distinguishes the discrete number of regular polygon sides without nested-set comparisons; sharp boundary regularity and strict all-n stochastic order are exact, mathematically motivated geometric probability facts beyond a direct unnamed table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

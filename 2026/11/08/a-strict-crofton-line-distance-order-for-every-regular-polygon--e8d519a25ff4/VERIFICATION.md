@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The exact probability and global monotonicity are derived analytically in `RESULT.md`. `verify.py` independently implements the angular support-function integral and performs rejection sampling from kinematic line coordinates, rather than substituting the closed-form result into itself. One execution returned:
+## correctness
 
-`VERIFY_OK quadrature_pairs=36 accepted_rejection_lines=811820 ordered_n=3..100 radii=6`
+PASS
 
-The checker uses only Python's standard library. The finite quadratures and Monte Carlo experiments test normalization and boundary regimes but do not verify an infinity of side counts or prove any limit. The strict inequalities, contact differentiability, and continuum of radii follow from the analytic proof, not from the test counts. Independent audit has not been performed.
+Cauchy-Crofton line measure normalizes by polygon perimeter 2nR sin(pi/n). The regular-n-gon support h(theta)=R cos t on each vertex Voronoi cell yields the displayed two-branch F_n exactly, including r<=0 and r>=R. For beta=pi/n, when beta<=alpha=arccos(r/R), F=r beta/(R sin beta); when beta>alpha, F=1+[(r/R)alpha-sin alpha]/sin beta. Both are strictly increasing in beta and meet at alpha, yielding F_n strictly decreasing in n for every 0<r<R and limit r/R. Differentiating establishes C1/not-C2 inradius contact, second derivatives 0 and -1/(R^2 sin^2 beta), and 3/2 circumradius tail. Independent fresh support-angle midpoint integrals agreed for 25 (n,r) pairs to <3e-6; finite numerical checks are corroboration, not proof.
+
+## originality
+
+PASS
+
+Classical Crofton normalization and polygon chord distributions are not novel. The surviving exact statistic is conditional center-offset/concentric-disk dual hit probability, strict cross-side-count stochastic order for nonnested polygons at fixed circumradius, and contact classification. Direct published-finding search and highly relevant primary texts did not establish this statement; best-of-knowledge priority only.
+
+## value
+
+PASS
+
+The single-radius ideal probability distinguishes the discrete number of regular polygon sides without nested-set comparisons; sharp boundary regularity and strict all-n stochastic order are exact, mathematically motivated geometric probability facts beyond a direct unnamed table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
