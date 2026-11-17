@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses exact affine iterates, a four-coordinate criterion for entering the left half-plane, and a scalar exterior first-return map. No numerical result is used to infer a universal or infinite-time statement.
+# Independent mathematical audit
 
-Execute `python3 verify.py` beside this file. The independent rational test loops in this package check 1,144 quarter-turn identities, 616 section return identities, 12,496 finite steps to the section or absorbing square, and 68 capture-count cases. The primitive period-three orbit and its exact separator formula are also tested.
+## correctness
 
-The checker uses finite rational samples rather than an exhaustive census of all real starting points. Its floating-log ceiling comparisons tolerate one-unit numerical error at equality; the exact algebraic derivation in RESULT.md establishes the stated ceilings. Historical priority and independent scientific review remain outstanding.
+PASS
+
+Reconstructed R^4=id on Q, first-coordinate cycle (x,1+y,1-x,-y), exact section maps z<0->1-az and z>1->a(z-1) in three iterates. Affine iteration yields all capture thresholds, fixed separator p, primitive 3-cycle multiplier a, log/critical scaling. Independent rational exact section identity checked 16 (a,z) pairs; finite checks not universal proof.
+
+## originality
+
+PASS
+
+Prior nilpotent-left a=0 fourth-iterate projection is a proper specialization only. Simpson 2026 first-return theorems require delta_R>1, inapplicable to delta_R=1. No earlier full a>=0 absorption/capture/escaping 3-cycle statement found; 2024 broader preprint remained only abstract-inspected.
+
+## value
+
+PASS
+
+The sharp global absorption/escape transition and exact critical capture scaling fill a natural neutral-border-collision slice with a singular bifurcation; not mere restatement of quarter-turn geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
