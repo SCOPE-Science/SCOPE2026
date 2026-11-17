@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 check_cusp.py` in the same directory as this document using Python 3 and its standard library. The file checks the high-distance exact survival integral, the three-term expansion, and the direct upper-half-plane simulation of independent uniform-area points. Its deterministic random seed fixes the five batches of 220,000 point pairs each. It returns `TRUNCATED_HYPERBOLIC_CUSP_TAIL_AND_MC_OK 1100000` when all tests pass.
+## correctness
 
-The checker computes the geodesic distance from the upper-half-plane formula after choosing the nearest horizontal deck translate; this is independent of the exponentially distributed height-difference derivation of the exact integral. The code also numerically compares the two expressions for each sampled pair and evaluates the stated asymptotic truncation. Floating-point quadrature and sample tests only detect errors; they cannot certify a theorem over all widths, radii or sample paths.
+PASS
 
-The analytic argument verifies the unrestricted quantifiers and is supplied in `RESULT.md`. The full small-radius CDF, ambient distances in a larger surface, and any external independent audit remain outside this verification.
+In the geodesically convex horoball quotient C_w=(R/wZ)×[0,∞) with metric dt²+e^(−2t)dx², independent normalized-area heights have Exp(1) laws. Their absolute difference S~Exp(1) is independent of minimum height M~Exp(2), and the shortest circular separation U~Unif[0,w/2] yields Z=Ue^(−M), triangular density 4/w(1−2z/w). The quotient distance satisfies cosh D=cosh S+Z²e^(−S)/2. For R≥2asinh(w/4), quadratic roots place v_-≤1≤v_+, giving exact conditional survival 1/[cosh R+√(sinh²R−z²)]; integrate over Z. Uniform fixed-w expansion yields e^(−R)+(w²/24)e^(−3R)+(w²/24+w⁴/120)e^(−5R)+O_w(e^(−7R)); check E[Z²]=w²/24,E[Z⁴]=w⁴/240. Scaling Z=wV couples widths strictly for all R>0; the leading tail gives exponential-moment cutoff p<1. Independent quadrature and direct geometric coordinate checks corroborate selected widths/radii, not universal analysis.
+
+## originality
+
+PASS
+
+Best of knowledge: the exact independent uniform-area point-pair intrinsic cusp distance tail, width recovery from its third-order coefficient and strict global width order were not contained in the inspected primary spectral-resonance and single-geodesic cusp-excursion results. Semantic published-record queries retrieve distinct ideal-polygon random distances, not the parabolic quotient pair model. Old unindexed geometric probability calculations remain a residual possibility.
+
+## value
+
+PASS
+
+A finite-area noncompact hyperbolic cusp is a natural test geometry for random metric distances. An exact far-tail invariant whose first width-dependent coefficient identifies the boundary horocycle is a meaningful inverse-rigidity fact, strengthened by strict width stochastic ordering and sharp exponential-moment threshold. Not an arbitrary finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
