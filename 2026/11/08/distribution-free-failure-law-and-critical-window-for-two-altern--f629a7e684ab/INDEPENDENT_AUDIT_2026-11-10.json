@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:11:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For common iid continuous effective cutpoints, sorting them leaves iid Bernoulli preference signs; at gap j exactly U_n-S_j voters reject. A cutpoint itself offers no smaller count because only one acceptance condition changes with equality, hence optimal V_n=U_n-M_n where M_n=max_{0<=j<=n} S_j. Conditioned on U_n=u, reflection at level u-k+1 leaves binom(n,u)-binom(n,k-1) valid paths, giving exact distribution-free tail. V_n=0 exactly for a +block followed by a -block. Negative-drift random-walk maximum has geometric hitting probabilities, giving mean correction min(p,q)/abs(p-q) and binomial CLT. For p=1/2 the reflection identity E M_n=E abs(S_n)-P(S_n>0) yields n/2-sqrt(2n/pi)+1/2+o(1), and Donsker plus continuous supremum mapping yields both Brownian maxima and p_n=1/2+theta/sqrt n drift. Independent direct enumeration all sign words n=1..10 for p=.25,.50,.75 checked every k-tail and feasibility formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teh–Goldberg Appendix E.1 Proposition E.1 supplies deterministic O(n log n) sorting, not a probability law.",
+          "Choo–Goldberg–Teh studies unanimously acceptable lotteries via queries."
+        ],
+        "reasoning": "Neither accessible primary result dominates the random iid cutpoint tail and Brownian critical regime.",
+        "searches": [
+          "arXiv:2610.37828",
+          "arXiv:2604.17505",
+          "distribution free critical window minimum rejects two alternative lottery random preferences thresholds reflection Brownian maximum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 066a9c3a5de091eff1d625831e5c5ae0e2c6df9c",
+        "Primary arXiv:2610.37828 PDF, Appendix E.1 Proposition E.1",
+        "Independent exhaustive sign-word enumerations n<=10 for three biases",
+        "Resultary two-option mathematical comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sorting optimizer does not imply the distribution of the optimum without specifying the iid threshold law and using reflection.",
+          "Here the exact upper-tail depends on p but not on the common atomless threshold distribution."
+        ],
+        "reasoning": "The probabilistic law and phase transition require distinct combinatorial and invariance-principle arguments beyond the deterministic sorting theorem.",
+        "searches": [
+          "arXiv:2610.37828 Proposition E.1",
+          "arXiv:2604.17505",
+          "distribution free critical window minimum rejects two alternative lottery random preferences thresholds reflection Brownian maximum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-alternative acceptance sets are intervals; minimizing rejects equals maximum stabbing depth.",
+          "Under sorted random thresholds, the same statistic equals U_n-max S_j, a random-walk maximum."
+        ],
+        "reasoning": "The deterministic interval reduction is prior; the exact law under random iid sign orientations and sharp bias window are additional distributional conclusions.",
+        "searches": [
+          "distribution free critical window minimum rejects two alternative lottery random preferences thresholds reflection Brownian maximum",
+          "arXiv:2610.37828 Appendix E.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed Resultary two-option half-threshold result concerns fixed grids and deterministic extra rejection under limited queries."
+        ],
+        "reasoning": "A different worst-case question; no matching full stochastic tail table was located, but negative search alone does not prove novelty.",
+        "searches": [
+          "distribution free critical window minimum rejects two alternative lottery random preferences thresholds reflection Brownian maximum",
+          "2026/11/8/SCOPE-a-sharp-half-threshold-trichotomy-for-two-option-stakeholder-lot--eb11235bf9e7"
+        ]
+      },
+      "rationale": "The full primary Teh–Goldberg (2026) source Appendix E.1 Proposition E.1 gives sorting-based deterministic O(n log n) optimization of interval overlaps for two alternatives; it does not provide this iid random-cutpoint law, all-p ballot-tail distribution, or Brownian critical window. Earlier related Resultary findings concern finite-grid worst-case sampling/regret and other voter models. Classical reflection and invariance principles are tools, not the claimed novel theorems. Best-of-knowledge PASS with explicit risk of an earlier probabilistic interval-overlap equivalent.",
+      "residual_risks": [
+        "Potential older random interval-overlap or ballot literature could state an equivalent stochastic optimum under alternate terminology.",
+        "Requires independent orientations and common atomless cutpoints; asymmetric laws, ties and more than two alternatives are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes deterministic sorting algorithm, not iid stochastic optimum distribution",
+          "evidence": [
+            "Proposition E.1: returns lottery minimizing violations in O(n log n); two-option accept sets are intervals."
+          ],
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.37828",
+          "material_read": "Full primary PDF accessed; introduction, Sections 4–6 and Appendix E.1 Proposition E.1 lines 1306–1359, algorithm for two-option sorted interval overlap",
+          "method": "Read PDF full-text and screenshot physical page 21 (0-index p20)",
+          "title": "Learning Lotteries with Minimal Stakeholder Violations from Membership Queries",
+          "trigger": "Exact same objective and two alternatives"
+        },
+        {
+          "assessment": "Focus on elicitation/unanimity, not the stated optimal rejection distribution; no full-text noncoverage assertion",
+          "evidence": [
+            "D. Choo, P. W. Goldberg, N. Teh, April 2026; related query model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.17505",
+          "material_read": "Abstract/secondary literature description, not full text in this run",
+          "method": "Compare problem/quantifiers",
+          "title": "Learning Unanimously Acceptable Lotteries via Queries",
+          "trigger": "Related exact acceptability lottery query framework"
+        },
+        {
+          "assessment": "Noncovering different objective: query restriction worst-case extra rejects",
+          "evidence": [
+            "Deterministic fixed-grid threshold regimes, not random walk law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-half-threshold-trichotomy-for-two-option-stakeholder-lot--eb11235bf9e7",
+          "material_read": "Indexed theorem summary",
+          "method": "Compare worst-case discrete grid and sampling to iid continuous cutpoints",
+          "title": "A sharp half-threshold trichotomy for two-option stakeholder lotteries",
+          "trigger": "Same two-choice setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum-violation statistic for randomly sampled preferences is a natural social-choice quantity: exact distribution-free feasibility probability and sharp Gaussian/Brownian phase transition quantify when perfect or near-perfect stakeholder lotteries exist. This is not a simple restatement of the deterministic optimizer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 066a9c3a5de091eff1d625831e5c5ae0e2c6df9c",
+    "Primary arXiv:2610.37828 PDF, Appendix E.1 Proposition E.1",
+    "Independent exhaustive sign-word enumerations n<=10 for three biases",
+    "Resultary two-option mathematical comparison"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential older random interval-overlap or ballot literature could state an equivalent stochastic optimum under alternate terminology.",
+    "Requires independent orientations and common atomless cutpoints; asymmetric laws, ties and more than two alternatives are excluded."
+  ],
+  "residual_risks": [
+    "Potential older random interval-overlap or ballot literature could state an equivalent stochastic optimum under alternate terminology.",
+    "Requires independent orientations and common atomless cutpoints; asymmetric laws, ties and more than two alternatives are excluded."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes deterministic sorting algorithm, not iid stochastic optimum distribution",
+      "evidence": [
+        "Proposition E.1: returns lottery minimizing violations in O(n log n); two-option accept sets are intervals."
+      ],
+      "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.37828",
+      "material_read": "Full primary PDF accessed; introduction, Sections 4–6 and Appendix E.1 Proposition E.1 lines 1306–1359, algorithm for two-option sorted interval overlap",
+      "method": "Read PDF full-text and screenshot physical page 21 (0-index p20)",
+      "title": "Learning Lotteries with Minimal Stakeholder Violations from Membership Queries",
+      "trigger": "Exact same objective and two alternatives"
+    },
+    {
+      "assessment": "Focus on elicitation/unanimity, not the stated optimal rejection distribution; no full-text noncoverage assertion",
+      "evidence": [
+        "D. Choo, P. W. Goldberg, N. Teh, April 2026; related query model."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2604.17505",
+      "material_read": "Abstract/secondary literature description, not full text in this run",
+      "method": "Compare problem/quantifiers",
+      "title": "Learning Unanimously Acceptable Lotteries via Queries",
+      "trigger": "Related exact acceptability lottery query framework"
+    },
+    {
+      "assessment": "Noncovering different objective: query restriction worst-case extra rejects",
+      "evidence": [
+        "Deterministic fixed-grid threshold regimes, not random walk law."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-half-threshold-trichotomy-for-two-option-stakeholder-lot--eb11235bf9e7",
+      "material_read": "Indexed theorem summary",
+      "method": "Compare worst-case discrete grid and sampling to iid continuous cutpoints",
+      "title": "A sharp half-threshold trichotomy for two-option stakeholder lotteries",
+      "trigger": "Same two-choice setting"
+    }
+  ]
+}
