@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The spectral-gradient distribution has mean equal to the reciprocal step length. Convexity of the even power gives an endpoint chord at the *same mean*, yielding an exact reduction to two eigenvalues rather than merely a loose worst-case estimate. The displayed two-mode recurrence, strict monotonicity in the condition number, and the threshold crossing are algebraically established. Strict power-mean comparison proves threshold ordering. The asymptotic sandwich controls the whole positive half-line, not only a candidate local optimizer. The standalone checker executed successfully for exact rational samples and supplementary numerical threshold examples. Finite checks are not used as proofs of universal claims.
+PASS
 
-## Originality — PASS, qualified
+Normalize the SPD Hessian spectrum to [1,kappa] and weight gradient spectral coordinates by squared masses, with mean μ=1/alpha. The 2m-th power (1−λ/μ)^{2m} is convex, so endpoint chord replacement at equal μ proves exact two-extreme-eigenspace attainment for each fixed Hessian. The resulting ratio F_m(kappa,t)=(kappa−1)^{2m}(t+t^{2m})/((1+kappa t)^{2m}(1+t)) has two zero t-endpoints. For fixed t it grows strictly in kappa>1; at kappa=2 max<1 and at large kappa max>1, yielding unique kappa_m>2. Strict power-mean shows kappa_{m+1}<kappa_m. The upper/lower asymptotic sandwich h_m between U_m/(1+t*) and U_m+kappa^{-2m} yields kappa_m−2=[log m+log(4e)+o(1)]/(2m). Independent numerical maximization recomputed kappa_2=3.442815869257..., kappa_3=2.893404938161..., kappa_4=2.657498972144..., kappa_8=2.334440482558..., kappa_16=2.178028723860..., supplementary only.
 
-The closest primary work studies two-spectrum cyclic steepest descent and long-time convergence; it provides two-eigenvalue formulas that relate to the algebra here, but the all-spectrum fixed-matrix endpoint extremality, dimension-independent safety frontier, its strict cycle-length ordering and logarithmic transition are not directly covered in the material inspected. Older cyclic Barzilai–Borwein literature concerns convergence rates and function-value performance, and published related results about stagewise-safe Richardson or recurrent exact line search use distinct step policies. There is a residual possibility of an unindexed or differently phrased analysis deriving equivalent global gradient-safety conditions. This is not an independent historical-priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-Finite-cycle gradient norms are a natural diagnostic for step reuse: repeated steps can improve long-run cost while amplifying a monitored gradient within a cycle. A sharp test that applies in any dimension but is exactly witnessed by two extreme modes gives a usable, algorithm-specific conditioning bound. The decrease of that bound toward \(2\) at logarithmic-over-linear speed shows explicitly how increased reuse can erode gradient-norm safety. This is a structural result, not a renamed isolated two-dimensional computation.
+Published two-step CSD objective monotonicity has sharp boundary kappa≈4.893733, but minimizes/maximizes the energy weighted by inverse eigenvalue rather than the Euclidean gradient norm. Its threshold neither implies nor equals gradient threshold kappa_2≈3.442816, and its statement is only m=2. Published cyclic-step convergence papers address asymptotic or almost-everywhere behavior, not worst-case cycle-boundary m-step gradient-norm safety and large-m frontier. No exact dominating published all-m statement identified.
 
-## Scientific limitations
+## value
 
-This is a cycle-boundary, exact-arithmetic result for fixed SPD quadratics with a single reused exact Cauchy step. It is not a pointwise objective decrease theorem or an optimal convergence rate theorem. Numerical root locations are illustrative only. Primary-source and indexing coverage cannot rule out unpublished or unindexed equivalents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full-dimension worst-case stability classification over all spectral mixtures, with extreme-mode reduction, a strict hierarchy across cycle lengths and log(m)/m transition scaling, is a meaningful structural condition-number boundary in numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

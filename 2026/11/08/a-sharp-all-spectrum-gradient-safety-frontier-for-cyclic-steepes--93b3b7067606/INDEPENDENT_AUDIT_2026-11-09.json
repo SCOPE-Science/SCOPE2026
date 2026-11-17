@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:42.764332Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize the SPD Hessian spectrum to [1,kappa] and weight gradient spectral coordinates by squared masses, with mean μ=1/alpha. The 2m-th power (1−λ/μ)^{2m} is convex, so endpoint chord replacement at equal μ proves exact two-extreme-eigenspace attainment for each fixed Hessian. The resulting ratio F_m(kappa,t)=(kappa−1)^{2m}(t+t^{2m})/((1+kappa t)^{2m}(1+t)) has two zero t-endpoints. For fixed t it grows strictly in kappa>1; at kappa=2 max<1 and at large kappa max>1, yielding unique kappa_m>2. Strict power-mean shows kappa_{m+1}<kappa_m. The upper/lower asymptotic sandwich h_m between U_m/(1+t*) and U_m+kappa^{-2m} yields kappa_m−2=[log m+log(4e)+o(1)]/(2m). Independent numerical maximization recomputed kappa_2=3.442815869257..., kappa_3=2.893404938161..., kappa_4=2.657498972144..., kappa_8=2.334440482558..., kappa_16=2.178028723860..., supplementary only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asymptotic convergence statements may allow finite-cycle gradient amplification; they do not imply universal nonexpansion for every initialization or strict m frontier.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3"
+        ],
+        "reasoning": "Asymptotic convergence statements may allow finite-cycle gradient amplification; they do not imply universal nonexpansion for every initialization or strict m frontier.",
+        "searches": [
+          "Resultary: cyclic steepest descent gradient all spectrum safety frontier",
+          "Resultary: sharp condition-number frontier objective monotonicity two-step cyclic steepest descent",
+          "arXiv 2610.15335 Li Wang cyclic steepest descent",
+          "arXiv 2609.25800 Gu doubly exponential convergence"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Objective monotonicity at kappa<=4.893733 for m=2 does not force gradient monotonicity even at kappa=4; an exact rational gradient amplification witness at kappa=4 disproves that implication.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3"
+        ],
+        "reasoning": "Objective monotonicity at kappa<=4.893733 for m=2 does not force gradient monotonicity even at kappa=4; an exact rational gradient amplification witness at kappa=4 disproves that implication.",
+        "searches": [
+          "Resultary: cyclic steepest descent gradient norm monotonicity Cauchy steps length condition number",
+          "Resultary: cyclic steepest descent gradient all spectrum safety frontier",
+          "Resultary: sharp condition-number frontier objective monotonicity two-step cyclic steepest descent",
+          "arXiv 2610.15335 Li Wang cyclic steepest descent",
+          "arXiv 2609.25800 Gu doubly exponential convergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic steepest descent/reused Cauchy steps/cyclic Barzilai–Borwein under the stated fixed m-step convention considered; present metric is cycle gradient norm, not objective decrease.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3"
+        ],
+        "reasoning": "Cyclic steepest descent/reused Cauchy steps/cyclic Barzilai–Borwein under the stated fixed m-step convention considered; present metric is cycle gradient norm, not objective decrease.",
+        "searches": [
+          "Resultary: cyclic steepest descent gradient norm monotonicity Cauchy steps length condition number",
+          "Resultary: cyclic steepest descent gradient all spectrum safety frontier",
+          "Resultary: sharp condition-number frontier objective monotonicity two-step cyclic steepest descent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior identified table listing kappa_m for all m; numerical kappa_m examples in package are checked but definition is proved via extremal convexity.",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606/RESULT.md"
+        ],
+        "reasoning": "No prior identified table listing kappa_m for all m; numerical kappa_m examples in package are checked but definition is proved via extremal convexity.",
+        "searches": [
+          "Resultary: cyclic steepest descent gradient norm monotonicity Cauchy steps length condition number",
+          "Resultary: cyclic steepest descent gradient all spectrum safety frontier",
+          "Resultary: sharp condition-number frontier objective monotonicity two-step cyclic steepest descent",
+          "arXiv 2610.15335 Li Wang cyclic steepest descent"
+        ]
+      },
+      "rationale": "Published two-step CSD objective monotonicity has sharp boundary kappa≈4.893733, but minimizes/maximizes the energy weighted by inverse eigenvalue rather than the Euclidean gradient norm. Its threshold neither implies nor equals gradient threshold kappa_2≈3.442816, and its statement is only m=2. Published cyclic-step convergence papers address asymptotic or almost-everywhere behavior, not worst-case cycle-boundary m-step gradient-norm safety and large-m frontier. No exact dominating published all-m statement identified.",
+      "residual_risks": [
+        "An unindexed specialist repeated-step gradient-norm analysis may state an equivalent endpoint convexity frontier; searching is not novelty proof.",
+        "Numeric optimizers are not certified exact root brackets; analytic monotonicity and asymptotic sandwich carry the infinite claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different monotonicity observable (objective q, not ||g||_2), only 2 steps; its kappa_*=4.893733 does not cover current kappa_2=3.442816 or general m",
+          "evidence": "Published objective ratio weighs modes by λ^{-1}; current squared-gradient ratio does not. Thresholds quantitatively differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3",
+          "material_read": "Entire published RESULT.md including exact 2-step objective moment proof, cubic/discriminant, assumptions and limitations",
+          "method": "Read complete primary mathematical RESULT.md via repository file retrieval and compared hypotheses, statements, proofs and consequences",
+          "title": "Sharp condition-number frontier for objective monotonicity of two-step cyclic steepest descent",
+          "trigger": "Same cyclic Cauchy-initialized repeated step, seemingly stronger spectral uniformity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full-dimension worst-case stability classification over all spectral mixtures, with extreme-mode reduction, a strict hierarchy across cycle lengths and log(m)/m transition scaling, is a meaningful structural condition-number boundary in numerical optimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-condition-number-frontier-for-objective-monotonicity-of-tw--1a4bfe561ff3"
+  ],
+  "disposition": "passed",
+  "limitations": "Best-of-knowledge literature coverage is not a universal novelty proof. Finite computations corroborate but do not replace analytically quantified proof steps; see separate C/O/V evidence.",
+  "residual_risks": [
+    "An unindexed specialist repeated-step gradient-norm analysis may state an equivalent endpoint convexity frontier; searching is not novelty proof.",
+    "Numeric optimizers are not certified exact root brackets; analytic monotonicity and asymptotic sandwich carry the infinite claim."
+  ],
+  "schema_version": 1
+}
