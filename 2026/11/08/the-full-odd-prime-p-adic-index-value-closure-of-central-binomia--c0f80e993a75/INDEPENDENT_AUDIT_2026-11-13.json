@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:51:06.189073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kummer gives the necessary valuation lower bound for prescribed low digits, including the outgoing carry. The factorial-ratio lemma shows appending fixed high p-power blocks changes B_n by multiplicative factors approaching β_d, with congruences at arbitrary precision and fixed suffix. β_d for 1≤d≤(p−1)/2 generate full p-adic units: their reductions cover all primes <p by induction on central-binomial factors; nontrivial principal units modulo p² follow from (p−1)^(p−1)≡1+p mod p², and p=3 uses β_1≡2 mod9; odd-p lifting extends to p^k. The digit construction produces every higher carry count and appending separated blocks tunes the unit residue without changing low digits, each infinitely often. Taking every modulus proves the joint closure and zero-only infinite-carry fibers. Independently implemented modular unit/valuation recurrence checked p=3, (s,k)=(1,2),(2,2) with bounds 1200/1800, and p=5,(1,2) through n<1,000,000; exact sets agreed. These finite examples do not prove infinite surjectivity; the block and unit arguments do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of Berend–Harmse proves all central binomial values dense modulo p^k without fixing the index; Proposition 2.1 provides prime-power scaling.",
+          "No inspected stronger theorem forces every prescribed suffix spectrum to be precisely a p-power ideal."
+        ],
+        "reasoning": "A theorem about arbitrary indices (a union of all suffixes) cannot logically imply exact spectra for individual suffixes; the new proof supplies new high-block unit control.",
+        "searches": [
+          "Berend Harmse 1998 Theorem 1.1 Proposition 2.1",
+          "Cai Granville residues binomial prime powers",
+          "central binomial coefficient odd p index value closure"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE pinned RESULT.md and verify.py, tree 87c2f83a181d53d6c868f54d99ac510f8aa450fc",
+        "Berend–Harmse 1998 DOI 10.4064/aa-84-1-31-41, full PDF inspected",
+        "Kummer carry theorem",
+        "Resultary search central binomial coefficient odd p index value closure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even a surjective y-projection allows radically different conditional fibers, while the current result explicitly has proper ideals and zero-only fibers for some x.",
+          "The new statement also implies the known unrestricted density by selecting a carry-free suffix, but the reverse implication fails."
+        ],
+        "reasoning": "There is genuine implication from the new joint theorem to the older unconditional theorem; reverse implication is not valid without additional specific block lemmas.",
+        "searches": [
+          "Berend Harmse 1998 p-adic density central binomial values",
+          "central binomial coefficient odd p index value closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete graph closure has fibers p^{c_p(x)}Zp, and its finite-level slices impose exactly c_{p,s}(a) forced carries.",
+          "The older statement only says the unrestricted y-projection is dense in Zp."
+        ],
+        "reasoning": "One can express the new result in terms of Kummer carries, residue spectra in congruence progressions, or full paired p-adic closure; unconditional density is a projection, not a converse.",
+        "searches": [
+          "central binomial coefficient odd p index value closure",
+          "Berend Harmse middle binomial coefficients p-adic dense 1998"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds this current record, separate ternary progressions and central-binomial valuation statistics, but no exact p-adic joint graph table for all odd primes."
+        ],
+        "reasoning": "Finite residue experiments are not a substitute for full p-adic closure and no prior exact table was observed.",
+        "searches": [
+          "central binomial coefficient odd p index value closure",
+          "Resultary fixed suffix central binomial p-adic two-dimensional closure"
+        ]
+      },
+      "rationale": "Berend–Harmse 1998 establish the unrestricted central-binomial p-adic density and relevant scaling, so that portion is already known. The new all-odd-prime *conditional suffix ideal* and full index–value graph closure are stronger: dense projection to y alone does not imply any nontrivial fiber, especially zero-only fibers. Relevant Resultary findings treat adjacent p-adic sequences or specific ternary congruences rather than this entire joint closure. A hidden formulation under Mahler/automata closure language remains a risk.",
+      "residual_risks": [
+        "A general p-adic graph-closure result phrased in terms of digit transducers or special-index sequences could cover the theorem without matching title.",
+        "The result is for odd primes only and gives no density/frequency or effective least witness for each residue.",
+        "Finite modular checks used limits 1200,1800,1000000; not a constructive universal witness bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior overlap on unconditional p-adic density, but not the all-suffix exact ideal/graph classification in the inspected statements.",
+          "evidence": [
+            "Berend–Harmse Acta Arithmetica 84 (1998), 31–41, Theorem 1.1 p-adic density."
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/aa-84-1-31-41",
+          "material_read": "Complete primary 1998 PDF pages read (Theorem 1.1, scaling Proposition 2.1 and relevant proof passages).",
+          "method": "Compared the actual quantified residues (unrestricted n) and scaling with fixed-suffix n mod p^s and paired closure.",
+          "title": "On some arithmetical properties of middle binomial coefficients",
+          "trigger": "Highly relevant original unrestricted density theorem for identical B_n"
+        },
+        {
+          "assessment": "Cannot count this self-identical hit as originality evidence.",
+          "evidence": [
+            "Statement of all-suffix residue ideal and p-adic graph closure."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-full-odd-prime-p-adic-index-value-closure-of-central-binomia--c0f80e993a75",
+          "material_read": "Resultary indexed published summary only (the assigned original RESULT.md also fully read).",
+          "method": "Identified as the same claim, not independent corroboration.",
+          "title": "The full odd-prime p-adic index–value closure of central binomial coefficients",
+          "trigger": "Search match must be separated from independent prior literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact fibers of the natural p-adic graph (index, central-binomial value) give sharp local congruence restrictions and attainability for every arithmetic progression, beyond an unconditional density theorem; they are meaningful arithmetic structure that a researcher could use for p-adic interpolation and constrained binomial congruences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general p-adic graph-closure result phrased in terms of digit transducers or special-index sequences could cover the theorem without matching title.",
+    "The result is for odd primes only and gives no density/frequency or effective least witness for each residue.",
+    "Finite modular checks used limits 1200,1800,1000000; not a constructive universal witness bound.",
+    "The inspected original publication-facing METADATA.json contains scope_run_id, same_model_review_status and process/provenance fields; public REVIEW.md/AUDIT.json also contain review provenance. Complete, semantically checked, neutral replacement bytes with current blob guards and UTF-8 SHA-256 digests for all affected files were not prepared. No publication or import is authorized; retain original science, prepare full guarded sanitized public files before any publication."
+  ],
+  "schema_version": 1
+}
