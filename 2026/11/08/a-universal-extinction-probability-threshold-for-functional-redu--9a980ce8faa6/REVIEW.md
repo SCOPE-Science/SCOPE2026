@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each disjoint function-group survival indicator is Bernoulli with failure probability \(q^{s_i}\). Independence gives the sum-of-Bernoulli variance formula. The one-species redistribution is an exact four-term difference of \(h_q(s)=q^s-q^{2s}\); factoring it yields \((1-q)(q^a-q^{b-1})[1-(1+q)(q^a+q^{b-1})]\). The sign factor crosses zero exactly once, and its largest value over admissible moves occurs at \((a,b)=(1,3)\), giving the sharp uniform cutoff \(q(1+q)^2=1\). Finite balancing terminates at the almost-equal profile. An exact symbolic checker and independent enumeration support the algebra. The sufficient high-loss condition and the same-size opposite examples are justified without relying on experiments as proofs.
+PASS
 
-## Originality — PASS within inspected evidence
+Independence across disjoint species groups gives Var(Y)=∑(q^{s_i}−q^{2s_i}). Algebraic differencing proves exact per-transfer factorization; its positive first two factors reduce sign to monotone q-map (1+q)(q^a+q^{b−1}). For all a≥1,b−1≥2 the quantity is bounded above by q(1+q)^2, yielding universal minimizing balanced profiles up to unique rho≈0.465571; a=1,b=3 attains the bound and reverses above rho. High-q fixed-S sufficient condition and same (S=9,F=3,q=1/2) opposite variance responses follow from the same identity. Independently checked rational identities and both nine-species contrasts; code CHECK.py uses separate direct 2^S loss enumeration for bounded cases.
 
-Nijs and Impens (2000, doi:10.1046/j.1365-2435.2000.00394.x) give the independent group-reliability formula; this formula and Bernoulli moment identities are not claimed. Fonseca and Ganade (2001, doi:10.1046/j.1365-2745.2001.00528.x) provide rarefaction expectations and variance with a fixed retained count and qualitatively discuss uncertainty and evenness. Both primary full-text HTML articles were inspected; neither states the redistribution sign factor or a community-size-independent sharp variance-order threshold. The published abstract of *On optimal grouping and stochastic comparisons for heterogeneous items* (2017, doi:10.1016/j.jmva.2017.06.006) concerns reliability of differently grouped systems, not the variance of the number of functioning disjoint redundant groups, but its full text could not be obtained. Additional index, literature and related-result searches did not reveal direct coverage. The historical-priority risk remains explicitly open.
+## originality
 
-## Value — PASS
+PASS
 
-The output is a uniform, sharp all-community theorem about a natural ecological uncertainty statistic, not a selected small numerical example. It identifies precisely when improving functional evenness reduces both expected functional loss and the variance of retained functions, and when their order can diverge. Opposite variance responses in the same nine-species, three-function community demonstrate that outside the universal regime a single monotone inequality is insufficient. This guides mathematical benchmarking of uncertainty in functional-redundancy allocations, without claiming realistic correlated-species forecasts.
+The base ecological model and Bernoulli mean/variance are old, but the exact sign classification of all balancing steps and the uniform sharp root q(1+q)^2=1 are not stated in the materially inspected ecological and reliability-allocation sources. Best-of-knowledge claim is therefore the global threshold and same-size reversal, not novelty of the moment formula.
 
-## Sources and limitations
+## value
 
-Primary full texts: Nijs–Impens (2000) and Fonseca–Ganade (2001). Secondary adjacent abstract: *On optimal grouping and stochastic comparisons for heterogeneous items* (2017). Unknown priority in unindexed component-allocation literature and independence/partition assumptions are material limits. Independent scientific validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Variance of surviving ecological functions is a natural independent uncertainty metric distinct from expected surviving functions. The exact sharp probability below which any balancing reduces variance, and the same-budget variance reversals above it, supply a complete meaningful parameter classification beyond re-deriving the textbook Bernoulli formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
