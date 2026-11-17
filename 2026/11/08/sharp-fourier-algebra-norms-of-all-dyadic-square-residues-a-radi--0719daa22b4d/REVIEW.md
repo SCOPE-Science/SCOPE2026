@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete square set modulo \(2^k\) is exactly the disjoint union of its odd-square coset and four times the complete square set at depth \(k-2\). Additive orthogonality localizes the extra Fourier transform to eight frequencies. The two real residues from the prior depth are the cardinality \(c_k\) and the alternating count \(d_k\); all eight eighth-root phases have been evaluated, yielding the exact norm recurrence. The proof verifies the base cases separately, and the operator norm is attained on a point mass or a phase-aligned bounded function. The limiting formula follows from explicit ratios and a Lipschitz estimate, giving a quantified remainder. The standalone checker independently constructs all square sets and Fourier transforms for depths \(1\) through \(12\), and tests the recurrence at further depths. Finite verification supports but does not establish the all-depth proof.
+PASS
 
-## Originality — PASS (bounded historical comparison)
+For k>=3, all squares mod 2^k split disjointly into odd squares congruent 1 mod8 (2^{k-3} classes) and 4Q_{k-2}; the kth Fourier transform consequently repeats depth k-2 away from eight frequencies a divisible by 2^{k-3}. At these eight, the inherited transform is c_k=s_{k-2} for even u and d_k=s_{k-4}-2^{k-5} for odd u (zero at k4), and adding h_k times an eighth-root phase yields exactly the displayed radical two-step increment. Endpoint convolution norms equal the L1 kernel norm by point-mass/phase extremizers. For k>=5, c/h=1/3+a/(3h), d/h=-1/6+a/(3h) with a=4 or5; two-Lipschitz of each modulus difference bounds |Delta_k-C| by 80/(3*2^k). Parity subsequences give two absolutely convergent offsets and tail 80/(9*2^k). Independent direct radix-2 FFT of all squares k1..10 matches recurrence, Parseval and asymptotic C=0.7670312695942494. Thus all-depth proof is mathematical rather than computational extrapolation.
 
-Green–Sanders (arXiv:math/0611286v1) proves quantitative coset structure from a Fourier-algebra norm bound, but does not determine the norm of the complete dyadic square set. Stangl (1996) gives its cardinality, not an identified operator-norm evaluation; the original full text was inaccessible, so this is a bounded comparison. Malikiosis (2022) studies spectral/tiling properties and cyclotomic zeros of general cyclic subsets, rather than sharp absolute Fourier sums of the stated sets. A distinct norm calculation for all square residues at odd prime powers expressly excludes characteristic two and does not imply the eight-frequency dyadic formula. Searches for aliases involving Wiener norm, complete quadratic residues, dyadic Fourier projections, and cyclic square spectra returned no statement covering the nested radicals, exact depth recurrence, or two separated parity offsets. This is evidence of noncoverage among inspected materials, not exhaustive proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite Fourier-algebra norm is the exact endpoint amplification factor of the idempotent multiplier. Complete modular square sets are a canonical arithmetic family and include singular nonunits. The characteristic-two completion is structurally different from the odd-prime calculation: the odd squares form one additive coset modulo eight, so exactly eight exceptional characters at each two-level step control the entire norm. The resulting nested radical, effective linear-growth constant, and two genuinely distinct parity offsets are not obtained from the classical cardinality formula or standard coarse idempotent bounds. The result determines a motivated invariant for all dyadic depths without requiring an unrelated downstream application.
+Best-of-knowledge originality: established general criteria and overlapping special cases are explicitly credited. Fresh exact finite/arithmetic or spectral classification not mathematically implied by inspected broader statements. Inaccessible plausible primary sources are retained as risks, not falsely described as read.
 
-## Limitations and priority risks
+## value
 
-No intermediate-exponent operator norms or arbitrary composite moduli are proved. Originality is bounded by available primary texts and searches; Stangl's full original article was unavailable, although its known counting formula was consulted through a secondary mathematical source. General Fourier-algebra or dyadic quadratic-residue results not found in the examined searches could conceivably cover this special case. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete quadratic residues including nonunit squares form a natural nested spectral set on dyadic cyclic groups. The exact endpoint projection norm, explicit all-depth radical recurrence and genuinely distinct parity offsets supply precise operator-theoretic invariants where counting squares alone is insufficient. This shows unbounded linear norm growth with a sharp algebraic slope, unlike unit-square projection behavior; nontrivial arithmetic structure, not a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

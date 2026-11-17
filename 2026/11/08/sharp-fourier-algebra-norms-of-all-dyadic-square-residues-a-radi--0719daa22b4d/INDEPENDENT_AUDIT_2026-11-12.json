@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:02:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md square split and eight-frequency character recurrence; verified source tree 5fe82e4d1f07aa09794f598a62135015afd40e28",
+        "Fresh independent square-set FFT for k1..10 reproduced exact norm recurrence within machine precision",
+        "Frozen verify_square_norm.py inspected: separate radix-2 FFT k1..12 and explicit error tests"
+      ],
+      "rationale": "For k>=3, all squares mod 2^k split disjointly into odd squares congruent 1 mod8 (2^{k-3} classes) and 4Q_{k-2}; the kth Fourier transform consequently repeats depth k-2 away from eight frequencies a divisible by 2^{k-3}. At these eight, the inherited transform is c_k=s_{k-2} for even u and d_k=s_{k-4}-2^{k-5} for odd u (zero at k4), and adding h_k times an eighth-root phase yields exactly the displayed radical two-step increment. Endpoint convolution norms equal the L1 kernel norm by point-mass/phase extremizers. For k>=5, c/h=1/3+a/(3h), d/h=-1/6+a/(3h) with a=4 or5; two-Lipschitz of each modulus difference bounds |Delta_k-C| by 80/(3*2^k). Parity subsequences give two absolutely convergent offsets and tail 80/(9*2^k). Independent direct radix-2 FFT of all squares k1..10 matches recurrence, Parseval and asymptotic C=0.7670312695942494. Thus all-depth proof is mathematical rather than computational extrapolation.",
+      "residual_risks": [
+        "Only complete squares modulo 2^k including zero/nonunits and endpoint l1/linfinity norms; no intermediate lp norms and no odd primes",
+        "Numerical offset digits are checked by finite radical calculations plus explicit mathematical tail bound; floating tests alone do not prove offsets distinct."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary odd-prime power complete-square norm FULL topic result, odd p only, not dyadic",
+          "Green–Sanders theorem yields broad coset structure at arbitrary finite abelian groups, but not sharp numeric norms"
+        ],
+        "reasoning": "No inspected theorem supplies a parameter-general formula that implies this k-dependent radical recurrence and parity two-phase offsets at p=2.",
+        "searches": [
+          "norm of Fourier spectral projection onto complete quadratic residue set every prime power incl 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_square_norm.py in source tree 5fe82e4d1f07aa09794f598a62135015afd40e28",
+        "https://arxiv.org/abs/math/0611286",
+        "https://doi.org/10.1080/0025570X.1996.11996456",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08",
+        "Resultary dyadic square Fourier algebra norm searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stangl determines cardinality, whereas signs/phases of eight exceptional characters govern absolute norm",
+          "Green–Sanders quantitative result bounds arbitrary idempotents structurally, without sharp eight-root phase evaluation"
+        ],
+        "reasoning": "Neither result forces the exact radical coefficient C or the existence of unequal even/odd additive offsets; explicit Fourier computation is essential.",
+        "searches": [
+          "do Stangl square counts + Green Sanders idempotent theorem imply explicit norm linear coefficient?"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Green–Sanders arXiv:math/0611286 general quantitative idempotent theorem",
+          "Stangl 1996 Counting Squares in Z_n bibliographic/cardinality statements",
+          "Resultary Nov8 exact complete square norm for odd p^k"
+        ],
+        "reasoning": "The projection norm is the Fourier algebra norm of the full square-indicator. General idempotent decomposition and residue counts do not evaluate the eight exceptional absolute Fourier phases, and odd-prime Gauss sums do not apply at p=2.",
+        "searches": [
+          "complete dyadic quadratic residues Z/2^k Wiener Fourier algebra norm idempotent indicator including nonunit squares"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stangl 1996 counting squares formula provides s_k only",
+          "Package displays norms starting 1,(1+sqrt2)/2,1+sqrt5/4 and later radical recurrence; Resultary query found no prior independent exact dyadic-norm table"
+        ],
+        "reasoning": "Counting tables of |Q_k| are not tables of normalized absolute Fourier transforms; no located exact dyadic Wiener norm table. Lack of search hit alone not a novelty certificate.",
+        "searches": [
+          "Fourier algebra norm all squares mod 2^k exact table sequence"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: established general criteria and overlapping special cases are explicitly credited. Fresh exact finite/arithmetic or spectral classification not mathematically implied by inspected broader statements. Inaccessible plausible primary sources are retained as risks, not falsely described as read.",
+      "residual_risks": [
+        "Stangl 1996 inaccessible full text; possible additional Fourier analysis beyond known residue counting cannot be wholly ruled out",
+        "Other treatments may call the normalized Fourier l1 norm a Lebesgue/Wiener constant or idempotent norm rather than projection norm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Odd-prime result explicitly excludes the characteristic-two case; whole-document noncoverage not claimed from snippet alone",
+          "evidence": [
+            "Statement only asserts for every odd prime p; its Gauss-sum valuation structure differs from eighth roots of unity"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-fourier-algebra-norm-of-the-complete-square-set-on-odd-pri--c42daa360e08",
+          "material_read": "Resultary scientific title/complete summary, comparisons to dyadic case; complete source paper not inspected",
+          "method": "Resultary indexed abstract",
+          "title": "Exact Fourier-algebra norm of the complete square set on odd prime-power cyclic groups",
+          "trigger": "Same invariant and complete square residues at prime powers"
+        },
+        {
+          "assessment": "Generic structural theorem, no inspected exact dyadic square norm evaluation",
+          "evidence": [
+            "Quantitative coset decomposition is a general bound, not a sharp arithmetic recurrence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611286",
+          "material_read": "Public abstract and published Annals theorem description, not full proof",
+          "method": "Publisher and preprint abstract lookup",
+          "title": "A quantitative version of the idempotent theorem in harmonic analysis",
+          "trigger": "General Fourier algebra norm and idempotent structure"
+        },
+        {
+          "assessment": "PRIORITY_RISK; no whole-document assertion made about an unread article",
+          "evidence": [
+            "Cardinality formula s_k=(2^{k-1}+a_k)/3 is prior and credited"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/0025570X.1996.11996456",
+          "material_read": "Citation and secondary square-count formula only; original full text inaccessible",
+          "method": "Bibliographic and secondary counting-formula lookup",
+          "title": "Counting Squares in Z_n",
+          "trigger": "Most plausible directly related residue counting paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/sharp-fourier-algebra-norms-of-all-dyadic-square-residues-a-radi--0719daa22b4d/RESULT.md",
+        "Frozen RESULT.md and verify_square_norm.py in source tree 5fe82e4d1f07aa09794f598a62135015afd40e28",
+        "https://arxiv.org/abs/math/0611286"
+      ],
+      "rationale": "Complete quadratic residues including nonunit squares form a natural nested spectral set on dyadic cyclic groups. The exact endpoint projection norm, explicit all-depth radical recurrence and genuinely distinct parity offsets supply precise operator-theoretic invariants where counting squares alone is insufficient. This shows unbounded linear norm growth with a sharp algebraic slope, unlike unit-square projection behavior; nontrivial arithmetic structure, not a routine parameter substitution.",
+      "residual_risks": [
+        "No intermediate lp or mixed-modulus extension, but full dyadic family and sharp asymptotic are substantial self-contained facts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only complete squares modulo 2^k including zero/nonunits and endpoint l1/linfinity norms; no intermediate lp norms and no odd primes",
+    "Numerical offset digits are checked by finite radical calculations plus explicit mathematical tail bound; floating tests alone do not prove offsets distinct.",
+    "Stangl 1996 inaccessible full text; possible additional Fourier analysis beyond known residue counting cannot be wholly ruled out",
+    "Other treatments may call the normalized Fourier l1 norm a Lebesgue/Wiener constant or idempotent norm rather than projection norm.",
+    "No intermediate lp or mixed-modulus extension, but full dyadic family and sharp asymptotic are substantial self-contained facts."
+  ],
+  "schema_version": 1
+}
