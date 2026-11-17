@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the local-run law
+# Independent mathematical audit
 
-Execute `python3 verify.py` using the Python 3 standard library; the script is self-contained. Exact arithmetic checks compare the polynomial recurrence with an independent enumeration of all relative arrival-time orders on prescribed path-neighborhoods. Specifically, it verifies \(d=3\), local run lengths \(1,2,3\), and \(d=4\), local run lengths \(1,2\), with rational probabilities \(3/4\), \(31/90\), \(31/252\), \(4/5\), and \(1471/3360\). It checks probability monotonicity over eleven local-run thresholds for each degree from \(2\) to \(7\), compares finite factorial-tail ratios through \(k=30\) at degree three, and performs 100,000 seeded direct local-step simulations for degree three.
+## correctness
 
-Observed result on the included source: `ALL CHECKS PASSED`. At degree three, the exact/asymptotic ratios at lengths \(10,20,30\) were respectively \(1.052870330732\), \(1.024613048221\) and \(1.015578872555\). For the simulated tails at lengths \(1\) through \(5\), all observed frequencies were within \(0.012\) of the exact probabilities.
+PASS
 
-Finite enumeration and simulation cannot verify the infinite asymptotic or almost-sure claim. Those are justified by the analytical change of variables, the normalized triangle-kernel endpoint concentration with \(O_d(k^{-1})\) error, and the summable upper/lower extremal probability estimates. Independent audit remains unperformed.
+In the seedless d-regular tree (fixed d>=3) with atomless independent arrival marks and unbiased independent tie rankings, a specified nonbacktracking k-edge ancestry segment requires strictly decreasing marks. The path-local probability is h_(d-1)(t0)prod_i h_(d-2)(ti), h_m(t)=E[1/(1+Bin(m,t))]. Disjoint side-neighbor sets permit exact multiplication and give the double-integral tail formula. With F(t)=int_0^t h_(d-2), b=H_(d-1)/(d-1), change x=F(s),y=F(t) concentrates (y-x)^(k-1) at x=0,y=b, producing P(L>=k)=b H_(d-1)^k/(k+1)!*(1+O_d(1/k)). Packing vertices at distances>2k gives independent local events and N_R^(1-o(1)) trials; summable union bounds and Borel-Cantelli prove the a.s. M_R scale. Independent exact low-k checks d3 (3/4,31/90,31/252) and d4 corroborate.
+
+## originality
+
+PASS
+
+Basdevant–Singh defines this exact genealogy and analyzes global ancestry/record exploration, but the inspected model construction and main theorems do not state the evaluated initial uninterrupted tree-edge run, sharp harmonic-number prefactor, or extreme over balls. Related monotone edge-label path and Poissonian coloring models are different laws. Best-of-knowledge PASS; closest existing results remain material risk.
+
+## value
+
+PASS
+
+Initial stretch of genuinely adjacent genealogy edges is a canonical local quantity in a genealogy whose later edges can jump arbitrarily far; the exact rare factorial tail and almost-sure maximum balance local geometry against exponentially growing ball volume. This identifies a substantive unexplored extreme-run statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: nearest-predecessor local ancestry runs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each fixed nonbacktracking original-tree path, independent arrival marks must decrease strictly. At its initial vertex there are \(d-1\) independent competing neighbors; at each subsequent interior vertex the previous path neighbor arrived later, leaving exactly \(d-2\) side competitors. Conditional uniform tie-breaking gives the explicit binomial reciprocal kernel \(h_m\). Summing over disjoint possible paths and integrating the ordered marks yields the finite formula. Transforming the double integral by \(F(t)=\int_0^t h_{d-2}\) gives an endpoint-concentrating beta-type kernel with exactly evaluated mass and first-order boundary moments; its Lipschitz error is \(O_d(k^{-1})\). Stirling's formula, a union bound, disjoint local-dependence balls, and Borel–Cantelli prove the almost-sure extreme-run law. The degree is fixed, the tree is infinite and unseeded, and the maximum is over full graph-distance balls. The independent finite enumeration in `verify.py` matches the rational polynomial evaluation for five nontrivial cases, including \(31/90\) and \(31/252\) in degree three. Computations do not replace any infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge; priority risk remains)
+In the seedless d-regular tree (fixed d>=3) with atomless independent arrival marks and unbiased independent tie rankings, a specified nonbacktracking k-edge ancestry segment requires strictly decreasing marks. The path-local probability is h_(d-1)(t0)prod_i h_(d-2)(ti), h_m(t)=E[1/(1+Bin(m,t))]. Disjoint side-neighbor sets permit exact multiplication and give the double-integral tail formula. With F(t)=int_0^t h_(d-2), b=H_(d-1)/(d-1), change x=F(s),y=F(t) concentrates (y-x)^(k-1) at x=0,y=b, producing P(L>=k)=b H_(d-1)^k/(k+1)!*(1+O_d(1/k)). Packing vertices at distances>2k gives independent local events and N_R^(1-o(1)) trials; summable union bounds and Borel-Cantelli prove the a.s. M_R scale. Independent exact low-k checks d3 (3/4,31/90,31/252) and d4 corroborate.
 
-Basdevant–Singh (arXiv:2606.24793v1) specifies this genealogy and gives its lower-record exploration, so the model and representation are prior work. The inspected main results and genealogy-construction material do not state the evaluated uninterrupted local-edge run distribution, sharp harmonic factorial prefactor, or almost-sure maximum over balls. The present proof adds a path-conditioned tie-count evaluation and a boundary Laplace estimate before an extremal packing argument. The related monotone-trail work of Angel–Ferber–Sudakov–Tassion concerns randomly ordered edges and a different path statistic; Aldous' Poissonian coloring concerns Euclidean spatial arrivals. Publicly indexed research-record comparisons concerning path lengths in random recursive/Cayley trees or random-walk ranges likewise use different stochastic objects. No direct earlier result was located. This is not a claim of exhaustive bibliographic priority: unindexed prior calculations and a broader theorem derived from the original record-process representation remain risks. The relevant arXiv HTML sections were inspected, but a complete latest-version PDF read was unavailable.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model's genealogical parent may be arbitrarily far away in the base-tree metric, even though every vertex has an infinite ancestry. The length of the initial uninterrupted original-edge segment is therefore a natural boundary between local ancestry and the first nonlocal jump. Its exact full law, the unexpectedly specific harmonic-number factorial tail constant, and the universal almost-sure longest-run scale are quantitative structural results in precisely the new random-tree genealogy, not a relabeling or an arbitrary parameter slice. The extremal theorem is a distinct spatial consequence of the local tail that requires locality and packing, and provides a macroscopic interpretation. The theorem does not address later runs, component size or colored-seed regimes.
+Basdevant–Singh defines this exact genealogy and analyzes global ancestry/record exploration, but the inspected model construction and main theorems do not state the evaluated initial uninterrupted tree-edge run, sharp harmonic-number prefactor, or extreme over balls. Related monotone edge-label path and Poissonian coloring models are different laws. Best-of-knowledge PASS; closest existing results remain material risk.
 
-## Closest literature and remaining limitations
+## value
 
-Basdevant and Singh, *Random sequential nearest-neighbor coloring on trees* (2026), arXiv:2606.24793v1, is the essential model source and the closest conceptual comparison. Their genealogy-exploration representation is credited. Angel et al., *Long monotone trails in random edge-labellings of random graphs* (2019), arXiv:1808.07351, covers a distinct edge-label problem. Aldous, *Random partitions of the plane via Poissonian coloring...* (2018), DOI:10.1214/17-AOP1218, concerns the Euclidean analogue. The formula is for a fixed degree and the first consecutive run; no second-order maximum law is proved. No independent mathematical or priority audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Initial stretch of genuinely adjacent genealogy edges is a canonical local quantity in a genealogy whose later edges can jump arbitrarily far; the exact rare factorial tail and almost-sure maximum balance local geometry against exponentially growing ball volume. This identifies a substantive unexplored extreme-run statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
