@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-`verify.py` is a standalone Python 3 program requiring only the standard library. Run `python3 verify.py` from a directory containing the extracted file. Its expected terminal output is:
+## correctness
 
-```
-PASS profiles 516 all_permutation_pairs 4368 position_profiles 2896 random_large_profiles 1440
-```
+PASS
 
-The program enumerates all distinct independent run permutations for \(516\) multisets of positive lengths at most \(4\) with \(1\le k\le3\), giving \(4{,}368\) arrangement pairs. It checks every cyclic factor length \(1\) through the entire period. The occurrence-span routine checks its direct positional condition on \(2{,}896\) profiles. With fixed random seed `301128`, a further \(1{,}440\) larger profiles with \(4\le k\le9\) are checked against the direct window maxima and the positional condition. The code's period-doubled cyclic-window search is independent of the proof's multiset-window argument. The same file was executed before and after extracting it from the saved package.
+For every cyclic length-h run segment, decomposition into complete cycles and a remainder bounds one-run sums by the h largest and zero-run sums by the h smallest. Thus the first t ones of the sorted word occupy a no-longer span than t consecutive ones of any competing word. Every factor is dominated at every length, and the canonical prefix attains equality. An independent enumerator checked all cyclic windows in 819 small arrangement cases; no inference from finite to infinite was used.
 
-These comparisons are finite and do not certify the theorem for all parameters. The complete universal proof is the multiset-window lemma followed by span dominance and the factor-to-prefix implication in `RESULT.md`. The strict length-five example was also checked directly. No external or independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: fixed-word jumbled indexing, infinite prefix-normal forms and the 4-run rotation characterization do not compare all independently permuted run multisets or give one simultaneous global maximizer at every length. Primary full article Cicalese et al and OA RLE analysis inspected. Hidden equivalent sorting or majorization lemma is residual risk.
+
+## value
+
+PASS
+
+PASS: The run-multiset global optimum gives an exact upper jumbled-count envelope simultaneously for every factor length, an explicitly motivated invariant in compressed word indexing and prefix normal forms. This is an independently useful structural rearrangement theorem, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
