@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Smoothness follows from \(f'=x^4(x^5-a)\), giving exactly the excluded \(a=\pm1\). Explicit Hasse coefficient matrix has determinant \(-a^2\), rank four for \(a\ne0\), and square-zero semilinear matrix of rank two at \(a=0\). Two tame genus-two involution quotients give a degree-16 isogeny, proving that the 3-rank-zero genus-four Jacobian is supersingular and not superspecial. Standalone exact finite-field programs checked algebraic identities and exhaustive coefficient counts for \(q=3,9,27\); infinite claims rest on the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Shaska's characteristic-zero hyperelliptic normal-form discussion, Moonen's special-cover classification, and Li–Mantovan–Pries–Tang's special-family Newton tables do not state or imply this whole coefficientwise characteristic-three stratification. The 2020 genus-four existence paper does explicitly recognize the exceptional supersingular curve up to isomorphism; the claim therefore does not assert new existence at \(a=0\). Comparison of the actual degree-five inertia lists and exact families shows the other sources do not contain the complete rank-divisor/isogeny statement. Targeted mathematical-record searches found no direct equivalent; the possibility of uncatalogued older coverage remains.
+PASS
 
-**Mathematical value — PASS.** This is a complete intrinsic Newton and Hasse boundary of a natural genus-four family with order-five and inversion symmetry, not an arbitrary parameter slice. The four-dimensional 3-rank jumps directly from four to zero at a single smooth member, while the nonordinary Hasse determinant has multiplicity two on the marked line and becomes simple under the evident quotient involution. The degree-16 decomposition into two genus-two Jacobians explains the otherwise nontrivial supersingularity conclusion in genus four. The exact boundary and its multiplicity make this a reusable example of interactions between symmetry, Hasse divisors, and the Torelli locus.
+Squarefreeness follows from f’=x⁴(x⁵−a): the only repeated-root condition is a²=1. In basis x^{j-1}dx/y, coefficient extraction [x^{3i−j}]f yields H with nonzero entries 1,a,a,1 at (1,3),(2,1),(3,4),(4,2), det=-a². For a≠0 H invertible and the Jacobian ordinary. At a=0 its rank is2 and H H^(3)=0, so p-rank0 and a-number2. Two explicit tame involutions have genus2 quotients; their Jacobians split up to degree16 prime-to-3 isogeny, and each genus2 factor with p-rank0 has only slopes1/2, so the original has eight 1/2 slopes. Independently reconstructed H and determinant and verified its square at zero. Marked-coordinate divisor multiplicity 2, quotient u=a² multiplicity 1; no full coarse-moduli assertion.
 
-**Primary literature and risks.** Shaska 2003, Moonen 2010, Li–Mantovan–Pries–Tang 2018, and Kudo–Harashita–Senda 2020 were inspected in accessible full text to the relevant sections/tables. The normal-form computation is standard; specialist literature may contain the exact one-parameter stratification. No independent review or external certification has been obtained.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cavalieri–Pries §7 explicitly identifies the SAME hyperelliptic pencil via coefficient a=2−4t, credits its two genus-two quotient decomposition to Rie97, and states the Yui Cartier-coefficient recipe for this exact family; these premises and the supersingular existence of a=0 receive NO originality credit. Crucially their Lemma7.4 requires p≡±1 mod d, whereas p=3,d=5 is neither, and Remark7.5 states an extension conjecturally and Remark7.6 says shared hypergeometric roots remain to be determined. The exact p=3 a-dependent ordinary/supersingular dichotomy and doubled Hasse locus were not stated in the inspected prior primary work; best-of-knowledge originality is restricted to this finite-characteristic exact sharp stratum and multiplicity. A specialized p3 algebraic substitution is an acknowledged substantive priority/value risk.
+
+## value
+
+PASS
+
+The full marked one-parameter Newton-polygon stratification for a natural dihedral genus-four family is an exact useful degeneration boundary. Identifying the doubled Hasse determinant, the quotient-normalized simple equation, and a supersingular but not superspecial special fiber provides more than a single existence example, although the fixed-family calculation is narrow. The result is useful in identifying which members of the known special family are ordinary; it is not credited with the quotient isogeny itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
