@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is all integers \(n=6m\ge12\), symmetric nonnegative stochastic matrices supported on holding and distances one, two, and three. Rotational averaging is valid for the convex centered operator norm, reducing global optimization to a degree-three discrete cosine minimax problem. The two exact factorizations of the proposed spectrum prove the upper envelope on every allowed Fourier node, including both transition boundaries at \(\pm 1/2\). Four alternating nodes give the matching lower bound by Lagrange interpolation, and fix the unique shift-invariant optimum. The spectrum's endpoint bounds and positive, normalized stochastic probabilities are checked explicitly. The attached double-precision diagnostic verifier reproduces 121,600 spectral inequalities, 243,200 factor comparisons and 9,144 finite-matrix/Fourier comparisons, but the universal proof is symbolic and does not depend on sampling.
+## correctness
 
-## Originality — PASS on inspected evidence
-Boyd–Diaconis–Xiao (2004) provides the general fastest-mixing framework and the ordinary-cycle calculation; Boyd–Diaconis–Parrilo–Xiao (2007) gives symmetry reductions. Bénézit (2009), thesis §4.2.3, formulates discrete finite-band circulant minimax design but treats range-three designs by continuous relaxation and near-optimal Remez approximations rather than the exact sixfold discrete four-node solution here. The prior degree-two cycle-power classification is a quadratic three-alternation problem, not an implication of this cubic four-alternation classification. Semantic research-record queries for third-power cycles, three-hop ring mixing and equioscillation yielded no mathematically dominating statement. Residual risk: specialist exact range-three ring designs outside these inspected materials may exist; no independent publication-priority determination is claimed.
+PASS
 
-## Mathematical value — PASS
-For every natural sixfold cycle length, the result provides an exact global fastest-mixing value and explicit feasible optimizer, reveals the equality of holding and two shorter-hop probabilities, and proves a ninefold improvement of the leading spectral-gap constant over optimized nearest-neighbor mixing. The sixfold constraint is motivated by the exact occurrence of four alternating Fourier modes, not an arbitrary single numerical slice. Non-sixfold lengths and unrestricted optimizer uniqueness remain open here.
+For n=6m>=12 symmetry averaging reduces any feasible symmetric stochastic kernel to a circulant polynomial p(x) in x=cos(2pi j/n) of degree <=3 with p(1)=1. Proposed holding and step1/2 weights a=A/H, step3 b=c/H, A=(1-c)(1+2c), H=2c+5A. Direct independent symbolic expansion confirms p(x)+t=4b(x+1)(2x-1)(x-c+1/(2c)) and p(x)-t=4b(2x+1)(x-c)(x+1/(2c)), t=2b-a. The cited elementary trigonometric node inequalities place ALL discrete modes within [-t,t]. Four actual Fourier nodes c,1/2,-1/2,-1 equioscillate +t,-t,+t,-t, and the Lagrange interpolation signs at 1 force max|q| >= t for every cubic with q(1)=1; equality uniquely identifies invariant polynomial. The 1-t=6a Taylor expansion yields 18pi²/n². Independent full-matrix Fourier eigenvalue checks for n=12,18,30,60,102 agree to numerical precision. Non-invariant uniqueness is NOT asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Exact discrete degree-three four-node equioscillation on n divisible by six is distinct from published all-length radius-two quadratic solution and generic SDP/symmetry reduction. Best-of-knowledge priority risk remains for Bénézit thesis and specialized finite impulse-response consensus filter literature.
+
+## value
+
+PASS
+
+Natural exact symmetric Markov optimization on a widely studied radius-three cycle-power family. Explicit transition weights, globally sharp SLEM against all non-invariant kernels, unique invariant optimizer and ninefold leading spectral-gap factor supply a reusable exact benchmark beyond the radius-two case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

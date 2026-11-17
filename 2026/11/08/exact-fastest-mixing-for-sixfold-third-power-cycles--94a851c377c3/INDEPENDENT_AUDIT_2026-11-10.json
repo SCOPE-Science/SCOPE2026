@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T23:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=6m>=12 symmetry averaging reduces any feasible symmetric stochastic kernel to a circulant polynomial p(x) in x=cos(2pi j/n) of degree <=3 with p(1)=1. Proposed holding and step1/2 weights a=A/H, step3 b=c/H, A=(1-c)(1+2c), H=2c+5A. Direct independent symbolic expansion confirms p(x)+t=4b(x+1)(2x-1)(x-c+1/(2c)) and p(x)-t=4b(2x+1)(x-c)(x+1/(2c)), t=2b-a. The cited elementary trigonometric node inequalities place ALL discrete modes within [-t,t]. Four actual Fourier nodes c,1/2,-1/2,-1 equioscillate +t,-t,+t,-t, and the Lagrange interpolation signs at 1 force max|q| >= t for every cubic with q(1)=1; equality uniquely identifies invariant polynomial. The 1-t=6a Taylor expansion yields 18pi²/n². Independent full-matrix Fourier eigenvalue checks for n=12,18,30,60,102 agree to numerical precision. Non-invariant uniqueness is NOT asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd establishes convex SDP and averaging; prior radius-two polynomial degree two lacks the additional degree-three freedom and four alternating nodes."
+        ],
+        "reasoning": "No inspected accessible source supplies a stronger explicit theorem covering C_n³ n≡0 mod6; uninspected thesis remains a priority risk.",
+        "searches": [
+          "Boyd Diaconis Parrilo Xiao fastest mixing with symmetries arXiv 0709.0955",
+          "Resultary exact fastest mixing on second power of every finite cycle",
+          "Bénézit thesis §4.2.3 discrete cosine minimax"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Nov2 C_n² theorem summary",
+        "Boyd et al 2007/2009 accessible bibliographic text",
+        "Bénézit 2009 thesis cited §4.2.3, text not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new four Fourier contacts (angles 2pi/n, pi/3,2pi/3,pi) and exact weight relation 5a+2b=1 require a degree-three analysis absent from radius-two theorem."
+        ],
+        "reasoning": "General SDP and lower-radius special cases do not logically state this degree-three exact optimum; cautious because thesis may have a more general exact formula.",
+        "searches": [
+          "Resultary exact fastest symmetric mixing two-hop cyclic networks",
+          "arXiv:0709.0955 general SDP",
+          "Bénézit range-k Remez near-optimal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent to minimizing the discrete Fourier supnorm of a degree-3 Chebyshev polynomial on the n-cycle nonconstant grid, subject to nonnegative Markov coefficients."
+        ],
+        "reasoning": "General filter design is a formulation, not necessarily the same exact optimum and proof; thesis full text not obtained.",
+        "searches": [
+          "fastest mixing Markov chain third power cycle n divisible by six exact range three four equioscillation",
+          "Bénézit discrete cosine minimax range k circulant filters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches current title and radius-two prior, but no separate exact C_n³ formula in the examined search results."
+        ],
+        "reasoning": "A numerical SDP or Chebyshev grid table does not itself constitute a proof of the exact all-n cubic weights.",
+        "searches": [
+          "Resultary: fastest mixing cycle C_n third power radius 3 optimal symmetric Markov",
+          "C_n^3 fastest mixing exact weights sixfold"
+        ]
+      },
+      "rationale": "Exact discrete degree-three four-node equioscillation on n divisible by six is distinct from published all-length radius-two quadratic solution and generic SDP/symmetry reduction. Best-of-knowledge priority risk remains for Bénézit thesis and specialized finite impulse-response consensus filter literature.",
+      "residual_risks": [
+        "Bénézit 2009 thesis §4.2.3 full text not inspected, possible discrete exact Remez equivalence.",
+        "Other network-consensus fastest FIR filter formulas may include this discrete special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SUPPORT_RADIUS",
+          "evidence": [
+            "Quadratic (range-two) cosine minimax over C_n² and three equioscillation nodes; does not cover degree-three C_n³ with four nodes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba",
+          "material_read": "Published Resultary title, full claim summary and mathematical parameters from semantic results; full RESULT.md not inspected here",
+          "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+          "title": "Exact fastest mixing on the second power of every finite cycle",
+          "trigger": "Closest prior cycle-power all-order solution"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_IDENTICAL",
+          "evidence": [
+            "Group averaging and semidefinite formulations do not themselves evaluate degree-three discrete Fourier polynomial minimax for n divisible by six."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Abstract and accessible source description, not full paper read in this run",
+          "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "General reduction to automorphism orbit weights"
+        },
+        {
+          "assessment": "MATERIAL_UNREAD_PRIORITY_RISK",
+          "evidence": [
+            "Range-k cosine minimax and Remez near-optimal coefficients reportedly discussed; cannot rule out same discrete exact cubic specialization without full text."
+          ],
+          "identifier_or_url": "https://infoscience.epfl.ch/bitstreams/37436696-5172-4327-af58-7251826e769c/download",
+          "material_read": "Search result and citation to thesis §4.2.3 only; full thesis text not obtained in this run",
+          "method": "Search bibliographic/section information; do not infer full-text absence",
+          "title": "Distributed Average Consensus for Wireless Sensor Networks (Bénézit thesis)",
+          "trigger": "Plausible closest analytic cycle-k minimax source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural exact symmetric Markov optimization on a widely studied radius-three cycle-power family. Explicit transition weights, globally sharp SLEM against all non-invariant kernels, unique invariant optimizer and ninefold leading spectral-gap factor supply a reusable exact benchmark beyond the radius-two case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary Nov2 C_n² theorem summary",
+    "Boyd et al 2007/2009 accessible bibliographic text",
+    "Bénézit 2009 thesis cited §4.2.3, text not read"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only n multiple of six >=12; uniqueness for invariant circulants only.",
+    "Benezit thesis PDF not independently read."
+  ],
+  "residual_risks": [
+    "Bénézit 2009 thesis §4.2.3 full text not inspected, possible discrete exact Remez equivalence.",
+    "Other network-consensus fastest FIR filter formulas may include this discrete special case."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_SUPPORT_RADIUS",
+      "evidence": [
+        "Quadratic (range-two) cosine minimax over C_n² and three equioscillation nodes; does not cover degree-three C_n³ with four nodes."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba",
+      "material_read": "Published Resultary title, full claim summary and mathematical parameters from semantic results; full RESULT.md not inspected here",
+      "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+      "title": "Exact fastest mixing on the second power of every finite cycle",
+      "trigger": "Closest prior cycle-power all-order solution"
+    },
+    {
+      "assessment": "GENERAL_FRAMEWORK_NOT_IDENTICAL",
+      "evidence": [
+        "Group averaging and semidefinite formulations do not themselves evaluate degree-three discrete Fourier polynomial minimax for n divisible by six."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+      "material_read": "Abstract and accessible source description, not full paper read in this run",
+      "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+      "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+      "trigger": "General reduction to automorphism orbit weights"
+    },
+    {
+      "assessment": "MATERIAL_UNREAD_PRIORITY_RISK",
+      "evidence": [
+        "Range-k cosine minimax and Remez near-optimal coefficients reportedly discussed; cannot rule out same discrete exact cubic specialization without full text."
+      ],
+      "identifier_or_url": "https://infoscience.epfl.ch/bitstreams/37436696-5172-4327-af58-7251826e769c/download",
+      "material_read": "Search result and citation to thesis §4.2.3 only; full thesis text not obtained in this run",
+      "method": "Search bibliographic/section information; do not infer full-text absence",
+      "title": "Distributed Average Consensus for Wireless Sensor Networks (Bénézit thesis)",
+      "trigger": "Plausible closest analytic cycle-k minimax source"
+    }
+  ]
+}

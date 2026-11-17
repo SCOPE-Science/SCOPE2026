@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_cubic_cycle.py` with a standard Python 3 interpreter. A complete successful replay prints `VERIFY_OK spectral_checks=121600 factor_checks=243200 matrix_fourier_checks=9144`. The verifier uses ordinary floating-point Fourier evaluations with stated numerical tolerances, not certified interval bounds; it compares both factorizations, all discrete Fourier nodes on 200 sixfold cycle sizes, and finite matrices on seven sizes. The algebraic Lagrange-interpolation extremal certificate and the trigonometric node separations in `RESULT.md` constitute the proof for every eligible size; finite replay is not an exhaustive size proof.
+## correctness
 
-The result assumes finite real symmetric row-stochastic matrices, self-holding and three circular jump classes on cycles of size \(n\ge12\) with \(6\mid n\). It does not establish unique arbitrary non-circulant optimizers, classifications for other congruence classes or mixing-time constants. Publication priority may depend on specialist sources not located in the inspected literature.
+PASS
+
+For n=6m>=12 symmetry averaging reduces any feasible symmetric stochastic kernel to a circulant polynomial p(x) in x=cos(2pi j/n) of degree <=3 with p(1)=1. Proposed holding and step1/2 weights a=A/H, step3 b=c/H, A=(1-c)(1+2c), H=2c+5A. Direct independent symbolic expansion confirms p(x)+t=4b(x+1)(2x-1)(x-c+1/(2c)) and p(x)-t=4b(2x+1)(x-c)(x+1/(2c)), t=2b-a. The cited elementary trigonometric node inequalities place ALL discrete modes within [-t,t]. Four actual Fourier nodes c,1/2,-1/2,-1 equioscillate +t,-t,+t,-t, and the Lagrange interpolation signs at 1 force max|q| >= t for every cubic with q(1)=1; equality uniquely identifies invariant polynomial. The 1-t=6a Taylor expansion yields 18pi²/n². Independent full-matrix Fourier eigenvalue checks for n=12,18,30,60,102 agree to numerical precision. Non-invariant uniqueness is NOT asserted.
+
+## originality
+
+PASS
+
+Exact discrete degree-three four-node equioscillation on n divisible by six is distinct from published all-length radius-two quadratic solution and generic SDP/symmetry reduction. Best-of-knowledge priority risk remains for Bénézit thesis and specialized finite impulse-response consensus filter literature.
+
+## value
+
+PASS
+
+Natural exact symmetric Markov optimization on a widely studied radius-three cycle-power family. Explicit transition weights, globally sharp SLEM against all non-invariant kernels, unique invariant optimizer and ninefold leading spectral-gap factor supply a reusable exact benchmark beyond the radius-two case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
