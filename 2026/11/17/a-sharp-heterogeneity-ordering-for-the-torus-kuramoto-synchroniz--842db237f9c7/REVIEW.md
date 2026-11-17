@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The theorem specifies integer dimension at least three, positive rates, fixed-sum majorization, and the exact reduced ODE. The scalar product reduction gives the unique nondegenerate saddle-node, while a rank-one symmetric similarity establishes its stability interpretation. Strict Schur derivative signs follow from the equilibrium sum rule and positive rates. Both extremal cases and second-order coefficients are derived. The supplied checker independently recomputes 1,400 finite examples and perturbative limits; the universal proof is analytic.
+
+**Originality (O): PASS within accessible evidence.** The source by Novaes (arXiv:2605.01021) gives the equations and saddle-node characterization, and the two-dimensional square-root formula. Those known ingredients are excluded from the novelty claim. Its inspected mean-field and special-case sections do not give a global majorization comparison for arbitrary positive unequal widths, much less the simultaneous ordering of the threshold and critical coherence product or the sharp common variance coefficient. Targeted public literature and indexed research-claim searches found no equivalent or dominating statement for this exact product-coupled torus model. A pre-existing result in an unindexed or differently named cooperative-product system cannot be excluded.
+
+**Mathematical value (V): PASS.** The theorem answers a natural fixed-budget robustness question for a recently introduced first-order synchronization transition. It proves an all-dimension sharp comparison principle, identifies the extremal allocation and a dimension-dependent limiting factor, and shows the opposing coherence-jump cost with a precise quadratic coefficient. These are structural dynamical consequences, not an arbitrary numerical slice or a restatement of a bifurcation location.
+
+Theoretical limits: this is a deterministic, factorized reduced mean-field model, not a general microscopic synchronization or basin theorem. The lower boundaries are limiting, not attained for positive rates. Historical mathematical priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
