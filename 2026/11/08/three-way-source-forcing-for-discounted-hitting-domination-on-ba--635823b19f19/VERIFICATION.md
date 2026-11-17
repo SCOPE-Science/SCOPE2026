@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and no external packages. The script uses `fractions.Fraction` for every numerical operation and solves the *uncompressed vertex-level* discounted hitting system by exact Gaussian elimination, independently of the multipartite reduction.
+## correctness
 
-The replay produced:
+PASS
 
-```
-INDEPENDENT_COMPLETE_POLYNOMIALS_OK 27
-SHARP_THREE_WAY_PHASE_OK 162 exact independent vertex-level solves
-SHARP_m_EQUALS_3_BOUNDARY_OK
-VERIFY_OK
-```
+Derived the unique first-hit equilibrium by part profile with B=(sum s_i(1-a_i))/(1-sum a_i), a_i=lambda u_i/(d_i+lambda u_i); sum a_i<1. Exhaustive three-source types (111),(210),(300), strict positive rational gaps and source inclusion monotonicity establish all m>=4 and all real 0<lambda<1, not just finite tests. Independently checked 21 rational (m,lambda) triples against the exact profile equations and reproduced m=4,lambda=1/2 values. m=3 source-all-in-one-part boundary is correctly excluded.
 
-It exhaustively enumerates all labelled source subsets for nine small complete multipartite part-size lists at three rational discount/threshold pairs, checking 27 complete cardinality polynomials. It also tests all three three-source orbit types on balanced tripartite graphs for nine part sizes and six discount values, along with both rational-difference identities and the sharp part-size-three obstruction. These checks do not replace the all-parameter proof and do not constitute an independent mathematical audit. Parameters remain unrestricted in the proof: integer \(m\ge4\), real \(0<\lambda<1\), and every real threshold in the stated interval.
+## originality
+
+PASS
+
+PASS, best-of-knowledge: the exact balanced three-part minimum-source forcing interval and full multipartite profile enumerator are not statements or immediate specializations of the inspected general discounted-hitting, complete-graph, spider, or bipartite theorems. General hitting potentials/monotonicity are preexisting.
+
+## value
+
+PASS
+
+A natural source-placement problem has a sharp forcing-of-all-three-parts phase and full exact source-set census; strict rational boundaries are not routine evaluation of a fixed set and can inform robust minimum-source placement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
