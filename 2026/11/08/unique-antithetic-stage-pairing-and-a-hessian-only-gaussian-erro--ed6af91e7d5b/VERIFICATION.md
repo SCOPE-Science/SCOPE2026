@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package. It requires Python 3 and only standard-library modules (`fractions`, `math`, `random`). The script checks coefficients of rational polynomial expansions for two-step stage maps, exact uniform moments, and the sine benchmark by numerical quadrature and a seeded Monte Carlo diagnostic.
+## correctness
 
-These finite checks corroborate the local algebra and normalization, but are not an exhaustive proof over arbitrary stage couplings, arbitrary smooth vector fields, or asymptotic limits. The proof in `RESULT.md` establishes the global pathwise bound, Lindeberg condition, covariance normalization, and uniqueness on a scalar linear test. Any reimplementation should use \(h=T/(2n)\) and exact antithetic pairing \(V=1-U\) within each pair. Scientific precedence requires independent specialist verification.
+PASS
+
+Independently expanded composed explicit RK maps through h^3 on quadratic scalar vector fields, checking h²(1+u+v)Df f and pair defect h³[-A/3+((1-u)^2-1/3)H]. Uniform centered-stage variance is 4/45. Discrete Gronwall gives the pair-endpoint O(h²) bound; linearized variation of constants leaves uniform O(h³) propagated remainder, and independent-pair bounded triangular-array CLT gives covariance 2/45 integral. Linear f(x)=x logarithmic multiplier has leading random term h²(U+V-1) and asymptotic variance (T/2)e^(2T)y0² Var(U+V); Var=0 forces V=1-U. Independently quadrature-checked sine benchmark bias -0.01059210684879069 and variance 0.01687697607142204.
+
+## originality
+
+PASS
+
+Antithetic stages previously occur in scalar mean-square stability analysis, but that does not imply pathwise second-order convergence, uniqueness among all couplings for all vector fields, nor the bias-corrected Gaussian Hessian law. Published randomized RK error papers use different independent stage conventions or less regular time settings.
+
+## value
+
+PASS
+
+Unique optimal dependence structure at no additional function evaluations, sharp global deterministic order restoration and explicit stochastic residual-error covariance for nonlinear ODEs, with practical bias and uncertainty quantification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
