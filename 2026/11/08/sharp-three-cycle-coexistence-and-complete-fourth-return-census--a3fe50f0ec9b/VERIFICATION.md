@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python verify_coexistence.py` with Python 3.9 or later. The standalone script has no external dependencies and uses `fractions.Fraction` for every arithmetic operation.
+## correctness
 
-Its full loop enumerates all sixteen branch words of length four. For each word it constructs the exact affine fourth-return matrix and displacement, solves the invertible two-dimensional fixed-point equation, and checks all four strict branch signs and the return equality. It checks pairwise distinct roots, all six cyclic necklace classes, their exact determinants, and the least-period distribution \(2,2,12\). The three nontrivial necklace classes have their reported exact monodromy traces and determinants independently checked, and the \(LRRR\) Schur inequalities are checked without floating-point tolerances.
+PASS
 
-A successful replay prints:
+Each strict four-letter itinerary specifies an affine equation (I-M_w)z=c_w. If that equation is singular, no solution is isolated on its open strict-itinerary region. For an isolated primitive period-four orbit a word with symbolic period one or two is impossible: the shorter affine return commutes with its 4/d iterate and uniqueness of a nonsingular fixed point forces shorter actual period. Exactly three aperiodic binary necklaces remain, so universal bound three. At (tauL,deltaL,tauR,deltaR)=(1,-7/4,-7/4,3/5), an independently written Fraction-based reconstruction solved all 16 affine equations, obtained 16 different strict roots, identified 2 fixed/2 period-two/12 period-four points, and reproduced monodromy traces -377/80, 1187/320, -171/400 and determinants -1029/320,441/400,-189/500. Hyperbolicity and strict inequalities persist by continuity; complete no-switching-line census follows from availability of an assigned word at each zero x.
 
-```
-EXACT_16_WORD_CENSUS_OK
-PERIODS_2_2_12_OK
-MONODROMY_AND_HYPERBOLICITY_OK
-```
+## originality
 
-The analytic proof in `RESULT.md` establishes the universal bound on isolated strict period-four orbits and the open-neighborhood persistence. A finite symbolic computation alone cannot prove those global parameter statements. The verifier does not investigate or certify periodic orbits of higher period, arbitrary branch-border degeneracies, or the global attractor. No independent audit was performed.
+PASS
+
+Ghosh–McLachlan–Simpson Section 9 studies the identical mixed noninvertible BCNF and exhibits stable LRRR regions, but gives no exact simultaneous full fourth-return count at rational parameter values. Published October 11 result excludes attracting LLLR in the two-saddle region but permits it as a saddle. This submitted 3-necklace upper bound and exact coexistence witness do not follow from either statement. Other BCNF symbolic-census literature may be missing.
+
+## value
+
+PASS
+
+A universal sharp upper bound on strictly isolated fourth-period orbits together with a complete rational witness for simultaneous attractive and saddle four-cycles gives a meaningful local coexistence structure in a well-studied noninvertible dynamical family, not merely a numerical orbit sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

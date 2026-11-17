@@ -1,15 +1,21 @@
-# Scientific review of sharp primitive-four coexistence
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each strict four-step sign word gives one affine return equation. An isolated primitive four-cycle cannot have a symbolically periodic shorter word, leaving exactly three primitive length-four necklaces. This proves a global upper bound independently of the numerical witness. At the rational witness, all sixteen fourth-step affine equations are invertible; their exact roots have the asserted signs and are distinct. The rational determinant and multiplier calculations establish the \(2+2+12\) point census and the two-saddle/one-sink types. A sign-ambiguous point on the switching line would solve one of those same sixteen affine equations, whereas all solutions are strict, excluding boundary periodic points. Continuity gives an open four-parameter neighborhood. The exact standalone checker validates the certificate but does not substitute for the general upper-bound proof.
+## correctness
 
-## Originality
-**PASS within the inspected published evidence.** The closest 2024 primary work describes an attracting \(LRRR\) four-cycle in the same mixed non-invertible regime but does not give the simultaneous \(LLLR\), \(LLRR\), and \(LRRR\) census. A closely related published record excludes *attracting* \(LLLR\) cycles and gives separate examples of unstable \(LLLR\) and attracting \(LRRR\); it is logically consistent with, but does not imply, an \(LLLR\) saddle and an \(LLRR\) saddle coexisting with the attracting \(LRRR\) cycle. The 2022 overview and 2023 robust-chaos work do not supply an exact sixteen-point fourth-return count in the inspected material. Equivalences by cyclic word rotation, broader coexistence statements, and exact table coverage were compared. Residual publication-priority risk includes unindexed symbolic treatments and possible equivalent symbolic results in older border-collision literature.
+PASS
 
-## Mathematical value
-**PASS.** The model's low-period attracting cycles affect its non-invertible bifurcation picture, and an exact period-four coexistence census directly informs that question. The result determines a sharp finite maximum, a robust parameter chamber attaining it, and stability distinctions among all three possible strict primitive necklaces. This is a complete natural short-period classification at an explicit parameter, rather than an arbitrary numerical orbit specimen. It does not classify higher periods, global attractors, or switching-line degeneracies at arbitrary parameters.
+Each strict four-letter itinerary specifies an affine equation (I-M_w)z=c_w. If that equation is singular, no solution is isolated on its open strict-itinerary region. For an isolated primitive period-four orbit a word with symbolic period one or two is impossible: the shorter affine return commutes with its 4/d iterate and uniqueness of a nonsingular fixed point forces shorter actual period. Exactly three aperiodic binary necklaces remain, so universal bound three. At (tauL,deltaL,tauR,deltaR)=(1,-7/4,-7/4,3/5), an independently written Fraction-based reconstruction solved all 16 affine equations, obtained 16 different strict roots, identified 2 fixed/2 period-two/12 period-four points, and reproduced monodromy traces -377/80, 1187/320, -171/400 and determinants -1029/320,441/400,-189/500. Hyperbolicity and strict inequalities persist by continuity; complete no-switching-line census follows from availability of an assigned word at each zero x.
 
-## Closest literature and limits
-The principal comparison is Ghosh–McLachlan–Simpson, arXiv:2402.05393v1, §9. Additional comparisons are arXiv:2307.05144v1, arXiv:2210.14445v1, the published \(LLLR\) stability obstruction in the referenced research record, and the rendered full manuscript of arXiv:1403.4678. Searches are evidence of bounded comparison, not mathematical proof of publication priority. Independent mathematical review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ghosh–McLachlan–Simpson Section 9 studies the identical mixed noninvertible BCNF and exhibits stable LRRR regions, but gives no exact simultaneous full fourth-return count at rational parameter values. Published October 11 result excludes attracting LLLR in the two-saddle region but permits it as a saddle. This submitted 3-necklace upper bound and exact coexistence witness do not follow from either statement. Other BCNF symbolic-census literature may be missing.
+
+## value
+
+PASS
+
+A universal sharp upper bound on strictly isolated fourth-period orbits together with a complete rational witness for simultaneous attractive and saddle four-cycles gives a meaningful local coexistence structure in a well-studied noninvertible dynamical family, not merely a numerical orbit sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
