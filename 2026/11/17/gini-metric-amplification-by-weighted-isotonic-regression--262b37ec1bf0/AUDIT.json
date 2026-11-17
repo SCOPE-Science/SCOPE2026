@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Classical weighted PAV yields a continuous finite piecewise-linear map with locally attainable block-averaging derivatives. A finite coarea identity gives the exact cut formula. Row-stochasticity bounds every binary cut output in the unit cube, whose sharp Gini diameter is floor(n^2/4). A dominant-mass block gives the matching limit; finite-mass strictness follows from separate singleton versus non-singleton cut bounds. Double stochasticity proves equal-mass contraction. For n=4, size-two cuts are never amplifying and singleton cuts reduce to a pooled block of size 1, 2, 3 or 4; only adjacent two-blocks can amplify, proving the ratio-three criterion. Standard-library exact rational checks across all branch partitions and cuts in selected dimensions confirm relevant formulas; they are not used to prove unrestricted quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang-Barber 2017 unweighted isotonic projection norm-contraction characterization does not include the weighted objective.",
+        "published-finding corpus 2026/11/2/cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803 concerns edge-total-variation of cycle Hasse cover graphs; the edge set and seminorm differ.",
+        "published-finding corpus 2026/10/11/sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62 concerns unweighted isotonic regression in coordinate ell-p norms, not positive-mass weighted regression under Gini dispersion."
+      ],
+      "reasoning": "An extension to arbitrary partial orders in coordinate ell-p does not dominate the positive-mass, Gini-quotient claim. Results for weighted cover-edge variation compare a different graph and different metric, so implication would require a missing comparison theorem. No source states the arbitrary-mass complete-pair norm.",
+      "searches": [
+        "isotonic regression contraction property any seminorm pairwise absolute differences weighted projection",
+        "isotonic regression nonexpansive norm symmetric convex functions projection isotonic general Lipschitz",
+        "weighted isotonic regression Gini seminorm sharp Lipschitz amplification dimension n weight concentration",
+        "weighted isotonic projection pairwise absolute differences dimension growth norm"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s10957-008-9477-0",
+      "arxiv:1211.3930",
+      "arxiv:1503.08458",
+      "arxiv:1706.01852",
+      "doi:10.18637/jss.v032.i05",
+      "published-finding corpus:2026/11/2/cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803",
+      "published-finding corpus:2026/10/11/sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Németh and Németh, arxiv:1503.08458, proves coordinatewise monotonicity of weighted regression projection, which is not a quantitative Lipschitz inequality in Gini variation.",
+        "Guyader and colleagues, arxiv:1211.3930, study iterative unweighted isotone-antitone decompositions of bounded-variation regression functions, not a sharp two-input complete-pair Gini norm.",
+        "Yang and Barber, arxiv:1706.01852, includes the symmetric-seminorm contraction of unweighted isotonic projection, so the equal-mass observation is explicitly marked known."
+      ],
+      "reasoning": "Coordinatewise order preservation plus translation invariance implies basic range preservation but does not imply nonexpansivity under a complete-pair dispersion metric (the explicit four-point masses (4,1,1,1) give strict amplification 16/15). The older papers supply ingredients (block structure, order monotonicity) but not the quantified new conclusion.",
+      "searches": [
+        "arxiv:1503.08458, Corollary 1, Proposition 1",
+        "arxiv:1211.3930, introduction and Section 2",
+        "arxiv:1706.01852, Theorem 1",
+        "doi:10.1007/s10957-008-9477-0, Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang and Barber, arxiv:1706.01852, Section 2, Theorem 1 and Lemma 1, establishes contraction of unweighted Euclidean isotonic projection in permutation-invariant seminorms; weighted least squares is not covered.",
+        "Yeganova and Wilbur, doi:10.1007/s10957-008-9477-0, Section 2, gives weighted consecutive-block averages and pool-adjacent-violators rather than Gini perturbation norms."
+      ],
+      "reasoning": "The unweighted symmetric-seminorm theorem implies the equal-mass subcase only. Weighted-block averaging is generally not doubly stochastic, so the implication fails for unequal masses. The Gini metric sums all unordered-pair differences, not adjacent path differences.",
+      "searches": [
+        "isotonic regression Gini mean difference distortion nonexpansive weighted least squares",
+        "weighted isotonic projection pairwise absolute differences dimension growth norm",
+        "weighted isotonic regression Gini distance Lipschitz constant four coordinates adjacent mass ratio 3",
+        "doi:10.1007/s10957-008-9477-0; arxiv:1706.01852"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved mathematical-record hit states a weighted isotonic unweighted-Gini exact formula, the envelope floor(n^2/4)/(n-1), or four-observation mass-ratio-three criterion.",
+        "Closest indexed items include 2026/11/2/cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803 and 2026/10/11/sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62, both for different settings."
+      ],
+      "reasoning": "These are actual negative targeted searches, not proof of priority. Unlike a known numerical table recomputation, the claim supplies analytical all-n sharp constants and four-point mass inequalities. Search incompleteness is recorded as a residual risk.",
+      "searches": [
+        "Gini mean difference weighted isotonic projection amplification exact factor floor n squared over 4(n-1)",
+        "pairwise absolute difference total variation of weighted isotonic regression finite chains",
+        "Gini mean difference isotonic regression stability weighted mass permutation invariant"
+      ]
+    },
+    "rationale": "Relevant primary-source theorems concern weighted PAV structure, coordinate-order preservation, unweighted Euclidean isotonic contraction under symmetric norms, or path/cover variation. They do not give the weighted quadratic isotonic map norm in unweighted complete-pair Gini variation, its exact finite mass formula, its optimal dimension envelope, or the four-sample mass-ratio threshold. The equal-mass contraction itself is covered by stronger existing unweighted results and is not separately claimed as new. Published-record searches supplied no exact equivalent. Residual bibliographic risks remain.",
+    "residual_risks": [
+      "The Journal of Statistical Software weighted-PAVA article PDF was not read in full; only its abstract and metadata were accessible.",
+      "Relevant published records might be incompletely indexed or appear under a different formulation of Gini seminorm/conditional expectations.",
+      "Several mathematical-record hits were compared through their published claim summaries, not complete published source files."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_CLASSICAL_BLOCK_STRUCTURE_ONLY",
+        "evidence": "The cited formula fixes a constant block by its mass-weighted average; the article studies a Lipschitz-constrained regression algorithm rather than Gini difference operator norms.",
+        "identifier_or_url": "doi:10.1007/s10957-008-9477-0",
+        "material_read": "Accessible full PDF: introduction and Section 2, pp. 429–433, weighted objective, formula (4) for block means, strict pooling inequalities (5), and algorithm; publication date 2009-01-07 verified.",
+        "method": "Full-text PDF retrieval, text and relevant page-image inspection",
+        "title": "Isotonic Regression under Lipschitz Constraint",
+        "trigger": "Closest archival primary source for positive-weight consecutive-block PAV"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT_AND_SEMINORM",
+        "evidence": "The paper treats iterative isotone regression of BV functions via projections, not the weighted PAV two-input Gini seminorm.",
+        "identifier_or_url": "arxiv:1211.3930",
+        "material_read": "Accessible arXiv full text: abstract, Introduction and Section 2, including projection-cone definitions and iterative isotone-antitone formulation.",
+        "method": "arXiv full-text HTML and PDF page image",
+        "title": "A Geometrical Approach to Iterative Isotone Regression",
+        "trigger": "Bounded-variation terminology and isotonic projection could overlap"
+      },
+      {
+        "assessment": "ORDER_PRESERVATION_NOT_METRIC_NORM",
+        "evidence": "Corollary 1 asserts coordinatewise isotonicity; no Gini Lipschitz constant or mass-ratio classification follows.",
+        "identifier_or_url": "arxiv:1503.08458",
+        "material_read": "Accessible PDF: abstract, setup, Corollary 1 and Proposition 1 on page 8, including explicit positive-weight formulation.",
+        "method": "Full-text PDF and page-image inspection",
+        "title": "Isotonic regression and isotonic projection",
+        "trigger": "Weighted-projection monotonicity might imply contraction"
+      },
+      {
+        "assessment": "STRONGER_FOR_EQUAL_MASS_ONLY",
+        "evidence": "The least-squares objective is unweighted Euclidean and the norm theorem assumes its induced neighbor-averaging matrices; it does not cover unequal observation masses.",
+        "identifier_or_url": "arxiv:1706.01852",
+        "material_read": "Accessible full text: introduction, Section 2, Definition 1, Theorem 1 and permutation-invariant seminorm Lemma 1 on page 4.",
+        "method": "arXiv full-text text, alphaXiv PDF page screenshot",
+        "title": "Contraction and uniform convergence of isotonic regression",
+        "trigger": "Primary broad contraction theorem could dominate the equal-mass case"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_LOW_PRIORITY_RISK",
+        "evidence": "Available description covers algorithms for weighted separable isotone optimization, but full text was not verified; no claim of whole-document noncoverage is made.",
+        "identifier_or_url": "doi:10.18637/jss.v032.i05",
+        "material_read": "Accessible journal landing page abstract, date, and description of weighted PAVA; full PDF not inspected.",
+        "method": "Journal full-text landing page; full text unavailable in the evidence review",
+        "title": "Isotone Optimization in R: Pool-Adjacent-Violators Algorithm (PAVA) and Active Set Methods",
+        "trigger": "Weighted PAVA source could contain additional stability analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "262b37ec-1bf0-41be-9bd1-5facfd8204dc",
+  "value": {
+    "rationale": "The claim quantifies a natural but consequential mismatch between observation-weighted least-squares optimality and unweighted all-pairs dispersion stability. It gives exact finite fixed-weight evaluation, a sharp growing dimension envelope (~n/4), strict nonattainment under positive finite masses, and a complete n=4 nonexpansivity criterion with explicit witnesses. These are not mere software reproduction or an arbitrary finite slice: the four-site result is the first dimension permitting amplification, and the global rate quantifies how bad mass imbalance can become.",
+    "status": "PASS"
+  }
+}
