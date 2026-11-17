@@ -1,0 +1,15 @@
+# Scientific review: Erlang delay-stage stability classification
+
+## Correctness — PASS
+The claim is confined to the characteristic family \(\lambda^2+a-b(1+\tau\lambda/q)^{-q}=0\) with \(a>b>0\), integer \(1\le q\le6\), and \(\tau>0\). The eigenvalue derivative at zero delay makes the finite pair stable; the remaining \(q\) characteristic roots approach the negative Erlang chain pole. The argument condition \(q\arctan(\tau\omega/q)=j\pi\) exhausts all possible finite imaginary-axis crossings. The implicit-derivative formula proves both simplicity and sign of each crossing, and the positive ordering of the only two thresholds for shapes five and six gives an exhaustive stable–unstable–stable classification. The packaged numerical check is supplemental rather than the proof. The center and crossing endpoints are expressly excluded from exponential stability.
+
+## Originality — PASS within inspected literature
+Bîrdac et al. (2026) give the type-2 characteristic equation and general phase condition and analyze gamma shapes one and two plus the Dirac limiting kernel. They do not state an exact root-count and stability-window classification for shapes three through six, nor the first five-stage restabilization threshold. A related published finding concerns a distinct symmetric two-tap kernel and therefore does not imply the Erlang-stage threshold. The older Yuan–Bélair (2011) generic distributed-delay work is relevant context but its full text was not accessible in this review; accordingly an equivalent older second-order Erlang statement remains a specified historical-priority risk. The present argument supplies the exact crossing directions and full parameter-uniform root count not furnished by merely listing candidate Hopf phases.
+
+## Mathematical value — PASS
+The number of stages in a gamma/Erlang synaptic filter is a natural physical and numerical model parameter: it controls smoothing, response variability and the phase budget of delayed feedback. This theorem finds the first filter complexity with a universal reentrant stability interval and exact boundary formulas for all admissible positive-feedback center parameters. It separates the robust continuous-kernel phenomenon from the Dirac-delay case without claiming nonlinear periodic orbit stability.
+
+## Limitations and closest sources
+The statement addresses macroscopic linearized stability, not finite-population dynamics, global basins or nonlinear bifurcation criticality. Higher Erlang orders may have extra imaginary crossings with parameter-dependent temporal ordering and are not classified. Principal reference: Bîrdac et al., arXiv:2607.17645v1, sections 3–5, particularly equations (5.1), (5.6) and Examples 5.5–5.7. Historical background: Yuan and Bélair, 2011, DOI:10.1137/100794493 (abstract accessible; full text inaccessible); Nevermann and Gros, 2023, DOI:10.1088/1751-8121/acea06 (abstract/context accessible). This is a self-review, not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
