@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The file `artifacts/verify.py` can be executed with Python 3 using only its standard library. It constructs all \(2n\) vertex assignments of specified weight by choosing supports and distributing singleton named colors, tests the literal crown-graph neighbourhood condition, and checks minimum weights, complete types, and exact counts. The replay was performed on the final candidate script, with the following end markers:
+# Independent mathematical audit
 
-```
-CROWN_OK 4 3 min 6 functions 792 types {'one_full': 648, 'matched': 144}
-CROWN_OK 5 3 min 6 functions 900 types {'one_full': 540, 'matched': 360}
-CROWN_OK 6 3 min 6 functions 900 types {'one_full': 180, 'matched': 720}
-EXACT_INTEGER_COUNT_BOUNDARIES_OK
-VERIFY_OK
-```
+## correctness
 
-This experiment is finite: \(k=2\) with \(n\le8\), \(k=3\) with \(n\le6\), plus arithmetic checks for a wider grid. The proof in RESULT.md is valid for all stated \(n,k\) and is not extrapolated from the code. Independent mathematical audit has not been performed.
+PASS
+
+A blank vertex must see each of k colors across the opposite shore after excluding its matched index. When n<=k, degree n-1<k forces every vertex colored. For k<n, both shores with blanks require at least k colored vertices per side; equality makes unique color occurrences on each shore and forces identical matched supports. If a shore is full, each singleton-occurrence color forces its opposite mate to be colored; the n labels require >=2k-q where q is singleton-color count. Equality forces q=2k-n, precisely one-sided full configurations. Multinomial count n!/(2!)^(n-k) times choice C(k,2k-n) and opposite color k^(2k-n), times two orientations. Independent literal labelled assignment exhaustive checks n,k=(2,2),(3,2),(4,2),(5,2),(3,3),(4,3) produced predicted minima and counts, including count 792 at (4,3); finite enumerations corroborate universal proof.
+
+## originality
+
+PASS
+
+Major PRIOR COVERAGE explicitly credited: October 12 published *set-valued* crown k-rainbow theorem classifies every optimum for k>=3,n>=2k; its singleton specialization implies submitted n>=2k matched-support and one-side-full boundary counts. October 13 k=2 all-set-valued crown theorem likewise implies k=2 cases, including (n,k)=(3,2). The substantive remaining uncovered regime is k>=3 and k<n<2k, where one-side-full families coexist at sizes below 2k and the exact additional count/whole-domain transition are proved. Earlier papers do not have parameters in that regime and so do not imply those cases. A potentially relevant foundational dual-server paper remains inaccessible, so novelty is qualified; do not attribute already covered n>=2k results as original.
+
+## value
+
+PASS
+
+The exact missing intermediate-size range k<n<2k and the exhaustive optimum family count resolve a natural boundary of a classical domination variant. This is not a standalone novelty claim for the previously published n>=2k specialization; the middle-range complete classification is a finite-parameter family with nontrivial combinatorial enumeration, useful for domination and deployment reliability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

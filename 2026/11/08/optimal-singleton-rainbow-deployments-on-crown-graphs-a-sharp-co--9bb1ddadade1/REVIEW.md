@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The one-neighbourhood deletion equivalence for crown graphs is immediate from the labelled adjacency relation. For two blank sides, surjectivity on each side and the unique-color deletion obstruction force equal size-\(k\) matched supports. In the one-side-full case, let \(q\) count singleton occurrences of colors on the full side; both the lower bound \(q\ge2k-n\) and the equality cases are proved with no unanalysed slack. The three exhaustive types yield the exact formula, and a standalone literal-neighbourhood brute-force checker agrees on the stated finite range. The complete-bipartite ratio follows from independent choices of supports.
+## correctness
 
-## Originality
-PASS, with residual historical-priority risk. Full scientific text of Lange's arXiv:2610.06906 and Rao et al.'s arXiv:2608.14690 was compared by statement and graph operation. Neither treats optimum-function counts on the crown graph. The published mathematical record on two-rainbow domination of complete multipartite graphs was also inspected in full: it permits double-color labels and has a different host family. Searches for the synonyms crown graph, bipartite double cover, tensor product, singleton rainbow, and dual-server domination yielded no covering enumerator. The original foundational article on dual-server domination was available only in abstract/metadata; it remains a disclosure, not evidence of a negative result.
+PASS
 
-## Mathematical value
-PASS. The theorem gives the full distribution of *minimum* labelled service deployments across an infinite two-parameter graph family; this count is not determined by the optimum cost. The rigid matched-pair constraint and additional one-full-side designs up to the sharp boundary \(n=2k\) expose a real structural change. For \(n>2k\), deleting a perfect matching from \(K_{n,n}\) leaves the optimum cost fixed but divides the number of optimum functions by \(\binom nk\), making the precise enumeration relevant to the combinatorics of optimal facility configurations.
+A blank vertex must see each of k colors across the opposite shore after excluding its matched index. When n<=k, degree n-1<k forces every vertex colored. For k<n, both shores with blanks require at least k colored vertices per side; equality makes unique color occurrences on each shore and forces identical matched supports. If a shore is full, each singleton-occurrence color forces its opposite mate to be colored; the n labels require >=2k-q where q is singleton-color count. Equality forces q=2k-n, precisely one-sided full configurations. Multinomial count n!/(2!)^(n-k) times choice C(k,2k-n) and opposite color k^(2k-n), times two orientations. Independent literal labelled assignment exhaustive checks n,k=(2,2),(3,2),(4,2),(5,2),(3,3),(4,3) produced predicted minima and counts, including count 792 at (4,3); finite enumerations corroborate universal proof.
 
-## Scope and residual risk
-No all-weight enumerator, graph-generalization, or multi-label version is claimed. Earlier work could use the term dual-server domination and the full text of Chellali--Haynes--Hedetniemi (2026) could not be inspected. All scientific review is same-model only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Major PRIOR COVERAGE explicitly credited: October 12 published *set-valued* crown k-rainbow theorem classifies every optimum for k>=3,n>=2k; its singleton specialization implies submitted n>=2k matched-support and one-side-full boundary counts. October 13 k=2 all-set-valued crown theorem likewise implies k=2 cases, including (n,k)=(3,2). The substantive remaining uncovered regime is k>=3 and k<n<2k, where one-side-full families coexist at sizes below 2k and the exact additional count/whole-domain transition are proved. Earlier papers do not have parameters in that regime and so do not imply those cases. A potentially relevant foundational dual-server paper remains inaccessible, so novelty is qualified; do not attribute already covered n>=2k results as original.
+
+## value
+
+PASS
+
+The exact missing intermediate-size range k<n<2k and the exhaustive optimum family count resolve a natural boundary of a classical domination variant. This is not a standalone novelty claim for the previously published n>=2k specialization; the middle-range complete classification is a finite-parameter family with nontrivial combinatorial enumeration, useful for domination and deployment reliability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
