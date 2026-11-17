@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Unfolding the ordinal one-point extension definition shows that rank at least three is equivalent to one vertex having both an adjacent and a nonadjacent partner with all four external adjacency profiles. Both full pairs together require three neighbors and three nonneighbors, proving the seven-vertex threshold. In any rank-three witness, the six necessary edges fall in the disjoint categories: three incident with the center, one between its neighbors, one between a neighbor and a nonneighbor, and one between its nonneighbors. At equality, the profile requirements uniquely force the edge list in RESULT.md and all other vertices isolated. A finite witness realizes the bound. Its asymmetric connected six-vertex component gives the labeled count. The universal forcing interval follows by containing this witness and, in the other direction, the disjoint union of all five-vertex graph types. This proof handles every specified size and is not extrapolated from enumeration.
+PASS
 
-The standalone checker uses an independently defined pair-profile rank test and recursively computes the witness's finite rank; it exhaustively enumerates all 33,867 labeled graphs through six vertices, all seven-vertex graphs with at most six edges, and verifies all 5,040 extremal labeled copies form one orbit. The checker is finite supporting evidence, not an infinite proof.
+The rank definition for finite simple graphs gives rk({v,w})>=1 iff all four adjacency profiles to an external x occur; unrolling empty and singleton extension quantifiers gives rk(X)>=3 iff some v has both a full adjacent partner a and full nonadjacent partner b. These jointly require at least three neighbors and at least three nonneighbors of v, so |V|>=7. They force six disjoint edge types: three incident v; an edge inside its neighbor set; a cross edge between neighbor and nonneighbor sets; an edge inside its nonneighbor set. At equality the profiles force the unique six-edge connected component {02,03,05,12,14,23} with all other vertices isolated, plus at least one isolate for (0,1) profile 00. Explicit v=0, adjacent a=2, nonadjacent b=1 has all four profiles in each pair. The component is asymmetric, so n!/(n-6)! labelled extremizers. Every universal graph containing all seven-vertex graphs contains the witness and has rank>=3, while disjoint union of every five-vertex graph type has no center with required three neighbors and two nonneighbors in one component, giving 6<=N(3)<=7. Distinguishes rank onset from universal forcing. Independent scratch enumeration confirmed no rank>=3 on 1..6 vertices and exactly 5040 six-edge seven-vertex graphs; the analytic argument extends all orders. Does not decide N(3)=6 vs7.
 
-## Originality: PASS with historical-priority limitations
+## originality
 
-López-Callejas and Navarro-Castillo (arXiv:2604.14461v1, 2026-04-15), in their full paper on Fraïssé ranks, construct general finite witnesses and explicitly leave the graph cutoff problem open (Question 7.4), stating the earlier interval \(4\le N(3)\le |H_3|\), with \(|H_3|=11\) in the graph case. Their general construction does not yield the sharp seven-vertex rank-three onset, the six-edge minimum, or the classification of all equality graphs. Kubiś and Shelah (2024) give general ordinal rank foundations; their accessible PDF excerpt was insufficient for an exhaustive absence claim, so broader earlier coverage remains a risk. General seven-vertex graph catalogs enumerate graph types but do not by themselves identify this rank-specific extremum. Semantic searches of published research records for this exact rank, cutoff, and parameter aliases did not identify a dominating result; this is evidence of limited inspected coverage, not proof of uniqueness.
+PASS
 
-## Value: PASS
+The rank recursion is due to Kubiś–Shelah, with graph-rank framework and generic finite-rank witnesses in López-Callejas–Navarro-Castillo. Its full arXiv paper explicitly asks in Section 7 Question 7.4 for N(n) and states 4<=N(3)<=|H_3|, without the new six-edge unique extremizer or the 7-vertex onset. The target supplies a motivated sharp minimal graph classification and improves known bound to 6<=N(3)<=7. The exact remaining N(3) is explicitly unresolved; a graph atlas enumerates graphs but does not alone imply their one-point-extension ranks. Broader early rank literature not exhaustively checked.
 
-The precise cutoff \(N(3)\) is posed as a natural numerical invariant in the motivating paper. The result reduces the published gap from \(4\le N(3)\le11\) to \(6\le N(3)\le7\), a motivated finite cutoff improvement. The six-edge extremal classification supplies a sharp rank-three local obstruction with a unique graph shape and an exact labeled census for all orders; it explains the structural reason for the threshold, rather than presenting an arbitrary small-case table.
+## value
 
-## Limits and risks
+PASS
 
-The remaining \(N(3)=6\) versus \(7\) question is not resolved. The six-edge uniqueness does not classify rank-three graphs with more edges. Broader earlier graph-rank literature could contain an equivalent characterization. The 2024 PDF was only partially reviewed. No independent historical-priority verification or mathematical audit has been performed.
+The natural graph extension-rank onset is sharp in both vertices and edges, with a unique six-edge extremal shape and all-n labelled count. It materially sharpens a motivating open forcing cutoff from a generic construction to a one-unit interval and supplies the exact local obstruction. The unfinished N(3) dichotomy does not invalidate the independently valuable structural classification.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

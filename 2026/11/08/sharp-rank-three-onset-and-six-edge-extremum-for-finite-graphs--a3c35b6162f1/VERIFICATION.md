@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite and structural verification
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3; no external packages are required. The checker constructs every graph on up to six labeled vertices, every seven-vertex graph with at most six edges, and every relabeling of the listed six-edge witness. Its `ALL_RANK_THREE_CHECKS_OK` output requires the absence of a rank-three graph through six vertices, zero seven-vertex witnesses with fewer than six edges, exactly 5040 six-edge seven-vertex witnesses forming one permutation orbit, and finite rank exactly three for the displayed graph under a separately programmed recursive rank definition. It also verifies the rank-three test fails for every five-vertex component with one isolated extra vertex. All finite checks are exhaustive within those ranges only.
+## correctness
 
-The infinite-order edge extremum and universal forcing cutoff are proved structurally in RESULT.md, not by extending finite enumeration. The inequality \(6\le N(3)\le7\) does not decide the exact value. Historical priority and mathematical correctness were self-reviewed; neither has an independent audit.
+PASS
+
+The rank definition for finite simple graphs gives rk({v,w})>=1 iff all four adjacency profiles to an external x occur; unrolling empty and singleton extension quantifiers gives rk(X)>=3 iff some v has both a full adjacent partner a and full nonadjacent partner b. These jointly require at least three neighbors and at least three nonneighbors of v, so |V|>=7. They force six disjoint edge types: three incident v; an edge inside its neighbor set; a cross edge between neighbor and nonneighbor sets; an edge inside its nonneighbor set. At equality the profiles force the unique six-edge connected component {02,03,05,12,14,23} with all other vertices isolated, plus at least one isolate for (0,1) profile 00. Explicit v=0, adjacent a=2, nonadjacent b=1 has all four profiles in each pair. The component is asymmetric, so n!/(n-6)! labelled extremizers. Every universal graph containing all seven-vertex graphs contains the witness and has rank>=3, while disjoint union of every five-vertex graph type has no center with required three neighbors and two nonneighbors in one component, giving 6<=N(3)<=7. Distinguishes rank onset from universal forcing. Independent scratch enumeration confirmed no rank>=3 on 1..6 vertices and exactly 5040 six-edge seven-vertex graphs; the analytic argument extends all orders. Does not decide N(3)=6 vs7.
+
+## originality
+
+PASS
+
+The rank recursion is due to Kubiś–Shelah, with graph-rank framework and generic finite-rank witnesses in López-Callejas–Navarro-Castillo. Its full arXiv paper explicitly asks in Section 7 Question 7.4 for N(n) and states 4<=N(3)<=|H_3|, without the new six-edge unique extremizer or the 7-vertex onset. The target supplies a motivated sharp minimal graph classification and improves known bound to 6<=N(3)<=7. The exact remaining N(3) is explicitly unresolved; a graph atlas enumerates graphs but does not alone imply their one-point-extension ranks. Broader early rank literature not exhaustively checked.
+
+## value
+
+PASS
+
+The natural graph extension-rank onset is sharp in both vertices and edges, with a unique six-edge extremal shape and all-n labelled count. It materially sharpens a motivating open forcing cutoff from a generic construction to a one-unit interval and supplies the exact local obstruction. The unfinished N(3) dichotomy does not invalidate the independently valuable structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
