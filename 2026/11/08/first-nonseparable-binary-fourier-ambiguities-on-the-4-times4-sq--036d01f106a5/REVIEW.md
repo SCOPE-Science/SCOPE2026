@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Equality of aperiodic-autocorrelation vectors is exactly equality of full continuous-torus Fourier intensities by uniqueness of finite Fourier coefficients. Normalization at the upper-left corner removes precisely the global-sign symmetry, and reversal plus possible complement gives the specified orbit representative. Exact integer enumeration of **every** input at sides \(1\) through \(4\) constructs the fiber partition without sampling. The checker asserts the histograms, all separability flags, the partition's total orbit size, and an explicit pair with an independently implemented polynomial-product autocorrelation verification. This finite-domain certificate is exhaustive for the claimed domains; it proves nothing about larger arrays.
+PASS
 
-## Originality
+PASS: For a full-support sign array a on n-by-n square, |P_a(z,w)|² on the complete torus is a finite Laurent polynomial with coefficients the aperiodic autocorrelations C_a(r,s); equality of intensities is equivalent to coefficient equality. Global sign fixes upper-left entry +1; simultaneous central reversal produces the other trivial equivalence, with no other signs/translations permitted. Independently enumerated all 2^(n²-1) normalized codes at each n=1,2,3,4, computed all nonredundant shifts as exact integer inner products, grouped complete correlation fibers modulo reversal, and tested each rank-one/tensor status. Fiber size histograms are n1 (1 single), n2 (6 singles), n3 (134 singles,1 double), n4 (16488 singles,12 doubles); exactly eight of the 12 n4 doubles are entirely nonseparable; n3 none. The explicit codes 12442 and 3238 are an inequivalent nonseparable equal-correlation witness. This is a complete finite exhaustive certificate for n<=4, not an inference about larger squares.
 
-**PASS relative to inspected sources, with residual risk.** Novikov–Xu give broad multidimensional nonuniqueness constructions rather than the binary fixed full-square fiber counts. Katz–Rahman–Ward classify a one-dimensional sequence setting, not two-dimensional square arrays. The closest four-by-four published record reports minimizers of a scalar Fourier fourth moment (minimum \(304\)); it neither states nor logically implies the complete full-vector autocorrelation fibers from its accessible summary. The explicit nonseparable witness has scalar fourth moment \(400\), outside that minimizer class. The complete published text of this closest record could not be retrieved; earlier bivariate homometry tables remain a material priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The smallest natural square Fourier imaging masks pose a concrete and motivated uniqueness question. Determining the **first genuinely two-dimensional, non-tensor** binary ambiguity and giving every fiber multiplicity separates separable axis-flip artifacts from nonseparable failures. The exact classification is useful in assessing binary phase-retrieval test cases. It is a natural finite cutoff, not a claim of a larger-dimensional theorem.
+PASS (qualified): Novikov–Xu 2026 full primary Theorems 1–2 prove broad multidimensional Pauli/phase-retrieval nonuniqueness through difference-operator constructions, including non-tensor instances, but neither specifies full-support all-sign 4-by-4 masks, the *first* nonseparable side, nor complete finite autocorrelation fiber multiplicities. October 11 2026 published Resultary full theorem instead classifies fourth-moment MINIMIZERS at 4x4 (32 masks in two orbits, scalar minimum 304). This does not imply full vector-intensity fiber counts; the submitted nonseparable witness has scalar moment 400 and is not a minimizer. No complete binary 4x4 homometry table was found; older specialist tables are a material remaining risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Nonuniqueness in discrete binary Fourier phase retrieval is a natural inverse-imaging obstruction; distinguishing separable/tensor artifacts from genuinely two-dimensional ambiguities at the first possible full-square size and cataloguing every fiber is a motivated complete finite classification. The 4x4 count and witness make an exact benchmark; no inflated claim about arbitrary arrays or complex phases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
