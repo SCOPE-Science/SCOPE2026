@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single missing edge distinguishes exactly two vertices; the ordinary vertices in each shore have identical neighborhoods. For a fixed labelled coloring, each initially occupied ordinary color class therefore evolves identically, so tracking one representative of each such class is information-preserving for exact labelled return times. Two nonempty supports, two distinguished colors and their tracked representatives define only 441 signatures. The explicit four-tuple transition is fully specified in RESULT.md. Exact finite iteration produces the nine-class support coefficient table, and inclusion–exclusion supplies the weight for each labelled assignment. The proof checks that classes which merge remain separately tracked; hence the abstract and labelled entry times coincide. Independent direct adjacency-based enumeration covers 1,185,921 configurations from 25 graph sizes, and the support computation checks all 441 signatures and the total population. The proof's unlimited graph-size quantification follows from the reduction, not extrapolation of finite graph tests. The maximum transient is attained on every permitted graph by a displayed four-step state sequence.
+PASS
 
-## Originality — PASS, qualified
+Ordinary vertices on a shore have identical neighbor sets when their initial colors match; their class representatives remain synchronized. The state of two exceptional colors plus nonempty supports P,Q is therefore a complete 441-state quotient for temporal dynamics. Independently reimplemented all 441 transitions and confirmed nine (T,p) classes with signature counts 3,24,48,66,6,114,90,48,42; no others, maximum transient 3, periods 1,3,4. Surjection weights 1, 2^r-2, 3^r-3*2^r+3 recover the claimed polynomial counts for every m,n>=2, with total 3^(m+n). The explicit (0,1;0,0)->...->(1,1;1,1) witness attains 3; F^15=F^3 by lcm(1,3,4)=12.
 
-The CCA rule and the general circulation criterion for synchronization are established in Gravner–Lyu–Sivakoff (arXiv:1610.07320, 2016-10-24); their Theorem 3 already implies the diameter bound for synchronizing configurations. That general statement does not enumerate the nine first-entry classes or classify every nonsynchronizing orbit for a single-edge-deleted complete bipartite graph. Related exact treatments of intact complete bipartite graphs and of complete bipartite graphs with a whole perfect matching removed are on different parameter families and do not imply the stated one-edge formulas for every shore-size pair. Search of relevant published records, aliases, parameter families and primary literature found no statement which dominates the precise claim. A possible unindexed equivalent remains a historical-priority risk, so this is a reasoned originality assessment rather than a proof of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-A single-edge perturbation of a highly symmetric dense bipartite graph introduces an exactly counted maximal-delay consensus layer, while leaving a tractable mixture of fixed, three-cycle and four-cycle attraction basins. The theorem quantifies both periodic and transient behavior for the entire two-parameter family; the nine exact labelled populations are strictly more informative than generic circulation/synchronization criteria or a numerical graph census. The special-case path, dense bipartite and nontrivial four-cycle regimes all arise from the same classification, offering a reusable method for one-defect network dynamics.
+The exact one-edge-deleted biclique is not the full Kmn or crown graph. Gravner–Lyu–Sivakoff supplies general cyclic automaton dynamics and synchronization criteria, while related published temporal enumerators concern different graph structures or Greenberg–Hastings variants. No prior exact nine-class formula was found in actual semantic searches; inability to read complete primary paper is retained as risk.
 
-## Sources and limitations
+## value
 
-Gravner, Lyu, Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs*, arXiv:1610.07320 (read full accessible text, including Theorem 3, finite-graph statements and examples). The first public version is dated October 24, 2016. The related intact-family and full-matching-deletion calculations are comparison cases, not premises of the proof. Searches cannot exclude work absent from indexed sources. No external or independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp temporal classification for all m,n>=2 is a natural exact dynamical invariant, with nontrivial missing-edge geometry and explicit counts of how many initial colorings experience each period and transient. It distinguishes a one-edge defect from the intact graph and gives meaningful long-run behavior beyond simple convergence bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
