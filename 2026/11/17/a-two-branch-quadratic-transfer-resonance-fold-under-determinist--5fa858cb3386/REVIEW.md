@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (PASS)
+The concrete transfer formula follows from the two inverse branches and their Jacobian lengths. Expansion on the centered polynomial basis gives the two-by-two matrix with strictly negative off-diagonal on the precise parameter domain. Equality of diagonal entries thus forces a genuine size-two Jordan block; the nilpotent binomial identity supplies the exact all-iteration covariance, not a numerical extrapolation. The scalar ratio has one maximum on the upper parameter interval; the algebraic maximum and the unique lower inverse threshold prove the 0/1/2 phase diagram. A strict leading-coefficient bound gives polynomial-degree dominance without claiming spectral isolation in BV. The original-map quadratures corroborate both explicit roots and the two distinct first-negative lags.
+
+## Originality (PASS within inspected evidence)
+The Bruin–Keszthelyi primary text defines the two-parameter skew tent maps and proves orbit-density assertions; it does not furnish the deterministic two-season PF Jordan fold or covariance. The full published Butterley–Kiamari–Liverani paper has general affine Markov transfer spectral methods and an orientation-preserving Jordan example, so neither the abstract mechanism nor the existence of Jordan blocks is new. The Suzuki 2024 preprint concerns nonleading eigenvalues for beta maps, not these products. A close publicly indexed result on *random independent mixing of two skew tent maps* gives an averaged-transfer Jordan example and lag-sign transition; the ordered product and full two-branch fold are not implied by a convex-combination calculation. Its complete repository file was inaccessible, leaving explicit residual priority risk. The complete finite-degree polynomial-spectrum statement is limited as in the result; no unexamined BV spectrum is claimed.
+
+## Mathematical value (PASS)
+For deterministic temporal forcing of a canonical full-branch interval family, the sharp fold provides an exact onset of two distinct resonant seasonal choices, even though both individual polynomial modes are simple. The degenerate mode is maximally slow among nonconstant polynomial degrees, and its nilpotent component produces a measurable, exactly signed correlation decay not visible from the eigenvalue alone. The two exact algebraic seasonal choices have different first sign-reversal lags. This is a natural dynamical observable and a complete transition for a two-parameter domain, rather than an arbitrary numerical slice or generic textbook deduction.
+
+## Closest literature and risks
+The general transfer-resonance literature supplies methods broad enough to compute examples but does not supply this specific sharp fold, proof or seasonal covariance. The 2026 random-switching analogue was checked through its published result summary only; linked full text could not be retrieved. Full BV claims and other parameter sectors are explicitly excluded. Equivalent unindexed published computations cannot be ruled out. No independent validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
