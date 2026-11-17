@@ -1,117 +1,75 @@
-# Sixteen taxa are sharp for moment-indistinguishable future phylogenetic-diversity laws
+# Exact distributional swap identity for future rooted phylogenetic diversity
 
 ## Finding
 
-Consider nonplane, unlabeled rooted full-binary tree shapes with unit length on every edge and no edge above the root. Let each leaf independently become extinct with a common probability \(q\in(0,1)\), and let \(X_T(q)\) be rooted Faith phylogenetic diversity of the surviving leaves (the number of edges on their paths to the original root). The empty survival set has diversity zero.
+Let every edge of a non-plane rooted full-binary phylogenetic tree have length one. Independently retain each leaf with probability \(1-q\), where \(0<q<1\). The rooted Faith diversity \(X_T\) is the number of original edges lying on at least one root-to-retained-leaf path; it is zero when no leaf survives. Write \(P_T(q,z)=\mathbb E[z^{X_T}]\).
 
-**Theorem.** For every \(2\le n\le15\), the pair of complete response functions \((q\mapsto\mathbb E[X_T(q)],\ q\mapsto\operatorname{Var}(X_T(q)))\) determines the isomorphism class of every such \(n\)-leaf tree. At \(n=16\), exactly one unordered pair of distinct tree shapes has both response functions identical. The two members have different full probability laws at every \(q\in(0,1)\), and their third raw moments differ by
-
+For **any** two rooted full-binary subtrees \(U,V\), each having the same number \(s\ge1\) of leaves, form
 \[
-\mathbb E[X_A(q)^3]-\mathbb E[X_B(q)^3]=-6q^{12}(1-q)^2.
+A=((U,U),(V,V)),\qquad B=((U,V),(U,V)).
+\]
+Let \(F_U(q,z)\) and \(F_V(q,z)\) be the probability generating polynomials of the contributions of those subtrees **including their incoming unit edges**, with an incoming edge counted if and only if some descendant leaf survives. Then the following exact identity holds as a polynomial in \(q,z\):
+\[
+\boxed{P_A(q,z)-P_B(q,z)=q^{2s}z(1-z)\big(F_U(q,z)-F_V(q,z)\big)^2.} \tag{1}
+\]
+Consequently the two trees have identical first and second raw moments, and hence identical means and variances, for every extinction probability. Their third raw moments satisfy
+\[
+\boxed{\mathbb E[X_A^3]-\mathbb E[X_B^3]
+=-6q^{2s}\big(\mu_U(q)-\mu_V(q)\big)^2,}\qquad
+\mu_W(q)=\partial_z F_W(q,1). \tag{2}
+\]
+Whenever \(\mu_U(q)\ne\mu_V(q)\), the third-moment gap is strictly negative and the **entire probability laws** differ at that \(q\).
+
+For the four-leaf caterpillar \(C=(L,(L,(L,L)))\) and balanced tree \(D=((L,L),(L,L))\), equation (1) produces the explicit sixteen-leaf pair \(A=((C,C),(D,D))\), \(B=((C,D),(C,D))\), with
+\[
+\mathbb E[X_A^3]-\mathbb E[X_B^3]=-6q^{12}(1-q)^2,
+\qquad \Pr(X_A=5)-\Pr(X_B=5)=q^{14}(1-q)^2>0. \tag{3}
 \]
 
-Consequently sixteen is the sharp minimum, and such moment-indistinguishable but distribution-distinct pairs exist for every larger leaf count as well.
+The **sixteen-leaf first-collision threshold, uniqueness of the first pair, and persistence at all larger leaf counts are not claimed as new**. Earlier published work on uniform fixed-size phylogenetic rarefaction already establishes those results for the *same* unit-edge rooted binary tree family, and its complete two-moment profiles are equivalent to the independent-extinction two-moment curves by binomial conditioning and Bernstein-basis invertibility. The contribution here is solely the explicit general **full-distribution swap factorization** (1), its uniform third-moment consequence (2), and concrete polynomial distinction (3).
 
-Write \(L\) for a leaf, \(C=(L,(L,(L,L)))\) for the four-leaf caterpillar and \(B=((L,L),(L,L))\) for the four-leaf balanced shape; parentheses represent unordered sister subtrees. The exceptional pair is
+## Scope
 
-\[
-T_A=((C,C),(B,B)),\qquad T_B=((C,B),(C,B)).
-\]
-
-In particular, the exact probability difference at diversity score five is
-
-\[
-\Pr(X_A(q)=5)-\Pr(X_B(q)=5)=q^{14}(1-q)^2>0.
-\]
-
-All equalities of mean and variance above are **identities in the entire parameter** \(q\); no statement is made that equality at an individual parameter identifies a tree.
-
-## Assumptions and scope
-
-Trees are unordered, rooted, full-binary, unlabelled **shapes**, not general branch-length-weighted or multifurcating trees. Each of the \(2n-2\) edges has length one. The two sibling edges leaving the root are counted, but no hypothetical root stem is counted. Taxon extinction is mutually independent with the same probability \(q\). Comparison always takes place between trees with the same number of leaves. This is future rooted phylogenetic diversity under the homogeneous field-of-bullets model, not unrooted diversity or fixed-size rarefaction.
-
-A *collision* means equality of both entire polynomials \(\mathbb E[X_T(q)]\) and \(\operatorname{Var}(X_T(q))\), not equality merely at a selected parameter. Since equality of means also makes equality of variances equivalent to equality of second raw moments, either pair of invariants can be used.
+All trees are unlabelled, nonplane, rooted, full-binary, with unit edge lengths and no root stem. Leaf survival indicators are independent and identically distributed. In (1), the input trees \(U,V\) must have the *same* number of leaves; the statement does not assume they are nonisomorphic or have unequal means. The equalities of lower moments hold for all \(q\in[0,1]\), but strict separation is asserted only for \(0<q<1\) and where the incoming-edge means differ. Formula (3) separates the displayed concrete pair for every interior extinction probability. No claim concerns arbitrary branch lengths, unequal extinction risks, nonbinary or unrooted trees, or identification from noisy empirical moments.
 
 ## Proof
 
-**1. Exact moment signatures.** For every edge \(e\), let \(d_e\) denote its number of descendant leaves and let \(Y_e\) indicate that at least one of those leaves survives. Then \(X_T=\sum_eY_e\) and \(\mathbb E Y_e=1-q^{d_e}\). If distinct edges \(e,f\) have disjoint descendant sets, their indicators are independent. If \(e\) is a proper ancestor of \(f\), then \(Y_f=1\) implies \(Y_e=1\), and
-
+For an \(s\)-leaf subtree \(W\), \(F_W(q,1)=1\) and the constant coefficient of \(F_W\) in \(z\) is \(q^s\): exactly when every leaf becomes extinct, the incoming edge contributes nothing. For two \(s\)-leaf children \(U,V\), their independent incoming-edge contributions add, and the edge entering their parent contributes one exactly when at least one of the \(2s\) leaves survives. The generating polynomial including this parent's incoming edge is therefore
 \[
-\operatorname{Cov}(Y_e,Y_f)
-=q^{d_e}(1-q^{d_f}).
+H_{UV}(q,z)=q^{2s}+z\big(F_U(q,z)F_V(q,z)-q^{2s}\big). \tag{4}
 \]
-
-Therefore the entire mean and variance polynomials are
-
+At the root, the two eight-part parents have no additional incoming root edge. Thus
 \[
-\mathbb E[X_T]=\sum_e(1-q^{d_e}),
+P_A=H_{UU}H_{VV},\qquad P_B=H_{UV}^2.
 \]
-
+Writing \(a=q^{2s}\), \(f=F_U\), \(g=F_V\), expanding the two products yields
 \[
-\operatorname{Var}(X_T)
-=\sum_e q^{d_e}(1-q^{d_e})
-+2\sum_{e\supsetneq f}q^{d_e}(1-q^{d_f}),
+\begin{aligned}
+H_{UU}H_{VV}-H_{UV}^2
+&=az(f^2+g^2-2fg)\\
+&\quad+z^2\big[(f^2-a)(g^2-a)-(fg-a)^2\big]\\
+&=az(1-z)(f-g)^2,
+\end{aligned}
 \]
+which proves (1) as a polynomial identity, not merely as a numerical equality at a selected probability.
 
-where \(e\supsetneq f\) ranges once over ordered proper ancestor–descendant edge pairs. In particular, all coefficients are integers, and these two formulas constitute an exact finite collision test.
+Because \(F_U(q,1)=F_V(q,1)=1\), the difference \(F_U-F_V\) is divisible by \(z-1\). The right side of (1) is therefore divisible by \((z-1)^3\); its first and second derivatives at \(z=1\) vanish. Its third derivative there is \(-6q^{2s}(\mu_U-\mu_V)^2\). Equality of the first two factorial moments implies equality of first two raw moments and variances, while equality of these lower moments makes the third derivative equal to the third raw-moment difference. This proves (2).
 
-**2. Exhaustive first-exception computation.** Define \(\mathcal S_1=\{L\}\). For each \(n\ge2\), generate every tree as one unordered pair \((U,V)\) with \(|U|+|V|=n\), \(|U|\le |V|\), resolving equal-sized sister ordering by a fixed total canonical order. Induction on the number of leaves proves that this generates every unordered rooted full-binary isomorphism type once and only once. For each generated shape, recursively list its edge descendant sizes and its proper ancestor–descendant edge-size pairs; evaluate the two integer coefficient vectors in step 1; group by the ordered pair of coefficient vectors.
-
-For leaf counts \(2,3,\ldots,16\), the exact generated shape counts are respectively
-
+For the explicit trees, direct recursive use of (4), starting from the incoming-edge leaf polynomial \(F_L=q+(1-q)z\), yields
 \[
-1,1,2,3,6,11,23,46,98,207,451,983,2179,4850,10905.
+F_C-F_D=q^2z^2(q-1)(z-1)(qz^2-2qz+q-z^2).
 \]
+Consequently \(\mu_C-\mu_D=q^2(1-q)\), and substituting \(s=4\) in (2) gives the first identity in (3). Inserting the displayed difference in (1) and extracting the \(z^5\) coefficient yields \(q^{14}(1-q)^2\). The latter is positive on \((0,1)\), proving strict full-law separation throughout that range. The trees are nonisomorphic because the two root children of \(A\) are respectively isomorphic paired caterpillars and balanced pairs, while both root children of \(B\) have a mixed pair.
 
-There are **zero** nontrivial collision classes for \(n=2,\ldots,15\). At \(n=16\), there is exactly **one** collision class, of cardinality two, and canonical comparison identifies its members precisely as \(T_A,T_B\) displayed above. The accompanying `checker.py` performs every generation and signature comparison in integer arithmetic, asserting these counts and identifying the unique colliding class. This computationally exhaustive finite step is part of the proof; its assumptions and finite range are explicit. It does not infer any infinite statement from finite samples.
+## Verification and limitations
 
-**3. Distributional distinction and general swap identity.** For any rooted \(s\)-leaf subtree shape \(U\), define \(F_U(q,z)\) as the probability generating polynomial of its surviving-edge contribution **including one incoming unit edge**, counted only when some descendant leaf survives. Thus \(F_U(q,1)=1\) and its constant coefficient in \(z\) is \(q^s\). For two same-sized shapes \(U,V\), the incoming-edge contribution of their binary parent has generating polynomial
+The assigned scientific package's `checker.py` independently verifies the bivariate probability generating polynomial factorization using sparse integer polynomials in \(q,z\), and it directly enumerates all \(65,536\) leaf-survival subsets at \(q=1/2\). Its reported score-five count difference and third-moment gap agree with (3). These finite checks support the explicit example; the general identity (1) follows from the algebraic argument above for **every** eligible pair \(U,V\).
 
-\[
-H_{UV}(q,z)=q^{2s}+z(F_U(q,z)F_V(q,z)-q^{2s}).
-\]
+The published prior two-moment rarefaction theorem is stronger than any claim here to discover the first collision; this note claims neither that threshold nor its uniqueness as new. Exact full-distribution swap factorization is a narrower, independently motivated structural identity, useful for distinguishing moment-equivalent constructions and calculating higher-order differences. A similar factorization might exist in unindexed generating-function literature; historical priority is best-of-knowledge only. The small probability difference in the example is not an empirical detectability claim.
 
-For the root-level trees \(A=((U,U),(V,V))\) and \(B=((U,V),(U,V))\), independence of the two root children gives \(P_A=H_{UU}H_{VV}\), \(P_B=H_{UV}^2\). Direct multiplication yields the exact identity
+## Related work and attribution
 
-\[
-\boxed{P_A(q,z)-P_B(q,z)=q^{2s}z(1-z)(F_U(q,z)-F_V(q,z))^2.}
-\]
-
-Because \(F_U(q,1)=F_V(q,1)=1\), the difference is divisible by \((z-1)^3\). Thus its first two derivatives at \(z=1\) vanish: the corresponding trees have the same first two raw moments, hence the same mean and variance, for every \(q\). If \(\mu_U=\partial_zF_U(q,1)\) and \(\mu_V=\partial_zF_V(q,1)\), the third derivative is exactly \(-6q^{2s}(\mu_U-\mu_V)^2\).
-
-For \(U=C\), \(V=B\), we have \(s=4\) and the directly expanded subtree difference
-
-\[
-F_C(q,z)-F_B(q,z)
-=q^2z^2(q-1)(z-1)(qz^2-2qz+q-z^2).
-\]
-
-In particular \(\mu_C-\mu_B=q^2(1-q)\). The boxed identity gives the claimed third-moment gap. Its lowest nonzero power of \(z\) has coefficient \(q^{14}(1-q)^2\), proving a strict law difference for each \(0<q<1\).
-
-**4. Larger trees.** Given a colliding pair on \(m\) leaves, attach to each tree a new root having one common new leaf on one side and the original tree on the other. If the original generating polynomials are \(P_A,P_B\), the new difference is \(z(q+(1-q)z)(P_A-P_B)\), since both old trees have extinction-only mass \(q^m\). This nonzero multiplier preserves the zero of order at least three at \(z=1\) and never makes two different laws equal. Inductively, moment-equivalent but distribution-distinct pairs exist for every \(m\ge16\). This concludes the proof.
-
-## Verification
-
-Run `python3 checker.py` using standard Python 3. It verifies the complete canonical tree enumeration through sixteen leaves, exact coefficient signatures derived independently from the edge-indicator covariance formula, and uniqueness of the first collision. For the witness it **separately enumerates every one of \(2^{16}=65,536\) equally probable survival configurations** at \(q=1/2\), constructing the diversity count directly from descendant-leaf bit masks. Its exact probability-count difference, in order of diversity scores \(5,6,7,8,9,10,11,12\), is
-
-\[
-(1,-7,17,-15,-1,7,-1,-1)/65536.
-\]
-
-The zeroth, first and second moment differences of this vector vanish, and its third raw-moment difference equals \(-24/65536=-3/8192\). A further independent recursive integer-polynomial moment calculation verifies \(-6q^{12}(1-q)^2\) coefficient by coefficient. These direct checks provide independent computational paths to the explicit witness, rather than only repeating the collision grouping.
-
-## Relationship to prior work
-
-Faller, Pardi and Steel (2007 preprint; 2008 journal article) define the future phylogenetic-diversity distribution under independent extinction and derive mean/variance formulas and an exact distribution algorithm. Their §2 studies normal approximation and §3 gives a full-law recursion. Those established ingredients are not claimed here. The contribution here is the sharp injectivity-failure threshold for the **pair of complete mean and variance response curves**, the unique first-exception shape pair, and the general distribution-polynomial swap identity separating its third moment.
-
-Nipperess and Matsen (2013) derive mean and variance under fixed-count phylogenetic rarefaction. That distinct sampling model supplies context for why first two moments are often reported, but its formulas neither impose the independent-extinction probability model nor prove or disprove the present threshold. Earlier mean-response nonidentification at nine leaves does not imply the present mean-and-variance collision, because the second moments distinguish those smaller shapes. The distribution-recursion literature contains tools from which some identities can be derived, but no exact prior statement with the same scope was identified in the sources inspected. Historical originality is provisional pending independent literature review.
-
-## Limitations
-
-The minimality and uniqueness assertion is for unit-edge, unordered rooted full-binary shapes and **equality across all extinction probabilities**. It does not assert identifiability for arbitrary edge lengths, equality only at a fixed probability, nonbinary trees, unequal extinction risks, or unrooted phylogenetic diversity. The classification through sixteen leaves relies on auditable exhaustive exact computation as a finite mathematical certificate. The displayed infinite family is analytic. Extinction independence and equal risks are simplifications, and the example's probability differences can be small in absolute magnitude. No biological field data, empirical effect size, or independent scientific audit is claimed.
-
-## References
-
-1. B. Faller, F. Pardi and M. Steel, *Distribution of phylogenetic diversity under random extinction*, arXiv:0708.0425, first public version 2 August 2007; *Journal of Theoretical Biology* **251** (2008), 286–296, DOI: 10.1016/j.jtbi.2007.11.034. https://arxiv.org/abs/0708.0425
-2. D. A. Nipperess and F. A. Matsen IV, *The mean and variance of phylogenetic diversity under rarefaction*, *Methods in Ecology and Evolution* **4** (2013), 566–572, DOI: 10.1111/2041-210X.12042. https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12042
-3. D. P. Faith, *Conservation evaluation and phylogenetic diversity*, *Biological Conservation* **61** (1992), 1–10, DOI: 10.1016/0006-3207(92)91201-3.
+- *Sixteen leaves are the sharp threshold for two-moment phylogenetic-rarefaction ambiguity*, published October 18, 2026, https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sixteen-leaves-are-the-sharp-threshold-for-two-moment-phylogenet--462f3e638fdc. Establishes the unique sixteen-leaf collision and every lower-size noncollision for complete fixed-size mean/variance profiles. The conditional-binomial transform transfers these statements to the homogeneous extinction model; this is decisive prior coverage.
+- *Sixteen taxa are sharp for two-moment phylogenetic-rarefaction ambiguity*, published October 26, 2026, https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sixteen-taxa-are-sharp-for-two-moment-phylogenetic-rarefaction-a--8c5fc1eb40b1. Gives the same pair, higher-moment witness, and an equal-subtree interchange argument.
+- B. Faller, F. Pardi and M. Steel, *Distribution of phylogenetic diversity under random extinction*, arXiv:0708.0425; J. Theor. Biol. 251 (2008), 286–296. Establishes the independent-extinction model and distribution recursion.
+- D. A. Nipperess and F. A. Matsen IV, *The mean and variance of phylogenetic diversity under rarefaction*, Methods Ecol. Evol. 4 (2013), 566–572, DOI:10.1111/2041-210X.12042. Establishes the fixed-size moment framework used in the prior sharp classification.

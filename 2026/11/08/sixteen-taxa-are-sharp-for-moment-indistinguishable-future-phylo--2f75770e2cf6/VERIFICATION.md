@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-`checker.py` uses Python 3 standard-library integer arithmetic. Execute `python3 checker.py` from the directory containing this document and the script. The program constructs canonical unordered rooted full-binary shapes, compares every exact mean/variance coefficient pair for leaf counts two through sixteen, and asserts the unique two-member collision at sixteen.
+## correctness
 
-It then carries out a logically separate direct enumeration of all 65,536 surviving-subset configurations at extinction probability \(q=1/2\), confirming the probability-law gap and vanishing first two moments. A third computation uses a recursive raw-moment polynomial formulation to verify the exact third-moment gap \(-6q^{12}(1-q)^2\). All checks are deterministic and use exact integers; no sampling or floating-point tolerances are employed.
+PASS
 
-The all-probabilities agreement of the first two moments and existence at all larger leaf counts follow from the algebraic generating-function identity in `RESULT.md`. Numerical finite enumeration is not offered as a proof beyond sixteen leaves. Inputs are unlabeled, nonplane, rooted full-binary tree shapes with all edges of unit length, no added root stem, and independent equal extinction probability. Other probability or tree models are not verified. Historical priority and independent scientific assessment have not been established.
+Re-derived incoming-edge PGF H_XY(q,z)=q^(2s)+z(F_X F_Y-q^(2s)); expansion H_UU H_VV-H_UV^2=q^(2s)z(1-z)(F_U-F_V)^2. Since F_U(1)=F_V(1)=1, difference has (z-1)^3 and first two raw moments coincide; third derivative yields -6q^(2s)(mu_U-mu_V)^2. Independent integer polynomial and 65536-subset checker verifies C vs balanced B on 16 leaves and exact score-five difference q^14(1-q)^2. Earlier 16-leaf uniqueness and >16 extension are correctly removed as original claims in complete revised files.
+
+## originality
+
+PASS
+
+REPAIRED: original 16-leaf cutoff and unique pair are decisively COVERED by stronger 2026-10-18/26 fixed-size rarefaction theorems; surviving explicit arbitrary U,V bivariate full-PGF swap-square identity and third-raw-moment formula were not stated in those inspected published full texts. Best-of-knowledge for corrected claim only.
+
+## value
+
+PASS
+
+The exact PGF swap-square law explains an entire family of moment-indistinguishable distributions and controls the third and all higher discrepancies by a structural identity. It remains a mathematically meaningful stand-alone result, without claiming a known finite threshold anew.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
