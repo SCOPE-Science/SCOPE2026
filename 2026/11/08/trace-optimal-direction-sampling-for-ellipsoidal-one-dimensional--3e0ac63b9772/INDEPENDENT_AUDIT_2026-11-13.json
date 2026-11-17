@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:59:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.24866",
+        "https://arxiv.org/abs/1902.00995",
+        "frozen RESULT.md and verify.py"
+      ],
+      "rationale": "The information matrix M=E[qq^T/(q^T S q)] has tr(SM)=1, proving lambda_min(M)<=1/tr S with equality iff M=I/tr S. Eigenvector law with mass lambda_i/tr S and sphere law w(q)=n q^T S q/tr S both realize equality. Metric-guided has M=S^{-1}/n; Haar has strictly larger min eigenvalue than metric guided but cannot be isotropic for nonscalar S (coordinate-swap identity). Planar circle integration gives m_i= lambda_i^{-(1+gamma)/2}/(a^{(1-gamma)/2}+b^{(1-gamma)/2}), isotropic uniquely gamma=-1 when a!=b. Independent numerical quadrature at S=diag(1,4),(1,9) confirmed the three strict levels; analytic trace proof covers all real SPD dimensions.",
+      "residual_risks": [
+        "No high-probability guarantee, nonlinear optimization convergence, or dimension>1 subspace result; unique gamma=-1 applies only to planar nonscalar S."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Hu–Wu coordinate subspace descent and Roberts–Royer random reduced-space descent study distinct objectives and convergence properties",
+          "Current claim is only one-dimensional independent gradient static mean alignment"
+        ],
+        "reasoning": "Do not infer algorithmic convergence or higher-subspace guarantees; source methods do not dominate this exact minimax alignment comparison.",
+        "searches": [
+          "Resultary: ellipsoidal one dimensional worst gradient trace optimal importance sampled directions probability S",
+          "arxiv:2006.06589",
+          "arxiv:2204.01275"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.24866",
+        "https://arxiv.org/abs/1902.00995",
+        "frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New equality characterization M=I/tr(S) follows from trace identity and is constructive",
+          "Power family gamma=-1 unique in n=2 distinct spectrum; Chen–Xie metric-guided gamma=1 differs"
+        ],
+        "reasoning": "General E-optimal trace ideas do not alone supply the precise normalization-weighted construction or strict comparison for the particular statistic; limited priority assertion.",
+        "searches": [
+          "Resultary: ellipsoidal one dimensional worst gradient trace optimal importance sampled directions probability S",
+          "arxiv:2610.24866",
+          "arxiv:1902.00995"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Xie 2026 Sections2.2 and3.4: same alignment objective and inverse-metric/Haar samplers",
+          "Classical E-optimal design optimizes smallest eigenvalue but with different information constraints"
+        ],
+        "reasoning": "Equivalent generic information-design viewpoint exists; no inspected statement optimizes this exact ellipsoidal denominator or gives all equality/sampler formulas.",
+        "searches": [
+          "Resultary: ellipsoidal one dimensional worst gradient trace optimal importance sampled directions probability S",
+          "arxiv:2610.24866",
+          "arxiv:1902.00995"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For S=diag(1,4) exact worst alignment values: metric 1/8, Haar 1/6, optimal 1/5",
+          "For S=diag(1,9): metric 1/18, Haar 1/12, optimal 1/10"
+        ],
+        "reasoning": "These exact checks validate the rank and nontrivial consequence; no known database/table of optimal unequal-ellipse direction distributions was identified.",
+        "searches": [
+          "Resultary: ellipsoidal one dimensional worst gradient trace optimal importance sampled directions probability S",
+          "arxiv:2610.24866"
+        ]
+      },
+      "rationale": "The optimization reduces to an E-optimal information design and the trace bound is elementary prior geometry; that known framing is not claimed independently new. The specific minimax solution for the Chen–Xie alignment denominator, sharp comparison with their inverse-metric guided law and unique opposite-power planar no-rejection realization are not present in accessible source treatment; related standard experimental-design and coordinate-sampling results use different objectives. Historical equivalence in classical design literature is an explicit risk.",
+      "residual_risks": [
+        "Classical E-optimal design or angular importance sampling may already contain an equivalent exact construction; primary Chen–Xie arXiv HTML disabled and reflowed reading is not verified identical to whole publisher PDF."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IN_READ_MATERIAL",
+          "evidence": "Defines metric-guided and Haar sampling and mean for metric guided; no inspected general worst-gradient minimax design and planar gamma=-1 theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24866",
+          "material_read": "Accessible public reflowed mathematical article Sections2 and3.4 and surrounding descriptions; direct arXiv HTML disabled",
+          "method": "Lawful reflowed text examination; direct arXiv route attempted",
+          "title": "Random-subspace Ellipsoidal Trust-region Methods for Derivative-free Optimization",
+          "trigger": "Exact originating alignment statistic and claimed baseline methods"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "E-optimal design is relevant and could contain a dual or equivalent information-trace result; priority risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.00995",
+          "material_read": "Accessible metadata/abstract and motivating objective; full text not verified here",
+          "method": "Bibliographic/abstract only",
+          "title": "Minimax experimental design: Bridging the gap between statistical and worst-case approaches to least squares regression",
+          "trigger": "Potential broad E-optimal implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.24866",
+        "https://arxiv.org/abs/1902.00995",
+        "frozen RESULT.md and verify.py"
+      ],
+      "rationale": "Choosing sampling directions to maximize adversarial-gradient mean line alignment is a naturally motivated exact design problem. The explicit full-support biased sampler, exact accept probability, Haar strictness and planar parameter choice offer practically interpretable optimal designs not implied by merely validating a normalization identity; claims are limited to this static statistic.",
+      "residual_risks": [
+        "No high-probability guarantee, nonlinear optimization convergence, or dimension>1 subspace result; unique gamma=-1 applies only to planar nonscalar S."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For SPD S the optimal worst-gradient expected squared line alignment is 1/tr(S), with isotropic-information equality; weighted eigenvector and continuous Haar-tilted sampling attain it, with strict Haar versus metric-guided ordering and a unique planar power exponent gamma=-1.",
+  "limitations": [
+    "No high-probability guarantee, nonlinear optimization convergence, or dimension>1 subspace result; unique gamma=-1 applies only to planar nonscalar S."
+  ],
+  "schema_version": 1
+}
