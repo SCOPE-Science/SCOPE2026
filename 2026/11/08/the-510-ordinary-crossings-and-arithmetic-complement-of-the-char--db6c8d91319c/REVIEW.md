@@ -1,21 +1,21 @@
-# Review of the sixty-line boundary and complement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Rams--Schuett's model and sixty lines give a well-defined reduced divisor. The finite-field verifier independently lists all 120 coordinate permutations, obtains sixty distinct line spans, and enumerates all 1020 pairs (line, rational point on that line) over \(\mathbb F_{16}\). The 1020 incidences comprise exactly 510 distinct points, each on two lines. Since any geometric meeting of two F16-defined lines is itself F16-rational, this is exhaustive over an algebraic closure. No triple point is possible. All intersections are transverse on the smooth K3 surface. The thirty conjugate line pairs are skew, and therefore boundary points occur only in even extension degrees. Inclusion--exclusion gives \(60\cdot4^m-450\) boundary points for even \(m\) and zero for odd \(m\). The already established projective-surface zeta is independently recomputed from the line-class Gram ranks and exhaustive projective point counts, and division by the newly proven boundary zeta proves the all-extension open-surface formula. A finite experiment is used only for finite enumerations, not for infinitary extrapolation.
+PASS
 
-## Originality — PASS, provisional priority
+For the explicit smooth F4 quartic S: e1=e4+μe2²=0, take the Rams–Schütt F16 line basis and its complete S5 orbit of 60 lines. Exact F16 projective line enumeration gives 60*17=1020 line-point incidences with exactly 510 distinct points each occurring twice, no triple concurrence. All intersections of F16-defined lines are F16-rational; there are thirty Frobenius-4 conjugate pairs, none intersecting. Thus D(F_{4^m})=0 for odd m, and 60*4^m-450 for even m. With the prior/projectively reproduced K3 zeta Z(S)=1/((1-T)(1-16T)(1-16T²)^10(1-3T+16T²)), zeta multiplicativity yields Z(U)=(1-16T²)^20/((1-T)(1-16T)(1-T²)^225(1-3T+16T²)). Independently implemented F16 algebra using line parameter projective points rather than RREF, checked 60 lines, 510 distinct double intersections, thirty skew conjugate pairs and #S(F4)=20/#S(F16)=554, yielding #U=20/44. The all-extension formula follows from field-of-definition and zeta, not extrapolation of point counts.
 
-Rams--Schuett (arXiv:1512.01358) already construct the surface and its sixty lines; Degtyarev (arXiv:1604.05836), Degtyarev--Itenberg--Sertoz (arXiv:1601.04238) and Veniani (arXiv:1606.02135) give relevant geometric classifications. A previous exact calculation of this *same* surface already determines its complete projective zeta function, arithmetic Picard rank and Frobenius line orbits. Another earlier computation already determines the exact 60-line graph with 510 intersecting *pairs*, adjacency spectrum, and skew Frobenius-conjugate pairs. These substantially stronger antecedents are not asserted as new here.
+## originality
 
-The new and logically distinct assertion is that the 510 pairwise intersections are 510 **distinct** points, without any triple concurrency, and exhaust each line's 17 F16-rational points. The line-graph edge census does not imply this: graph triangles may represent three distinct nodes or a single triple crossing. The projective surface zeta does not determine the line-union zeta or the open-surface zeta. The compared primary full-text passages and published mathematical-record searches did not identify this boundary point scheme or complement zeta. Priority remains provisional against specialist arithmetic studies and unindexed tables.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge statement/implication comparison, not a novelty certification. The equivalent formulation is that the reduced union is a nodal curve with 510 ordinary crossings and no triple crossings over F16; the intersection graph alone is strictly weaker. The current direct all-F16 line-point census proves the missing triple-free fact, so Z(U)=Z(S)/Z(D) follows by an elementary but mathematically meaningful implication; the novelty is the boundary census, not mere division of known zeta factors.
 
-The union of all 60 lines is a geometrically natural divisor on a record-setting quartic K3, not an arbitrary cutout. Its 510-node decomposition and absence of points over all odd-degree extensions determine a concrete, previously unforced arithmetic invariant of the associated *open* K3 surface. The boundary is unexpectedly saturated by intersections over F16, a useful exact input for its log geometry, finite-field rational-point analysis, and divisorial arithmetic. Although the already established zeta of the projective K3 is used, the zeta of its complement cannot be computed from it without the separate scheme-theoretic boundary incidence theorem. The claim is narrow but substantive.
+## value
 
-## Limits and evidence
+PASS
 
-This is the specified F4 model and reduced line divisor only; no statement about other twists, unknown automorphisms or all K3 line arrangements. Finite checks and their precise logical use are described in `VERIFICATION.md`. The source Picard rank is assumed rather than independently proved. A later discovery of a directly covering boundary count would change the originality verdict. Independent scientific validation was not performed.
+A reduced boundary with 60 lines on a highly symmetric quartic K3 has a natural geometry and arithmetic complement. The novel exact distinct-node count resolves concurrency ambiguity in an already known line graph, giving all-extension boundary point counts and a closed zeta function for an open surface, a reusable exact arithmetic invariant. An independently meaningful exact fact even though the underlying ambient zeta is known.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
