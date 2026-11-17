@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_two_marks.py` using Python 3 and its standard library only. The observed output from the actual embedded script was:
+## correctness
 
-`EXACT_TWO_MARKS_OK 3600 parameter pairs; all half-length type sets`
+PASS
 
-The checker loops over every pair \(0\le p,q<60\). For each word \(a^pba^qb\), it directly enumerates cyclic windows of each even length not exceeding the word length, counts \(b\) independently in the two halves, and records the exact set of equivalence types \((m,\text{number of }b\text{ in one half})\). It compares those sets to the two explicit indicators, verifies the closed total, and checks every odd-length partial-sum lower bound. These are finite regression checks; the unrestricted all-parameter theorem follows from the constructive argument in `RESULT.md`.
+For circular w=a^pba^qb and 2m<=n, any Abelian-square halves contain either 0 or 1 marked b each; 0 requires 2m<=max(p,q). One in each half is feasible exactly when shorter circular mark separation min(p,q)+1<=2m−1, and a starting offset max(0,m−min(p,q)−1) witnesses sufficiency. Summing the two disjoint types proves z_m and N with all p,q>=0, including zeros and n=2. At odd n, the permitted intervals cover every half-length, with N=(n−1)/2+(|p−q|−1)/2 and sharp |p−q|=1 equality. Independently enumerated every cyclic factor/half-count for 900 (p,q) pairs 0..29.
 
-The two critical unbounded steps are: (i) there cannot be any type having two marked letters in each half because the whole circular word contains only two, and (ii) an oriented pair of marks separated by \(s\) can be placed into opposite halves of a factor of length \(2m\) if and only if \(s\le2m-1\), with the placement given explicitly in the proof. The self-review passed. No independent mathematical audit or external certification was performed.
+## originality
+
+PASS
+
+The full most relevant Bhattacharjee 2026 v2 primary manuscript explicitly conjectures odd-length prefix inequality for non-equivalent Abelian-square types; its exact proposition on a^p b^q is for two cyclic runs, not the four-run two-isolated-marker family. The exact two-marker type profile and termwise odd bound solve a motivated special case. Boundary p=0/q=0 is acknowledged as prior two-run. Resultary three-mark record not stronger for two marks.
+
+## value
+
+PASS
+
+The proposed lower bound for non-equivalent circular Abelian square types is a live combinatorics-on-words question. A complete four-run family formula proving the stronger termwise property, with all equality cases, is a meaningful structural partial solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
