@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the characteristic-three degeneration
+# Independent mathematical audit
 
-The proof in `RESULT.md` verifies the theorem for **every** algebraically closed field of characteristic \(3\) and every coefficient pair satisfying its explicit nonempty open hypotheses. The only nonstandard local coordinate change is justified by \(h'_r(x_0)\ne0\); it produces the exact completed local equation \(ts+u^3=0\). The triple-line fiber resolves to the affine \(E_6\) diagram, with central multiplicity \(3\) and three length-two arms with multiplicities \(2,1\). The other six singular residual cubics have explicit ordinary-node quadratic terms.
+## correctness
 
-Run `python3 verify_char3.py`; compare to `verification_output.txt`. This is a standalone Python 3 script without external packages. It checks an exact coefficient witness over \(\mathbb F_9\), including the separability of both singular-point cubics, using arithmetic in \(\mathbb F_3[r]/(r^2+r-1)\). It also enumerates the \(820\) points of \(\mathbb P^3(\mathbb F_9)\) and tests the surface's exact gradient. The actual execution returned `CHAR3_DEGENERATION_EXACT_CHECKS_PASSED`.
+PASS
 
-The finite enumeration is **not** used as an infinite proof; it provides an explicit nonempty instance. In particular, the six geometric singularities need not be rational over \(\mathbb F_9\); none is \(\mathbb F_9\)-rational for the chosen witness. No claim of independent human review, formal theorem-prover certification, exhaustive literature coverage, or complete classification of all special coefficient choices is made.
+From F_x=yQ, F_y=xQ and F_z=x^3+xyQ_z+G_z, smoothness off Q=0 follows from squarefreeness of G. At each of two simple Q-roots, h_r has three distinct algebraic zeros. Its nonzero derivative yields regular parameters t,s,u with exact completed equation ts+u^3=0 (A2), and resolving three A2 points on a triple residual line yields the affine E6 multiplicities of IV*. Six other residual cubics have isolated ordinary-node quadratics. ℓ maps as Frobenius degree three. Independently over F9, Q has two simple roots and h_r has no common root with its derivative (critical x=1 at each); this certifies nonempty hypotheses but not the universal theorem.
+
+## originality
+
+PASS
+
+Best of knowledge, no earlier inspected statement entails the explicit coefficient-open characteristic-three degeneration with six A2 surface singularities, two IV* fibers, six I1 fibers, and inseparable trisection. The source family and isolated IV* fiber possibilities were known, but those do not imply this simultaneous classification.
+
+## value
+
+PASS
+
+Explicit small-characteristic degeneration of a standard K3 quartic family gives a natural geometry answer: the characteristic-three singularity basket and precise genus-one fiber configuration differ sharply from the known good-characteristic family. This is a structurally motivated complete classification for a nonempty coefficient-open subfamily, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
