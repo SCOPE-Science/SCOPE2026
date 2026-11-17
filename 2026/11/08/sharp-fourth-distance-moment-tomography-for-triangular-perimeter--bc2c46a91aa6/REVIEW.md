@@ -1,15 +1,21 @@
-# Scientific review: sharp fourth-distance-moment tomography for triangular perimeters
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns two independent normalized-arclength boundary samples of a nondegenerate Euclidean triangle, together with its known perimeter. Conditional integrals for same-side and adjacent-side pairs are polynomials, and sum to the displayed second- and fourth-distance moments. Heron's identity reduces the second moment to an area formula. The fourth moment contains the positive factor \(4A^2/9\) multiplying the second elementary symmetric function of normalized side lengths, which permits exact inversion. Vieta's theorem is valid for repeated side lengths as well as scalene triangles. The sharp fixed-perimeter-and-area envelope follows from the connected product-constrained positive simplex and a two-equal-slack Lagrange multiplier classification. An explicit pair of noncongruent isosceles triangles shows one moment is insufficient. Exact rational reconstruction and independent random pair simulations were executed from the included verifier. The numerical tests do not substitute for the symbolic proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closely relevant published second-boundary-distance-moment result includes the formula equivalent to the present \(m_2\); this is credited as background, not claimed as original. In the full accessible 2012 article by Bäsel, the geometric chord measure is motion-invariant-line sampling, and the point-pair law uses interior-uniform locations in regular polygons. The available 2013 text of Tong, Ahmadi and Pan expressly uses interior-uniform sampling in arbitrary triangles. Neither inspected scientific statement implies the fourth moment for independent arclength-uniform boundary endpoints, a minimal two-moment inverse with known perimeter, or the sharp isosceles fixed-area interval. Gates (1982) establishes a different inverse chord result for motion-invariant random lines; its full text was inaccessible, so any unobserved relevant implication remains a priority risk. The conclusion is a best-knowledge originality assessment, not a certified literature-exhaustive priority decision.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a complete and minimal finite-moment inverse to a natural geometric sampling problem. At fixed perimeter and area, the fourth distance moment separates noncongruent triangles that the second moment provably cannot separate. The explicit sharp interval, classification of the two distinct isosceles extremizers, and recovery cubic are structural consequences of the specific boundary measure. This is more than an isolated computation or a mere restatement of the known second-moment identity. The inverse becomes ill-conditioned as triangle area tends to zero; no finite-sample statistical guarantees are claimed.
+Two independent arclength-uniform boundary endpoints give exact side-conditioned integrals: same-side even distances by beta integrals and adjacent-side D²=x²s²+y²t²-(x²+y²-z²)st. Summing nine ordered edge pairs gives m2=P²/24-2A²/P² and m4=P⁴/240-A²(1-4e2/9). Thus known (P,m2,m4) determines A²>0, e2, e3 and all normalized sides as roots of t³-t²+e2t-e3=0; an explicit noncongruent isosceles pair has equal (P,m2) but differing fourth moment. On fixed P,A, positive slacks ti=1-2pi have sum1 and fixed product K=16A²/P⁴; compact connected level and Lagrange multipliers put e2 extrema at two distinct isosceles branches. Independent exact Fraction arithmetic verified all stated m2/m4 integrals for five triangles; for sides 3,4,5, m2=11/2 and m4=2503/45. The continuum conclusions are analytical, not inferred from finite enumeration.
 
-## Limits and closest literature
-Bäsel, *Random chords and point distances in regular polygons* (2012); Tong–Ahmadi–Pan, *Random Distances Associated with Arbitrary Triangles* (2013); Gates, *Recognition of triangles and quadrilaterals by chord length distribution* (1982); and the published second-moment boundary comparison were distinguished by their sampling measures and the implication content of their stated results. Further historical priority and stability analyses are outside this finding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with a major qualification: the exact forward boundary fourth-moment polynomial is ALREADY given by the fully read Nov2 sharp boundary/interior amplification theorem (same sampling, after Heron/slack reparameterization), and the second moment is earlier October4 work. The surviving mathematical claim is instead the **minimal inverse** determination of side lengths from known P plus the first two even moments, with nonuniqueness at one moment, and the complete sharp fixed-(P,A) fourth-moment isosceles range. The prior Nov2 theorem evaluates a ratio and shape-uniform extrema, not a fixed-area two-branch envelope or inverse cubic.
+
+## value
+
+PASS
+
+A finite-moment inverse problem for a natural perimeter-sampling law is a useful geometric-identifiability result: P and one even moment leave noncongruent triangles indistinguishable, while a second even moment reconstructs shape. The sharp two-isosceles range at a prescribed area is a separate exact constrained geometry classification; these go beyond a known forward-moment polynomial though reuse it substantially.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
