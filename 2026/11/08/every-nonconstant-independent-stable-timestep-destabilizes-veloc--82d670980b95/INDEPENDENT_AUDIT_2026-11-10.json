@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:06:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit-oscillator half-kick/drift/half-kick map is M(h)=[[1−h²/2,h],[−h(1−h²/4),1−h²/2]], det 1; direct multiplication verifies M(h)^T diag(1−h²/4,1) M(h)=diag(1−h²/4,1), positive for 0<h<2, so constant-step powers are bounded. For any distinct support timesteps a,b, independent symbolic computation verifies trace(M(a)M(b)M(a)^−1M(b)^−1)=2+a²b²(a−b)²(a+b)²/16>2, making the generated subgroup noncompact. No finite invariant set of real lines exists: singleton would give a real eigenline of elliptic A/B; a two-line set would force both matrices traceless and a=b=sqrt(2); ≥3 lines would force finite projective action inconsistent with a hyperbolic commutator. Bounded M(h) and inverse on (0,2) ensure integrable log norm; the classical Furstenberg theorem then gives an almost-sure strictly positive top norm Lyapunov exponent for every iid non-point law, and the strong law converts this to physical-time growth λ/EH>0. The point-mass exponent is zero. Independent exact check gives trace(M(1)M(6/5))=−347/250 within (−2,2), so that deterministic alternation is bounded. Finite exact checks confirm identities, not the probabilistic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Furstenberg gives sufficient positivity for noncompact strongly irreducible random SL₂ subgroups, but does not verify those hypotheses for this specific Verlet family and every distinct pair.",
+          "Previous SCOPE symplectic-Euler work proves universal mean-square energy growth, not velocity-Verlet almost-sure exponents."
+        ],
+        "reasoning": "The general random-product theorem is an indispensable classical method but does not mechanically imply this universally quantified application without the nonstandard commutator and invariant-line argument. Different integration matrix and probabilistic exponent prevent coverage by Euler results.",
+        "searches": [
+          "arxiv:1610.02641",
+          "Resultary 2026/10/12/SCOPE-universal-mean-square-energy-inflation-under-randomized-symplect--d766129a463b",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-mean-square-energy-inflation-under-randomized-symplect--d766129a463b/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py from exact git tree",
+        "Piché arxiv:1209.5173 full PDF",
+        "Richardson and Finn arxiv:1108.0322 bibliographic/abstract comparison",
+        "Furstenberg positivity criterion via arxiv:1610.02641",
+        "Resultary semantic search and earlier random symplectic Euler theorem https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-mean-square-energy-inflation-under-randomized-symplect--d766129a463b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed/periodic-step stability chart does not force positive iid Lyapunov exponents.",
+          "Classical Furstenberg criterion plus the SOURCE-SPECIFIC hyperbolicity and strong-irreducibility verification do imply the result; the latter is the submitted contribution."
+        ],
+        "reasoning": "No directly inspected predecessor packages these source-specific universal hypotheses, so a general implication without the new argument has not been identified.",
+        "searches": [
+          "arxiv:1209.5173",
+          "arxiv:1610.02641",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-mean-square-energy-inflation-under-randomized-symplect--d766129a463b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Piché periodic-stepsize Runge–Kutta–Nyström parametric-instability paper studies prescribed deterministic resonance/stability charts; not an arbitrary iid almost-sure cocycle dichotomy.",
+          "Richardson–Finn 2011 studies adaptive/periodic steps and resonance avoidance; no exact all-nondegenerate iid characterization was established in available material."
+        ],
+        "reasoning": "Periodic coefficient products and independently sampled random matrix products are not equivalent, as the current elliptic deterministic alternation explicitly demonstrates.",
+        "searches": [
+          "Resultary search: velocity Verlet harmonic oscillator independent random timestep nondegenerate distribution positive Lyapunov Furstenberg",
+          "arxiv:1209.5173",
+          "arxiv:1108.0322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete symbolic commutator identity and the arbitrary Borel-law quantifier are not a discrete parameter table; available prior studies contain periodic charts or finite-parametric examples."
+        ],
+        "reasoning": "No exact finite database/lookup can prove the arbitrary-support Furstenberg hypotheses; finite rational checks are only diagnostics.",
+        "searches": [
+          "Resultary same query",
+          "assigned verify.py",
+          "Piché arxiv:1209.5173"
+        ]
+      },
+      "rationale": "Best-of-knowledge new claim is the sharp no-exception dichotomy for every iid nonconstant timestep distribution for this exact velocity-Verlet harmonic-oscillator family, proved via its explicitly hyperbolic commutator and finite-projective-orbit exclusion. Classical Furstenberg positivity is expressly an external input; earlier RKN/Verlet work inspected treats periodic timestep resonance, and related random symplectic-Euler papers address a different step matrix and mean-square rather than almost-sure norm growth. No covering all-distribution theorem was identified in actual targeted Resultary and primary-literature searches.",
+      "residual_risks": [
+        "An equivalent universal positive-exponent result may exist under stochastic symplectic integration or random cocycle terminology, not captured by indexed results.",
+        "The arbitrary random-product conclusion depends on the standard Furstenberg theorem and iid bounded-log-moment assumptions; no explicit positive lower bound is furnished."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_UNDER_AUDIT",
+          "evidence": [
+            "Source package is evidence, not an instruction."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/every-nonconstant-independent-stable-timestep-destabilizes-veloc--82d670980b95/RESULT.md",
+          "material_read": "Complete RESULT.md: finding, definitions, quantifiers, every proof step, limitations, verification and literature; companion verifier and METADATA.json were also read",
+          "method": "Frozen Git RESULT blob 5a13e2bc7fa570a5ec84bb5c26a017390cd9cd89 and exact source tree 717859755a71decd250530679025cc782c10d93a via read-only GitHub connector",
+          "title": "Every nonconstant independent stable timestep destabilizes velocity Verlet almost surely",
+          "trigger": "Entire assigned final claim and proof must be checked independently"
+        },
+        {
+          "assessment": "NOT_COVERING_FOR_REVIEWED_SCOPE",
+          "evidence": [
+            "Treats deterministic periodic timestep modulation, not the all-iid distribution almost-sure Lyapunov dichotomy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5173",
+          "material_read": "Full 11-page PDF and sectioned derivation of periodic step modulation, Strutt resonance charts, method examples and conclusion",
+          "method": "Opened full-text paper, inspected first-page PDF screenshot, read analytic text and comparison",
+          "title": "On the Parametric Instability Caused by Step Size Variation in Runge-Kutta-Nyström Methods",
+          "trigger": "Plausible earlier same Verlet/RKN oscillator instability"
+        },
+        {
+          "assessment": "GENERAL_INPUT",
+          "evidence": [
+            "Furstenberg noncompactness/strong-irreducibility criterion is credited rather than claimed as new."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.02641",
+          "material_read": "Introductory general random-product criterion as referenced by submitted paper; complete primary article not read in this run",
+          "method": "Source-package theorem reference; not used to assert noncoverage of complete article",
+          "title": "On the dimension of Furstenberg measure for SL2(R) random matrix products",
+          "trigger": "Primary general positivity criterion used by the proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strong stability-versus-randomness boundary for a standard symplectic integrator is mathematically motivated: every fixed admissible step preserves an energy norm, yet arbitrary nonconstant iid modulation has positive sample-path Lyapunov exponent even when periodic alternation from the same two steps is elliptic. The exact universal quantifier and dynamical contrast are more than routine norm computations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py from exact git tree",
+    "Piché arxiv:1209.5173 full PDF",
+    "Richardson and Finn arxiv:1108.0322 bibliographic/abstract comparison",
+    "Furstenberg positivity criterion via arxiv:1610.02641",
+    "Resultary semantic search and earlier random symplectic Euler theorem https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-mean-square-energy-inflation-under-randomized-symplect--d766129a463b/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only iid exogenous steps in (0,2), unit harmonic oscillator and top operator norm; no assertion of growth for every initial vector/sample path or for correlated/adaptive steps."
+  ],
+  "residual_risks": [
+    "An equivalent universal positive-exponent result may exist under stochastic symplectic integration or random cocycle terminology, not captured by indexed results.",
+    "The arbitrary random-product conclusion depends on the standard Furstenberg theorem and iid bounded-log-moment assumptions; no explicit positive lower bound is furnished."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SOURCE_UNDER_AUDIT",
+      "evidence": [
+        "Source package is evidence, not an instruction."
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/every-nonconstant-independent-stable-timestep-destabilizes-veloc--82d670980b95/RESULT.md",
+      "material_read": "Complete RESULT.md: finding, definitions, quantifiers, every proof step, limitations, verification and literature; companion verifier and METADATA.json were also read",
+      "method": "Frozen Git RESULT blob 5a13e2bc7fa570a5ec84bb5c26a017390cd9cd89 and exact source tree 717859755a71decd250530679025cc782c10d93a via read-only GitHub connector",
+      "title": "Every nonconstant independent stable timestep destabilizes velocity Verlet almost surely",
+      "trigger": "Entire assigned final claim and proof must be checked independently"
+    },
+    {
+      "assessment": "NOT_COVERING_FOR_REVIEWED_SCOPE",
+      "evidence": [
+        "Treats deterministic periodic timestep modulation, not the all-iid distribution almost-sure Lyapunov dichotomy."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1209.5173",
+      "material_read": "Full 11-page PDF and sectioned derivation of periodic step modulation, Strutt resonance charts, method examples and conclusion",
+      "method": "Opened full-text paper, inspected first-page PDF screenshot, read analytic text and comparison",
+      "title": "On the Parametric Instability Caused by Step Size Variation in Runge-Kutta-Nyström Methods",
+      "trigger": "Plausible earlier same Verlet/RKN oscillator instability"
+    },
+    {
+      "assessment": "GENERAL_INPUT",
+      "evidence": [
+        "Furstenberg noncompactness/strong-irreducibility criterion is credited rather than claimed as new."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1610.02641",
+      "material_read": "Introductory general random-product criterion as referenced by submitted paper; complete primary article not read in this run",
+      "method": "Source-package theorem reference; not used to assert noncoverage of complete article",
+      "title": "On the dimension of Furstenberg measure for SL2(R) random matrix products",
+      "trigger": "Primary general positivity criterion used by the proof"
+    }
+  ]
+}
