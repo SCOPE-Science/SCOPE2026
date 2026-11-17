@@ -1,19 +1,21 @@
-# Scientific review: exact planar funNyström log-trace law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix in the claim is strictly positive diagonal, and the sketch is real isotropic Gaussian with one column. Its Nyström approximation is rank one almost surely, with a single eigenvalue \((a^2+b^2T)/(a+bT)\), where \(T\) is a squared Cauchy ratio. The excess error is a strictly increasing fractional-logarithmic transform of \(T\), so the support and exact CDF follow by inversion, including endpoint behavior. The angular mean-value identity proves the closed-form expectation; the direct comparator's rank-one residual and reciprocal-quadratic angular integral prove its expectation and distribution. Coupling all spike sizes with fixed Gaussian coordinates proves almost-sure limits; direct expansion establishes the different leading mean scale. The checker reproduced from `verify.py` passed 6,020 exact and numerical assertions, but these are not substituted for the analytic proof.
+PASS
 
-## Originality — PASS, qualified
+For A=diag(a,b), a>b>0, real Gaussian g, the rank-one Nyström matrix has nonzero eigenvalue mu=(a^2+b^2T)/(a+bT), T=g2^2/g1^2 with square-Cauchy CDF. The logarithmic function-after-Nyström excess H=log((1+a)(a+bT)/(a(1+a)+b(1+b)T)) is strictly increasing in T and inverts to the exact displayed CDF; no finite endpoint atom. The angular mean-log identity gives E H=2log[(sqrt a+sqrt b)/(sqrt a+sqrt(b(1+b)/(1+a)))]. Direct Nyström applied to log(I+A) gives error E_D=L_a L_b(1+T)/(L_a+L_b T) and expected value sqrt(L_a L_b), L_i=log(1+eigenvalue). Holding b fixed and coupling same g across a→infinity yields aH→bT a.s., sqrt(a) E H→2sqrt b, E_D→L_b(1+T) a.s., E E_D~sqrt(L_b log a) while the limiting law has a nonintegrable y^-1/2 tail. Independent angular quadrature and exact scalar comparisons validate sample spectra only; proofs are analytic.
 
-The motivating 2022 work of Persson–Kressner defines the function-after-Nyström algorithm and presents matrix-function approximation, probability bounds, and experiments. Its Theorem 3.9 concerns oversampled sketches and does not give the exact unoversampled planar CDF or the nonuniform-integrability contrast. The 2016 Saibaba–Alexanderian–Ipsen log-determinant paper uses a different compressed-subspace estimator and probabilistic bounds. General rank-one trace-residual expectation formulas already cover the *direct* Nyström comparator, which is not advanced as a novel result. The compared new content is the explicit function-after-Nyström distribution, its exact mean, and its joint sharp high-spike mean/quantile law. Searches for equivalent funNyström, planar Cauchy-ratio and Gaussian sketch formulations did not locate a stronger dominating statement. This is evidence-based noncoverage in inspected material, not proof of global priority. An older specialized matrix-function sketch calculation remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The source algorithm is explicitly intended to compute matrix functions and traces without expensive direct matrix-function products. Its smallest unoversampled Gaussian instance is not captured by the published expectation theorem's oversampling hypotheses. This exact benchmark quantifies the full error distribution and shows why high-probability, median and expected-error behavior can be radically different: a typical \(a^{-1}\) excess coexists with an \(a^{-1/2}\) mean excess, while the direct comparator has a diverging mean despite convergence in distribution. These precise scales test the sharpness of sketching guarantees and risk metrics. This is a meaningful natural low-rank matrix-function diagnostic, not a claim about large matrices or production workloads.
+PASS qualified. Persson and Kressner establish the function-after-Nyström method and expected bounds with oversampling assumptions, but not its exact one-column 2x2 log-trace error CDF and two contrasting high-spike mean/quantile scales. A prior Resultary 2026-10-13 sharp power-function funNyström theorem analyzes f(x)=x^theta and power iteration, not the logarithm, and does not logically imply this CDF. Other Gaussian Nyström matrix power and preconditioner results have distinct estimators. The direct log-matrix Nyström comparator mean sqrt(L_aL_b) is known rank-one residual algebra, explicitly not counted separately as new. Unindexed specialized log-Nyström work remains a risk.
 
-## Closest literature and residual scope
+## value
 
-Persson–Kressner (arXiv:2209.11023, Sections 2–5) supply the algorithm, motivation and existing larger-sketch bounds. Saibaba–Alexanderian–Ipsen (arXiv:1605.04893, Sections 2–4) give related spectral-gap bounds for a different log-determinant estimator. Gittens–Mahoney (2016) concern general Nyström low-rank error bounds. Classical Cauchy distributions, Gaussian rotational invariance and logarithmic trigonometric averages are used without novelty claims. The result covers only exact two-dimensional one-probe Gaussian function-after-Nyström error, with a direct-Nyström comparator; equivalent prior special-case analyses remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The one-column unoversampled model is the smallest natural stress test for the actual matrix-function-after-Nyström trace estimator, precisely where generic oversampled bounds do not apply. Its complete error law, quantile-vs-mean asymptotic separation and fair same-random-direction (but not same-cost) direct-function contrast provide an exact diagnostic for nonuniform integrability and spectral-spike risk. This is a motivated exact natural benchmark, not an optimal large-matrix estimator claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

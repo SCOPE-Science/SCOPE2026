@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library. The recorded run produced `VERIFICATION_OK checks=6020`. The checker performs exact-rational identities for the two rank-one residual expressions; checks exact inversion of the Cauchy-square CDF at nonboundary quantiles; compares analytic angular-logarithm and reciprocal angular integrals with deterministic midpoint numerical quadrature; and tests the leading high-spike mean and fixed-quantile constants.
+## correctness
 
-The CDF requires only the exact standard Cauchy law of the ratio of independent standard normal variables. The angular integral is proved by analytic circle averaging, while the direct reciprocal integral follows by \(u=\tan\theta\). These infinite mathematical facts, asymptotic assertions and publication novelty are not established merely by the finite checker. The dimensional restriction, real Gaussian requirement, lack of oversampling and fixed positive lower eigenvalue in the spike limit are essential to the stated theorem.
+PASS
+
+For A=diag(a,b), a>b>0, real Gaussian g, the rank-one Nyström matrix has nonzero eigenvalue mu=(a^2+b^2T)/(a+bT), T=g2^2/g1^2 with square-Cauchy CDF. The logarithmic function-after-Nyström excess H=log((1+a)(a+bT)/(a(1+a)+b(1+b)T)) is strictly increasing in T and inverts to the exact displayed CDF; no finite endpoint atom. The angular mean-log identity gives E H=2log[(sqrt a+sqrt b)/(sqrt a+sqrt(b(1+b)/(1+a)))]. Direct Nyström applied to log(I+A) gives error E_D=L_a L_b(1+T)/(L_a+L_b T) and expected value sqrt(L_a L_b), L_i=log(1+eigenvalue). Holding b fixed and coupling same g across a→infinity yields aH→bT a.s., sqrt(a) E H→2sqrt b, E_D→L_b(1+T) a.s., E E_D~sqrt(L_b log a) while the limiting law has a nonintegrable y^-1/2 tail. Independent angular quadrature and exact scalar comparisons validate sample spectra only; proofs are analytic.
+
+## originality
+
+PASS
+
+PASS qualified. Persson and Kressner establish the function-after-Nyström method and expected bounds with oversampling assumptions, but not its exact one-column 2x2 log-trace error CDF and two contrasting high-spike mean/quantile scales. A prior Resultary 2026-10-13 sharp power-function funNyström theorem analyzes f(x)=x^theta and power iteration, not the logarithm, and does not logically imply this CDF. Other Gaussian Nyström matrix power and preconditioner results have distinct estimators. The direct log-matrix Nyström comparator mean sqrt(L_aL_b) is known rank-one residual algebra, explicitly not counted separately as new. Unindexed specialized log-Nyström work remains a risk.
+
+## value
+
+PASS
+
+The one-column unoversampled model is the smallest natural stress test for the actual matrix-function-after-Nyström trace estimator, precisely where generic oversampled bounds do not apply. Its complete error law, quantile-vs-mean asymptotic separation and fair same-random-direction (but not same-cost) direct-function contrast provide an exact diagnostic for nonuniform integrability and spectral-spike risk. This is a motivated exact natural benchmark, not an optimal large-matrix estimator claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=diag(a,b), a>b>0, real Gaussian g, the rank-one Nyström matrix has nonzero eigenvalue mu=(a^2+b^2T)/(a+bT), T=g2^2/g1^2 with square-Cauchy CDF. The logarithmic function-after-Nyström excess H=log((1+a)(a+bT)/(a(1+a)+b(1+b)T)) is strictly increasing in T and inverts to the exact displayed CDF; no finite endpoint atom. The angular mean-log identity gives E H=2log[(sqrt a+sqrt b)/(sqrt a+sqrt(b(1+b)/(1+a)))]. Direct Nyström applied to log(I+A) gives error E_D=L_a L_b(1+T)/(L_a+L_b T) and expected value sqrt(L_a L_b), L_i=log(1+eigenvalue). Holding b fixed and coupling same g across a→infinity yields aH→bT a.s., sqrt(a) E H→2sqrt b, E_D→L_b(1+T) a.s., E E_D~sqrt(L_b log a) while the limiting law has a nonintegrable y^-1/2 tail. Independent angular quadrature and exact scalar comparisons validate sample spectra only; proofs are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.9 uses k,p>=2 oversampling assumptions and bounds; 2026 power result treats x^theta, not log(1+x); neither evaluates the exact log CDF or its mean."
+        ],
+        "reasoning": "Broader algorithmic results are not dominating statements for the one-column logarithmic distribution (without additional unproved limit arguments).",
+        "searches": [
+          "Persson-Kressner arXiv:2209.11023 Theorem 3.9",
+          "Resultary 2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md blob c436441f0821c99ce6ea11cf928a6a9f24071396",
+        "assigned verify.py blob b7e30fe091160b2eeb066419d985897e5c64c342",
+        "Persson Kressner arXiv:2209.11023 full PDF",
+        "full 2026-10-13 Resultary funNyström matrix power RESULT.md",
+        "Resultary funNyström logarithmic semantics query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier power-function result shows expected excess ~C_theta kappa^(theta-q+1/2), which cannot be specialized by theta=0 into the present log transform without a differentiated theorem and distribution-level analysis; prior bounds do not fix quantiles."
+        ],
+        "reasoning": "The exact Cauchy inversion and logarithmic angular mean require additional work beyond previously published power-asymptotic data.",
+        "searches": [
+          "full prior 2026-10-13 power funNyström RESULT.md",
+          "Persson-Kressner Theorem 3.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The trace error H is a nonlinear logarithm of a squared Cauchy ratio; prior power-function excess has a different exponent parameter theta and limiting power scaling."
+        ],
+        "reasoning": "Rank-one Gaussian residual calculations are related but do not by themselves give the exact logarithmic CDF and direct-function contrast as printed here.",
+        "searches": [
+          "Resultary: Gaussian one-column funNyström logarithm error distribution two eigenvalues exact mean",
+          "Persson-Kressner arXiv:2209.11023",
+          "2026-10-13 one-column funNyström power functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Preconditioning logdet variance has independent estimator/probe and nonidentical error; the exact same CDF was not a prior published table entry found."
+        ],
+        "reasoning": "This is a continuous law over a,b>0, not an item from a precomputed discrete database. A search miss is only bounded evidence.",
+        "searches": [
+          "Resultary funNyström log CDF semantic query",
+          "Resultary 2026/10/12 Gaussian Nyström log-determinant variance"
+        ]
+      },
+      "rationale": "PASS qualified. Persson and Kressner establish the function-after-Nyström method and expected bounds with oversampling assumptions, but not its exact one-column 2x2 log-trace error CDF and two contrasting high-spike mean/quantile scales. A prior Resultary 2026-10-13 sharp power-function funNyström theorem analyzes f(x)=x^theta and power iteration, not the logarithm, and does not logically imply this CDF. Other Gaussian Nyström matrix power and preconditioner results have distinct estimators. The direct log-matrix Nyström comparator mean sqrt(L_aL_b) is known rank-one residual algebra, explicitly not counted separately as new. Unindexed specialized log-Nyström work remains a risk.",
+      "residual_risks": [
+        "An obscure exact two-eigenvalue logarithmic function-after-Nyström result could have prepublished the scalar Cauchy-law computation.",
+        "The direct function sketching method has different computational costs: the theorem does not establish a same-cost practical algorithm preference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact planar unsampled log CDF: theorem assumes larger/oversampled sketches and yields bounds",
+          "evidence": [
+            "Theorem 3.9 asks for rank/sample parameters >=2 and does not state full one-Gaussian-vector planar law."
+          ],
+          "identifier_or_url": "arXiv:2209.11023",
+          "material_read": "Full 32-page open PDF, algorithm definitions and relevant theorem 3.9 including hypotheses",
+          "method": "web PDF text plus screenshot of the theorem page",
+          "title": "Randomized low-rank approximation of monotone matrix functions",
+          "trigger": "Introduces precisely the funNyström estimator and functions after sketching"
+        },
+        {
+          "assessment": "POWER-FUNCTION prior, not log-function CDF; exact limiting power expectations have a different domain of functions",
+          "evidence": [
+            "Prior studies f(t)=t^theta for theta in (0,1] with q passes, and a spike diag(kappa,1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0/RESULT.md",
+          "material_read": "Entire RESULT.md theorem, proof, all asymptotic cases, references",
+          "method": "GitHub full raw RESULT.md",
+          "title": "One-column funNyström has a sharp Gaussian trace-error crossover under power iteration",
+          "trigger": "Closest one-column power-function prior on same spectrum"
+        },
+        {
+          "assessment": "Different compressed-subspace logdet estimator; not used as a whole-document proof of noncoverage",
+          "evidence": [
+            "Motivating source 2022 distinguishes compressed-subspace logdet from function-after-Nyström."
+          ],
+          "identifier_or_url": "arXiv:1605.04893",
+          "material_read": "Abstract and literature descriptions/sections in source review; full article not re-inspected",
+          "method": "public indexed information",
+          "title": "Randomized Matrix-free Trace and Log-Determinant Estimators",
+          "trigger": "Alternative Gaussian log-determinant estimator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-column unoversampled model is the smallest natural stress test for the actual matrix-function-after-Nyström trace estimator, precisely where generic oversampled bounds do not apply. Its complete error law, quantile-vs-mean asymptotic separation and fair same-random-direction (but not same-cost) direct-function contrast provide an exact diagnostic for nonuniform integrability and spectral-spike risk. This is a motivated exact natural benchmark, not an optimal large-matrix estimator claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Real 2x2 SPD, one unoversampled Gaussian vector, log(I+M) and fixed b>0 as a→∞; no dimension-free guarantee or unbiasedness.",
+  "schema_version": 1
+}
