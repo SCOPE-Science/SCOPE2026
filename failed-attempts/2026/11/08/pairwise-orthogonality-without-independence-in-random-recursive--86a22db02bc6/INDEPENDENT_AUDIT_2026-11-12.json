@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:51:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform independent parent choices, E S_i(k)=k/i by the one-subtree Pólya urn. For i<j, A=1_{j descends from i}, E[A S_j(k)]=k/(ij), and expanding S_i(k+1)S_j(k+1) gives mixed-moment recurrence U_{k+1}=(1+2/k)U_k+1/(ij), solved by U_k=k²/(ij). The singleton subtree equals a leaf, and direct telescoping of forbidden parent choices gives joint leaf probability (i−1)(j−2)/((n−1)(n−2)) and strictly negative covariance in the stated interior range. Beta-binomial diagonal variance and ancestor double-counting yield exact path-length variance. Boundaries i=1, j=n and n=2 are treated. New exhaustive rational checks covered every n<=8 (35 birth-index vector cases).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 conditional young-forest theorem gives E[S_i | S_{i+1},...,S_n]=n/i plus a conditional product PGF, and exact variance for all deterministic birth-weighted path totals."
+        ],
+        "reasoning": "Conditioning on every later subtree-size variable forces pairwise zero covariance as a strict consequence and subsumes the submitted orthogonality.",
+        "searches": [
+          "Resultary semantic search: Random recursive tree label descendant subtree sizes pairwise uncorrelated orthogonal negative dependence leaf indicators path length variance",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-conditional-young-forest-factorization-and-orthogonal-birth-rank--d2bd1e13fab5/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-diagonal-descendant-size-covariance-in-uniform-recursive-trees--405a1ed05336/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-conditional-young-forest-factorization-and-orthogonal-birth-rank--d2bd1e13fab5/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-hidden-dependence-of-tagged-subtree-sizes-in-random-recursive-tr--4cde2f41aa46/RESULT.md",
+        "https://doi.org/10.37236/1034",
+        "https://www.ajol.info/index.php/qm/article/view/21972"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero covariance follows from prior stronger E[S_i| later vector]=n/i; strict interior dependence from prior ancestry-conditioned laws; variance sum is prior exact formula."
+        ],
+        "reasoning": "Each substantive main theorem component is identical to or implied by earlier complete results. The additional negative leaf-indicator covariance follows immediately from elementary product probabilities.",
+        "searches": [
+          "Resultary semantic search: Random recursive tree label descendant subtree sizes pairwise uncorrelated orthogonal negative dependence leaf indicators path length variance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-diagonal-descendant-size-covariance-in-uniform-recursive-trees--405a1ed05336/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-hidden-dependence-of-tagged-subtree-sizes-in-random-recursive-tr--4cde2f41aa46/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-conditional-young-forest-factorization-and-orthogonal-birth-rank--d2bd1e13fab5/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 result states exact Cov(S_i,S_j)=0 for all i!=j, identical diagonal n(n-i)(i−1)/(i²(i+1)), and Var(path)=2n²−nH_n−n²H_n^{(2)}.",
+          "October 26 result states every nontrivial pair dependent, with an explicit conditional ancestry-covariance witness."
+        ],
+        "reasoning": "The same birth-labelled uniform recursive-tree model, root-inclusive subtree convention, mean, and diagonal matrix are used. All central Finding assertions coincide under notation.",
+        "searches": [
+          "Resultary semantic search: Random recursive tree label descendant subtree sizes pairwise uncorrelated orthogonal negative dependence leaf indicators path length variance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-diagonal-descendant-size-covariance-in-uniform-recursive-trees--405a1ed05336/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-hidden-dependence-of-tagged-subtree-sizes-in-random-recursive-tr--4cde2f41aa46/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact formula for every matrix entry and scalar path variance is published in October 25 RESULT.md; exhaustive finite tables in the submitted check.py merely reproduce those values."
+        ],
+        "reasoning": "No independent new exact classification results from rederiving those entry-by-entry values; the singleton-leaf event is direct telescoping and is not a distinct table requiring the same invariant.",
+        "searches": [
+          "Resultary semantic search: Random recursive tree label descendant subtree sizes pairwise uncorrelated orthogonal negative dependence leaf indicators path length variance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-diagonal-descendant-size-covariance-in-uniform-recursive-trees--405a1ed05336/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-hidden-dependence-of-tagged-subtree-sizes-in-random-recursive-tr--4cde2f41aa46/RESULT.md"
+        ]
+      },
+      "rationale": "Published October 25 and November 2 theorems already prove the identical finite-sample diagonal covariance matrix, weighted and unweighted path-length variance decompositions, and strict dependence of every nondegenerate pair. The November 2 young-forest result is strictly stronger through conditional mean independence; the October 26 ancestry-conditioning theorem gives exact dependence witnesses. The only extra displayed leaf-indicator covariance is the elementary telescoping of independent parent-choice avoidances, not a separate motivated unknown theorem.",
+      "residual_risks": [
+        "Classical multivariate recursive-tree literature may also imply all formulas.",
+        "The strictly negative leaf-indicator formula is an elementary ancillary corollary and does not by itself justify accepting the covered composite claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "C PASS on supplied proof",
+          "evidence": [
+            "Mixed moment recurrence and exact path variance verified against fresh exhaustive enumeration."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/pairwise-orthogonality-without-independence-in-random-recursive--86a22db02bc6/RESULT.md",
+          "material_read": "Entire RESULT.md including conditional induction, leaf product and variance calculation",
+          "method": "GitHub frozen-commit read",
+          "title": "Submitted recursive-tree subtree-size theorem",
+          "trigger": "assigned source"
+        },
+        {
+          "assessment": "Directly covers central claims",
+          "evidence": [
+            "Identical n(n-i)(i−1)/(i²(i+1)) and zero off-diagonal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-diagonal-descendant-size-covariance-in-uniform-recursive-trees--405a1ed05336/RESULT.md",
+          "material_read": "Entire RESULT.md, including exact covariance proof, weighted variance formula and path-length localization",
+          "method": "GitHub full source RESULT.md",
+          "title": "Diagonal descendant-size covariance in uniform recursive trees",
+          "trigger": "same object and exact covariance"
+        },
+        {
+          "assessment": "Strictly stronger conditional-mean theorem",
+          "evidence": [
+            "E[S_i|S_{i+1},...,S_n]=n/i."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-conditional-young-forest-factorization-and-orthogonal-birth-rank--d2bd1e13fab5/RESULT.md",
+          "material_read": "Entire RESULT.md, including conditional PGF and implications",
+          "method": "GitHub full source RESULT.md",
+          "title": "Conditional young-forest factorization and orthogonal birth-ranked subtree sizes",
+          "trigger": "stronger conditional statement"
+        },
+        {
+          "assessment": "Previously establishes strict dependence of every nonconstant pair",
+          "evidence": [
+            "Conditional covariance signs and complete boundary classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-hidden-dependence-of-tagged-subtree-sizes-in-random-recursive-tr--4cde2f41aa46/RESULT.md",
+          "material_read": "Entire RESULT.md with ancestry-conditioned positive and negative covariances",
+          "method": "GitHub full source RESULT.md",
+          "title": "Hidden dependence of tagged subtree sizes in random recursive trees",
+          "trigger": "explicit nonindependence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full diagonal covariance and its path-length decomposition are natural and useful, but are already known in stronger form. An extra two-leaf joint probability obtained by a one-line product is not a motivated independent mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No independence of two nontrivial sizes; indeed the statement disproves it.",
+    "Finite tree enumeration is a check, not a universal proof."
+  ],
+  "schema_version": 1
+}
