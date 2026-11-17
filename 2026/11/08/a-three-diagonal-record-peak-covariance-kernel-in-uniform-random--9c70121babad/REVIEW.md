@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every index pair is covered by a five-case proof using independent continuous ranks, independence of rank order from unordered preceding observations, explicit adjacent-event probabilities, and exact telescoping. Exhaustive exact-rational enumeration for \(3\le n\le8\) passed 160 assertions. No infinite claim depends on enumeration.
+## correctness
 
-**Originality — PASS (position-resolved kernel only).** The accessible full text of Gnedin (arXiv:math/0611538) treats record statistics, and Billey–Burdzy–Sagan (arXiv:1209.0693) treats peak sets, without the record–peak site covariance matrix. Ji (arXiv:2310.01053), independently corroborated by Dong–Lin–Pan (arXiv:2404.09777), gives an encompassing **aggregate** record–peak count generating function; therefore the aggregate covariance and its limit are **covered**, not a new claim. Position-unmarked generating functions do not determine the cross-covariances for each ordered index pair. Related published position-resolved results study inversion comparisons and fixed-point/descents, not this conjunction of comparisons with record events. Residual risk: an unlocated position-marked treatment may cover this simple local kernel.
+PASS
 
-**Value — PASS.** Records are global prefix maxima, whereas peaks are local triple comparisons. The exact three-diagonal support is surprising for these differently scaled statistics. All distant indicators are pairwise independent, adjacent correlations have differing signs, and the cancellation leaves a positive \(j^{-3}\)-decaying profile. This is a complete natural structural covariance classification, not an arbitrary slice or merely a recovered total-count moment.
+PASS. For independent continuous X_1,...,X_n, a record R_i has probability 1/i, an interior peak P_j has probability 1/3; indicators are independent for i<=j-2 by disjoint observation sets and for i>=j+2 by independence of unordered prefix values from its uniform rank permutation. At i=j-1,j,j+1 the exact joint probabilities are 1/[(j-1)(j+1)], 1/(j+1), and 0, respectively, yielding the three displayed covariances after subtracting 1/(3i). The column sum is 1/[3j(j-1)(j+1)] and telescoping gives (n-2)(n+1)/[12n(n-1)] for every n>=3. Independent exhaustive exact-rational enumeration of every entry for n=3,...,7 agreed. The all-n argument, not the finite enumeration, proves the result.
 
-**Scope.** Uniform permutations and strictly interior peaks, with \(n\ge3\). No assertion of conditional independence for full vectors or of independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for the position-resolved kernel and its three-diagonal independence law. Ji (2023), following Carlitz–Scoville, supplies aggregate generating functions including interior peaks and record counts, so the displayed total-count covariance is prior-covered, not new. An aggregate bivariate enumerator has no position markers and does not determine individual (i,j) covariances. Resultary searches located record–excedance, record–fixed-point and cycle–peak kernels involving different event pairs, but no theorem establishing this exact record–peak matrix. Historical position-marked sources may exist.
+
+## value
+
+PASS
+
+PASS. This is a natural, complete site-resolved cross-covariance for a global prefix-maximum process against local triple peaks, not a random small case. All distant indicator pairs are independent, the three adjacent signs differ, and exact cancellation yields a strictly positive order-j^-3 column covariance, revealing dependence that an aggregate result hides.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
