@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The result follows from the explicitly reconstructed path-cavity recursion, the elementary closed numerator generating function, and the absolutely summable factorial coefficient array. A strict alternating-coefficient inequality proves the unique optimal fixed boundary depth. The independent first-arrival recurrence and small-permutation enumeration checks in `verify.py` passed 62 comparisons; they supplement the analytic limit proof.
+## correctness
 
-## Originality (O): PASS, qualified
-Krivelevich et al. (arXiv:1907.07216; journal DOI 10.1002/rsa.21200) proved path minimality in mean among trees and calculated the bulk path density, not the full finite-defect profile or its depth-two minimum. Penrose and Sudbury (arXiv:math/0503519) developed the general RSA equations and regular-tree probabilities, not the evaluated one-pendant boundary law in inspected passages. Targeted semantic record searches and source comparisons found no exact equivalent claim. The prior path-extremality result and a previously studied chord perturbation have different implications. This does not certify exhaustive historical priority.
+PASS
 
-## Value (V): PASS
-The precise effect of a single branch is invisible to normalized random-greedy occupancy limits. The finding gives a natural sharp sensitivity comparison for a tree family immediately adjacent to the path extremizer: a nonmonotonic boundary profile, unique depth-two minimizer, distinct bulk penalty, and quantitative factorial convergence.
+For uniform random priorities on finite trees, cavity vacancy probabilities on path branches satisfy f_r(t)=sum_{j=0}^r(-t)^j/j!, f_r prime=-f_{r-1}. Adding one private leaf to a path center changes center and leaf contributions by 1-int f_a f_b, while each arm contributes iterated convolution of t f_other. Summing branch lengths gives bivariate generating function N(x,y)/((1-x)(1-y)) with numerator a three-term explicit integral. Coefficients are exact rational integrals bounded 2^(p+q)/(p!q!), proving boundary and bulk limits with factorial remainders. Nonconstant N(x,1) coefficients alternate with strictly decreasing positive magnitudes c_j; hence E_a=sum_{j<=a}(-1)^(j+1)c_j has unique minimum a=2 and E2=(1-5exp(-2))/2; bulk limit=(1-exp(-2))/4. An independent finite first-arrival recursion exactly matches all 16 (a,b) pairs 0..3 with rational coefficient sums, and a separate printed script has 62 package checks. Neither finite test substitutes for the analytic proof.
 
-## Limitations and closest work
-The depth ranking is proved after the long-arm limit for each fixed depth; no all-finite-length ranking or all-tree runner-up theorem is asserted. Full historical priority and independent proof review remain open. The cited papers give important encompassing process methods and path inequalities, not the evaluated comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Krivelevich–Mészáros–Michaeli–Shikhelman prove (indeed sharpen to unique) path minimality for greedy expectation among trees, but not the order-one one-pendant branch excess, its nonmonotone boundary depth profile, exact depth-two optimum and factorial bulk response. Penrose–Sudbury derive general RSA blocking equations, but not this explicit finite-defect evaluation. Related mixed-spider leaf tuning is a different family and objective.
+
+## value
+
+PASS
+
+A single pendant branch is the simplest deviation from the path, which is known to minimize random greedy independent-set expectation among trees. Its order-one excess is invisible in the leading density, making the complete oscillatory boundary profile, strictly minimizing depth two, and universal bulk value mathematically informative sensitivity invariants. Exact coefficients and factorial convergence go beyond the qualitative path-minimality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
