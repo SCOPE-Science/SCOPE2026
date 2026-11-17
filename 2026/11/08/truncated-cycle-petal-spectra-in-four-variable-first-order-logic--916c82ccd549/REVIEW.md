@@ -1,15 +1,21 @@
-# Scientific review: truncated cycle-petal spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is a relative classification of finite one-point bouquets of at least two undirected cycles in counting-free \(\mathrm{FO}^{k}\), for \(k\ge4\). The unique vertex of degree at least three is four-variable definable; removing it yields a disjoint union of paths. Four-variable formulas of arbitrarily large finite quantifier depth define bounded distances inside this induced subgraph and thereby distinguish every prescribed petal length. Simultaneous witness formulas see up to \(k\) petals of each length. The converse is a permanent \(k\)-pebble partial isomorphism: at most \(k-1\) paths remain occupied before any fresh assignment, ensuring a matching path under clipped multiplicities. Enumeration, minimum representatives, and strictness follow from these two implications. The supplied checker reproduced 95 path-decomposition constructions, 13 finite logical comparisons and 12 finite theory-count evaluations. These checks corroborate but do not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The close primary literature of Brown and Hoshino (2007) gives bounded-round games for individual paths and cycles; Pikhurko and Verbitsky (2010/2011) survey general logical width and treewidth phenomena. Dawar and Holm (2012) give a general pebble-game framework. None of the inspected material states the exact counting-free unbounded-depth \(k\)-variable equivalence of one-point bouquets of mixed-length cycles, the theory-count formula, or the canonical minimal representatives. A related result for disjoint unions of cycles is not an immediate implication because identification at a shared hub changes the graph and its adjacency patterns. Historical priority is not proved: an unidentified general decomposition theorem or a specialized cactus-model-theory classification could cover this case. Some general sources were accessible only at abstract/selected-section level.
+PASS
 
-## Mathematical value — PASS
-The problem asks how gluing all cycles through one articulation vertex changes finite-variable invariants, a natural structural step from disjoint cycle graphs toward general cactus graphs. The four-variable definability of the unique cut hub and of unbounded finite distances after its deletion gives a concrete structural interpretation rather than a mere finite census. This yields a complete parameter classification for a mixed-length infinite family, exact closed formulas for theories over any fixed length alphabet, canonical minimum models, and strict variable-width separation at every width at least four. No claim of novelty or significance beyond this precise family is made.
+For a bouquet with at least two petals the hub is the unique degree>=3 vertex and is definable with four variable names. Removing it gives paths; recursive three-place distance formulas distinguish exact lengths with four total variable names after safe alpha-renaming/shadowing. k simultaneous representatives distinguish counts through k; the indefinite k-pebble partial isomorphism pairs occupied paths by length and always has a spare equivalent path if counts are >=k. This establishes both directions at unrestricted depth. Finite L count (k+1)^|L|-|L|-1 excludes zero and single-petal vectors; the clipped bouquet is the unique minimum; k vs k+1 triangles gives strictness. Inspected verify_cycle_bouquets.py implements finite tuple-refinement color sets as corroboration, not the all-depth proof.
 
-## Scope and limitations
-The result is for simple finite cycle bouquets with at least two cycles and no named root; it does not settle widths one through three, arbitrary cactus graphs, counting quantifiers, directed edges, or a global graph defining-width invariant. Quantifier depth may depend on the pair compared. Additional broader primary sources may exist, and the priority assessment is necessarily provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural connected one-hub cycle-bouquet exact equivalence and counting-free k-variable theory census were not implied by inspected prior disjoint-cycle, functional-digraph or path/cycle games. A same-parameter but disconnected class cannot simply be substituted for the glued class; this judgment is best-of-knowledge.
+
+## value
+
+PASS
+
+Exact complete FO^k equivalence for an unbounded, naturally motivated connected cactus subclass, including strict variable hierarchy and unique least representatives. It isolates precisely how central gluing changes finite-variable observation relative to disconnected cycles; not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
