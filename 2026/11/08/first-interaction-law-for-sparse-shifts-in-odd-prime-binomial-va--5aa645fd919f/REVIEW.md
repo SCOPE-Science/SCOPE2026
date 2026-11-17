@@ -1,11 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes the exact sampling domain, establishes density from finite base-\(p\) cylinders, uses Kummer's carry count with the correct normalization, obtains the single-digit geometric carry law, and proves all coefficients below the minimum digit gap. The unique first possible overlap at degree \(g\) has a directly counted deficit \(d_id_{i+1}/p^{g+2}\), multiplied by the zero-carry probabilities of other nonzero digits. No untested finite computation is substituted for the infinite proof. The exact rational checker corroborates 81 multidigit instances and eight complete residue-period binomial counts.
+## correctness
 
-**Originality — PASS, qualified.** Existing binary fixed-shift correlation laws and a known sparse-binary-ones independent low-degree formula cover the binary analogue and are not claimed. The actual novelty is the universal first-interaction coefficient for odd-prime, arbitrary-amplitude sparse shifts. Rowland's full fixed-row formula does not immediately cover a fixed lower argument sampled across rows. Broad earlier p-adic digit-block literature, especially the inaccessible full text of Barat--Grabner (2001), is a residual historical-priority risk. The accessible comparisons disclose this limitation rather than claiming a uniqueness certificate.
+PASS
 
-**Mathematical value — PASS.** Determining the exact first failure of digit-local independence is a natural structural question for prime-power divisibility of binomial coefficients. It yields a sharp and uniform threshold and explicit all-parameter correction, beyond binary special cases or one finite numerical table.
+Kummer identifies V_t(n) as the number of carries adding fixed t to uniform p-adic n. Each finite carry count is a cylinder event with exact natural density. A digit d starts a carry with d/p; conditional continuation and termination give G_d(z)=(p-d)/p+d(p-1)z/(p²(1-z/p)). If fewer than g carries occur, chains cannot reach the next nonzero shift digit; disjoint digit blocks factor. At exactly g, only one chain can touch its immediately next active position, so the pairwise correction is d_i*d_(i+1)/p^(g+2) times all other zero-carry factors; this is strictly positive in the subtraction. Independently wrote a 2-state exact Fraction carry automaton, checking 192 odd-prime digit configurations for p=3,5,7, min gaps 1..4, 2-4 occupied positions and four amplitude patterns. All low coefficients and strict first corrections matched. The unbounded theorem is justified by the carry-block argument, not the finite computations.
 
-Closest sources: Cheng (2026), Sobolewski--Spiegelhofer (2024), Rowland (2017/2018), Barat--Grabner (2001, abstract only), classical Kummer theorem. Direct independent audit and full historical priority assessment have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new odd-prime arbitrary-digit-amplitude sharp first-interaction coefficient; the known binary shielding result and classical Kummer/automata method are explicitly excluded from novelty.
+
+## value
+
+PASS
+
+This is a natural sharp interaction onset: it quantitatively explains how separated nonzero base-p digits interact in p-adic binomial valuation densities and proves the first correction cannot vanish. Extending binary shielding to every odd p and arbitrary amplitudes is structural, not a mere parameter substitution, because the exact nonzero-digit thresholds and pair weights change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

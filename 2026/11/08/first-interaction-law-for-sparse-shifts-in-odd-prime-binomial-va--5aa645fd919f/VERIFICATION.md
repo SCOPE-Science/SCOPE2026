@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone `verify.py` was run using Python 3 with exact `fractions.Fraction` arithmetic. It enumerates base-\(p\) carry-state transitions for primes \(3,5,7\), tests 81 different multi-digit position/amplitude configurations, and verifies 243 rational coefficients. For each configuration it checks exact agreement up to degree \(g-1\) and the exact strictly negative degree-\(g\) discrepancy. Independently, eight small complete residue-period censuses compute actual integers \(\binom{n+t}{t}\) and their prime valuations directly, matching the finite-state values.
+## correctness
 
-Verified command: `python verify.py`.
+PASS
 
-```
-VERIFY_OK multidigit_cases=81 exact_rational_coefficients=243 complete_modulus_binomial_censuses=8 strict_first_defects=yes
-```
+Kummer identifies V_t(n) as the number of carries adding fixed t to uniform p-adic n. Each finite carry count is a cylinder event with exact natural density. A digit d starts a carry with d/p; conditional continuation and termination give G_d(z)=(p-d)/p+d(p-1)z/(p²(1-z/p)). If fewer than g carries occur, chains cannot reach the next nonzero shift digit; disjoint digit blocks factor. At exactly g, only one chain can touch its immediately next active position, so the pairwise correction is d_i*d_(i+1)/p^(g+2) times all other zero-carry factors; this is strictly positive in the subtraction. Independently wrote a 2-state exact Fraction carry automaton, checking 192 odd-prime digit configurations for p=3,5,7, min gaps 1..4, 2-4 occupied positions and four amplitude patterns. All low coefficients and strict first corrections matched. The unbounded theorem is justified by the carry-block argument, not the finite computations.
 
-The finite calculations are not infinite completeness proofs. The mathematical proof is the digit-cylinder and first-interaction argument in `RESULT.md`. The 2001 Barat--Grabner full text was inaccessible, and the historical-priority assessment is not independently certified.
+## originality
+
+PASS
+
+Best-of-knowledge new odd-prime arbitrary-digit-amplitude sharp first-interaction coefficient; the known binary shielding result and classical Kummer/automata method are explicitly excluded from novelty.
+
+## value
+
+PASS
+
+This is a natural sharp interaction onset: it quantitatively explains how separated nonzero base-p digits interact in p-adic binomial valuation densities and proves the first correction cannot vanish. Extending binary shielding to every odd p and arbitrary amplitudes is structural, not a mere parameter substitution, because the exact nonzero-digit thresholds and pair weights change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
