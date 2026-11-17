@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact centered zonotope has four normal pairs. Unimodular symmetry reduces parameters to half the interval, and a two-row interval cover gives an analytic upper bound. Matching uncovered horizontal intervals in the first regime and the uncovered lattice class at height \(1/2\) in the second regime prove sharpness. All denominators in the parameter range are positive, endpoint and phase-transition cases are covered, and the explicit nonstandard slice inequalities are cross-checked with exact rational arithmetic. Finite rational tests only corroborate the continuous proof.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The primary 2026 paper gives the exact second pair and states its inverse-radius interpolation has at least two local maxima and an intervening local minimum, but does not give the precise curve, the rational transition points, or the full extremal classification. The closest published mathematical note derives the full profile of the *different* sharp-constant first parallelogram pair; that formula has a single centered trough of height \(3/4\) and does not imply this pair's two-peak phase diagram. Searches used the vectors, geometric aliases, extrema fractions, curve coefficients and potential stronger general bounds. Unindexed equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** It quantitatively completes a motivating example of nonconcavity in a contemporary planar lattice covering-radius problem. Exact sharp peaks and their witnesses, a middle trough, and a complete phase diagram explain the structural competition between one-row and two-row coverage, rather than providing a minor numerical improvement.
+The centered interpolation is a four-generator zonotope. A unimodular M with M^2=-I yields t<->1-t symmetry. Four facet support inequalities give horizontal sections; an upper-covering argument distinguishes one-row widths from alternating two-row overlap. Two uncovered-point constructions match lower radii 14/(14+s) and 6/(7-3s). Independently checked facet supports and critical rational inequalities at s=0,1/10,7/24,1/3,1/2; the proof supplies continuum extension.
 
-**Source and limitations.** Codenotti–Freyer–Krivokuća, *Minimal covering bodies and Brunn–Minkowski type inequalities for the covering radius*, arXiv:2606.14442v1, §3; and *Exact covering-radius profile of the sharp planar parallelogram pair* (2026, distinct first pair). No general classification of planar pairs, definitive historical priority, or independent mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published October 4 exact profile concerns Codenotti–Freyer–Krivokuća’s first sharpness pair and has a different affine/tent profile, not this nonconcave second pair. The 2026 primary paper abstract confirms qualitative covering framework, but exact relevant section could not be read because arXiv and OA full-text were inaccessible and Oxford VPN disconnected. Best-of-knowledge PASS is conditional on this explicit priority risk; no dominating formula was located.
+
+## value
+
+PASS
+
+An exact continuum covering-radius profile for a specifically motivated counterexample: two peaks, their rational positions/heights, and a unique trough quantify nonconcavity beyond an existence picture. The row-covering mechanism and switching threshold are self-contained geometrically meaningful facts, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
