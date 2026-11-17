@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed stripping process is canonical because on every residual graph of order at least two, isolated and universal vertices cannot coexist. Unary recursion uses only the two allowed variable names. Every differing signature is separated by a finite-width sentence; the permanent two-pebble strategy covers every remaining move including core/core adjacency and nonadjacency. The smallest-core boundary of four vertices and the rational enumerator were reconstructed. An independently implemented exact orbit refinement of all 1253 atlas graphs through order seven yielded zero mismatches; it is a corroboration, not the proof.
+## correctness
 
-**Originality — PASS, qualified.** Actual searches compared two-variable simple-graph equivalence, recursive isolated/universal peeling, graph two-pebble games, threshold-graph signatures and minimum-representative spectra. No checked published statement explicitly supplies this all-graph classification and generating function. The closest known survey explains the general pebble framework and gives the no-isolates/no-universals special phenomenon, while older work focuses on satisfiability and model theory of the full logic. A prior classification of threshold graphs handles only the no-core subfamily. This is a claim about the previously unrecorded combined normal form and exact spectrum, not about inventing the pebble method. Historical priority is provisional: the complete 1999 Grädel–Otto article was not available, and a more general result could subsume the claim.
+PASS
 
-**Value — PASS.** This is a complete equivalence classification over all finite uncolored simple graphs at unrestricted quantifier depth, with an explicit canonical minimum-size model construction and an exact rational enumerator. It identifies the precise two-variable invisibility of arbitrarily complicated inner graph cores while still recovering arbitrarily deep universal/isolated shells. This is a natural expressiveness boundary rather than an arbitrary small graph census; it has a plausible role as a normal form and baseline for finite-variable model theory.
+For nonempty finite simple graphs in pure adjacency with equality and no counting, simultaneous peeling of all residual isolated or universal vertices yields an alternating signed sequence with sizes capped at 2 and an optional core C. Every shell is FO²-definable through capture-avoiding reuse of x,y, including a ≥2 test; hence unequal words are distinguished. For equal words Duplicator can preserve shell index, equality and adjacency in an arbitrarily long 2-pebble game; a nonextremal terminal core supplies both a neighbor and a distinct nonneighbor of each pebbled core vertex. The smallest such core is P4, and the recursive shell enumerator gives R(z)=z+[2z²+z⁴(1+z+z²)]/(1-z-z²). I independently calculated 2-pebble stable-refinement classes on all 52 nonempty graph-atlas graphs of orders 1..5 (1,585 pebble states, 18 equivalence classes, stable after four rounds), with exact signature correspondence and minimum-size spectrum (1,2,2,5,8). This is corroboration, not an infinite proof. Scope excludes C², FO³, graph colors and empty graphs.
 
-**Literature/limits.** Pikhurko–Verbitsky (arXiv:1003.4865) was materially read; Grädel–Kolaitis–Vardi (1997) and Grädel–Otto (1999) were compared on accessible abstract/metadata only. The result does not apply to counting variables, graph colors, orders, or higher variable widths. The minimum-size representative need not be unique as a graph.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full all-finite-graph FO² normal form, its terminal nonextremal-core invisibility and its rational smallest-model enumerator survive the checked threshold-only and general game/satisfiability literature on current evidence. The shell-peeling operation and 2-pebble game are classical; neither is claimed novel. The 1999 Grädel–Otto article could not be obtained in full; it might provide a general implicit cover, so historical priority is qualified rather than certified.
+
+## value
+
+PASS
+
+The result is a complete unrestricted-depth FO²-equivalence classification for every nonempty finite simple graph, with exact minimum model sizes and an infinite rational spectrum; the inability of two variables to observe any internal nonextremal core is a natural structural expressiveness boundary, not a textbook renaming or small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

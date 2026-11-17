@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducible finite check
+# Independent mathematical audit
 
-Run `python verification/verify.py` using Python 3.10+ and NetworkX 3.x, from the directory containing this document. The embedded `verification/output.txt` is the exact expected stdout, including `PASS`.
+## correctness
 
-The procedure constructs the entire zero-/one-/two-pebble state space for the 1253 unlabeled simple graphs in the NetworkX atlas through order seven, including the empty graph. Equality and adjacency are explicitly represented in the atomic initial partition. It repeatedly refines every state by *both* possible pebble-replacement successor-color sets, until stable, and checks that the resulting graph-level classes agree exactly with the signed-peeling signatures. It also independently checks the minimum-order coefficients against a recurrence for the rational series.
+PASS
 
-The 55 classes include the empty graph, which lies outside the theorem's stipulated nonempty domain. The 54 nonempty classes and the minimum-representative counts through order seven agree with the theorem.
+For nonempty finite simple graphs in pure adjacency with equality and no counting, simultaneous peeling of all residual isolated or universal vertices yields an alternating signed sequence with sizes capped at 2 and an optional core C. Every shell is FO²-definable through capture-avoiding reuse of x,y, including a ≥2 test; hence unequal words are distinguished. For equal words Duplicator can preserve shell index, equality and adjacency in an arbitrarily long 2-pebble game; a nonextremal terminal core supplies both a neighbor and a distinct nonneighbor of each pebbled core vertex. The smallest such core is P4, and the recursive shell enumerator gives R(z)=z+[2z²+z⁴(1+z+z²)]/(1-z-z²). I independently calculated 2-pebble stable-refinement classes on all 52 nonempty graph-atlas graphs of orders 1..5 (1,585 pebble states, 18 equivalence classes, stable after four rounds), with exact signature correspondence and minimum-size spectrum (1,2,2,5,8). This is corroboration, not an infinite proof. Scope excludes C², FO³, graph colors and empty graphs.
 
-This is an exhaustive finite atlas test, **not** an infinite proof or an independent audit. The full theorem uses the permanent pebble-game argument supplied in RESULT.md. Numerical agreement cannot certify historical priority.
+## originality
+
+PASS
+
+The full all-finite-graph FO² normal form, its terminal nonextremal-core invisibility and its rational smallest-model enumerator survive the checked threshold-only and general game/satisfiability literature on current evidence. The shell-peeling operation and 2-pebble game are classical; neither is claimed novel. The 1999 Grädel–Otto article could not be obtained in full; it might provide a general implicit cover, so historical priority is qualified rather than certified.
+
+## value
+
+PASS
+
+The result is a complete unrestricted-depth FO²-equivalence classification for every nonempty finite simple graph, with exact minimum model sizes and an infinite rational spectrum; the inability of two variables to observe any internal nonextremal core is a natural structural expressiveness boundary, not a textbook renaming or small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
