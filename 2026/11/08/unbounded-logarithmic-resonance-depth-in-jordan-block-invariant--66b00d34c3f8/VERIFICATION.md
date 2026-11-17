@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The proof is analytic and is independent of the finite checker. Run `python3 verify.py` in a standard Python 3 environment. Exact rational tests verify 2700 polynomial-recurrence cases, 640 finite orbit identities, and the nilpotent-shift range test for dimensions \(m=1,\ldots,8\) and forcing orders \(k=2,\ldots,6\) at \(\lambda=1/2\). The universal results for arbitrary \(m,k,\lambda,v\) follow from Pascal's identity, nilpotence, and the proof of the remainder and smoothness estimates, not extrapolation from these tests. The checker has no dependencies beyond the Python standard library.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Setting t=log|x|/log(lambda) reduces the invariance equation to P(t+1)=(I+N)P(t)+lambda^(-k)v. Pascal gives P_*(t)=lambda^(-k) sum_{r=1}^m binom(t,r) N^(r-1)v; all homogeneous solutions on bounded fundamental intervals grow at most t^(m-1) under J^n. Thus first-coordinate coefficient is v_m/(lambda^k m!(log lambda)^m). A C^(k-1,1) graph has vanishing derivatives through k-1 and hence O(x^k), impossible for v_m!=0. When v_m=0, v is in ran N and polynomial graph ax^k exists. Orbit formula yields normalized n^m limit. Endpoint m=1 and both sign half-lines included.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with material priority risk: exact Jordan-length forced coefficient, graph smoothness threshold and trajectory amplitude are distinguished from the semisimple published theory. Full 2003 normal-form primary source could not be read.
+
+## value
+
+PASS
+
+At fixed quadratic nonlinear forcing, the required logarithmic degree becomes arbitrarily high with Jordan length, a nonsemisimple boundary phenomenon not predicted by semisimple degree-vs-order heuristics. Sharp regularity and orbit amplitude make it structurally useful beyond finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

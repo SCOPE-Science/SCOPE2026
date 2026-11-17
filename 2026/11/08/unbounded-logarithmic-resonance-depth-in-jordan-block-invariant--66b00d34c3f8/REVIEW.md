@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The polynomial recurrence is solved exactly using Pascal's identity and nilpotence. The universal leading coefficient follows from the binomial formula for the entire Jordan orbit and bounded fundamental-interval graph data, not from finite tests. The regularity obstruction uses Taylor coefficients through order \(k-1\) plus the universal logarithmic divergence; analytic existence follows from the range of the nilpotent shift. The exact-rational checker validates finite instances but is not used to certify the all-order theorem.
+PASS
 
-## Originality
+Setting t=log|x|/log(lambda) reduces the invariance equation to P(t+1)=(I+N)P(t)+lambda^(-k)v. Pascal gives P_*(t)=lambda^(-k) sum_{r=1}^m binom(t,r) N^(r-1)v; all homogeneous solutions on bounded fundamental intervals grow at most t^(m-1) under J^n. Thus first-coordinate coefficient is v_m/(lambda^k m!(log lambda)^m). A C^(k-1,1) graph has vanishing derivatives through k-1 and hence O(x^k), impossible for v_m!=0. When v_m=0, v is in ran N and polynomial graph ax^k exists. Orbit formula yields normalized n^m limit. Endpoint m=1 and both sign half-lines included.
 
-PASS within inspected material. The September 2026 reference [1] explicitly assumes semisimplicity and lists the nonsemisimple extension as untreated; its higher-log examples arise at higher nonlinear orders, unlike arbitrarily high log order at a fixed quadratic forcing here. Homburg's generic resonance obstruction does not provide this specific all-length coefficient. published-finding corpus searches for Jordan-resonant invariant manifolds, cohomological equations, and unbounded logarithmic depth found no dominating claim. The 2003 LMT-normal-form paper [3] was only available at abstract level; its potential broader coverage is a residual risk, not proof of historical priority.
+## originality
 
-## Value
+PASS
 
-PASS. This gives a sharp solvable boundary test for the specifically identified nonsemisimple extension: the logarithmic-degree bound tied to resonant polynomial order in the semisimple theory fails by an arbitrarily large factor with Jordan length. The theorem also determines the exact forcing-component threshold for analytic versus maximally near-Lipschitz invariant graphs, and the polynomial transient amplitude for every nonzero slow initial condition. These are structural effects, not numerical tuning of a fixed case.
+Best-of-knowledge PASS with material priority risk: exact Jordan-length forced coefficient, graph smoothness threshold and trajectory amplitude are distinguished from the semisimple published theory. Full 2003 normal-form primary source could not be read.
 
-## Scope and outstanding questions
+## value
 
-Only a triangular polynomial family is treated; arbitrary nonlinear couplings and mixed spectral configurations are not. A full-text comparison with the historically relevant 2003 resonant-linearization paper remains outstanding, and an independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed quadratic nonlinear forcing, the required logarithmic degree becomes arbitrarily high with Jordan length, a nonsemisimple boundary phenomenon not predicted by semisimple degree-vs-order heuristics. Sharp regularity and orbit amplitude make it structurally useful beyond finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
