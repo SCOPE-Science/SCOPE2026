@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T10:19:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "scripts/census.cpp",
+        "scripts/independent_census.py",
+        "data/roots_by_prime.csv",
+        "https://arxiv.org/abs/2610.37356"
+      ],
+      "rationale": "For every odd prime 3<=p<=971 and every residue 1<=a<p, product/derivative recurrences compute P_p(a), P_p'(a), P_p''(a) exactly in F_p; an independently written full-domain C++ recurrence enumerated all 163 primes and 45,304,276 product terms, finding 144 roots, 142 below 971 with nonzero derivative, and only 194,777 double roots at 971 (second derivative 471). Independently computed e_388=473848 and e_1554=468993 modulo 971², each divisible by 971 but not 971². The infinite-level simplicity and terminality are not inferred from enumeration: they require the stated Flórez–Higuita-Diaz–Ramírez lifting/terminal criteria under e_{2a}=a P_p(a). Boundary p=3 and nonzero roots included; no claims about odd or zero-root classes or larger primes.",
+      "residual_risks": [
+        "The original lifting theorem full text was not accessible here; the exact theorem statements are quoted in the package and should be independently rechecked if access improves."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Read frozen RESULT.md and both source census implementations; source census.cpp covers p=3..971 and a=1..p-1 with no sampling; independently implemented and executed a separate C++ full-range evaluation with matching counts and derivatives.",
+        "Observed independent output: primes=163, roots=144, below=142, steps=45304276; p971 roots=194,777 both P''=471; e_388 mod 971²=473848, e_1554=468993.",
+        "Explicitly distinguished finite exhaustive arithmetic lemma from infinite p-adic tree lifting theorem."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published p=971 distribution classifies all n at the single prime 971, including roots 388 and 1554; it contains no determination of every p<971."
+        ],
+        "reasoning": "A stronger within-prime p971 classification does not dominate cross-prime leastness. Conversely the target does not establish full 971 valuation distribution.",
+        "searches": [
+          "Fibonacci Laplace valuation tree prime 971 first nonsimple even internal branch repeated roots polynomial",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-971-adic-valuation-distribution-of-the-fibolaplace-sequ--8972bc47ed4b/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-971-adic-valuation-distribution-of-the-fibolaplace-sequ--8972bc47ed4b/RESULT.md",
+        "https://arxiv.org/abs/2610.37356",
+        "https://www.fq.math.ca/Papers/58-3/moll011720.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 original paper supplies the first terminal root at p971 and the lifting lemma; published SCOPE valuation-distribution paper supplies p971 exact distribution only."
+        ],
+        "reasoning": "Neither result entails that all odd primes less than 971 have only simple even internal roots. This quantifier difference is the surviving nonroutine mathematical claim.",
+        "searches": [
+          "Fibonacci Laplace valuation tree prime 971 first nonsimple even internal branch repeated roots polynomial",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-971-adic-valuation-distribution-of-the-fibolaplace-sequ--8972bc47ed4b/RESULT.md",
+          "https://arxiv.org/abs/2610.37356"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Flórez–Higuita-Diaz–Ramírez cited p971 terminal example addresses existence at one prime, not the quantified absence of nonsimple branches at every smaller prime."
+        ],
+        "reasoning": "The witness at p=971 does not logically imply 163-prime minimality; the latter requires full census plus lifting; equivalent p-adic branch language is compared directly.",
+        "searches": [
+          "Fibonacci Laplace valuation tree prime 971 first nonsimple even internal branch repeated roots polynomial",
+          "https://arxiv.org/abs/2610.37356"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite root table is generated from exact recurrences and claimed to range over 163 primes; cited 2020 work gives smaller-prime examples but no publicly located full cutoff table in inspected material."
+        ],
+        "reasoning": "No exact published independent all-prime-through-971 database was located; absence of indexed search is not proof of priority. An undiscovered earlier computational table is an explicit risk.",
+        "searches": [
+          "Fibonacci Laplace valuation tree prime 971 first nonsimple even internal branch repeated roots polynomial",
+          "https://www.fq.math.ca/Papers/58-3/moll011720.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the least-prime minimality proof is an exhaustive finite theorem not implied by the published p=971 example, nor by the separate complete p=971 valuation distribution. Earlier work already discovered the first terminal root and polynomial criterion; those are not claimed novel.",
+      "residual_risks": [
+        "Potential earlier numerical minimality census or statement in inaccessible primary full text; neither a failed search nor a verifier run guarantees novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers two p971 classes and their p-adic towers, not absence of counterexamples at smaller primes",
+          "evidence": "Its classification fixes p=971; explicit lines identify n mod1942 in 388,1554,0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-971-adic-valuation-distribution-of-the-fibolaplace-sequ--8972bc47ed4b/RESULT.md",
+          "material_read": "Entire accessible RESULT.md: theorem, modular census, proof steps, relation and limitations",
+          "method": "Read GitHub source blob through authorized GitHub connector",
+          "title": "Complete 971-adic valuation distribution of the FiboLaplace sequence",
+          "trigger": "Same recurrence and exact p971 terminal branches"
+        },
+        {
+          "assessment": "High-relevance source not verified in full; residual historical coverage risk",
+          "evidence": "Target specifically credits its Theorems 4.2–4.3, Proposition 3.1 and first root n=388.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.37356",
+          "material_read": "Accessible citation metadata and exact theorem references quoted in inspected target RESULT; full original HTML/PDF could not be retrieved",
+          "method": "Attempted arXiv HTML and PDF and lawful open-access retrieval; blocked; did not claim full-text NOT_COVERING",
+          "title": "On p-Adic Valuation Trees Arising from Laplace Transform of Fibonacci Polynomials",
+          "trigger": "Primary origin of terminal criterion, p971 counterexample and potential prior minimality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp least-prime bound resolves a naturally posed simplicity question in FiboLaplace valuation trees; an exact first-obstruction census through its independently motivated witness is a reusable finite arithmetic classification, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "Does not classify branches at larger primes or odd indices; dependence on previously established lifting criterion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The original lifting theorem full text was not accessible here; the exact theorem statements are quoted in the package and should be independently rechecked if access improves.",
+    "Potential earlier numerical minimality census or statement in inaccessible primary full text; neither a failed search nor a verifier run guarantees novelty.",
+    "Does not classify branches at larger primes or odd indices; dependence on previously established lifting criterion."
+  ],
+  "schema_version": 1
+}

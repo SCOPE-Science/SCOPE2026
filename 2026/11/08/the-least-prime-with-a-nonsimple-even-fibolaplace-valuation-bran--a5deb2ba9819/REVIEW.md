@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The evaluated finite-field polynomial and its formal first and second derivatives use explicitly derived product recurrences. A complete enumeration of the 163 odd primes up to 971 and every nonzero residue yields 142 simple roots below 971 and only two repeated roots at 971. The independent logarithmic-derivative computation agrees exactly. Both terminal 971 roots have initial valuation one, separately checked by the original integer-sequence recurrence modulo the prime square. The published lifting theorem turns the finite prime-field result into the asserted all-level branch statement; a finite simulation is not treated as an infinite proof.
+PASS
 
-## Originality
+For every odd prime 3<=p<=971 and every residue 1<=a<p, product/derivative recurrences compute P_p(a), P_p'(a), P_p''(a) exactly in F_p; an independently written full-domain C++ recurrence enumerated all 163 primes and 45,304,276 product terms, finding 144 roots, 142 below 971 with nonzero derivative, and only 194,777 double roots at 971 (second derivative 471). Independently computed e_388=473848 and e_1554=468993 modulo 971², each divisible by 971 but not 971². The infinite-level simplicity and terminality are not inferred from enumeration: they require the stated Flórez–Higuita-Diaz–Ramírez lifting/terminal criteria under e_{2a}=a P_p(a). Boundary p=3 and nonzero roots included; no claims about odd or zero-root classes or larger primes.
 
-PASS, with historical-priority qualification. The 2020 work posed the simplicity question and tabulated smaller cases. The October 2026 source gave a terminal example at 971 but no proof that it is the *least* such odd prime; it also supplied the derivative criterion used here. The complete, independently checked 163-prime census is what establishes the missing sharp boundary. Existing local scientific records already include calculations for the terminal residues at 971; those calculations are explicitly *not* presented as the new contribution. Searches of published research summaries and exact-phrase literature yielded no covering minimal-prime theorem. The source authors state that their example arose through a computer search, so unpublished lower-prime checks remain a real priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The first failure of an explicit conjecture is a natural threshold. Identifying its sharp least prime and the complete set of exceptions at the boundary materially distinguishes a published isolated counterexample from a proved first counterexample, while giving a complete reproducible low-prime classification (163 primes, 144 root residues). This is a bounded arithmetic theorem, not a claim about arbitrary primes.
+Best-of-knowledge: the least-prime minimality proof is an exhaustive finite theorem not implied by the published p=971 example, nor by the separate complete p=971 valuation distribution. Earlier work already discovered the first terminal root and polynomial criterion; those are not claimed novel.
 
-## Scope and limits
+## value
 
-The supporting machine computations are exact and exhaustive for the stated finite domain, but have not undergone an external mathematical audit. They require trust in the finite-field recurrences and complete loop bounds, both detailed in RESULT.md. Later primes, odd branches, and distinguished zero classes are outside scope. Historical priority is provisional because unindexed earlier computer searches may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp least-prime bound resolves a naturally posed simplicity question in FiboLaplace valuation trees; an exact first-obstruction census through its independently motivated witness is a reusable finite arithmetic classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

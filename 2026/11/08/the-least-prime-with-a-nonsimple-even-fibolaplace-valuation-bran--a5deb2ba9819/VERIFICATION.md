@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible arithmetic checks
+# Independent mathematical audit
 
-Compile `scripts/census.cpp` with `g++ -O2 -std=c++17 -Wall -Wextra` and execute. It enumerates exactly 163 odd primes through 971 by Eratosthenes sieve, then every nonzero residue for each prime; its product, first-derivative and second-derivative recurrences use integer modular arithmetic only. Expected output is embedded in `CHECK_OUTPUT.txt`.
+## correctness
 
-Execute `python3 scripts/independent_census.py --table data/reproduced_roots.csv`. This uses a separate logarithmic-derivative formula in a half-domain and restores the other half by reflection symmetry. Compare its generated CSV byte-for-byte with `data/roots_by_prime.csv`. It must report 144 roots, 142 below 971, and exactly the two multiple roots at 971.
+PASS
 
-C++ additionally evaluates the defining FiboLaplace sequence recurrence modulo the square of 971 through index 1554, obtaining 473848 and 468993 at the two roots and proving the initial valuation is exactly one.
+For every odd prime 3<=p<=971 and every residue 1<=a<p, product/derivative recurrences compute P_p(a), P_p'(a), P_p''(a) exactly in F_p; an independently written full-domain C++ recurrence enumerated all 163 primes and 45,304,276 product terms, finding 144 roots, 142 below 971 with nonzero derivative, and only 194,777 double roots at 971 (second derivative 471). Independently computed e_388=473848 and e_1554=468993 modulo 971², each divisible by 971 but not 971². The infinite-level simplicity and terminality are not inferred from enumeration: they require the stated Flórez–Higuita-Diaz–Ramírez lifting/terminal criteria under e_{2a}=a P_p(a). Boundary p=3 and nonzero roots included; no claims about odd or zero-root classes or larger primes.
 
-Finite enumeration establishes the least-prime claim only because its loops cover all primes and nonzero field elements in the finite range. The infinite-depth simplicity for smaller primes follows from the published polynomial lifting criterion, not from finite testing. Independent external mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: the least-prime minimality proof is an exhaustive finite theorem not implied by the published p=971 example, nor by the separate complete p=971 valuation distribution. Earlier work already discovered the first terminal root and polynomial criterion; those are not claimed novel.
+
+## value
+
+PASS
+
+A sharp least-prime bound resolves a naturally posed simplicity question in FiboLaplace valuation trees; an exact first-obstruction census through its independently motivated witness is a reusable finite arithmetic classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
