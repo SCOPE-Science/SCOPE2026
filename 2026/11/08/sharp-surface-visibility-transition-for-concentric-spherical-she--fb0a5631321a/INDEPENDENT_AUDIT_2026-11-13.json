@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:16:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Verified the three actual boundary-pair cases: outer/outer sight requires Z>=2rho^2-1, mixed requires Z>=rho, and inner/inner has zero positive visibility. Surface weights produce the displayed Q_d mixture. Monotonicity follows by coupled component selection and increasing angular thresholds; d=3 formula independently reduced symbolically to (1-rho^3)/(1+rho^2)^2. The Gaussian normal representation of Z gives the d^-1/2 window; integration by parts with gamma-ratio asymptotics gives the fixed-rho prefactor; mixed terms decay exponentially faster, not merely numerically. The fixed-d thin-shell calculation uses Q_d(1-h)~c_d2^((d-1)/2)h^((d-1)/2)/(d-1), consistently reproducing the stated constant. Only specified fixed-parameter or critical-window limits are proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Volume shell law uses radial double integral, source https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958."
+        ],
+        "reasoning": "Substituting boundary atoms into an integral is a new boundary model; its high-d regime is not a corollary of an odd-dimensional volume index.",
+        "searches": [
+          "surface visibility probability random pair boundary of concentric spherical shell mixed radii high dimensional critical threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+        "https://arxiv.org/abs/1411.5639"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source angular Q_d supplies a building block, not a weighted two-component shell."
+        ],
+        "reasoning": "Only the angular cap density is prior; mixed-sphere probabilities, scale inversion and fixed-rho large deviations require additional reasoning.",
+        "searches": [
+          "surface visibility probability random pair boundary of concentric spherical shell mixed radii high dimensional critical threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+          "https://arxiv.org/abs/1411.5639"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single-sphere chord/dot-product distribution in arXiv:1411.5639; published volume shell RESULT https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958."
+        ],
+        "reasoning": "Surface two-sphere mixture includes mixed-pair event, not single-sphere chord distribution.",
+        "searches": [
+          "surface visibility probability random pair boundary of concentric spherical shell mixed radii high dimensional critical threshold",
+          "https://arxiv.org/abs/1411.5639"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source provides volume b3(a), b5(a) rational table; boundary d3 is (1-rho^3)/(1+rho^2)^2."
+        ],
+        "reasoning": "These exact functions differ, and volume-specific tables cannot be used as surface tables.",
+        "searches": [
+          "surface visibility probability random pair boundary of concentric spherical shell mixed radii high dimensional critical threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge). The published Oct11 result concerns volume-uniform interior endpoints with radial integration. Its all-odd-dimensional rational formula cannot imply the boundary mixture with a different weight rho^(d-1), high-dimensional Gaussian critical window, or surface-only thin shell constant. Sidiropoulos concerns endpoints on one sphere and supplies prior angular density, not the two-component mixture; full text of this older paper was not inspected. Exact targeted searches found no covering surface theorem, but no worldwide-priority assertion is made.",
+      "residual_risks": [
+        "Older single-sphere chord formula full text was not inspected; unknown specialized historical shell-surface results may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING boundary-surface sampling",
+          "evidence": "Endpoint radial density d r^(d-1)/(1-a^d) differs from surface atom weights (1,a^(d-1)); result derives volume Beer index.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+          "material_read": "Entire accessible RESULT.md, including radial-cap formula, b3/b5, all-odd rationality proof and thin-shell coefficient",
+          "method": "GitHub connector read of published full scientific text",
+          "title": "Exact visibility laws for concentric spherical shells in odd dimensions",
+          "trigger": "same geometry but different sampling law"
+        },
+        {
+          "assessment": "PARTIAL_READING; no whole-paper negative claim",
+          "evidence": "Abstract states both chord endpoints lie on one hypersphere and derives chord/dot-product distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.5639",
+          "material_read": "ArXiv abstract and bibliographic synopsis only; full paper not available in this run",
+          "method": "Web arXiv abstract search",
+          "title": "N-sphere chord length distribution",
+          "trigger": "provides single-sphere angular density"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A two-boundary surface sampling model is a natural contrast to volume Beer-index sampling. Its exact all-dimensional visibility law, sharp dimension-dependent phase boundary, and inverse-radius identifiability form a nonroutine probabilistic geometric classification; the Gaussian window and rare-tail prefactor give independent quantitative uses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; source-inspection depth and residual priority risk recorded in originality.source_inspections/residual_risks.",
+    "Independent finite symbolic/rational checks in private independent_math_checks.py corroborate but do not prove full quantified statements.",
+    "Existing Lean/expert verification channels untouched; no publication or GitHub modification."
+  ],
+  "schema_version": 1
+}

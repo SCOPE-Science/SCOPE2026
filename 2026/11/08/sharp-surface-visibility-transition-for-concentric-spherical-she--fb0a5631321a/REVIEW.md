@@ -1,15 +1,21 @@
-# Scientific review — Sharp surface-visibility transition for concentric spherical shells
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise probability space is the normalized Hausdorff surface measure of *both* spherical boundary components. Surface weights \(1/(1+\rho^{d-1})\) and \(\rho^{d-1}/(1+\rho^{d-1})\) follow from the area scaling law. The three endpoint-type cases are independently reconstructed: outer/outer requires \(U\cdot W\ge 2\rho^2-1\); mixed endpoints require \(U\cdot W\ge\rho\) by the derivative of squared radius at the inner endpoint; inner/inner fails off a null diagonal. Their exact mixture yields the displayed formula. A common coupling establishes strict monotonicity. The Gaussian window follows by a Gaussian representation of spherical directions. Integration by parts and the gamma-ratio asymptotic give the sharp fixed-ratio large-deviation prefactor; the mixed term is exponentially subordinate. The thin-shell coefficient follows from the cap edge asymptotic. Exact rational checks for odd dimensions and direct segment-minimization simulation were performed from the newly supplied verification script. These finite checks do not replace the proofs.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Sidiropoulos's 2014 full arXiv text supplies the *known* chord-length/dot-product distribution for a single sphere; it neither samples the two different spheres with surface-area weights nor tests a segment's avoidance of an intervening inner ball. Balko and collaborators define the traditional volume-measure Beer index and prove convexity comparisons, not the boundary-sampling law. The closely related published *Exact visibility laws for concentric spherical shells in odd dimensions* treats **volume-uniform endpoints**, as confirmed by inspecting its full scientific result, assumptions and proof. Its radial integrals and thin-shell constants do not give the present surface-mixture formula. A separate published homothetic-shell result establishes thin-shell limits of volume-uniform convex-hull visibility in arbitrary bodies, but not this rate or boundary law. No identified primary statement implies the complete finite-dimensional formula plus sharp Gaussian and rare-event phase diagram for the declared sampling model. Targeted searches cannot prove historical uniqueness, and a planar visibility paper from 2010 was not read in full; that access limitation is retained as a risk.
+PASS
 
-## Mathematical value — PASS
-The result is a natural **complete** visibility/inverse law for a nonconvex geometric body with two sampling components, not a further fixed-shape distance moment. It proves a sharp dimension threshold with a Gaussian window and an exact inverse-quantile scale, determines rare-event exponential rates *and prefactors* on both sides, and establishes a complementary-radius rare-event duality despite a strict finite-dimensional deficit. The thin-shell coefficient exposes a measurable difference from volume sampling. These address nonidentifiability/conditioning of the radius ratio from line-of-sight data in high dimensions. No theorem about sampled-estimator errors, nonconcentric shells, or general bodies is claimed.
+PASS. Verified the three actual boundary-pair cases: outer/outer sight requires Z>=2rho^2-1, mixed requires Z>=rho, and inner/inner has zero positive visibility. Surface weights produce the displayed Q_d mixture. Monotonicity follows by coupled component selection and increasing angular thresholds; d=3 formula independently reduced symbolically to (1-rho^3)/(1+rho^2)^2. The Gaussian normal representation of Z gives the d^-1/2 window; integration by parts with gamma-ratio asymptotics gives the fixed-rho prefactor; mixed terms decay exponentially faster, not merely numerically. The fixed-d thin-shell calculation uses Q_d(1-h)~c_d2^((d-1)/2)h^((d-1)/2)/(d-1), consistently reproducing the stated constant. Only specified fixed-parameter or critical-window limits are proved.
 
-## Closest literature and limitations
-Primary comparisons: P. Sidiropoulos, *N-sphere chord length distribution* (2014), arXiv:1411.5639; M. Balko et al., *On the Beer index of convexity and its variants* (2014), arXiv:1412.1769; and the published records *Exact visibility laws for concentric spherical shells in odd dimensions* and *Thin-shell convexity moments recover facet cone volumes* (both 2026). Both of the latter use **volume**, rather than boundary **surface**, sampling. The shell is concentric, the outer radius only fixes scale, and the limiting regimes fix the specified parameters. All originality assertions are provisional pending an external assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge). The published Oct11 result concerns volume-uniform interior endpoints with radial integration. Its all-odd-dimensional rational formula cannot imply the boundary mixture with a different weight rho^(d-1), high-dimensional Gaussian critical window, or surface-only thin shell constant. Sidiropoulos concerns endpoints on one sphere and supplies prior angular density, not the two-component mixture; full text of this older paper was not inspected. Exact targeted searches found no covering surface theorem, but no worldwide-priority assertion is made.
+
+## value
+
+PASS
+
+PASS. A two-boundary surface sampling model is a natural contrast to volume Beer-index sampling. Its exact all-dimensional visibility law, sharp dimension-dependent phase boundary, and inverse-radius identifiability form a nonroutine probabilistic geometric classification; the Gaussian window and rare-tail prefactor give independent quantitative uses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
