@@ -1,15 +1,21 @@
-# Scientific review: characteristic-three plane-filling pencils
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The conclusion is derived from a published, precise matrix-to-curve criterion: \(W_q\simeq M_3(k)/kI_3\), with smoothness equivalent to irreducibility of the cubic characteristic polynomial (Homma--Kim, Lemma 3.1 and Theorem 3.2). In characteristic three trace descends to the quotient. The coefficient \(-c\) of the trace-zero characteristic polynomial is a well-defined quadratic form. A separable irreducible cubic \(t^3+ct+d\) forces \(-c\) to be a nonzero square: otherwise \(t\mapsto t^3+ct\) is bijective and the cubic has a root. A binary quadratic form over an odd finite field cannot take only nonzero-square values on its nonzero vectors, by the norm-form lemma. This excludes two-dimensional trace-zero subspaces; the dimension bound and unique distinguished member follow by codimension one. The extension-field multiplication algebra \(k[A]\) constructs a smooth pencil through every individual smooth member, showing sharpness for every exponent. All quantifiers and limits are explicit; the small-field enumerations provide optional checks rather than the universal proof.
+## correctness
 
-## Originality (O): PASS, subject to historical priority
-The 2009 Homma--Kim and 2019 Homma primary works classify and analyze individual minimum-degree plane-filling curves but do not state the characteristic-three all-extensions smooth-net obstruction or universal trace-zero pencil member. The 2022 Asgarli--Ghioca primary work studies rationally all-smooth pencils and gives a large-field existence theorem for arbitrary hypersurfaces, without an exact constrained minimum-degree no-net result. The 2023 plane-filling paper addresses larger degrees. An earlier finite calculation includes the specific \(\mathbb F_3\) no-net census, but a finite one-field classification does not imply the quantified \(\mathbb F_{3^r}\) result or invariant trace construction. Targeted semantic searches of published findings and primary literature returned no identified equivalent or stronger theorem. Absence from search results does not prove uniqueness; unindexed finite-geometric matrix-subspace literature and implications of old classifications remain priority risks.
+PASS
 
-## Mathematical value (V): PASS
-The natural motivating gap is the maximal possible dimension of a finite-field linear system when every rational member must be smooth *and* contain every rational plane point. The theorem gives an exact sharp dimension bound across an infinite family of finite fields, with construction in every field, not just the already enumerated smallest case. The unique projectively invariant member supplies additional structure to every such pencil. The obstruction depends on characteristic-three Frobenius and quadratic norm geometry, not an arbitrary parameter slice or routine numerical improvement.
+Assuming the explicitly credited Homma--Kim criterion (a plane-filling degree q+2 equation F_A is smooth over algebraic closure iff its representing 3x3 matrix has irreducible cubic characteristic polynomial), reconstructed the argument. Trace of scalar I in characteristic 3 is zero, so trace descends to W_q; on trace-zero space Q(A)=tr(A^2)/2 is unchanged by scalar addition. If tr A=0 and t^3+c t+d is irreducible, the additive map t->t^3+c t cannot be bijective, so its nonzero kernel element yields -c=Q(A) a nonzero square. Any binary quadratic over odd F_q either has a nonzero zero or (if anisotropic) is a scalar norm from F_q^2 and takes every nonzero field value. Thus a two-plane of all-smooth equations cannot lie inside ker tr. Every all-smooth 2-plane has one-dimensional trace kernel. For any smooth A, K=F_q[A] is degree-three field; taking B outside span{I,A} gives two-dimensional non-scalar span with all nonzero members of irreducible degree three, hence smooth; this covers every r>=1 and preserves rational-member, not geometrically all-member, scope. Independent GF3 field-multiplication witness/trace calculation supports the structural proof. Literature matrix criterion itself is an attributed premise, not verified from its inaccessible full text.
 
-## Prior scope and limitations
-The 2009 matrix criterion and the 2022 all-smooth-pencil question are acknowledged as prior. Previously obtained characteristic-three degree-five finite counts are not re-presented as discoveries. No claim is made about all geometric members of a pencil, other characteristics, larger degrees, or classification of all pencils. Independent scientific validation and a comprehensive historical-priority audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A bare no-smooth-net bound is not independently original: the cubic determinant and general finite-field polynomial zero principles provide broader restrictions on high-dimensional nonsingular matrix pencils. Originality is assessed on the additional characteristic-three structural assertion that each admissible smooth pencil has exactly one canonical trace-zero member, together with the every-smooth-member extension. These assertions do not follow from Asgarli--Ghioca general existence nor from the Homma--Kim individual-curve smoothness statement alone without the additional quadratic norm argument. No identified Resultary prior theorem establishes both for all F_{3^r}. This is best-of-knowledge; an inaccessible relevant matrix-space paper could subsume the finer result.
+
+## value
+
+PASS
+
+The trace-zero selector provides a projectively natural marked rational member of every smooth minimum-degree plane-filling pencil, and the extension theorem shows these pencils exist through all smooth members in every characteristic-three extension field. This is a meaningful classification/obstruction of a geometrically motivated moduli problem, not merely a q=3 enumeration. Value is attributed to these finer structural statements, not to generic no-net dimension counting alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
