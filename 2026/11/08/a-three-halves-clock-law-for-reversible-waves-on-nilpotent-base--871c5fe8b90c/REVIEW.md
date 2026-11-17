@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies finite simple bases with nilpotent adjacency over characteristic two and counts two-level configurations rather than single-time states. The proof reduces matched doubling to multiplication by \(x+y\) in the algebra \(\mathbb F_q[x,y]/(x^s,y^2)\), deriving the two parity-dependent Jordan partitions including the boundary \(s=1\). A direct companion-matrix identity gives the exact fixed-space dimensions and global clock; the base-wave comparison gives the ratio \(3/2\) except for zero adjacency. The path specialisation uses the characteristic-polynomial central-vertex identity and endpoint cyclicity. All 278 nilpotent-adjacency bases among the 1,099 labelled graphs with at most five vertices passed the matrix checker, including 4,170 time-fixed-space comparisons; the six-vertex open ladder passed all 4,096 direct state tests. The finite tests corroborate, but do not substitute for, the general proof.
+PASS
 
-## Originality — PASS, qualified
+PASS. For each nilpotent B block J_s, A_{H square K2}=I+M with M identified with multiplication by x+y in F_q[x,y]/(x^s,y^2). Its Jordan partition is (s,s) for even s and (s+1,s-1) (omit zero) for odd s; the s=1 case yields one length-two block. The companion identity T^3+I=Mhat(I+Mhat*T), with commuting invertible second factor, proves kernel dimension E_j=2 sum_l min(l,2^j), global order 3*2^ceil(log2(max l)), and all primitive populations for 3-divisible times, over all finite characteristic-two extensions. Base wave order 2*2^ceil(log2(max s)), hence ratio 3/2 if B nonzero, 3 if B zero. Dyadic-path nilpotence follows by path continuant identity and endpoint cyclicity. Independent mod-2 matrix powers on P3 prism gave order 12 vs base 8; not a substitute for the full block argument.
 
-The reversible second-order construction in Macfarlane (2004) and Steeb–Hardy (2007) is prior art; the generic modular Jordan-form calculation of Kronecker sums belongs to Norman (2008). The inspected Steeb–Hardy full article supplies the general construction and one-dimensional examples, not the arbitrary nilpotent-base prism order ratio or exact orbit census. Publisher-accessible abstracts of Macfarlane and Norman did not state a covering graph-wave theorem. Related path-wave, first-order ladder, and pendant-corona results do not imply the matched-prism dynamics without calculating the parity-dependent prism Jordan blocks and wave fixed spaces. Targeted semantic database queries did not reveal an equivalent formula. Risks: only abstracts of Macfarlane and Norman were accessible; generic Jordan sublemmas are established prior results; unpublished or differently phrased versions may exist. No absolute priority is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete graph-operation transfer law for a natural dynamical invariant across every finite graph with binary-nilpotent adjacency, not a selected small example. A perfect matching between two copies changes the primitive period spectrum from two-powers to multiples of three and has the universal sharp factor \(3/2\) for a nonzero base adjacency, rather than the factor \(3\) of the zero base or the different behavior of a pendant corona. The exact counts describe every orbit and yield explicit unbounded dyadic open-ladder families. The distinction between these graph operations and the parity-sensitive Jordan transformation motivates the specific invariant.
+PASS with substantial caveats. Known second-order reversible wave constructions and Norman's modular Kronecker-sum Jordan theory already cover the generic ingredients. The 2026 dyadic-open-ladder published finding covers precisely the special ladder corollary, including full fixed-point census, and MUST be credited. Another published arbitrary nilpotent-base corona theorem instead applies a pendant-leaf graph operation and has different block length doubling; it does not give the matched-prism parity split or universal 3/2 ratio. On the inspected evidence, the main statement covering all finite nilpotent-base graphs and all periods survives. Full Macfarlane and Norman articles inaccessible through authorized sources; this is an explicit historical-priority risk.
 
-## Closest literature and limitations
+## value
 
-Macfarlane, *J. Phys. A* 37 (2004), DOI `10.1088/0305-4470/37/45/006`, establishes the second-order reversible matrix methodology. Steeb and Hardy, *Z. Naturforsch. A* 62 (2007), DOI `10.1515/zna-2007-10-1103`, explicitly present the reversible construction in their full article. Norman, *Linear Multilinear Algebra* 56 (2008), DOI `10.1080/03081080701395640`, covers the modular Kronecker-sum Jordan problem. The full texts of Macfarlane and Norman were unavailable; possible overlap beyond their accessible abstracts remains a residual risk. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS for the general graph-operation transfer law. Passing from a nilpotent binary base to a matched prism changes a dyadic-only reversible-wave clock to cyclotomic times and determines all labelled-state period populations uniformly for all characteristic-two finite fields. The exact 3/2 vs 3 clock ratio and parity-sensitive Jordan partitions identify a structural dynamical invariant not furnished by the previously published dyadic-ladder specialization or pendant-leaf corona.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
