@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:01:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md dyadic mismatch lemmas and verifier",
+        "Independent finite start/period scan and shortest-factorization dynamic program"
+      ],
+      "rationale": "Let d=2^k u, u odd. Mismatches at n=2^k q-1 with q=2 mod4 occur every 4*2^k, ruling out u>=5 because comparisons need length>=d; for u=3 additional q=3 mod4 mismatches rule out that case. For dyadic d=2^k, q=1 or 2 mod4 are forced mismatches with gaps<=3d and at n=d-1,2d-1, giving start a>=2d and factor length<=4d-1, so endpoint a+length<3a. Dyadic blocks p[2^j:2^(j+1)) are squares of period 2^(j-1), giving r-factor construction. Any factorization from initial index 2 to final 2^(r+1) has s>r log_3 2 hence s>=floor(r log_3 2)+1. Finite independent DP for r<=8 and exhaustive bounded mismatch checks match proof.",
+      "residual_risks": [
+        "No exact width claimed for each r; all-size conclusions rely on 2-adic modular mismatch proof, not finite scan."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goc–Shallit give least periods of factors without length >=2d, which does not imply repetition. The published automatic-word width theorem concerns a different binary word with unbounded constant-run lengths."
+        ],
+        "reasoning": "Neither stronger-sounding statement logically entails the classical period-doubling minimum repetition-width divergence; a different word cannot dominate it.",
+        "searches": [
+          "arxiv:1207.5450 least periods of automatic sequences",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-logarithmic-shortest-repetition-factorization-profile-of-a--594203fe7d5c",
+          "period doubling word repetition factorization shortest width unbounded squares power two periods"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2311.14961 original relevant PDF sections",
+        "arxiv:1207.5450 least periods",
+        "arxiv:2303.14539",
+        "Published Resultary exponential-run automatic word full RESULT"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shallit–Xu provide bounded-width results for other automatic sequences; period-doubling square-factor structural theorem and W_r construction are not stated there."
+        ],
+        "reasoning": "The present unbounded minimum repetition width is not a corollary of arbitrary-factor least periods or different factorization conventions.",
+        "searches": [
+          "arxiv:2311.14961",
+          "arxiv:1207.5450",
+          "arxiv:2303.14539",
+          "period doubling word repetition factorization shortest width unbounded squares power two periods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shortest-width invariant agrees with Shallit–Xu definition; the relevant sequence is the classical period-doubling fixed point, not the alternating exponential-run word."
+        ],
+        "reasoning": "Definitions match prior research, but the explicit dyadic period and unbounded minimal width proof has distinct content.",
+        "searches": [
+          "period doubling word repetition factorization shortest width unbounded squares power two periods",
+          "arxiv:2311.14961 repetition factorization automatic sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite index table was used to derive the all-r result; finite DP checks only r<=8, while two structural lemmas prove all r."
+        ],
+        "reasoning": "Exact width tables for small prefixes cannot establish unboundedness; the proof uses a universal endpoint multiplier.",
+        "searches": [
+          "period doubling word repetition factorization shortest width unbounded squares power two periods",
+          "period doubling factor squares repetition width"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the classical bounded-run period-doubling word: previously published shortest-width divergence for an exponential-run automatic word does not cover this word; same-word least periods do not guarantee repetitions.",
+      "residual_risks": [
+        "An implicit consequence of an older complete square catalog for period doubling may exist; complete historic literature cannot be exhaustively certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Other classical sequences considered; no classical period-doubling theorem detected in material read",
+          "evidence": "Definition of shortest repetition factorization, bounded-width results and longest-width distinction",
+          "identifier_or_url": "https://arxiv.org/abs/2311.14961",
+          "material_read": "Original PDF introduction, results and several selected sections examined; not entire appendices",
+          "method": "Primary PDF with rendered relevant sections",
+          "title": "Repetition factorization of automatic sequences",
+          "trigger": "Same precise width invariant and automatic-word setting"
+        },
+        {
+          "assessment": "Different nonuniformly recurrent alternating exponential runs; not period-doubling",
+          "evidence": "Run-length word w(n)=floor(log2(n+1)) mod2 and M(L)=floor(log2 L)",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-logarithmic-shortest-repetition-factorization-profile-of-a--594203fe7d5c",
+          "material_read": "Entire RESULT.md and proof",
+          "method": "GitHub full file",
+          "title": "Exact logarithmic shortest-repetition-factorization profile of a binary automatic word",
+          "trigger": "Potential competing unbounded shortest-width result"
+        },
+        {
+          "assessment": "Arbitrary least-period factors can have length below twice period, not automatically repetition factors",
+          "evidence": "Period-doubling least-period existence theorem",
+          "identifier_or_url": "https://arxiv.org/abs/1207.5450",
+          "material_read": "Accessible original result statement as cited; not whole primary full text this run",
+          "method": "Primary bibliographic/theorem comparison",
+          "title": "Least periods of k-automatic sequences",
+          "trigger": "Same sequence period structure"
+        },
+        {
+          "assessment": "Pattern avoidance differs from minimal repetition factorization",
+          "evidence": "Study of avoidable binary patterns",
+          "identifier_or_url": "https://arxiv.org/abs/2303.14539",
+          "material_read": "Abstract and accessible citation description only",
+          "method": "Primary abstract check",
+          "title": "The analogue of overlap-freeness for the period-doubling sequence",
+          "trigger": "Related same-word combinatorial structures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shallit–Xu shortest-repetition-factorization question",
+        "Dyadic repetition structure and W_r witnesses"
+      ],
+      "rationale": "A natural shortest-factorization invariant in a canonical uniformly recurrent automatic word exhibits explicit logarithmically growing lower bounds despite bounded monochromatic runs, demonstrating genuine periodic structure rather than trivial long constant blocks.",
+      "residual_risks": [
+        "No exact optimal sw(W_r) formula or decidability for arbitrary automatic words is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the classical period-doubling word p(n)=nu_2(n+1) mod 2, witness factors W_r=p[2:2^(r+1)) have floor(r log_3 2)+1 <= minimal repetition-factorization width <=r for all r>=1, hence unbounded shortest width; all genuine repetition periods are powers of two.",
+  "limitations": [
+    "No general automatic-word decidability or exact all-factor widths",
+    "Finite checks not substitutes for unbounded proof"
+  ],
+  "schema_version": 1
+}

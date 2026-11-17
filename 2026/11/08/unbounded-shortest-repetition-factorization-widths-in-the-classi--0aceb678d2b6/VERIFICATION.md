@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The analytic proof uses only the parity of the \(2\)-adic valuation and a complete case distinction on the odd part of each proposed period. It is independent of exhaustive enumeration.
+## correctness
 
-With Python 3, execute `python3 verify.py`. This program constructs \(p(n)\) directly from integer arithmetic, checks every candidate square period \(1\le d\le128\) and start \(0\le a\le2048\), validates the dyadic periods and mandatory location/length restrictions, checks all dyadic square blocks through scale \(13\), and computes shortest repetition-factorization widths for the first ten explicit witnesses using independent finite dynamic programming. All comparisons are exact integer operations. It prints a terminal `VERIFY_OK` line only when all assertions pass.
+PASS
 
-Verified output: `VERIFY_OK squares_checked= 5518 max_start= 2048 max_period= 128 block_scales= 13`.
+Let d=2^k u, u odd. Mismatches at n=2^k q-1 with q=2 mod4 occur every 4*2^k, ruling out u>=5 because comparisons need length>=d; for u=3 additional q=3 mod4 mismatches rule out that case. For dyadic d=2^k, q=1 or 2 mod4 are forced mismatches with gaps<=3d and at n=d-1,2d-1, giving start a>=2d and factor length<=4d-1, so endpoint a+length<3a. Dyadic blocks p[2^j:2^(j+1)) are squares of period 2^(j-1), giving r-factor construction. Any factorization from initial index 2 to final 2^(r+1) has s>r log_3 2 hence s>=floor(r log_3 2)+1. Finite independent DP for r<=8 and exhaustive bounded mismatch checks match proof.
 
-The checker is a finite diagnostic. Proof of the general result is supplied by the two valuation-mismatch lemmas, the dyadic-square identity, and the strict endpoint growth inequality. No infinite certificate or independent mathematical audit is asserted. The exact minimum number of factors for arbitrary scales and arbitrary factors remains undetermined.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the classical bounded-run period-doubling word: previously published shortest-width divergence for an exponential-run automatic word does not cover this word; same-word least periods do not guarantee repetitions.
+
+## value
+
+PASS
+
+A natural shortest-factorization invariant in a canonical uniformly recurrent automatic word exhibits explicit logarithmically growing lower bounds despite bounded monochromatic runs, demonstrating genuine periodic structure rather than trivial long constant blocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
