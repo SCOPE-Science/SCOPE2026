@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof explicitly establishes the rare-event localization, uses density rescaling under a dimension-matched integrable domination, computes the condition-number sublevel set using the determinant-to-trace squared ratio, and obtains the exact geometric volume. The Gaussian special cases independently agree with exact-rational evaluations and seeded importance-sampling checks. Full singular limits rest on the proof, not simulations.
+PASS
 
-## Originality
+For the coefficient vector (-cos θ,1)/sqrt(1+cos²θ), the smallest singular value is at most sin θ||Y||/sqrt(1+cos²θ), while the largest is at least ||X||. Thus κ<=K forces ||X||<=K θ||Y||. Set X=θ z. Event indicators converge a.e. to κ([z,z+Y])<=K, since the boundary for fixed nonzero Y is a proper algebraic null set. The integrals have envelope ||f||∞ Vol(B_k(K||Y||)), integrable by E||Y||^k<infty. A right orthogonal two-column rotation reduces the matrix to [r,Y/sqrt2]; the Jacobian produces 2^-k||Y||^k times the volume for [r,e1]. The latter has Gram determinant b² and trace 1+a²+b², so condition κ<=K is b∈[1/K,K] and a²<=(K-b)(b-1/K), yielding V_k by polar coordinates. Independently checked exact k=2/3 Gaussian constants via symbolic integration for K=3/2 and 5/2. Gaussian X f(0), χ_k moment give stated Gaussian specialization. The limit is fixed k,K only and finite numerical experiments are supplementary.
 
-PASS, qualified. The principal source arXiv:2607.10354 introduces sketch-conditioned adaptive restarting; arXiv:2306.03592 studies conditioning and basis selection; the established Wishart literature provides iid-Gaussian condition-number distributions and correlated-Gaussian eigenvalue laws. Those scopes do not imply the distribution-free coefficient involving an arbitrary continuous density at the origin and the independent second vector's radial moment. Search coverage cannot prove historical uniqueness; incomplete complete-text access to the principal paper and unindexed small-noise literature are residual historical-priority risks.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem quantifies a natural false-acceptance event for an ill-conditioned raw Krylov basis from a random sketch and identifies a sharp exponent and constant. Its universality across broad non-Gaussian column laws is structurally useful and not an arbitrary numeric example or routine parameter substitution. It is deliberately limited to two columns, a fixed threshold, and one inspection, and does not claim full adaptive-algorithm performance.
+Best-of-knowledge original final claim after direct statement/implication comparison; earlier general frameworks, alternative rules or smaller families are credited, with access and historical priority risks explicitly retained.
 
-## Literature and limits
+## value
 
-Closest sources: Güttel–Liu–Nyman (arXiv:2607.10354), Güttel–Simunec (arXiv:2306.03592), Edelman (1988), Anderson–Wells (2009), and Wirtz–Guhr (arXiv:1306.4790). The broader correlated-Wishart formulas are important for the Gaussian specialization but do not dominate the non-Gaussian universality statement. Independent validation and full exhaustive historical priority determination are outside this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantitative probability of falsely accepting a nearly dependent raw two-column basis is a natural risk in randomized sketch conditioning. The exact power k and sharp non-Gaussian universal coefficient (only f(0) and one moment of Y) are structurally informative and distinguish the result from standard iid Wishart singular values or generic subspace embeddings; does not pretend to analyze the full adaptive algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

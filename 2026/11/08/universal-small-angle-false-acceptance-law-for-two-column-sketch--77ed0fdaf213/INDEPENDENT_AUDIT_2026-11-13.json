@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:57:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/universal-small-angle-false-acceptance-law-for-two-column-sketch--77ed0fdaf213/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/universal-small-angle-false-acceptance-law-for-two-column-sketch--77ed0fdaf213/verify.py"
+      ],
+      "rationale": "For the coefficient vector (-cos θ,1)/sqrt(1+cos²θ), the smallest singular value is at most sin θ||Y||/sqrt(1+cos²θ), while the largest is at least ||X||. Thus κ<=K forces ||X||<=K θ||Y||. Set X=θ z. Event indicators converge a.e. to κ([z,z+Y])<=K, since the boundary for fixed nonzero Y is a proper algebraic null set. The integrals have envelope ||f||∞ Vol(B_k(K||Y||)), integrable by E||Y||^k<infty. A right orthogonal two-column rotation reduces the matrix to [r,Y/sqrt2]; the Jacobian produces 2^-k||Y||^k times the volume for [r,e1]. The latter has Gram determinant b² and trace 1+a²+b², so condition κ<=K is b∈[1/K,K] and a²<=(K-b)(b-1/K), yielding V_k by polar coordinates. Independently checked exact k=2/3 Gaussian constants via symbolic integration for K=3/2 and 5/2. Gaussian X f(0), χ_k moment give stated Gaussian specialization. The limit is fixed k,K only and finite numerical experiments are supplementary.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adaptive Arnoldi sketch condition threshold is a motivated algorithmic application but its available main theorem summary concerns matrix-function convergence, not θ→0 false-acceptance probability.",
+          "Classical iid Gaussian/Wishart condition number laws and correlated Gaussian eigenvalue models assume Gaussianity and do not dominate the distribution-free f(0)E||Y||^k claim."
+        ],
+        "reasoning": "A more general randomized subspace embedding bound gives high-probability sufficient conditioning, not the precise small-angle probability for an ill-conditioned raw pair. Full primary recent paper text remained inaccessible, a residual risk.",
+        "searches": [
+          "Resultary: small angle sketch randomized condition number false acceptance probability theta to k correlated gaussian two-column near collinear",
+          "arxiv:2607.10354",
+          "arxiv:2306.03592",
+          "Edelman 1988 DOI:10.1137/0609045",
+          "Anderson–Wells 2009 DOI:10.1137/070698932"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10354",
+        "https://arxiv.org/abs/2306.03592",
+        "https://doi.org/10.1137/0609045",
+        "https://doi.org/10.1137/070698932",
+        "https://arxiv.org/abs/1306.4790"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithmic restart condition estimates alone do not supply sharp θ^k probability or volume constant V_k.",
+          "A correlated Gaussian Wishart determinant distribution cannot recover the general X-density-at-origin and Y moment result without a new dominated-convergence/localization argument."
+        ],
+        "reasoning": "The proof explicitly extracts the rare-event small-ball scale and an exact K-sublevel geometric volume, neither furnished by previously inspected statements.",
+        "searches": [
+          "Resultary: small angle sketch randomized condition number false acceptance probability theta to k correlated gaussian two-column near collinear",
+          "Güttel–Liu–Nyman arxiv:2607.10354",
+          "Güttel–Simunec arxiv:2306.03592",
+          "Wirtz–Guhr arxiv:1306.4790"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gaussian case can be expressed through a correlated 2-column Wishart matrix with correlation cos θ; established Gaussian spectral densities may reproduce its specialization by integration.",
+          "The theorem additionally covers arbitrary independent non-Gaussian X,Y under density-at-zero and moment conditions, with exact factorization of the coefficient."
+        ],
+        "reasoning": "Even if Gaussian specialization is classical, Gaussian eigenvalue laws do not imply arbitrary bounded continuous f and arbitrary Y laws. The new object is the universal rare-event coefficient for nearly collinear raw columns.",
+        "searches": [
+          "Resultary: small angle sketch randomized condition number false acceptance probability theta to k correlated gaussian two-column near collinear",
+          "Güttel–Liu–Nyman arxiv:2607.10354 adaptive sketch conditioning",
+          "Wishart correlated-column singular-value tails"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published sparse sign false-safe law gives a discrete collision probability (M−2)/M², not a θ^k law under continuous densities.",
+          "Gaussian QR wrong-pivot beta CDF concerns ranking columns, not the condition number of the nearly dependent two-column matrix."
+        ],
+        "reasoning": "None of the closely indexed numerical constants or exact formulas concerns this universal smooth-noise small-angle event; negative search by itself is not proof of historical novelty.",
+        "searches": [
+          "Resultary: small angle sketch randomized condition number false acceptance probability theta to k correlated gaussian two-column near collinear",
+          "Resultary: small angle sketch randomized condition number false acceptance probability theta to k ...",
+          "Resultary: sparse sign false-safe condition-number law for truncated Arnoldi",
+          "Resultary: Gaussian two-column QR pivoting threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge original final claim after direct statement/implication comparison; earlier general frameworks, alternative rules or smaller families are credited, with access and historical priority risks explicitly retained.",
+      "residual_risks": [
+        "Full 2026 Güttel–Liu–Nyman work and older correlated Gaussian Wishart papers were not inspected page-by-page; may include a Gaussian specialization or similar asymptotic in an appendix.",
+        "General small-noise/conditioning literature may give an equivalent non-Gaussian coefficient under different phrasing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "cannot assert full-document noncoverage; reported methods do not announce the universal 2-column rare-event asymptotic",
+          "evidence": "Abstract describes truncation when sketch-estimated condition exceeds threshold and convergence of harmonic Arnoldi",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+          "material_read": "Primary abstract and revision metadata, not full 30-page paper; alternative AlphaXiv abstract read",
+          "method": "arxiv and lawful OA abstract pages",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions (Güttel–Liu–Nyman, 2026)",
+          "trigger": "same adaptive basis condition number testing motivation"
+        },
+        {
+          "assessment": "conditioning inequality is not a precise false-acceptance tail",
+          "evidence": "Subspace embedding inequalities bound sketched conditioning under favorable events",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03592",
+          "material_read": "Bibliographic/available abstract and reported conditioning inequality, full technical proof not reread here",
+          "method": "arxiv metadata and existing source text",
+          "title": "A sketch-and-select Arnoldi process (Güttel–Simunec)",
+          "trigger": "primary sketch-basis condition estimate framework"
+        },
+        {
+          "assessment": "iid Gaussian exact distributions are not the non-Gaussian generality",
+          "evidence": "Gaussian Wishart finite dimensional laws do not determine arbitrary f(0) and Y moment",
+          "identifier_or_url": "https://doi.org/10.1137/0609045",
+          "material_read": "Known primary theorem statement and metadata; complete article not read this run",
+          "method": "bibliographic source and theorem summary",
+          "title": "Eigenvalues and Condition Numbers of Random Matrices (Edelman, 1988)",
+          "trigger": "classic Gaussian condition-number law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10354",
+        "https://arxiv.org/abs/2306.03592",
+        "https://doi.org/10.1137/0609045",
+        "https://doi.org/10.1137/070698932",
+        "https://arxiv.org/abs/1306.4790"
+      ],
+      "rationale": "The quantitative probability of falsely accepting a nearly dependent raw two-column basis is a natural risk in randomized sketch conditioning. The exact power k and sharp non-Gaussian universal coefficient (only f(0) and one moment of Y) are structurally informative and distinguish the result from standard iid Wishart singular values or generic subspace embeddings; does not pretend to analyze the full adaptive algorithm.",
+      "residual_risks": [
+        "Full 2026 Güttel–Liu–Nyman work and older correlated Gaussian Wishart papers were not inspected page-by-page; may include a Gaussian specialization or similar asymptotic in an appendix.",
+        "General small-noise/conditioning literature may give an equivalent non-Gaussian coefficient under different phrasing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.10354",
+    "https://arxiv.org/abs/2306.03592",
+    "https://doi.org/10.1137/0609045",
+    "https://doi.org/10.1137/070698932",
+    "https://arxiv.org/abs/1306.4790"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed real k>=2 and K>1, independent X,Y in R^k with globally bounded X-density f continuous at zero and E||Y||^k<infinity, M_theta=[X,cos(theta)X+sin(theta)Y] has theta^-k P(kappa_2(M_theta)<=K) -> 2^-k f(0)E||Y||^k V_k(K) with V_k(K)=4*pi^((k-1)/2)/Gamma((k-1)/2) integral_{1/K}^K b^(k-2)sqrt((K-b)(b-1/K))db.",
+  "limitations": [
+    "Only fixed k,K, independent real sketch columns; no structured dependent sketches, finite θ error or whole-algorithm stopping distribution.",
+    "Finite E||Y||^k and bounded origin-continuous density are essential to dominated convergence."
+  ],
+  "schema_version": 1
+}
