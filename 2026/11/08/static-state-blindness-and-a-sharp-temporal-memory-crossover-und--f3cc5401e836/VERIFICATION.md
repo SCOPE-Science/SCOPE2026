@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `checker.py` tests the stated analytic covariance formula against a two-state backward matrix semigroup at 1,080 parameter-lag combinations and checks the stationary characteristic transform using a separate matrix-resolvent calculation at nine parameter-wavenumber combinations. It also performs exact-event simulations from 100,000 samples of the stationary last-reset-age law for each of three reversal probabilities. Future Brownian increments are integrated out conditionally in the Monte Carlo covariance estimator, reducing variance without changing its expectation.
+# Independent mathematical audit
 
-These finite diagnostics were run and passed in the same package. Their tolerances and pseudorandom seed are visible in the checker. The proof in `RESULT.md` supplies the all-parameter, all-lag covariance identity, strict order, spectral threshold, and integrated covariance; neither the simulations nor the finite grid are infinite proofs. In particular, this verification does not establish publication priority or independent expert validation.
+## correctness
+
+PASS
+
+Reconstructed full generator on y,s,ys,y²: stationarity gives E[YS]=v/(r+2α) and Var(Y)=2D/r+2v²/[r(r+2α)], independent η. Autonomous sign generator has rate α+ηr, and conditional mean Y_t solves d/dt E Y_t=v E S_t-r E Y_t. Exact convolution gives covariance; positivity of η-difference integrands proves strict monotonicity for every t>0, and spectral comparison gives min(r,2α+2ηr) plus t e^-rt at resonance. Matrix-semigroup checker inspected (1080 parameter tests + nine transforms, simulations) and independent symbolic identity checked; finite checks corroborate, not prove.
+
+## originality
+
+PASS
+
+New claimed content is strictly ordered two-time stationary covariance, exact crossover, and one-positive-lag η identification; η-independent stationary distribution itself is explicitly earlier work.
+
+## value
+
+PASS
+
+Distinct dynamical models share all one-time stationary data yet have strictly ordered lagged observable, enabling identification of a hidden reset protocol parameter. Exact resonance and crossover supply a meaningful boundary in temporal memory rather than a mere normalization computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

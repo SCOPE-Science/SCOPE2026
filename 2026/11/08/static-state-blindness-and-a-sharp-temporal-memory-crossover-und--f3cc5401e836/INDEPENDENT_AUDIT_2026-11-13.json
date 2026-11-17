@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:05:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed full generator on y,s,ys,y²: stationarity gives E[YS]=v/(r+2α) and Var(Y)=2D/r+2v²/[r(r+2α)], independent η. Autonomous sign generator has rate α+ηr, and conditional mean Y_t solves d/dt E Y_t=v E S_t-r E Y_t. Exact convolution gives covariance; positivity of η-difference integrands proves strict monotonicity for every t>0, and spectral comparison gives min(r,2α+2ηr) plus t e^-rt at resonance. Matrix-semigroup checker inspected (1080 parameter tests + nine transforms, simulations) and independent symbolic identity checked; finite checks corroborate, not prove.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal et al.: thermal run-and-tumble target search first-passage",
+          "Bressloff: general reset generator calculus",
+          "Evans–Majumdar: first-passage and stationary marginal"
+        ],
+        "reasoning": "General resetting renewal or Markov-generator formula can be applied but does not itself enumerate the exact strictly ordered covariance in this specific partial-reset protocol.",
+        "searches": [
+          "run and tumble resetting orientation flip two time position covariance stationary unchanged temporal relaxation",
+          "https://arxiv.org/abs/2407.03762",
+          "https://arxiv.org/abs/2411.15544"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1808.06450",
+        "https://arxiv.org/abs/2407.03762",
+        "https://arxiv.org/abs/2411.15544"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier law gives equal one-time positions for all η",
+          "Two-time cross moment E[Y_0S_t] depends on η via exp[-2(α+ηr)t]"
+        ],
+        "reasoning": "The time correlations are not implied by static distribution alone: the generator has η-dependent orientation decay. Exact sign and resonance require a separate two-time calculation.",
+        "searches": [
+          "https://arxiv.org/abs/1808.06450",
+          "https://arxiv.org/abs/2407.03762"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1808.06450: pure run-and-tumble protocol and η-independent stationary position distribution",
+          "Frozen current RESULT.md exact two-rate covariance and resonance"
+        ],
+        "reasoning": "Prior renewal law for the marginal is identical/static; the new covariance is a distinct two-time functional and is not determined by the one-time law.",
+        "searches": [
+          "run and tumble resetting orientation flip two time position covariance stationary unchanged temporal relaxation",
+          "https://arxiv.org/abs/1808.06450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Evans–Majumdar 2018 primary article has η-independent stationary distribution and FPT data, no reported identical positive-lag covariance table"
+        ],
+        "reasoning": "No indexed exact η-ordered covariance family or threshold table found; absence of a search hit is not proof of priority.",
+        "searches": [
+          "run and tumble resetting orientation flip two time position covariance stationary unchanged temporal relaxation",
+          "https://arxiv.org/abs/1808.06450"
+        ]
+      },
+      "rationale": "New claimed content is strictly ordered two-time stationary covariance, exact crossover, and one-positive-lag η identification; η-independent stationary distribution itself is explicitly earlier work.",
+      "residual_risks": [
+        "A general Markov-regression theorem makes the computation straightforward; an earlier unindexed two-time analysis may express same formula.",
+        "Stationary independence alone is known; it is not counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_STATIC_RESULT_NOT_EXACT_TEMPORAL_COVARIANCE",
+          "evidence": "Reports independence of stationary distribution from reset flip probability, not the exact thermal two-rate lag covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.06450",
+          "material_read": "Full accessible 2018 PDF text: renewal equations, stationary distribution, first-passage sections and conclusions; checked temporal-covariance terminology",
+          "method": "Public institutional PDF and text search",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Same partial orientation reversal protocol and static-invariance result"
+        },
+        {
+          "assessment": "NOT_DECISIVELY_COMPARED_FULL_TEXT",
+          "evidence": "Different absorbing first-passage objective, no claim of full-text exclusion",
+          "identifier_or_url": "https://arxiv.org/abs/2407.03762",
+          "material_read": "Abstract and available source description of first-passage target-search setting",
+          "method": "Public arXiv abstract",
+          "title": "Is active motion beneficial for target search with resetting in a thermal environment?",
+          "trigger": "Thermal diffusion + reset direction probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct dynamical models share all one-time stationary data yet have strictly ordered lagged observable, enabling identification of a hidden reset protocol parameter. Exact resonance and crossover supply a meaningful boundary in temporal memory rather than a mere normalization computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A thermally diffusive run-and-tumble particle with position resets and reset sign flip probability η has η-independent stationary position–sign law, but stationary positive-lag position covariance V e^{-rt}+B convolution(e^{-rt},e^{-2(α+ηr)t}) strictly decreases with η, giving a sharp relaxation crossover and one-lag identification.",
+  "limitations": [
+    "Nonabsorbing whole-line process with positive v,D,α,r and known other parameters for η inversion.",
+    "Crossover means decay-rate switch, not thermodynamic phase change."
+  ],
+  "schema_version": 1
+}
