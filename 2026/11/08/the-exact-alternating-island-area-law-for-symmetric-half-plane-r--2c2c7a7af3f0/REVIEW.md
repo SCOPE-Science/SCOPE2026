@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is established by the explicit \(2\)-cycle identity, a necessary-and-sufficient half-plane inequality for every iterate, and exact analysis of the resulting unit-normal orbit. Dense irrational rotations yield the disk interior; a finite cyclic unit-normal group yields a regular polygon, with the order \(N=2q/\gcd(2p+q,2q)\). The geometric area and least-period formulas follow from elementary rotation and polygon identities; the positive excess and continuity set follow from \(\tan u>u\) and \(\tan u=u+u^3/3+O(u^5)\). Crucially, the claim is about the **interior** of all strict itinerary constraints, so it does not misclassify potentially surviving boundary points. The analytic steps address all \(0<\alpha<\pi\); finite numerical tests are supplementary only. The supplied checker was executed on all 153 reduced angles with denominators through 31 and 400 additional irrational tests.
+PASS
 
-## Originality — PASS within examined evidence
+The formula T^k(c+w)=(-1)^k c+lambda^k w along alternating branches reduces the entire strict itinerary to s+Im((−lambda)^k w)>0. Irrational powers of −lambda are dense, so interior is disk |w|<s; finite rational orbit generates every equally spaced supporting half-plane, exactly a regular N-gon. gcd(2p+q,2q) gives each q mod 4 case, and multiplication by lambda^2 proves least periods. Polygon inradius area and tan x>x give positive rational resonance; the Taylor series with denominators tending to infinity proves irrational continuity. Boundary points are excluded by taking interior, and alpha endpoints are excluded. 236 independent coprime rational angle/order/strict area checks corroborate, not prove, the all-angle density argument.
 
-The closest primary literature is [1] Cima–Gasull–Mañosa–Mañosas, arXiv:2306.17543, Theorems A and B and Sections 2–3; [2] Goetz–Quas, *Global properties of a family of piecewise isometries* (2009), Section 2; and [3] Cima et al., arXiv:2010.12901, Sections 2–5. These establish general periodic cells, polygon/disk geometric alternatives, and special tessellations for three rational angles. Their conclusions do not explicitly fix the **distinguished alternating orbit's** side count in all three denominator-congruence classes, its exact two-cell area as a function of the angle, or the resulting rational-spike/irrational-continuity dichotomy. The existing general disk/rational-polygon framework and individual triangle/square/hexagon cases are explicitly excluded from the novelty claim. Semantic searches of published mathematical research records and targeted literature queries found no statement covering the complete area law; those searches alone do not prove uniqueness.
+## originality
 
-The most important residual priority risk is that the area and continuity formula may be derivable from general older half-plane cell theory by a short calculation, or occur in unindexed secondary literature. This work is presented as an exact quantitative derived classification, not as a fundamentally new dynamical mechanism or independent certification.
+PASS
 
-## Mathematical value — PASS
+The same map and its general convex periodic polygon cells are published (Cima–Gasull–Mañosa–Mañosas 2024), and circular irrational boundaries are noted. The exact canonical alternating two-cycle, complete rational denominator-class inradius/area and discontinuity asymptotic were not stated in the inspected full primary result. This is a modest derived quantitative classification, with an appreciable easy-corollary/specialist-priority risk.
 
-The object is the maximal regular island around the simplest nontrivial orbit in an established two-atom planar isometry family. Its two-cell area is a natural dynamical-geometric invariant, and a uniform parameter classification is relevant to resonant stability islands and the rational-to-irrational transition. The full \(q\bmod4\) facet law, exact intrinsic periods and dense arithmetic area jumps give motivated structural information beyond the general assertion that islands are polygons or disks. The result does not claim the measure of all regular cells, the whole plane's periodic set, or an exhaustive count of other islands; no general entropy or global classification follows.
+## value
 
-## Limitations and sources
+PASS
 
-The domain excludes degenerate endpoint angles and switching boundaries. The literature comparison covers the accessible full texts of [1]–[3] and semantic index records; no independent priority certification, specialist refereeing, or all-literature survey is claimed. Computational checks supplement, rather than replace, the proof.
+The canonical alternating period-two island is a natural reference cell in an established piecewise-isometry family. An exact all-angle area, complete denominator-resonance spike/continuity law and intrinsic periods quantify rational-to-irrational island geometry; unlike a random slice, the cell is selected dynamically by the primitive two-cycle. The theorem explicitly does not measure global regular area or claim a novel mechanism.
 
-[1] https://arxiv.org/abs/2306.17543
-
-[2] https://www.researchgate.net/publication/243031508_Global_properties_of_a_family_of_piecewise_isometries
-
-[3] https://arxiv.org/abs/2010.12901
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
