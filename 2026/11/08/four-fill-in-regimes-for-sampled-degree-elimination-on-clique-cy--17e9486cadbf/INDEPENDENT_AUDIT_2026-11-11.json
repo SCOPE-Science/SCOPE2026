@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T14:03:25.296194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Before any hub pivot, each rim elimination inserts one chord and retains a cycle. At k>=4 rim vertices hub degree h+k-1 exceeds rim degree h+2; a hub is chosen only if all q distinct sampled vertices are hubs, probability binom(h,q)/binom(h+k,q), zero for q>h. The first hub pivot inserts k(k-3)/2 rim edges, giving total m-3+(k-2)(k-3)/2 and the exact stopping distribution. For q=1, first-hub beta-binomial factorial moments yield the stated exact mean; p_k~(h)_q k^-q and survival products yield q=2 linear, q=3 log, q>=4 finite limits, tail exponent (q-1)/2 and exact moment criterion. I reconstructed the hazard, telescoping mass and tail asymptotic. An independently written exact graph-pivot enumerator confirmed 5 small (h,m,q) configurations from actual graph edges; source verify.py was read but its ALL_PASS log is not taken as proof. Covers h>=1,m>=3,q>=1 with fixed h,q limits and distinct-without-replacement sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General ordering algorithms use degree estimators or Schur edge sampling, not fixed-q uniform vertex selection at each elimination."
+        ],
+        "reasoning": "The broad methodological results do not dominate a complete exact distribution for this finite graph family.",
+        "searches": [
+          "arXiv:1804.04239 approximate degree candidate lists",
+          "arXiv:1907.12119 exact minimum degree",
+          "arXiv:2011.07769 RCHOL"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1804.04239",
+        "https://arxiv.org/abs/1907.12119",
+        "https://arxiv.org/abs/2011.07769"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof’s hub-first hazard is neither a theorem on approximate min-degree oracle guarantees nor an RCHOL random-edge update."
+        ],
+        "reasoning": "The algorithmic prior theorems are not exact distributional assertions about this sampled symbolic elimination rule.",
+        "searches": [
+          "Cummings 2019 Section 2 fill-graph clique completion",
+          "Fahrbach 2018 candidate generation",
+          "RCHOL 2020 approximate factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The q=1 distribution may be expressed as the rank of the first hub in a random permutation, but no inspected source states its four q-regime continuation."
+        ],
+        "reasoning": "Permutation-rank and stopping-hazard aliases reproduce the present statement only after the substantive degree-state and asymptotic proofs.",
+        "searches": [
+          "Resultary: sampled degree minimum fill clique cycle join power choices",
+          "random elimination ordering wheel graphs exact fill law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary finding is the target itself; other matches involve unrelated greedy random graph invariants."
+        ],
+        "reasoning": "No exact database/table identified; published-index absence does not certify novelty.",
+        "searches": [
+          "Resultary semantic query: sampled degree minimum fill clique cycle join randomized elimination",
+          "wheel graph sampled greedy min degree distribution"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the specified refreshed q-candidate current-degree rule on clique–cycle joins; general minimum-degree and randomized Schur complement methods do not imply its exact stopping law or sharp heavy-tail regimes.",
+      "residual_risks": [
+        "Uninspected specialist ordering-probability literature could cover this exact family.",
+        "Rothberg–Eisenstat full paper not read; neither search nor abstract absence proves noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PROOF_RECONSTRUCTED",
+          "evidence": "Exact hazard and filled-state collapse inspected.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/four-fill-in-regimes-for-sampled-degree-elimination-on-clique-cy--17e9486cadbf/RESULT.md",
+          "material_read": "Full finding, proof, verification and references",
+          "method": "GitHub frozen blob read",
+          "title": "Four fill-in regimes on clique-cycle joins",
+          "trigger": "Frozen actual scientific package"
+        },
+        {
+          "assessment": "DIFFERENT_ALGORITHM",
+          "evidence": "Exact minimum-degree algorithm complexity does not determine fixed-q random heuristics.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.12119",
+          "material_read": "Theorem statements and fill-graph setup as described in frozen package, abstract-level independent comparison",
+          "method": "Primary abstract and mathematical claim comparison; not asserted whole-document NOT_COVERING",
+          "title": "A Fast Minimum Degree Algorithm and Matching Lower Bound",
+          "trigger": "General stronger degree-ordering algorithm"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOMIZATION",
+          "evidence": "Randomizing Schur edges does not imply random selection of pivot vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.07769",
+          "material_read": "Algorithm summary and distinction in frozen scientific text; full external paper not independently read",
+          "method": "Metadata and source-claim comparison",
+          "title": "Fourier-independent random Cholesky RCHOL",
+          "trigger": "Randomized Cholesky names possible coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The clique–cycle family is a natural exact symbolic-factorization benchmark. The theorem quantifies dramatic q-candidate risk transitions, including finite-sample expected fill with heavy-tailed limiting excess and an infinite-mean threshold for q=2,3; this is a motivated structural distribution, not a generic elimination identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Sharp finite fill PMF, q-dependent asymptotic means, heavy-tail and moment cutoff.",
+  "limitations": [
+    "Uninspected specialist ordering-probability literature could cover this exact family.",
+    "Rothberg–Eisenstat full paper not read; neither search nor abstract absence proves noncoverage.",
+    "No claim of external human certification or independent formal proof; numerical finite checks do not replace unrestricted arguments.",
+    "Publication staging is not importable due to outstanding public-metadata/statement sanitization."
+  ],
+  "schema_version": 1
+}

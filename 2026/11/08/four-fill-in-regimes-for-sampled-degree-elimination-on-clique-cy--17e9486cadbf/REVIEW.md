@@ -1,24 +1,21 @@
-# Scientific review: sampled-degree elimination on clique–cycle joins
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precisely specified uniform-without-replacement candidate rule, every pre-hub rim deletion inserts one chord and preserves the clique–cycle join. A hub selected while at least four rim vertices remain makes the surviving graph complete, giving the exact excess \(\delta_k=(k-2)(k-3)/2\). Current degrees distinguish hub and rim vertices strictly until the remaining rim is a triangle, hence the exact hazard \(p_k=\binom hq/\binom{h+k}q\) for \(q\le h\), otherwise zero. The product of survival hazards yields the full distribution. Beta-binomial factorial moments establish the exact one-candidate mean; uniform tail expansions establish the other mean regimes and the sharp limiting tail. The standalone exact graph-state checker validates 491 comparisons and sanity tests, including 128 exhaustive distribution/normalization assertions and 5 independent full-permutation distributions. The infinite-scope statements are proved analytically, not inferred from finite testing.
+PASS
 
-## Originality — PASS, with residual risk
+Before any hub pivot, each rim elimination inserts one chord and retains a cycle. At k>=4 rim vertices hub degree h+k-1 exceeds rim degree h+2; a hub is chosen only if all q distinct sampled vertices are hubs, probability binom(h,q)/binom(h+k,q), zero for q>h. The first hub pivot inserts k(k-3)/2 rim edges, giving total m-3+(k-2)(k-3)/2 and the exact stopping distribution. For q=1, first-hub beta-binomial factorial moments yield the stated exact mean; p_k~(h)_q k^-q and survival products yield q=2 linear, q=3 log, q>=4 finite limits, tail exponent (q-1)/2 and exact moment criterion. I reconstructed the hazard, telescoping mass and tail asymptotic. An independently written exact graph-pivot enumerator confirmed 5 small (h,m,q) configurations from actual graph edges; source verify.py was read but its ALL_PASS log is not taken as proof. Covers h>=1,m>=3,q>=1 with fixed h,q limits and distinct-without-replacement sampling.
 
-Relevant primary papers were inspected by statements and algorithms. The candidate-sampling scheme in Fahrbach et al. (2018) uses an approximate degree estimator, adaptive sketches, and exponential perturbations; it does not assert the fixed-\(q\) uniform sample law. Cummings et al. (2019) compute exact minimum-degree orderings efficiently rather than analyze this random restricted-candidate rule. Chen et al. (2020) randomize edges of Schur-complement cliques, not sampled vertex candidates. The closest item in a published mathematical findings index on wheel graphs concerns Löwner ellipsoids, not elimination fill; other nearby hits concern randomized matrix pivoting or greedy independent sets, neither of which logically supplies the claim. An accessible research ledger contains no claim of symbolic fill-in laws on clique–cycle joins. These comparisons support a qualified originality assessment, not a claim that unsuccessful searches prove priority. Exact precedence in less accessible specialized sparse-ordering literature remains uncertain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The concrete object is a standard family of sparse matrix patterns with a small clique separator and a large cycle. The invariant is the exact number of new edges in Cholesky symbolic factorization, which directly affects storage and symbolic fill prediction. The contribution is more than a single example: a complete all-parameter finite probability law, sharp transitions in expected excess fill across four sampling budgets, a nontrivial limiting distribution, and a sharp heavy-tail/moment classification. It distinguishes high-probability small fill from heavy-tail-affected expected fill for the two- and three-candidate rules. It does not claim numerical performance benefits, arbitrary-graph results, or a new minimum-degree algorithm.
+Best-of-knowledge original for the specified refreshed q-candidate current-degree rule on clique–cycle joins; general minimum-degree and randomized Schur complement methods do not imply its exact stopping law or sharp heavy-tail regimes.
 
-## Closest literature and limits
+## value
 
-- Fahrbach et al. (2018), arXiv:1804.04239, Sections 1, 3, and 5: sampled approximate-degree candidates under an adaptive data-structure model; different selection law and theorem target.
-- Cummings, Fahrbach, Fatehpuria (2019), arXiv:1907.12119, introduction, Section 2 and main results: exact minimum-degree ordering complexity, no present distribution or asymptotic profile.
-- Chen, Liang, Biros (2020), arXiv:2011.07769, Sections 1, 3 and 4: sparsified Schur-complement edge sampling and ordering comparisons, but not fixed-size random pivot-candidate selection.
-- Rothberg and Eisenstat (1998), DOI:10.1137/S0895479896302692: prior bottom-up node-selection strategies; only abstract-level material was accessible in this review.
+PASS
 
-Remaining scientific limitations: fixed hub count, clique–cycle join structure, exact symbolic fill only, and unresolved specialist publication precedence. Computed checks do not provide independent validation.
+The clique–cycle family is a natural exact symbolic-factorization benchmark. The theorem quantifies dramatic q-candidate risk transitions, including finite-sample expected fill with heavy-tailed limiting excess and an infinite-mean threshold for q=2,3; this is a motivated structural distribution, not a generic elimination identity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
