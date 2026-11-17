@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Exact finite checks and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.11 or later. It uses only the Python standard library, and implements finite exact-integer bitset sumsets, semigroup-membership dynamic programming, and a separate set-based sumset enumerator. Observed successful output:
+## correctness
 
-```
-TWO_GAP_ALL_H_FORMULA_OK 12632
-STABLE_HOLE_SET_OK 882
-SHARP_THRESHOLD_PREDECESSORS_OK 294
-GENUS_EXACT_SEMIGROUP_OK 294
-INDEPENDENT_SET_SUM_CROSSCHECK_OK 1568
-VERIFY_OK cases 294 a_min 4 a_max 150 d_values [2, 3] infinite_proof_separate True independent_audit False
-```
+PASS
 
-The parameter range in the main tests is 4 through 150. This is a finite consistency check, not a proof of universal quantifiers. The symbolic proof in RESULT.md independently establishes the infinite claim. No independent mathematical audit or certification was performed.
+Reconstructed U_t interval layers and their overlap for h>=a-1, reflected h{0,d,b-1,b}, and the short representations below C=(b-1)(d-1). Residue/Apéry gap counts yield genus and max-gap; the missed a-1 at h=a-2 proves sharpness except explicit a=4,d=3 boundary. The d=2 every-h cardinality follows by interval-layer union and a last arithmetic-progression correction; standalone independent bitset/set/semigroup computations matched 1,504 finite parameter checks. The finite tests are not the universal proof.
+
+## originality
+
+PASS
+
+Generic reflected semigroup-gap stabilization and general h-fold counting are PRIOR WORK; the new mathematical content is the smaller sharp least H=a-1 (exception H=2), explicit genus and the d=2 all-h closed formula. The inspected broad theorems do not entail that threshold by parameter substitution.
+
+## value
+
+PASS
+
+Iterated integer sumsets and their sharp stabilization index are natural additive-combinatorial invariants. Exact holes, least threshold and transient formula settle two structured four-generator families, filling a gap between general eventual behavior and effective finite enumeration. A concrete sharp boundary is useful independently of broader theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
