@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T13:14:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct planar unit support normals in increasing circular order, each retained directed adjacent pair when angular gap <π is equivalent to d_i=u_i J a_i+v_i J a_{i+1} with u_i,v_i≥0. In the all-small-gap case, the closed polygonal chain projected on any a_i is first nonincreasing then nondecreasing across the antipodal cut, making all nonadjacent support constraints jointly redundant. For a unique gap ≥π, remove its two constraints and use the monotone open chain along the remaining semicircle. Each retained constraint has a one-target-active witness using perturbed tangent polygons (auxiliary normals across a large gap), with x_i=a_i a strict interior configuration and exact common-translation lineality. Thus facets are 2N or 2(N-1), for N≥3 including a gap precisely π. Independent scipy LP primal separation checked 50 target inequalities across four small/large/exact-semicircle normal configurations, not an all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rieger 2026 explicitly studies this supporting-vertex cone and discusses individual redundancy versus simultaneous redundancy (as reported in source result); full text unavailable in this audit.",
+          "Two earlier Resultary results cover all strictly small-gap cases and even classify rays.",
+          "Padrol–Pilaud–Poullot use support-height deformation cones for a fixed normal fan, not identical labeled-point variables."
+        ],
+        "reasoning": "The earlier Resultary records are stronger for positive-spanning directions but have a strict gap<π assumption; there is no direct implication to ≥π without new boundary analysis. A stronger all-directions theorem in Rieger or older convex interpolation would dominate; its risk is retained rather than claiming full-document noncoverage.",
+        "searches": [
+          "planar vertex normal cone irredundant adjacent inequalities supporting points convex polygons cyclic normals facets Rieger",
+          "arXiv:2608.26615",
+          "arXiv:cs/0701045",
+          "DOI:10.1007/s00454-023-00586-x"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-18 complete-facets theorem full source",
+        "Resultary 2026-11-01 minimal-facets theorem full source",
+        "Rieger arXiv:2608.26615 accessible abstract only",
+        "Resultary semantic query: planar vertex normal cone irredundant adjacent inequalities supporting points convex polygons cyclic normals facets Rieger"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Resultary theorem explicitly assumes 0<δ_i<π and converts each edge to tangent coordinates; this conversion fails at δ=π and does not include large gaps.",
+          "Open-chain projection monotonicity supplies omitted 2-edge case at δ_max≥π."
+        ],
+        "reasoning": "The final all-normal claim is not implied by the earlier strictly positive-spanning theorem without a separate argument for open-chain and facet irredundancy. However a short new extension of an existing special-case theorem can reduce novelty/value; no claim that the 2N branch is fresh.",
+        "searches": [
+          "planar vertex normal cone irredundant adjacent inequalities supporting points convex polygons cyclic normals facets Rieger",
+          "Resultary 2026/11/1 minimal facets and circuit rays",
+          "Rieger 2026 Section 5 identified in source package"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 prior defines exactly C(a) and proves 2N adjacent facets whenever every gap <π.",
+          "November 1 prior repeats that same cone and full 2N description plus its rays."
+        ],
+        "reasoning": "The 2N-facet positive-spanning branch is already explicitly proved and NOT original. The submitted all-arrangements statement additionally proves the different 2N−2 irredundant system whenever one gap ≥π; prior two results restrict every gap <π and do not state or imply their theorem at degenerate wedge sinπ=0. Assess only this natural boundary extension for originality.",
+        "searches": [
+          "planar vertex normal cone irredundant adjacent inequalities supporting points convex polygons cyclic normals facets Rieger",
+          "Resultary/2026 2026/10/18/SCOPE-complete-facet-and-extreme-ray-spectra-of-planar-vertex-normal-c--55236d068472/RESULT.md",
+          "Resultary/2026 2026/11/1/SCOPE-minimal-facets-and-circuit-rays-of-planar-prescribed-normal-vert--45479bea4153/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier complete facet census gives 2N only under all gaps<π.",
+          "The audited theorem supplies 2(N−1) at the omitted equal/greater π gaps, verified independently for sample configurations."
+        ],
+        "reasoning": "No exact all-directions facet table was identified; the prior known 2N table is incorporated and credited, while the discontinuous geometric boundary count is the new portion.",
+        "searches": [
+          "planar vertex normal cone irredundant adjacent inequalities supporting points convex polygons cyclic normals facets Rieger",
+          "Resultary 2026/10/18 vertex-normal complete facets"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.",
+      "residual_risks": [
+        "Strict positive-spanning branch already known exactly, hence no novelty credit.",
+        "Full text of Rieger 2026 not obtained; could cover boundary case, so priority provisional.",
+        "A complete older convex-polygon interpolation cone description could already include 2N−2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULLY COVERS gap<π case; fails to treat δ≥π",
+          "evidence": "Finding and Proof Steps 1–3",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-complete-facet-and-extreme-ray-spectra-of-planar-vertex-normal-c--55236d068472",
+          "material_read": "Entire RESULT.md theorem, hypotheses, proof of 2N facets and rays",
+          "method": "GitHub source file fetched and read in full",
+          "title": "Complete facet and extreme-ray spectra of planar vertex-normal cones",
+          "trigger": "Identical cone and title, potential decisive prior coverage"
+        },
+        {
+          "assessment": "FULLY COVERS gap<π; lacks boundary large-gap facets",
+          "evidence": "Finding and Assumptions, Steps 1–3",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-minimal-facets-and-circuit-rays-of-planar-prescribed-normal-vert--45479bea4153",
+          "material_read": "Entire RESULT.md, gap restrictions, positive-circuit proof",
+          "method": "GitHub source file fetched and read in full",
+          "title": "Minimal facets and circuit rays of planar prescribed-normal vertex cones",
+          "trigger": "Same exact C_a parameter cone"
+        },
+        {
+          "assessment": "Plausible broader coverage not decisively resolved; no full-document NOT_COVERING inference",
+          "evidence": "cited Lemmas 22–23 are described as individual redundancy; cannot certify broader coverage absent full text",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26615",
+          "material_read": "Bibliographic/abstract material and quoted lemma/section references in source package; original full text inaccessible",
+          "method": "arXiv OA retrieval attempted; no full-text material obtained",
+          "title": "Galerkin approximations to the space of convex bodies by polytopes in nondegenerate V-representation",
+          "trigger": "Defines exact cone in 2026 and discusses redundancy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For supporting-point parameter cones of any planar normal arrangement, a quadratic inequality system reduces exactly to an irredundant linear one. The natural positive-spanning versus closed-semicircle boundary leads to a complete facet-count dichotomy, including degenerate and exact π-gap inputs, useful to polyhedral modeling. The previously known positive-spanning half is not independently credited as new; value of the remaining all-directions boundary completion is narrower but substantive as a complete classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict positive-spanning branch already known exactly, hence no novelty credit.",
+    "Full text of Rieger 2026 not obtained; could cover boundary case, so priority provisional.",
+    "A complete older convex-polygon interpolation cone description could already include 2N−2."
+  ],
+  "schema_version": 1
+}
