@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-The two exact, standalone scripts require only Python 3 and its standard library.
+## correctness
 
-```text
-python3 neutral_moran_census.py
-python3 neutral_moran_path_interval.py
-```
+PASS
 
-The exhaustive certificate iterates over all \(2^{\binom{n}{2}}\) labelled simple graphs for \(n=2,3,4,5\), retains connected graphs, groups isomorphism classes by the least relabelled edge mask, and evaluates fixation probabilities and conditional first moments by exact Fraction Gaussian elimination. Counts of connected classes are \(1,2,6,21\); counts with equal fixation chance but unequal conditional time are \(0,0,0,7\). The seven five-vertex canonical masks are exactly `29, 58, 62, 185, 187, 221, 254`.
+The inverse-degree martingale h(S)=sum_{v in S}1/d(v) divided by Z is harmonic by edge-by-edge cancellation. The conditional first moment satisfies (I-Q)u=h with self-loops included; 2..4-vertex equal-degree vertices are automorphic within each connected graph class. The source census uses all 2^(n choose 2) labelled masks, all vertex permutations, exact Fraction linear solves and lists seven canonical masks. An independently coded five-vertex canonical-graph enumeration and 30-transient-state Fraction Markov solve verifies all 21 classes and the exact seven canonical masks 29,58,62,185,187,221,254. Independent path-chain computation yields p(1)=p(2)=1/7, times 14650/329 and 26955/658, gap 335/94.
 
-The independent interval-state script does not reuse any functions or graph classifications from the census checker. It derives the transition law directly from the four boundary events for mutant intervals on the five-vertex path. Both checkers verify \(p(1)=p(2)=1/7\), \(\tau(1)=14650/329\), \(\tau(2)=26955/658\), and \(\tau(1)-\tau(2)=335/94\).
+## originality
 
-All computations are exact rational arithmetic, not floating-point estimates. The infinite-horizon probability and moment statements are justified by finite-state almost-sure absorption, the martingale argument and the resolvent recurrence in RESULT.md. The certificate does not attempt a result for six or more vertices or for non-neutral reproductive fitness.
+PASS
+
+The inverse-degree fixation law and general exact Markov method are prior; the first five-vertex single-site degree-tied separation with precisely seven five-vertex isomorphism classes is not established by the inspected earlier broad algorithms, larger witness, or different two-mutant cutoff. Best of knowledge.
+
+## value
+
+PASS
+
+Smallest size at which neutral reproductive value fails to determine success-CONDITIONAL time for the same graph is a natural structural benchmark. The seven-of-21 layer and exact path witness give an independently useful finite population/network result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
