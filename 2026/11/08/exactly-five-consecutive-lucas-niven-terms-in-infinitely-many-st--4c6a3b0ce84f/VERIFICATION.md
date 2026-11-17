@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verified limits
+# Independent mathematical audit
 
-Run `python3 verify_lucas.py` from this package. It uses only the Python standard library, exact integer arithmetic, and a separate exhaustive legal-representation generator. It checks one full Lucas period modulo \(12\), all seven low offsets and their unique digit counts, and runs for every \(9\le J\le300\). The generator checks existence and uniqueness for every value below \(L_{18}\) in its finite index range.
+## correctness
 
-Expected final line: `classification_for_all_indices_is_proved_by_recurrence_not_finite_checks`. Successful execution is a computational cross-check; the mathematical proof of the all-index statement is contained in RESULT.md, and no finite enumeration is claimed to prove an infinite assertion. Independent audit has not been performed.
+PASS
+
+PASS: Canonical low Lucas patterns at offsets 21,23,25,27,29,31,33 have digit totals 3,4,3,4,2,3,3. For J>=9 their high term is separated, giving five divisibility constraints equivalent to L_J=5 mod12. Matrix recurrence produces complete 24-period residue set {7,13}; adjacent offsets are 2 mod3 and fail. Binet growth yields log X/(12log phi)+O(1). Independent integer checks verified j=9..149, the full mod24 residue list and boundary neighbors; finite checks are corroboration not the infinite proof.
+
+## originality
+
+PASS
+
+PASS qualified: earlier 2026-11-02 construction gives only J=13 mod24, while this theorem proves the exact iff for every J>=9 in the complete one-high-digit family, identifies the additional J=7 mod24 branch, excludes both adjacent step-two neighbors and derives a sharp two-residue logarithmic counting law. These extra statements are not implied by the earlier published assertion alone.
+
+## value
+
+PASS
+
+PASS: A complete sharp congruence classification of a natural explicit Lucas–Niven five-run family identifies a second infinite branch, two-sided maximality and exact logarithmic leading count. The earlier existence construction is credited; the exact classification is a meaningful finite-period arithmetic invariant rather than a new claim of maximal possible global run length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
