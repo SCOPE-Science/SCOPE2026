@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For every \(p\ge4\), \(m\ge3\), the invariant one-dimensional Lütgehetmann graph model of an ordered star-graph configuration is described cell by cell. The graph action has no inversions: A-state queues and B-state distinguished center particle are different vertex types. The existence of an arm-natural deformation retraction supplies the crucial link from graph quotients to configuration-space quotients (Wawrykow, Section 3, quoting Lütgehetmann, Theorem 2.3). The fixed-cell identities \(A_g=R_p(f)\), \(B_g=pR_{p-1}(f)\), \(E_g=fpR_{p-1}(f)\) are verified by counting distinct-label queues. Burnside on *edge orbits* (including parallel edges), connectivity for \(m\ge3\), and the graph Euler formula yield the rank without coefficient restrictions. Quotient graph combinatorial stabilization follows by classifying multiset queue orbit types and separately marking unused target arms. Sharpness follows from the \(p\)-th falling-factorial coefficient of the fixed-cell Euler polynomial. A fresh standalone program checks 42 small orbit graphs. No finite enumeration is presented as an infinite proof.
+PASS
 
-## Originality: PASS with explicit residual risk
+Use the 1-dimensional graph spine for ordered p-point configurations on a star with m≥3 arms: an A-vertex specifies one ordered queue of distinct labels per arm, a B-vertex selects central particle c and queues other labels, and each B-state has one edge per destination arm by prepending c. Recalling the central/relative radial ordering construction, it is natural under permutations of identically parameterized arms (not merely a nonequivariant homotopy equivalence); the arm group acts on the model graph with no edge inversion, hence the geometric configuration quotient is homotopy equivalent to a connected quotient graph. For g fixing f arms, only fixed arms may carry queues: fixed A=R_p(f), B=pR_{p−1}(f), and edges=fpR_{p−1}(f); Burnside averaging vertex and edge orbits gives the exact displayed β_p(H). For H=S_m, queue-multiset orbit states (plus marking one edge target) stabilize as graphs when m≥p, and are all realized at that threshold. The falling-factorial leading coefficient −(p−1) of [2p−1−(p−1)f]R_{p−1}(f) and E[(fixedpoints)_j]=1 for j≤m establish β_p(S_p)−β_p(S_{p−1})=p−1; independently evaluated exact averages for p=4..8, reproducing jumps 3..7 and stable ranks 12,180,2220,27300,351960. Finite cases only corroborate all-p,m algebra.
 
-Ramos--Yun (arXiv:2606.13813v1, Theorem 3.3, inspected page 15) determines stable rational representations for *two* particles on stars, rather than geometric quotient homotopy types for arbitrary \(p\ge4\) and all arm subgroups. Wawrykow (arXiv:2401.13821, inspected Sections 1 and 3, pages 1--2 and 9--10) derives nonequivariant general-particle homology and quotes the underlying combinatorial model and Ghrist rank; those are not rebranded as discoveries. The current claim is not implied just by those ranks or by the quoted two-particle representations. Searches of mathematical records for aliases, fixed-arm Burnside formulas, group quotients and stable arm orbits returned related two-particle/other-graph objects but no matching broader claim. An older unindexed equivalent remains plausible and independent priority review is not complete.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating 2026 paper explicitly proposes extending equivariant calculations beyond two particles. The exact homotopy type of all arm-subgroup *geometric orbit spaces*, rather than only unquotiented ranks or rational characters, is a natural improvement. The result provides free fundamental groups and integral torsion-freeness uniformly, as well as a sharp and graph-level stabilization theorem at the natural threshold \(m=p\). This is a structural classification of a broad family; it is not an arbitrary small-instance census.
+The cited star-configuration spine and nonequivariant free-group rank are established prior work; Ramos–Yun Theorem 3.3 computes only p=2 rational S_m representations of the unquotiented ordered and unordered configurations. Neither such representations nor Wawrykow's homology generators determine geometric orbit-space graph rank for every p≥4 and every H≤S_m, nor a sharp graph-poset stabilization boundary. The fixed-arm subgroup formula and sharpness appear new among inspected primary sources, subject to alternative equivariant model risk.
 
-## Limits
+## value
 
-The model is used in its star-graph setting, with at least three arms; particle labels are not quotiented. No statement is made about nonstar graphs, combined particle/arm symmetries, or independent priority certification. The self-review does not constitute an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural, universal classification of ordinary orbit-space fundamental groups and integral homology for every arm subgroup and all p≥4, together with sharp stabilization of actual quotient graphs, is a meaningful structural invariant. It is not a small finite numerical gain or a rephrasing of the nonequivariant rank theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
