@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Direct Taylor expansion of the source exponential-risk map at its verified linear invasion threshold gives a simple center multiplier 1, transverse multipliers e^{-m}, first-order center slopes A,R, and an exact quadratic c2=kappa^2 Psi/(p^2h). Positivity H>0 implies Psi strictly decreasing from positive to negative, proving a unique p*. Standard center-stable theory gives local stability or relative instability according to sign, and reciprocal differences prove the universal n a_n limit on the attracting side. A standard-library verifier checks two independent c2 expressions and direct finite differences of the published update for five parameters; this is not substituted for the analytic proof. The equality p=p* is explicitly omitted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus hit 2026/11/8/SCOPE-exact-assortativity-threshold-and-cubic-critical-decay-for-a-two--52efeed9346f addresses a two-degree synergistic SIS system, not the published synchronous-round map.",
+        "published-finding corpus hit 2026/10/11/SCOPE-global-attraction-and-two-term-critical-relaxation-at-the-multip--45a437e4957f treats a continuous-time Li–Ma ODE, not the present map."
+      ],
+      "reasoning": "Both these results use a formally similar threshold/critical-decay mechanism but neither dominates the claimed model-specific coefficient. Katriel 2018/2019 has broader continuous-time contagion structure but not a conjugacy to the nonzero-round exponential-risk update.",
+      "searches": [
+        "published-finding corpus: Discrete round two-stage contagion transcritical direction threshold single contact probability p exponential risk rates center manifold quadratic normal form",
+        "published-finding corpus: Katriel two-stage contagion codimension two tricritical degeneracy backward bifurcation p=1/2 threshold 2019",
+        "arXiv:2611.08353v1 Section 2 related models and Section 5 local bifurcations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.08353v1, first public 2026-11-05; full text and mathematical sections",
+      "arXiv:1812.08867, first public 2018-12-15; continuous-time related model",
+      "published-finding corpus published mathematical results, three dedicated semantic searches recorded under searches keys"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4 of Muñoz et al. gives the linear invasion multiplier and its p-dependent unit threshold; Proposition 5 gives an implicit endemic equilibrium parametrization, not the explicit center coefficient.",
+        "Katriel establishes nonlinear critical transitions in a continuous-time limit, whose p=1/2 boundary is recovered as tau tends to zero."
+      ],
+      "reasoning": "The linear threshold and endemic-equilibrium branch in the primary publication do not imply the sign of a nonhyperbolic center term or its sharp 1/n amplitude without a new calculation. The current claim performs that calculation for all nu,tau>0; its ODE limit is prior background, not claimed novelty.",
+      "searches": [
+        "arXiv:2611.08353v1 Proposition 4 and Proposition 5; Section 7.5",
+        "arXiv:1812.08867 continuous-time model and critical-transition discussion",
+        "published-finding corpus: Katriel two-stage contagion codimension two tricritical degeneracy backward bifurcation p=1/2 threshold 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published map has multipliers exp(-m), exp(-m), 1 on the invasion surface; quadratic coefficient and nonlinear sign threshold are not stated in Sections 5 or 7 of arXiv:2611.08353v1.",
+        "Katriel studies the continuous-time ODE and yields the limiting p=1/2 transition, not the nonzero-round formula."
+      ],
+      "reasoning": "An equivalent formulation would be the center-manifold quadratic normal form or the parameter-dependent direction of the invasion transcritical branch for the exact exponential-risk finite-round map. The searched primary sections do not give either.",
+      "searches": [
+        "published-finding corpus: Exact nonlinear center-manifold coefficient at invasion threshold in Muñoz Nuño Meacci two-stage synchronous contagion map, direction switch of backward bifurcation and critical 1/n decay",
+        "Muñoz Nuño Meacci arXiv:2611.08353v1 Section 5 Proposition 4",
+        "Katriel arXiv:1812.08867 center manifold two-stage contagion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus near matches are dynamics of different models, including 2026/11/8/SCOPE-cubic-slowing-at-the-invasion-threshold-of-a-cooperative-hunting--61df2168496a and 2026/11/8/SCOPE-exact-assortativity-threshold-and-cubic-critical-decay-for-a-two--52efeed9346f."
+      ],
+      "reasoning": "No exact database or previously published formula for the same deterministic map, parameters, center coefficient and 1/n amplitude was found. Database incompleteness cannot certify uniqueness.",
+      "searches": [
+        "published-finding corpus: Exact nonlinear center-manifold coefficient at invasion threshold in Muñoz Nuño Meacci two-stage synchronous contagion map, direction switch of backward bifurcation and critical 1/n decay",
+        "published-finding corpus: Discrete round two-stage contagion transcritical direction threshold single contact probability p exponential risk rates center manifold quadratic normal form"
+      ]
+    },
+    "rationale": "The motivating full-text map paper proves a linear invasion threshold, implicit endemic branches and distant Neimark–Sacker bifurcations, not the exact nonlinear direction threshold or critical 1/n coefficient. Katriel treats the continuous-time system, with 1/2 recovered only in the vanishing-round limit. Relevant published-finding corpus semantic searches returned structurally similar results only for other systems. Publication priority remains provisional.",
+    "residual_risks": [
+      "The global literature may contain another exact nonlinear analysis of the same two-stage discrete-round map not indexed by the searches.",
+      "The codimension-two point p=p* may have distinct cubic dynamics and is explicitly not claimed.",
+      "All conclusions are local to the deterministic mean-field limit, not a finite-population stochastic extinction theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LINEAR_THRESHOLD_PRIOR; nonlinear coefficient, unique transition equation and exact critical amplitude not stated",
+        "evidence": [
+          "Definition 1 gives Q and transitions; Proposition 4 gives one neutral and two stable eigenvalues at R_tau=1; Proposition 5 implicitly parametrizes endemic fixed points."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.08353",
+        "material_read": "Full HTML mathematical exposition of the map construction, Definition 1, Section 5 Propositions 4--5, Sections 2 and 7.5, and related appendices/discussion; PDF equations cross-checked visually",
+        "method": "Author-preprint full-text inspection and equation-level comparison",
+        "title": "From elementary processes to chaos: a discrete-time two-stage contagion model and its continuous limit",
+        "trigger": "Exactly the same round-update model and its invasion threshold"
+      },
+      {
+        "assessment": "CONTINUOUS_TIME_BACKGROUND; finite-round transition and round-count coefficient not implied as exact formulas",
+        "evidence": [
+          "ODE backward/forward transition at probability 1/2; finite-round update differs from continuous-time flow."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.08867",
+        "material_read": "Open preprint discussion of model equations, endemic bifurcation, critical probability and limit comparison",
+        "method": "Preprint PDF and text examination",
+        "title": "The dynamics of two-stage contagion",
+        "trigger": "Same biological stages and continuous-time bifurcation comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "805e988e-68e0-4c15-862a-cd88f4e88987",
+  "value": {
+    "rationale": "The source singles out the invasion boundary but its unit eigenvalue leaves the nonlinear fate unresolved. An exact unique p* characterizes which side has local extinction versus small-seed escape for every finite round length, and the nonhyperbolic attracting side exhibits a sharp nonexponential 1/n amplitude. The finite-round p* quantifies a real departure from the familiar continuous-time 1/2 transition, a natural gap for synchronous adoption models.",
+    "status": "PASS"
+  }
+}
