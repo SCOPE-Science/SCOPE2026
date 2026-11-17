@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T08:57:15.844230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The clumsy empty/singleton loss-set law and the independent-Bernoulli deletion law overlap only on zero- and one-element sets, giving exact TV delta=epsilon[1-(1-p)^(n-1)]<=c²/n². Independently verified the identity by exact rational enumeration for n=3,5,7. With common acquisition proposals, B_t⊆V_t for clumsy B and always-acquire V; each gap originates at a loss round with a missing proposed coupon and is cleared by its next successful acquisition. A one-coupon absent marginal u_s=epsilon+(1-epsilon)(1-1/n)^s bounds active gaps. Union bounds and no early completion among classical proposals yield the displayed finite error for times h=floor(n log n/2), H=ceil(n log n+Kn), O(log n/sqrt n). Use previously proved clumsy Theorem 4.10 to transfer weak convergence to G+tau_c. The theorem is about labelled sets and post-update hitting times, not just means.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attrill–Garoni Theorem 4.10 exactly proves the limit for the one-label clumsy collector but does not specify the post-loss independent-Bernoulli erasure process.",
+          "Cruciani–Dudeja studies careless expectation and logarithmic loss scales but inspected sections do not include the explicit G+tau_c transfer at p=c/n²."
+        ],
+        "reasoning": "No checked source supplies the full-process O(log n/sqrt n) coupling bound between the two mechanisms; the known source limit is a premise, not a proof for the target process.",
+        "searches": [
+          "Resultary semantic: careless coupon collector clumsy coupon collector critical c/n2 erasures maximal coupling completion Gumbel immigration-death",
+          "Resultary semantic: careless clumsy coupon critical transfer first completion c/n^2 c/n Gumbel",
+          "arxiv:2602.20705 sections 1-4; arxiv:2605.14206 theorem 4.10; arxiv:2605.14511 sections 4-5"
+        ]
+      },
+      "checked_sources": [
+        "Cruciani–Dudeja arXiv:2602.20705 primary PDF definition",
+        "Attrill–Garoni arXiv:2605.14206 Lemma 4.9, Theorem 4.10 primary PDF",
+        "Long arXiv:2605.14511 bibliographic/abstract-level scope",
+        "Resultary semantic coupon coupling searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior clumsy law has identical limiting G+tau_c, but its one-label transition rule differs from independent post-acquisition Bernoulli losses.",
+          "The matched-loss coupling has per-round TV epsilon[1-(1-p)^(n-1)]<=c²/n². Auxiliary always-acquire V dominates clumsy B; its disagreement dies under successful acquisition, giving vanishing path mismatch over [h,H]."
+        ],
+        "reasoning": "The earliest published clumsy theorem is a necessary cited input. New proof furnishes the nontrivial transition rule comparison and controls first completion before h; clumsy convergence alone cannot transfer to careless without such a bound.",
+        "searches": [
+          "Resultary semantic: careless coupon collector clumsy coupon collector critical c/n2 erasures maximal coupling completion Gumbel immigration-death",
+          "Resultary semantic: careless clumsy coupon critical transfer first completion c/n^2 c/n Gumbel",
+          "arxiv:2602.20705 sections 1-4; arxiv:2605.14206 theorem 4.10; arxiv:2605.14511 sections 4-5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cruciani–Dudeja's careless collector independently deletes all currently held coupons after acquisition; the clumsy process selects exactly one refresh/acquisition action.",
+          "Attrill–Garoni already derive G+tau_c for clumsy at epsilon=c/n; submitted theorem couples the whole labelled careless and clumsy trajectories with loss p=c/n²."
+        ],
+        "reasoning": "Equality of asymptotic hitting laws is not a formal identity between different dynamics. New pathwise maximal-coupling bridge must be checked independently; clumsy limit itself is explicitly prior.",
+        "searches": [
+          "Resultary semantic: careless coupon collector clumsy coupon collector critical c/n2 erasures maximal coupling completion Gumbel immigration-death",
+          "Resultary semantic: careless clumsy coupon critical transfer first completion c/n^2 c/n Gumbel",
+          "arxiv:2602.20705 sections 1-4; arxiv:2605.14206 theorem 4.10; arxiv:2605.14511 sections 4-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact process-coupling table in the inspected coupon papers; the finite loss-set total-variation formula is derived from zero/singleton overlap masses.",
+          "General coupon critical-window records from Resultary concern other update regimes and explicitly different state dynamics."
+        ],
+        "reasoning": "This is a uniform asymptotic process comparison, not a finite tabulation; no data table gives the entire sample-path coupling theorem.",
+        "searches": [
+          "Resultary semantic: careless coupon collector clumsy coupon collector critical c/n2 erasures maximal coupling completion Gumbel immigration-death",
+          "Resultary semantic: careless clumsy coupon critical transfer first completion c/n^2 c/n Gumbel",
+          "arxiv:2602.20705 sections 1-4; arxiv:2605.14206 theorem 4.10; arxiv:2605.14511 sections 4-5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the surviving final claim is distinguished by mathematical implications from the inspected prior theorems; see four comparisons and the explicit residual priority risks.",
+      "residual_risks": [
+        "Earlier clumsy critical G+tau_c theorem is NOT new and is cited; the result survives only as a rigorous pathwise transfer to careless.",
+        "A general older rare-update coupling principle may imply the bound without this specialized proof; bibliographic search limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No inspected theorem states this quantitative pathwise comparison with clumsy; paper analyzes completion regimes/means rather than this transferred critical law",
+          "evidence": [
+            "Eq. state update S_{t+1}=(S_t∪{C_t}) minus independent losses",
+            "p per held label after insertion; multiple losses possible"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.20705",
+          "material_read": "Primary 21-page PDF abstract, formal model pp1–2, study scope and search for critical c/n² regime; complete paper accessible, not every proof page reread",
+          "method": "Primary PDF text, page-0 screenshot and model comparison",
+          "title": "The Careless Coupon Collector's Problem",
+          "trigger": "Original exact post-loss independent erasure model"
+        },
+        {
+          "assessment": "Prior covers exactly Gumbel plus independent immigration-death first-zero time for clumsy; does not directly cover independent-erasure careless",
+          "evidence": [
+            "Theorem 4.10 and preceding Lemma 4.9: G+tau_c for one-label clumsy model"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14206",
+          "material_read": "Primary full 21-page PDF relevant model, Section 4, Lemma 4.9 and Theorem 4.10; relevant page screenshot inspected",
+          "method": "Read theorem and its birth-death definition, compared epsilon=c/n to p=c/n² process",
+          "title": "The Clumsy Coupon Collector's Problem",
+          "trigger": "Theorem used as premise for limiting critical law"
+        },
+        {
+          "assessment": "No decisive coverage of shrinking c/n² labelled pathwise comparison in material examined",
+          "evidence": [
+            "Fixed positive loss regime rather than p shrinking as c/n²"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+          "material_read": "Abstract and specific fixed-loss descriptions from cited primary text; not fully reread this run",
+          "method": "Compared reported fixed-p scope, retained as source access limit",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Both collector mechanisms appear"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two naturally studied nonmonotone coupon processes have equal expected total deletion intensity but distinct updates; that alone does not ensure agreement of rare completion times. The explicit pathwise high-probability comparison provides a robust universality bridge between independent multi-loss events and one-label-refresh, with a finite error certificate across the entire critical window. The source clumsy limit is correctly credited and the new implication matters independently.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2602.20705",
+    "https://arxiv.org/pdf/2605.14206",
+    "https://arxiv.org/abs/2605.14511"
+  ],
+  "disposition": "passed",
+  "final_claim": "Critical p=c/n² post-loss careless process couples pathwise to clumsy epsilon=c/n across completion window with O_c,K(log n/sqrt n) failure, transferring known G+tau_c law.",
+  "limitations": "Critical clumsy limit is cited, not certified anew; general perturbation/coupling priority remains uncertain.",
+  "residual_risks": [
+    "Only fixed c>0, uniform proposals, post-update completion, and window compact K; no convergence of moments or all-time coupling.",
+    "Published clumsy limit treated as external theorem, not independently re-proved."
+  ],
+  "schema_version": 1
+}
