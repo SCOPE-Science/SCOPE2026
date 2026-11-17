@@ -1,15 +1,21 @@
-# Scientific review: exact Platonic central sections
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact section identity follows from the spherical Radon transform, and the divergence theorem gives an exact boundary potential. The insphere condition reduces every face to an elementary integral, with an antiderivative checked by differentiation and separate numerical quadrature. All five unit-edge inradii were independently verified against convex-hull facet equations. Independently clipping the actual polyhedral edges against 1,200 uniformly oriented planes per body gave simulations within 0.4% of the exact five means. A 65-digit outward-rounded interval computation certified five disjoint volume-normalized constants and their strict ordering. Finite simulation is supporting evidence only.
+## correctness
 
-## Originality — PASS, provisionally
-Koldobsky (arXiv:1309.5271v1, 2013) and classical central-section formulas cover the general Radon representation, explicitly excluded from novelty. Published findings on Platonic projected shadows, mean-square widths, and polygon types of central sections address different statistics. Direct web and published-finding corpus searches found no explicit five-Platonic central-sectional mean table accompanied by its strict volume-normalized order. Older integral-geometric tables and unseen full proofs remain residual risks.
+PASS
 
-## Mathematical value — PASS
-The five regular convex solids form a natural complete classification benchmark. Their exact expected central-section area constants are shape-dependent, and volume normalization reveals a strict, nonobvious rank requiring close numerical enclosures for cube versus octahedron and dodecahedron versus icosahedron. These values concern actual central slices, not familiar orthogonal shadows. No arbitrary family or unsupported general significance is claimed.
+Cauchy/Radon averaging converts the mean central section area into (1/2)int_K |x|^(−1)dx. Applying div(x/|x|)=2/|x| on K without an epsilon ball yields the exact boundary formula (1/4)int_(∂K)(x·normal)/|x|dS; puncture flux vanishes. For any tangential polyhedron of F identical regular p-gon faces at inradius h and face apothem a=1/(2 tan(pi/p)), the polar regular-face integral is 2p(int_0^(pi/p) sqrt(h^2+a^2 sec^2(t))dt−h*pi/p). Differentiating the provided elementary asinh/atan antiderivative gives the stated I(h,a,c). Substitution with standard unit-edge inradii and volume F p a h/6 yields all five constants. I independently recomputed these at 60-digit precision: normalized values 1.141337004996962, 1.190038681989777, 1.193401870299981, 1.205386007375507, 1.206448277260306, agreeing with separated supplied certified brackets. The original interval code was inspected; random-plane simulation is only corroboration, while strict separation follows from the analytic formula plus bounded interval evaluation.
 
-## Limits and closest literature
-The proof gives a finite complete computation, not a new Radon transform, arbitrary-polyhedron table, or noncentral-plane law. Primary material: Koldobsky, arXiv:1309.5271v1, full paper. Related published exact statistics: random central icosahedral polygon type, Platonic shadow-area variance, and Platonic mean-square widths; comparison of these published result summaries is not a full-text exclusion of every historical source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fundamental spherical Radon and boundary-potential identities are classical and explicitly NOT new. Koldobsky 2013 gives central-section Radon machinery rather than an exact five-Platonic unit-edge table or ordering. Published SCOPE nearby records for icosahedral section polygon types, five-solid shadow-area variance and mean-square widths concern different functionals; they do not imply central-sectional mean area. A historical stereology table or direct substitution from an older general tangential-polyhedron potential formula could cover the precise constants; no such table was identified. This is a narrow best-of-knowledge originality pass for the five explicit values and dimensionless ranking, not the general integral formula.
+
+## value
+
+PASS
+
+The five Platonic solids form a canonical complete family. Their expected through-center section areas are natural shape invariants, distinct from projection areas; exact, scale-free values and a strict order can be used as geometric benchmark data. Near-adjacent inequalities (cube/oct and dodec/ico) require controlled comparison, providing a mathematically motivated complete finite classification rather than an arbitrary sample of polyhedra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
