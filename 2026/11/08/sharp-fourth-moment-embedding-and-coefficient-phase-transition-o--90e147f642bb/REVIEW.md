@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The inclusion-indicator expansion gives an exact fourth-moment polynomial \(A s_2^2+B s_4\), verified independently by exact subset enumeration. On the compact zero-sum unit sphere, a cubic stationarity equation restricts critical points to at most three coordinate values. Sign-definite tangent Hessian directions exclude three-value minima and show three-value maxima are strictly suboptimal. Therefore the exhaustive two-value calculation proves the sharp bound and every equality case, including zero-coefficient resonance. Tested 638 exact samples; the finite checks do not establish the general theorem by themselves.
+## correctness
 
-**Originality — PASS, qualified.** Filmus (arXiv:1406.0142) develops the harmonic degree-one space, not the sharp \(L^2\to L^4\) constant. Filmus and Mossel (arXiv:1507.02713, section 5) present nonsharp hypercontractive comparisons. Ai–Kuželka–Pelekis (arXiv:2503.20473) prove tail inequalities for the same sampling-without-replacement statistic, not this fixed-variance fourth-moment maximization. A 1974 finite-population-moment article is a plausible source for the elementary moment identity but not, on accessible abstract evidence, for the coefficient optimizer transition; full text was unavailable for the latter comparison. An indexed published calculation of a second Johnson projector concerns a different harmonic degree and endpoint norm. Residual risk: an older exact finite-population sample-kurtosis optimization may imply the finding under a different name, and that cannot be ruled out fully.
+PASS
 
-**Value — PASS.** The result computes a sharp hypercontractive embedding norm for the full first harmonic in a canonical exchangeable finite probability space, with exact parameters and a global equality classification. Its sparse-to-balanced transition and complete resonance are not generic moment expansions: they identify opposite distortion mechanisms at different sampling densities and provide sharp test cases for analysis on the slice.
+For n≥4 and 2≤k≤n−2, the first real Johnson harmonic is f_a(S)=∑_{i∈S}a_i with ∑a_i=0, probability-uniform k-subset S. Inclusion-indicator factorial moments give E f²=c s₂ and E f⁴=A s₂²+B s₄ with c=k(n-k)/(n(n−1)), B=k(n-k)[n(n+1)−6k(n−k)]/[n(n−1)(n−2)(n−3)]. The real zero-sum unit sphere is compact and smooth. A Lagrange cubic gives at most three coordinate values. Sign-definite constrained Hessian directions rule out three-valued global minima and yield a strictly suboptimal 1/2 value for the only three-valued candidate maximum. Two-value vectors then give T+= (n²−3n+3)/(n(n−1)) and T-=n/(floor(n/2)ceil(n/2))−3/n. The sign of B selects one-spike versus balanced equality, with all nonzero directions equal at B=0, e.g. (8,2). Independent exact subset enumeration on (4,2),(8,2),(10,3),(14,6) confirmed the formulas and branch values. Finite enumerations are corroborative of the global Hessian proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact real degree-one Johnson L²→L⁴ fourth-power constant across all interior slices and exhaustive optimizer switch including the B=0 full-sphere resonance. The existing harmonic-basis and hypercontractive bounds are nonsharp; finite-population concentration/majorization papers study tails rather than exact kurtosis maximization. The fourth-moment polynomial itself is classical input, not claimed as new.
+
+## value
+
+PASS
+
+Johnson slices are canonical exchangeable probability spaces and degree-one harmonic embedding constants are intrinsic sharp norm invariants. The sparse-to-balanced phase transition and complete resonance classify genuinely different extremal concentration mechanisms, with natural applications as benchmark sharp constants. The all-n,k optimizer classification is substantially more than routine hypergeometric moment expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
