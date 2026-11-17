@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof is fully infinite, with exact zero-based endpoints and both boundary cases. Distinct powers of two cannot support a palindromic factor with three ones, giving the information-theoretic lower bound. The explicit \(E_j\) recurrence yields symmetric two-one palindrome blocks; the final-one or final-pair construction covers every prefix with at most one extra piece. At \(2^r-1\), a case split on the start of any suffix palindrome proves that the final piece must be all zero and forces the extra piece. Finite exact dynamic programming and independent interval enumeration, replayed from the packaged `verify.py`, confirmed the first 4096 prefix values and all claimed test families within range; no finite test is promoted to a proof for all lengths.
+PASS
 
-## Originality (PASS, qualified)
+For w_i=1 at exactly i=2^j (j>=0) and w_0=0, k(n) counts marked positions and h=ceil(k/2). Distinct powers cannot form a 3-term progression or collide as two-pair sums; each palindromic factor contains <=2 ones, establishing the lower bound. Checked the reflected two-marker construction E_-1=0,E_j=3*4^j+1-E_{j-1}, two-case all-prefix factor split, and forced all-zero final palindrome at 2^r-1 (including r=2). Thus h<=P(n)<=h+1 all n>=0, P(E_j)=j+1, P(2^r-1)=ceil(r/2)+1, and P(n)=0.5log2(n)+O(1). Independent direct palindrome DP for all 700 prefixes reproduced both boundaries and examples. This finite DP corroborates, but the infinite proof is the reflection/counting argument.
 
-Full-text checks of [1] (arXiv:2009.02934), [2] (arXiv:2007.08317) and [3] (arXiv:2201.09556) compare objects, the palindromic-length invariant, and theorem implications, rather than only matching titles. [1] treats several other automatic words and general regularity results; [2] concerns ruler and period-doubling words; [3] concerns a different ternary-base Cantor word. A general palindromic factorization paper [4] provides context, not these exact bounds. Searches for an equivalent powers-of-two indicator result, dyadic predecessor formula or palindrome endpoint recurrence did not locate one. The nearest indexed powers-of-two word result measures string attractor size, which does not imply the claim. Index incompleteness and possible unindexed earlier equivalent results remain risks; failed search is not proof of priority.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Prefix palindromic length of automatic words is a developed research invariant with substantially different possible behavior depending on the word. This natural sparse \(2\)-automatic word has infinitely many palindromes, so the finite-palindrome-language regularity theorem does not automatically settle it. A global one-unit width, infinitely sharp examples of both endpoints, a concrete palindrome decomposition, and a precise asymptotic coefficient give a structural all-length answer rather than an arbitrary finite computation. An exact remaining binary choice at general prefix lengths is not claimed.
+The object is the binary power-marker word and invariant is minimal number of prefix palindromes, not number or length of distinct palindromic factors. Full geometric-marker factor-language theorem covers the same exact word but only occurrence/spectrum/maximal factors, not the constrained optimal tiling of every prefix. Full accessible Frid–Laborde–Peltomäki automatic-word paper treats different automatic families and general regularity, not this two-value power-marker profile. Best-of-knowledge original with bounded priority risk.
 
-## Limitations
+## value
 
-No independent audit has been carried out. The exact selection between the two allowed values for every non-extremal prefix remains open in this work. Bibliographic non-exhaustiveness is a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical sparse automatic sequence receives an all-length one-unit pinning bound, an exact logarithmic growth coefficient and two unbounded sharpness families. It answers a motivated prefix-factorization invariant rather than a tiny arbitrary slice, even without exact dichotomy at every nonextremal n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
