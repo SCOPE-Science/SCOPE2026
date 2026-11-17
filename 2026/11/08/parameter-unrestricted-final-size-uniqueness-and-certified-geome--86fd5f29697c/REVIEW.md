@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The active-population conservation identity gives the final-size map exactly. Under the stated positive data, the negative-logarithmic change of variables is bijective from biologically admissible susceptibles to nonnegative loss coordinates. Every component is increasing and concave with a strictly positive value at zero; comparison at a maximal coordinate ratio proves uniqueness. The explicit constants \(c\), \(M\), \(q\), \(K\) and tangent inequality prove the coordinatewise a priori geometric error. Exact symbolic differentiation, a rational off-H2 example and finite randomized checks support but do not replace the proof. The seed-free boundary is excluded because the strict positivity argument fails.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: ODE integration yields log(S_i/S_i0)=sum_j (beta_ij/mu_j) log(N_j(t)/N_j0); N_final=Z+epsilon S_final. For at least one infectious seed, positive cross-group beta implies c=F(0)≫0; F is increasing, bounded and strictly concave in each positive coordinate. If y,z distinct fixed points, maximal ratio rho>1 contradicts F(rho z)≤rho F(z)-(rho-1)c. Upper and lower monotone iterates, concavity at y*, DF(y*)y*≤y*-c≤q y* yield u_n-l_n≤Kq^nM. Independent off-H2 numeric example beta [[2,1/4],[3/5,9/5]] gives eta=.12553088208, q=.8744691179, final susceptibles .39832272,.36144147 and 45 correct enclosures. Proof covers finite m≥2 and positive full interaction but not seedless/zero links.
 
-Melo and Santos, arXiv:2601.15388, equation (9), Theorem 3.5 and Remark 3.3, explicitly leave uniqueness beyond H2a–H2d unresolved, while their Proposition 3.2 establishes a rate only under H2d. The result gives a verified log-loss reduction and a computable parameter-specific certified interval at every iteration, for arbitrary finite numbers of groups and no H2 restriction. The general concave-map uniqueness theorem of Kennan (2001) and the geometric-convergence theorem of Piotrowski–Cavalcante (2022) are **stronger abstract antecedents** and cover uniqueness/convergence after the specific reduction; these general principles are not claimed new. The application and explicit parameter certificate were not located in examined primary work or research-record comparisons. An older relevant implicit-final-size article was not available in full text; equivalent unindexed formulations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source identifies the unrestricted uniqueness question as unresolved, and its certified quantitative method depends on an optional parameter contraction condition. The result answers the former, removes that condition, and provides concrete lower and upper susceptible counts to any guaranteed tolerance in a model where mortality changes the transmission denominator. The exact two-group off-H2 example shows the additional regime is nonempty. A standalone explicit enclosure is operationally useful even though its abstract fixed-point mechanism is classical.
+PASS best-of-knowledge narrowly: the source SIRD final-size map and general positive-concave fixed-point uniqueness/convergence mechanisms are prior, but its parameter-unrestricted application together with explicit parameter-only two-sided K q^n M_i error certificates beyond H2a–H2d was not stated in accessible same-model material.
 
-## Boundary and remaining work
+## value
 
-The bound is conservative for weak seeding; it is not an optimal asymptotic rate. Fully positive mixing, strictly positive recovery and mortality, and a nonzero initial infectious seed are essential to the proof as stated. There is no stochastic, mobile-group, calibrated-outbreak, or global intervention claim. Potentially relevant historical studies are acknowledged rather than treated as conclusively excluded on title/abstract evidence alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: a quantitative, biologically parameterized bound resolves the motivating model-specific uniqueness gap and certifies final susceptible levels for arbitrary positive transmission matrices, including a concrete regime outside four published sufficient cases. It is not presented as a new abstract concavity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
