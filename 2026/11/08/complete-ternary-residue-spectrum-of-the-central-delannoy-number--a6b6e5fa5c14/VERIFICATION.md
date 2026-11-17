@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library and enough memory for a list of 30001 integer central Delannoy numbers. The checker calculates the exact three-term recurrence and compares it with the direct binomial sum for indices zero through 100. It verifies complete value spectra at the first five powers of three, 201 sparse-block instances, the two seed congruences for eight valuation levels, principal-unit generator checks through the sixth power, and candidate constructive products for all admissible classes through the sixth power. A successful run prints the deterministic `VERIFY_OK` summary below.
+## correctness
 
-```
-VERIFY_OK exact_recurrence_n=0..30000 direct_binomial=101 complete_residue_levels=1..5 block_lemmas=201 signed_seed_levels=1..8 generator_levels=1..6 constructive_residue_levels=1..6
-```
+PASS
 
-These are finite checks only, not a proof for every modulus. The infinite quantifiers depend on the symbolic polynomial, binomial, and valuation arguments in RESULT.md. No independent audit was conducted.
+Constant-term identity CT(3+X+2/X)^n produces D_n and digit multiplicativity excludes 2 mod3. Sparse powers yield D_{a+2*3^r}=D_a*c_k mod3^k for sufficiently separated blocks. c_k=D_{2*3^(k-1)}=7 mod9 for k>=2 generates principal units by lifting exponent. Low-degree Legendre coefficients at odd n=3^(a-1) and even n=3^a+1 produce valuation a with both leading unit signs. These seeds, principal-unit powers, and arbitrarily spaced blocks prove all allowed residues infinitely. Independent integer recurrence computation through n=16002 observed precisely 2*3^(k-1) classes for k=1..4; finite check is corroboration only.
+
+## originality
+
+PASS
+
+Deutsch–Sagan gives digit restriction modulo 3; Krattenthaler–Müller 2013 gives computational schemes and concrete Delannoy congruences mod powers, but no inspected theorem asserts the complete all-k residue image and infinite hit property. Resultary search found no stronger same-object published theorem. Literature access remains bounded.
+
+## value
+
+PASS
+
+The image of a familiar central lattice-path sequence in Z_3 is a natural exact distribution invariant; identifying complete excluded 3-adic balls and realizing every allowed residue by infinite explicit indices is mathematically motivated and stronger than digit exclusion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
