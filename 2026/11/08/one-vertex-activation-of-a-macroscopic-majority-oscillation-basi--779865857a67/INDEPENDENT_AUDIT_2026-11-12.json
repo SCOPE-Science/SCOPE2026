@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:12:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On K_(n,n,n+1), first two part degrees 2n+1 are odd and hence become homogeneous after one update; third part with degree 2n may retain its bit pattern only on a+b=n. If a+b !=n, first updated triple is homogeneous and reaches consensus or one of 001<->110 at update two. If a+b=n, opposite first two uniform bits with min(a,b)<c<=max(a,b) generate the extra primitive two-cycle family, otherwise consensus. Binomial-weighted disjoint cases yield B_n as the displayed S_n(a,b) double sum; already-periodic core=2^(n+2)-2; all states periodic by time2. Exact small-n counts independently checked B_n=6,22,252,1526,14296,98092 for n=1..6. For m_n>n with m_n/n->lambda >=1, three centered binomial sums obey multivariate CLT, tie probability O(n^-1/2), and Gaussian sign correlation gives Phi(lambda)=1/4+(asin(lambda/(1+lambda))-2asin(1/sqrt(2*(1+lambda))))/(2pi). Phi(1)=1/6, Phi(infty)=1/2; at exact m=n, balanced basin O(n^-1/2)->0. Distinction between limiting m/n=1 from above and exact m=n is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general unequal-tripartite theorem covers periodic core for all a,b,c but explicitly does not count transient basins; the complete balanced theorem only treats equal parts."
+        ],
+        "reasoning": "Neither stronger parameter coverage for recurrent states nor exact balanced-family basins logically gives the unequal-family full attraction-basin probability or Gaussian discontinuity.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+          "https://arxiv.org/abs/1405.2486"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: complete tripartite graphs K n n n+1 majority dynamics exact basin 1/6 Gaussian arcsin",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md",
+        "https://arxiv.org/abs/1405.2486",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md",
+        "https://arxiv.org/abs/1405.2486"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing recurrent count determines the exponentially small periodic core, not the sizes of its preimage basins. The balanced full-basin theorem has separate ties at every shore and O(n^-1/2) oscillation."
+        ],
+        "reasoning": "A one-vertex change removes ties on two shores; the exact transient basin and Gaussian sign event cannot be inferred from just the earlier orbit census or from the equal-shore formula. Prior results acknowledged.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A complete tripartite periodic-orbit census already counts all primitive two-cycle states for arbitrary part sizes; balanced K_(n,n,n) has its own exact basin formula."
+        ],
+        "reasoning": "The submitted initially periodic count 2^(n+2)-2 and balanced limit are prior results or straightforward specializations; full eventual basins for K_(n,n,n+1), which include transient states, are different and not equivalent to counting recurrent states.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing balanced basin has exact binomial sum and asymptotic 0.663.../sqrt(n), but for m=n+1 submitted B_n has positive limiting fraction 1/6; no matching exact table for all n was found."
+        ],
+        "reasoning": "Numerical basin tables for small n do not cover the all-n double sum or all-ratio Phi(lambda); no exact higher-parametric database known from actual search.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+          "Resultary: complete tripartite majority oscillation basins imbalance one vertex"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct exact result after comparing named equivalent, broader and database formulations; known subclaims explicitly credited, with residual priority risks.",
+      "residual_risks": [
+        "An unknown prior unequal-tripartite basin classification could overlap; 2026 published prior only establishes periodic core and balanced comparison.",
+        "Asymptotic requires independent unbiased initial bits and n,m growing; exact B_n restricted to m=n+1 and nonrandom tie retention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the balanced comparison, not the unequal n,n,n+1 main theorem",
+          "evidence": "Earlier asymptotic is 6 atan(1/sqrt(2))/(pi^(3/2)*sqrt(n)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+          "material_read": "Entire RESULT.md incl. full case-by-case proof, exact B_n and CLT asymptotic",
+          "method": "GitHub full source read",
+          "title": "Exact two-step majority attractor basins on K_(n,n,n)",
+          "trigger": "Same dynamics, balanced graph, exact attraction basins"
+        },
+        {
+          "assessment": "Covers initially recurrent states but explicitly excludes basin enumeration",
+          "evidence": "P2=U+sum_equalshore B(size,size_other); no preimage sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md",
+          "material_read": "Entire RESULT.md proof of homogeneous/mixed periodic states and census",
+          "method": "GitHub full source read",
+          "title": "Exact periodic-orbit census for tie-retaining majority on complete tripartite graphs",
+          "trigger": "All unequal part sizes, potential stronger covering theorem"
+        },
+        {
+          "assessment": "General qualitative behavior, not exact K_(n,n,n+1) basin",
+          "evidence": "Symmetric period bound does not count labelled initial basins.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Accessible PDF main theorem and period discussion",
+          "method": "arXiv PDF material inspection",
+          "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+          "trigger": "General synchronous majority and eventual period two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact basin census, a positive 1/6 oscillation-basin limit after one extra vertex, and a Gaussian interpolation curve show a genuine singular structural sensitivity of majority attractors, beyond previously known periodic-core counts and the balanced-graph square-root rarity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: complete tripartite graphs K n n n+1 majority dynamics exact basin 1/6 Gaussian arcsin",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md",
+    "https://arxiv.org/abs/1405.2486",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-two-step-majority-attractor-basins-on-k-n-n-n--847e128aa6b4/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-periodic-orbit-census-for-tie-retaining-majority-on-comple--131a77706642/RESULT.md",
+    "https://arxiv.org/abs/1405.2486"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unknown prior unequal-tripartite basin classification could overlap; 2026 published prior only establishes periodic core and balanced comparison.",
+    "Asymptotic requires independent unbiased initial bits and n,m growing; exact B_n restricted to m=n+1 and nonrandom tie retention.",
+    "No report is imported or independently certified; public source metadata have not been safely sanitized."
+  ],
+  "residual_risks": [
+    "An unknown prior unequal-tripartite basin classification could overlap; 2026 published prior only establishes periodic core and balanced comparison.",
+    "Asymptotic requires independent unbiased initial bits and n,m growing; exact B_n restricted to m=n+1 and nonrandom tie retention."
+  ],
+  "schema_version": 1
+}
