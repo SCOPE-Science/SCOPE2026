@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof independently supplies a graph encoding, a universal potential lower bound for all possible endpoints and repeated edges, and a matching Euler augmentation. Every \(k\ge2\) is covered, with the balanced \(k=2\) case separate. The included deterministic checker independently searches every admissible single-word state by breadth-first search for \(k=2,3,4,5\), then constructs and validates optimal walks through \(k=13\). Computations are sanity checks, not a substitute for the all-parameter proof. The crucial potential inequality and bijective endpoint matching were reconstructed directly from the definitions.
+## correctness
 
-## Originality — PASS (qualified)
-The 2026 Chakraborty et al. article addresses no-repetition string-set and necklace covers. Moreno–Matamala (2007) treats cyclic de Bruijn sequences over periodically admissible strings. Matchtigs (Schmidt et al., 2023) is the strongest related algorithmic result, computing minimum plain-text representations with repetitions and arbitrary string counts using min-cost graph machinery. These do not directly state or give an immediate evaluated formula for this **single-string**, linearly admissible, exact-spectrum family. Multiple semantic literature/database searches and accessible prior claims found no identical theorem. Residual risk: earlier graph-optimization literature might implicitly derive this symbolic specialization, and no independent literature expert has confirmed priority.
+PASS
 
-## Value — PASS
-This is an exact all-parameter optimal storage-length law for a canonical nontrivial constrained k-mer dictionary, including an exact count of forced repeat windows and a constructive optimal representation. The potential is a dual optimality certificate useful when comparing constrained alphabet dictionaries and their route-cover costs. It is not a finite table or routine change of parameters.
+Reconstructed the legal (k−1)-vertex overlap graph, with F_(k+2) required edges, strong connectivity via append-ones paths, and signs of out-minus-in imbalances from initial/final bits. The potential g(v) counts initial ones before first zero, setting g(1^(k−1))=k−2; verified every legal edge loses at most one. Summing g against imbalances gives S=F_k−1 and hence R>=S−(k−2)=F_k−k+1 even for arbitrary walk endpoints. The constructive augmentation duplicates j successive append-one edges for each negatively imbalanced vertex except 1^(k−2)0, bijectively balancing remaining positive vertices, with Euler trail from 01^(k−2) to 1^(k−2)0. Checked special k=2 Euler circuit. Inspected checker.py. Independent exact potential and Fibonacci counts recomputed k=2..8, and its own bounded BFS k<=5 is visibly exhaustive; the all-k proof is the potential+augmentation argument.
 
-## Scientific limitations
-The statement applies to one finite linear binary word and the all-`00`-avoiding length-\(k\) dictionary only. It does not assert a minimum number of strings for standard SPSS, a general forbidden-factor theorem, or independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp one-string LINEAR endpoint optimization is not immediately implied by existing sharp CYCLIC Fibonacci-cover bounds for 11-avoidance (equivalent by complement), which give cycle length F_(k+2)+F_k−1. Cutting an optimal cycle creates a linear cover of length F_(k+2)+F_k+k−2, not the optimal F_(k+2)+F_k for k>=4. The new open Euler trail saves k−2 characters against this direct cut. General Matchtigs/minimum string-set formulations do not automatically enforce one finite string or provide evaluated Fibonacci endpoint formula.
+
+## value
+
+PASS
+
+Constrained k-mer spectra and minimum textual representation are a natural genomics/combinatorics invariant. This result gives a sharp all-k one-string optimum, exact unavoidable repetitions, constructive Euler trail, and matching dual certificate. The linear/cyclic endpoint gap is structurally motivated; it is not a routine numeral substitution from the cyclic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

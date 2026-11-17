@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:04:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py at exact assigned blobs",
+        "Independent potential and Fibonacci checks for k=2..8",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fibonacci-overhead-for-universal-cyclic-covers-of-the-gold--5d1b4c785a6a",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10251615/",
+        "https://arxiv.org/abs/2602.19408"
+      ],
+      "rationale": "Reconstructed the legal (k−1)-vertex overlap graph, with F_(k+2) required edges, strong connectivity via append-ones paths, and signs of out-minus-in imbalances from initial/final bits. The potential g(v) counts initial ones before first zero, setting g(1^(k−1))=k−2; verified every legal edge loses at most one. Summing g against imbalances gives S=F_k−1 and hence R>=S−(k−2)=F_k−k+1 even for arbitrary walk endpoints. The constructive augmentation duplicates j successive append-one edges for each negatively imbalanced vertex except 1^(k−2)0, bijectively balancing remaining positive vertices, with Euler trail from 01^(k−2) to 1^(k−2)0. Checked special k=2 Euler circuit. Inspected checker.py. Independent exact potential and Fibonacci counts recomputed k=2..8, and its own bounded BFS k<=5 is visibly exhaustive; the all-k proof is the potential+augmentation argument.",
+      "residual_risks": [
+        "Earlier specialized single-string open directed Chinese-postman formulas could compute the same closed form implicitly.",
+        "No claim about shortest representation by a set of strings, cyclic host, or other forbidden factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Two published independent cyclic results prove length F_(k+2)+F_k−1 for all-k forbidden-11 circular covers, with repeated-edge multisets.",
+          "Matchtigs optimizes generic representations by possibly multiple strings, while Chakraborty et al. extend string-set/necklace representations."
+        ],
+        "reasoning": "Potential and augmentation for minimum single open trail require nontrivial endpoint choice; no inspected broader theorem states this exact evaluated single-linear-length formula. General postman algorithms could imply it after a separate computation, which is a documented risk.",
+        "searches": [
+          "Resultary: sharp fibonacci length for cyclic covers avoiding adjacent ones 2026-10-18",
+          "Resultary: sharp fibonacci overhead for universal cyclic covers 2026-11-08",
+          "Schmidt et al. Matchtigs 2023",
+          "Chakraborty et al. SPSS 2026"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py at exact assigned blobs",
+        "Independent potential and Fibonacci checks for k=2..8",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fibonacci-overhead-for-universal-cyclic-covers-of-the-gold--5d1b4c785a6a",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10251615/",
+        "https://arxiv.org/abs/2602.19408",
+        "shortest exact one-string spectrum k-mer cover no consecutive zeros Fibonacci repeated factors",
+        "Fibonacci words avoiding consecutive zeros shortest linear superstring exact all k de Bruijn Chinese postman",
+        "cyclic shortest golden mean language linear cut one string minimal cover saving k-2",
+        "arxiv:2602.19408",
+        "https://doi.org/10.1186/s13059-023-02968-z",
+        "Resultary published cyclic 11-avoidance F_(n+2)+F_n-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A length-C closed tour generates a C+k−1 letter linear word when unfolded; its excess over the submitted optimum is k−2 for k>=4.",
+          "The submitted result supplies an open-imbalance transport of cost F_k-k+1 rather than cyclic balancing cost F_k−1."
+        ],
+        "reasoning": "The circular theorem is strong and closely related, yet it does not dominate the linear-optimal statement by a trivial cut. The general algorithms are also not an evaluated specialized closed form.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fibonacci-overhead-for-universal-cyclic-covers-of-the-gold--5d1b4c785a6a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bit complement maps forbidden 00 to forbidden 11 and preserves length, not the linear-vs-cyclic endpoint condition.",
+          "Cyclic optimum C=F_(k+2)+F_k−1; directly cutting gives C+k−1=F_(k+2)+F_k+k−2."
+        ],
+        "reasoning": "Forbidden-pattern renaming does not change the object, but switching from closed to open walks does. The precise linear optimal endpoint saving k−2 requires proof and is not a corollary of the published closed formula alone.",
+        "searches": [
+          "complement equivalence forbidden 00 vs 11",
+          "Resultary cyclic covers 2026-10-18 and 2026-11-08",
+          "Matchtigs single versus multiple strings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact numeric cyclic constrained examples k=2,3,... are not directly the minimum single linear length.",
+          "Independent potential sums and included BFS k<=5 corroborate proposed all-k formula."
+        ],
+        "reasoning": "No exact table/formula found for the same one-string linear objective; search absence is not decisive priority proof.",
+        "searches": [
+          "Resultary: exact constrained k-mer one-string all k",
+          "Matchtigs published paper figures and primary results"
+        ]
+      },
+      "rationale": "The sharp one-string LINEAR endpoint optimization is not immediately implied by existing sharp CYCLIC Fibonacci-cover bounds for 11-avoidance (equivalent by complement), which give cycle length F_(k+2)+F_k−1. Cutting an optimal cycle creates a linear cover of length F_(k+2)+F_k+k−2, not the optimal F_(k+2)+F_k for k>=4. The new open Euler trail saves k−2 characters against this direct cut. General Matchtigs/minimum string-set formulations do not automatically enforce one finite string or provide evaluated Fibonacci endpoint formula.",
+      "residual_risks": [
+        "Earlier specialized single-string open directed Chinese-postman formulas could compute the same closed form implicitly.",
+        "No claim about shortest representation by a set of strings, cyclic host, or other forbidden factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close cyclic analogue but no linear minimizer",
+          "evidence": "Closed walk optimal F_(k+2)+F_k−1; linear cut has k−1 extra letters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+          "material_read": "Full primary RESULT.md including proof, potential and Euler construction",
+          "method": "GitHub primary full text",
+          "title": "Sharp Fibonacci length for cyclic covers avoiding adjacent ones",
+          "trigger": "Direct same language under bit complement, earlier public theorem"
+        },
+        {
+          "assessment": "Covered cyclic objective, not new one-string linear endpoint",
+          "evidence": "Repeated cyclic length and potential, no optimal open Euler trail endpoint savings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fibonacci-overhead-for-universal-cyclic-covers-of-the-gold--5d1b4c785a6a",
+          "material_read": "Full primary RESULT.md including statement, proof and limitations",
+          "method": "GitHub primary full text",
+          "title": "Sharp Fibonacci overhead for universal cyclic covers of the golden-mean language",
+          "trigger": "Same Fibonacci adjacency-avoidance family"
+        },
+        {
+          "assessment": "Algorithmic prior but no explicit all-k one-string formula identified",
+          "evidence": "Allows a set of paths/strings; different constraint from one host string.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10251615/",
+          "material_read": "Open-access full article, introductory definitions, method and representation goals",
+          "method": "Primary PMC full HTML",
+          "title": "Matchtigs: minimum plain text representation of k-mer sets",
+          "trigger": "Strong general k-mer representation algorithm"
+        },
+        {
+          "assessment": "No direct all-k formula for one finite linear repeated-edge string",
+          "evidence": "Addresses branching-necklace and string-set representation techniques, with different repetition/output constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.19408",
+          "material_read": "Primary PDF abstract, introduction/problem and accessible sections; page one screenshot inspected",
+          "method": "arXiv full primary PDF",
+          "title": "Variations on the Problem of Identifying Spectrum-Preserving String Sets",
+          "trigger": "Same exact k-mer spectrum and no-repetition cover setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py at exact assigned blobs",
+        "Independent potential and Fibonacci checks for k=2..8",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fibonacci-overhead-for-universal-cyclic-covers-of-the-gold--5d1b4c785a6a",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10251615/",
+        "https://arxiv.org/abs/2602.19408"
+      ],
+      "rationale": "Constrained k-mer spectra and minimum textual representation are a natural genomics/combinatorics invariant. This result gives a sharp all-k one-string optimum, exact unavoidable repetitions, constructive Euler trail, and matching dual certificate. The linear/cyclic endpoint gap is structurally motivated; it is not a routine numeral substitution from the cyclic theorem.",
+      "residual_risks": [
+        "Earlier specialized single-string open directed Chinese-postman formulas could compute the same closed form implicitly.",
+        "No claim about shortest representation by a set of strings, cyclic host, or other forbidden factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each k>=2 the minimum length of a single finite linear binary word with exact length-k factor set all 00-avoiding words equals F_(k+2)+F_k; its minimum number of repeated windows equals F_k-k+1.",
+  "limitations": [
+    "Earlier specialized single-string open directed Chinese-postman formulas could compute the same closed form implicitly.",
+    "No claim about shortest representation by a set of strings, cyclic host, or other forbidden factors."
+  ],
+  "schema_version": 1
+}
