@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T19:03:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all d>=2, 1<=k<=d, all fixed observed responses b and deterministic starts, unit regular-simplex Gram spectrum gives A^T A=(d+1)/d I and ker A^T=span{1}. A size-k block has Gram eigenvalue (d-k+1)/d along its ones vector. Thus the forcing z_S=delta d/(d-k+1) sum_{i in S}a_i lies in the selected row span and is pointwise orthogonal to Q_S e. Permutation invariance and rank give E Q_S=(1-k/d)I; E z_S=0 and E z_S z_S^T=delta^2 k/(d-k+1)I. The conditional Pythagorean recurrence yields exactly E||e_t||^2=(1-k/d)^t||e_0||^2+delta^2 d^2(1-(1-k/d)^t)/(d-k+1); the centered-start covariance equals delta^2 d(1-(1-k/d)^t)/(d-k+1) I. Checks include k=d (alpha=0), delta=0 and t=0. Independent rational projector/shift calculations for all subsets for d=2..5 and all k agree; they corroborate rather than replace the all-d proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gan–Wu general sketch-and-project convergence to a neighborhood; Needell–Zhao–Zouzias extended residual-correction algorithm."
+        ],
+        "reasoning": "Generality of an upper bound does not alone imply exact saturation for each d,k,t; the extended algorithm is a different iteration. An exact equality case in inaccessible full paper remains a risk.",
+        "searches": [
+          "Exact block size noise amplification randomized block Kaczmarz simplex uniform subsets inconsistent least squares expected squared error covariance",
+          "arxiv:2608.22259",
+          "arxiv:1403.4192"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2608.22259",
+        "arxiv:1208.3805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submitted conditional Pythagorean equality and permutation-group scalar identities yield a k-specific noise floor; cited prior papers state general bounds/related algorithms in accessible summaries."
+        ],
+        "reasoning": "Bounding a convergence neighborhood does not imply equality, sharp d factor or entire covariance profile. This is provisional because the full closest source was unavailable.",
+        "searches": [
+          "arxiv:2608.22259",
+          "arxiv:1208.3805",
+          "Exact block size noise amplification randomized block Kaczmarz simplex uniform subsets inconsistent least squares expected squared error covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Submitted RESULT.md Gram/subset identity and explicit transient covariance; Gan–Wu arXiv:2608.22259 abstract and limited preview concern doubly noisy bounds."
+        ],
+        "reasoning": "Compared the actual measured quantity: squared error and covariance for ordinary unextended uniform all-size-k subsets. Earlier generic RBK methods do not explicitly identify this exact equality or covariance in the material read; risk retained for unread pages.",
+        "searches": [
+          "Exact block size noise amplification randomized block Kaczmarz simplex uniform subsets inconsistent least squares expected squared error covariance",
+          "arxiv:2608.22259",
+          "arxiv:1208.3805"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results treat regular-simplex reshuffling epochs or three-row equiangular stationary regimes, not fresh uniform all-k block projections and isotropic covariance."
+        ],
+        "reasoning": "The target is a parameterized analytic covariance law, not an entry in a finite database; compared related exact Kaczmarz tables and their sampling methods.",
+        "searches": [
+          "Exact block size noise amplification randomized block Kaczmarz simplex uniform subsets inconsistent least squares expected squared error covariance",
+          "Resultary: 2026/10/13/SCOPE-exact-reshuffling-contraction-on-the-regular-simplex-kaczmarz-fr--8cad78dc3e3a",
+          "Resultary: 2026/10/12/SCOPE-two-sharp-sampling-thresholds-for-inconsistent-equiangular-kaczm--efb8ca5274f3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the simultaneous all-k exact finite-time mean, second moment, centered covariance and strict d-factor stationary block-size reversal on a regular-simplex frame. Gan and Wu derive general convergence-neighborhood estimates for doubly perturbed block Kaczmarz, but accessible abstract and PDF preview do not establish the exact all-subset simplex identity. Needell–Tropp use a fixed row paving; Needell–Zhao–Zouzias add residual correction. All exact formulas remain subject to a material priority risk: Gan–Wu full text was not accessible, and authorized institutional retrieval returned vpn_disconnected. A failed search alone is not novelty evidence.",
+      "residual_risks": [
+        "A hidden exact equality case in Gan–Wu 2026 Sections 4–5 or earlier projector literature could weaken O",
+        "No claim of general performance improvement or independent formal certification"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVISIONALLY_NOT_DEMONSTRATED_TO_COVER; not a full-document noncoverage decision",
+          "evidence": "Gan–Wu describes convergence-neighborhood bounds for RK/REK/RBK/RDBK; no full exact simplex calculation inspected.",
+          "identifier_or_url": "arxiv:2608.22259",
+          "material_read": "ArXiv abstract, repository preview PDF opening/summary, not full Section 5; arXiv HTML/PDF unavailable, authorized institutional attempt vpn_disconnected",
+          "method": "arXiv metadata/abstract and Paperity PDF preview; Oxford authorized request",
+          "title": "On Convergence Behavior of Randomized Kaczmarz-type Methods for Solving Doubly Noisy Linear Systems",
+          "trigger": "Direct closest general RBK and doubly noisy setting"
+        },
+        {
+          "assessment": "DIFFERENT_FIXED_PAVING_METHOD; whole-document noncoverage not certified",
+          "evidence": "Fixed paving versus independently uniform fresh k-subsets on all simplex rows.",
+          "identifier_or_url": "arxiv:1208.3805",
+          "material_read": "Title, abstract and method characterization; full text not reread this run",
+          "method": "ArXiv bibliographic search and submitted source comparison",
+          "title": "Paved with Good Intentions: Analysis of a Randomized Block Kaczmarz Method",
+          "trigger": "Row-paving block sampling ancestor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: uniform block size is a natural algorithmic tuning parameter on the canonical minimally redundant tight frame. The exact conditional equality and covariance quantify a dimension-unbounded noise-floor tradeoff absent from general upper bounds; the result fixes both data and least-squares target while changing k. This is a motivated, sharp all-d family, not a generic performance promise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2608.22259",
+    "arxiv:1208.3805"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Observed response fixed; not independently redrawn measurement noise each iteration",
+    "Ordinary unextended exact block projection and regular simplex only; fixed paving, finite precision, general frames and per-iteration cost unaddressed",
+    "Gan–Wu full text inaccessible via public routes; authorized download status vpn_disconnected (job d9453f16f56ab0e00081a58ab43ca489), requiring human connection"
+  ],
+  "residual_risks": [
+    "A hidden exact equality case in Gan–Wu 2026 Sections 4–5 or earlier projector literature could weaken O",
+    "No claim of general performance improvement or independent formal certification"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PROVISIONALLY_NOT_DEMONSTRATED_TO_COVER; not a full-document noncoverage decision",
+      "evidence": "Gan–Wu describes convergence-neighborhood bounds for RK/REK/RBK/RDBK; no full exact simplex calculation inspected.",
+      "identifier_or_url": "arxiv:2608.22259",
+      "material_read": "ArXiv abstract, repository preview PDF opening/summary, not full Section 5; arXiv HTML/PDF unavailable, authorized institutional attempt vpn_disconnected",
+      "method": "arXiv metadata/abstract and Paperity PDF preview; Oxford authorized request",
+      "title": "On Convergence Behavior of Randomized Kaczmarz-type Methods for Solving Doubly Noisy Linear Systems",
+      "trigger": "Direct closest general RBK and doubly noisy setting"
+    },
+    {
+      "assessment": "DIFFERENT_FIXED_PAVING_METHOD; whole-document noncoverage not certified",
+      "evidence": "Fixed paving versus independently uniform fresh k-subsets on all simplex rows.",
+      "identifier_or_url": "arxiv:1208.3805",
+      "material_read": "Title, abstract and method characterization; full text not reread this run",
+      "method": "ArXiv bibliographic search and submitted source comparison",
+      "title": "Paved with Good Intentions: Analysis of a Randomized Block Kaczmarz Method",
+      "trigger": "Row-paving block sampling ancestor"
+    }
+  ]
+}
