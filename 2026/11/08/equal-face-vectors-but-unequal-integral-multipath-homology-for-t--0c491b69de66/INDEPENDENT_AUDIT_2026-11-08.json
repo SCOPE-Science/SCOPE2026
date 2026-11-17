@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T22:54:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md e5d72fa488e9663c4e743ba9519455de7b13cf50",
+        "verify.py 2423318ca07146cc96e9f21898be81badfbefd1a",
+        "morse_certificate.json Git blob 507f41cb07b66f4289a8be3369238759a1e752cd",
+        "Independent Python complete two-graph face generation and F2 rank computation"
+      ],
+      "rationale": "For directed arcs of the fully bidirected Wagner M8 and binary Q3, the face predicate exactly requires distinct incoming/outgoing arcs and no directed cycle, i.e. directed linear forests. An independent source-map enumeration found exactly 6497 faces including empty in each, with common f-vector (24,216,928,2016,2160,1008,144). Independent full unreduced mod2 simplicial boundary reductions have ranks W: (23,193,735,1277,842,134) and cube: (23,193,735,1275,840,132), yielding respective mod2 Betti (4,41,32,10) and (6,45,36,12) in degrees3..6. The actual full verifier and attached complete Morse certificate were inspected: both forward/reverse 24-arc toggle matchings are explicitly checked acyclic on all 6497 augmented faces and 29160 Hasse incidences. Integral gradient-projection Morse matrices have Wagner ∂4 rank11 (unit factors), ∂5=∂6=0, and cube ∂4 rank2, ∂5 rank4, ∂6=0; exact unimodular row/column eliminations leave only unit invariant factors and zero blocks. This establishes free integral homology, not just observed field ranks. No homotopy wedge or all-cubic-family assertion is inferred.",
+      "residual_risks": [
+        "The full mod2 boundary calculation was independently rerun; the 3194/3193 matching acyclicity and entire integral Morse gradient projection were inspected in actual exact source/certificate but not completely rerun here. The certificate must be executed for full independent integral reproduction. No integral homotopy types or equivariance asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caputi et al. original primary paper treats directed paths/polygons/grids/tournaments, not both eight-vertex fully bidirected cubic graphs. Matching complex reduction in arxiv:2401.01248 requires cycle-free directed input, violated by the opposing arcs on each graph edge. Bidirectional polygon study covers degree-two cycles, not cubic Wagner."
+        ],
+        "reasoning": "No broader theorem read covers the new Wagner integral Betti vector or its equality-of-f-vectors comparator; analogous results have different hypotheses.",
+        "searches": [
+          "arxiv:2208.04656v1",
+          "arxiv:2401.01248v1 no-directed-cycles theorem",
+          "arxiv:2601.05670v1 bidirectional polygons",
+          "Resultary Wagner Morse complex"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2208.04656v1",
+        "arxiv:2401.01248v1",
+        "arxiv:2601.05670v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-integral-multipath-homology-and-connectivity-of-the-bidirected-t--dabb326f3bc0",
+        "Actual Wagner and cube verifier/certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nothing in the full original multipath paper family list or cube-only values determines the Wagner groups or their common combinatorial f-vector."
+        ],
+        "reasoning": "Known cube homology is only one of two needed inputs; the new Wagner integral computation is independent of that known tuple and shows f-vector cannot determine the group ranks.",
+        "searches": [
+          "Original multipath arxiv:2208.04656v1 introduction and claimed families",
+          "Earlier published cube multipath source",
+          "Frozen proof for Wagner source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual faces use directed arc masks and reject selected cycles; Wagner ordinary matching complex and its Morse complex have vertices or facets of different types. Cube-only bidirected multipath calculations are the same cube comparator."
+        ],
+        "reasoning": "Equivalent terminology for multipath = directed linear forest is checked; only cube part is a known exact computation; no previously found Wagner multipath complex formula.",
+        "searches": [
+          "Resultary: multipath complex bidirected Wagner Mobius ladder cube Q3 equal f vector integral homology",
+          "Resultary: Wagner graph bidirected multipath complex face vector homology Z4 Z41",
+          "arxiv:2208.04656 definition of multipath complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cube Betti (6,45,36,12) were published; exact Wagner reduced integral Betti (4,41,32,10) plus same all-dimensional arc-face vector not located in older exact tables. The ordinary Wagner Morse-complex 147 sphere result concerns another simplicial complex."
+        ],
+        "reasoning": "The shared face vector including 6497 augmented faces and the distinct integer homology vector are a genuinely new exact paired witness, not recomputation of only the cube table.",
+        "searches": [
+          "Resultary: integral multipath homology bidirected three cube 2026/10/18 and 2026/11/8",
+          "Resultary: Wagner M8 Morse complex 147 spheres",
+          "Resultary search face vector same f"
+        ]
+      },
+      "rationale": "Complete cube integral multipath homology was already published, as was general multipath topology of directed paths, cycles, polygons and some small grids. The new eight-vertex Wagner bidirected integral homology and exact equality of all face-vector coordinates with Q3, contrasted with different full integral Betti vectors, were not in the identified primary or published records. Same underlying Wagner graph has ordinary matching/Morse or four-cut complexes with different face predicates; they cannot imply directed-arc multipath homology. A new natural cubic-graph pair counterexample therefore survives comparison.",
+      "residual_risks": [
+        "No complete primary inspection of a possibly unindexed Wagner-specific source; published search cannot certify absolute priority. The complete integer Morse matrices were inspected but not all independently re-executed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general method, no universal cubic graph homology consequence identified from studied theorems.",
+          "evidence": [
+            "arxiv:2208.04656v1 Abstract and Introduction, Theorem 1.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04656",
+          "material_read": "Primary 18-page PDF introduction, multipath definition, Theorem 1.1 and list of calculated paths, polygons, grids and tournaments",
+          "method": "Lawful arXiv PDF text and screenshot",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Defines actual directed multipath object; potential general family theorem"
+        },
+        {
+          "assessment": "COVERS cube comparison Betti vector, not Wagner calculation; no full-document negative claim.",
+          "evidence": [
+            "2026/10/18 published cube Betti ranks 6,45,36,12"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-integral-multipath-homology-and-connectivity-of-the-bidirected-t--dabb326f3bc0",
+          "material_read": "Indexed full-result summary and mathematical statement; full source not inspected this run",
+          "method": "Resultary semantic indexed record",
+          "title": "Integral multipath homology and connectivity of the bidirected three-cube",
+          "trigger": "Same precise Q3 comparison parameter"
+        },
+        {
+          "assessment": "The stated polygon family has degree-two underlying graph, not 3-regular Wagner/cube.",
+          "evidence": [
+            "arxiv:2601.05670v1 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.05670",
+          "material_read": "Public abstract and family scope, no full PDF examined this run",
+          "method": "arXiv metadata/abstract",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Fully bidirected hypothesis with potential generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Wagner Möbius ladder and Q3 are two canonical nonisomorphic eight-vertex 3-regular graphs, making equality of the directed-linear-forest f-vector mathematically natural rather than an arbitrary numerical slice. Their different free integral homology ranks give an explicit counterexample to f-vector determination of multipath topology, in several degrees. The exact Wagner groups and same-f-vector phenomenon are useful finite invariants despite absence of an all-cubic theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full mod2 boundary calculation was independently rerun; the 3194/3193 matching acyclicity and entire integral Morse gradient projection were inspected in actual exact source/certificate but not completely rerun here. The certificate must be executed for full independent integral reproduction. No integral homotopy types or equivariance asserted.",
+    "No complete primary inspection of a possibly unindexed Wagner-specific source; published search cannot certify absolute priority. The complete integer Morse matrices were inspected but not all independently re-executed.",
+    "Scientific pass/fail is a best-knowledge assessment, not external human or formal certification. Publication is blocked by public source metadata privacy; not_ready is a transport/privacy disposition, not a scientific C/O/V verdict."
+  ],
+  "schema_version": 1
+}

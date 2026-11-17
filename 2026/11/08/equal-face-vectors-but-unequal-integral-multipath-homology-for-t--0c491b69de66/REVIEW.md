@@ -1,15 +1,21 @@
-# Review of the Wagner–cube multipath comparison
+# Independent mathematical audit
 
-## Correctness
-PASS. Both graph models have eight vertices and twenty-four directed arcs. Independent face enumerators exactly agree on all 6497 augmented simplices per graph. Four independently constructed acyclic matchings (increasing and decreasing arc orders for each graph) pass exhaustive 29160-incidence topological-sort tests. Signed integral gradient-path projection gives complete boundary matrices, with every nonzero invariant factor a unit under explicit integer row/column operations. Full unreduced simplicial boundary ranks over primes two and three agree. The embedded checker regenerates and compares the exact integer matrices rather than trusting printed output. Scope is reduced integral homology, not a homotopy-type wedge assertion.
+## correctness
 
-## Originality
-PASS under the inspected evidence. The 2022 foundational multipath-complex study and the 2026 bidirectional-polygon study do not determine the Wagner calculation. The 2024 quiver-minor comparison to matching complexes assumes acyclicity of the original digraph, which fails in the presence of opposing arcs. Other indexed Wagner results concern ordinary graph-edge matching or Morse complexes, not arc-set multipaths. A previous cube computation supplies only one member of the comparison, and does not imply the second graph's homology or the equality of face vectors. A known general top-degree Hamiltonian-cycle formula can account for degree six; novelty here includes the complete lower-degree integral calculation and the exact face-vector separation. An unindexed equivalent result remains possible.
+PASS
 
-## Value
-PASS. Two canonical connected cubic eight-vertex graphs have identical full simplicial face vectors yet distinct integral Betti vectors. This shows concretely that counting multipaths of every cardinality does not determine multipath homology, even within a narrow natural graph class. The exact Wagner computation gives a reproducible benchmark for extensions of directed-path topology beyond linear, polygonal and complete cases. The result is finite and does not purport to classify all cubic graphs.
+For directed arcs of the fully bidirected Wagner M8 and binary Q3, the face predicate exactly requires distinct incoming/outgoing arcs and no directed cycle, i.e. directed linear forests. An independent source-map enumeration found exactly 6497 faces including empty in each, with common f-vector (24,216,928,2016,2160,1008,144). Independent full unreduced mod2 simplicial boundary reductions have ranks W: (23,193,735,1277,842,134) and cube: (23,193,735,1275,840,132), yielding respective mod2 Betti (4,41,32,10) and (6,45,36,12) in degrees3..6. The actual full verifier and attached complete Morse certificate were inspected: both forward/reverse 24-arc toggle matchings are explicitly checked acyclic on all 6497 augmented faces and 29160 Hasse incidences. Integral gradient-projection Morse matrices have Wagner ∂4 rank11 (unit factors), ∂5=∂6=0, and cube ∂4 rank2, ∂5 rank4, ∂6=0; exact unimodular row/column eliminations leave only unit invariant factors and zero blocks. This establishes free integral homology, not just observed field ranks. No homotopy wedge or all-cubic-family assertion is inferred.
 
-## Limits
-The published-source comparison is limited to accessed primary texts and indexed records. No equivariant representation, sphere-wedge type or higher homotopy classification is asserted. No independent external audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Complete cube integral multipath homology was already published, as was general multipath topology of directed paths, cycles, polygons and some small grids. The new eight-vertex Wagner bidirected integral homology and exact equality of all face-vector coordinates with Q3, contrasted with different full integral Betti vectors, were not in the identified primary or published records. Same underlying Wagner graph has ordinary matching/Morse or four-cut complexes with different face predicates; they cannot imply directed-arc multipath homology. A new natural cubic-graph pair counterexample therefore survives comparison.
+
+## value
+
+PASS
+
+The Wagner Möbius ladder and Q3 are two canonical nonisomorphic eight-vertex 3-regular graphs, making equality of the directed-linear-forest f-vector mathematically natural rather than an arbitrary numerical slice. Their different free integral homology ranks give an explicit counterexample to f-vector determination of multipath topology, in several degrees. The exact Wagner groups and same-f-vector phenomenon are useful finite invariants despite absence of an all-cubic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
