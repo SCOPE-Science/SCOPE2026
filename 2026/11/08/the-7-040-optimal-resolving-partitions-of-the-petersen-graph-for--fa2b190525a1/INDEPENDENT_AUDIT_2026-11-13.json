@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T03:53:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Petersen vertices are 2-subsets of five labels, distance 1 iff disjoint and 2 iff intersecting and distinct. Within-block nonseparation is equivalent to all other blocks having the same neighbor-incidence bit; different blocks separate via coordinate zero. Restricted growth words uniquely enumerate all unlabeled partitions into k blocks. Independent from-scratch C++ enumeration at k=2,3,4 gave 0,0,7040 valid. For each of the 7040 canonical k4 states, checked all single-element moves to another nonempty class, yielding 34500 unordered edges. BFS from ALL 7040 vertices yielded eccentricity 7 for 6300 and 8 for 740, and 24777280 unordered distance pairs; connected, radius7 diameter8. Exhaustion of finite 10-vertex graph makes exact finite proof, not a sample or inference for larger graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raza et al., Complexity 2021 DOI 10.1155/2021/5592476 gives generalized Petersen partition dimension upper bounds",
+          "Rodríguez-Velázquez/Yero/Kuziak arXiv:1010.5144 studies corona products"
+        ],
+        "reasoning": "Known scalar optimum and larger-host estimates do not determine the graph of ALL minimum partitions under moves, and no parameter theorem implying 7040 and diameter8 was located.",
+        "searches": [
+          "Petersen graph resolving partitions 7040 relocation graph diameter 8 partition dimension",
+          "generalized Petersen graph partition dimension 2021"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 467506deea3165e0ac32a32d8e02d76018a0282c",
+        "Frozen check_partition_kneser.cpp blob 65b78344fc2ac3273318d69e2feba25c22015364",
+        "Frozen independent check_partition_gp.py blob b507de32e4e855e2f3e3223fb3273ffc381a65a3",
+        "Independent full C++ Kneser enumeration with all 7040 BFS in petersen_independent.cpp, local verified counts and all-pair histogram",
+        "Resultary query: Petersen graph resolving partitions 7040 relocation graph diameter 8 partition dimension",
+        "Raza et al. DOI 10.1155/2021/5592476"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chartrand et al. DOI:10.1007/PL00000127 introduces partition dimension",
+          "Raza et al. 2021 DOI 10.1155/2021/5592476 generalized Petersen bounds"
+        ],
+        "reasoning": "pd(P)=4 is necessary for defining optimum states but does not logically imply 7040, adjacency, connectedness, or diameter; the current complete finite enumeration supplies these missing invariants.",
+        "searches": [
+          "Petersen graph resolving partitions 7040 relocation graph diameter 8 partition dimension",
+          "Chartrand Salehi Zhang 2000 Petersen partition dimension",
+          "Raza Liu Azeem Nadeem 2021 generalized Petersen"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned proof explicitly defines unlabeled resolving blocks, distance signature and one-element relocation",
+          "Standard graph partition dimension definition from Chartrand–Salehi–Zhang (2000)"
+        ],
+        "reasoning": "Proper colorings, token sliding and partition swaps are distinct move rules; no equivalent mathematical result was found under alternate terminology. Canonical RGS model and GP(5,2) model are isomorphic representations of same graph, not independent prior theorems.",
+        "searches": [
+          "Petersen graph resolving partitions 7040 relocation graph diameter 8 partition dimension",
+          "Petersen graph resolving partition reconfiguration move one vertex block relocation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive new Kneser enumeration: 7040 states, 34500 edges, eccentricities 6300*7 and 740*8",
+          "Resultary semantic hits other Petersen reconfiguration structures, not resolving partitions"
+        ],
+        "reasoning": "No prior exact table of these unordered resolving partitions or transfer distances found. Distinct Petersen spanning tree/recoloring/locating-code tables cannot imply partition-sensor relocation.",
+        "searches": [
+          "Petersen graph resolving partitions 7040 relocation graph diameter 8 partition dimension",
+          "Petersen graph 7040 resolving partitions 34500 moves radius diameter"
+        ]
+      },
+      "rationale": "Existing published general partition-dimension literature supplies scalar pd(P)=4 and bounds for generalized Petersen graphs, but not the state-by-state optimum partition family, single-vertex transfer graph, its complete edge count and exact diameter. Resultary search found no exact covering theorem besides the same November 8 finding; best of knowledge, subject to inaccessible older literature.",
+      "residual_risks": [
+        "Full original 2000 article not available; older unpublished exact Petersen configuration census cannot be excluded.",
+        "Finite model has no claimed larger-graph family extrapolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not supply exact 7040 optimal resolving partitions or reconfiguration diameter",
+          "evidence": "Raza, Liu, Azeem, Nadeem, Complexity (2021)",
+          "identifier_or_url": "https://doi.org/10.1155/2021/5592476",
+          "material_read": "Accessible full article HTML portions including generalized Petersen bounds and formulas",
+          "method": "Primary publisher HTML inspected",
+          "title": "Partition Dimension of Generalized Petersen Graph",
+          "trigger": "Closest named generalized Petersen graph theorem"
+        },
+        {
+          "assessment": "Studies corona-product graphs rather than Petersen minimum-partition mobility",
+          "evidence": "arXiv:1010.5144",
+          "identifier_or_url": "https://arxiv.org/abs/1010.5144",
+          "material_read": "Accessible primary arXiv HTML text descriptions, not entire PDF inspected here",
+          "method": "Primary arxiv page and description",
+          "title": "The partition dimension of corona product graphs",
+          "trigger": "Particularly related partition-dimension calculations"
+        },
+        {
+          "assessment": "Could contain enumeration of classical Petersen instances; no covering statement verified",
+          "evidence": "Chartrand, Salehi, Zhang (2000)",
+          "identifier_or_url": "https://doi.org/10.1007/PL00000127",
+          "material_read": "Abstract/preview only, no full article material",
+          "method": "Publisher abstract",
+          "title": "The partition dimension of a graph",
+          "trigger": "Foundational partition dimension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The connectivity and sharp transfer distances of all optimal resolving sensor/block placements are a natural reconfiguration problem independent of the scalar partition dimension. 7040 exact states, degrees, orbit shapes and diameter answer concrete structural questions, not a tiny arbitrary slice. A bounded Petersen graph is a canonical natural object for which the exact complete state space is a useful benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The 7040 unlabeled minimum four-block resolving partitions of Petersen graph KG(5,2) form a connected one-vertex relocation graph with 34500 edges, radius 7 and diameter 8.",
+  "limitations": [
+    "Full original 2000 article not available; older unpublished exact Petersen configuration census cannot be excluded.",
+    "Finite model has no claimed larger-graph family extrapolation."
+  ],
+  "schema_version": 1
+}

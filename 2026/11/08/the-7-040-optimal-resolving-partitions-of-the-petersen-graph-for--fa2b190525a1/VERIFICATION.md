@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Compile and run `check_partition_kneser.cpp` as C++17 and run `check_partition_gp.py` as Python 3. Both use only standard libraries. The first completely enumerates all four-part minimum resolving partitions using the Kneser model and checks every connected-component distance with BFS; the second reconstructs graph distances in an independently built generalized Petersen model and separately enumerates all optimal partitions and legal transfers.
+## correctness
 
-The exact reported checks are: zero valid three-block partitions, 7040 four-block partitions, 34500 unoriented transfers, one connected component, 6300 configurations of eccentricity seven, 740 of eccentricity eight. Both representations produce the same degree histogram and block-size distribution. The unordered pair-distance distribution sums to the exact number of unordered state pairs. All sources and executable artifacts are embedded alongside this file.
+PASS
 
-# Scope of verification
+Petersen vertices are 2-subsets of five labels, distance 1 iff disjoint and 2 iff intersecting and distinct. Within-block nonseparation is equivalent to all other blocks having the same neighbor-incidence bit; different blocks separate via coordinate zero. Restricted growth words uniquely enumerate all unlabeled partitions into k blocks. Independent from-scratch C++ enumeration at k=2,3,4 gave 0,0,7040 valid. For each of the 7040 canonical k4 states, checked all single-element moves to another nonempty class, yielding 34500 unordered edges. BFS from ALL 7040 vertices yielded eccentricity 7 for 6300 and 8 for 740, and 24777280 unordered distance pairs; connected, radius7 diameter8. Exhaustion of finite 10-vertex graph makes exact finite proof, not a sample or inference for larger graphs.
 
-A full all-pairs breadth-first computation is provided by the C++ checker. The Python verifier independently confirms the graph-state and move counts and connectedness, plus distances from six selected states, rather than independently repeating the complete all-pairs search. These finite checks do not establish novelty or conclusions for larger graphs. No independent human audit is claimed.
+## originality
+
+PASS
+
+Existing published general partition-dimension literature supplies scalar pd(P)=4 and bounds for generalized Petersen graphs, but not the state-by-state optimum partition family, single-vertex transfer graph, its complete edge count and exact diameter. Resultary search found no exact covering theorem besides the same November 8 finding; best of knowledge, subject to inaccessible older literature.
+
+## value
+
+PASS
+
+The connectivity and sharp transfer distances of all optimal resolving sensor/block placements are a natural reconfiguration problem independent of the scalar partition dimension. 7040 exact states, degrees, orbit shapes and diameter answer concrete structural questions, not a tiny arbitrary slice. A bounded Petersen graph is a canonical natural object for which the exact complete state space is a useful benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
