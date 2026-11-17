@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:11:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0/VERIFICATION.md"
+      ],
+      "rationale": "Each adjacent pair of independently uniform one-per-cell nodes approaches its shared boundary b_i with two independent one-sided gaps u,v; P(u+v<δ)=m²δ²/2. Non-adjacent node separations are bounded below, and successive tiny gaps cannot coexist, bounding W_m(z) by B_m/min_i gap_i. Near one collision, L_i and L_(i+1) have residues ±C_i(z,Y)/(u+v), with all other scaled coefficients vanishing; the Euclidean norm has leading √2|C_i|/(u+v). Integrating over the small triangle and over independent other nodes gives K_m(z)=m²Σ E C_i², with negligible O(t^−4) simultaneous non-adjacent faces, and dominated convergence yields t²P(W>t)→K_m. Each factor positive, so K>0 for m≥3 all fixed z, except m=2 z=1/2 where convex weights bounded. Tail integration gives moments iff p<2 when K>0. Independent symbolic integration verifies m=3 z=1/2: K=9/16−log(2)/2=0.2159264097200273. This is fixed m,z asymptotic, not uniform in m.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published universal θ-repulsion theorem covers all n for its ensemble, but excludes stratified independent cell uniforms.",
+          "Dell’Accio et al show generic full rank of random interpolation matrices, not norms or inverse moments."
+        ],
+        "reasoning": "Broader random-node conclusions do not automatically imply fixed stratified one-per-cell exact tail or its normalized coefficient.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "jittered Lagrange interpolation one node per partition cell near collisions heavy tail Lebesgue weights t^-2 moment divergence",
+          "https://arxiv.org/pdf/2303.14074"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+        "https://arxiv.org/pdf/2303.14074",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-logarithmic-collision-tail-for-three-node-random-quadratic-int--31e79eafd4fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Repulsion threshold p<θ+1 would give p<1 for θ=0 iid nodes, contradicted by true one-per-cell p<2 due to suppressed interior collisions; the sample-space supports are different.",
+          "Almost-sure unisolvency only controls P(det=0)=0, not expected inverse matrix moments or t²-tail coefficient."
+        ],
+        "reasoning": "No logical implication from those stronger-in-other-ways results to the reported sharp stratified t^−2 coefficient; positive novelty remains conditional on unindexed stability literature.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "https://arxiv.org/pdf/2303.14074",
+          "jittered Lagrange interpolation one node per partition cell near collisions heavy tail Lebesgue weights t^-2 moment divergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier repulsion theorem assumes all nodes share joint density ∏|xi−xj|^θ across unit cube, not labelled disjoint one-per-cell supports.",
+          "Here the only possible collision occurs at an internal cell boundary and has two independent one-sided small coordinates, producing cumulative δ², unlike iid δ."
+        ],
+        "reasoning": "The exponent is a geometric codimension change, not θ=1 specialization of a density suppressed by inter-node gap; coefficient depends on z and cell-interface residues.",
+        "searches": [
+          "jittered Lagrange interpolation one node per partition cell near collisions heavy tail Lebesgue weights t^-2 moment divergence",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "stratified Latin hypercube jittered Lagrange inverse Vandermonde noise tail exponent 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Computed exact K_3(1/2)=9/16−(log 2)/2 via m² sum of two reflected boundary residues, independently checked SymPy integration.",
+          "Repulsion theorem has exact n=2 global Lebesgue tail for another density, but no one-per-cell K_m(z) and no matching m=3 constant."
+        ],
+        "reasoning": "Specific exact stratified coefficient not found in inspected prior tables; its derivation uses a distinct boundary-face integral.",
+        "searches": [
+          "jittered Lagrange interpolation one node per partition cell near collisions heavy tail Lebesgue weights t^-2 moment divergence",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "K3 Lagrange collision 9/16 logarithm2 divided2 one per cell"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: an earlier general Vandermonde-repulsion interpolation theorem treats exchangeable nodes with joint density proportional to product |xi−xj|^θ, especially iid uniform θ=0, where single interior collisions give threshold p<1. It does NOT encompass exactly one node per adjacent full cell (disjoint labelled supports and two-sided boundary collision codimension 2), nor its exact t^−2 coefficient. Dell’Accio–Sommariva–Vianello 2023 prove almost-sure interpolation unisolvency, which does not imply finiteness/divergence of moments. Random mesh and deterministic stability sources do not supply this stratified sharp constant. Existing near-collision methods are prior tools; unindexed special cases remain priority risk.",
+      "residual_risks": [
+        "An earlier unindexed random-stratified interpolation stability paper may contain the same boundary-face tail coefficient.",
+        "No generality for adaptive samples, floating-point conditioning, random evaluation locations, or m→∞; no empirical simulation used as theorem proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not apply to one-per-cell disjoint labelled supports; θ=0 iid model gives different exponent",
+          "evidence": "Source density ∏|xi−xj|^θ and iid support all [0,1]^n; boundary-neighbor collision geometry differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "material_read": "Entire published RESULT.md: joint Vandermonde density, theorem p<θ+1, n=2 tail and Gaussian point-noise counterpart",
+          "method": "Primary published Resultary mathematical source read in full via GitHub connector",
+          "title": "A universal collision-exponent moment law for random-node polynomial interpolation",
+          "trigger": "Potential universal theorem explicitly stating inverse interpolation moment threshold"
+        },
+        {
+          "assessment": "Establishes almost-sure uniqueness, not moments or sharp stratified tail",
+          "evidence": "Probability-one rank does not bound inverse gaps; no t^−2 coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.14074",
+          "material_read": "Entire short lawful arXiv PDF accessed; introduction, unisolvency theorem and supporting proof read/inspected with rendered pages",
+          "method": "Open arXiv PDF and screenshots",
+          "title": "Random sampling and unisolvent interpolation by almost everywhere analytic functions",
+          "trigger": "Random interpolation full-rank theorem might imply stability"
+        },
+        {
+          "assessment": "IID three-node model has log(t)/t tail, not stratified one-per-cell t^−2",
+          "evidence": "Search summary explicitly says three iid uniform nodes; cannot infer full-document absence of stratified special case from this snippet.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-logarithmic-collision-tail-for-three-node-random-quadratic-int--31e79eafd4fb",
+          "material_read": "Search result title and mathematical summary only; full text not read",
+          "method": "Resultary semantic search only",
+          "title": "A logarithmic collision tail for three-node random quadratic interpolation",
+          "trigger": "Related same-day stochastic interpolation tail"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+        "https://arxiv.org/pdf/2303.14074"
+      ],
+      "rationale": "The precise coefficient of the heavy tail and the sharp second-moment threshold quantify a real failure mode of a standard stratified exact-interpolation design: despite a.s. nonsingularity and one node in each cell, independent observation noise has infinite unconditional variance for any fixed degree ≥2 except the two-point midpoint. This is a natural, operationally meaningful invariant; the m=3 midpoint irrational constant is not a routine parameter substitution from iid collision laws.",
+      "residual_risks": [
+        "An earlier unindexed random-stratified interpolation stability paper may contain the same boundary-face tail coefficient.",
+        "No generality for adaptive samples, floating-point conditioning, random evaluation locations, or m→∞; no empirical simulation used as theorem proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier unindexed random-stratified interpolation stability paper may contain the same boundary-face tail coefficient.",
+    "No generality for adaptive samples, floating-point conditioning, random evaluation locations, or m→∞; no empirical simulation used as theorem proof."
+  ],
+  "schema_version": 1
+}

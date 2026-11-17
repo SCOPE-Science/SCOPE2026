@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is fixed \(m\ge2\), fixed \(z\in[0,1]\), and independent uniform samples from their respective full-width equal cells. The Lagrange coefficients are well-defined almost surely. The proof identifies all singular faces, uses the exact triangular probability of a shared-boundary collision, derives the residue pair \((-C_i,+C_i)\), and justifies adding the face probabilities through a uniform inverse-minimum-gap bound and negligible intersections. The factor \(m^2\), the Euclidean \(\sqrt2\) residue, and the resulting product-integral tail constant were checked independently. Strict positivity, the two-node midpoint exception, and moment implications follow as written. The closed three-node coefficient was verified analytically and by independent quadrature; seeded numerical checks serve only as diagnostics, not proofs.
+PASS
 
-## Originality — PASS (with publication-precedence risk)
+Each adjacent pair of independently uniform one-per-cell nodes approaches its shared boundary b_i with two independent one-sided gaps u,v; P(u+v<δ)=m²δ²/2. Non-adjacent node separations are bounded below, and successive tiny gaps cannot coexist, bounding W_m(z) by B_m/min_i gap_i. Near one collision, L_i and L_(i+1) have residues ±C_i(z,Y)/(u+v), with all other scaled coefficients vanishing; the Euclidean norm has leading √2|C_i|/(u+v). Integrating over the small triangle and over independent other nodes gives K_m(z)=m²Σ E C_i², with negligible O(t^−4) simultaneous non-adjacent faces, and dominated convergence yields t²P(W>t)→K_m. Each factor positive, so K>0 for m≥3 all fixed z, except m=2 z=1/2 where convex weights bounded. Tail integration gives moments iff p<2 when K>0. Independent symbolic integration verifies m=3 z=1/2: K=9/16−log(2)/2=0.2159264097200273. This is fixed m,z asymptotic, not uniform in m.
 
-The closest inspected random interpolation theorem is Dell'Accio–Sommariva–Vianello (arXiv:2303.14074): its almost-sure unisolvency does not constrain inverse-weight moments. Xu–Narayan (arXiv:2101.04043) establish high-probability norming after oversampling, not exactly one sample per cell with a sharp fixed-degree tail. Shen–Serkh (arXiv:2212.10519) analyze deterministic-node numerical conditioning and backward error, whereas the present statement computes the probability of rare random collisions. Occorsio–Themistoclakis (arXiv:2008.00240) analyze filtered interpolation at fixed Chebyshev nodes. Related publicly indexed results for cubic Lagrange range violations and three-knot spline positivity are about bounded deterministic sampled data, rather than stochastic interpolation coefficient tails. No inspected statement implies the exact constant or the full moment classification. The strongest remaining uncertainty is specialist research on random perturbed grids or negative moments of inverse Vandermonde matrices; the checked evidence does not establish comprehensive publication uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Random nodal interpolation is almost surely solvable but may have infinite expected noise amplification. The claim supplies a sharp *exact* tail constant at every fixed degree, identifies a precise two-node exception, proves failure of unconditional mean-square stability for all higher-degree full-cell designs, and evaluates a nontrivial logarithmic constant at the smallest higher-degree case. It is a motivated interpolation-design boundary, not a substitution into a convergence bound or an arbitrary numerical table. The theorem motivates keeping jittered nodes a positive distance from shared cell boundaries or regularizing the interpolation map. It does not address the approximation error of noiseless smooth functions or higher-dimensional interpolation.
+PASS best-of-knowledge: an earlier general Vandermonde-repulsion interpolation theorem treats exchangeable nodes with joint density proportional to product |xi−xj|^θ, especially iid uniform θ=0, where single interior collisions give threshold p<1. It does NOT encompass exactly one node per adjacent full cell (disjoint labelled supports and two-sided boundary collision codimension 2), nor its exact t^−2 coefficient. Dell’Accio–Sommariva–Vianello 2023 prove almost-sure interpolation unisolvency, which does not imply finiteness/divergence of moments. Random mesh and deterministic stability sources do not supply this stratified sharp constant. Existing near-collision methods are prior tools; unindexed special cases remain priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The precise coefficient of the heavy tail and the sharp second-moment threshold quantify a real failure mode of a standard stratified exact-interpolation design: despite a.s. nonsingularity and one node in each cell, independent observation noise has infinite unconditional variance for any fixed degree ≥2 except the two-point midpoint. This is a natural, operationally meaningful invariant; the m=3 midpoint irrational constant is not a routine parameter substitution from iid collision laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
