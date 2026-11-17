@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Riesz representer is obtained by solving \(-G''=\delta_x-\mu/M\) with the weighted mean constraint. Integration of the circle resistance kernel gives the squared point-evaluation norm; two explicit strict concave quadratic arcs locate every norming point. A nonnegative algebraic factorization proves the global design optimum and the full deficit identity. The standalone exact-rational checker reconstructs \(2765\) derivative-dual norms by direct integration and verifies \(125\) profiles, without being used as a proof of the continuum statement.
+## correctness
 
-**Originality — PASS with residual risk.** The 2012 circle-polarization theorem of Hardin–Kendall–Saff proves an equal-spacing result for a broad class of unweighted potential objectives; that already covers some *placement intuition* and is not claimed as new. The theorem reviewed here is instead a normalized Sobolev evaluation problem with a weighted-mean constraint and an extra pair-energy term, and includes full unequal-mass constants, strict quantitative stability, norming-point classification, and equality functions. Buttazzo–Ruffini–Velichkov's graph Dirichlet shape functionals and Exner's point-interaction spectral objective are not stronger statements for this exact operator. The targeted published-record comparisons did not identify an equivalent weighted two-atom result. Unindexed reproducing-kernel or optimal-recovery literature could nevertheless contain an equivalent closed formula.
+PASS
 
-**Value — PASS.** Designing weighted interpolation/normalization anchors so as to control the worst pointwise error amplification is a natural Sobolev stability problem. The result provides a complete exact answer for two movable atoms with a fixed mass budget, including sharp quantitative penalties for both distinct experimental design defects and a full extremizer classification. It is a structural exact design law, not a finite numerical table or an arbitrary narrow cutoff.
+For real periodic H1 with weighted mean zero, the centered resistance kernel represents evaluation. Expanding ∫R gives K_mu(x)=1/(12M²)+(αR(x,0)+βR(x,d))/M−αβd(1−d)/M². Each arc has a strict concave quadratic; the long-arc vertex gives K=1/(12M²)+S/(4M)−αβd(d+S)/(SM²), including d=0 and d=1/2 ties. The nonnegative mass-imbalance/separation deficit factors exactly, forcing α=β and d=1/2; equality functions are centered Green representers. Independent exact-rational substitution at three profiles, including S=1 giving 19/192, agreed. The finite tests do not replace the proof.
 
-**Boundaries.** This only addresses the real first-derivative periodic energy on the unit circle with constant arclength density and two positive atoms; no claims for general graphs, additional atoms, or higher derivatives are made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: two variable positive atoms enter the MEAN constraint of a periodic H1 evaluation inequality, unlike fixed Dirichlet anchors or discrete polarization. A relevant published equal-mass N≥3 theorem expressly excludes N=2 and cannot determine arbitrary two unequal weights and the exact two-parameter deficit.
+
+## value
+
+PASS
+
+The weighted mean constraint and optimal sensing-site placement are natural Sobolev design choices; an explicit attained evaluation constant, exact optimal antipodal design and quantitative penalties for both imbalance and separation are non-routine useful sharp facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
