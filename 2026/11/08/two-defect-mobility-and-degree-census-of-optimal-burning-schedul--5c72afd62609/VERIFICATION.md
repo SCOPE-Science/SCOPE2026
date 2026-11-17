@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and mathematical limits
 
-The finding concerns simple labeled cycles \(C_{k^2-2}\), for integers \(k\ge3\), with strict time-labelled optimum ignition schedules. The proof covers every such \(k\) and does not rely on extrapolation from finite tests.
+# Independent mathematical audit
 
-Two standalone implementations are included. Run `python3 construct_check.py` to check generated gap encodings against direct graph-distance balls and ignition-order constraints, including complete direct tuple comparison at \(k=3,4\) and structured testing through \(k=7\). The recorded output is `construct_check.out` and ends with `CONSTRUCT_CHECK_OK`.
+## correctness
 
-Compile `g++ -std=c++17 -O3 direct_exhaustive.cpp -o direct_exhaustive` and run `./direct_exhaustive`. This program generates schedules independently from the graph metric and performs exhaustive source-slide adjacency and component searches at \(k=3,4,5\). The recorded output is `direct_exhaustive.out` and ends with `DIRECT_EXHAUSTIVE_OK`. In these tests, graph sizes are 56, 672 and 7,176 schedules, split into 2, 6 and 24 components respectively. The two finite methods agree with the proven formulas.
+PASS
 
-These checks do not establish previously unknown historical priority or independent scholarly certification. Proof details, scope and scientific limits are in `RESULT.md`.
+Strict-source distance separation and radius-interval covering for length-k schedules imply exactly two repeated incidences because k²-(k²-2)=2. Anchoring unique radius-zero center and clockwise ordering radii yields deficits t_j>=0 summing two, endpoints t0,t_(k-1)<=1 and interior <=2; all such configurations obey center distance constraints via path gap estimates. Adjacent source slide transfers a deficit unit between neighboring gaps, preserving circular radius order. On fixed order the two-particle graph connects, and one full circulation shifts anchor one step, so each order is a component. Counting gap vectors gives (k²+k-4)/2, degrees 2/3/4 and edges formula. Fresh C++ brute-force direct graph enumeration k=3,4,5 reproduced totals 56/672/7176, 2/6/24 components and degree histograms and edges, without using gap encoding.
+
+## originality
+
+PASS
+
+Earlier 2026/11/08 source-slide theorem covers k² (isolated) and k²-1 (single mobile defect, each component a cycle), not k²-2. An older arbitrary-source-replacement reconfiguration theorem covers k²/k²-1 and a different move. The independent two-particle defect collisions, capacity-two interior sites, mixed degrees and new state census are not supplied by either prior; graph-burning number is credited to Bonato et al.
+
+## value
+
+PASS
+
+Two units of coverage slack are the first case with interacting mobility defects and mixed vertex degrees. Exact components and degree census form a natural complete extremal reconfiguration classification of schedules near maximal burnable cycle size; it is not an unmotivated arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
