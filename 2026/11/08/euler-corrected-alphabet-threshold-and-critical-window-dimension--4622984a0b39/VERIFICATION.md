@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Analytic and reproducibility checks
+# Independent mathematical audit
 
-The affine branch widths and positive gaps follow directly from \(p_n=n^{-q}/\zeta(q)\) and \(I_n=[P_n-\lambda p_n,P_n]\), with \(0<\lambda<1\). The pressure root exists uniquely since its decreasing sum starts at \(N>1\) when the dimension is zero and ends below one at dimension one. The equality \(F_N(1/q)=aH_N\) is exact.
+## correctness
 
-For the threshold, \(H_N=\log N+\gamma+O(N^{-1})\) and the first crossing differs from equality by at most one harmonic increment. The Laurent expansion \(\zeta(1+\varepsilon)=\varepsilon^{-1}+\gamma+O(\varepsilon)\) then gives the stated prefactor. In the centered dimension window, the logarithmic-pressure derivative equals \(\log a-\sum(\log n)/n\,/H_N\) and has leading term \(-1/(2a)\). The second derivative is bounded by the variance of \(\log n\) at maximum magnitude \(O(a^{-2})\). The moderate-deviation window has centered coordinate \(O(\log(1/a))\), so its Taylor error remains negligible.
+PASS
 
-Run `python verify_cutoff.py` in an environment with `mpmath` 1.3 or newer. The saved checker was run at 95-digit precision and emitted:
+In the separated affine similarity model, the finite-alphabet dimension s_N is the unique root a^{q s_N} sum_{j<=N} j^{-q s_N}=1. At s=1/q sign is exactly sign(a H_N-1). The strict integer crossing has log N_*=1/a-gamma+o(1), and zeta(1+epsilon)=epsilon^{-1}+gamma+O(epsilon) yields the stated exp(1/(lambda epsilon))(lambda epsilon)^{1/lambda} prefactor. Write e=q s-1 and expand log pressure: log P(0)=a t+o(a), first derivative=-1/(2a)+O(log(1/a)), variance O(a^{-2}) in e=O(a^2), hence e/a^2->2t uniformly on bounded t. Unshifted cutoff has t=(log(1/epsilon))/lambda+O(1), still a*t->0, giving 2lambda epsilon^2 log(1/epsilon). Exact harmonic/pressure and mpmath high-precision tests at lambda=.4,.6, epsilon=.02,.03 and t=±1 agree with sign and scaling; finite numerics do not prove limits.
 
-```
-VERIFY_OK finite_pressure_roots=18 threshold_signs=12 high_precision=95
-Analytic asymptotic and historical priority are not certified by these tests.
-```
+## originality
 
-These tests cover two retained fractions, three proximity parameters each, and signed critical-window shifts. They test representative finite pressure roots and are not a substitute for the proof or an independent scientific audit.
+PASS
+
+PASS. Exact same Zipf-normalized affine model was published October 11, 2026 and establishes the first-order exponential alphabet crossover, but expressly leaves sign and second-order behavior at tau=1/lambda open. The new Euler–Mascheroni threshold prefactor, O(a^2) critical-window profile and log-enhanced signed boundary displacement are not consequences of the earlier first-order statement and are supported by a separate near-pole expansion. Classical pressure equations and first-order phase are not new.
+
+## value
+
+PASS
+
+The earlier paper leaves its critical boundary mathematically unresolved: the exact integer threshold, polynomial prefactor, scaled critical-window profile and strict positive-side asymptotic determine the previously indeterminate transition. This is a motivated sharp boundary refinement with a definite sign, not a vacuous expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

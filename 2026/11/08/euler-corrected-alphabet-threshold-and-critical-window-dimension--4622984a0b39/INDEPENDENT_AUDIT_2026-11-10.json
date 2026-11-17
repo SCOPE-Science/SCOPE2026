@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:47:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the separated affine similarity model, the finite-alphabet dimension s_N is the unique root a^{q s_N} sum_{j<=N} j^{-q s_N}=1. At s=1/q sign is exactly sign(a H_N-1). The strict integer crossing has log N_*=1/a-gamma+o(1), and zeta(1+epsilon)=epsilon^{-1}+gamma+O(epsilon) yields the stated exp(1/(lambda epsilon))(lambda epsilon)^{1/lambda} prefactor. Write e=q s-1 and expand log pressure: log P(0)=a t+o(a), first derivative=-1/(2a)+O(log(1/a)), variance O(a^{-2}) in e=O(a^2), hence e/a^2->2t uniformly on bounded t. Unshifted cutoff has t=(log(1/epsilon))/lambda+O(1), still a*t->0, giving 2lambda epsilon^2 log(1/epsilon). Exact harmonic/pressure and mpmath high-precision tests at lambda=.4,.6, epsilon=.02,.03 and t=±1 agree with sign and scaling; finite numerics do not prove limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier first-order expansion has O(epsilon^2 |log epsilon|) error, the same order as the new signed boundary correction, so does not determine its sign or constant."
+        ],
+        "reasoning": "General conformal IFS dimension formulas provide pressure but not the new double scaling. No inspected broader theorem quantitatively determines this specific boundary.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1/RESULT.md",
+          "https://arxiv.org/abs/2608.00398"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1/RESULT.md",
+        "https://arxiv.org/abs/2608.00398",
+        "GitHub pinned RESULT.md 053241e642a764f48f0e763dde29dab625008433 and verify_cutoff.py a2ea280337500c1bb2dc7c23b944f55fe4f19a5a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior states at tau=1/lambda only first-order crossover equality with error O(epsilon^2|log epsilon|); new boundary offset is asymptotically 2lambda epsilon^2 log(1/epsilon)."
+        ],
+        "reasoning": "The prior error term permits either sign, hence does not imply the positive asymptotic. Root-derivative and Euler–Maclaurin terms fix the missing coefficient.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 11 published full RESULT.md has same branch ratios c(q)n^{-q}, finite pressure root and threshold tau=1/lambda; explicitly does not assert the boundary sign at tau=1/lambda."
+        ],
+        "reasoning": "The first-order model is identical, but the new threshold to sub-exponential/polynomial precision and the scaled second-order profile are genuinely stricter assertions.",
+        "searches": [
+          "Resultary semantic search: Zipf normalized expanding maps exponential alphabet crossover Euler corrected threshold critical window Hausdorff dimension",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found the October 11 crossover and distinct Gauss-map cutoff corrections but not a matching table for this exact critical-window scaling."
+        ],
+        "reasoning": "No exact database/table found for prefactor or t↦2t profile; failed semantic search is not novelty proof.",
+        "searches": [
+          "Resultary semantic search: Zipf normalized expanding maps exponential alphabet crossover Euler corrected threshold critical window Hausdorff dimension"
+        ]
+      },
+      "rationale": "PASS. Exact same Zipf-normalized affine model was published October 11, 2026 and establishes the first-order exponential alphabet crossover, but expressly leaves sign and second-order behavior at tau=1/lambda open. The new Euler–Mascheroni threshold prefactor, O(a^2) critical-window profile and log-enhanced signed boundary displacement are not consequences of the earlier first-order statement and are supported by a separate near-pole expansion. Classical pressure equations and first-order phase are not new.",
+      "residual_risks": [
+        "The first-order pressure equation and crossover phase were published earlier and must not be credited as novel.",
+        "Uninspected general countable-IFS papers or equivalent asymptotic studies may contain a stronger critical-window expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS first-order crossover but EXPLICITLY leaves boundary sign unresolved",
+          "evidence": "First-order O(epsilon^2|log epsilon|) remainder; Section 4 threshold; limitations at tau=1/lambda.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1/RESULT.md",
+          "material_read": "Complete published RESULT.md (finding, assumptions, full proof, limitations and references)",
+          "method": "GitHub pinned public source blob c100b8c3404ab4c772fa56b3d8f1671cc3541968",
+          "title": "Exponential-alphabet crossover for Zipf-normalized expanding maps",
+          "trigger": "Identical model and earlier phase diagram"
+        },
+        {
+          "assessment": "POTENTIALLY RELATED general IFS; full mathematical priority comparison not established",
+          "evidence": "Abstract treats general infinite-piecewise-expanding maps, not the numerical Euler correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.00398",
+          "material_read": "Abstract and bibliographic theorem descriptions, not full scientific text",
+          "method": "Public arXiv search/abstract",
+          "title": "Infinite-Piecewise Expanding Maps: Chaos, Ergodicity and Invariant-Set Complexity",
+          "trigger": "Broader countable-branch expanding-map context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The earlier paper leaves its critical boundary mathematically unresolved: the exact integer threshold, polynomial prefactor, scaled critical-window profile and strict positive-side asymptotic determine the previously indeterminate transition. This is a motivated sharp boundary refinement with a definite sign, not a vacuous expansion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The first-order pressure equation and crossover phase were published earlier and must not be credited as novel.",
+    "Uninspected general countable-IFS papers or equivalent asymptotic studies may contain a stronger critical-window expansion."
+  ],
+  "schema_version": 1
+}

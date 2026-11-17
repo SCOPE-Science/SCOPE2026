@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite pressure is a strictly decreasing function of the dimension and has the exact value \(aH_N\) at the convergence exponent. Euler–Maclaurin plus the zeta Laurent expansion gives the polynomially corrected integer threshold. In the centered window, the first logarithmic-pressure derivative is asymptotic to \(-1/(2a)\), with second derivative bounded by \(O(a^{-2})\), yielding the uniform \(2t\) window law. The same bounds apply to the slowly diverging centered coordinate of the unshifted exponential cutoff and give its strictly positive logarithmic amplitude. All limits are analytic consequences of these equations; the finite numerical checker is not an infinite proof.
+## correctness
 
-## Originality — PASS within checked sources
-The closest published result, *Exponential-alphabet crossover for Zipf-normalized expanding maps* (2026), explicitly covers the same affine IFS, the same dimension pressure root and the first-order phase transition at \(\tau=1/\lambda\). It explicitly refrains from assigning a sign at equality. The present finding instead determines the integer cutoff to a multiplicative \(1+o(1)\) factor, including the polynomial prefactor and Euler constant, obtains the second-scale profile and resolves the previously unsettled sign at the unshifted cutoff. The primary expanding-map paper of Cunha, Novaes and Ponce (2026), including its affine example, supplies neither the Zipf cutoff nor its second-scale expansion. Standard dimension-spectrum and infinite-IFS theory provides the pressure framework, not the specific asymptotic. Targeted searches found no stronger result, though unlocated earlier equivalent calculations remain possible.
+PASS
 
-## Mathematical value — PASS
-The exact first-order cutoff misses an asymptotically unbounded **multiplicative** factor in the minimum finite alphabet needed for the dimension to cross the natural branch convergence exponent. The polynomial correction therefore matters for finite-alphabet approximation cost and changes the answer at the critical first-order phase. The second-scale profile quantifies the entire narrow crossing window; the unshifted boundary sign and its logarithmic scale answer a specific limitation recorded in the closest earlier theorem. This is a motivated sharp boundary refinement, not a restatement of the pressure identity or an arbitrary finite parameter sample.
+In the separated affine similarity model, the finite-alphabet dimension s_N is the unique root a^{q s_N} sum_{j<=N} j^{-q s_N}=1. At s=1/q sign is exactly sign(a H_N-1). The strict integer crossing has log N_*=1/a-gamma+o(1), and zeta(1+epsilon)=epsilon^{-1}+gamma+O(epsilon) yields the stated exp(1/(lambda epsilon))(lambda epsilon)^{1/lambda} prefactor. Write e=q s-1 and expand log pressure: log P(0)=a t+o(a), first derivative=-1/(2a)+O(log(1/a)), variance O(a^{-2}) in e=O(a^2), hence e/a^2->2t uniformly on bounded t. Unshifted cutoff has t=(log(1/epsilon))/lambda+O(1), still a*t->0, giving 2lambda epsilon^2 log(1/epsilon). Exact harmonic/pressure and mpmath high-precision tests at lambda=.4,.6, epsilon=.02,.03 and t=±1 agree with sign and scaling; finite numerics do not prove limits.
 
-## Scope and risks
-The analysis assumes exactly Zipf-normalized affine branches and fixed \(0<\lambda<1\). It does not cover nonlinear maps or arbitrary truncation renormalizations. No finite-parameter sign is claimed at exactly centered \(t=0\). Priority is provisional because no search can exclude all earlier equivalent asymptotic calculations. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. Exact same Zipf-normalized affine model was published October 11, 2026 and establishes the first-order exponential alphabet crossover, but expressly leaves sign and second-order behavior at tau=1/lambda open. The new Euler–Mascheroni threshold prefactor, O(a^2) critical-window profile and log-enhanced signed boundary displacement are not consequences of the earlier first-order statement and are supported by a separate near-pole expansion. Classical pressure equations and first-order phase are not new.
+
+## value
+
+PASS
+
+The earlier paper leaves its critical boundary mathematically unresolved: the exact integer threshold, polynomial prefactor, scaled critical-window profile and strict positive-side asymptotic determine the previously indeterminate transition. This is a motivated sharp boundary refinement with a definite sign, not a vacuous expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
