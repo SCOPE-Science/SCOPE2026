@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For the entire parameter region \(0<r<1/2\) and \(|\omega_i|>|\kappa|r\), the published equilateral specialization has \(H_i=\omega_i+\delta_i\sqrt{1-4r^2}-2\kappa(\sqrt3/2)r^2\). Its sign equals \(\operatorname{sgn}\omega_i\), since \(2(\sqrt3/2)r<1\), and the signed square roots have the same sign. Therefore the positive-time Floquet exponents have no singular denominators. Explicit substitution into Proposition 6.2 yields three skew differences; weighted cancellation is exact. The reflection identities are polynomial identities, separately reproduced symbolically in the checker. At a zero-exponent circle the reflection line intersects that regular periodic circle transversely twice, so the established reversible-orbit lemma gives a local period annulus. At a nonzero exponent hyperbolicity yields isolation. For \(\kappa=0\) the published first-integral argument already gives annuli. The explicit permutations have admissible angular speeds for every stated radius and exhaust all mixed patterns. No inference from finite sampling to universal proof is made.
+
+## Originality — PASS within inspected evidence
+Cao--Llibre (2026) explicitly owns the normal form, periodicity criterion, quadrature formula for Floquet exponents, and general reversibility lemma; these are not new. Their Theorem D gives necessary and sufficient conditions for all three to be hyperbolic, but does not classify neutral orbits at \(\kappa\ne0\), nor provide the equilateral positive-weight zero sum or the all-six-pattern realization. Proposition 6.3 handles only \(\kappa=0\). Prior general polynomial realization and circular-cycle counting work concerns more general settings without the identified equal-radius parameter classification. Related available mathematical database findings on concentric-circle periods and polynomial-cycle topology use different geometries and do not imply this conclusion. Earlier journal full texts were not fully accessible, so historical priority remains provisional, rather than proved by unsuccessful searching.
+
+## Value — PASS
+The exact neutral-versus-isolated limit-cycle boundary is a natural unresolved distinction left by a published *hyperbolicity* classification: zero Floquet exponent alone does not decide isolation. In the highly symmetric three-circle case the neutral locus is genuinely reversible rather than a higher-multiplicity limit cycle. The positive-weight obstruction also prohibits simultaneous transverse attraction (or repulsion) of the three prescribed circles, while the six constructive mixed patterns show that nothing further is forbidden at the sign level. Both statements clarify a structurally meaningful special geometry, not an arbitrary numeric sample.
+
+## Residual risks
+The result classifies only the prescribed circles. It does not rule out other periodic orbits or extend to asymmetric radii, and the exact priority of the specialized neutral-isolation classification has not been independently established.
+
+Self-review: passed. Independent audit: not yet performed.
