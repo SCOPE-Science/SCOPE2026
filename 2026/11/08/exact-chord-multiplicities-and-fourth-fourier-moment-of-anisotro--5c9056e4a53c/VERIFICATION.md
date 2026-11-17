@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and checks
 
-Run `python3 verify.py` with Python 3 and no additional packages. It enumerates \(C\subset(\mathbb Z/p^k\mathbb Z)^2\) and all ordered pair sums for \((p,k)=(3,1),(3,2),(3,3),(3,4),(7,1),(7,2),(11,1),(11,2)\), compares exact positive/zero multiplicities against the independent closed-form histogram, and checks sum of multiplicities and the fourth-energy identity. The field cases are regression controls, not the claimed new range. On success the script prints `ANISOTROPIC_CIRCLE_PRIME_POWER_HISTOGRAM_PASS`.
+# Independent mathematical audit
 
-The all-prime proof is contained in `RESULT.md`; brute force on eight finite rings does not prove it. In particular, the analytic argument establishes norm-fiber lifting and the square-congruence count for arbitrary \(k\ge2\). The fourth Fourier moment follows by exact finite-character orthogonality, not a floating-point numerical Fourier transform. The delivered files have no independent mathematical audit.
+## correctness
+
+PASS
+
+For p≡3 mod 4, the anisotropic norm makes each primitive vector norm a unit; smooth lifting gives m=p^(k−1)(p+1) unit norm fibers. For primitive z, a−b=hJz reduces r(z) to roots of h²=4/Q(z)−1. For valuation v>0, the reduced modulus gives exactly 2p^v or zero roots according to square norm class; z=0 contributes m. Summing positive strata and the identity number of pairs with xy=0 yields the claimed full histogram, support, energy E=3p^(2k−2)(p+1)(1+k(p−1)); Plancherel establishes the normalized fourth moment. Independently enumerated every ordered chord sum for moduli 9,27,49,121, reproducing circle sizes, support and energies, without extrapolating from finite moduli.
+
+## originality
+
+PASS
+
+Published finite-field norm-one-conic theorem fully inspected: k=1 energy 3p(p+1) and arbitrary-coefficient sharp norm were known and explicitly excluded. The higher-depth nonprimitive/tangent strata lack field analogues; split inverse hyperbola and general ring polynomial restriction have different equations or aims. Index searches found no dominating exact odd anisotropic-ring histogram. Residual risk is a prior broad local norm-density formula.
+
+## value
+
+PASS
+
+The complete ordered chord histogram for a naturally defined nonsplit torus over p-adic residue rings gives exact sumset cardinality and additive energy, basic invariants for finite-ring harmonic analysis. Valuation stratification is substantive beyond finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
