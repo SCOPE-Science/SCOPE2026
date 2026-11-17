@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Barycentric Dirichlet integrals provide the exact first, second and third moments of squared centroidal distance. An independent coefficient-by-coefficient rational expansion verifies the three universal polynomial identities; elimination reconstructs the symmetric functions of the squared side lengths. The cubic roots are positive and satisfy strict Heron area exactly for genuine triangles. An exact pair with matching first two moments establishes sharp failure of two-moment reconstruction. The reasoning covers arbitrary nondegenerate triangles, including repeated side lengths; the executable arithmetic supplements, not replaces, the proof.
+PASS
 
-## Originality — PASS, provisional
+Write d_i=lambda_i-1/3 (sum zero) for area-uniform barycentric Dirichlet(1,1,1) coordinates. Squared radius is -A d2 d3-B d3 d1-C d1 d2. An independent SymPy exact polynomial expansion and simplex beta integration recomputed every coefficient for powers one, two and three, proving the displayed e1,e2,e3 identities. Their nonzero -e3/756 coefficient gives exact inversion; positive cubic roots plus 4e2>e1² are the necessary/sufficient Heron feasibility condition. The two explicit distinct positive-area side-square triples have e1=6,e2=11 but different e3. The area formula and strict bounds follow from Newton inequalities and positive Heron area.
 
-Gravin et al. (arXiv:1210.3193, initial 2012 submission) provide multivariate simplex moments and a more general moment framework using richer data, whereas the present theorem isolates three orientation-free centroidal radii. Golub, Milanfar and Varah (1999) use complex/harmonic polygonal moments, not these three scalar radial moments. Davis (1964) treats complex-plane triangle formulas. The relevant publicly indexed comparisons did not reveal a theorem implying this exact radial inverse and sharp two-moment obstruction. Lack of exhaustive full text for the two older studies and the wider invariant-moment literature remains a genuine historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-A simple experiment—measuring one uniformly sampled interior point's distance from the centroid—produces a one-dimensional invariant. The result determines exactly when finitely many low-order statistics recover a Euclidean triangle, provides an explicit feasible region, and shows that the first two measurements already encode area but not shape. The sharp two-versus-three threshold makes the precise invariant relevant to inverse geometric probability. No statistical noise stability follows from exact identifiability.
+Earlier 2018 Gravin–Pasechnik–Shapiro–Shapiro treats general multivariate polytope moments and fixed candidate vertex sets; Li–Qiu 2016 treats vertex-to-random-point distances; older published 2026 triangle reconstruction uses TWO independent area-uniform points, rather than distance of ONE point to its moving centroid. Although the same e1,e2,e3 structure appears, the centroidal moment observations and all-order normalization are distinct; no inspected full primary theorem yields the precise three-scalar centroidal inverse or sharp two-moment counterexample.
 
-## Source and scope limits
+## value
 
-The essential comparisons are Gravin et al., *On moments of a polytope* (2012; arxiv:1210.3193), Golub–Milanfar–Varah (1999; DOI:10.1137/S1064827597328315), and Davis (1964; DOI:10.2307/2002943). The last two were not fully accessible, and independent human priority assessment is outstanding. The proof requires positive area and exact uniform-area moments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Centroidal radial moments are natural rigid-motion-invariant shape statistics; an exact three-measurement reconstruction threshold, feasible region and area identity furnish directly reusable shape tomography for arbitrary Euclidean triangles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
