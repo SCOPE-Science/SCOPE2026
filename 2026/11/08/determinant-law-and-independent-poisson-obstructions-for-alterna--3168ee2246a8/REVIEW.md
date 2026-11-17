@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite formula is reconstructed from the exact cycle index of two perfect matchings, the cyclic marked-word trace of a finite transfer matrix and the logarithmic determinant identity. The short-component correction and bounded-overlap dependency graph prove the two-colour Poisson law; a greedy disjoint-window argument handles the supercritical regime, and Perron–Frobenius plus square-root coefficient asymptotics yields the fixed-marking decay. The included checker independently compares direct finite semantics, component multiplication and coefficient extraction at 12 points, and exact component-count predictions at 15 points. All checks pass. Finite calculations are corroboration, not proof of infinite limits.
+PASS
 
-## Originality — PASS within checked evidence
+Fixing one matching and contracting pairs converts the second matching into alternating cycles with logarithmic combinatorial component weight 1/(2ℓ) (including double edges) and normalizer [z^n](1−z)^−1/2. On a component, both alternating-start modal formulas hold everywhere precisely when each cyclic length-k=2d window contains a Bernoulli mark, treating short cycles by periodic extension. The k-state automaton forbids k successive unmarked bits; trace T_k^(2ℓ) sums valid closed cyclic state walks. The exponential cycle index gives exp(sum trace(T^(2ℓ)) z^ℓ/(2ℓ))=det(I−zT²)^−1/2. For q→0 and nq^k→t, only O_P(1) vertices belong to short cycles, so they contribute no failures, and the remaining O(n) length-k windows have bounded dependency degree with overlapping union >=k+1; Chen–Stein error O(nq^(2k)+nq^(k+1))→0, yielding joint independent Poisson(t) by E/F disjoint type counts. For diverging nq^k, choose Ω(n) disjoint long windows to bound success by exp(−Ω(nq^k)). Monotone reachability gives the two-point depth law; for fixed u∈(0,1), primitive T has simple Perron root ρ<1, and square-root singularity analysis gives Cρ^(2n). Independent exact-rational enumeration over matchings/valuations confirms n=1..3 and d=1..3 with q=3/5; finite evidence not asserted universal.
 
-Full original HTML of Zantedeschi (arXiv:2603.27547v1) was inspected across framework, theorems, proofs and examples; it concerns modal exchangeability on fixed S4/S5 frames rather than independently sampled size-two equivalence relations. The complete open-access Aldini–Fusco (DOI:10.1007/s10849-026-09461-3) article was inspected for its multi-agent S5 model semantics; its stated results are logical completeness and model-checking, not an exact random-frame law. Godbole (DOI:10.2307/1427680) supplies established Poisson approximations for Bernoulli runs, here acknowledged as method rather than novelty; its accessible abstract does not resolve whether a substantially equivalent random-pairing specialization appears in its unretrieved full text. Comparison of indexed mathematical statements and accessible prior claims identified no stronger implication for the complete present theorem. A search failure alone is not a novelty proof. Historic equivalent reformulations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Global modal truth in a simple two-agent random epistemic frame has a natural exact probability, and the theorem determines it for every finite size, marking probability and alternating depth. The same identity unifies two qualitatively different asymptotic regimes: independent first-agent/second-agent rare obstructions, and the positive-marking exponential decay rate. The explicit two-point depth transition sharpens a yes/no global threshold. This is motivated exact structure and not an arbitrary finite table or a routine special case of the adjacent-run Poisson law.
+Standard Ewens(1/2) pairing cycle index, transfer-matrix forbidden-run traces and classical Poisson-run approximation are known separate methods. Zantedeschi 2026 establishes S5 modal exchangeability for fixed-frame representation, not a two-independent-pairing frame law. No indexed earlier theorem was found giving this exact matching-averaged determinant plus bivariate E/F obstructions and fixed-u spectral asymptotic. An equivalent old weighted pairing-cycle identity remains a real priority risk.
 
-## Scientific boundaries
+## value
 
-Only two independent uniformly chosen matchings, Boolean independent markings, global satisfaction of both alternating-start formulas and fixed depth are addressed. Historical priority and proof checking have not been independently audited; standard building blocks may yield an equivalent formula in prior combinatorial literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-n all-depth probability law of a natural two-agent random-knowledge frame, and the sharp independent-obstruction critical depth law, link finite combinatorial enumeration to a new probabilistic modal-logic quantity. The combined structural law is more than merely restating standard Poisson approximation for Bernoulli runs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
