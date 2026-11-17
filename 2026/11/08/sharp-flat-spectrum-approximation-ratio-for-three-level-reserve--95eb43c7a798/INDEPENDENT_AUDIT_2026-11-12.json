@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:19:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned source RESULT.md blob 861ca7b1da048df6bd8e1339b5eefd5fd238c928 and verify.py; primary arXiv source Algorithm 1",
+        "Independent arithmetic for (l,m,H)=(8,12,32), r=64"
+      ],
+      "rationale": "Exact source certificate c(w)=1/(2^(w-1)-1)+1/[4(2^(w-1)-1)^2] has c_prime<0,c_second>0. The low-width reserve inequality gives k_r=floor(r(e-h)/(a-h)); the next stage q_r is bounded independently of r by (a-h)/(b-h). Thus greedy/r converges uniformly to chord H-(H-l)(e-h)/(a-h). The integer optimum is within O(1) of the two-segment lower convex envelope of (h,H),(b,m),(a,l) by rounding adjacent precision mixtures, uniformly in e∈[h,a]. Ratio of affine functions strictly rises then falls with unique maximum at e=b. Strict Jensen proves all-m uniquely optimal at finite rank at e=b; h=c(H)→0 gives linear H growth. Independently recomputed exact 64-rank counts (3,15,46), payload 1676 vs 768, ratio 419/192 and limiting ratio 2.5428114074. Finite checks do not prove uniform convergence.",
+      "residual_risks": [
+        "Only certificate-constrained payload, equal strictly positive singular weights, exactly three precision levels; no hardware error guarantee beyond source certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carson–Chen–Khan original arXiv:2610.40134v1 HTML Section 2.2 equations (2.60)–(2.69) and Algorithm 1 give exact coefficient and reserve-greedy test; Remark 28 notes the greedy need not minimize payload.",
+          "Original Section 4.2–4.3 and Supplement B give finite empirical comparisons, including flat spectra, but not the exact all-budget asymptotic approximation-ratio formula or high-H linear divergence.",
+          "Different Wei and Satoki 2021 algorithms do not use this same three-precision source reserve rule or certificate-constrained objective.",
+          "Resultary search found no earlier published exact worst-budget three-level ratio apart from the candidate itself."
+        ],
+        "reasoning": "General linear-programming convexification and classical discrete allocation can yield lower convex envelopes but do not directly specify the source reserve-first greedy count k=floor(r(e-h)/(a-h)) or its second-stage bounded remainder; these are necessary for the performance ratio.",
+        "searches": [
+          "Resultary: integer quantization hierarchical matrices reserve greedy three bitwidth flat spectrum approximation ratio worst case",
+          "Resultary: sharp worst budget greedy reserve integer quantization three bit widths flat singular values",
+          "Primary: Carson Chen Khan Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation arXiv:2610.40134v1 Sections 2.2 4.2 4.3 Supplement B",
+          "Prior: Wei 2021 BitAllocation resource allocation greedy, Satoki et al. 2021 submodular greedy mixed precision"
+        ]
+      },
+      "checked_sources": [
+        "Carson–Chen–Khan original arXiv:2610.40134v1 HTML Section 2.2 equations (2.60)–(2.69) and Algorithm 1 give exact coefficient and reserve-greedy test; Remark 28 notes the greedy need not minimize payload.",
+        "Original Section 4.2–4.3 and Supplement B give finite empirical comparisons, including flat spectra, but not the exact all-budget asymptotic approximation-ratio formula or high-H linear divergence.",
+        "Different Wei and Satoki 2021 algorithms do not use this same three-precision source reserve rule or certificate-constrained objective.",
+        "Resultary search found no earlier published exact worst-budget three-level ratio apart from the candidate itself."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Carson–Chen–Khan original arXiv:2610.40134v1 HTML Section 2.2 equations (2.60)–(2.69) and Algorithm 1 give exact coefficient and reserve-greedy test; Remark 28 notes the greedy need not minimize payload.",
+          "Original Section 4.2–4.3 and Supplement B give finite empirical comparisons, including flat spectra, but not the exact all-budget asymptotic approximation-ratio formula or high-H linear divergence.",
+          "Different Wei and Satoki 2021 algorithms do not use this same three-precision source reserve rule or certificate-constrained objective.",
+          "Resultary search found no earlier published exact worst-budget three-level ratio apart from the candidate itself."
+        ],
+        "reasoning": "Source feasibility theorem ensures E_cert<=B, not payload optimality or approximation factor. Remark 28 explicitly allows counterexamples, but does not imply the exact ratio, unique worst e=b, or linear divergence coefficient as H grows. Additional floor-count analysis and convex envelope are necessary.",
+        "searches": [
+          "Resultary: integer quantization hierarchical matrices reserve greedy three bitwidth flat spectrum approximation ratio worst case",
+          "Resultary: sharp worst budget greedy reserve integer quantization three bit widths flat singular values",
+          "Primary: Carson Chen Khan Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation arXiv:2610.40134v1 Sections 2.2 4.2 4.3 Supplement B",
+          "Prior: Wei 2021 BitAllocation resource allocation greedy, Satoki et al. 2021 submodular greedy mixed precision"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carson–Chen–Khan original arXiv:2610.40134v1 HTML Section 2.2 equations (2.60)–(2.69) and Algorithm 1 give exact coefficient and reserve-greedy test; Remark 28 notes the greedy need not minimize payload.",
+          "Original Section 4.2–4.3 and Supplement B give finite empirical comparisons, including flat spectra, but not the exact all-budget asymptotic approximation-ratio formula or high-H linear divergence.",
+          "Different Wei and Satoki 2021 algorithms do not use this same three-precision source reserve rule or certificate-constrained objective.",
+          "Resultary search found no earlier published exact worst-budget three-level ratio apart from the candidate itself."
+        ],
+        "reasoning": "Compared exact algebraic source reserve condition, not just algorithm name. Existing finite nonoptimality and empirical ratios are different statements from the sharp limit supremum over every certificate budget for all integer palettes and all ranks.",
+        "searches": [
+          "Resultary: integer quantization hierarchical matrices reserve greedy three bitwidth flat spectrum approximation ratio worst case",
+          "Resultary: sharp worst budget greedy reserve integer quantization three bit widths flat singular values",
+          "Primary: Carson Chen Khan Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation arXiv:2610.40134v1 Sections 2.2 4.2 4.3 Supplement B",
+          "Prior: Wei 2021 BitAllocation resource allocation greedy, Satoki et al. 2021 submodular greedy mixed precision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original source Section 4.3 and Supplement B finite tables/plots, no closed all-budget table",
+          "Resultary semantic search of quantization bit allocation results"
+        ],
+        "reasoning": "Finite tested ranks/precision lists cannot dominate the all-rank/all-budget asymptotic theorem. Candidate supplies analytic envelope and unique optimizer, rather than recomputation of a known exact table.",
+        "searches": [
+          "Resultary: integer quantization hierarchical matrices reserve greedy three bitwidth flat spectrum approximation ratio worst case",
+          "Resultary: sharp worst budget greedy reserve integer quantization three bit widths flat singular values",
+          "Primary: Carson Chen Khan Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation arXiv:2610.40134v1 Sections 2.2 4.2 4.3 Supplement B",
+          "Prior: Wei 2021 BitAllocation resource allocation greedy, Satoki et al. 2021 submodular greedy mixed precision"
+        ]
+      },
+      "rationale": "Original heuristic is prior and explicitly acknowledged. The complete parameterized sharp worst-budget performance guarantee and its unbounded precision-gap coefficient were not stated in inspected original source or nearby precision-allocation records.",
+      "residual_risks": [
+        "Older mixed-precision approximation theorems or unexamined full texts could derive this exact reserve-rule ratio indirectly.",
+        "Source primary work is recent (October 2026); prior coverage assessment limited to available public sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm/feasibility and observed suboptimality, but no inspected sharp all-budget ratio",
+          "evidence": "Source gives sufficient certificate and anecdotal DP comparisons; candidate derives uniform flat-spectrum asymptotic sharp ratio and growth coefficient.",
+          "identifier_or_url": "https://arxiv.org/html/2610.40134v1",
+          "material_read": "Accessible full arXiv HTML; Section 2.2 eqs 2.60–2.69, Algorithm 1, Remark 28, Sections 4.2–4.3 and Supplement B",
+          "method": "Read original HTML algorithm and empirical comparison sections; checked mathematical reserve inequality against candidate",
+          "title": "Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation",
+          "trigger": "Same coefficient, same actual reserve-greedy algorithm and performance comparisons"
+        },
+        {
+          "assessment": "Different method; residual priority risk",
+          "evidence": "Abstract describes allocation rather than Carson–Chen–Khan reserve stages.",
+          "identifier_or_url": "https://adamwei.com/publication/bitallocation/",
+          "material_read": "Public abstract and description only; no full proof inspected",
+          "method": "Compared intended allocation objective and algorithm; no whole-document noncoverage assertion",
+          "title": "BitAllocation: A Resource Allocation Algorithm For Fixed-Point Quantization",
+          "trigger": "Earlier precision-bit allocation algorithm potentially stronger"
+        },
+        {
+          "assessment": "Different accuracy/layer objective; no full text noncoverage asserted",
+          "evidence": "Not the same singular-weight certificate or greedy reserve rule.",
+          "identifier_or_url": "https://proceedings.mlr.press/v157/satoki21a.html",
+          "material_read": "Public abstract and conference page; not full text read",
+          "method": "Method comparison only",
+          "title": "Greedy Search Algorithm for Mixed Precision in Post-Training Quantization of Convolutional Neural Network Inspired by Submodular Optimization",
+          "trigger": "Potential earlier greedy approximation analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Carson–Chen–Khan Algorithm 1 and documented nonoptimality; candidate uniform all-budget proof"
+      ],
+      "rationale": "Natural worst-case analysis of a published feasible but suboptimal quantization allocator explains how reserve-first greediness can incur systematically large payload despite flat spectra. Complete sharp ratio and critical budget provide a useful reproducible benchmark beyond an arbitrary tiny numerical example.",
+      "residual_risks": [
+        "Does not measure actual approximation error, runtime, hardware integer support, or metadata-augmented hierarchical storage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Three-level equal-singular-weight certificate only; broader optimization not covered.",
+    "Original source establishes heuristic nonoptimality; priority only for quantitative sharp profile."
+  ],
+  "schema_version": 1
+}
