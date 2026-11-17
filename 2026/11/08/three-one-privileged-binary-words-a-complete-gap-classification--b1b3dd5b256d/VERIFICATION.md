@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-## Reproducibility
-Run `python verify.py` using Python 3.10 or later with its standard library only. Expected terminal marker: `VERIFY_OK`.
+# Independent mathematical audit
 
-## Checks actually performed
-- Direct recursive border/occurrence recognition compared against the closed-form zero-gap predicate on all 40,920 weight-three binary words of lengths 3 through 32.
-- 3,000 seeded longer-gap cases compared by the same independent recognizer.
-- Two-one auxiliary classification checked exhaustively through length 24.
-- Nonpalindromic count obtained from gap enumeration compared against coefficient extraction from the product generating function through length 700.
+## correctness
 
-The computer checks are finite. The all-length theorem is justified by the separate exhaustive classification of privileged-border types and a bijection to solutions of a linear Diophantine equation. Independent audit has not been performed.
+PASS
+
+Complete-first-return definition and endpoint-run equality reduce possible shorter privileged borders to zero-, one-, or two-one cases (the three-one case cannot have two translated occurrences). A zero-only border forces a=d>max{b,c}; a one-one border necessarily has a third central occurrence; a two-one border requires b=c>=a. Converse exhibits the qualifying zero-only or two-one border, exactly twice. Mapping choose b>c versus c>b, then r=a-max(b,c)-1,s=abs(b-c)-1,t=min(b,c), gives invertible partition count. Separate direct-recursive computation checked all 3876 weight-three words of lengths 3..18. Those tests are corroboration rather than proof for all lengths.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality retained after direct statement/implication comparison with Resultary published findings and primary literature; strictly credited prior special cases. Those statements imply selected branches/slices of the proposed result but not its full necessity for arbitrary separated three ones, nor the 2,3,4 partition bijection.
+
+## value
+
+PASS
+
+Fixed Hamming weight three is the first class with privileged nonpalindromic binary words. The complete border-gap criterion, orientation-sensitive partition bijection and all-length rational generating function are natural combinatorics-on-words exact invariants, useful beyond one previously known length-eight witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

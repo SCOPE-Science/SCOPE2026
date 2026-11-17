@@ -1,15 +1,21 @@
-# Review of the three-one privileged-word classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope fixes the binary alphabet and exactly three ones. The proof verifies the two-one auxiliary classification, rules out every possible privileged-border one-count (0, 1, 2, 3), establishes both sufficiency branches, and constructs a reversible parametrization by three nonnegative integers and one orientation. It separately counts all palindromic cases and derives the pole asymptotic. Direct recursive enumeration (40,920 examples) and an independent coefficient computation through length 700 passed. Numerical checks alone are not used as the infinite proof.
+## correctness
 
-## Originality — PASS, with historical qualification
-Peltomäki (2012, 2016) gives the underlying definition and rich-word theory, and explicitly identifies a shortest nonpalindromic privileged example. Forsyth–Jayakumar–Shallit (2013) proves endpoint-run equality, a related restricted three-one family, and a broad sufficient complete-return construction. These established facts are credited, not claimed. The full four-zero-gap criterion together with the exact weight-three nonpalindromic partition law is not present in the materially inspected portions of these sources. Nicholson–Rampersad (2015) treats unrestricted asymptotic bounds. OEIS A231208 and A235609 provide total counts and a finite list of words, rather than this all-length weight-refined formula. Unindexed equivalent statements and the possible simplicity of extracting this specialization from known structural results remain risks.
+PASS
 
-## Value — PASS
-The first nonpalindromic privileged examples have exactly three ones, and three is thus a natural sparsity boundary between palindrome-like and genuinely privileged behavior. The theorem classifies the entire weight-three slice of a non-context-free language and gives a structural reason for the exact quasi-polynomial counting law: a bijection to partitions with parts 2, 3, and 4. The conclusion also quantifies how rarely privileged words occur within weight-three words. It is not a claim about a general new privileged-word algorithm or an unrestricted enumeration formula.
+Complete-first-return definition and endpoint-run equality reduce possible shorter privileged borders to zero-, one-, or two-one cases (the three-one case cannot have two translated occurrences). A zero-only border forces a=d>max{b,c}; a one-one border necessarily has a third central occurrence; a two-one border requires b=c>=a. Converse exhibits the qualifying zero-only or two-one border, exactly twice. Mapping choose b>c versus c>b, then r=a-max(b,c)-1,s=abs(b-c)-1,t=min(b,c), gives invertible partition count. Separate direct-recursive computation checked all 3876 weight-three words of lengths 3..18. Those tests are corroboration rather than proof for all lengths.
 
-## Remaining limitations
-The theorem covers only fixed content three and has no higher-weight extension. The published 2016 dissertation was available as extracted text at relevant sections, but PDF imagery could not be fetched. No independent reviewer has assessed the result or its historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality retained after direct statement/implication comparison with Resultary published findings and primary literature; strictly credited prior special cases. Those statements imply selected branches/slices of the proposed result but not its full necessity for arbitrary separated three ones, nor the 2,3,4 partition bijection.
+
+## value
+
+PASS
+
+Fixed Hamming weight three is the first class with privileged nonpalindromic binary words. The complete border-gap criterion, orientation-sensitive partition bijection and all-length rational generating function are natural combinatorics-on-words exact invariants, useful beyond one previously known length-eight witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
