@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is a complete integer-interval argument for all positive parameters with equal period. The program `verify.py` separately constructs actual finite factor sets from the two periodic words, and counts their common zero-counts; it does not implement the analytic window extrema to obtain the observed results.
+## correctness
 
-Executed using `python3 verify.py`, the observed output was:
+PASS
 
-```
-VERIFY_OK parameter_pairs=2870 length_and_class_checks=123682 internal_gap_checks=13540
-```
+For length n=tL+r in a cyclic 0^e1^f period, the full attainable zero-count set is the integer interval [te+max(0,r-f),te+min(e,r)], since phase shifts by one change counts by at most one and both extrema occur. With a>c the overlap is [ta+max(0,r-b), tc+min(c,r)], giving the claimed C(n). Solving the exact piecewise-linear level-set inequality with h=t(a-c) yields length islands [t(a+d),(t+1)(b+c)] for t<=floor(min(b,c)/(a-c)); these are pairwise separated, the terminal length is (T+1)(b+c), and summing disjoint island cardinalities minus n=0 gives the claimed count. Equal profiles a=c use the separate periodic formula. The finite direct enumeration of cyclic phases corroborates but is not the universal proof.
 
-The sweep covers every pair of profiles with shared period from 2 through 21, both identical and unequal profiles, and lengths beyond the last predicted coincidence. It checks every shared-Parikh-class count, every predicted admissible interval, interval separation, and excluded lengths. The assertions terminate on a counterexample. This is finite reproducibility evidence, not an exhaustive infinite-parameter certificate. No independent validation has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original complete all-positive-length Abelian-factor coincidence classification for unequal equal-period two-run cycles. Finite RLE algorithms compute a longest common Abelian factor but do not imply this explicit infinite periodic disjoint-interval spectrum or shared Parikh-class function. Related two-run Abelian complexity and higher-power spectra concern a single word, not pairwise overlap.
+
+## value
+
+PASS
+
+Exact nonmonotone Abelian-coincidence islands and sharp last common length give a natural structural classification for a basic family of periodic words, beyond applying finite-string matching mechanically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
