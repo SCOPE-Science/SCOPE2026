@@ -1,15 +1,21 @@
-# Scientific review of the tetrahedral Cayley-frustum numerator theorem
+# Independent mathematical audit
 
-## Correctness: PASS
-The object is the convex hull of two integral multiples of the standard three-simplex at consecutive lattice heights. The slice at each integer height of a dilation is explicitly a three-simplex, yielding the stated Ehrhart count. Coefficient extraction in denominator degree five produces the displayed numerator and zero leading coefficient. Smoothness and exact width one follow from the six facet inequalities and primitive edges. For the two degree-drop cases the roots are checked exactly. Otherwise an integer arithmetic reconstruction establishes that the cubic discriminant, multiplied by 432, is a 90-monomial polynomial in the two nonnegative shifted layer sizes, with strictly positive coefficients and nonzero positive linear terms. It is therefore positive on the entire claimed domain. A real cubic with positive discriminant has three distinct real roots, and positive coefficients exclude nonnegative real roots. The provided certificate and checker were executed successfully; the supplementary 845 integer counts were compared directly with independent section sums. Computation is used to certify a finite algebraic identity, not to extrapolate from a finite parameter sample.
+## correctness
 
-## Originality: PASS, with historical-priority risk
-The closest inspected primary paper is Liu–Tang–Tao–Zhang (2026), arXiv:2610.27819, especially Theorem 2.1 and Proposition 3.1: it includes the relevant smooth six-facet simplex-bundle geometry but proves a different conclusion, positivity of Ehrhart polynomial coefficients, with no negative-real-root classification of the numerator. Ferroni (2026), arXiv:2609.10513, gives counterexamples for other Cayley families, not an all-parameter positive root theorem for two tetrahedral layers. Nill (2026) assumes large lattice width, incompatible with width one. Zonotope, Cartesian-product, and Veronese-dilation real-rootedness theorems do not cover the unequal-layer, width-one family. Targeted semantic searches of mathematical research records and claims in the accessible geometry ledger did not recover an equivalent or stronger result. Search failure is not proof of novelty; earlier material under different terminology is a residual risk. The full original text of the older specialized literature on simplex bundles was not exhaustively available; this limitation does not supply affirmative covering evidence.
+PASS
 
-## Mathematical value: PASS
-The recent complete classification of few-facet smooth lattice polytopes and the new counterexamples to unimodality make it meaningful to identify the smallest natural nonproduct smooth Cayley family in which the far stronger root-location property survives uniformly. Here all positive integral layer sizes are covered, without asymptotic width conditions; the proof gives the exact numerator and a structural discriminant certificate, including the sharp degree-drop boundaries. The theorem is deliberately narrower than all smooth four-dimensional polytopes with six facets, and does not assert higher-dimensional root-preservation. Its value is the complete two-parameter natural-family classification, not a general theorem or a claim of priority certification.
+The height-one Cayley polytope conv((aΔ3,0),(bΔ3,1)) has integral slices at t=j of kP of size binomial(a(k-j)+bj+3,3). The exact k+1 term sum and fourth-order finite difference derive the asserted h1,h2,h3 coefficients and h4=0 by width-one interior-point obstruction. With X=a-1,Y=b-1, the h_i are explicit positive polynomials (except degree-drop h3). For X+Y=0, h*=1+3z; for X+Y=1, h*=1+9z+5z² with positive discriminant 61. Otherwise the cubic discriminant satisfies an exact identity 432D=Σ c_ij X^iY^j with 90 strictly positive nonzero coefficients, including linear coefficients 7776 each, hence D>0 on integer X+Y>=2; all three roots are distinct real and negative because coefficients are positive. Independent SymPy computation from the h_i formulas reproduces exactly 90 positive coefficients, c_10=c_01=7776 and constant zero. Six facets, primitive edge-direction determinants ±1 at each vertex and integral height coordinate show smoothness and lattice width one.
 
-## Sources and reproducibility limits
-Primary text inspected: https://arxiv.org/abs/2610.27819 (introduction and §§2–3); https://arxiv.org/html/2609.10513v2 (introduction and §§2–4). Scope checks: https://arxiv.org/abs/2608.03635, https://arxiv.org/abs/1609.08596, https://arxiv.org/abs/1602.09139. Exact arithmetic: `verify.py` and `certificate.json`. The 90-term coefficient positivity is the critical computation; the count cross-checks are supplementary. Independent external mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest 2026 Liu–Tang–Tao–Zhang result classifies smooth few-facet geometry and proves ordinary Ehrhart polynomial coefficient positivity, not a statement about all zeros of the *numerator* h* for this non-product tetrahedral frustum. A different 2026 published Cayley family R_{2,c} is seven-facet and has 2-simplex×segment fibers, so its one-parameter cubic-discriminant root statement does not cover the present two-parameter six-facet tetrahedral bundles. Ferroni supplies counterexamples to h* unimodality for other Cayley polytopes, and Nill large-width real-rootedness cannot apply to exact width one. The strongest plausible original Liu paper remained inaccessible in full, which is recorded as a real priority risk rather than automatic O failure.
+
+## value
+
+PASS
+
+The lattice width-one all-two-scale tetrahedral bundle is a natural smooth four-polytope family at the exact structural boundary where generic real-rootedness is not guaranteed. A complete two-parameter real-simple-negative numerator-root theorem with a fully checked sign-positive discriminant identity is a meaningful exact classification, beyond merely proving Ehrhart coefficient positivity or testing sample frusta. The result does not claim all smooth six-facet polytope numerators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
