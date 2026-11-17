@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The checker constructs all \(\binom{q+1}{2}^n\) valid two-row sources directly, deletes one symbol separately from each of their two rows, deduplicates outputs from different deletion positions, and counts all distinct sources for each received pair. It checks the exact optimum and the set of maximizing outputs, including cases where the received rows are not ordered.
+## correctness
 
-Successfully executed complete tests for \(q=2\), lengths \(1\) through \(8\); \(q=3\), lengths \(1\) through \(5\); \(q=4\), lengths \(1\) through \(4\); and \(q=5,6\), lengths \(1\) through \(3\). All 23 tested instances passed, ending in `VERIFY_OK`.
+PASS
 
-The checker is an independent finite implementation of the channel definition, not a formal proof of the infinite-parameter assertion. The analytical induction, counting of one-insertion supersequences, and strict inequality establishing unique equality are provided in `RESULT.md`. No external or independent review has been performed.
+For each received row w of length n−1, distinct one-insertion supersequences I_q(w) partition disjointly by whether the initial received symbol is retained, proving |I_q(w)|=1+n(q−1). The product I_q(u)×I_q(v) is restricted by coordinatewise x_j≤y_j. Induction on n partitions by the two first symbols a,b. For a≤b, the count is ≤M_(n−1)+(q−1+b−a)T+q(q−1)/2−(b−a), with T=1+(n−1)(q−1), maximized at b−a=q−1, yielding M_n. For a>b, count ≤qT+q(q−1)/2<M_n for n≥2. At u=0^(n−1), v=(q−1)^(n−1), there are (1+n(q−1))² possible row supersequence pairs, with exactly nq(q−1)/2 incompatible same-position exceptional pairs. Equality in the bound forces every leading pair (a,b)=(0,q−1), proving unique receiver for n>=2; n=1 returns q(q+1)/2. Independent direct exhaustive enumeration on seven (q,n) parameter pairs corroborated all base/equality cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge: a nontrivial sharp unencoded two-row simultaneous-deletion inverse-list law with unique receiver, not implied by related code-size, sphere-packing and one-affected-row results in two complete primary articles.
+
+## value
+
+PASS
+
+Exact largest candidate-source count and unique worst-case received pair directly quantify decoding ambiguity in a naturally ordered composite DNA channel; useful distinct invariant from optimized codebook capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

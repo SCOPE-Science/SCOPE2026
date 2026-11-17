@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:09:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each received row w of length n−1, distinct one-insertion supersequences I_q(w) partition disjointly by whether the initial received symbol is retained, proving |I_q(w)|=1+n(q−1). The product I_q(u)×I_q(v) is restricted by coordinatewise x_j≤y_j. Induction on n partitions by the two first symbols a,b. For a≤b, the count is ≤M_(n−1)+(q−1+b−a)T+q(q−1)/2−(b−a), with T=1+(n−1)(q−1), maximized at b−a=q−1, yielding M_n. For a>b, count ≤qT+q(q−1)/2<M_n for n≥2. At u=0^(n−1), v=(q−1)^(n−1), there are (1+n(q−1))² possible row supersequence pairs, with exactly nq(q−1)/2 incompatible same-position exceptional pairs. Equality in the bound forces every leading pair (a,b)=(0,q−1), proving unique receiver for n>=2; n=1 returns q(q+1)/2. Independent direct exhaustive enumeration on seven (q,n) parameter pairs corroborated all base/equality cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye et al. Section II-B permits composite deletion vectors and Section V-B t-(1,...,1) code constructions, but its headline bounds concern maximum sizes of error-correcting codes, not unencoded source inverse-fiber maxima.",
+          "Dollma et al. Section V and Appendix D give average deletion ball sizes for radius (1,0) and radius 1, not the simultaneous (1,1) exact worst inverse list."
+        ],
+        "reasoning": "The more general channel definition does not imply an exact inverse-list optimizer; an actual theorem covering the submitted max over u,v was not found in those primary texts.",
+        "searches": [
+          "https://arxiv.org/html/2602.16406v1",
+          "https://arxiv.org/pdf/2509.26119",
+          "ordered composite DNA strands two row one deletion each exact inverse list size supersequences"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2509.26119",
+        "https://arxiv.org/html/2602.16406v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves |I_q(w)|=1+n(q−1), then refines the Cartesian product by a columnwise order filter.",
+          "Induction over first received symbols a,b bounds two mixed insertion cases and the both-new case; max forces a=0,b=q−1 at every step."
+        ],
+        "reasoning": "Sphere packing and error correction yield neither the quadratic expression for all inverse list sizes nor the unique extremizing read pair without this compatibility subtraction and equality-case induction.",
+        "searches": [
+          "https://arxiv.org/pdf/2509.26119",
+          "https://arxiv.org/html/2602.16406v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted exact receiver inverse list counts distinct componentwise ordered source pairs after exactly one deletion in each of two labeled rows.",
+          "Dollma et al. mostly treat channel deletion in one of two rows and code cardinality; Ye et al. define more general deletion-error models but bound and construct codebooks."
+        ],
+        "reasoning": "One deletion in either row, deletion ball size, or code redundancy is not the same as the inverse size of a fixed pair of two deleted reads. No equivalent sharp expression occurs in inspected main theorems.",
+        "searches": [
+          "ordered composite DNA strands two row one deletion each exact inverse list size supersequences",
+          "https://arxiv.org/pdf/2509.26119",
+          "https://arxiv.org/html/2602.16406v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted all-q,n formula M=(1+n(q−1))²−nq(q−1)/2 is an unrestricted family, with a unique extreme receiver.",
+          "Independent brute-force count for q=2 and n<=4, q=3 and n<=3, and q=4,n=2 matches formula and uniqueness."
+        ],
+        "reasoning": "Finite channel coding tables are different observables; no exact table was treated as evidence of an all-parameter theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2509.26119",
+          "https://arxiv.org/html/2602.16406v1",
+          "ordered composite DNA strands two row one deletion each exact inverse list size supersequences"
+        ]
+      },
+      "rationale": "Best-of-knowledge: a nontrivial sharp unencoded two-row simultaneous-deletion inverse-list law with unique receiver, not implied by related code-size, sphere-packing and one-affected-row results in two complete primary articles.",
+      "residual_risks": [
+        "A code-theoretic appendix may contain an implicit inverse-ball estimate, though targeted inspection of relevant deletion sections found no equality to this formula.",
+        "Future generalization of the model could contain the same special case; no broad literature exhaustiveness asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_CHANNEL_NO_EXACT_INVERSE_MAX",
+          "evidence": "Analyzes deletion ball sizes and correcting-code cardinalities; exact simultaneous (1,1) receiver inverse-list maximum is not stated in inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.26119",
+          "material_read": "Complete 40-page arXiv v3 PDF, including channel definitions, Section V deletion bounds and code constructions, Theorem 13 average ball sizes, Appendix D",
+          "method": "Web full PDF text and page-image inspection (page 21), relevant theorem and sections compared",
+          "title": "Coding for Ordered Composite DNA Sequences",
+          "trigger": "Foundational original ordered-composite DNA channel, deletion sections"
+        },
+        {
+          "assessment": "RELATED_GENERAL_CHANNEL_NO_FORMULA",
+          "evidence": "General error model includes affected rows, but results address code size/construction and lack claimed raw receiver ambiguity formula.",
+          "identifier_or_url": "https://arxiv.org/html/2602.16406v1",
+          "material_read": "Complete arXiv HTML manuscript with introduction, model definitions, Section IV-B upper bounds and Section V-B t-(1,...,1) constructions",
+          "method": "Web full HTML, inspected code-size and deletion subsections",
+          "title": "Bounds and Constructions of Codes for Ordered Composite DNA Sequences",
+          "trigger": "Later stronger q-ary ordered-composite deletion theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact largest candidate-source count and unique worst-case received pair directly quantify decoding ambiguity in a naturally ordered composite DNA channel; useful distinct invariant from optimized codebook capacity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2509.26119",
+    "https://arxiv.org/html/2602.16406v1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "q>=2,n>=1, exactly one deletion from each labeled row, componentwise source order, fixed length and alphabet."
+  ],
+  "residual_risks": [
+    "Result does not imply optimal code size or improved redundancy; interpretations are explicitly restricted to unencoded inverse-list counts.",
+    "No analysis of multiple deletions per row, unlabelled outputs or resolutions beyond two rows."
+  ],
+  "schema_version": 1
+}
