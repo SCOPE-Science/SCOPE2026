@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The integer map \((x,y)\mapsto(x,x+qy)\) converts the lattice-point count into the number of congruent pairs in a block of exactly \(t+\delta_t\) consecutive integers. Splitting this block into \(q\) residue classes proves the exact formula for all nonnegative dilations. Parity distinguishes the linear coefficients of the constituent polynomials; the zero constant term for residue \(q\) forces every quasi-period to be divisible by \(q\), proving minimal period \(2q\) for odd \(q\). Vertices, area, primitive facet normals, and no boundary lattice points are verified directly. The supplementary brute-force checks cover 1,222 finite cases and are not substituted for the universal argument.
+## correctness
 
-## Originality (PASS, provisional historical priority)
-The 2026 Chu--Karshon halfway-lattice theorem concerns a Pick-type area formula under unimodularity; the present four-facet family is nonunimodular and its claim is an exact dilate-count and minimal-period classification. The general theory of Ehrhart quasi-polynomials bounds their period by the vertex denominator but cannot establish sharpness here. Bohnert's half-integral polygons have vertices with denominator two, unlike the present family of vertex denominator \(2q\). McAllister--Moriarity study period collapse in rational polygons more generally; an equivalent instance hidden in broad classifications remains a priority risk. Targeted primary literature, published research records, and accessible historical claim summaries revealed no statement implying this exact family. Non-detection is not proof of global novelty.
+PASS
 
-## Mathematical value (PASS)
-The motivating distinction between unimodular and nonunimodular halfway-lattice polygons raises a natural arithmetic question: can a polygon constrained to lie halfway between primitive lattice hyperplanes nevertheless have arbitrarily complicated Ehrhart periodicity? This result answers yes with the exact minimal quasi-period and a complete counting formula in an infinite, highly restricted geometric class. It shows that the geometric half-step constraint alone does not supply a universal period bound. This is not presented as a general theorem for all halfway-lattice polygons or as the first arbitrary-period Ehrhart example.
+The determinant-q integer map (x,y)->(u=x,v=x+qy) bijects lattice points with congruent integer pairs u=v mod q within an N=t+1 (even t) or N=t (odd t) consecutive-integer interval. Counting residue occupancies yields exact all-t formula, including t=0. Constituent polynomials have linear coefficient 2delta/q, forcing any period T even. At odd residue s=q, constant term zero requires r_(q+T)=0, hence q|T. Therefore 2q|T, and the formula supplies 2q, proving minimality; direct facet checks show primitive normals, area 1/q, no facet lattice points.
 
-## Limits and closest literature
-The result is restricted to odd \(q\ge3\). Its historical priority remains tentative, especially against earlier rational-parallelogram counting formulas and equivalent descriptions using sublattices. The verifier is supplementary; proof is self-contained.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the demonstrated nonunimodular family and exact sharp minimal period are not consequences of inspected unimodular Pick-type or half-integral-vertex findings; general Ehrhart period bound alone only gives divisibility.
+
+## value
+
+PASS
+
+It addresses a natural arithmetic boundary: primitive facet normals at half-lattice offsets do not control minimal Ehrhart period without unimodularity. A complete explicit q-family demonstrates unbounded sharp period under strict geometric constraints, rather than a random numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
