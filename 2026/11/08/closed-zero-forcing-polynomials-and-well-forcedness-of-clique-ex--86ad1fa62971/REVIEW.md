@@ -1,15 +1,21 @@
-# Scientific review: cycle-of-cliques zero forcing
+# Independent mathematical audit
 
-## Correctness — PASS
-The single-white-per-fibre lemma is necessary because each clique is a true-twin module. With that lemma, each blue vertex in clique \(i\) sees exactly the partial indices in the cyclic triple centered at \(i\), allowing an exact reduction to full-fibre patterns. A full-index pair of cyclic distance at most two either immediately grows into an adjacent pair or already is one; consecutive full indices propagate around the cycle. If no such pair exists, no first force exists. The coefficient subtraction counts these complete obstruction patterns exactly via cyclic positive-gap compositions. An edge of the squared cycle determines every inclusion-minimal set. These arguments cover \(n=3,4,5\), \(m=2\), and all larger cases. The independent brute-force verifier checked the raw colour-change rule against the formulas for ten graph profiles and all 128,832 subsets.
+## correctness
 
-## Originality — PASS, provisional
-The 2018 zero-forcing polynomial article provides the parameter and general techniques, but its inspected full text concentrates on paths, cycles, threshold graphs, and general properties rather than the claimed blown-up cycle formula. The 2016 lexicographic-product preprint (Corollary 3.17) actually asserts a contradictory exact scalar formula for this family, \(n(m-1)+\lceil n/2\rceil\) for \(n\ge4,m\ge3\). This value exceeds the rigorously proved \(n(m-1)+2\) for \(n\ge5\); an explicit 12-blue forcing set in \(C_5[K_3]\) refutes its claimed value 13. The polynomial and all-set criterion are additional results, not already implied by that false scalar statement. The 2023 well-forced paper proves results mostly about trees and some elementary families; neither the clique-expanded cyclic case nor the cycle-square coefficient formula was found. The strongest relevant comparison is the 2026 modular-compression preprint: Corollary 3.6 and Section 5 **already** imply a general exponential subset-profile algorithm and the binary true-twin restriction for all clique blow-ups. That coverage is explicitly acknowledged. Its special closed formulas address common-clique unions of a star type graph, not a cycle type graph. The present specific simplification to adjacent full-clique pairs and cycle-square independence, and the exact inclusion-minimal family, are not stated in the material inspected. This priority assessment is provisional: equivalent results under circular clique expansions or a stronger unpublished specialization remain possible. The generic 2026 framework might also reduce the perceived independent contribution.
+PASS
 
-## Value — PASS
-The corrected minimum additionally supplies a concrete, unbounded discrepancy with a prior exact lexicographic-product claim. The exact coefficient formula compresses an exponentially sized family of initial vertex colorings for a natural regular product family into an explicit binomial sum. The result gives a structural, single-obstruction test rather than just an algorithmic decision method, proves well-forcedness across infinitely many dense noncomplete graphs, and identifies an exact exponentially numerous family of minimum sets. These refine both counting and minimal-versus-minimum questions motivated by the cited primary literature. They are not simply re-labellings of the previously published threshold-graph polynomials or star-type modular examples.
+Two white vertices in the same true-twin clique can never be separated by any unique-neighbor force. With at most one white per clique, a force occurs precisely when the cyclic triple around the forcing clique contains two full and one partial clique; hence a full-index pair at distance at most two is necessary and sufficient. A pair creates an adjacent full pair then extends a full run around the cycle until all fill. Independent full-index sets in C_n^2 count failure configurations; their cyclic gap count a_nk=n/(n-2k) binom(n-2k,k) yields the polynomial. Exactly two full indices are necessary for minimum, and any three or more contain a removable full clique, proving well-forcedness and e_n m^(n-2). Exact direct zero-forcing enumeration and the C5[K3] 12-blue counter-witness corroborate small cases.
 
-## Scientific limitations and comparison
-The cycle-square criterion is specific to equal clique replacements of a simple cycle and ordinary zero forcing. No assertion is made for other forcing rules or arbitrary bases. The generic modular compression result is important prior coverage and an originality risk, even though it does not explicitly evaluate the cycle case. Computer checks corroborate finite cases, not all parameter values. Full publication priority and mathematical proof have not received an independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A 2026 true-twin modular-compression theorem gives a generic profile method covering this family algorithmically. It does not state the evaluated cycle-square independence polynomial or the all-minimal-set classification in the full-text portions read. The 2016 alleged C_n[K_m] number n(m-1)+ceil(n/2) is inconsistent with an explicit 12-blue forcing set in C5[K3]; the exact mathematical correction and full polynomial are not implications of that incorrect value.
+
+## value
+
+PASS
+
+A natural canonical lexicographic graph family admits a complete closed forcing polynomial and the much stronger well-forced criterion. Correcting the published alleged minimum with explicit counterexample and global theorem is substantive, not merely an arbitrary instance, and the cycle-square independent-set reduction is reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

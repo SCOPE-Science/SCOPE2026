@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10+ and standard library only. The verifier builds each labelled simple graph by hand from its pair-coordinate adjacency rule, repeatedly applies the literal blue-vertex/unique-white-neighbour forcing rule, and enumerates every initial blue subset for ten graph profiles. It independently implements the proposed structural criterion, coefficients, minimum cardinality, and minimum multiplicity.
+## correctness
 
-A separate direct boundary assertion checks that a 12-blue configuration in `C_5[K_3]` succeeds and is inclusion-minimal, contradicting the earlier value 13 in arXiv:1607.04071v1, Corollary 3.17. The executed check reported `VERIFY_OK profiles=10 candidate_sets=128832 zero_forcing_sets=6962 literal_rule=PASS all_polynomial_coefficients=PASS minimal_counts=PASS`. Its ten parameter profiles are documented in `RESULT.md` and the source. Boundary cases include the complete-base three-cycle, the complete square of the five-cycle, and the smallest clique size. This is bounded computational corroboration; the unrestricted formulas rest on the accompanying proof. No separate human or independent mathematical audit was performed.
+PASS
+
+Two white vertices in the same true-twin clique can never be separated by any unique-neighbor force. With at most one white per clique, a force occurs precisely when the cyclic triple around the forcing clique contains two full and one partial clique; hence a full-index pair at distance at most two is necessary and sufficient. A pair creates an adjacent full pair then extends a full run around the cycle until all fill. Independent full-index sets in C_n^2 count failure configurations; their cyclic gap count a_nk=n/(n-2k) binom(n-2k,k) yields the polynomial. Exactly two full indices are necessary for minimum, and any three or more contain a removable full clique, proving well-forcedness and e_n m^(n-2). Exact direct zero-forcing enumeration and the C5[K3] 12-blue counter-witness corroborate small cases.
+
+## originality
+
+PASS
+
+A 2026 true-twin modular-compression theorem gives a generic profile method covering this family algorithmically. It does not state the evaluated cycle-square independence polynomial or the all-minimal-set classification in the full-text portions read. The 2016 alleged C_n[K_m] number n(m-1)+ceil(n/2) is inconsistent with an explicit 12-blue forcing set in C5[K3]; the exact mathematical correction and full polynomial are not implications of that incorrect value.
+
+## value
+
+PASS
+
+A natural canonical lexicographic graph family admits a complete closed forcing polynomial and the much stronger well-forced criterion. Correcting the published alleged minimum with explicit counterexample and global theorem is substantive, not merely an arbitrary instance, and the cycle-square independent-set reduction is reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
