@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:57:24.471111Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/run-length-dichotomy-for-cyclic-subsequence-universality-of-peri--b8ecd39edb44/RESULT.md",
+        "2026/11/08/run-length-dichotomy-for-cyclic-subsequence-universality-of-peri--b8ecd39edb44/verify.py"
+      ],
+      "rationale": "For q>=3 distinct cyclic runs and k>=1, greedy complete arches exactly equal scattered-subsequence universality. From a phase in run j, the first completing run is j+q-1 and subsequent arch endpoints advance q-1 for a nonsingleton endpoint or q for a singleton endpoint. Counting endpoint indices within the half-open k-period factor gives k+floor((k-1+delta)/(q-1)) when all runs are nonsingleton. In the singleton case the bounded deficiency E_r=rq-(J_r-j) lies in [1,q], with equality at q only for a run-start boundary, excluding a (k+1)th arch: the index is k in every phase. All maximizing-phase counts follow; q>=3, positive lengths and position rotations are essential. Independently scanned 16,200 (word, phase, repetition) cases for q=3,4,5 with run lengths 1..3 and k=1..5, matching the formulas; this finite check corroborates the full recurrence proof.",
+      "residual_risks": [
+        "The proof uses the standard greedy arch universality lemma; finite checking does not establish infinite quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General power universality recurrence/periodicity and arch-jumping algorithms allow input-dependent calculation, not a closed all-k answer independent of large run lengths."
+        ],
+        "reasoning": "Algorithmic generality covers the input family as a class, but extracting the claimed structural dichotomy and count requires nontrivial analysis; mere algorithms do not state/determine the formula without computation.",
+        "searches": [
+          "circular scattered subsequence universality periodic words one run each alphabet symbol power arch count rotations singleton",
+          "arxiv:2104.09063",
+          "arxiv:2304.11932"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2003.04629",
+        "https://arxiv.org/abs/2104.09063",
+        "https://arxiv.org/abs/2304.11932",
+        "circular scattered subsequence universality periodic words one run each alphabet symbol power arch count rotations singleton"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general one-step circular bound is consistent with, but does not fix, which k and phase attain a gain; eventual periodicity allows many possible transients and periods."
+        ],
+        "reasoning": "Neither the one-step inequality nor eventually periodic algorithms imply the singleton criterion or the exact maximizing-phase multiplicity without an additional run-endpoint proof.",
+        "searches": [
+          "arxiv:2003.04629",
+          "arxiv:2104.09063",
+          "arxiv:2304.11932",
+          "circular scattered subsequence universality periodic words one run each alphabet symbol power arch count rotations singleton"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al. introduce cyclic scattered universality and at-most-one circular gain; Fleischmann et al. study universality of powers and eventual periodicity."
+        ],
+        "reasoning": "Arch factorization and circular subsequence universality refer to the same invariant, but the source theorems do not state the exact phase-by-phase formula for one-per-letter run words.",
+        "searches": [
+          "circular scattered subsequence universality periodic words one run each alphabet symbol power arch count rotations singleton",
+          "arxiv:2003.04629",
+          "arxiv:2104.09063"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary entries concern necklace counts of shortest universal words or all binary words; neither supplies q>=3 distinct-letter run-phase indices."
+        ],
+        "reasoning": "The requested invariant is an infinite symbolic phase formula rather than a finite sequence lookup; no exact covering table was found, which is not a priority certificate.",
+        "searches": [
+          "circular scattered subsequence universality periodic words one run each alphabet symbol power arch count rotations singleton",
+          "Resultary:2026/11/8/SCOPE-exact-necklace-and-primitive-period-census-for-shortest-circular--640a099a3a6b",
+          "Resultary:2026/10/25/SCOPE-exact-circular-subsequence-universality-spectrum-of-binary-words--412ee9869e0f"
+        ]
+      },
+      "rationale": "Best-of-knowledge: explicit singleton obstruction, no-transient q-1 floor law, and full phase maximizing census are not directly supplied by inspected general circular-universality bounds or power algorithms.",
+      "residual_risks": [
+        "A more specialized older arch-jumping theorem could give an equivalent closed formula under different terminology.",
+        "The Barker and Schnoebelen primary full bodies were not exhaustively re-read in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_STATED_FORMULA",
+          "evidence": "Theorem 21 supplies eventual periodic growth; Propositions 22–23 offer general power-index algorithms, not the run-length-independent floor/phase census.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.09063",
+          "material_read": "Accessible author-posted complete article text, focusing on Theorem 21 and Propositions 22–23 and their recurrence statements",
+          "method": "Full-text author manuscript examination",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Same arch decomposition, universality indices of powers and exact eventual behavior"
+        },
+        {
+          "assessment": "PARTIAL_OVERLAP",
+          "evidence": "The circular gain is bounded by one; the exact run-specific singleton split and all phase optimization counts are not stated in inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Accessible abstract and source theorem statements of Lemma 20 and Theorem 22; not claimed as a full-body comparison",
+          "method": "Abstract and relevant extracted statement comparison",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Introduces circular scattered-factor universality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2104.09063",
+        "circular scattered subsequence universality periodic words one run each alphabet symbol power arch count rotations singleton"
+      ],
+      "rationale": "The cyclic run-word family is a natural family of unbounded length and alphabet size. An exact singleton-run obstruction, a sharp q-1 staircase and a count of all optimal position cuts are structurally useful, not a numerical variant of a general algorithm. A future analysis of power universality and circular cuts can directly use these formulas.",
+      "residual_risks": [
+        "The family excludes repeated run classes and does not count individual absent subsequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only, with precise residual risks in axes.originality.",
+    "Frozen public metadata contains operational source-run identifier; delivery/publishing not ready even though science review is complete."
+  ],
+  "schema_version": 1
+}

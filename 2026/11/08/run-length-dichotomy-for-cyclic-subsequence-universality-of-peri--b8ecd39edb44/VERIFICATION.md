@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The direct proof uses the greedy-arch characterization, a recurrence for the indexed runs in which arches end, and an exact comparison with the factor's right endpoint. The calculations are symbolic and apply for every permitted alphabet size, positive run lengths, positive repetition count and cyclic phase.
+## correctness
 
-`verify.py` is independent of the proof's endpoint recurrence: it scans the actual repeated word and counts greedy arches. It tests phase-level values and maximizing-phase multiplicities for \(q\in\{3,4,5,6\}\), run lengths from \(1\) to \(4\) or \(3\), and repetitions through \(9\), \(8\) or \(7\) as specified in the code. A second test enumerates all shorter candidate subsequence words directly to independently check the arch-count characterization on smaller examples.
+PASS
 
-Run `python3 verify.py` from the folder containing this file and the script. The recorded result was: `PASS 9671 parameter/repetition cases; 105476 phase-index comparisons; 678 direct full-spectrum cross-checks`.
+For q>=3 distinct cyclic runs and k>=1, greedy complete arches exactly equal scattered-subsequence universality. From a phase in run j, the first completing run is j+q-1 and subsequent arch endpoints advance q-1 for a nonsingleton endpoint or q for a singleton endpoint. Counting endpoint indices within the half-open k-period factor gives k+floor((k-1+delta)/(q-1)) when all runs are nonsingleton. In the singleton case the bounded deficiency E_r=rq-(J_r-j) lies in [1,q], with equality at q only for a run-start boundary, excluding a (k+1)th arch: the index is k in every phase. All maximizing-phase counts follow; q>=3, positive lengths and position rotations are essential. Independently scanned 16,200 (word, phase, repetition) cases for q=3,4,5 with run lengths 1..3 and k=1..5, matching the formulas; this finite check corroborates the full recurrence proof.
 
-Limits: no finite verification is an exhaustive check of the unbounded domain; no independent mathematical audit or independent publication-priority certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: explicit singleton obstruction, no-transient q-1 floor law, and full phase maximizing census are not directly supplied by inspected general circular-universality bounds or power algorithms.
+
+## value
+
+PASS
+
+The cyclic run-word family is a natural family of unbounded length and alphabet size. An exact singleton-run obstruction, a sharp q-1 staircase and a count of all optimal position cuts are structurally useful, not a numerical variant of a general algorithm. A future analysis of power universality and circular cuts can directly use these formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
