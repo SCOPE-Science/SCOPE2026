@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The theorem is limited to the eleven integers \(3\le n\le13\). Its quotient construction uses dihedral orbits of chains in the barycentric subdivision, where face cardinalities prevent inversions. An exact standalone enumerator constructs all orbits and signed integer boundaries and performs only certified free-face elementary collapses. Nine quotients collapse to a point. The remaining two have reduced three-dimensional integral homology \(\mathbb Z\) and no other reduced homology, with Smith factors all units. Independent Burnside–Lefschetz evaluations verify the Euler characteristics. The fundamental-group argument uses the established homotopy type of the unquotiented complexes and fixed points of reflections, after which Hurewicz and Whitehead establish the homotopy equivalences. The code and its recorded output permit exact replay; no inferred all-width conclusion is used.
+
+## Originality — PASS (relative to accessible evidence)
+Adamaszek's 2011 first-public preprint and Engström's 2005 independence-complex paper concern unquotiented homotopy types and combinatorial splittings, not integral dihedral orbit spaces. The 1965 and 1968 orbit-space theorems of Armstrong determine only fundamental groups from stabilizers, not higher integral homology. An available earlier calculation for the rotation-only quotient of the same cycle matching complex determines some cyclic invariants, but does not determine the additional identification by reflections or its resulting integral homology. A study of wheel matching complexes concerns the cone over a cycle, not its ordinary cycle matching subcomplex. Related two-independence and nonmatching constructions impose different adjacency constraints. Searches for the equivalent cycle-independence and cycle-matching formulations, the exact widths and the dihedral geometric quotient did not identify a stronger covering statement. Full text of certain indexed, differently scoped related results could not be inspected; equivalence in unindexed literature remains possible.
+
+## Value — PASS
+The range is a natural complete stage, not an arbitrarily chosen single width: it contains every cycle whose independence complex has homology concentrated in degrees at most three. The quotient unexpectedly collapses for nine sizes yet preserves a genuine three-sphere homotopy type at exactly two sizes. Unlike rational character calculations, this determines all integral torsion (none), the fundamental groups and the full homotopy types. The two exceptional cases require distinct exact chain certificates. This provides a small but complete baseline for studying later torsion and dihedral orbit-space behavior.
+
+## Scientific boundaries
+Only homotopy equivalences for \(3\le n\le13\) are asserted. The argument is computer-assisted at \(n=11,13\); unit Smith entries are determined by exact arithmetic, and the complete finite enumeration is encoded in the accompanying verifier. Full novelty across every unindexed source and independent reproduction by a separate mathematical auditor are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
