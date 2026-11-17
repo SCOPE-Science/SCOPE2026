@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the reduced dual equation by finite birational coordinatewise squaring and verifies its degree. The complete singular locus is obtained from the three partial derivatives; an explicit étale coordinate change gives local equation \(v^2-4u^d\), establishing branch count and delta invariant. The Gauss map factorization determines inseparable degree \(q\). The bidual is independently calculated using the gradient of the reduced dual and the generic degree-one property of a coprime power map. Finite-field checks corroborate two examples but are not substituted for general proofs.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Hirschfeld–Korchmáros–Torres provide the general dual-degree formula and nonreflexive framework, but the inspected discussion does not state this family's explicit equation, exact geometric cusp locus and analytic type, or bidual degree. Arakelian–Borges study Frobenius nonclassicality relative to cubics. Komeda's specialized Fermat dual is of degree \(q^2+q+1\), not \(2q+1\) for odd \(p\). Exact-result and alias searches in the queried records did not identify a dominating theorem; unsuccessful searches are not proof of novelty. Residual priority risks include older explicit Fermat dual computations or an unindexed general statement implying the special case.
+PASS
 
-## Mathematical value — PASS
-The result gives the full singularity distribution of a natural smooth plane curve's dual in an infinite characteristic-dependent family, including local analytic types, normalization, Gauss inseparability, and a concrete failure of bidual reflexivity measured by the degree \(d(d-2)\). These are interdependent structural invariants, not isolated routine numeric evaluations. The dual's own singularities are completely classified, while those of the bidual remain outside scope.
+Since p∤d the Fermat curve is smooth. The coordinate square morphism restricted to C is finite and generically one-to-one (the only potential diagonal sign flips violate A+B+E=0 unless coordinates vanish). Factoring the symmetric quartic in X^d,Y^d,Z^d yields G(X²,Y²,Z²)=0, and pulling back a general dual line gives degree 2d; Gauss [X^(d−1):...] is Frobenius_q after square-normalization, hence inseparable degree q. Derivatives of G on the torus cannot vanish simultaneously because 2≠0; on axes singularities occur exactly where the other dth powers coincide, giving 3d points. Locally G=(V^d−1−U^d)^2−4U^d and the coordinate change is étale (p∤d), yielding unibranch cusp delta(d−1)/2. Gradient at square-image gives the bidual power map of exponent d−2; gcd(d,d−2)=1 plus generic torus ratio proves it separable birational, so degree d(d−2). Arithmetic genus independently matches total cusp delta.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge for the explicit reduced dual equation, normalization, complete analytic cusp list and birational bidual image/degree for odd-characteristic d=2p^e+1, beyond already-known Gauss-degree ingredients.
+
+## value
+
+PASS
+
+Explicit singularity geometry and duality failure of a natural Fermat family in positive characteristic give a nontrivial complete geometric classification: equation, normalization, cusp analytic types, and sharply larger bidual degree. This can be used as a precise example in studying inseparable Gauss maps and nonreflexivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
