@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim's domain is all uniform partitions of \([n]\) for integers \(n\ge2\). The proof explicitly defines arcs and touching-endpoint exclusions, invokes the established equidistribution of pair counts, uses a bijective contraction at every marked level, counts the newly created nesting partners, and derives the dimension-index aggregate with a separately reconstructed Bell recurrence. Positive signs use a nonnegative statistic and an explicit positive witness, not numerical interpolation. The standalone exact verifier passed 13,141 checks; its finite range is not substituted for the all-size proof. No unproved conditional independence is used.
+PASS
 
-## Originality — PASS (qualified)
+Marked adjacent arc (i,i+1) contracts bijectively to a partition on n-1 points. It cannot introduce a crossing, but it is nested by each contracted arc (a,b) with a<i<b; old crossing/nesting pair order is preserved. Because E[N-C]=0 by 2-arc equidistribution, covariance gap is sum over contractions of h_i divided by B_n, namely D_{n-1}/B_n where D_m=sum_arc(b-a-1) over m-partitions. Aggregate dimension identity D_m=(m+4)B_{m+1}-2B_{m+2} follows from marking blocks and cut counting, so final gap n+3-2B_{n+1}/B_n. Exact rational Bell recurrence independently checked gap 0,0,1/15,5/26,73/203,490/877 for n2..7. Positivity follows from d>=0 and a nontrivial arc spanning one point for m>=3; Bell ratios B_{n+1}/B_n=O(n/log n) yield normalized limit 1.
 
-Kasraoui–Zeng's 2006 involution covers the equal *marginals*, not mixed covariances with levels. Chern–Diaconis–Kane–Rhoades's 2013 dimension sum and general shifted-Bell moment class cover building blocks and the existence of formulas, but neither supplies the specific contraction identity nor determines this mixed covariance gap. Poznanović–Yan's 2007 subtree crossing/nesting distributions and the 2015 marginal central limit analysis are related but not dominating results. No matching claim was located in the accessible historical statements or the mathematical-result searches; absence of a match is not an exhaustive novelty guarantee. Potential implicit derivation using broader moment or refined crossing–nesting enumerators remains a genuine priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The problem addresses a canonical symmetry (equal marginal laws of crossing and nesting pairs) and a natural symmetry-breaking observable (adjacent arcs). The exact, all-size positive gap and its linear asymptotic scale quantify dependence rather than merely furnishing another marginal moment. The unexpectedly simple Bell ratio and the contraction-to-dimension mechanism may help analyze mixed moments and refinements of the set-partition statistics appearing in supercharacter enumeration.
+Kasraoui-Zeng establish marginal crossing/nesting pair equidistribution, and Chern-Diaconis-Kane-Rhoades supply dimension sum and general shifted-Bell moment framework. Neither directly asserts the level-weighted covariance gap or its exact all-n sign: the marked-level contraction exposes a further nesting contribution absent from marginal equidistribution. Earlier Resultary block-versus-crossing covariance studies a different local statistic and displays another sign law. Best-of-knowledge PASS, with residual possibility that general mixed-moment appendices encode this identity implicitly.
 
-## Scope and limitations
+## value
 
-The difference is determined, not the signs or explicit formulas of the individual covariances. The result is for uniform set partitions and two-arc pair statistics; maximal crossings and fixed-block-count laws are outside scope. Earlier general theories may imply the result without listing it explicitly. The proof uses an established pair-count equidistribution theorem and supplies the dimension-sum derivation in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Crossings and nestings are exactly equidistributed marginals, so a strictly positive linear-order covariance asymmetry with the natural adjacent-arc count is a motivated dependence invariant invisible from the one-statistic enumerators. The marked-arc contraction identity is a substantive structural explanation and gives exact finite and asymptotic answers, not just a numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

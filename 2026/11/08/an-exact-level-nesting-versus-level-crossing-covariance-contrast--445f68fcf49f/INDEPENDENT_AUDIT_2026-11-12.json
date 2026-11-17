@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:39:56.710553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Marked adjacent arc (i,i+1) contracts bijectively to a partition on n-1 points. It cannot introduce a crossing, but it is nested by each contracted arc (a,b) with a<i<b; old crossing/nesting pair order is preserved. Because E[N-C]=0 by 2-arc equidistribution, covariance gap is sum over contractions of h_i divided by B_n, namely D_{n-1}/B_n where D_m=sum_arc(b-a-1) over m-partitions. Aggregate dimension identity D_m=(m+4)B_{m+1}-2B_{m+2} follows from marking blocks and cut counting, so final gap n+3-2B_{n+1}/B_n. Exact rational Bell recurrence independently checked gap 0,0,1/15,5/26,73/203,490/877 for n2..7. Positivity follows from d>=0 and a nontrivial arc spanning one point for m>=3; Bell ratios B_{n+1}/B_n=O(n/log n) yield normalized limit 1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chern et al shifted-Bell framework gives expectation/variance expansions for many partition statistics and the dimension index; no matching evaluated mixed covariance contrast and positivity theorem appears in relevant results."
+        ],
+        "reasoning": "General algorithmic expressibility does not by itself assert the sharp zero/positive classification or final formula; the marked-arc contraction supplies a distinct identity.",
+        "searches": [
+          "https://arxiv.org/abs/1304.4309",
+          "https://arxiv.org/abs/1502.00938",
+          "Resultary: uniform set partitions crossing nesting level adjacent arc covariance difference Bell numbers dimension index"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-level-nesting-versus-level-crossing-covariance-contrast--445f68fcf49f",
+        "https://arxiv.org/abs/math/0601081",
+        "https://arxiv.org/abs/1304.4309",
+        "https://doi.org/10.1137/070705222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equidistribution cancels the unweighted contribution, published dimension identity evaluates the resulting sum; the extra link is the nontrivial contraction formula E[L(N-C)]=D_{n-1}/B_n."
+        ],
+        "reasoning": "The combination needs a new cross-statistic bijection argument; previous theorem statements do not already imply the covariance contrast without this substantive structural step.",
+        "searches": [
+          "https://arxiv.org/abs/math/0601081",
+          "https://arxiv.org/abs/1304.4309",
+          "https://arxiv.org/abs/0710.1816"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known cr/ne equidistribution implies E[N-C]=0 but not E[L(N-C)]; level arcs are not fixed under arbitrary cr/ne bijections."
+        ],
+        "reasoning": "The new result concerns a mixed moment, mathematically distinct from equality of the crossing and nesting marginal distributions.",
+        "searches": [
+          "Resultary: uniform set partitions crossing nesting level adjacent arc covariance difference Bell numbers dimension index",
+          "https://arxiv.org/abs/math/0601081"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dimension sum D_m is previously known as (m+4)B_{m+1}-2B_{m+2}; the submitted table concerns E[L(N-C)] and its 0,0,1/15,5/26 finite coefficients."
+        ],
+        "reasoning": "A known dimension table is a component of the proof, not itself the evaluated level-weighted nesting/crossing covariance; no matching full table located.",
+        "searches": [
+          "Resultary: uniform set partitions crossing nesting level adjacent arc covariance difference Bell numbers dimension index",
+          "https://arxiv.org/abs/1304.4309"
+        ]
+      },
+      "rationale": "Kasraoui-Zeng establish marginal crossing/nesting pair equidistribution, and Chern-Diaconis-Kane-Rhoades supply dimension sum and general shifted-Bell moment framework. Neither directly asserts the level-weighted covariance gap or its exact all-n sign: the marked-level contraction exposes a further nesting contribution absent from marginal equidistribution. Earlier Resultary block-versus-crossing covariance studies a different local statistic and displays another sign law. Best-of-knowledge PASS, with residual possibility that general mixed-moment appendices encode this identity implicitly.",
+      "residual_risks": [
+        "Kasraoui-Zeng or Chern et al appendices might contain an equivalent specialized mixed-moment evaluation; only accessible relevant sections/primary statements were read.",
+        "No claim for fixed-block-count partition distributions or individual covariance signs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Marginal crossing/nesting distributions equal; weighted level-adjacency covariance not stated in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0601081",
+          "material_read": "Relevant main statement and construction/equidistribution claims as available; full ancillary appendices not independently screened",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+          "trigger": "possible crossing/nesting equidistribution dominance"
+        },
+        {
+          "assessment": "COVERING_COMPONENT",
+          "evidence": "Published dimension aggregate is used; its exact mixed level-nesting versus level-crossing formula not located in inspected primary body.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.4309",
+          "material_read": "Full accessible open-access article main theorem, level/crossing/dimension-statistic definitions, dimension sum and asymptotic discussion",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Closed expressions for averages of set partition statistics",
+          "trigger": "same Bell dimension identity and shifted Bell mixed-moment methods"
+        },
+        {
+          "assessment": "RISK_REMAINS",
+          "evidence": "Extension-family equalities do not expressly include an adjacent-arc-weighted covariance contrast; implicit theorem implications remain a bounded priority risk.",
+          "identifier_or_url": "https://doi.org/10.1137/070705222",
+          "material_read": "Published paper abstract, the main theorem setup on extended partition families, no complete paywalled body read",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Crossings and Nestings of Two Edges in Set Partitions",
+          "trigger": "same crossing/nesting pair counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Crossings and nestings are exactly equidistributed marginals, so a strictly positive linear-order covariance asymmetry with the natural adjacent-arc count is a motivated dependence invariant invisible from the one-statistic enumerators. The marked-arc contraction identity is a substantive structural explanation and gives exact finite and asymptotic answers, not just a numerical check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-level-nesting-versus-level-crossing-covariance-contrast--445f68fcf49f",
+    "https://arxiv.org/abs/math/0601081",
+    "https://arxiv.org/abs/1304.4309",
+    "https://doi.org/10.1137/070705222"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All n>=2, uniform set partitions, adjacent successor arcs, crossing/nesting pair count; only covariance difference evaluated."
+  ],
+  "residual_risks": [
+    "Kasraoui-Zeng or Chern et al appendices might contain an equivalent specialized mixed-moment evaluation; only accessible relevant sections/primary statements were read.",
+    "No claim for fixed-block-count partition distributions or individual covariance signs."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE",
+      "evidence": "Marginal crossing/nesting distributions equal; weighted level-adjacency covariance not stated in inspected material.",
+      "identifier_or_url": "https://arxiv.org/abs/math/0601081",
+      "material_read": "Relevant main statement and construction/equidistribution claims as available; full ancillary appendices not independently screened",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+      "trigger": "possible crossing/nesting equidistribution dominance"
+    },
+    {
+      "assessment": "COVERING_COMPONENT",
+      "evidence": "Published dimension aggregate is used; its exact mixed level-nesting versus level-crossing formula not located in inspected primary body.",
+      "identifier_or_url": "https://arxiv.org/abs/1304.4309",
+      "material_read": "Full accessible open-access article main theorem, level/crossing/dimension-statistic definitions, dimension sum and asymptotic discussion",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Closed expressions for averages of set partition statistics",
+      "trigger": "same Bell dimension identity and shifted Bell mixed-moment methods"
+    },
+    {
+      "assessment": "RISK_REMAINS",
+      "evidence": "Extension-family equalities do not expressly include an adjacent-arc-weighted covariance contrast; implicit theorem implications remain a bounded priority risk.",
+      "identifier_or_url": "https://doi.org/10.1137/070705222",
+      "material_read": "Published paper abstract, the main theorem setup on extended partition families, no complete paywalled body read",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Crossings and Nestings of Two Edges in Set Partitions",
+      "trigger": "same crossing/nesting pair counts"
+    }
+  ]
+}
