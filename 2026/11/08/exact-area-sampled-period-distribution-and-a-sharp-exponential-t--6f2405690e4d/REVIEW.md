@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical first integral \(Q=(1-X^2)(1-Y^2)\) and Hamiltonian orientation are checked algebraically. A quarter-orbit substitution gives the physical-time period without time reparametrization. Independent uniform coordinates produce an explicit product-density integral; the elliptic-derivative identity determines its antiderivative and normalization. Standard complementary-modulus expansions with error terms establish both coefficients of the large-period tail. Layer-cake integration proves the sharp moment boundary, including divergence at equality. The executable checks independently recompute algebra and sample quadratures; finite tests are not used as a substitute for the full argument.
+## correctness
 
-## Originality — PASS on inspected evidence
-The phase portrait and period integral are classical and expressly credited, including the exact symmetric period formula in the published invariant-square quartic-center result. Comparison by implication isolates the actual contribution: the exact *Euclidean initial-area period law* and its two-term long-period tail and sharp moment threshold. The 2024 source focuses on limit cycles and center strata; 1996 Hamiltonian work covers qualitative conservative structure; the 2026 matching-pennies comparison discusses divergence of period without this initial-condition distribution. The published quartic-center result gives period as a function of energy but not the probability pushforward or its distributional tail. Search comparisons found no direct statement of the joint probability result. There is residual possibility of equivalent unindexed probability computations; the search is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-Uniform mixed-strategy initialization is a natural full-dimensional experiment, distinct from conditioning on an individual periodic trajectory or choosing a flow-invariant measure. The exact CDF quantifies the fraction of starting profiles with a physical oscillation period above any prescribed threshold. The sharp \(t e^{-t/2}\) factor, its constant-order correction and critical exponential-moment boundary capture the separatrix slowdown quantitatively. These are useful precisely when qualitative periodicity and an energy-to-period formula are insufficient for ensemble predictions. The result is deliberately restricted to this canonical integrable matching-pennies system; it does not claim broad universality.
+Conservation of Q follows exactly from the ODE, and H=(1-Q)/2 gives the Hamiltonian orientation. Each noncritical level 0<Q<1 is a simple closed orbit; a quarter-orbit integral yields T=4K(sqrt(1-Q)) in original physical time. Independent uniform coordinates give density f_U(u)=1/(2sqrt(1-u)), and multiplicative convolution f_Q(q)=K(sqrt(1-q))/2. The elliptic E/K derivative identity integrates to the stated CDF with endpoints 0 and 1. Complementary-modulus expansion K=L+O(qL), E=1+q(L-1/2)/2+O(q^2L) gives q_t=16e^(-t/2)(1+O(t e^(-t/2))) and the stated two-term tail; the nonnegative layer-cake identity gives sharp moment threshold including divergence at equality. Independently evaluated q=.2,10^-4,10^-9 and ratios to two-term tail 1.1301,1.00024,1.000000005, supporting but not proving asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: the earlier Oct 11 published invariant-square quartic center includes the symmetric period T(E)=4K(sqrt(1-e^-2E)) and 4E+8log 2+o(1) but not a probability law for uniform-area initialization. The 2024 evolutionary-system primary paper concerns center/limit-cycle classification rather than the pushforward of area into periods. The candidate credits all classical period dynamics and contributes the complete initial-condition distribution and sharp exponential/moment threshold. Searches did not identify a stronger coverage; cannot assert exhaustive priority.
+
+## value
+
+PASS
+
+PASS: uniform initialization in a two-strategy state square defines a natural full-dimensional ensemble; its period tail determines precisely how common long transient cycles are. The multiplicative t prefactor, explicit constant term and sharp exponential-moment boundary quantify separatrix slowdown in a way not supplied by a known orbit-by-orbit period integral. This is a motivated exact distribution, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
