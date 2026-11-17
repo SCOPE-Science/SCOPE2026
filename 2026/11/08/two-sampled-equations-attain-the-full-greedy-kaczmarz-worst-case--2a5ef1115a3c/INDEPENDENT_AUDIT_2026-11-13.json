@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:16:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sampled-equations-attain-the-full-greedy-kaczmarz-worst-case--2a5ef1115a3c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sampled-equations-attain-the-full-greedy-kaczmarz-worst-case--2a5ef1115a3c/verify.py",
+        "https://arxiv.org/abs/1912.03544",
+        "independent 60,000 exact odd-cardinality inequalities"
+      ],
+      "rationale": "The unit simplex tight-frame map identifies squared directional residuals with any zero-sum z of fixed norm S=(n+1)/n. One-step orthogonal projection loses exactly the sampled maximum z_i^2. When m=n+1 odd, the nonstandard inequality D=sum_{i<j}|z_i^2-z_j^2| >= S follows from sorted magnitudes: one sign carries at most (m-1)/2 positions but half the absolute mass, forcing the large-magnitude gap constraint; summation by parts has coefficients c_i=(i-1)(m-i)>=(m-1)h_i/2. The two-sample expected maximum is S/m+D/[m(m-1)]; equality is attained by opposite pairs ±a plus one zero, with every β≥2 sample meeting a nonzero. Even m has balanced ±a and constant squares, giving 1/n for all β. β=1 follows by tightness. Independently checked 60,000 bounded random integer zero-sum vectors in odd cardinalities and inspected exact-grid source checker; analytic lemma, not bounded checking, proves all dimensions.",
+      "residual_risks": [
+        "Performance is conditional one-step worst-case decrease; multistep equality is NOT inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1912.03544",
+          "https://arxiv.org/abs/1605.01418",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b/RESULT.md"
+        ],
+        "reasoning": "Haddock–Ma treat general matrices with bounds depending on residual dynamic range; substituting simplex frame does not yield the new sharp parity-dependent equality cases. The prior quadratic price theorem optimizes iid one-row selection and per-row action cost, a distinct algorithm/objective.",
+        "searches": [
+          "Resultary: sampled greedy randomized Kaczmarz regular simplex two samples squared error parity worst case",
+          "sampled Kaczmarz Motzkin dynamic-range bounds regular simplex",
+          "regular-simplex quadratic cost frontier"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1912.03544",
+        "https://arxiv.org/abs/1605.01418",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sampled-equations-attain-the-full-greedy-kaczmarz-worst-case--2a5ef1115a3c/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1912.03544",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b/RESULT.md"
+        ],
+        "reasoning": "General gain/loss estimates are not equality statements for the minimum over zero-sum residuals. In the fixed iid sampler, no row-within-sample maximization is present, so the price threshold d² does not entail sample-size saturation at β=2.",
+        "searches": [
+          "Resultary: sampled greedy randomized Kaczmarz regular simplex two samples squared error parity worst case",
+          "Haddock Ma Theorem 3.1 and Remarks 2–3",
+          "Resultary quadratic cost frontier theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1912.03544",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b/RESULT.md"
+        ],
+        "reasoning": "Equivalent algebraic formulation is minimization of a random-sample maximum over zero-sum vectors of fixed l2 norm. Prior fixed probability laws concern a linear expectation of z_i², not conditional maximum among β candidates.",
+        "searches": [
+          "Resultary: sampled greedy randomized Kaczmarz regular simplex two samples squared error parity worst case",
+          "max two sampled squares zero sum odd cardinality sharp Gini inequality",
+          "simplex frame sharp random top-two order statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sampled-equations-attain-the-full-greedy-kaczmarz-worst-case--2a5ef1115a3c/RESULT.md"
+        ],
+        "reasoning": "The claim has all-dimensional sharp constants, not a small lookup table; finite computed extremizers corroborate but do not establish a preexisting exact table. No equivalent table found in searched simplex-frame records; no novelty proof from search absence.",
+        "searches": [
+          "Resultary: sampled greedy randomized Kaczmarz regular simplex two samples squared error parity worst case",
+          "Resultary exact sharp two-sampled simplex frame decrease"
+        ]
+      },
+      "rationale": "The complete dimension-parity phase diagram with sharp β=2 saturation on a regular-simplex frame is not implied by general sampled Motzkin/Kaczmarz dynamic-range bounds or existing cost-weighted fixed i.i.d. optimal-sampling simplex theorems. Best-of-knowledge risk from an unindexed sharp zero-sum dispersion inequality.",
+      "residual_risks": [
+        "Equivalent sharp square-dispersion inequalities might predate the framed Kaczmarz statement under majorization/order-statistic nomenclature.",
+        "Analytic proof does not imply multistep or noisy Kaczmarz performance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proved sharp sample-cardinality phase classification",
+          "evidence": [
+            "Proof §§1–5"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sampled-equations-attain-the-full-greedy-kaczmarz-worst-case--2a5ef1115a3c/RESULT.md",
+          "material_read": "Complete RESULT.md proof, coefficient identities, all boundary regimes and limitations",
+          "method": "Exact assigned Git blob read",
+          "title": "Two sampled equations attain full greedy Kaczmarz worst-case guarantee",
+          "trigger": "assigned proof and nonstandard lemma"
+        },
+        {
+          "assessment": "General dynamic-range performance bound, not simplex-parity sharp minimax result",
+          "evidence": [
+            "Theorem 3.1, remarks on sampling dynamic range"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.03544",
+          "material_read": "Accepted-manuscript PDF Theorem 3.1 and relevant Remarks 2–3; original PDF page inspected visually",
+          "method": "Read primary mathematical passages and visually inspect PDF page",
+          "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz–Motzkin",
+          "trigger": "same adaptive maximal residual selection"
+        },
+        {
+          "assessment": "Different fixed iid row choice and heterogeneous per-row cost optimization; does not cover adaptive β-subset greedy order statistic",
+          "evidence": [
+            "Objective eta(p), homogeneous SDP, optimal distributions"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b/RESULT.md",
+          "material_read": "Full published RESULT.md",
+          "method": "Read entire GitHub mathematical proof",
+          "title": "A quadratic cost frontier for minimax randomized Kaczmarz sampling on simplex frames",
+          "trigger": "same simplex rows and worst-step error reduction"
+        },
+        {
+          "assessment": "Method antecedent; do not claim global noncoverage",
+          "evidence": [
+            "Sampling-Motzkin method definition"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.01418",
+          "material_read": "Abstract and bibliographic paper descriptors; whole original not verified read",
+          "method": "Primary abstract-level comparison",
+          "title": "A Sampling Kaczmarz–Motzkin Algorithm for Linear Feasibility",
+          "trigger": "original sampled method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1912.03544",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sampled-equations-attain-the-full-greedy-kaczmarz-worst-case--2a5ef1115a3c/RESULT.md"
+      ],
+      "rationale": "A two-sample versus full-greedy threshold gives a sharp, interpretable sampling-efficiency frontier for a canonical equiangular tight frame. The parity split and optimal configurations are mathematically specific and not routine from the frame identity; the odd-cardinality inequality is a motivated extremal lemma.",
+      "residual_risks": [
+        "Sampling effort and eventual convergence remain separate from this one-step criterion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All assertions conditional one-step, unit row regular simplex, without replacement."
+  ],
+  "schema_version": 1
+}
