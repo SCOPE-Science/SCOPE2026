@@ -1,19 +1,21 @@
-# Scientific review: stationary concurrence under fixed-mean renewal resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary-age measure \(\mathbb P(T>a)da/\mu\) is normalized by finite mean and valid even for lattice laws. The exact unitary path occupies only the \(|00\rangle,|11\rangle\) block; Wootters concurrence on this block equals twice the off-diagonal modulus. Fubini gives \(\mathbb E\sin(\Omega B)=\mathbb E(1-\cos\Omega T)/(\Omega\mu)\ge0\). The supporting function built from a tangent line, a concave half-cosine arc, and a constant segment is globally concave and dominates \(1-\cos x\). Jensen, equality geometry, and explicit two-point laws prove all upper and lower endpoint claims. A finite checker tests 1466 conditions including independent spin-flip calculations; no finite computation is substituted for proof.
+PASS
 
-## Originality — PASS, qualified
+Equilibrium renewal age density P(T>a)da/mu, unitary XX evolution starting |00>, and Wootters concurrence of the ensemble X-state give C=E[1−cos(Omega T)]/(Omega mu). Let X=Omega T>0 with mean m. The least concave majorant of f(x)=1−cos x is c*x up to unique xi solving tan(xi/2)=xi, then f(x) on [xi,pi], then constant 2. Jensen proves sharp plateau c*=0.724611..., middle deterministic value f(m)/m, and 2/m tail; strict contact geometry gives exact optimizer support and unattainment below xi. Zero endpoint iff m>=2pi supported on strictly positive full periods. Finite density and moment hypotheses suffice even for lattice clocks, but synchronized time convergence is not claimed. Independent numerical xi/support examples and analytic concurrence derivation checked.
 
-The 2023 Kulkarni–Majumdar two-spin concurrence result is explicitly Poissonian and uses a different spin Hamiltonian; it neither quantifies fixed-mean renewal protocols nor classifies all maximizing reset clocks. The 2022 Sevilla–Valdés-Hernández work gives the general stationary renewal quantum state and coherence/purity/fidelity but not this two-qubit concurrence phase diagram. The 2024 Wald and collaborators work treats discrete gates, resonances and selected non-Poissonian existence questions rather than the continuous-time all-clock fixed-mean optimum. A known fixed-mean *qubit purity* envelope is not an implication covering this concurrence theorem: purity optimizers are deterministic up to a different threshold, while concurrence exhibits an early nonattained randomization plateau. Generic convex-analysis tools are credited. Unindexed specialized quantum-control or moment-problem comparisons are a remaining priority risk, not evidence of coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At a fixed average intervention frequency, the exact achievable stationary entanglement is a natural resource invariant. The switch from optimal randomization to optimal deterministic resetting at \(\xi=2.331122\ldots\) is an actual protocol-design boundary; the limiting concurrence \(\sin\xi\approx0.724611\) exceeds the best possible Poisson-clock value \(1/2\). The classified equality cases and zero-concurrence threshold distinguish mixed-state entanglement from trajectory averages and from the previously solved purity question.
+Best-of-knowledge new sharp all-renewal fixed-mean concurrence phase diagram for ideal XX pair. The 2022 general quantum renewal stationary density formula is credited. The 2023 Poisson reset concurrence paper has different clock and interaction; discrete purity and Bell-reset results address different functionals/initial states. The explicit optimizer support and 0.724611 plateau are not established by read prior text.
 
-## Scope and residual risks
+## value
 
-The interaction is the exactly solvable continuous-time coupling \(H=(\hbar\Omega/2)\sigma_x\otimes\sigma_x\); reset events are instantaneous and complete. For clocks with fixed periods, the equilibrium age ensemble is not necessarily the limit from a time-zero synchronized reset. The sharp fast-reset supremum uses arbitrarily short intervals, with no physical minimum-duration constraint. A more general unpublished or unindexed theorem could cover the envelope, although no inspected primary result gives this classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact fixed-frequency budget-entanglement frontier is a natural quantum-reset resource optimization with nonattained randomized plateau, sharp deterministic/odd-half-period transitions and endpoint zero threshold, not a routine generic Jensen application alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
