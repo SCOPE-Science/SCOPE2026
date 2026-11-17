@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T04:57:21.903498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rook graph equals line graph L(K_{m,n}); induced degree≤1 for selected edges forces only vertex-disjoint K_2, K_{1,2} and K_{2,1}. Three component counts give exactly the factorial summand m!n!/[2^{p+q}p!q!a!(m-p-2q-a)!(n-2p-q-a)!]. Every selected edge uses at least 3/2 host vertices except isolated K2, bounding size by min(2m,2n,floor(2(m+n)/3)), with constructive feasible p,q,a in each aspect-ratio regime. Independent full subset enumeration matches every coefficient for 10 boards through 4×4, including 6×6 top coefficient 8100 from exact formula; no finite check is treated as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior classifies every selected K2/K1,2/K2,1 component type, proves unique labelled count for all feasible triples, and derives the extra predicate needed for maximality. Candidate counts all triples without predicate."
+        ],
+        "reasoning": "Although maximal-subset cardinality distribution does not abstractly determine all-subset distribution for arbitrary graphs, THIS specific published proof contains a stronger unrestricted counting lemma that directly gives candidate polynomial.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5/RESULT.md",
+          "2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-dissociation-polynomials-distinguish-the-shrikhande-and-4-times4--5b561377e5d2/RESULT.md",
+        "https://doi.org/10.1016/j.dam.2011.04.023",
+        "PUMaC 2010 Combinatorics B Problem 7",
+        "Resultary rook polynomial, dissociation line graph and maximal subset searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published maximal-rook Theorem proof Step 3 gives the unrestricted triple weight and Step 2 only filters maximality; the candidate sum is the same weight with no Step-2 filter. 2011 line-graph paper covers maximum dissociation number for Hamiltonian-path hosts, and prior Nov8 covers n≥2m maximum=2m."
+        ],
+        "reasoning": "Direct prior-proof implication holds for arbitrary m,n, not merely same parameters or a title match. Minimum of three constraints is a routine integer packing optimum once prior component constraints are available.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5/RESULT.md",
+          "https://doi.org/10.1016/j.dam.2011.04.023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 2026-11-08 maximal-rook paper defines a,b,c with r=a+b+2c rows, s=a+2b+c columns, k=a+2b+2c; its proof shows ALL disjoint K2 and two-star component packs have weight m!n!/[a!b!c! 2^(b+c)(m-r)!(n-s)!]. Under b=p,c=q,a=a this is exactly the submitted summand."
+        ],
+        "reasoning": "The maximal-vs-all wording hides no mathematical gap: published unrestricted component count explicitly precedes filtering to inclusion-maximal placements. Removing the Boolean condition is a direct substitution.",
+        "searches": [
+          "dissociation polynomial rook graph K_m square K_n line graph complete bipartite paths length two",
+          "dissociation rook graph K_m Cartesian K_n polynomial number all dissociation sets P3 components",
+          "dissociation polynomial line graph complete bipartite graph star forest coefficient enumeration",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2026-10-18 rook/Shrikhande comparison gives D_{4,4}=1+16z+120z²+384z³+528z⁴+144z⁵; candidate exact same specialization. PUMaC 2010 gives 6×6 maximum 8 and 8100 optimal placements."
+        ],
+        "reasoning": "Known exact tables independently cover named small instances; more importantly the full published maximal-rook component lemma covers all sizes, so novelty fails regardless of table incompleteness.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-dissociation-polynomials-distinguish-the-shrikhande-and-4-times4--5b561377e5d2/RESULT.md",
+          "dissociation polynomial rook graph K_m square K_n line graph complete bipartite paths length two",
+          "PUMaC 2010 Combinatorics B Problem 7 rook 6x6 maximum 8100"
+        ]
+      },
+      "rationale": "FAIL. A previously published Nov 8 maximal-dissociation theorem for the SAME rook graph explicitly proves the identical three-component classification AND the identical UNRESTRICTED factorial count for each component triple (a,b,c). It then adds a maximality predicate to its displayed summation. Deleting precisely that predicate yields the entire candidate all-set polynomial term-by-term, with the same constraints under variable renaming. This is a direct mathematical corollary of the earlier published proof, despite a different maximal-versus-all theorem title. The max formula is elementary optimization of the same existing feasible component constraints, and earlier 2011 work and PUMaC also cover special maxima. It cannot be accepted solely because the unrestricted polynomial was not separately boxed.",
+      "residual_risks": [
+        "The maximal-rook published record and submitted all-set record are both dated 2026-11-08; precise within-day priority timestamp was not established, but mathematical coverage in the already-published corpus at audit time is decisive.",
+        "2011 full line-graph article not fully accessible; it is not needed to establish coverage.",
+        "No independent novelty is rescued by the already-known 4×4 and 6×6 data, or by finite brute-force verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERS candidate counting formula as immediate removal of a maximality restriction",
+          "evidence": "Published summand m!n!/[a!b!c!2^(b+c)(m-r)!(n-s)!] for arbitrary feasible triples is exactly candidate under b=p,c=q. Removing its maximality filter recovers every coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5/RESULT.md",
+          "material_read": "ENTIRE RESULT.md: theorem, assumptions, maximality, unrestricted component enumeration, rectangular simplification, proof, references",
+          "method": "Read full immutable Git blob 8124330cbbe45208c482adeb39a2e56dd3f3e484",
+          "title": "Maximal dissociation sets of rook graphs: an exact two-star-packing polynomial",
+          "trigger": "Exact same rook graph, named K2/K1,2/K2,1 component decomposition, factorial triple weights"
+        },
+        {
+          "assessment": "COVERS 4×4 special coefficient table",
+          "evidence": "Same 4×4 polynomial includes leading 144z⁵, among candidate special cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-dissociation-polynomials-distinguish-the-shrikhande-and-4-times4--5b561377e5d2/RESULT.md",
+          "material_read": "Entire RESULT.md including independent exhaustive recurrence proof",
+          "method": "Read full immutable Git blob 4ee73a8f565a43250f9fa837738cb240ca2a407b",
+          "title": "Dissociation polynomials distinguish Shrikhande and 4×4 rook graphs",
+          "trigger": "Exact small-board all-set polynomial"
+        },
+        {
+          "assessment": "Partial maximum overlap; no full-document NOT_COVERING verdict",
+          "evidence": "Published description states maximum dissociation number for line graphs of graphs with Hamiltonian paths; this covers some K_{m,n} balanced cases but exact complete polynomial is already implied by 2026 maximal-rook proof.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+          "material_read": "Publisher extended indexed content and abstract, NOT whole mathematical source",
+          "method": "Read publicly indexed publisher text and theorem descriptions; full source inaccessible",
+          "title": "The complexity of dissociation set problems in graphs",
+          "trigger": "Line graph dissociation problem and extremal results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL for this final claim: although all-cardinality dissociation data are intrinsically meaningful, the precise formula is a one-line removal of the maximality condition from an already published all-component counting lemma. The claimed sharp occupancy maximum follows directly from the same constraints and elementary upper bounds/construction; no additional previously unproved structural ingredient remains. Mathematical correctness and complete code do not restore independent value beyond that prior implication.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-maximal-dissociation-sets-of-rook-graphs-an-exact-two-star-packi--3a4eb8e0ebb5/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-dissociation-polynomials-distinguish-the-shrikhande-and-4-times4--5b561377e5d2/RESULT.md",
+    "https://doi.org/10.1016/j.dam.2011.04.023",
+    "PUMaC 2010 Combinatorics B Problem 7",
+    "Resultary rook polynomial, dissociation line graph and maximal subset searches"
+  ],
+  "disposition": "failed",
+  "final_claim": "The all-cardinality dissociation polynomial of every rectangular rook graph K_m □ K_n via labelled disjoint bipartite edges and two-edge stars, together with maximum min{2m,2n,floor(2(m+n)/3)}.",
+  "limitations": [
+    "One final claim assessed under same C/O/V standard as other records; acceptance requires C=O=V=PASS.",
+    "Finite arithmetic/numerical experiments supplement, never replace, infinite-family proofs.",
+    "Originality judgments are source-specific and best-of-knowledge, not guarantees of historical exclusivity.",
+    "Public source metadata contains prohibited operational provenance; publication withheld (not_ready) without modifying scientific files."
+  ],
+  "residual_risks": [
+    "The maximal-rook published record and submitted all-set record are both dated 2026-11-08; precise within-day priority timestamp was not established, but mathematical coverage in the already-published corpus at audit time is decisive.",
+    "2011 full line-graph article not fully accessible; it is not needed to establish coverage.",
+    "No independent novelty is rescued by the already-known 4×4 and 6×6 data, or by finite brute-force verification."
+  ],
+  "schema_version": 1
+}
