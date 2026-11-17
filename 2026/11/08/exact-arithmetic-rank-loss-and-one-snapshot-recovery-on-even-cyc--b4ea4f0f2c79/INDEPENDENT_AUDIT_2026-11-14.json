@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T19:43:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The m-1 interior Fourier eigenspaces are two-dimensional; two-site shell evaluation has determinant proportional to sin(pi k h/m) and loses exactly one direction at k=j m/g for 1<=j<g. The spatial-visible space thus has dimension 2m-g+1. A Vandermonde with pairwise distinct spectral multipliers demixes all m+1 shell values after m+1 time steps. At m steps its one-dimensional kernel has no zero entry, so the endpoint and degenerate shell ratios force beta=alpha and alpha=(-1)^(h/g)alpha, producing an additional transient 1D defect iff h/g even. Counting coprime offsets gives stated parity census; below m dimension bound forbids full recovery. Independently built exact SymPy matrices for all 2<=m<=7, 1<=h<2m and checked both rank formulas. For C6,h=2 ranks 5 at t=3, 6 at t=4; this is a precise test case, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader dynamical sampling surveys give operator-orbit observability and frame criteria. Exact published even-cycle determinant theorem handles full square horizon only."
+        ],
+        "reasoning": "General spectral criteria and determinant conditions are not explicit arithmetic all-sensor rank formulas; they require further Fourier shell and Vandermonde deductions.",
+        "searches": [
+          "Resultary semantic: universal finite-time information volume two sensors even cycles",
+          "doi:10.1007/s44007-026-00215-y",
+          "arxiv:2609.25472"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a",
+        "https://arxiv.org/abs/1109.3556",
+        "https://arxiv.org/abs/2609.25472",
+        "https://doi.org/10.1007/s44007-026-00215-y",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h even and gcd(h,m)=1, m-step square observation determinant vanishes (covered by prior work) but the m+1-step matrix has rank 2m (proved here); C6,h=2 is concrete."
+        ],
+        "reasoning": "Zero determinant does not fix rank or permanent/in-time-kernel split. The published older global gcd formula points to an apparent contradiction, not a derivation of the asserted half-cycle condition, and convention reconciliation is listed as a residual risk.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a",
+          "arxiv:1109.3556 theorem 4.10",
+          "arxiv:2609.25472"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier minimal-horizon determinant zero/nonzero theorem is a statement about rank being full at t=m, not its precise lower rank; Parlangeli 2011 equation (9) gives gcd of two arc gaps with n."
+        ],
+        "reasoning": "The same dynamics can be described by Fourier observability or Laplacian reachability; a published gcd criterion must be checked in exact operator convention. Explicit C6,h=2 at t=4 yields full rank and so the older stated full-order gcd obstruction cannot be imported as a covering result without reconciliation.",
+        "searches": [
+          "Resultary semantic: even cycle two fixed sensors finite-time observability exact rank gcd parity",
+          "arxiv:1109.3556 Theorem 4.10",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table with both 2m-g+1 and transient parity loss found; the earlier zero determinant and graph Laplacian PBH statements are not a table of finite-time ranks."
+        ],
+        "reasoning": "An exact all-order formula, with natural coprimality cases and one-time repair, is the object; unsuccessful search is not proof of priority.",
+        "searches": [
+          "Resultary semantic: exact two-horizon rank C_2m sensors g gcd h m plus parity",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a",
+          "arxiv:1109.3556"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: a related Nov 8 published even-cycle information-volume theorem determines when the minimal square m-snapshot observation determinant is nonzero, but not the exact rank deficiency when zero or whether one additional time step repairs it. The primary 2011 Parlangeli–Notarstefano cycle observability theorem (4.10) expresses a full-n gcd criterion, seemingly conflicting with the explicit C6,h=2 spectral calculation; we do not silently treat it as dominating coverage. The candidate exact two-horizon formula follows from direct Fourier analysis, and residual convention/older-theorem reconciliation remains a live priority risk. A 2026 graph dynamical-sampling preprint could be inspected only at bibliographic/abstract level.",
+      "residual_risks": [
+        "Parlangeli–Notarstefano 2011 cycle observability Theorem 4.10 full-order gcd condition appears inconsistent with exact six-cycle h=2; an independent convention/erratum check is needed before strong priority declarations.",
+        "The 2026 graph dynamical sampling preprint was not available in complete text; this is an access risk, not a correctness failure.",
+        "Rank does not guarantee noise robustness or uniform inverse conditioning; injective spectral multipliers on all shells are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL coverage",
+          "evidence": "Exact determinant nonzero iff gcd(h,2m)=1 for m snapshots; proof does not give ranks for singular offsets or recovery after m+1 snapshots.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a",
+          "material_read": "Complete primary RESULT.md: hypotheses, exact Vandermonde sine-product determinant proof, equality classification and limitations",
+          "method": "Read Resultary/2026 full primary RESULT.md at Git blob 2479fd94042584d774469c1be2bebf8afa4e9af6",
+          "title": "Universal finite-time information volume for two sensors on even cycles",
+          "trigger": "Same cycle, two spatial sensors, critical observation horizon"
+        },
+        {
+          "assessment": "APPARENT conflict; no demonstrated coverage",
+          "evidence": "Theorem (i) says gcd of sensor consecutive gaps including wraparound equals 1; direct C6 h2 normalized-adjacency observations rank six by fourth time; original theorem requires convention reconciliation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+          "material_read": "Full relevant cycle observability Lemma 4.9 and Theorem 4.10/equation (9), including explicit gcd of arc gaps; not all pages claimed read",
+          "method": "Opened arXiv primary PDF, read parsed section and rendered pages 21-22",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "Same cycle Laplacian and sensor observability, potentially dominating"
+        },
+        {
+          "assessment": "UNRESOLVED priority risk",
+          "evidence": "Could hide more explicit cycle bounds; inaccessible source alone does not negate best-of-knowledge originality.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "Bibliographic title and abstract only, full primary text not obtained",
+          "method": "Accessible abstract; no assertion of whole-document noncoverage",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "2026 near-topic graph sampling and sensor design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: identifying how many Fourier modes are permanently invisible versus how many require precisely one more snapshot is a natural complete finite-time observability invariant. A zero determinant alone is insufficient for experimental sensor-time planning; this theorem yields exact rank deficits, minimum horizon, and counts of full-recovery separations across all even cycles. It is a motivated structural sharpening, not a tiny arbitrary matrix instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a",
+    "https://arxiv.org/abs/1109.3556",
+    "https://arxiv.org/abs/2609.25472",
+    "https://doi.org/10.1007/s44007-026-00215-y",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+  ],
+  "disposition": "passed",
+  "final_claim": "On even C_2m, any spectral multiplier function injective across the m+1 distinct adjacency eigenvalues, two sensors at 0,h have ranks at horizons m and m+1 exactly 2m-g+1-1_even(h/g) and 2m-g+1, g=gcd(h,m). Permanent loss g-1, and if g=1 the minimum full-recovery horizon is m for odd h and m+1 for even h.",
+  "limitations": [
+    "Parlangeli–Notarstefano 2011 cycle observability Theorem 4.10 full-order gcd condition appears inconsistent with exact six-cycle h=2; an independent convention/erratum check is needed before strong priority declarations.",
+    "The 2026 graph dynamical sampling preprint was not available in complete text; this is an access risk, not a correctness failure.",
+    "Rank does not guarantee noise robustness or uniform inverse conditioning; injective spectral multipliers on all shells are essential."
+  ],
+  "residual_risks": [
+    "Parlangeli–Notarstefano 2011 cycle observability Theorem 4.10 full-order gcd condition appears inconsistent with exact six-cycle h=2; an independent convention/erratum check is needed before strong priority declarations.",
+    "The 2026 graph dynamical sampling preprint was not available in complete text; this is an access risk, not a correctness failure.",
+    "Rank does not guarantee noise robustness or uniform inverse conditioning; injective spectral multipliers on all shells are essential."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL coverage",
+      "evidence": "Exact determinant nonzero iff gcd(h,2m)=1 for m snapshots; proof does not give ranks for singular offsets or recovery after m+1 snapshots.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a",
+      "material_read": "Complete primary RESULT.md: hypotheses, exact Vandermonde sine-product determinant proof, equality classification and limitations",
+      "method": "Read Resultary/2026 full primary RESULT.md at Git blob 2479fd94042584d774469c1be2bebf8afa4e9af6",
+      "title": "Universal finite-time information volume for two sensors on even cycles",
+      "trigger": "Same cycle, two spatial sensors, critical observation horizon"
+    },
+    {
+      "assessment": "APPARENT conflict; no demonstrated coverage",
+      "evidence": "Theorem (i) says gcd of sensor consecutive gaps including wraparound equals 1; direct C6 h2 normalized-adjacency observations rank six by fourth time; original theorem requires convention reconciliation.",
+      "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+      "material_read": "Full relevant cycle observability Lemma 4.9 and Theorem 4.10/equation (9), including explicit gcd of arc gaps; not all pages claimed read",
+      "method": "Opened arXiv primary PDF, read parsed section and rendered pages 21-22",
+      "title": "On the Reachability and Observability of Path and Cycle Graphs",
+      "trigger": "Same cycle Laplacian and sensor observability, potentially dominating"
+    },
+    {
+      "assessment": "UNRESOLVED priority risk",
+      "evidence": "Could hide more explicit cycle bounds; inaccessible source alone does not negate best-of-knowledge originality.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+      "material_read": "Bibliographic title and abstract only, full primary text not obtained",
+      "method": "Accessible abstract; no assertion of whole-document noncoverage",
+      "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+      "trigger": "2026 near-topic graph sampling and sensor design"
+    }
+  ]
+}
