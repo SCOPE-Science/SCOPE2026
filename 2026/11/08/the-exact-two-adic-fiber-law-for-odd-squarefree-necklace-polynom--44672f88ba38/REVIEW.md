@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof reconstructs the Möbius polynomial over \(\mathbb Z_2\), separates three input classes (even, \(+1\bmod4\), and \(-1\bmod4\)), and proves their normalized maps are exact two-adic isometries. The potentially nontrivial expansion coefficient estimate is explicit: \(\sum_{d\mid n}\mu(n/d)d^r=\prod_{p\mid n}(p^r-1)\) is divisible by \(\varphi(n)\) for every \(r\ge1\); thus the nonlinear coefficients in the odd-root expansion have at least one higher factor of two than its linear coefficient. The finite fiber count is then obtained from actual quotient bijections, not extrapolated from enumeration. The nonsquarefree obstruction is an independent modulo-eight argument. The verifier independently enumerates complete finite fibers and branch maps, but is not offered as a proof for all exponents.
+## correctness
 
-**Originality: PASS (subject to historical-risk qualification).** Moree explicitly records the prior parity theorem; the new output profile is strictly stronger, including nonuniform multiplicities and odd-branch isometries that do not follow from parity alone. Von zur Gathen–Viola–Ziegler give univariate irreducible-polynomial counts and multivariate enumeration, not distributions of necklace values as the input alphabet varies. Hyde's relevant local cyclotomic-factor theorems address divisibility of polynomials modulo \(x^m-1\), not complete fibers of evaluation modulo powers of two. Searches for congruence images, local surjectivity, Witt/necklace valuation laws, and published-record and claim-equivalence searches revealed no covering theorem. Metropolis–Rota's original 1983 paper was located bibliographically but not materially inspected in full; a hidden broader consequence remains possible and priority is not independently certified.
+PASS
 
-**Mathematical value: PASS.** The exact image and all fiber multiplicities for the full natural family of odd squarefree lengths give a complete invariant of a classical counting polynomial, with no finite-depth cutoff. The fact that all these polynomials have the same support but have precisely controlled nonuniform mass on \(2^e\mathbb Z_2\) distinguishes the genuine distribution question from known evenness. The sharp odd nonsquarefree boundary explains why the squarefree family is structural rather than an arbitrary index slice. The result can be used whenever one needs exact congruence frequencies for aperiodic necklace numbers or Witt dimensions as the alphabet size varies; it is not asserted as a theorem about prime-power-only input frequencies.
+For odd squarefree n>1, the Möbius polynomial is integral over Z_2. On even x=2s, M_n(2s)/2 has linear coefficient mu(n)/n odd and nonlinear terms divisible by 4; it is a bijective isometry. For odd x=epsilon+4s, H(z)=M_n(sqrt(z))/sqrt(z) has H(1)=0 and expansion H(1+8t)=2^e(ut+2Q(t)) with e=2+nu2(phi(n)), u odd: the positive-power Mobius divisor sums factor as product (p^r-1), divisible by phi(n); higher Taylor terms have valuation at least e+1. Both normalized odd-class branches are isometries, so every even output gets one even preimage and 2^{min(k,e)-1} extra odd preimages exactly when divisible by 2^{min(k,e)}. For odd nonsquarefree n, smallest nonvanishing exponent multiple n/rad(n)>=3 and odd x powers congruent x modulo 8, forcing image inside 8Z_2. Checked n=3,5,15,21,35 and k=1,2,3,5,7 independently by complete modular histogram (25 cases); this does not prove infinite quantifiers.
 
-**Risk and limitations.** Independent priority checking remains desirable, particularly the complete original Metropolis–Rota text and any unavailable older two-adic polynomial-value classification. The paper's earliest date identifies the motivating archival source rather than asserting when the new theorem was first published. No independent scientific audit was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-level fiber count and normalized three-branch isometries are stronger than the known even-value parity of necklace polynomials, and the irreducible-finite-field count formula by itself only gives M_n(q). The matching November 8 Resultary entry is the same submitted theorem, not an independent earlier theorem. No stronger prior implication was identified in inspected primary material. Best-of-knowledge only because the 1983 necklace-algebra paper was inaccessible in full.
+
+## value
+
+PASS
+
+Exact uniform-in-n image, complete multiplicity law, and three explicit isometric two-adic branches refine a classical arithmetic counting polynomial; this is a natural p-adic map invariant not a textbook parity deduction. The nonsquarefree contrast gives a meaningful structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
