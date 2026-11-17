@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the semidirect-product law and automorphism parametrization, checks both cosets under the twisted-conjugacy action, derives the full multiplicity/size profile by affine inversion on odd-order quotients, constructs every geometric \(\pm1\)-eigenspace pair (including the exceptional \(p=3\), residual-dimension-one Jordan construction), and proves distinct values via no-carry base-\(p\) representations. Every quantifier is explicit. The standalone orbit enumerator cross-checks direct orbits and boundary cases; finite checks do not replace proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** Tărnăuceanu's 2025 ZM theorem requires all Sylow subgroups cyclic, whereas the elementary kernel here is noncyclic; Senden's split metacyclic classification also has a cyclic kernel. Tertooy's general algorithm permits computational determination but does not imply an explicit parametrized closed spectrum without this calculation. Senden--Tertooy's 2026 character-counting identities likewise give a general formula for total class numbers, but neither all orbit-size multiplicities nor the attainable eigenpair spectrum. Searches of prior research records and relevant publications located no identical spectrum and complete class-size profile for all elementary noncyclic generalized dihedral groups. General character-theoretic fixed-point theorems and ordinary dihedral calculations are recognized prior coverage; they do not themselves provide this exact all-rank spectrum. Potential earlier formulations under affine semidirect automorphisms or representation characters remain the principal priority risk.
+PASS
 
-**Mathematical value — PASS.** Exact Reidemeister spectra are a published subject of group-theoretic classification, and this infinite noncyclic family is the immediate elementary generalization beyond the cyclic-Sylow ZM setting. The class-size profile is stronger than a count, the attainable-pair construction handles a genuine small-field obstruction using nonsemisimple blocks, and the count of distinct possible spectra is dimension-dependent but prime-independent. These are natural structural invariants, not an arbitrary finite enumeration.
+Odd-order rotation subgroup V is characteristic, hence each automorphism is uniquely determined by L∈GL_d(F_p), b∈V. Actual twisted-conjugation translations act by im(I-L) in rotations and im(I+L) in reflections. The remaining reflection generator induces affine inversion on each odd-order quotient, with exactly one fixed point; all others pair. Translation-orbit fibers have p^(d-a/c) elements, yielding the entire class-size distribution and R formula. The eigenspaces at ±1 intersect trivially. To realize all a+c<=d, choose 1/-1 diagonal blocks and an irreducible companion block of residual dimension>=2, a non-±1 scalar for residual dimension one when p>=5, or an inflated Jordan block when p=3,d>=2 and a+c>=1. Base-p sum uniqueness for p>=3 gives the cardinality formula. Independently constructed all GL2(F3) matrices, all twisted-generator actions on G, observed R∈{2,3,4,6} with multiplicities 18,16,12,2; this corroborates rather than proves universal d.
 
-**Scope and risks.** Odd primes and dimension at least two; the \(p=3,d=1\) boundary is specifically excluded. The checker tests finitely many parameters and offers no independent infinite proof. An equivalent older theorem under alternate language could change historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Noncyclic elementary generalized dihedral kernel falls outside ZM and cyclic-kernel metacyclic spectrum theorems. General character counts do not explicitly determine all class-size profiles and their attained GL_d parameter pairs; best-of-knowledge originality remains plausible.
+
+## value
+
+PASS
+
+A noncyclic, infinite parametrized finite-group family receives the complete automorphism-by-automorphism class-size profile, the exact attainable numbers, and count of distinct spectrum entries. This is a natural finite-group invariant classification beyond a generic effective algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
