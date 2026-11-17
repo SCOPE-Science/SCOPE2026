@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated random-order greedy rule has a finite descending first-eligible recurrence, whose polynomial coefficients and per-vertex probabilities were calculated with exact rational arithmetic. A logically independent second evaluation integrates the arrival-order constraints for every independent dominating set, producing the identical full size law and all nineteen site probabilities. An exhaustive sweep of \(2^{19}\) subsets produces exactly \(24+111+4=139\) maximal independent sets, and both independent methods sum to probability one. The packaged source independently reconstructs graph adjacency, proves the asserted orbit classes using explicit automorphisms and six-cycle distinctions, and verifies all rational values. Every quantifier concerns this finite labeled graph and continuous iid arrival priorities.
+## correctness
 
-## Originality — PASS on examined evidence
-The closest primary process literature is Pippenger (1989), Gamarnik–Goldberg (arXiv:0807.1277), and Krivelevich–Mészáros–Michaeli–Shikhelman (2024). The arXiv PDF was examined in its introduction, theorem statements, large-girth analysis and numerical sections; the 2024 full-access article was examined for its scope and named models. Those results prove general finite-girth bounds, concentration or local-limit asymptotics, but do not explicitly determine the nineteen-vertex Robertson cage's distribution or orbit-by-orbit final coverage. Pippenger's original full text could not be retrieved, so its abstract provides model context but no whole-document exclusion claim. An accessible same-graph antiferromagnetic Ising result concerns a different equilibrium spin Hamiltonian and does not imply greedy monomer probabilities. No earlier exact cage jamming table was located in targeted literature/database searches. This evidence supports originality to the extent searched; unindexed historical work remains a material risk.
+PASS
 
-## Mathematical value — PASS
-The unique \((4,5)\)-cage is the minimal finite four-regular girth-five graph, so it is a distinguished small graph for testing finite-girth corrections to regular-tree adsorption. The exact three-point jamming law permits finite-volume benchmarking, while unequal rational occupation probabilities on its three nontransitive vertex classes demonstrate that degree and girth do not make local adsorption rates uniform. These are natural, independently useful stochastic observables, not an arbitrary numerical slice. The result does not claim a new general RSA recurrence or any phase transition.
+Reconstructed the LCF 19-vertex, 38-edge, 4-regular graph from the actual frozen RESULT.md. The first-eligible recurrence P_S(z)=z/|S| sum_{v in S}P_{S\N[v]}(z) is valid because the earliest still-eligible arrival is uniform; finite strict subset recursion is exhaustive. Independently computed the exact probabilities 92833/1256850, 520381/628425, 913/9310 at sizes 5,6,7, mean 540823/89775 and all 19 orbit site probabilities 1919129/6032880, 31441/99225, 3157883/10054800. Exhaustive 2^19 independent dominating masks gave counts 24,111,4. The separate ordered-simplex formula is consistent: its product denominator is the suffix cumulative number of I-and-blocked outside arrivals; these integrations are exact but were not separately replayed here. Independent automorphism-orbit subgroup generators were not checked in this run, but the site-class partition itself was verified.
 
-## Closest literature and limitations
-The 2008 full paper establishes universal finite-girth bounds and the large-girth limit, not this fully evaluated finite graph. The 2024 full text develops local-limit methods for graph sequences. Pippenger's 1989 abstract covers the underlying monomer model, but its full source was not accessible for exhaustive comparison; an older exact Robertson-specific calculation is a residual priority risk. This is a single finite-graph theorem, with no thermodynamic or time-dependent extension. The public source file `verify.py` reproduces the claimed computations without dependencies beyond standard Python.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original claim is a complete distribution and orbit-resolved jamming probabilities on the minimal quartic girth-five Robertson cage, not the elementary RSA recurrence or the known cage graph. Literature checks found large-girth occupation bounds and general regular-graph dynamics, but no exact published three-orbit rational law. This is best-of-knowledge originality, NOT a guarantee: the complete 1989 primary manuscript and unindexed cage tabulations remain a priority risk.
+
+## value
+
+PASS
+
+This is a motivated exact finite invariant of the canonical smallest 4-regular girth-5 graph. Distinct occupation probabilities on equal-degree sites distinguish finite geometry from regular-tree approximations; all independent domination sizes and the full jamming law enable exact benchmarks for adsorption algorithms. The finite size alone does not make the fact worthless and no thermodynamic claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

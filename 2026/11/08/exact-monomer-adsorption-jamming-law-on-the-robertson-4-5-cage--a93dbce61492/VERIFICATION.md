@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.9 or newer (integer `bit_count` support). The verifier uses only standard-library fractions, itertools, and memoization, and constructs the entire graph from the embedded nineteen LCF offsets.
+## correctness
 
-The first exact method conditions on the next eligible arrival and computes its generating polynomial and every site's inclusion probability by memoized deletion of the closed neighborhood. The second method independently enumerates all \(2^{19}\) subsets to obtain the \(139\) independent dominating sets, integrates the required arrival-order inequalities as rational functions, and sums their weights by size and site. Their equality is asserted for all nineteen sites, not just a global total.
+PASS
 
-The program additionally checks graph degrees, edges, girth exclusions, explicit automorphism generators, orbit sizes and six-cycle counts; checks the exact three rational output probabilities; verifies that probabilities sum to one; and verifies the rational mean and site-density identities. These finite calculations are exhaustive; they do not determine uncomputed dynamics or establish priority against inaccessible literature. Independent audit is not performed.
+Reconstructed the LCF 19-vertex, 38-edge, 4-regular graph from the actual frozen RESULT.md. The first-eligible recurrence P_S(z)=z/|S| sum_{v in S}P_{S\N[v]}(z) is valid because the earliest still-eligible arrival is uniform; finite strict subset recursion is exhaustive. Independently computed the exact probabilities 92833/1256850, 520381/628425, 913/9310 at sizes 5,6,7, mean 540823/89775 and all 19 orbit site probabilities 1919129/6032880, 31441/99225, 3157883/10054800. Exhaustive 2^19 independent dominating masks gave counts 24,111,4. The separate ordered-simplex formula is consistent: its product denominator is the suffix cumulative number of I-and-blocked outside arrivals; these integrations are exact but were not separately replayed here. Independent automorphism-orbit subgroup generators were not checked in this run, but the site-class partition itself was verified.
+
+## originality
+
+PASS
+
+The original claim is a complete distribution and orbit-resolved jamming probabilities on the minimal quartic girth-five Robertson cage, not the elementary RSA recurrence or the known cage graph. Literature checks found large-girth occupation bounds and general regular-graph dynamics, but no exact published three-orbit rational law. This is best-of-knowledge originality, NOT a guarantee: the complete 1989 primary manuscript and unindexed cage tabulations remain a priority risk.
+
+## value
+
+PASS
+
+This is a motivated exact finite invariant of the canonical smallest 4-regular girth-5 graph. Distinct occupation probabilities on equal-degree sites distinguish finite geometry from regular-tree approximations; all independent domination sizes and the full jamming law enable exact benchmarks for adsorption algorithms. The finite size alone does not make the fact worthless and no thermodynamic claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
