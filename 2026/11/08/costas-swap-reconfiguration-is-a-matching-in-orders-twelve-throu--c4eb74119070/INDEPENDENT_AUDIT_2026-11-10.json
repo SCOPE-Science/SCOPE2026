@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:19:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The left-to-right prefix search rejects exactly repeated forward displacement differences for each h; every valid Costas permutation survives, so exhaustion is genuine and not partial raw enumeration. The original left-to-right hash-based and reverse-bitmask/direct-retest checkers were inspected. A separate independently written exhaustive C++ implementation generated all valid permutations and directly retested the full Costas predicate after each swap: n=11 4368 vertices, 140 edges, deg0/1/2=4096/264/8; n=12 7852 vertices 136 edges 7580 K1 +136 K2 gaps (8,16,4,0,20,40,8,8,20,8,4); n=13 12828 vertices 88 edges 12652 K1 +88 K2 gaps (12,16,8,4,12,4,8,0,0,8,8,8); n=14 17252 vertices 120 edges 17012 K1 +120 K2 gaps (12,0,20,0,0,8,8,0,12,12,32,12,4). Reverse enumeration is independent by different recursion; matching degree hist and gaps certify exact finite target instances, not an all-n theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2008 aggregate counts do not reveal whether edges share endpoints.",
+          "Ardalani/Pott modular index map typically reorders multiple positions, not arbitrary single transpositions."
+        ],
+        "reasoning": "No checked stronger graph-structure theorem covers the n12–14 matching property; however unindexed adjacency lists could in principle imply it.",
+        "searches": [
+          "Drakakis Healy Rickard 2008 Costas array local swapping reconfiguration",
+          "Costas arrays transformation index multiplication 2023"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/228340808_A_stochastic_analysis_approach_in_the_search_for_Costas_arrays",
+        "https://arxiv.org/abs/1102.5727",
+        "https://arxiv.org/abs/0706.1379",
+        "https://www.jstage.jst.go.jp/article/transfun/E106.A/12/E106.A_2023SDP0005/_pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2008 table gives only E, whereas matching requires max degree ≤1.",
+          "n=11 has 140 edges with eight degree-two vertices, showing even closely similar counts can support multiple degrees."
+        ],
+        "reasoning": "A general graph with 136 edges need not be a matching, hence the prior total does not imply the new component theorem.",
+        "searches": [
+          "Drakakis 2008 stochastic search Costas array swap pairs Hamming 2",
+          "Resultary: matching Costas swap n12 13 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamming distance two for permutations is exactly swapping two entries.",
+          "Drakakis et al 2008 Table 2 gives number of such unordered pairs."
+        ],
+        "reasoning": "The correct alias was checked: pairs at Hamming distance two ARE the same edges, so old edge totals are credited; new degree distribution and gap-refinement are strictly additional.",
+        "searches": [
+          "Costas permutations Hamming distance two graph switch degree orders 12 13 14",
+          "Resultary: Costas swap reconfiguration matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2008 n12–14 pair totals 136/88/120 are exact covered table cells.",
+          "Independent full enumeration produces degree hist 7580/272,12652/176,17012/240 and exact 11/12/13-bin gap vectors."
+        ],
+        "reasoning": "Known edge totals do not imply vertex-degree data. No source table with the new histograms was found in targeted checks; this is not absolute priority proof.",
+        "searches": [
+          "Costas arrays number of permutations degree sequence 12 13 14",
+          "Drakakis 2008 Table 2 pairs Hamming distance two"
+        ]
+      },
+      "rationale": "Drakakis–Healy–Rickard 2008 Table 2 and Section 3.2 were read in full and explicitly contain the aggregate number of Costas pairs at Hamming distance two, including 136,88,120. Those numbers do not determine maximum degree, connected components, or position-gap histogram, which are supplied by independently replayed complete enumeration. Other works concern broader Costas existence or modular index permutations, not direct two-position moves.",
+      "residual_risks": [
+        "Historical tables or supplemental data may already contain degree or gap distributions under a different name; no absolute novelty guarantee.",
+        "Finite classification is deliberately restricted to the three enumerated orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_AGGREGATE_COVERAGE_ONLY",
+          "evidence": "Published n12,n13,n14 pairs 136,88,120; table does not classify degrees/components/gaps.",
+          "identifier_or_url": "https://www.researchgate.net/publication/228340808_A_stochastic_analysis_approach_in_the_search_for_Costas_arrays",
+          "material_read": "Full accessible 2008 manuscript, especially Section 3.2 and Table 2 containing pairs counts",
+          "method": "Primary full-text web reading",
+          "title": "A stochastic analysis approach in the search for Costas arrays",
+          "trigger": "Exact same Costas-array Hamming-two pairs n=12..14"
+        },
+        {
+          "assessment": "BACKGROUND_PARTIAL_READ",
+          "evidence": "Covers array existence and open problems; no identified exact swap graph histograms.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.5727",
+          "material_read": "Abstract/reference background, no complete theorem extraction in this execution",
+          "method": "ArXiv search and abstract reading",
+          "title": "Open problems in Costas arrays",
+          "trigger": "Broad Costas structural literature"
+        },
+        {
+          "assessment": "DIFFERENT_TRANSFORMATION_PARTIAL_READ",
+          "evidence": "Index multiplication modulo n+1 generally changes more than two positions and does not determine legal-transposition matching graph.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/E106.A/12/E106.A_2023SDP0005/_pdf",
+          "material_read": "Citation and transformation definition as quoted in source package; full paper not retrieved this execution",
+          "method": "Targeted literature comparison",
+          "title": "A New Transformation for Costas Arrays",
+          "trigger": "Potential alternative local move"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural legal-swap reconfiguration graph for Costas arrays has a sharp finite immobility phenomenon: n=11 admits eight degree-two states, but n=12..14 are matchings so no two-step walk visits a third array. The new complete degree/gap refinement is mathematically motivated by connectivity and local search obstacles, not a raw re-tabulation of already known aggregate pair totals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n=12,13,14; no statement for n>=15.",
+    "Existing 2008 paper already gives the aggregate edge counts 136,88,120; no originality asserted for them.",
+    "Exact complete deterministic enumeration accepted as proof of finite classification with inspected pruning invariant.",
+    "An unindexed prior classification of swap degree/gaps remains possible."
+  ],
+  "schema_version": 1
+}

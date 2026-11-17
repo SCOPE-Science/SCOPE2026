@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite result is stated for exact labelled permutations with a fixed one-swap adjacency relation. The left-to-right recurrence appends each unused value and checks precisely the new differences at every gap, which proves both that no valid array is discarded and that every retained completed array is valid. Every transposition is checked against the full enumerated set, and degrees and gap counts are calculated at both endpoints. The independent right-to-left implementation computes displacement masks and checks the complete Costas property after every potential swap. Executed checker programs agree on all counts and gap histograms and reject deviations from expected values. There is no infinite-order extrapolation.
+PASS
 
-## Originality — PASS, qualified
+The left-to-right prefix search rejects exactly repeated forward displacement differences for each h; every valid Costas permutation survives, so exhaustion is genuine and not partial raw enumeration. The original left-to-right hash-based and reverse-bitmask/direct-retest checkers were inspected. A separate independently written exhaustive C++ implementation generated all valid permutations and directly retested the full Costas predicate after each swap: n=11 4368 vertices, 140 edges, deg0/1/2=4096/264/8; n=12 7852 vertices 136 edges 7580 K1 +136 K2 gaps (8,16,4,0,20,40,8,8,20,8,4); n=13 12828 vertices 88 edges 12652 K1 +88 K2 gaps (12,16,8,4,12,4,8,0,0,8,8,8); n=14 17252 vertices 120 edges 17012 K1 +120 K2 gaps (12,0,20,0,0,8,8,0,12,12,32,12,4). Reverse enumeration is independent by different recursion; matching degree hist and gaps certify exact finite target instances, not an all-n theorem.
 
-The closest primary document is Drakakis, Healy and Rickard (2008), Section 3.2, Table 2: it already lists Hamming-distance-two pair counts 136, 88 and 120. Those totals are not claimed. Its table and discussion do not identify vertex degrees, connected components or the positional-gap histogram; aggregate pair totals cannot logically determine whether two pairs share an endpoint. The 2023 modular-index transformation is a different operation. Targeted literature and published published-finding corpus searches did not identify a dominating or equivalent complete degree/component classification. Unindexed earlier work could contain it, so priority is qualified.
+## originality
 
-## Value — PASS
+PASS
 
-A valid Costas permutation is a frequency-hopping design; pair swaps are the local operation explicitly investigated in the 2008 stochastic-search literature. The sharp degree-one property means every valid-state-only local walk at these orders is confined to at most two arrays, a structural obstruction stronger than simply having few close pairs. The order-eleven degree-two examples demonstrate the behaviour is not a tautological consequence of the Costas definition. Positional-gap data identify which geometric rearrangements can occur, giving a natural finite reconfiguration benchmark. This does not imply a general-order theorem or invalidate algorithms allowed to leave the Costas family.
+Drakakis–Healy–Rickard 2008 Table 2 and Section 3.2 were read in full and explicitly contain the aggregate number of Costas pairs at Hamming distance two, including 136,88,120. Those numbers do not determine maximum degree, connected components, or position-gap histogram, which are supplied by independently replayed complete enumeration. Other works concern broader Costas existence or modular index permutations, not direct two-position moves.
 
-## Prior literature and remaining limitations
+## value
 
-The previously published totals and the full 2008 relevant section were inspected directly; the 2023 paper's alternative transformation was examined. The 2007 arXiv article supplies a verified prior public date and underlying definition. Exact novelty outside indexed and accessible literature cannot be guaranteed. Scientific validation is finite, with the reproducible exhaustive methods included in the package.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural legal-swap reconfiguration graph for Costas arrays has a sharp finite immobility phenomenon: n=11 admits eight degree-two states, but n=12..14 are matchings so no two-step walk visits a third array. The new complete degree/gap refinement is mathematically motivated by connectivity and local search obstacles, not a raw re-tabulation of already known aggregate pair totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
