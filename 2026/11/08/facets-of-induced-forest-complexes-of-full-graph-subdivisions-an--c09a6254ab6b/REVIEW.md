@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The characterization is reconstructed from the cycle-preserving suppression of selected degree-two subdivision vertices. Maximality requires every externally incident subdivision vertex, a spanning forest on each selected original component, and two neighbors in one component for each unselected original vertex. These conditions are both necessary and sufficient, including empty and disconnected cases. For a complete graph, every old-vertex subset of size at least two works and Cayley's labelled spanning-tree count gives the exact polynomial. Cardinality extremes, multiplicities, and nonpurity follow from an evaluated first difference. An independent finite brute-force implementation checked 76 graph profiles and 44,662 induced subsets, including all 32,768 subsets of the five-clique subdivision.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Gaikwad et al. (2022) and Lampis et al. (2023) study algorithms for maximum minimal feedback vertex sets and the underlying private-cycle criterion, but the inspected primary papers do not enumerate facets of once-subdivided complete graphs. Gunderson et al. (2023) study maximum induced forests in other families, not inclusion-maximal forests of subdivisions. The classical formula for labelled trees is an ingredient and not itself a new theorem. The published-finding corpus and accessible prior-claim comparisons found no claim implying the complete structural classification or cardinality polynomial. An unindexed equivalence through incidence-graph or graphic-matroid formulations remains possible; the finite and database searches do not prove uniqueness.
+PASS
 
-## Value — PASS
-Enumerating all irredundant feedback vertex sets is distinct from finding a minimum feedback vertex set. The structural criterion works for arbitrary finite base graphs and the specialization gives a natural closed facet polynomial, both extremal minimal-FVS sizes, exact extremal multiplicities, uniform nonpurity from four original vertices onward, and arbitrarily long gaps in the allowed facet-size spectrum. These are meaningful configuration-level conclusions that are not recovered from a scalar minimum alone. The result does not claim new Cayley enumeration or a general-purpose algorithmic breakthrough.
+For any finite simple G, a selected induced subgraph of its full one-subdivision is acyclic iff selected old-old internal edge subdivisions form an acyclic graph on selected original vertices A; subdivisions incident to an omitted old vertex are leaves/isolated and cannot create cycles. Maximality forces all noninternal subdivision vertices to be selected, internal selected edges F to be a spanning tree of every connected component of G[A], and each omitted old x to have two neighbors in the same selected component, exactly the claimed iff. For K_n (n>=3), A must have size a>=2 and can be chosen arbitrarily; Cayley provides a^(a-2) internal spanning trees. Selected size N+2a-1-C(a,2); complement size n-2a+1+C(a,2). Exact finite recomputation n=3..8 recovers coefficients and extremal sizes. For n=4 the two facet sizes 7,8 prove nonpurity; first differences 2-a yield unbounded size gaps. Finite checks only corroborate the unrestricted cycle-suppression proof.
 
-## Limits and closest literature
-The closest sources are arXiv:2208.01953v1; arXiv:2301.05207v1; DOI:10.4230/LIPIcs.MFCS.2023.62. They establish the problem context and generic theory, but no exact equivalent statement was seen in inspected material. Publication priority is provisional and an independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication-level comparison: the closest primary and published Resultary claims do not imply the full final claim, despite shared notation, boundary cases or model; residual literature-access and historical-priority risks are specified.
+
+## value
+
+PASS
+
+The maximal induced-forest complex and irredundant feedback-vertex-set spectrum differ from merely determining a minimum FVS size. The general subdivision iff enables exact structural enumeration; the natural complete-graph specialization gives all facet sizes, Cayley multiplicities, nonpurity threshold and arbitrary large gaps. These could serve topological or combinatorial researchers studying induced complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

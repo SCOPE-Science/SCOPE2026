@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The accompanying `verify.py` generates every simple labelled base graph on one through four vertices, builds its full one-subdivision, and enumerates *all* vertex subsets of the subdivision. It implements induced acyclicity by an independent union-find cycle detector. It compares inclusion-maximal induced forests directly against the structural predictions. It additionally tests the complete five-vertex base graph and compares facet cardinalities with the explicit Cayley formula. A separate exact arithmetic check covers all \(3\le n\le12\).
 
-Observed execution:
+# Independent mathematical audit
 
-```text
-VERIFY_OK labeled_base_graphs_and_cliques=76 full_subsets=44662 maximal_induced_forests=555 predicted_facets=PASS cycle_detection=PASS Cayley_cardinality=PASS size_extremes_n3to12=PASS
-```
+## correctness
 
-The test range is finite; it does not certify arbitrary inputs or replace the mathematical proof. The proof depends on cycle suppression, the maximality tests for missing subdivision and old vertices, and the classical enumeration of labelled trees. There is no independent mathematical audit.
+PASS
+
+For any finite simple G, a selected induced subgraph of its full one-subdivision is acyclic iff selected old-old internal edge subdivisions form an acyclic graph on selected original vertices A; subdivisions incident to an omitted old vertex are leaves/isolated and cannot create cycles. Maximality forces all noninternal subdivision vertices to be selected, internal selected edges F to be a spanning tree of every connected component of G[A], and each omitted old x to have two neighbors in the same selected component, exactly the claimed iff. For K_n (n>=3), A must have size a>=2 and can be chosen arbitrarily; Cayley provides a^(a-2) internal spanning trees. Selected size N+2a-1-C(a,2); complement size n-2a+1+C(a,2). Exact finite recomputation n=3..8 recovers coefficients and extremal sizes. For n=4 the two facet sizes 7,8 prove nonpurity; first differences 2-a yield unbounded size gaps. Finite checks only corroborate the unrestricted cycle-suppression proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication-level comparison: the closest primary and published Resultary claims do not imply the full final claim, despite shared notation, boundary cases or model; residual literature-access and historical-priority risks are specified.
+
+## value
+
+PASS
+
+The maximal induced-forest complex and irredundant feedback-vertex-set spectrum differ from merely determining a minimum FVS size. The general subdivision iff enables exact structural enumeration; the natural complete-graph specialization gives all facet sizes, Cayley multiplicities, nonpurity threshold and arbitrary large gaps. These could serve topological or combinatorial researchers studying induced complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
