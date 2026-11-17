@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces all persistent valuations on the three-world fork to seventeen pointed semantic types, proves that every formula is an upset of a specified 38-comparability poset, and provides eleven actual formulas whose bitmasks separate all ordered type pairs not comparable in the required direction. Constructing principal-upset formulas from these witnesses shows that *every* upset is definable. The 16-term count equals 9,934. The independent direct-frame evaluator for all 25 pairs of persistent valuations reproduces every bitmask; its order and count tests pass. The finite certificate is exhaustive, rather than empirical evidence for an infinite claim.
+## correctness
 
-**Originality — PASS with residual historical risk.** Chen–Ding's relevant full-text discussion of individual Medvedev frames (arXiv:2412.20178, introduction, Sections 2 and 6) proves tabularity and axiomatizability but does not enumerate rank-two formula classes. Pawłowski (arXiv:2609.11576, Sections 1 and 6) and Almeida–Knudstorp (arXiv:2609.13359, introduction and Section 2) prove undecidability for the intersection over all finite Medvedev frames; that does not imply the exact formula-algebra size on the fixed 2-atom frame. Kostrzycka's 2007 one-variable study is not a two-variable classification; only available abstract/indexed text was inspected, not full text. Specific exact-number, equivalence, generator-rank, and dual-poset searches of published material and the mathematics index found no equivalent assertion. The absence of a search hit is not a proof of historical uniqueness.
+PASS
 
-**Mathematical value — PASS.** This is the complete two-generated relatively free algebra over the five-element Heyting algebra of the first nontrivial Medvedev frame, not a sample count or an arbitrary subfamily. The exact 9,934 cardinality and seventeen-point semantic dual supply a structural finite representation with explicit term definability. Previously known abstract tabularity does not furnish these invariants, which are natural inputs to fixed-variable equivalence, axiomatization and comparative intermediate-logic calculations.
+All persistent assignments on three-world rooted fork are 5 choices for each of two variables (25 valuations). Every pointed root is determined by root color and set of one or two leaf colors; repeated identical leaf color is logically indistinguishable from a leaf, giving 17 distinct pointed types. Persistence forces truth sets to be upsets of 17-element partial order with 38 comparable ordered pairs. Eleven explicit implication/disjunction formulas have exact 17-bit truth masks evaluated independently against frame semantics; they separate all 251 directed pairs not in this order. Conjunction of relevant separators defines each principal upset, disjunction then defines every upset. The sum over all 16 included-leaf masks of 2^(eligible roots) is exactly 9934. The finite certificate plus structural induction proves equivalence of arbitrary formulas, no extrapolation from formula-length samples.
 
-**Limitations and priority risk.** The description pertains only to the one three-world frame and two variables; the recent undecidability results concern a different, unbounded problem. Other published algebra enumeration tables and the inaccessible full text of some older works may still contain an equivalent exact figure. The finite certificate has received no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original precise two-generated relatively free algebra on fixed M2. Chen–Ding tabularity and axioms for each Medvedev frame do not determine exact 9934 cardinal or 17-type dual. Global undecidability over varying Medvedev frames concerns another domain. No earlier same exact count found by Resultary query; 2025 Chen–Ding complete full text inaccessible because authorized Oxford institutional tool reported vpn_disconnected, explicitly residual risk not automatic failure.
+
+## value
+
+PASS
+
+The rank-two free algebra of the first nontrivial finite Medvedev frame is a naturally defined finite Heyting algebra invariant. An explicit 17-element dual and all-separating 11-term basis are reusable structural descriptions, not merely an arbitrary small numerical computation. This exact relatively free object is a natural finite classification and can serve as basis for further generator-rank comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

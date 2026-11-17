@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite certificate verification
+# Independent mathematical audit
 
-Run `python3 checker.py` with any standard Python 3 interpreter. The code constructs all 17 pointed semantic types and the 11 witness terms, then evaluates the latter in two ways: directly at each reduced type, and independently over all 25 pairs of upward-closed valuations on the actual three-world frame. The asserted 17-bit masks are printed in `RESULT.md`.
+## correctness
 
-The code next verifies all 251 directed pairs outside the 38-pair type order are separated by a witness term, constructs the 17 principal upsets using conjunctions, and enumerates all 9,934 distinct upsets using a leaf-subset/root-subset decomposition. It returns `MEDVEDEV_M2_TWO_VARIABLE_9934_OK 17 types 38 comparabilities 9934 inequivalent formulas` on successful completion.
+PASS
 
-This computation proves only the explicitly finite table and matrix facts; the reduction from arbitrary formulas to the 17-type semantics is a structural induction in `RESULT.md`. It does not assess larger Medvedev frames, higher ranks, or bibliographic priority. No independent audit has been performed.
+All persistent assignments on three-world rooted fork are 5 choices for each of two variables (25 valuations). Every pointed root is determined by root color and set of one or two leaf colors; repeated identical leaf color is logically indistinguishable from a leaf, giving 17 distinct pointed types. Persistence forces truth sets to be upsets of 17-element partial order with 38 comparable ordered pairs. Eleven explicit implication/disjunction formulas have exact 17-bit truth masks evaluated independently against frame semantics; they separate all 251 directed pairs not in this order. Conjunction of relevant separators defines each principal upset, disjunction then defines every upset. The sum over all 16 included-leaf masks of 2^(eligible roots) is exactly 9934. The finite certificate plus structural induction proves equivalence of arbitrary formulas, no extrapolation from formula-length samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge original precise two-generated relatively free algebra on fixed M2. Chen–Ding tabularity and axioms for each Medvedev frame do not determine exact 9934 cardinal or 17-type dual. Global undecidability over varying Medvedev frames concerns another domain. No earlier same exact count found by Resultary query; 2025 Chen–Ding complete full text inaccessible because authorized Oxford institutional tool reported vpn_disconnected, explicitly residual risk not automatic failure.
+
+## value
+
+PASS
+
+The rank-two free algebra of the first nontrivial finite Medvedev frame is a naturally defined finite Heyting algebra invariant. An explicit 17-element dual and all-separating 11-term basis are reusable structural descriptions, not merely an arbitrary small numerical computation. This exact relatively free object is a natural finite classification and can serve as basis for further generator-rank comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
