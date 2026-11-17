@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:56:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md/verify_peak.py/verify_peak_forward.py",
+        "sir_allrate_check.py and three bounded batch logs, independent_checks.py/log"
+      ],
+      "rationale": "From CTMC first-event conditioning in states (susceptible S, infectious I), with removals monotone, the success probability F(S,I) obeys a well-founded rational recurrence: terminal |I|≥k success and I=∅ failure; each infection/rate term and removal/rate term normalized by |I|+β∑d_I(v). The denominator is positive for I≠∅, recursive measure 2|S|+|I| strictly decreases. Independent graph-atlas census checked all connected graph isomorphism types n=2..5 (1,2,6,21), all missing edges, seeds, k, and the rational differences for all β>0: exactly 1,738 comparisons (1,475 with nonnegative numerator+denominator polynomial coefficients and positive sign; 263 identities). Exact independent six-vertex subset DP for β=50 proves R6(tree)-R6(+edge)=24352320312500/56704429847324259>0 with stated graph, seed1. Thus six vertices are sharp; no small-n numerical sampling is used to claim all β.",
+      "residual_risks": [
+        "Positivity-by-coefficients applies to the specific completely enumerated set n≤5; no claim for all larger graphs or all β in the six-vertex witness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Different earlier claims concern duration, seed rankings, other event thresholds; none supplies edge-addition monotonicity over all k and rates in the same peak-hitting metric."
+        ],
+        "reasoning": "General exact Markovian ODE formalism permits computation but does not imply finite strict sign ordering or six-vertex threshold without this exhaustive classification.",
+        "searches": [
+          "https://arxiv.org/abs/1402.1731",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217518/",
+          "Resultary four vertices are sharp for shortening SIR epidemic duration by adding one contact",
+          "Resultary four vertices are sharp for peak-capacity reversal"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1402.1731",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217518/",
+        "Resultary SIR peak-overload query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SIR Markov chain state recursions are standard; exact 1738 comparison coefficient positives plus explicit six-point negative witness establish the sharp new cutoff."
+        ],
+        "reasoning": "The general CTMC equations alone entail formulas in principle, not the nontrivial all-β inequalities and minimal graph order; no direct or stronger covering theorem established.",
+        "searches": [
+          "https://arxiv.org/abs/1402.1731",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217518/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Van Mieghem uses max_t E|I_t|, different from P(max_t|I_t|≥k); Holme exact SIR small graph evaluations use expected final infections/seed importance."
+        ],
+        "reasoning": "E-max and max-of-trajectory are nonlinear different observables; edge addition need not order them by implication.",
+        "searches": [
+          "Resultary: SIR peak overload probability max simultaneous infected edge addition six vertices",
+          "https://arxiv.org/abs/1402.1731",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217518/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Holme exact small-network expectations tabulate final-size and sentinel measures, not R_k(G,s;β). Submitted 1738 rational comparisons are of realized peak-hitting probability."
+        ],
+        "reasoning": "A known small-graph SIR table is not automatically an exact database for trajectory maximum or for arbitrary β sign of graph-edge differences.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217518/",
+          "Resultary n≤5 SIR peak-addition counterexample"
+        ]
+      },
+      "rationale": "Primary exact Markovian SIR network equations and small-graph seed importance paper study expected node prevalence/final outbreak size, vaccination and detection, not hitting probability of realized max simultaneous |I_t| conditional on adding a contact. No published Resultary search record supplied the all-rate edge-addition monotonicity through five and sharp six-vertex SIR peak-overload counterexample under identical CTMC and single-seed conventions.",
+      "residual_risks": [
+        "Small-graph computed hitting-risk inequalities could occur in older differently named reliability/peak-capacity literature. The complete global historical bibliography cannot be certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SAME_MODEL_DIFFERENT_OBJECTIVE",
+          "evidence": "Max average prevalence and threshold, not P(max_t concurrent I≥k) and addition of one edge.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.1731",
+          "material_read": "Accessible arXiv full article HTML/sections on governing equations, maximum average infectious fraction, joint probabilities and limitations",
+          "method": "ArXiv full HTML read",
+          "title": "Exact Markovian SIR and SIS epidemics on networks and an upper bound for the epidemic threshold",
+          "trigger": "Same CTMC SIR dynamics and potential mean-versus-trajectory confusion"
+        },
+        {
+          "assessment": "NOT_COVERING_DIFFERENT_OBJECTIVE",
+          "evidence": "Investigates expected final outbreak size and timing of detection; does not report universal all-β edge-addition order of realized peak risk.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217518/",
+          "material_read": "Full lawful PMC HTML: abstract, introduction, setup and node importance objectives (expected outbreak size, vaccination, surveillance)",
+          "method": "PMC open full-text read",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Small graph exact SIR literature including n≤7"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217518/",
+        "sir_allrate_check.py complete comparison"
+      ],
+      "rationale": "A sharp failure of contact-addition monotonicity for *realized peak concurrent overload* is a structural counterexample with an exact first-order size cutoff under fixed natural homogeneous CTMC rules. Unlike routine average-final-size computations, the 1738 full-parameter rational classifications distinguish n≤5 from n=6, and the rational six-vertex witness gives a reproducible overload-risk design boundary.",
+      "residual_risks": [
+        "The negative effect for the exhibited β is small (~0.00042946) and is not epidemiological policy advice."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite connected undirected unweighted graphs, single infectious seed, homogeneous recovery=1 and transmission β, peak threshold k≥2; no assertion about heterogeneous networks.",
+    "No full source census beyond n=5; the witness only needs one n=6 graph and β=50."
+  ],
+  "schema_version": 1
+}

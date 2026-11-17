@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For disjoint susceptible and infectious sets, the exact first-event recurrence follows from independent exponential clocks and decreases the integer \(2|S|+|I|\) strictly. Complete simple-graph generation up to five vertices and permutation-based isomorphism canonicalization give connected graph class counts \(1,2,6,21\). All \(1738\) edge-addition/seed/peak-threshold comparisons were symbolically reduced; every nonzero difference has numerator and denominator with nonnegative coefficients and strictly positive values at \(\beta=1\), proving the sign for every \(\beta>0\). The exact six-site rational witness is reproduced by two different recursions. A finite enumeration is used only for the finite small-graph assertion, not extrapolated to larger graphs.
+PASS
 
-## Originality — PASS (subject to historical-priority risk)
+From CTMC first-event conditioning in states (susceptible S, infectious I), with removals monotone, the success probability F(S,I) obeys a well-founded rational recurrence: terminal |I|≥k success and I=∅ failure; each infection/rate term and removal/rate term normalized by |I|+β∑d_I(v). The denominator is positive for I≠∅, recursive measure 2|S|+|I| strictly decreases. Independent graph-atlas census checked all connected graph isomorphism types n=2..5 (1,2,6,21), all missing edges, seeds, k, and the rational differences for all β>0: exactly 1,738 comparisons (1,475 with nonnegative numerator+denominator polynomial coefficients and positive sign; 263 identities). Exact independent six-vertex subset DP for β=50 proves R6(tree)-R6(+edge)=24352320312500/56704429847324259>0 with stated graph, seed1. Thus six vertices are sharp; no small-n numerical sampling is used to claim all β.
 
-Focused literature searches and four primary full-text comparisons revealed no dominating claim. Van Mieghem (2014) studies mean prevalence maxima; Economou et al. (2015) compute SIS maximum prevalence and discuss a possible SIR extension; Holme (2013) studies discrete-time extinction time; Holme (2017) works on expected final size, vaccination and sentinel timing for small graphs. These results share methods or model components but do not imply the all-positive-rate SIR peak-edge inequality or its six-vertex counterexample. Equivalence, broader coverage and exact table checks, with precise source reading and remaining risks, appear in `AUDIT.json`. Unindexed literature may affect priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact minimum network order is a natural structural invariant for a capacity-overload decision. The theorem separates pathwise concurrent infection risk from mean peak prevalence and final size; it gives an exact benchmark for stochastic network interventions. The witness decrease is small and at a particular rate, but the five-vertex theorem is uniform over all positive rates, all missing contacts and every peak target. No claim is made about empirical contact tracing or public-health recommendations.
+Primary exact Markovian SIR network equations and small-graph seed importance paper study expected node prevalence/final outbreak size, vaccination and detection, not hitting probability of realized max simultaneous |I_t| conditional on adding a contact. No published Resultary search record supplied the all-rate edge-addition monotonicity through five and sharp six-vertex SIR peak-overload counterexample under identical CTMC and single-seed conventions.
 
-## Scientific limitations
+## value
 
-Only simple undirected connected unweighted graphs, one initial infectious site, homogeneous exponential infection/recovery, and one edge addition are covered. The exhaustive certification is limited to graph orders at most five, the counterexample to one six-vertex graph. All computations are reproducible from the accompanying source and do not constitute independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp failure of contact-addition monotonicity for *realized peak concurrent overload* is a structural counterexample with an exact first-order size cutoff under fixed natural homogeneous CTMC rules. Unlike routine average-final-size computations, the 1738 full-parameter rational classifications distinguish n≤5 from n=6, and the rational six-vertex witness gives a reproducible overload-risk design boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

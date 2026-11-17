@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Exact checks and limitations
+# Independent mathematical audit
 
-`verify_peak.py` generates every labeled simple graph on two through five vertices, filters connected graphs, canonicalizes via every vertex permutation, and confirms \(1,2,6,21\) connected isomorphism classes. Its first-event recursion uses exact SymPy polynomials; for every missing-edge, seed and threshold it checks the reduced difference has a zero numerator or nonnegative numerator and denominator coefficients, with both nonzero at \(\beta=1\). It therefore certifies the all-\(\beta>0\) signs instead of sampling rates.
+## correctness
 
-Replay in four batches:
+PASS
 
-```text
-python verify_peak.py --start 0 --stop 5
-python verify_peak.py --start 5 --stop 10
-python verify_peak.py --start 10 --stop 15
-python verify_peak.py --start 15 --stop 21
-python verify_peak.py --witness
-python verify_peak_forward.py
-```
+From CTMC first-event conditioning in states (susceptible S, infectious I), with removals monotone, the success probability F(S,I) obeys a well-founded rational recurrence: terminal |I|≥k success and I=∅ failure; each infection/rate term and removal/rate term normalized by |I|+β∑d_I(v). The denominator is positive for I≠∅, recursive measure 2|S|+|I| strictly decreases. Independent graph-atlas census checked all connected graph isomorphism types n=2..5 (1,2,6,21), all missing edges, seeds, k, and the rational differences for all β>0: exactly 1,738 comparisons (1,475 with nonnegative numerator+denominator polynomial coefficients and positive sign; 263 identities). Exact independent six-vertex subset DP for β=50 proves R6(tree)-R6(+edge)=24352320312500/56704429847324259>0 with stated graph, seed1. Thus six vertices are sharp; no small-n numerical sampling is used to claim all β.
 
-Observed batch totals were respectively \(698,420,400,220\) tested comparisons, hence \(1738\) comparisons, of which \(1475\) gave strict increases. The highest polynomial degree was \(15\). Both rational witness implementations returned
+## originality
 
-```text
-without edge 12: 14289062500/18273931533
-with edge 12:    1946796875000/2491078937193
-difference:      24352320312500/56704429847324259
-```
+PASS
 
-`verify_peak_forward.py` is an independent subset recurrence that uses the fact that six simultaneously infectious vertices require all infections before any recovery. It does not call the general symbolic checker.
+Primary exact Markovian SIR network equations and small-graph seed importance paper study expected node prevalence/final outbreak size, vaccination and detection, not hitting probability of realized max simultaneous |I_t| conditional on adding a contact. No published Resultary search record supplied the all-rate edge-addition monotonicity through five and sharp six-vertex SIR peak-overload counterexample under identical CTMC and single-seed conventions.
 
-The classification is finite and exhaustive only through five vertices. No external certification, unseen-source priority guarantee, or independent audit is asserted.
+## value
+
+PASS
+
+A sharp failure of contact-addition monotonicity for *realized peak concurrent overload* is a structural counterexample with an exact first-order size cutoff under fixed natural homogeneous CTMC rules. Unlike routine average-final-size computations, the 1738 full-parameter rational classifications distinguish n≤5 from n=6, and the rational six-vertex witness gives a reproducible overload-risk design boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
