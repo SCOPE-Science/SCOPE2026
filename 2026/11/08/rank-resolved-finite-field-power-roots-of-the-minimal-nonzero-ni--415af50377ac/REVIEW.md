@@ -1,15 +1,21 @@
-# Review — Rank-resolved finite-field power roots of the minimal nonzero nilpotent orbit
+# Independent mathematical audit
 
-## Correctness — PASS
-For an arbitrary finite field and any nonzero rank-one square-zero target, every root is nilpotent because its square-to-the-power equation forces \(X^{2m}=0\). The formula for powers of Jordan blocks implies exactly one block of length \(m+1\), all others at most \(m\). The standard centralizer order is derived by identifying the nilpotent endomorphism algebra with an \(\mathbb F_q[t]\)-module endomorphism ring and counting the units of its semisimple quotient. Conjugation equivariance and orbit-stabilizer then give each individual positive-integer fiber. The partition-length argument gives all and only the permitted ranks, and dominance gives asymptotic concentration at maximum rank. Exhaustive computations over prime and extension fields confirm selected rank-resolved multiplicities. The proof is not a computational extrapolation.
+## correctness
 
-## Originality — PASS, provisional
-The relevant historical root-existence and classification works identify admissible Jordan types, and finite-field commuting-matrix literature gives centralizer tools. Direct examination of relevant sections of Higham–Lin (2009), Schwaiger (2005), Britnell–Wildon (2010) and Öztürk (2021) did not locate a complete rank-resolved count of actual matrices satisfying \(X^m=C\) for every nonzero minimal nilpotent target, nor the sharp supported-rank interval and maximal-rank concentration. Targeted mathematical-record searches for prescribed root fibers, centralizer ratios, Jordan types, and rank strata returned no exact matching statement. The ingredients are standard and an unlocated general orbit-convolution theorem could imply the result; priority remains provisional. This is not a claim that separate classical centralizer or Jordan facts are new.
+PASS
 
-## Value — PASS
-The power map on nilpotent matrices is a natural algebraic map, while the nonzero minimal nilpotent orbit is the smallest nontrivial prescribed singular image. The result computes the full multiplicity of every root rank simultaneously for all finite fields, dimensions and exponents; it identifies exact attainable ranks without gaps, and proves a limiting concentration at maximal rank. This supplies a precise nontrivial prescribed-fiber invariant rather than only a criterion of solvability. It can be used as a benchmark for other nilpotent target strata. No sweeping downstream theorem is claimed.
+PASS: For X^m=C with C nonzero rank-one square-zero, X^(2m)=0; nilpotent Jordan theory works over every finite field. Rank J_d^m=max(d-m,0), so exactly one Jordan block has size m+1 and all other blocks are at most m. Thus every root type is (m+1) union nu with nu a partition of k=n-m-1 into parts <=m; no roots when n<=m. The centralizer is the unit group of the F_q[t]-module endomorphism algebra: semisimple quotient product M_{b_d}(F_q), radical dimension the remaining endomorphism space; consequently |Z_GL(J_lambda)|=q^(sum lambda_prime_j^2)*product_d product_i (1-q^-i). The power map commutes with conjugation and maps every permitted root orbit onto the sole rank-one nilpotent orbit, yielding each prescribed fiber A_mu/A_lambda, a positive integer. Rank n-1-len(nu) occupies exactly [m,n-1-ceil(k/m)], without gaps. The greedy bounded partition uniquely minimizes the centralizer exponent, proving maximal-rank concentration as q grows; finite enumerations independently checked q=2 n=3,4, m=2,3 (2 roots at n3 m2, 12 at n4 m2, 24 at n4 m3) by literal matrix products and ranks. All-field claims use the orbit argument, not this finite computation.
 
-## Closest literature and limitations
-N. Higham and L. Lin, *On pth Roots of Stochastic Matrices* (preprint 2009-03-10), addresses matrix-root existence and root canonical forms; J. Schwaiger, *More on Rootless Matrices* (2005), discusses root existence; Britnell and Wildon, arXiv:1001.0811, concerns commuting classes and finite-field centralizers; S. Öztürk, *On m-th roots of nilpotent matrices* (2021), gives detailed existence/Jordan criteria. The finite-field centralizer unit formula itself is classical. The comparison cannot exclude an unexamined stronger root-counting theorem. The result does not cover the zero target, larger-rank targets, or orbit counts modulo the target stabilizer. Verification is same-model only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Öztürk 2021 full original article supplies root-existence and possible Jordan-type results, and Britnell–Wildon supplies finite-field centralizer machinery. The classical facts are prerequisites. No complete prescribed rank-one NILPOTENT target rank-by-rank number of actual matrices, exact support interval and field-size concentration is stated in the material read. Related published rank-one square-zero centralizer spectra count commuting square-zero matrices, not roots of a prescribed nilpotent under power. A general orbit-convolution formula could subsume this special fiber; this is the strongest originality residual.
+
+## value
+
+PASS
+
+PASS: Fibers of the power map over the minimal nonzero nilpotent orbit are a canonical, basis-independent, naturally complete exact-count problem. A full finite-field distribution by root rank and sharp permitted interval adds quantitative information beyond the known Jordan solvability criterion. The unique maximal-dimension orbit provides a meaningful large-field limit; it is not an arbitrary dimension slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

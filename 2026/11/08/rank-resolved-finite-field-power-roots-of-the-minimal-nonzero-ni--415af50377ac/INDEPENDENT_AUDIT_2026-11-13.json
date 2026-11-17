@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:13:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For X^m=C with C nonzero rank-one square-zero, X^(2m)=0; nilpotent Jordan theory works over every finite field. Rank J_d^m=max(d-m,0), so exactly one Jordan block has size m+1 and all other blocks are at most m. Thus every root type is (m+1) union nu with nu a partition of k=n-m-1 into parts <=m; no roots when n<=m. The centralizer is the unit group of the F_q[t]-module endomorphism algebra: semisimple quotient product M_{b_d}(F_q), radical dimension the remaining endomorphism space; consequently |Z_GL(J_lambda)|=q^(sum lambda_prime_j^2)*product_d product_i (1-q^-i). The power map commutes with conjugation and maps every permitted root orbit onto the sole rank-one nilpotent orbit, yielding each prescribed fiber A_mu/A_lambda, a positive integer. Rank n-1-len(nu) occupies exactly [m,n-1-ceil(k/m)], without gaps. The greedy bounded partition uniquely minimizes the centralizer exponent, proving maximal-rank concentration as q grows; finite enumerations independently checked q=2 n=3,4, m=2,3 (2 roots at n3 m2, 12 at n4 m2, 24 at n4 m3) by literal matrix products and ranks. All-field claims use the orbit argument, not this finite computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Öztürk 2021 Theorem 1.1 lists all admissible root Jordan types and Theorem 1.2 relates other root type transformations, not number of fixed-target matrices.",
+          "Britnell–Wildon treats commuting similarity class possibilities; related nilpotent endomorphism-ring root fibers require extra module-linearity and different target."
+        ],
+        "reasoning": "Those tools do not yield the claimed multiplicities as a quoted theorem. No inspected broad counting theorem was found that directly specializes to every dimension m and field size.",
+        "searches": [
+          "https://journals.uwyo.edu/index.php/ela/article/download/6331/5675/10561",
+          "https://arxiv.org/abs/1001.0811",
+          "Resultary: square-root fibers independent defects nilpotent endomorphism rings"
+        ]
+      },
+      "checked_sources": [
+        "https://journals.uwyo.edu/index.php/ela/article/download/6331/5675/10561",
+        "https://arxiv.org/abs/1001.0811",
+        "https://eprints.maths.manchester.ac.uk/1241/",
+        "https://doi.org/10.13001/ela.2021.6331",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-rank-refined-square-zero-centralizers-of-a-rank-one-nilpotent-ma--0260ec1ac7b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Öztürk proves the positive root-type constraints, which specialize to candidate Step 1, and does not give the A_mu/A_lambda fixed-point fiber multiplicity.",
+          "The centralizer order is classical; applying equivariance of the power map derives the additional count."
+        ],
+        "reasoning": "The candidate is a nontrivial, albeit concise, synthesis of classical existence and centralizer facts. The quantitative prescribed-target theorem and large-q ranking are not asserted by the inspected older works; possible derivability from a general published orbit-fiber formula remains a live priority risk.",
+        "searches": [
+          "Öztürk full 2021 sections 1–4",
+          "Britnell–Wildon arXiv:1001.0811",
+          "Green 1955 finite GL_n centralizer counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each root Jordan type is (m+1) union nu, and the root multiplicity for fixed target equals the ratio of GL_n orbit sizes.",
+          "A fixed rank-one square-zero target is a single GL_n(F_q) orbit of type (2,1^(n-2))."
+        ],
+        "reasoning": "Existence by Jordan type and exact fixed-target counts are logically different; the orbit ratio refines the former and requires the centralizer order.",
+        "searches": [
+          "Resultary: finite field number of mth roots of fixed rank one nilpotent matrix by rank Jordan orbit centralizer",
+          "Öztürk 2021 Theorem 1.1 and Proposition 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked related database results count commuting square-zero X or nilpotent centralizer transitions, not solutions X^m=C for the fixed nonzero target.",
+          "The small numeric fibers (n,m,q)=(3,2,2) 2 and (4,2,2) 12 agree with directly enumerated matrices."
+        ],
+        "reasoning": "No exact matching rank-resolved fixed-target table found in the bounded record corpus; the direct finite checks alone do not establish novelty.",
+        "searches": [
+          "Resultary Search: prescribed nilpotent m-th power root fiber rank histogram",
+          "Resultary 2026/10/25 square-zero centralizers and 2026/11/2 rank-one nilpotent centralizers"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Öztürk 2021 full original article supplies root-existence and possible Jordan-type results, and Britnell–Wildon supplies finite-field centralizer machinery. The classical facts are prerequisites. No complete prescribed rank-one NILPOTENT target rank-by-rank number of actual matrices, exact support interval and field-size concentration is stated in the material read. Related published rank-one square-zero centralizer spectra count commuting square-zero matrices, not roots of a prescribed nilpotent under power. A general orbit-convolution formula could subsume this special fiber; this is the strongest originality residual.",
+      "residual_risks": [
+        "An earlier orbit-power fiber theorem for general nilpotent matrix targets may imply A_mu/A_lambda and the rank strata without special mention of the minimal orbit.",
+        "The centralizer algebra, Jordan block power identity and orbit-stabilizer are classical; the contribution is their exact prescribed-target synthesis, not new linear algebra machinery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ROOT_TYPE_EXISTENCE_ONLY",
+          "evidence": [
+            "Full primary text supports candidate Jordan-type classification but not fixed-target finite-field multiplicity by root rank."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/6331/5675/10561",
+          "material_read": "Full 16-page PDF, Theorem 1.1, Proposition 2.3, Corollary 3.5, Section 3, conclusion",
+          "method": "Complete publisher OA PDF with parsed lines and screenshots pages 719 and 726",
+          "title": "On m-th roots of nilpotent matrices",
+          "trigger": "Same nilpotent root problem and explicit Jordan classification"
+        },
+        {
+          "assessment": "CENTRALIZER_TOOL_NOT_POWER_FIBER",
+          "evidence": [
+            "The paper addresses commuting similarity classes over finite fields, not rank-resolved preimages of a single matrix under X->X^m."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.0811",
+          "material_read": "Main theorem and centralizer/similarity discussion",
+          "method": "Full OA PDF with text and first-page screenshot",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Potential general finite-field orbit-centralizer theorem"
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_FULLY_INSPECTED",
+          "evidence": [
+            "Counts m=2 roots subject to module commuting constraints and a different target of rank growing with dimension; could have general techniques but not literal coverage."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-square-root-fibers-and-independent-defects-in-finite-nilpotent-e--8c630004b349",
+          "material_read": "Full Resultary summary and recorded theorem statement, not entire primary RESULT",
+          "method": "Resultary semantic research search",
+          "title": "Square-root fibers and independent defects in finite nilpotent endomorphism rings",
+          "trigger": "Potential stronger same-day power-fiber result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Fibers of the power map over the minimal nonzero nilpotent orbit are a canonical, basis-independent, naturally complete exact-count problem. A full finite-field distribution by root rank and sharp permitted interval adds quantitative information beyond the known Jordan solvability criterion. The unique maximal-dimension orbit provides a meaningful large-field limit; it is not an arbitrary dimension slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Target must be nonzero rank-one square-zero; no general target, zero target, or nonreduced scheme.",
+    "Root rank probability concentration is q->infinity at fixed n and m only.",
+    "Prior search and primary reading were bounded; no claim of exhaustive historical novelty, publisher bypass, source-code-based proof, or formal independent certification.",
+    "Public file publication is withheld independently of scientific PASS."
+  ],
+  "schema_version": 1
+}
