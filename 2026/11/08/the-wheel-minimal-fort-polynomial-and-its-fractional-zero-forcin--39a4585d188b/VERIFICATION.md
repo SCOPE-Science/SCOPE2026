@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational verification of the wheel minimal-fort theorem
+# Independent mathematical audit
 
-Run from the artifact directory:
+## correctness
 
-```
-python3 verify_wheel_forts.py
-```
+PASS
 
-The program uses only the Python 3 standard library. It independently builds every wheel \(W_{n+1}\) for \(3\le n\le12\), tests every nonempty selected vertex subset against the fort condition, and tests inclusion-minimality by examining every proper nonempty subset. The resulting complete cardinality counts and hub-containing counts are compared with exact integer-polynomial recurrences derived from the displayed denominators \(A\) and \(B\). The initial published thirteen-term hub sequence is checked separately. Recurrence consistency and positivity are checked through rim order 160. For the directly enumerated graph instances, the proposed uniform fractional transversal weights satisfy every minimal-fort inequality exactly, and two disjoint minimal forts are found in each instance.
+After repair the final claim is only the exact wheel fractional transversal and packing gap; the original full polynomial was already known. For every n, minimal hub-free forts require at least a=ceil(n/2) rim vertices, and minimal hub-containing forts require at least b=ceil(n/3), with tight examples including n=4. Rotational averaging reduces the LP to au>=1 and v+bu>=1; optimizing nu+v yields 1+(n-b)/a. Explicit disjoint forts and 3-vertex forcing show ft=2 and Z=3. Fresh independent full-subset checks n=3..9 confirm rational weights/attained classes. Source transfer and previously published polynomial not assigned novelty.
 
-A numerical LP optimization check using SciPy's HiGHS solver was separately executed on every enumerated minimal-fort hypergraph for rim orders three through twelve. Its optimum equalled the claimed rational value in all cases. This external numerical solver check is corroboration only; the exact fractional formula relies on the symmetrization proof in RESULT.md.
+## originality
 
-The exhaustive graph-level computation is finite, and the recurrence is a computational consequence of the same symbolic denominators. They are not independent mathematical certification and cannot exclude overlapping unpublished or unindexed prior results. Independent audit has not been performed.
+PASS
+
+The earlier 2026-11-02 complete wheel minimal-fort polynomial covers the originally advertised generating functions and hub-fort sequence, so those have been removed from the repaired novelty claim. The surviving complete theorem is the all-order fractional fort-transversal, packing number and strict relaxation-gap law; no inspected source supplies this exact LP optimum.
+
+## value
+
+PASS
+
+The original wheel enumeration was already covered and is removed from the revised theorem. The surviving LP optimum settles a natural relaxation on every wheel and identifies a persistent strict gap between packing, fractional forcing and ordinary forcing, including exact exceptional equality orders. It is not a known-table recomputation or arbitrary small-n slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

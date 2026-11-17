@@ -1,108 +1,35 @@
-# The wheel minimal-fort polynomial and its fractional zero-forcing gap
+# Exact fort-transversal relaxation and packing gap on wheel graphs
 
 ## Finding
-For every integer \(n\geq3\), let \(W_{n+1}=K_1\vee C_n\), with a distinguished hub \(h\) and \(n\) individually labelled rim vertices. A *fort* is a nonempty vertex set \(F\) such that every vertex outside \(F\) has either zero or at least two neighbors in \(F\). Put
+For each integer \(n\ge3\), let \(W_{n+1}=K_1\vee C_n\), with one hub and \(n\) cyclically labelled rim vertices. A **fort** is a nonempty set \(F\) of vertices for which every vertex outside \(F\) has either zero or at least two neighbors in \(F\). Let \(\mathcal F_{\min}\) be its inclusion-minimal forts. Define the fort-packing number \(\operatorname{ft}(W_{n+1})\) as the maximum number of pairwise disjoint forts and the fractional fort-transversal number
 \[
-M_n(z)=\sum_{F\text{ inclusion-minimal fort of }W_{n+1}}z^{|F|}.
+Z^*(W_{n+1})=\min\left\{\sum_v w_v:w_v\ge0,\ \sum_{v\in F}w_v\ge1\text{ for all }F\in\mathcal F_{\min}\right\}.
 \]
-Define
+Then, with \(a=\lceil n/2\rceil\) and \(b=\lceil n/3\rceil\),
 \[
-A(x,z)=1-zx^2-z^2x^3,\qquad
-B(x,z)=1-zx^2-zx^3-z^2x^4+z^3x^6.
+\boxed{\operatorname{ft}(W_{n+1})=2,\qquad Z^*(W_{n+1})=1+\frac{n-b}{a},\qquad Z(W_{n+1})=3.}
 \]
-Then the **complete labelled cardinality distribution** is the rational generating function
-\[
-\boxed{\sum_{n\geq3}M_n(z)x^n=
--x\frac{\partial_xA(x,z)}{A(x,z)}
--zx\frac{\partial_xB(x,z)}{B(x,z)}
--2zx^2-\frac{2z^2x^2}{1-zx^2}.}
-\]
-In particular, if \(H_n\) counts inclusion-minimal forts *containing the hub*, then
-\[
-\boxed{\sum_{n\geq3}H_nx^n=
--x\frac{\mathrm d}{\mathrm dx}\log(1-x^2-x^3-x^4+x^6)
--\frac{2x^2}{1-x^2}.}
-\]
-Its initial values for \(n=3,4,\ldots\) are \(3,4,5,3,14,12,21,25,44,55,78,112,158,\ldots\). The prior literature lists these values but does not give an explicit formula for them [2, Section 5.1].
+Here \(Z\) is the ordinary zero-forcing number. An optimal fractional transversal places weight \(1/a\) at every rim vertex and \(1-b/a\) at the hub. The equality \(Z^*=\operatorname{ft}=2\) holds exactly at \(n\in\{3,4,5,7\}\); for every \(n\ge8\), \(2<Z^*<3\), and \(Z-Z^*\to2/3\).
 
-Let \(Z^*(G)\) be the *fractional transversal number of the minimal-fort hypergraph*, as in [1], and let \(\operatorname{ft}(G)\) be the maximum number of pairwise vertex-disjoint forts. Then for all \(n\geq3\),
-\[
-\boxed{\operatorname{ft}(W_{n+1})=2,\qquad
-Z^*(W_{n+1})=1+\frac{n-\lceil n/3\rceil}{\lceil n/2\rceil},\qquad
-Z(W_{n+1})=3.}
-\]
-Equality \(Z^*(W_{n+1})=\operatorname{ft}(W_{n+1})=2\) occurs exactly for \(n\in\{3,4,5,7\}\). For all \(n\geq8\), the three parameters are strictly ordered \(2<Z^*(W_{n+1})<3\). The additive integrality gap tends to \(2/3\).
-
-The total number of inclusion-minimal forts also obeys
-\[
-\boxed{M_n(1)\sim\lambda^n,\quad
-\lambda=1.40126836793985\ldots,\quad
-\lambda^6-\lambda^4-\lambda^3-\lambda^2+1=0,}
-\]
-where \(\lambda\) is the unique real root larger than \(1\) of maximum modulus among the roots of the displayed polynomial. The leading asymptotic constant is exactly \(1\).
-
-## Assumptions and scope
-All graphs are finite, simple, undirected and labelled. The symbol \(C_n\) denotes the ordinary simple cycle even for \(n=3\); the vertex \(h\) is adjacent to every rim vertex. An inclusion-minimal fort has no **proper nonempty subset** that is a fort; checking only single deletions is not by itself sufficient in arbitrary graphs. A dominating set \(D\) of a graph means that each vertex outside \(D\) has a neighbor in \(D\). Minimal dominating is inclusion-minimal, not necessarily minimum cardinality.
-
-The fractional parameter is the nonnegative linear-program optimum
-\[
-Z^*(G)=\min\left\{\sum_{v\in V(G)}w_v:\ 
-\sum_{v\in F}w_v\geq1\text{ for every minimal fort }F,\ w_v\geq0\right\}.
-\]
-It is **not** the distinct three-color-game fractional forcing parameter.
+The **complete size-refined minimal-fort generating functions** of wheel graphs, including the hub-containing count sequence, were established earlier in [3] and are **not** claimed here. The present assertion is the sharp all-order fort-transversal and packing-law separation, not an original enumeration theorem or a new asymptotic fort-count formula.
 
 ## Proof
-**1. Exhaustive classification by hub membership.** Write \(R=V(C_n)\). If \(h\notin F\), then \(F\subseteq R\) and the hub must have at least two neighbors in \(F\), forcing \(|F|\geq2\). An omitted rim vertex must have zero or two neighbors in \(F\). In a nonempty proper rim set, a block of two or more consecutive omitted rim vertices would give an omitted vertex with exactly one neighbor in \(F\), so all omitted vertices are isolated. Conversely, any rim set whose complement is independent is a fort. Inclusion-minimality is equivalent to the omitted set being a maximal independent set of \(C_n\). The same conclusion excludes the nonminimal full-rim set.
+Call the hub \(h\). For an inclusion-minimal fort avoiding \(h\), its rim complement is a maximal independent set of \(C_n\) [3]. Therefore the smallest such fort has exactly \(a=\lceil n/2\rceil\) rim vertices, because a largest independent set has size \(\lfloor n/2\rfloor\). If an inclusion-minimal fort contains \(h\), it is \(\{h\}\cup D\), where \(D\) is a minimal dominating set of \(C_n\), excluding the two alternating configurations when \(n\) is even [3]. Every such \(D\) has size at least \(b=\lceil n/3\rceil\). There exists one of size exactly \(b\) for all \(n\ge3\): choose a minimum dominating set, and when \(n=4\) select two adjacent vertices instead of an alternating pair. This produces an actual minimal hub-containing fort of size \(b+1\).
 
-If \(h\in F\), write \(F=\{h\}\cup D\). Every omitted rim vertex already has one neighbor in \(F\), so the fort condition is exactly that \(D\) dominate \(C_n\). Inclusion-minimality under deletion of rim vertices is equivalent to \(D\) being a minimal dominating set, because domination is monotone under addition. The hub is essential precisely when \(D\) alone is *not* a fort. If a dominating \(D\) is a rim-only fort, every omitted vertex has two neighbors in \(D\). Such a vertex can never be a private neighbor of a selected vertex. A minimal dominating set requires each selected vertex to have some private closed-neighborhood witness; therefore every selected vertex must be isolated in \(D\) as its own private witness. Thus \(D\) and \(R\setminus D\) are both independent. This happens only on even cycles, for the two alternating choices. Conversely, those two sets are minimal dominating and rim-only forts. Hence hub-containing minimal forts correspond bijectively to all minimal dominating sets of \(C_n\), except those two alternating sets when \(n\) is even.
-
-**2. Enumeration of hub-free forts.** In a maximal independent set, consecutive selected rim vertices have either one or two omitted vertices between them. Marking the omitted vertices (the fort) by \(z\), the block polynomial is \(zx^2+z^2x^3\). A cyclic list of \(k\) blocks, of total rim order \(n\), labels each set \(n/k\) times after distinguishing one selected vertex. Therefore the generating function of the hub-free distribution, including the nonphysical order-two term, is \(-x\partial_x\log A(x,z)\). The order-two term is \(2zx^2\), which must be removed since the cycle family starts at \(n=3\).
-
-**3. Enumeration of minimal dominating sets.** Between successive vertices of a nonempty minimal dominating set \(D\), let \(g\in\{0,1,2\}\) count omitted vertices; these are all possibilities since a longer omitted run has an undominated vertex. A selected vertex having left and right gaps \((a,b)\) has a private witness if and only if \(a=2\), or \(b=2\), or both \(a\geq1\) and \(b\geq1\). The allowed ordered pairs are consequently
+Because rim rotations preserve the set of minimal forts, averaging any fractional transversal over all these rotations preserves feasibility and total weight. Thus an optimum exists with weight \(u\ge0\) on each rim vertex and \(v\ge0\) on the hub. The preceding two minimum-size witnesses show that its complete constraints reduce to
 \[
-(0,2),(1,1),(1,2),(2,0),(2,1),(2,2).
+au\ge1,\qquad v+bu\ge1.
 \]
-With row and column states \(0,1,2\), define the weighted transition matrix
-\[
-T(x,z)=\begin{pmatrix}
-0&0&zx^3\\
-0&zx^2&zx^3\\
-zx&zx^2&zx^3
-\end{pmatrix}.
-\]
-An arc whose next gap is \(b\) contributes \(zx^{1+b}\), marking the selected vertex and its following omitted run. For each \(k\), the trace \(\operatorname{tr}T^k\) counts cyclic gap lists with \(k\) distinguished selected vertices. Thus the minimal-dominating-set enumerator, including an artificial order-two term, is
-\[
-\sum_{k\geq1}\frac nk[x^n]\operatorname{tr}T^k
-=[x^n]\left(-x\frac{\partial}{\partial x}\log\det(I-T)\right).
-\]
-Direct determinant expansion gives \(\det(I-T)=B(x,z)\). For the actual wheel, multiply this polynomial by \(z\) to mark the hub and exclude the two alternating configurations in every even order. The subtraction \(2z^2x^2/(1-zx^2)\) simultaneously removes the artificial order-two term and, for even \(n\geq4\), the two forbidden hub-containing sets of size \(n/2+1\). Adding the hub-free enumerator proves the displayed rational function.
+Conversely these two inequalities imply every minimal-fort constraint by the same lower bounds on rim counts. Since \(b\le a<n\), minimizing \(nu+v\) gives \(u=1/a\) and \(v=1-b/a\); every increase of \(u\) above \(1/a\) raises the objective even after the best admissible decrease of \(v\). Consequently \(Z^*=n/a+1-b/a\).
 
-**4. Fort packing, fractional transversal and integer zero forcing.** The smallest hub-free fort has \(a=\lceil n/2\rceil\) rim vertices: it is the complement of a maximum independent set of \(C_n\). The smallest hub-containing minimal fort has exactly \(b=\lceil n/3\rceil\) rim vertices: this is the domination number of \(C_n\). A minimum dominating set of that size is not a rim-only fort whenever \(n\ne4\), since \(b<a\); at \(n=4\), choose two adjacent rim vertices instead of the alternating pair. This supplies a genuine hub-containing minimal fort of size \(b+1\) for every \(n\geq3\).
+Any two disjoint hub-free forts would need at least \(2a\) rim vertices; three disjoint forts are impossible since at most one may use the hub and \(2a\ge n\). For even \(n\), the two alternating rim sets are disjoint forts, showing \(\operatorname{ft}\ge2\). For odd \(n\), take a maximum independent set \(I\) of \(C_n\); the sets \(V(C_n)\setminus I\) and \(\{h\}\cup I\) are disjoint forts. Hence \(\operatorname{ft}=2\). Every vertex in \(W_{n+1}\) has degree at least three (also for \(n=3\)), so two initially colored vertices cannot cause a first zero-forcing move. The hub and two adjacent rim vertices do force all other rim vertices successively for \(n\ge4\), and at \(n=3\) the graph is \(K_4\), for which three initial vertices force the last. Thus \(Z=3\).
 
-Average any feasible fractional transversal over the rotations of the rim. Its total weight is preserved and its weights become \(u\) on each rim vertex and \(v\) at the hub. All fort inequalities reduce exactly to \(au\geq1\) and \(v+bu\geq1\) with \(u,v\geq0\), because all other forts contain at least the corresponding minimum number of rim vertices. Since \(b\leq a<n\), minimizing \(nu+v\) gives \(u=1/a\) and \(v=1-b/a\), proving the fractional formula. The equality cases follow by elementary comparison of the two ceiling functions.
+Finally, substitute the ceiling functions and compare integers. Equality \(1+(n-b)/a=2\) is equivalent to \(n=a+b\), which holds precisely at \(n=3,4,5,7\). For \(n\ge8\), \(a+b<n\) and \(n-b<2a\), yielding \(2<Z^*<3\). Dividing by \(n\) gives \(Z^*\to 1+(2/3)/(1/2)=7/3\), so \(Z-Z^*\to2/3\).
 
-At most two forts can be pairwise disjoint: at most one can contain the hub, and every hub-free fort uses at least \(\lceil n/2\rceil\) rim vertices; for even \(n\), two disjoint hub-free forts exhaust the rim. Two disjoint forts do exist. For even \(n\), use the two alternating rim-only forts. For odd \(n\), take a maximal independent rim set \(I\), and use \(R\setminus I\) and \(\{h\}\cup I\). This proves \(\operatorname{ft}=2\). A hub together with two consecutive rim vertices forces around the rim when \(n\geq4\); for \(n=3\) the wheel is \(K_4\). Conversely, no initial pair can make a first force, since each selected vertex has at least two unselected neighbors. Hence \(Z=3\).
-
-**5. Asymptotics.** At \(z=1\), the weighted transfer determinant is \(B(x,1)=1-x^2-x^3-x^4+x^6\). Its least positive zero \(\alpha\) is \(0.713639173536901\ldots\). The nonnegative irreducible transfer matrix \(T(\alpha,1)\) has Perron eigenvalue \(1\); all its nonzero entries increase with \(x>0\), so this crossing is simple. No other zero has modulus \(\alpha\): equality in the complex-entry spectral-radius bound would force the phases of both self-loop contributions of lengths \(2\) and \(3\) to be \(1\), so the phase of \(x\) must be \(1\). Consequently \(-x\partial_x\log B(x,1)\) has a unique dominant simple pole with residue yielding coefficient \(\alpha^{-n}\). The hub correction is bounded and the hub-free contribution has smaller exponential growth, determined by \(1-x^2-x^3\), whose least positive zero is greater than \(\alpha\). Therefore \(M_n(1)\sim\alpha^{-n}\), with leading coefficient \(1\), as claimed.
-
-## Verification
-The independent stand-alone script `verify_wheel_forts.py` constructs each wheel directly, enumerates all nonempty vertex subsets for rim orders \(3\leq n\leq12\), and tests minimality against **all proper nonempty subsets**, not merely one-deletion checks. It compares every cardinality coefficient with two independently coded polynomial recurrences obtained from \(A\) and \(B\). It checks the earlier reported hub-containing sequence, the exact fractional weights as a feasible cover, disjoint fort packing for small orders, the determinant identity and coefficient recurrences through order \(80\). A separate numerical linear-program cross-check with an LP solver was also performed for each rim order \(3\leq n\leq12\); every optimum agreed with the closed fraction. Finite checks support but do not prove the unbounded statements.
-
-For example,
-\[
-M_3(z)=6z^2,\quad M_4(z)=2z^2+4z^3,\quad
-M_5(z)=10z^3,\quad M_6(z)=5z^3+3z^4.
-\]
-
-## Relationship to prior work
-Cameron, Hogben, Kenter, Mojallal and Schuerger [1] define the fort-hypergraph fractional transversal and tabulate this parameter for several families, including cycles, but not wheels. The result here uses their definition without claiming it as new.
-
-Becker, Cameron, Hanely, Ong and Previte [2, Section 5.1, Corollary 21] give a lower bound for the number of wheel minimal forts, characterize relevant maximal failed zero-forcing configurations, and explicitly list the initial hub-containing sequence. They state that they do not know an explicit formula for that sequence. The structural relationship with maximal independent and minimal dominating rim sets is consistent with their discussion; the new contributions claimed here are the exact all-cardinality wheel minimal-fort polynomial, the rational solution of their listed hub sequence, the exact fractional zero-forcing value and separation from the fort packing number, and the sharp growth constant. Ordinary cycle minimum-domination and independent-set facts are used as standard prior knowledge, not asserted as new.
-
-## Limitations
-The same-work mathematical review checks the proof and computations but is not independent certification. An unindexed or later equivalent theorem could affect publication priority. The asymptotic result concerns the labelled wheel family only; it does not assert extremality among graphs of the same order. The parameter \(Z^*\) is specifically the fort-hypergraph LP relaxation and is not the distinct three-color-game variant. The root is specified algebraically and numerically; no closed form in radicals is asserted.
+## Scope, verification and prior mathematical work
+The fractional parameter is the LP transversal of the **minimal-fort hypergraph**, not a different three-color zero-forcing game. The proof applies to every labelled ordinary wheel, including the triangular-rim case; finite enumeration is corroboration and not a substitute for the all-order graph/LP argument. Direct independent exhaustive fort tests for rim sizes 3 through 9 found the asserted tight size classes and feasible rational weights. The base 2018 fort formulation, its LP version, and structural results for other graph families are earlier work [1]. The 2024 wheel paper [2] proves partial wheel counts and lists the central-hub sequence. Crucially, [3] already proves the **entire** wheel minimal-fort cardinality polynomial and the rational generating function for that sequence; those previously established results are not treated as new here. No inspected earlier source supplies the exact fraction \(1+(n-\lceil n/3\rceil)/\lceil n/2\rceil\) together with the all-order packing separation. An unindexed wheel LP calculation remains a historical-priority risk. No generalization to other cone graphs or other fractional forcing definitions is asserted.
 
 ## References
-[1] T. R. Cameron, L. Hogben, F. H. J. Kenter, S. A. Mojallal, H. Schuerger, *Forts, (fractional) zero forcing, and Cartesian products of graphs*, arXiv:2310.17904, first posted 2023-10-27, especially Definitions 2.1–2.4, Section 3 and Table 6.1. https://arxiv.org/abs/2310.17904
-
-[2] P. Becker, T. R. Cameron, D. Hanely, B. Ong, J. P. Previte, *On the number of minimal forts of a graph*, arXiv:2404.05963, first posted 2024-04-09, especially Corollaries 13 and 21, Proposition 20, and Section 5.1. https://arxiv.org/abs/2404.05963
+1. T. R. Cameron, L. Hogben, F. H. J. Kenter, S. A. Mojallal, H. Schuerger, *Forts, (fractional) zero forcing, and Cartesian products of graphs*, arXiv:2310.17904 (2023).
+2. P. Becker, T. R. Cameron, D. Hanely, B. Ong, J. P. Previte, *On the number of minimal forts of a graph*, arXiv:2404.05963 (2024), especially Section 5.1.
+3. *Complete minimal-fort polynomials of wheel graphs*, mathematical result dated November 2, 2026, https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-minimal-fort-polynomials-of-wheel-graphs-and-a-rational--6c829f2312f9/RESULT.md .
