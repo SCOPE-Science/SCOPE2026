@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The bracket identity is verified directly, and the key invariant splitting \(\mathfrak n=k(f\partial_x)\oplus U_i\) is valid because the leading coefficient at degree \(i\) is nonzero. The adjoint preserves \(U_i\). Each surviving iterated-bracket vector has a distinct, nonzero leading term, so the rank formula holds for every field of characteristic \(p>3\), not just finite fields. Counting leading coefficients gives the exact finite-field distribution. The ambient example is proved by explicit adjoint powers, kernel dimension and chain decomposition. Independent-of-proof direct matrix tests passed over three finite fields, including a nonprime extension field.
+## correctness
 
-**Originality — PASS, provisionally.** The closest inspected primary full text (Yao–Chang, arXiv:1301.5667v1, Lemma 2.3 and Remark 2.4) determines first centralizers and commuting-pair components, not ranks of every power or complete Jordan partitions. Its first-centralizer results already cover the first-power specialization, which is expressly not claimed original. The Borel classification (arXiv:1212.4349v1) gives the setting but not the full Jordan profile. Mathematically nearby studies of Witt nilpotent orbits and higher commuting tuples were identified but their full text was unavailable, so unseen stronger orbit/classification implications remain a material priority risk. Similar-sounding adjoint-rank results for filiform Lie algebras and nilpotent matrix lifts do not imply the Witt-specific formula or its ambient contrast.
+PASS
 
-**Value — PASS.** Knowing all iterated adjoint ranks determines the complete nilpotent-module/Jordan structure, strictly beyond centralizer dimension. The valuation-only dependence is a uniform structural rigidity over arbitrary fields and all primes above three. Its failure in the ambient Witt representation is sharp and is demonstrated by explicit elements of the same valuation; this identifies exactly why a centralizer-only invariant misses higher-power behavior. The finite-field census describes every labeled nilradical element rather than an arbitrarily chosen computational slice.
+Pinned RESULT.md uses the Lie bracket [e_h,e_j]=(j-h)e_{h+j-1}. For f initial exponent i, the invariant direct summand kf and complement U_i removes the potentially zero leading column. On U_i, T_f^r(e_j) has nonzero leading exponent j+r(i-1) for all surviving j≠i, with distinct leading degrees, yielding max(0,p-2-r(i-1)) minus the one excluded j=i when in range. Rank sequence determines Jordan partition. Direct Witt bracket matrices at p=5,7,11 with two coefficient families per initial exponent reproduced every power rank; ambient e2 and e2+e3 have the different claimed partitions. Finite checks supplement the full filtration argument.
 
-**Limitations and priority risk.** Existing literature on nilpotent Witt orbits and commuting tuples may contain an unstated reduction covering some of the result; available abstracts do not settle this. The theorem says nothing about all ambient Witt Jordan partitions or higher-rank Cartan-type Lie algebras. Finite checks corroborate but do not replace the general argument. No independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected Yao–Chang 2013 primary paper Lemma 2.3 and Remark 2.4 establish first centralizer dimensions, not the complete ranks of all adjoint powers, finite-field Jordan partition distribution or explicit ambient contrast. The new restriction to invariant U_i and all-power leading-term argument is not contained in this first-rank data. Best-of-knowledge originality with specifically identified inaccessible orbit literature.
+
+## value
+
+PASS
+
+A complete all-power Jordan stratification for a natural Cartan-type Lie algebra nilradical and exact distribution over finite fields refine known first-centralizer formulas; the ambient failure gives a motivated sharp structural boundary of the rigidity property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

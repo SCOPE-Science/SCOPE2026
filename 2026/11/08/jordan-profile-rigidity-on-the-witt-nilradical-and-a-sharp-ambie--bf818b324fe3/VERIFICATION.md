@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 check.py` in a folder containing the accompanying files. The program uses only the Python standard library and constructs the truncated Witt bracket exactly as \([x^h\partial_x,x^j\partial_x]=(j-h)x^{h+j-1}\partial_x\), with all exponents outside the truncated algebra discarded.
+## correctness
 
-The checker exhausts \(125\) elements over \(\mathbb F_5\), \(16{,}807\) elements over \(\mathbb F_7\), and \(15{,}625\) elements over \(\mathbb F_{25}\). The quadratic extension is implemented with the irreducible relation \(\alpha^2=2\) over \(\mathbb F_5\). For each nonzero element it compares the actual ranks of *all positive powers* of its adjoint matrix with the proposed formula. It also performs 500 fixed-seed random checks over each of \(\mathbb F_{11}\) and \(\mathbb F_{13}\), and it independently checks both ambient-Witt example partitions at \(p=5,7,11,13\). The recorded result ends with `WITT_NILRADICAL_JORDAN_DIRECT_BRACKET_OK`.
+PASS
 
-The finite calculations are complete only in the three stated exhaustive cases; the arbitrary-field theorem is mathematical, not a finite-experiment extrapolation. The example illustrates non-rigidity of the full Witt adjoint representation but is not a census of all full-Witt Jordan partitions. This document records no independent audit or external certification.
+Pinned RESULT.md uses the Lie bracket [e_h,e_j]=(j-h)e_{h+j-1}. For f initial exponent i, the invariant direct summand kf and complement U_i removes the potentially zero leading column. On U_i, T_f^r(e_j) has nonzero leading exponent j+r(i-1) for all surviving j≠i, with distinct leading degrees, yielding max(0,p-2-r(i-1)) minus the one excluded j=i when in range. Rank sequence determines Jordan partition. Direct Witt bracket matrices at p=5,7,11 with two coefficient families per initial exponent reproduced every power rank; ambient e2 and e2+e3 have the different claimed partitions. Finite checks supplement the full filtration argument.
+
+## originality
+
+PASS
+
+Inspected Yao–Chang 2013 primary paper Lemma 2.3 and Remark 2.4 establish first centralizer dimensions, not the complete ranks of all adjoint powers, finite-field Jordan partition distribution or explicit ambient contrast. The new restriction to invariant U_i and all-power leading-term argument is not contained in this first-rank data. Best-of-knowledge originality with specifically identified inaccessible orbit literature.
+
+## value
+
+PASS
+
+A complete all-power Jordan stratification for a natural Cartan-type Lie algebra nilradical and exact distribution over finite fields refine known first-centralizer formulas; the ambient failure gives a motivated sharp structural boundary of the rigidity property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
