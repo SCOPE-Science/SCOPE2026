@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:54:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The a-point modulation Fourier transform separates residues u modulo a. The b translates within each residue give a circulant D_{q_u}, q_u=floor(r/a)+1_{u<r mod a}; squared singular values equal a|D_{q_u}(omega_b^j)|², with the zero and all-b cases handled by gcd(q_u,b)=1. For odd b, q=2 has extrema 2 and 2sin(pi/2b). The proof of the strict sampled Dirichlet inequality for each admissible q>=3 splits q even (j=(b-1)/2) and q odd (j near b(q-1)/(2q)), including q=3. Thus longer admissible boxcars have strictly larger B/A; exactly a+1<=r<=2a attain csc²(pi/2b), with A=4a sin²(pi/2b) and B=4a. For a=1 r=2 is included; b=3 boundary fine. This is a universal analytic argument, not an inference from finite singular values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asipchuk–De Carli–Rodriguez provide general block equivalence; the abstract/main theorems and relevant sections inspected do not imply the strict all-length minimax.",
+          "Faulhuber–Shafkulovska analyze continuous frame-bound optimization for different windows."
+        ],
+        "reasoning": "More general algebraic reductions are ingredients, not a stronger solved optimization including these discrete boxcars.",
+        "searches": [
+          "https://arxiv.org/abs/2605.16139",
+          "https://arxiv.org/abs/2204.02917"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.16139",
+        "https://arxiv.org/abs/2204.02917",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-conditioning-of-overlapping-boxcar-gabor-bases-on-odd-cycl--55a7d3bf22b2/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-conditioning-of-two-tap-cyclic-gabor-operator-bands--156a3d15490e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known block diagonalization may imply the eigenvalue formula after specialization.",
+          "No inspected earlier theorem compares sampled Dirichlet minima across every admissible overlapping boxcar or proves the sharp optimizer interval."
+        ],
+        "reasoning": "Credit routine Fourier reduction to prior art; the extremal all-length inequality and equality cases constitute new coverage.",
+        "searches": [
+          "https://arxiv.org/abs/2605.16139",
+          "https://arxiv.org/abs/2204.02917",
+          "Resultary: finite cyclic odd b overlapping boxcar Gabor basis exact eigenvalues minimum condition number csc squared pi over 2b length a+1 to 2a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The block-equivalent finite Gabor theorem obtains block representations, not optimized consecutive-boxcar singular-value ratios.",
+          "The full finite matrix spectrum concerns singular values of the analysis matrix, whereas earlier two-tap Gabor projector papers concern a lifted intensity operator."
+        ],
+        "reasoning": "No found equivalent finite cyclic Zak/DFT statement determines the sharp condition number and unique length interval.",
+        "searches": [
+          "Resultary: finite cyclic odd b overlapping boxcar Gabor basis exact eigenvalues minimum condition number csc squared pi over 2b length a+1 to 2a",
+          "https://arxiv.org/abs/2605.16139"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite matrix tests provide supporting examples only; no inspected exact table states all odd b>=3, all a>=1 and all equality cases."
+        ],
+        "reasoning": "A finite indexed table cannot by itself cover an unbounded two-parameter minimax classification; the analytic strict inequality is necessary.",
+        "searches": [
+          "Resultary: finite cyclic odd b overlapping boxcar Gabor basis exact eigenvalues minimum condition number csc squared pi over 2b length a+1 to 2a",
+          "https://arxiv.org/abs/2605.16139"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Primary Asipchuk–De Carli–Rodriguez (2026) supplies a broad finite-Gabor block-equivalence framework but the inspected statements do not impose consecutive-boxcar length design or determine the precise minimax csc²(pi/2b) and all a extremizers. Older cyclic boxcar projector-lifting results concern informational completeness of operator measurements (a different matrix/operator space), not condition numbers of a critical vector Gabor basis. Full published same-object coverage was not found in actual Resultary searches and inspected primary text; historical alias risk remains.",
+      "residual_risks": [
+        "An older finite Zak/boxcar filter-bank source under alias terminology might implicitly prove the exact minimax; the 1990s original full texts were not exhaustively read.",
+        "Scope is odd b, rectangular critical sampling, unweighted consecutive boxcars; no even-b or other windows claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED GENERAL REDUCTION, NO OPTIMIZED ODD-BOXCAR CLASSIFICATION",
+          "evidence": "Spectral block equivalence does not state the strict csc² ratio nor length equality interval.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.16139",
+          "material_read": "Accessible complete arXiv exposition, introduction and main theorems on block reduction plus discussion of applications",
+          "method": "Read primary arXiv HTML including theorems and relevant sections",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Highest relevance: same finite subgroup time-frequency lattice"
+        },
+        {
+          "assessment": "DIFFERENT CONTINUOUS SETTINGS; RESIDUAL RISK RETAINED",
+          "evidence": "Continuous windows and lattice conditions do not directly cover the finite cyclic unweighted consecutive boxcar family.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.02917",
+          "material_read": "Primary accessible abstract and relevant frame optimization context; not a full statement-by-statement exclusion",
+          "method": "arXiv page and source comparisons",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "General sharp frame-bound optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Conditioning is an intrinsic stability invariant for critically sampled Gabor bases; for a natural minimal-support overlapping window family the theorem determines the best window length for all odd fiber sizes, and forbids all longer admissible supports. The strict nontrivial sampled Dirichlet inequality and complete equality classification are meaningful arithmetic/spectral geometry beyond applying block Fourier diagonalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2605.16139",
+    "https://arxiv.org/abs/2204.02917",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-conditioning-of-overlapping-boxcar-gabor-bases-on-odd-cycl--55a7d3bf22b2/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-conditioning-of-two-tap-cyclic-gabor-operator-bands--156a3d15490e"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older finite Zak/boxcar filter-bank source under alias terminology might implicitly prove the exact minimax; the 1990s original full texts were not exhaustively read.",
+    "Scope is odd b, rectangular critical sampling, unweighted consecutive boxcars; no even-b or other windows claim."
+  ],
+  "schema_version": 1
+}
