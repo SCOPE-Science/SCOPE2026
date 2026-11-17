@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python verify_palindromes.py` with Python 3. The script uses only the Python standard library and exits nonzero on assertion failure. Its recorded successful execution generated `PASS: 52710 palindrome-index evaluations; 630 independent direct subsequence-set evaluations`. The independent method enumerates distinct scattered subsequences, not greedy arches, at half lengths at most three; at larger specified lengths the script cross-checks closed-form coefficient extraction against greedy enumeration.
+# Independent mathematical audit
 
-The exhaustive ranges are binary half lengths 0–11, ternary 0–7 and four-symbol alphabets 0–6. Exact all-length validity is established in the mathematical proof, not the bounded checks. The midpoint lemma and usual arch method are known primary-literature inputs. The analytic renewal-limit argument is not tested numerically. No independent audit or independent validation has been performed.
+## correctness
+
+PASS
+
+For q>=2, the ordinary half-word has unique greedy complete-alphabet arch factorization. Its arch enumerator is A_q=q!z^q/prod_{j=1}^{q-1}(1-jz); residual words are R_q=(1-A_q)/(1-qz), and exactly q-1-symbol residuals are S_q=A_q/z. Barker et al. midpoint lemma gives all even palindrome index exactly 2m and an odd palindrome index 2m or 2m+1 according as the center completes the deficient arch; the exact formal distributions E=R/(1-u^2 A) and O=[qR+(u-1)S]/(1-u^2 A) follow. The index-zero and empty-word cases and binary cancellation were checked. For uniformly random odd-palindrome half and center the completion is exactly renewal of uniform q-coupon collection at time h+1; its rational aperiodic generating function has sole simple unit-circle pole and mean qH_q, proving probability 1/(qH_q)+O_q(eta_q^h), eta_q<1. The mean result holds at fixed q, not uniformly growing q.
+
+## originality
+
+PASS
+
+The known palindrome midpoint lemma and coupon-collector renewal are not new. General arch enumerators and algorithms do not provide the full all-alphabet even/odd palindrome index series or its centered parity probability as an explicit enumerative theorem in inspected texts. An adjacency-distinct specialization (a separate, more constrained class) cannot determine ordinary palindrome counts. Best-of-knowledge PASS with unindexed-equivalence risk.
+
+## value
+
+PASS
+
+Ordinary palindromes are a canonical nonregular symmetry class; the full joint distribution at every length and universality level is a natural precise combinatorial statistic. The exact all-q rational series and exponential odd-index renewal limit give substantive global information beyond the structural midpoint lemma, useful for future sampled-palindrome universality calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
