@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is global on the full strictly positive quadrant: the exact reciprocal comparison gives \(z_n=O(1/n)\); the first coordinate is bounded by \(a z_{n-1}\). The precise ratio of successive coordinates supplies the quadratic orbitwise slaving coefficient \(d\), with a controlled cubic remainder. Expanding the exact reciprocal increment yields \(c+k z_n+O(z_n^2)\); first summation gives \(z_n=1/(cn)+O(\log n/n^2)\), and second summation yields a finite part after subtracting \((k/c)\log n\). The proof covers all positive parameters and initial values; no numerical sampling is used to prove the universal limit.
+## correctness
 
-## Originality — PASS, subject to stated residual priority risk
-Li and Zhang's full paper (2026, DOI:10.3934/math.2026964), particularly Sections 2–4 and the conclusion, addresses equilibrium existence, boundedness, local stability and geometric convergence to an interior fixed point. Its critical, nonhyperbolic extinction case \(b=1\) is not treated by its quoted stability or rate theorem. Searches for the model formula and its critical reciprocal-time asymptotics, including semantic searches of recorded published claims, located no identical statement or stronger theorem covering the positive-parameter cancellation hypersurface. Other matched results concern different ecological models or continuous-time extinction laws. The method uses classical reciprocal asymptotics, and unindexed earlier work may exist; absence of a search match is not proof of historical priority.
+PASS
 
-## Mathematical value — PASS
-The existence boundary \(b=1\) is exactly where linearization ceases to decide extinction rates. The theorem supplies a global, trajectory-independent leading extinction profile, a second-order logarithmic population clock, and an exact locus where the logarithmic drift changes sign despite unchanged \(n^{-1}\) decay. This quantitative border classification is relevant to long-horizon approximation of the nonlinear population recurrence and is not a mere reinterpretation of geometric convergence at positive equilibrium.
+For every a,p,q,alpha>0 and y0,z0>0 at b=1, positivity and u_(n+1)>=u_n+q imply z_n=O(1/n) and y_n<=a z_(n-1)->0. The exact successive-coordinate ratio gives orbitwise y_n=a z_n+d z_n^2+O(z_n^3), d=aq+a^2(alpha-1-p). Reciprocal expansion gives u_(n+1)-u_n=c+k z_n+O(z_n^2), c=q+alpha a, k=alpha a[2q+a(3alpha/2-1-p)]; the z_n^2 remainder is summable. Two summations yield 1/z_n=cn+(k/c)log n+C_initial+o(1), and n y_n->a/c. Zero correction occurs exactly at p=3alpha/2-1+2q/a when positive. Independent direct iteration with (a,q,alpha)=(2,1,1) and p=1,3/2,4 up to n=250000 verified both signs, vanishing k, quadratic slaving and stabilization of the corrected finite part; these finite checks do not prove universal asymptotics.
 
-## Limitations
-The arbitrary trajectory contributes an undetermined finite constant; the result concerns the deterministic exact model with strictly positive initial populations. It is not a stochastic or higher-dimensional extension. Earlier mathematical theory of parabolic iterations may contain broad principles from which aspects could be obtained, but the model-specific coefficients and cancellation were explicitly checked against accessible prior results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same two-population recurrence is studied by Li and Zhang (2026), but its published local origin tests, positive fixed-point conditions and geometric interior-attraction results do not imply the global b=1 parabolic reciprocal expansion with explicit logarithmic coefficient/cancellation. Other related parabolic predator–prey findings concern different maps. Best-of-knowledge claim of a model-specific nonstandard critical-rate calculation, not priority certification.
+
+## value
+
+PASS
+
+At b=1 the population extinction equilibrium has a neutral multiplier, so linearization does not supply the long-time extinction clock. The exact cancellation hypersurface and sign-changing second-order law distinguish natural parameter regimes with identical leading 1/n decay; this is a motivated quantitative boundary classification rather than a textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

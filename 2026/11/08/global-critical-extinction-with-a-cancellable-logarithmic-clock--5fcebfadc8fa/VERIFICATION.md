@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python verify.py` from the same directory as the research files. The checker uses only Python 3 standard-library facilities. It performs exact rational algebra for the derived coefficient identities, and independent finite-iteration checks for positive, zero, and negative logarithmic-correction coefficients. It reports finite-part convergence in representative trajectories without claiming certified asymptotic error bounds.
+## correctness
 
-The infinite-population-time limit is established by the estimates in `RESULT.md`, not by this finite checker. The source paper was inspected in its open-access PDF form (Sections 2–4, the pertinent bifurcation discussion, and conclusion). Independent scientific audit has not been performed.
+PASS
+
+For every a,p,q,alpha>0 and y0,z0>0 at b=1, positivity and u_(n+1)>=u_n+q imply z_n=O(1/n) and y_n<=a z_(n-1)->0. The exact successive-coordinate ratio gives orbitwise y_n=a z_n+d z_n^2+O(z_n^3), d=aq+a^2(alpha-1-p). Reciprocal expansion gives u_(n+1)-u_n=c+k z_n+O(z_n^2), c=q+alpha a, k=alpha a[2q+a(3alpha/2-1-p)]; the z_n^2 remainder is summable. Two summations yield 1/z_n=cn+(k/c)log n+C_initial+o(1), and n y_n->a/c. Zero correction occurs exactly at p=3alpha/2-1+2q/a when positive. Independent direct iteration with (a,q,alpha)=(2,1,1) and p=1,3/2,4 up to n=250000 verified both signs, vanishing k, quadratic slaving and stabilization of the corrected finite part; these finite checks do not prove universal asymptotics.
+
+## originality
+
+PASS
+
+The same two-population recurrence is studied by Li and Zhang (2026), but its published local origin tests, positive fixed-point conditions and geometric interior-attraction results do not imply the global b=1 parabolic reciprocal expansion with explicit logarithmic coefficient/cancellation. Other related parabolic predator–prey findings concern different maps. Best-of-knowledge claim of a model-specific nonstandard critical-rate calculation, not priority certification.
+
+## value
+
+PASS
+
+At b=1 the population extinction equilibrium has a neutral multiplier, so linearization does not supply the long-time extinction clock. The exact cancellation hypersurface and sign-changing second-order law distinguish natural parameter regimes with identical leading 1/n decay; this is a motivated quantitative boundary classification rather than a textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
