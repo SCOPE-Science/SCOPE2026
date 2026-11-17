@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-15.md",
+      "INDEPENDENT_AUDIT_2026-11-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The package contains `artifacts/verify.py`, a standalone standard-library executable. Replaying `python3 artifacts/verify.py` produces the following successful output from actual code:
+## correctness
 
-```text
-EXACT_14_SKELETON_SYMBOLIC_REDUCTION_OK skeletons=14 profiles=5
-EXACT_SOURCE_LAYER_AND_FIVE_POWER_FORMULA_OK n=0..12
-ALL_EDGE_ORIENTATIONS_OK n=0 edges=4 acyclic=14
-ALL_EDGE_ORIENTATIONS_OK n=1 edges=8 acyclic=78
-ALL_EDGE_ORIENTATIONS_OK n=2 edges=12 acyclic=426
-ALL_EDGE_ORIENTATIONS_OK n=3 edges=16 acyclic=2286
-ALL_EDGE_ORIENTATIONS_OK n=4 edges=20 acyclic=12090
-VERIFY_OK
-```
+PASS
 
-The finite 14-skeleton calculation verifies the symbolic exponential generating-function identity exactly in the polynomial ring with integer coefficients; combined with the source-layer bijection it proves the unrestricted statement. The checks over bounded graph sizes are corroboration and do not independently validate priority or provide an alternative infinite proof. No independent mathematical audit has been performed.
+Acyclic orientations are bijective to ordered nonempty source layers of monochromatic parts with adjacent layer colors unequal. Deleting C-layers gives exactly 14 labelled A/B skeletons; mandatory equal-color gaps and optional other gaps yield exact exponential generating sum. Expanding all 14 produces five explicit polynomial bases L0...L4 and coefficients of the claimed exponential generating function, proving all n>=1. Independent symbolic 14-skeleton aggregation and direct orientation cycle checks for n=1,2,3 match every coefficient; t=1 and -1 and palindromicity also agree. Finite checks corroborate a symbolic all-n proof.
+
+## originality
+
+PASS
+
+Existing work defines acyclic polynomial of graph orientations and lists bounded K2,2,p coefficients; a general multipartite encoding counts orientations without ranks, and signed algebra covers the t=-1 specialization. The complete five-base all-rank expression for every n is not directly present or implied in inspected relevant text; priority is qualified.
+
+## value
+
+PASS
+
+The natural acyclic orientation flip graph edge-disagreement rank distribution is richer than a total count or signed evaluation. A five-fixed-base closed formula for every n provides every coefficient in an infinite nontrivial multipartite family, connects to the recently studied acyclic polynomial, and need not prove Hamiltonicity to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

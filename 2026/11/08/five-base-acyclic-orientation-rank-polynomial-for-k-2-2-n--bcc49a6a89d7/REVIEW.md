@@ -1,15 +1,21 @@
-# Review of the five-base acyclic-orientation polynomial
+# Independent mathematical audit
 
-## Correctness — PASS
-For complete multipartite graphs, source peeling produces a unique sequence of nonempty monochromatic blocks with no repeated adjacent part label. Specializing to \(K_{2,2,n}\), there are exactly 14 two-part skeletons. The labeling multiplicities, inversion exponents, mandatory gaps, and exponential generating function are proved in the result. A direct, exact standard-library reduction of all 14 skeletons produces the five claimed polynomial bases, so every coefficient for all \(n\ge1\) follows by exponential generating-function extraction. Independent graph-edge enumeration through \(n=4\) and source-block recursion through \(n=12\) agree. No infinite conclusion depends on finite extrapolation.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The complete arXiv HTML of Mühlherr–Poullot was inspected at its acyclic-polynomial definitions, complete-tripartite examples, and appendix. It introduces the invariant but does not state the complete five-base formula. The Carballosa–Khera–Reyes multipartite theorem counts orientations without their edge-reversal ranks. The closest published signed-algebra result gives evaluations at \(t=-1\), and its broader signed consequences are explicitly not claimed as new. The OEIS tripartite table records unsigned values. No covering full-rank result appeared in the actual equivalent-formulation and historical-comparison searches. Possible unindexed inversion-polynomial literature remains a risk.
+PASS
 
-## Mathematical value — PASS
-The complete coefficient distribution answers a natural refined-enumeration question arising from the 2026 acyclic-polynomial program, not merely a numerical specialization. A closed expression using only five fixed polynomial bases works at arbitrary graph size and yields the full symmetric edge-disagreement profile of a nontrivial tripartite family. It also connects to an existing unsigned tripartite census and a signed-Hamiltonicity investigation, with the scope of genuinely new content carefully distinguished.
+Acyclic orientations are bijective to ordered nonempty source layers of monochromatic parts with adjacent layer colors unequal. Deleting C-layers gives exactly 14 labelled A/B skeletons; mandatory equal-color gaps and optional other gaps yield exact exponential generating sum. Expanding all 14 produces five explicit polynomial bases L0...L4 and coefficients of the claimed exponential generating function, proving all n>=1. Independent symbolic 14-skeleton aggregation and direct orientation cycle checks for n=1,2,3 match every coefficient; t=1 and -1 and palindromicity also agree. Finite checks corroborate a symbolic all-n proof.
 
-## Limitations and nearest literature
-Only \(K_{2,2,n}\) under the stated part-ordered reference is classified, not every reference orientation or part-size vector. The formula alone does not establish Hamiltonicity. A general source-block encoding is known, and a broader signed evaluation algebra pre-exists; the distinct novelty assertion is specifically about the five-base full polynomial. Historical priority and the proof have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing work defines acyclic polynomial of graph orientations and lists bounded K2,2,p coefficients; a general multipartite encoding counts orientations without ranks, and signed algebra covers the t=-1 specialization. The complete five-base all-rank expression for every n is not directly present or implied in inspected relevant text; priority is qualified.
+
+## value
+
+PASS
+
+The natural acyclic orientation flip graph edge-disagreement rank distribution is richer than a total count or signed evaluation. A five-fixed-base closed formula for every n provides every coefficient in an infinite nontrivial multipartite family, connects to the recently studied acyclic polynomial, and need not prove Hamiltonicity to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
