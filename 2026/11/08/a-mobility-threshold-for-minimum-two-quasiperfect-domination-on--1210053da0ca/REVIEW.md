@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof starts with the outside-square equation \(1\le r_i+c_j\le2\). An empty row and an empty column would contradict domination, giving the sharp lower bound. At optimum all-row or all-column occupancy is forced; the only allowed large fiber has size \(m\), yielding the two rectangular families and the three square families. Exact intersections prove all isolated configurations. On injection states the one-square graph is the standard arrangement graph, and a dependency-digraph argument proves the exact distance \(t+c\). Independent finite implementations check the claims on explicitly stated ranges. No finite check is treated as an infinite proof.
+PASS
 
-## Originality — PASS, with limits
+For outside cell (i,j), selected neighbors equal r_i+c_j; empty row+column impossible. With m<n a zero column forces exactly one selected per row, positive column loads are 1 or m, giving injections plus full columns. For m=n either all rows or columns represented, yielding permutations plus full bars. One-change edges are arrangement graph; distance t+c from mismatched rows and cyclic dependency components, with exact diameter m+floor(m/2). Independent exhaustive subset enumeration gave (3,3):12 isolates, (3,4):28 states and 36 edges with 24-component plus 4 isolates, (3,5):65 states 180 edges, (4,4):32 isolates. Read full RESULT.md and check_exhaustive.py. General proof not inferred from small boards.
 
-The closest [1,2]-set papers are Chellali et al. (2013), which explicitly discusses the two-row product example, and Cáceres et al. (preprint 2014, journal 2017), whose claw-free theorem implies the minimum cardinality but not the listed optimum-set classification or exchange graph. Separately, Day and Tripathi (1992) introduced arrangement graphs and their properties: the known arrangement-graph degree and diameter are not claimed as new, only their identification as the mobile sector of this dominating-set reconfiguration space. The claim excludes the covered two-row case and does not claim a new numerical minimum. Complete statement-level comparison, not just title matching, distinguishes the proposed configuration-space theorem from the cited general existence theorem. Relevant searchable mathematical records and closest archived claims showed no equivalent complete theorem. Historical priority is not independently certified; unindexed work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The phenomenon is structural: for every rectangular board of short side at least three, the optimum placements split into exactly \(n\) immobile configurations and a connected, explicitly quantified nonattacking-rook sector. The square boundary has no legal move at all. This exact mobility transition is not specified by knowing the classical minimum domination number or the existence of a quasiperfect optimum. The pre-existing arrangement-graph diameter becomes the exact relocation cost only because of the new isomorphism; this carries operational information beyond optimum cardinality.
+The number gamma_[1,2]=m is already established via claw-free general results; n=m? arrangement graphs and their diameter are prior Day--Tripathi. New combined claim gives exact full optimizer classification including isolated columns and square-board freezing, not present in inspected abstract and no equivalent Resultary finding discovered. Full original 2013/2017 primary texts not read in this execution; risk recorded, not a default originality failure.
 
-## Relevant comparisons and scope
+## value
 
-The 2013 paper's \(K_p\square K_2\) example is a covered boundary, excluded from the theorem. The 2014/2017 claw-free theorem covers \(\gamma_{1,2}=\gamma\), not optimum-set multiplicities or reconfiguration distances. Day–Tripathi arrangement-graph properties apply only after identifying the optimum-state graph; prior graph-theoretic results on that network do not identify it with quasiperfect rook placements. Related studies of identifying codes, total domination or Roman domination on rook graphs impose different constraints and do not imply the stated classification. Inaccessible or unindexed historical work remains a priority risk. The proof and two programs are included and self-contained.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp mobility threshold for natural [1,2]-domination on line graphs of K_(m,n) identifies all optimal states, connected component and exact distances, useful for reconfiguration complexity and combinatorial placements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

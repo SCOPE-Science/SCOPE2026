@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python check_exhaustive.py` and `python check_independent.py` with Python 3.10 or newer. Neither script needs network access or third-party packages. Compare their JSON stdout with `exhaustive_output.json` and `independent_output.json`. Both programs include hard assertions for all claimed finite counts, exchanges and sampled distances. They construct the feasible sets by different methods (literal subset enumeration and row/column-mask generation).
+## correctness
 
-The symbolic proof in RESULT.md covers all integers \(3\le m\le n\); the computations cover finitely many labelled boards, and do not constitute a proof of all-order claims. In particular, the exact arrangement-graph distance formula also has its own dependency-cycle proof in RESULT.md. Independent scholarly audit has not been performed.
+PASS
+
+For outside cell (i,j), selected neighbors equal r_i+c_j; empty row+column impossible. With m<n a zero column forces exactly one selected per row, positive column loads are 1 or m, giving injections plus full columns. For m=n either all rows or columns represented, yielding permutations plus full bars. One-change edges are arrangement graph; distance t+c from mismatched rows and cyclic dependency components, with exact diameter m+floor(m/2). Independent exhaustive subset enumeration gave (3,3):12 isolates, (3,4):28 states and 36 edges with 24-component plus 4 isolates, (3,5):65 states 180 edges, (4,4):32 isolates. Read full RESULT.md and check_exhaustive.py. General proof not inferred from small boards.
+
+## originality
+
+PASS
+
+The number gamma_[1,2]=m is already established via claw-free general results; n=m? arrangement graphs and their diameter are prior Day--Tripathi. New combined claim gives exact full optimizer classification including isolated columns and square-board freezing, not present in inspected abstract and no equivalent Resultary finding discovered. Full original 2013/2017 primary texts not read in this execution; risk recorded, not a default originality failure.
+
+## value
+
+PASS
+
+Sharp mobility threshold for natural [1,2]-domination on line graphs of K_(m,n) identifies all optimal states, connected component and exact distances, useful for reconfiguration complexity and combinatorial placements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
