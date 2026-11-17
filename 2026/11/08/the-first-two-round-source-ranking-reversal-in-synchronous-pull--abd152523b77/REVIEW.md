@@ -1,15 +1,21 @@
-# Review of the finite-round pull source reversal
+# Independent mathematical audit
 
-## Correctness
-PASS. The binomial conditioning argument gives a closed, exact two-round probability. The independent binomial transitions of the informed-count process form an exact finite Markov kernel. All stated fractions, signs and finite minima were separately verified by exact rational computation in `verify_pull.py`. The graph and update assumptions are explicit; the only finite census is the twenty unordered unequal bipartitions on at most ten vertices.
+## correctness
 
-## Originality
-PASS, with historical-priority uncertainty. Panagiotou–Reisser (arXiv:2110.09044) consider the homogeneous complete graph and its asymptotic pull runtime. Doerr–Kostrygin (arXiv:2303.11150) cover symmetric protocols in complete networks. Acan et al. (arXiv:1411.0948) study a different synchronous push-pull protocol and asynchronous variants. None of their relevant inspected formulations contains the two opposite source-conditioned CDF inequalities or the exact first two-round reversal cutoff. Broader bounds do not imply these exact opposite finite-time comparisons. Other undiscovered priority sources remain possible.
+PASS
 
-## Value
-PASS. The first achievable completion time on a nontrivial complete bipartite graph is two rounds. The exact first reversal at eleven vertices and the three-round sign crossing provide a natural, sharply delimited obstruction to choosing a universally faster broadcasting source solely by its part size. This is a finite exact boundary result; no global source-order theorem or minimum stochastic-incomparability order is claimed.
+Conditional J~Bin(b,1/a) after round one gives exact F2(a,b)=a^{-b}b^{-(a-1)} sum_j binom(b,j)((a-1)/a)^(b-j)j^(a-1), with a=1 treated separately. Independent rational recomputation verified all minimum differences for totals 3..10, K_(5,6) difference -947518181/492075000000000 at t=2 and +949127700048257234999/59787112500000000000000 at t=3 using a separate finite Markov kernel. The signs prove only stated two-round minimality and CDF incomparability, not all possible first-order counterexample minima.
 
-## Scope and limitations
-The claim uses independent simultaneous pull-only neighbour choices with persistent information. It does not transfer automatically to push, push-pull or asynchronous spreading, or to expected completion times. Exact rational verification is not independent auditing. Historical priority is qualified by the searched and inspected literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary complete-graph pull analysis studies a single transitive source orbit and asymptotic runtime; the exact K_(a,b) finite-round source-orbit reversal is not implied. A Resultary search returned the same archived finding and a distinct probabilistic zero-forcing reversal, which uses another infection rule.
+
+## value
+
+PASS
+
+Two inequivalent source classes in bipartite broadcasting make finite-deadline ranking a natural design question; an exact least-order reversal and opposite CDF signs are a motivated finite threshold and counterexample to unconditional source-order dominance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

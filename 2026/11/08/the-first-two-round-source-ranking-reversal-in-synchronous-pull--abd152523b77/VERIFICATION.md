@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite-round source comparison
+# Independent mathematical audit
 
-Execute `python3 verify_pull.py` from the directory containing the files. The checker uses only the Python standard library and `fractions.Fraction`; it has no random sampling, dependencies, or platform-specific inputs.
+## correctness
 
-Its exact two-round formula is a separate calculation from the finite-state Markov kernel. It checks all twenty unequal bipartitions of total size at most ten for a strictly positive smaller-source two-round advantage and all five unequal bipartitions of total size eleven, with only \(K_{5,6}\) negative. It cross-checks the two formulations for smaller graphs and for the critical graph, and compares the four exact two- and three-round rational CDF values against independently specified constants.
+PASS
 
-Expected final line from the observed run: `VERIFY_OK 57 exact checks`.
+Conditional J~Bin(b,1/a) after round one gives exact F2(a,b)=a^{-b}b^{-(a-1)} sum_j binom(b,j)((a-1)/a)^(b-j)j^(a-1), with a=1 treated separately. Independent rational recomputation verified all minimum differences for totals 3..10, K_(5,6) difference -947518181/492075000000000 at t=2 and +949127700048257234999/59787112500000000000000 at t=3 using a separate finite Markov kernel. The signs prove only stated two-round minimality and CDF incomparability, not all possible first-order counterexample minima.
 
-This verifies finite arithmetic from a supplied derived recurrence, not the absence of other literature, not stochastic ordering at uncomputed times, and not any independently audited theorem.
+## originality
+
+PASS
+
+Primary complete-graph pull analysis studies a single transitive source orbit and asymptotic runtime; the exact K_(a,b) finite-round source-orbit reversal is not implied. A Resultary search returned the same archived finding and a distinct probabilistic zero-forcing reversal, which uses another infection rule.
+
+## value
+
+PASS
+
+Two inequivalent source classes in bipartite broadcasting make finite-deadline ranking a natural design question; an exact least-order reversal and opposite CDF signs are a motivated finite threshold and counterexample to unconditional source-order dominance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
