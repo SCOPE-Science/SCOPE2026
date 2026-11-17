@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3 from this directory. The script requires no input files or third-party modules. It constructs all shortest clockwise and anticlockwise paths between chosen vertices of labelled cycles and directly checks the ordinary one-tolerance condition. It exhaustively enumerates all subsets for every \(3\le n\le18\), including both shortest arcs at antipodal pairs. In a separate computation, it enumerates every positive cyclic composition into four and five gaps for \(5\le n\le32\) and checks against the closed formulas. A successful run prints `GEODESIC_EXHAUSTIVE_OK` for each tested order, `CYCLIC_COMPOSITION_CHECK_OK 5..32`, and `VERIFY_OK`.
+## correctness
 
-## Logical checks
+PASS
 
-The unrestricted proof bounds the degree by five and uses a necessary-and-sufficient gap criterion for each nontrivial cardinality. For five selected points, violation events indexed by the five gap pairs have only adjacent-pair intersections, so exact inclusion-exclusion terminates at order two. Closed-form expressions for single and adjacent-pair events are proved algebraically, not inferred from tests.
+For n=3,4 all subsets qualify; for n>=5 each selected pair may choose either shortest arc and antipodal ties allow either. With four selected vertices, precisely a cyclic gap > floor(n/2) obstructs one-tolerance; with five, obstruction occurs iff some consecutive two-gap sum exceeds floor(n/2). For six selected points both shortest arcs for an opposite selected pair contain at least two interior selected vertices. Counting positive compositions with gap restrictions by exact inclusion-exclusion, including adjacent-overlap events and dividing n anchored oriented representations by k, yields the displayed parity formulas. Verified from original geodesic definition independently for every subset n=3..15, not a substitute for universal proof.
 
-## Limits
+## originality
 
-Only the displayed finite test orders have been exhaustively computed; the arithmetic checks alone do not prove the infinite theorem. Independent audit has not been performed. The known degree-five extremal fact is distinguished from the new coefficient identities.
+PASS
+
+The source Tonny–Shikhi 2026 already proves the extremal number mu_1(C_n)=min(n,5), and zero-tolerance cycle visibility polynomials were studied in 2025. Neither claims the tolerance-one 4- and 5-set coefficient formulas, cyclic gap classification, or asymptotic 1/16 density; closest full texts/abstracts and mathematical-record searches do not dominate these conclusions. Residual risk of unindexed equivalent tolerant enumerator.
+
+## value
+
+PASS
+
+Complete cardinality enumerator for the first nontrivial visibility tolerance on a natural infinite graph family, plus necessary-and-sufficient gaps for all maximum sets and a sharp probability limit. These are mathematically motivated beyond already-known scalar maximum or a narrow arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

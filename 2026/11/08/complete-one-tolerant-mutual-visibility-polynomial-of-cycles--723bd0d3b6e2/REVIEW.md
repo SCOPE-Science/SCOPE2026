@@ -1,15 +1,21 @@
-# Review — complete one-tolerant mutual-visibility polynomial of cycles
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim concerns labelled simple cycles of order \(n\ge3\), with a pair of selected vertices required to have *some shortest path* containing at most one additional selected vertex. Every set of at most three vertices is feasible; selecting six cyclically ordered vertices proves no set of six or more can qualify. The exact four-point condition is that each circular consecutive gap has length at most \(\lfloor n/2\rfloor\). The exact five-point condition is that each consecutive two-gap sum has length at most \(\lfloor n/2\rfloor\), including antipodal shortest-path ties. Positively composed gaps are then counted with exact inclusion-exclusion, with at most two adjacent violation events. The resulting expressions simplify to the coefficients in the theorem. The separate standalone verifier compares the *original shortest-path definition* with the formulas for every \(3\le n\le18\), and enumerates cyclic gap compositions through \(n=32\). The finite checks corroborate, but do not replace, the unrestricted proof.
+## correctness
 
-## Originality
-**PASS (provisional historical priority).** Tonny and Shikhi, *Mutual k-Visibility in Graphs*, arXiv:2602.14500 (first public version February 16, 2026), define the tolerant visibility condition and prove the scalar maximum \(\mu_k(C_n)=\min\{n,2k+3\}\), but do not count all feasible four- and five-point sets. The arXiv full text, including the cycle proposition (Proposition 14 in version 3) and remainder of the manuscript, was read. The full-text zero-tolerance polynomial analysis of Tonny and Shikhi, *On the Visibility Polynomial of Graphs*, arXiv:2507.01851, and the open-access paper of Bujtás, Klavžar, and Tian, DOI 10.1007/s00010-025-01197-y, concern stricter zero-interior-vertex visibility. OEIS A392421 likewise concerns a zero-tolerance three-set coefficient, not this exact fifth-order coefficient. Searches for the tolerant polynomial, cycle enumerators, and cyclic-gap formulations yielded no identical or stronger covering statement. Search incompleteness remains a residual priority risk, not a claim of uniqueness.
+PASS
 
-## Value
-**PASS.** The first nontrivial tolerance case has a complete natural counting polynomial, not merely the previously known scalar maximum. The theorem gives a concrete if-and-only-if geometric description of *all* feasible maximum sets and a sharp limiting probability \(1/16\) for uniformly sampled five-subsets of large cycles. This supplies structurally interpretable enumerative information for an infinite graph family, including antipodal boundary behavior, without claiming a result for all tolerance parameters.
+For n=3,4 all subsets qualify; for n>=5 each selected pair may choose either shortest arc and antipodal ties allow either. With four selected vertices, precisely a cyclic gap > floor(n/2) obstructs one-tolerance; with five, obstruction occurs iff some consecutive two-gap sum exceeds floor(n/2). For six selected points both shortest arcs for an opposite selected pair contain at least two interior selected vertices. Counting positive compositions with gap restrictions by exact inclusion-exclusion, including adjacent-overlap events and dividing n anchored oriented representations by k, yields the displayed parity formulas. Verified from original geodesic definition independently for every subset n=3..15, not a substitute for universal proof.
 
-## Scope and residual limitations
-The derived polynomial is not the ordinary zero-tolerance visibility polynomial, and does not enumerate dihedral isomorphism classes or arbitrary graph families. Full priority verification by an independent researcher is still outstanding. Finite computational checks cannot establish the infinite theorem on their own.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source Tonny–Shikhi 2026 already proves the extremal number mu_1(C_n)=min(n,5), and zero-tolerance cycle visibility polynomials were studied in 2025. Neither claims the tolerance-one 4- and 5-set coefficient formulas, cyclic gap classification, or asymptotic 1/16 density; closest full texts/abstracts and mathematical-record searches do not dominate these conclusions. Residual risk of unindexed equivalent tolerant enumerator.
+
+## value
+
+PASS
+
+Complete cardinality enumerator for the first nontrivial visibility tolerance on a natural infinite graph family, plus necessary-and-sufficient gaps for all maximum sets and a sharp probability limit. These are mathematically motivated beyond already-known scalar maximum or a narrow arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
