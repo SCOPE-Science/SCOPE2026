@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-Run `python verify_abelian_c2.py` using Python 3 and its standard library. The program enumerates all finite abelian-group isomorphism types of orders 1 through 128, checks all 351 pairs of distinct types at equal orders, and confirms equivalence precisely when the three theorem invariants agree. It independently normalizes the 27 possible placements of two variables and the identity inside the ternary relation on groups of orders at most 36, then tests larger order examples. The expected terminating marker is `VERIFY_OK`; all output from the completed run is preserved in `verify_abelian_c2.out`.
+## correctness
 
-The proof was separately checked symbolically: counting formulas for the sizes of groups, cubic-torsion sets and 2-power kernels each use only two variable names; the cardinalities of 2-power kernels uniquely recover finite abelian 2-group cyclic factors; the odd-coordinate class partition is equitable for every atomic two-variable pattern because square, inverse and unique square root have exactly the coincidence patterns listed in RESULT.md. This argument is independent of a finite enumeration cutoff.
+PASS
 
-Limits: Code does not prove the theorem for arbitrarily large groups. The sufficiency induction and group decomposition establish the infinite quantifiers. No external independent audit has been conducted. The publisher's journal version of Gomaa's 2010 work was not fully inspected; its publicly available dissertation counterpart was materially read.
+Exact counting formulas of two variables recover |G|, |G[3]| and |G[2^k]| for every k; successive 2-primary torsion ranks determine the invariant factors of Sylow-2. In odd factors every element has a unique square root, and the only distinct nontrivial atomic two-variable neighbors are square, inverse and square root. They coincide exactly for nonidentity order-three elements and are otherwise distinct, yielding uniform class-wise two-variable atomic-type multiplicities once the 2-component coordinate is fixed; induction over counting quantifiers gives sufficiency. Independently implemented all 27 substitutions of x,y,e into R on two nonisomorphic 50-element groups; simultaneous refined atomic-type histograms agreed for C2×C25 versus C2×C5×C5 (2 rounds) and disagreed for a 2-primary mismatch C4×C25 versus C2×C2×C25 (3 rounds). The finite color calculations do not establish the universal quantified claim, which rests on the symbolic multiplicity induction.
+
+## originality
+
+PASS
+
+The exact published 2026-11-08 odd-order group C^2 classification is stronger for odd groups (allowing nonabelian groups), and covers the odd part of this result. It does not infer the Sylow-2 invariant-factor detection or even-order sufficiency. The latter interaction is nontrivial and preserved as the original mathematical contribution.
+
+## value
+
+PASS
+
+An exact complete logical invariant across every finite abelian group is a natural structural classification, and the 2-primary/odd split gives the precise boundary of what two relational variables with counting can recover. The result is nontrivial even though the odd-only case is earlier-covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
