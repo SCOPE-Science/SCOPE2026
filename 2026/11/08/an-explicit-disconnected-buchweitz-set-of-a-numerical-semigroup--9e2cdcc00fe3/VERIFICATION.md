@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-This finding has a full all-index symbolic proof in `RESULT.md`. The finite exact computations provide independently reproducible base and boundary evidence, not a substitute for the induction.
+# Independent mathematical audit
 
-`verify_sumsets.py` implements interval Minkowski sums for \(n=2,\ldots,8\), counts their cardinalities, checks the explicit base-eight complement and confirms the fifteen gaps of \(\langle6,7\rangle\). The expected standard output appears in `sumset_output.txt`; the interval table appears in `interval_certificate.tsv`.
+## correctness
 
-`verify_direct.py` independently enumerates sets of sums from the original \(G\) for \(n=2,\ldots,14\), verifies \(\beta_G\), and checks the finite range that matters for additive closure. Its expected stdout is `direct_output.txt`.
+PASS
 
-Both programs were run successfully with Python 3 and use only standard-library integers. Both were also extracted from the completed embedded finding record and replayed, with outputs compared to the embedded logs. Exact data are finite; correctness for infinitely many \(n\) follows separately from the proof's (i) deficit-exclusion argument, (ii) interval-covering induction and (iii) representation of each of the final thirty nonexcluded deficit classes.
+The complement contains zero and all integers>=120 while all positive nongaps>=60; hence the complement of G is additively closed and G is a genuine genus-63 gapset. Shifting H=G−1 yields exact interval sumsets for 2<=n<=8; independently enumerated them as sizes 186,311,434,558,683,807,930. At n=8 the missing 15 top deficit classes coincide exactly with gaps E of numerical semigroup <6,7>. Since 118−H is contained in <6,7>, these deficits can never occur. Inductively nH contains [0,118n−30], whose translates by [0,58] and 118 cover [0,118(n+1)−30]; every other top deficit d<=29 has representation d=6u+7v with u+v<=4 and arises from 112/111/118 digits. Thus for all n>=8, nH=[0,118n] minus exactly the 15 prohibited deficits, giving |nG|=118n−14 and beta(n)=48−6n. The infinite induction, not finite numerical checks, proves all n.
 
-The source and originality comparisons are described in `REVIEW.md` and `AUDIT.json`. Independent scientific audit remains not performed. The programs do not certify novelty.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the Eliahou–García-García–Marín-Aragón–Vigneron-Tenorio primary paper posed gapset interval and unimodality as Questions 4.1/4.2 and constructed positive interval examples, not this disconnected witness. The proof supplies a genuine semigroup gapset rather than arbitrary finite set; unrelated known interval Buchweitz supports cannot imply this negative existence theorem. Resultary checked for equivalent/collapsing claims without decisive prior coverage. Subsequent unindexed negative examples remain a historical risk.
+
+## value
+
+PASS
+
+PASS: a concrete exact gapset with disconnected Buchweitz positive support resolves two explicitly published yes/no questions. The 15-deficit semigroup induction explains an all-index behavior rather than reporting a finite table; no minimality or full realizability classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
