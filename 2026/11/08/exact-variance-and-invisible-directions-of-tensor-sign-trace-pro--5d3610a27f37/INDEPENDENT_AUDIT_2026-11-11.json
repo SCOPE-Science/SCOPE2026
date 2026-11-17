@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:53:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding Q_A=v^TAv for v=otimes_j s^(j), independent factor Rademacher signs, shows Q_A-tr A=sum_{nonempty pair patterns P}c_P chi_P. Distinct chi_P are orthogonal Walsh characters, so Var Q_A=sum c_P^2. Pattern groups G_P partition upper-triangular off-diagonal entries and are nonempty, hence all coefficient constraints independent and kernel codimension prod_j(1+binom(d_j,2))-1; g_P=2^(|J(P)|-1)prod_inactive d_j. Orthogonal projection on each group mean-zero hyperplane with symmetric Frobenius doubling yields dist_F(A,K)^2=(1/2)sum c_P^2/g_P; sharp bounds follow. For two factors gmin=2,gmax=max(m,n), so constants 4 and 2max(m,n). SPD witness I4+tK_{+-} has tensor variance 0 or 16t² and ordinary independent-sign variance 8t². Independently enumerated all sign assignments for random symmetric integer matrices in dimensions (2,2),(2,3),(2,2,2), directly verifying variances 96,316,296 and coefficient-count/kernel dimensions. General proof rests on Walsh orthogonality, not these examples. Degenerate D=1 handled separately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior articles address multiple tensor factors and PSD traces, but generality in k or algorithms does not imply equality and the exact zero-variance subspace for dependent signs."
+        ],
+        "reasoning": "The inspected exact Gaussian variance and bound are logically weaker/different than exact sign-kernel identities; specialist tensor-chaos equivalence remains a risk.",
+        "searches": [
+          "tensor sign trace probe variance invisible directions inverse tomography",
+          "Meyer Avron Hutchinson Estimator Bad Kronecker Trace Estimation Theorem 1 Gaussian vs Rademacher; Bujanovic Kressner Norm and trace estimation rank-one vectors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.04952; doi:10.1137/24M1720895",
+        "arXiv:2004.06433",
+        "arXiv:1909.01410"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Gaussian exact fourth moment formula cannot imply the fixed-factor-sign Walsh nullspace because tensor-sign products have additional identifications/cancellations. Unbiasedness and tail bounds do not determine a complete kernel/distance."
+        ],
+        "reasoning": "The submitted coefficient partition proof supplies the missing exact sign equality and sharp geometry. Ordinary independent signs give a different variance for the SPD examples.",
+        "searches": [
+          "tensor sign trace probe variance invisible directions inverse tomography",
+          "Meyer Avron SIAM J Matrix Anal Appl 2026 exact Gaussian Kronecker variance; Bujanovic Kressner arxiv 2004.06433 section 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer–Avron exact partial-transpose Gaussian expression does not transfer unchanged to sign factors because fourth moments differ; their Rademacher statement is an upper bound."
+        ],
+        "reasoning": "Fourier-Walsh decomposition is mathematically equivalent to the submission but not located as a prior published complete rank/kernel/distance theorem.",
+        "searches": [
+          "tensor sign trace probe variance invisible directions inverse tomography",
+          "Kronecker Rademacher tensor Hutchinson trace estimator exact variance Walsh polynomial zero-variance subspace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other indexed records focus coupled signs or Gaussian tensor trains; no checked numerical table giving all pattern group codimensions and Frobenius projection."
+        ],
+        "reasoning": "This is not a finite-table invariant; a general Fourier identity in older literature would matter, but no such direct mathematical dominance identified.",
+        "searches": [
+          "tensor sign trace probe variance invisible directions inverse tomography",
+          "Resultary tensor sign trace probes invisible directions; Kronecker trace covariance Rademacher positive matrices"
+        ]
+      },
+      "rationale": "Meyer–Avron (2026 journal publication, arxiv:2309.04952) gives an EXACT Gaussian tensor-probe variance with partial-transpose structure, and a Rademacher upper bound rather than this exact Walsh equality and full nullspace. Bujanović–Kressner (2020) address Rademacher rank-one probe unbiasedness and probability inequalities, without the claimed kernel projection/dimension. Classical Hutchinson independent-coordinate variance is inapplicable because tensor entries are dependent. Full theorem plus exact nullspace/distance and positive-definite cancellation contrasts survive these checks. Related tensor-chaos/partial-trace literature remains priority risk.",
+      "residual_risks": [
+        "Unindexed prior tensor-chaos variance identity or Rademacher partial-transpose result could imply this pattern decomposition.",
+        "Some relevant appendices and papers were not read completely.",
+        "Basis/factorization dependent results, no general cost or PSD-optimality guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Gaussian identity and sign upper bound; not the exact tensor-sign Walsh noise nullspace in inspected theorem",
+          "evidence": "2026 SIAM journal abstract states exact formula for Gaussian vectors; theorem distinguishes Rademacher upper bound.",
+          "identifier_or_url": "arXiv:2309.04952; doi:10.1137/24M1720895",
+          "material_read": "primary PDF searchable text, Theorem 1 variance comparison and relevant sections; not certified line-by-line inspection of every appendix",
+          "method": "public arXiv preprint PDF text extraction and PDF page-image inspection",
+          "title": "Hutchinson’s Estimator is Bad at Kronecker-Trace-Estimation",
+          "trigger": "same Kronecker trace estimator and sign probes"
+        },
+        {
+          "assessment": "Unbiasedness/concentration compared; no full-document NOT_COVERING claim",
+          "evidence": "Available portions discuss rank-one vector estimator and variance/concentration bounds; explicit kernel classification not seen in read material.",
+          "identifier_or_url": "arXiv:2004.06433",
+          "material_read": "public PDF extracted introduction and theorem/section headings; full paper not exhaustively examined",
+          "method": "public arXiv PDF text view; full-text download and PDF page-image attempt failed",
+          "title": "Norm and trace estimation with random rank-one vectors",
+          "trigger": "older rank-one Rademacher trace estimator"
+        },
+        {
+          "assessment": "Different sketching application; cannot rule out tensor-chaos identities buried in full text",
+          "evidence": "Studies tensor sketch embeddings, not necessarily fixed-symmetric trace quadratic forms.",
+          "identifier_or_url": "arXiv:1909.01410",
+          "material_read": "bibliographic abstract only",
+          "method": "semantic records and citation lookup",
+          "title": "Oblivious Sketching of High-Degree Polynomial Kernels",
+          "trigger": "related tensor-product signs and moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Kronecker-structured trace estimators are natural where only tensor-vector products are cheap. Worst-case bounds can be vacuous for a given operator; exact operator-specific variance, a complete zero-fluctuation subspace and optimal distance-to-kernel bounds distinguish cases with zero noise from those with amplified noise. Positive-definite opposing witnesses make this a structural classification, not a renamed textbook Hutchinson moment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed prior tensor-chaos variance identity or Rademacher partial-transpose result could imply this pattern decomposition.",
+    "Some relevant appendices and papers were not read completely.",
+    "Basis/factorization dependent results, no general cost or PSD-optimality guarantee.",
+    "The assessment is based on the actual pinned Git source package and bounded external reading; no GitHub or dispatcher closeout write occurred.",
+    "Research package contains pre-existing public-file confidentiality metadata. Source and mathematical evidence are preserved; publication is not_ready."
+  ],
+  "schema_version": 1
+}
