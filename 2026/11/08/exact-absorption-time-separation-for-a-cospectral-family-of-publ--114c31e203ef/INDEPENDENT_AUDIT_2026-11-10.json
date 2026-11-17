@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:51:09.849833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At unit externality and all-zero start, each update changes a zero vertex to one exactly when no neighbor is already one; activated vertices never deactivate. Thus updates implement monotone random greedy maximal independent-set formation and stopping means the active set dominates. Star expectation is the fair coupon-collector mean m² H_(m²). For H, independent rate-1 Poisson arrivals on each of N vertices show the first biclique arrival chooses the eventually active side; its remaining m-1 side-site waits have independent Exp(1), while q=(m-1)² isolates have independent Exp(1). The completion clock is max(M_q, Exp(2m)+M_(m-1)); binomial expansion of the survival distribution and beta integration produce exactly the claimed finite sum. A Bonferroni bound yields Z_m=E[(R-I)_+]=1/m+O(m^-2), harmonic differences yield E T_G-E T_H=m-2log m+O(1). Independent exact rational recurrences for m=2,3,4,5 reproduce the beta sums, with m=2 values 25/3,33/4, gap 1/12. This proves only those tested finite instances; analytical arguments establish all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original source Section 3.2.2 shows five-vertex cospectral examples and convergence simulations, but no full-family exact beta-sum. Related biclique theorem concerns different initial conditions (all-producers best-shot), not this all-zero plus isolates clock."
+        ],
+        "reasoning": "No inspected earlier paper logically implies the exact family-level expectation separation with endpoint parameters. Covered m=2 graph choice and general spectral obstruction are explicitly not credited.",
+        "searches": [
+          "cospectral public good networks K1,4 C4 plus isolated random sequential best-response expected convergence time absorption",
+          "random greedy maximal independent set convergence time cospectral star balanced bipartite isolated coupon collector public good games",
+          "arXiv:2602.15986v1",
+          "Resultary 2026/11/02 exact equilibrium selection and fixation time on bicliques"
+        ]
+      },
+      "checked_sources": [
+        "W. Misiak and M. Dziubinski, Convergence rates of random-order best-response dynamics in public good games on networks, arXiv:2602.15986v1 (2026), Sections 2, 3.2.2, Figure 2.",
+        "Resultary 2026/11/02 exact equilibrium selection and fixation-time laws on asynchronous best-shot bicliques (search summary)",
+        "Resultary 2026/10/04 random greedy independent-set law on threshold graphs (search summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior shows K1,4 and C4+K1 cospectral and differing simulation convergence; new star/coupon and biclique plus isolates Poissonization calculate exact E times."
+        ],
+        "reasoning": "A statement that convergence depends on graph structure beyond spectrum does not imply a closed all-size expectation and sharp m asymptotics; terminal set distributions omit repeated-update delay.",
+        "searches": [
+          "cospectral public good networks K1,4 C4 plus isolated random sequential best-response expected convergence time absorption",
+          "random greedy maximal independent set convergence time cospectral star balanced bipartite isolated coupon collector public good games",
+          "arXiv:2602.15986v1 Section 3.2.2",
+          "Resultary 2026/10/04 random greedy MIS threshold graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Misiak–Dziubinski specify the same update rule and same m=2 pair; their spectral distinction comes from simulations, not these exact expectations."
+        ],
+        "reasoning": "The MIS reformulation is mathematically equivalent only for unit externality and all-zero initialization. Existing random greedy terminal-set laws do not determine time under with-replacement choices without additional waiting-time calculations.",
+        "searches": [
+          "cospectral public good networks K1,4 C4 plus isolated random sequential best-response expected convergence time absorption",
+          "random greedy maximal independent set convergence time cospectral star balanced bipartite isolated coupon collector public good games",
+          "arXiv:2602.15986v1 Sections 2 and 3.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Figure 2 is numerical behavior; no exact waiting-time table or all-m finite beta-sum identified."
+        ],
+        "reasoning": "The prior figure and spectral characteristic polynomial are known, but a finite numerical difference cannot imply the present asymptotic logarithmic expansion.",
+        "searches": [
+          "cospectral public good networks K1,4 C4 plus isolated random sequential best-response expected convergence time absorption",
+          "random greedy maximal independent set convergence time cospectral star balanced bipartite isolated coupon collector public good games",
+          "Misiak–Dziubinski Figure 2 and Appendix B"
+        ]
+      },
+      "rationale": "Misiak and Dziubinski (arXiv:2602.15986v1) already exhibit the exact five-vertex cospectral pair and demonstrate differential convergence empirically; neither that pair nor qualitative non-spectral convergence is new. The surviving contribution is an exact absorbing hitting-time expectation formula for all m>=2, valid in actual individual vertex updates, and the rigorously unbounded m-2log m+O(1) difference. Terminal random greedy MIS distributions in related results do not by themselves give waiting times with repeated idle selections.",
+      "residual_risks": [
+        "The comparison graphs have different connectivity because H contains isolates; no connected-cospectral result follows.",
+        "The difference grows in absolute update count but vanishes relative to N log N mean time.",
+        "Unindexed random sequential adsorption/coupon waiting-time identities might give equivalent expectations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "C PASS from direct argument plus new independently implemented rational recurrences.",
+          "evidence": [
+            "RESULT.md proof parts 1-5, exact 1/12 five-vertex gap."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-absorption-time-separation-for-a-cospectral-family-of-publ--114c31e203ef/RESULT.md",
+          "material_read": "Entire RESULT.md proof, closed-form coefficients, edge case m=2; reviewed METADATA, REVIEW, SLOGAN, VERIFICATION and check_absorption.py.",
+          "method": "Frozen Git reads",
+          "title": "Assigned cospectral public-good hitting-time theorem",
+          "trigger": "Exact beta-sum and asymptotic claim"
+        },
+        {
+          "assessment": "PRIOR qualitative and simulated same pair; NOT_COVERING the closed all-m expectation beta-sum and asymptotic proof.",
+          "evidence": [
+            "Section 1.2 states simulations on cospectral mates; Section 3.2.2 figures; no beta function all-m theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.15986v1",
+          "material_read": "Complete public arXiv HTML, particularly Section 2 model, Section 3.2.2/figure on cospectral graphs, introduction and Appendix scope.",
+          "method": "Open-access arXiv full text",
+          "title": "Convergence rates of random-order best-response dynamics in public good games on networks",
+          "trigger": "Same process and same five-vertex cospectral example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact expected convergence time quantifies decentralized public-good adjustment costs on a natural infinite cospectral pair family already motivating simulations. The rigorous gap m-2log m+O(1), though relatively vanishing, distinguishes graph spectra from the timing of equilibrium under a canonical random-with-replacement schedule. It is not merely a simulation or rediscovery of noncospectrality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every m>=2, G=K_(1,m²) and H=K_(m,m) disjoint (m-1)² isolates have identical adjacency spectrum but under asynchronous uniform random unit-externality best responses from all zero, their exact mean Nash-equilibrium first-hitting times differ by m-2 log m+O(1) vertex updates; E T_G=m² H_(m²), E T_H has explicit finite beta-sum.",
+  "limitations": [
+    "All-zero initial configuration, unit externality, uniformly sampled single vertex with replacement, N=m²+1.",
+    "H is disconnected; no connected cospectral conclusion.",
+    "The absolute gap diverges but ratio to common leading N log N scale vanishes."
+  ],
+  "schema_version": 1
+}

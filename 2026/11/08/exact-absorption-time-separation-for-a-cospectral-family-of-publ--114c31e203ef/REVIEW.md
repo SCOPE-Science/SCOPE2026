@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update rule at unit externality and all-zero initial activity is a monotone random maximal-independent-set process. The star has a direct coupon-collector hitting time. For the other graph, independent rate-one Poisson clocks establish the bipartite first-choice law, isolate completion time, and the identity between expected clock time and expected update counts. Integrating its exact exponential distribution gives a finite beta sum. Bonferroni and harmonic-number estimates give the stated unbounded \(m-2\log m+O(1)\) step gap. A separate, exact-rational recurrence checks orders \(m=2\) through \(8\), plus graph-state recursion for \(m=2,3\). The proof, not those tests, establishes arbitrary \(m\).
+PASS
 
-## Originality — PASS, with residual risk
+At unit externality and all-zero start, each update changes a zero vertex to one exactly when no neighbor is already one; activated vertices never deactivate. Thus updates implement monotone random greedy maximal independent-set formation and stopping means the active set dominates. Star expectation is the fair coupon-collector mean m² H_(m²). For H, independent rate-1 Poisson arrivals on each of N vertices show the first biclique arrival chooses the eventually active side; its remaining m-1 side-site waits have independent Exp(1), while q=(m-1)² isolates have independent Exp(1). The completion clock is max(M_q, Exp(2m)+M_(m-1)); binomial expansion of the survival distribution and beta integration produce exactly the claimed finite sum. A Bonferroni bound yields Z_m=E[(R-I)_+]=1/m+O(m^-2), harmonic differences yield E T_G-E T_H=m-2log m+O(1). Independent exact rational recurrences for m=2,3,4,5 reproduce the beta sums, with m=2 values 25/3,33/4, gap 1/12. This proves only those tested finite instances; analytical arguments establish all m.
 
-Misiak and Dziubiński (arXiv:2602.15986v1, Sections 2 and 3.2.2) introduced the update model and already showed simulated different convergence rates on the five-node cospectral pair. Hence the existence of cospectral convergence distinctions is prior knowledge. The new claim provides exact hitting-time expectations for a natural infinite cospectral family and their rigorous asymptotic absolute gap. Krivelevich et al. (DOI:10.1002/rsa.21200) and the publicly available random-greedy independent-set results on complete multipartite and threshold graphs characterize terminal greedy sets rather than the count of repeated updates until equilibrium. Relevant full texts and claim-level searches found no covering calculation; equivalent waiting-time identities under random sequential adsorption remain a realistic indexing risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact expected convergence time matters for computational costs of decentralized public-good adjustment. The first nontrivial cospectral pair in the motivating paper becomes a computable infinite family with a growing, explicitly quantified step gap. This separates adjacency-spectral information from an actual hitting-time observable rather than solely terminal equilibrium counts. The difference is only order \(\sqrt N\), not a fixed fraction of the order \(N\log N\) convergence time; disconnected comparison graphs and the special endpoint are substantive limitations.
+Misiak and Dziubinski (arXiv:2602.15986v1) already exhibit the exact five-vertex cospectral pair and demonstrate differential convergence empirically; neither that pair nor qualitative non-spectral convergence is new. The surviving contribution is an exact absorbing hitting-time expectation formula for all m>=2, valid in actual individual vertex updates, and the rigorously unbounded m-2log m+O(1) difference. Terminal random greedy MIS distributions in related results do not by themselves give waiting times with repeated idle selections.
 
-## Evidence and limits
+## value
 
-Reproduction: run `python check_absorption.py` with Python 3 standard library. The proof applies to every integer \(m\ge2\); the checker covers finitely many values as corroboration. Source text and two nearby publicly available independent-set findings were compared at the level of claims, not just titles. The exact final statement is bounded by the stated initial condition, update protocol, externality and graph class.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact expected convergence time quantifies decentralized public-good adjustment costs on a natural infinite cospectral pair family already motivating simulations. The rigorous gap m-2log m+O(1), though relatively vanishing, distinguishes graph spectra from the timing of equilibrium under a canonical random-with-replacement schedule. It is not merely a simulation or rediscovery of noncospectrality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
