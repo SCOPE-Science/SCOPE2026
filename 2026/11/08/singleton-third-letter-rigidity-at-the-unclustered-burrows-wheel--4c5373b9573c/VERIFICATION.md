@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.8 or newer; it uses only the standard library. Successful output is `BWT_SINGLETON_RIGIDITY_VERIFY_OK`.
+## correctness
 
-It exhaustively lists all unclustered words with content \((m,m,1)\) for \(2\le m\le10\), checks a separate binary-deletion generator, and verifies the exact two-word fixed-point-free classification. The reduced generator covers every admissible word at all checked parameters through \(m=100\); it also rechecks the Hamming formulas, cyclic permutation criterion, modular conjugacy over every odd modulus in that range, and four inverse BWT reconstructions.
+PASS
 
-The all-parameter proof is in `RESULT.md`. Neither a finite experiment nor any computational timeout is treated as an infinite proof. Independent mathematical audit has not been performed.
+PASS: Full proof checks fixed-point constraints of the stable sorting permutation at content (m,m,1), eliminating starts in 0, final 2 and 1 between last non-1 letters. Removing the unique 2 leaves a binary word with at most one equal pair, forcing exactly A_m=(10)^(m-1)120 or B_m=(10)^(m-2)10201. Direct agreement counts yield A_m distance m+1 only for even m, B_m never sharp. Under conjugation by i↦i+1, the A_m sorting permutation is multiplication by a=(m+1)=2^(-1) mod p with a single splice through zero; one cycle iff p=2m+1 is prime and 2 primitive. The prime-root condition does not assume infinitely many such primes. Independent complete enumeration m=2..8 reproduces exactly two fixed-point-free candidates and sharp counts (m=2,6 only); finite checks are not the all-m proof.
+
+## originality
+
+PASS
+
+PASS: Survives statement-level primary-literature and published-finding comparisons, subject to recorded residual risks. Previously established sufficiency does not imply this all-m necessity or uniqueness. The nonstandard candidate enumeration and cycle-splicing reverse implication survive. Historical terminology risk persists because the closest original 2026 paper could not be read fully in this execution.
+
+## value
+
+PASS
+
+PASS: A natural fixed-Parikh-vector slice of an explicitly posed BWT sharp-run problem receives a complete infinite-family 0/1 existence, nonexistence and uniqueness criterion. The all-m fixed-point-free two-word rigidity and necessary arithmetic obstruction go beyond a previously known sufficient word or a finite length census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
