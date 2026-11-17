@@ -1,21 +1,21 @@
-# Scientific review: exact triangular-book consensus selection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies all parameters, tie conventions and initial-state conditions. Every strict-majority flip decreases the number of bichromatic edges, so convergence to some fixed state is almost sure; the only fixed states are the two consensuses. The entire probability kernel follows from three disjoint hub-configuration cases. With agreeing one-hubs, the initially unstable hubs compete against the zero-valued leaves, and the probability of the necessary consecutive effective leaf changes is an exact finite product; with agreeing zero-hubs, color complementation applies; with opposite hubs, both leaves' tie retention and the hub inequalities give an exact three-way choice. Removing the hub edge changes precisely the activation threshold in the polarized state; its parity difference and the positive quarter limit follow algebraically. Independent exact-count-state and labelled-graph Markov calculations corroborate every asserted boundary and the edge comparison; they are not the infinite-size proof.
+PASS
 
-## Originality — PASS, with stated priority risk
+Every actual majority flip strictly reduces the number of disagreeing edges, and only all-zero and all-one fixed points exist, proving a.s. absorption. With both hubs one, if j>=floor(s/2) they are stable; otherwise the competition among s-j eligible zero-leaves and the two unstable hubs has successive probabilities (s-j-i)/(s-j-i+2), giving the telescoping Φ_s(j). With opposed hubs, leaves remain tied and the first effective hub flip determines consensus by whether 2j<s,=s,>s; when equality both hub clocks are equally likely. Complementation handles zero hubs. The K_2,s threshold is ceil(s/2), so odd s changes the exact product by (s+3)/((s+1)(s+2)), even s zero. Independently solved exact rational count-state recurrences for 176 macrostates at small s, matching all kernel cases. This finite check supports but is not the all-s proof.
 
-The closely matching 2014 work of Auletta et al. studies the same local update and asks about existence of update sequences capable of overturning an initial majority. Its analysis is adversarial and does not give this precise uniform-update selection distribution on triangular books. Feldman et al. study a different asynchronous learning model with private-signal tie breaking and not-yet-reported opinions; its star/expander claims do not imply this kernel. Nearby prior results on synchronous split-graph majority, asynchronous minority dynamics, and asynchronous strict majority on complete bipartite graphs do not cover the **added hub edge** in the present random-sequential majority model. The absence of a high-ranking indexed research-literature match is not treated as proof of uniqueness. The remaining risk is a little-indexed equivalent calculation or general stochastic influence model with the book as an unstated corollary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The probability of the eventually selected unanimous opinion under random update order is a natural invariant, not merely an enumeration of stable states. This theorem computes it for **all** initial configurations on an infinite family of graphs, including ties, and quantifies a meaningful structural intervention: one added hub-hub edge affects the polarized outcome **only** at odd leaf counts, by an exact size-dependent amount. Two initially aligned hubs can still persuade an asymptotically overwhelming opposing population with limiting probability one quarter. Such order-selection probabilities are not determined by deterministic reachability or by the identity of absorbing configurations. The theorem does not claim the more difficult fixation-time law or larger hub cliques.
+PASS: the same-graph Resultary record of November 8 studies synchronous independently random tie-breaking, and its oscillatory two-cycles are not the asynchronous tie-retaining process. The earlier Auletta et al. social majority paper studies existence of adversarial update sequences and graph robustness, not the exact distribution under uniformly random sequential updates. Neither implies the complete triangular-book kernel or parity-one-edge contrast. Historical unindexed special-network calculations remain a risk.
 
-## Sources and residual risks
+## value
 
-- V. Auletta et al., *Minority Becomes Majority in Social Networks*, arXiv:1402.4050 (first public version 2014-02-17): same local majority/retention rule, but worst-case and existential outcome questions.
-- M. Feldman et al., *Reaching Consensus via non-Bayesian Asynchronous Learning in Social Networks*, arXiv:1408.5192 (first public version 2014-08-22): related stochastic opinion aggregation under a different initial-information model and tie rule.
-- Relevant published dynamical and database records were compared by mathematical implication, not titles alone. No independent external scientific review has been made, and unindexed rediscovery is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact conditional absorption probabilities from all configurations of a natural minimally nonbipartite majority graph, including a sharp paradoxical two-hub minority winning probability and an explicit one-edge odd/even sensitivity; useful model-specific structural reliability law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

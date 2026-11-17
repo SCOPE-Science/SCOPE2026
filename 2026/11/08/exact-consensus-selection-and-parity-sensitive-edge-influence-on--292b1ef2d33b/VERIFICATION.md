@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The accompanying scripts use only Python 3 standard-library `fractions`, `functools` and elementary arithmetic. Each is a complete executable independent of external research data. Reproduce from the directory containing the scripts:
+## correctness
 
-```sh
-python check_count_chain.py
-python check_labelled.py
-python check_edge_effect.py
-```
+PASS
 
-The count-state checker explicitly constructs the transition probabilities over hub-bit and number-of-one-leaves states, excludes null selections, and evaluates absorption exactly by rational recurrence for 35 leaf counts (every integer from 1 through 30, and 40, 49, 50, 99, 100). It checks all initial hub bits and all attainable one-leaf counts, including all tie cases.
+Every actual majority flip strictly reduces the number of disagreeing edges, and only all-zero and all-one fixed points exist, proving a.s. absorption. With both hubs one, if j>=floor(s/2) they are stable; otherwise the competition among s-j eligible zero-leaves and the two unstable hubs has successive probabilities (s-j-i)/(s-j-i+2), giving the telescoping Φ_s(j). With opposed hubs, leaves remain tied and the first effective hub flip determines consensus by whether 2j<s,=s,>s; when equality both hub clocks are equally likely. Complementation handles zero hubs. The K_2,s threshold is ceil(s/2), so odd s changes the exact product by (s+3)/((s+1)(s+2)), even s zero. Independently solved exact rational count-state recurrences for 176 macrostates at small s, matching all kernel cases. This finite check supports but is not the all-s proof.
 
-The labelled-state checker independently constructs the graph from its edge list and enumerates all configurations at each leaf count 1 through 10, computing the exact rational absorbing Markov chain. It checks every one of 8184 labelled states against the claimed kernel.
+## originality
 
-The edge-effect checker builds both adjacency matrices independently, evaluates the polarized initial-state probability by rational recurrence for leaf counts 1 through 11 and compares their exact difference with the parity formula.
+PASS
 
-Actual reproduced stdout is included in `count_chain_stdout.txt`, `labelled_stdout.txt` and `edge_effect_stdout.txt`. All three outputs end in `PASS`. These are finite tests, not an exhaustive search over the infinite parameter \(s\). The proof in `RESULT.md` establishes the full domain by a strict descent argument and exact first-effective-update probabilities. No independent scientific audit has been performed.
+PASS: the same-graph Resultary record of November 8 studies synchronous independently random tie-breaking, and its oscillatory two-cycles are not the asynchronous tie-retaining process. The earlier Auletta et al. social majority paper studies existence of adversarial update sequences and graph robustness, not the exact distribution under uniformly random sequential updates. Neither implies the complete triangular-book kernel or parity-one-edge contrast. Historical unindexed special-network calculations remain a risk.
+
+## value
+
+PASS
+
+Exact conditional absorption probabilities from all configurations of a natural minimally nonbipartite majority graph, including a sharp paradoxical two-hub minority winning probability and an explicit one-edge odd/even sensitivity; useful model-specific structural reliability law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
