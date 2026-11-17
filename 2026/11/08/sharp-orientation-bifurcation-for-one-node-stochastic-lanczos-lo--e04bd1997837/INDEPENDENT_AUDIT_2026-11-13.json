@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:00:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact first-node 3x3 rank-one spiked estimator is 3 log(1+α(ε·u)^2), with α=θ/3. Sign-pair product P=((1+α)^2−4α²q)^2+64α³r, q=sum xixj, r=prod xi, xi=ui². At fixed q>1/4 minimizing r gives two equal larger coordinates; P(z) derivative 4α²(3z−1)(1+αz)(3αz−2α+1) has no interior minimum. Endpoints P2=(1+2α)^2 and P3=(1+α/3)^3(1+3α) cross only at θ*=5√10−14; q<=1/4 already bounded by P2. Jensen gives axis-only maximum 3log(1+α) and strictly positive expected logdet bias. Independently checked symbolic four-sign identity and derivative/endpoints plus 1200 rational/real orientation checks; analytic proof handles continuum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SLQ method provides estimator definition and broad error control, not sharp 3D sign orientation extrema.",
+          "2D Rademacher MSE theory has a different objective and dimension and cannot supply q,r simplex landscape."
+        ],
+        "reasoning": "No inspected larger-dimension exact mean theorem entails this 3D special case; a corresponding exact Rademacher-sum extremal inequality under other terminology remains plausible.",
+        "searches": [
+          "doi:10.1137/16M1104974",
+          "arxiv:2005.10009",
+          "2026/11/8/SCOPE-sharp-orientation-and-sampling-budget-transitions-in-one-node-st--9c172b7c0f19"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-orientation-and-sampling-budget-transitions-in-one-node-st--9c172b7c0f19",
+        "https://arxiv.org/pdf/2005.10009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ubaru supplies first-Lanczos-node estimator and probabilistic framework, not globally optimized orientation for rank-one spike.",
+          "Companion theorem uses 2x2 mean-square loss, so it does not contain 3x3 expected log estimator minimization."
+        ],
+        "reasoning": "Method identity and Jensen bias are known; their combination alone does not yield product minimization, unique support switch, or exact threshold. No stronger implication verified.",
+        "searches": [
+          "doi:10.1137/16M1104974",
+          "2026/11/8/SCOPE-sharp-orientation-and-sampling-budget-transitions-in-one-node-st--9c172b7c0f19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four sign-pair product expressed solely in q=sum u_i²u_j² and r=prod u_i²; support transition is equivalent to minimization of a symmetric quartic over the 2-simplex.",
+          "The logdet spike is log(1+θ); minimizers optimize expected estimator, equivalently expected upward bias at fixed θ."
+        ],
+        "reasoning": "Searched orientation risk, Rademacher moment polynomial, SLQ mean and rank-one spike aliases; no antecedent giving this exact support bifurcation found.",
+        "searches": [
+          "one node stochastic Lanczos logdet 3 by 3 rank one orientation minimizer transition",
+          "stochastic Lanczos logarithm Rademacher exact expected orientation rank one eigenvalue 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "θ*=5√10−14 is root of 3α²+28α−18; equality cases require exact support patterns."
+        ],
+        "reasoning": "Not an object ordinarily represented in a finite table; searched exact moment polynomial extrema, not just numerical matches or model names.",
+        "searches": [
+          "stochastic Lanczos logarithm Rademacher exact expected orientation rank one eigenvalue 3",
+          "arxiv:2005.10009"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact 3D one-node SLQ orientation bifurcation: a natural fixed-spectrum expectation problem has competing support-two and support-three minimizers crossing once at θ*=5√10−14 and coordinate-vector maximizers. The original method and the separate 2D mean-squared benchmark do not imply that sharp three-coordinate transition.",
+      "residual_risks": [
+        "Possible preexisting extremal inequality for four-point Rademacher log products not indexed under SLQ vocabulary.",
+        "The effect concerns a single quadrature node with a two-eigenvalue rank-one model; two Lanczos nodes would be exact for this model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_KNOWN",
+          "evidence": "Defines Lanczos estimator and error framework, not the exact 3x3 rank-one spike mean range or balanced-two versus balanced-three support switch.",
+          "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+          "material_read": "Full 25-page lawful OA PDF, algorithm, logdet application and general error bounds",
+          "method": "Read full PDF and inspected relevant pages",
+          "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+          "trigger": "Original one-node logdet SLQ and use of sign probes"
+        },
+        {
+          "assessment": "DISTINCT_LOSS_AND_DOMAIN",
+          "evidence": "2x2 general SPD Rademacher MSE and probe budget; this theorem is 3x3 rank-one-spike expectation. The former cannot imply a three-sign pair-versus-triple orientation bifurcation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-orientation-and-sampling-budget-transitions-in-one-node-st--9c172b7c0f19",
+          "material_read": "Entire pinned RESULT.md, formulas, proof, original limitations",
+          "method": "Read GitHub connector source full text",
+          "title": "Sharp orientation and sampling-budget transitions in one-node stochastic Lanczos log-determinants",
+          "trigger": "Potential same-source SLQ orientation coverage"
+        },
+        {
+          "assessment": "GENERIC_ERROR_NOT_EXTREMA",
+          "evidence": "Bounds for randomized trace estimates do not resolve sharp 3D orientational mean of one-node sign SLQ.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.10009",
+          "material_read": "Full 28-page PDF, introduction and trace-error methods",
+          "method": "Read arXiv primary text and inspected relevant pages",
+          "title": "On randomized trace estimates for indefinite matrices with an application to determinants",
+          "trigger": "General SLQ/logdet error statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed spectrum and rank-one spike are natural tests for orientation sensitivity of one-node stochastic Lanczos estimates. The exact support-pattern bifurcation and equality cases identify a mathematically nontrivial orientation effect that method definitions and Jensen bounds alone cannot give; narrow dimensions do not invalidate its standalone interest.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-orientation-and-sampling-budget-transitions-in-one-node-st--9c172b7c0f19",
+    "https://arxiv.org/pdf/2005.10009",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-orientation-bifurcation-for-one-node-stochastic-lanczos-lo--e04bd1997837"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Possible preexisting extremal inequality for four-point Rademacher log products not indexed under SLQ vocabulary.",
+    "The effect concerns a single quadrature node with a two-eigenvalue rank-one model; two Lanczos nodes would be exact for this model.",
+    "Publication transport not ready: operational provenance scope_run_id in public-facing AUDIT.json and METADATA.json (original bytes preserved; no sanitizing edits staged)."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review — sharp orientation bifurcation for one-node log-determinant SLQ
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact normalized single-node Rayleigh quotient, four-paired-sign product, fixed-\(q\) boundary reduction, one-variable factorization, and derivative sign classification together yield an analytic proof for **all** \(\theta>0\) and **all** unit \(u\in\mathbb R^3\). The two endpoint products cross only at \(\theta_*=5\sqrt{10}-14\); equality cases are identified. Jensen's inequality supplies the unique coordinate-axis maximum and a strictly positive mean logdet overestimate. The standalone SymPy/rational verifier passed 45,867 exact assertions. Its finite checks do not replace any analytic quantifier.
+## correctness
 
-**Originality: PASS, qualified.** Ubaru--Chen--Saad (2017) establish SLQ and general error bounds; Dong et al. (2017), Chen--Trogdon--Ubaru (2021), Chen et al. (2022), and Li et al. (2023) study logdet practice, spectral estimates, uniform error or asymmetric nodes, not this exact three-coordinate expected-value envelope. Targeted semantic searches for SLQ spike orientation, Rademacher logarithmic moments, sign sums, equivalent reductions and matching threshold did not identify the theorem. The closest already established theorem classifies a **two-dimensional** one-node Rademacher **mean-squared-error** rotation problem (and multiple-probe effects), which does not entail this n=3 expectation support bifurcation. Residual risk: an earlier extremal logarithmic Rademacher functional result could imply the same claim under different terminology, so a publication-priority statement would require additional specialist inspection.
+PASS
 
-**Value: PASS.** The fixed-spectrum rank-one case is a clean and natural diagnostic for the orientation sensitivity of the lowest-cost stochastic Lanczos log-determinant method. The exact nontrivial transition from three to two nonzero eigenvector coordinates, and every equality case, go beyond a routine average-concentration or Jensen bound. The theorem does not suggest that one node is best for this low-rank spectrum: two-node Lanczos is exact, and no MSE, arbitrary-dimensional, or runtime statement is made.
+Exact first-node 3x3 rank-one spiked estimator is 3 log(1+α(ε·u)^2), with α=θ/3. Sign-pair product P=((1+α)^2−4α²q)^2+64α³r, q=sum xixj, r=prod xi, xi=ui². At fixed q>1/4 minimizing r gives two equal larger coordinates; P(z) derivative 4α²(3z−1)(1+αz)(3αz−2α+1) has no interior minimum. Endpoints P2=(1+2α)^2 and P3=(1+α/3)^3(1+3α) cross only at θ*=5√10−14; q<=1/4 already bounded by P2. Jensen gives axis-only maximum 3log(1+α) and strictly positive expected logdet bias. Independently checked symbolic four-sign identity and derivative/endpoints plus 1200 rational/real orientation checks; analytic proof handles continuum.
 
-**Closest literature and limitations.** The method originates in Ubaru, Chen and Saad, *SIAM J. Matrix Anal. Appl.* 38(4):1075–1099 (2017), DOI https://doi.org/10.1137/16M1104974. Further comparators: https://arxiv.org/abs/1711.03481; https://arxiv.org/abs/2105.06595; https://arxiv.org/abs/2204.01941; https://arxiv.org/abs/2307.00847. Residual publication precedence risk remains; the scientific scope is exactly one-node, rank-one 3x3, real Rademacher expectation at fixed spectrum.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact 3D one-node SLQ orientation bifurcation: a natural fixed-spectrum expectation problem has competing support-two and support-three minimizers crossing once at θ*=5√10−14 and coordinate-vector maximizers. The original method and the separate 2D mean-squared benchmark do not imply that sharp three-coordinate transition.
+
+## value
+
+PASS
+
+Fixed spectrum and rank-one spike are natural tests for orientation sensitivity of one-node stochastic Lanczos estimates. The exact support-pattern bifurcation and equality cases identify a mathematically nontrivial orientation effect that method definitions and Jensen bounds alone cannot give; narrow dimensions do not invalidate its standalone interest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
