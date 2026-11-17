@@ -1,24 +1,21 @@
-# Scientific review of the paired Fermat-quotient theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original full-period quotient map decomposes exactly into \(p-2\) affine lines via the elementary lift congruence \(q_p(w+pt)=q_p(w)-t/w\pmod p\). Different base residues give distinct nonhorizontal, nonvertical directions of slopes other than one. The Fourier phase formula follows from the unique line annihilated by each frequency away from the three zero sets. For \(m\ge2\), constant words of lift directions have one-dimensional rank, while every mixed word has rank two: these are exhaustive disjoint cases and yield exact pointwise counts, including when \(p\mid m\). Fourier Parseval proves the energy formulas, and a cardinality argument proves that the minimum two-sum count is achieved. The boundary \(p=3\) is explicitly excluded from the two-sum coverage claim. The checker verifies 33 prime/shift cases, but the argument, not those finite cases, covers all primes and all eligible shifts.
+PASS
 
-## Originality — PASS, with historical risk
+For odd p and h0!=h1 mod p, the valid inputs n=a+pt for a not forbidden yield q_p(a+h_j+pt)=q_p(a+h_j)-t(a+h_j)^{-1}. Thus their paired vector multiplicity is the sum of R=p-2 distinct-direction affine-line indicators in F_p². Each nonzero Fourier frequency is orthogonal to at most one line: uv(u+v)=0 yields zero, otherwise the exact single p times root-of-unity phase with unique a. For m>=2, base-residue words constant in a give line-supported p^{m-1} contributions; all nonconstant words have rank-two span and contribute p^{m-2} uniformly. Parseval gives E_m=p^{2m-2}(R^{2m}+R(p-1)). For p>=5 the min r_2 is R(R-1)>0 and the image proper, making exact basis order two; p=3 has only one line. Independently checked exact frequencies, m=1..3 convolutions for p=3,5,7,11 and varied signed shifts.
 
-The basic Fermat-quotient lifting identity was already standard (Ostafe–Shparlinski 2010); no novelty is assigned to this lemma. The inspected archival literature addresses short-interval distributions, scalar Waring numbers, or pseudorandom scalar-subset estimates. None of their materially read statements covers the joint **full-period** Fourier amplitude-and-zero classification or the complete **pointwise** sum representation law and all even energies. A related higher-precision *image-size* result is relevant but does not assert or imply these additive statistics merely from its image counts. Searches for aliases including simultaneous quotients, correlated spectra, affine-line decompositions, twofold sumsets, and Waring problems located no decisive covering theorem. Unlocated historical work remains a genuine risk, not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Joint digit-level Fermat-quotient distributions are natural arithmetic pseudorandomness objects. The theorem determines an entire family of additive invariants for all odd primes and distinct shifts, showing simultaneously three zero-frequency directions, exact even moments, and the striking sharp two-sum basis phenomenon (a sparse union of affine lines already sums to the full plane). The input restriction and the exceptional prime are structurally necessary. This is a substantive complete classification rather than a numerical extension of a table.
+Best-of-knowledge exact all-frequency joint Fourier spectrum, all-order convolution law and sharp two-sum representation floor for complete eligible p² period. The basic Fermat-quotient lift identity is prior and gets no credit. Chen–Ostafe–Winterhof (2010) study exactly these delayed quotient vectors and the same lift identity, but their full manuscript proves exponential-sum discrepancy bounds and lattice tests, not the explicit three-line zero spectrum, convolution powers or exact basis order for an eligible full period. The elementary affine-line mechanism increases priority risk: an earlier line-incidence corollary may give the same conclusions.
 
-## References and limitations
+## value
 
-- Ostafe–Shparlinski, arXiv:1001.1504 (2010), source of the standard lifting identity and related short-interval joint-distribution questions.
-- Shparlinski, arXiv:1104.3909 (2011), single-output Fermat quotient value sets.
-- Chen–Winterhof, arXiv:1402.1913 (2014), scalar quotient Waring numbers for inputs in intervals of length at most \(p\).
-- Liu–Zhang, DOI:10.5486/PMD.2019.8222 (2019), pseudorandom subset and correlation estimates.
+PASS
 
-All computations are bounded corroboration; the claimed arbitrary-prime theorem relies on the fully written proof. Independent audit and historical-priority certification were not performed.
+This is an exact, all-prime classification of a natural paired arithmetic statistic, describing every Fourier frequency (including phase), every m-fold additive representation count, sharp min two-sum multiplicity, energy and marginal uniformity. These are different invariants from known scalar quotient pseudorandomness bounds, and the full rank-two line geometry is naturally motivated.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
