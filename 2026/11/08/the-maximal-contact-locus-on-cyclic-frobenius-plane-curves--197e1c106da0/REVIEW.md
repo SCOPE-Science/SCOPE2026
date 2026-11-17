@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The partial derivatives of the plane equation are the three independent coordinate \(q\)-powers, giving smoothness. The tangent restriction identity proves intersection contact at least \(q\). The cyclic Frobenius morphism \(R=\sigma\Phi^2\) lies on the curve and the tangent and is the unique residual point by Bézout, so maximal contact is equivalent to its fixed-point equation. Hilbert 90 provides all projective fixed points in the form \([a:a^{q^4}:a^{q^2}]\) modulo \(\mathbb F_{q^2}^*\), subject precisely to a norm–trace-zero equation. The fiber count gives \(q^3+1\) reduced points. Frobenius degrees divide six, with no degree-two points; the degree-one fixed eigenspaces give \(h_q\), and the twisted-projective-plane quadratic trace calculation gives \(q+1\) points defined over the cubic extension. The resulting orbit counts and zeta product follow by subtraction. Independent exact enumeration of all norm–trace classes for \(q=2,3,4,5\) confirms the predicted arithmetic degrees; it does not prove the general quantifier.
+PASS
 
-## Originality — PASS, qualified
+For all prime powers q>=2, the partials (Z^q,X^q,Y^q) never vanish projectively, so Cq is smooth. Exact expansion at a point makes any tangent contact >=q; Bezout identifies q[P]+[R(P)] with R=cyclic permutation after Frobenius q^2. Thus maximal contact is precisely fixed R, and R^3=Frob_q^6 confines points to Fq6. Semilinear Hilbert 90 parametrizes fixed vectors as [a:a^(q4):a^(q2)] modulo Fq2*, and the curve equation is the trace Fq3/Fq of norm Fq6/Fq3(a), giving (q^2-1)(q^3+1)/(q^2-1)=q^3+1. For Fq3-fixed points, trace(a^2)=0 gives nonsingular conic q odd or line q even, q+1 points; Fq and Fq2 share h_q eigenlines. Degrees 1,3,6 count h_q,q+1-h_q,q^3-q; all orbit-size divisibilities hold. Fixed scheme reduced since derivative of purely inseparable R is zero. Independent finite-field arithmetic verified q=2 (9 points, 3+6) and q=3 (28 points, 1+3+24), using separate code; original verifier covers q=2,3,4,5. Finite fields corroborate but do not prove all q.
 
-The phenomenon of nonclassical tangency and the \(q=3\) example are not new. Oyono–Ritzenthaler (2010, Section 2) explicitly identify the characteristic-three cyclic Klein quartic with the Fermat quartic, state that every point is a flex, and give exactly 28 hyperflexes. Arakelian–Borges (2014) develops Frobenius nonclassicality for other power-substitution curves. After direct full-text reading of the relevant works and targeted searches for the exact cyclic equation, residual Frobenius morphism, norm–trace parameterization, and field-degree distribution, no theorem implying this uniform arithmetic maximal-contact classification in \(q\ge4\) was identified. Searches of accessible previous claims and the published mathematical record did not uncover the assertion either. This is not a proof of historical novelty; earlier specialist finite-geometric classifications of osculation points could still dominate the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Maximal tangent contact is a canonical inflection-theoretic invariant of a smooth projective plane curve. For the cyclic Frobenius nonclassical family it is finite but much larger than the classical generic behavior, and the exact \(q^3+1\) count with the complete arithmetic Frobenius-orbit decomposition reveals its structure over all finite extension fields. The result does not merely recount the known special Klein quartic, and it is not an arbitrary numerical slice: the residual tangent map and its closed-point zeta function provide a natural geometric object for comparisons of nonclassical curve families and rational osculating lines.
+Best-of-knowledge complete all-q maximal-contact and closed-point spectrum remains distinct from known q=3 hyperflex count/orbit structure and broader nonclassicality studies on other curve families. The q=3 specialization receives no novelty credit.
 
-## Prior coverage and limitations
+## value
 
-The characteristic-three quartic and its 28 hyperflexes are explicitly prior (Oyono–Ritzenthaler, arXiv:1006.0873, first posted 2010-06-04). The general nonclassical geometry and rational-point methods of Arakelian–Borges (arXiv:1409.8549, first posted 2014-09-30) address a different family. The risk of unlocated earlier work on maximal-contact points of higher cyclic Klein curves remains; no independent audit or exhaustive priority certification has been performed. Finite arithmetic checks were carried out only for the four displayed base fields.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform exact classification of maximal tangent contact on a canonical smooth Frobenius-nonclassical plane family, including complete closed-point degrees and zeta function, is a natural finite-geometric arithmetic invariant. It supplies usable data for extensions and line-incidence arithmetic beyond the known quartic case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

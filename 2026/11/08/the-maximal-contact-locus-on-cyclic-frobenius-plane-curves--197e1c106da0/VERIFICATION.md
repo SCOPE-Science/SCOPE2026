@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Arithmetic checks and limitations
+# Independent mathematical audit
 
-Run `python3 verify_osculation.py` in this directory using standard Python 3. It constructs exact finite fields with \(q^6\) elements for \(q=2,3,4,5\) (irreducible moduli are explicitly recorded in the code), iterates all nonzero parameters, checks the norm–trace condition and projective fixed-point relation, confirms that each resulting point lies on the cyclic plane curve, and computes minimal Frobenius periods. The recorded successful output is in `verification_output.txt` and ends with `OSCULATING_VERIFY_OK`.
+## correctness
 
-The all-prime-power result is mathematical, not computational extrapolation. Its necessary proof steps are the tangent restriction identity; the residual map \(R=\sigma\Phi^2\); Hilbert-90 normalization of its fixed points; surjectivity and sizes of the finite-field norm and trace fibers; and the conic/line count in the cubic-field twisted projective plane. None of those infinite-quantifier steps is established merely by finite enumeration. The self-review is not an independent audit.
+PASS
+
+For all prime powers q>=2, the partials (Z^q,X^q,Y^q) never vanish projectively, so Cq is smooth. Exact expansion at a point makes any tangent contact >=q; Bezout identifies q[P]+[R(P)] with R=cyclic permutation after Frobenius q^2. Thus maximal contact is precisely fixed R, and R^3=Frob_q^6 confines points to Fq6. Semilinear Hilbert 90 parametrizes fixed vectors as [a:a^(q4):a^(q2)] modulo Fq2*, and the curve equation is the trace Fq3/Fq of norm Fq6/Fq3(a), giving (q^2-1)(q^3+1)/(q^2-1)=q^3+1. For Fq3-fixed points, trace(a^2)=0 gives nonsingular conic q odd or line q even, q+1 points; Fq and Fq2 share h_q eigenlines. Degrees 1,3,6 count h_q,q+1-h_q,q^3-q; all orbit-size divisibilities hold. Fixed scheme reduced since derivative of purely inseparable R is zero. Independent finite-field arithmetic verified q=2 (9 points, 3+6) and q=3 (28 points, 1+3+24), using separate code; original verifier covers q=2,3,4,5. Finite fields corroborate but do not prove all q.
+
+## originality
+
+PASS
+
+Best-of-knowledge complete all-q maximal-contact and closed-point spectrum remains distinct from known q=3 hyperflex count/orbit structure and broader nonclassicality studies on other curve families. The q=3 specialization receives no novelty credit.
+
+## value
+
+PASS
+
+A uniform exact classification of maximal tangent contact on a canonical smooth Frobenius-nonclassical plane family, including complete closed-point degrees and zeta function, is a natural finite-geometric arithmetic invariant. It supplies usable data for extensions and line-incidence arithmetic beyond the known quartic case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
