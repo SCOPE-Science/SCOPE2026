@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed domain is exactly all \(3^{15}\) ternary states of the lexicographically ordered two-subset Kneser graph \(KG(6,2)\). The local rule agrees with the three-color threshold-one Greenberg–Hastings map. Two complete and algorithmically distinct functional-graph traversals agree cell-for-cell on all \(26\) joint entry-time/primitive-period populations; all counts sum to the full state space. The first algorithm proves its table by indegree peeling and reverse propagation; the second independently detects forward orbits. The three nontrivial symmetry-orbit classes are exhaustively computed from the \(720\) graph automorphisms and all \(270\) long-period cycles. The sharp ten-step tail occurs in exactly \(1{,}440\) configurations. No claim depends on finite-to-infinite extrapolation.
+## correctness
 
-**Originality — PASS, qualified.** The closest inspected primary paper is Gravner–Lyu–Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs*, DOI `10.1214/17-AAP1350`, particularly its introduction, model definition and finite-graph Theorem 3: its general formula determines asymptotic excitation activity and synchronization, not exact labelled orbit populations or the complete \(S_6\)-orbit structure on \(KG(6,2)\). The earlier Durrett–Griffeath 1993 preprint concerns the same model's lattice phase behavior, not this finite graph census (full text not inspected). The reference graph data already determines its adjacency parameters and automorphism group, but does not imply the nonlinear orbit census. Recorded published-claim searches and comparison with recoverable prior finite-graph results found no identical statement; unsuccessful discovery is not a proof of novelty. Residual historical risk: an equivalent finite computation may appear in unindexed work.
+PASS
 
-**Value — PASS.** The object is the smallest triangle-containing two-subset Kneser graph, a canonical highly symmetric fifteen-vertex example rather than a selected arbitrary graph. Its nonlinear excitation dynamics supports precisely \(1,3,4,7\) primitive periods, with the longest-period \(180\) cycles forming one full \(S_6\)-orbit and period-four cycles splitting into two distinct symmetry types with opposite temporal excitation profiles. The complete \(14{,}348{,}907\)-state census and sharp ten-step settling bound give a reusable benchmark for finite excitable media and expose wave-pattern distinctions not encoded in its adjacency data alone. No general family theorem is claimed or required for this motivated finite classification.
+Exact space has 3^15=14,348,907 ternary states indexed by the 15 two-subsets of six points, with neighbors precisely disjoint pairs (degree six). The single-valued synchronous update gives a finite functional digraph. Removing all indegree-zero states leaves only directed cycles; following every remaining cycle and unwinding deletions labels all starting states by least period and entry distance. Independently wrote and compiled a C++17 exhaustive successor/peeling/cycle/S6 quotient implementation: it visited all 14,348,907 states and obtained 1 fixed cycle, 1,258,232 period-three cycles, 90 period-four, 180 period-seven, max transient 10 with 1,440 states, and all 26 (t,p) counts; exhaustive S6 action on 270 long-cycle representatives gives orbit sizes 45,45 and 180. Graph automorphism S6 follows from six maximum intersecting families of size five (stars). No infinite-family extrapolation.
 
-**Limits and prior-coverage risk.** The result is computationally finite but exhaustive; the fundamental independent-excitation theorem is prior art. The complete text of the 2016 arXiv version was not separately accessed, although the later author-hosted published paper was inspected. Separate external verification and historical priority adjudication remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent exhaustive 14,348,907-state and S6 quotient confirms meaningful full classification beyond general rate formulas.
+
+## value
+
+PASS
+
+KG(6,2) is the first triangle-containing KG(n,2); for a natural deterministic excitable rule the exact state-space census and sharp entrance-time distribution are complete finite invariants, while symmetry resolves two distinct period-four wave shapes and one period-seven wave shape. The group-orbit classification is motivated structurally and may be used as a benchmark for other Kneser excitation dynamics, not an arbitrary slice of unrelated numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

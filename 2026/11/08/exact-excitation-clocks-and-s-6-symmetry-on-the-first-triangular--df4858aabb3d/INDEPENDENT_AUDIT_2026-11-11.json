@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T11:20:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/exact-excitation-clocks-and-s-6-symmetry-on-the-first-triangular--df4858aabb3d/RESULT.md",
+        "src/census.cpp",
+        "src/forward_verify.cpp",
+        "src/symmetry.cpp",
+        "src/verify.py",
+        "data/raw_census.txt",
+        "data/symmetry_results.txt"
+      ],
+      "rationale": "Exact space has 3^15=14,348,907 ternary states indexed by the 15 two-subsets of six points, with neighbors precisely disjoint pairs (degree six). The single-valued synchronous update gives a finite functional digraph. Removing all indegree-zero states leaves only directed cycles; following every remaining cycle and unwinding deletions labels all starting states by least period and entry distance. Independently wrote and compiled a C++17 exhaustive successor/peeling/cycle/S6 quotient implementation: it visited all 14,348,907 states and obtained 1 fixed cycle, 1,258,232 period-three cycles, 90 period-four, 180 period-seven, max transient 10 with 1,440 states, and all 26 (t,p) counts; exhaustive S6 action on 270 long-cycle representatives gives orbit sizes 45,45 and 180. Graph automorphism S6 follows from six maximum intersecting families of size five (stars). No infinite-family extrapolation.",
+      "residual_risks": [
+        "Correctness of enumeration depends on full correct state indexing, update function and cycle classification, independently recomputed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same dynamics on different graphs give different period sets and symmetry, no spanning theorem for KG(6,2) census in inspected sources."
+        ],
+        "reasoning": "General excitable-media methods and related graph examples are not dominating exact results for this graph.",
+        "searches": [
+          "Resultary Kneser KG(6,2) excitation exact census",
+          "Resultary Petersen excitation 2026/11/08/82c758a50988",
+          "Resultary Heawood excitation 2026/11/08/29120402709f"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://www.math.mun.ca/distanceregular/graphs/kneser6.2.html",
+        "Resultary 2026/11/08/82c758a50988"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier theory can bound or characterize oscillation rates, whereas exact labelled multiplicities and S6 orbit sizes require a distinct finite classification."
+        ],
+        "reasoning": "The assigned exact classification is not a corollary of rate theory and is mathematically nontrivial despite finite scope.",
+        "searches": [
+          "Assigned source theorem vs 2018 finite graph Theorem 3",
+          "Resultary full related graph findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GHM finite-graph theorem concerns oscillation and maximal cycle-integral excitation rate, not the full labelled state-space enumeration or S6 orbit decomposition."
+        ],
+        "reasoning": "The source theorem does not imply exact multiplicities or transient populations of the given fifteen-vertex graph.",
+        "searches": [
+          "Resultary KG(6,2) Kneser graph three color Greenberg Hastings periodic cycles periods 4 7 enumeration",
+          "Gravner-Lyu-Sivakoff 2018 theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Given source stores explicit full table with 26 cells and 270 long-cycle representatives; no earlier identical authoritative database/table was identified."
+        ],
+        "reasoning": "The assigned data are newly checked exhaustively, not a known literature table; database discovery is not comprehensive.",
+        "searches": [
+          "Resultary KG6 excitation search",
+          "Source data/raw_census.txt, data/symmetry_results.txt"
+        ]
+      },
+      "rationale": "Independent exhaustive 14,348,907-state and S6 quotient confirms meaningful full classification beyond general rate formulas.",
+      "residual_risks": [
+        "Unindexed exact KG(6,2) cellular automaton tables under alternative naming could cover the finite census; full 2016 arXiv text not separately read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_RATE_NOT_EXACT_KG_CENSUS",
+          "evidence": "Source studies synchronization and maximal cycle-integral rates, not labelled KG(6,2) 26-cell table or S6 classification.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Opened 2018 primary PDF; inspected definition p.3325, Theorem 3 finite-graph statements and proof sections by search; not a full line-by-line read.",
+          "method": "Accessible publisher-version PDF and page screenshot",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "same GHM local update, prior general graph theorem"
+        },
+        {
+          "assessment": "BACKGROUND_GRAPH_ONLY",
+          "evidence": "15 vertices and S6 symmetry are standard, not novelty.",
+          "identifier_or_url": "https://www.math.mun.ca/distanceregular/graphs/kneser6.2.html",
+          "material_read": "Graph identifier and data resource cited; no full extended graph data downloaded.",
+          "method": "Public graph reference",
+          "title": "Kneser graph KG(6,2) graph data",
+          "trigger": "graph symmetries and spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://www.math.mun.ca/distanceregular/graphs/kneser6.2.html",
+        "Resultary 2026/11/08/82c758a50988"
+      ],
+      "rationale": "KG(6,2) is the first triangle-containing KG(n,2); for a natural deterministic excitable rule the exact state-space census and sharp entrance-time distribution are complete finite invariants, while symmetry resolves two distinct period-four wave shapes and one period-seven wave shape. The group-orbit classification is motivated structurally and may be used as a benchmark for other Kneser excitation dynamics, not an arbitrary slice of unrelated numbers.",
+      "residual_risks": [
+        "Unindexed exact KG(6,2) cellular automaton tables under alternative naming could cover the finite census; full 2016 arXiv text not separately read."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific verdict concerns final mathematical claim; publication not ready is a separate confidentiality/transport blocker.",
+    "Unindexed exact KG(6,2) cellular automaton tables under alternative naming could cover the finite census; full 2016 arXiv text not separately read."
+  ],
+  "schema_version": 1
+}
