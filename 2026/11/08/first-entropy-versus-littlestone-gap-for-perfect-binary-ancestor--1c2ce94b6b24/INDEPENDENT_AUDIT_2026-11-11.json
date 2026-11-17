@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T14:15:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rooted perfect binary T_h, ancestor-closed subset concepts include empty ideal and satisfy N_h=1+N_{h-1}^2, yielding 2,5,26,677. The 2^h leaves are VC-shattered, so Ldim>=2^h. For h<=2 cardinality bounds match. For h=3, at any root/internal query the negative branch has respectively 1,27,157 concepts with Ldim at most 0,4,7. At a leaf query the positive branch is the product of three independent sibling ideal classes of heights 0,1,2, with Ldim 1+2+4=7 by standard product additivity. Thus no depth-nine mistake tree exists; Ldim is exactly 8, first strictly less than floor(log2 677)=9. All 0<=h<=3 proof cases handled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2302.04492v1",
+          "https://doi.org/10.1016/j.ic.2026.105424"
+        ],
+        "reasoning": "The general class-size upper bound floor(log2|C|), VC lower bound, and product-additivity theorem determine lower-height cases but do not alone give the all-first-query obstruction at h=3. General query-compression results and online tree learning prove different learning guarantees, not the 677/8 first-gap classification.",
+        "searches": [
+          "Littlestone dimension ancestor-closed ideals perfect binary trees height 3 gap log cardinality"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2302.04492v1",
+        "https://doi.org/10.1016/j.ic.2026.105424"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2302.04492v1",
+          "https://doi.org/10.1016/j.ic.2026.105424"
+        ],
+        "reasoning": "Standard Ldim recurrence and cardinality are established, but the h3 conclusion needs comparing each depth of the first queried vertex and showing every leaf-positive branch splits as a 1+2+4 product; standard entropy inequality alone permits dimension nine.",
+        "searches": [
+          "Littlestone dimension ancestor-closed ideals perfect binary trees height 3 gap log cardinality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2302.04492v1",
+          "https://doi.org/10.1016/j.ic.2026.105424"
+        ],
+        "reasoning": "Ancestor ideals are equivalent to Horn implication models (selected child entails selected parent) or rooted connected induced subtrees together with the empty set. Hierarchically labeled triples used in Tree Learning have examples/triples as domain, and a varying tree hypothesis; these are NOT the vertex-membership concepts on one fixed tree.",
+        "searches": [
+          "Littlestone dimension ancestor-closed ideals perfect binary trees height 3 gap log cardinality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2302.04492v1",
+          "https://doi.org/10.1016/j.ic.2026.105424"
+        ],
+        "reasoning": "Resultary semantic search found the current first-gap statement and no earlier identical rooted ancestor-ideal rank table. The general rooted-tree triplet problem has distinct parameterization and does not give an exact table for these ideal membership concepts.",
+        "searches": [
+          "Littlestone dimension ancestor-closed ideals perfect binary trees height 3 gap log cardinality"
+        ]
+      },
+      "rationale": "Standard Ldim recurrence and cardinality are established, but the h3 conclusion needs comparing each depth of the first queried vertex and showing every leaf-positive branch splits as a 1+2+4 product; standard entropy inequality alone permits dimension nine. The general class-size upper bound floor(log2|C|), VC lower bound, and product-additivity theorem determine lower-height cases but do not alone give the all-first-query obstruction at h=3. General query-compression results and online tree learning prove different learning guarantees, not the 677/8 first-gap classification.",
+      "residual_risks": [
+        "An unindexed treatment of online learning of poset downsets or Horn closures might contain a stronger all-height formula and cover this first gap.",
+        "The statement evaluates only four heights and does not claim a general structural law beyond h=3; the small finite boundary remains a narrow contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the fixed perfect-tree ancestor-ideal concept class because instance labels are triplet relationships and hypotheses vary across trees.",
+          "evidence": [
+            "Theorem on hierarchically labeled triples reports Ldim Theta(n log n) for triplet-label queries, not fixed-tree vertex-membership ideals."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.04492v1",
+          "material_read": "Complete accessible HTML primary preprint, definitions and Theorem 1.1 statements for Natarajan/Littlestone ranks of hierarchically labeled triples; learning problem and concept-domain comparison.",
+          "method": "Original arXiv full HTML sections on definitions, applications and hierarchy results",
+          "title": "Tree Learning: Optimal Algorithms and Sample Complexity",
+          "trigger": "Littlestone dimensions of hierarchical tree learning as possible broader-covering theory"
+        },
+        {
+          "assessment": "Provides general Ldim context; no verified result implying the h=3 ancestor-ideal table.",
+          "evidence": [
+            "Classical shattered-mistake-tree definition and general query-learning framework, distinct from the fixed-tree 677-ideal calculation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ic.2026.105424",
+          "material_read": "Open journal article accessible definitions, abstract, general online-query learning and compression statements; not a complete literature census of special ideal classes.",
+          "method": "Open journal HTML/abstract and theorem-topic examination",
+          "title": "Applications of Littlestone dimension to query learning and to compression",
+          "trigger": "General Littlestone mistake-tree theory and counting upper bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first strict mismatch between entropy/counting and optimal adversarial online mistake complexity in a canonical nested hierarchy is a motivated exact finite threshold, distinguishing adaptive query difficulty from class size at the 15-vertex boundary. It is a natural online-learning invariant of rooted-tree ideals, not an arbitrary relabeling or isolated computational curiosity; claims of a general h formula are deliberately avoided.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact h<=3 only, not a general h>=4 formula; potential folklore in poset-ideal online learning remains a historical-priority risk.",
+    "An unindexed treatment of online learning of poset downsets or Horn closures might contain a stronger all-height formula and cover this first gap.",
+    "The statement evaluates only four heights and does not claim a general structural law beyond h=3; the small finite boundary remains a narrow contribution."
+  ],
+  "schema_version": 1
+}

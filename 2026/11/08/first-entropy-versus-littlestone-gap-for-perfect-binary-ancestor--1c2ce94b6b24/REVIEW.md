@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof covers exactly four complete binary heights and reconstructs the full first-query obstruction at the fifteen-vertex level. The count \(677\) follows from independent child-ideal choices; eight leaves provide a lower bound; all internal-query negative branches have respectively \(1,27,157\) concepts at depths zero, one and two; the leaf-positive branch factors into independent ideal classes with dimensions \(1,2,4\). Both exact verification algorithms reproduce the resulting values. Their finite computations corroborate, but are not prerequisites for, the proof.
+## correctness
 
-**Originality — PASS with priority risk.** The inspected 2023 query-learning/compression preprint develops general Littlestone results without evaluating this finite ancestor-ideal class. A 2023 hierarchical-tree learning preprint has a different instance/concept domain (labeled tuples on an unknown hierarchy). The candidate's precise first strict gap is not implied by either comparison. Searches under downward ideals, rooted subtrees, tree concept classes, and Horn implication models revealed no equivalent statement, but older unindexed folklore remains a real possibility. A search miss is not certification of novelty.
+PASS
 
-**Value — PASS.** This is the first natural level at which the elementary counting bound for the perfect-binary ancestor-ideal hierarchy ceases to determine optimal deterministic online mistake complexity. The result distinguishes eight actual mistakes from the nine allowed by the 677-hypothesis count and provides a compact exact reference example for learning with hierarchy-constrained Horn predicates. It is a meaningful finite transition, not a claim about higher trees.
+For rooted perfect binary T_h, ancestor-closed subset concepts include empty ideal and satisfy N_h=1+N_{h-1}^2, yielding 2,5,26,677. The 2^h leaves are VC-shattered, so Ldim>=2^h. For h<=2 cardinality bounds match. For h=3, at any root/internal query the negative branch has respectively 1,27,157 concepts with Ldim at most 0,4,7. At a leaf query the positive branch is the product of three independent sibling ideal classes of heights 0,1,2, with Ldim 1+2+4=7 by standard product additivity. Thus no depth-nine mistake tree exists; Ldim is exactly 8, first strictly less than floor(log2 677)=9. All 0<=h<=3 proof cases handled.
 
-**Closest comparisons and limitations.** Chase–Freitag–Reyzin (2023, arXiv:2310.04812v1) concerns consequences of Littlestone dimension for query learning and compression; Avdiukhin et al. (2023, arXiv:2302.04492v1) concerns online learning of tree-induced tuple labels. Neither inspected statement resolves this exact fixed-tree ideal membership rank. Only heights zero through three were established. Historical priority and independent mathematical validation remain unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard Ldim recurrence and cardinality are established, but the h3 conclusion needs comparing each depth of the first queried vertex and showing every leaf-positive branch splits as a 1+2+4 product; standard entropy inequality alone permits dimension nine. The general class-size upper bound floor(log2|C|), VC lower bound, and product-additivity theorem determine lower-height cases but do not alone give the all-first-query obstruction at h=3. General query-compression results and online tree learning prove different learning guarantees, not the 677/8 first-gap classification.
+
+## value
+
+PASS
+
+The first strict mismatch between entropy/counting and optimal adversarial online mistake complexity in a canonical nested hierarchy is a motivated exact finite threshold, distinguishing adaptive query difficulty from class size at the 15-vertex boundary. It is a natural online-learning invariant of rooted-tree ideals, not an arbitrary relabeling or isolated computational curiosity; claims of a general h formula are deliberately avoided.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
