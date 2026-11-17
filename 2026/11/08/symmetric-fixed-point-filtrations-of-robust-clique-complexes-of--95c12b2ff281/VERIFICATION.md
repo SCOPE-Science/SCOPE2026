@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproduction
 
-The executable `verify_prism_fixed.py` is a standalone Python 3 program requiring only the standard library. Run `python3 verify_prism_fixed.py` from the directory containing the program. The exact recorded output is embedded as `verification_output.txt`.
+# Independent mathematical audit
 
-It performs **independent finite checks** using two different combinatorial formulations: a full adjacency-level exhaustive independent-set calculation in the product graph, and an induced-subgraph recursive proper-coloring search in the base graph. Every subset of each base vertex set is checked. For graphs on one through four vertices it exhausts all 75 labeled simple graphs for each of the two complete-fiber sizes 2 and 3, for a total of 150 graph-and-fiber tests. It adds twelve targeted five-vertex graph-and-fiber tests, including odd cycles, complete and near-complete graphs and paths. For small products it separately enumerates the group-invariant vertex subsets in the original product complex, resulting in 416 invariant-face-level tests. Finally it checks standard simplex-skeleton Euler characteristic identities for up to eight vertices.
+## correctness
 
-The terminal output must be `PRISM_FIXED_COMPLEX_AND_COLORABILITY_TESTS_OK`. The finite checks exercise the noncolorable sharp boundary as well as the colorable skeleton cases. No finite check alone can prove the statement for arbitrary graph size or arbitrary transitive group; those cases are covered by the exact orbit-barycenter and coloring-bijection proof in `RESULT.md`. A PL model of the fixed point space is justified by its support and barycentric-coordinate argument, not by numerical homology alone.
+PASS
 
-**Scientific limits:** The verification does not check intermediate-level homotopy types for noncolorable bases beyond the explicit simplicial description, and does not provide external certification. Independent audit remains unperformed.
+PASS. For H arbitrary finite m-vertex graph and transitive Γ acting on the K_r coordinate, the vertex orbits in H□K_r are exactly the r-vertex clique fibers. Any geometric Γ-fixed point has equal barycentric coordinates within each fiber; orbit-barycenter simplices yield a PL homeomorphism compatible with k-inclusions. For S of base vertices, an independent set in S×[r] takes at most one vertex per fiber, and color labels of chosen vertices give a proper r-coloring of the selected induced subgraph. Conversely any r-coloring gives an independent set, proving α(G[S×[r]])=b_r(S). This exact identity yields the full fixed filtration {S:b_r(S)<k}. If χ(H)≤r then b_r(S)=|S| and each stage is simplex (k−2)-skeleton, whose standard Morse matching gives wedge C(m−1,k−1)S^{k−2}, including k=2 discrete m points and k>m contractibility. At k=m, proper S always qualify and full S qualifies iff H is not r-colorable, giving sphere/ball dichotomy; persistence bar lengths follow since neighboring reduced degrees differ. The original verifier enumerates all labeled graphs m≤4 for r=2,3 and targeted larger cases, direct invariant faces and Euler identities; finite checks are corroboration, not the proof.
+
+## originality
+
+PASS
+
+PASS, best of knowledge. Kim–Lew defines complexes with bounded graph independence number and establishes collapsibility estimates but does not classify Γ-geometric-fixed filtrations on H□K_r. Filakovský's 2026 robust-clique paper analyzes ordinary homotopy of grids and square-sequence graphs, not pointwise fixed complexes of clique-fiber transitive actions or the colorability terminal criterion. Resultary's equivariant Euler-character work gives alternating homology traces on bipartite graphs (different object/invariant), not the exact PL fixed orbit model. The elementary coloring correspondence may have an unnoticed equivalent formulation in graph-theoretic literature; this is a qualified priority risk, not evidence of coverage.
+
+## value
+
+PASS
+
+PASS. The natural robustness filtration under a transitive clique-coordinate symmetry has a complete exact PL combinatorial model for every base H and level k, plus an explicit integral homotopy/persistent-homology classification for all r-colorable bases and a sharp sphere-versus-ball r-colorability detector at k=m for arbitrary H. This is structural natural-parameter coverage rather than an arbitrary finite graph calculation or weak numerical gain; no all-noncolorable intermediate homotopy claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

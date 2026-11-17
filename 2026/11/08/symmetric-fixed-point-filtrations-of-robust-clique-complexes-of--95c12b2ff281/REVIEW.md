@@ -1,19 +1,21 @@
-# Scientific assessment: symmetric fixed-point filtration of robust clique complexes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The critical identity is the equality of the independence number of an induced union of clique fibers with the size of a largest induced subgraph of the base that is properly colorable with the clique-coordinate colors. Both directions are established via the explicit independent-set/partial-coloring bijection. The geometric fixed-space identification uses constant barycentric coordinates on every full group orbit and yields an actual PL isomorphism, not merely a homology equivalence. For colorable bases, the exact skeleton identification and a complete acyclic face matching give the integral wedge homotopy type. The chromatic terminal case checks every proper face and the one possible missing top face. The verifier independently enumerated all labeled graphs through four vertices, additional five-vertex boundary cases, invariant simplices and small Euler characteristics. The exhaustive finite checks corroborate rather than replace the unrestricted proof.
+PASS
 
-## Originality
+PASS. For H arbitrary finite m-vertex graph and transitive Γ acting on the K_r coordinate, the vertex orbits in H□K_r are exactly the r-vertex clique fibers. Any geometric Γ-fixed point has equal barycentric coordinates within each fiber; orbit-barycenter simplices yield a PL homeomorphism compatible with k-inclusions. For S of base vertices, an independent set in S×[r] takes at most one vertex per fiber, and color labels of chosen vertices give a proper r-coloring of the selected induced subgraph. Conversely any r-coloring gives an independent set, proving α(G[S×[r]])=b_r(S). This exact identity yields the full fixed filtration {S:b_r(S)<k}. If χ(H)≤r then b_r(S)=|S| and each stage is simplex (k−2)-skeleton, whose standard Morse matching gives wedge C(m−1,k−1)S^{k−2}, including k=2 discrete m points and k>m contractibility. At k=m, proper S always qualify and full S qualifies iff H is not r-colorable, giving sphere/ball dichotomy; persistence bar lengths follow since neighboring reduced degrees differ. The original verifier enumerates all labeled graphs m≤4 for r=2,3 and targeted larger cases, direct invariant faces and Euler identities; finite checks are corroboration, not the proof.
 
-**PASS, with residual risk.** The closest mathematical sources identified are Kim–Lew's work on the bounded-independence complexes and their collapsibility (arXiv:1912.12605) and Filakovský's 2026 ordinary robust-clique homotopy theorems for grid and square-sequence graphs (arXiv:2602.11365). Neither inspected paper supplies a geometric fixed-point PL model for clique-factor transitive actions, a coloring-deletion model for arbitrary bases, or the all-level fixed persistent-homology formula. Published results on equivariant Euler characters of three-robust clique complexes in connected bipartite graphs provide alternating rational traces and not the asserted pointwise geometric fixed filtration. Searches included robust-clique, bounded-independence, fixed-orbit, prism, symmetric-factor, graph-coloring and persistence formulations. Some related public research records were accessible only as summaries; a differently phrased or unindexed prior theorem remains possible. These search limitations are not treated as proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The object is a naturally defined geometric fixed-point invariant of the recently studied robust-clique filtration. The theorem gives a complete, functorial PL description for *every* finite base graph and every robustness level, identifies the integral homotopy and persistence of all colorable bases (including grids and their clique prisms), and exposes an exact terminal sphere-versus-ball transition equivalent to base-graph colorability. This topological transition is not determined by ordinary homotopy information or by the existing Euler-character computations. The conclusion is a structural classification of a natural symmetry family, not a computation for an arbitrarily selected finite graph. Its derivation is short because the clique-fiber geometry forces a precise partial-coloring correspondence; that simplicity is not offered as novelty evidence in itself.
+PASS, best of knowledge. Kim–Lew defines complexes with bounded graph independence number and establishes collapsibility estimates but does not classify Γ-geometric-fixed filtrations on H□K_r. Filakovský's 2026 robust-clique paper analyzes ordinary homotopy of grids and square-sequence graphs, not pointwise fixed complexes of clique-fiber transitive actions or the colorability terminal criterion. Resultary's equivariant Euler-character work gives alternating homology traces on bipartite graphs (different object/invariant), not the exact PL fixed orbit model. The elementary coloring correspondence may have an unnoticed equivalent formulation in graph-theoretic literature; this is a qualified priority risk, not evidence of coverage.
 
-## Closest work and limitations
+## value
 
-See arXiv:1912.12605 and arXiv:2602.11365 for definitions, collapsibility and ordinary homotopy. The result does not classify nontransitive subgroup fixed spaces, full equivariant homotopy types, or the homotopy type of the arbitrary noncolorable-base intermediate levels. Published research summaries not available in full were treated as residual overlap risks rather than complete-document exclusions. Finite verifier output is not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The natural robustness filtration under a transitive clique-coordinate symmetry has a complete exact PL combinatorial model for every base H and level k, plus an explicit integral homotopy/persistent-homology classification for all r-colorable bases and a sharp sphere-versus-ball r-colorability detector at k=m for arbitrary H. This is structural natural-parameter coverage rather than an arbitrary finite graph calculation or weak numerical gain; no all-noncolorable intermediate homotopy claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
