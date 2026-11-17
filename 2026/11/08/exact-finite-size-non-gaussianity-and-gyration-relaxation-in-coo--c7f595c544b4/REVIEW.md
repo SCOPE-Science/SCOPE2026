@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a single theorem about the centered system, not the diffusing absolute center. The self-coupling gives strict mean-square contraction at rate \(\nu N/2\), proving invariant-law uniqueness; an explicit quartic Foster drift supplies integrability. Independent binomial expansions yield all three generator identities, a nonsingular exact moment system, and exact local and distance quartic identities. Differentiation proves both strict monotonicities; the affine centered-radius generator proves its autocovariance without assuming Gaussianity. The executable checker reproduces all symbolic equations and 612 rational finite identities. Residual proof risk: the Foster argument relies on standard truncation/invariant-measure integration and is presented with its explicit drift bound.
+PASS
 
-## Originality — PASS, qualified
+Centering removes the diffusing Brownian center of mass. Synchronous-noise coupling of two centered systems gives d/dt E||Z||²=−νN E||Z||²/2 from Σ_{i<j}(Zi−Zj)²=N||Z||², so W₂ contractivity yields a unique invariant law. A quartic Foster inequality LQ² ≤4D(N+1)Q−3ν(N−1)Q²/4 justifies fourth moments. Direct midpoint binomial identities produce LQ=2D(N−1)−νNQ/2, LP4=12D(N−1)Q/N+ν(3Q²−7NP4)/8, LQ²=4D(N+1)Q+ν[−(N−3/4)Q²+NP4/4]. This nonsingular linear stationary moment system yields exactly all displayed EQ, EQ², EP4. Exchangeability and Σ_{i<j}(Yi−Yj)^4=N P4+3Q² yield both distinct kurtosis expressions; differentiation proves strict N decrease and limits. The affine Q generator yields E[Q_t|Y0]=EQ+exp(−νNt/2)(Q0−EQ), hence the exact time covariance. All N≥2, D>0, ν>0 checked analytically; no stationary law claimed for uncentered positions.
 
-The original cooperative-resetting paper by Meigel and Rulands (arXiv:2312.09307, first posted 2023-12-14) introduces the exact mechanism, studies mean-field localization and asymptotic tails, and compares with external resetting; no same finite-\(N\) joint fourth-moment and gyration-correlation formula was identified in its accessible full text and appendices. Related resetting-to-distribution and reset-to-origin papers use distinct interventions. No equivalent published finding was found in claim-level semantic searches, but those searches cannot certify uniqueness. The strongest residual risk is that general noisy-gossip or model-specific moment equations in uninspected literature already imply the formulas without presenting them explicitly.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A self-organized model introduced for biological and technological noise suppression has a nontrivial gap between collective concentration and persistent *local* non-Gaussianity. The two different exact limits \(6/7\) and \(3/7\), finite-size monotonicity, and the exact gyration correlation separate observable signatures of the endogenous averaging mechanism. Solving the closed two-dimensional quartic-moment system is a structurally motivated finite-size result, not a parameter-free special-case recomputation of a known table. No generalization to distance-dependent rates or distributional limit is asserted.
+Meigel–Rulands 2025 introduces exactly the cooperative pair-midpoint Brownian model and mean-field localization/delocalization behavior, and thus owns the physical model and generic control-of-noise claims. Its accessible primary main paper describes single-particle mean-field density and asymptotic tails, not the explicitly centered all-finite-N quartic stationary system, two distinct kurtosis limits and gyration correlation. No stronger matching theorem located; an inaccessible supplementary note and noisy gossip literature are substantial residual risks.
 
-## Closest literature and limitations
+## value
 
-- Meigel and Rulands, arXiv:2312.09307, full-text model, mean-field tails, appendices; directly same mechanism but not the explicit finite-N fourth-order theorem located.
-- Olsen, DOI:10.1103/PhysRevE.108.044120, exogenous resets; accessible abstract and descriptive material, not full derivational comparison.
-- Vilk, Assaf and Meerson, DOI:10.1103/PhysRevE.106.024117, reset-to-origin particle processes; abstract-level comparison only.
-- Boyd et al., *Randomized Gossip Algorithms*; spectral mixing for pure averaging, different source of stationary fluctuations.
+PASS
 
-Independent priority review may uncover an equivalent derivation. The theorem only asserts exact moments and covariance for the centered, constant-pair-rate complete-graph model; it does not assert a stationary law for absolute positions.
+Exact fourth moments and temporal correlations diagnose persistent non-Gaussianity of individual coordinates even when the normalized global gyration self-averages; the two different universal kurtosis limits and exact N-dependent relaxation provide a genuinely testable finite-size feature of a natural cooperative noise suppression model, not a routine variance reparametrization.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

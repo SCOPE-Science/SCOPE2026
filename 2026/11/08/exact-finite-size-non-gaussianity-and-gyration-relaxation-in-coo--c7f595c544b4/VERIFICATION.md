@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Using Python 3 with the SymPy package installed, execute `python verify_moments.py` in the extracted directory. The expected diagnostic is `PASSED 612 exact independent pair updates and moment identities` followed by `CHECK_LIMITS 6/7 3/7 26/7`.
+## correctness
 
-The script checks symbolic stationary generator balances and normalized fourth-order ratios, then evaluates five exact identities on 117 seeded rational configurations with \(N\) between 2 and 10 and three additional exact balance equations for nine finite sizes. The all-\(N\) proof is the algebraic generator calculation and the analytic moment/stationarity argument in `RESULT.md`; a finite computation is not presented as a substitute for that proof. There was no independent scientific audit or independent publication-priority certification.
+PASS
+
+Centering removes the diffusing Brownian center of mass. Synchronous-noise coupling of two centered systems gives d/dt E||Z||²=−νN E||Z||²/2 from Σ_{i<j}(Zi−Zj)²=N||Z||², so W₂ contractivity yields a unique invariant law. A quartic Foster inequality LQ² ≤4D(N+1)Q−3ν(N−1)Q²/4 justifies fourth moments. Direct midpoint binomial identities produce LQ=2D(N−1)−νNQ/2, LP4=12D(N−1)Q/N+ν(3Q²−7NP4)/8, LQ²=4D(N+1)Q+ν[−(N−3/4)Q²+NP4/4]. This nonsingular linear stationary moment system yields exactly all displayed EQ, EQ², EP4. Exchangeability and Σ_{i<j}(Yi−Yj)^4=N P4+3Q² yield both distinct kurtosis expressions; differentiation proves strict N decrease and limits. The affine Q generator yields E[Q_t|Y0]=EQ+exp(−νNt/2)(Q0−EQ), hence the exact time covariance. All N≥2, D>0, ν>0 checked analytically; no stationary law claimed for uncentered positions.
+
+## originality
+
+PASS
+
+Meigel–Rulands 2025 introduces exactly the cooperative pair-midpoint Brownian model and mean-field localization/delocalization behavior, and thus owns the physical model and generic control-of-noise claims. Its accessible primary main paper describes single-particle mean-field density and asymptotic tails, not the explicitly centered all-finite-N quartic stationary system, two distinct kurtosis limits and gyration correlation. No stronger matching theorem located; an inaccessible supplementary note and noisy gossip literature are substantial residual risks.
+
+## value
+
+PASS
+
+Exact fourth moments and temporal correlations diagnose persistent non-Gaussianity of individual coordinates even when the normalized global gyration self-averages; the two different universal kurtosis limits and exact N-dependent relaxation provide a genuinely testable finite-size feature of a natural cooperative noise suppression model, not a routine variance reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
