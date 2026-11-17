@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T06:19:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<alpha<1 a_j is the length-j binary-prefix integer; subtracting S_n gives a_{n+1}-S_n=w_{n+1}. Disjoint intervals strictly between S_n and a_{n+1} are unreachable, giving infinite gaps after the second one-bit. Single-one scales yield powers of two. At alpha>=1 the initial deficit d_0>=1 and d_(n+1)-d_n in {0,1}; all infinitely many levels have gaps. Uniform binary cylinders yield Bin(n+1,1/2), summing (w-1)_+ gives exact expectation, and digit frequency plus logarithmic index gives (delta/2)(log_2 X)^2+o(log^2 X) for canonical holes only. Independently checked exact rational floor identities and absent intervals over dozens of parameters and ten prefix lengths; finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem covers EVERY strictly increasing sequence eventually doubling, and singles out pure geometric s_n=m2^(n-1) as V_S={1/(m2^j)}."
+        ],
+        "reasoning": "Setting m=2 (and adjusting index) covers the entire submitted full-completeness locus and its one-ray endpoint obstruction.",
+        "searches": [
+          "dyadic floor rays subset sums completeness alpha binary popcount gaps 2^n alpha critical endpoint completeness subset sums",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-carry-budgets-at-the-critical-doubling-boundary-of-comple--f2f7f288d0d7/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-carry-budgets-at-the-critical-doubling-boundary-of-comple--f2f7f288d0d7/RESULT.md",
+        "https://arxiv.org/abs/2610.38288",
+        "Submitted package RESULT.md, REVIEW.md, AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier binary-carry recurrence directly gives the popcount defect; canonical gap size is max(0,-H_(n+1)); fair binary digits and elementary Cesaro summation imply its displayed statistics."
+        ],
+        "reasoning": "The new distributional statements follow from the known formula and elementary independent-bit/SLLN facts, so the whole finding is mathematically covered as a direct corollary.",
+        "searches": [
+          "dyadic floor rays subset sums completeness alpha binary popcount gaps 2^n alpha critical endpoint completeness subset sums",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-carry-budgets-at-the-critical-doubling-boundary-of-comple--f2f7f288d0d7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier RESULT.md full proof: H_(N+r)=H_N-sum of binary carry bits, H_j=1+prefix-sum-next-term."
+        ],
+        "reasoning": "Since -H_(n+1)=a_(n+1)-S_n-1, the newly phrased canonical-gap identity is the old slack formula with an inverted sign.",
+        "searches": [
+          "dyadic floor rays subset sums completeness alpha binary popcount gaps 2^n alpha critical endpoint completeness subset sums",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-carry-budgets-at-the-critical-doubling-boundary-of-comple--f2f7f288d0d7/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the earlier full-result record about exactly this endpoint and all finite-prefix carry budgets."
+        ],
+        "reasoning": "The earlier proof supplies an exact parameterized formula, stronger than a table of numerical special cases.",
+        "searches": [
+          "dyadic floor rays subset sums completeness alpha binary popcount gaps 2^n alpha critical endpoint completeness subset sums",
+          "Resultary/2026 2026/11/2 binary-carry-budgets"
+        ]
+      },
+      "rationale": "A published November 2 broader theorem for arbitrary eventual doubling tails explicitly defines Brown slack H_j=1+sum_{i<j}a_i-a_j and proves H_(N+r)=H_N minus cumulative binary carry digits. Its pure-geometric specialization gives exactly H_(n+1)=1-w_(n+1) and the complete-scale locus; its theorem expressly identifies that locus. Thus the submitted central identity, gap obstruction, and rigidity are already its exact special case. The binomial count and log-square canonical count follow by applying independent fair-bit distributions and the standard digit-frequency law to that same formula; they are elementary probabilistic evaluations, not an independent obstruction theorem. This is statement/implication coverage even where exact numerical coefficients are not printed by the predecessor.",
+      "residual_risks": [
+        "Earlier paper does not print the binomial law or quadratic-logarithmic coefficient verbatim; rejection rests on direct mathematical implication from its fully printed carry recurrence, not exact wording.",
+        "Full 2022 Ma–Chen historical source not accessed; not needed to establish decisive 2026 coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "General Brown-slack carry theorem and explicitly stated pure-geometric specialization imply current exact identity and scale classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-carry-budgets-at-the-critical-doubling-boundary-of-comple--f2f7f288d0d7/RESULT.md",
+          "material_read": "Full RESULT.md: finding, all proof sections, pure geometric case, strata, limitations",
+          "method": "Read GitHub primary mathematical source",
+          "title": "Binary-carry budgets at the critical doubling boundary of complete sequences",
+          "trigger": "Same endpoint, binary digits, complete scaled subset sums"
+        },
+        {
+          "assessment": "ROUTINE_COROLLARY",
+          "evidence": [
+            "Uniform (0,1) digits are iid fair and gaps are the already-known negative Brown slack."
+          ],
+          "identifier_or_url": "mathematical identities; elementary fair binary cylinders",
+          "material_read": "Submitted RESULT.md full distribution proof",
+          "method": "Direct mathematical reconstruction",
+          "title": "Euler and probability facts for binary cylinders",
+          "trigger": "Evaluate whether claimed distribution escapes prior coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The endpoint is natural, but after the published general binary-carry budget and pure-geometric scale classification, the surviving binomial and log-square evaluations require only elementary Bernoulli sums and the strong law; no new structural step or substantive gap beyond an immediate corollary is established. This is not a claim that every exact finite fact is worthless.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-carry-budgets-at-the-critical-doubling-boundary-of-comple--f2f7f288d0d7/RESULT.md",
+    "https://arxiv.org/abs/2610.38288",
+    "Submitted package RESULT.md, REVIEW.md, AUDIT.json"
+  ],
+  "disposition": "failed",
+  "final_claim": "Complete positive-scaling classification for one dyadic floor ray together with popcount canonical-gap identity, exact binomial gap distribution and digit-frequency quadratic-logarithmic canonical-hole growth.",
+  "limitations": [
+    "Earlier paper does not print the binomial law or quadratic-logarithmic coefficient verbatim; rejection rests on direct mathematical implication from its fully printed carry recurrence, not exact wording.",
+    "Full 2022 Ma–Chen historical source not accessed; not needed to establish decisive 2026 coverage."
+  ],
+  "residual_risks": [
+    "Earlier paper does not print the binomial law or quadratic-logarithmic coefficient verbatim; rejection rests on direct mathematical implication from its fully printed carry recurrence, not exact wording.",
+    "Full 2022 Ma–Chen historical source not accessed; not needed to establish decisive 2026 coverage."
+  ],
+  "schema_version": 1
+}
