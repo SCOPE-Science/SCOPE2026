@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact analytic proof is in `RESULT.md`. The companion `verification.py` is standard-library-only and tests the integer Gamma identities and numerical stability of the balancing equation for the displayed finite set of dimensions and budgets. Running `python verification.py` produces `FOCK_POSITIVE_BUDGET_CHECK_OK 743 finite assertions`.
+## correctness
 
-The program checks the candidate's vacuum/one-particle balancing equality and verifies that the remaining selected homogeneous-degree eigenvalues do not exceed the one-particle eigenvalue. These finite tests **do not** establish global optimality, uniqueness over nonradial symbols, or uniform asymptotics. Those rely on the exact two-moment lower bound, the bathtub equality case, and Gamma-density monotonicity proved in `RESULT.md`.
+PASS
 
-Symbols are restricted to measurable functions with values in the closed real interval \( [0,M] \). The high-budget rate is proved for each fixed positive integer dimension, not claimed uniformly in dimension. No independent mathematical audit was performed.
+The complete claimed all-dimensional minimax is reconstructed from the exact Fock vacuum moment L=∫f dμ and averaged first-particle moment B=d^{-1}∫|z|² f dμ. These satisfy ||T_f-P_0||≥max(|1-L|,B). The Gamma(d+1)/Gamma(d) likelihood ratio is s/d; the single-threshold bathtub inequality at fixed L yields B≥M F_{d+1}(F_d^{-1}(L/M)), with equality forcing a radial ball among ALL measurable nonnegative symbols, not merely radial trials. The unique scalar crossing when M>1/2 is 1-MF_d(a)=MF_{d+1}(a); for M≤1/2, L=M requires f=M almost everywhere. The ball Toeplitz eigenvalues are exactly M F_{d+N}(a) for homogeneous degree N and decrease strictly, attaining this norm bound. Weyl displacement handles arbitrary center, and small-a Gamma expansion proves (d!)^{1/d}/(d+1) M^{-1/d}. Independently checked gamma-CDF balancing and ordered degree eigenvalues for five dimensions and eight budgets; these finite checks do not prove universal uniqueness.
+
+## originality
+
+PASS
+
+No inspected prior theorem implies the sharp positive-symbol, nonradial-admissible rank-one approximation minimax with unique optimizer and full dimension-dependent constant; best-knowledge PASS, subject to generic rearrangement/minimax priority risk.
+
+## value
+
+PASS
+
+Sharp cost of approximating the most elementary nontrivial Fock coherent-state projection by physically admissible nonnegative capped symbols is a natural operator-theoretic quantization problem. The exact unique global optimizer, transition M=1/2, and dimension-dependent M^{-1/d} rate answer a meaningful approximation question; it is not a trivial restatement of radial diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
