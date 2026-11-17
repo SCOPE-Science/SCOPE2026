@@ -1,19 +1,21 @@
-# Scientific review: prime Paley quantum absorption
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is made for all primes \(p\equiv1\pmod4\), every nonempty set of \(t\) absorbers, all strictly positive absorber strengths and finite-dimensional coherent one-excitation dynamics. Paley Fourier eigenspaces have dimensions \(1,m,m\), where \(m=(p-1)/2\); the imported prime Fourier full-minor lemma implies every coordinate restriction has rank \(\min\{t,m\}\). The non-Hermitian loss form leaves exactly the eigenvectors vanishing on every absorber undamped; all complementary modes decay. These observations prove dark dimension \(2\max\{m-t,0\}\), the sharp threshold and the averaged efficiency. The strict per-source obstruction follows from adding any untrapped vertex to the restriction matrix. The composite boundary has an explicit dark eigenvector and a full-rank nine-by-nine integer minor of determinant \(6\). `verify.py` replays the graph and finite rank checks. It is not an infinite empirical extrapolation.
+PASS
 
-## Originality — PASS on examined evidence; priority not independently certified
+For each prime p=1 mod 4, p>=5, the Gauss-sum spectrum of the Paley adjacency has simple constant eigenspace and two size-m=(p-1)/2 eigenspaces. Every Fourier submatrix is full spark by Tao's nonzero-minor theorem, giving rank min(t,m) of any t-site evaluation on each nonconstant eigenspace; the sole constant vector cannot vanish on a nonempty T. Strictly positive local loss makes exactly site-vanishing adjacency eigenvectors undamped; the complementary finite-dimensional contraction has no real eigenvalues and decays even in the presence of Jordan blocks. Thus dim dark=2(m-t)_+, independent of absorber strengths and placement. For t<m, rank increases on adding each nontrap site so that site has nonzero dark projection; trace of the dark projector yields mean efficiency (t+1)/(p-t). Independently built rational Krylov matrices verified all 15 p=5 and 4095 p=13 sink sets and the rook-9 contrasting 4-sink placements. These finite checks do not establish the all-prime theorem; the cited Chebotarev/Tao lemma is essential.
 
-The closest paper, Razzoli–Paris–Bordone (arXiv:2011.13794), studies single-target capture on strongly regular graphs including Paley graphs. Its single-sink \(2/(p-1)\) formula is acknowledged as prior work, and its conclusion explicitly leaves multiple sinks for future study. Tao (arXiv:math/0308286) proves the full-spark Fourier-minor lemma used here, not the Paley multi-sink physical law. Agliari–Mülken–Blumen, Burgarth and collaborators, and Le and collaborators provide trapping, controllability or dark-state theory without the evaluated all-placement multi-trap Paley threshold. Published records and accessible comparable claims were searched by aliases and implication, not only titles. This does not rule out unindexed previous work or a more general result not surfaced by the searches; the derivation is an application of powerful known mathematics rather than a new Fourier uncertainty principle.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-placement threshold is a structural characterization of when site-local irreversible capture becomes complete on a natural infinite family of coherent networks. It yields a quantitative, exact uniform-source efficiency law and a surprisingly strong property: below threshold *every* untrapped source retains a dark component. The sharply contrasting nine-site composite-order example shows why the arithmetic hypothesis matters. Multiple absorbers on this graph family are a specifically motivated extension of the single-trap physics benchmark; the result is more than an arbitrary small-instance count.
+Best-of-knowledge original evaluated claim after statement/implication comparison with cited literature; see four checks and residual risks. No negative search is taken as priority proof.
 
-## Remaining limitations
+## value
 
-No claim of novelty for the single-trap formula, the Fourier-minor theorem, or the general dark-state criterion. No claims about disorder, decoherence, capture rates, other graph families, arbitrary prime powers or experimental realization. Citation coverage is necessarily incomplete; priority still requires independent bibliographic assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full-configuration robustness for infinitely many prime-order coherent transport networks, the smallest universal capture threshold and site-wise obstruction are motivated physical/graph-theoretic invariants; the exact prime-power counterexample exposes a real arithmetic boundary. Although the full-spark and dissipative lemmas are classical, their quantified transport synthesis and sharp placement independence answer more than a textbook substitution. No claim to novel Fourier minors, one-sink Paley efficiency or finite capture speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
