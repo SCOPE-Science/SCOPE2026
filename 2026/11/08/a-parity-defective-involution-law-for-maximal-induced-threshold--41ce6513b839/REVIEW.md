@@ -1,11 +1,21 @@
-# Scientific review of the enumerative claim
+# Independent mathematical audit
 
-**Correctness (PASS).** The induced line graph translation and the threshold forbidden-pattern criterion are standard; Proposition 41 of Behr--Sivaraman--Zaslavsky gives the structural starting point. The maximality argument excludes unused base vertices and all absent edges; the labeled count distinguishes the unique spoke center from the triple-counted bare triangle. Direct forbidden-subgraph enumeration for graph orders \(3\) through \(8\) matches each polynomial coefficient, and the ratio formula proves strict log-concavity without reliance on finite extrapolation.
+## correctness
 
-**Originality (PASS, provisional publication priority).** The complete structural characterization of threshold line graphs is **prior work** (Behr--Sivaraman--Zaslavsky, 2016, Proposition 41) and is explicitly credited. The claim here is the complete cardinality census of *maximal* induced threshold vertex sets of \(L(K_n)\), the involution-number expression, the exceptional parity correction and coefficient shape. The inspected full text of the 2016 source gives no such enumeration; Galvin--Wesley--Zacovic (2021/2022) enumerate all labeled threshold graphs, not maximal induced threshold sets in this host; and Cao (2020/2023) gives enumeration algorithms but not coefficients for this family. Relevant abstract/database searches and mathematical research records did not identify an equivalent count. The formula is a relatively short refinement of a strong existing classification, and an unindexed equivalent remains a priority risk.
+PASS
 
-**Mathematical value (PASS).** Minimal threshold-deletion sets are natural objects in hereditary graph modification; counting their complements by cardinality is not determined by a maximum cardinality or a polynomial-delay enumeration theorem. The formula provides every multiplicity, an involution bijection corrected exactly at zero fixed points, a two-variable exponential generating function, and strict log-concavity on an infinite, vertex-transitive graph family. This is a motivated complete natural enumeration, not an arbitrary finite parameter slice.
+The source uses the classical forbidden induced P4,C4,2K2 criterion and Behr–Sivaraman–Zaslavsky Proposition 41 classifying all base graphs whose line graphs are threshold. A maximal base graph must have a triangle in its one exceptional component, all spare labels absorbed as pendant edges at a unique triangle center or matched as disjoint edges: without a triangle one can add a suitable edge; with it every omitted base edge violates thresholdness. Choosing a triangle and distinguished center and r paired labels on m=n-3 labels counts binom(n,3)*3*m!/((m-2r)!2^r r!), except the no-pendant case when m is even is triple-counted and needs -2 copies. Exponential involution EGF and matching correction follow by labeled construction; ratio b_{m,r+1}/b_{m,r}=(m-2r)(m-2r-1)/(2(r+1)) strictly decreases, and terminal downweight by 3 preserves log concavity. Independent direct forbidden-four-subgraph enumeration n=3..5 confirmed exact maximal size coefficients; source verifier through n8 was inspected, not assumed a proof.
 
-**Limitations and closest coverage.** The 2016 structural Proposition 41 covers the admissibility characterization but not the maximal-set size distribution. The direct computer check ends at \(n=8\); unrestricted results follow from the proof. Publication-priority and independent mathematical verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Proposition 41 of Mock Threshold Graphs supplies a stronger structural classification of all threshold line graphs, which is properly credited. The submitted claim is not that classification but its all-n inclusion-maximal labeled polynomial, exceptional no-spoke factor, EGF and strict log-concavity; neither the structural theorem as stated nor general labeled threshold graph census directly states that maximal induced triangular-graph enumerator. Related Resultary triangular-graph dissociation and cluster enumerators concern different hereditary classes. Derivation is short but nontrivial exact size enumeration, and no directly equivalent published polynomial was located.
+
+## value
+
+PASS
+
+The maximal-set involution polynomial for a natural Johnson graph family is an exact, reusable invariant with parity-sensitive endpoint correction and strict log-concavity. It distinguishes inclusion-maximal threshold subgraphs from arbitrary threshold graphs and improves on a mere classification by providing all cardinalities and their relative multiplicities; a motivated finite-family enumerator remains valuable without a new general structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

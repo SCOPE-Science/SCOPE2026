@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Computational verification and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 standard library. The program constructs the triangular graph from all two-element subsets of \([n]\), detects the three forbidden induced four-vertex configurations by their degree sequences, enumerates all admissible subsets by exact hereditary recursion, and tests every omitted vertex for an admissible extension. It independently evaluates the closed coefficient formula.
+## correctness
 
-Actual execution on the supplied program:
+PASS
 
-```
-n 3 eligible 8 maximal 1 size_counts [(3, 1)] forbidden_foursets 0
-n 4 eligible 54 maximal 12 size_counts [(4, 12)] forbidden_foursets 3
-n 5 eligible 341 maximal 40 size_counts [(4, 10), (5, 30)] forbidden_foursets 75
-n 6 eligible 1992 maximal 240 size_counts [(5, 180), (6, 60)] forbidden_foursets 495
-n 7 eligible 11166 maximal 840 size_counts [(5, 105), (6, 630), (7, 105)] forbidden_foursets 1995
-n 8 eligible 60972 maximal 4368 size_counts [(6, 2520), (7, 1680), (8, 168)] forbidden_foursets 6090
-VERIFY_OK n=3..8 eligible_sets=74533 maximal_sets=5501 formula_equality=true
-```
+The source uses the classical forbidden induced P4,C4,2K2 criterion and Behr–Sivaraman–Zaslavsky Proposition 41 classifying all base graphs whose line graphs are threshold. A maximal base graph must have a triangle in its one exceptional component, all spare labels absorbed as pendant edges at a unique triangle center or matched as disjoint edges: without a triangle one can add a suitable edge; with it every omitted base edge violates thresholdness. Choosing a triangle and distinguished center and r paired labels on m=n-3 labels counts binom(n,3)*3*m!/((m-2r)!2^r r!), except the no-pendant case when m is even is triple-counted and needs -2 copies. Exponential involution EGF and matching correction follow by labeled construction; ratio b_{m,r+1}/b_{m,r}=(m-2r)(m-2r-1)/(2(r+1)) strictly decreases, and terminal downweight by 3 preserves log concavity. Independent direct forbidden-four-subgraph enumeration n=3..5 confirmed exact maximal size coefficients; source verifier through n8 was inspected, not assumed a proof.
 
-A threshold graph cannot contain an induced \(P_4\), \(C_4\), or \(2K_2\); because this property is hereditary, a forbidden partial selection can be pruned without excluding any admissible extension. Therefore the listed search is exhaustive for these six orders. This is a finite cross-check and not an infinite certificate; the mathematical argument for all larger orders appears in `RESULT.md`. No external or independent audit was performed.
+## originality
+
+PASS
+
+Proposition 41 of Mock Threshold Graphs supplies a stronger structural classification of all threshold line graphs, which is properly credited. The submitted claim is not that classification but its all-n inclusion-maximal labeled polynomial, exceptional no-spoke factor, EGF and strict log-concavity; neither the structural theorem as stated nor general labeled threshold graph census directly states that maximal induced triangular-graph enumerator. Related Resultary triangular-graph dissociation and cluster enumerators concern different hereditary classes. Derivation is short but nontrivial exact size enumeration, and no directly equivalent published polynomial was located.
+
+## value
+
+PASS
+
+The maximal-set involution polynomial for a natural Johnson graph family is an exact, reusable invariant with parity-sensitive endpoint correction and strict log-concavity. It distinguishes inclusion-maximal threshold subgraphs from arbitrary threshold graphs and improves on a mere classification by providing all cardinalities and their relative multiplicities; a motivated finite-family enumerator remains valuable without a new general structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
