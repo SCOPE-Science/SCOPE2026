@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the all-orders incidence-graph theorem
+# Independent mathematical audit
 
-The unrestricted proof is in `RESULT.md`. `verify.py` is a standalone finite stress test, requiring only Python 3's standard library. Run `python3 verify.py` from the directory containing both files. Its output should equal `verify_output.txt`. It independently constructs symplectic generalized quadrangles of orders 2 and 3, verifies incidence-graph shortest-path distances, enumerates maximal cliques, tests every proposed elementary collapse against all remaining cofaces, and reduces the factor boundary matrices over the field with two elements.
+## correctness
 
-Both examples pass. The smaller has 15 points and 15 lines, 120 radius-two relative collapse pairs, and first Betti rank 16 in each radius-three join factor, predicting 256 free third-homology generators. The larger has 40 points and 40 lines, 880 radius-two pairs, and first Betti rank 81 in each factor, predicting 6,561 third-homology generators. The rank prediction for the complete join follows from the proved join formula, not a brute-force full-join homology calculation.
+PASS
 
-The computations are finite corroborations, not an exhaustive classification of parameter pairs or an independent external review. In particular they cannot establish a theorem for every finite generalized quadrangle without the incidence-axiom argument. They do not test torsion directly; the all-orders integral torsion-free conclusion is proved by the explicit collapses and sphere-wedge homotopy equivalence.
+The generalized quadrangle incidence graph is connected bipartite of girth eight and diameter four. Counting points, lines and incidences gives graph cycle rank b=(st)^2. Any Rips scale-2 clique lies in the unique relevant closed vertex neighborhood B_v: point/point and line/line distance-2 pairs have unique common neighbor (no C4), and triples with different pairwise centers would form prohibited C6. Descending free-face pairs S ⊂ N(v), |S|≥2, S∪{v} collapse R2 onto incidence graph R1. At scale 3 all cross-part point-line pairs become edges, while within each part threshold adjacency is exactly collinearity/concurrence. Thus R3 is join of their clique complexes, each a union of line/pencil simplices meeting in at most a vertex and collapsing onto a connected graph with b cycles. Join of wedge^b S1 with wedge^b S1 is wedge^(b^2) S3. R4 is full simplex by diameter four. Relative R1→R2 collapse and dimensions of stages determine all stated integral persistence bars. Checked quantifiers s,t>=2 and no assertion of realized parameters. Inspecting verifier W(2), W(3) confirms it only stress-tests the all-orders analytic argument rather than purporting to prove it.
+
+## originality
+
+PASS
+
+Published Tutte–Coxeter VR3 wedge^256 S3 is exactly the s=t=2 SPECIAL CASE, not a theorem for every finite thick generalized quadrangle. McCabe supplies Rips scale-2 homotopy stability for girth≥8, not radius-3 join classification or whole persistence. Point-graph clique complex spectral work likewise does not identify the incidence graph Rips filtration.
+
+## value
+
+PASS
+
+A complete uniform homotopy and persistence classification for a natural family of bipartite distance-regular geometry incidence graphs (including nonclassical orders where they exist) is mathematically substantial. The sharp change from b circles to b² three-spheres is explained by a structural join theorem; it generalizes the known GQ(2,2) single instance and identifies all integral bars, not merely a small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

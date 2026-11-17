@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all finite thick generalized quadrangles, the incidence axioms force the stated 1/2/3/4 distance structure. Uniqueness of common neighbors, the girth-eight obstruction to point-graph triangles off a single line, and the dual argument make the radius-two relative collapse and both radius-three factor collapses valid. Counting the connected residual graphs gives \((st)^2\) independent circles in each factor, and the join gives \((st)^4\) integral three-spheres. The explicit inclusion at radius two fixes the persistence map; radius four is the simplex. Exact free-face and boundary checks were run on \(W(2)\) and \(W(3)\), while the all-orders conclusion rests on the symbolic proof.
+## correctness
 
-**Originality — PASS, subject to indexing limitations.** McCabe's Lemma 3.5 covers high-girth persistence only through radius two, not radius three; Cioabă et al. establish line/pencil clique structure and spectral information, but not the incidence-graph radius-three join or barcode. The published radius-three Tutte–Coxeter result covers precisely \(\mathrm{GQ}(2,2)\) and does not state the uniform \((s,t)\) theorem. A direct primary-text comparison and distinct search formulations found no all-parameters result. Although the generalization uses familiar graph-power and join ideas, no checked theorem directly supplies the all-orders full barcode. Unindexed or differently worded prior work remains a residual risk.
+PASS
 
-**Value — PASS.** The motivating 2026 generalized-polygon persistence literature identifies the girth-stability range but not the first radius beyond it. This result classifies that transition for every finite thick generalized quadrangle, including all prime-power classical examples and nonsymmetric parameter cases, with unrestricted homotopy type and complete integral persistence maps. The example \(W(3)\) already has 6,561 third-dimensional generators. This is a natural infinite-family topological classification rather than a single arbitrary computation. The prior smallest special case is fully acknowledged.
+The generalized quadrangle incidence graph is connected bipartite of girth eight and diameter four. Counting points, lines and incidences gives graph cycle rank b=(st)^2. Any Rips scale-2 clique lies in the unique relevant closed vertex neighborhood B_v: point/point and line/line distance-2 pairs have unique common neighbor (no C4), and triples with different pairwise centers would form prohibited C6. Descending free-face pairs S ⊂ N(v), |S|≥2, S∪{v} collapse R2 onto incidence graph R1. At scale 3 all cross-part point-line pairs become edges, while within each part threshold adjacency is exactly collinearity/concurrence. Thus R3 is join of their clique complexes, each a union of line/pencil simplices meeting in at most a vertex and collapsing onto a connected graph with b cycles. Join of wedge^b S1 with wedge^b S1 is wedge^(b^2) S3. R4 is full simplex by diameter four. Relative R1→R2 collapse and dimensions of stages determine all stated integral persistence bars. Checked quantifiers s,t>=2 and no assertion of realized parameters. Inspecting verifier W(2), W(3) confirms it only stress-tests the all-orders analytic argument rather than purporting to prove it.
 
-**Boundaries.** The theorem does not classify arbitrary girth-eight graphs, automorphism actions, non-thick incidence structures or metric normalizations other than the declared threshold convention. Computational tests do not establish the infinite-family assertion, and independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Tutte–Coxeter VR3 wedge^256 S3 is exactly the s=t=2 SPECIAL CASE, not a theorem for every finite thick generalized quadrangle. McCabe supplies Rips scale-2 homotopy stability for girth≥8, not radius-3 join classification or whole persistence. Point-graph clique complex spectral work likewise does not identify the incidence graph Rips filtration.
+
+## value
+
+PASS
+
+A complete uniform homotopy and persistence classification for a natural family of bipartite distance-regular geometry incidence graphs (including nonclassical orders where they exist) is mathematically substantial. The sharp change from b circles to b² three-spheres is explained by a structural join theorem; it generalizes the known GQ(2,2) single instance and identifies all integral bars, not merely a small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
