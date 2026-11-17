@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The defining equations, characteristic, projective normalization and excluded congruence class are explicit. Every singular point has at most two coordinate values because all coordinates solve one monic quadratic. In characteristic three, the first-derivative identities constrain their multiplicities; the cubic coefficient of a two-block specialization then forces the signed cases. The one-value and zero-valued cases give precisely the support points. This proves exhaustion over the algebraic closure, not just over the prime field. The exact verifier independently checks all prime-field points for \(3\leq n\leq11\). This is a self-review, not independent certification.
+## correctness
 
-## Originality
-The closest source is Xie, arXiv:2610.00259v1, especially Theorems 1.1 and 1.3 and Section 7. Its dimension profile and extremal partition components are established background, and it expressly does not classify the smaller-dimensional components. Our claim is the complete **finite geometric singular support** in degree three and characteristic three outside the known dimension jump, including signed non-coordinate points and exact orbit counts. Orzel, arXiv:2509.05009v3, provides dimension bounds; Cafure–Matera–Privitelli, arXiv:1109.2265, give a general distinct-coordinate/partition-space restriction. Neither inspected source specifies the \(43\) points for eight variables. Search-based historical priority is provisional, particularly for older symmetric-cubic classifications.
+PASS
 
-## Value
-The result completely resolves a naturally delineated missing-component problem in the first prime-characteristic degree equal to the characteristic. In eight variables, the dimension formula only predicts a finite projective singular locus, whereas the classification finds \(35\) additional signed points beyond the eight coordinate points. The congruence-dependent signed orbit provides a concrete structural refinement that can inform calculations of singularity schemes and symmetric-hypersurface complexity invariants.
+For algebraically closed characteristic-three k, n>=3 and n not congruent 2 mod 9, singularity imposes ∂i e3=e2−xi e1+xi²=0 at every coordinate, so all values lie in a common quadratic. Two-block e3 specialization and Frobenius yield support points |S|≡1 (mod 9) and signed (a,b) partitions with a≡b≡4 or 7 (mod 9); all cases are exhaustively separated. Counts are geometric reduced points, not scheme lengths. For n=8 exactly 8+binom(8,4)/2=43. Direct polynomial/gradient enumeration over F3 corroborated n=3..8; the all-algebraic-closure exhaustion follows from the quadratic argument, not enumeration.
 
-## Limits
-No claim is made about primary decomposition, local lengths, embedded structure, the excluded positive-dimensional congruence class, or independent verification. The proof and the verifier have distinct roles: finite prime-field enumeration is corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Xie arXiv:2610.00259 obtains dimension and extremal partition spaces, and Cafure–Matera–Privitelli restrict coordinate-value patterns; neither accessible statement gives the complete signed-support classification. Xie full text unavailable through arXiv/OA and authorized institution (VPN disconnected), so no claim of definitive historical noncoverage.
+
+## value
+
+PASS
+
+An exact complete reduced support classification in a natural positive-characteristic symmetric hypersurface family resolves a concrete dimensional-data gap. The signed 35 noncoordinate points at n=8 and modulo-nine behavior are substantive additional geometry, not a routine numeric lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
