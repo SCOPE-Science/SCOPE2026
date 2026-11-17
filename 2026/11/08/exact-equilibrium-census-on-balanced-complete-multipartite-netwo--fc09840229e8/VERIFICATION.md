@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem follows analytically by reducing unilateral stability to an exact inequality for the number of opposing actions in each part. A mixed part forces equality; separating profiles with zero, one, and multiple mixed parts gives the complete exhaustive classification and exact counting formula. Tripartite parity follows by substituting three parts. Global welfare optimality follows from coordinate-wise affinity of the cut-size polynomial; the even-size frequency estimate follows from the central-binomial asymptotic.
+## correctness
 
-Run `python3 verify.py` in the same directory as `RESULT.md`. The included standard-library verifier compares the closed formula with an independent occupancy-vector enumeration at 34 parameter pairs. It also exhaustively enumerates labeled binary profiles and tests individual actual neighbor payoffs for 17 smaller instances, and checks tripartite formulas at 11 orders. It prints `VERIFY_OK macro_cases=34 labeled_cases=17 tripartite_formula_cases=11`. These checks were executed against the supplied verifier; only the analytic argument proves unbounded orders. The implementation does not certify originality, dynamic convergence, or robustness to unequal edge weights. No independent mathematical audit has been performed.
+PASS
+
+For r>=2 equal nonempty labeled parts size n>=1, unit anti-coordination edge payoffs and unilateral strict improvement, a player in part i with action 1 has no incentive to switch iff 2(X-x_i)<=d=(r-1)n, while a player on action 0 requires >=d. The mixed-part equality forces the exact disjoint cases t=0, t=1 (odd r, h=(r-1)/2), or t>=2 with all mixed counts c=n(r-1-2h)/(2(t-1)) integer in (0,n); every converse and multiplicity follows. For r=3 this yields exactly 6(2^n-1)+1_even binom(n,n/2)^3; a multilinear cut objective reaches global max 2n^2 at a vertex of occupancy box, with the only extra even-n equilibrium family at 3n^2/2. Independent direct labeled action enumeration plus separate weighted macro-count checks agreed for eight (r,n) cases including r=4.
+
+## originality
+
+PASS
+
+The searched earlier anti-coordination and locally maximal cut papers analyze existence, optimization and complexity, not a complete arithmetic all-r,n balanced multipartite pure-equilibrium census with the tripartite parity/welfare multiplicities. The Resultary closest complete-split graph theorem has a clique joined to one independent set, which does not classify arbitrary r equal independent parts. This is a best-of-knowledge positive priority judgment, with Bramoullé 2007 original full text not inspected.
+
+## value
+
+PASS
+
+A complete exact pure-equilibrium count for a natural multipartite family and a sharp odd/even tripartite efficiency transition give independently useful finite-graph strategic statistics and a motivated parity boundary, not a routine single-instance recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
