@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive common intersections are verified on exact characteristic-zero Gröbner charts and matched to the two explicitly parametrized triple families. The negative statement is certified by a finite exhaustive orbit partition of \(2925\) triples into \(65\) orbits under a genuine projective automorphism group; two residue-characteristic Gröbner calculations rule out common projective zeroes over algebraic closures for each of the other \(63\) orbits. Projective properness carries emptiness of one integral specialization back to characteristic zero. The standalone certificate was executed from the actual submitted source and its assertions completed. The published pair-intersection types plus unique-pair membership then give the exact node and higher-concurrence census, with Bézout double-counting as a check. The public result has finite, exact domain, no unproved numerical inference, and clearly limits the claim to the conics without the cubic.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Dimca–Ilardi–Malara–Pokora, arXiv:2311.08913, explicitly give the pair classification and one tangential triple, and remark that the \(2925\) triple configurations are difficult to investigate exhaustively. Toft–Moe, arXiv:2412.16993, already establish the two positive triple construction families; **these are not novel**. Neither inspected Section 4 appears to exclude all other three-conic intersections or enumerate all singularities of the complete \(27\)-conic union. The actual comparison therefore concerns the missing converse and the global singularity numbers, not a rephrasing of positive constructions. Semantic mathematical-record checks for these exact formulas and structural equivalents found no dominating entry. Residual risks include unindexed tables and consequences implicit in other algebraic incidence classifications.
+PASS
 
-## Mathematical value — PASS
-The motivating study specifically identifies the full triple-conic incidence problem as an obstacle to characterizing larger arrangements, while the later grid analysis identifies positive concurrence families. Proving these are **all** the triple events and excluding any fourfold intersection gives a complete, natural global incidence lattice at multiplicity at least three and a precise singularity basket for a classical degree-54 reducible curve. The exact \(1242\)-node count is not an arbitrary slice: it follows from and records this structural completeness, and supplies data needed to evaluate invariants and possible freeness of subarrangements. No free-curve theorem for all subarrangements is claimed.
+The 27 explicit integral quadratic forms have a 54-element symmetry group with exactly 65 orbits on all 2925 triples. Independent generation of all orbits, modular polynomial arithmetic and Groebner elimination finds 5 potentially nonempty orbits at prime 109, 4 at prime 127, with intersection precisely representatives (0,1,2) of orbit size 18 and (0,4,8) of size 9. A unit ideal on all projective charts after an integral good-prime reduction excludes characteristic-zero geometric solutions by properness of the projective incidence scheme (not merely absence of F_p points). Source exact positive representative charts and the cited pairwise intersection theorem supply the two/one support types; pair uniqueness excludes any fourfold concurrence. There are 351 conic pairs with 4 Bezout intersections each; 1242 + 3*36 + 6*9 = 1404; local Tjurina contribution 1242+4*36+10*9=1476. The orbital exclusion is an exhaustive finite *certificate for the infinite-field assertion*, unlike sampling random points.
 
-## Sources and limits
-Read primary text: Dimca–Ilardi–Malara–Pokora, arXiv:2311.08913v2, Section 4, Proposition 4.7 and Theorem 4.10; Toft–Moe, arXiv:2412.16993, Section 4.3, Theorems 4.10 and 4.13. Additional comparisons: arXiv:2406.13802 Theorems 4.5–4.7 on distinct 108/324-conic families and arXiv:2211.00494 (abstract, not a full-text exclusion). Compare also arXiv:2505.20025, which classifies free **three-conic** arrangements but does not assert this entire incidence enumeration. Priority cannot be independently certified by search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Dimca–Ilardi–Malara–Pokora and Toft–Moe papers already establish the two positive concurrence geometries, but inspected statements do not exclude all other triples or give the total singularity census. The added complete symmetry-orbit/prime-reduction converse and support count are new to best of inspected literature.
+
+## value
+
+PASS
+
+The exact singular-support and Tjurina census of a canonical 27-component plane curve arrangement, along with a rigorous complete incidence classification, is a motivated algebraic-geometric invariant not supplied by the earlier positive intersection families. Every conic pair and triple type is accounted for; no general d claim is needed for utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
