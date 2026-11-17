@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:09:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized triangular barycentric coordinates are Dirichlet(1,1,1), yielding E f^n=2 h_n/((n+1)(n+2)). For zero-sum vertex values a,b,c, generating series is [1−(s2/2)t²−(s3/3)t³]^{-1}; coefficient extraction gives the stated normalized 2m-moment polynomial with L_m=2×6^m/[(2m+1)(2m+2)] and η=6s3²/s2³∈[0,1]. Discriminant s2³(1−η)/2 shows endpoint vertex patterns; polynomial has positive η coefficients for m≥3, strict edge min and altitude max, with m=2 invariant 12/5. Absolute third moment is a Hermite–Genocchi divided difference; differentiating its one-variable r∈(0,1) profile proves strict reverse extremizers and bounds 46sqrt2/45 and 3sqrt6/5. Independent exact Dirichlet calculations for m=2,3,4 checked edge and altitude ratios, and symbolic recurrence checked normalizations; this finite check is not the all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravin et al treat arbitrary polytope moments; tetrahedron result treats sharp sixth normalized moment of centered affine functions in dimension three."
+        ],
+        "reasoning": "Broader raw-moment formula and a neighboring-dimension sharp fixed-exponent result do not automatically imply sharp all-even directional inequalities for 3 vertices or the continuous absolute-cubic reversal.",
+        "searches": [
+          "Resultary: centered affine triangle Lp even moments sharp anisotropy cubic absolute moment extremizers",
+          "https://arxiv.org/abs/1210.3193",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-sixth-moment-geometry-of-centered-affine-functions-on-tetr--7f1853989a97/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1210.3193",
+        "https://arxiv.org/abs/1211.2227",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-sixth-moment-geometry-of-centered-affine-functions-on-tetr--7f1853989a97/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Discriminant s2³/2−3s3²≥0 gives η∈[0,1] with exact equality families. For absolute cubic, Hermite–Genocchi yields a rational r-profile with G'(r)<0 on (0,1)."
+        ],
+        "reasoning": "Known polynomial moment values provide the input, not the full optimization or opposite absolute-cubic equality cases; a signed third-moment result does not imply an absolute cubic optimum without a separate argument.",
+        "searches": [
+          "https://arxiv.org/abs/1210.3193",
+          "https://arxiv.org/abs/1211.2227",
+          "Resultary: centered affine triangle Lp even moments sharp anisotropy cubic absolute moment extremizers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triangle barycentric coordinates have Dirichlet(1,1,1); Σ_n h_n t^n=1/[1−(s2/2)t²−(s3/3)t³]."
+        ],
+        "reasoning": "The generating function is a known simplex moment computation; the claim instead optimizes the entire direction-invariant η∈[0,1] polynomial and a separate absolute cubic functional.",
+        "searches": [
+          "Resultary: centered affine triangle Lp even moments sharp anisotropy cubic absolute moment extremizers",
+          "https://arxiv.org/abs/1210.3193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source gives all-order closed coefficients L_m binom(m−j,2j)(4η/27)^j and 3rd absolute bounds 46sqrt2/45, 3sqrt6/5; no existing same-domain table identified."
+        ],
+        "reasoning": "Known m=1,2 uniform moments and general raw formulas are credited; an unindexed sharp Lp inequality table remains possible. A failed result search alone is not proof of novelty.",
+        "searches": [
+          "Resultary: centered affine triangle Lp even moments sharp anisotropy cubic absolute moment extremizers",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-sixth-moment-geometry-of-centered-affine-functions-on-tetr--7f1853989a97/RESULT.md",
+          "https://arxiv.org/abs/1211.2227"
+        ]
+      },
+      "rationale": "Known general simplex moment generating functions and signed third-moment inequalities are credited, while the sharp all-even η-profile and absolute-cubic reversal with equality classes appear new in the inspected specialized literature.",
+      "residual_risks": [
+        "A sharp Lp ratio classification hidden within general simplex norm/learning literature might imply these special cases.",
+        "Anderson–Goyal–Rademacher primary full text was not independently read; signed versus absolute distinction is clear but not a guarantee against a separate result therein."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives generating function for h_n of vertex values; sharp directional extremizers, strict η-profile and absolute cubic reversal require further optimization absent from inspected primary statements",
+          "evidence": "The exact triangle Dirichlet average E f^k=2 h_k/((k+1)(k+2)) is an immediate special case and explicitly treated as known.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.3193",
+          "material_read": "Full arXiv PDF accessed; introduction, general moment-generating identity and Corollary 3 inspected with rendered PDF pages, rather than merely abstract",
+          "method": "Lawful arXiv PDF full text with rendered-page inspection",
+          "title": "On moments of a polytope",
+          "trigger": "General rational generating function for uniform simplex moments could imply formulas"
+        },
+        {
+          "assessment": "Optimizes signed third moment rather than E|f|³; potential equivalence via additional inequality not established, retained risk",
+          "evidence": "Taking absolute values changes the extremizer: cubic absolute lower altitude and upper edge, opposite the even sixth order.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.2227",
+          "material_read": "Primary abstract and bibliographic Theorem 8 description; full article not independently read",
+          "method": "Primary arXiv search",
+          "title": "Efficient Learning of Simplices",
+          "trigger": "Signed third-moment optimization on simplex may dominate absolute cubic"
+        },
+        {
+          "assessment": "Four-vertex-value tetrahedron dimension three, exponent six only; not an implication to all even orders on a three-vertex triangle or the absolute cubic reversal",
+          "evidence": "Its S3,E4 four-coordinate invariants differ from the triangle’s single η invariant, and its 6th sharp bounds are 125/21 and 9875/567.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-sixth-moment-geometry-of-centered-affine-functions-on-tetr--7f1853989a97/RESULT.md",
+          "material_read": "Complete published RESULT.md, including exact invariant formula, deficits and equality pattern",
+          "method": "Fetched Resultary published full primary theorem",
+          "title": "Sharp sixth-moment geometry of centered affine functions on tetrahedra",
+          "trigger": "Same affine/simplex normalized moment question with different dimension and a fixed order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete sharp anisotropy and norm-comparison classification on the two-dimensional mean-zero affine-function space, with an exact order-dependent reversal between even sixth and absolute cubic norms, supplies useful extremal geometry and nonnegative stability remainders.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1210.3193",
+    "https://arxiv.org/abs/1211.2227",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-sixth-moment-geometry-of-centered-affine-functions-on-tetr--7f1853989a97/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only real centered affine functions on normalized-area triangles are covered; no arbitrary exponents, nonuniform measure or nonlinear polynomials.",
+    "Classical exact moment generating function is not an original contribution; the optimized coefficient/equality theorem is the claim."
+  ],
+  "residual_risks": [
+    "A sharp Lp ratio classification hidden within general simplex norm/learning literature might imply these special cases.",
+    "Anderson–Goyal–Rademacher primary full text was not independently read; signed versus absolute distinction is clear but not a guarantee against a separate result therein."
+  ],
+  "schema_version": 1
+}

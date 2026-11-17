@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Probability barycentric coordinates are Dirichlet \((1,1,1)\); their explicitly integrated monomial moments yield the complete-homogeneous generating series. Its exact coefficient extraction proves the full infinite family of even-moment formulas. The coefficient-discriminant identity gives the precise interval for the intrinsic anisotropy parameter and all endpoint equality classes. A two-dimensional divided-difference evaluation of \(|t|^3\) gives the absolute-cubic profile; a directly verified derivative factorization is strictly negative in the open parameter interval, completing the opposite extremal classification. SymPy independently checks the finite symbolic identities, while the all-order proof does not infer infinite statements from finite computations. Risk: the explicit difference-quotient formula needs limiting interpretation at repeated knots; continuity of area integrals supplies it.
+## correctness
 
-**Originality — PASS, qualified.** Gravin–Pasechnik–Shapiro–Shapiro (arXiv:1210.3193) explicitly supply the general polytope moment generating function, which dominates the underlying *raw-moment identity*; that identity is not asserted to be new. Their result does not itself classify extrema over directions or give the directionwise quantitative remainder and opposing absolute-cubic equality families. Anderson–Goyal–Rademacher (arXiv:1211.2227) treat extremizers of the *signed* simplex third moment for learning, not the absolute third moment. Published nearest comparisons involve discrete zero-sum norms, geometric simplex projections, and unrelated polynomial phase moments. The residual risk is an older or unindexed exact extremizer theorem for affine triangle \(L^p\) norms; failed database searches alone cannot exclude it.
+PASS
 
-**Value — PASS.** The entire natural two-dimensional centered-affine subspace on *every triangle* has its sharp norms and equality families simultaneously solved at all even orders. Fourth-order isotropy versus sixth-and-higher anisotropy is captured by an exact intrinsic shape-free stability parameter, and the absolute-cubic extremizers unexpectedly reverse the higher-even ordering. This gives a concrete benchmark for sharp finite-element local moment comparisons, distributional geometry on simplices and low-order moment-based direction recovery. It is not merely a new name for the pre-existing simplex moment generating formula.
+Normalized triangular barycentric coordinates are Dirichlet(1,1,1), yielding E f^n=2 h_n/((n+1)(n+2)). For zero-sum vertex values a,b,c, generating series is [1−(s2/2)t²−(s3/3)t³]^{-1}; coefficient extraction gives the stated normalized 2m-moment polynomial with L_m=2×6^m/[(2m+1)(2m+2)] and η=6s3²/s2³∈[0,1]. Discriminant s2³(1−η)/2 shows endpoint vertex patterns; polynomial has positive η coefficients for m≥3, strict edge min and altitude max, with m=2 invariant 12/5. Absolute third moment is a Hermite–Genocchi divided difference; differentiating its one-variable r∈(0,1) profile proves strict reverse extremizers and bounds 46sqrt2/45 and 3sqrt6/5. Independent exact Dirichlet calculations for m=2,3,4 checked edge and altitude ratios, and symbolic recurrence checked normalizations; this finite check is not the all-m proof.
 
-**Scientific limitations.** The result concerns real centered affine functions on uniform triangles, all even integer exponents, and the one odd absolute exponent three. Arbitrary noninteger exponents, higher-dimensional simplices, other densities and higher polynomial degrees are not settled. The claim is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known general simplex moment generating functions and signed third-moment inequalities are credited, while the sharp all-even η-profile and absolute-cubic reversal with equality classes appear new in the inspected specialized literature.
+
+## value
+
+PASS
+
+A natural complete sharp anisotropy and norm-comparison classification on the two-dimensional mean-zero affine-function space, with an exact order-dependent reversal between even sixth and absolute cubic norms, supplies useful extremal geometry and nonnegative stability remainders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
