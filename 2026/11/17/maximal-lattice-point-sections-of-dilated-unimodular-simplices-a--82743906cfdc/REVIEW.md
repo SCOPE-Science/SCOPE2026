@@ -1,0 +1,11 @@
+# Review of maximal lattice-point sections of dilated unimodular simplices
+
+**Correctness: PASS.** The coordinate restrictions on any affine \(\ell\)-flat have an injective \(\ell\)-coordinate projection. Integer points project into the \(\ell\)-simplex of total coordinate sum at most \(k\), giving the sharp stars-and-bars bound. Equality forces all those target integers to lift. The lifts at \(0\) and \(k e_i\) determine the whole affine plane, while integrality of the lifts at \(e_i\) forces the sole remaining intercept to be either zero or a simplex vertex. This handles the borderline \(k=1\) separately. Every maximizing plane is therefore precisely a face hull; no finite verification is used to prove the unbounded result.
+
+**Originality: PASS (historical priority provisional).** The motivating paper's revised full text proves eventual quasi-polynomiality for lattice diameter segments, not this full all-codimension classification. Its higher-dimensional conjecture explicitly asks for a quasi-polynomial of degree \(d-\ell\); this theorem supplies a complete counterfamily of constant counts. Search comparisons against continuous-section volumes, combinatorial face-count sections, and published mathematical records did not reveal a theorem with identical integer-point extremizers. An unindexed equivalent lemma remains possible.
+
+**Value: PASS.** The result is a complete, sharp classification of a naturally defined extremal invariant across all dimensions, codimensions, and positive dilations of a canonical lattice polytope. It provides a direct counterexample to the *exact-degree* clause in an explicit current higher-dimensional conjecture and isolates the natural weakened formulation (an upper degree bound) without claiming that the weaker statement fails. The elementary nature of the proof does not make the quantified counterexample a mere normalization test. The literal unrestricted-section reading includes boundary faces; a strictly interior-section variant would be a different problem.
+
+The source paper was checked at its relevant definitions, general quasi-polynomial theorem, example and conjecture; the same-author 2026 combinatorial-slicing source could only be compared using its abstract. No independent publication-priority review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
