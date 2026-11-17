@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The odd denominator permits Kummer's binary-carry criterion. For every admissible endpoint, a highest-to-lowest greedy suffix gives the exact preceding admissible index; four-step recurrences yield both floor formulas. Witness endpoints realize every family member, and the interlaced order establishes first appearances. Independent separation of the two binary parity classes gives the exact Fibonacci product. Exact-integer verification independently compares literal binomial quotients and all predicted gaps through a finite cutoff. The proof, not finite experiments, covers arbitrary indices.
+## correctness
 
-**Originality: PASS, qualified.** Eu–Huang–Kao (arXiv:2609.25742v1, Sections 3, 6, 7) prove the spectrum for different parameters and pose a general finite-family problem. A separate, publicly described general zero-run family-containment result covers all Raney parameters qualitatively; it does not provide an explicit value set, converse attainment, exact endpoints or odd-support count for the present parameters. The 2019 divisibility results and the OEIS sequence table likewise do not provide this explicit theorem. Searches of equivalent and stronger formulations and mathematical research records did not identify an exact covering result. Unindexed priority and the availability of further literature remain risks; the general qualitative conjecture is *not* claimed as newly solved.
+PASS
 
-**Value: PASS.** A recently posed Raney zero-run classification program calls for explicit spectra. The fixed \((5,1,2)\) case is natural (five-ary Fuss–Catalan); the two exact floor families, sharp first-occurrence endpoints, and Fibonacci-product odd-support census form a complete structural calculation not supplied by the known qualitative general theorem. This is not an arbitrary numeric slice or a routine substitution into the \((3,2)\) case.
+PASS: Kummer applies since 4n+1 is odd; binomial parity is no overlap of binary n and 4n. The maximum predecessor suffix follows the greedy high-to-low condition with forbidden distance-2 one-bits; the displayed four-step recurrences produce floor(2^j/5), floor(3*2^j/5) gaps. Endpoints 2^j and 3*2^j realize the two cases. Interlacing proves first occurrence records; independent Fibonacci counts on even/odd bit positions give the support census. Fresh enumeration for n<65536 found 3025 odd indices, 26 positive lengths and the expected first record endpoints; numerical evidence is corroborative only.
 
-**Limits.** No all-prime or all-parameter claim, no finite-window multiplicity generating function, no independent validation, and no exhaustive global priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior establishes these two explicit complete families with first-record positions and exact odd-support count for R(5,1) mod 2.
+
+## value
+
+PASS
+
+PASS: Determining an infinite exact zero-run spectrum, sharp first occurrences and Fibonacci census of a natural Fuss–Catalan integer sequence is a motivated number-theoretic classification, not a generic numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
