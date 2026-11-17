@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` runs without third-party packages under Python 3. It builds the semidirect group products directly and evaluates Engel words as literal nested group commutators, rather than invoking the formula being tested. `verification_output.txt` is the recorded exact output from executing `python verify.py` in the artifact directory.
+## correctness
 
-Ten coprime cases, including noncyclic complements, noncyclic kernels, non-Frobenius actions, a nonfaithful action, non-elementary kernels, and a non-diagonal irreducible action, were exhaustively checked for \(k=2,3,4\), yielding 464790 individual word evaluations. For every triple consisting of a complement coordinate of the left element and a fixed complete right element, all kernel coordinates of the left element were enumerated to check conditional support and exact fiber multiplicities; this gives 3884 conditional-fiber checks. Every predicted right Engelizer size was checked; subgroup closure was tested on small examples or a distinguished right element for larger examples. The predicted Fourier transform was compared directly with the enumerated word distribution at each additive character, using a complex numerical tolerance of \(10^{-10}\); the remainder uses exact integer/rational arithmetic. The dihedral group \(C_8\rtimes C_2\) provides a fully enumerated failure of stabilization without coprimality.
+PASS
 
-A successful execution prints `VERIFY_OK cases=10 direct_word_evaluations=464790 conditional_fibers=3884` as its last line. The original execution output is included verbatim. The symbolic proof in RESULT.md, and not these finite computations, proves the universally quantified statements. No independent mathematical audit is asserted.
+A direct multiplication of the semidirect product yields the right-Engel recurrence. For each v, coprime group-order averaging splits A=C_A(v)⊕(v−1)A, and v−1 is invertible on B_v=(v−1)A. At depth k>=2 the iterated commutator kills the C_A(v) component while pushing a uniformly random A coordinate bijectively across B_v conditional on Y and X complement u. This proves the complete mixture law, character Fourier stabilizer formula, Burnside identity probability and sharp Frobenius equality condition. Solving (v−1)a_B=(u−1)b_B yields the stated conjugate Engelizer with |H||C_v| elements. Noncoprime C8⋊C2 boundary violates stability.
+
+## originality
+
+PASS
+
+The H=C2 involution special case of the full word-value law is already covered by a published Nov-2 theorem and MUST be credited; the new claim is the uniform arbitrary finite abelian complement H with coprime kernel, including noncyclic/non-Frobenius actions, complete conditional value law, Fourier and Engelizer description. Existing general 2-Engel probability inequalities and Frobenius Engel-digraph zero patterns do not determine this full statement. Best-of-knowledge qualified.
+
+## value
+
+PASS
+
+Depth-two exact stabilization for an entire natural class of finite metabelian groups yields every word-value fiber, Fourier transform, orbit-theoretic identity probability and exact Engelizers. These are meaningful word-measure invariants, not merely an inequality or renaming of the previously known H=C2 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
