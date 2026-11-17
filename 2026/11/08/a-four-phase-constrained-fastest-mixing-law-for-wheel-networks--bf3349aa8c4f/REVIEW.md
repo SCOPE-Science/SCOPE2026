@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is global over every symmetric feasible Markov matrix: dihedral averaging preserves the **per-edge** floor and does not increase spectral norm. The full spectrum then makes the problem a two-variable minimax. The proof explicitly handles the negative radial eigenmode, rim capacity, the order of all three thresholds, the even/odd terminal boundary and invariant-family uniqueness. The appended checker independently evaluates the three-variable linear-program vertices and reconstructs Fourier eigenvalues in 1,833 numerical cases, with 48 exact rational cases for two rim lengths. Finite tests are not used as a proof of the universal result.
+## correctness
 
-## Originality: PASS, qualified
-The unconstrained wheel solution, its Fourier block spectrum and general FMMC formulation are **not** new and are credited to Boyd--Diaconis--Parrilo--Xiao (arXiv:0709.0955, section 5.3.3) and Boyd--Diaconis--Xiao (SIAM Review 2004). The separately imposed lower bound on each rim transition, and the consequent explicit four-phase optimum and parity-dependent boundary, were not stated in the primary full text inspected or in targeted database/literature searches. Jafarizadeh's 2025 Pareto study concerns friendship graphs and fixed edge probabilities, not the wheel-floor problem. Because the earlier source already contains the Fourier spectrum, deriving the constrained frontier is relatively accessible; specialist prior-coverage risk remains and external independent checking is warranted.
+PASS
 
-## Value: PASS
-Maintaining minimum local rim transitions while optimizing hub-mediated consensus is a motivated constrained-mixing problem, including a network robustness/exploration requirement. The answer is a complete all-size phase diagram with closed switching points and actual feasible optimal kernels. It identifies a parity-dependent final regime (only odd rim lengths have a nonzero range where the holding probability on every rim vertex is forced to vanish). The precise floor sensitivity is not just a recomputation of the unconstrained optimum.
+Automorphism averaging preserves every rim-edge lower bound and convex spectral norm, proving existence of a globally optimal invariant chain. Fourier decomposition reduces spectral radius to three absolute affine eigenvalues. The proof balances the rim endpoints q0=2(1-p)/(a+b), proves the negative radial branch never binds (including boundary m=4), minimizes over p<=min(1/m,1-2tau), and derives switches tau1, tau2, tau3 and parity-dependent fourth regime. Independently solved corresponding 3-variable LP using SciPy HiGHS for 6 rim sizes and 9 threshold samples (54 comparisons), matched analytic SLEM; source verifier has 1833 floating and 48 rational LP cases, but proof is universal.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Boyd et al. already derived wheel spectrum and unconstrained optimum, so those components are NOT new. The new per-edge rim floor tau changes feasible set and yields all-parameter four-phase SLEM with explicit kernels. Published price-constraint wheel optimizations have distinct objective and parameter; no dominating coverage located.
+
+## value
+
+PASS
+
+Minimum local rim exploration under fastest contraction is a naturally motivated robustness tradeoff; exact sharp phase diagram and constrained kernels for all finite wheel sizes are useful independent spectral design facts. Odd m alone has terminal zero-holding regime, distinguishing parity and feasibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T09:56:38.381527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md adba646d7225479b1d2237a495f46079ff9064f3",
+        "verify_wheel_frontier.py e1cf58ab7b306ce326a05f27883e9ab8a0a75dd2"
+      ],
+      "rationale": "Automorphism averaging preserves every rim-edge lower bound and convex spectral norm, proving existence of a globally optimal invariant chain. Fourier decomposition reduces spectral radius to three absolute affine eigenvalues. The proof balances the rim endpoints q0=2(1-p)/(a+b), proves the negative radial branch never binds (including boundary m=4), minimizes over p<=min(1/m,1-2tau), and derives switches tau1, tau2, tau3 and parity-dependent fourth regime. Independently solved corresponding 3-variable LP using SciPy HiGHS for 6 rim sizes and 9 threshold samples (54 comparisons), matched analytic SLEM; source verifier has 1833 floating and 48 rational LP cases, but proof is universal.",
+      "residual_risks": [
+        "Invariant optimizer uniqueness only, not uniqueness among all asymmetric feasible matrices.",
+        "Finite LPs cannot prove unbounded m and real continuum tau; analytical minimax supplies that."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unconstrained general symmetry reduction/Semidefinite FMMC does cover tau=0 plateau. It does not state exact parametric solution for all tau."
+        ],
+        "reasoning": "General convex formulation enables solving each case but does not imply the piecewise thresholds and terminal odd parity as stated prior theorem.",
+        "searches": [
+          "fastest mixing wheel graph Markov chain rim edge lower bound constraint piecewise spectral modulus tradeoff",
+          "wheel graph fastest mixing min rim transition probability tau constrained spectral optimization exact thresholds",
+          "arXiv:0709.0955",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0709.0955 / https://arxiv.org/abs/0709.0955",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyd §5.3.3 wheel eigenvalues solve unrestricted optimum; adding lower bound q>=tau yields extra active sets."
+        ],
+        "reasoning": "For tau>tau1, old unconstrained optimizer is infeasible. A full new minimax with rim capacity yields phases 2–4 not implied by old objective value.",
+        "searches": [
+          "fastest mixing wheel graph Markov chain rim edge lower bound constraint piecewise spectral modulus tradeoff",
+          "wheel graph fastest mixing min rim transition probability tau constrained spectral optimization exact thresholds",
+          "arXiv:0709.0955",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same wheel adjacency and Fourier eigenvalue decomposition, but prior wheel optimization has tau fixed absent."
+        ],
+        "reasoning": "Compared objective SLEM and constraint q>=tau individually, not simply graph name. The gamma-price continuous-time constraint is not equivalent to q>=tau in stochastic discrete-time setting.",
+        "searches": [
+          "fastest mixing wheel graph Markov chain rim edge lower bound constraint piecewise spectral modulus tradeoff",
+          "wheel graph fastest mixing min rim transition probability tau constrained spectral optimization exact thresholds",
+          "arXiv:0709.0955",
+          "doi:10.1137/S0036144503423264"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier unconstrained wheel formulas correspond first branch only. No earlier four-piece wheel rim-floor table found."
+        ],
+        "reasoning": "New three transition points for every m, not recomputation of known finite wheel numerical tables.",
+        "searches": [
+          "fastest mixing wheel graph Markov chain rim edge lower bound constraint piecewise spectral modulus tradeoff",
+          "wheel graph fastest mixing min rim transition probability tau constrained spectral optimization exact thresholds",
+          "arXiv:0709.0955"
+        ]
+      },
+      "rationale": "Boyd et al. already derived wheel spectrum and unconstrained optimum, so those components are NOT new. The new per-edge rim floor tau changes feasible set and yields all-parameter four-phase SLEM with explicit kernels. Published price-constraint wheel optimizations have distinct objective and parameter; no dominating coverage located.",
+      "residual_risks": [
+        "Constrained-FMMC specialist literature could have solved an equivalent floor frontier not indexed in searched sources.",
+        "Derived from familiar spectral blocks, so a specialist may regard derivation routine; full phase classification and parity boundary nevertheless independent motivated calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly solves unconstrained wheel fastest-mixing and provides exactly the Fourier spectrum; no rim-edge floor parameter or three floor thresholds in inspected section.",
+          "evidence": "Eigenvalues for invariant wheel P are 1-(m+1)p and 1-p-4q sin²(pi k/m); unconstrained minimax solution matches plateau only.",
+          "identifier_or_url": "arXiv:0709.0955 / https://arxiv.org/abs/0709.0955",
+          "material_read": "Full available PDF, specifically Section 5.3.3 pages 28–29 and wheel spectral decomposition",
+          "method": "Read relevant primary full-text mathematical section and corresponding PDF pages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Same symmetric wheel Markov chain spectral norm problem"
+        },
+        {
+          "assessment": "Prior continuous-time budgeted spoke-price optimal rates cannot directly supply a discrete-time per-rim-edge lower-bound SLEM law.",
+          "evidence": "Prior describes deleting rim edges below a price ratio, whereas present imposes an individual minimum q>=tau and permits holding; mathematical feasible sets differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99",
+          "material_read": "Resultary indexed finding only, not full original text",
+          "method": "Read indexed scientific statement, not full text",
+          "title": "Quadratic spoke-price frontier for fastest mixing on wheels",
+          "trigger": "Same wheel but different network design objective and constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:0709.0955 / https://arxiv.org/abs/0709.0955",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99"
+      ],
+      "rationale": "Minimum local rim exploration under fastest contraction is a naturally motivated robustness tradeoff; exact sharp phase diagram and constrained kernels for all finite wheel sizes are useful independent spectral design facts. Odd m alone has terminal zero-holding regime, distinguishing parity and feasibility.",
+      "residual_risks": [
+        "Only symmetric reversible uniform-stationary wheel chains; no finite-time TV optimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No global optimizer uniqueness beyond invariant 2-parameter family.",
+    "At tau=1/2 reducible chain mu=1, not mixing."
+  ],
+  "schema_version": 1
+}
