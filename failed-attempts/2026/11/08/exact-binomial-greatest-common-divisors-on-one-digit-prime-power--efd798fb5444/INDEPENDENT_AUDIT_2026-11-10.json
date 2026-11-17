@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:53:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Degree-k polynomial F(q)=binom(qk,k) and vanishing (k+1)-st finite difference yield D(k)|(k+1). Kummer base-p carries show every defining binomial has at least a carries when k=mp^a-1, and Guo local prime support excludes primes dividing the one-digit cofactor m. Fresh direct integer gcd checks verified 21 cases. All-p general prior theorem independently implies the claimed identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary, Exact prime-power factorization of the binomial progression gcd, 2026-10-12: v_p(D(k))=max(0,a-floor(log_p((k+1)/p^a))) for every k and p^a||(k+1).",
+          "Guo et al., arXiv:2606.22997, earlier local first-power support criterion."
+        ],
+        "reasoning": "The prior all-integer k theorem strictly contains every one-digit m<p parameter here, including p=2 and boundary k>=2. It also supplies explicit multiplier witnesses.",
+        "searches": [
+          "2026/10/12 SCOPE exact prime-power factorization binomial progression gcd",
+          "2026/10/25 exact prime-power valuations fixed lower index binomial gcd"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+        "https://arxiv.org/abs/2606.22997",
+        "OEIS A080170",
+        "Resultary semantic query gcd binomial coefficients binom(qk,k) k=m p^a-1 one digit cofactor exact p^a Kummer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary, Exact prime-power factorization of the binomial progression gcd, 2026-10-12: v_p(D(k))=max(0,a-floor(log_p((k+1)/p^a))) for every k and p^a||(k+1).",
+          "Guo et al., arXiv:2606.22997, earlier local first-power support criterion."
+        ],
+        "reasoning": "Let n=mp^a, m<p and p not dividing m. Prior formula yields v_p(D)=a. For each different prime ell|m, the complementary cofactor n/ell^b >= p^a >m>=ell^b so the prior max formula gives v_ell=0. All other primes are absent. Therefore D=p^a exactly.",
+        "searches": [
+          "Resultary all-k gcd 2026-10-12 full RESULT.md",
+          "gcd binomial coefficients binom(qk,k) k=m p^a-1 one digit cofactor exact p^a Kummer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary, Exact prime-power factorization of the binomial progression gcd, 2026-10-12: v_p(D(k))=max(0,a-floor(log_p((k+1)/p^a))) for every k and p^a||(k+1).",
+          "Guo et al., arXiv:2606.22997, earlier local first-power support criterion."
+        ],
+        "reasoning": "The earlier theorem is for exactly the same defining gcd and same q range. Substitution b=m<p gives floor(log_p m)=0 hence v_p=a.",
+        "searches": [
+          "gcd binomial coefficients binom(qk,k) k=m p^a-1 one digit cofactor exact p^a Kummer",
+          "2026/10/12 exact prime-power factorization binomial progression gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A080170 records indices with gcd one; however 2026-10-12 published formula determines all exact gcd values."
+        ],
+        "reasoning": "OEIS unit test alone would not cover, but the actual prior general theorem does; no new table of exact values is necessary.",
+        "searches": [
+          "OEIS A080170 and exact binomial gcd published formula",
+          "gcd binomial coefficients binom(qk,k) k=m p^a-1 one digit cofactor exact p^a Kummer"
+        ]
+      },
+      "rationale": "A complete prior all-k prime-power factorization determines the exact identical D(k) and yields p^a after substituting k+1=mp^a with 1<=m<p; no surviving original theorem.",
+      "residual_risks": [
+        "No material scientific novelty survives stronger published theorem; older 1985 Pascal-triangle paper not needed to decide this prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERING: exact all-k formula implies submitted theorem.",
+          "evidence": "v_p(D(k))=max(0,a-floor(log_p b)), b=(k+1)/p^a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+          "material_read": "Complete RESULT.md including precise theorem, universal carry proof, explicit witness and exact factorization",
+          "method": "Read frozen Resultary GitHub primary mathematical file in full",
+          "title": "Exact prime-power factorization of the binomial progression gcd",
+          "trigger": "same invariant and strictly stronger parameter scope"
+        },
+        {
+          "assessment": "Earlier 2026 paper supplies only first-power criterion; stronger later 2026-10-12 theorem supplies exact coverage.",
+          "evidence": "p|D(n-1) iff n/p^a <= p^a.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22997",
+          "material_read": "Local prime-support lemma, exact gcd unit criterion and assumptions",
+          "method": "Accessible arXiv source and assigned proof comparison",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "foundational same gcd and local prime support"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: This exact gcd is an immediate, already established one-digit-cofactor specialization of a published all-k formula; repeating a Kummer proof does not establish a new useful invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "C validated as mathematics, not priority; generic Kummer or finite evidence alone does not make it novel.",
+    "Git subtree object hash not independently enumerated.",
+    "The assigned source-tree sha is copied as the intended identity; it was NOT independently verified from a Git directory listing.",
+    "Publication plan is not_ready due to operational metadata disclosure risk; the science review is complete."
+  ],
+  "schema_version": 1
+}
