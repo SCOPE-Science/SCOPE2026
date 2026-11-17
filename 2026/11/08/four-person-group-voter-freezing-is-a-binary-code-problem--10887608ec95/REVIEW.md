@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** With no replacement and \(q=s-1\), the only permitted flip in a four-person group is that of its unique minority; its odd parity is exactly one. The rest follows from standard rank-nullity and orthogonality over \(\mathbb F_2\), with explicit verification of the full-support and rank-limited cases, the dense rank-\(n-1\) construction, the dependent three-edge example, and the uniqueness of group size four among \(s\ge3\). A standalone direct-rule checker enumerated 226,656 complete configurations across 3,537 finite hypergraphs. This does not replace the all-size proof.
+## correctness
 
-**Originality: PASS (provisional to accessible literature).** The primary Kim–Lee–Min–Porter–San Miguel–Goh paper defines the precise sampling rule and studies exit-time/drift behavior on annealed hypergraphs, and its accessible supplemental sections D–F likewise calculate annealed model variants. The fixed-topology characterization \(a=Bx\), all attainable activity patterns, exact frozen count, and binary-rank criteria are not implied by those exit-time results. Noonan–Lambiotte study majority updates on three-person hyperedges; Chung–Tsiatas use memoryless hyperedge recoloring under different transition mechanisms. Previous directly comparable claims concerned a three-person majority hyperstar or a different full-hyperedge evolutionary update, neither yielding this four-person incidence-code result. The code-theoretic rank facts alone are standard; novelty is restricted to the precise dynamical identification and its consequences. No matching record was found in the queried mathematical database, but this is not proof of uniqueness. The full text of the older hypergraph coloring game was not accessible and an equivalent observation elsewhere remains possible.
+PASS
 
-**Value: PASS.** The claim completely classifies initially frozen states and all possible active-group patterns on every fixed four-uniform interaction network. It gives a computable structural obstruction (odd-size even covers), an exact criterion distinguishing networks with only consensus frozen states from those with polarized frozen states, and an exact independence criterion for apparently overlapping social groups. These facts address the difference between frozen static-group dynamics and the annealed consensus phenomenon in the motivating work; they are not simply numerical examples or a small parameter improvement.
+For a 4-person group, a focal person may change precisely when it is the unique minority. This is exactly odd edge parity (one or three ones). Consequently the full activity vector is Bx over F2 and rank-nullity gives image cardinality 2^r, every fiber and frozen kernel 2^(n-r), orthogonality to ker B^T, full-independence iff row rank m, and consensus-only iff rank n−1 because 1 is in the kernel. For K_n^(4), n≥5, pairwise row differences generate all even-weight vectors, giving rank n−1; the three-edge six-vertex witness has row sum zero and rank two. For s != 4, singleton and triple configurations contradict affine parity. Independent small hypergraph bit-rank and direct-update checks corroborate, but the argument proves arbitrary fixed simple 4-uniform H.
 
-**Limits.** Only instantaneous activity and frozen configurations are characterized; no theorem on eventual consensus, convergence, or all recurrent classes is asserted. Sampling must be without replacement, groups fixed and four-person, all allowable updates positively selectable, opinions binary, and the initial distribution unbiased only for the probability claims. Overlap risk persists from unindexed or inaccessible work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on the specific fixed-topology voter-dynamics encoding, not on rank-nullity as an algebraic discovery. The primary group-driven voter model considers annealed transition dynamics and consensus time, without the full fixed-incidence activity-code/frozen-state spectrum in inspected material. Related coloring games and 3-person majority rules use different updates. Historical equivalence under coding terminology remains a risk.
+
+## value
+
+PASS
+
+The microscopic unanimity rule surprisingly linearizes only at group size four, enabling exact frozen-state counts, parity-forbidden activity patterns, and an independence test for arbitrary overlapping hyperedges. These are meaningful structural consequences for network absorbing states; the novelty is the dynamics-to-code bridge rather than elementary kernel counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
