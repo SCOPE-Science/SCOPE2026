@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact-arithmetic verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the Python standard library. The verifier builds the full unweighted join Laplacian for every tested graph, computes the completed Taylor polynomial with exact `fractions.Fraction` arithmetic, and independently checks the join projector formulas, all row sums, and matrix-entry signs before and after a rational bracket containing the unique positive root.
+## correctness
 
-Actual run: `VERIFIED 222 graph/order cases and 231840 exact entry comparisons`, followed by `All beta brackets, block identities, row sums, and signs passed.` Tested orders: 2, 4, 6, 8, 10; clique sizes 1 through 4; connected and disconnected residual graphs with degree bounds satisfying the theorem. Every outside test checks a strictly negative clique-to-core entry.
+PASS
 
-The exact polynomial proof establishes the infinitely many parameters and graphs; these finite tests cannot certify an infinite family, publication novelty, or independent validation. Other graph structures and odd Taylor orders are outside the claim.
+The join Laplacian diagonalizes into global constant (eigenvalue 0), clique/residual contrast and clique zero-sum (eigenvalue n), and residual zero-sum (kI+L_H). Exact blocks give clique–residual entries (1−F_p(nh))/n, necessary and strictly negative for h>β_p/n by strict convexity F_p=F_(p−2)>0. Residual block = F_p(h(kI+L_H))+q(h)J with q≥0 by Jensen, strictly >0 for h>0. Under n≥β_p(k+Δ) and h≤β_p/n, put B=ΔI−L_H≥0 and s=h(k+Δ)≤1; Taylor expansion ∑ h^j F_(p−j)(s)B^j/j! has nonnegative coefficients, proving sufficiency. p even and scalar positivity ensure unique β crossing. Independently computed rational 4th-order matrix on K1∨P7 at t=nh=1,2 and above β at 3, matching block signs, not an all-graph exhaustive test.
+
+## originality
+
+PASS
+
+PASS best knowledge for arbitrary non-cluster residual graphs H and clique size k≥1 under a degree condition. Earlier convex-filter windmill theorem covers K1∨disjoint-clique residuals, exact β/n including subclass; no implication to arbitrary paths/cycles and general k was established. Algebraic proof genuinely extends the premise.
+
+## value
+
+PASS
+
+Provides a sharp and usable positivity CFL boundary for the completed even-order Taylor heat map on arbitrary sparse graph cores attached to a dominating clique, with a clean sufficient structural condition and explicit unavoidable cross-block obstruction, beyond highly symmetric windmills.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
