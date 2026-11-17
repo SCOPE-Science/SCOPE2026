@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The centered four-dimensional moment matrix gives the displayed reproducing kernel, and absolute integration against a uniform spherical direction gives the row profile. Exact differentiation reduces the sharp norm to the endpoints, the nonsmooth calibration point, and at most six polynomial roots. The local threshold uses the one-sided antipodal derivative, while the global coexistence proof combines a strict off-antipodal comparison at mass \(1/3\), a unique near-unit-mass limiting normer, and compactness; it does not infer global optimality from local derivatives. All symbolic identities and independent numerical integrals were replayed with `checker.py`. Numerical tests are not treated as infinite proofs.
+## correctness
 
-## Originality — PASS (qualified)
-The 2007 Fernández–Pérez–Piñar–Xu kernel update (arXiv:0801.0065, formula (6)) is directly applicable and credited as prior work. The 2009 Delgado et al. multi-mass formula subsumes this kernel identity. The Hangelbroek et al. 2010 manifold theorem concerns broad operator boundedness, not this exact atom-weight sphere norm. Their inspected principal results do not state the finite sextic stationary candidate law, a fixed row-norm calibration minimum, or the strict lag between local and global antipodal norming. Actual publication-record and semantic searches found no equivalent optimized statement, but indexing gaps and earlier special-function papers remain plausible residual risks.
+PASS
 
-## Mathematical value — PASS
-This is an entire sharp family of worst-case least-squares stability factors, and the local/global discrepancy supplies information not available from an a priori projector-norm bound or from the generic reproducing kernel. The finite-degree critical polynomial makes the norm exactly evaluable for any fixed weight and proves a natural phase-coexistence boundary without inventing its uniqueness.
+For µ_w=(1-w)σ+wδ_N on S² with 0<w<1, the centered moment inverse gives K_w(x,y)=1+3(x1y1+x2y2)/(1-w)+3(x3-w)(y3-w)/[(1-w)(1+3w)]. For r=w/(1+3w), t=1+3 x·N, direct integration yields F_r(t)=(9q_r(t)+u_r(t)^2)/(6√q_r(t))+r|t| with q=1+2rt/3-r(2/3-r)t², u=1-rt. A derivative zero lies among real roots of a sextic P²-144r²q³, and endpoints/cusp t∈{-2,0,4} exhaust maxima. Symbolic independent checks reproduce derivative, exact sextic leading term, local antipodal derivative threshold r=1/6 (w=1/3), F(0)=5/3, and 30 independent numerical uniform-sphere kernel row integrals. Limit comparison F_(1/4) uniquely normed at t=-2 and strict off-antipodal dominance at w=1/3 plus continuity prove at least one separate global coexistence transition. Neither finite integrations nor polynomial examples replace the analytic positivity/factorization and compactness proof.
 
-## Limitations
-Real affine space, uniform probability on the two-sphere, exactly one positive atom and positive continuous mass. The exact weight of global coexistence, number of such weights, and complete stationary-latitude classification are not established. Earlier unindexed literature remains a possibility.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for exact finite algebraic sharp endpoint norm and distinct local/global mass thresholds; the perturbation kernel formula is long-established and not assigned novelty.
+
+## value
+
+PASS
+
+The sharp norm quantifies worst-case stability of a natural mixed continuous/atomic least-squares projector; the exact finite-root characterization and a rigorously separated local-vs-global norming transition are substantive endpoint/operator phenomena not supplied by the known kernel update.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
