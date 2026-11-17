@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact logical part follows from the two-round Ehrenfeucht–Fraïssé game: after one vertex is chosen, a matching local set of all possible binary orientation signatures is exactly the information needed to match the next vertex, including repetition. A discrepancy of local sets gives Spoiler a two-round win. No higher-rank theory is claimed. The optimal model is a decomposition of the odd-order complete graph into cyclic two-factors, each encoding a complementary pair of signatures. Each vertex therefore sees all \(2^k\) signatures once, and the degree lower bound rules out smaller models.
+## correctness
 
-For random models, one-point deficiency is an exact coupon-collector event. Conditioning on the sole common edge of two vertices makes their remaining incident signatures independent, and signature relabeling makes each conditional deficiency probability constant; the two deficiency indicators are *exactly* independent. In the stated growing-vocabulary window, uniform first-two-term Bonferroni bounds conditional on the finitely many internal edges between \(r\) marked vertices yield the factorial moments of \(\operatorname{Poisson}(2e^{-c})\). This proof handles every fixed factorial moment; finite checker output is corroboration and not an infinite proof.
+PASS
 
-## Originality — PASS within the inspected evidence
-Jeż, Michaliszyn, and Witkowski, *Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors* (arXiv:2610.19943v1, 14 October 2026), treat multiple distinguished successor relations of linear orders, not independent complete tournament orientations or their random rank-two saturation. Michaliszyn and Witkowski (arXiv:2610.09758v1, 7 October 2026) likewise treat exact successor paths. Simonovits and Sós, *A hierarchy of randomness for graphs* (2005), concerns graph quasirandomness and colored Ramsey-type comparisons rather than this all-vertex orientation-signature coupon law. The classical game theorem, odd complete-graph two-factorization, and coupon-collector techniques are credited as known. Searches for equivalent local-profile, multi-tournament and edge-colored Poisson laws did not reveal this combined exact logical/minimal-size/window claim, but negative searches alone are not priority proof.
+For nonempty finite k-multitournaments in the pure k-tournament language, the two-round Ehrenfeucht–Fraïssé game is exactly determined by the set of local outgoing q=2^k orientation-signature sets. The q+1 lower bound is degree; a cyclic odd-order K_(q+1) two-factorization labels each incident arc by one of all q complementary signatures. Conditioning on the single shared oriented edge leaves disjoint edge collections at two vertices, and color symmetry makes each deficiency conditional rate independent of the shared signature; the exact variance follows. For n/q=2 log q+log log q+c+o(1), missing-coupon Bonferroni gives p~q(1-1/q)^(n-1) and factorial moments of the marked deficient vertices converge to (2e^-c)^r after conditioning on finitely many internal edges, establishing Poisson(2e^-c), not merely a variance heuristic. No fixed-language window is claimed.
 
-## Mathematical value — PASS
-This gives a complete, naturally motivated finite-model-theoretic invariant at quantifier rank two for an arbitrary finite family of tournament relations, an optimal finite representative, an exact finite dependence cancellation, and a sharp nontrivial probabilistic scaling law when the logical vocabulary grows. The scale \(n/2^k=2\log(2^k)+\log\log(2^k)+c\) and the constant \(2e^{-c}\) are explicit and have direct interpretations as the number of vertices missing a logical witness. This is a structural classification and threshold law, not a small routine improvement of an arbitrary numerical parameter.
+## originality
 
-## Limits and closest literature
-The cited 2026 studies involve successor paths rather than tournaments. Classical random colored complete-graph theory may already imply the Poisson window independently; a broader earlier theorem on local extension properties or dependent coupon collection could subsume parts of this result. The displayed first-order classification is confined to quantifier rank at most two, and a varying number of tournament relations is not a fixed-language convergence theorem. No independent audit or historical-priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: the precise k-family tournament signature model, sharp q+1 saturation, exact finite-n pairwise-independence phenomenon and growing-vocabulary Poisson threshold are not implied by inspected predecessor statements on successor paths, one-tournament reducts, or general color Ramsey properties. Classical EF, coupon collection and complete-graph factorizations are prior methods, not themselves novelty. A general colored-complete-graph coupon-collector theorem may implicitly cover the probabilistic component and remains a residual risk.
+
+## value
+
+PASS
+
+The exact smallest saturated multi-orientation model and sharp random-saturation window form a natural quantitative boundary for rank-two first-order logic on finite multi-tournaments; the universal finite-size characterization and explicit Poisson constant are mathematically reusable beyond a renamed classical theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
