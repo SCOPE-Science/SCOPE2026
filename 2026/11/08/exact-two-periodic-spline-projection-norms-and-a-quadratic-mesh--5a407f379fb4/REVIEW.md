@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies periodic boundary conditions, a two-period positive mesh, the real continuous piecewise-linear \(L^2\)-orthogonal projector, and the exact \(L^\infty\) operator norm. The cyclic Gram matrix follows from exact hat integration, and its signed inverse is strictly alternating by irreducible diagonal dominance. The two-period Schur recurrence has a unique cyclic Green solution; integrating the piecewise-linear signed kernel gives the finite formula. Strict triangle inequality identifies knots as the only maximizing evaluation locations. Constant reproduction gives the worst negativity of \((\Lambda_m-1)/2\). An exact polynomial identity, not an experiment, proves the limiting rational law and the strict quadratic contrast. All assumptions and boundaries \(m\ge2\), \(a,b>0\), and the fixed-aspect-ratio limit are explicit. The embedded checker passed symbolic and 25 exact rational finite-mesh comparisons.
+## correctness
 
-## Originality — PASS (qualified)
-The closest primary references are Ciesielski–Kamont (2004), Passenbrunner (2011), and Passenbrunner (2016 preprint), plus Passenbrunner–Shadrin (2013). They respectively treat nonperiodic two-*block* grids, periodic two-*block* grids, general boundedness for arbitrary knots, and convergence; none of their inspected statements determines the entire alternating two-period sharp finite formula and its rational aspect-ratio law. General Gram inversion and kernel integration are explicitly treated as known techniques, not original results. The previously documented equal-spacings case is subsumed as the special parameter equality \(a=b\), not counted as new. Searches checked alternate formulations as the Lebesgue constant, the spline projection constant, the Gram inverse, and finite-element stability. Unindexed or inaccessible early literature is a residual risk, not proof of priority.
+PASS
 
-## Value — PASS
-Alternating spacings are the simplest nonuniform periodic mesh, and the exact projector norm controls least-squares stability and sharp loss of nonnegativity. The contrast identity \(2-(a-b)^2/((3a+b)(a+3b))\) reveals that microscopic alternating grading improves the sharp asymptotic endpoint stability, in contrast to previously examined macroscopic two-block grading which can increase it above \(2\). This is a structural asymptotic phase law rather than a relabeling of a uniform constant or a finite table computation. The finite-\(m\) formula and extremizer description also provide fully reproducible exact invariants.
+Inspected RESULT.md and CHECK.py; reconstructed the 2m-cycle hat Gram matrix G_jj=(a+b)/3 and G_j,j+1=h_j/6, its sign-gauged positive inverse, and the recurrence H u_k-ab(u_(k-1)+u_(k+1))=12(a+b)delta_k0. The unique cyclic Green row U_k=(12s/Delta)(q^k+q^(m-k))/(1-q^m), V_k=(aU_k+bU_(k+1))/(2s) is the periodization of the decaying recurrence with q=(H-Delta)/(2ab). Exact absolute integral of a signed linear segment equals h(u²+v²)/(2(u+v)), giving the asserted finite formula. Strict convexity/strict triangle inequality excludes interior evaluation points because adjacent kernel rows cross signs; reproduction of 1 yields defect -(Lambda_m-1)/2. Independent exact rational Gram inversions and norm sums agreed for m=2,3,4,5,6 and a:b=1:1,1:2,2:5,7:3 (20 cases); the limit follows from geometric tail bounds and reduces to 2-(a-b)²/((3a+b)(a+3b)). Tests support, but do not replace, the cyclic recurrence proof.
 
-## Closest literature and residual limits
-The 2011 periodic Franklin theorem treats consecutive zones of different mesh widths, whereas this result alternates widths at every knot; the two hypotheses cannot be identified by a cyclic renumbering. The exact general-knot boundedness theorem implies only a bound, not these sharp constants. A 1997 reference on projections onto piecewise-linear functions was not available in full and remains a priority risk. The claim does not address higher-degree splines, nonperiodic boundary conditions, or arbitrary meshes. Independent external validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rational infinite-line norm 2-(a-b)²/((3a+b)(a+3b)), the sharp bound over all finite periodic repeats, their strict finite inequality and limit were ALREADY proved in October 18 and October 26, with another exact November 2 published theorem. None of the complete published sources supplies the exact L-infinity value at every fixed finite m for arbitrary a,b, its explicit periodized two-cell Green-sum formula or the all-and-only norming-knot classification. The accepted surviving contribution is strictly the natural full finite-cycle exact sequence and exact extremizers, NOT the covered limiting contrast law or basic positivity identity. Periodization is standard but evaluating the signed absolute cyclic kernel is nontrivial. Best-of-knowledge qualification remains.
+
+## value
+
+PASS
+
+A fixed finite periodic mesh is a natural projection object; its exact sharp amplification, norming sites and worst negativity are not determined by the previously known optimal uniform-in-repeat bound. The all-m formula supplies any desired finite mesh stability constant rather than merely the asymptotic envelope, a meaningful independently usable exact invariant. The limiting contrast effect is already known and is NOT used to inflate value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
