@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces the range-closure problem to independent local factors. For primes from five through 23, all seven finite tail inequalities are certified by exact rational multiplication in `verify.py`; beyond 23, Defant's published consecutive-prime-ratio lemma and a three-factor rational inequality prove the required tail domination. A fully stated binary-subsums argument gives the prime-tail interval. Adjacent exponent-local intervals overlap by a certified rational lower bound for \(\pi^2/9\); exact gap inequalities follow from \(\pi<22/7\). The proof handles all positive integers and all closures, not merely the enumerated cases. Residual risk: use of the cited prime lemma and the classical evaluation of \(\zeta(2)\), both explicit external premises.
+## correctness
 
-**Originality — PASS, with historical-priority limits.** Defant's restricted-domain preprint concerns bounded exponents, and his unitary-divisor paper concerns a different local factor. Sanna (arXiv:1507.08091) gives three intervals for unrestricted inputs, which cannot establish the four intervals for square inputs. A close prior finite-classification result for cube-free inputs is likewise not a square-domain result. Published examples and equivalent-domain searches did not find the claimed four-component square classification; novelty cannot be guaranteed by failed searches. Historical priority outside the examined full texts remains a risk.
+PASS
 
-**Value — PASS.** Perfect squares are a canonical arithmetic subfamily on which every nonzero local prime exponent is even. For the ordinary reciprocal-square divisor sum this changes the topological invariant from three components on unrestricted integers to exactly four, with explicit rational and zeta-valued endpoints. This is a complete natural-domain classification, not an arbitrary cutoff or an incremental numerical bound. It does not solve other exponents, representation multiplicities or density questions.
+Multiplicative decomposition F(n)=∏_{p}∑_{j=0}^{2a_p}p^{-2j} gives local minima A₂(1)=21/16 and A₃(1)=91/81 with maxima 4/3 and 9/8. For p≥5, seven exact rational prime-tail checks and Defant’s proved consecutive-prime ratio bound for p≥29 establish log U_p ≤ sum later log U_q; the constructive binary subsum argument fills [1,M] with M=π²/9 in closure. Adjacent exponent-index intervals overlap because M>64/63>729/728, and π<22/7 establishes all three strict gaps. Endpoint closure need not be attained by a finite n. Independent rational comparisons checked seven exceptional prime cases and all three gaps; they are not a substitute for the infinite prime-ratio lemma.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The unrestricted sigma_{-2} range theorem of Sanna has three rather than four closure components; it does not determine its restriction to perfect squares. Defant’s restricted-domain results concern bounded prime exponents; square inputs have unbounded even exponents. The strongest close released four-component theorem concerns squarefree inputs and has different factors and endpoints. No actual source inspected implies the square-domain four exact intervals.
+
+## value
+
+PASS
+
+Perfect squares are a canonical input submonoid, not an artificial finite slice. The exact topological closure, four components and sharp zeta-valued endpoints answer a natural domain-restricted divisor-value problem. The change from unrestricted three components has a meaningful number-theoretic explanation via even prime powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
