@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:50:40.026644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Encode mechanical letters by a half-open circle arc of length alpha, swap labels so the shorter arc I has m=min(alpha,1-alpha)<=1/2. For each nonzero shift a, the set E_a of points whose membership changes is a union of intervals. A shift inside [m,1-m] mismatches on an open subarc of I and must overlap every other nonzero mismatch; two offsets both in (0,m), or both in (1-m,1), likewise overlap. For opposite offsets a=u in (0,m), b=1-v with v in (0,m), a direct half-open interval analysis gives simultaneous mismatch empty precisely when u+v<=m, i.e. b-a>=1-m; all other pairs have nonempty open mismatch, hit by every irrational rotation orbit. Endpoint orientations yield disjoint half-open pieces at equality. This proves the universal over n and arbitrary intercept equivalence, not only density one. Independently stress-tested 975 distinct shift pairs across three irrational slopes with 2000 orbit positions each; when a fractional difference equals the boundary, accounted for floating-point rounding in the test tolerance. Tests are supplementary to the circle proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary 2023 paper considers the full Sturmian class but only existential 2-pseudoperiod results there; it does not claim the full pair spectrum on all slopes.",
+          "Automatic word results apply to Fibonacci with fixed characteristic slope, not all irrational alpha and arbitrary rho."
+        ],
+        "reasoning": "Broader class-of-words pseudoperiod existence does not imply a necessary-and-sufficient condition for every shift pair in each individual mechanical word.",
+        "searches": [
+          "Sturmian word all two shift pseudoperiods fractional parts arithmetic characterization",
+          "https://arxiv.org/pdf/2207.10171",
+          "Resultary query: Sturmian pseudoperiod characterization two shifts fractional rotations discrepancy criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.10171",
+        "Resultary query: Sturmian word all two shift pseudoperiods fractional parts arithmetic characterization",
+        "Resultary query: Sturmian word all two shift pseudoperiods fractional parts arithmetic characterization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 9 shows every Sturmian has some two-shift return; the submitted criterion implies that existence using dense positive fractional parts near 0 and 1.",
+          "The paper’s Proposition 9 does not decide arbitrary chosen p<q; its 28-state Fibonacci automaton does decide those pairs only at one slope."
+        ],
+        "reasoning": "The submitted complete pair iff implies the known existence theorem, but not conversely. It also supplies intercept invariance and a uniform arithmetic test not logically obtained by merely naming a particular pair.",
+        "searches": [
+          "https://arxiv.org/pdf/2207.10171",
+          "Sturmian word all two shift pseudoperiods fractional parts arithmetic characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2023 primary paper Definition 1 uses the same all-n pseudoperiod condition.",
+          "Proposition 9 constructs one pair (c1,c1+1) via continued fractions and proves no one-shift period; Example 8 gives all Fibonacci pairs by automaton, not a formula across all slopes."
+        ],
+        "reasoning": "The submitted arithmetic half-open rotation criterion classifies every (p,q) uniformly for an uncountable slope family; neither existential proposition nor single special automaton equals that all-parameter classification.",
+        "searches": [
+          "Sturmian word all two shift pseudoperiods fractional parts arithmetic characterization",
+          "https://arxiv.org/pdf/2207.10171"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Fibonacci 28-state automaton table in primary Figure 1 is a known exact subcase with a fixed slope.",
+          "No earlier general all-slope fractional-distance pseudoperiod lookup table or classification was returned by specific Resultary and mathematical-record queries."
+        ],
+        "reasoning": "The Fibonacci special case is covered and not counted original, but it cannot substitute for the all-alpha inequality. Search failure is a limitation, not proof of uniqueness.",
+        "searches": [
+          "Sturmian word all two shift pseudoperiods fractional parts arithmetic characterization",
+          "https://arxiv.org/pdf/2207.10171"
+        ]
+      },
+      "rationale": "Meleshko–Ochem–Shallit–Shan (2023; first arXiv 2022) Proposition 9 proves that each Sturmian word has at least one two-shift pseudoperiod; Example 8 constructs a 28-state automaton for all pseudoperiod pairs of the Fibonacci word. The inspected full primary source gives no uniform necessary-and-sufficient fractional-part inequality for arbitrary irrational slope and arbitrary pair. Its known special Fibonacci classification and mere existence are acknowledged, while the all-slope complete numerical criterion remains new on current evidence, with residual risk of an alternative Sturmian rotation theorem.",
+      "residual_risks": [
+        "Unindexed symbolic-dynamical literature may encode the same circle mismatch disjointness criterion under different terminology.",
+        "No claim for interval exchanges with more than two intervals, higher alphabet or arbitrary nonrotation words."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_EXISTENCE_AND_ONE_SPECIAL_CLASSIFICATION",
+          "evidence": [
+            "Proposition 9 constructs (c1,c1+1), not general iff; Example8 28-state Fibonacci pair automaton."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.10171",
+          "material_read": "Full accessible 25-page arXiv paper scope and Section 2 pp.5–6, Definition 1, Example 8 28-state automaton, Proposition 9 proof and Remark 11; PDF page 6 visually inspected",
+          "method": "Read primary PDF text and screenshot, checked theorem and specific parameter quantifiers",
+          "title": "Pseudoperiodic Words and a Question of Shevelev",
+          "trigger": "Exact same definition, Sturmian class, and Fibonacci-specific complete pair automaton"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying every allowed pair of return shifts is a natural complete invariant for the central family of aperiodic balanced binary words, expressly raised as a question in the motivating pseudoperiodicity paper. The criterion turns a slope-specific automaton into a universal explicit Diophantine inequality and proves complete intercept invariance. This is mathematically stronger than a single existential witness and useful for checking any shifts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any irrational alpha in (0,1), intercept rho and distinct positive shifts p<q, two-shift pseudoperiod iff |{p alpha}-{q alpha}| >= max(alpha,1-alpha); the criterion is intercept independent.",
+  "limitations": [
+    "PUBLICATION_BLOCKED_PRIVACY: source metadata not sanitized; no GitHub writes or source modifications. Scientific verdict independent from transport/publication readiness."
+  ],
+  "schema_version": 1
+}
