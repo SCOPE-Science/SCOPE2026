@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T13:21:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A 24-vertex S4 Cayley graph with three adjacent-transposition generators has 36 edges and exactly 14 facial cycles (six squares, eight hexagons). Recursive least-uncovered-vertex enumeration lists all 169 perfect matchings; a facial XOR mask gives all legal flips. Complete BFS from each of 169 matchings yields a connected all-face graph with 460 edges, radius 7, diameter 9, exact eccentricity and distance distributions. All 790244 unordered matching triples were tested by intersecting three exact shortest-path intervals: 79828 none, 700774 one, 9642 two medians. Omitting each of the 14 faces gives connected plane flip graphs, with square omission 410 edges/radius 11/diameter 22, hexagon 440/11/21; two geometric enumerations and an additional independent implementation confirm values. This is exhaustive finite graph certification, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Kang 2026 establishes medianity for proper face subsets (when connected), covering qualitative punctured medianity.",
+          "Lam–Zhang and Zhang–Yang–Yao describe conventional bounded-face resonance graphs.",
+          "Turaev treats more general even-cycle glidings."
+        ],
+        "reasoning": "None of these qualitative/broader results supplies exact face-specific distances, spherical nonmedian triple or all-triplet median counts.",
+        "searches": [
+          "arxiv:2609.12009",
+          "arxiv:1008.2818",
+          "arxiv:1401.3282"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.12009",
+        "https://arxiv.org/abs/1008.2818",
+        "https://doi.org/10.1023/A:1024483217354"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A theorem that every connected proper-face flip graph is median does not bound diameter sharply or give its 169-state distance distribution.",
+          "Known all-face nonmedian examples on other graphs do not imply the exact canonical triple or metric here."
+        ],
+        "reasoning": "Full 14-face BFS and 790244 triple intersections are new finite classifications not supplied by structural prior theorems.",
+        "searches": [
+          "arxiv:2609.12009",
+          "arxiv:1008.2818",
+          "arxiv:1401.3282"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four-letter permutohedron is exactly the truncated-octahedral 24-vertex graph; plane Z-transformation/resonance graph omits outer face, spherical version uses all 14 faces.",
+          "Strunje 1986 matches 169 perfect matchings only."
+        ],
+        "reasoning": "Metric equivalence was checked across S4 permutation and signed-coordinate models; existing Z-transformation terminology denotes proper-face subset, not full spherical metric.",
+        "searches": [
+          "Resultary: permutohedron truncated octahedron perfect matching resonance face flip median distance diameter",
+          "arxiv:1008.2818"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published matching count 169 is a known table value and not new.",
+          "No located prior exact complete distance histogram (460,1324,2428,3138,3032,2436,1204,170,4), median multiplicities, or 22/21 plane diameters."
+        ],
+        "reasoning": "The final finding is not merely a recomputation of the established perfect-matching count; it adds substantial natural reconfiguration metrics. Unindexed earlier census remains possible.",
+        "searches": [
+          "Resultary: permutohedron truncated octahedron perfect matching resonance face flip median distance diameter",
+          "Strunje 1986 MATCH truncated octahedron matching counts"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Strunje 1986 already counted the 169 perfect matchings; 2026 Wang–Kang and earlier plane resonance lattice theory establish qualitative medianity of proper face subsets. But the exact 460-edge all-face metric, all 14 quantitative deletion spectra and concrete nonmedian triple are not implied by these general theorems or by prior matching census. Historical overlap possible in inaccessible Lam–Zhang 2003 and unindexed computational tables.",
+      "residual_risks": [
+        "Full original Lam–Zhang 2003 primary article and Wang–Kang 2026 article inaccessible via authorized institutional connection; cannot certify their complete contents.",
+        "The 169 matching count and qualitative punctured medianity are established prior work; originality limited to explicit metrics and example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite theorem verified exhaustively",
+          "evidence": "Full 169-state all-face census and fourteen omissions",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/face-flip-geometry-of-the-four-letter-permutohedron-a-spherical--04bca8a555e6/RESULT.md",
+          "material_read": "Entire theorem, proof, both explicit independent Python scripts, semantic review and public metadata",
+          "method": "frozen Git blobs and separately reconstructed graph enumeration",
+          "title": "Face-flip geometry of the four-letter permutohedron",
+          "trigger": "assigned finite classification"
+        },
+        {
+          "assessment": "Qualitative proper-face medianity prior, exact metrics not verified there",
+          "evidence": "Proper face subsets of facial flips yield medianity under connectivity",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12009",
+          "material_read": "Public abstract/theorem summary; full arxiv/OA and authorized institutional retrieval unavailable (vpn_disconnected)",
+          "method": "abstract comparison and attempted full-text access",
+          "title": "A Proof of the Tratnik–Ye Medianity Conjecture of Resonance Graphs on Surfaces",
+          "trigger": "related all-faces vs proper-subset medianity"
+        },
+        {
+          "assessment": "Historical quantitative overlap not excluded",
+          "evidence": "Plane resonance lattice framework; no inspected distance table",
+          "identifier_or_url": "https://doi.org/10.1023/A:1024483217354",
+          "material_read": "Abstract and later 2010 open-access restatement; original full text inaccessible, Oxford VPN disconnected",
+          "method": "abstract and lawful access attempts",
+          "title": "A distributive lattice on the set of perfect matchings of a plane bipartite graph",
+          "trigger": "original bounded-face matching lattice theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural minimal nontrivial three-dimensional permutohedron yields an exact striking metric contrast: permitting its spherical outer-face flip decreases diameter 21/22 to 9 but destroys medianity. Complete graph-geometric invariants and the canonical generator triple are independently useful, not arbitrary tiny numerical slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full original Lam–Zhang 2003 primary article and Wang–Kang 2026 article inaccessible via authorized institutional connection; cannot certify their complete contents.",
+    "The 169 matching count and qualitative punctured medianity are established prior work; originality limited to explicit metrics and example."
+  ],
+  "schema_version": 1
+}

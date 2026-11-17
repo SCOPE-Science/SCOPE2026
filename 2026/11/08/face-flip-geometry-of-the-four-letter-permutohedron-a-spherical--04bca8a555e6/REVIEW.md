@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex and face models are explicit and complete: 24 permutations, 36 adjacent-swap edges and fourteen rank-two-coset faces. Recursing on the least uncovered vertex exhausts each perfect matching once (169 matchings); the symmetric-difference criterion is necessary and sufficient for one alternating facial flip. Exact breadth-first search of the complete graphs produces the 460-edge full-face graph and the respective 410-/440-edge 13-face graphs, as well as the complete radius/diameter and all-pairs distance counts. The medianity test intersects the three exact geodesic intervals for every one of the 790,244 triples. A second geometrically independent coordinate realization and enumeration reproduces the numbers. Both full verification scripts ran successfully. Correctness is an exhaustive finite argument, not a general theorem about all polyhedra.
+## correctness
 
-## Originality — PASS, qualified
-The 169 perfect matchings were published by Strunje in 1986; no novelty is claimed for that count. The classical plane resonance lattice result (Lam and Zhang, 2003, checked through the full 2010 preprint of Zhang, Yang and Yao) and the 2026 general theorem concerning proper face subsets cover medianity contexts but do not compute the exact spherical graph or the two sharply distinct deleted-face diameters. Turaev's 2014 general even-cycle gliding setting likewise does not imply these enumerative metrics. Related searches included the aliases spherical resonance graph, facial \(Z\)-transformation graph, dimer face-flip graph and the \(S_4\) permutohedron; closely matched research records instead concern the original 24-vertex graph's independence or Vietoris–Rips complexes, which do not determine a 169-state matching reconfiguration metric. Originality is qualified by incomplete full-text access to the 2003 article and the possibility of equivalent unindexed computations. The specifically claimed novelty is the exact face-flip metric and medianity transition, not a general construction or the graph's matching total.
+PASS
 
-## Value — PASS
-The same canonical polyhedral graph supports two natural reconfiguration conventions: the 14-face spherical convention and the 13-face plane convention (any selected face placed outside). Exact diameters dropping from 22 or 21 to 9 show that allowing the outer-face flip gives major, not trivial, shortcuts; the complete median-count census exhibits a topological/metric distinction that the classical plane medianity results alone do not quantify. This provides a fully reproducible finite stress test for medianity and local-dimer transformation algorithms, with the first explicit three-generator witness illustrating the failure. No general theorem or new matching-count formula is asserted.
+A 24-vertex S4 Cayley graph with three adjacent-transposition generators has 36 edges and exactly 14 facial cycles (six squares, eight hexagons). Recursive least-uncovered-vertex enumeration lists all 169 perfect matchings; a facial XOR mask gives all legal flips. Complete BFS from each of 169 matchings yields a connected all-face graph with 460 edges, radius 7, diameter 9, exact eccentricity and distance distributions. All 790244 unordered matching triples were tested by intersecting three exact shortest-path intervals: 79828 none, 700774 one, 9642 two medians. Omitting each of the 14 faces gives connected plane flip graphs, with square omission 410 edges/radius 11/diameter 22, hexagon 440/11/21; two geometric enumerations and an additional independent implementation confirm values. This is exhaustive finite graph certification, not extrapolation.
 
-## Literature and residual risks
-Original full text inspected: Strunje (1986) matching-polynomial paper; Zhang–Yang–Yao (2010) full arXiv preprint; Turaev (2014) full arXiv preprint; Wang–Kang (2026) full arXiv version, including its known all-face nonmedian example. The 2003 Lam–Zhang article itself could not be read in full, although its main plane-lattice theorem is reproduced in the inspected 2010 source. Exhaustive historical uniqueness has not been established. See the structured originality comparison for implication-by-implication checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Strunje 1986 already counted the 169 perfect matchings; 2026 Wang–Kang and earlier plane resonance lattice theory establish qualitative medianity of proper face subsets. But the exact 460-edge all-face metric, all 14 quantitative deletion spectra and concrete nonmedian triple are not implied by these general theorems or by prior matching census. Historical overlap possible in inaccessible Lam–Zhang 2003 and unindexed computational tables.
+
+## value
+
+PASS
+
+PASS: A natural minimal nontrivial three-dimensional permutohedron yields an exact striking metric contrast: permitting its spherical outer-face flip decreases diameter 21/22 to 9 but destroys medianity. Complete graph-geometric invariants and the canonical generator triple are independently useful, not arbitrary tiny numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
