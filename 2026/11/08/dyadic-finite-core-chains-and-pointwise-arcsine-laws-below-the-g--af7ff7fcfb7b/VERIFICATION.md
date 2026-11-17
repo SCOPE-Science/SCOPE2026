@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Exact arithmetic checks
+# Independent mathematical audit
 
-Run `python3 check_core.py` from the directory containing that file. The script uses standard-library `fractions.Fraction` and verifies the full selected-branch core graph and invariant weight equation for every integer \(2\le k\le150\). During review it reported 22,648 exact rational core-state checks and 705 physical-lattice point checks, all passing.
+## correctness
 
-## Analytical check and boundary conditions
+PASS
 
-The exhaustive finite-state transition formula for all integers \(k\ge2\) is proved by five cases: left endpoint, left interior, central node, right interior, right endpoint. Half-open core boundaries \(c/2\), \(c\), \(1-c\) are included in the intended branches. Normalization of the invariant weights, detailed balance and annealed metric transitivity use exact finite graph algebra. Separately, the physical maps act as left/right nearest-neighbor translations of every two-sided dyadic lattice point for all positive admissible perturbations, giving the classical random-walk arcsine law without an extra core-theorem hypothesis; the strict inequality at the central point requires a positive perturbation. The cosine basis proves the spectrum for all integers \(k\ge2\). No independent audit was carried out.
+Direct substitution in the physical and induced branch formulas proves each interior ±1 arrow and the deterministic endpoint reflections with strict half-open inequalities; detailed balance yields the normalized unique-on-this-subgraph stationary measure and both gate masses. Cosine eigenfunctions diagonalize the reflected path and eigenvalue −1 explains period two. On the two-sided dyadic lattice f0(q_j)=q_{j−1}, f1(q_j)=q_{j+1} for the entire positive permitted parameter range; the index is an iid fair ±1 walk, so Lévy arcsine law applies after a negligible O(sqrt(N)) expected boundary-visitation correction. Independently checked exact fractions and stationary distributions for all 2≤k≤60. No claim of whole-core uniqueness or arcsine law for every physical initial point.
 
-## What has not been checked or claimed
+## originality
 
-Finite tests do not establish the general theorem. No full-parameter resolution of the source problem, uniqueness on the entire core, almost-everywhere initial-state law, or strong mixing of this periodic finite chain is asserted. The priority comparison remains conditional on the inspected sources and available indexes.
+PASS
+
+Best-of-knowledge PASS as a constructive infinite family of finite invariant core measures strictly below δ=1/8, plus a separately proved physical-time dyadic pointwise arcsine law. Nakamura–Nakano–Toyokawa–Yano give the conditional core criterion and their ≥1/8 construction but pose the smaller-parameter existence question, rather than these nodes and weights. Abstract reflected-walk spectrum and Lévy law are prior, not independently new lemmas.
+
+## value
+
+PASS
+
+The construction explicitly addresses the source paper’s open invariant-core existence question at infinitely many parameters accumulating at zero and quantifies graph size, endpoint gates, period two and a Θ(k⁻²) nonperiodic gap; the separate dyadic pointwise physical law clarifies how induced and original time scales differ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

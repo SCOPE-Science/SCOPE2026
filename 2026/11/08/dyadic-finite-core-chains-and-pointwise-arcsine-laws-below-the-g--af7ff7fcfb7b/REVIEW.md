@@ -1,19 +1,21 @@
-# Scientific review — dyadic core chains in generalized Hata–Yano maps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sole assessed theorem concerns the explicit dyadic sequence \(\delta_k=2^{-(k+2)}\), integers \(k\ge2\), not arbitrary positive perturbations. The two physical maps and accelerated core maps use the published half-open branch rules. Every node arrow in the proposed closed graph follows from exact substitution, including the left and right switching boundary nodes and the central point. Detailed balance yields a normalized invariant probability on that graph; graph connectivity gives the source's required annealed metric transitivity, even though the chain has period two. Both gate weights equal \(1/[2(2k-1)]\). The original physical maps, independently of the core theorem, send every dyadic lattice node \(q_j\) to the neighbors \(q_{j-1}\) and \(q_{j+1}\) for all positive permitted perturbations; Lévy's arcsine theorem for the resulting simple symmetric walk gives the exact original-time pointwise occupation limit, with fixed-index and boundary corrections negligible. This avoids relying on any unverified global induced-core hypothesis for the arcsine conclusion. The cosine eigenvectors verify the stated finite spectrum. The standalone exact-rational checker passed for \(2\le k\le150\), providing finite corroboration, not a substitute for proof.
+PASS
 
-## Originality — PASS within investigated literature
+Direct substitution in the physical and induced branch formulas proves each interior ±1 arrow and the deterministic endpoint reflections with strict half-open inequalities; detailed balance yields the normalized unique-on-this-subgraph stationary measure and both gate masses. Cosine eigenfunctions diagonalize the reflected path and eigenvalue −1 explains period two. On the two-sided dyadic lattice f0(q_j)=q_{j−1}, f1(q_j)=q_{j+1} for the entire positive permitted parameter range; the index is an iid fair ±1 walk, so Lévy arcsine law applies after a negligible O(sqrt(N)) expected boundary-visitation correction. Independently checked exact fractions and stationary distributions for all 2≤k≤60. No claim of whole-core uniqueness or arcsine law for every physical initial point.
 
-The original 2022/2023 article (arXiv:2206.00226) introduces the generalized Hata–Yano model, its induced-core criterion, and the arcsine theorem. Its Section 1.2.2 establishes the necessary invariant measures for \(\delta\ge1/8\), whereas Problem 1.8 asks for them at all nonzero perturbations. The present result explicitly verifies this missing hypothesis at infinitely many smaller dyadic perturbations. The classical arcsine principle itself is acknowledged as prior work, and the finite-path random-walk stationary law and spectrum are not claimed as new abstract Markov-chain facts. Hata–Yano's arXiv:2108.01332 studies the unperturbed \(\delta=0\) model. Related published records on finite core dynamics and random expanding maps involve different transformation families or parameter regimes. No inspected source was found to imply the new dyadic graph by stronger coverage. A publication-priority risk remains in nonindexed literature and in work published after those sources.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a parameterized constructive partial answer to the source's explicit question about qualifying core-invariant measures. It supplies infinitely many nonzero parameters accumulating at the singular unperturbed limit, rather than an arbitrarily isolated numerical instance. The closed-core size grows linearly with \(k\), the gate masses shrink as \(1/k\), and the nonperiodic spectral gap is of order \(k^{-2}\), displaying a concrete finite-to-countable core transition. In fact a direct physical-orbit reduction supplies pointwise arcsine laws on the full dyadic lattice throughout the positive allowed parameter range, independent of the core criterion. The limitation that the supported starting set is finite for each parameter is material and is not hidden.
+Best-of-knowledge PASS as a constructive infinite family of finite invariant core measures strictly below δ=1/8, plus a separately proved physical-time dyadic pointwise arcsine law. Nakamura–Nakano–Toyokawa–Yano give the conditional core criterion and their ≥1/8 construction but pose the smaller-parameter existence question, rather than these nodes and weights. Abstract reflected-walk spectrum and Lévy law are prior, not independently new lemmas.
 
-## Closest sources and limits
+## value
 
-Nakamura–Nakano–Toyokawa–Yano, *Arcsine law for random dynamics with a core*, arXiv:2206.00226v2, particularly Theorem 1.2, Remark 1.5, Section 1.2.2 and Problem 1.8; Hata–Yano, *Arcsine and Darling–Kac laws for piecewise linear random interval maps*, arXiv:2108.01332v1, Section 1. The finite-core construction only covers dyadic \(\delta_k\); the direct physical-orbit arcsine law covers all positive allowed perturbations but only countably many dyadic starting points. No uniqueness on the entire core, whole-interval statement or resolution of the source question for every small parameter is claimed. An independent review remains necessary for stronger priority claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The construction explicitly addresses the source paper’s open invariant-core existence question at infinitely many parameters accumulating at zero and quantifies graph size, endpoint gates, period two and a Θ(k⁻²) nonperiodic gap; the separate dyadic pointwise physical law clarifies how induced and original time scales differ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
