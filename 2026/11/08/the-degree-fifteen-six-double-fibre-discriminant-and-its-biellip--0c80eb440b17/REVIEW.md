@@ -1,23 +1,13 @@
-# Self-review
+# Mathematical scope and comparison
 
-**Finding:** The degree-fifteen six-double-fibre discriminant and its bielliptic reconstruction.
+The final, narrowed result is a local geometric statement: a generic ordinary two-branch normal crossing of the classical bielliptic binary-sextic divisor along a specified irreducible family, established by two matching determinants and a nonzero exact Jacobian minor. The statement is in the six-dimensional smooth squarefree-sextic coefficient locus, not in a coarse genus-two moduli quotient.
 
-## Correctness — PASS
+**Correctness.** The root-matching determinant equation is an established classical description (Shaska–Völklein, 2001). At the explicit roots \((2,-2,1/2,-1/2,1,-1)\), exactly two of fifteen factors vanish; direct differentiation gives minor \(9/8\), proving transverse smooth branches at that point. Irreducibility of the parameterized family, Zariski openness of the nonvanishing conditions, and the étale root-to-coefficient map justify the generic extension. Exact witness computation is not treated as proof of a general parameter statement.
 
-The statement is over \(\mathbb C\) for squarefree binary sextics, with exactly six reduced \(I_2\) fibres. The dependent-pairing criterion and the quoted split Weierstrass normal form give the forward and inverse implications. The three difference forms \(A+B+C=0\) reconstruct a normalized split cubic. The rank-two quadratic pencil gives the hyperelliptic-base involution, and the fixed-point count yields an elliptic quotient. Symmetric descent gives degree 15; one-branch and discriminant-boundary witnesses establish reducedness and absence of boundary factor. Two nonparallel determinant gradients prove the asserted generic local crossing. The exact standalone checker replayed all finite witnesses successfully; universal conclusions use the mathematical arguments.
+**Originality.** Shaska–Völklein's paper already describes the bielliptic locus by root-pair determinants and discusses its singular locus in moduli; Ciliberto and collaborators supply the six-I2 split Weierstrass model. The degree-fifteen equation, basic equivalence, and generic surface reconstruction cannot be claimed as standalone new results. The surviving local branch-transversality calculation in coefficient space is more specific than the cited generic singular-locus statement. This is a best-of-knowledge comparison, not absolute historical certification.
 
-## Originality — PASS, with residual priority risk
+**Mathematical value.** Normal-crossing type distinguishes transverse components from cuspidal or nonreduced singularities; the explicit codimension-two local geometry gives an exact test case for the classical bielliptic discriminant, independently meaningful even without a new global invariant or complete singularity classification.
 
-Ciliberto–Grassi–Miranda–Verra–Zanardini, arXiv:2602.11725v1 (2026), classify six-\(I_2\) surfaces and explicitly ask in Question 25 for the sextic hypersurface equation and genus-two moduli condition. Shaska–Völklein, arXiv:math/0107142 (2001), already establish the genus-two bielliptic locus and its equivalent involutions, and that classical work is acknowledged. The added surface-to-sextic equivalence, degree-15 root-determinant equation, inverse construction and generic two-branch singular stratum are not stated by the inspected primary results. Classical invariant theory could imply the coefficient equation independently; complete recent split-Jacobian literature remains a material historical-priority risk. Overlap comparisons address implications rather than mere titles.
+**Limitations.** Only a dense open subset of the stated family over \(\mathbb C\) is classified; the entire singular set, coarse quotient, boundary and positive-characteristic fibres are not addressed. Earlier detailed local analyses could already contain the crossing assertion.
 
-## Mathematical value — PASS
-
-The theorem supplies the exact defining divisor asked for in the six-\(I_2\) surface classification, a constructive reconstruction from six unordered branch parameters, a birational genus-two interpretation and natural singular-stratum geometry. It resolves an explicitly motivated moduli problem and is not a routine parameter substitution.
-
-## Limitations and references
-
-Results hold on the squarefree sextic locus over \(\mathbb C\). The coefficient polynomial is supplied in factored root form; no expanded coefficient formula or full singular scheme is claimed. Earlier historical claims were only used to screen for overlap. Independent scientific validation has not occurred.
-
-Primary sources: https://arxiv.org/abs/2602.11725, https://arxiv.org/abs/math/0107142. Recent possible broader source available only as abstract: https://arxiv.org/abs/2608.16426.
-
-Self-review: passed. Independent audit: not yet performed.
+References: T. Shaska and H. Völklein, arXiv:math/0107142 (2001), Remark 5 and Theorem 3; C. Ciliberto et al., arXiv:2602.11725 (2026), Sections 2.4 and 2.7.
