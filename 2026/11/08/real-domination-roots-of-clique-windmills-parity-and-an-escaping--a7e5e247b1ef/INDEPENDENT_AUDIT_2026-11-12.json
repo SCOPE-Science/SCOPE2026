@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:59:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_1 join mK_k (k,m>=2), partition dominating sets by hub selection to derive D(z)=z(1+z)^(km)+((1+z)^k-1)^m. D(0)=0 is simple; D(-1)=(-1)^m nonzero. For -1<z<0, put t=1+z: m odd produces no root; m even yields (t^-k-1)^m=1-t, with a strictly decreasing left side and increasing right side after proper endpoint normalization, hence one simple root. For z=-1-s, odd k yields (1+s^-k)^m=1+s, a unique solution s>1 for either m parity; even k yields no root for s>=1 and exactly one s in (0,1) when m even. These exhaust all negative roots, while coefficient positivity excludes positive roots. Bracketed solutions tend to +/-2^(-1/k) when bounded. The odd-k escaping root solves m log(1+s^-k)=log(1+s), giving s^k~km/log m at fixed k. Nonzero integer root would require (1+s^k)^m divisible by s, contrary to congruence 1 mod s. Independently computed exact Sturm root intervals for (k,m)=(2,2),(2,3),(3,2),(3,3),(5,4),(5,5), confirming parity counts; the proof is analytic for all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rather 2025 discusses generalized friendship polynomial and log-concavity/unimodality, not the stated complete real-zero count for all k.",
+          "Rather 2026 analyzes friendship and book real roots; books are not complete clique blades."
+        ],
+        "reasoning": "Known formulas and global modulus bounds do not imply unique root counts and escape asymptotics for odd clique-blade order.",
+        "searches": [
+          "https://arxiv.org/html/2604.08998",
+          "https://combinatorialpress.com/jcmcc-articles/volume-126/on-domination-polynomials-of-some-graphs/",
+          "Resultary: domination clique windmill real roots parity universal"
+        ]
+      },
+      "checked_sources": [
+        "Rather arXiv:2604.08998 full HTML 2026 May v2, Theorem 3.1 and Corollary 3.2",
+        "Rather 2025 JCMCC general polynomial abstract and DOI 10.61091/jcmcc126-19",
+        "Alikhani–Brown–Jahari arXiv:1401.2092 friendship polynomial",
+        "Frozen RESULT.md blob e6c778eebad6d1300a3284af8ad999a61f95039b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General formula D=z(1+z)^(km)+((1+z)^k-1)^m is prior.",
+          "The monotonic root equations with k odd show a branch escaping outside previously bounded friendship range."
+        ],
+        "reasoning": "Algebraic derivability from a known formula does not automatically make the nontrivial all-parameter root classification a published theorem; the proof supplies meaningful monotonic analysis and escape asymptotics.",
+        "searches": [
+          "https://arxiv.org/html/2604.08998",
+          "https://arxiv.org/abs/1401.2092",
+          "https://combinatorialpress.com/jcmcc-articles/volume-126/on-domination-polynomials-of-some-graphs/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rather arXiv:2604.08998, Theorem 3.1, counts exactly two nonzero zeros only for even m of friendship F_m=K1 join mK2.",
+          "For k odd the present root extends beyond -2 and diverges, impossible under that fixed k=2 theorem."
+        ],
+        "reasoning": "Friendship graph and generalized friendship graph are aliases for clique-windmill subcases. Matching the graph object reveals a covered k=2 special case, but not the entire k>=3 classification.",
+        "searches": [
+          "Resultary: real roots domination polynomial clique windmill K1 join m Kk parity escaping",
+          "https://arxiv.org/html/2604.08998",
+          "https://arxiv.org/abs/1401.2092"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rather table reports roots for k=2, even m, with limits -1 +/- 1/sqrt2.",
+          "No inspected table has odd k first root s~(km/log m)^(1/k)."
+        ],
+        "reasoning": "The known exact friendship entries are explicitly separated; a table of k=2 cannot cover all k>=3.",
+        "searches": [
+          "Rather 2026 friendship root theorem table 2<=n<=20",
+          "Resultary: real roots domination polynomial clique windmill parity escaping"
+        ]
+      },
+      "rationale": "The known D-polynomial is not claimed novel. The full April–May 2026 Rather preprint in its accessible HTML shows Theorem 3.1 and Corollary 3.2 classify only even friendship graphs, i.e. blade size k=2; they already give the two bounded roots and limits for that subfamily. The submitted classification extends to every k>=3, including odd-k unbounded left root with an explicit km/log m scaling, which cannot follow by a k=2 specialization. The 2025 generalized-friendship formula and root annulus also do not count all real roots for k>=3.",
+      "residual_risks": [
+        "Full original 2025 general polynomial paper not inspected end to end; older exact higher-blade real-root classifications may exist unindexed.",
+        "Formula itself and even friendship k=2 classification are prior and not separately novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers even friendship case, not odd k clique blades.",
+          "evidence": [
+            "Theorem 3.1 gives exactly 0 and two nonzero roots for even friendship m; Corollary 3.2 gives limits -1±1/sqrt2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.08998",
+          "material_read": "Full accessible HTML: abstract, Section 2 definitions, Section 3 Theorem 3.1 and Corollary 3.2, Sections 4–6 claims, references",
+          "method": "Read arXiv HTML and searched theorem statements",
+          "title": "On roots of domination polynomials for friendship and book graphs",
+          "trigger": "Same domination polynomial when k=2"
+        },
+        {
+          "assessment": "Provides prior polynomial/log-concavity background, full-text novelty comparison remains limited.",
+          "evidence": [
+            "Publisher abstract states generalized-friendship domination polynomial and its log-concavity/unimodality."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-126/on-domination-polynomials-of-some-graphs/",
+          "material_read": "Publisher abstract and bibliographic page, not complete downloadable article",
+          "method": "Lawful publisher web read",
+          "title": "On domination polynomials of some graphs",
+          "trigger": "Generalized friendship graph polynomial and real-root possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Domination polynomial zeros encode the combinatorial domination family and their exact real distribution is a motivated invariant. The even-versus-odd blade parity controls whether a negative branch remains bounded or escapes, a genuine structural asymptotic transition not encoded in the known finite polynomial alone. The complete two-parameter zero count, simplicity and locations across an infinite family make a useful self-contained result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Rather arXiv:2604.08998 full HTML 2026 May v2, Theorem 3.1 and Corollary 3.2",
+    "Rather 2025 JCMCC general polynomial abstract and DOI 10.61091/jcmcc126-19",
+    "Alikhani–Brown–Jahari arXiv:1401.2092 friendship polynomial",
+    "Frozen RESULT.md blob e6c778eebad6d1300a3284af8ad999a61f95039b"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Identical clique blades, k,m>=2, only real roots; k fixed in m->infinity escape formula."
+  ],
+  "residual_risks": [
+    "Full original 2025 general polynomial paper not inspected end to end; older exact higher-blade real-root classifications may exist unindexed.",
+    "Formula itself and even friendship k=2 classification are prior and not separately novel."
+  ],
+  "schema_version": 1
+}
