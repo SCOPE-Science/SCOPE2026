@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:57:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the rate-one-per-neighbor CT symmetric lattice walk, the killed-free resolvent is G_r(m,0)=q^m/Delta, G_r(0,0)=1/Delta, Delta=sqrt(r(r+4))=(1-q^2)/q. Rank-one reaction yields f_kappa(r)=kappa q^m/(kappa+Delta), and first-reset renewal gives T=(1-f)/(rf)=(1+q+kappa sum_{1..m}q^j)/(kappa q^m(1-q)). Independent exact differentiation checked the polynomial P_{m,0}+kappa P_{m,1} for m=1..7 and rational q, kappa. Its ordered coefficients have one sign change, while P(0)<0<P(1), establishing exactly one simple minimum over all r>0. U_m/V_m increasing and P signs give q_infty<q_*<q_0 and dq_*/dkappa<0; since dr/dq<0, strict positive reactivity response follows. For m=1, solving the quadratic gives r_*=(kappa+2)/(1+sqrt(kappa+2))~sqrt(kappa); for m>=2 the unique perfect-trap root lies in (0,1). Finite checks only corroborate these full quantifier proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perfect-absorbing lattice classification does not include any finite kappa, and continuum target formulas concern different resolvents."
+        ],
+        "reasoning": "No source inspected covers the full joint m>=1, all finite kappa uniqueness and monotonicity. Broader reset-renewal identities are methodological antecedents only.",
+        "searches": [
+          "Hartmann Majumdar Diffusion with stochastic resetting on a lattice arXiv:2505.19903",
+          "Schumm Bressloff search processes with stochastic resetting and partially absorbing targets arXiv:2104.09372"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.19903",
+        "DOI:10.1088/1751-8121/ac9765",
+        "arXiv:1301.2489 continuum partial absorption",
+        "arXiv:2104.09372 partially absorbing resetting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The perfect-absorber theorem is a kappa=infinity boundary statement and cannot imply existence of a finite minimum for every finite kappa.",
+          "The known mean formula permits differentiation, but proving unique simple positive polynomial root and strictly monotone r_*(kappa) adds substantive non-obvious inequalities."
+        ],
+        "reasoning": "The new optimization theorem does not follow from a stated stronger prior theorem without the additional global analytical arguments. Discovery of an old optimization corollary remains possible.",
+        "searches": [
+          "arXiv:2505.19903",
+          "DOI:10.1088/1751-8121/ac9765"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das–Giuggioli (2022) gives a discrete-time partially absorbing lattice first-passage mean that scales to the submitted continuous-time formula; source correctly credits this.",
+          "Hartmann–Majumdar (2025) concerns perfect absorption where m=1 infimum occurs at infinite resetting rate."
+        ],
+        "reasoning": "The mean first-passage expression is not original by itself. Its unique optimum and exact strict dependence on finite reactivity are separate claims requiring a global sign-change and monotone-ratio proof.",
+        "searches": [
+          "Resultary: finite reactivity partially absorbing lattice target resetting optimal rate unique r versus nearest neighbor distance",
+          "Das Giuggioli discrete space-time resetting partially absorbing target 2022 DOI:10.1088/1751-8121/ac9765"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact first-passage mean formula is reused and explicitly credited; no exact previously published table of the monotone unique optimizer for all m,kappa found."
+        ],
+        "reasoning": "The optimizer classification is a continuum of integer distances and reaction rates, not a finite numerical table. The previous mean formula is considered directly in the originality decision.",
+        "searches": [
+          "Resultary semantic search finite reactivity lattice optimal reset rate 1D",
+          "Das Giuggioli 2022 partial absorption formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact partially reactive lattice mean is explicitly known via Das–Giuggioli, and the perfectly absorbing nearest-neighbor infinite-rate optimum is known via Hartmann–Majumdar. The scoped addition is the nontrivial all-distances global uniqueness, strict monotonic increase of the unique optimal reset rate with reaction strength, and a singular sqrt(kappa) boundary layer for the adjacent case. Neither inspected primary paper states this complete lattice finite-reactivity optimization classification.",
+      "residual_risks": [
+        "A broad closed-form partially absorbing lattice MFPT source might have an implicit but unstated optimizer theorem; targeted inspected primary sections did not give one.",
+        "Stochastic-clock and multiple-target generalizations are outside this theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROOF_SUPPORTED",
+          "evidence": "Polynomial P_m signs, partial/finite rate endpoint and m=1 sqrt(kappa) check.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/finite-reactivity-restores-a-unique-optimal-reset-rate-on-the-on--811b50d44485",
+          "material_read": "Entire RESULT.md and checker.py including resolvent, derivative sign changes and limits",
+          "method": "Pinned Git blobs",
+          "title": "Finite reactivity restores a unique optimal reset rate on the one-dimensional lattice",
+          "trigger": "Audited mathematical claim"
+        },
+        {
+          "assessment": "COVERS_ONLY_PERFECT_TRAP",
+          "evidence": "Adjacent-to-target perfect absorber has optimal reset at infinity; no finite reaction-killing rate theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.19903",
+          "material_read": "Primary PDF relevant model, optimal resetting and boundary sections; inspected full paper text",
+          "method": "Lawful arXiv primary PDF text and first-page visual inspection",
+          "title": "Diffusion with stochastic resetting on a lattice",
+          "trigger": "Perfect-trap same spatial process and nearest-neighbor comparator"
+        },
+        {
+          "assessment": "COVERS_MEAN_NOT_OPTIMALITY",
+          "evidence": "Discrete partially reactive formula has the submitted mean in continuous-time limit; does not state all-rate unique and strict reactivity optimizer classification.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ac9765",
+          "material_read": "Open-access primary PDF relevant first-passage and partial absorption formulas; downloaded text read; screenshot was 403",
+          "method": "Lawful institutional Bristol repository open-access PDF",
+          "title": "Discrete space-time resetting model: application to first-passage and transmission statistics",
+          "trigger": "Partially reactive lattice resetting antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The infinite- versus finite-optimal-reset paradox for the nearest-neighbor trap is a natural physical boundary question, not an arbitrary parameter slice. The exact uniqueness/strict reactivity-monotonicity for every starting distance and singular sqrt(kappa) limit quantify how imperfect reaction regularizes the perfect-trap pathology. These are structural optimization facts beyond simply substituting a known mean formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One rate-one-per-neighbor CT lattice, single partial sink at zero, Poisson reset to m; r>0, kappa>0.",
+    "The exact MFPT is prior work; novelty is limited to the proven optimizer classification and singular asymptotic."
+  ],
+  "schema_version": 1
+}
