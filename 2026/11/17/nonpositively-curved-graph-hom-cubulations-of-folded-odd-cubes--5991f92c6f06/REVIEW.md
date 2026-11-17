@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness
+PASS. The proof does not infer a general statement from samples. The sole length-\(n\) relation among the target generators forces a closed \(n\)-step walk to be a generator permutation; the absence of shorter odd relations and uniqueness of four-term relations imply exactly one binary alternative at each source vertex. Two alternatives at adjacent source positions are incompatible; any pairwise nonadjacent alternatives form one cube. This gives the **exact** vertex links \(\operatorname{Ind}(C_n)\). The flag-link CAT(0) criterion, connectivity by source transpositions and even generator sums, and exact matching polynomial enumeration complete the proof. The non-manifold conclusion uses a seven-cycle collapse for \(n=7\) and nonpure links for larger odd \(n\). The provided code independently verifies all Hom-cell alternatives in the complete \(n=5\) case and a deterministic \(n=7\) subset; no finite test is presented as an infinite proof.
+
+## Originality
+PASS on available evidence, with remaining priority risk. Fujii–Kimura–Nozaki (arXiv:2412.19039, 2024-12-26) and Matsushita (arXiv:2412.19144, same first posting day) classify *square-free-target* Hom complexes, whose target assumptions exclude all folded cubes of degree at least five because of explicit four-cycles. Babson–Kozlov supply the foundational polyhedral construction, not this link calculation. General cubical flag-link curvature results are conditional and do not identify the cubes or links of these Hom complexes. A previous calculation of the five-regular folded cube at source pentagon length is an \(n=5\) instance; here the new classification is the infinite family of odd \(n\ge7\), including asphericity, singularities and exact factorial Euler characteristics. Queries for folded cubes, Hom, links, CAT(0), asphericity, aliases and cycle matching polynomials returned no directly covering result. No search can exclude all unindexed work.
+
+## Value
+PASS. This supplies a natural, unlimited-dimensional family of finite aspherical graph-Hom spaces with explicit local curvature certificates, singular vertex links, and exact nonzero Euler characteristics. It exhibits a genuine geometric change from the known surface at the five-generator case to higher-dimensional, non-manifold nonpositively curved cubulations, beyond the scope of square-free-target Hom classifications. The link identity and global asphericity, rather than merely numerical cell counts, are structurally useful. The result does not claim a presentation for its fundamental groups or their homology.
+
+## Limitations and comparison risk
+The statement excludes even folded cubes, nonminimal source cycles, and arbitrary target graphs. Existing graph-Hom and cubical-geometric literature has been sampled through accessible full-text material and exact-title searches; broad unpublished or unindexed equivalent statements cannot be excluded. The verifying computation is corroborative, not an independent all-parameter proof.
+
+Self-review: passed. Independent audit: not yet performed.
