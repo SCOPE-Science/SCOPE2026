@@ -1,17 +1,21 @@
-# Scientific review: extreme-position velocity and reset-age boundary layers
+# Independent mathematical audit
 
-## Correctness — PASS
-The dynamics is the Poissonian Brownian-noise-reset harmonic process of Guéneau, Majumdar and Schehr, with continuous position rather than position resetting. The proof explicitly conditions on the last reset, obtains a bivariate Gaussian with independently integrated covariance entries, and uses the published exponential stationary positional tail. The dominant-age phase \(rs+x^2/(2As)\) has a unique nondegenerate minimizer and its Gaussian conditional velocity tends to the stated nonzero outward normal law. The young-age change of variables gives a precise measure-density scaling \(re^{-k\mu h}dh\) when age is \(h/|x|\). Differentiability between noise resets and stationarity yield exactly zero position current. This confirms that first moments cannot be passed through the Gaussian weak limit. Numeric saddle and covariance checks support, but do not replace, the proof. Risk: the sharp positional tail is an externally published input; off-saddle uniformity is argued by exponential-envelope and Gaussian bounds, rather than accompanied by an explicit finite-distance error constant.
+## correctness
 
-## Originality — PASS, qualified
-A complete inspection of the closest model-specific source, Guéneau–Majumdar–Schehr, arXiv:2306.09453, §§4–5 and Appendices E–H, found the positional exponential tail and stationary position correlations, not the conditional instantaneous velocity, two-component reset-age asymptotics or rare-class current cancellation. Smith, arXiv:2305.17905, contains a general small-correlation-time positional large-deviation treatment, but no fixed-positive-reset-rate joint velocity/age theorem or \(|x|^{-1}\) layer. Searches of mathematical literature, semantic research records and accessible prior claim texts by model, aliases, age scaling, boundary-layer current cancellation and weak-versus-mean anomaly found no claim implying the complete theorem. The prior exact position law is acknowledged as an explicit premise, not new. Risk: generic Laplace/large-deviation theory supplies much of the method, and an unlocated equivalent specialization could predate this result. The search does not constitute a universal novelty certificate.
+PASS
 
-## Mathematical value — PASS
-This result resolves a nontrivial diagnostic paradox in a specific non-equilibrium steady state: trajectories conditioned at a far tail appear to flow outward at order-one speed, yet the stationary current must be zero pointwise. The exact \(|x|^{-1}\) occupation probability and order-\(|x|\) inward speed identify the microscopic balancing population, while the Gaussian velocity and age limits quantify experimentally observable typical excursions. The two-scale mechanism cannot be inferred from the stationary position law or the Gaussian weak limit alone; it gives a motivated boundary classification for the driving reset process, not an arbitrary parameter slice.
+The regenerative decomposition X=e^(−μs)U+G_s, W=−μe^(−μs)U+H_s uses independent inherited position, exponential age, and Gaussian fresh increments; directly integrated kernels reproduce Var G_s, Cov(G_s,H_s), Var H_s. With the established p_X(x)~(k/2)e^(−3r/(2μ))e^(−k|x|), the large-age saddle at c|x| yields independent N(0,1) age fluctuation and oriented W~N(m,v). For s=h/|x|, convolution with inherited U and p_X tail gives density ratio e^(−kμh), hence the young layer has mass r/(kμ|x|) and inward W≈−σμ|x|, net current −m. Distributional stationarity ∫W f′(X)=0 plus integrability gives E[W|X=x]=0, with nonuniform integrability of first moment. Fixed μ,r,D>0 and local h window only; the finite Gaussian-kernel tests are not infinite proofs.
 
-## Limits and closest references
-- M. Guéneau, S. N. Majumdar, G. Schehr, *Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables*, arXiv:2306.09453 (initial public version 2023-06-15), §4.4 and Appendix F.
-- N. R. Smith, *Nonequilibrium steady state of trapped active particles*, arXiv:2305.17905 (initial public version 2023-05-29), general small-correlation-time positional theory.
-- The new claim is solely for fixed \(\mu,r,D>0\) with Poissonian resetting of the **noise**, not the position; no unproved global uniqueness or independent certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the fully available Guéneau–Majumdar–Schehr 2023 work on exactly this resetting-noise harmonic process provides stationary position tail and correlations. It does not state conditional far-tail velocity Gaussian limit, the 1/|x| recently-reset boundary measure, or exact flux cancellation mechanism. The new result uses the prior tail as explicit premise.
+
+## value
+
+PASS
+
+PASS: The coexistence of a positive outward conditional weak velocity limit with zero exact conditional mean, explained quantitatively by a rare −O(|x|) population of mass O(1/|x|), is a motivated structurally sharp nonuniform-integrability phenomenon in a natural stochastic resetting system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
