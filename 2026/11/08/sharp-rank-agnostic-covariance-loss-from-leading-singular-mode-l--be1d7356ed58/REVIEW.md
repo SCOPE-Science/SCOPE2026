@@ -1,19 +1,21 @@
-# Scientific review: Landweber covariance rank truncation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from (i) the exact noise-propagation covariance in the normal-operator eigenbasis, (ii) a strict single maximum for the scalar filter \(f_K\), (iii) a pairwise ordered-filter inequality, (iv) an eigenvalue counting argument proving the all-rank bound, and (v) a diagonal sharpness family with \(r\) unit modes and one critical mode. A compactness argument using \(f_K(t)/K\le\min\{Kt,(Kt)^{-1}\}\) establishes the asymptotic coefficient. Boundary values \(K=1\), zero normal eigenvalues, ties, and zero best approximation error are covered. Supplementary finite checker tests passed 24,486 assertions; finite tests do not substitute for the proof.
+PASS
 
-## Originality — PASS, with a priority qualification
+For the exact nonovershooting Landweber iterate with one reused isotropic noise vector, diagonalizing A^T A yields sigma^2 omega f_K(omega lambda_i) with f_K(t)=[1-(1-t)^K]^2/t and f_K(0)=0. The derivative sign converts to 2K-sum_{j=0}^{K-1}u^{-j}, giving a unique interior peak for K>=2 (K=1 monotone). For ordered t<=s, unimodality and f_K(1)=1 imply f_K(t)<=M_K f_K(s). Selecting an omitted maximizer and the r retained modes supplies r+1 covariance eigenvalues >= error_B/M_K, so the (r+1)-st eigenvalue gives sharp norm quasi-optimality. The r+1 diagonal witness with r normal eigenvalues one and one t_K gives exact equality. K=1, null normal modes, ties, and optimal-error-zero are handled. The scaling bound f_K(t)/K<=min(Kt,1/(Kt)) and compact uniform limit prove Kt_K->tau_* and M_K/K->(1-e^-tau_*)^2/tau_*, tau_*>0 satisfying e^tau=1+2tau. Independent rational check K=2=32/27, numerical tau coefficient 0.407264377589 and 250 spectral samples at each of six K corroborated the statements; samples alone are not proofs.
 
-The original Landweber spectral filter, propagated covariance formula, leading-normal-eigenmode approximation, and concerns about weak singular directions are present in Abhishek–Holman (2026). The result assessed here is instead the **sharp all-dimension/all-retained-rank competitive factor** for that particular low-rank covariance choice, including its unique critical spectrum and iteration-linear growth. Inspected sections 3.1–3.6, simulations and Appendix 5.1 of the motivating article did not identify this exact comparison. Ito–Jin (2019) analyzes randomized SVD of regularized inverse solutions rather than the same covariance comparison. Gazzola–Sabaté Landman (2020) reviews inverse-problem spectral filtering and regularized Krylov projection. Related published mathematical records were compared at claim and implication level, including a separate Rademacher covariance-diagonal probing analysis; no covering record was identified. This is **not** proof that no historical equivalent exists. Full text of Bardsley's 2018 spectral-filtering chapter was unavailable, leaving a specifically identified residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating numerical UQ approach needs low-rank approximations to the propagated covariance, yet the normal-operator singular-value order need not be the covariance-eigenvalue order. The result provides a sharp universal bound on the loss from this particular rank-choice mismatch, pinpoints worst-case spectra, and shows the cost can increase linearly in the stopping iteration even though the approximation rank is fixed. This is a complete, natural algorithm-design quantity over all finite dimensions and ranks, rather than a selected numerical instance. It does not suggest that overall uncertainty coverage or reconstruction error deteriorates by the same factor, and it does not compare work or time complexity.
+Best-of-knowledge original sharp spectral-norm rank-competitiveness M_K, sharp all-rank diagonal witness and linear-K coefficient. The exact filter and its unimodality, as well as migration of optimal covariance ranks, have ALREADY been proved in the October 25 published single-crossing covariance spectrum theorem and are not independently new here. Abhishek–Holman supplies the same propagated covariance and low-rank normal-operator surrogate but does not derive its sharp spectral-rank competitive factor. Distinguish residual-corrected UQ, trace-retention loss and reconstruction error. Priority for a generic nonmonotone filter inequality remains a residual risk.
 
-## Limitations and closest sources
+## value
 
-Abhishek–Holman, arXiv:2610.00882v1 (2026): original covariance formula, top-normal-mode approximation, stochastic residual correction. Ito–Jin, arXiv:1909.01947v1 (2019): randomized SVD for regularized inverse solutions. Gazzola–Sabaté Landman, DOI:10.1002/gamm.202000017 (2020): spectral regularization background. Bardsley, DOI:10.1137/1.9781611975383.ch2 (2018): relevant chapter not accessible in full. No independent mathematical audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp, dimension- and rank-uniform quantitative comparison of two naturally competing covariance-compression subspace choices in early-stopped inversion, with explicit extremizers and iteration-dependent deterioration. The competitive factor is a motivated natural invariant of the Landweber spectral filter, not merely rederiving the known filter or a sampled instance; useful for interpreting and designing truncation choices while leaving residual-corrected UQ outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

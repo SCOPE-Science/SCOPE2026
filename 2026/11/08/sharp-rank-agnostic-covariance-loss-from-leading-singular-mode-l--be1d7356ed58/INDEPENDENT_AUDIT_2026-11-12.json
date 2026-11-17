@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:54:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact nonovershooting Landweber iterate with one reused isotropic noise vector, diagonalizing A^T A yields sigma^2 omega f_K(omega lambda_i) with f_K(t)=[1-(1-t)^K]^2/t and f_K(0)=0. The derivative sign converts to 2K-sum_{j=0}^{K-1}u^{-j}, giving a unique interior peak for K>=2 (K=1 monotone). For ordered t<=s, unimodality and f_K(1)=1 imply f_K(t)<=M_K f_K(s). Selecting an omitted maximizer and the r retained modes supplies r+1 covariance eigenvalues >= error_B/M_K, so the (r+1)-st eigenvalue gives sharp norm quasi-optimality. The r+1 diagonal witness with r normal eigenvalues one and one t_K gives exact equality. K=1, null normal modes, ties, and optimal-error-zero are handled. The scaling bound f_K(t)/K<=min(Kt,1/(Kt)) and compact uniform limit prove Kt_K->tau_* and M_K/K->(1-e^-tau_*)^2/tau_*, tau_*>0 satisfying e^tau=1+2tau. Independent rational check K=2=32/27, numerical tau coefficient 0.407264377589 and 250 spectral samples at each of six K corroborated the statements; samples alone are not proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 25 result has a broader pairwise temporal-crossing classification but not the all-rank spectral error constant.",
+          "Ito–Jin studies inverse-solution perturbations and randomized SVD; best spectral rank approximation (Eckart–Young) alone does not control an out-of-order truncation."
+        ],
+        "reasoning": "A general nonlinear spectral-transform subspace selection theorem could dominate, but no identified primary statement implies the exact sharp constant and its asymptotic. The stronger results in other norms do not imply the requested operator-norm ratio.",
+        "searches": [
+          "Resultary: sharp covariance loss leading singular mode Landweber rank r propagated noise covariance",
+          "Ito Jin arxiv:1909.01947 randomized regularized inverse SVD",
+          "Abhishek Holman arxiv:2610.00882v1 covariance spectral approximation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00882",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37/RESULT.md",
+        "https://arxiv.org/abs/1909.01947",
+        "https://doi.org/10.1002/gamm.202000017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior equation Gamma eigenvalues is a necessary input, but does not by itself state an optimal rank-r comparison of this chosen subspace.",
+          "The October 25 theorem proves unimodality and arbitrarily poor limiting retained trace, which neither rules out nor fixes the finite-K sharp spectral-error factor.",
+          "The new diagonal witness forces exactly M_K; rank counting proves that no spectrum yields more."
+        ],
+        "reasoning": "No contradiction of residual-corrected confidence intervals is inferred. The statement extends existing filter/order results by a sharp all-rank operator-norm bound; it is not just a rebranding of the October 25 theorem.",
+        "searches": [
+          "arxiv:2610.00882v1 Sections 3.5-3.6",
+          "Resultary/2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 published theorem derives the same f_K unimodality and a moving optimal consecutive rank window, but formulates trace-retention loss, not a sharp all-rank spectral residual ratio.",
+          "Abhishek–Holman Sections 3.3,3.6 gives the spectrum and top-normal-rank truncation."
+        ],
+        "reasoning": "The equivalent formulation sought is a sharp ordered spectral-filter quasi-optimality constant for selecting top normal modes; no located earlier theorem explicitly computes its exact M_K under the same residual norm. Qualitative single-crossing is prior and does not alone specify the M_K ratio.",
+        "searches": [
+          "Resultary: sharp covariance loss leading singular mode Landweber rank r propagated noise covariance",
+          "arxiv:2610.00882 section 3.6 and appendix 5.1",
+          "Resultary 2026/10/25 single-crossing covariance spectrum and moving optimal ranks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched published index contains the target research record and a prior 2026/10/25 qualitative crossing theorem, but no separate earlier exact M_K spectral error table."
+        ],
+        "reasoning": "It is a continuous all-K/all-rank optimization rather than a finite table; search silence is not a proof of priority.",
+        "searches": [
+          "Resultary: sharp covariance loss leading singular mode Landweber rank r propagated noise covariance",
+          "Landweber covariance spectral response e^tau=1+2tau constant 0.407264",
+          "Resultary 2026/10/25 single-crossing covariance spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp spectral-norm rank-competitiveness M_K, sharp all-rank diagonal witness and linear-K coefficient. The exact filter and its unimodality, as well as migration of optimal covariance ranks, have ALREADY been proved in the October 25 published single-crossing covariance spectrum theorem and are not independently new here. Abhishek–Holman supplies the same propagated covariance and low-rank normal-operator surrogate but does not derive its sharp spectral-rank competitive factor. Distinguish residual-corrected UQ, trace-retention loss and reconstruction error. Priority for a generic nonmonotone filter inequality remains a residual risk.",
+      "residual_risks": [
+        "Earlier generic nonmonotone-filter rank quasi-optimality may imply M_K under another name.",
+        "Bardsley 2018 SIAM spectral-filtering chapter not read in full.",
+        "The bound concerns exact leading normal singular modes, not randomized subspace error or total confidence-interval coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVARIANCE_FILTER_PRIOR_NOT_SHARP_SPECTRAL_RANK_RATIO",
+          "evidence": [
+            "Section 3.6.1 defines top-r normal surrogate; 3.6.2 adds stochastic residual estimates; no examined theorem computes M_K rank-competitive spectral factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00882",
+          "material_read": "Accessible full rendered article: Sections 3.1–3.6, equations for covariance and top-normal truncation, Section 3.6.2 residual correction and appendix discussion",
+          "method": "Read primary arXiv text and compare exact spectral ratio and correction scope",
+          "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+          "trigger": "same covariance and low-rank normal-operator approximation"
+        },
+        {
+          "assessment": "SAME_FILTER_UNIMODALITY_AND_RANK_MIGRATION_ARE_PRIOR; SHARP_SPECTRAL_RATIO_NOT_STATED",
+          "evidence": [
+            "Step 3 proves unique maximum of f_K; Step 5 arbitrarily small retained trace ratio, unlike the operator-norm r-approximation M_K calculation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37/RESULT.md",
+          "material_read": "Full RESULT.md proof, especially Steps 1–5 and sharp trace misallocation example",
+          "method": "Direct full-text primary Git proof comparison",
+          "title": "Single-crossing covariance spectrum and moving optimal ranks for Landweber iteration",
+          "trigger": "same exact spectral filter, covariance-order reversal and optimal-rank questions"
+        },
+        {
+          "assessment": "DIFFERENT_RECONSTRUCTION_OBJECT; LIMITED_CURRENT_FULL_TEXT",
+          "evidence": [
+            "Studies regularized inverse solution accuracy; no claim of full-text absence beyond material read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.01947",
+          "material_read": "Abstract and secondary references to solution-error theorems, not independently inspected complete article in this run",
+          "method": "Open arXiv bibliographic record and source-cited theorem scope",
+          "title": "Regularized Linear Inversion with Randomized Singular Value Decomposition",
+          "trigger": "possible stronger low-rank inverse problem guarantees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp, dimension- and rank-uniform quantitative comparison of two naturally competing covariance-compression subspace choices in early-stopped inversion, with explicit extremizers and iteration-dependent deterioration. The competitive factor is a motivated natural invariant of the Landweber spectral filter, not merely rederiving the known filter or a sampled instance; useful for interpreting and designing truncation choices while leaving residual-corrected UQ outside scope.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.00882",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37/RESULT.md",
+    "https://arxiv.org/abs/1909.01947",
+    "https://doi.org/10.1002/gamm.202000017"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Current independent review is a best-of-knowledge mathematical audit, not a Lean proof or an external expert attestation; VERIFY_OK logs do not establish originality or value.",
+    "Only frozen assigned source trees and exact named scientific claims reviewed; later repository changes or extensions not assessed.",
+    "Prior research history and any historical gaps remain unchanged."
+  ],
+  "residual_risks": [
+    "Earlier generic nonmonotone-filter rank quasi-optimality may imply M_K under another name.",
+    "Bardsley 2018 SIAM spectral-filtering chapter not read in full.",
+    "The bound concerns exact leading normal singular modes, not randomized subspace error or total confidence-interval coverage."
+  ],
+  "schema_version": 1
+}
