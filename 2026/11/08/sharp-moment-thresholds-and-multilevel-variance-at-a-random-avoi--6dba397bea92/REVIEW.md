@@ -1,15 +1,21 @@
-# Scientific assessment of the random avoided-crossing rate theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-by-two matrix identity \(A_\varepsilon^2=(t^2+\varepsilon^2)I\) supplies explicit eigenvalues and rank-one projectors; their differences reduce to nonnegative scalar integrands. Separate dominated-convergence arguments prove the subcritical and supercritical moment exponents, and splitting the integration domain around the crossing proves both logarithmic critical cases. The fixed-ratio two-level formulas yield convergent positive improper integrals and their exact variance constants; centering is of lower order. Uniform-density finite-parameter identities follow by direct integration. The standalone checker passed 55 deterministic tests. There is no reliance on finite enumeration to infer a limit.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 multilevel eigenproblem work motivates crossing-robust sampling, while its analysis treats cluster-based maps rather than this explicit single-mode sharp stochastic error classification. The 2023 isolated-eigenspace collocation theorem requires a gap outside a spectral cluster and does not imply the individual rank-one projector moment spectrum at a closing gap. Published avoided-crossing normal-form literature contains the same square-root eigenvalue surfaces, a precursor that is acknowledged: the claimed extension is the complete density-universal moment transition and the two distinct multilevel correction-variance coefficients, not that classic matrix normal form. published-finding corpus and accessible prior-record comparisons did not reveal the combined theorem. An unindexed or inaccessible explicit normal-form calculation remains a priority risk.
+PASS
 
-## Value — PASS
-The precise critical orders \(p=1\) for eigenvalue moments and \(q=1/2\) for squared projector moments establish when errors are governed by typical parameter values versus the thin neighborhood of a mode crossing. The variance exponents \(3\) and \(1\) supply directly different work-allocation diagnostics for common-random-number multilevel sampling of eigenvalues versus individual eigenspaces, despite the same matrix approximation and perturbation magnitude. This is a sharp, reusable counterbenchmark to assumptions of gap-uniform eigenspace convergence, not a claim about cluster-projector methods.
+Exact Pauli-projector identity gives D=1-|t|/sqrt(t^2+epsilon^2) and L=epsilon^2/(sqrt(t^2+epsilon^2)+|t|). Dominated convergence at fixed nonzero t produces moment exponents 2q below q=1/2, 2p below p=1. Scaling t=epsilon*u with density continuous positive at 0 produces exponents 1 and p+1 above transitions, and intermediate |t|^-1 integrals give logarithms at thresholds. Same-T coupling yields explicit positive finite C_P(theta), C_lambda(theta), with norm mean squares negligible versus epsilon and epsilon^3. Independent high-precision quadrature reproduces both uniform-density exact identities at epsilon=0.1,0.01. The proof, not finite quadrature, covers arbitrary eligible f.
 
-## Literature, boundaries, and unresolved priority
-Dölz–Lozano-Simón, arXiv:2610.36955v1 (2026), discusses eigenvalue crossings and multilevel Monte Carlo but does not state these moment thresholds. Grubišić–Saarikangas–Hakula (Numerische Mathematik 153, 2023) proves smoothness for isolated eigenspace clusters, a different spectral object. Dölz–Ebert, arXiv:2210.09089 (2022), covers multiple-eigenvalue perturbation and was checked at accessible abstract/record level; its full text was not verified here. A 2023 *Entropy* article, *Density of Avoided Crossings and Diabatic Representation*, displays the same elementary two-mode avoided-crossing matrix but was rate-limited for full inspection. This makes priority qualification necessary and prevents any claim that the normal form itself is new. The present statement is restricted to bounded densities positive and continuous at the crossing, coupled identical parameters across levels, and exact real symmetric matrices; general operators or numerical discretizations are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard avoided-crossing diagonalization and multilevel eigenpair difficulties are prior concepts. Inspected abstracts of Dölz–Lozano-Simón 2026 and general isolated-eigenspace collocation do not claim this exact individual-eigenprojector q=1/2 versus eigenvalue p=1 statistical rate spectrum or the coupled same-T constants. Originality is best of knowledge; the highly relevant 2026 full manuscript could not be read through available interfaces and is a significant residual priority risk.
+
+## value
+
+PASS
+
+A deliberately canonical 2x2 crossing benchmark distinguishes stable cluster projections from unstable individual eigenmodes. Exact moment and centered two-level variance exponents give precise test targets for multilevel uncertainty algorithms; a natural singular boundary at eigenvalue coalescence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

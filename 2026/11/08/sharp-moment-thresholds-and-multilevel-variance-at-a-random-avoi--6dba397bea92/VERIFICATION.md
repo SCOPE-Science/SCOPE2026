@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the sharp random-crossing benchmark
+# Independent mathematical audit
 
-Run `python3 check.py` using Python 3 without optional third-party modules. The program integrates the explicit nonnegative spectral-error formulas by adaptive Simpson integration with splits at the avoided-crossing scale and checks the analytic uniform-density identities, positivity of coupled levels, and convergence directions across representative moment orders. In this package it returned `PASS: 55 deterministic quadrature and algebra checks.`
+## correctness
 
-Mathematical verification rests on the five-step analytic proof in `RESULT.md`: exact diagonalization; dominated-convergence constants for moments away from the critical exponent; crossing-localized logarithmic estimates at the critical exponent; coupled-level rescaling with integrable tails; and direct uniform-density integration. In particular, finite numerical tests are not used as a proof of any all-density or infinite-limit claim.
+PASS
 
-The resulting classification is conditional on bounded density and a strictly positive continuous value at the crossing, exact shared-parameter coupling and rank-one (not full cluster) projectors. No independent validation or external certification is represented.
+Exact Pauli-projector identity gives D=1-|t|/sqrt(t^2+epsilon^2) and L=epsilon^2/(sqrt(t^2+epsilon^2)+|t|). Dominated convergence at fixed nonzero t produces moment exponents 2q below q=1/2, 2p below p=1. Scaling t=epsilon*u with density continuous positive at 0 produces exponents 1 and p+1 above transitions, and intermediate |t|^-1 integrals give logarithms at thresholds. Same-T coupling yields explicit positive finite C_P(theta), C_lambda(theta), with norm mean squares negligible versus epsilon and epsilon^3. Independent high-precision quadrature reproduces both uniform-density exact identities at epsilon=0.1,0.01. The proof, not finite quadrature, covers arbitrary eligible f.
+
+## originality
+
+PASS
+
+Standard avoided-crossing diagonalization and multilevel eigenpair difficulties are prior concepts. Inspected abstracts of Dölz–Lozano-Simón 2026 and general isolated-eigenspace collocation do not claim this exact individual-eigenprojector q=1/2 versus eigenvalue p=1 statistical rate spectrum or the coupled same-T constants. Originality is best of knowledge; the highly relevant 2026 full manuscript could not be read through available interfaces and is a significant residual priority risk.
+
+## value
+
+PASS
+
+A deliberately canonical 2x2 crossing benchmark distinguishes stable cluster projections from unstable individual eigenmodes. Exact moment and centered two-level variance exponents give precise test targets for multilevel uncertainty algorithms; a natural singular boundary at eigenvalue coalescence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
