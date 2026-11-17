@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T16:01:03.286554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Letters before the second zero (ones) and after the penultimate one (zeros) are inactive; removal leaves a word beginning 00 and ending 11, every letter active. A monotonically sorted core has C(a,2)C(b,2), never five. An inversion forces 001011 as subsequence with precisely five embeddings; any extra active position contributes a sixth. Reconstruction gives four uniquely located freely insertable inactive zones and stars-and-bars. Independent direct subsequence recurrence versus regular parser checked all lengths 0–16, not extrapolation; the proof covers arbitrary finite lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruda proves eventual degree and lists 0011 frequency 5 exceptional; Tian gives general primitive-embedding summation, not evaluated unique active core."
+        ],
+        "reasoning": "Generic algorithms may derive but do not state or directly imply the compact closed regular expression without additional case-specific argument.",
+        "searches": [
+          "Bruda Enumerating binary words restricted by subsequence frequency Thm1.4 Section4.2",
+          "Tian Counting occurrences of a pattern in a binary word Section5.2"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 2cac09be7eeb93017f3d96d1191c0bc0ddd7f9e2 and checker.py cc608acebbec58229cb7e5b4f330235a0da86b67",
+        "Independent exhaustive all binary words lengths 0 through 16 and direct subsequence automaton",
+        "Bruda arXiv:2607.02578 complete accessible HTML",
+        "Tian arXiv:2507.03205 complete accessible HTML",
+        "Resultary same-statistic and nearby language searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing polynomial degree at this exceptional pair does not fix coefficient polynomial, unique six-letter active core, or all-length language."
+        ],
+        "reasoning": "No retrieved prior theorem directly contains the claimed exact list, though generic primitives can compute it by specialization.",
+        "searches": [
+          "Bruda June 2026 exception; Tian 2025 primitive form; Menon–Singh 2023 low frequencies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior statements count subsequences with multiplicity as in submission; no alternative formula found for identical exact-five language."
+        ],
+        "reasoning": "Reversal/complement gives pattern 1100 but is the same result by trivial symmetry, not new.",
+        "searches": [
+          "Resultary scattered subsequence frequency 0011 5 five binary word",
+          "Bruda arXiv:2607.02578; Tian arXiv:2507.03205"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Menon–Singh covers frequencies ≤4; no checked exact frequency-five 0011 count table."
+        ],
+        "reasoning": "Exact n≥6 binomial and no other words is stronger than initial tables or polynomial degree.",
+        "searches": [
+          "Resultary semantic search five scattered 0011",
+          "Menon–Singh subsequence frequency binary words arXiv:2306.07870"
+        ]
+      },
+      "rationale": "Prior generic enumerators imply eventual polynomiality and offer a primitive-word algorithm, but the inspected source does not evaluate the exact exceptional (0011,5) language. Bruda already explicitly identified that case as exceptional for maximal-degree criteria; claim only unique core, unambiguous whole regular language, exact all-length binomial formula.",
+      "residual_risks": [
+        "Tian general framework or unindexed finite specializations might have produced the exact language already; novelty is best-of-knowledge, not certified historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: degree/existence of exception only",
+          "evidence": "Explicit p=0011,k=5 exception to sufficient criteria; no regular-language/closed count classification.",
+          "identifier_or_url": "Bruda arXiv:2607.02578",
+          "material_read": "Full accessible HTML text, Theorem 1.4 and Section 4.2 for 0011,5",
+          "method": "web opened full arXiv HTML",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "very same pattern and occurrence frequency highlighted"
+        },
+        {
+          "assessment": "GENERIC_METHOD_NOT_EXPLICIT",
+          "evidence": "Primitive-word generation theorem yields algorithmic count; 0011 at frequency 5 not specifically evaluated to unique core or closed rational generating function.",
+          "identifier_or_url": "Tian arXiv:2507.03205",
+          "material_read": "Full accessible HTML, especially Section5.2 and Proposition 5.2.10",
+          "method": "web opened full arXiv HTML",
+          "title": "Counting occurrences of a pattern in a binary word",
+          "trigger": "generic primitive-core approach may dominate submitted exact language"
+        },
+        {
+          "assessment": "LOW_FREQUENCY_ONLY",
+          "evidence": "Frequency one through four, excluding this five-language.",
+          "identifier_or_url": "Menon and Singh arXiv:2306.07870",
+          "material_read": "ArXiv abstract and accessible relevant sections as represented in original source references",
+          "method": "web search/arXiv metadata",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "same statistic at smaller multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exceptional (0011,5) multiplicity instance is singled out by existing enumerative work; an exact unambiguous regular language and all-length count resolves a concrete open-looking special case and can serve as benchmark for primitive-core algorithms, without claiming general pattern enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The binary words with exactly five scattered 0011 occurrences are exactly 1^u 0 1^v 0101 0^s 1 0^t with u,v,s,t≥0; their unique active core is 001011 and their count in length n≥6 equals C(n-3,3).",
+  "limitations": [
+    "Only scattered pattern 0011, count exactly five, binary finite words; not arbitrary multiplicity or pattern."
+  ],
+  "schema_version": 1
+}
