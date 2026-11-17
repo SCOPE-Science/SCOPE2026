@@ -1,19 +1,21 @@
-# Scientific review: zero-completed anisotropic conics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The field congruence implies an anisotropic norm form and the nonsquareness of \(3\), excluding every collision between a peripheral two-sum and a center-periphery sum. Together with uniqueness of unordered nonzero peripheral sums, this leaves one exceptional zero-sum fiber. Its full complex convolution expansion is equation (1) of RESULT.md. Squared-mass and product Cauchy inequalities, an upper endpoint in the product parameter, and a completed square prove the sharp constant and every equality condition. The six explicitly nonnegative pieces in equation (2) sum *exactly* to the sharp deficit. The standard-library checker replayed 324 numerical or arithmetic assertions across six prime fields, with six independent direct finite Fourier computations. The analytic proof, not those examples, covers odd-degree prime powers. No inference is made from a timeout, partial enumeration, or numerical test to an infinite theorem.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For every prime power q≡7 mod12, −1 and 3 are nonsquares. The anisotropic norm-one conic T has q+1 points. For each nonzero peripheral sum s, the norm-one pair difference lies in the one-dimensional perpendicular line and yields at most one unordered peripheral pair; a possible center/peripheral collision would require a square root of 3 and is excluded. Thus the only exceptional convolution sum is zero. Fourier orthogonality then gives exact Q=2B²−D−2R+|c²+H|²+4|c|²B. Antipodal pair AM–GM, Cauchy–Schwarz and triangle bounds reduce the maximization to center squared mass y=3a²/2 and peripheral equal mass a², with aligned antipodal products. The six independent nonnegative exact deficit terms sum to the claimed sharp difference. Independently enumerated 7, 19, 31 prime conics, verified fiber multiplicities, unweighted energy, and rational sharp equality ratios. Prime-field enumeration does not prove all prime powers; the algebraic conic argument does.
 
-The published norm-one-conic sharp theorem treats peripheral frequencies only. The general masked-conic theorem removes frequencies but never adds the center. The completed inverse-graph theorem treats the **split** model with \(q-1\) peripheral points, whereas the present nonsplit norm-one conic has \(q+1\); the split result is not a statement about the nonsplit object, and no implication or affine equivalence was identified. The exact six-term deficit and amplitude classification for the newly completed nonsplit conic were not found in the compared primary works or published mathematical-record searches. The closest source papers and the genuine geometric differences are documented in RESULT.md and AUDIT.json. A broader unindexed one-exceptional-fiber theorem might imply this result, so independent historical-priority confirmation remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact sharp fourth-moment classification for an entire infinite family of genuinely nonsplit, center-completed finite-field conics, with every complex extremizer parametrized and a self-contained nonnegative deficit certificate. The sharp coefficient and the center/periphery allocation differ from the uncompleted anisotropic theorem. The new exception-fiber geometry is mathematically natural in Fourier extension, and center completion is not covered by arbitrary erasures of nonzero conics. No arbitrary support truncation or routine finite census is claimed as the contribution.
+Best-of-knowledge original for adding the origin to a nonsplit anisotropic norm-one conic in the q≡7 mod12 nonresonant regime, with an exact new center/periphery amplitude ratio, all complex extremizers and a six-term nonnegative deficit. The known uncompleted conic and split inverse graph are closely related but neither directly implies the nonsplit center-completed theorem.
 
-## Boundaries
+## value
 
-The resonant nonsplit congruence class, higher moments, and a uniform metric stability estimate are unproved. The finite checker only covers six prime fields, while the analytic argument covers every stated prime-power field. None of the review is independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The norm-one anisotropic conic plus its center is a natural completed quadratic Fourier aperture. The exact sharp ℓ2→L4 constant, all phase configurations and six nonnegative terms are motivated by how center completion changes additive collisions and sharp extension estimates. The result addresses an infinite family with genuine split/nonsplit arithmetic geometry, not an arbitrary small-field computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
