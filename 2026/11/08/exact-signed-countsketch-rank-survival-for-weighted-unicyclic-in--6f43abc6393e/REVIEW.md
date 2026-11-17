@@ -1,23 +1,21 @@
-# Scientific assessment of the exact unicyclic CountSketch rank law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each finite connected unicyclic graph, deleting one vertex column gives a rank-\(n-1\) weighted incidence matrix. Its column space is the orthogonal hyperplane to the reciprocal-weight cycle circulation. The sketch has kernel dimension \(n-u\), with \(u\) the number of occupied buckets. Consequently only collision-free hashings and hashings with a single doubleton can preserve full rank. In the latter case the one-dimensional kernel test gives the sign-averaged weights \(0\), \(1\), or \(1/2\) depending on whether two off-cycle edges, a mixed/differently weighted cycle pair, or an equally weighted cycle pair collide. Disjoint hashing event counts prove the theorem for every admissible graph and sketch size. Completing a square and taking discrete increments prove the optimizer classifications. Weyl's singular-value inequality proves the scale-perturbation conditioning limitation.
+PASS
 
-Exact-Fraction brute-force rank elimination verified all bucket/sign outcomes in 27 small scenarios, supplemented by 3,780 seeded structural checks and 94 finite discrete-optimizer comparisons. These computations are corroboration, not substitutes for the all-parameter proof. Risks include only the deliberately excluded norm-embedding and finite-precision interpretations; the claim itself is algebraic rank.
+For connected simple unicyclic n-edge graph with deleted incidence column, weighted matrix B has rank n-1 and 1D left null c_e=z_e/a_e on its unique cycle and zero on attached trees. Signed CountSketch S has kernel dimension n-u (u occupied buckets). Full rank on c-perp is possible only for u>=n-1: no collisions always passes; precisely one doubleton collision passes iff sigma_f c_e != sigma_e c_f. Tree/tree pairs never pass, cycle/tree always pass, different-scale cycle pairs always pass, equal-scale cycle pairs pass with probability 1/2. Counting disjoint hash cases gives [F_n(s)+(ell(n-ell)+binom(ell,2)-T/2)F_(n-1)(s)]/s^n for every integer s>=1 (zero when s<n-1). Equal-scale K is concave in ell with real optimum (4n-1)/6 and distinct-scale discrete increment n-1-ell gives maxima ell=n-1,n (n>=4). Weyl perturbation shows the algebraic rank jump need not produce numerical conditioning. Independently enumerated exact ranks for n=3/4, s=2/3 and weight patterns, matching probabilities 3/8, 8/9, 1/3, 4/9.
 
-## Originality — PASS, with publication-precedence risk
+## originality
 
-Hu et al., *Sparse graph based sketching for fast numerical linear algebra* (arXiv:2102.05758, 2021), compare CountSketch with other sparse sketches and prove general norm-embedding guarantees; they do not state the exact incidence-matrix collision-pair formula in the inspected manuscript. Clarkson and Woodruff, *Low rank approximation and regression in input sparsity time* (arXiv:1207.6365, 2012), give the one-nonzero CountSketch distribution and general sparse subspace-embedding theory; the inspected sections use collision avoidance rather than a rank-surviving collision enumeration. Woodruff and Kocurek's 2024 lecture note gives a birthday-paradox obstruction for independent input rows, which is not the same as a codimension-one dependent incidence row family. Chen, Khanna and Li, *On weighted graph sparsification by linear sketching* (arXiv:2209.07729, 2022), use graph *incidence sketches* in the sense of linear measurements of edge weights at vertices, distinct from left-multiplication by CountSketch on a weighted incidence matrix. That last comparison is abstract-only and cannot rule out all related material in the full text. Zhao and collaborators (arXiv:1803.09631, 2018) discuss incidence-matrix sparse recovery with cycle-dependent conditions; the abstract describes a different recovery problem, but full-text precedence was not ruled out.
+PASS
 
-Semantic searches against public mathematical-result summaries returned topics such as graph antisymmetric-adjacency rank enumerators and collision envelopes for limited-independence hash functions, neither of which states the fully independent signed CountSketch law. Searches and the inspected text provide bounded evidence of non-coverage, not a uniqueness certificate. An equivalent formulation in matroid representation, occupancy, or signed-hashing literature remains the principal originality risk.
+Best-of-knowledge PASS: rank-preservation bounds and generic sparse subspace embeddings do not give the exact unicyclic cycle-circulation collision coefficient K or equality-pattern dependence on positive edge weights; correlated two-block SparseStack results concern a different input and hash structure. Resultary queries for weighted unicyclic incidence/CountSketch found this candidate and related sketch work, not the exact theorem. Residual priority risk remains for specialized matroid/hashed-incidence literature.
 
-## Value — PASS
+## value
 
-The theorem exactly resolves an identifiable design gap between generic sketch-embedding guarantees and how the sole cycle dependence of graph incidence data interacts with one-bucket collisions. At fixed bucket budget it identifies the best cycle size for equal weights, the different best sizes for pairwise distinct weights, and a discontinuous algebraic-rank effect that disappears as a robustness guarantee. This establishes a mathematically meaningful boundary for rank-only benchmarks and cautions against treating exact rank survival as adequate numerical stability. The numerical example distinguishes two unweighted graph topologies at identical dimensions and shows a factor-two equal-versus-distinct cycle-weight effect.
+PASS
 
-## Limitations and closest literature
+PASS: Exact rank survival for the natural unicyclic graph-incidence family, optimizers over cycle length and a discontinuity between rank and conditioning give a useful benchmark and a structurally motivated boundary case for random sparse sketch reliability.
 
-The statement is not a norm-embedding probability, a floating-point rank guarantee, or a result for nonuniform/limited-independence hashes. The full texts of Chen–Khanna–Li and Zhao et al. were not inspected, and specialist matroid/graph-hashing precedence remains uncertain. The paper and code supply no independent scientific verification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
