@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T17:59:57.539820Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Derived exact coalition worth from q=floor(2(s+t)/n): 0 for q=0, max(s,t) for q=1, and only grand coalition q=2 with max(3a/2,a+b,3b/2). Marginal contributions in uniformly random player order give two exact binomial-weighted Shapley sums; efficiency follows. Independent Fraction implementation exhaustively tested every 49 unordered nonempty party-size profiles n=2..14 and all 1512 coalition types (s,t), reproducing exactly one negative slack: (a,b,s,t)=(6,8,6,1) with gap 83/858, phi_A=7127/9009 and phi_B=6947/6006. Code directly derives rather than trusting claimed logs; this exhaustive finite proof covers the entire finite threshold, not n>14.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted Shapley TU-PAV instability at four voters is broader over ballot profiles but only existential; it does not imply the restricted minimality claim.",
+          "Its Shapley example has overlapping ballots and distinct coalition domain.",
+          "Winning committee outcome is different invariant from marginal-contribution Shapley value.",
+          "Different concept of coalition block and transferable utility."
+        ],
+        "reasoning": "Unrestricted Shapley TU-PAV instability at four voters is broader over ballot profiles but only existential; it does not imply the restricted minimality claim.",
+        "searches": [
+          "Resultary semantic: two party disjoint approval harmonic proportional approval voting Shapley value transferable utility core first failure 14 voters 6 8",
+          "arxiv:2605.22528 TU PAV Shapley core proposition",
+          "arxiv:1611.08691 party list PAV D H ond t",
+          "arxiv:2108.01987 restricted preference domains committee core",
+          "https://arxiv.org/html/2605.22528v1",
+          "https://arxiv.org/html/1611.08691v2",
+          "https://arxiv.org/abs/2108.01987"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.22528v1",
+        "https://arxiv.org/html/1611.08691v2",
+        "https://arxiv.org/abs/2108.01987"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Hatschka four-voter overlapping counterexample does not satisfy the two disjoint bloc hypothesis, so it cannot imply the 14-voter first-failure theorem; D H ond t seat allocation likewise does not imply TU-core receipts.",
+          "Four-voter counterexample permits overlapping approvals; cannot settle first failure in two disjoint homogeneous blocs",
+          "Seat-allocation equivalence does not calculate full coalition-game Shapley payoff or TU core",
+          "Concerns committee core in NTU setting, not the present TU coalition payments"
+        ],
+        "reasoning": "Chen–Hatschka four-voter overlapping counterexample does not satisfy the two disjoint bloc hypothesis, so it cannot imply the 14-voter first-failure theorem; D H ond t seat allocation likewise does not imply TU-core receipts.",
+        "searches": [
+          "Resultary semantic: two party disjoint approval harmonic proportional approval voting Shapley value transferable utility core first failure 14 voters 6 8",
+          "arxiv:2605.22528 TU PAV Shapley core proposition",
+          "arxiv:1611.08691 party list PAV D H ond t",
+          "arxiv:2108.01987 restricted preference domains committee core",
+          "https://arxiv.org/html/2605.22528v1",
+          "https://arxiv.org/html/1611.08691v2",
+          "https://arxiv.org/abs/2108.01987"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rephrase as two-type symmetric TU game induced by floor proportional seats; this is not the ordinary party-list apportionment game because coalition worth uses its own seat entitlement.",
+          "Its Shapley example has overlapping ballots and distinct coalition domain."
+        ],
+        "reasoning": "Rephrase as two-type symmetric TU game induced by floor proportional seats; this is not the ordinary party-list apportionment game because coalition worth uses its own seat entitlement.",
+        "searches": [
+          "Resultary semantic: two party disjoint approval harmonic proportional approval voting Shapley value transferable utility core first failure 14 voters 6 8",
+          "arxiv:2605.22528 TU PAV Shapley core proposition",
+          "arxiv:1611.08691 party list PAV D H ond t",
+          "https://arxiv.org/html/2605.22528v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent exhaustive rational table of 49 profiles/1512 coalition types is newly computed from the stated characteristic function; checked literature contained no equivalent complete table."
+        ],
+        "reasoning": "The independent exhaustive rational table of 49 profiles/1512 coalition types is newly computed from the stated characteristic function; checked literature contained no equivalent complete table.",
+        "searches": [
+          "Resultary semantic: two party disjoint approval harmonic proportional approval voting Shapley value transferable utility core first failure 14 voters 6 8",
+          "arxiv:2605.22528 TU PAV Shapley core proposition",
+          "arxiv:1611.08691 party list PAV D H ond t",
+          "https://arxiv.org/html/2605.22528v1",
+          "https://arxiv.org/html/1611.08691v2"
+        ]
+      },
+      "rationale": "Chen–Hatschka already show TU-core failure of PAV Shapley for unrestricted overlapping four-voter ballots, but this gives no lower bound on the first failure within disjoint homogeneous two-party lists. Party-list PAV=D’Hondt concerns committee allocation, not Shapley values of coalitions with floor entitlement; standard NTU committee core is a different notion. The exact restricted threshold 14 and unique split are not among the inspected prior propositions.",
+      "residual_risks": [
+        "Complete census is only for n<=14, two disjoint homogeneous approval parties, k=2, harmonic PAV and TU coalition worth.",
+        "Searches cannot exclude unindexed identical small-domain exact table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Four-voter counterexample permits overlapping approvals; cannot settle first failure in two disjoint homogeneous blocs",
+          "evidence": "Its Shapley example has overlapping ballots and distinct coalition domain.",
+          "identifier_or_url": "https://arxiv.org/html/2605.22528v1",
+          "material_read": "Accessible full HTML: TU and NTU definitions, Shapley instability proposition and example, core comparison sections",
+          "method": "Primary arXiv HTML full-text read",
+          "title": "Multi-Winner Voting Games in TU and NTU: When is the Core Always Non-Empty?",
+          "trigger": "Same TU multiwinner PAV Shapley stability"
+        },
+        {
+          "assessment": "Seat-allocation equivalence does not calculate full coalition-game Shapley payoff or TU core",
+          "evidence": "Winning committee outcome is different invariant from marginal-contribution Shapley value.",
+          "identifier_or_url": "https://arxiv.org/html/1611.08691v2",
+          "material_read": "Party-list PAV allocation proposition and model statements, not the entire paper",
+          "method": "arXiv HTML section inspection",
+          "title": "Multiwinner Approval Rules as Apportionment Methods",
+          "trigger": "Party-list PAV/D H ond t equivalence"
+        },
+        {
+          "assessment": "Concerns committee core in NTU setting, not the present TU coalition payments",
+          "evidence": "Different concept of coalition block and transferable utility.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.01987",
+          "material_read": "Abstract and bibliographic description only",
+          "method": "arXiv abstract",
+          "title": "Core-Stable Committees under Restricted Domains",
+          "trigger": "Possible general restricted-domain stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-bloc disjoint restriction is a natural tractable robustness test for the TU-core failure phenomenon. A sharp first 14-voter witness, uniqueness of blocking composition and exact rational coalition gap are meaningful finite structural information, not an arbitrary truncation or re-expression of the known four-voter unrestricted example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2605.22528v1",
+    "https://arxiv.org/html/1611.08691v2",
+    "https://arxiv.org/abs/2108.01987"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete census is only for n<=14, two disjoint homogeneous approval parties, k=2, harmonic PAV and TU coalition worth.",
+    "Searches cannot exclude unindexed identical small-domain exact table."
+  ],
+  "residual_risks": [
+    "Complete census is only for n<=14, two disjoint homogeneous approval parties, k=2, harmonic PAV and TU coalition worth.",
+    "Searches cannot exclude unindexed identical small-domain exact table."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Four-voter counterexample permits overlapping approvals; cannot settle first failure in two disjoint homogeneous blocs",
+      "evidence": "Its Shapley example has overlapping ballots and distinct coalition domain.",
+      "identifier_or_url": "https://arxiv.org/html/2605.22528v1",
+      "material_read": "Accessible full HTML: TU and NTU definitions, Shapley instability proposition and example, core comparison sections",
+      "method": "Primary arXiv HTML full-text read",
+      "title": "Multi-Winner Voting Games in TU and NTU: When is the Core Always Non-Empty?",
+      "trigger": "Same TU multiwinner PAV Shapley stability"
+    },
+    {
+      "assessment": "Seat-allocation equivalence does not calculate full coalition-game Shapley payoff or TU core",
+      "evidence": "Winning committee outcome is different invariant from marginal-contribution Shapley value.",
+      "identifier_or_url": "https://arxiv.org/html/1611.08691v2",
+      "material_read": "Party-list PAV allocation proposition and model statements, not the entire paper",
+      "method": "arXiv HTML section inspection",
+      "title": "Multiwinner Approval Rules as Apportionment Methods",
+      "trigger": "Party-list PAV/D H ond t equivalence"
+    },
+    {
+      "assessment": "Concerns committee core in NTU setting, not the present TU coalition payments",
+      "evidence": "Different concept of coalition block and transferable utility.",
+      "identifier_or_url": "https://arxiv.org/abs/2108.01987",
+      "material_read": "Abstract and bibliographic description only",
+      "method": "arXiv abstract",
+      "title": "Core-Stable Committees under Restricted Domains",
+      "trigger": "Possible general restricted-domain stability theorem"
+    }
+  ]
+}

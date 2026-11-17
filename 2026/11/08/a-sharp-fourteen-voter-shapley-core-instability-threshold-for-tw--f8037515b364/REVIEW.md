@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proportional seat cap is exactly \(\lfloor 2|S|/n\rfloor\); one-seat coalitions have worth the largest party count within the coalition and only the grand coalition may choose two seats. This gives the exact rational characteristic function and Shapley formulas. The finite threshold statement is exhaustively verified for every \(2\le n\le14\), each of the \(49\) party-size types and each of the \(1512\) coalition-size types. The independent labelled-predecessor Shapley calculation agrees in all cases, and the \((6,8)\) witness has exact gap \(83/858\). This is finite exhaustive evidence for a finite theorem, not a finite experiment standing in for an infinite theorem.
+## correctness
 
-**Originality — PASS, qualified.** Chen–Hatschka (arXiv:2605.22528) already prove that Shapley may violate the TU PAV core for a four-voter election with overlapping candidate approvals; that general phenomenon is **not** claimed as new. Brill–Laslier–Skowron (arXiv:1611.08691) identify party-list PAV with D'Hondt seat allocation, not the Shapley/TU-core boundary. The two inspected primary full texts, additional restricted-domain core background, targeted scholarly searches and meaning-based research-record searches did not yield the exact minimal two-party cutoff. Absence from indexed results is not a proof of publication priority; unindexed or indirectly implied literature remains a residual risk.
+PASS
 
-**Value — PASS.** This natural party-list restriction asks how robust the TU Shapley/core conflict is to removing overlap between approval sets. The exact threshold demonstrates a meaningful shift from the existing four-voter unrestricted witness to fourteen voters, and the exact blocking composition identifies the first coalitional mechanism of failure. Neither mere numerical reproduction of an earlier table nor a relabeling of the general counterexample yields the result. The theorem deliberately stops at fourteen voters, with no claim about larger cases.
+Derived exact coalition worth from q=floor(2(s+t)/n): 0 for q=0, max(s,t) for q=1, and only grand coalition q=2 with max(3a/2,a+b,3b/2). Marginal contributions in uniformly random player order give two exact binomial-weighted Shapley sums; efficiency follows. Independent Fraction implementation exhaustively tested every 49 unordered nonempty party-size profiles n=2..14 and all 1512 coalition types (s,t), reproducing exactly one negative slack: (a,b,s,t)=(6,8,6,1) with gap 83/858, phi_A=7127/9009 and phi_B=6947/6006. Code directly derives rather than trusting claimed logs; this exhaustive finite proof covers the entire finite threshold, not n>14.
 
-**Most relevant literature and limitations.** The new claim is a sharp restricted-domain finite boundary, not general nonemptiness, universal instability or a fact about the standard nontransferable committee core. The cited primary propositions are stronger only in showing the existence of a general counterexample, and therefore do not imply the absence of smaller two-party disjoint counterexamples. Exact rational code remains part of the finite proof certificate. Independent audit not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen–Hatschka already show TU-core failure of PAV Shapley for unrestricted overlapping four-voter ballots, but this gives no lower bound on the first failure within disjoint homogeneous two-party lists. Party-list PAV=D’Hondt concerns committee allocation, not Shapley values of coalitions with floor entitlement; standard NTU committee core is a different notion. The exact restricted threshold 14 and unique split are not among the inspected prior propositions.
+
+## value
+
+PASS
+
+The two-bloc disjoint restriction is a natural tractable robustness test for the TU-core failure phenomenon. A sharp first 14-voter witness, uniqueness of blocking composition and exact rational coalition gap are meaningful finite structural information, not an arbitrary truncation or re-expression of the known four-voter unrestricted example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
