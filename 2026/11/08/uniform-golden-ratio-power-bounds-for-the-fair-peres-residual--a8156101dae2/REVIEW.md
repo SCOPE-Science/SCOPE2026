@@ -1,17 +1,21 @@
-# Review of the fair Peres residual bound
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The statement fixes the input distribution, the exhaustive pair transformation, the meaning of residual length, and the exceptional cases \(N=0\) and \(N=1\). The conditional-uniformity argument yields the exact binomial recurrence. The proof establishes a global quadratic minorant for powers with exponent \(0<\alpha<1\), bounds the Jensen deficit by a nonzero-binomial probability, then completes the even/odd strong induction. The odd-step upper inequality is proved for every integer by comparison with square roots. The standard-library checker independently exhausts all binary words through length twelve and uses rational recurrence values through length 150; no finite test substitutes for an infinite proof.
+PASS
 
-## Originality (O): PASS against inspected literature
+The exact residual recursion a_(2n+rho)=a_n+E[a_B]+rho for B~Bin(n,1/2) and base a_0=0,a_1=1 follows from pairwise XOR and conditionally unbiased equal-pair bits. The pointwise quadratic support z^alpha >= 1+alpha(z-1)-(z-1)^2 for z>=0 yields binomial concavity deficit <= (1/2)(n/2)^(alpha-1) <= 1-2^-n (n>=2); n=1 is direct. The strong induction with atom B=0 then proves the tighter lower envelope, Jensen proves the upper envelope including the odd case. Own independent rational recurrence reproduced a_1..a_8 and 1..300 finite inequalities; these are corroboration, not the infinite induction.
 
-The closest primary publication is Lim, Liao and Yao, *Asymptotic Analysis of Peres' Algorithm for Random Number Generation* (2020; DOI: https://doi.org/10.1017/S0269964820000510). Their full manuscript proves a logarithmic exponent limit for the same mean cost but not its two-sided \(\Theta(N^\alpha)\) envelope. They explicitly identify stronger asymptotic information as unresolved. Garivier, *The Exhaustive Peres Transform: Extraction and Universal Coding* (2026; https://arxiv.org/abs/2610.26396), §8, records the identical recurrence and the exponent heuristic for the mean, while his main pointwise bounds are for residual one counts, a different invariant. The 2018 paper by Prasitsupparote, Konno and Shikata (https://doi.org/10.3390/e20100729) discusses finite-iteration or heuristic maximal redundancy. The available indexed mathematical results and the inspected documents did not cover the explicit uniform bounds.
+## originality
 
-Residual risks: priority cannot be proven by a finite search; an overlooked equivalent recurrence theorem or a stronger unindexed estimate is possible. The full 2018 document was not locally available, though relevant primary indexed sections were examined. The exponent and recurrence are known, so only the global constant-factor strengthening is claimed as new.
+PASS
 
-## Value (V): PASS
+The previously published November 2 Resultary theorem already proves the very same expectation has Theta(N^alpha) growth and supplies bounds N^alpha/10+9/10 <= a_N <= 3N^alpha-2. Thus neither the recurrence, exponent nor existence of uniform constants is original. The new precise two-sided constants are strictly stronger for N>1 and are NOT logically implied by those prior bounds; a separate binomial deficit estimate and induction proves them. O=PASS is limited to this quantitative all-length strengthening, not the submitted overly broad novelty framing.
 
-Uniform constants at the exact golden-ratio power give a strictly stronger efficiency guarantee than a logarithmic exponent. They rule out all divergent slowly varying multipliers and establish the all-length residual order, a natural coding and randomness-extraction invariant studied in both cited papers. The work does not claim to settle normalized convergence, worst-case residual-one growth or biased sources.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Although the polynomial order and alpha are known, the specific all-N lower coefficient increases from 1/10 to 1/2 and the upper from 3 to 2 (with exact intercepts), providing a substantial quantitative extraction-loss guarantee for every input length. The sharper binomial-deficit inequality is a motivated technical improvement rather than a mere reparameterization; no optimality or new exponent is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
