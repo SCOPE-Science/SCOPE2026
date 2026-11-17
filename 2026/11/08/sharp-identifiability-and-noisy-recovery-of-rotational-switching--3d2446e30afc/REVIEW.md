@@ -1,19 +1,21 @@
-# Scientific review: rotational switching-itinerary identifiability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has four logically separate ingredients. The circular interval-overlap identity (5) gives the exact switch count; the two exclusive maximum-correlation lags yield the necklace equivalence \(m\sim -m\); the prime-period arithmetic gives all ambiguity classes; and the independent resampling-plus-bit-flip model gives the observation probability and matching information-theoretic upper and lower sample bounds. Every use of a statistical inequality states its distribution and range. The converse bound concerns only independent two-symbol disagreement samples, not general access to the original word. The universal proof is mathematical, while the exact checker provides limited finite corroboration.
+PASS
 
-## Originality — PASS within the inspected evidence
+For p>=5, 2<=ell<=p-2 and unit m mod p, bijectively change index to a circle interval of ell residues. Its lag correlation is max(ell-s,0)+max(ell-(p-s),0); subtract from ell to get exactly T=2 min(ell,p-ell,m,p-m). Only lags +/-m^{-1} maximize the nonzero correlation, yielding precisely phi(p)/2 necklaces modulo rotation (m and -m coincide). For odd prime p, balanced ell=(p+/-1)/2 gives injective T, while unbalanced ell has the claimed saturated fiber. Under independent phase resampling with known bit-flip epsilon, each noisy disagreement is Bernoulli with Q_r=2epsilon(1-epsilon)+2(1-2epsilon)^2 r/p. Hoeffding yields the upper error, and KL/Hellinger adjacent central hypotheses yield the lower, with epsilon=1/2 unidentifiable. The proof distinguishes independent phases from a continuous orbit.
 
-The nearest primary source is Simpson, arXiv:2312.03887v1 (2023), which defines precisely the rotational switching words and relates them to invariant-circle dynamics. Its Section 3 and border-collision results do not assert the occupancy-sensitive single-switch-statistic identification criterion or its noise-limited inverse problem. Frid–Jamet, arXiv:1302.3722 (2013), enumerates binary rotation words of arbitrary intervals; Berstel–Vuillon, arXiv:math/0106217 (2001), studies their Sturmian recoding. Neither inspected full text establishes the stated phase-blind switch ambiguity and sharp noisy recovery law. Published research-record searches surfaced generic binary adjacent-pair multispectrum enumeration and full-cycle reconstruction by much richer signatures, but these do not directly imply the specialized theorem. Their full documents were not accessible during this comparison; possible equivalent or stronger older formulations remain a priority risk. There is no claim that circle-overlap identities, elementary concentration, or binary hypothesis-testing inequalities are themselves new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Rotational words are the admissible symbolic class for a natural mode-locking mechanism. Recovering the rotation class from only the fraction of adjacent symbol changes is a well-posed minimal-observation inverse problem: the theorem determines precisely which occupancies allow it and how many distinct dynamical necklaces are indistinguishable otherwise. It also quantifies the sharp quadratic-in-period and fourth-power-in-noise-contrast experimental cost when only fresh noisy adjacent disagreements are observable. This is a structural identifiability boundary with an explicit information-theoretic obstruction, not a renamed word count or a numerical curiosity.
+The original Simpson rotation-word theorem supplies the dynamical symbolic family, Frid/Jamet enumerate broad rotation words, and Berstel/Vuillon recode rotations; the inspected complete primary materials do not give the sharp inverse adjacent-disagreement fiber classification and statistical noisy minimax p^2(1-2epsilon)^-4 law in this restricted family. Resultary searches returned closest rotation counting results with different observables. This is a best-of-knowledge PASS, not absolute novelty certification.
 
-## Limits and risk
+## value
 
-The statements do not cover nonrotational sequences, correlated sequential samples, unknown error probability, or recovery of the orientation \(m\) versus \(p-m\). A broad and possibly fragmented literature on cyclic interval sequences, phase retrieval, and Sturmian codings could contain equivalent formulas. Search absence is not proof of global priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a motivated identifiability problem for a concrete symbolic-dynamical family: exactly which period/occupancy regimes admit reconstruction from a single natural count, and how repeated noisy adjacent measurements scale. The sharp ambiguity phase and matching minimax lower/upper bounds separate inherent information loss from statistical error; they are reusable exact properties, not merely a tiny computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
