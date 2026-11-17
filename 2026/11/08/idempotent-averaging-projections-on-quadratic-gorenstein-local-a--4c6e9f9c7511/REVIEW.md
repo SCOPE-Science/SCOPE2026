@@ -1,19 +1,21 @@
-# Scientific review: idempotent averaging projections on quadratic-socle algebras
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The four cases follow exhaustively from the image-subalgebra/kernel-module criterion, a local-unitality lemma, and the nondegenerate bilinear form. The important exceptional case \(\dim(\operatorname{im}P\cap J)=1\) is not incorrectly assumed to preserve the radical: its scalar coordinate is forced to be \(\beta B(u,j_V)\), with \(\beta\) arbitrary. Every converse is checked, and each finite-field family is counted injectively. Orthogonal orbit-stabilizer and isotropic-frame counts establish the odd-field product formulas. Small-field exhaustive original-equation tests and independent subspace enumeration agree; these finite checks are not used as an infinite proof.
+PASS
 
-## Originality
+The averaging identity with P²=P is equivalent to image S a subalgebra and kernel K an S-submodule; local finite-dimensionality forces a nonzero image to contain 1. For J=V⊕kz and uv=B(u,v)z, if z∈S∩J then the projected nondegenerate U≤V and complementary U⊥ determine family 2. Otherwise S∩J graphs a totally isotropic U. Rank 1 scalar-image maps and higher rank≥3 U yield radical preservation, while dimension U=1 admits exceptional rank-2 maps with P(z)=β(u+cz) and scalar leakage α(j)=βB(u,j_V). Counting maps gives polynomial 1+q^(m+1)T+Σ_r N_r q^(m−r)T^(r+2)+I_1 q^(m+1)T²+Σ_{r≥2}I_r q^[r(m−r+1)]T^(r+1). Orbit-stabilizer/Gauss sums supply odd q subspace products. Independent GF2 enumeration of all unital linear maps plus the zero map checked 4×4 algebra for alternating hyperbolic and diagonal nondegenerate forms, matching predicted rank profiles. Characteristic-two is only claimed for the subspace form, not odd-q products.
 
-**PASS, subject to historical-priority risk.** Guo–Pei (2014), Proposition 2.3, already give the abstract image/kernel characterization; Cao (2014) gives general averaging-algebra theory. Those results do not state the four quadratic-socle families, exceptional rank-two scalar leakage, or rank generating polynomial, and they cannot be converted into the present census without a separate bilinear-algebra classification. The full-text sections bearing on this comparison were inspected. Searches for exact variants and analogous conditional-expectation, Reynolds, and Gorenstein parameter descriptions yielded no covering claim. Search noncoverage alone is not a proof of originality; see limitations.
+## originality
 
-## Value
+PASS
 
-**PASS.** The family \(A=k1\oplus V\oplus kz\), \(J^2=kz\), is a canonical class of short local Gorenstein associative algebras. The result determines all idempotent averaging endomorphisms uniformly in embedding dimension and field, exhibits the exceptional rank-two mechanism missed by radical-preserving ansätze, proves rigidity in higher ranks, and yields exact arithmetic rank distributions depending on the quadratic form. For example, the two isometry types of nondegenerate bilinear planes over \(\mathbb F_3\) have distinct rank profiles despite identical Hilbert function. This is a substantive structural classification, not a single arbitrary numeric slice.
+PASS qualified: Guo–Pei 2014 Proposition 2.3 supplies the general image/kernel averaging criterion, and Cao 2014 the framework, so neither is claimed new. No inspected theorem in primary literature or Resultary matched the full classification of idempotent averaging projections on this exact (1,m,1) quadratic-socle algebra, the isotropic-line rank-two leakage, and the exact q-rank polynomial. Related Rota–Baxter and Lie averaging ranks concern different algebraic identities. An unidentified specialized census remains possible.
 
-## Sources, remaining risks and scope
+## value
 
-The relevant source material is Guo–Pei, *Averaging algebras, Schröder numbers, rooted trees and operads*, arXiv:1401.7386 (Section 2, Proposition 2.3 and proof; Section 3 introduction), and Cao, *An Algebraic Study of Averaging Operators*, arXiv:1401.7389 (Introduction, Section 2 basic properties, Section 4 finite-dimensional discussion). Related local Gorenstein classification concerns isomorphism classes of algebras rather than averaging projections on one fixed algebra. Residual risk: a more specialized averaging-projection enumeration not surfaced in searches could cover some formulas. No assertion of nonreduced scheme structure or independent external certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the (1,m,1) short Gorenstein local algebra is a standard natural class specified by an intrinsic nondegenerate bilinear form; the result classifies *all* averaging projections over arbitrary fields and isolates an easy-to-miss rank-two failure of radical preservation, while higher ranks are rigid. Its exact finite-field rank polynomial distinguishes quadratic-form types of identical Hilbert function; this is a meaningful complete algebraic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
