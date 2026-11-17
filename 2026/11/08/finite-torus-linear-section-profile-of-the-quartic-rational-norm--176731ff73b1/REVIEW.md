@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The six upper bounds follow from a complete factor/resultant case split for spaces of dimensions one through three, the Vandermonde collinearity criterion for four sections, and projective injectivity for five sections. Each is attained by an explicit linear subspace. Injectivity of torus evaluation holds for \(q\ge5\). Exact arithmetic independently checks the complete field-of-five point-subset exclusions and witnesses over three prime fields. No computational finite-field census is used as a proof for all fields.
+## correctness
 
-**Originality (PASS; provisional historical priority).** Hansen's original Hirzebruch construction and Little–Schenck's Minkowski approach concern code dimension and minimum distance. The full-text 2018 projective-torus paper gives generalized weights of different complete-intersection/Reed–Muller-type codes. The 2015 rational-normal-scroll paper evaluates on the entire projective scroll and gives minimum-distance bounds/values rather than the dense-torus six-level linear-section profile. Geil–Thomsen (2011) includes this same six-monomial space as the weighted-degree-three \((1,2)\) code, but its exact statements concern dimension, minimum distance, and decoding, not the full six-level generalized-weight hierarchy. The 2020 hypersimplex paper treats squarefree monomials. No identical or dominating result was identified in the sources checked, and the full-data search found no matched finding. A missed earlier finite-geometry classification remains a priority risk, not a claim of exhaustive literature uniqueness.
+PASS
 
-**Value (PASS).** This determines a complete, natural geometric incidence invariant of the quartic rational normal scroll over all finite fields of adequate cardinality. The third extremum, one entire ruling plus precisely one extra point, distinguishes the higher-incidence geometry beyond Hansen's minimum distance. The full six-level hierarchy also supplies exact support invariants for the attached natural toric code rather than an arbitrary finite example.
+For q>=5, every torus evaluation section is A(x)+yB(x), deg A<=3, deg B<=1; evaluation is injective since q-1>3. One equation has at most 3t zeros. For two independent equations, gcd/factor classification of vertical factors and elimination A1B2-A2B1 (degree<=4) yields <=2t; witnesses are two vertical fibers. For three-dimensional systems, a common vertical x-r factor reduces to a three-dimensional subspace of span{1,x,x^2,y}, whose annihilator picks at most one off-fiber point; otherwise generic coprime pair implies <=4<=t+1. Four-dimensional common-zero points are on a projective line; three distinct torus points on a line necessarily share x, giving <=t. Five/six forms give <=1/0. Independently exhaustively checked all 2^16 torus point subsets at q=5 using exact modular Gaussian elimination: common-zero maxima (12,8,5,4,1,0). This is finite corroboration only.
 
-**Limits.** The claim concerns distinct dense-torus rational points only. It excludes small fields, does not classify all extremizing subspaces, and has not received independent specialist review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete six-position torus section/Hamming weight hierarchy for the trapezoidal S(1,3) six-monomial support is different from earlier cubic scroll S(1,2), ordinary affine Cartesian full-degree Reed–Muller codes and projective-scroll evaluations including boundary. Inspected primary weighted Reed–Muller and affine Cartesian sources provide constructions and bounds/single distances but not this six-position hierarchy. Best-of-knowledge PASS with potential obscure geometry/coding tables as residual risk.
+
+## value
+
+PASS
+
+The six generalized Hamming weights are natural exact invariants of a specific six-dimensional rational normal scroll toric evaluation code. They govern all subcode support thresholds, not just minimum distance; the third extremal t+1 fiber-plus-point phenomenon is a useful geometric structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
