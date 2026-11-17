@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-The proof is exact and covers an infinite continuous parameter range. All essential algebra appears in `RESULT.md`: rationalization of the fractional complex susceptibility, transformation \(y=\cosh s\), derivative factorization, strictly decreasing quadratic numerator, and the exact root formula. No finite calculation is used as proof of global uniqueness.
+## correctness
 
-The extracted standalone `verify.py` can be run with `python3 verify.py` using only the Python standard library; it returns `VERIFY_OK checks=1004`. It compares the unsimplified physical Cole–Cole loss with the derived rational expression and checks direct unsimplified derivatives at every predicted outer maximum. It also exercises both sides of each threshold for six exponents, the center values, Debye endpoint, strict monotonicity samples, square-root critical splitting and deep-separation valley asymptotic.
+PASS
 
-These numerical tests verify finite representative parameter choices and floating-point identities within stated tolerances. They cannot independently prove nonduplication in literature, the global parameter theorem, or the behavior of unequal component strengths or exponents. The proof does not assert experimentally detectable resolution under finite noise or sampling.
+For 0<alpha<=1, equal strengths and times tau0 r^{±1/2}, the exact loss reduces to sin(theta)(d cosh s+c)/(cosh²s+2cd cosh s+c²+d²-1). Independently symbolically differentiated the reduced rational function, recovering P(y)=d(d²-1-c²)-2cy-dy². P is strictly decreasing on y>=1, so its endpoint sign gives exactly one central peak, quartic flat equality, or two outer peaks; the root and monotonic threshold follow. Independent direct-loss evaluations for alpha=.25,.5,.75,1 corroborate the threshold and outer bifurcation. No finite sampling substitutes for the global derivative sign argument.
+
+## originality
+
+PASS
+
+PASS best of knowledge: original Cole–Cole phenomenology and Hilfer 2002 single-component formulas do not determine the necessary-sufficient two-equal-shift exact modality threshold, positions, or degenerate central quartic point. Resultary search found no earlier matching threshold theorem; absence of search hits is not proof. Historical generalized hyperbolic-secant mixture literature may contain an equivalent offset/shape criterion.
+
+## value
+
+PASS
+
+Separating one from two true mathematical loss peaks in a two-relaxation physical model is a motivated sharp structural boundary; exact threshold, locations and broadening dependence are meaningful independently of parameter-estimation under noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
