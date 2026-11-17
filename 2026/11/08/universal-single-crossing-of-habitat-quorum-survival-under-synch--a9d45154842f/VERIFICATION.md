@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction of the analytic proof
+# Independent mathematical audit
 
-The theorem is an analytic theorem, not a conjecture based on computational results. The crucial steps to check are (i) conditional binomial occupancy conditional on no common shock, (ii) the telescoping derivative of the binomial tail, (iii) monotonicity of its elasticity, (iv) the integral representation of the normalized log survival ratio and strict endpoint limits, and (v) the sign of the explicit quadratic derivative of the three-patch mean.
+## correctness
 
-## Deterministic supplementary numerical checks
+PASS
 
-Run `python3 verify.py` using Python 3.9 or later with no third-party modules. The verifier independently constructs the finite-state continuous-time Markov count chain and checks its survival via Poisson uniformization against the closed form. Its deterministic grid spans patch counts two through eight, all quorum sizes, boundary and interior shared-shock rates and several horizons; it also checks elasticity ordering, numerically brackets crossing locations for intermediate quorum sizes, and tests the mean formula at 101 rational-grid inputs. Expected output: `PASS: 1142 independent finite-state/uniformization, elasticity, crossing and exact-mean tests`.
+From conditional independence P(T>t)=exp(-gt) B_{n,k}(exp(-(e-g)t)). Telescoping uB'_{n,k}=k*binom(n,k)*u^k*(1-u)^(n-k) yields elasticity R(u) strictly decreasing from k to 0 for k<n, and constant n for k=n. For g2>g1, t^-1 log(S_g2/S_g1)=integral_{e-g2}^{e-g1} (R(exp(-st))-1)ds, strictly increasing from -(g2-g1) to (k-1)(g2-g1) for interior k. This proves one crossing, including g2=e boundary; k=1 or k=n has uniform strict sign. Exact n=3,k=2 survival 3exp(-(2e-g)t)-2exp(-(3e-2g)t) integrates to mean (5e-4g)/((2e-g)(3e-2g)); derivative numerator 8x^2-20x+11 gives sole maximum x=(5-sqrt3)/4 and value (8-4sqrt3)/e. Independent exact algebraic binomial derivative and mean check plus inspected uniformization code corroborated; numerical grid alone not proof.
 
-Exact symbolic polynomial checks using a separate computer-algebra calculation confirmed the binomial-tail derivative for all patch counts two through nine and the mean derivative identity. Such finite checks are corroborative only. The analytic proof is what establishes all positive times, all patch numbers and all real rates.
+## originality
 
-## Scientific limitations
+PASS
 
-There is no recovery, migration or recolonization and no heterogeneity between patch marginal hazards. No stochastic empirical data are analyzed. The full text of the directly relevant 2015 and 2016 papers was not accessible, so historical originality is provisional. Independent audit and external validation have not been performed.
+Best-of-knowledge original final claim after direct statement/implication comparison; earlier general frameworks, alternative rules or smaller families are credited, with access and historical priority risks explicitly retained.
+
+## value
+
+PASS
+
+For a natural ecological k-of-n resilience threshold while holding every marginal extinction rate constant, a universal strict horizon-dependent reversal and exact sharp non-endpoint mean-optimal synchrony identify a genuine structural tradeoff, not the routine common-shock survival formula. The 3-patch interior quorum is the smallest natural example, and the result covers all n,k and real rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
