@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:56:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify_antiprism.py and facet-normal formulas",
+        "Published Resultary full square-antiprism four-shadow distribution and dihedral first-moment formula",
+        "Independent numeric computations /mnt/data/independent_math_check_2146.py"
+      ],
+      "rationale": "A generic projected convex edge is a silhouette edge precisely when the adjacent outward facet-normal dot products with the random viewing vector have opposite signs; for spherical Haar directions the probability is exterior angle/pi. The antiprism has exactly 2n cap/base edges and 2n connecting edges. Writing c=cos(pi/n), d=1-c and M=4h^2+d^2, cross products give normal-angle cosines d/sqrt(M) and (4ch^2-d^2)/M. Consequently E N=(2n/pi)(alpha+beta). With s=sin^2 alpha, kappa=1+c, cos beta=kappa s-1, differentiation gives 1-2 sqrt[kappa(1-s)/(2-kappa s)], with one zero at s=(4kappa-2)/(3kappa), derivative negative then positive for all n>=3. Solving h gives stated h^2; comparing squared base and connector edges proves lateral faces equilateral exactly there. Limits are 2n at h downarrow0 and n+2 at h to infinity; small-angle expansions yield n+sqrt(3)+O(n^-2). Independently evaluated the formula and strict sample comparisons at orders 3,4,5,9,20; n=4 yields h=0.594603558 and mean=5.716099405. These numerical checks are not the all-order proof.",
+      "residual_risks": [
+        "Generic orientations only; zero-measure facet-parallel directions excluded; family is coaxial equal regular bases with half-step twist, not all convex solids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published square theorem covers the entire distribution only for n=4 (all h) and provides its mean via general dihedral formula.",
+          "Triangular-antiprism other theorem concerns full six-vertex probability, not expectation, and only n=3.",
+          "Kettner–Welzl establishes edge-angle expectation for arbitrary polyhedra without identified height optimization for the present specific family."
+        ],
+        "reasoning": "General contour identities allow computation but do not supply the all-order n-dependent normal angles, monotonicity and geometric rigidity. No inspected broader all-n optimum dominates the claim.",
+        "searches": [
+          "Resultary: antiprism silhouette projection mean contour equilateral optimal height",
+          "Resultary: exact four-type random-shadow law for square antiprisms of every height",
+          "Resultary: a sharp opposite-extremum law for random triangular-antiprism silhouettes",
+          "Kettner Welzl 1997 contour edge analysis"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-type-random-shadow-law-for-square-antiprisms-of-every--66111d9b2745",
+        "https://doi.org/10.1007/978-3-642-60607-6_25",
+        "https://hal.science/hal-00841374v2",
+        "Resultary: antiprism silhouette projection mean contour equilateral optimal height"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Square case E=(8/pi)(acos(g/sqrt(1+g^2))+acos((1/sqrt(2)-g^2)/(1+g^2))) with g=(1-1/sqrt2)/(2h) is equivalent to the submitted n=4 formula.",
+          "For general n, the submitted stationary equation has kappa=1+cos(pi/n), and solving it produces h^2=(1-c)(1+2c)/2, not determined by a single n=4 distribution."
+        ],
+        "reasoning": "The prior square result implies the n=4 case and is credited. Its parameter n is fixed to four; it does not imply the all-n optimization or limiting n+sqrt3 correction. Inaccessible primary source is documented as a risk, not used to claim non-coverage.",
+        "searches": [
+          "Full published square-antiprism RESULT.md Step 5 independent moment identity",
+          "Resultary: antiprism silhouette projection mean contour equilateral optimal height",
+          "Original Kettner–Welzl technical report inaccessible full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generic silhouette count expectation is one/pi times sum of exterior dihedral angles, classical Kettner–Welzl relation.",
+          "Published square-antiprism RESULT.md gives an exact four-type shadow-vertex distribution for every square height, from which n=4 mean follows."
+        ],
+        "reasoning": "Mean shadow sides and mean silhouette-edge count are the same under generic projection; polarity can rephrase them as section sides of the polar dual. These equivalences cover the general setup but not the n-general height optimizer, except at n=4.",
+        "searches": [
+          "Resultary: antiprism silhouette projection mean contour equilateral optimal height",
+          "antiprism shadow mean contour edges / exterior dihedral angles / equilateral lateral triangles",
+          "polar trapezohedron central section side counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An earlier exact n=4 probability table determines the n=4 mean for every h.",
+          "Fixed-height uniform pentagonal shadow tables do not compute the mean as function of arbitrary h for n>=5."
+        ],
+        "reasoning": "Known special-order tables overlap but cannot imply the all-order strict minimizer. The submitted n-dependent formula is an exact natural shape invariant, not recomputation of a known full n,h table.",
+        "searches": [
+          "Resultary: antiprism silhouette projection mean contour equilateral optimal height",
+          "Published square-antiprism four-point exact distribution and first moment",
+          "Uniform pentagonal antiprism Haar shadow law at fixed height"
+        ]
+      },
+      "rationale": "The general expected-silhouette edge-angle sum is classical and the published square-antiprism random-view law gives an n=4 first moment. Neither establishes the all-n strict global minimizer or equilateral-face characterization. A separate triangular-antiprism max-vertex probability law optimizes a different statistic. This is best-of-knowledge only; the inaccessible original Kettner–Welzl technical report creates a meaningful priority risk.",
+      "residual_risks": [
+        "Kettner and Welzl, Contour Edge Analysis for Polyhedron Projections (1996/1997), original report PDF was located but page text/figures were not reliably accessible (403 on page images); an antiprism specialization in uninspected text cannot be ruled out.",
+        "Earlier n=4 full shadow law implies the n=4 mean and its calculus minimization as a special case. Novelty is the all-order strict optimizer and geometric equivalence, not the general angle formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECIAL_CASE_OVERLAP_N4",
+          "evidence": "Its Step 5 gives the n=4 first moment but has no arbitrary n order optimization theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-type-random-shadow-law-for-square-antiprisms-of-every--66111d9b2745",
+          "material_read": "Entire published RESULT.md: construction, four-type shadow probabilities, generic contour rule and exact independent expected-count identity",
+          "method": "Full GitHub published scientific text",
+          "title": "Exact four-type random-shadow law for square antiprisms of every height",
+          "trigger": "Closest exact height-dependent antiprism silhouette law"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Mean contour/dihedral angle formula is established background; any earlier explicit all-antiprism height optimization is not confirmed or ruled out.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-60607-6_25",
+          "material_read": "Bibliographic identification and retrieved technical-report PDF text fragments; complete mathematical pages could not be reliably inspected because source text was garbled and screenshot access 403",
+          "method": "Publisher/archive search and attempted PDF page inspection",
+          "title": "Contour Edge Analysis for Polyhedron Projections",
+          "trigger": "Classical general silhouette angle identity potentially hiding a family specialization"
+        },
+        {
+          "assessment": "SUBMITTED_CLAIM_VERIFIED",
+          "evidence": "Exact unique stationary point matches equal-edge condition for n>=3; independent finite calculations reproduced sample values.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-antiprisms-uniquely-minimize-mean-planar-silhouette-comp--b44d8c773553/RESULT.md",
+          "material_read": "Entire frozen RESULT.md, two normal orbit computations, derivative and asymptotics, plus verify_antiprism.py",
+          "method": "Frozen full GitHub blob read",
+          "title": "Uniform antiprisms uniquely minimize mean planar-silhouette complexity in every order",
+          "trigger": "Check actual all-n claim, proof and scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-type-random-shadow-law-for-square-antiprisms-of-every--66111d9b2745",
+        "Frozen complete RESULT.md",
+        "Independent numerical evidence on five polygon orders"
+      ],
+      "rationale": "A natural all-order geometric shape optimization problem for average random-view combinatorial complexity has a unique geometrically rigid solution: the uniform (equilateral-faced) antiprism. The exact mean, strict monotonicity, and n+sqrt3 asymptotic make the result useful to convex geometry and randomized projections; it is neither an arbitrary finite slice nor just re-evaluation of the classical silhouette formula.",
+      "residual_risks": [
+        "Does not optimize nonregular, skewed or nonuniform-view antiprisms; potential classical specialization priority risk remains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3, among right congruent unit-radius regular n-gon antiprisms with half-step twist and half-height h>0, the Haar-mean projected polygon side count has a two-dihedral-angle formula and a unique strict minimum at h^2=(1-cos(pi/n))(1+2 cos(pi/n))/2, exactly when all lateral triangles are equilateral; the minimum is explicit and equals n+sqrt(3)+O(n^-2).",
+  "limitations": [
+    "Generic orientations only; zero-measure facet-parallel directions excluded; family is coaxial equal regular bases with half-step twist, not all convex solids.",
+    "Kettner and Welzl, Contour Edge Analysis for Polyhedron Projections (1996/1997), original report PDF was located but page text/figures were not reliably accessible (403 on page images); an antiprism specialization in uninspected text cannot be ruled out.",
+    "Earlier n=4 full shadow law implies the n=4 mean and its calculus minimization as a special case. Novelty is the all-order strict optimizer and geometric equivalence, not the general angle formula.",
+    "Does not optimize nonregular, skewed or nonuniform-view antiprisms; potential classical specialization priority risk remains."
+  ],
+  "schema_version": 1
+}
