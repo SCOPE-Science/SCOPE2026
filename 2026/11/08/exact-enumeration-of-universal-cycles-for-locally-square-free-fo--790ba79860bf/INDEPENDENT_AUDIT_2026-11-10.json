@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T17:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Overlap-graph vertices (a,b,c) with a!=b,b!=c number q(q-1)^2. Allowed four-edges are (a,b,c,d) with a!=b,b!=c,c!=d,(a,b)!=(c,d); at repeated-endpoint vertices a=c both in/out degrees q-2, otherwise q-1. Each ternary-restricted induced graph is strongly connected; sharing two-symbol repeated-endpoint vertices connects all 3-symbol subgraphs, proving global connectivity for q>=3. Elimination to ordered-pair coordinates splits the Laplacian into a constant, (q-1) standard 2x2 blocks, symmetric row-sum-zero and antisymmetric row-sum-zero components, dimensions totaling q(q-1). Determinants produce the claimed factors x, (x-q+1)^A, Q_q(x)^B and P_q(x)^(q-1). Directed matrix-tree and BEST with unique edge labels yield the all-q expression. Independently constructed Laplacians at q=3 and 4 have exact characteristic polynomials matching factorization; exact arborescence counts are 12 and 49589822592000. Finite checks corroborate but do not replace the invariant-subspace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alhakim constructs sequences under j-step separation and invokes square-free to mean adjacent-letter restriction, not both period-one and period-two square-freeness.",
+          "Shur 2010 studies full circular words avoiding all squares globally, not a single universal circular word visiting each locally allowed 4-factor."
+        ],
+        "reasoning": "General universal-cycle existence tools and BEST entail an unevaluated determinant, but do not evaluate this restricted all-q spectrum and multiplicity. The published nearby but different family is not a dominating theorem.",
+        "searches": [
+          "locally square free length four forbidden abab universal cycles number directed de Bruijn Laplacian spanning arborescences",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4",
+          "arxiv:1009.5759",
+          "Alhakim 2022 de Bruijn forbidden words"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4",
+        "doi:10.1016/j.disc.2009.10.009",
+        "arxiv:1009.5759",
+        "doi:10.1007/s10623-022-01077-5",
+        "Resultary search locally square free length four forbidden abab universal cycles number directed de Bruijn Laplacian spanning arborescences",
+        "assigned RESULT.md, verify_tours.py, verify_spectrum.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Penne 2010 abstract describes forbidden-subsequence de Bruijn existence; no all-q formula established from available material. Oxford fulltext retrieval returned vpn_disconnected.",
+          "November 2 prior factorizes a low-rank edge-deletion Laplacian on q^3 triple states for abab-only, without adjacent-letter constraints."
+        ],
+        "reasoning": "Even if an earlier existence theorem includes these cycles, existence does not determine all labeled cycle multiplicities. No inspected proof implies the submitted characteristic factorization; a plausible inaccessible Penne paper is named as a residual novelty risk rather than an automatic scientific fail.",
+        "searches": [
+          "locally square free length four forbidden abab universal cycles number directed de Bruijn Laplacian spanning arborescences",
+          "doi:10.1016/j.disc.2009.10.009",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4",
+          "arxiv:1009.5759",
+          "Alhakim DOI 10.1007/s10623-022-01077-5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Submitted forbids BOTH length-two doubled letters and four-letter abab squares; its vertex count is q(q-1)^2.",
+          "November 2 prior forbids only abab, expressly allows adjacent equal and uses q^3 vertices, with different degree pattern and tour product."
+        ],
+        "reasoning": "Both use de Bruijn graph Euler circuits but have different edge sets; no equality of spectral characteristic polynomials or enumeration follows from a graph complement.",
+        "searches": [
+          "locally square free length four forbidden abab universal cycles number directed de Bruijn Laplacian spanning arborescences",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4",
+          "R. Penne de Bruijn sequences forbidden subsequences 2010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted counts begin 12 (q=3), 831979165027663872000 (q=4).",
+          "Earlier November 2 abab-only count gives U_3=2708265511157760 and q=3 overlap vertex dimension 27, not current dimension 12."
+        ],
+        "reasoning": "No exact database of the same present family found in actual indexed searches; earlier q=3 values are radically different because the language differs, not a mere normalization.",
+        "searches": [
+          "locally square free length four forbidden abab universal cycles number directed de Bruijn Laplacian spanning arborescences",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4",
+          "Resultary exact universal cycles square-free 4-words"
+        ]
+      },
+      "rationale": "The published November 2 tandem-square-avoidance universal-cycle theorem excludes abab alone, allows adjacent identical letters and has q^3 vertices, hence its exact BEST product does not apply to the present graph with q(q-1)^2 vertices and additional excluded length-two squares. Euler-tour counts are not additive under edge removal. Shur examines globally square-free cyclic words, a different universal coverage question; Alhakim uses square-free in the adjacent-separation sense; Penne appears to concern restricted existence but full text inaccessible. No inspected full theorem gives this precise all-q spectral factorization or product; originality is best of knowledge with Penne explicitly unresolved access.",
+      "residual_risks": [
+        "Penne 2010 is plausibly high-priority source; full text inaccessible after open-access and authorized institutional attempt, so exact novelty there remains unverified.",
+        "Potential older general restricted-de-Bruijn spectral catalog not surfaced in indexed search; search failure is not a novelty proof.",
+        "The all-q factorization rests on the invariant-space elimination; finite q=3,4 characteristic-polynomial equality is only corroboration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_LANGUAGE_NOT_COVERING",
+          "evidence": "Prior forbids abab only, not adjacent doubles; graph q^3 vs q(q-1)^2; no count implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4",
+          "material_read": "Complete published RESULT.md including edge definition, Laplacian determinant proof, BEST product and high-order obstruction.",
+          "method": "Published primary Git blob",
+          "title": "Exact order-four universal-cycle enumeration under tandem-square avoidance",
+          "trigger": "Closest exact all-q four-window universal-cycle count"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY",
+          "evidence": "Accessible material describes existence under restrictions; cannot assert complete absence of this exact formula from unread paper.",
+          "identifier_or_url": "doi:10.1016/j.disc.2009.10.009",
+          "material_read": "Bibliographic title and accessible abstract/secondary cited descriptions only; full text not read.",
+          "method": "Preprint and OA searches; authorized Oxford request returned vpn_disconnected, job_id 1f4cb5511bafd00f789b63f633345686",
+          "title": "A note on certain de Bruijn sequences with forbidden subsequences",
+          "trigger": "Plausible 2010 priority for restricted de Bruijn sequences"
+        },
+        {
+          "assessment": "DIFFERENT_QUANTIFIERS",
+          "evidence": "A single square-free circular word is not a universal cycle for a set of four-words.",
+          "identifier_or_url": "arxiv:1009.5759",
+          "material_read": "Relevant definitions and statements read; focuses on globally square-free circular words, not coverage of all locally allowed four-factors.",
+          "method": "Accessible arXiv primary material",
+          "title": "On ternary square-free circular words",
+          "trigger": "Same ordinary square-free terminology"
+        },
+        {
+          "assessment": "DISTINCT_CONSTRAINT_AND_ENUMERATION",
+          "evidence": "Does not supply all-q characteristic polynomial or BEST count for simultaneously forbidding aa and abab.",
+          "identifier_or_url": "doi:10.1007/s10623-022-01077-5",
+          "material_read": "Accessible primary article relevant sections 1 and 4.1; their square-free subsection j=1 means no adjacent equal symbols, with construction not all-cycle enumeration.",
+          "method": "Lawful full article HTML",
+          "title": "Designing preference functions for de Bruijn sequences with forbidden words",
+          "trigger": "Constrained universal cycles with square-free terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length four is the first local window where a square of length two is present in addition to adjacent-letter squares. Counting every universal cycle for this complete natural restricted language across all q is a substantial exact classification, with a nontrivial overlap-Laplacian spectrum and direct implications for constrained de Bruijn scheduling. The answer is an infinite-alphabet family with motivated object and invariant, not just a finite numeric search.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-order-four-universal-cycle-enumeration-under-tandem-square--19bd4c4373a4",
+    "doi:10.1016/j.disc.2009.10.009",
+    "arxiv:1009.5759",
+    "doi:10.1007/s10623-022-01077-5",
+    "Resultary search locally square free length four forbidden abab universal cycles number directed de Bruijn Laplacian spanning arborescences",
+    "assigned RESULT.md, verify_tours.py, verify_spectrum.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each labeled alphabet q>=3, locally square-free four-letter windows (no aa,bb,cc adjacent and no abab) have a universal cycle and exact all-alphabet BEST product via full Laplacian characteristic-polynomial factorization.",
+  "limitations": "Only locally square-free length-four windows over q>=3; globally square-free cycles, longer windows and alphabet/reversal quotient counts are not covered. Penne fulltext access blocked; qualified originality.",
+  "residual_risks": [
+    "Penne 2010 is plausibly high-priority source; full text inaccessible after open-access and authorized institutional attempt, so exact novelty there remains unverified.",
+    "Potential older general restricted-de-Bruijn spectral catalog not surfaced in indexed search; search failure is not a novelty proof.",
+    "The all-q factorization rests on the invariant-space elimination; finite q=3,4 characteristic-polynomial equality is only corroboration."
+  ],
+  "schema_version": 1
+}

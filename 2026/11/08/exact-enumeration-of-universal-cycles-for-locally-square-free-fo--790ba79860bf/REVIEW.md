@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The word-to-edge correspondence is bijective under the stated rotation normalization; all admissible edges are distinct. The overlap graph is balanced and strongly connected, including the critical three-symbol case. The proof eliminates off-diagonal triple coordinates and decomposes the remaining pair-function space into constant, two standard copies, symmetric zero-sum, and antisymmetric zero-sum summands; the dimensions and scalar determinants account for the entire Laplacian characteristic polynomial. The matrix-tree and BEST formulas then yield the precise count. The source package includes a direct exhaustive ternary tour count, a separate exact Bareiss determinant implementation, and full SymPy characteristic-polynomial checks for alphabets three through six. Finite tests support the symbolic argument but are not presented as its proof.
+PASS
 
-## Originality
+Overlap-graph vertices (a,b,c) with a!=b,b!=c number q(q-1)^2. Allowed four-edges are (a,b,c,d) with a!=b,b!=c,c!=d,(a,b)!=(c,d); at repeated-endpoint vertices a=c both in/out degrees q-2, otherwise q-1. Each ternary-restricted induced graph is strongly connected; sharing two-symbol repeated-endpoint vertices connects all 3-symbol subgraphs, proving global connectivity for q>=3. Elimination to ordered-pair coordinates splits the Laplacian into a constant, (q-1) standard 2x2 blocks, symmetric row-sum-zero and antisymmetric row-sum-zero components, dimensions totaling q(q-1). Determinants produce the claimed factors x, (x-q+1)^A, Q_q(x)^B and P_q(x)^(q-1). Directed matrix-tree and BEST with unique edge labels yield the all-q expression. Independently constructed Laplacians at q=3 and 4 have exact characteristic polynomials matching factorization; exact arborescence counts are 12 and 49589822592000. Finite checks corroborate but do not replace the invariant-subspace proof.
 
-PASS at the stated scope, with historical-priority qualification. Penne (2010) establishes restricted de Bruijn existence for separation constraints; the full paper was not accessible, so priority remains uncertain. Alhakim (2020/2022), Section 4.1, constructs such sequences but applies the word 'square-free' to adjacent-letter separation, not to forbidding both period-one and period-two squares. Shur (2010) studies globally square-free circular words, with a distinct existence/classification problem. Generic BEST and matrix-tree formulas give an unevaluated determinant, but not the explicit factorization and closed multiplicity product here. Searches of related mathematical records and published literature located no equivalent evaluated result, which is not a proof of publication uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. The family consists of every legal local four-symbol pattern avoiding the first two square lengths; precisely the shortest nontrivial window in which period-two square avoidance matters. The closed all-alphabet enumeration sizes the full solution space of a constrained de Bruijn/symbolic scheduling problem, rather than constructing one representative, and reveals a nontrivial quadratic and cubic spectral decomposition. This is a natural full family, not an arbitrary finite parameter slice.
+The published November 2 tandem-square-avoidance universal-cycle theorem excludes abab alone, allows adjacent identical letters and has q^3 vertices, hence its exact BEST product does not apply to the present graph with q(q-1)^2 vertices and additional excluded length-two squares. Euler-tour counts are not additive under edge removal. Shur examines globally square-free cyclic words, a different universal coverage question; Alhakim uses square-free in the adjacent-separation sense; Penne appears to concern restricted existence but full text inaccessible. No inspected full theorem gives this precise all-q spectral factorization or product; originality is best of knowledge with Penne explicitly unresolved access.
 
-## Sources and limitations
+## value
 
-Closest sources: Penne (2010), DOI 10.1016/j.disc.2009.10.009; Shur (2010), arXiv:1009.5759v1; Alhakim (2020 preprint, 2022 journal), DOI 10.1007/s10623-022-01077-5. The first has only abstract and subsequent-source discussion accessible; the latter two have relevant material inspected directly. Restricted to four-letter local square-freeness and labeled-alphabet/rotation equivalence; no claim of independent audit or exhaustive historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Length four is the first local window where a square of length two is present in addition to adjacent-letter squares. Counting every universal cycle for this complete natural restricted language across all q is a substantial exact classification, with a nontrivial overlap-Laplacian spectrum and direct implications for constrained de Bruijn scheduling. The answer is an infinite-alphabet family with motivated object and invariant, not just a finite numeric search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
