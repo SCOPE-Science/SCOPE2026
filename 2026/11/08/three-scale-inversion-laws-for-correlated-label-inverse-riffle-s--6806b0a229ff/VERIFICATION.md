@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run the included `verify_inversion.py` with Python 3; it requires only the standard library. The exact part enumerates all \(2^n\) binary words for each \(2\le n\le10\), at \(p\in\{0,1/3,2/3,9/10\}\). It independently checks the spin identity, probability normalization, mean and zero-inversion mass with exact rationals. Recorded result: **8,284 exact assertions passed**.
+## correctness
 
-Seeded simulations were also executed: \(n=1000\), \(p=1/2\), 1,200 samples gave standardized empirical mean \(-0.004\) and variance \(1.038\); with \(n=1400\), switch intensity \(2.4\), 3,000 samples gave zero-inversion fraction \(0.4787\), against limiting prediction \(0.4819\); in a rare-switch experiment with \(n=500\), switch probability \(0.00005\), 15,000 samples gave positive-inversion frequency \(0.0127\), versus first-order prediction \(0.0125\). These finite tests do not certify any limiting law. The infinite statements follow from the direct martingale, point-process and rare-event arguments given in RESULT.md.
+PASS
+
+For stationary binary Markov labels with switch probability h/2, I_n=∑_{i<j}1(S_i=+,S_j=-) gives exact n²/8 +(∑(n+1-2i)S_i)/4 -(∑S_i)²/8. Correlation E S_iS_j=p^{|i-j|} gives mean; zero inversions means no switch or unique ascending switch, giving exact atom. Gaussian regime uses martingale differences D_k=S_k-pS_{k-1} with deterministic variance 1-p², triangular Lindeberg when nh→∞, and M_n² term negligible, with variance scale n³(1+p)/(48h). For nh→λ, independent Bernoulli switch positions converge to rate λ/2 Poisson process giving telegraph inversion-area and atom. For nh→0, one descending switch dominates I>0 and yields U(1-U). Independently enumerated all 2^n label words for n=2..8 with exact rational probabilities at p=0,1/2,3/4; identities verified. This finite test supplements analytical limit arguments.
+
+## originality
+
+PASS
+
+Best-of-knowledge: exact one-shuffle mean/zero atom and all three triangular-array regimes (Gaussian, Poisson-switch telegraph area, rare positive inversions) are absent from inspected same-model mixing and classical iid riffle inversion theorems.
+
+## value
+
+PASS
+
+Identifies three genuinely distinct fluctuation universality classes for a natural single-step shuffle model, with an unusual non-Gaussian conditioned rare-event limit, sharp exponents and exact finite-n zero atom. Distinct from mixing time results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

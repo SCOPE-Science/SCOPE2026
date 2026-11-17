@@ -1,19 +1,21 @@
-# Scientific review: correlated-label inverse-riffle inversion transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stable-sort inversion identity is exact, and the stationary Markov-spin correlations recover the mean and zero atom. The triangular-array martingale decomposition has deterministic conditional variance, uniformly bounded normalized jumps when \(n(1-p_n)\to\infty\), and an explicit \(L^2\) remainder of smaller order. The quadratic-spin contribution is negligible by its second-moment bound. Independent Bernoulli switches give both the finite-rate Poisson process limit and the uniform single-switch limit. The standalone exact checker passed 8,284 rational assertions; finite simulations are diagnostics only.
+PASS
 
-## Originality
+For stationary binary Markov labels with switch probability h/2, I_n=∑_{i<j}1(S_i=+,S_j=-) gives exact n²/8 +(∑(n+1-2i)S_i)/4 -(∑S_i)²/8. Correlation E S_iS_j=p^{|i-j|} gives mean; zero inversions means no switch or unique ascending switch, giving exact atom. Gaussian regime uses martingale differences D_k=S_k-pS_{k-1} with deterministic variance 1-p², triangular Lindeberg when nh→∞, and M_n² term negligible, with variance scale n³(1+p)/(48h). For nh→λ, independent Bernoulli switch positions converge to rate λ/2 Poisson process giving telegraph inversion-area and atom. For nh→0, one descending switch dominates I>0 and yields U(1-U). Independently enumerated all 2^n label words for n=2..8 with exact rational probabilities at p=0,1/2,3/4; identities verified. This finite test supplements analytical limit arguments.
 
-**PASS under the documented accessible-source comparison, with historical-priority residual risk.** Jiang's Definition 2.4 specifies the process and his results concern multi-step mixing, not the three one-step inversion regimes. Jonasson–Morris study fixed persistence and mixing rather than the triangular-array inversion limit. Işlak proves a shuffle-inversion CLT for independent marks and therefore includes the special \(p_n=0\) case only; his iid hypotheses do not imply the high-adhesion Poisson/rare regimes. No directly covering statement was found among actual indexed searches or the accessible earlier claim ledger. The earlier Wager dissertation cited by Jonasson–Morris could not be inspected and remains a priority risk; absence of a search match is not proof of first discovery.
+## originality
 
-## Value
+PASS
 
-**PASS.** Inversion number measures the macroscopic disorder introduced by one adhesive shuffle. The natural dimensionless parameter \(n(1-p_n)\) is the expected switch-count scale. A change in this parameter causes a genuine qualitative transition: Gaussian behavior, a positive limiting atom and stochastic inversion area, and an asymptotically vanishing event with a nondegenerate conditional shape. This is an interpretable structural classification for the model, rather than an arbitrary finite statistic.
+Best-of-knowledge: exact one-shuffle mean/zero atom and all three triangular-array regimes (Gaussian, Poisson-switch telegraph area, rare positive inversions) are absent from inspected same-model mixing and classical iid riffle inversion theorems.
 
-## Closest literature and limitations
+## value
 
-The exact inversion-word reduction extends Işlak's independent-label viewpoint to a Markov label chain, and the Markov inverse-riffle construction itself is due to prior work. These facts are acknowledged; no novelty is claimed for either. The result is not a mixing-time theorem or a statement of independent external validation. See RESULT.md and AUDIT.json for exact boundaries and source comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies three genuinely distinct fluctuation universality classes for a natural single-step shuffle model, with an unusual non-Gaussian conditioned rare-event limit, sharp exponents and exact finite-n zero atom. Distinct from mixing time results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
