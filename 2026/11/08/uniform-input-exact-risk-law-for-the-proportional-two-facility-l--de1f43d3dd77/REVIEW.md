@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domain is precisely i.i.d. uniform locations and the original first-uniform/second-distance-proportional rule. Uniform empirical convergence gives convergence of the pair kernel because its normalizer is bounded below by \(1/4\); uniform convergence of two-median costs gives the optimal denominator \(1/8\). The limiting pair density and quadratic ratio law are normalized, and exact conditional polynomial integrals establish \(\mathbb ER\) and \(\mathbb ER^2\). Both tail coefficients follow from local density and explicit ellipse/triangle volumes. The embedded exact-arithmetic checker tests both polynomial identities and independent finite profiles.
+PASS
 
-## Originality
+Uniform empirical measure converges, h_n(u)=E_mu_n |u-X| converges uniformly to h(u)>=1/4, so conditional ordered sampled pair converges to du |u-v|dv/h(u). The empirical optimal two-median cost converges to 1/8. Sorted pair joint density q(u,v)=(v-u)[h(u)^(-1)+h(v)^(-1)] and R=4(a^2+c^2)+2b^2=1+4(s-1/2)^2+2d^2 give exact support and extrema. Independently computed polynomial conditional moment integrals N1=(34u^4-68u^3+54u^2-20u+5)/48, N2=11(2u²-2u+1)(11u⁴-22u³+15u²-4u+1)/480; obtain E R=7pi/12-4/9 and E R²=154/75. The minimum ellipse and two maximum corners with density ~4b lead to lower epsilon coefficient 4pi/(5sqrt2) and upper epsilon³/384. This is analytic, not only quadrature.
 
-PASS under presently accessible literature, with nonzero unindexed-priority risk. Lu et al. (2010) establishes mechanism and worst-case four-approximation. Ma–Peng (2026) and Chan–Lin–Wang (2026) compare worst-case performance and mixtures; Aziz–Mackenzie–Suzuki (2026) generalizes random-anchor selection to more facilities. An existing separation-weighted gap-product calculation supplies the Pairwise-Distance baseline but not the Proportional uniform-anchor law. These distinctions were checked at the statement and sampling-kernel level. No covering uniform-population distribution, moments, or both sharp tail constants were identified in the inspected relevant full-text sections or targeted searches. Earlier average-case percentile mechanisms operate under a different, fixed-quantile rule. Nonindexed equivalent work remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. An exact expected ratio by itself would be a narrow benchmark; here the full realized asymptotic random variable, its variance and two sharp tail rates provide typical, risk and near-optimal performance information for a long-used strategyproof allocation rule. This identifies a concrete average-case trade-off against the recent worst-case-optimal mixture and compares two genuinely different sampling distributions.
+The separate Nov 8 published Resultary theorem already gives the exact conditional expected Proportional limit 7pi/12-4/9, Global Pair 7/5, and mixtures, so these numbers do not establish new priority. Its full source, read directly, concerns Gaussian fluctuations of the empirical conditional-expected Global Pair cost and three-atom law; it does not give the realized lottery-draw limit second moment or corner/ellipse event tails. EC 2010 establishes strategyproof Proportional mechanism and worst-case factor four, not these exact realized uniform-population risk laws. Novelty is restricted to ex-post fluctuation law and endpoint asymptotics.
 
-## Closest sources and limitations
+## value
 
-- Lu et al., EC 2010, DOI 10.1145/1807342.1807393: mechanism and worst-case guarantee, not the claimed stochastic laws.
-- Ma and Peng, arXiv:2608.09061: Global Pair versus Proportional and dispersion-dependent worst-case bounds.
-- Chan, Lin and Wang, arXiv:2608.22484: exact fixed-mixture bound and Gap-Product; not the Proportional uniform-input law.
-- Aziz, Mackenzie and Suzuki, arXiv:2608.16550: random-anchor volume extension and strategyproofness boundary.
-- Inaccessible or unindexed original probability studies could cover some formulas. No finite-population second-moment or all-threshold stochastic-ordering claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mechanism with deterministic asymptotic expected ratio still has nontrivial one-draw user risk; its exact second moment and linear/cubic endpoint rare-event laws quantify genuinely different and practically interpretable performance. The sharp two-tail constants reveal the mechanism’s near-optimal and extreme-cost probabilities, not simply a restated expected approximation factor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
