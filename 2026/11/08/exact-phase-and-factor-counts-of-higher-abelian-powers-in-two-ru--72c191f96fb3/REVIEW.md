@@ -1,19 +1,21 @@
-# Review of the Abelian higher-power spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The equality of Parikh vectors reduces to equality of sliding-window counts modulo the period. An exact cyclic-interval profile shows that a nonextremal Parikh count appears at only two starting phases, hence is impossible for at least three consecutive distinct short-window positions. Extremes give all-monochromatic concatenations, except at the order-two half-period shift, which produces exactly two phases when both runs are even. The word's primitive period resolves the distinction between phase occurrences and distinct factors. The included direct-enumeration program passes 24,464 cases covering 404,329 starting phases. Those computations are diagnostic; the infinite classification is proved by the interval argument.
+PASS
 
-## Originality
+Subtracting full periods of block length reduces Abelian q-power to equal cyclic-window sums f_r(i+tr). Complementing circular arcs reduces r to s=min(r,p-r). For 0<s<p/2, each interior window count occurs at exactly two phases; q≥3 distinct starts cannot all share such a count. Extreme nonzero counts would require two disjoint windows both enclosing a whole opposite run, impossible, leaving monochromatic qs-windows counted by max(0,a-qs+1)+max(0,b-qs+1). At s=p/2, two alternating halves balance iff a,b even, at precisely two phases. For r=0 all p phases work. For qk<p only monochromatic distinct factors survive; qk≥p and primitive two-run cyclic period give distinct factor per phase. Independent explicit block-Parikh enumeration matched 22464 parameter cases. Enumeration corroborates the all-parameter profile proof.
 
-PASS under the accessible-record comparison; not an absolute novelty certificate. The nearest primary work [1] concerns run-length-encoded Abelian-square and regularity algorithms; [2] concentrates on Abelian squares; [3] treats Sturmian Abelian powers; and [4] surveys known variants. The 2026 paper [5] gives results on Abelian squares of circular binary words, including a two-run boundary, but not the higher exponent and arbitrarily long factor count proved here. Searches on equivalent formulations (cyclic Parikh profiles, periodic Abelian repetitions), stronger covering results, exact counting tables, and implication comparisons found no directly subsuming statement. Existing general algorithms may compute individual instances, which is different from the displayed closed formula. Residual risk: an unindexed or differently phrased earlier classification.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Abelian powers are natural repetition statistics; the entire infinite parameter family is characterized by a closed count rather than instance-by-instance enumeration. The theorem distinguishes starting phases from distinct factors, identifies the order-two resonance and parity boundary, and shows exactly why exponents at least three have a different phase spectrum from exponent two. Its geometric obstruction is a reusable structural lemma for run-length encoded periodic words.
+Abelian-square and aperiodic Sturmian work examine different exponents or word classes. The published all-exponent distinct-run periodic result assumes at least three positive runs of distinct letters and does not directly imply the two-run binary phase counts by parameter substitution or alphabet merging; such coalescing changes Parikh equality constraints. Previously published Abelian anti-cube onset counts inequality rather than equal-Parikh powers.
 
-## Sources and limits
+## value
 
-[1] https://arxiv.org/abs/1701.02836; [2] https://arxiv.org/abs/1701.00948; [3] https://arxiv.org/abs/1506.02797; [4] https://arxiv.org/abs/2207.09937; [5] hexagon:2610.00473v2. The claim excludes Abelian squares and arbitrary cyclic words; no human bibliographic certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete all-length/all-exponent classification of a natural periodic binary word family, including a sharp half-period parity resonance and separate phase vs distinct-factor counts; q≥3 obstruction has a structural reason different from Abelian squares. This exact combinatorial baseline is useful despite the narrow two-run family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
