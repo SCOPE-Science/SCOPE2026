@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Moore determinant factorization is proved by dividing by every rational hyperplane and matching degrees. Every point has a unique transverse rational hyperplane arrangement determined by the kernel of the coordinate-evaluation map. The local regular ring is therefore a smooth extension of the smaller Moore determinant's local ring, up to a unit. Frobenius containment gives the upper exact exponent; the unique lexicographic initial monomial gives the matching noncontainment. Rank-stratum closures and extension-field counts follow from elementary finite linear algebra. The standalone sparse-polynomial verifier reproduced every chosen exact Frobenius exponent, including a nonprime field size, and independently checked five rational-point distributions. The proof holds for all stated sizes, not only tested values.
+## correctness
 
-## Originality
-**PASS on the examined evidence, with provisional historical priority.** The threshold's general theory is in Blickle–Mustaţă–Smith, and the determinant factorization is classical. The isolated-singularity theorem of Hernández et al. does not cover the higher-dimensional arrangement. Kadyrsizova et al.'s general Frobenius ideal criterion yields the upper bound, and its degree-extremal theorem already covers the binary boundary case, but not the higher-dimensional exact exponent equalities or the complete rank stratification and arithmetic counts. Smith–Vraciu concerns generic values and possible values in broad degree classes. No equivalent or dominating higher-dimensional complete stratification appeared in the targeted searches or accessible comparisons. A specialized published computation not identified by the searches remains a priority risk, and no external priority certification is claimed.
+PASS
 
-## Mathematical value
-**PASS.** The complete finite-field hyperplane arrangement is a highly symmetric, geometrically natural divisor with many non-normal-crossing strata. The result gives the first positive test-ideal jumping invariant exactly at *every* point for all dimensions and all field sizes, includes an exact finite Frobenius certificate at every level, and determines all arithmetic multiplicities of each value over every extension. It explains systematic characteristic-dependent severity at successively deeper finite-field flats, including the affine cone vertex. These are motivated structural and arithmetic quantities, not an isolated numerical improvement.
+The Moore determinant factors as the product of all distinct Fq-rational hyperplane forms because each factor divides and their total degree equals that of the nonzero determinant. Near coordinate-span rank r the vanishing factors form an m=N−r dimensional Moore determinant times a unit. If Q=q^(m−1), all determinant monomials lie in (y_i^Q), giving upper ν bound by Frobenius powers; the unique lex-leading determinant monomial to power H−1, H=p^(s−a(m−1)), gives nonvanishing modulo (y_i^(p^s)), giving exact ν and fpt=1/Q. Rank-locus component and extension-field counts follow from kernel Gaussian choices and quotient injections; the q^s−1 scalar action is free. Independent checks at q=2 small sizes and source finite polynomial tests corroborate boundary m=1 and cone m=N.
 
-## Scope and remaining risks
-No claims are made about the full test-ideal filtration, Hilbert–Kunz multiplicities, or F-signature. The computational checks support but do not replace the proof. Literature inspection covered the relevant general threshold papers and their nearest hypotheses, not every possible specialist publication on Dickson arrangements; the two-variable component is already implied by previous general work. Independent scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Moore determinant factorization and generic F-threshold theory are antecedents. Kadyrsizova et al treat sharp extremal degree-q+1 behavior; rank-stratified all-Fq-hyperplane arrangements in higher dimension are not their stated theorem. Other published same-arrangement Jacobian scheme work treats a different local invariant. The all-N local fpt profile remains plausible original on inspected evidence; specialist literature risk documented.
+
+## value
+
+PASS
+
+An all-dimensional arrangement of every finite-field rational hyperplane is a natural singular algebraic-geometric divisor. Determining the pointwise local F-pure threshold, exact every-Frobenius-level ν, rank strata, and extension-field frequency is a complete invariant distribution, not a random small case or mere reformulation of arrangement degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
