@@ -1,11 +1,21 @@
-# Self-review: Moser-spindle exact recolouring metrics
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and recolouring rule are explicitly defined, including palette use and ordered vertex labelling. Exhaustive state generation is justified either by valid-prefix recursion or direct examination of every seven-coordinate palette word. Each legal move is exactly one proper coordinate substitution. Every vertex is a breadth-first-search source, proving exact finite all-pairs distances rather than a sampled estimate. Two independently constructed graph representations and source programs were executed successfully, agreeing on every pair-distance and eccentricity count. The provided code is the finite certificate; mere output logs are not treated as proof. The scope is \(k=4,5\) and the single Moser spindle.
+## correctness
 
-**Originality — PASS (qualified).** Cereceda, van den Heuvel and Johnson, *Connectedness of the Graph of Vertex-Colourings*, 2005 preprint, Property 7 (and 2008 journal version), already prove that the Hajós graph \(H_4\), hence the Moser spindle, is connected for every palette at or above four colours. The bare connectivity assertion is prior art. The inspected original mathematical statements do not give the all-pairs metric spectra, the constant eccentricities, the exact sharp radii/diameters or their palette comparison; none follows merely from existence of recolouring paths. Searches of Moser spindle, Hajós graph, four/five-colour recolouring and exact diameters found no equivalent record. Residual risk: unpublished or differently indexed complete small-graph distance tables could cover the new metric assertions. The 1961 original concerns the graph's chromatic obstruction, not its reconfiguration metrics.
+PASS
 
-**Value — PASS.** Exact *shortest* reconfiguration paths at the chromatic palette boundary answer a natural, mathematically motivated question not addressed by mixing alone. This is the canonical seven-vertex four-chromatic unit-distance graph and the minimal Hajós example used in connectivity theory. The full spectra exhibit a substantive nontrivial finite phenomenon: two connected *nonregular* recolouring graphs are nevertheless self-centered, and one extra colour lowers every source's maximum distance from \(13\) to \(10\). Both are useful finite benchmarks for sharp recolouring-route algorithms and for distinguishing connectivity from metric performance. The result claims no general theorem or mixing time.
+Graph is explicitly the 7-vertex 11-edge H4 Hajós/Moser spindle. Proper named k-colorings form vertices and legal one-vertex changes form edges. Exhaustive enumeration of ALL k^7 functions and ALL legal moves followed by BFS from EACH proper coloring is an exhaustive finite proof, not sample evidence. Independently implemented C++ BFS (not relying on submitted logs) obtained k=4:384 states,528 edges, all eccentricities13 and exact unordered distance histogram (528,960,1584,2496,4080,6624,9456,10896,11232,11472,10896,2832,480); k=5:5040 states,22560 edges, all eccentricities10 and histogram (22560,110400,382680,1019520,2102160,3196920,3290400,2005200,534600,33840). Correct palette labeling, unused colors, connectedness, degree histograms and N choose 2 sums checked. All graph states/pairs enumerated exactly.
 
-**Provenance/date limitation.** The 1961 first graph publication and July 2005 preprint provide only year or month precision in checked records; day-precise 2008 journal metadata is not evidence of those original day-of-release dates. The archived date field uses the earliest day-precise date resolved in the checked source metadata; this does not rewrite the earlier original source chronology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cereceda–van den Heuvel–Johnson 2005 Property 7 proves H4 is k-mixing for k>=4, so connectedness is prior. It does not determine the exact two graph diameters, self-centered eccentricity for every named coloring, or all pair-distance histograms. Resultary searches for the exact Moser spindle metric found this record and metric studies of different graphs (Petersen, Wagner, Grötzsch), not a previous same-object table. This is a natural finite exact refinement, not a claim of new connectivity or a general family theorem.
+
+## value
+
+PASS
+
+The Moser spindle is a canonical smallest-form unit-distance 4-chromatic obstruction; its critical-palette 4/5 color reconfiguration graphs are natural finite objects. Exact sharp worst-case recoloring distances and all-vertex self-centeredness provide explicit benchmarks and demonstrate an uncommon nonregular self-centered metric phenomenon; complete pair histogram is independently reproducible and not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
