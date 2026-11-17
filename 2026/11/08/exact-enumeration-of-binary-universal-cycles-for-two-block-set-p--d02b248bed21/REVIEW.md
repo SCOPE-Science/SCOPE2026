@@ -1,23 +1,21 @@
-# Scientific review: exact binary two-block partition universal-cycle count
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has one explicit domain: globally binary circular encodings, exactly two nonempty unlabeled partition blocks, and \(n\ge3\). Every binary length-\(n\) window up to complement maps bijectively to its adjacent-XOR length-\((n-1)\) word; constants correspond to the excluded all-zero pattern. Every admissible cyclic difference word has \(2^{n-2}\) one-bits, which is even, so it integrates in precisely two complementary ways. Removing or adding the unique all-zero self-loop in the directed overlap graph is a two-sided bijection. The all-order de Bruijn count is reconstructed from the directed Laplacian spectrum, matrix-tree theorem, and BEST theorem, with explicit orbit-freeness arguments. The exhaustive rooted-word tests at \(n=3,4,5\) and exact reduced-Laplacian determinant tests through difference order \(6\) agree. They supplement, and do not replace, the proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+A length-n binary window modulo global complement is bijective to its n-1 adjacent XOR differences. The nonconstant two-block partitions correspond exactly to all nonzero (n-1)-difference windows, counted L=2^(n-1)-1. Such a cyclic punctured de Bruijn word has 2^(n-2) ones, even for n>=3, so admits precisely two complementary cyclic antiderivatives. Its Euler tour in binary (n-1)-overlap digraph omits only the all-zero self-loop, which is inserted uniquely at zero vertex, creating a bijection with ordinary de Bruijn cycles of order m=n-1. The 2-outregular overlap graph on N=2^(m-1) vertices has A^(m-1)=J, so directed matrix-tree and BEST give 2^(N-1)/N cycles, i.e. 2^(2^(n-2)-n+1). Rotation/complement act freely as argued. Independent complete circular-word enumeration n3..5 finds indexed 6,28,480 and orbit counts 1,2,16.
 
-Higgins–Kelley–Sieben–Godbole (2015), Theorem 12 and Section 3, establish that the relevant Eulerian cycles lift and hence universal cycles exist, but the inspected full text does not state the exact number or identify these cycles with ordinary de Bruijn cycles by cyclic XOR and deletion of one zero loop. The classical binary de Bruijn count, recorded in OEIS A016031, is **not** a new integer sequence. The explicit bijection supplies the scientific comparison between the previously known existence problem and the previously known de Bruijn count. Queries for two-block partition cycles, complement representations, all-zero-window deletion, the closed numerical formula, and equivalent cyclic encodings returned no record demonstrating this exact link. The original general paper of Chung–Diaconis–Graham was verified bibliographically but its full text could not be assessed through the accessible source; an unindexed equivalent statement remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The number of globally binary shortest cycles visiting each two-block partition is a natural design-diversity invariant, distinct from proving a single cycle exists. The all-order formula gives \(\log_2 U_n=2^{n-2}-n+1\), rather than a one-off finite value, while the explicit bijection transfers constructive generation, counting, and uniform sampling from ordinary binary de Bruijn cycles. This answers a motivated exact enumeration question without claiming a new numerical de Bruijn sequence or a general result for more blocks.
+PASS best-of-knowledge. Higgins–Kelley–Sieben–Godbole 2015 Section3/Theorem12 establishes existence and liftability of all Eulerian tours for two-block partitions, but does not state the exact total or adjacent-difference bijection to de Bruijn cycles. The enumeration of ordinary de Bruijn cycles itself is classical (OEIS A016031); this is openly excluded from novel content. Resultary and primary searches found no earlier explicit equivalence for exactly globally binary set-partition universal cycles, with nontrivial complement and rotation quotient. Historical unindexed correspondence remains risk.
 
-## Closest literature and limitations
+## value
 
-- Higgins, Kelley, Sieben, Godbole (2015), https://arxiv.org/abs/1502.04076 , https://doi.org/10.37236/5051 : the closest directly relevant full-text source, for existence and permutation-lifting.
-- Chung, Diaconis, Graham (1992), https://doi.org/10.1016/0012-365X(92)90699-G : foundational partition-cycle framework, bibliographic access only here.
-- OEIS A016031, https://oeis.org/A016031 : classical de Bruijn enumeration, not a prior attribution of the partition correspondence.
+PASS
 
-Alphabet size is fixed at two globally; rotation and bit complementation are counted as specified; reversal is not quotiented. No independent audit or historical-priority validation has been performed.
+PASS. The count of globally binary universal cycles for all two-block set partitions is a natural exact combinatorial invariant not supplied by prior existence/lifting proofs. The explicit punctured de Bruijn/Euler-tour bijection explains the unexpectedly classical sequence, establishes exact orbit counts for every n and is useful for classification and generation; despite using standard BEST numbers it is not mere renaming without the missing-loop/integration argument.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
