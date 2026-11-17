@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem assumes unrestricted signed homogeneous forms and allows repeated-index monomials. The two-degree basis has explicit value and first-derivative jets at the all-ones state, giving an exact \(-\lambda I\) full Jacobian for any prescribed baseline. For a one-degree support, the fully competitive negative-growth baseline produces an invariant scalar ray through every possible interior equilibrium, with strictly positive derivative at its root. Convexity proves the global radial sign on either side, and leading-order growth implies finite-time escape above it. These are analytic, arbitrary-dimensional implications; 56 exact symbolic tests check low-dimensional identities but do not substitute for proof.
+PASS
 
-## Originality — PASS, with residual risk
+For any two permitted per-capita homogeneous degrees p<q, t=average(x) and phi_0=(q t^p−p t^q)/(q−p) has value 1 and zero gradient at x=1; phi_j=(x_j−t)t^(p−1)+(t^q−t^p)/(q−p) has value 0 and gradient e_j. Each uses exactly allowed degree p and q. Choosing H_i=−b_i phi_0+sum_j(−λδ_ij−S_ij)phi_j cancels arbitrary prescribed r,S at x=1 and gives full Jacobian −λI. Conversely for r_i=S_ij=−1 and a single homogeneous degree m≥2, any hypothetical positive equilibrium x* has H_i(x*)=1+T where T=sum x*_j. Along invariant positive ray c x*, c′=c[−1−Tc+(1+T)c^m]. This has derivative at 1 equal to m+(m−1)T>0, hence instability, and upper trajectories escape in finite time due dominant c^(m+1). Empty support has no equilibrium. Algebraic jet and radial identities independently checked by symbolic exact arithmetic for representative n,p,q; proof covers all n,m analytically.
 
-The exact literature comparison recognizes the special \((2,3)\) construction in Çelik et al., Theorem 4.2, as already proved. It also recognizes the existing one-degree quadratic-per-capita fixed-equilibrium Jacobian characterization. The present single statement is a sharp universal **if-and-only-if classification over every finite allowed-degree support**: an arbitrary pair of distinct degrees suffices, whereas any homogeneous singleton is defeated even by a strictly competitive baseline. Neither prior statement implies this classification for every sparse support, and the inspected Cui and Gibbs papers investigate distinct restricted model questions. Euler homogeneity and first-jet interpolation are established methods. An unindexed equivalent classification cannot be excluded; no independent novelty certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's universal stabilization result raises a model-design question: does coexistence rescue fundamentally require the specific three- and four-body arities, a sufficiently large single arity, or merely diversity of interaction orders? The theorem answers this with an exact minimal-support law, a family of explicit constructions with an arbitrarily prescribed relaxation margin, and an unambiguous impossibility witness under fully competitive pairwise interactions. This is a structural arity-selection boundary, rather than a nominal substitution or a small numerical gain. The ecological interpretation explicitly remains conditioned on unrestricted signed higher-order coefficients and local stability.
+PASS, qualified: Çelik–Isoldi–Portakal–Zucal (2026) Theorem 4.2 proves universal positive stable completion for the specific consecutive degrees (2,3), not for every sparse pair p<q nor necessity excluding every singleton degree. The October 27 fixed-target quadratic-per-capita criterion proves when one specifically allowed degree 2 can stabilize a prescribed positive equilibrium, not the universal any-degree support-set dichotomy. The current radial obstruction and arbitrary jet interpolation supply a genuine iff classification. Full priority is best-of-knowledge, restricted to free signed, repeated-index higher-order terms.
 
-## Limits and comparison risks
+## value
 
-The theorem does not cover sign-restricted or no-repeated-index higher-order interactions, global permanence, or arbitrary target states. The source's pair \((2,3)\) and the existing one-degree quadratic case are covered prior instances, not new findings. The consulted primary materials and theorem index may miss equivalent work outside accessible indexing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the sharp minimal diversity of interaction orders is a natural universal design-capability question. The result gives constructive arbitrary local Jacobian placement for every prescribed baseline whenever ≥2 orders are available, and an analytic invariant-ray obstruction for every single order. This is a meaningful necessary-versus-sufficient boundary, not the already known (2,3) example; it also identifies the sharp scope of constrained ecology interpretations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
