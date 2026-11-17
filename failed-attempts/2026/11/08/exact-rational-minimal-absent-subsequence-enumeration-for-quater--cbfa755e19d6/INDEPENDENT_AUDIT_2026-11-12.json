@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:15:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and certificate.json and verify.py at frozen source Git tree",
+        "private independent dynamic-programming audit, k=1..14"
+      ],
+      "rationale": "For W_k=(0123)^k, greedy embedding requires 1+D(v) permutation blocks; deleting any letter reduces weak-descent count by at most one. Thus D(v)=k, decreasing first/last adjacent pairs and all interior local decrement Delta(a,b,c)=1 are necessary/sufficient for a minimal absent scattered subsequence. The 16 pair-state transfer has F=z e^T(I-T)^{-1}e; inspected certificate.json defines H,Q,P and the polynomial verifier checks (I-T)H=Qe and z e^TH=P with Q(0)=1. Independent dynamic-programming recurrence confirmed 14 successive k coefficients through k=14. Universal identity relies on the exact finite-degree polynomial certificate and combinatorial proof, not this finite prefix.",
+      "residual_risks": [
+        "Individual certificate polynomial identities were inspected as exact claims but full independent execution of that verifier was not used as a separate proof; finite recurrence checks alone do not prove all k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary theorem quantifies over every q>=3 and produces complete bivariate length spectrum, strictly dominating total quaternary enumerator.",
+          "Kosche et al. Section 3 gives prior combinatorial bounds and shortest-word results but not full general q^2 rational transfer."
+        ],
+        "reasoning": "The broader published q-general result determines the exact target statistic, so the narrower rational evaluation is covered.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d",
+          "https://arxiv.org/html/2108.13968v6"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d",
+        "https://arxiv.org/html/2108.13968v6",
+        "https://arxiv.org/html/2407.18599v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General q bivariate transfer specializes to target quaternary total. Adamson counts all absent words by fixed length rather than MAS."
+        ],
+        "reasoning": "The prior implication is exact for every k; unrelated all-absent counts are not used to reject.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d",
+          "https://arxiv.org/html/2407.18599v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary November 2: D(u)=m, weak-descent endpoint and Delta=1 condition for every q>=3; identical q^2-state transfer F_q(t,z)=v(I-M)^(-1)w."
+        ],
+        "reasoning": "Taking q=4 and z_length=1 gives the original 16-state quaternary total count. The target is exactly a specialization; no word-by-word matching numerator is required.",
+        "searches": [
+          "Resultary: minimal absent scattered subsequences exact rational generating function quaternary repeated permutation (0123)^k all minimal absent count",
+          "Resultary: quaternary permutation repeated (0123)^k minimal absent enumeration exact rational transfer matrix general q",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior q^2-state rational representation permits exact numerical coefficient extraction for any fixed q; the present explicit P/Q merely reduces this special q=4 matrix."
+        ],
+        "reasoning": "No independent external coefficient table was needed for this failure: an exact covering database-equivalent transfer formula exists and dictates all values.",
+        "searches": [
+          "Resultary: minimal absent scattered subsequences exact rational generating function quaternary repeated permutation (0123)^k all minimal absent count",
+          "Resultary: quaternary permutation repeated (0123)^k minimal absent enumeration exact rational transfer matrix general q",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d"
+        ]
+      },
+      "rationale": "A published November 2 general-q statement already gives exactly the identical weak-descent criterion and q²-state bivariate transfer formula for every q>=3. Specialize q=4 and set the length variable to 1 to obtain this exact quaternary all-minimal enumeration; the displayed order-10 numerator/denominator are an exact algebraic evaluation of that already covering formula. Numerical coefficients need not match prior typography for their consequences to be covered.",
+      "residual_risks": [
+        "The explicit simplified order-ten fraction is not printed in the prior general-q work, but is an evaluation of its closed transfer expression, not an independent mathematical claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: all-q formula directly entails target q=4 result",
+          "evidence": [
+            "For every q>=3, transfer F_q(t,z)=v(I-M)^(-1)w and identical weak-descent local characterization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d",
+          "material_read": "Full RESULT.md Finding, assumptions, greedy-deletion proof, general q-state transfer, exact ternary evaluation and limitations",
+          "method": "Fetched the entire Resultary Git file and compared quantifiers/matrices",
+          "title": "Exact ternary minimal-absent-subsequence spectrum of repeated permutation words",
+          "trigger": "Resultary semantic match, same host family and all-q statement"
+        },
+        {
+          "assessment": "Earlier foundational comparison does not itself supply the exact q4 P/Q; main decisive coverage is later Resultary all-q work",
+          "evidence": [
+            "Section 3: shortest and lower-bound treatment for repeated increasing permutation blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+          "material_read": "Relevant full HTML Section 3, Proposition 3.8 and neighbouring shortest/absence constructions",
+          "method": "Read cited primary sections and contrasted exact MAS counts with lower bounds",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Original minimal absent scattered subsequence and repeated increasing permutation host"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d"
+      ],
+      "rationale": "The host alphabet and all-minimal antichain are natural, but the proposed contribution is a fixed-q rational simplification of a previously published all-q exact transfer enumeration. No separate structural invariant, exceptional behavior, nontrivial new bound or motivated independent mathematical gap survives the known general theorem.",
+      "residual_risks": [
+        "The coefficients may be useful as a computational lookup but that alone does not satisfy mathematical originality or standalone value given complete general covering formula."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Reject the submitted fixed-quaternary enumeration as covered; no repaired independent surviving claim. Finite checks and symbolic-cert claims do not generate novelty."
+  ],
+  "schema_version": 1
+}
