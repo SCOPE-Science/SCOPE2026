@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:48:01.220383Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The greedy two-pattern subsequence-progress DFA product for P=0^a1^b,Q=1^b0^a has four exact disjoint reachable regions D0-D3; the simultaneous split (a,b) is unreachable. Counting gives R=n(n+3)/2+ab. Threshold suffix probes recover both progress coordinates for intersection, showing all R reachable states distinguishable; for union exactly n+1 absorbing accepted states merge and no others, giving R-n=n(n+1)/2+ab. Independent full BFS and partition refinement for all 81 pairs a,b=1..9 confirmed both formulas. Universal result rests on reachability witnesses and threshold proofs, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brzozowski-Jiraskova-Li Theorem 14 gives generic bounds intersection <=(n+1)^2 and union <=(n+1)^2-2n, for component complexity n+1.",
+          "Submitted exact counts R=n(n+3)/2+ab and R-n depend on a,b and are strictly sharper; no equality follows from the generic maxima."
+        ],
+        "reasoning": "A universal upper bound is not a complete lower+upper classification of this fixed instance; the actual reachability and distinguishability proof supplies it.",
+        "searches": [
+          "exact DFA state complexity opposite two block subsequence ideals union intersection 0^a1^b 1^b0^a",
+          "subsequence ideals 0^a1^b 1^b0^a union intersection exact quotient state complexity",
+          "https://arxiv.org/pdf/0908.2083",
+          "Héam 2002 Section 5.2",
+          "https://arxiv.org/pdf/2604.25619"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0908.2083",
+        "https://arxiv.org/pdf/2604.25619",
+        "https://www.numdam.org/article/ITA_2002__36_4_359_0.pdf",
+        "Resultary opposite-run binary shuffles entry 2026/10/26"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic quotient bounds and ideal-decomposition criteria neither force product reachability count n(n+3)/2+ab nor exact n-state union collapse.",
+          "The submitted threshold probes explicitly distinguish every nonabsorbing state, which is absent from cited generic bounds."
+        ],
+        "reasoning": "This fixed-parameter result is nontrivial even given the general method. Specialization of an existing stronger theorem was searched but not located.",
+        "searches": [
+          "https://arxiv.org/pdf/0908.2083",
+          "https://arxiv.org/pdf/2604.25619",
+          "https://www.numdam.org/article/ITA_2002__36_4_359_0.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both patterns 0^a1^b and 1^b0^a generate scattered-subsequence upward closures, not their word shuffles.",
+          "Berry et al. Decomposition of Automata Recognizing Ideals studies prime/decomposition, while Brzozowski et al. studies quotient complexity of arbitrary ideals."
+        ],
+        "reasoning": "Related object classes are broader but the Boolean operation and exact 2-parameter quotient geometry differ; shuffle ideals and shuffle products are not equivalent.",
+        "searches": [
+          "exact DFA state complexity opposite two block subsequence ideals union intersection 0^a1^b 1^b0^a",
+          "subsequence ideals 0^a1^b 1^b0^a union intersection exact quotient state complexity",
+          "https://arxiv.org/pdf/0908.2083",
+          "https://arxiv.org/pdf/2604.25619"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned submitted record and unrelated two-phase shuffle concatenation formula, no exact table for opposite-run scattered-subsequence unions/intersections.",
+          "The primary general-bounds paper contains worst-case construction families, not the exact all-a,b table."
+        ],
+        "reasoning": "No identical exact database identified; negative search evidence is a residual risk, not positive novelty proof.",
+        "searches": [
+          "exact DFA state complexity opposite two block subsequence ideals union intersection 0^a1^b 1^b0^a",
+          "subsequence ideals 0^a1^b 1^b0^a union intersection exact quotient state complexity",
+          "Resultary opposite-run binary shuffles 2026/10/26",
+          "https://arxiv.org/pdf/2604.25619"
+        ]
+      },
+      "rationale": "PASS qualified: published general state-complexity bounds for all-sided ideals and decomposition theorems for shuffle ideals address arbitrary inputs and worst cases but do not directly give the sharp two-parameter opposite-run counts or a fixed gap n. Resultary semantically similar opposite-run shuffle results concern shuffles (fixed-composition concatenations), not the union/intersection of upward scattered-subsequence ideals. No equivalent published exact formula located; an unindexed quotient classification remains a risk.",
+      "residual_risks": [
+        "A less-indexed theorem about intersections of shuffle ideals could imply the exact fixed instance after a non-obvious reduction; not found.",
+        "Proof uses complete DFA counting its accepting sink and the fixed binary alphabet; different conventions change constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED NOT COVERING: worst-case bounds, not exact opposite-run quotient formula",
+          "evidence": "Theorem 14 Section 7.1; intersection mn and union mn-(m+n-2) bounds",
+          "identifier_or_url": "https://arxiv.org/pdf/0908.2083",
+          "material_read": "Full text and Theorem 14 Section 7.1 on Boolean-operation state bounds",
+          "method": "Web primary PDF text and screenshots of relevant theorem pages",
+          "title": "Quotient Complexity of Ideal Languages",
+          "trigger": "Same operation union/intersection of all-sided ideals"
+        },
+        {
+          "assessment": "RELATED NOT COVERING: decomposition/prime ideals, not identical state-complexity equalities",
+          "evidence": "Theorem 21 on union-primality; no exact opposite-run Boolean state count",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.25619",
+          "material_read": "Full accessible PDF; introduction, definitions, decomposition and Sections 5 arguments / Theorem 21",
+          "method": "Web PDF text and screenshots of first and Section 5 pages",
+          "title": "Decomposition of Automata Recognizing Ideals",
+          "trigger": "2026 primary arXiv title directly concerns automata and ideals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact deterministic state complexity for Boolean combinations of two natural subsequence-upward ideals provides nontrivial quadratic closed classifications and a structural description of the precise accepting-sink reduction; useful in automata quotient complexity and succinctness questions, not a textbook unparameterized bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only principal upward scattered-subsequence ideals for P=0^a1^b and Q=1^b0^a with a,b>=1.",
+    "No characterization of arbitrary pattern antichains, partial DFA, or NFA size."
+  ],
+  "schema_version": 1
+}
