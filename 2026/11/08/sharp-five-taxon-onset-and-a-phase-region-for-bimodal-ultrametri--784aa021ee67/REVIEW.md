@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A general obstruction follows from the deterministic one-leaf diversity on ultrametric trees and the impossibility of adjacent strict maxima. The exact five-leaf existence and whole phase criterion follow by enumerating each uniform fixed-cardinality subset and collecting the three-depth covariance polynomials. The independent pure-Python checker confirms the six symbolic polynomial coefficients, the exact witness variances, both positive gaps, and 44 further rational triples. The claim does not extrapolate a finite census to all large trees.
+## correctness
 
-**Originality — PASS, provisionally.** Full primary text of Nipperess and Matsen (2013) gives the general rarefied-PD covariance formula, and Chao et al. (2014) develops a different rarefaction/extrapolation and uncertainty estimation framework. Neither inspected paper states a smallest ultrametric leaf count with two strict conditional-variance peaks nor a full quadratic phase criterion for the five-tip \(((1,2),(3,(4,5)))\) shape. The Nipperess (2016) treatment explicitly refers to the earlier covariance formula for variance rather than deriving the double-peak structure. Searches of related indexed records and accessible existing claims disclosed no equivalent. **Risk:** this is an explicit structural consequence of a known general computational formula and historical priority beyond inspected texts is not independently certified; a previously published specialized analysis could cover it.
+PASS
 
-**Value — PASS.** Rarefaction is used to standardize biodiversity measurements by sampling depth. This natural exact boundary demonstrates that, even on a time-calibrated evolutionary tree, sample-size precision need not have a single hump: variance can fall after two leaves and rise again by four, despite monotone expected retained diversity. The open semialgebraic phase criterion makes the phenomenon stable rather than an isolated numerical example, while the exact five-tip threshold identifies the smallest meaningful setting. It makes no claim about typical empirical frequency or downstream predictive performance.
+PASS: For rooted ultrametric height H, V0=V1=Vn=0 and all variances nonnegative; two nonadjacent strict internal peaks require n>=5. On the fully specified five-tip topology, exact PD(S) as a sum of six clade-intersection indicators yields displayed quadratic forms V2,V3,V4. Their two differences are exactly the stated homogeneous quadratic inequalities for strict peaks at k=2,4. A fresh exact-Fraction independent subset enumeration at (alpha,beta,gamma)=(14/15,1/3,2/5) obtained variances (0,0,32/375,317/4500,28/375,0) and two strict peaks. Source check.py uses all combinations and symbolic coefficient vectors, so the phase law is a finite polynomial identity over continuous depths, not extrapolation from sample triples. Strictly positive edge lengths and no root stem were verified.
 
-**Closest literature and limitations.** Nipperess–Matsen (arXiv:1208.6552v1, 2012; 2013 publication) is the closest general formula. Chao et al. (2014), DOI:10.1111/2041-210X.12247, treats related ecological rarefaction but not this conditional variance-mode problem. Nipperess (2016), DOI:10.1007/978-3-319-22461-9_10, emphasizes expected PD. The phase region is only classified for the specified five-tip topology; other shapes and asymptotic maximum peak counts are open in this package.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Nipperess/Matsen 2013 supplies the full general rarefaction edge-indicator covariance formula, and is credited as the starting framework. Their inspected full original methods/examples do not identify this sharp five-taxon double-peak onset or the open quadratic phase region. Other published two-peak phylogenetic results use independent extinctions/survivals, not fixed-k without-replacement sampling, and thus do not imply this conditional variance sequence. The phase region is a substantive exact classification on a natural smallest tree shape, although derived with known covariance methodology.
+
+## value
+
+PASS
+
+PASS: The first possible non-unimodal uncertainty profile in uniform phylogenetic rarefaction is a motivated natural threshold; the exact perturbation-stable double-peak region on a five-tip positive ultrametric tree is useful for understanding variance-shape interpretation, even though the calculation is finite and the general variance formula is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
