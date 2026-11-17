@@ -1,15 +1,21 @@
-# Scientific review: sparsified repunit triples
+# Independent mathematical audit
 
-## Correctness — PASS
-The equalities \(R_{n+2}=a+u\) and \(R_{n+6}=a+mu\) are exact. With denominations \(1,m\), quotient–remainder minimization proves \(c(t)\), and the strict wrap inequality \(W(t+ha)>W(t)\) gives the entire Apéry set. The generator-order comparison leaves exactly the terminal positions \(a-1\) and, for \(n\geq5\), \(km-1\) as pseudo-Frobenius positions. A residue calculation and endpoint comparison yield the Frobenius formula; Selmer's Apéry sum yields the genus; the two maximal Apéry elements characterize nonsymmetry. These are all-integer arguments valid for every stated base/index. The finite Dijkstra checker compares independently computed Apéry values, Frobenius, genus, pseudo-Frobenius set, and symmetry on 18 separate instances. The proof, not the checker, handles infinite quantifiers.
+## correctness
 
-## Originality — PASS within investigated sources
-Liu, Xin, Ye and Yin (arXiv:2306.03459, first public 2023-06-06) supply a general coin-minimization framework and explicit conclusions for complete generator sequences; they do not state the present sparse triple's Apéry, maximal-element, type or closed invariant laws. Branco, Colaço and Ojeda (arXiv:2112.01106, 2021-12-02) solve the *fully generated* generalized repunit family, which contains missing intermediate generators and therefore is not equivalent. Moscariello (arXiv:1608.06137) offers generic finite minimization, not the present index-classified explicit formulas. Targeted published mathematical index searches for the precise sparse offsets, aliases, Frobenius and pseudo-Frobenius formulas returned no covering claim; indexed numerical-semigroup findings inspected concern unrelated generating sets. The broad general Apéry framework is acknowledged, not rebranded as novel.
+PASS
 
-## Mathematical value — PASS
-Removing intermediate recurrence generators fundamentally changes the Apéry set and changes the embedding dimension and type relative to fully generated repunit semigroups. The result completely classifies the Apéry set, Frobenius number, genus, pseudo-Frobenius set and symmetry for the natural sparse-offset family at every integer base and admissible index. The two-boundary Apéry structure and dependence on index modulo six are the motivating structural contributions, rather than a numerical parameter slice.
+PASS — The identities R_(n+2)=a+u and R_(n+6)=a+mu hold for a=R_n, u=b^n(b+1), m=1+b²+b⁴. Representing a residue increment t with 1- and m-coins has minimal coin count c(t)=floor(t/m)+(t mod m); its least semigroup cost is W(t)=ut+ac(t). Since u>m for b≥2,n≥3 and c(t+a)−c(t)>−(m−1), W(t+a)>W(t); all Apéry representatives are W(t), 0≤t<a, and distinct residues arise from gcd(a,u)=1. Semigroup-order comparisons leave terminal residues a−1 and, for n≥5, km−1 (where a=km+r), both maximal and incomparable; n=3 has only a−1. Using the exact r patterns n mod6=1:1,3:b²+b+1,5:b³+b, the larger terminal gives F at a−2 when n≡1 mod6 and otherwise a−1; summing W gives the stated genus and type-one iff n=3. Independent exact-integer Dijkstra residue shortest paths for (b,n)=(2,3),(2,5),(2,7),(3,3),(3,5),(4,3) reproduced complete Apéry sets, genus/F and pseudo-Frobenius sets, e.g. (2,5): F3159, genus1690, PF{2509,3159}; (2,7): F51048, genus25710, PF{49019,51048}. Finite checks are not universal proof.
 
-## Closest literature, scientific limitations and residual risks
-The closest source is the broad coin-model Lemma 2.4 of arXiv:2306.03459. The present proof explicitly evaluates its optimization in a skipped-offset semigroup and derives further invariants. A differently parameterized or unindexed specialized formula may exist. The computation covers finite cases and does not independently validate the infinite theorem. Even indices have common factors and are excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS WITH IMPORTANT PRIOR SUBRESULT COVERAGE — Liu–Xin–Ye–Yin arxiv:2306.03459v4 Collection GCNS Theorem 2.10 already IMPLIES the complete greedy Apéry set for these sparse triples, and Theorem 2.13 already IMPLIES its genus formula after specialization with coin set B=(1,m), GCNS parameter u0=1 and d=u−a>0 (condition u=b^n(b+1)≥m−1). These two ingredients are NOT original. Their Theorem 2.12 Frobenius formula requires s1≤u0+1 or s1<u0+1, violated because s1=m−1≥20 and u0=1; in fact n≡1 mod6 has maximum at a−2 rather than a−1. They do not provide the complete pseudo-Frobenius/type classification or the explicit index-mod6 Frobenius branch. The earlier 2026 positive-offset h-ary three-generator findings have d>0 and a lower bound; our corresponding h=b²+1 offset d=u−b²a<0, hence do not cover it. The assessed surviving original part is the all-odd-index PF/type/symmetry and sharp Frobenius branch, retaining the broader Apéry/genus tools as credited deductions, not standalone novelties.
+
+## value
+
+PASS
+
+PASS — Removing intermediate repunit generators creates a natural genuine three-generator numerical semigroup with nontrivial pseudo-Frobenius type and explicit mod-six Frobenius branch. Its complete PF/symmetry dichotomy for every odd index is a mathematically motivated exact invariant classification, not an arbitrary finite slice or mere routine normalization. Known universal Apéry/ genus machinery is acknowledged and not sufficient for the surviving PF/F statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

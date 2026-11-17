@@ -1,0 +1,210 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:10:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — The identities R_(n+2)=a+u and R_(n+6)=a+mu hold for a=R_n, u=b^n(b+1), m=1+b²+b⁴. Representing a residue increment t with 1- and m-coins has minimal coin count c(t)=floor(t/m)+(t mod m); its least semigroup cost is W(t)=ut+ac(t). Since u>m for b≥2,n≥3 and c(t+a)−c(t)>−(m−1), W(t+a)>W(t); all Apéry representatives are W(t), 0≤t<a, and distinct residues arise from gcd(a,u)=1. Semigroup-order comparisons leave terminal residues a−1 and, for n≥5, km−1 (where a=km+r), both maximal and incomparable; n=3 has only a−1. Using the exact r patterns n mod6=1:1,3:b²+b+1,5:b³+b, the larger terminal gives F at a−2 when n≡1 mod6 and otherwise a−1; summing W gives the stated genus and type-one iff n=3. Independent exact-integer Dijkstra residue shortest paths for (b,n)=(2,3),(2,5),(2,7),(3,3),(3,5),(4,3) reproduced complete Apéry sets, genus/F and pseudo-Frobenius sets, e.g. (2,5): F3159, genus1690, PF{2509,3159}; (2,7): F51048, genus25710, PF{49019,51048}. Finite checks are not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.10 of arxiv:2306.03459 implies Apéry W(t) and Theorem 2.13 implies genus; both are broader coverage and MUST be credited.",
+          "Theorem 2.12 requires s1≤u0+1 (or strict inequality) to make a−1 the Frobenius terminal index; our s1=m−1≥20, u0=1, so its needed hypothesis is false.",
+          "Earlier h-ary positive-offset theorem S=<a,ha+d,h²a+(h²−h+1)d> requires d≥1; matching ours with h=b²+1 yields d=u−b²a<0, so cannot specialize."
+        ],
+        "reasoning": "General 2023 framework dominates Apéry/genus, but neither its F condition nor later published positive-offset theorems entails the all-parameter PF/type and n-mod6 Frobenius phase. This is a surviving structural classification, not a claim that the full old package is new.",
+        "searches": [
+          "Liu et al. full primary PDF Theorems 2.10,2.12,2.13",
+          "Resultary full 2026/10/25/SCOPE-exact-frobenius-data-for-a-nonmonotone-three-generator-family--37d6f575782b",
+          "Resultary full 2026/10/18/SCOPE-sharp-greedy-ap-ry-threshold-and-symmetry-dichotomy-in-a-three-g--b26d610b5824"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md, checker.py and verified blob SHAs",
+        "Liu, Xin, Ye, Yin, arxiv:2306.03459v4 full 23-page PDF: GCNS Thms 2.10,2.12,2.13",
+        "Branco, Colaço, Ojeda, The Frobenius Problem for Generalized Repunit Numerical Semigroups (2023 open publisher full text)",
+        "Resultary published Oct 18 and Oct 25 complete three-generator mathematical proofs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 GCNS Apéry/genus implication is positive and decisive for those subclaims: set u0=1,d=u−a,B=(1,m).",
+          "The 2023 F theorem requires m−1≤2, false for all b≥2; their generic F maximum remains a nontrivial new two-terminal comparison.",
+          "The 2026 positive-offset families require d>0 but the matching offset is strictly negative; the fully generated repunit family has more generators and no implication for omitted-generator PF sets."
+        ],
+        "reasoning": "Explicitly separate prior-covered Apéry and genus from surviving F and entire PF/type law. PASS best-of-knowledge for the final combined classification, not unqualified novelty for every displayed component.",
+        "searches": [
+          "Liu et al arxiv:2306.03459 v4 Theorems 2.10–2.13 full text",
+          "Resultary h-ary three-generator full RESULTS Oct 18 and 25",
+          "Branco et al arxiv:2112.01106 full primary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Our generators are <a,a+u,a+mu> with u=b^n(b+1),m=b⁴+b²+1.",
+          "GCNS with coin B=(1,m), u0=1,d=u−a>0 reproduces A=(a,2a+d,(m+1)a+md), exactly the submitted triple."
+        ],
+        "reasoning": "The GCNS equivalence is genuine, not merely a matching title; therefore general Apéry and genus conclusions in 2023 are prior-covered. Frobenius and PF remain to compare against their theorem hypotheses and later positive-offset results.",
+        "searches": [
+          "arxiv:2306.03459v4 Collection GCNS Theorems 2.10–2.13",
+          "Resultary: repunit numerical semigroup three generators sparse Apéry genus pseudo Frobenius",
+          "Resultary published 2026/10/25 nonmonotone three-generator family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published complete-generator repunit tables include all intermediate generators, yielding a strictly larger numerical semigroup with potentially different gaps and PF.",
+          "Dijkstra independent cases b=2 n5,7 distinguish type-two PF patterns; b=2 n3 is symmetric."
+        ],
+        "reasoning": "No inspected exact table of sparse triples records the odd-index mod-six PF/F phase; generic computability from an algorithm does not itself state uniform closed formulas.",
+        "searches": [
+          "Resultary: sparse repunit triples R_n R_n+2 R_n+6 pseudo Frobenius",
+          "Liu et al 2023 full primary theorem statements",
+          "Branco–Colaço–Ojeda generalized repunit semigroups"
+        ]
+      },
+      "rationale": "PASS WITH IMPORTANT PRIOR SUBRESULT COVERAGE — Liu–Xin–Ye–Yin arxiv:2306.03459v4 Collection GCNS Theorem 2.10 already IMPLIES the complete greedy Apéry set for these sparse triples, and Theorem 2.13 already IMPLIES its genus formula after specialization with coin set B=(1,m), GCNS parameter u0=1 and d=u−a>0 (condition u=b^n(b+1)≥m−1). These two ingredients are NOT original. Their Theorem 2.12 Frobenius formula requires s1≤u0+1 or s1<u0+1, violated because s1=m−1≥20 and u0=1; in fact n≡1 mod6 has maximum at a−2 rather than a−1. They do not provide the complete pseudo-Frobenius/type classification or the explicit index-mod6 Frobenius branch. The earlier 2026 positive-offset h-ary three-generator findings have d>0 and a lower bound; our corresponding h=b²+1 offset d=u−b²a<0, hence do not cover it. The assessed surviving original part is the all-odd-index PF/type/symmetry and sharp Frobenius branch, retaining the broader Apéry/genus tools as credited deductions, not standalone novelties.",
+      "residual_risks": [
+        "The full greedy Apéry set and genus are prior-covered by Liu et al. GCNS Theorems 2.10, 2.13. Do not treat them as independent original contributions or certify novelty of the whole raw formula list.",
+        "An older three-generator generic formula may imply the specialized PF/type/branch with additional nontrivial but standard analysis; no worldwide priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PASS correctness; only F and PF/type branches assessed as novel beyond 2023 general Apéry/genus machinery",
+          "evidence": [
+            "RESULT.md 1f1f6b3ed198e6277214052c8e14b7368d5a022f",
+            "Independent integer cases (2,3),(2,5),(2,7),(3,3),(3,5),(4,3) passed"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-ap-ry-and-pseudo-frobenius-laws-for-sparsified-repunit-tri--dd5454e0b3af",
+          "material_read": "Complete RESULT.md, checker.py, checker_output.txt provenance via tree, metadata, review, verification and slogan",
+          "method": "Frozen Git tree plus independent Dijkstra and PF calculations",
+          "title": "Exact Apéry and pseudo-Frobenius laws for sparsified repunit triples",
+          "trigger": "Assigned sparse triple theorem with exact checker"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE; Apéry and genus implied; F theorem not applicable because s1=m−1>u0+1 and no PF type theorem for this triple in read text",
+          "evidence": [
+            "Collection GCNS B=(1,m),u0=1,d=u−a; Theorem2.10 Apéry, Theorem2.13 genus, Theorem2.12 F hypothesis fails"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03459",
+          "material_read": "Full 23-page primary PDF, Collections CNS/GCNS, Lemma 2.4 and Theorems 2.10–2.13 and hypotheses inspected",
+          "method": "PDF full text and rendered first page, parameter substitution checked symbolically",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Closest general theorem potentially subsumes sparse triples"
+        },
+        {
+          "assessment": "NOT_COVERING; requires positive d and a bound; matching d=u−b²a<0",
+          "evidence": [
+            "Published theorem requires h≥3,d≥1,a≥(h−1)(h²−h+1)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-frobenius-data-for-a-nonmonotone-three-generator-family--37d6f575782b/RESULT.md",
+          "material_read": "Complete mathematical RESULT.md including all quantified offset restrictions and proof",
+          "method": "GitHub Resultary published primary full text",
+          "title": "Exact Frobenius data for a nonmonotone three-generator family",
+          "trigger": "Plausible h=b²+1 change of variables"
+        },
+        {
+          "assessment": "NOT_COVERING; second generator ha+1 with fixed positive offset versus submitted negative matched d",
+          "evidence": [
+            "h≥4, A=ha+1, B=h²a+h²−h+1, different family"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-greedy-ap-ry-threshold-and-symmetry-dichotomy-in-a-three-g--b26d610b5824/RESULT.md",
+          "material_read": "Complete primary mathematical RESULT.md, normalization and parameter scope read",
+          "method": "GitHub published primary full text",
+          "title": "Sharp greedy Apéry threshold and symmetry dichotomy in a three-generator h-ary family",
+          "trigger": "Closely related one-offset three-generator family"
+        },
+        {
+          "assessment": "NOT_COVERING for sparse omitted-generator PF; generators include every intermediate term",
+          "evidence": [
+            "Branco–Colaço–Ojeda generator a_i for all i rather than {n,n+2,n+6}"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00009-022-02233-w",
+          "material_read": "Full open-access article web text, definitions of a_i and full-generator semigroups examined",
+          "method": "Publisher open HTML primary text",
+          "title": "The Frobenius Problem for Generalized Repunit Numerical Semigroups",
+          "trigger": "Complete-generator analogue, may dominate sparse problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Removing intermediate repunit generators creates a natural genuine three-generator numerical semigroup with nontrivial pseudo-Frobenius type and explicit mod-six Frobenius branch. Its complete PF/symmetry dichotomy for every odd index is a mathematically motivated exact invariant classification, not an arbitrary finite slice or mere routine normalization. Known universal Apéry/ genus machinery is acknowledged and not sufficient for the surviving PF/F statement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, checker.py and verified blob SHAs",
+    "Liu, Xin, Ye, Yin, arxiv:2306.03459v4 full 23-page PDF: GCNS Thms 2.10,2.12,2.13",
+    "Branco, Colaço, Ojeda, The Frobenius Problem for Generalized Repunit Numerical Semigroups (2023 open publisher full text)",
+    "Resultary published Oct 18 and Oct 25 complete three-generator mathematical proofs"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The class is b≥2 and odd n≥3; no claim for even n or other sparse generator offsets.",
+    "The mathematically new part is explicit F branch and PF/type symmetry, not the generally prior-covered Apéry/genus specialization."
+  ],
+  "residual_risks": [
+    "The full greedy Apéry set and genus are prior-covered by Liu et al. GCNS Theorems 2.10, 2.13. Do not treat them as independent original contributions or certify novelty of the whole raw formula list.",
+    "An older three-generator generic formula may imply the specialized PF/type/branch with additional nontrivial but standard analysis; no worldwide priority guarantee."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PASS correctness; only F and PF/type branches assessed as novel beyond 2023 general Apéry/genus machinery",
+      "evidence": [
+        "RESULT.md 1f1f6b3ed198e6277214052c8e14b7368d5a022f",
+        "Independent integer cases (2,3),(2,5),(2,7),(3,3),(3,5),(4,3) passed"
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-ap-ry-and-pseudo-frobenius-laws-for-sparsified-repunit-tri--dd5454e0b3af",
+      "material_read": "Complete RESULT.md, checker.py, checker_output.txt provenance via tree, metadata, review, verification and slogan",
+      "method": "Frozen Git tree plus independent Dijkstra and PF calculations",
+      "title": "Exact Apéry and pseudo-Frobenius laws for sparsified repunit triples",
+      "trigger": "Assigned sparse triple theorem with exact checker"
+    },
+    {
+      "assessment": "PARTIAL_COVERAGE; Apéry and genus implied; F theorem not applicable because s1=m−1>u0+1 and no PF type theorem for this triple in read text",
+      "evidence": [
+        "Collection GCNS B=(1,m),u0=1,d=u−a; Theorem2.10 Apéry, Theorem2.13 genus, Theorem2.12 F hypothesis fails"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2306.03459",
+      "material_read": "Full 23-page primary PDF, Collections CNS/GCNS, Lemma 2.4 and Theorems 2.10–2.13 and hypotheses inspected",
+      "method": "PDF full text and rendered first page, parameter substitution checked symbolically",
+      "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+      "trigger": "Closest general theorem potentially subsumes sparse triples"
+    },
+    {
+      "assessment": "NOT_COVERING; requires positive d and a bound; matching d=u−b²a<0",
+      "evidence": [
+        "Published theorem requires h≥3,d≥1,a≥(h−1)(h²−h+1)"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-frobenius-data-for-a-nonmonotone-three-generator-family--37d6f575782b/RESULT.md",
+      "material_read": "Complete mathematical RESULT.md including all quantified offset restrictions and proof",
+      "method": "GitHub Resultary published primary full text",
+      "title": "Exact Frobenius data for a nonmonotone three-generator family",
+      "trigger": "Plausible h=b²+1 change of variables"
+    },
+    {
+      "assessment": "NOT_COVERING; second generator ha+1 with fixed positive offset versus submitted negative matched d",
+      "evidence": [
+        "h≥4, A=ha+1, B=h²a+h²−h+1, different family"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-greedy-ap-ry-threshold-and-symmetry-dichotomy-in-a-three-g--b26d610b5824/RESULT.md",
+      "material_read": "Complete primary mathematical RESULT.md, normalization and parameter scope read",
+      "method": "GitHub published primary full text",
+      "title": "Sharp greedy Apéry threshold and symmetry dichotomy in a three-generator h-ary family",
+      "trigger": "Closely related one-offset three-generator family"
+    },
+    {
+      "assessment": "NOT_COVERING for sparse omitted-generator PF; generators include every intermediate term",
+      "evidence": [
+        "Branco–Colaço–Ojeda generator a_i for all i rather than {n,n+2,n+6}"
+      ],
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s00009-022-02233-w",
+      "material_read": "Full open-access article web text, definitions of a_i and full-generator semigroups examined",
+      "method": "Publisher open HTML primary text",
+      "title": "The Frobenius Problem for Generalized Repunit Numerical Semigroups",
+      "trigger": "Complete-generator analogue, may dominate sparse problem"
+    }
+  ]
+}
