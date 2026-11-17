@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stable occurrence-rank permutation gives an exact one-cycle test for primitive-necklace BWT images; its LF orbit proves the input cyclic-run/Hamming identity. Every fully unclustered ternary last column is generated once by the \(3\cdot2^{n-1}\) search, and the published necessary parity restriction only prunes impossible sharp instances. The compiled checker recomputed and matched all 115 profile rows for lengths \(13\) through \(30\); an unpruned independent variant matched aggregates through \(24\). All 115 representative witnesses were separately checked by direct lexicographically sorted cyclic rotations and the exact cyclic-run count. The published general factor-two lower bound supplies minimality. The enumeration is finite and no inference beyond length \(30\) is made.
+## correctness
 
-## Originality
-PASS, subject to residual priority risk. The closest motivating 2026 paper states the global sharpness question, gives initial lengths and restricted arithmetic constructions, but the accessible material does not report the full class-by-class ternary spectrum on \(13\le n\le30\). The full accessible 2026 Fici–Gabory–Romana–Sciortino HTML proves existence and broad lower bounds but not exact sharp Parikh profiles. Prior restricted \((m,m,1)\) material is recognized as overlapping special cases, not counted as a separate new theorem. No implication from the reported general lower bound or existence bound yields all 115 exact counts or the length-14 exclusion. The primary full text of Kumallagov could not be retrieved; the possibility of an unindexed equivalent census is an explicit risk.
+PASS
 
-## Value
-PASS. Sharpness of the BWT run amplification conjecture is open beyond established families. The complete class-resolved exact finite cutoff to length \(30\), including the first length-14 even balanced Parikh exclusion beyond the parity restriction, gives a concrete boundary and a reproducible dataset for the open Parikh-vector characterization question. This is substantially more informative than extending a scalar table by one or two values, without claiming an all-length theorem.
+PASS within finite n=13..30: standard LF one-cycle iff primitive last column, Hamming distance to sorted column equals input cyclic runs. Every no-equal-neighbor ternary candidate belongs to exactly one of 3*2^(n-1) leaves; source C++ exact stable-permutation predicate with proven necessary parity filter compares every sorted Parikh cell to supplied CSV. Independent C++ recount matched all n=13..30 aggregate counts and profile counts (n30 run separately), an independently coded unpruned JS enumeration matched individual per-cell counts for n13..17, and 115 CSV witness strings were independently checked for n-cycle/Hamming and exact content. Finite cutoff is not an infinite conjecture proof.
 
-## Limitations and closest work
-Kumallagov (2026), arXiv:2606.01267; Fici et al. (CPM 2026), DOI:10.4230/LIPIcs.CPM.2026.13; restricted Parikh \((m,m,1)\) calculations. The theorem is finite for lengths \(13\)–\(30\) over the ordered ternary alphabet, with residual historical-priority risk and no independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the newly resolved full sorted-Parikh spectrum, not for the already-published aggregate U3(n) or sharp necklace totals. The November 2 full Resultary theorem already proves all eighteen exact aggregate totals and four length-14 words; the November 8 data add exact counts across 115 length/Parikh categories (including at lengths 15–30 many nontrivial partitions), a separate meaningful content-distribution invariant.
+
+## value
+
+PASS
+
+PASS limited to refined data: fixed-Parikh distributions of sharp unclustered BWT images are a natural finer statistic, with 115 complete finite categories. They answer explicit content-obstruction counting questions not determined by total necklace counts, and are independently useful for composition-constrained constructions. Previously known aggregate totals and n14 exception alone would not justify acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

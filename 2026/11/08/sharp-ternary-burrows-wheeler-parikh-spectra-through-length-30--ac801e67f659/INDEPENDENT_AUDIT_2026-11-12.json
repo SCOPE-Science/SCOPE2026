@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:00:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS within finite n=13..30: standard LF one-cycle iff primitive last column, Hamming distance to sorted column equals input cyclic runs. Every no-equal-neighbor ternary candidate belongs to exactly one of 3*2^(n-1) leaves; source C++ exact stable-permutation predicate with proven necessary parity filter compares every sorted Parikh cell to supplied CSV. Independent C++ recount matched all n=13..30 aggregate counts and profile counts (n30 run separately), an independently coded unpruned JS enumeration matched individual per-cell counts for n13..17, and 115 CSV witness strings were independently checked for n-cycle/Hamming and exact content. Finite cutoff is not an infinite conjecture proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sharpness-census-for-completely-unclustered-ternary-burrow--28725205da02/RESULT.md",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html"
+        ],
+        "reasoning": "The older theorem dominates U3(n) and total c_n exactly, but it does not give all content-wise class totals. The full CPM article proves existence for all n and lower counts, not the 115-class sharp content table.",
+        "searches": [
+          "Resultary exact sharpness census completely unclustered ternary BWT n13..30",
+          "Fici Gabory Romana Sciortino totally unclustered BWT all lengths 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sharpness-census-for-completely-unclustered-ternary-burrow--28725205da02/RESULT.md",
+        "https://pdfs.assets.alphaxiv.org/2606.01267v1.pdf",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sharpness-census-for-completely-unclustered-ternary-burrow--28725205da02/RESULT.md",
+          "https://pdfs.assets.alphaxiv.org/2606.01267v1.pdf"
+        ],
+        "reasoning": "Neither the known parity necessary condition nor c_n totals determine which admissible sorted triples have positive sharp one-cycle witnesses. Additional exhaustive stable-permutation tests are essential; direct independent re-enumeration matched all profiles n13..17 and all aggregate counts/cell counts up to n30.",
+        "searches": [
+          "Resultary Nov2 BWT n13..30 full result and witnesses",
+          "Kumallagov Proposition 9.2 parity obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sharpness-census-for-completely-unclustered-ternary-burrow--28725205da02/RESULT.md",
+          "https://pdfs.assets.alphaxiv.org/2606.01267v1.pdf"
+        ],
+        "reasoning": "Translate primitive necklaces to one-cycle stable sorting last columns (Kumallagov Proposition 5.7); prior aggregate c_n equals sum over all Parikh triples and does not recover individual cells, while the new counts give a strict refinement of the same invariant.",
+        "searches": [
+          "Resultary: ternary BWT totally unclustered primitive necklace last column Parikh sharp cyclic runs exact census",
+          "Kumallagov Parikh vector GRR unclustered sharp BWT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sharpness-census-for-completely-unclustered-ternary-burrow--28725205da02/RESULT.md",
+          "https://pdfs.assets.alphaxiv.org/2606.01267v1.pdf"
+        ],
+        "reasoning": "The earlier n13..30 table lists just total sharp images and one witness per length, plus four n14 words; its only Parikh exception at n14 is already known. The new CSV has 115 nonzero (n,sorted Parikh) cells with exact counts and representatives; those finer cells do not follow uniquely from the aggregate sums.",
+        "searches": [
+          "Resultary n13..30 ternary sharp BWT Parikh complete count table",
+          "Kumallagov Section 5.2 Parikh baseline and Section 9 obstructions"
+        ]
+      },
+      "rationale": "PASS for the newly resolved full sorted-Parikh spectrum, not for the already-published aggregate U3(n) or sharp necklace totals. The November 2 full Resultary theorem already proves all eighteen exact aggregate totals and four length-14 words; the November 8 data add exact counts across 115 length/Parikh categories (including at lengths 15–30 many nontrivial partitions), a separate meaningful content-distribution invariant.",
+      "residual_risks": [
+        "This finite census uses a computational exhaustive proof, not a symbolic formula for arbitrary n. Independent full-source C++ verified aggregate totals and number of profiles at n13..30; exact per-cell independent enumeration was executed for n13..17 and 115 witnesses validated, whereas the unexecuted full high-n per-cell source checker and known parity premise are separately inspected.",
+        "The length-14 Parikh exclusion and every n-total were already explicitly or implicitly covered by the Nov2 full-text theorem; only the further resolved Parikh table supports originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Aggregate counts and n14 Parikh are already known; rest of n-content distribution not tabulated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sharpness-census-for-completely-unclustered-ternary-burrow--28725205da02/RESULT.md",
+          "material_read": "Complete published RESULT.md including all 18 totals, n14 census, C++ methods and prior comparison",
+          "method": "GitHub full text",
+          "title": "Exact sharpness census for completely unclustered ternary Burrows–Wheeler images through length 30",
+          "trigger": "Precisely same n interval and ordinary sharpness"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Baseline B_k(alpha) counts all primitive necklaces before unclustered/sharp restrictions; explicitly notes refined B_unc is a new harder counting question.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2606.01267v1.pdf",
+          "material_read": "17-page full preprint, particularly §5.2, Proposition 5.7, §7 conjecture and Proposition 9.2 parity obstruction; page screenshot",
+          "method": "Full PDF text and screenshot",
+          "title": "An extremal problem for completely unclustered Burrows-Wheeler images",
+          "trigger": "Foundational n-cycle/Hamming/Parikh characterization"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Shows unclustered BWT image existence, not sharp cyclic input-run Parikh-specific counts.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.13/LIPIcs.CPM.2026.13.html",
+          "material_read": "Full accessible CPM HTML article; existence statements and structural theorem",
+          "method": "Full HTML",
+          "title": "Totally Unclustered BWT Images of Any Length over Non-Binary Alphabets",
+          "trigger": "Same transformation and arbitrary length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS limited to refined data: fixed-Parikh distributions of sharp unclustered BWT images are a natural finer statistic, with 115 complete finite categories. They answer explicit content-obstruction counting questions not determined by total necklace counts, and are independently useful for composition-constrained constructions. Previously known aggregate totals and n14 exception alone would not justify acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed ternary lengths 13..30; high-n fine-cell source checker not independently rerun in full; earlier published aggregate totals and length14 class are credited.",
+    "This assessment is independent of prior stored audit verdicts; finite test evidence proves only the stated finite predicates.",
+    "Publication NOT READY due public provenance sanitization, a transport/privacy issue distinct from scientific disposition."
+  ],
+  "schema_version": 1
+}
