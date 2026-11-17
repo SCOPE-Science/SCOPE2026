@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the two-sided common switching process, the positions are independent N(0,V) and V lies between the two harmonic variances with beta-type stationary density. Radial sufficient statistics satisfy log(T_k/k)=W+Z_k with Z_k=log(chi_k^2/k); the conditional-independence information identity gives I(groups n;m)=F_n+F_m-F_(n+m). Gamma entropy h(Z_k)=0.5 log(4*pi*e/k)+o(1) and entropic approximate-identity arguments yield the fixed-contrast logarithm and constant. Under epsilon_n->0, log variance scaled by epsilon converges to Beta(a,b) and sqrt(n)Z_n to N(0,2), giving the specified critical Gaussian-channel MI; its small-signal term is tau^4 Var(B)^2/8. Boundary cases equal stiffness give zero MI, small n epsilon^2 gives zero and large n epsilon^2 the displayed logarithm. Independently integrated the a=b=1, mu1=2,mu2=1 entropy constant and checked log chi-square Stirling numerics. Nontrivial uniform entropy/tail control is given as an analytic lemma, rather than inferred from weak convergence alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General one-dimensional Bayesian-information theory predicts 0.5 log n when contrast remains fixed.",
+          "Switching-trap primary source establishes mixing density q but not its weak-stiffness information crossover."
+        ],
+        "reasoning": "The generic theorem does not determine the moving-parameter beta Gaussian channel or exact finite block MI. It covers only the basic asymptotic mechanism.",
+        "searches": [
+          "Clarke Barron 1990 information theoretic asymptotics Bayes",
+          "Biroli Kulkarni Majumdar Schehr 2023 switching harmonic trap",
+          "switching harmonic trap common noise mutual information Gaussian mixture weak contrast group sample information log chi square beta"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.02570",
+        "https://doi.org/10.1109/18.54897",
+        "https://arxiv.org/abs/2407.12213"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known: conditional Gaussian covariance and beta-type random variance; new: F_n+F_m-F_(n+m), h(W) constant and critical n*epsilon^2 scale."
+        ],
+        "reasoning": "The stochastic variance mixture is an input. Classical sufficiency and MI chain rules derive a new explicitly evaluated claim; none of the inspected prior results states its entire fixed/crossover-domain conclusion.",
+        "searches": [
+          "arXiv:2312.02570 conditional Gaussian mixture",
+          "Clarke Barron IEEE Trans Info Theory 1990"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sufficient statistic log(T_k/k) is a signal-plus-log-chi-square experiment, equivalent to a common-variance information channel."
+        ],
+        "reasoning": "Compared Bayesian latent-scale information and physical common-environment particle information; the primary work concerns distributional correlations, while the submitted theorem computes MI exactly.",
+        "searches": [
+          "switching harmonic trap common noise mutual information Gaussian mixture weak contrast group sample information log chi square beta",
+          "Bayesian mutual information Gaussian scale mixture chi square log statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected source formulas for stationary variance and full counting statistics, not an information table."
+        ],
+        "reasoning": "No exact table is needed or located; single-particle density/covariance tables cannot imply mutual information of two arbitrarily large blocks.",
+        "searches": [
+          "switching harmonic trap common noise mutual information Gaussian mixture weak contrast group sample information log chi square beta",
+          "switching trap mutual information numerical exact constant"
+        ]
+      },
+      "rationale": "The primary stochastic-trap paper derives the shared random Gaussian-variance mixture and correlation structure, not the submitted exact information identity or weak-contrast scaling law. Clarke–Barron regular Bayesian-mixture theory covers the generic one-parameter leading log-growth mechanism but not this model-specific finite-k chi-square entropy identity, explicit constant, beta-shaped crossover and quartic weak-signal threshold.",
+      "residual_risks": [
+        "A specialized unindexed Gaussian-scale information study could contain the exact finite formula or weak-contrast crossover.",
+        "Uniform entropic approximation at singular beta endpoints requires the specified L^q and tail bounds; numerical checks alone do not prove it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary variance mixture is prior art; no equivalent two-block MI/crossover statement located in inspected relevant sections",
+          "evidence": [
+            "arXiv:2312.02570, shared switching trap and conditional centered-Gaussian mixture."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02570",
+          "material_read": "Accessible primary PDF, model construction, mixture distribution, correlation and statistics portions",
+          "method": "Read text and inspected opening PDF page image; compared the identified observables and key equations",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Identical stochastic model and beta-type variance mixture"
+        },
+        {
+          "assessment": "Predicts generic log n behavior, not exact model-specific constants/critical law",
+          "evidence": [
+            "Clarke–Barron (1990) one-parameter Bayesian information asymptotics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/18.54897",
+          "material_read": "Accessible theorem description and cited asymptotic statement; full article not claimed read",
+          "method": "Compared standard regular one-parameter Bayes asymptotics with exact gamma channel and moving contrast",
+          "title": "Information-theoretic asymptotics of Bayes methods",
+          "trigger": "General leading logarithmic information law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact mutual information between large noninteracting groups quantifies a dependence invisible to position covariance. The n*epsilon^2 detectability threshold distinguishes weak common noise from independent particles, with an explicit non-Gaussian beta Gaussian-channel profile and a calculable sharp constant. The calculation is naturally motivated by shared-environment many-particle statistics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All assertions are stationary simultaneous snapshots, not arbitrary trajectories or independent switching environments.",
+    "The fixed-contrast asymptotic is nonuniform near equal stiffness; the separate weak-contrast theorem controls its specified scaling.",
+    "Unindexed exact information formulas remain a historical priority risk."
+  ],
+  "schema_version": 1
+}

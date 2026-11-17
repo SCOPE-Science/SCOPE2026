@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stationary mixture density follows both from the stationary two-state variance-flow equations and from the original Gaussian-mixture solution. The variance prior is correctly normalized for all strictly positive rates and distinct positive stiffnesses. Normal-sample sufficiency, the log-chi-square representation, and the conditional-independence information chain rule prove the finite-size identity exactly. The log-Gamma entropy is obtained by direct integration. The entropy limits use the compact beta-power prior, an \(L^q\) bound for some \(q>1\), and asymptotically Gaussian log-chi-square densities with controlled tails. For shrinking contrast, the signal/noise ratio is \(\sqrt n\varepsilon_n\), and the proof handles its zero, finite, and divergent regimes separately. The analytic small-signal coefficient comes from the leading interaction term of the Gaussian mixture. Numerical checks independently compare the exact information identity with a two-dimensional joint-density integral and confirm the crossover. Computation is diagnostic, not a substitute for limit proofs.
+PASS
 
-## Originality
+Conditional on the two-sided common switching process, the positions are independent N(0,V) and V lies between the two harmonic variances with beta-type stationary density. Radial sufficient statistics satisfy log(T_k/k)=W+Z_k with Z_k=log(chi_k^2/k); the conditional-independence information identity gives I(groups n;m)=F_n+F_m-F_(n+m). Gamma entropy h(Z_k)=0.5 log(4*pi*e/k)+o(1) and entropic approximate-identity arguments yield the fixed-contrast logarithm and constant. Under epsilon_n->0, log variance scaled by epsilon converges to Beta(a,b) and sqrt(n)Z_n to N(0,2), giving the specified critical Gaussian-channel MI; its small-signal term is tau^4 Var(B)^2/8. Boundary cases equal stiffness give zero MI, small n epsilon^2 gives zero and large n epsilon^2 the displayed logarithm. Independently integrated the a=b=1, mu1=2,mu2=1 entropy constant and checked log chi-square Stirling numerics. Nontrivial uniform entropy/tail control is given as an analytic lemma, rather than inferred from weak convergence alone.
 
-**PASS with stated literature risk.** Biroli, Kulkarni, Majumdar and Schehr (arXiv:2312.02570v1) already give the shared-variance Gaussian mixture and study extreme, gap, spatial-correlation and count observables; those facts are acknowledged rather than recast as new. The present theorem concerns the exact information shared by macroscopic groups, its explicit finite-size reduction, its full large-population constant, and the moving-parameter weak-contrast crossover. Clarke and Barron's general Bayesian redundancy asymptotics already predict a generic one-half logarithmic coefficient for smooth scalar priors, so that coefficient alone is **not** asserted to be novel. Their fixed-prior theorem does not directly give the exact Gamma-entropy identity and moving-parameter Beta/Gaussian transition. Frydel (arXiv:2407.12213) considers fluctuating traps and one-particle observables, not this two-group information law. Relevant published records about other Gaussian information quantities do not imply the present physical model-specific contrast scaling. Residual risk: a broader general theorem on local asymptotic normality or hierarchical Gaussian models may cover some or all of the weak-contrast mechanism, requiring expert publication-priority comparison.
+## originality
 
-## Value
+PASS
 
-**PASS.** Shared switching generates information-theoretic correlations invisible to ordinary pairwise position covariance. Determining how these correlations grow with group size and exactly when they disappear as the trap strengths merge is a well-motivated physical observability question, not an arbitrary parameter slice. The exact finite-population formula and the complete \(n\varepsilon_n^2\) crossover permit reproducible quantitative calculations without evaluating a high-dimensional stationary density. They separate a genuinely finite information signal from asymptotically invisible switching and identify the critical experimental population scale. No general new Bayesian theorem is claimed.
+The primary stochastic-trap paper derives the shared random Gaussian-variance mixture and correlation structure, not the submitted exact information identity or weak-contrast scaling law. Clarke–Barron regular Bayesian-mixture theory covers the generic one-parameter leading log-growth mechanism but not this model-specific finite-k chi-square entropy identity, explicit constant, beta-shaped crossover and quartic weak-signal threshold.
 
-## Closest literature, boundaries, and residual risks
+## value
 
-The primary two-stiffness stationary gas and its Gaussian variance-mixture law come from arXiv:2312.02570v1. The 1990 Bayesian information asymptotics of Clarke and Barron cover generic fixed-parameter logarithmic information growth, but not the derived exact finite-size identity. The 2024 fluctuating-trap study arXiv:2407.12213 analyzes another trap setup and different observables. A general small-signal Gaussian-channel theorem might encompass the leading weak-contrast profile; the significance claimed here is the explicit physically parameterized complete crossover, rather than a new universal method. Scope is stationary equal-time snapshots with positive stiffnesses, not time series, measurement estimation bounds, or arbitrary non-Gaussian forcing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact mutual information between large noninteracting groups quantifies a dependence invisible to position covariance. The n*epsilon^2 detectability threshold distinguishes weak common noise from independent particles, with an explicit non-Gaussian beta Gaussian-channel profile and a calculable sharp constant. The calculation is naturally motivated by shared-environment many-particle statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
