@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The three tangent-angle signs reduce without approximation to \(c>ab\), \(b>ac\), \(a>bc\). The sign lemma forces \(a,b>0\), and the independent spherical-coordinate Jacobians give the exact triple integral with all half-space normalizations explicit. The complement is partitioned symmetrically, not double-counted. Two beta integrals and the inequality \(1-(1+t^2)^{-d/2}\le dt^2/2\) prove the exact all-dimensional bounds; gamma asymptotics then prove the stated \(O(d^{-3/2})\) error. A standalone numerical beta-integral implementation and separately drawn Gaussian-normalized vectors corroborate the finite-dimensional values. No simulation is used as an infinite proof.
+PASS
 
-## Originality
+For independent uniform X,Y,Z in S^(d-1), the pair dot products a=X.Y,b=X.Z are independent with density c_d(1-a^2)^((d-3)/2), and normalized tangent inner product w is independent with h_d. Three intrinsic angles acute iff c>ab,b>ac,a>bc; a sign argument forces a,b>0 and these inequalities then become 0<w<min(u/v,v/u) for u=a/sqrt(1-a^2),v=b/sqrt(1-b^2). The rejected positive octant partitions symmetrically into two copies of 0<v<uw, establishing the exact 1/8 minus positive integral. The beta identities for u,u^3 and w,w^3 and the pointwise cubic error bound establish L_d(1-2/[3(d-4)])<=delta_d<=L_d, d>=5; Stirling gives coefficient 1/(sqrt2*pi^(3/2)) and O(d^-3/2). This is analytical, not Monte Carlo extrapolation. The classical d=3 value 1/(2pi)-1/8 is consistent; strict positivity and exclusion of degenerate points explicit.
 
-**PASS under presently accessible evidence, with historical priority provisional.** Finch–Jones treat the ordinary \(S^2\) triangle and perimeter/area laws, not the stated ambient-dimension dependence. Cai–Fan–Jiang analyze pairwise *radial-vector* angles among many points, not the three intrinsic vertex angles of a fixed random triangle; their Gaussian concentration heuristics do not supply this first correction. The existing two-sphere acute probability is expressly excluded from the novelty claim. No equivalent all-dimensional integral, effective sharp defect bound, or specified \(d^{-1/2}\) correction was identified in targeted literature and mathematical-record searches. The incomplete coverage of historical specialized joint-angle literature remains an originality risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The question is a basic geometric probability for intrinsically defined random spherical triangles in growing dimension. It is not a renaming of the familiar near-orthogonality of random *radial* vectors: the vertex-angle event requires three dependent tangent comparisons. The exact integral gives values for every dimension, the all-dimension inequalities quantify the difference, and the sharp nonzero correction identifies the rate at which the plausible \(1/8\) independent-sign heuristic becomes valid. It also distinguishes intrinsic from chord geometry and recovers the classical two-sphere probability as a boundary test.
+The closest full papers use either intrinsic spherical triangles only in the fixed 2-sphere, or angles between radial vectors in arbitrary dimensions; neither supplies the joint intrinsic three-vertex event with its d^-1/2 asymptotic and explicit effective error. A nearby random-triangle statement about rare obtuse chord-Euclidean angles uses a different definition of angle and tends exponentially small, so cannot dominate the present 1/8 limiting intrinsic-acute probability. Best-of-knowledge original, subject to specialty literature.
 
-## Limits and closest literature
+## value
 
-The two cited full texts and the accessible exact claims were compared by mathematical implication. The result does not assert dimensional monotonicity or an elementary finite-dimension closed form. External priority and independent proof verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Intrinsic geodesic vertex angles in a random triangle are a natural geometrical probability object distinct from chord or radial angles. The explicit all-dimensional law, effective error bounds and nonzero first correction resolve a quantitative dimension-dependence question a geometer can use, with classical S^2 value as a meaningful boundary. Neither a textbook independent-coin heuristic nor known pairwise angle concentration gives the coupled three-vertex first correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

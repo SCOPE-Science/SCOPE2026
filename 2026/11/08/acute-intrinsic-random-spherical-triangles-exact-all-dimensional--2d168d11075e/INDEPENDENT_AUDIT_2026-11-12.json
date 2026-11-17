@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:40:40.860860Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent uniform X,Y,Z in S^(d-1), the pair dot products a=X.Y,b=X.Z are independent with density c_d(1-a^2)^((d-3)/2), and normalized tangent inner product w is independent with h_d. Three intrinsic angles acute iff c>ab,b>ac,a>bc; a sign argument forces a,b>0 and these inequalities then become 0<w<min(u/v,v/u) for u=a/sqrt(1-a^2),v=b/sqrt(1-b^2). The rejected positive octant partitions symmetrically into two copies of 0<v<uw, establishing the exact 1/8 minus positive integral. The beta identities for u,u^3 and w,w^3 and the pointwise cubic error bound establish L_d(1-2/[3(d-4)])<=delta_d<=L_d, d>=5; Stirling gives coefficient 1/(sqrt2*pi^(3/2)) and O(d^-3/2). This is analytical, not Monte Carlo extrapolation. The classical d=3 value 1/(2pi)-1/8 is consistent; strict positivity and exclusion of degenerate points explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai, Fan and Jiang analyze angles between position vectors and sphere packing; the Resultary obtuse work uses chordal Euclidean triangles, not intrinsic Riemannian vertex angles."
+        ],
+        "reasoning": "Neither implies a three-intrinsic-vertex event or its exact integral; radial near-orthogonality by itself cannot replace the three dependent tangent signs.",
+        "searches": [
+          "https://arxiv.org/abs/1306.0256",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rare-obtuse-triangle-law-and-conditional-shape-rigidity-on--a264d87a444c"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1009.5329",
+        "https://arxiv.org/abs/1306.0256",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rare-obtuse-triangle-law-and-conditional-shape-rigidity-on--a264d87a444c",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/acute-intrinsic-random-spherical-triangles-exact-all-dimensional--2d168d11075e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted probability is P(c>ab,b>ac,a>bc). The earlier chordal obtuse event is ((Y-X).(Z-X)<0), structurally different.",
+          "The all-d result includes a positive O(d^-1/2) deficit from 1/8 and effective d>=5 bounds, neither stated in those works."
+        ],
+        "reasoning": "An arbitrary ambient-dimensional radial-angle law does not imply these joint inequalities; special p3 does not yield the asymptotic. Remaining priority uncertainty explicit.",
+        "searches": [
+          "https://arxiv.org/abs/1009.5329",
+          "https://arxiv.org/abs/1306.0256",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rare-obtuse-triangle-law-and-conditional-shape-rigidity-on--a264d87a444c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch and Jones treat a random geodesic triangle on S^2, with the d=3 acute probability and shape statistics, not the formula for every d."
+        ],
+        "reasoning": "Euclidean/chord acute and intrinsic/geodesic acute use different tangent or chord comparisons; the existing fixed-d formula is a boundary instance, not the all-d correction.",
+        "searches": [
+          "Resultary semantic query: random three uniform points sphere intrinsic geodesic acute triangle probability in high dimensions all d",
+          "https://arxiv.org/abs/1009.5329"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical p3=1/(2pi)-1/8 is present as a known 2-sphere special value; no searched higher-dimensional table gave the uniform exact integral and bounds."
+        ],
+        "reasoning": "Prior numerical values at d=3 alone do not exhaust d>=3. An unsuccessful search is not a proof of complete novelty.",
+        "searches": [
+          "https://arxiv.org/abs/1009.5329",
+          "Resultary semantic search on acute spherical triangle probability by ambient dimension"
+        ]
+      },
+      "rationale": "The closest full papers use either intrinsic spherical triangles only in the fixed 2-sphere, or angles between radial vectors in arbitrary dimensions; neither supplies the joint intrinsic three-vertex event with its d^-1/2 asymptotic and explicit effective error. A nearby random-triangle statement about rare obtuse chord-Euclidean angles uses a different definition of angle and tends exponentially small, so cannot dominate the present 1/8 limiting intrinsic-acute probability. Best-of-knowledge original, subject to specialty literature.",
+      "residual_risks": [
+        "Unindexed historical work on joint spherical triangle intrinsic angles could contain the integral or high-d corrections.",
+        "The self-checker uses SciPy numerical quadrature and simulation only for finite diagnostic comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers S^2 basic case but not ambient-d sharp 1/sqrt(d) intrinsic angle law",
+          "evidence": "Fixed S^2 sampling and known p3 acute probability.",
+          "identifier_or_url": "https://arxiv.org/html/1009.5329v3",
+          "material_read": "Accessible arXiv full HTML, definitions, random two-sphere geodesic triangles, angle/area/perimeter distributions and conclusions",
+          "method": "Read accessible primary arXiv full text and compared scope and formulas",
+          "title": "Random Spherical Triangles — Finch and Jones",
+          "trigger": "Closest geodesic random triangle paper"
+        },
+        {
+          "assessment": "Radial central-angle observables do not give joint intrinsic vertex acute event",
+          "evidence": "Pairwise angle between vectors vs tangent angle between geodesics; sample-size limits vs three fixed points.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.0256",
+          "material_read": "Primary abstract, stated setting and radial pairwise-angle distribution; available full primary manuscript referenced",
+          "method": "Primary paper statement and available bibliographic text; no unsupported whole-document absence claim",
+          "title": "Distributions of Angles in Random Packing on Spheres — Cai, Fan and Jiang",
+          "trigger": "Ambient dimension and random sphere angles"
+        },
+        {
+          "assessment": "Different Euclidean chord-angle definition; does not cover intrinsic geodesic acute event",
+          "evidence": "Its exponential probability scale for Euclidean obtusity differs from intrinsic acute tending to 1/8.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rare-obtuse-triangle-law-and-conditional-shape-rigidity-on--a264d87a444c",
+          "material_read": "Entire published RESULT.md through exact cap integral, saddle proof, conditional-shape result and limitations",
+          "method": "Read published full RESULT.md from exact Git repository source; compare definitions, hypotheses and mathematical formulas",
+          "title": "Sharp rare-obtuse triangle law and conditional shape rigidity on high-dimensional spheres",
+          "trigger": "Same sampled points and ambient dimension, superficially overlapping triangle-angle probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Intrinsic geodesic vertex angles in a random triangle are a natural geometrical probability object distinct from chord or radial angles. The explicit all-dimensional law, effective error bounds and nonzero first correction resolve a quantitative dimension-dependence question a geometer can use, with classical S^2 value as a meaningful boundary. Neither a textbook independent-coin heuristic nor known pairwise angle concentration gives the coupled three-vertex first correction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1009.5329",
+    "https://arxiv.org/abs/1306.0256",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rare-obtuse-triangle-law-and-conditional-shape-rigidity-on--a264d87a444c",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/acute-intrinsic-random-spherical-triangles-exact-all-dimensional--2d168d11075e/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to intrinsic shorter geodesic angles, independent surface-uniform points and integer d>=3.",
+    "No proof of strict probability monotonicity in d; no full classification of all related historical distributions."
+  ],
+  "residual_risks": [
+    "Unindexed historical work on joint spherical triangle intrinsic angles could contain the integral or high-d corrections.",
+    "The self-checker uses SciPy numerical quadrature and simulation only for finite diagnostic comparisons."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers S^2 basic case but not ambient-d sharp 1/sqrt(d) intrinsic angle law",
+      "evidence": "Fixed S^2 sampling and known p3 acute probability.",
+      "identifier_or_url": "https://arxiv.org/html/1009.5329v3",
+      "material_read": "Accessible arXiv full HTML, definitions, random two-sphere geodesic triangles, angle/area/perimeter distributions and conclusions",
+      "method": "Read accessible primary arXiv full text and compared scope and formulas",
+      "title": "Random Spherical Triangles — Finch and Jones",
+      "trigger": "Closest geodesic random triangle paper"
+    },
+    {
+      "assessment": "Radial central-angle observables do not give joint intrinsic vertex acute event",
+      "evidence": "Pairwise angle between vectors vs tangent angle between geodesics; sample-size limits vs three fixed points.",
+      "identifier_or_url": "https://arxiv.org/abs/1306.0256",
+      "material_read": "Primary abstract, stated setting and radial pairwise-angle distribution; available full primary manuscript referenced",
+      "method": "Primary paper statement and available bibliographic text; no unsupported whole-document absence claim",
+      "title": "Distributions of Angles in Random Packing on Spheres — Cai, Fan and Jiang",
+      "trigger": "Ambient dimension and random sphere angles"
+    },
+    {
+      "assessment": "Different Euclidean chord-angle definition; does not cover intrinsic geodesic acute event",
+      "evidence": "Its exponential probability scale for Euclidean obtusity differs from intrinsic acute tending to 1/8.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rare-obtuse-triangle-law-and-conditional-shape-rigidity-on--a264d87a444c",
+      "material_read": "Entire published RESULT.md through exact cap integral, saddle proof, conditional-shape result and limitations",
+      "method": "Read published full RESULT.md from exact Git repository source; compare definitions, hypotheses and mathematical formulas",
+      "title": "Sharp rare-obtuse triangle law and conditional shape rigidity on high-dimensional spheres",
+      "trigger": "Same sampled points and ambient dimension, superficially overlapping triangle-angle probability"
+    }
+  ]
+}
