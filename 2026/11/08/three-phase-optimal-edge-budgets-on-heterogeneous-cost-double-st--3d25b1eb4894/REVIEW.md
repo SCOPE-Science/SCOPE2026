@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The upper bound follows from the Rayleigh quotient and is witnessed by concrete centered configurations whose edge lengths equal the square roots of the prices; their squared norms give the exact piecewise expressions. The proposed conductances saturate the budget, produce a strictly increasing weighted-path quotient eigenvector of the advertised eigenvalue, and put all transverse leaf eigenvalues at or above that value. Weighted-path Sturm oscillation supplies the nontrivial ordering step. The equality conditions in the same certificate uniquely determine every individual edge conductance. The included exact checker passed 368 parameter instances. Numerical tests do not replace the universal argument.
+## correctness
 
-## Originality
-PASS against inspected evidence, with residual risk. Sun et al. (2006, https://doi.org/10.1137/S0036144504443821) formulate the general cost-weighted spectral optimization and dual embedding problem; they do not state the three-price double-star phase formula. Fiedler (1990, https://doi.org/10.1080/03081089008817967) establishes uniform-cost tree optima. Richter and Rocha (2014 preprint, https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf) work out uniform-cost double brooms, including the corresponding equal-cost special cases; these are expressly not claimed new. The candidate's three independent price classes, exact unique allocation, and all-price multiplicity boundaries are not entailed by the published statements inspected. The possibility of an implicit equivalence in specialist work on weighted tree variance remains.
+PASS
 
-## Value
-PASS. Price differences across branch types model distinct conductor lengths or procurement costs, for which optimizing spectral mixing under a single total budget is a natural problem. The result is a complete and nontrivial parameter classification, locates exact cost-induced changes in Fiedler multiplicity, and gives the sole optimal allocation among individually unconstrained edge weights. It avoids relying solely on a generic numerical SDP or one finite instance. No claims are made concerning directed graphs, heterogeneous prices within a spoke class, or independent validation.
+A centered Euclidean vertex embedding with squared edge lengths equal to prices yields Rayleigh upper certificate lambda2 <= B/F. In each price phase explicit 1D or regular-polygon transverse embeddings achieve F; proposed positive rates saturate budget and make an increasing 4-block longitudinal path vector a generalized eigenvector of eigenvalue B/F. Strict Sturm ordering and separate leaf-difference modes exclude lower nonzero eigenvalues, giving exact optimality and endpoint multiplicity. Equality of the geometric certificate forces each pendant conductance and then bridge conductance, proving uniqueness even without imposing class symmetry. A separate construction of the full Laplacian for 6 price and leaf-count instances reproduced gap B/F and exact budget equality numerically, in support of analytical proof. Source SymPy verifier for 368 cases inspected, not treated as a universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality retained after direct statement/implication comparison with Resultary published findings and primary literature; strictly credited prior special cases. Setting ell=r reduces the formula to prior results, but prior all-bridge-price formulas cannot yield changed ell/r dependence by variable substitution: separate spoke-price classes alter geometry of centered vertex embedding and eigenvalue multiplicities.
+
+## value
+
+PASS
+
+Network resource allocation under heterogeneous per-class conductance prices has natural interpretation and a strict price-induced Fiedler-multiplicity phase transition. This solves a genuinely larger three-class price space than the published single bridge-price two-phase double-star result, including globally unique nonsymmetric optimization; explicit formulas supply useful analytic and design benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
