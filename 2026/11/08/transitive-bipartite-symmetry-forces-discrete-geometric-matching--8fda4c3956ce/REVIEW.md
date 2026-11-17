@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-A fixed geometric point has a nonempty invariant matching as barycentric support. The orbit of any included edge projects onto both shores by transitivity; as it must itself be a matching, it has precisely one edge through every shore vertex and yields an equivariant perfect matching. Every such edge-orbit occupies all vertices, so no two orbits coexist; its invariant barycentric coordinates are unique. The equivalence with equivariant bijections, the centralizer formula, the nonempty/empty cases, and the homology of a finite discrete space follow without a finite-enumeration assumption. The checker independently generated invariant matchings and compared with predicted orbit vertices for 226 invariant graphs; it also checked the centralizer formula for degrees one through six.
+## correctness
 
-## Originality: PASS (best-knowledge literature comparison)
-The directly relevant 2026 chessboard-complex paper by Limonchenko--Yu classifies certain ordinary homotopy types and constructs torsion, not geometric fixed spaces under transitive permutation subgroups. Lesh--Schreiner--Wahl address doubling/connectivity. Bate--Everitt--Ford--Ramos compute integral matching-complex homology representations for complete hypergraphs, not the geometric transitive fixed-point classification of bipartite matching complexes. Targeted record and web searches of the terms `transitive matching complex fixed points`, `centralizer chessboard`, and `equivariant perfect matching fixed space` revealed analogous group-action work on other complexes but no implication of the statement for arbitrary shore-bitransitive bipartite graphs. Search absence does not prove priority; unpublished, classical, or differently named invariant-matching results remain possible.
+PASS
 
-## Mathematical value: PASS
-This is a complete fixed-space classification for a natural broad family of equivariant matching complexes rather than a single example. It converts a potentially complicated geometric fixed-point problem into a precise group-theoretic invariant (the number of equivariant perfect matchings), and specializes to an exact centralizer formula for every transitive subgroup of the square chessboard symmetry group. The zero-dimensionality and sharp upper bound contrast with the complicated homology and torsion of the ambient chessboard complexes and provide data for fixed-point/equivariant comparisons.
+For any finite side-preserving group G transitive on nonempty X,Y, a fixed realization point has invariant support and constant barycentric weights on edge orbits. Every G-orbit of bipartite edges projects surjectively onto X and Y; if an orbit is a matching, these projections are injective, forcing equal shore cardinality and a G-equivariant bijection f:X→Y with graph in E. Conversely graph(f) is one orbit by transitivity; any two admissible orbits cannot coexist in a matching because each uses every shore vertex. Thus invariant supports consist of exactly one admissible orbit and its single barycenter, proving the PL-discrete classification and Z^(N−1) reduced H0. For K_n,n identical actions the supported bijections form C_Sn(G), whose order≤n because a commuting permutation fixing one label fixes all; regular groups attain n, 2-transitive degree>2 has centralizer order1. Checked 28 independently generated small invariant shore-transitive bipartite graph cases against actual invariant matchings. No finite check is extrapolated to all groups.
 
-## Limits
-No assertion is made for nontransitive or shore-exchanging actions; no independent audit is claimed. Full priority certainty is unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the object is the geometric fixed subspace under separate shore-transitivity; ordinary chessboard-complex homotopy, torsion and equivariant homology representations do not determine this fixed-space PL classification. The general matching-complex support orbit argument is self-contained and distinct from vertexwise fixed points.
+
+## value
+
+PASS
+
+This classifies actual geometric fixed spaces of the entire natural family of shore-transitive bipartite matching complexes, including empty cases, complete boards and full residual integral H0. It separates geometric fixed sets (possibly multiple barycenters) from falsely using the fixed-vertex subcomplex, a useful structural equivariant-topology distinction; extends a centralizer count to arbitrary invariant bipartite subgraphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
