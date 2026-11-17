@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The transition kernel explicitly accounts for the mass on both sides of the skew point. The proof derives the one-time survival probability from this kernel and the two variance conventions from independent Bernoulli indicators. The strict-convexity conclusion is valid because the reflected Gaussian image integral has nonzero spatial variance for every finite time. The derivative-at-the-boundary argument rules out a zero gap at any admissible bias. The short-time argument isolates the two disjoint Gaussian boundary layers; the long-time argument expands the Gaussian kernel uniformly in the compact parameter range and computes a rational variance polynomial. Finite tests in `verify.py` check this derivation without replacing the analytical argument.
+PASS
 
-## Originality: PASS, with risk
+Integrating the standard skew Brownian heat kernel on [0,L] gives Sβ=A+βB; independent Bernoulli indicators yield Δβ=N Var_x(Sβ). Since B strictly decreases, Δ is strictly convex in β, while endpoint derivatives exclude any zero finite-time variance for all β. Separate Gaussian end layers yield the short-time clipped optimizer β→1. The compact-interval Gaussian expansion reduces leading long-time variance to Var((1+β)u²+(β-1)u)=(61β²+2β+1)/180; independent symbolic integration confirms this exact polynomial and unique β=-1/61, with coefficient ratio 60/61 relative to β=0 and 64 for β=1. Continuity gives at least one reversal, not uniqueness.
 
-Biswas et al., arXiv:2404.13988, Eq. (13), (21) and Sections III.1–III.2, already supply the general variance decomposition and the reflecting/open endpoint examples. These are expressly not claimed as new. The paper and its Appendix A were inspected: their discussion of asymptotic equality of variances has leading \(t^{-1/2}\) order, but the text does not derive the optimized continuous-skew family, its strictly positive exact gap, the sharp \(t^{-3}\) coefficient \((61\beta^2+2\beta+1)/11520\), or the reversal of optimum. Lejay and Gairat–Shcherbakov give classical skew Brownian transition densities; the coefficient is not implied as a stated corollary without applying the separate counting variance framework and a new asymptotic optimization. Bressloff, arXiv:2211.12460, studies local-time semipermeability with a physical permeability parameter, which is a different stochastic interface. Search coverage is incomplete, and an unindexed mathematical-physics extension could include the result. Originality therefore remains self-review, not independently established.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The variance difference quantifies how much of the observed counting noise arises from uncertainty over *initial particle positions*, rather than Brownian trajectory randomness. It is natural to ask which local junction bias hides that initial-condition memory most effectively. The resulting bias has a nontrivial time-dependent reversal; the exact \(t^{-3}\) law refines previously known convergence of variances, and the 64-fold endpoint contrast provides an interpretable benchmark. The result is for a concrete continuous physical parameter family, not an arbitrary finite parameter slice.
+Standard variance decomposition and skew transition density are prior ingredients, but no inspected primary text supplies their optimized continuous skew-bias family, the -1/61 long-time bias or the reversal from reflection. Open/reflecting endpoint geometries and finite-permeability transmission do not cover these hypotheses.
 
-## Risks and limitations
+## value
 
-The skew point is scale-invariant; a physical membrane with a finite permeability requires a different model. The counting observable is current occupancy outside the initial interval, not irreversible first-passage losses. Finite-particle independence and uniform initial positions are essential. Only at least one reversal is proved, not a unique crossing or monotonicity. Numerical tests are reproducibility diagnostics, not infinite-time certificates. A complete independent literature-priority assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact suppression of preparation-memory fluctuations by tuning one physically meaningful skew boundary parameter gives an identifiable nontrivial reversal from almost reflection to weak negative skew; the 64-fold endpoint contrast and optimal -1/61 are sharp natural quantitative characteristics, not routine renaming of a variance identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

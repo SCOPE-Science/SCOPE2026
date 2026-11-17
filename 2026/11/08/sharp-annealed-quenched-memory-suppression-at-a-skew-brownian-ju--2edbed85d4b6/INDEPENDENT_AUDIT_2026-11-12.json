@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:57:27.301002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-annealed-quenched-memory-suppression-at-a-skew-brownian-ju--2edbed85d4b6/RESULT.md",
+        "https://arxiv.org/html/2404.13988v1",
+        "https://arxiv.org/abs/1407.1715"
+      ],
+      "rationale": "Integrating the standard skew Brownian heat kernel on [0,L] gives Sβ=A+βB; independent Bernoulli indicators yield Δβ=N Var_x(Sβ). Since B strictly decreases, Δ is strictly convex in β, while endpoint derivatives exclude any zero finite-time variance for all β. Separate Gaussian end layers yield the short-time clipped optimizer β→1. The compact-interval Gaussian expansion reduces leading long-time variance to Var((1+β)u²+(β-1)u)=(61β²+2β+1)/180; independent symbolic integration confirms this exact polynomial and unique β=-1/61, with coefficient ratio 60/61 relative to β=0 and 64 for β=1. Continuity gives at least one reversal, not uniqueness.",
+      "residual_risks": [
+        "Only uniform independent particles, fixed N, time-specific outside count and a scale-invariant whole-line skew interface.",
+        "One crossing time exists; number and exact location not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas et al. primary text covers Bernoulli annealed–quenched decomposition and reflecting and two-open-edge geometries, not continuous skew β.",
+          "Lejay/Gairat–Shcherbakov provide skew kernels; Bressloff studies a finite-permeability snapping-out Brownian process, not the scale invariant skew generator."
+        ],
+        "reasoning": "A general generating function for arbitrary kernels can be evaluated on the new model, but does not state or mechanically imply the unique optimal beta, 1/61 asymptotic or sign reversal without new covariance analysis.",
+        "searches": [
+          "Biswas Jose Pal Ramola arxiv:2404.13988 Eq.13 Eq.21 sections II–IV",
+          "https://arxiv.org/abs/1407.1715",
+          "https://arxiv.org/abs/2211.12460"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-annealed-quenched-memory-suppression-at-a-skew-brownian-ju--2edbed85d4b6/RESULT.md",
+        "https://arxiv.org/html/2404.13988v1",
+        "https://arxiv.org/abs/1407.1715",
+        "https://arxiv.org/abs/2211.12460"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier variance identity implies Δ=NVar_x(S_beta) after inserting the skew propagator but does not choose an optimal bias.",
+          "The new calculation has long-time coefficient N L^6/(11520πD³t³)(61β²+2β+1), minimum beta=-1/61 and short-time optimum beta→1."
+        ],
+        "reasoning": "The optimized skew-family statement is not a simple relabeling of the prior reflecting/free-boundary calculations, and the long-time optimizer sign reversal is a substantive original deduction from a new exact model comparison.",
+        "searches": [
+          "https://arxiv.org/html/2404.13988v1",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-annealed-quenched-memory-suppression-at-a-skew-brownian-ju--2edbed85d4b6/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Annealed-minus-quenched outside-count variance is exactly N Var over uniform initial x of a propagator survival probability.",
+          "Skew Brownian transition density is affine in beta, so optimization is a one-dimensional quadratic covariance problem; finite permeability interface models differ because they have a length/time scale."
+        ],
+        "reasoning": "A general conditional-variance decomposition is established prior work, but specializing to a whole-line scale-invariant skew interface and optimizing its exact t-dependent quadratic is not the same as the reflecting/open endpoint calculation.",
+        "searches": [
+          "Resultary semantic: skew Brownian interface annealed quenched count variance optimal beta time",
+          "https://arxiv.org/html/2404.13988v1",
+          "https://arxiv.org/abs/2211.12460"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coefficient 61β²+2β+1 comes from exact uniform moments of u,u² and is not present in the inspected finite-volume open/reflection cases."
+        ],
+        "reasoning": "There is no finite table equivalence for this continuous parameter optimizer; the exact rational polynomial is independently reconstructed and its minimum checked.",
+        "searches": [
+          "skew Brownian annealed quenched beta optimal -1/61 memory",
+          "Biswas et al finite current fluctuations count exact tables"
+        ]
+      },
+      "rationale": "Standard variance decomposition and skew transition density are prior ingredients, but no inspected primary text supplies their optimized continuous skew-bias family, the -1/61 long-time bias or the reversal from reflection. Open/reflecting endpoint geometries and finite-permeability transmission do not cover these hypotheses.",
+      "residual_risks": [
+        "An unindexed specialized skew-Brownian fluctuation paper could have solved the same continuous beta optimization.",
+        "Full skew-Brownian density literature not exhaustively audited beyond accessible primary items."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_FORMULA_NOT_OPTIMIZER",
+          "evidence": "Conditional escape-variance identity is explicitly old; boundary geometries compared are discrete endpoints, not optimized skew continuum.",
+          "identifier_or_url": "https://arxiv.org/html/2404.13988v1",
+          "material_read": "Primary full paper (author-hosted PDF) including equations (13),(21), finite-interval open and reflecting setups, and relevant variance derivation",
+          "method": "Opened PDF with page-image inspection and text; relevant sections compared",
+          "title": "Current fluctuations in finite-sized one-dimensional non-interacting passive and active systems",
+          "trigger": "Closest prior exact annealed/quenched variance calculation"
+        },
+        {
+          "assessment": "DIFFERENT_STOCHASTIC_INTERFACE",
+          "evidence": "Finite permeability local-time renewal introduces an additional scale absent from skew Brownian fixed beta.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.12460",
+          "material_read": "Accessible indexed description and model assumptions; not a full-text exclusion",
+          "method": "Open-access abstract/model comparison",
+          "title": "Renewal equations for single-particle diffusion through a semipermeable interface",
+          "trigger": "Potential interface duality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-annealed-quenched-memory-suppression-at-a-skew-brownian-ju--2edbed85d4b6/RESULT.md",
+        "https://arxiv.org/html/2404.13988v1"
+      ],
+      "rationale": "Exact suppression of preparation-memory fluctuations by tuning one physically meaningful skew boundary parameter gives an identifiable nontrivial reversal from almost reflection to weak negative skew; the 64-fold endpoint contrast and optimal -1/61 are sharp natural quantitative characteristics, not routine renaming of a variance identity.",
+      "residual_risks": [
+        "Optimization concerns memory gap, not overall fluctuation magnitude or cumulative first passage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform independent particles, fixed N, time-specific outside count and a scale-invariant whole-line skew interface.",
+    "One crossing time exists; number and exact location not classified.",
+    "An unindexed specialized skew-Brownian fluctuation paper could have solved the same continuous beta optimization.",
+    "Full skew-Brownian density literature not exhaustively audited beyond accessible primary items.",
+    "Optimization concerns memory gap, not overall fluctuation magnitude or cumulative first passage."
+  ],
+  "schema_version": 1
+}
