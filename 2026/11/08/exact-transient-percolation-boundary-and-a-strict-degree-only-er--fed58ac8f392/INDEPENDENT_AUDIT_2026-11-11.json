@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T06:58:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson splitting shows independent vertex ages X_i=min(E_i,u), E_i~Exp(1), with atom e^{-u} at u, and conditionally independent pair edges of probability 1-exp(-c min(X_i,X_j)/(N-1)). BJR bounded irreducible inhomogeneous random graph theorem hence gives giant threshold c=1/||K_u|| at fixed u>0 including zero giant fraction at equality. For g(x)=K1=1-e^{-x}, moments m1=(1-e^{-2u})/2, m2=(1-3e^{-2u}+2e^{-3u})/3 reproduce Artime’s degree-only line m1/m2. K_u is compact injective positive-semidefinite since min(x,y)=integral indicators; strict m2<lambda*m1 follows from K1 nonconstant, giving exact c*<c_degree for EVERY u>0. Differentiation yields lambda f''= -e^{-x} f, f(0)=0, lambda f'(u)=e^{-u}f(u); the endpoint atom is essential. Common-space kernel monotonicity and HS convergence give c*(u) strictly decreasing, c*(u)~1/u near0 and limit j_0,1^2/4. Independent low-order quadrature checked u=.5,1,2 and strict comparison; 80-point quadrature at u=6 is insufficient for 6-decimal accuracy, so the stationary figure is justified analytically by Bessel, not by that finite grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0504589",
+          "https://arxiv.org/abs/2211.01869"
+        ],
+        "reasoning": "BJR Theorem 3.1 covers giant-component existence once the kernel is derived, and Section 16.5 gives stationary eigenvalue j01^2/4. It does not supply the atom-sensitive Robin boundary for finite u or the strict contrast with Artime Eq.(16). Artime’s published degree-only closure is refuted in this precise limit.",
+        "searches": [
+          "Resultary: node resetting graph random edge creation transient percolation threshold age kernel min(x,y) spectral Bessel",
+          "BJR 2007 inhomogeneous random graphs Theorem 3.1 section 16.5 Turova",
+          "Artime stochastic resetting network eq 16 giant component"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0504589",
+        "https://arxiv.org/abs/2211.01869",
+        "https://arxiv.org/abs/1811.07981",
+        "Resultary: node resetting graph random edge creation transient percolation threshold age kernel min(x,y) spectral Bessel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0504589",
+          "https://arxiv.org/abs/2211.01869",
+          "https://arxiv.org/abs/1811.07981"
+        ],
+        "reasoning": "BJR spectral theorem plus Artime’s graph definition permit a new derivation, but Artime’s reported degree-only critical line cannot imply its strict contradiction; the endpoint-atom ODE, Perron inequality and finite-u spectral comparison supply substantive work.",
+        "searches": [
+          "Resultary: node resetting graph random edge creation transient percolation threshold age kernel min(x,y) spectral Bessel",
+          "Poisson vertex reset graph giant component degree-only closure exact spectral comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0504589",
+          "https://arxiv.org/abs/2211.01869"
+        ],
+        "reasoning": "Conditional ages translate network resetting to a bounded irreducible age-type IRG kernel, so existing BJR spectral theory applies. The all-positive-time truncated-exponential law with endpoint atom is specific to starting from an empty graph, not equivalent to BJR’s stationary Turova example.",
+        "searches": [
+          "Resultary: node resetting graph random edge creation transient percolation threshold age kernel min(x,y) spectral Bessel",
+          "inhomogeneous random graph age dependent minimum kernel vertex reset transient percolation",
+          "Bollobas Janson Riordan Turova minimum age stationary kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search nearest hit is current record; other network-reset publications cover different kernels."
+        ],
+        "reasoning": "The result is a continuum of positive-time exact critical boundaries, not recomputation of finite time tabulated thresholds; stationary Bessel number is explicitly prior work.",
+        "searches": [
+          "Resultary: node resetting graph random edge creation transient percolation threshold age kernel min(x,y) spectral Bessel",
+          "resetting graph transient threshold numerical Bessel root finite time table"
+        ]
+      },
+      "rationale": "PASS: The published degree-only transient line is strictly incorrect for the precisely defined resetting process; BJR general criterion and its stationary Turova Bessel example are credited. New finite-u age law (including endpoint atom), Robin eigenboundary and all-time strict discrepancy are not given by either inspected earlier statement.",
+      "residual_risks": [
+        "Full originals of Artime and BJR not re-read in this execution; reliance on cited theorem statement and independently derived actual graph law.",
+        "Stationary Bessel value is decisively prior art, no novelty claimed for that constant.",
+        "Finite quadrature at large u can underresolve a critical value; full-time result rests on exact operator analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_MODEL_PRIOR_CLOSURE_DISAGREES",
+          "evidence": [
+            "Artime phase line c_degree=3(1+e^-u)/[2(1+e^-u-2e^-2u)] is degree-only, strictly exceeds K_u spectral threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.01869",
+          "material_read": "Accessible arXiv abstract/model description and research source statement of Eq.(16); not complete original full text in this run",
+          "method": "Compared rate conventions and printed degree-only formula with independently derived degree moments",
+          "title": "Stochastic resetting in a networked multiparticle system with correlated transitions",
+          "trigger": "Identical edge-creation and resetting process and published Eq.(16)"
+        },
+        {
+          "assessment": "COVERS_GENERAL_TOOL_AND_STATIONARY",
+          "evidence": [
+            "General giant criterion ||T_kappa||>1 and Turova stationary min-age kernel Bessel j01^2/4; not finite-u atom boundary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0504589",
+          "material_read": "Theorem 3.1 and Section 16.5 identified through source bibliographic and theorem statements; full current-turn paper not downloaded",
+          "method": "Mathematical theorem implication and stationary constant comparison",
+          "title": "The phase transition in inhomogeneous random graphs",
+          "trigger": "General kernel threshold and same Bessel stationary operator"
+        },
+        {
+          "assessment": "DISTINCT_COMPONENT_DEPENDENT_RESETS",
+          "evidence": [
+            "Forest fire resets by component; no independent per-vertex truncated exponential endpoint atom of empty-start process."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.07981",
+          "material_read": "Abstract and Section 2.2 source description, not full current-turn text",
+          "method": "Compare reset mechanism and age type",
+          "title": "Age evolution in the mean field forest fire model via multitype branching processes",
+          "trigger": "Plausible age-driven correlated graph analog"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact positive-time phase boundary corrects a published macroscopic phase classification, showing a nonempty false-negative giant-component regime for EVERY u>0. The correct endpoint atom creates a nonstandard Robin boundary, and a strict all-parameter spectral inequality quantifies the error; this is not a routine application producing only a known limiting constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "N→infinity at fixed t>0, initially edgeless, independent homogeneous Poisson resets; no finite-size critical window or general reset laws.",
+    "Stationary Bessel constant already in BJR/Turova model."
+  ],
+  "schema_version": 1
+}

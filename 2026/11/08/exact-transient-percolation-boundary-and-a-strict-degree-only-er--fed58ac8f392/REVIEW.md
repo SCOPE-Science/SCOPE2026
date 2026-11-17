@@ -1,14 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise graph law follows by independent Poisson thinning and the age distribution \(\mu_u=e^{-x}dx+e^{-u}\delta_u\). The standard inhomogeneous-graph giant criterion [2, Theorem 3.1] applies because the fixed-time kernel is bounded and irreducible. The proof explicitly establishes the exact moment identities, positivity and injectivity of the minimum kernel, the strict spectral quotient inequality, and the endpoint-atom Robin condition. The stationary Bessel limit and monotonicity follow from a common-space kernel coupling. Numerical and symbolic checks replay in `verify.py`; they do not replace the analytic proof.
+## correctness
 
-## Originality — PASS, with priority risk
-Artime [1, Eq. (16)] gives the degree-only threshold that is strictly larger than the actual positive-time threshold established here; the paper's finite-time calculation does not incorporate correlations due to the simultaneous reset-history requirement at both endpoints. The general spectral criterion was already proved by Bollobás--Janson--Riordan [2], and their Turova example has exactly the same **stationary** minimum-age kernel and Bessel zero; this earlier coverage is explicitly credited. Crane--Ráth--Yeo [3] employ the same conditional-age graph mechanism in a different component-reset process. Neither inspected source supplies the specific truncated-exponential-with-atom finite-time eigenboundary for [1], nor the strict all-positive-time comparison with [1, Eq. (16)]. This is a model-specific analytical correction, not a claim that the generic kernel spectral theorem or stationary Bessel result is new. Undiscovered published applications and implicit derivations remain a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The boundary overturns a published time-dependent percolation criterion in a natural, exactly defined resetting graph model, and produces a nonempty regime of qualitatively misclassified macroscopic connectivity at every positive time. The endpoint atom yields a nontrivial Robin eigenboundary. The strict spectral comparison is global, not a numerical or single-parameter counterexample; the same proof also gives monotonicity and the stationary correction. Its sharp scope is the thermodynamic limit with the specified homogeneous Poisson dynamics.
+Poisson splitting shows independent vertex ages X_i=min(E_i,u), E_i~Exp(1), with atom e^{-u} at u, and conditionally independent pair edges of probability 1-exp(-c min(X_i,X_j)/(N-1)). BJR bounded irreducible inhomogeneous random graph theorem hence gives giant threshold c=1/||K_u|| at fixed u>0 including zero giant fraction at equality. For g(x)=K1=1-e^{-x}, moments m1=(1-e^{-2u})/2, m2=(1-3e^{-2u}+2e^{-3u})/3 reproduce Artime’s degree-only line m1/m2. K_u is compact injective positive-semidefinite since min(x,y)=integral indicators; strict m2<lambda*m1 follows from K1 nonconstant, giving exact c*<c_degree for EVERY u>0. Differentiation yields lambda f''= -e^{-x} f, f(0)=0, lambda f'(u)=e^{-u}f(u); the endpoint atom is essential. Common-space kernel monotonicity and HS convergence give c*(u) strictly decreasing, c*(u)~1/u near0 and limit j_0,1^2/4. Independent low-order quadrature checked u=.5,1,2 and strict comparison; 80-point quadrature at u=6 is insufficient for 6-decimal accuracy, so the stationary figure is justified analytically by Bessel, not by that finite grid.
 
-The main supporting literature is Artime [1], Bollobás--Janson--Riordan [2], and Crane--Ráth--Yeo [3]. No claim is made about finite-size critical windows or a new universal inhomogeneous-graph theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The published degree-only transient line is strictly incorrect for the precisely defined resetting process; BJR general criterion and its stationary Turova Bessel example are credited. New finite-u age law (including endpoint atom), Robin eigenboundary and all-time strict discrepancy are not given by either inspected earlier statement.
+
+## value
+
+PASS
+
+The exact positive-time phase boundary corrects a published macroscopic phase classification, showing a nonempty false-negative giant-component regime for EVERY u>0. The correct endpoint atom creates a nonstandard Robin boundary, and a strict all-parameter spectral inequality quantifies the error; this is not a routine application producing only a known limiting constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
