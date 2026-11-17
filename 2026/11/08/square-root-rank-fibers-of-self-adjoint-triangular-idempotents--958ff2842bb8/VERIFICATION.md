@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using ordinary Python 3 and no third-party packages. The program constructs \(\mathbb F_4\) and \(\mathbb F_9\) as explicit quadratic quotient fields, computes the Frobenius involution by exponentiation, enumerates each self-adjoint upper triangular candidate with an idempotent-compatible diagonal, multiplies its matrices in the quadratic extension field, and compares all rank coefficients to the proposed formulas. The cases are \((q,n)=(2,1),(2,2),(2,3),(2,4),(2,5),(3,1),(3,2),(3,3),(3,4)\). A passing execution ends with `VERIFY_OK`.
+## correctness
 
-Observed distributions included \((n,q)=(5,2)\): \((1,16,128,128,16,1)\) for ranks zero through five, and \((n,q)=(4,3)\): \((1,0,162,0,1)\). The checker implements multiplication and the idempotency tests directly, not the unitary conjugacy proof.
+PASS
 
-The mathematical proof of the all-dimension theorem relies on the Hermitian unitriangular factorization lemma and the stabilizer count, both written explicitly in `RESULT.md`. The asymptotic proof uses an elementary comparison of central binomial ratios and discrete-Gaussian tails. Finite enumeration cannot establish either infinite claim. The full texts of two related journal papers could not be accessed, so exhaustive publication-priority verification remains outstanding. Independent audit has not been performed.
+An idempotent has a 0/1 triangular diagonal, and reversal-Frobenius self-adjointness makes it palindromic. On a star-stable nilpotent upper triangular ideal, the quotient trace λ+λ^q=1 permits degree-by-degree elimination of every star-fixed Hermitian perturbation, even in characteristic two. Consequently the unitriangular norm map is onto; conjugacy by star-unitary unitriangular elements is transitive for each diagonal pattern. The stabilizer is the equal-bit sparse centralizer; subtracting its entry count gives orbit size q^{r(n-r)}. Mirrored diagonal choices give the even/odd binomial multiplicities, and central binomial ratios times q^{-h²} yield O_q(1/n) TV convergence and exact mean n/2 by complements. Independent q=2 n=2/3 enumerations agree; higher-dimensional quantifiers follow from the filtered proof.
+
+## originality
+
+PASS
+
+Gargate–Gargate 2020 Theorem 1.2 counts unrestricted triangular idempotents, giving q^{2r(n-r)} for a fixed rank-pattern over F_{q²}; no involution-fixed subset formula. Fornaroli 2023 classifies involutions themselves, not their rank-resolved fixed idempotents. The Frobenius-unitary fiber and limiting lattice laws remain best-of-knowledge new. Urure–Silva full journal text was unavailable due to authorized institutional VPN, residual priority risk explicitly retained.
+
+## value
+
+PASS
+
+Rank-resolved self-adjoint projections of a finite Hermitian flag algebra are a natural counting invariant. The characteristic-free norm factorization, square-root fiber phenomenon and parity-dependent quantitative discrete Gaussian law supply structural and asymptotic content beyond unrestricted idempotents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
