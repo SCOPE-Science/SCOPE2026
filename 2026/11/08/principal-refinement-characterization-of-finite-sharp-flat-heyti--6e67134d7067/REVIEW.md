@@ -1,11 +1,21 @@
-# Review: principal-refinement characterization
+# Independent mathematical audit
 
-**Correctness — PASS.** The flat truth clause is normalized to upward-closed successor rows; every nonprincipal upset in a finite preorder decomposes into two proper upsets. Under principal refinement, any bad target world has a principal subrow detected by one of two antecedents. Conversely, an inclusion-minimal nonprincipal row with a bad target yields two proper upsets as antecedent values and the complement of a principal downset as consequent value. This produces an explicit countervaluation. The strict three-world example and the minimality argument are direct. The bundled checker compares this criterion with direct truth-table semantics on every frame through three worlds and a reproducible sample of four-world frames. Finite testing is corroborative, not the proof.
+## correctness
 
-**Originality — PASS within the checked record.** The closest source is de Groot–Litak (2026), Definition 3.1, Proposition 3.10 and Lemma 3.12. Their stated pointwise downward-directed hypothesis is sufficient for the distribution axiom, whereas the new condition is necessary and sufficient and the three-world example proves strict weakening. Table 1 and Lemma 5.2 concern other modal axioms. Celani–Jansana (2005) treats the algebraic distribution identity in weak Heyting algebras with a different relational semantics; no implication to the precise new frame condition was established from their inspected material. Targeted searches of related papers and mathematical records did not find the principal-refinement theorem. Residual risk: an unindexed equivalent frame correspondence, or a reduction using older duality, may exist.
+PASS
 
-**Mathematical value — PASS.** This closes a concrete structural gap left by a sufficient-only criterion in a recent complete relational semantics. It identifies *all finite frames* satisfying an important strengthening, separates them sharply from the previously singled-out subclass, and gives a polynomial frame-validity procedure with constructive negative certificates. This is a semantic classification rather than merely a new name for the algebraic axiom or a collection of small examples.
+The theorem uses the actual flat implication clause: x forces A ↝ B iff for every y≥x, the entire R[y] row is contained in A only when it is contained in B; this is not the pointwise R[x]∩A⊂B modality. Upward normalization replaces rows by U_y=↑R[y]. Every nonempty join-prime upset in a finite preorder equals a principal ↑z. Under PR, a future witness t to failure of (p∨q)↝r admits a contained principal row U_y=↑z with z≤t, hence this row lies in one antecedent and forces r, contradiction. If PR fails, select a minimal future row containing t within U_x; decompose the nonprincipal upset into proper upsets A∪B and use C=W\downarrow t to obtain both antecedent implications but false disjunctive implication. The 3-world fork is a sharp separation from pointwise downward directedness. Matrix search is O(|W|^4). Independent complete upset-valuation check on the specified 3-world example tested 375 valuations/world combinations, and the actual source checker algorithm was inspected; finite tests are not the all-finite proof.
 
-**Scope and limitations.** Finiteness is used essentially in the necessity proof; there is no infinite-frame claim. Source priority has not been exhaustively established. The general statement is analytic, and finite checker output must not be mistaken for a proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The de Groot–Litak 2026 primary semantics states downward directedness as a SUFFICIENT condition (Lemma 3.12), whereas this result proves an iff principal-refinement condition on all finite flat frames and exhibits a 3-world separating frame. Celani–Jansana algebraic weak-Heyting join distribution has a different pointwise relational clause and is not itself a frame characterization for the flat whole-row semantics. Semantic search found no earlier explicit equivalent necessary-and-sufficient finite criterion; this remains best-of-knowledge, not historical certification.
+
+## value
+
+PASS
+
+A necessary-and-sufficient exact frame criterion for a natural modal axiom closes the explicitly identified gap between a sufficient directed subclass and all finite validating frames. The strict minimal 3-world witness, constructive refuting valuations and polynomial-time recognition make the result useful for finite semantics and decision procedures. This is not merely a code-generated finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3 and no external packages. Expected success line:
+## correctness
 
-`FINITE_FLAT_DI_PRINCIPAL_REFINEMENT_OK {1: (1, 2, 2), 2: (4, 64, 57), 3: (29, 14848, 9528)} total_frames 14914 valid 9587 four_world_random 600`
+PASS
 
-For each world size through three, the checker builds every preorder (including nonsymmetric and nonantisymmetric ones), every modal relation, and every upset valuation of the three variables. It computes the flat strict implication directly and compares its result with the algebra-free principal-refinement criterion. It also compares both methods on 600 seeded four-world frames. The two targeted examples check strictness of the older downward-directed sufficient condition.
+The theorem uses the actual flat implication clause: x forces A ↝ B iff for every y≥x, the entire R[y] row is contained in A only when it is contained in B; this is not the pointwise R[x]∩A⊂B modality. Upward normalization replaces rows by U_y=↑R[y]. Every nonempty join-prime upset in a finite preorder equals a principal ↑z. Under PR, a future witness t to failure of (p∨q)↝r admits a contained principal row U_y=↑z with z≤t, hence this row lies in one antecedent and forces r, contradiction. If PR fails, select a minimal future row containing t within U_x; decompose the nonprincipal upset into proper upsets A∪B and use C=W\downarrow t to obtain both antecedent implications but false disjunctive implication. The 3-world fork is a sharp separation from pointwise downward directedness. Matrix search is O(|W|^4). Independent complete upset-valuation check on the specified 3-world example tested 375 valuations/world combinations, and the actual source checker algorithm was inspected; finite tests are not the all-finite proof.
 
-The exhaustive counts are finite, not an infinite logical proof. The necessity and sufficiency directions for **all finite frames**, including those larger than the enumerated instances, appear in `RESULT.md`. Infinite frames and independent mathematical review are not certified.
+## originality
+
+PASS
+
+The de Groot–Litak 2026 primary semantics states downward directedness as a SUFFICIENT condition (Lemma 3.12), whereas this result proves an iff principal-refinement condition on all finite flat frames and exhibits a 3-world separating frame. Celani–Jansana algebraic weak-Heyting join distribution has a different pointwise relational clause and is not itself a frame characterization for the flat whole-row semantics. Semantic search found no earlier explicit equivalent necessary-and-sufficient finite criterion; this remains best-of-knowledge, not historical certification.
+
+## value
+
+PASS
+
+A necessary-and-sufficient exact frame criterion for a natural modal axiom closes the explicitly identified gap between a sufficient directed subclass and all finite validating frames. The strict minimal 3-world witness, constructive refuting valuations and polynomial-time recognition make the result useful for finite semantics and decision procedures. This is not merely a code-generated finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
