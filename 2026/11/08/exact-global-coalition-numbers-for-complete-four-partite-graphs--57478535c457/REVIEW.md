@@ -1,11 +1,21 @@
-# Review of the four-partite global-coalition formula
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns all finite simple complete four-partite graphs with strictly positive part sizes. The pivotal equivalence is that global domination in the graph and its complement means meeting every part; this follows from the complement being a disjoint union of four cliques. Every coalition block must have a nonempty proper part support, and partners must jointly cover all four parts. The proof gives four feasible constructions and an exhaustive upper-bound case split by the number (zero through four) of part indices supporting a one-part block. The one-vertex-part argument prevents boundary errors at the smallest part size one. The two-support case explicitly accounts for partners that meet two designated parts, while the one-support case counts helper-block footprints and handles the small-versus-large third outsider part boundary. Standalone finite verification independently enumerates original graph partitions on small instances and all support multisets on 77 parameter profiles. The unrestricted statement follows from the proof, not from the enumeration.
+## correctness
 
-**Originality — PASS, best-knowledge.** The closest paper is Anholcer et al., *Global coalitions in graphs*, arXiv:2509.15386, specifically Proposition 6, Theorem 7, Corollary 18 and Conjecture 54. It provides the general multipartite lower templates and exact solutions only for up to three parts. A prior large-minimum-part theorem applies for at least four parts when the minimum size is at least three times the part count minus six; it covers the current high-size branch for four parts but not any of the small-part four-partite profiles. The new four-part result supplies a global upper bound for all missing four-part profiles, including the exceptional smallest sizes one through five; it is not claimed new where already covered. The ordinary-coalition formulation on a disjoint union of four cliques was checked as an equivalent statement. Relevant terminology and mathematical records were searched; no theorem dominating the full four-part formula was identified. Residual risk remains from unindexed publications or the older coalition literature.
+PASS
 
-**Mathematical value — PASS.** This completes a natural first multipartite arity beyond the three-part result of the initiating paper and resolves all unbalanced and boundary-size cases, rather than merely improving a constant inside a large-part regime. The proof isolates exactly why single-part, double-part, triple-part and quadruple-part alliance templates exhaust optimum partition sizes. For equal parts there is a genuine exceptional value nine at part size four, followed by the eventual affine formula at size five. The result is an exact classification of optimum cardinalities, not a count of all optimum partitions and not a resolution for more than four parts.
+A subset of K_{a,b,c,d} globally dominates graph and complement iff it meets each of four parts. Proper nonempty support blocks are valid and partnership means union of supports=[4]. Four explicit near-complementary support constructions give a+1,a+b,a+b+c-3,N-8 in feasible size regimes. The exhaustive upper bound by number q=0..4 of indices with one-part supported blocks handles singleton-part q=1, q=2 cross-helper blocks and q=3/4 compulsory triple supports. Independent canonical partition enumeration tested exact optimum for profiles (1,1,1,1),(2,1,1,1),(2,2,2,2),(3,2,2,2),(3,3,2,2), respectively 15,52,4140,21147,115975 partitions, all matching 2,3,4,5,6. This finite exhaustive verification corroborates the all-part upper argument.
 
-**Evidence and limits.** See `RESULT.md` for all definitions and proof; `verify.py` for finite checks; `VERIFICATION.md` for the unperformed independent-audit status. Exact historical priority is provisional, and no external proof certificate is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The older Anholcer et al. Proposition 6 provides the near-transversal lower bounds and complete at-most-three-part values; this is explicitly prior. The November 2 balanced four-part theorem gives the exact specialization a=b=c=d, and the November 8 large-minimum-part theorem gives N-8 for d≥6. The present all-UNEQUAL small-part classification and sharp d=1,2,3..5 boundaries are not logically implied by balanced or large-part theorems. It provides a previously unsupplied upper bound for every heterogeneous four-part profile. Full arXiv v4 could not be read; original manuscript abstract explicitly states up to three parts, residual historical risk.
+
+## value
+
+PASS
+
+Natural complete answer to the global-coalition number for arbitrary four-partite graphs, including all unequal profiles and small-part discontinuities. The exact maximum fills a specifically motivated gap in a published multipartite conjecture beyond previously solved balanced or large-size cases. Meaningful structural classification, not a parameter-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
