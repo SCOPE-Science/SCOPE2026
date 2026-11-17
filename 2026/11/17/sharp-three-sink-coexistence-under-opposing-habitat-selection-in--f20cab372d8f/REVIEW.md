@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness (PASS).** The two corner Jacobians have eigenvalues \(-b/2-d\pm\sqrt{d^2+c^2}\). The unique anti-diagonal equilibrium is the single positive zero of \((1-m^2)(bm+2c)-8dm\), and its two independent Jacobian eigenvalues are \(\alpha\) and \(\alpha-2d\). Solving \(\alpha=0\) gives the asserted exact threshold. The strict inequalities and their equality boundaries are explicitly distinguished. Exact rational substitution at \((b,d,c)=(3,1,23/12)\) independently tests the algebra. No finite computation is relied on as an infinite proof.
+
+**Originality (PASS within inspected evidence).** Freire–Gjini–Madec (arXiv:2608.05914) explicitly demonstrate that spatial replicator multistability may coexist with unfavorable invasion rates; that broader qualitative mechanism is credited as pre-existing. Li et al. (2015, doi:10.1371/journal.pone.0142929) analyze a four-variable two-patch evolutionary model with evolving densities. Neither inspected full text gives this necessary-and-sufficient three-designated-sink wedge in the finite two-dimensional opposing-selection frequency model, nor the sharp \(b/d=9/4\) transition. The most similar published algebraic two-patch and Nagumo examples use different equations. Full priority across older discrete bistable network literature cannot be certified.
+
+**Mathematical value (PASS).** Explicit inequalities answer when three robust ecological outcomes coexist despite each isolated patch strictly favoring the opposite pure strategy. This is a natural three-parameter complete stability phase diagram for three distinguished equilibrium branches, with a nonempty region at every dispersal-to-selection ratio and a separate sharp regime transition. It is more than an isolated rational example or a weak perturbation result, while not claiming a complete global phase portrait.
+
+Self-review: passed. Independent audit: not yet performed.
