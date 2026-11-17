@@ -1,15 +1,21 @@
-# Review of the sharp RK4 triangular-graph positivity horizon
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has a single, explicitly quantified domain: every integer \(n\ge4\), the unit-weight triangular graph \(T_n=J(n,2)\), any real \(h\ge0\), and every nonnegative initial vector. The strongly regular parameter-class extension is governed by the same three-dimensional adjacency algebra. The identity \(A^2=(d-4)I+(n-6)A+4J\) yields exact adjacent/nonadjacent polynomial entries. The nonedge polynomial has negative discriminant, all diagonals are positive by positive definiteness of the RK4 polynomial of the graph Laplacian, and the adjacent-entry cubic is strictly decreasing and has exactly one positive zero. A separate eigenvalue argument identifies the exact scalar spectral stability boundary. The signed evaluation of the adjacent cubic at that boundary proves the strict gap for \(n\ge5\), and a uniformly converging rescaled cubic proves the asymptotic law. The supplied standard-library verifier replayed 6,024 exact-rational offdiagonal comparisons and additional structural checks. The infinite-family theorem rests on the algebraic proof, not on the finite tests.
+## correctness
 
-## Originality — PASS on inspected evidence, with priority uncertainty
-The most relevant general literature concerns Runge–Kutta positivity thresholds and strong-stability-preserving integrators. Gottlieb–Shu–Tadmor (2001, DOI 10.1137/S003614450036757X) gives a broad SSP framework but no exact triangular-graph RK4 horizon. Horváth (2005, DOI 10.1016/j.apnum.2004.08.026) gives broad positivity thresholds and invariant-cone arguments; the substantive full text was checked against this graph-specific endpoint criterion and does not establish it. Fekete–Ketcheson–Lóczi (arXiv:1610.00228) analyzes positivity for convective semi-discretizations and specific heat stencils; its inspected full text does not classify RK4 on \(J(n,2)\). Triangular-graph eigenvalues and intersection parameters themselves are classical and are not claimed new. Database searches for aliases, rational polynomial horizons, Johnson graph heat diffusion, graph-specific and general positivity found no record dominating the present all-order claim. The earlier graph-specific RK4 regular-bipartite theorem addresses graphs with no triangles and does not imply this result. Searches alone do not establish global priority, and an uncatalogued treatment of Johnson-scheme RK4 remains a residual risk.
+PASS
 
-## Value — PASS
-For an infinite and natural family of dense, nonbipartite, highly symmetric diffusion networks, the claim exactly classifies every safe endpoint timestep for nonnegative input—not merely an isolated counterexample. It proves a topology-dependent positivity restriction strictly inside the spectral-stability limit for every \(n\ge5\), and a sharp asymptotic positivity-to-stability ratio of about \(0.746\). The fact transfers intact to nonisomorphic strongly regular graphs with the same parameters. These features make the bound mathematically meaningful for distinguishing spectral stability from physical nonnegativity in graph diffusion, without claiming more general integrator or nonlinear conclusions.
+PASS: In J(n,2) with degree 2(n-2), common-neighbor algebra A²=(d-4)I+(n-6)A+4J and AJ=dJ reduces RK4 polynomial to I,A,J. Adjacent entries are h*F_n(h)/24, nonadjacent entries h²[12-(12n-8)h+(7n²-10n+4)h²]/6; the latter quadratic has negative discriminant, and diagonals are strictly positive since r(z)=1-z+z²/2-z³/6+z⁴/24>e^-z for z>0. F_n is strictly decreasing: derivative quadratic discriminant -16 Q(n) where Q(4+t)=209t⁴+2092t³+7616t²+11808t+6480>0. Thus exact all-h positivity interval [0,tau_n]. Nonzero Laplacian eigenvalues are n,2(n-1), giving spectral stability [0,alpha/(2(n-1))] where alpha³-4alpha²+12alpha-24=0; exact comparison identity shows equality only n=4 and strict positivity/stability separation for n>=5. Scaled cubic root yields n*tau_n->gamma=1.0389..., ratio 2gamma/alpha≈0.746. The adjacency algebra gives same result for any strongly regular graph with identical parameters. Independently exact rational checks for n=4..6 validate matrix entries, not universal n.
 
-## Relationship to prior work and limitations
-The comparison sources are the three primary mathematical papers named above and the standard triangular-graph parameter description at https://mathworld.wolfram.com/TriangularGraph.html. A graph-specific association-scheme treatment not found in the inspected records could subsume the claim. The result is limited to symmetric unweighted graph generators and one-step nonnegativity; intermediate Runge–Kutta stages are not controlled. There has been no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge): general SSP RK stability results and prior sharp RK4 positivity work for paths, cycles and complete multipartite graphs do not cover triangular/Johnson J(n,2) (different adjacency algebra and eigenvalue spectrum). Contemporary Radau IIA positivity on triangular graphs is a different numerical method. No prior exact J(n,2) RK4 F_n(h) or sharp asymptotic stability-versus-positivity gap appeared in targeted search.
+
+## value
+
+PASS
+
+PASS: The sharp universal end-step positivity interval and strict quantified separation from absolute stability for a classical named graph family are mathematically useful for positivity-preserving discretization. The strong-regular-parameter extension includes nonisomorphic Chang graphs. It is a motivated structural classification, not merely an arbitrary single matrix evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

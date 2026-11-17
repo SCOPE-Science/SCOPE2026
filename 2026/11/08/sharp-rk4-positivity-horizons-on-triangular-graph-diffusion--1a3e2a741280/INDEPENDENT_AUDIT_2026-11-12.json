@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:53:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In J(n,2) with degree 2(n-2), common-neighbor algebra A²=(d-4)I+(n-6)A+4J and AJ=dJ reduces RK4 polynomial to I,A,J. Adjacent entries are h*F_n(h)/24, nonadjacent entries h²[12-(12n-8)h+(7n²-10n+4)h²]/6; the latter quadratic has negative discriminant, and diagonals are strictly positive since r(z)=1-z+z²/2-z³/6+z⁴/24>e^-z for z>0. F_n is strictly decreasing: derivative quadratic discriminant -16 Q(n) where Q(4+t)=209t⁴+2092t³+7616t²+11808t+6480>0. Thus exact all-h positivity interval [0,tau_n]. Nonzero Laplacian eigenvalues are n,2(n-1), giving spectral stability [0,alpha/(2(n-1))] where alpha³-4alpha²+12alpha-24=0; exact comparison identity shows equality only n=4 and strict positivity/stability separation for n>=5. Scaled cubic root yields n*tau_n->gamma=1.0389..., ratio 2gamma/alpha≈0.746. The adjacency algebra gives same result for any strongly regular graph with identical parameters. Independently exact rational checks for n=4..6 validate matrix entries, not universal n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-sharp-size-transitions-for-radau-iia-positivity-on-triangula--52e048ed8757"
+        ],
+        "reasoning": "Other sharp graph-family results involve paths/cycles or complete multipartite graphs with different eigenspaces, and Radau IIA uses a rational third-order stability function instead of classical RK4 quartic; none mathematically dominates the J(n,2) statement.",
+        "searches": [
+          "Resultary semantic search: RK4 entrywise positivity triangular graph Johnson graph J(n,2) heat semigroup stability radius threshold",
+          "Resultary RK4 positivity paths cycles complete multipartite",
+          "Resultary Radau IIA positivity triangular graph"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1137/S003614450036757X",
+        "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "https://arxiv.org/abs/1610.00228",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+        "https://mathworld.wolfram.com/TriangularGraph.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e"
+        ],
+        "reasoning": "Generic RK4 stability polynomial plus triangular graph spectrum yields the stability cutoff only, not entrywise positivity: the latter depends on the adjacency-algebra nonedge/edge coefficients and the strict F_n monotonicity. A spectral stability bound alone cannot imply positivity.",
+        "searches": [
+          "Resultary semantic search: RK4 entrywise positivity triangular graph Johnson graph J(n,2) heat semigroup stability radius threshold",
+          "Horvath positivity RK methods 2005 Jordan graph J(n,2)",
+          "RK4 positivity stability gap strongly regular triangular graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "https://doi.org/10.1137/S003614450036757X"
+        ],
+        "reasoning": "End-of-step entrywise positivity of classical RK4 on a concrete SRG is distinct from general SSP stage positivity and scalar spectral stability. Existing method-wide sufficient criteria do not determine F_n exact zero.",
+        "searches": [
+          "Resultary semantic search: RK4 entrywise positivity triangular graph Johnson graph J(n,2) heat semigroup stability radius threshold",
+          "Horvath 2005 positivity step size threshold Runge Kutta",
+          "Gottlieb Shu Tadmor SSP high order time discretization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "https://mathworld.wolfram.com/TriangularGraph.html"
+        ],
+        "reasoning": "Known triangular graph strongly regular parameters/eigenvalue tables determine A spectra, but do not by themselves supply the exact cubic offdiagonal sign or the root comparison for all n. No covering RK4 J(n,2) threshold table found.",
+        "searches": [
+          "Resultary semantic search: RK4 entrywise positivity triangular graph Johnson graph J(n,2) heat semigroup stability radius threshold",
+          "RK4 triangular graph Johnson graph step positivity cubic F_n tau_n Chang graph"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): general SSP RK stability results and prior sharp RK4 positivity work for paths, cycles and complete multipartite graphs do not cover triangular/Johnson J(n,2) (different adjacency algebra and eigenvalue spectrum). Contemporary Radau IIA positivity on triangular graphs is a different numerical method. No prior exact J(n,2) RK4 F_n(h) or sharp asymptotic stability-versus-positivity gap appeared in targeted search.",
+      "residual_risks": [
+        "The full Horváth 2005 source was not accessed; equivalent RK4 matrix positivity machinery or particular example may be present.",
+        "An unindexed Johnson association-scheme matrix-function positivity table might independently contain the cubic F_n.",
+        "End-of-step positivity is strictly weaker than requiring every intermediate RK stage nonnegative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_IMPLYING_TRIANGULAR_GRAPH",
+          "evidence": "Complete multipartite graph has a different algebra and yields equality of stability/positivity thresholds, contrasting strict J(n,2) gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "material_read": "Resultary full title and mathematical summary, parameters and stability radius",
+          "method": "Published semantic result inspection",
+          "title": "Sharp RK4 positivity equals spectral stability on complete multipartite diffusion networks",
+          "trigger": "Same integrator and heat equation on another graph family"
+        },
+        {
+          "assessment": "NOT_IMPLYING_JOHNSON_GRAPH",
+          "evidence": "Maximum degree two family excludes degree 2(n-2) for n>=4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821",
+          "material_read": "Published Resultary title and precise summary, affected graph families",
+          "method": "Semantic result inspection",
+          "title": "Sharp RK4 positivity intervals on every unweighted path and cycle",
+          "trigger": "Same integrator discrete graph heat semigroup"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_READ",
+          "evidence": "Potentially relevant general method conditions; no whole-article noncoverage claim.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Accessible title, abstract and bibliographic description; full article not obtained",
+          "method": "Web primary abstract inspection",
+          "title": "On the Positivity Step Size Threshold of Runge–Kutta Methods",
+          "trigger": "Highly relevant general positivity-method source"
+        },
+        {
+          "assessment": "MATHEMATICALLY_RECONSTRUCTED",
+          "evidence": "A² algebra, offdiagonal polynomials, strict monotonicity and stability ratio are explicit.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-rk4-positivity-horizons-on-triangular-graph-diffusion--1a3e2a741280",
+          "material_read": "Complete RESULT.md, independent finite verifier, review and metadata",
+          "method": "Git tree verification and blob reads",
+          "title": "Sharp RK4 positivity horizons on triangular graph diffusion",
+          "trigger": "Frozen exact object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The sharp universal end-step positivity interval and strict quantified separation from absolute stability for a classical named graph family are mathematically useful for positivity-preserving discretization. The strong-regular-parameter extension includes nonisomorphic Chang graphs. It is a motivated structural classification, not merely an arbitrary single matrix evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unweighted undirected triangular graph or any strongly regular graph with identical intersection parameters, n>=4; only classical RK4 end-of-step, not nonlinear/stage positivity.",
+    "The full Horváth 2005 source was not accessed; equivalent RK4 matrix positivity machinery or particular example may be present.",
+    "An unindexed Johnson association-scheme matrix-function positivity table might independently contain the cubic F_n.",
+    "End-of-step positivity is strictly weaker than requiring every intermediate RK stage nonnegative."
+  ],
+  "schema_version": 1
+}
