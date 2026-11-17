@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:52:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the actual two-variable recurrence rather than reducing stability to the scalar stationary cubic. Positive stationarity at beta=1 gives F_h(r)=mu h r^3+r^2-r+mu=0 with h=eta/gamma. F_h is strictly convex on r>0 and its double root for 0<mu<1/4 occurs at r*=1-sqrt(1-3mu), h*=(1-2r*)/(3mu r*^2). Differentiating full (r,theta) update gives J11=1+mu(1-2r)/(1-r), J12=mu r/theta, J21=-3eta theta r^2, J22=1-gamma-eta r^3. Fold forces eigenvalue 1; other is trace J minus 1, greater than 1 iff gamma<mu^2(1-2r*)/[r*(1-r*)^2]. Independent exact SymPy calculations checked the rational fold mu=11/108,gamma=1/100,eta=216/275,r=1/6,theta=11/15, J=[[146/135,5/216],[-6/125,217/220]], spectrum {1,6343/5940}. gamma+eta=35/44<1. For h just below h*, two simple positive branches have multipliers continuous near >1; implicit function theorem persists them into beta<1, while disease-free eigenvalues 1-mu,1-gamma are <1. No stochastic/global-attractor claim is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.15578",
+          "Resultary 2026/10/25: exact basin separation in probability-admissible higher-order SIS"
+        ],
+        "reasoning": "One-dimensional frozen-activity or univariate scalar stationary thresholds do not control the transverse activity multiplier. No indexed published theorem for the same two-variable closure giving this >=1 transverse mode was found.",
+        "searches": [
+          "Resultary: positive disease equilibria both unstable in adaptive simplicial SIS activity feedback",
+          "Resultary: exact basin separation higher order SIS"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.15578",
+        "https://arxiv.org/abs/1910.00375",
+        "https://doi.org/10.1063/5.0093776",
+        "Resultary queries on adaptive SIS folds, activity feedback, unstable endemic states"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.15578",
+          "Resultary: A supercritical adaptive epidemic can have only a boundary endemic state"
+        ],
+        "reasoning": "The earlier scalar fold condition guarantees a unit eigenvalue but does not bound the other; this theorem computes it as trace J-1 and supplies parameters with it greater than one, a different stability implication from stationary existence.",
+        "searches": [
+          "Adaptive Epidemic Dynamics on Hypergraphs with Group-Level Immunization and Rewiring Section 2.3 stationary equation",
+          "Resultary SIS activity feedback positive fixed points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.15578",
+          "Resultary 2026/10/25: equilibrium proliferation in pure triad SIS on friendship graphs"
+        ],
+        "reasoning": "The cited original uses matching 2-variable r,theta activity closure, but the other Resultary example is a different fixed-hypergraph SIS system with a separate dimension and infection nonlinearities; its unstable partially active equilibria do not force the claimed adaptive fold eigenvalue.",
+        "searches": [
+          "Resultary: transverse unstable endemic fold two dimensional adaptive hypergraph SIS Jacobian eigenvalue gamma threshold",
+          "Li Xie Li Feng Perc adaptive hypergraph SIS two dimensional activity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.15578",
+          "Assigned RESULT.md exact rational Jacobian and fold_check.py"
+        ],
+        "reasoning": "Earlier stationary branch plots/numerical fold tables do not give the exact rational full Jacobian eigenvalue 6343/5940 or show both nearby branches unstable.",
+        "searches": [
+          "Li Xie Li Feng Perc paper Section 2.3 figures bistability numerical stationary branches",
+          "Resultary: hypergraph SIS unstable fold rational example 11/108"
+        ]
+      },
+      "rationale": "Original model paper examines stationary polynomial, epidemic threshold and bistability narratives but does not supply the derived full two-variable transverse multiplier and stable-free/both-endemic-unstable open regime. Related Resultary SIS findings concern different mean-field laws, contagion parameters or graph structures and do not imply this Jacobian counterexample. Because the exact original full-text comparison was unavailable, O is best-of-knowledge with a named material risk, not an unconditional priority claim.",
+      "residual_risks": [
+        "Full original Li et al. 2026 text unavailable due to institutional VPN disconnect; a later appendix could discuss transverse multipliers.",
+        "Only local stability is proved; other attractors and exact stochastic dynamics are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching equations and stationary claims identified; lack of full source leaves residual risk about an uninspected later appendix on transverse stability",
+          "evidence": "arXiv:2606.15578 indexed Section 2.1 eqs (2)-(5) and 2.3 eqs (14)-(18), as cited by exact assigned source",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15578",
+          "material_read": "Abstract, publicly indexed model/fold equations and Section 2.3 descriptions; full original text NOT obtained",
+          "method": "arXiv/OA lookup, plus authorized Oxford attempt returned vpn_disconnected job a3c156d2889baf2e8e77ac695adc6a9d",
+          "title": "Adaptive Epidemic Dynamics on Hypergraphs with Group-Level Immunization and Rewiring",
+          "trigger": "The same original homogeneous SIS closure and positive-equilibrium fold"
+        },
+        {
+          "assessment": "Different nonadaptive simplicial SIS law; no mathematical implication for the two-variable activity multiplier",
+          "evidence": "arXiv:1910.00375 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1910.00375",
+          "material_read": "Title and abstract/summary only",
+          "method": "Open-access search",
+          "title": "Simplicial SIS model in scale-free uniform hypergraph",
+          "trigger": "General higher-order SIS predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finding exposes a dynamical gap in reading folds as bistability in adaptive epidemic closures: existence of two endemic stationary branches need not produce an attracting endemic equilibrium when an activity variable is retained. An explicit admissible rational witness and open-set persistence correct a substantive stability interpretation without claiming global stochastic dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.15578",
+    "https://arxiv.org/abs/1910.00375",
+    "https://doi.org/10.1063/5.0093776",
+    "Resultary queries on adaptive SIS folds, activity feedback, unstable endemic states"
+  ],
+  "disposition": "passed",
+  "final_claim": "In a homogeneous degree-one triadic adaptive deterministic SIS closure, a positive stationary saddle-node may have second Jacobian multiplier above 1, so two nearby positive endemic fixed points coexist but both are unstable, with a stable disease-free fixed point, in an open physically admissible parameter set.",
+  "limitations": "The fold occurs at beta=1 but instability persists at beta<1; the theorem concerns homogeneous 2D deterministic mean-field closure only and local Jacobian stability.",
+  "residual_risks": [
+    "Full original Li et al. 2026 text unavailable due to institutional VPN disconnect; a later appendix could discuss transverse multipliers.",
+    "Only local stability is proved; other attractors and exact stochastic dynamics are not classified."
+  ],
+  "schema_version": 1
+}
