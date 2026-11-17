@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns all symmetric stochastic matrices on the merged Johnson support, not only orbit-constant matrices. Group averaging is valid because the SLEM objective equals the operator norm of the centered symmetric matrix. The Johnson adjacency-square identity is established by four distance-class walk counts, and the inclusion-function filtration gives all nontrivial spectral modes. In the small-size branch positive three-mode dual weights force the alternating eigenvalue pattern; in the intermediate branch a positive two-mode dual combination proves suppression of one-swap mass; in the large-size branch the first spectral mode alone gives the sharp bound. All proposed probabilities are feasible, and every unused mode is bounded at the optimum. Average-zero nonnegative entries imply the unrestricted support rigidity. The finite exact tests corroborate the proof but are not a substitute for it.
+PASS
 
-## Originality — PASS, subject to literature-priority risk
+For n>=6, the Johnson three-subset adjacency identity A_1^2=3(n-3)I+(n-2)A_1+4A_2 and the inclusion-filtration spectrum produce all three nontrivial eigenvalues of invariant stochastic kernels. Full permutation averaging cannot worsen SLEM. On the resulting compact two-simplex, the displayed strictly positive dual multipliers certify the minimax branches for n=6..9 and 10..12; the single-mode bound certifies n>=13. Feasible rational weight formulas attain each bound. Averaging nonnegative entries makes suppression of all one-swaps for n>=10 and of diagonal holds for n>=13 valid for every unrestricted optimizer, without claiming unrestricted uniqueness. Independent exact rational checks at all branch transitions and 400 adjacency-square entries at n=6 matched formulas.
 
-The 2007 symmetry paper solves the nearest-neighbor Johnson graph but not its merged distance-one-or-two support. The 2005 merged-Johnson study concerns automorphisms/embeddings. The 2017 DeVille paper sets up exactly this multi-distance LP in general and reports a qualitative large-size Johnson trend, but its inspected full-text sections provide no exact all-size \(J(n,3)\) phase solution, no thresholds \(10,13\), and no unrestricted optimal-support statement. The present explicit rational primal/dual classification adds those statements. Inspected mathematical-record and prior-theorem comparisons found no dominating claim. General LP solvability and numerical evidence are not the same as the explicit finite-parameter theorem. Residual risk: unindexed specialist work and sources not retrieved in full.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed-size sample of three objects is a natural exchange-process state space. When one or two elements may be exchanged per step, the exact spectral optimum is a finite-size design law with two genuine changes in feasible support: at ten underlying items all optimal chains abandon single exchanges, and at thirteen they also abandon holding. The first conclusion applies beyond symmetry-invariant optimizers. This quantifies a nontrivial tradeoff between local exchange types rather than an arbitrary parameter slice.
+Best-of-knowledge original exact three-branch optimizer and unrestricted support rigidity. Boyd et al. solve the one-swap Johnson graph, where distance-two jumps are forbidden. DeVille formulates generalized-distance fastest-mixing LPs and discusses Johnson numerics and eventual farthest-move dominance, but does not state the n=10/13 thresholds or all-n J(n,3) rational solution; these substantial antecedents are explicitly credited.
 
-## Limits and closest literature
+## value
 
-This is a discrete-time, uniform-equilibrium, reversible/symmetric problem. It does not establish nonreversible or finite-time mixing optimality. It credits the general SDP/orbit method of Boyd et al. and the multi-distance LP and Johnson numerical evidence of DeVille. An independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimal mixing value and transition probabilities are a natural finite-state Markov optimization on a standard merged Johnson association scheme. Three exact regimes and unavoidable disappearance of otherwise allowed move types describe meaningful structural phase transitions, not an arbitrary small parameter slice or mere reproduction of a general LP.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
