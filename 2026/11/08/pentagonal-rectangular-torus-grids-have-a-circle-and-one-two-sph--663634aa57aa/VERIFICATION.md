@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof gives a uniform symbolic classification of faces and links for \(n\ge7\). The finite independent checker `verify_rectangular.py` uses the Python standard library only, constructs graph distances by breadth-first search, enumerates all Rips simplices, verifies every prescribed free-face removal, compares the entire residual face set with the two-column slab union, and checks a standalone 48-pair collapse certificate `local_sphere_collapse.json` against the directly constructed ten-vertex slab. The residual surface has face vector \((6,12,8)\) and four-cycle vertex links. The checker prints per-size PASS statements and a terminal success marker.
+# Independent mathematical audit
 
-The checked second-factor sizes are \(n=7,8,9,10,11,12\). These finite checks support but do not replace the all-parameter proof. The proof does not assert a statement for \(n\le6\), a complete persistence barcode, or an independent external validation.
+## correctness
+
+PASS
+
+For n>=7, any Rips clique extending beyond adjacent columns has a distance-two column pair e_{j,a} with identical row a and unique intermediate column j. Its complete link is the middle-column triangle at rows a−1,a,a+1. Distinct long-pair stars cannot coexist; removing four explicitly ordered free/coface pairs in each star gives 20n elementary collapses onto the cyclic union of two-column slabs P_j. For C5×K2 each ten-vertex slab has 123 faces including empty; individually verified all 48 exact collapse pairs in actual local_sphere_collapse.json, each lower face free, and obtained the exact listed residual 6-vertex octahedral S² face complex. The n slabs have only pairwise full-simplex intersections for adjacent columns and no triple intersections, giving a circle and n two-spheres via cyclic homotopy colimit/cofibration gluing. Scale-one graph has 5n vertices, 10n edges and H1=Z^{5n+1}; row-fixed column cycle maps onto the necklace S¹, so kernel primitive rank5n. Independent exhaustive Rips face enumeration and all 20n free-pair removals for n=7,8,9 agreed (918/1049/1180 initial faces; 140/160/180 collapses; residual exact slab union). All n follows from symbolic link classification, not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
+
+## value
+
+PASS
+
+Fixing a five-cycle while growing the other cyclic dimension is a natural thin-torus regime. Its local top-dimensional spheres drop from width-four dimension three to pentagon dimension two; a constructive uniform 20n reduction proves homotopy and a nontrivial primitive H1 persistence kernel for infinitely many graphs, not a small isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

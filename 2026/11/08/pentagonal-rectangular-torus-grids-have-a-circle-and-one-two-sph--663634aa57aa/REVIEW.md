@@ -1,17 +1,21 @@
-# Scientific comparison and limits
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For any \(n\ge7\), a distance-two pair of columns has a uniquely determined intervening column and must contain the same row at its two endpoints. The link of that outer edge is exactly a filled triangle; removing four free-face pairs per edge gives an all-parameter collapse onto adjacent two-column slabs. A completely enumerated local slab, with 122 nonempty faces, collapses in 48 exact free-face steps to an octahedral two-sphere. The resulting cyclic gluing has contractible intersections and no triple intersections, yielding a circle wedged with one two-sphere per slab. The integer statement follows from the homotopy decomposition. The persistence map is surjective because a fixed-row column cycle represents the cyclic cover generator. The finite verifier independently reconstructs all faces and replays the elementary collapses for six sizes. Residual risk: elementary-collapse verification is computational for the single ten-vertex patch; its complete certificate and checker are supplied.
+PASS
 
-## Originality
+For n>=7, any Rips clique extending beyond adjacent columns has a distance-two column pair e_{j,a} with identical row a and unique intermediate column j. Its complete link is the middle-column triangle at rows a−1,a,a+1. Distinct long-pair stars cannot coexist; removing four explicitly ordered free/coface pairs in each star gives 20n elementary collapses onto the cyclic union of two-column slabs P_j. For C5×K2 each ten-vertex slab has 123 faces including empty; individually verified all 48 exact collapse pairs in actual local_sphere_collapse.json, each lower face free, and obtained the exact listed residual 6-vertex octahedral S² face complex. The n slabs have only pairwise full-simplex intersections for adjacent columns and no triple intersections, giving a circle and n two-spheres via cyclic homotopy colimit/cofibration gluing. Scale-one graph has 5n vertices, 10n edges and H1=Z^{5n+1}; row-fixed column cycle maps onto the necklace S¹, so kernel primitive rank5n. Independent exhaustive Rips face enumeration and all 20n free-pair removals for n=7,8,9 agreed (918/1049/1180 initial faces; 140/160/180 collapses; residual exact slab union). All n follows from symbolic link classification, not finite extrapolation.
 
-PASS with residual literature risk. The motivating 2025 article treats square torus grids, as verified from its accessible HTML Sections 3, 5 and 7, and does not state this unequal-width family. The closest public width-four rectangular theorem has a different sphere dimension and not a general width parameter. The circular-ladder theorem determines one local two-column factor without deducing its cyclic gluing. Complete-graph fiber results have different graph fibers. published-finding corpus queries on exact \(C_5\square C_n\) parameters and aliases returned those nearest records, not an equivalent statement. Unindexed or differently formulated prior work remains possible, and search failure is not a proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Fixing a five-cycle in one direction creates a natural thin-torus regime not covered by the square-grid stability theorem. Unlike the width-four regime, the local slabs have two-dimensional instead of three-dimensional sphere type. The theorem establishes the full integral homotopy type for infinitely many rectangular grids, with a constructive simplicial reduction and a sharp interpretation of the first persistence map. This is a structural dimension transition, not an isolated Betti count or a routine special case.
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
 
-The theorem does not cover shorter second factors, higher Rips scales, other fiber widths or equivariant structures. Literature comparisons cannot exclude inaccessible equivalent work.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixing a five-cycle while growing the other cyclic dimension is a natural thin-torus regime. Its local top-dimensional spheres drop from width-four dimension three to pentagon dimension two; a constructive uniform 20n reduction proves homotopy and a nontrivial primitive H1 persistence kernel for infinitely many graphs, not a small isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
