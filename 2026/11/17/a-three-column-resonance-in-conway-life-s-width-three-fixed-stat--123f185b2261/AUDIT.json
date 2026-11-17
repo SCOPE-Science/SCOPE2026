@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "All four local column-count cases are derived from eight distinct Moore neighbors and exact B3/S23 conditions. A 16-by-16 weighted transfer gives labelled fixed states for every n>=3; exact 10+3+3 component decomposition and characteristic polynomial yield the full formula. The ten-state component is primitive, with a rational positive vector certifying its Perron root strictly below three. Two independent programs verified exact determinant/trace and all direct states through n=7. Unproved limits: dynamics beyond time-fixed states and independent expert validation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen (1988), CMP 118:569–590, abstract: for any one-dimensional rule a matrix trace determines fixed-point counts; illustrative complete enumeration concerns two-neighbor rules.",
+        "Chu–Stuckey–García de la Banda (2009), read PDF: maximum-density Life still-life optimization on finite square domains with dead exterior boundaries, not labelled toroidal counts.",
+        "Eppstein (2009), read full HTML: qualitative Life-like growth/decay classification."
+      ],
+      "reasoning": "The classical general matrix-trace method is more general at the level of algorithm existence, and is credited, but it does not assert these exact coefficients or the two subsequential growth rates. Square-boundary maximum density cannot determine all-size toroidal fixed counts.",
+      "searches": [
+        "Cylindrical cellular automata Jen 1988 118 569 transfer fixed point trace",
+        "Growth and Decay in Life-Like Cellular Automata arXiv:0911.2890 full HTML",
+        "Using Relaxations in Maximum Density Still Life Chu Stuckey 2009 full pdf",
+        "Conway Life still lifes on 3 by n torus exact count three rows periodic boundary fixed configurations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0911.2890v1 full HTML",
+      "Chu et al. 2009 full relevant open PDF text and visual first page",
+      "Jen 1988 DOI detailed abstract",
+      "Banks–Djirar 1992 repository description",
+      "2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8 full RESULT.md",
+      "2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83 full RESULT.md",
+      "LifeWiki object-count scope"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Entire published RESULT.md inspected for three-state cyclic threshold-four 3×N Moore dynamics; its ten column types and 100-state transfer differ from the binary Life four occupancy types and 16-state matrix.",
+        "Entire published RESULT.md inspected for binary majority on Cartesian C3×Cn: each site has four neighbors, not the Moore eight, and its transfer polynomial differs.",
+        "Jen abstract gives a general transfer existence theorem but not B3/S23 three-row exact counts or resonance."
+      ],
+      "reasoning": "The different local update rules and neighbor graphs prevent direct implication from either specific published result. The general transfer framework implies computability in principle, not the concrete closed-form factorization and nonuniform residue-class fixed-state growth. No inspected statement dominates the final theorem.",
+      "searches": [
+        "2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+        "2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83",
+        "Cylindrical cellular automata Erica Jen 1988 DOI 10.1007/BF01221109"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eppstein 2009 full accessible HTML discusses Life-like rules, not labelled three-row fixed populations.",
+        "Jen 1988 detailed abstract supplies generic fixed-point transfer traces for one-dimensional rules, with closed forms only for two-neighbor rules.",
+        "Direct equivalent would require the explicit B3/S23 three-row transfer factorization (6); no inspected source displayed it."
+      ],
+      "reasoning": "The fixed configurations here are the same as stable binary configurations of the width-three eight-neighbor Life shift, so generic automaton/shift-of-finite-type formulations must be compared by implication. Jen covers existence of a trace representation for arbitrary rules but not the claimed specialized factorization or three-divisibility resonance. Failure to locate an indexed equivalent is not uniqueness proof.",
+      "searches": [
+        "Conway Game of Life 3 by n torus still lifes fixed point generating polynomial 3 divides circumference, period-three eigenvalue, transfer spectral radius 2.7036",
+        "Life B3/S23 narrow three row torus stationary configurations period-3 entropy resonance characteristic polynomial degree ten",
+        "exact number of fixed points Conway life C3 x Cn torus Moore neighborhood using column weights",
+        "Conway Game of Life width three cylinder spatial ring exact still life transfer matrix temporal two cycles 3 by n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "LifeWiki object counts tabulate strict still-life objects by live-cell population on the infinite plane, not labelled periodic three-row stable configurations.",
+        "Published narrow-width related-result records count three-state threshold-four Moore fixed states and binary four-neighbor majority fixed states, both different rules."
+      ],
+      "reasoning": "A strict still-life table indexed by number of occupied cells is not an all-colourings count indexed by torus circumference, and neither provides the asserted 16-state characteristic polynomial. No exact covering table was located; unindexed tables remain a residual priority risk.",
+      "searches": [
+        "\"127\" \"39\" \"121\" \"2595\" Conway Life torus",
+        "Game of Life toroidal 3xn fixed still life count OEIS",
+        "LifeWiki object counts Conway still lifes fixed configurations three-row periodic"
+      ]
+    },
+    "rationale": "Published cylinder methods give transfer computability, not this Life-specific factorization or arithmetic three-cycle resonance; inspected same-geometry fixed results use different update rules. Closest source coverage and access limitations are explicitly recorded; historical priority remains qualified.",
+    "residual_risks": [
+      "Unindexed prior specialist enumeration of toroidal Life still lifes could contain equivalent coefficients.",
+      "The complete text of Jen 1988 and Banks–Djirar 1992 was not available in the inspected representation, so their detailed applications were not exhaustively compared.",
+      "No independent human audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Qualitative growth/decay classification; no 3×n periodic Moore fixed-state factorization.",
+        "identifier_or_url": "https://arxiv.org/html/0911.2890",
+        "material_read": "Full accessible HTML: scope, rule definitions, discussion and cited results.",
+        "method": "Read HTML and checked for exact periodic width-three torus still-life counts and transfer polynomials.",
+        "title": "Growth and Decay in Life-Like Cellular Automata",
+        "trigger": "A directly applicable archival treatment of the B3/S23 semi-totalistic rule."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Finite-square dead-exterior density optimization; not labelled torus all-fixed configuration count.",
+        "identifier_or_url": "https://users.monash.edu/~mbanda/papers/cp09-sl.pdf",
+        "material_read": "Accessible PDF text across methods and conclusions, including opening PDF page visually.",
+        "method": "Read full relevant PDF sections, compared boundary conditions and output type.",
+        "title": "Using Relaxations in Maximum Density Still Life",
+        "trigger": "Same Life rule and still-life counting/optimization terminology."
+      },
+      {
+        "assessment": "GENERIC_METHOD_PRIOR_FULL_TEXT_UNINSPECTED",
+        "evidence": "States matrix trace for arbitrary cylinder rules and closed forms for two-neighbor rules; does not explicitly present current Life specialization in accessible abstract.",
+        "identifier_or_url": "https://doi.org/10.1007/BF01221109",
+        "material_read": "Published detailed abstract; complete publisher text not accessed.",
+        "method": "Compared abstract-level existence theorem and example scope, recorded full-text access limitation.",
+        "title": "Cylindrical cellular automata",
+        "trigger": "Potential generic stronger transfer-matrix theorem."
+      },
+      {
+        "assessment": "DIFFERENT_RULE_NOT_COVERING",
+        "evidence": "Three-color threshold-four cyclic rule, not binary Conway B3/S23; 100-state count-type transfer instead of 16.",
+        "identifier_or_url": "2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+        "material_read": "Entire published RESULT.md via authorized GitHub reader.",
+        "method": "Compared alphabet, threshold update, neighbor count, transfer and conclusions.",
+        "title": "Exact stationary-state growth on three-row cyclic-dominance tori",
+        "trigger": "Same three-row eight-neighbor periodic lattice and fixed-state enumeration."
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_AND_RULE_NOT_COVERING",
+        "evidence": "C3×Cn Cartesian graph has four neighbors and a majority update; Life uses eight-neighbor Moore and birth/survival constraints.",
+        "identifier_or_url": "2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83",
+        "material_read": "Entire published RESULT.md via authorized GitHub reader.",
+        "method": "Compared four-regular Cartesian graph and binary majority update with eight-neighbor Life rule.",
+        "title": "Exact fixed-point entropy gap for majority tie-breaking on a width-three torus",
+        "trigger": "Same width-three periodic grid and binary fixed states."
+      },
+      {
+        "assessment": "GENERIC_METHOD_PRIOR_FULL_TEXT_UNINSPECTED",
+        "evidence": "Generic fixed-point and shift-cycle framework rather than the explicit Life three-row coefficients in accessible description.",
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/79286/",
+        "material_read": "Repository abstract and bibliographic description only.",
+        "method": "Checked stated scope, noted no available full-text comparison.",
+        "title": "Fixed Points and Shift Cycles in Cellular Automata",
+        "trigger": "General enumeration theory that might imply an exact count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "123f185b-2261-4406-96cd-cda7ce11387d",
+  "value": {
+    "rationale": "The complete exact all-circumference count for binary Life on a canonical narrow Moore torus is a natural dynamical invariant. A distinct three-cycle occupancy component contributes 3^(n+1) only for 3|n, yielding two genuinely different subsequential exponential rates, with a primitive nonresonant spectral component and exact recurrence. The resonance is not implied by generic transfer existence or ordinary isolated-object tables.",
+    "status": "PASS"
+  }
+}
