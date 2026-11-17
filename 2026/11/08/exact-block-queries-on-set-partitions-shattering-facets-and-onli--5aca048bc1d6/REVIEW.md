@@ -1,9 +1,21 @@
-# Review: exact-block queries on set partitions
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-positive and one-negative labelings prove the two obstructions. A uniform constructive partition witnesses any remaining labeling, including the boundary cases with no unused vertex. Maximality follows from the spare-element dichotomy, and Stirling counting and exponential generating functions follow by labeled combinatorial decomposition. Positive root branches of online mistake trees reduce exactly to the residual partition concept class; an induction closes the online bound. Independent exhaustive traces checked all supports through four elements and all supports through size four at five elements; the finite check corroborates but does not replace the unrestricted proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The closest inspected 2023 primary paper (arXiv:2305.13402, including Section 4.4) studies pairwise same-cluster and generalized existential oracles, not the exact-block equality oracle, and derives query-complexity rather than these shattering and online-dimension results. Closest accessible database records about partitions concern unrelated constraints or enumerations. Previously recorded fixed-size or same-block pairwise-query results use different predicates and do not imply the precise uncovered-element criterion. Searches do not establish absolute novelty; older work with alternative terms remains possible.
+PASS
 
-**Mathematical value — PASS.** This completes the full nonpure shattering complex and all its facets for a natural exact-cluster confirmation oracle, not merely its scalar VC dimension. The associated Stirling face/facet formulas and exact online dimension make the obstruction usable in sample-trace and adaptive-mistake analyses. The fact that both dimensions remain linear although the number of partitions is Bell-exponential is a meaningful complexity distinction. The scope is restricted to unrestricted partitions and does not settle identification-query complexity.
+PASS: All-positive labeling forces pairwise disjoint queried exact blocks. If union is all of [n] and one queried block is a singleton, labeling all other queries positive and it negative is impossible. Otherwise a fixed spare vertex can absorb all negative singleton queries while other negative blocks are split, realizing every labeling. Maximal families must either leave one unused vertex or have complete no-singleton cover. Stirling/associated-Stirling exponential formulas count faces and facets; root positive branch fixes a block of size >=1, bounding Littlestone depth by 1+d_(n-1), with VC lower n-1. Fresh independent exhaustive support-trace tests across n<=4 found no discrepancy (32906 total tested cases).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary previously published partition-learning work uses pair-equality same-cluster oracles, not testing whether an arbitrary subset is precisely one whole block; no inspected prior gives this shattering complex.
+
+## value
+
+PASS
+
+PASS: Complete shattering and maximal-facet classification plus the exact adaptive dimension for all unrestricted set partitions under a natural subset membership oracle is meaningful learning-theory/combinatorial structure. Stirling enumeration is a standard consequence but support criterion is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

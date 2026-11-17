@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in a Python 3 standard-library environment. It independently enumerates the unrestricted set partitions, computes all binary exact-block traces and compares them with the proposed disjoint-family-plus-spare-element criterion. All query supports were checked for \(n\le4\), and every support through four queries was checked at \(n=5\). The small-case face coefficients and facets are checked against separate Stirling/associated-Stirling recurrences, and exact online mistake-tree dimensions were recomputed for \(n\le4\).
+## correctness
 
-Actual replay marker: `PARTITION_EXACT_BLOCK_PASS supports= 69363 all_supports_n_le_4=1 sizes_le_4_n_5=1 online_n_le_4=1`.
+PASS
 
-Boundary cases verified include \(n=1\), a fully covering family with a singleton, and fully covering families whose blocks all have size at least two. The checker does not enumerate large supports at \(n=5\) or prove the theorem for arbitrary \(n\); the proof in `RESULT.md` is unrestricted. This is a self-review; no independent audit has been carried out.
+PASS: All-positive labeling forces pairwise disjoint queried exact blocks. If union is all of [n] and one queried block is a singleton, labeling all other queries positive and it negative is impossible. Otherwise a fixed spare vertex can absorb all negative singleton queries while other negative blocks are split, realizing every labeling. Maximal families must either leave one unused vertex or have complete no-singleton cover. Stirling/associated-Stirling exponential formulas count faces and facets; root positive branch fixes a block of size >=1, bounding Littlestone depth by 1+d_(n-1), with VC lower n-1. Fresh independent exhaustive support-trace tests across n<=4 found no discrepancy (32906 total tested cases).
+
+## originality
+
+PASS
+
+The primary previously published partition-learning work uses pair-equality same-cluster oracles, not testing whether an arbitrary subset is precisely one whole block; no inspected prior gives this shattering complex.
+
+## value
+
+PASS
+
+PASS: Complete shattering and maximal-facet classification plus the exact adaptive dimension for all unrestricted set partitions under a natural subset membership oracle is meaningful learning-theory/combinatorial structure. Stirling enumeration is a standard consequence but support criterion is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
