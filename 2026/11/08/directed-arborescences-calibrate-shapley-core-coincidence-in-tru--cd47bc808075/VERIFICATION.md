@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify_trust.py` with Python 3 and its standard library. The test uses exact fractions, direct evaluation of every coalition's worth, and direct permutation averaging for each Shapley value. The comparison formula is then checked independently. Enumeration of rooted out-arborescences is separate from the algebraic identity. Fixed pseudorandom sampling for five- and six-vertex instances has seed `271828`.
+## correctness
 
-Expected output:
+PASS
 
-```
-EXACT_CHECKS_OK graph_parameter_checks=1528 calibrated_strongly_connected=369 tree_identities=257
-4-vertex calibration: ['2/3', '2/3', '2/3', '4/9'] core/Shapley: ['4/3', '4/3', '4/3', '4/3']
-```
+For a finite loopless simple digraph with indegree d_i>=2 and all incoming target weights b_i, direct coalition inequalities establish c_i=d_i b_i as the unique core. The exact unanimity decomposition gives phi_i-c_i=sum_(i->j) t_j-d_i t_i, t_i=(d_i-1)b_i/[2(d_i+1)]>0. The root-changing out-arborescence cycle bijection gives d_i tau_i=sum_(i->j)tau_j on each strongly connected component. Maximum principle forces positive solutions t proportional to tau; a source SCC cut forbids positive balancing when there is any condensation arc. All positive b calibrations are lambda_C*(d_i+1)/(d_i-1)*tau_i, with lambda_C small enough to ensure b_i<=1. An independent four-vertex calculation enumerated 7 rooted out-trees per vertex, all 24 Shapley permutations and all coalition inequalities, obtaining phi=c=(4/3,4/3,4/3,4/3). This finite check corroborates rather than proves the theorem.
 
-The verifier exhausts all directed graphs of orders three and four meeting the indegree restriction, testing four additional positive score vectors per graph; the larger graph checks are sampled. The 257 arborescence cases are exhaustive at orders three and four within that restricted graph class. The verifier also checks core feasibility against all coalitions in its sampled/exhaustive cases. None of these computations constitutes a proof for arbitrary order; the standalone proof in `RESULT.md` is decisive.
+## originality
 
-No independent audit has been performed.
+PASS
+
+The original 2024/2026 trust-game literature gives the model, forward Shapley formula and singleton core, all credited. A positive inverse calibration by graph condensation and all rooted-out-tree weight solutions is not stated in read material. Its graph-theoretic positivity obstruction and uniqueness are a distinct structural classification. Searches included stationary-distribution/arborescence aliases; possible unindexed equivalent remains.
+
+## value
+
+PASS
+
+The inverse question asks when fairness and stability of this established network game can coincide, and supplies a topology-only necessary/sufficient test and all positive tunings. This is a motivated, nontrivial graph/game-theoretic classification, not a mere rephrasing of a forward Shapley formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

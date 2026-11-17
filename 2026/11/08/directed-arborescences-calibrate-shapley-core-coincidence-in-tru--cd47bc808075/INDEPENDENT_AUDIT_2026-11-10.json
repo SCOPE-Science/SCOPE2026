@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:02:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite loopless simple digraph with indegree d_i>=2 and all incoming target weights b_i, direct coalition inequalities establish c_i=d_i b_i as the unique core. The exact unanimity decomposition gives phi_i-c_i=sum_(i->j) t_j-d_i t_i, t_i=(d_i-1)b_i/[2(d_i+1)]>0. The root-changing out-arborescence cycle bijection gives d_i tau_i=sum_(i->j)tau_j on each strongly connected component. Maximum principle forces positive solutions t proportional to tau; a source SCC cut forbids positive balancing when there is any condensation arc. All positive b calibrations are lambda_C*(d_i+1)/(d_i-1)*tau_i, with lambda_C small enough to ensure b_i<=1. An independent four-vertex calculation enumerated 7 rooted out-trees per vertex, all 24 Shapley permutations and all coalition inequalities, obtaining phi=c=(4/3,4/3,4/3,4/3). This finite check corroborates rather than proves the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "Ryzák–Kroupa 2026 unrestricted score formula; Bandhana et al 2024 original network-game framework; Resultary star interpolation record.",
+        "reasoning": "General forward formulas dominate the primitive computation but do not logically give the positive-feasibility classification without the additional SCC and tree arguments. Interpolated stars are different parameterization.",
+        "searches": [
+          "directed trust game Shapley core positive target homogeneous arc weights arborescence calibration",
+          "core boxes and sharp Shapley entry threshold interpolated directed trust stars"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.18157",
+        "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "General forward theorem implies discrepancy after specialization; positivity iff no inter-SCC arcs requires a cut argument; tree parameterization via cycle exchange / stationary vector.",
+        "reasoning": "Separate pre-existing elementary machinery from the new global inverse claim; no inspected source combines them into this exact classification.",
+        "searches": [
+          "trust game Shapley core Markov rooted out arborescence stationarity",
+          "arxiv:2605.18157 Shapley decomposition core"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "Ryzák–Kroupa supplies unanimity decomposition and singleton core; stationarity/Markov-tree theorem is an equivalent balance mechanism.",
+        "reasoning": "Forward formulas yield the balance equation after specializing homogeneous incoming weights; they do not state the full iff condensation criterion and all positive calibrations.",
+        "searches": [
+          "directed trust game Shapley core positive target homogeneous arc weights arborescence calibration",
+          "Ryzak Kroupa trust game stationary Markov chain Shapley core balance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "Search returned the exact assigned result and separately weighted/star results, no prior table of positive calibrations.",
+        "reasoning": "This is an all-finite-graph structural theorem, not an enumerative database claim; absence from search is not proof of priority.",
+        "searches": [
+          "Resultary: directed trust game Shapley core positive target homogeneous arc weights arborescence calibration",
+          "trust game Shapley core calibration graph census"
+        ]
+      },
+      "rationale": "The original 2024/2026 trust-game literature gives the model, forward Shapley formula and singleton core, all credited. A positive inverse calibration by graph condensation and all rooted-out-tree weight solutions is not stated in read material. Its graph-theoretic positivity obstruction and uniqueness are a distinct structural classification. Searches included stationary-distribution/arborescence aliases; possible unindexed equivalent remains.",
+      "residual_risks": [
+        "Unindexed positive-circulation characterization may have been published under Laplacian/Markov game terminology.",
+        "General Shapley/core formulas are older; they are not novelty evidence for this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes underlying game, general forward formulas and core facts; does not state the complete positive target-homogeneous inverse calibration iff condensation criterion in material read",
+          "evidence": [
+            "Ryzák and Kroupa (2026), Sections 2, 3, 5, Shapley and core results"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.18157",
+          "material_read": "Accessible primary PDF: definitions and unanimity formulas, Shapley discussion and singleton-core arguments, relevant statements and discussion; nonessential appendices not certified line-by-line",
+          "method": "Opened PDF, visually inspected relevant pages and compared hypotheses/implications",
+          "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+          "trigger": "Identical directed trust cooperative game, same weights, Shapley and core"
+        },
+        {
+          "assessment": "Covers model and preliminary core feasibility, not identified inverse arborescence parameterization",
+          "evidence": [
+            "Bandhana–Kroupa–García (2024), core and model discussion"
+          ],
+          "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+          "material_read": "Bibliographic/primary result description and relevant definition/core statement; no claim of exhaustive full-volume inspection",
+          "method": "Compared the source definition and attributed core result with current algebra",
+          "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+          "trigger": "Original trust-game and core baseline"
+        },
+        {
+          "assessment": "Interpolated in-star external weight threshold, not all target-homogeneous positive calibration across general directed graphs",
+          "evidence": [
+            "Resultary search hit 2026/11/8/SCOPE-core-boxes... summary"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda",
+          "material_read": "Resultary record title and summary, not primary full text",
+          "method": "Compared returned mathematical summary and parameterized star setting",
+          "title": "Core boxes and a sharp Shapley-entry threshold in interpolated directed trust stars",
+          "trigger": "Related SCOPE trust game result found by semantic search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inverse question asks when fairness and stability of this established network game can coincide, and supplies a topology-only necessary/sufficient test and all positive tunings. This is a motivated, nontrivial graph/game-theoretic classification, not a mere rephrasing of a forward Shapley formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2605.18157",
+    "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No result about arbitrary target-inhomogeneous incoming arc weights, indegree 0/1, or empirical trust estimation.",
+    "Tree SHA is assignment snapshot guard; Git tree not independently reconstructed."
+  ],
+  "residual_risks": [
+    "Unindexed positive-circulation characterization may have been published under Laplacian/Markov game terminology.",
+    "General Shapley/core formulas are older; they are not novelty evidence for this result."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes underlying game, general forward formulas and core facts; does not state the complete positive target-homogeneous inverse calibration iff condensation criterion in material read",
+      "evidence": [
+        "Ryzák and Kroupa (2026), Sections 2, 3, 5, Shapley and core results"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2605.18157",
+      "material_read": "Accessible primary PDF: definitions and unanimity formulas, Shapley discussion and singleton-core arguments, relevant statements and discussion; nonessential appendices not certified line-by-line",
+      "method": "Opened PDF, visually inspected relevant pages and compared hypotheses/implications",
+      "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+      "trigger": "Identical directed trust cooperative game, same weights, Shapley and core"
+    },
+    {
+      "assessment": "Covers model and preliminary core feasibility, not identified inverse arborescence parameterization",
+      "evidence": [
+        "Bandhana–Kroupa–García (2024), core and model discussion"
+      ],
+      "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+      "material_read": "Bibliographic/primary result description and relevant definition/core statement; no claim of exhaustive full-volume inspection",
+      "method": "Compared the source definition and attributed core result with current algebra",
+      "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+      "trigger": "Original trust-game and core baseline"
+    },
+    {
+      "assessment": "Interpolated in-star external weight threshold, not all target-homogeneous positive calibration across general directed graphs",
+      "evidence": [
+        "Resultary search hit 2026/11/8/SCOPE-core-boxes... summary"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda",
+      "material_read": "Resultary record title and summary, not primary full text",
+      "method": "Compared returned mathematical summary and parameterized star setting",
+      "title": "Core boxes and a sharp Shapley-entry threshold in interpolated directed trust stars",
+      "trigger": "Related SCOPE trust game result found by semantic search"
+    }
+  ]
+}
