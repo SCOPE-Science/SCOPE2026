@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_graph_subsidy.py` with Python 3.9 or newer. The verifier uses only the standard library, exhaustively checks every graph with at most four vertices, confirms six five-vertex archetypes, and evaluates exact independent-edge expectations at two finite sample sizes. Expected final output: `PASS: 81 exact graph-orientation subsidy tests; two expectation checks`.
+## correctness
 
-These checks corroborate finite instances only. The general deterministic equality and infinite Poisson, concentration, distribution and expectation limits are established in `RESULT.md`. To verify the proof by hand, first check the indegree-zero tree lower bound and subsidy propagation to isolates, then the cycle-and-tree orientation construction; independently reproduce the factorial moments for isolated edges, all three ranges of the tree-component bound, and the isolated-vertex covariance calculation. No independent scientific validation was performed.
+PASS
+
+For a finite simple graph with one unit symmetric good per edge and endpoint-only orientation, every nontrivial tree forces a zero-indegree vertex paid >=1 and, if any exists, all I isolated agents must also be paid >=1. Root-directed tree orientations and cycle-directed cyclic components attain S=1_{T>0}(T+I). At p=(log n+loglog n+c)/(2n), isolated edges have Poisson mean e^-c/4 by factorial moments; larger trees disappear by uniform bounds; isolates concentrate at a_n=e^-c/2 sqrt(n/log n). The normalized subsidy tends to Bernoulli(1−exp(-e^-c/4)) and expectation converges in L1.
+
+## originality
+
+PASS
+
+Published exact minimum number of envious agents and Poisson tree-component law are prior work; the new observable is total external monetary subsidy for global envy freedom, not the count of envious agents. Its finite exact identity S(G)=1_{T>0}(T+I), with isolates amplified, yields the distinct two-point non-self-averaging limit.
+
+## value
+
+PASS
+
+The finite-graph payment identity distinguishes uncompensated envy count from monetary cost. A rare isolated-edge Poisson obstruction causing payments to an unbounded number of otherwise empty agents is a motivated and sharp stochastic amplification phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:10:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite simple graph with one unit symmetric good per edge and endpoint-only orientation, every nontrivial tree forces a zero-indegree vertex paid >=1 and, if any exists, all I isolated agents must also be paid >=1. Root-directed tree orientations and cycle-directed cyclic components attain S=1_{T>0}(T+I). At p=(log n+loglog n+c)/(2n), isolated edges have Poisson mean e^-c/4 by factorial moments; larger trees disappear by uniform bounds; isolates concentrate at a_n=e^-c/2 sqrt(n/log n). The normalized subsidy tends to Bernoulli(1−exp(-e^-c/4)) and expectation converges in L1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li et al. treat worst-case subsidies and algorithms for richer graphical valuations; the prior Poisson envy theorem gives only T(G_n) and zero-envy probability, not the scaling of subsidy by sqrt(n/log n)."
+        ],
+        "reasoning": "Prior generalized fair-division setting does not automatically supply this exact random cost distribution; older observation of one isolated good paying isolates is credited.",
+        "searches": [
+          "https://arxiv.org/abs/2502.13671",
+          "https://ijcai.org/proceedings/2026/387",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-poisson-window-for-unavoidable-envy-in-random-graphical-alloca--af7fc49b477e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/poisson-to-bernoulli-subsidy-amplification-in-sparse-random-grap--d8ba5d96f1ff",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-poisson-window-for-unavoidable-envy-in-random-graphical-alloca--af7fc49b477e/RESULT.md",
+        "https://ijcai.org/proceedings/2026/387",
+        "https://arxiv.org/abs/2502.13671"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior T(G_n)->Poisson(e^-c/4) is one ingredient. The extra identity S(G)=0 or T+I and concentration I_n/e^-c/2 sqrt(n/log n)->1 force the Bernoulli amplification."
+        ],
+        "reasoning": "The previously published zero-envy probability is the same zero-subsidy probability, explicitly credited. The scaled cost distribution and asymptotic expected volume depend on new subsidy analysis and isolate concentration.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-poisson-window-for-unavoidable-envy-in-random-graphical-alloca--af7fc49b477e/RESULT.md",
+          "https://ijcai.org/proceedings/2026/387"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary theorem minimizes number of envious agents T(G) with no payments; subsidy requires compensated utilities across every pair and the extra I(G) burden when T>0."
+        ],
+        "reasoning": "Minimizing envious-agent count is not equivalent to minimizing external monetary subsidy despite common structural obstructions.",
+        "searches": [
+          "Resultary: minimum total subsidy unit edge graphical valuations tree components isolated agents envy-free",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-poisson-window-for-unavoidable-envy-in-random-graphical-alloca--af7fc49b477e/RESULT.md",
+          "https://arxiv.org/abs/2502.13671"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exhaustive small-graph subsidy identity supports finite cases; it cannot tabulate unbounded random n or substitute for the isolation-count limit."
+        ],
+        "reasoning": "An exact database/table of growing-n subsidy laws was not found, and deterministic finite identities alone cannot establish it.",
+        "searches": [
+          "Resultary: graph orientation envy-free subsidies small graph enumeration",
+          "Resultary: random graphical allocations critical Poisson count"
+        ]
+      },
+      "rationale": "Published exact minimum number of envious agents and Poisson tree-component law are prior work; the new observable is total external monetary subsidy for global envy freedom, not the count of envious agents. Its finite exact identity S(G)=1_{T>0}(T+I), with isolates amplified, yields the distinct two-point non-self-averaging limit.",
+      "residual_risks": [
+        "Full mathematical text of Li et al. 2025 and IJCAI 2026 was not read; an exact finite subsidy identity could have appeared earlier.",
+        "The zero-subsidy probability equals the already published zero-envy event and has no separate originality credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_TREE_POISSON_AND_ZERO_EVENT_NOT_SUBSIDY_VOLUME",
+          "evidence": "Exact optimal envious-agent count T(G), Poisson limit and zero-envious probability are prior; no subsidies or isolation-amplified payments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-poisson-window-for-unavoidable-envy-in-random-graphical-alloca--af7fc49b477e/RESULT.md",
+          "material_read": "Complete published RESULT.md, all deterministic and factorial-moment proof steps",
+          "method": "Read entire GitHub source at published commit",
+          "title": "A Poisson window for unavoidable envy in random graphical allocations",
+          "trigger": "Identical graph-good model and exact same isolated-edge critical window"
+        },
+        {
+          "assessment": "PRECURSOR_LIMITED_MATERIAL",
+          "evidence": "Worst-case bound floor(n/2) under per-agent normalization, and isolated-edge/isolates payment obstruction; no submitted random scaling law in material read.",
+          "identifier_or_url": "https://ijcai.org/proceedings/2026/387",
+          "material_read": "Official proceedings abstract, introduction/model and illustrative single-edge-isolate lower bound in accessible public text; full 9-page primary article not read",
+          "method": "Official IJCAI page and public extracted text, bounded non-PDF comparison",
+          "title": "Eliminating Envy in Multigraphs Through Subsidy (Li–Sun–Xing, IJCAI 2026)",
+          "trigger": "Nearest monetary-subsidy graph orientation literature"
+        },
+        {
+          "assessment": "PRECURSOR_NOT_FULLY_INSPECTED",
+          "evidence": "Computational complexity and worst-case bound for general graph valuations; no observed critical random simple-graph subsidy distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.13671",
+          "material_read": "Public abstract and scope, not full text",
+          "method": "ArXiv abstract and metadata",
+          "title": "On the Subsidy of Envy-Free Orientations in Graphs",
+          "trigger": "Earlier general mathematical subsidy theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-graph payment identity distinguishes uncompensated envy count from monetary cost. A rare isolated-edge Poisson obstruction causing payments to an unbounded number of otherwise empty agents is a motivated and sharp stochastic amplification phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/poisson-to-bernoulli-subsidy-amplification-in-sparse-random-grap--d8ba5d96f1ff",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-poisson-window-for-unavoidable-envy-in-random-graphical-alloca--af7fc49b477e/RESULT.md",
+    "https://ijcai.org/proceedings/2026/387",
+    "https://arxiv.org/abs/2502.13671"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires simple graph, binary symmetric endpoint goods, global comparisons, nonnegative external payments.",
+    "The critical window includes many isolated vertices but typically finitely many nontrivial tree components; no claims for arbitrary valuations or dense random graphs."
+  ],
+  "residual_risks": [
+    "Full mathematical text of Li et al. 2025 and IJCAI 2026 was not read; an exact finite subsidy identity could have appeared earlier.",
+    "The zero-subsidy probability equals the already published zero-envy event and has no separate originality credit."
+  ],
+  "schema_version": 1
+}
