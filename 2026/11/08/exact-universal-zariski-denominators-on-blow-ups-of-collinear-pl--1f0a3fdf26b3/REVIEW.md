@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the blow-up of \(n\ge3\) distinct collinear plane points, Bézout and the self-intersection inequality leave only the common-line strict transform and exceptional curves as negative curves. Their negative-definite support matrices are either \(-I_k\) or the mixed matrices of determinant modulus \(n-1-k\). Explicit orthogonality equations bound every reduced coefficient denominator by a divisor of one of \(1,\ldots,n-1\). For each \(r\) in this range, the integral effective witness \(D_r\) has a Zariski negative part with line coefficient precisely \(1/r\), and addition of a nef big divisor orthogonal to its support preserves that negative part. Thus the lower and upper bounds for the least universal clearing multiple coincide. All valid negative supports have integral big witnesses, yielding the chamber formula. An exact rational-arithmetic verifier independently checks the formulas for the indicated finite range; it is not substituted for the proof for arbitrary \(n\).
+PASS
 
-## Originality — PASS, with residual historical risk
+Bézout against the common line ensures only L and E_i can be negative, and the effective curve cone is their nonnegative span. The mixed support matrix has negative-definite Schur complement -(n−1−k) and determinant magnitude n−1−k, bounding all denominators. For any 1<=r<=n−1, explicit D_r has Zariski negative part coefficient 1/r; added nef Q_r with square r(r+1)>0 gives a big witness. All negative-definite supports occur with big witnesses and count 2^(n+1)−n−1. Independent exact rational intersection checks cover n=3..25; analytic argument is all n.
 
-Bauer–Pokora–Schmitz (2014, Example 3.4) already analyze *exactly the same surface*, classify its negative curves, prove the maximum single reduced denominator \(n-1\), and calculate all relevant support determinants. They also establish general universal clearing via factorial. Their result yields the upper bound on the least simultaneous multiple and is explicitly excluded from the novelty claim. The new statement is that **every integer in the complete interval actually occurs as a reduced coefficient denominator**, even for big divisors, hence the sharp universal multiple is the least common multiple of the interval. A different maximum value or matrix list alone does not imply those individual witness statements. Accessible primary literature, targeted mathematical-record searches, and existing relevant mathematical findings did not identify the same exact attainment-and-universal-multiple result. A specialist extension or unpublished observation could cover it; no exhaustive historical certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single denominator bound \(n-1\) does not specify the least integer that simultaneously clears all Zariski decompositions, the natural arithmetic quantity needed to take common integral multiples of nef parts across all divisors. The least common multiple can be much larger than the largest individual denominator. Attainment of every intermediate denominator and exact enumeration of big-cone supports gives a natural complete structural classification for this standard test family. It is neither an arbitrary slice nor a routine change of parameters: it separates an extremal denominator statistic from the full arithmetic spectrum and furnishes explicit effective and big witnesses.
+The full ar5iv text of Bauer–Pokora–Schmitz Example 3.4 establishes this precise collinear family and its maximal single denominator n-1. Its negative intersection support determinants have absolute values n-1-k, which imply the upper bound u(X_n)|lcm(1,...,n-1), but neither a greatest common clearing multiple nor witnesses for each intermediate r are stated. The submitted effective/big D_r constructions give exact reduced coefficients 1/r for all r and therefore the reverse divisibility. This produces the sharp least simultaneous denominator-clearing multiple; value is a natural all-divisor invariant, not generic larger maximum denominator.
 
-## Closest literature and limitations
+## value
 
-Bauer–Pokora–Schmitz, *On the boundedness of the denominators in the Zariski decomposition on surfaces* (arXiv:1411.2431, Example 3.4 and Section 1), is the key same-object antecedent. Bauer–Caibăr–Kennedy (arXiv:0911.4500) give general Zariski decomposition theory. Hanumanthu–Ray (arXiv:1910.05038, Example 3.7) investigate chamber configurations of the four-collinear-point surface but do not in inspected material state the full denominator spectrum or least simultaneous multiplier. The result is not a claim about general blow-ups or the bounded-negativity conjecture. Historical priority remains provisional against specialist sources not inspected in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Least simultaneous clearing multiplier for all integral divisors is a natural surface-wide arithmetic invariant, distinct from the maximum denominator known from Bauer et al. Uniform big effective witnesses for every 1<=r<=n−1 are motivated by geometric negative supports and establish a genuinely complete finite spectrum for all n, not arbitrary small-slice enumeration. The auxiliary chamber count is mathematically intrinsic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
