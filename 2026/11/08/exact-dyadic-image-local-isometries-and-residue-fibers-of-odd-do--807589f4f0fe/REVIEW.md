@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The block valuation identity is proved by a concrete base case and induction using inverses of complete odd-unit residue classes modulo eight. Its exact valuation extends to all same-class index differences, giving four normalized isometries. Finite isometry implies bijective residue reductions at every depth. This establishes the dyadic image, all fiber multiplicities, periods, and gamma-function corollary. The included checker corroborates all image fibers through exponent fifteen and 720 block valuations, without serving as an infinite certificate.
+## correctness
 
-**Originality: PASS, qualified.** Morita's definition, the odd double-factorial sequence, and the general gamma-function identities are known. The claim isolates the exact image of the even inputs, four sharp branch isometries, all prime-power fiber multiplicities, and least index periods. Searches of accessible historical sequence records, modern gamma literature, and related mathematical research records found no identical statement or an inspected stronger theorem implying this precise package. Original Morita/Barsky full text could not be inspected; the residual priority risk is material and explicitly retained. The familiar odd-double-factorial formula and the surjectivity corollary are not claimed independently original.
+PASS
 
-**Mathematical value: PASS.** The image of a classical factorial sequence under every dyadic modulus is a natural arithmetic invariant. Its exact Haar measure, full finite-depth fiber multiplicities, and valuation-isometric structure give a motivated complete classification, not a finite table or a routine parity observation. The overlap between two image balls and the four branch scales explain the otherwise opaque six/four/two representation counts.
+For t=2 the four-odd-factor product B_2(n) is 9 or17 modulo32 by index parity; the induction uses complete odd inverse residues modulo8 to show B_t(n+2^t)=B_t(n) mod2^(t+4), hence exact valuation t+1+parity for all t>=2. Odd products of blocks yield the sharp q-index distance valuation for m,n same class modulo4. After normalizing each residue class n=4u+r, the map preserves exact 2-adic distances, so induces bijections on every finite residue quotient and onto Z_2; the four balls and 6/4/2/0 fiber histogram, measure 5/16 and least periods follow. Independently enumerated residue fibers k=1..10 and sample block valuations t=2..7; not proof for all t,k.
 
-**Closest literature and limitations.** Morita (1975) defines the object; OEIS A055634 records the sequence, Barsky (1977–1978) studies the same gamma function, Menken and Körükçü (2013) treat a dyadic q-extension identity, and Adamus (2023) addresses differential transcendence. The accessible texts do not themselves state this four-branch classification; the early specialist full-text gap precludes absolute historical priority claims. The theorem is for the prime two, not all primes. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical odd double factorial and Morita gamma identities are known and receive no novelty credit. The earlier shifted fixed-block valuation theorem treats P_e(A) over a complete odd interval under large shifts and cannot determine the variable-length q_n index distance, disjoint 2-adic image balls and every level fiber distribution. Accessible modern gamma work studies transcendence/definition, not the exact local image. Missing Morita/Barsky full text makes this a qualified best-of-knowledge novelty judgment.
+
+## value
+
+PASS
+
+Exact 2-adic image and index fibers of the classical odd double factorial/Morita gamma map are natural local arithmetic invariants. The branch-isometry description, measure 5/16, complete all-level multiplicities and minimal periods offer substantively useful precise facts beyond common definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
