@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executed finite verification and proof certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory. The script requires no external packages, network access, or other files. Its complete input graph is explicitly declared, and all arithmetic is exact integers or bit-level arithmetic over the field with two elements.
+## correctness
 
-The successful execution enumerated all 16,383 nonempty subsets of the fourteen directed arcs, accepted exactly 280 valid multipaths with face vector (14,64,114,76,12), and built 834 incidences of the full Hasse diagram. It reconstructed 134 disjoint face–coface pairs and 12 critical cells (one 0-cell, five 2-cells, six 3-cells). A full directed-graph topological sort visited all 280 faces, verifying acyclicity. Recursive signed Morse cancellation gave zero in every entry of the integral map from the six critical 3-cells to the five critical 2-cells. The original simplicial mod-two complex independently had Betti vector (1,0,5,6,0).
+PASS
 
-The file `matching_certificate.json` records all fourteen ordered arcs, all critical face masks and all 134 matched mask pairs, with each integer mask specifying selected arc indices by its one bits. The script rebuilds it deterministically; `verify_output.txt` records the actual successful execution. No computational claim extends beyond this finite complex. The integral homotopy step also uses the standard discrete-Morse CW theorem and Hurewicz theorem, as explained in `RESULT.md`.
+The directed graph has exactly fourteen arcs on the uneven theta with paths 2,2,3. Independently enumerated 280 nonempty valid arc sets by indegree/outdegree <=1 and absence of directed cycles, face vector (14,64,114,76,12). Independently repeated deterministic face-poset cancellation: 134 elementary acyclic matches, critical cells one vertex, five 2-cells, six 3-cells. Independently built the full 280-face Hasse digraph and verified acyclicity, and evaluated all integral Morse projections by signed face orientations: every critical differential is zero. The 2-skeleton of the resulting CW complex is wedge^5 S2; Hurewicz identifies each 3-cell attaching class with its zero H2 column, hence all 3-cell attachments null and the claimed wedge^5 S2 wedge^6 S3 follows integrally.
 
-Independent auditing has not been performed.
+## originality
+
+PASS
+
+The statement concerns the bidirected theta with a 3-arm branch and unequal lengths, not published multipath complexes of bidirected polygons, oriented paths, acyclic digraphs or bidirected double-star trees; these methods/results do not imply an exact mixed-dimensional integral homotopy classification of this cyclic branching example.
+
+## value
+
+PASS
+
+A structurally motivated first uneven-arm theta tests the limits of bidirected polygon/path classifications in the presence of two cycles and branching. The exact coexistence of independent 2- and 3-dimensional sphere classes, with integral attaching maps resolved, is a useful model example rather than a trivial face count. No general-family theorem is required for this self-contained exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
