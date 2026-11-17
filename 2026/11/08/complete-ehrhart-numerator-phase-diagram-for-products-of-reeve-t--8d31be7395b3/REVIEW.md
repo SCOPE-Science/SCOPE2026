@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact product Ehrhart count and dimension-six finite-difference transformation produce the closed numerator. Unimodality follows from coefficient differences. Log-concavity reduces to one sharp inequality after the remaining minors are shown positive using AM--GM and an integer-parameter bound. Real-rootedness is completely split into the quadratic \(ab=0\), quartic \(ab>0,a+b\ge3\), and exceptional reciprocal quartic \(a=b=1\) cases. All boundary values are included. Standalone coordinate enumeration and coefficient tests pass 1,809 finite checks; the analytic proof, not these checks, establishes the infinite classification.
+## correctness
 
-**Originality — PASS (best-knowledge).** The closest primary source, Liu's 2026 operations paper, proves product closure only from already log-concave or real-rooted factors and contains no two-Reeve \(h^*\) phase diagram. Liu--Tao--Xin develop Cartesian constructions using Reeve tetrahedra to realize signs of Ehrhart polynomial coefficients; this is a different invariant and does not imply the exact \(h^*\)-coefficient shape or root classification. Liu--Mao's conditional Hadamard theorem is inapplicable to the factors with an internal zero. Targeted semantic and exact-term searches, along with available mathematical claims, did not identify an equivalent or dominating statement. An uncatalogued earlier calculation remains possible.
+PASS
 
-**Mathematical value — PASS.** Reeve tetrahedra are canonical minimal nonunimodal \(h^*\)-examples, and Cartesian products are a central operation in recent preservation theory. This is a complete classification on the full natural two-parameter family, not an arbitrary isolated example: product formation universally restores unimodality, restores log-concavity exactly in a sharp finite region, and restores real-rootedness in only three parameter pairs. The distinctions between those three coefficient/root properties are mathematically substantive and independently usable as precise benchmarks for product behavior.
+The exact Reeve Ehrhart polynomial L_m(k)=[mk^3+6k^2+(12-m)k+6]/6 and product identity L_{m,n}=L_mL_n imply h*=(1,9,t+u+9,9t+u+1,9t,t,0), t=(m-1)(n-1), u=10(m+n-2). The coefficient differences show universal unimodality. Of four adjacent log-concavity minors only 72-t-u can fail (the other three are nonnegative by u^2>=400t and t integer cases), giving threshold t+u<=72. For real-rootedness, t=0 reduces to discriminant 60-4u; t>0 is excluded by Newton sum-of-four positive roots unless a=b=1, where the reciprocal quartic is strictly positive. Independent exact arithmetic across 196 parameter pairs checks all formulas, not infinite proof.
 
-**Closest literature and limits.** The explicit product identity is the standard one; the new statement is the exhaustive coefficient-shape and root phase diagram. An independently conducted priority review and mathematical audit have not been performed. The contribution is not a theorem about more than two factors or general empty simplices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Liu 2026 conditional product preservation theorems require real-rooted or log-concave input h* factors, whereas nonunimodular Reeve h* has an internal zero and violates that hypothesis. Earlier Reeve tetrahedron constructions concern Ehrhart polynomial coefficient signs or different operations. Targeted Resultary search did not reveal the exact two-Reeve universal unimodality and sharp stronger-property thresholds. Relevant full primary Liu text inaccessible; recorded as residual, not categorical noncoverage.
+
+## value
+
+PASS
+
+Reeve tetrahedra are classical sparse nonunimodal lattice simplices. The Cartesian product unexpectedly restores h* unimodality for every pair, while exact thresholds separate log-concavity and real-rootedness, giving a motivated, natural complete two-parameter classification rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

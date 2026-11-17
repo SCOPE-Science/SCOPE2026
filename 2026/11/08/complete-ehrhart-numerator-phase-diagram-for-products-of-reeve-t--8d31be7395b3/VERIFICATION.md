@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and checked boundaries
+# Independent mathematical audit
 
-Execute `python3 verify_reeve_products.py` after extracting the files into a common directory. The program uses Python's standard library only. Its current execution passed: 81 direct integer-coordinate counts; 576 independent finite-difference numerator reconstructions; 1,152 coefficient-shape assertions. The total is 1,809 assertions.
+## correctness
 
-The exact checks are finite samples and do not certify real-rootedness for all parameters. The real-rootedness classification follows from the explicit quadratic discriminant, the elementary four-variable symmetric-product bound, and the exceptional positive reciprocal-quartic identity in `RESULT.md`. The verification code is not a substitute for those arguments. No independent audit was carried out.
+PASS
+
+The exact Reeve Ehrhart polynomial L_m(k)=[mk^3+6k^2+(12-m)k+6]/6 and product identity L_{m,n}=L_mL_n imply h*=(1,9,t+u+9,9t+u+1,9t,t,0), t=(m-1)(n-1), u=10(m+n-2). The coefficient differences show universal unimodality. Of four adjacent log-concavity minors only 72-t-u can fail (the other three are nonnegative by u^2>=400t and t integer cases), giving threshold t+u<=72. For real-rootedness, t=0 reduces to discriminant 60-4u; t>0 is excluded by Newton sum-of-four positive roots unless a=b=1, where the reciprocal quartic is strictly positive. Independent exact arithmetic across 196 parameter pairs checks all formulas, not infinite proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Liu 2026 conditional product preservation theorems require real-rooted or log-concave input h* factors, whereas nonunimodular Reeve h* has an internal zero and violates that hypothesis. Earlier Reeve tetrahedron constructions concern Ehrhart polynomial coefficient signs or different operations. Targeted Resultary search did not reveal the exact two-Reeve universal unimodality and sharp stronger-property thresholds. Relevant full primary Liu text inaccessible; recorded as residual, not categorical noncoverage.
+
+## value
+
+PASS
+
+Reeve tetrahedra are classical sparse nonunimodal lattice simplices. The Cartesian product unexpectedly restores h* unimodality for every pair, while exact thresholds separate log-concavity and real-rootedness, giving a motivated, natural complete two-parameter classification rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
