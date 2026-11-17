@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every primitive lattice normal \\(z\\), exact vertex supports yield \\(D(z)=b(M-m)/2+|b(M+m)/2-a\\cdot z|\\). Every nonzero integer normal with \\(M-m\\ge2\\) has \\(D(z)\\ge b\\); nonempty subset indicators have \\(D(z)<b\\) since all weights are positive and their sum is below \\(b\\). Thus all minimizers have integer range one and are signed subset indicators. The positive-integer PARTITION encoding gives a polynomial-time equivalence, with subset certificate for membership in NP; the universal claim is analytical and 305 exact regression tests supplement it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han--Henk--Xue Theorem 1.3 concerns the fixed centroid-centered simplex and all packing-minimum orders, not arbitrary translated simplexes.",
+        "Henk--Schymura--Xue (2020) uses the difference body and hence is translation-invariant."
+      ],
+      "reasoning": "A theorem for one centered position does not cover an arbitrary positive barycentric origin or its NP-complete parameter dependence; difference-body parameters cannot detect translation. No stronger primary result from the inspected papers determines the claimed subset-sum family.",
+      "searches": [
+        "arXiv:2601.13937v1 Theorem 1.3 and Section 4",
+        "arXiv:2005.02234v1 definition of packing minima",
+        "\"translated simplex\" \"packing minima\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.13937v1",
+      "arXiv:2005.02234v1",
+      "Garey-Johnson-1979"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 reciprocal-support characterization is one input, but evaluating its primitive-normal minimum entails the range-one rigidity inequality proved separately here.",
+        "The 2026 centered-case theorem is a single parameter point and does not imply the NP-complete origin-movement decision by substitution.",
+        "The original difference-body invariant is translation-invariant."
+      ],
+      "reasoning": "The present result is not the special case of a prior explicit general solution of the same optimization. It requires an independent integer-normal exclusion and a many-one complexity reduction. At fixed parameters the generic identity may be specialized, but the exact all-parameter solution and complexity are not stated or logically subsumed by an already-evaluated prior family.",
+      "searches": [
+        "arXiv:2601.13937v1 Proposition 2.1, Section 2, Theorem 1.3, Section 4",
+        "arXiv:2005.02234v1 definition and main results",
+        "\"first packing minimum\" complexity dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Han--Henk--Xue, Proposition 2.1 and subsequent projection calculation, give a generic one-dimensional reciprocal-support identity but leave the optimization over primitive normals unsolved.",
+        "No matching all-position signed-subset classification or NP-completeness statement located in searched primary results."
+      ],
+      "reasoning": "The relevant possible aliases are maximal one-dimensional projection minimum, minimization of paired support functions over primitive lattice normals, and integer subset-sum discrepancy. The general identity is used as a lemma; it does not identify this family’s minimizing lattice normals or supply hardness of the special decision problem.",
+      "searches": [
+        "\"packing minima\" \"simplex\" translation subset sum 2026",
+        "\"packing minima\" \"partition problem\" \"simplex\"",
+        "\"first packing minimum\" complexity dimension",
+        "arXiv:2601.13937v1 Section 2, pp. 4--6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact value table, direction catalogue, or data record containing the same family was found in these searches."
+      ],
+      "reasoning": "The claim concerns an infinite continuously parametrized family and its complexity, not a finite tabulation. Absence of a record alone does not establish originality.",
+      "searches": [
+        "\"packing minima\" \"subset sums\" simplex convex",
+        "\"packing minima\" \"NP-complete\" lattice",
+        "\"packing minima\" \"subset sum\" simplex",
+        "\"minimum of max support functions polar simplex over primitive integer vectors subset sum\""
+      ]
+    },
+    "rationale": "The 2026 primary paper supplies an underlying projected-lattice identity and one centered-simplex calculation, but not the all-position optimal primitive normals, subset-discrepancy exact value, weak NP-complete decision, or non-centroid argmax. The 2020 difference-body packing minima are translation-invariant. Record searches found no covering theorem; residual unindexed-equivalence risk is acknowledged.",
+    "residual_risks": [
+      "An unindexed older formulation may already optimize paired simplex support functions by subset-sum discrepancy.",
+      "The centered-special-case literature is extensive; an obscure translated-simplex calculation may be equivalent.",
+      "No independent external audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant foundational identity and centered result; no translated-simplex subset-sum minimization or complexity theorem found in inspected sections.",
+        "evidence": [
+          "arXiv:2601.13937v1, pp. 3--6, 9--13; Theorem 1.3; Proposition 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.13937",
+        "material_read": "Original PDF abstract and definitions, Sections 1--2 including Proposition 2.1 and the i=1 projection calculation on pp. 4--6; Section 4 centered-simplex statement and proof pp. 9--13.",
+        "method": "Full-text PDF line inspection plus rendered page screenshots for the key proposition and the centered-simplex section.",
+        "title": "Packing minima of convex bodies",
+        "trigger": "Defines the precise origin-dependent packing minima and computes a centered simplex."
+      },
+      {
+        "assessment": "Older parameters are invariant under translation and do not resolve the origin-sensitive family.",
+        "evidence": [
+          "arXiv:2005.02234v1, definitions in Sections 1--2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.02234",
+        "material_read": "Definitions and statement of the difference-body packing-minimum framework in introduction, main results and relevant examples; original paper initial pages inspected.",
+        "method": "Original PDF indexed text and representative rendered page inspection.",
+        "title": "Packing minima and lattice points in convex bodies",
+        "trigger": "Potential earlier stronger packing-minimum framework."
+      },
+      {
+        "assessment": "Supports the source NP-complete problem, not priority on the present geometric theorem.",
+        "evidence": [
+          "Garey and Johnson, 1979, classical PARTITION classification"
+        ],
+        "identifier_or_url": "Garey-Johnson-1979",
+        "material_read": "Bibliographic identification and standard statement of the classical PARTITION problem; original monograph not opened.",
+        "method": "Bibliographic cross-check; standard complexity result.",
+        "title": "Computers and Intractability: A Guide to the Theory of NP-Completeness",
+        "trigger": "Classical NP-completeness of positive-integer PARTITION used in many-one reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "786ca536-b59a-49b7-a9e6-a324f52e3cf1",
+  "value": {
+    "rationale": "A complete geometry-of-numbers evaluation over moving origins reveals a discrete discrepancy spectrum and exact primitive-normal strata. The weak NP-completeness theorem locates a genuine variable-dimensional computational obstruction even for homothetic right simplexes, and equal-translation geometry has multiple noncentroid maxima in even dimensions; these are natural motivated structural facts beyond a numerical special case.",
+    "status": "PASS"
+  }
+}
