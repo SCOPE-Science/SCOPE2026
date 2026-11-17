@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit circumcenter barycentrics follow from equal squared distances and the regular simplex Gram identity. The quadratic sign polynomial has a unique positive zero. The fixed-ratio inequality follows from three elementary reciprocal-radius estimates, with a family attaining equality at every prescribed ratio. Two-shell radial examples realize each claimed negative-coordinate count; the direct linear-algebra checker confirms the formulas for finite test dimensions. No computation is used as an infinite proof.
+
+**Originality — PASS, provisional.** The full accessible 2009 VanderZee–Hirani–Guoy–Zharnitsky–Ramos manuscript was inspected, particularly its Section 4 and Proposition 11. Their general well-centered criterion is stronger in **scope of input simplices** but only answers whether all barycentrics are positive; it does not state a sharp universal aspect-ratio bound for the second-longest radial vertex or the ordered signed-facet spectrum. Westendorp's generic Cayley–Menger formula can calculate the same circumcenter but does not state the sharp inequality. Closest semantic mathematical-record hits concerned general regular simplex face-angle obstructions, weighted terminal simplex minimum-enclosing balls, and radius-class incenter problems, not the specified circumcenter sign claim. Full access to a closely related 2010 dissertation was unavailable; an equivalent implicit specialized result elsewhere remains a historical-priority risk.
+
+**Value — PASS.** Well-centeredness controls the sign of the Voronoi–Delaunay dual location relative to individual faces. The sharp second-largest-radius margin and signed-coordinate prefix provide a structural constraint and a computable family-wide guarantee that is not a generic barycentric formula. The complete possible-count spectrum and sharp fixed-ratio equality examples give both obstruction and realizability statements.
+
+**Scope and limits.** The result concerns a radially stretched regular-direction simplex, not arbitrary simplices, minimum enclosing spheres, or lower-dimensional well-centered faces. No independent expert audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
