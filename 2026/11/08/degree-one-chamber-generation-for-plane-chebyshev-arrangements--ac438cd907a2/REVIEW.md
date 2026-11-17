@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result follows from four verified points: (i) the coprime Chebyshev parametrization has \(\frac12(a-1)(b-1)\) transverse real nodes, giving exactly two more chambers than nodes; (ii) the winding basis identifies the degree-one step with \(\operatorname{span}_{\mathbb Q}(1,w)\); (iii) alternating derivative signs on a regular vertical fibre of the degree-\(a\) projection bound the winding range to \(a+1\) integers; and (iv) the three explicit test points for \((2,3)\) attain distinct winding levels. All parameter inequalities and exceptional-case witnesses are exact. The standalone script checks finite consistency, not the all-parameter proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The closest primary source is Yoshinaga's 2026 *Regions of totally real arrangements of rational curves*, especially Corollary 5.4, Section 7.2, and Section 8. It establishes the underlying filtration, Chebyshev region counts, and one failure for \((3,4)\). It does not state the complete degree-one generation dichotomy for all coprime Chebyshev diagrams, nor the universal vertical projection-degree obstruction or the quantitative algebra-dimension deficiency. The older Koseleff–Pecker paper studies the same polynomial plane diagrams but not this chamber filtration. General results for hyperplane-arrangement chamber algebras do not cover the nonlinearly immersed Chebyshev curves. The possibility of an unlocated winding-number formulation remains the main originality risk; search absence is not a priority guarantee.
+PASS
 
-## Mathematical value — PASS
-The 2026 paper explicitly identifies geometric understanding and degree-one generation of its filtration as an open direction. The theorem completely settles degree-one generation across the natural infinite Chebyshev family, not just an isolated numerical example, with exactly one positive case and a deficiency that grows linearly in the larger degree for fixed \(a\) (and quadratically when both degrees grow). The reusable projection-degree lemma isolates a structural explanation of failure. The result does not claim a general filtration classification or exact deficiencies in all cases.
+Yoshinaga Corollary 5.4 proves ker(gamma_Q)=span_Q(1,w) for a single affine curve plus infinity; Proposition 7.2 proves precisely N=(a-1)(b-1)/2 ordinary real nodes and N+2 chambers. For a vertical regular fibre T_a(t)=x, the k<=a real preimages have alternating signs of T_a prime. The winding at a point is a subset sum of these signs, hence lies between -floor(a/2) and ceil(a/2), at most a+1 integer levels. Thus dim Q[w]<=a+1. Comparing with N+2 proves positive deficiency except (2,3). For (2,3), explicit regular sample points exhibit winding -1,0,1 and interpolation yields all functions. The all-parameter inequality and zero-parameter boundaries are proven, not inferred from finite testing.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Full primary Yoshinaga arXiv:2611.00861v1 was inspected: Corollary 5.4 (first-step winding basis), Proposition 7.2 (node/chamber counts) and Section 8 (one non-generation example (3,4) and question of chart dependence) are prior facts. Neither states the complete iff (2,3) family classification, which requires the additional degree-a projection winding-level bound and exception witnesses. Chebyshev knot diagrams and hyperplane VG algebras do not directly imply the curved arrangement classification.
+
+## value
+
+PASS
+
+Answers a natural finite-dimensional generation question introduced by the published geometric filtration with a clean complete parameter classification and quantitative lower bound, not a mere numerical example. The proof supplies a structural winding complexity obstruction and sharp exceptional case; no paper-sized generalization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

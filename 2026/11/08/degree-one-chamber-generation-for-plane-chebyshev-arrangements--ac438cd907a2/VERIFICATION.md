@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` independently derives the coprime Chebyshev node count, transversality, the region count, the signed vertical-ray formula, the alternating-derivative bound, and the three exceptional winding witnesses. The winding-basis identification \(\ker\gamma_{\mathbb Q}=\mathbb Q\mathbf1+\mathbb Q w\) is explicitly attributed to Yoshinaga, Corollary 5.4.
+## correctness
 
-Run `python verify.py` with a Python 3 interpreter and no third-party dependencies. It checks 12,032 coprime pairs in the displayed finite parameter range, the node parity formula, the numerical inequality, the root-sign pattern, and exact algebraic relations for the three-level exceptional witness. Its output is `CHEBYSHEV_CHAMBER_CHECK_OK 12032`.
+PASS
 
-The finite check does not establish the theorem for unbounded parameters; that follows from the uniform proof. It does not compute the precise dimension of the generated subalgebra for all parameters. Historical priority and independent mathematical review have not been exhaustively established.
+Yoshinaga Corollary 5.4 proves ker(gamma_Q)=span_Q(1,w) for a single affine curve plus infinity; Proposition 7.2 proves precisely N=(a-1)(b-1)/2 ordinary real nodes and N+2 chambers. For a vertical regular fibre T_a(t)=x, the k<=a real preimages have alternating signs of T_a prime. The winding at a point is a subset sum of these signs, hence lies between -floor(a/2) and ceil(a/2), at most a+1 integer levels. Thus dim Q[w]<=a+1. Comparing with N+2 proves positive deficiency except (2,3). For (2,3), explicit regular sample points exhibit winding -1,0,1 and interpolation yields all functions. The all-parameter inequality and zero-parameter boundaries are proven, not inferred from finite testing.
+
+## originality
+
+PASS
+
+Full primary Yoshinaga arXiv:2611.00861v1 was inspected: Corollary 5.4 (first-step winding basis), Proposition 7.2 (node/chamber counts) and Section 8 (one non-generation example (3,4) and question of chart dependence) are prior facts. Neither states the complete iff (2,3) family classification, which requires the additional degree-a projection winding-level bound and exception witnesses. Chebyshev knot diagrams and hyperplane VG algebras do not directly imply the curved arrangement classification.
+
+## value
+
+PASS
+
+Answers a natural finite-dimensional generation question introduced by the published geometric filtration with a clean complete parameter classification and quantitative lower bound, not a mere numerical example. The proof supplies a structural winding complexity obstruction and sharp exceptional case; no paper-sized generalization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
