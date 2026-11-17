@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Fano lines explicitly enumerate 21 incidences and all 232 zero-, one-, two-deletion cases. Two independently structured checkers each process all 16384 states per graph (3801088 graph-state pairs), verify eventual period <=2 by direct iteration, enumerate exact fixed/two-cycle counts and first-entry times, compare original and modified consensus membership bit for bit, and assert all five class signatures. C++ bit counts and Python NumPy vectorization reproduce identical values; displayed witnesses can be independently evaluated using the listed lines. This is exhaustive across the complete finite claim domain and includes a strict positive 64-state sharpness witness count for entry time 11.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos 1980 abstract: period one or two for symmetric threshold maps",
+        "Kaaser–Mallmann-Trenn–Natale arxiv:1508.03519: O(|E|) convergence and module bounds",
+        "published-finding corpus 2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1: one-edge deletion formulas only for complete bipartite graphs"
+      ],
+      "reasoning": "General period-two theorems do not imply exact 296/128 lost-state populations. Complete bipartite one-edge results do not apply: Heawood has degree three rather than opposite-shore degree seven; moreover claim concerns double deletion.",
+      "searches": [
+        "Fano plane incidence majority dynamics delete two incidences consensus basin settling times",
+        "synchronous deterministic majority dynamics regular bipartite cubic cage exact convergence maximum transient",
+        "majority dynamics graphs eventual period 2 arxiv 2013 2014 convergence full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1307.4035v1 (first submitted 2013-07-15)",
+      "arxiv:1508.03519v1 (first submitted 2015-08-14)",
+      "2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+      "2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1",
+      "Goles–Olivos DOI 10.1016/0012-365X(80)90121-1 abstract",
+      "MathWorld HeawoodGraph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full intact published-finding corpus RESULT.md: graph-specific 58-symbol swap and basin table",
+        "Tamuz–Tessler arxiv:1307.4035v2 §§1–3: information retention, generic convergence, no Heawood or deletions",
+        "Kaaser et al. arxiv:1508.03519 §§1–3: generic voting time, no Heawood or deletion census"
+      ],
+      "reasoning": "The base incidence projection supplies 2592 initial consensus-bound states only; no statement of how these change under any deletion. Generic convergence results only bound eventual periods. Neither entails that loss begins at exactly two disjoint removed incidences, nor the five class signatures.",
+      "searches": [
+        "synchronous binary majority dynamics on Heawood Fano plane incidence graph; exact fixed points 2-cycles convergence consensus basins and edge deletion",
+        "Heawood graph majority edge removal deletion 14 vertices 21 edges attractor basin fixed states two cycles",
+        "Fano plane incidence majority dynamics delete two incidences consensus basin settling times",
+        "Heawood graph majority edge removal deletion 14 vertices 21 edges attractor basin fixed states two cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93 full RESULT.md: F^4=F^2 for intact graph, 58 fixed states, 1653 two-cycles; explicit Fano projection",
+        "Tamuz–Tessler arxiv:1307.4035v2 §1.1,§1.2,§3.4: majority and Lyapunov bounds"
+      ],
+      "reasoning": "Equivalent descriptions as an incidence-majority map, Fano flag deletion, two-perturbation of a cubic cage or Boolean threshold system were searched. The intact projection loses its defining cubic local rule at deleted incidences; it does not classify new attraction basins. No matching double-defect theorem identified.",
+      "searches": [
+        "synchronous binary majority dynamics on Heawood Fano plane incidence graph; exact fixed points 2-cycles convergence consensus basins and edge deletion",
+        "Heawood graph majority edge removal deletion 14 vertices 21 edges attractor basin fixed states two cycles",
+        "Heawood graph majority dynamics attractors binary threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93 covers the intact table, not deleted edges",
+        "Web searches returned the standard Heawood graph descriptions and general majority literature, not a 232-case table"
+      ],
+      "reasoning": "The searched exact figures, aliases, double incidences and target tables did not yield prior coverage. Failed retrieval is not a proof of priority; source comparison and scientific reasoning are recorded separately.",
+      "searches": [
+        "Heawood graph majority edge removal deletion 14 vertices 21 edges attractor basin fixed states two cycles",
+        "Heawood cubic cage majority Boolean state basin 3744 777 6 edge deletion",
+        "Heawood graph majority 4960 consensus",
+        "Heawood graph fixed points majority edge deletion",
+        "Heawood majority vote edge deletion 2 deleted edges Fano graph graph dynamics 14"
+      ]
+    },
+    "rationale": "The exact public Heawood result was read in full and covers only the intact graph, which is credited. The requested novelty is a basin-set inclusion threshold distinguishing all adjacent and disjoint double-incidence deletions, with 232-case exact census, not a renaming or consequence of the intact 58-state projection. General finite majority theorems give eventual two-periodicity or voting-time bounds, not defective-Fano basin comparisons. Actual database and web searches found no matching result; priority remains qualified.",
+    "residual_risks": [
+      "No exhaustive proof of historical priority; different indexing or unpublished exact tables may exist.",
+      "The older 1980 Goles–Olivos full paper was not inspected, although the abstract explicitly concerns general two-periodicity.",
+      "The finite-program verification has no independent external mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "INTACT_ONLY_NOT_TWO_DEFECT_COVERAGE",
+        "evidence": "58 fixed; 1653 primitive two-cycles; exact 2592 unanimity basin; no incidence deletion theorem or deleted-rule calculation",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93/RESULT.md",
+        "material_read": "Complete RESULT.md, including full Fano projection proof, basin tables, verification and references",
+        "method": "Read the complete public result manuscript directly and compare the exact theorem and proof scope.",
+        "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+        "trigger": "Same graph, same strict-neighbor majority, precise intact census"
+      },
+      {
+        "assessment": "GENERAL_MAJORITY_THEORY_NOT_SPECIFIC_DEFECT_CLASSIFICATION",
+        "evidence": "General Lyapunov and influence/information theorems, with odd-degree assumption; defective graphs need tie rule and exact finite census",
+        "identifier_or_url": "https://arxiv.org/html/1307.4035v2",
+        "material_read": "Accessible full HTML; definitions §§1.1–1.2 and combinatorial proof §3.4 inspected, with full-text terms Heawood/Fano/delet checked",
+        "method": "Web full-text HTML review and term search",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "Foundational pre-2016 primary full text on synchronous majority and consensus"
+      },
+      {
+        "assessment": "GENERAL_BOUNDS_NOT_EXACT_HEAWOOD",
+        "evidence": "General voting-time O(E) bounds, modules and complexity, not exact incidence removal maps",
+        "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+        "material_read": "Accessible primary article text, introduction and theorem context; searched for Heawood, Fano, deletion",
+        "method": "Web full text and term find",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Broad voting-time bounds might subsume sharp eleven-step claim"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_RISK_DISCLOSED",
+        "evidence": "The abstract claims eventual fixed or two-periodic behavior for symmetric threshold functions; does not enumerate specific basins",
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Abstract and bibliographic description only; full text not accessible in this check",
+        "method": "Publisher/repository abstract",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Classical period-two theorem"
+      },
+      {
+        "assessment": "GRAPH_GEOMETRY_NOT_DYNAMICS",
+        "evidence": "Heawood identification, no majority dynamical census",
+        "identifier_or_url": "https://mathworld.wolfram.com/HeawoodGraph.html",
+        "material_read": "Graph description: cubic 14-vertex girth-six cage and Fano incidence graph",
+        "method": "Reference webpage",
+        "title": "Heawood Graph",
+        "trigger": "Canonical graph geometry, primary MSC context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e9162fa8-7a03-4aa1-b9b0-56821a82c01f",
+  "value": {
+    "rationale": "The minimum number of failed incidences necessary to destroy an originally consensus-bound state is a natural robustness invariant for a canonical cage network. The sharp two-incidence threshold depends exactly on whether deleted flags share an endpoint, while every defective network has a larger total consensus basin. The three geometry-sensitive populations and opposite basin-set versus size behavior are new motivated finite structural information, rather than an arbitrary computation or mere relabeling.",
+    "status": "PASS"
+  }
+}
