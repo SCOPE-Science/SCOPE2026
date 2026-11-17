@@ -1,15 +1,21 @@
-# Scientific review of the cyclic-quartic superspecial-parameter classification
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For every prime \(p\equiv3\pmod4\), smoothness follows from the squarefree four-factor branch polynomial, and the plane-cohomology Frobenius coefficient formula reduces all nine Hasse–Witt entries to a single exactly evaluated binomial coefficient. The resulting one-by-one semilinear block determines both the Cartier \(a\)-number and stable \(p\)-rank; the remaining Prym dimension-two block is zero. A separable degree-two isogeny splits the elliptic quotient and Prym at odd primes. The hypergeometric differential equation establishes squarefreeness of the Deuring polynomial away from the excluded branch values for every eligible prime, including three. The exact standalone polynomial checker independently validates the needed coefficients and squarefreeness identities in twelve prime characteristics; it is finite corroboration, not a substitute for the universal proof.
+PASS
 
-## Originality (O): PASS, with priority risk
+For p=4k+3, plane Hasse-Witt expansion of F=Y⁴−XZ(X−Z)(X−tZ) has Y exponent multiple of four only in the middle diagonal Cech coefficient, yielding diag(0,-H_m(t),0), m=(p−1)/2, H_m=Σbinom(m,j)²t^j. Stable p-rank is 1 or 0; a-number is 2 or 3. The p-prime double-cover splitting identifies an everywhere-superspecial Prym; the Legendre elliptic quotient is supersingular at precisely H_m=0. Its hypergeometric ODE and nonzero endpoint values imply degree-m polynomial has exactly m distinct smooth roots. This is an all-prime algebraic proof; finite script claims are corroboration only.
 
-Goodson (arXiv:1705.02404, Section 5) treats exactly the same generalized Legendre quartic, but provides hypergeometric periods and point counts, not the explicit \(p\equiv3\pmod4\) complete Cartier-rank or superspecial parameter divisor. Li–Mantovan–Pries–Tang (arXiv:1805.06914, Section 6.1) already establish the allowable Newton polygon types for the family M[7]; these are acknowledged as prior, and their table alone does not imply the exact parameter equation or reduced count. Cavalieri–Pries (arXiv:2308.14891, Corollary 6.4) compute nonordinary mass and \(a\)-numbers for M[7] only under \(p\equiv1\pmod4\), the opposite congruence class. The general Deuring root count for Legendre elliptic curves is classical, and the new mathematical connection is the *entire* Cartier structure and marked reduced superspecial divisor of the nonhyperelliptic genus-three pencil. An undiscovered equivalent explicit statement, or a previously unnoticed reduction of a broader classification, remains a priority risk. Searches of currently accessible historical claims found a dihedral hyperelliptic genus-three pencil with Legendre-type rank invariants, but its inertia/curve type and rank conditions differ, and it does not imply this claim.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-This is a complete arithmetic stratum determination for a one-dimensional Moonen special family in precisely the non-generically-ordinary residue class not addressed by the motivating mass formula. The exact reduced parameter divisor supplies a constructive superspecial smooth *plane quartic* for every prime in the residue class, with a uniform Prym interpretation and a sharp change of Cartier \(a\)-number. Its coefficient-degree \((p-1)/2\) is intrinsic to the natural marked Legendre branch coordinate rather than an arbitrary finite-window census. This is distinct from the mere known enumeration of possible Newton polygons. It does not claim new moduli-isomorphism counts or new Deuring theory.
+Best-of-knowledge: the same family and classical Legendre supersingular polynomial are old, but no inspected or indexed earlier result was found to state the full p≡3 mod4 a-number, superspecial Prym and reduced exact marked divisor together. Identified inaccessible primary full texts remain genuine priority risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An explicit reduced Cartier/superspecial parameter divisor and everywhere-superspecial Prym for a natural genus-three cyclic-cover family distinguish geometric p-rank and a-number across infinitely many inert characteristics. The exact marked classification is natural and useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

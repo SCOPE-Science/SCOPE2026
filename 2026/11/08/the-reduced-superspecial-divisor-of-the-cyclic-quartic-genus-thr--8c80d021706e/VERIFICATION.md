@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with CPython and its standard library. Its expected first line is `VERIFY_M7_CARTIER_OK 12`. The actual replay printed this line and prime-field root counts for twelve primes congruent to three modulo four: 3, 7, 11, 19, 23, 31, 43, 47, 59, 67, 71 and 79. The program independently computes all nine plane cohomology Frobenius coefficients using integer binomial sums modulo each prime, checks the central entry against the Deuring polynomial and checks the characteristic-\(p\) Picard–Fuchs equation and polynomial squarefreeness by a Euclidean algorithm. Root counts over \(\mathbb F_p\) are explicitly *not* asserted to equal the geometric count \((p-1)/2\); the latter is deduced from polynomial degree and separability over the algebraic closure.
+## correctness
 
-## Mathematical limits
+PASS
 
-The proof in RESULT.md, rather than the twelve-prime check, establishes the arbitrary-prime claim. The standard prime-to-\(p\) Prym isogeny and the plane-hypersurface cohomology Frobenius formula are mathematical inputs, not independently certified libraries. No independent human or external mathematical audit has been performed.
+For p=4k+3, plane Hasse-Witt expansion of F=Y⁴−XZ(X−Z)(X−tZ) has Y exponent multiple of four only in the middle diagonal Cech coefficient, yielding diag(0,-H_m(t),0), m=(p−1)/2, H_m=Σbinom(m,j)²t^j. Stable p-rank is 1 or 0; a-number is 2 or 3. The p-prime double-cover splitting identifies an everywhere-superspecial Prym; the Legendre elliptic quotient is supersingular at precisely H_m=0. Its hypergeometric ODE and nonzero endpoint values imply degree-m polynomial has exactly m distinct smooth roots. This is an all-prime algebraic proof; finite script claims are corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the same family and classical Legendre supersingular polynomial are old, but no inspected or indexed earlier result was found to state the full p≡3 mod4 a-number, superspecial Prym and reduced exact marked divisor together. Identified inaccessible primary full texts remain genuine priority risks.
+
+## value
+
+PASS
+
+An explicit reduced Cartier/superspecial parameter divisor and everywhere-superspecial Prym for a natural genus-three cyclic-cover family distinguish geometric p-rank and a-number across infinitely many inert characteristics. The exact marked classification is natural and useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
