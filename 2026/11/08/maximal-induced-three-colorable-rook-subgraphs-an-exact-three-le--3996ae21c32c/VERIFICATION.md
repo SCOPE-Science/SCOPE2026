@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied `verify_rook_3colour.py` contains all source needed to reproduce the finite checks with standard Python 3.9+; run `python verify_rook_3colour.py`. The code directly enumerates every vertex subset on six boards, totaling 1,413,632 subsets, and tests the three-degree and maximality conditions. A separate graph-coloring backtracker explicitly constructs induced rook-graph adjacency and verifies three-colorability and inclusion-maximality for every subset on boards of sizes 3-by-3 and 3-by-4. A separate labeled binary-matrix degree recurrence calculates the coefficients and checks examples.
+## correctness
 
-Actual output:
+PASS
 
-`VERIFY_OK graph_colorings=3x3,3x4 exhaustive_degree_enumeration_cases=6 total_candidate_subsets=1413632 exact_margin_counts=PASS`
+By Konig bipartite line coloring, induced rook graph 3-colorability is equivalent to all selected row/column degrees <=3. Inclusion maximality holds iff every missing cell meets a saturated row or column, equivalently all low-row x low-column cells are present. Each low-row/column set has size at most two. Summing deficits alpha=3m-|E|, beta=3n-|E| forces low-pattern exceptions only at square n=m and n=m+1. Unique low-coordinate choices with 3-regular A_r and single-defect H_r degree margin coefficients count disjoint families; m=n=3 vanishing A_2/H_2 correctly leaves z^9. Independent enumeration agrees at 3x3,3x4,4x4.
 
-Calculated samples: `M(4,4)={10:16,11:144,12:24}`, `M(4,5)={11:40,12:4320}`, `M(5,5)={13:700,14:10800,15:2040}`. Regular-matrix counts at orders 3 to 7 are 1, 24, 2040, 297200, 68938800, matching the independently indexed classical labeled sequence.
+## originality
 
-These finite checks neither establish the infinite result by themselves nor certify publication priority. The unrestricted claim depends on the explicit proof in RESULT.md. Independent mathematical audit has not been performed.
+PASS
+
+The line-graph construction transforms a 3-colorable induced rook subgraph into a bipartite subgraph of K_{m,n} of maximum degree <=3. Known regular 0-1 matrix counts are components, not the full inclusion-maximal census. Well-Hued Graphs (Goddard, Kuenzel, Melville 2022) Section 3.5 Lemma 6 determines when all maximal k-partite rook vertex sets have the same order; it does not count the distinct labeled maximal configurations at each exceptional size. Standard Konig line-coloring gives degree equivalence but no enumeration. Knowledge that the square board has up to three maximal cardinalities, and known A_r, does not entail the n^2(n-1)^2 H_(n-1) coefficient or the two distinct 3n-2 families without the low-degree block classification. Best-of-knowledge originality with disclosed residual risks; no search failure alone is treated as novelty proof.
+
+## value
+
+PASS
+
+This classifies every labeled inclusion-maximal 3-colorable induced subgraph, including exceptional multiplicities, and refines a known qualitative well-k-partite criterion into a complete cardinality census. The margin-polynomial assembly is a natural exact graph-invariant refinement useful for degree-bounded edge-set enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
