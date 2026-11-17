@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Multiplicative Fourier diagonalization converts the square hyperbola Fourier matrix into character sums on the subgroup of unit squares. The split group structure modulo a prime square gives a *complete* stationary-phase calculation, with no neglected residue classes. The only potential cancellation arises from the paired stationary points \(x\) and \(-x^{-1}\); their phase quotient has a primitive \(p^2\)-part and cannot equal the negative of a tame-character root. Counting the resulting involution orbits yields the exact rank in all three congruence classes. When \(p\equiv3\pmod4\), every surviving term has modulus \(p\), so the claimed singular-value multiplicities follow. The proof handles every primitive additive character, not those of conductor \(p\). Numerical direct Fourier matrices were checked at five primes and two allowable additive characters apiece; these finite checks are not a proof of the infinite statement.
+PASS
 
-## Originality
+Writing K(v)=exp(2πic(v+v^-1)/p²), inversion of columns converts the square matrix into convolution on the abelian unit-square group Q. Its singular values are absolute Fourier multipliers. Every unit square decomposes uniquely into Teichmueller representative w_x of x in Q0 and 1+ps, and summing principal-unit phases enforces stationary index a=c(x-x^-1) modulo p. Fibers are singleton or {x,-x^-1}; if two distinct points occur, their phase ratio has primitive p² order because x+x^-1 ≠ 0 modulo p, while tame character factors have order coprime to p, preventing cancellation. Thus multiplier nonzero iff a lies in stationary image, count h times image size. Involution J(x)=-x^-1 has no paired square fibers if p≡3 mod4, fixed points precisely if p≡1 mod8. This gives all three rank cases and flat positive singular values p for p≡3 mod4. Independent direct SVD checked p=3,5,7,11, including flat p values; finite cases do not prove all primes.
 
-**PASS, subject to historical-priority risk.** Kelmer, *Distribution of twisted Kloosterman sums modulo prime powers*, arXiv:0801.4162, Section 2, provides the elementary stationary-phase formula for the **full unit-group** multiplicative-character twists. This classical ingredient is openly acknowledged, rather than claimed new. The current result is a rank and partial-isometry classification for the **index-two square-unit hyperbola self-Fourier matrix**. Unlike the full-unit character-sum formula, the rank classification requires the square-subgroup stationary fiber map, its noncancellation analysis, and a modulo-eight orbit count. Hickman and Wright, arXiv:1801.03176, study analytic restriction inequalities over residue rings and do not identify this finite self-sampling matrix spectrum in the sections inspected. Related existing finite-field hyperbola and torus results differ in their modulus and stationary-fiber geometry. This evidence does not establish global uniqueness; an equivalent formulation may survive in earlier literature.
+## originality
 
-## Value
+PASS
 
-**PASS.** Squares of units form the canonical index-two multiplicative subgroup, and modulus \(p^2\) is the first nonfield stage of a prime-power ring. For this natural partial hyperbola the Fourier self-sampling rank is sharply noninjective and changes according to \(p\pmod8\); at half the odd primes every nonzero singular value is exactly \(p\). This is a complete arithmetic recovery-capacity classification with a sharp stability statement on the recoverable subspace, not an isolated computation or an arbitrary numerical slice.
+Kelmer (2008) Proposition 2.1 proves closely related stationary-phase expansions for multiplicative twists over the *full* units; it does not state self-principal Fourier rank on the index-two unit-square subgroup nor the resulting modulo-eight orbit and flat-spectrum classification. Earlier Resultary reciprocal hyperbola theorem is over Fp rather than Z/p² and indexes all nonzero units; the two contexts cannot be reduced by mod-p projection. The new contribution is the subgroup restriction/count and singular-value consequence, with historical equivalence risk noted.
 
-## Evidence and limits
+## value
 
-The critical proof identity and the orbit count are stated in `RESULT.md`. `checker.py` directly builds the unnormalized Fourier matrix and tests \(p\in\{3,5,7,11,13\}\) with permissible primitive characters, plus the exact stationary-map cardinalities up to \(p=41\). Mathematical use of the numerical checks is corroborative only. The result does not imply injectivity, phaseless reconstruction, larger conductor cases, or universal nonzero singular values for \(p\equiv1\pmod4\). A historically equivalent rank statement remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unit-square hyperbola modulo p² is the first natural prime-square, index-two arithmetic subset for a Fourier inversion problem. Its sharp congruence-class rank changes and exact partial-isometry phenomenon reveal identifiable and lost sampling modes, beyond general Kloosterman bounds. It is a motivated complete prime-family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
