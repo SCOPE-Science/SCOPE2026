@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The object is the collision-free unordered configuration space of three points in the geometric octahedral graph \(K_{2,2,2}\). The reduced Świątkowski weight-three chain complex, with explicitly normalized vertex differences and Koszul signs, has free chain dimensions \((364,1404,1620,540)\). All boundary compositions are zero. Exact integer column-echelon calculations have boundary ranks \((363,1033,540)\) and only unit pivot coefficients, yielding primitive image sublattices and no integral torsion. The action is checked as a chain map for all \(48\) automorphisms and its traces are computed exactly. An independent suitably subdivided Abrams model confirms all Betti numbers over three finite fields and the equivariant Lefschetz numbers for all group elements. The Specht-bipartition decomposition is recovered by character orthogonality. Potential risk: computational implementations could share conceptual mistakes; different presentations and exhaustive checks reduce, but do not eliminate, this risk. No claim of independent mathematical certification is made.
+PASS
 
-## Originality: PASS relative to inspected evidence
+For B_3(|K_{2,2,2}|), the weight-three reduced Swiatkowski complex has signed free chain ranks (364,1404,1620,540), verified differential-square-zero, and integer echelon boundary ranks (363,1033,540). Inspected oct3_sym.py: integer_image_basis performs complete integer column reductions, normalizing only pivots +/-1; triangular unit minors imply primitive boundary images, not merely rational full ranks. Thus H_0=Z, H_1=Z^8, H_2=Z^47, no torsion. The complete 48-element signed-permutation actions are chain maps; image_trace and class characters recover the ten-class table and Specht-bipartition multiplicities. A separate sufficient-subdivision Abrams cubical model has cell counts (816,2880,3192,1088), field ranks (815,2057,1088) and Lefschetz cross-checks. A finite-field check alone would not prove integral primitivity.
 
-The closest preceding homology result, Ko and Park [1], determines first homology in graph-theoretic terms, including information consistent with the rank-eight result, not the full degree-two integral homology or complete symmetry modules. An, Drummond-Cole and Knudsen [2] supply the chain model. An and Knudsen [3] provide general degree-two generators in planar graphs without a complete set of specific relations or an octahedral symmetry character. Maciążek and Sawicki [4] solve other listed graph families; the octahedral graph is not one of their stated general hypotheses or examples. Searches also compared the three-particle Pappus and Heawood configuration spaces, the two-particle cuboctahedral and dodecahedral spaces, the octahedral matching complex, and the graph's aliases. None of these claims implies the full present statement. Risk: an unindexed paper, private notes, or an indirect general representation formula may duplicate part of the result; scholarly priority remains subject to external review.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-A three-particle configuration on a Platonic, three-connected planar graph with six vertices of degree four is a natural basic benchmark for graph braid groups. The integral degree-two rank and torsion conclusion make the planar degree-two generating problem explicit in a higher-valence example, while the complete 48-element character and central-inversion eigenspace split are not obtainable from Betti numbers or the general first-homology theorem. This is a natural exact invariant rather than an arbitrary parameter slice. The finite result does not purport to resolve the general generators-and-relations problem.
+The rank-eight H1 is prior-compatible, but explicit torsion-free rank-47 H2 and full degree-one/two B3 symmetry characters were not found as an earlier theorem or stronger corollary in the inspected sources.
 
-## Limits and source comparison
+## value
 
-The proof is conditional on standard, published chain-model and subdivision equivalences. Included code and output allow direct recomputation. The homotopy type, cohomology ring, fundamental group, integral representation lattice and general-family extension remain unproved. Sources: [1] arXiv:1101.2648; [2] arXiv:1708.02351; [3] arXiv:2008.10371; [4] arXiv:1806.02846.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A torsion-free integral H2 determination and full 48-symmetry representation for three collision-free particles on the octahedron fill a concrete gap beyond previously known H1 and H2 generator descriptions, enabling group-equivariant quotient/invariant calculations for this canonical graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

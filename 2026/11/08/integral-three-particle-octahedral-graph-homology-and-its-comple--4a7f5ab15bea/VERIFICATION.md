@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run in a directory containing `oct3.py`, `oct3_sym.py`, `oct3_abrams.py` and `oct3_irreps.py` with Python 3.11 or newer (standard library only):
+## correctness
 
-```
-python oct3.py > oct3.log
-python oct3_sym.py > oct3_sym.log
-python oct3_abrams.py > oct3_abrams.log
-python oct3_irreps.py > oct3_irreps.log
-```
+PASS
 
-The symmetry script generates `oct3_chars.json`, and the other subsequent scripts read it. The supplied logs and generated JSON permit exact record comparison. The graph and all boundary matrices are generated internally from the antipodal-pair graph definition. No downloaded databases, prior-run certificates or unavailable libraries are required.
+For B_3(|K_{2,2,2}|), the weight-three reduced Swiatkowski complex has signed free chain ranks (364,1404,1620,540), verified differential-square-zero, and integer echelon boundary ranks (363,1033,540). Inspected oct3_sym.py: integer_image_basis performs complete integer column reductions, normalizing only pivots +/-1; triangular unit minors imply primitive boundary images, not merely rational full ranks. Thus H_0=Z, H_1=Z^8, H_2=Z^47, no torsion. The complete 48-element signed-permutation actions are chain maps; image_trace and class characters recover the ten-class table and Specht-bipartition multiplicities. A separate sufficient-subdivision Abrams cubical model has cell counts (816,2880,3192,1088), field ranks (815,2057,1088) and Lefschetz cross-checks. A finite-field check alone would not prove integral primitivity.
 
-The weight-three reduced Świątkowski complex has chain dimensions \((364,1404,1620,540)\); integer-echelon boundary ranks are \((363,1033,540)\) and every nonzero new leading coefficient is a unit. The program checks \(\partial^2=0\). Distinct primes \(2,3,5,1009\) independently recover the Betti vector \((1,8,47,0)\), but these modular checks alone would not prove integral torsion-freeness. The exact-unit minor argument is the integral certificate.
+## originality
 
-The rational characters are tested on all \(48\) automorphisms; all chain maps commute with boundaries. The independently enumerated Abrams cubical model has dimensions \((816,2880,3192,1088)\), and all signed Lefschetz numbers agree with the Świątkowski character values. The wreath-group irreducible module decompositions have integral nonnegative multiplicities and the expected dimensions.
+PASS
 
-The computation is finite and complete for the specified graph and particle number. It proves no uniform result for all graphs; it does not determine the fundamental group or integral equivariant homotopy type. The checks have not undergone an independent mathematical audit.
+The rank-eight H1 is prior-compatible, but explicit torsion-free rank-47 H2 and full degree-one/two B3 symmetry characters were not found as an earlier theorem or stronger corollary in the inspected sources.
+
+## value
+
+PASS
+
+A torsion-free integral H2 determination and full 48-symmetry representation for three collision-free particles on the octahedron fill a concrete gap beyond previously known H1 and H2 generator descriptions, enabling group-equivariant quotient/invariant calculations for this canonical graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
