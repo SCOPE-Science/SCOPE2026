@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The cubical-join norm description, full-dimensional Lebesgue density, block-maximum Dirichlet law, and conditional independent-coordinate representation are derived explicitly. Exact Dirichlet second and fourth moments reproduce the finite means and variances. A conditional triangular-array central limit theorem, the beta delta method, and an exact second-order expansion prove all limiting laws and their distinct scalings. The independent verifier passed 276 rational and stochastic diagnostic assertions. Asymptotic statements rely on the mathematical proof, not finite simulation.
+
+**Originality — PASS with historical-priority risk.** The closest available all-degree moment formula for positive multipartite stable-set joins and the Hanner \(\ell_1\)-sum volume/covariance recursion are credited and their implications compared. They cover some finite moments of this model but do not state the conditional beta critical-window asymptotics, quadratic-Gaussian/exponential limit, or distinction from the persistent full-radius Gaussian law. Broad searches of related descriptions did not identify an equivalent statement. The relevant motivating algebraic paper was inspected via its public abstract only, with failed full-text retrieval; that is a residual risk, not proof of absence. No independent priority certification is asserted.
+
+**Mathematical value — PASS.** The sum of two cubical blocks is a natural centrally symmetric Hanner polytope and signed stable-set polytope, with a canonical Euclidean radial observable. The full squared-radius energy conceals a second-order stochastic phase transition; conditioning on two geometrically intrinsic block maxima reveals the sharp \(\sqrt N\) balance window, non-Gaussian law, and exact contrast in fluctuation scales. This is a motivated geometric-probabilistic structural classification, not simply an arbitrary moment computation.
+
+**Limitations and risks.** Only the standard orthogonal two-block realization is analyzed; full-text access to the motivating paper was not available; differently termed priority remains possible. Numerical experiments cannot certify the infinite-dimensional limit. The finding has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
