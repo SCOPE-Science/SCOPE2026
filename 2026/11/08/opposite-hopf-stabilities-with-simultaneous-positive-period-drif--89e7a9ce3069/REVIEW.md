@@ -1,15 +1,21 @@
-# Scientific review: two Hopf period clocks
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses exact local coordinate changes at the two foci. In polar form, the angular averaging integrals are computed explicitly as \(I_+=\pi/240\), \(I_-=-\sqrt2\pi/48\), \(J_+=293\pi/5400\) and \(J_-=793\pi/2700\). The nonzero \(I\)-coefficients establish two nondegenerate Hopf branches, exact leading section radii and opposite multiplier signs. The \(J\)-coefficients yield distinct but positive first-order *physical-time* period shifts. The packaged SymPy checker verifies the identities, and optional SciPy returns numerically corroborate them. The analytic argument controls arbitrary sufficiently small detunings; finite tests are not an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Gasull and Giacomini, arXiv:2210.15803, §6.5 (also 2023 journal §6.5), give this model and qualitative global cycle-bearing intervals but not these exact period slopes and radii. Published near-Hopf period calculations for other quadratic oscillators or Sprott flows involve different equations and do not imply the numbers by substitution. Searches covered equation aliases, parameter values, period-coefficient values, related published-finding corpus entries, and published primary text. The 1988 Holmes source was not fully accessible; exact prior computations under a hidden equivalence remain a priority risk, and the novelty judgment is not an exhaustive literature certificate.
+PASS
 
-## Mathematical value — PASS
-The period is a directly measurable invariant of the original flow. The two branches are known to have opposite stability and disjoint existence windows; nevertheless both nonlinear period derivatives have the same positive sign. Exact period coefficients and section-amplitude laws quantify this distinction, make the near-onset phase portraits experimentally distinguishable, and provide precise benchmarks for continuation. These are meaningful natural local invariants even without a general global period theorem.
+Read the frozen RESULT.md proof and reconstructed local Hopf coordinates, transversality signs, first-return cubic displacement, unique square-root branches and original-time angular integral. The two Hopf charts have omega=1,sqrt(2), sigma=+1,-1; the displayed I and J lead to squared section amplitudes 240d and 48(3/5-d), Floquet logarithms -2pi d and +sqrt(2)pi(3/5-d), and strictly positive physical-period coefficients. The supplied trigonometric checker was identified in the Git tree, but its complete execution was not independently performed here; the analytical calculation, not a log, is the supporting proof. Conclusions are local as d approaches the two thresholds.
 
-## Limits and closest literature
-The claim does not assert period monotonicity for all permitted parameters, global basin geometry, or nonlinear behavior beyond the two small cycles. The primary Gasull–Giacomini article and the 1988 Holmes work are the closest sources; the former's relevant full text was read and the latter's full text was not accessible. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the surviving full statement, not any already-known specialization. Existence of Hopf cycles does not logically imply these exact period derivatives without the nontrivial angular integral computation.
+
+## value
+
+PASS
+
+The same invariant-line quadratic flow supports an attracting and a repelling Hopf cycle whose periods both increase. Exact original-time coefficients are motivated dynamical invariants, not a mere time-rescaled normal-form coefficient; this addresses a concrete period/stability question in the originating system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
