@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation of the finite geometric sum supplies the discrete Fourier coefficients for arbitrary phase; normalized Parseval gives an exact sum, uniform Riemann-sum convergence and zeta tail yield \\(F(a)+O(N^{-1})\\). Fourier decay \\(O(k^{-2})\\) yields \\(L^2\\) remainder \\(O(N^{-3/2})\\), sufficient after taking cross terms. Positive cosine defect proves strict unique minimization, and a corrected Fourier coefficient plus \\(x\\cot x<1\\) gives the midpoint-aligned comparison. The standard-library checker passes finite diagnostics; these are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 direct/inverse sampling theorems bound rates for broad classes but give no optimal phase selection for a jump.",
+        "Poghosyan (2013) abstract specifies pointwise convergence away from endpoints for corrected interpolation, rather than unmodified normalized L2 error for one jump. Full text was inaccessible.",
+        "Prestin–Xu (1994) abstract concerns Lp rate estimates in terms of one-sided approximation, not a leading coefficient."
+      ],
+      "reasoning": "Qualitative convergence and O(N^{-1/2}) rates do not imply the explicit function F(a) or its unique minimum; pointwise asymptotics for corrected interpolants use another operator/loss. Exact Fourier formulas are more relevant and are recognized separately as a potential route to some portions of the result.",
+      "searches": [
+        "Gibbs sawtooth trigonometric interpolation piecewise smooth discontinuity sharp constant mesh phase",
+        "Prestin Quak arclength trigonometric interpolants optimal shifted grid sharp mean square L2 jump error constant",
+        "Poghosyan shifted nodes exact asymptotic pointwise error Krylov Lanczos interpolation sawtooth jump half-grid L2",
+        "Kolomoitsev arXiv:2601.19012v1 general sampling operator estimates",
+        "Poghosyan 2013 shifted nodes Krylov Lanczos interpolation"
+      ]
+    },
+    "checked_sources": [
+      "Kolomoitsev arXiv:2601.19012v1 (2026), primary OA full text",
+      "Kolomoitsev doi:10.1007/s00041-026-10302-x (2026), publisher full-text HTML",
+      "Prestin and Quak, On the arclength of trigonometric interpolants (2001), OA PDF, Lemma 2.2 and Theorem 3.1",
+      "Poghosyan, On a pointwise convergence of trigonometric interpolations with shifted nodes (2013), abstract only",
+      "Prestin and Xu, Convergence Rate for Trigonometric Interpolation of Non-smooth Functions (1994), abstract only",
+      "Austin and Trefethen, Trigonometric interpolation and quadrature in perturbed points (2017), abstract only",
+      "published-finding corpus semantic queries for aliases, sawtooth, Gibbs, shift parameter, trigonometric Lagrange, mean-square error and Prestin/Quak (actual searches recorded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prestin–Quak Theorem 3.1 identifies a bounded-versus-logarithmic graph-arclength transition; the invariant is not mean-square approximation error. Their Lemma 2.2 supplies coefficients for a related 2N grid, a substantially closer precursor than general rate bounds.",
+        "Poghosyan addresses corrected methods and pointwise away-from-jump error, but no full text was available to test every theorem.",
+        "The new theorem uses odd N, all phases, the precise unmodified sample operator and smooth perturbations, plus proves global optimality against midpoint-aligned sampling."
+      ],
+      "reasoning": "None of the read published conclusions directly states or entails the full uniform odd-grid phase law with universal h-remainder and unique minimax phase. The 2001 exact coefficients could yield individual special cases by Parseval, which limits the strength of the priority claim; a later equivalent theorem under another convention remains possible.",
+      "searches": [
+        "Prestin Quak arclength trigonometric interpolants optimal shifted grid sharp mean square L2 jump error constant",
+        "Poghosyan shifted nodes exact asymptotic pointwise error Krylov Lanczos interpolation sawtooth jump half-grid L2",
+        "Prestin–Quak 2001, Lemma 2.2 and Theorem 3.1",
+        "Poghosyan 2013 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prestin–Quak, On the arclength of trigonometric interpolants (2001), Lemma 2.2, gives trigonometric coefficients for a jump with 2N nodes but studies a different graph-arclength invariant.",
+        "Kolomoitsev arXiv:2601.19012v1, Introduction, equations (1.1)–(1.4) and the citation of bounded-variation O(n^{-1/p}) rates, does not give a phase-dependent mean-square coefficient."
+      ],
+      "reasoning": "The present statement is equivalent to a uniform sharp L2 asymptotic for the sampling error of the sawtooth, a universal smooth-remainder transfer, and unique phase minimization. Prestin–Quak has related Fourier coefficient representations, but its proved statements concern arclength and it does not state the L2 leading coefficient or the sharp phase comparison. A special even-grid case may be derivable with new calculations, a residual priority risk, rather than direct identical coverage.",
+      "searches": [
+        "trigonometric Lagrange interpolation sharp L2 norm asymptotic periodic function single jump discontinuity offset sampling phase aliasing sawtooth",
+        "optimal phase sampling discontinuities piecewise smooth periodic Fourier interpolant L2 error",
+        "sharp L2 Gibbs error trigonometric interpolation of periodic sawtooth half-step phase",
+        "Prestin–Quak 2001, Lemma 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record hits concern translated exponential sampling or Chebyshev interpolation, not normalized L2 Gibbs sampling error.",
+        "A continuous phase-response integral and strict minimizer are not an integer-sequence or finite lookup-table entry."
+      ],
+      "reasoning": "No matching exact phase function or tabulated constant was found among queried research records or visible primary articles. Lack of a match cannot prove novelty.",
+      "searches": [
+        "trigonometric Lagrange interpolation sharp L2 norm asymptotic periodic function single jump discontinuity offset sampling phase aliasing sawtooth",
+        "sharp L2 Gibbs error trigonometric interpolation of periodic sawtooth half-step phase",
+        "published-finding corpus SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4",
+        "published-finding corpus SCOPE-cyclic-chebyshev-obstruction-euler-prefactor--528d46ae115f"
+      ]
+    },
+    "rationale": "The exact uniform phase-dependent normalized L2 asymptotic for a one-jump periodic function, its strict half-cell minimizer, and the midpoint-aligned comparison were not found among the actual scholarly and research-record results examined. The strongest precursor, Prestin–Quak (2001), contains related Fourier formulas but publishes a graph-arclength classification. This is a qualified same-model priority assessment, not independent verification; older equivalence via Parseval and inaccessible 2013 pointwise work remain concrete risks.",
+    "residual_risks": [
+      "The 2001 explicit even-grid jump coefficients may imply some special cases of the present squared-L2 formula after Parseval and asymptotic evaluation; priority is therefore qualified.",
+      "Poghosyan (2013) full text was inaccessible; abstract describes corrected pointwise operators and cannot rule out an unstated L2 corollary.",
+      "Other historical trigonometric interpolation works or classical aliasing theory could contain equivalent sharp constants under different normalization.",
+      "The record search is not exhaustive and independent expert priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NONCOVERING for phase-sharp squared L2 error and strict minimizer; provides rate framework, not exact constants.",
+        "evidence": [
+          "arXiv:2601.19012v1, first public 2026-01-26, introduction equations (1.1)–(1.4)",
+          "https://link.springer.com/article/10.1007/s00041-026-10302-x"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.19012",
+        "material_read": "Full-text HTML: introduction, formulas (1.1)–(1.4), cited BV rate, classification and relevant discussion of sampling scope.",
+        "method": "Full OA text in HTML and publisher HTML",
+        "title": "Approximation by linear sampling operators in Banach spaces",
+        "trigger": "2026 literature anchor, directly addresses trigonometric Lagrange interpolation and rates"
+      },
+      {
+        "assessment": "NEAR: coefficient formulas closely related and might permit parts of this computation, but the proved conclusions compare graph arclength and do not establish the exact L2 error phase function or optimality.",
+        "evidence": [
+          "Prestin and Quak 2001, Lemma 2.2 (p. 221–223), Theorem 3.1 (p. 224–225)"
+        ],
+        "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/download/2001-vol30-no2-art10/Prestin-Quak-pdf/699",
+        "material_read": "OA PDF pages 1–6 including definitions, Lemma 2.2 coefficient identities and Theorem 3.1 graph-arclength dichotomy.",
+        "method": "Primary full-text PDF text and inspected screenshot of page 3",
+        "title": "On the arclength of trigonometric interpolants",
+        "trigger": "Highly relevant: discontinuous sawtooth with jump at or between grid nodes and coefficient formula"
+      },
+      {
+        "assessment": "MATERIAL PRIORITY RISK; corrected Krylov–Lanczos and rational interpolation with pointwise away-from-jump losses differs from raw L2, but full theorem-level comparison unavailable.",
+        "evidence": [
+          "Poghosyan 2013 abstract, pp. 105–122"
+        ],
+        "identifier_or_url": "https://arar.sci.am/dlibra/publication/14982/edition/13265/content",
+        "material_read": "Primary archive abstract; full PDF restricted by repository account requirement.",
+        "method": "Abstract and bibliographic page only",
+        "title": "On a pointwise convergence of trigonometric interpolations with shifted nodes",
+        "trigger": "Exact constants and optimal shifts on a grid in a historical paper"
+      },
+      {
+        "assessment": "Reports Lp convergence rates through one-sided approximation; direct full-phase L2 constant not indicated in abstract.",
+        "evidence": [
+          "Prestin and Xu 1994, Journal of Approximation Theory 77(2), 113–122"
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jath.1994.1037",
+        "material_read": "Institutional bibliographic abstract",
+        "method": "Abstract only, publisher full text not acquired",
+        "title": "Convergence Rate for Trigonometric Interpolation of Non-smooth Functions",
+        "trigger": "Older sharp/non-smooth interpolation convergence literature"
+      },
+      {
+        "assessment": "Perturbed-grid convergence for smooth periodic functions, not phase-optimal one-jump L2 error.",
+        "evidence": [
+          "Austin and Trefethen 2017, SIAM Journal on Numerical Analysis 55(5), 2113–2122"
+        ],
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:3d9d4624-3a01-463e-b785-d3e50bc5cc39",
+        "material_read": "Institutional abstract and bibliographic record",
+        "method": "Abstract only",
+        "title": "Trigonometric interpolation and quadrature in perturbed points",
+        "trigger": "Arbitrary perturbation of uniform grids"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f06f274b-626e-4360-8de7-5cb2e93ed628",
+  "value": {
+    "rationale": "Sampling phase relative to an actual jump is a natural design parameter. Determining the complete leading squared-L2 coefficient and the unique optimal half-cell placement is more informative than a coarse \\(O(N^{-1/2})\\) estimate, while the midpoint-aligned comparison answers an alternative jump-data convention. The theorem covers every smooth perturbation with \\(O(k^{-2})\\) Fourier tail uniformly in phase, without asserting multi-jump or other-grid results.",
+    "status": "PASS"
+  }
+}
