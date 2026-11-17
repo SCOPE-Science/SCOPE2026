@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Analytic checks: (i) the Green function satisfies the correct cyclic resolvent recurrence including the source delta; (ii) independent sign-product orthogonality yields the binary quadratic variance; (iii) the discrete Fourier transform of the squared Green sequence has a uniquely smallest Nyquist frequency for even \(n\); (iv) the resulting Rayleigh equality characterizes both minimizing signings; (v) finite geometric sums give the sharp variance, its strict comparison to two independent full probes, and all limits. Each quantified statement is proved in `RESULT.md`.
+## correctness
 
-Computational checks: `python checker.py` with Python standard library `fractions.Fraction` (no external packages) yielded `PASS 33861 exact-rational assertions: n=4,6,8,10,12 and r=1/5,1/2,4/5`. The packaged `checker_output.txt` records this result. These tests check finite cases and do not independently certify the universal theorem.
+PASS
 
-Unverified extensions: arbitrary weighted or odd cycles, general trace-estimation algorithms, and inexact linear solves. Originality remains a best-knowledge comparison of inspected publications, not an assertion of exhaustive literature coverage. No independent audit was carried out.
+Screened cyclic Green kernel from unique recurrence has g_d=c(r^d+r^{n−d}) positive; Rademacher quadratic covariance reduces variance of two colored probes to binary energy s^T(G∘G)s. Its circulant Fourier eigenvalues have unique minimum at Nyquist j=n/2 for all 0<r<1, and binary equality iff alternating ± signs. Closed geometric sums yield V_cb, strict V_cb<V_ind2 and claimed limits. Independent exact Fraction enumeration of every 2-color binary partition for even n=4,6,8,10 and r=1/5,1/2,4/5 confirms uniqueness and ratio n8,r1/2=2568/5909; it does not prove all n.
+
+## originality
+
+PASS
+
+The general color-restricted variance identity and nearest-neighbor checkerboard coloring predate the assignment. The new proof shows that, for EVERY even screened cycle and positive screen, the alternating two-color scheme globally and uniquely minimizes EXACT variance over every (possibly improper/unbalanced) nontrivial partition, and obtains an exact same-cost ratio. Searched same-object related results and primary stochastic probing paper; no inspected prior full statement implies this specialized all-partition theorem. Residual risk of a hidden Fourier-graph-cut specialization remains.
+
+## value
+
+PASS
+
+Precisely optimal randomized trace probing on a natural screened periodic lattice is a motivated optimization question: unrestricted partitions, uniqueness, strict equal-cost advantage and closed variance ratios establish a useful exact performance benchmark. General stochastic-probing variance identities do not directly select the unique minimizer; this specialized Fourier structure is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

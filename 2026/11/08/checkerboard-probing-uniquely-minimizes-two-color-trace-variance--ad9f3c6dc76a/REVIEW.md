@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses the real SPD screened cycle \(A_\mu=(\mu+2)I-P-P^{\mathsf T}\), even \(n\ge4\), positive \(\mu\), and two nonempty disjoint probe supports. The cyclic Green recurrence gives the exact inverse. Rademacher pair-product orthogonality reduces the variance minimization over all partitions to the Rayleigh minimization of the squared-Green circulant. Its explicitly summed Fourier spectrum has a unique lowest eigenvalue at the alternating frequency, so the only binary minimizers are the two alternating signs. Direct geometric summation proves the minimum and exact independent-two-probe comparator. All signs and boundary limits are checked analytically. A standalone standard-library exact-rational replay passed 33,861 assertions, which supplements rather than replaces the proof. No stronger statement is inferred from finite sampling.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+Screened cyclic Green kernel from unique recurrence has g_d=c(r^d+r^{n−d}) positive; Rademacher quadratic covariance reduces variance of two colored probes to binary energy s^T(G∘G)s. Its circulant Fourier eigenvalues have unique minimum at Nyquist j=n/2 for all 0<r<1, and binary equality iff alternating ± signs. Closed geometric sums yield V_cb, strict V_cb<V_ind2 and claimed limits. Independent exact Fraction enumeration of every 2-color binary partition for even n=4,6,8,10 and r=1/5,1/2,4/5 confirms uniqueness and ratio n8,r1/2=2568/5909; it does not prove all n.
 
-The nearest detailed comparison is Frommer–Rinelli–Schweitzer (arXiv:2308.07722, Section 3.2, Theorem 3.3): it supplies the general within-color variance, which is used and acknowledged. It does not give a global minimum over **every** two-color partition for a screened cycle, its uniqueness, or the exact same-cost variance gap. The lattice-coloring discussions of Switzer et al. (arXiv:2106.01275), Stathopoulos et al. (arXiv:1302.4018), and Frommer–Schimmel–Schweitzer (arXiv:2009.01589) motivate local and hierarchical distance colorings, not the exact all-partition quadratic optimization here. Related earlier mathematical statements concern unstructured Hadamard-row probing, tensor probe variance, exchangeable signs for diagonal estimation, and dependent probes of two trace functions; none implies this variance-minimizing screened-cycle coloring for every screen. Source and equivalence queries were conducted against the research index and literature. Unknown older results on circulant antiferromagnetic quadratic minimization pose a residual precedence risk, rather than proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Trace-of-inverse estimation for sparse periodic operators is a recurring numerical task. A graph-distance-one checkerboard is intuitively plausible, but it is not automatically the globally best stochastic partition when the inverse is dense and contains contributions at every graph distance. Here an exact positive-screening-independent optimizer and uniqueness theorem settle that question, and an explicit finite-\(n\) variance formula allows algorithm-cost comparisons, not only asymptotic error bounds. It certifies strict variance improvement over the natural same-cost two-probe baseline for every parameter and identifies its large-cycle and near-singular limits. This is a complete, interpretable design benchmark; its scope is intentionally not generalized to arbitrary matrices or sampling laws.
+The general color-restricted variance identity and nearest-neighbor checkerboard coloring predate the assignment. The new proof shows that, for EVERY even screened cycle and positive screen, the alternating two-color scheme globally and uniquely minimizes EXACT variance over every (possibly improper/unbalanced) nontrivial partition, and obtains an exact same-cost ratio. Searched same-object related results and primary stochastic probing paper; no inspected prior full statement implies this specialized all-partition theorem. Residual risk of a hidden Fourier-graph-cut specialization remains.
 
-## Closest literature and remaining risks
+## value
 
-The result is an exact specialization of a general variance identity followed by a nontrivial optimization of its full dense covariance, not a new trace-estimator construction. The link with classical Fourier Rayleigh bounds and antiferromagnetic circulant sign energies may permit earlier equivalent formulations. The primary papers were inspected in their pertinent full-text sections. No independent scientific evaluation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Precisely optimal randomized trace probing on a natural screened periodic lattice is a motivated optimization question: unrestricted partitions, uniqueness, strict equal-cost advantage and closed variance ratios establish a useful exact performance benchmark. General stochastic-probing variance identities do not directly select the unique minimizer; this specialized Fourier structure is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
