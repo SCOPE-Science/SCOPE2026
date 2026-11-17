@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized space is the nine-dimensional real trace-free symmetric-matrix coefficient space on the rank-two real Grassmannian. The Plücker relations identify the oriented two-plane measure with two independent uniform two-spheres; the explicit diagonal identity turns the observable into a three-coordinate bilinear form. Sphere averaging gives exact moment formula (1) and variance \(\operatorname{tr}(A^2)/9\). Strict power convexity or concavity in the three squared coefficients, including boundary points, gives global sharp endpoints and excludes additional maximizers for every \(p\ne2\). The inverse eigenvalue formulas, endpoint operator norm and full equality classifications are checked algebraically. The rational checker independently confirms Plücker identities and 1,710 even-moment test cases; it is supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Identified oriented Gr(2,4) with S^2 x S^2 using self/anti-self dual Plucker coordinates, with unoriented quotient harmless to bilinear observables. The rank-two projector trace f_A becomes U^T diag(m_1,m_2,m_3)V and sum m_i^2=tr(A^2). Conditioning on U gives E|f_A|^p=(p+1)^(-1) E(sum q_i U_i^2)^(p/2); the nondegenerate Dirichlet support makes this strictly Schur-concave for 1<=p<2 and strictly Schur-convex for p>2. Thus simplex vertex and barycentre are unique opposite extrema, yielding pair and outlier spectra, all p>=1 and infinity. E f^2=tr(A^2)/9. Independently computed exact rational even moments m=1..4 for four trace-zero spectra, including the quartic identity 4/75[(tr A^2)^2-tr A^4]. This is finite corroboration, not a substitute for strict Jensen.
 
-The closest inspected primary preprints are Ehler–Gräf, arXiv:1411.5865v1 (polynomial harmonic decompositions, kernels, cubature) and Bodmann–Ehler–Gräf, arXiv:1601.07401v1 (Grassmannian trace moments, moment reconstruction, cubature). The former introduces the pertinent function space and kernels; the latter provides known polynomial moment machinery. Neither inspected theorem states the two all-real-exponent sharp constants or all equality eigenvalue patterns on real \(\operatorname{Gr}(2,4)\). Classical Grassmannian spherical-function work is also relevant and the explicit background is credited. The full sharp norm statement is not a mere restatement of polynomial moments: it incorporates strict convexity for arbitrary noninteger exponents and both extremal spectral families. Search-index incompleteness, classical invariant-theory literature, and material not fully accessible remain genuine risks, not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural sharp norm embedding problem for a nine-dimensional harmonic space on a compact symmetric manifold, with two exact extremal eigenvalue geometries and a universal exponent transition. The equality classification is useful for identifying stable and unstable spectral directions of invariant measurements; the claim concerns all real exponents rather than one arbitrarily selected finite moment.
+The prior real-Grassmannian fourth-moment result covers part of the p=4 statement (its even-n>=6 classification, with n=4 moment formulas separately described), and Ehler-Graf supply the first-harmonic decomposition. Neither inspected primary harmonic-space paper nor the published fourth-moment result proves noninteger-p sharp envelopes, p=1 boundary, infinity extrema, and strict all-p equality classes. The full all-exponent theorem survives best-of-knowledge comparison; the known quartic corollary must not be described as new.
 
-## Limitations
+## value
 
-Results require real symmetric trace-free coefficients, Haar probability and rank-two planes in four dimensions. The available literature search is not exhaustive. No independent mathematical validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp Banach-space norm geometry of the entire nine-dimensional natural first-harmonic space, including strict phase reversal at p=2 and classification of equality spectra for all real p, is a motivated structural result that goes beyond repeating the known quartic moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
