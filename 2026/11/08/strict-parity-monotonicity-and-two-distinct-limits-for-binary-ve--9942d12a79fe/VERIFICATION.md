@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external dependencies. The script enumerates all dual characters of \(\operatorname{Sym}_m(\mathbb F_q)\) at seven parameter pairs: \((q,m)=(2,2),(2,3),(2,4),(2,5),(4,2),(4,3),(8,2)\). For every character it directly computes the quadratic character sum by enumerating all \(v\in\mathbb F_q^m\). It verifies the predicted values (zero or \(q^{m-j}\)), the exact number \(q^{2j}\) of nonzero diagonal character choices for every alternating matrix rank, and the full sharp endpoint norm.
+## correctness
 
-The exact-rational second phase generates parity-conditioned nullity birth–death distributions for \(q=2,4,8\) through matrix dimension \(29\), comparing every expectation with the separately evaluated alternating-rank formula and checking strict decrease after every two-dimensional augmentation. It prints `BINARY_VERONESE_FOURIER_CHECKS_PASS` and `BINARY_VERONESE_MARKOV_CHECKS_PASS` only on success.
+PASS
 
-Observed exact values include \(L_2(2)=3/2\), \(L_3(2)=15/8\), \(L_4(2)=183/64\), \(L_5(2)=3783/1024\), \(L_2(4)=13/4\), \(L_3(4)=253/64\), and \(L_2(8)=57/8\). Approximate parity limits are \(0.7043688567618808\) and \(0.9190785712529057\) for \(q=2\); \(0.8030852218326849\) and \(0.9875120626833671\) for \(q=4\).
+Over q=2^s and m>=0 the phase map v->vv^T is injective because the diagonal squares recover v. Polarization yields an alternating matrix B of even rank 2j; the quadratic character sum either vanishes on the radical or has absolute magnitude q^{m-j}. Exactly q^{2j} diagonal coefficient choices annihilate the radical, so the absolute kernel sum gives the stated rank-weighted operator norm. Uniform alternating-matrix nullity K=(nullity-(m mod 2))/2 yields H_m=E[q^{-K}]. A two-dimensional augmentation has the stated birth/death kernels; the adjacent-state condition b(k)+d(k+1)<=1 yields stochastic monotonicity for both parity chains, with strict inequality of E[q^{-K}] after every two dimensions. Uniform rank-count formulas and quadratic-in-d majorants justify the two q-series limits and the positive odd/even gap. Independently enumerated all alternating GF(2) matrices to dimension 5: H1=1,H2=3/4,H3=15/16,H4=183/256,H5=3783/4096, verifying strict parity decay. The source verify.py was read as finite corroboration, not an all-dimension proof.
 
-The enumerations and finite Markov iteration are corroborative; the all-parameter argument is provided in the proof. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Known character sums and alternating-rank frequencies from symmetric-bilinear association schemes supply the calculation ingredients. The inspected Schmidt primary paper develops general quadratic/symmetric bilinear form association schemes and their character tables; it does not state the specific normalized sharp endpoint norm monotonicity on each dimension parity and two distinct limit constants. The odd-characteristic Veronese Resultary theorem has a different field hypothesis and different asymptotic structure. The new claim is the parity dynamics/limit, not the known rank-count table.
+
+## value
+
+PASS
+
+The sharp endpoint l1/l-infinity projection norm quantifies uniform amplification of a natural rank-one Fourier frequency filter. Dimension-by-two monotonicity and distinct positive parity asymptotic constants give a complete structural asymptotic classification beyond the elementary character table. Both the target object and norm are independently motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

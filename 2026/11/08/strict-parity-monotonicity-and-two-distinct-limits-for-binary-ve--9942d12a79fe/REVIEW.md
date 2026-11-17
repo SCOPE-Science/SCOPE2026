@@ -1,15 +1,21 @@
-# Scientific review: binary Veronese Fourier endpoint norms
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The scope is the full rank-one Veronese cone in the additive group of symmetric matrices over every field of characteristic two. Injectivity follows from Frobenius bijectivity. The Fourier coefficients are quadratic Gauss sums; fixing the polar alternating form of rank \(2j\) gives exactly \(q^{2j}\) nonzero diagonal choices, of amplitude \(q^{m-j}\). The alternating-matrix rank enumeration yields the exact sharp projection norm. The one-step nullity update is proved by solvability of the new column against the old alternating matrix. Composing twice gives explicit parity birth–death kernels. Their stochastic monotonicity and strict growth of support prove strict decrease of the normalized norms. Uniformly summable nullity distributions prove the two \(q\)-series limits and the strictly positive parity gap. Finite exhaustive and exact-rational tests support the algebra but are not used as infinite proofs.
+## correctness
 
-## Originality
-**PASS under bounded priority comparison.** The closest classical work, Schmidt's complete even-field quadratic/symmetric-form association-scheme eigenvalues (arXiv:1803.04274v1, Sections 2–4), contains the underlying orbit character sums and ranks and is credited accordingly; the raw character sum and rank count are not proposed as new. It does **not** state or imply without an additional dimension-coupling argument that the normalized sharp Fourier projection norms strictly decrease in both dimension parities or have two explicitly unequal limits. Iosevich–Koh (arXiv:0804.4505v1) assumes odd characteristic and addresses restriction/extension estimates, not this endpoint invariant. Alnajjarine–Lavrauw (arXiv:2209.08354v1) classifies geometric plane intersections in a fixed small Veronese dimension rather than dimensions varying to infinity. Published mathematical-record similarity searches identified related Veronese Riesz spectra for odd fields and unrelated group Fourier norm parity phenomena. A previous affine Veronese slice character-spectrum result uses \(v=(1,w)\) rather than the full homogeneous cone \(\{vv^{\mathsf T}\}\); it gives spectral multiplicities but neither the complete homogeneous-cone endpoint norm nor its cross-dimension parity monotonicity. No comparison covering the specific statement was found. Priority remains potentially limited by classical random alternating-matrix nullity asymptotics and literature on Fourier-algebra norms of association-scheme relations; independently checking those wider families is prudent.
+PASS
 
-## Value
-**PASS.** The full Veronese rank-one frequency cone is a canonical harmonic-analysis object. Its sharp endpoint norm controls unconditional Fourier projection amplification, while the normalized quantity isolates the precise square-root-exponent growth. The strict dimension-by-two monotonicity is not a standard single-rank-count exercise: its proof uses a monotone two-step nullity coupling, and its two different nonzero parity limits quantify a persistent geometric defect. The result applies to all dimensions and all binary extension fields, yields effective finite formulas, and distinguishes even and odd embedding dimensions without a guessed numerical constant.
+Over q=2^s and m>=0 the phase map v->vv^T is injective because the diagonal squares recover v. Polarization yields an alternating matrix B of even rank 2j; the quadratic character sum either vanishes on the radical or has absolute magnitude q^{m-j}. Exactly q^{2j} diagonal coefficient choices annihilate the radical, so the absolute kernel sum gives the stated rank-weighted operator norm. Uniform alternating-matrix nullity K=(nullity-(m mod 2))/2 yields H_m=E[q^{-K}]. A two-dimensional augmentation has the stated birth/death kernels; the adjacent-state condition b(k)+d(k+1)<=1 yields stochastic monotonicity for both parity chains, with strict inequality of E[q^{-K}] after every two dimensions. Uniform rank-count formulas and quadratic-in-d majorants justify the two q-series limits and the positive odd/even gap. Independently enumerated all alternating GF(2) matrices to dimension 5: H1=1,H2=3/4,H3=15/16,H4=183/256,H5=3783/4096, verifying strict parity decay. The source verify.py was read as finite corroboration, not an all-dimension proof.
 
-## Limits and closest overlap
-Existing association-scheme theory supplies stronger general character tables, so the novelty claim is confined to the norm law, strict monotonicity and distinct limiting constants. Historical priority is not exhaustive. The result does not characterize extremizers and does not extend to odd characteristic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known character sums and alternating-rank frequencies from symmetric-bilinear association schemes supply the calculation ingredients. The inspected Schmidt primary paper develops general quadratic/symmetric bilinear form association schemes and their character tables; it does not state the specific normalized sharp endpoint norm monotonicity on each dimension parity and two distinct limit constants. The odd-characteristic Veronese Resultary theorem has a different field hypothesis and different asymptotic structure. The new claim is the parity dynamics/limit, not the known rank-count table.
+
+## value
+
+PASS
+
+The sharp endpoint l1/l-infinity projection norm quantifies uniform amplification of a natural rank-one Fourier frequency filter. Dimension-by-two monotonicity and distinct positive parity asymptotic constants give a complete structural asymptotic classification beyond the elementary character table. Both the target object and norm are independently motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
