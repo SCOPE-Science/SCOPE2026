@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T14:03:24.633940Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Factorwise Minkowski polynomial T_K multiplies under Cartesian product. Published Godbersen gives coefficient bounds by F_d(t)=sum_j binom(d,j)^2 t^j, and Alexandrov-Fenchel gives the lower (1+t)^d. Vandermonde plus coefficientwise Hankel total positivity implies product_i F_{d_i} <= F_1 F_{n-1}, with coefficient ratio ((n-k)^2+k²)/n². Product of a segment and simplex attains the profile. Complete-profile upper equality follows already from the k=1 coefficient sum Σd_i² maximized at partition (1,n−1); the opposite lower equality is central symmetry. Independent integer convolution comparisons succeeded for every 2-factor split through n=13; generality rests on published inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem covers all finite dimensional Cartesian factor decompositions, factor simplex equality, and affine images, with a bound for each partition; November 1 planar theorem covers exact planar factors and stability."
+        ],
+        "reasoning": "These previous results are stronger factor-resolved coverage; the claimed universal product-class bound is a coarse envelope of them.",
+        "searches": [
+          "Godbersen mixed volume convex body Cartesian product affine product equality sharp upper bound",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-godbersen-coefficient-penalty-for-macroscopic-cartesian-de--9326f232ba1d/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-godbersen-coefficient-envelopes-and-stability-for-products--df2ff69576ee/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-18 complete RESULT.md",
+        "Resultary 2026-11-01 complete RESULT.md",
+        "arxiv:2107.10608 PDF Theorem 4.2",
+        "Resultary 8 hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous R≤[t^k]prod_i F_{d_i}/binom(n,k)^2; merging via Vandermonde square and balancing via 2×2 Hankel minor yields prod_i F_{d_i}≤F_1F_{n−1}. Coefficient [t^k]F_1F_{n−1}=binom(n,k)^2((n−k)^2+k²)/n²."
+        ],
+        "reasoning": "Every asserted upper bound and extremizing prism follows without a new mathematical lemma beyond applying the two prior theorems; prior factor-simplex equality and k=1 partition maximization give the rigidity.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-godbersen-coefficient-penalty-for-macroscopic-cartesian-de--9326f232ba1d/RESULT.md",
+          "arxiv:2107.10608 Thm 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier B_{d,k}=binom(n,k)^{-2}[t^k]prod_i F_{d_i}(t); F_m(t)=sum_j binom(m,j)^2t^j are the type-B Narayana polynomials."
+        ],
+        "reasoning": "The assigned normalized ratio is exactly the earlier R_{n,k}(K); only a maximization over dimension partitions is left.",
+        "searches": [
+          "Godbersen mixed volume convex body Cartesian product affine product equality sharp upper bound",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-godbersen-coefficient-penalty-for-macroscopic-cartesian-de--9326f232ba1d/RESULT.md",
+          "arxiv:2107.10608"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact hypergeometric collision coefficient B_{d,k} is a formula, not a finite table; 2021 paper proves coefficientwise total positivity of (F_{i+j})."
+        ],
+        "reasoning": "All finite coefficients are computable from an already published exact formula and polynomial monotonicity, not a new database measurement.",
+        "searches": [
+          "Godbersen mixed volume convex body Cartesian product affine product equality sharp upper bound",
+          "arxiv:2107.10608 Thm 4.2"
+        ]
+      },
+      "rationale": "The published October 18 sharp *finite-dimensional* product theorem already gives the exact coefficient upper envelope B_{d,k} for every dimension partition, with simplex-factor equality; the 2021 type-B Narayana Hankel total-positivity theorem immediately orders the partitions to maximize this envelope at (1,n−1). Thus the new formula, affine-product invariance, prism equality, and complete-profile rigidity are direct corollaries of accessible stronger results.",
+      "residual_risks": [
+        "No unsettled comparison: prior exact coefficient bound and known total positivity imply all statements; affirm no claim of additional stability retained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGLY_COVERING",
+          "evidence": [
+            "The earlier finite-dimensional formula dominates and its allowed partition (1,n−1) gives claimed prism sharpness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-godbersen-coefficient-penalty-for-macroscopic-cartesian-de--9326f232ba1d/RESULT.md",
+          "material_read": "Complete RESULT.md including exact B_d,k and simplex equality proof",
+          "method": "Read full primary published Resultary text",
+          "title": "Sharp Godbersen coefficient penalty for macroscopic Cartesian decompositions",
+          "trigger": "Same mixed-volume functional, all Cartesian products, sharp finite coefficient bound"
+        },
+        {
+          "assessment": "COVERING_AUXILIARY",
+          "evidence": [
+            "Theorem 4.2 establishes all 2x2 minors (F_{i+j}) coefficientwise nonnegative; submitted partition-shift inequality is immediate."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.10608",
+          "material_read": "PDF introduction and Section 4 Theorem 4.2, text and screenshot p.4",
+          "method": "Read primary PDF full relevant theorem and hypotheses",
+          "title": "A planar network proof for Hankel total positivity of type B Narayana polynomials",
+          "trigger": "Submitted proof explicitly invokes coefficientwise Hankel total positivity"
+        },
+        {
+          "assessment": "RELATED_BROADER_ON_PLANAR_SUBCLASS",
+          "evidence": [
+            "Covers arbitrary planar products and their sharp coefficient envelope, not itself the all-factor claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-godbersen-coefficient-envelopes-and-stability-for-products--df2ff69576ee/RESULT.md",
+          "material_read": "Complete RESULT.md, factor-polynomial formula, sharp envelopes",
+          "method": "Read primary Resultary published text",
+          "title": "Sharp Godbersen coefficient envelopes and stability for products of planar convex bodies",
+          "trigger": "Relevant prior exact product coefficient envelope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Given the October 18 exact coefficientwise theorem and the independently published 2021 type-B Hankel positivity, the displayed optimum is a short known-theorem corollary rather than a substantive new geometric boundary; its sharpness is already certified by simplex factors in the stronger result. It does not introduce a new motivated unknown exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Git source tree and RESULT.md/SLOGAN.txt/METADATA.json/check.py",
+    "Resultary 2026-10-18 and 2026-11-01 complete results",
+    "Li et al. 2021 Theorem 4.2"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Git tree and the listed source blobs were inspected at immutable assignment commit; scripts were read, and independent bounded checks were built separately rather than trusting reported verifier exit codes.",
+    "No public scientific edits or operational/private metadata were authored; pre-existing research package remains intact."
+  ],
+  "residual_risks": [
+    "Finite coefficient computations do not establish novelty."
+  ],
+  "schema_version": 1
+}
