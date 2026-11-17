@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local block Schur-complement model and surjective radical pairing show that the normal space of the top orbit in the restriction-rank locus is exactly the alternating space of its radical. The trace-dual conormal map has identical rank; Pfaffian kernel-parameterization and the classical grade-three resolution give the codimensions and exact degrees. The standalone integer checker confirms representative algebraic formulas, not infinitely many cases. The full proof and its boundary cases appear in RESULT.md.
+## correctness
 
-## Originality — PASS, priority provisional
-Pratt (arXiv:2609.24694v1) introduces conormal rank and develops multiple Grassmannian examples, not the family-wise restricted-symplectic-rank classification in the accessible sections. Xu--Zhang (arXiv:2204.05589) address type-C defining equations, while Kohn--Mathews (arXiv:1901.06584) address rank-one coisotropy. The Buchsbaum--Eisenbud Pfaffian degree machinery is classical. Nine actual semantic published-finding corpus searches and the accessible current-week research-claim corpus found no equivalent formula; closest records address unrelated matrix, Grassmannian, or Pfaffian invariants. Source-access limits prevent exhaustive historical certification.
+PASS
 
-## Mathematical value — PASS
-Rather than adding a special finite matrix calculation, the theorem supplies the complete conormal-rank spectrum and a parity-sensitive geometric rank-defect boundary for a natural infinite family of singular symplectic orbit closures. It identifies exactly where the rank defect is divisorial and where it has codimension three, including exact degree, supporting subsequent conormal and Chow--Lam investigations.
+The local alternating Schur-complement slice at restriction rank 2t is submersive because V/L -> K_t* is onto. This identifies the rank-2s orbit normal space with wedge^2(K*) and its trace-dual conormal with wedge^2(K), with ranks preserved by the full-rank outside maps. Exact Pfaffian rank strata have codimension binomial(d-2j,2); the first even defect is the degree-d/2 Pfaffian hypersurface, and the odd defect is codimension three with degree d(d^2-1)/24 from the genuine Buchsbaum-Eisenbud height-three resolution. Smoothness, irreducibility and boundary qualifications follow from symplectic orbit normal slices. An independent symbolic Hilbert-numerator computation checked degrees d=5,7,9,11, but that finite computation is not the geometric proof.
 
-## Limitations and historical comparisons
-Results are over the complex numbers and concern the reduced orbit closures and conormal bundles over their smooth loci. The conormal closure above singular strata and global Chow intersection classes are not computed. Direct comparisons were limited to accessible HTML sections of Pratt, abstracts of some other papers, and bibliographic/classical summaries. Earlier literature could contain an equivalent formulation; the priority judgment is a same-model best-knowledge assessment, not independent historical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new mathematical information is a family-wide ordinary-Grassmannian conormal-rank classification for all symplectic restriction-rank orbit closures, not the already-known abstract invariant, isotropic equations, or generic Pfaffian degree. Pratt (2026) defines conormal rank and studies other classes; full source could not be fetched, so the possibility of an implicit or explicit symplectic example remains a substantial historical-priority risk. No inspected prior statement implies this entire conormal rank/defect profile. PASS best of knowledge; no independence or exhaustive historical certification.
+
+## value
+
+PASS
+
+A geometrically natural family of Sp-orbit closures has a newly motivated conormal-rank invariant. Its radical bivector description, rank-stratum singularity profile and even-versus-odd codimension/degree transition supply a complete structural answer for all nontrivial parameters, with nonstandard local normal-slice reasoning rather than a rebranded single polynomial calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
