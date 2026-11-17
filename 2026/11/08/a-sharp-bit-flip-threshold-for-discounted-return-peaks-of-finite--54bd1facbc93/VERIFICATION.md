@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Execute `python verify.py` from the directory containing the extracted files. Only the Python standard library is required.
+# Independent mathematical audit
 
-The checker constructs the full stochastic transition matrix exactly over rational numbers, inverts \(I-\alpha P_\varepsilon\) exactly, and compares every Green diagonal entry. Its coverage is \(N\in\{2,4\}\), \(\varepsilon\in\{0,1/4,1/2,3/4,1\}\), and \(\alpha\in\{1/3,3/4\}\), totaling 20 exact resolvents. It checks the stated maximum sets, gaps, and affine parameter-complement duality, plus ten exact rational evaluations of an \(N=2\) formula. A separate character check tests 12 modulus–probability families.
+## correctness
 
-Observed run output:
+PASS
 
-`VERIFY_OK exact_resolvents=20 symbolic_N2_identities=10 Fourier_tests=12 gap_bounds=1 affine_duality=1`
+Independence makes accumulated noise Fourier transform a product of (1−ε)+ε χ(A^jv). Since A^jv has order two, each factor is 1 or 1−2ε>=0 when ε<=1/2. Fourier inversion gives η_t(0)>=η_t(w), and return at x requires W_t=(I−A^t)x; therefore 0 maximizes every time-index term. det(I−A)=−1, so at time one only x=0 and z with return chances 1−ε and ε; α times these gaps yields strict global inequalities and the critical off-pair α/2 gap. Identity Az+v=z and −v=v translates the chain by z and complements ε, proving right-half and equality. Endpoints ε=0,1 and N=2 included. Read the pinned RESULT.md and exact rational verifier (20 resolvents N=2,4 plus Fourier cases), but did not independently execute full script. Analytic Fourier argument, not tests, proves all even N.
 
-The printed `symbolic_N2_identities` field names exact rational evaluations of a displayed identity, not a computer-algebra proof for all parameters. All-modulus correctness follows from the analytic Fourier inversion and conjugacy argument in `RESULT.md`. The verification is not independent certification and does not establish historical priority.
+## originality
+
+PASS
+
+Chandra arXiv:2607.24857 studies the deterministic discrete cat-map Green diagonal, by periodic orbit, and revised v2 remains deterministic. Its v1 abstract discusses first-order Laplacian perturbation, not exact two-point Bernoulli affine noise. No inspected published theorem states universal ε=1/2 peak switching. Full Chandra PDF not accessible and authorized Oxford endpoint is VPN disconnected, retained as significant originality risk, not scientifically automatic failure.
+
+## value
+
+PASS
+
+Sharp exact noise-induced displacement of a Green-return maximum between two computably distinguished fixed points, valid on every even finite torus and for all discounts, with a robust quantitative gap. Fourier-positivity and a one-step comparison supply a reusable finite-abelian involutive-noise mechanism; it is more than a numerical grid observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

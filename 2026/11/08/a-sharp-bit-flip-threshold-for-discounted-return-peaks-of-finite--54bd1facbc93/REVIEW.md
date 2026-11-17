@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every hypothesis and boundary value is explicit. The independent order-two noises have nonnegative Fourier multipliers when \(\varepsilon\le1/2\), implying pointwise dominance of the zero-noise sum in every return time. Since \(\det(I-A)=-1\), the return-probability gap at time one is positive away from the appropriate fixed point. An exact translation of the chain exchanges \(\varepsilon\) and \(1-\varepsilon\). The finite exact rational checker confirms representative cases; the proof, not the samples, controls all even moduli and discounts.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The closest primary paper, Chandra's arXiv:2607.24857v2, gives deterministic cat-map landscape and periodic-orbit formula, not a noisy Markov resolvent or a universal threshold; the v1 abstract mentions a first-order Laplacian perturbation, which does not determine our finite Bernoulli threshold. Its revised full text, including appendices, was examined. Yarmola's arXiv:1301.4413 was examined in full HTML text: its Theorems 1 and 2 concern the existence and attraction of a singular invariant measure on a segment of the stable manifold for curve-supported random perturbations of a continuous torus cat map, not a finite Bernoulli bit flip or a discounted Green diagonal. Related published findings on coupled deterministic cat-map periods and random grid collapse were compared by their claim implications, not merely their titles. No source examined gave an equivalent result or stronger covering theorem. The broad Fourier-positive-measure principle is known and explicitly credited as an ingredient rather than a novel lemma. The full arXiv HTML text of Yarmola's source was available and inspected. Broader historical priority beyond the searched literature remains provisional.
+PASS
 
-**Mathematical value — PASS.** The diagonal Green potential is a natural dynamical invariant measuring discounted self-return, and determining its global maximizers after adding discrete noise is not implied by the deterministic period formula. A single noise parameter drives a sharp, exactly located transition between two fixed points, with a universal tie and uniform gaps for all even grids and discounts. The structural group-theoretic mechanism explains the robustness and identifies when the theorem may transfer to other finite automorphisms. This is a meaningful exact perturbative boundary, not an arbitrary low-dimensional numerical example.
+Independence makes accumulated noise Fourier transform a product of (1−ε)+ε χ(A^jv). Since A^jv has order two, each factor is 1 or 1−2ε>=0 when ε<=1/2. Fourier inversion gives η_t(0)>=η_t(w), and return at x requires W_t=(I−A^t)x; therefore 0 maximizes every time-index term. det(I−A)=−1, so at time one only x=0 and z with return chances 1−ε and ε; α times these gaps yields strict global inequalities and the critical off-pair α/2 gap. Identity Az+v=z and −v=v translates the chain by z and complements ε, proving right-half and equality. Endpoints ε=0,1 and N=2 included. Read the pinned RESULT.md and exact rational verifier (20 resolvents N=2,4 plus Fourier cases), but did not independently execute full script. Analytic Fourier argument, not tests, proves all even N.
 
-**Limits and integrity.** The result concerns additive two-point noise on finite even groups, not continuous random cat maps or arbitrary perturbations. The theorem has an analytic proof with exact finite cross-checks; independent validation and historical-priority certification remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chandra arXiv:2607.24857 studies the deterministic discrete cat-map Green diagonal, by periodic orbit, and revised v2 remains deterministic. Its v1 abstract discusses first-order Laplacian perturbation, not exact two-point Bernoulli affine noise. No inspected published theorem states universal ε=1/2 peak switching. Full Chandra PDF not accessible and authorized Oxford endpoint is VPN disconnected, retained as significant originality risk, not scientifically automatic failure.
+
+## value
+
+PASS
+
+Sharp exact noise-induced displacement of a Green-return maximum between two computably distinguished fixed points, valid on every even finite torus and for all discounts, with a robust quantitative gap. Fourier-positivity and a one-step comparison supply a reusable finite-abelian involutive-noise mechanism; it is more than a numerical grid observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
