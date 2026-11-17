@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The objects and quantifiers are explicit: one finite twelve-vertex graph defined by its twenty-four edges, the dominance complex of subsets whose complements dominate every vertex, and the rational action of the full graph automorphism group. Two logically equivalent face predicates agree on all 4096 subsets. A deterministic pivot matching pairs 3084 of the 3098 nonempty simplices, leaving exactly one vertex and thirteen six-dimensional cells. An exhaustive topological sort of all 16,648 oriented face-poset covering relations shows the matching is acyclic. Forman's theorem supplies the integral wedge homotopy equivalence. Exact graph automorphism backtracking obtains eight elements, and signed reduced Lefschetz traces computed on all 3098 simplices determine the rational character. The irreducible character multiplicities are nonnegative integers with total dimension thirteen. Separate mod-two boundary elimination corroborates the Betti numbers without being used as an integral proof.
+PASS
 
-The program `verify_chvatal_dominance.py` is self-contained and the exact output is recorded in `verification_output.txt`. The proof is finite and exhaustive, not experimental extrapolation. All reference orientations, the reduced-chain empty-face contribution, the two-generator dihedral relations, and the graph's degree and independence bounds are checked. The conclusion is *not* an integral representation decomposition or equivariant homotopy equivalence.
+Independently reconstructed the specified 24-edge twelve-vertex Chvátal graph and the closed-neighborhood avoidance predicate defining its dominance complex. Exhaustive enumeration of all 4096 subsets gives 3098 nonempty faces, f=(12,66,220,495,780,840,544,141). Exact discrete-Morse pairing in stated pivot order produces 1542 pairs, one critical vertex and thirteen critical six-cells. Independent full topological sort certifies acyclicity across 16648 nonempty Hasse covering edges, so Forman yields integral ∨^13S6 without torsion ambiguity. For the source’s two explicit D4 automorphisms r,s, independently calculated signed reduced Lefschetz characters (13,-1,1,-1) on rotations and (-3,1,-3,1) on reflection coset, giving L_{1,1}+2L_{1,-1}+L_{-1,1}+3L_{-1,-1}+3E by exact character inner products, rank 13 and one invariant. The source script also specifies an exhaustive automorphism enumeration returning exactly eight, which was inspected but not independently rerun.
 
-## Originality — PASS relative to inspected sources
+## originality
 
-The mathematical novelty is the exact dominance-complex integral homotopy type and full rational dihedral character, not the graph itself or its independence/neighborhood topology. A previously available exact same-graph result proves an equivariant collapse of the Chvátal independence complex onto its ordinary neighborhood complex, each a two-sphere. Neither statement determines the forbidden-closed-neighborhood complex. The ordinary neighborhood complex appearing in the Alexander dual of the dominance complex belongs to the **complement graph**, not the original graph. These are not interchangeable.
+PASS
 
-Marietti–Testa determine dominance complexes for forests, and Taylan for chordal graphs. Neither class contains the Chvátal graph. Matsushita gives a general connectivity estimate rather than an exact classification; Matsushita–Wakatsuki give the complement-neighborhood Alexander duality but not this case or its symmetry character. Published same-graph independence and neighborhood results were materially inspected and compared at the face-definition and implication levels. Searches for the named graph, dominance complex, dominating-set complement, closed-neighborhood avoidance, Alexander dual, sphere multiplicity and dihedral character found no inspected covering theorem. Matching a neighboring title or failing to find a text is not evidence of uniqueness.
+Best-of-knowledge exact integral Chvátal dominance complex and full D4 homology character were not found in targeted Resultary searches or inspected primary general theorems. The earlier Chvátal ordinary independence/open neighborhood S² and 2-independence S³ concern different simplex rules and homology degrees; no direct Alexander dual specialization computes Dom(G). General chordal/forest dominance results cannot include the nonchordal Chvátal graph and connectivity inequality is only a bound.
 
-**Residual risks:** an unindexed exact calculation, an implicit extraction from a not-yet-inspected classification, or independently known dihedral character. The original 1970 article was not read in full; it defines the graph rather than dominance-complex homotopy. No definitive priority certificate is claimed.
+## value
 
-## Mathematical value — PASS
+PASS
 
-The Chvátal graph is a canonical minimal regular triangle-free four-chromatic example, so computing its dominance complex is a natural graph-topology test rather than selecting an arbitrary labeled graph. The calculation supplies a previously unavailable exact integral homotopy type and a complete symmetry character, strictly more information than Euler characteristic, mod-two homology, vertex-cover parameters or the known independence-complex two-sphere. The strict bound \(\operatorname{conn}(\operatorname{Dom}(G))+2=7<8=\tau(G)\) is a motivated consequence. The finite classification is meaningful in its own right; no downstream general theorem is asserted.
+The Chvátal graph is a canonical minimal four-chromatic triangle-free regular graph, a natural exact test object outside chordal dominance formulae. Its integral 13-sphere homotopy and complete faithful dihedral rational character, including one invariant line, are genuinely motivated topological/equivariant invariants; the finite-object focus does not make this a routine textbook deduction.
 
-## Closest literature and limits
-
-The closest comparison is the exact same-graph independence-to-neighborhood equivariant collapse and character, but its objects differ at the level of defining faces. Marietti–Testa (2007), Taylan (2015), Matsushita (2020), and Matsushita–Wakatsuki (2023) provide increasingly general dominance methods but not the present specific computation. The proof applies only to one graph and does not settle integral module splitting, infinite-family behavior, or unindexed-publication priority.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
