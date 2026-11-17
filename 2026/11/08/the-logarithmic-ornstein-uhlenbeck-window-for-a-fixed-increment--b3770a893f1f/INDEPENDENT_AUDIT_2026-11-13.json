@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T10:19:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "check.py",
+        "https://arxiv.org/html/2605.26669v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-brownian-motion-on-the-logarithmic-clock-of-a-critical-mixed-urn--54feb5ffa3ee/RESULT.md"
+      ],
+      "rationale": "For fixed positive a,b with a<3b and deterministic total increment s=a+b, the row-specific mean difference increment coefficient is s−2bp_N=s(1/2−δ/log N). The exact martingale innovations ξ_j are bounded and have conditional variance v_N−(sλ_N)²(D/T)². The deterministic gamma multiplier for D_j/(j+τ)^{λ_N} gives a logarithmic-clock martingale with bracket approaching v_*∫0^t exp(2δu)du uniformly; the error from squared proportions is O(1/log N) by the displayed moment comparison. Bounded jumps give functional martingale CLT, yielding X(t)=√v_* exp(−δt)∫0^t exp(δu)dB(u). The fixed first-count and gamma-ratio corrections vanish uniformly, and the proportion CLT follows by Slutsky. The θ=0 process recovers critical Brownian motion. The exact attached checker’s state-enumeration and algebraic moment tests were inspected; no finite test is construed as functional weak convergence.",
+      "residual_risks": [
+        "No quantitative convergence rate, no coupling across N, no varying total addition, and full generalized-urn triangular-theorem novelty not determined."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Inspected RESULT.md and actual check.py exact-state/moment code; verified the conditional centered innovation variance and deterministic gamma-product relation.",
+        "Checked λ_N=(s−2bp_N)/s=1/2−2bθ/(s log N), the OU scaling e^(−δt), and conditional variance normalization v_* including a=b=1 endpoint.",
+        "Compared θ=0 against complete published exact-critical mixed-urn Brownian proof, which matches the limiting normalization."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi–Yin–Miao 2026 Theorem 3.3 fixes p with 4bp above the critical threshold; no p_N varying with N or near-critical log-clock OU path statement in inspected theorem."
+        ],
+        "reasoning": "Substituting a moving p_N into an asymptotic with singular variance is invalid without uniform estimates; the target supplies those estimates.",
+        "searches": [
+          "fixed increment Friedman Polya urn critical window pN = pstar plus theta log N Ornstein Uhlenbeck",
+          "https://arxiv.org/html/2605.26669v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.26669v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-brownian-motion-on-the-logarithmic-clock-of-a-critical-mixed-urn--54feb5ffa3ee/RESULT.md",
+        "https://doi.org/10.1016/j.spa.2003.12.002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target centered drift is -δ with δ proportional to θ and gives nonzero mean reversion or amplification on logarithmic time; previous exact-critical theorem has δ=0."
+        ],
+        "reasoning": "The target is neither a formal corollary of fixed-p CLT nor covered by the exact θ=0 Brownian limit without fresh uniform triangular-array analysis.",
+        "searches": [
+          "fixed increment Friedman Polya urn critical window pN = pstar plus theta log N Ornstein Uhlenbeck",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-brownian-motion-on-the-logarithmic-clock-of-a-critical-mixed-urn--54feb5ffa3ee/RESULT.md",
+          "https://arxiv.org/html/2605.26669v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete published p=p* mixed-urn result has log-clock Brownian covariance q min(t,r), precisely the δ=0 case. The target has covariance v_*e^-δ(t+r)∫0^min e^{2δu}du at δ≠0."
+        ],
+        "reasoning": "The fixed critical Brownian theorem is a strict special case, and does not imply uniform triangular-row estimates for δ≠0.",
+        "searches": [
+          "fixed increment Friedman Polya urn critical window pN = pstar plus theta log N Ornstein Uhlenbeck",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-brownian-motion-on-the-logarithmic-clock-of-a-critical-mixed-urn--54feb5ffa3ee/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That theorem lets p_N→0, yielding a Dirichlet-amplitude decay rather than p_N→p* in (0,1) and Gaussian critical fluctuations."
+        ],
+        "reasoning": "The zero-mixture critical regime is not an equivalent near-critical diffusion regime, even if both involve log N.",
+        "searches": [
+          "fixed increment Friedman Polya urn critical window pN = pstar plus theta log N Ornstein Uhlenbeck",
+          "Logarithmic-time Dirichlet crossover in vanishing Pólya–Friedman urns (Resultary, 2026/10/18)"
+        ]
+      },
+      "rationale": "Best-of-knowledge: already known fixed-p diffuse CLT and θ=0 Brownian logarithmic path theorem do not give the nonzero θ fixed-within-row triangular near-critical OU process; precise crossover covariance and critical perturbation remain the surviving mathematical contribution.",
+      "residual_risks": [
+        "Full Janson (2004), Bai–Hu (1999) and broad nonhomogeneous urn primary literature may imply a more general triangular version; not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem covers fixed-p strictly diffusive phase; target p_N moves by θ/log N and requires triangular functional limit",
+          "evidence": "Theorem 3.3 assumes fixed replacement probability and strict 2Γ−1>0.",
+          "identifier_or_url": "https://arxiv.org/html/2605.26669v1",
+          "material_read": "Accessible full HTML, inspected model §2, main Theorem 3.3, critical boundary and proof assumptions",
+          "method": "Read original full HTML and compare main results/model quantifiers",
+          "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+          "trigger": "Exact same mixture, possibility of covering critical row"
+        },
+        {
+          "assessment": "Proves θ=0 Brownian path at critical p, not nonzero triangular near-critical drift",
+          "evidence": "Its limit is √q B on t∈[0,1] when 4bp=μ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-brownian-motion-on-the-logarithmic-clock-of-a-critical-mixed-urn--54feb5ffa3ee/RESULT.md",
+          "material_read": "Entire GitHub RESULT.md mathematical proof, model, assumptions, limitations",
+          "method": "Read full published source blob",
+          "title": "Brownian motion on the logarithmic clock of a critical mixed urn",
+          "trigger": "Exact θ=0 special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp logarithmic perturbation window resolves a genuine phase-transition crossover between fixed-p CLT and critical Brownian scaling in a natural urn model; the explicit OU covariance and θ-dependent endpoint variance can serve as a benchmark for near-critical reinforced processes.",
+      "residual_risks": [
+        "Constant p_N within each experiment is essential; no random total additions or θ depending on N."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No quantitative convergence rate, no coupling across N, no varying total addition, and full generalized-urn triangular-theorem novelty not determined.",
+    "Full Janson (2004), Bai–Hu (1999) and broad nonhomogeneous urn primary literature may imply a more general triangular version; not inspected in full.",
+    "Constant p_N within each experiment is essential; no random total additions or θ depending on N."
+  ],
+  "schema_version": 1
+}

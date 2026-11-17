@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 check.py` in the directory containing this file and `RESULT.md`. The checker uses only the Python standard library and prints `PASS 206 exact/algebraic/asymptotic checks` on success. It enumerates exact finite-state urn distributions through seven updates for four parameter choices, verifies the conditional innovation variance symbolically using rational probabilities, and checks second-moment convergence under near-critical horizon-dependent probabilities.
+## correctness
 
-# Analytical verification boundary
+PASS
 
-This finite test suite does not establish a process limit. The proof of the infinite claim is in `RESULT.md`: bounded martingale innovations, a uniform second-moment estimate, predictable quadratic-variation convergence on a logarithmic clock, the martingale functional central limit theorem, and gamma-product approximations yield the continuous Gaussian limit. The underlying invariance theorem is a standard external result and is cited as methodology rather than independently certified.
+For fixed positive a,b with a<3b and deterministic total increment s=a+b, the row-specific mean difference increment coefficient is s−2bp_N=s(1/2−δ/log N). The exact martingale innovations ξ_j are bounded and have conditional variance v_N−(sλ_N)²(D/T)². The deterministic gamma multiplier for D_j/(j+τ)^{λ_N} gives a logarithmic-clock martingale with bracket approaching v_*∫0^t exp(2δu)du uniformly; the error from squared proportions is O(1/log N) by the displayed moment comparison. Bounded jumps give functional martingale CLT, yielding X(t)=√v_* exp(−δt)∫0^t exp(δu)dB(u). The fixed first-count and gamma-ratio corrections vanish uniformly, and the proportion CLT follows by Slutsky. The θ=0 process recovers critical Brownian motion. The exact attached checker’s state-enumeration and algebraic moment tests were inspected; no finite test is construed as functional weak convergence.
 
-# Limits
+## originality
 
-No theorem is claimed for unequal random total increments or for parameter sequences outside the displayed \(1/\log N\) window. Historical priority requires independent expert assessment.
+PASS
+
+Best-of-knowledge: already known fixed-p diffuse CLT and θ=0 Brownian logarithmic path theorem do not give the nonzero θ fixed-within-row triangular near-critical OU process; precise crossover covariance and critical perturbation remain the surviving mathematical contribution.
+
+## value
+
+PASS
+
+A sharp logarithmic perturbation window resolves a genuine phase-transition crossover between fixed-p CLT and critical Brownian scaling in a natural urn model; the explicit OU covariance and θ-dependent endpoint variance can serve as a benchmark for near-critical reinforced processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
