@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier orthogonality gives exactly one exceptional fourth-order relation, \(n=3m\). The nonresonant quadratic is optimized with correct boundary cases; the resonant cubic has one positive root by a sign-change count, giving a global maximum. Strict positivity of the Poisson kernel gives unique sharp contractivity radii. Exact symbolic elimination, rational Sturm counts and 828 exact Fourier-moment tests corroborate the sharp resonant algebraic value. Generality rests on proof rather than enumeration.
+## correctness
 
-**Originality — PASS with residual bibliographic risk.** General circle hypercontractivity, the fourth-moment autocorrelation identity, the unweighted four-character maximizing ratio and the lower two-tone fourth moment are prior work. Their statements do not imply the semigroup norm simultaneously for every pair \(m<n\), the radius-varying maximizing ratios, the persistent \(1:3\) higher-frequency component, or the algebraic sharp contractivity radius. The first-plus-second spherical circle case is also previously covered and excluded as a standalone novelty. A plausible older full text (Weissler 1980) was unavailable, and unindexed equivalent restricted semigroup results remain possible.
+PASS
 
-**Value — PASS.** The real two-band circle is a natural minimal spectral restriction of a classical Markov semigroup. The theorem gives exact sharp smoothing thresholds for all pairs, a gap-controlled saturation law, and a sharp algebraic exception in which arbitrarily strong positive smoothing never produces a pure-mode maximizer. This distinguishes resonant and nonresonant spectral interactions beyond the unrestricted hypercontractivity estimate.
+For every 1<=m<n, the signed four-frequency zero-sum classification leaves 2+2 cancellations and, only at n=3m, the 3m=m+m+m cubic term. Normalizing the full real sine/cosine planes gives the exact quartic. For n!=3m its one-variable H_u(x) is 3/2+3(2u-1)x+(3/2)(u^2-4u+1)x^2, maximized at pure lower mode for u<=1/2 and interior x*=(2u-1)/(4u-1-u^2) otherwise. For n=3m cubic R_u(z) has one sign change and R_u(0)<0<R_u(infinity), hence one positive maximizer with phase beta=3alpha. The exact derivative identity and resultant factorization with a Sturm-isolated root in (0.719,0.720) were independently checked; strictly positive Poisson kernel and Jensen give monotone norm and uniqueness of contraction time. The quantifiers exclude rho=0 equality classification and complex inputs.
 
-Only real functions, fourth-moment targets and the circle Poisson generator are covered. All comparison materials and verification limitations appear in RESULT.md and AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The simultaneous all-integer-pair radius-dependent exact L2-to-L4 Poisson norm and the persistent 1:3 optimizing component do not follow from prior unrestricted hypercontractivity, rho=1 unweighted four-character maxima, the lower (minimum) two-tone moment, or spherical degree-one-plus-two results. Best-of-knowledge only.
+
+## value
+
+PASS
+
+Exact contractivity boundaries and all maximizing functions on a natural two-eigenspace restriction of a classical Markov smoothing semigroup; identifies a sharp resonance mechanism where the high mode persists for arbitrarily strong positive smoothing, whereas all nonresonant pairs exhibit finite-radius mode extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
