@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact soft-attachment predictor follows from the two denominators for incoming A and B types and is tested over all feasible imbalances for a range of small populations. The random balance is an ordinary simple symmetric walk independent of the attachment choices. Its quadratic occupation functional has an exact finite variance formula, an almost-sure logarithmic law, and a martingale representation giving the \(\sqrt{\log n}\) limit. A bivariate martingale bracket computation, including a vanishing cross bracket, proves independence from the edge-choice noise. The exact-rational checker has 15,432 successful assertions. The asymptotic proofs do not rely on finite experiments.
+## correctness
 
-**Originality: PASS, with limited priority assurance.** The 2026 source introduces the hard and soft models and establishes limiting degree distributions, not the two-scale law for cross-community edge count. The 2020 community-weighted recursive-tree treatment establishes first-order degree properties and is credited for the weight-based model itself. The 2023 attribute-network framework covers degree exponent zero and homophily-related first-order observables; its local-limit and sampling conclusions do not imply the logarithmic cross-edge correction or joint fluctuation statement. Targeted index, literature, and ledger searches found no statement that subsumes the explicit logarithmic predictor bias and its separate Gaussian fluctuation. A hidden earlier refinement remains a residual risk, so independent priority review is warranted.
+PASS
 
-**Value: PASS.** Cross-community edge counts are a direct observable of homophily and network mixing, and the source explicitly distinguishes hard and soft attachment mechanisms. Although both give the same leading cross-edge fraction and \(\sqrt n\) Gaussian scale at balanced arrivals, the soft model alone has a nonzero, sign-changing logarithmic drift and an additional independent \(\sqrt{\log n}\) noise scale. This supplies a precise way to distinguish attachment mechanisms and documents a structural finite-size effect missed by first-order degree laws.
+Conditioning on the new type yields p_A=q(1-y)/(1+(1-2q)y) and p_B=q(1+y)/(1-(1-2q)y), so their average is f_q(y)=q+b y²/(1-a²y²), b=2q(1-q)(1-2q). The fourth-moment summability of y_j makes the quartic Taylor remainder converge in L²; for a fair-walk imbalance T_n=sum S_j²/(j+2)², E T_n=log n+O(1) and Var T_n=4 log n+O(1). Subsequence Borel-Cantelli and monotonicity give a.s. T_n/log n->1. A bounded-increment martingale representation yields sqrt(log n) Gaussian compensator fluctuations; the edge martingale has bracket nq(1-q)+o(n), while the mixed bracket is O(log n)/sqrt(nlog n)->0. Thus the joint normal limits are independent; q=1/2 and hard-choice binomial cases follow exactly. Independently recomputed q=1/4,y=1/3 rational predictor f=19/70 and cross bracket -9/70. Verifier was read, not reported executed in this run.
 
-**Scope and limits.** Balanced arrivals, two types, fixed \(q\in(0,1)\), exponent exactly zero, one edge per addition; no statistical efficiency, finite-sample error rate, or extension to positive exponent is claimed. The compensator is observable from the type composition but its second-scale fluctuation is smaller than ordinary edge-choice noise. Sources [1]–[3] are compared in the result and structured review; unresolved priority risk does not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The soft two-type attachment model is explicitly already known (Ben-Hamou–Broutin–Cazaux 2026 and prior community-modulated recursive trees), but those main theorems concern degree proportions/local limits. The cross-type edge compensator, its logarithmic bias and separate joint CLT of fluctuations at two scales are additional observables not implied by degree limit convergence. Best-of-knowledge qualified by related homophily literature.
+
+## value
+
+PASS
+
+Cross-type edge counts are natural homophily measurements. Their q-dependent O(log n) bias, sign reversal across q=1/2, and asymptotically independent predictable and unpredictable noise at scales sqrt(log n) and sqrt n provide usable quantitative structure not supplied by standard degree-proportion convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
