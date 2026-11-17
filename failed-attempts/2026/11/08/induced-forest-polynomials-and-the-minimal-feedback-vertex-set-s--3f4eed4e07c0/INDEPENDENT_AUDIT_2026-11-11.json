@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For S=A_I union B_J in crown graph, edge count ab-|I∩J| eliminates both shores >=3 and sizes (2,>=4); feasible nontrivial shore sizes are (2,2) intersecting and (2,3)/(3,2) with the two-side subset included. Counting the disjoint classes gives the polynomial. Maximal forests are full shore plus one opposite vertex, or induced five-vertex paths; complementation gives minimal feedback size polynomial. Independent all-mask graph enumerations for n=4,5 matched P_n and facets. This correctness does not establish originality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct18 theorem covers all n>=3 and gives more informative BIVARIATE shore-refined count, whereas submitted n>=4 univariate counts.",
+          "It explicitly classifies all maximal induced forests as (1,n) full shore plus opposite one and (2,3) five-vertex paths."
+        ],
+        "reasoning": "Earlier result strictly dominates every submitted claim; restriction to n>=4, or new small verifier, cannot produce surviving originality.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md",
+          "https://arxiv.org/abs/2501.05145"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md",
+        "https://arxiv.org/abs/2501.05145"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier F_n(u,v)= (1+nu)(1+v)^n+(1+nv)(1+u)^n-(1+nu)(1+nv)+binom(n,2)(2n-3)u²v²+binom(n,2)(n-2)(u²v³+u³v²).",
+          "At u=v=z this equals 2(1+z)^n-1+2nz((1+z)^n-1)-n²z²+binom(n,2)(2n-3)z⁴+n(n-1)(n-2)z⁵.",
+          "Earlier M_n gives 2nz^(n+1)+n(n-1)(n-2)z⁵ and complement T_n."
+        ],
+        "reasoning": "The earlier bivariate theorem logically implies the entire submitted n>=4 claim; no originality remainder exists.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-forest univariate generating polynomial P_n(z) is F_n(u,v)|_{u=v=z} of Oct18 theorem.",
+          "Maximal-forest univariate polynomial is M_n(u,v)|_{u=v=z}; minimal feedback vertex set polynomial is z^(2n) M_n(z^(-1),z^(-1))."
+        ],
+        "reasoning": "These are exact algebraic transformations with identical object and quantifiers, not title or numerical similarity.",
+        "searches": [
+          "crown graph acyclic and maximal forest polynomials complete bivariate K_n,n minus matching",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md",
+          "minimal feedback vertex sets crown K_{n,n}-M_n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact bivariate earlier formulas specialize term-by-term to the submitted polynomial.",
+          "Earlier theorems also give n>=4 facet-size spectrum {5,n+1} and complement minimum feedback vertex set polynomial."
+        ],
+        "reasoning": "The earlier GitHub published mathematical record is an exact stronger published database result, decisive O failure.",
+        "searches": [
+          "crown graph acyclic and maximal forest polynomials complete bivariate K_n,n minus matching",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: Complete published 2026-10-18 crown-graph theorem gives strictly stronger bivariate induced-forest and facet polynomials for n>=3; u=v=z specialization yields every submitted formula and size conclusion. No original scientific remainder survives.",
+      "residual_risks": [
+        "No scientific originality remainder survives after the earlier bivariate theorem; correctness of the same formula does not change this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COMPLETE_PRIOR_COVERAGE",
+          "evidence": "For n>=4, substituting u=v=z in earlier F_n(u,v),M_n(u,v) gives exactly submitted P_n(z), F_n(z). Earlier complement formula gives exactly submitted T_n(z); earlier stronger theorem covers n>=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md",
+          "material_read": "Entire published RESULT.md including bivariate theorems, shore-size proof, n=3 boundary, minimal feedback polynomial and references",
+          "method": "Full GitHub source read",
+          "title": "Acyclic and maximal-forest polynomials of crown graphs",
+          "trigger": "same crown graph, same induced forest and maximal forest exact formulas"
+        },
+        {
+          "assessment": "SAME_SCALAR maximum-size result already known, no inference of whole-document noncoverage",
+          "evidence": "At min degree n-1, scalar maximum forest size n+1; in any case complete Oct18 bivariate prior is decisive.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.05145",
+          "material_read": "Accessible abstract and citation/summary; not entire primary document",
+          "method": "Public literature abstract",
+          "title": "On Maximum Induced Forests of the Balanced Bipartite Graphs",
+          "trigger": "same crown as large balanced bipartite graph, maximum forest scalar"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "PASS: Complete forest and maximal-forest enumerators, distinct cardinality strata, and minimal feedback vertex set spectrum of crown graphs are a natural exact combinatorial classification with practical mathematical interpretation. It is mathematically worthwhile but already fully published; value does not override originality failure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-acyclic-and-maximal-forest-polynomials-of-crown-graphs--6c5358dc2696/RESULT.md",
+    "https://arxiv.org/abs/2501.05145"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Prior published bivariate theorem exactly and strictly dominates submitted univariate n>=4 polynomial and feedback vertex set census; originality failure is decisive despite correctness.",
+    "Pre-publication confidentiality requirements not independently satisfied for the complete public-bound package; separate transport not_ready."
+  ],
+  "residual_risks": [
+    "No scientific originality remainder survives after the earlier bivariate theorem; correctness of the same formula does not change this."
+  ],
+  "schema_version": 1
+}
