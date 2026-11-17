@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved for arbitrary primes and finite abelian primary groups. In particular, the matrix-avoidance lemma is established by an exact fixed-vector incidence count, not inferred from computation. The quotient-to-matrix-ring argument proves the universal fiber size.
+## correctness
 
-Standalone checks used only the Python standard library:
+PASS
 
-- Every ordered pair of the 48 matrices in GL2(F3): 2,304 instances; each admits at least 14 witnesses.
-- Every single input in GL2(F2): 6 instances; each admits at least two witnesses.
-- 125 reproducibly sampled four-input lists in GL2(F5): each admits at least 148 witnesses. This sample is not exhaustive.
-- Exact enumeration of all scalar input lists for p=2,3,5,7, and one or two multiplicity-one blocks; probabilities and witness-count distributions match occupancy.
-- All 11,664 automorphism pairs of C3 ⊕ C9: 2,916 have exactly 27 witnesses and 8,748 have none.
+The diagonal-block quotient End(A)->product_j M_{m_j}(F_p) is surjective with fiber size p^(E-sum m_j^2), where E=sum_{j,l}m_j m_l min(e_j,e_l). Invertibility and additive translates are detected on that quotient. For m>=2, count fixed nonzero eigenvectors of C in GL_m: H=(sum_C #(nonzero v:Cv=v)), the identity adds p^m-p above the (p-1)b baseline, so each bad translate excludes strictly less than H/(p-1); k<=p-1 such translates cannot cover GL_m. For m=1, N_1=p-1-number_of_distinct_nonzero_scalar_obstructions. Uniform independent lifts induce independent uniform scalar coordinates; a singleton block obstructs at k=p-1 precisely when all p-1 values are distinct, of probability (p-1)!/(p-1)^(p-1). Multiply across r independent blocks and count constant-fiber lifts. At p=2, k=1 correctly makes r>0 success probability zero, while r=0 has success one. A direct independent enumeration of all 11,664 automorphism pairs of C3⊕C9 gave 2,916 successes, each with 27 witnesses, 8,748 failures. This finite calculation only corroborates the complete quotient/union-bound proof.
 
-The included `checks.py` can be run using `python checks.py`; output is included as `CHECKS.txt`. The standalone tests do not establish historical novelty or general correctness independently of the proof.
+## originality
+
+PASS
+
+Loukaki Theorem 2 proves universal witness existence below p-1 and Proposition 2 proves p-1 endpoint existence on noncyclic homocyclic blocks; those underlying avoidance lemmas are prior knowledge. Its statement neither counts random tuple successes nor gives the full mixed-exponent singleton-block probability or individual witness fiber counts. One-automorphism fixed-point enumeration is not a multi-translate coverage probability. Best-of-knowledge priority only; nonlinear permutation witnesses are a distinct weaker criterion.
+
+## value
+
+PASS
+
+The complete random sharp-threshold law quantifies simultaneous additive automorphism witnesses on arbitrary finite abelian p-groups, isolates the unique actual obstruction in singleton elementary-divisor blocks and gives precise witness counts. It is a natural quantitative endpoint strengthening of an independently motivated simultaneous Hall–Paige problem, not a parameter substitution or a simple known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

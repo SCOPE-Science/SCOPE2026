@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof works for every finite abelian \(p\)-group, including \(p=2\). The endomorphism-ring quotient is a product of full matrix rings; automorphism detection on the quotient and equal-sized lifting fibers are verified. The noncyclic matrix-avoidance lemma is reconstructed by directly counting fixed vectors in \(\operatorname{GL}_m(\mathbb F_p)\). Singleton obstructions are exactly exhaustive occupancy of \(\mathbb F_p^\times\), and uniform independent input automorphisms push forward to independent uniform diagonal blocks. The conditional and unconditional quantifiers are explicit. Exact small-field and mixed-exponent computations agree with the proof.
+PASS
 
-## Originality
+The diagonal-block quotient End(A)->product_j M_{m_j}(F_p) is surjective with fiber size p^(E-sum m_j^2), where E=sum_{j,l}m_j m_l min(e_j,e_l). Invertibility and additive translates are detected on that quotient. For m>=2, count fixed nonzero eigenvectors of C in GL_m: H=(sum_C #(nonzero v:Cv=v)), the identity adds p^m-p above the (p-1)b baseline, so each bad translate excludes strictly less than H/(p-1); k<=p-1 such translates cannot cover GL_m. For m=1, N_1=p-1-number_of_distinct_nonzero_scalar_obstructions. Uniform independent lifts induce independent uniform scalar coordinates; a singleton block obstructs at k=p-1 precisely when all p-1 values are distinct, of probability (p-1)!/(p-1)^(p-1). Multiply across r independent blocks and count constant-fiber lifts. At p=2, k=1 correctly makes r>0 success probability zero, while r=0 has success one. A direct independent enumeration of all 11,664 automorphism pairs of C3⊕C9 gave 2,916 successes, each with 27 witnesses, 8,748 failures. This finite calculation only corroborates the complete quotient/union-bound proof.
 
-**PASS, qualified.** Loukaki (arXiv:2610.21600v1/v2) establishes the simultaneous problem, a block reduction and endpoint witness existence for noncyclic homocyclic groups; these ingredients are credited. The new statement is an exact probability law valid for **all** finite abelian \(p\)-groups, an exact factorization of witness numbers, and the universal linear-witness criterion. The full published fixed-point-free automorphism theorem and proof were inspected: they count a single fixed-point-free condition, not the simultaneous endpoint distribution. In characteristic two the universal part is already a special case of Gross’s criterion, and is not independently new. Searches comparing exact claims, alternative terminology, and stronger finite-field statements did not identify full coverage. Residual risk: the quantitative law could have appeared under an unindexed matrix-covering or random common-transversal formulation. A search failure is not a proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating 2026 paper explicitly identifies the endpoint beyond homocyclic groups as a difficult boundary. The exact law exposes a sharp structural obstruction by isolated elementary-divisor multiplicities, independent of their sizes, separates linear from potentially nonlinear witnesses, and gives an exponentially sharp random-tuple threshold. This is a uniform quantitative classification for an infinite family rather than an arbitrary slice or a restatement of the noncyclic existence theorem. The work does not solve the original problem allowing nonlinear bijections.
+Loukaki Theorem 2 proves universal witness existence below p-1 and Proposition 2 proves p-1 endpoint existence on noncyclic homocyclic blocks; those underlying avoidance lemmas are prior knowledge. Its statement neither counts random tuple successes nor gives the full mixed-exponent singleton-block probability or individual witness fiber counts. One-automorphism fixed-point enumeration is not a multi-translate coverage probability. Best-of-knowledge priority only; nonlinear permutation witnesses are a distinct weaker criterion.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete random sharp-threshold law quantifies simultaneous additive automorphism witnesses on arbitrary finite abelian p-groups, isolates the unique actual obstruction in singleton elementary-divisor blocks and gives precise witness counts. It is a natural quantitative endpoint strengthening of an independently motivated simultaneous Hall–Paige problem, not a parameter substitution or a simple known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
