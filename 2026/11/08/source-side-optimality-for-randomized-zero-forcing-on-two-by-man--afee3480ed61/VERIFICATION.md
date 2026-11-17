@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory as `rational_certificates.tsv` using Python 3.9 or newer. The script requires only the Python standard library and uses `fractions.Fraction` for all expectation calculations and comparisons. It reconstructs the stated rational recurrence for all integers \(2\le a\le11\) and checks each certified numerator/denominator pair against the accompanying tab-separated certificate file.
+## correctness
 
-For each \(3\le a\le11\), it verifies the strict inequalities \(T_B(a)<7/2<T_A(a)\) by exact integer arithmetic, with no floating-point thresholds. For \(2\le a\le6\), it independently builds every labelled blue-subset state, considers every independent simultaneous infection outcome, and solves all transient first-step equations in decreasing blue-set size, then matches the two start states against the compressed recurrence. This independent implementation does not assume part-size symmetry in its transition kernel.
+PASS
 
-The script also checks the equal-size boundary and the finite starting cases of the dyadic inequalities. The proof in `RESULT.md`, not a bounded loop, establishes the all-parameter comparison for \(a\ge12\), using an explicit geometric waiting-time lower bound and a coupled maximum-of-geometric-clocks upper bound. The same proof gives the asymptotic gap; no simulation or extrapolation is used for the infinite claim.
+PASS: The independent recipient-side Bernoulli dynamics on K_{a,2} has state transition increments Bin(a-i,j/2), Bin(2-j,i/a). The exact triangular first-step recurrence H_i and geometric waiting phase yield both starting-side expectations. I independently implemented the recurrence with fractions.Fraction for every integer a=2..11, finding equality 3 at a=2 and strict T_B<T_A for each a=3..11. The bound T_A>=a^2/(2a-1)+1 versus T_B<=ceil(log_2 a)+3 separates at 12<=a<=16 and all a>=17 (via r>=5 dyadic bound). The coupling T_A<=a^2/(2a-1)+T_B plus lower bound yields T_A-T_B=a/2+O(log a). A finite rational test cannot prove the unbounded inequality; the stated analytic bounds do.
 
-Historical novelty is assessed against the accessible cited primary literature and indexed published records; these checks cannot certify that no unindexed proof exists. Independent mathematical assessment has not been performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: Geneson–Hicks–Lichtenberg–Moon–Robles 2026, Section 3.6, proposes the very starting-side comparison as Conjecture 3.12 and proves only an optimal-seed upper bound and finite small table. A separate November 8 paper establishes the small-origin limiting law and large-origin mean asymptotic, hence eventually strict preference, but NOT strict preference at every finite a>=3. The current exact rational+analytic finite/all-large bridge supplies that missing all-a result. Same-day relative priority is not asserted.
+
+## value
+
+PASS
+
+PASS: this proves the full natural width-two slice of an explicitly posed source-location conjecture and an unbounded asymptotic expected-time advantage. The process is recipient-side RZF, not sender-side PZF, so no conflation with opposite-rule conjectures; the exact small-size checks bridge a genuine gap between eventual asymptotic ranking and all finite a.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

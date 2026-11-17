@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:51:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The independent recipient-side Bernoulli dynamics on K_{a,2} has state transition increments Bin(a-i,j/2), Bin(2-j,i/a). The exact triangular first-step recurrence H_i and geometric waiting phase yield both starting-side expectations. I independently implemented the recurrence with fractions.Fraction for every integer a=2..11, finding equality 3 at a=2 and strict T_B<T_A for each a=3..11. The bound T_A>=a^2/(2a-1)+1 versus T_B<=ceil(log_2 a)+3 separates at 12<=a<=16 and all a>=17 (via r>=5 dyadic bound). The coupling T_A<=a^2/(2a-1)+T_B plus lower bound yields T_A-T_B=a/2+O(log a). A finite rational test cannot prove the unbounded inequality; the stated analytic bounds do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geneson et al Theorem 3.7 is O(min(m log n,n log m)) for optimal seed, and displays finite examples; contemporaneous origin-dependent limits give strict advantage only for sufficiently large a."
+        ],
+        "reasoning": "Neither the asymptotic advantage nor the general optimal-seed bound establishes the sharp inequality for every integer a>=3. A uniform all-a source ordering was not stated in the inspected sources.",
+        "searches": [
+          "https://arxiv.org/html/2602.16300",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-origin-dependent-completion-time-limits-for-randomized-zero--2720e505489e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.16300",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-origin-dependent-completion-time-limits-for-randomized-zero--2720e505489e/RESULT.md",
+        "https://arxiv.org/abs/1906.11083"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original conjecture does not imply its conclusion. Limiting distributions imply inequality only eventually. 2019 probabilistic zero forcing has outgoing blue-sender success probabilities and therefore a different transition kernel."
+        ],
+        "reasoning": "The current claim strictly extends an eventual starting-part comparison to all finite a>=3 and strengthens the bare optimal-seed upper bound. PZF bounds cannot be imported without changing the Markov transition law.",
+        "searches": [
+          "https://arxiv.org/html/2602.16300",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-origin-dependent-completion-time-limits-for-randomized-zero--2720e505489e/RESULT.md",
+          "https://arxiv.org/abs/1906.11083"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 Geneson et al Definition 1.1 uses independent recipient-side updates based on blue in-neighbors exactly as here. Their Conjecture 3.12 compares starting parts on K_{a,b}."
+        ],
+        "reasoning": "Current K_{a,2} statement has the same ordering (smaller-side initial blue is faster) at b=2, not an unrelated probabilistic forcing model; it proves the exact fixed-side conjectural slice.",
+        "searches": [
+          "randomized zero forcing complete bipartite K(a,2) expected propagation starting side",
+          "https://arxiv.org/html/2602.16300"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Geneson et al table reports only bounded parameters. The assigned rational certificate handles a=3..11 but also supplies all-a proof above that range."
+        ],
+        "reasoning": "A finite table cannot establish the infinite width-two comparison. The same-day limiting distribution is stronger on stochastic tails but not a finite-a exact census.",
+        "searches": [
+          "randomized zero forcing complete bipartite K(a,2) expected propagation starting side",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-origin-dependent-completion-time-limits-for-randomized-zero--2720e505489e/RESULT.md"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: Geneson–Hicks–Lichtenberg–Moon–Robles 2026, Section 3.6, proposes the very starting-side comparison as Conjecture 3.12 and proves only an optimal-seed upper bound and finite small table. A separate November 8 paper establishes the small-origin limiting law and large-origin mean asymptotic, hence eventually strict preference, but NOT strict preference at every finite a>=3. The current exact rational+analytic finite/all-large bridge supplies that missing all-a result. Same-day relative priority is not asserted.",
+      "residual_risks": [
+        "The same-day limit-law record and assigned record cannot be chronologically ordered within November 8 without timestamps; no priority ordering claimed.",
+        "The uninspected 2025 Lichtenberg Rice thesis could conceivably include finite width-two results; only repository abstract located.",
+        "Conclusion does not extend to all K_{a,b} with b>=3 or sender-side probabilistic zero forcing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CONJECTURE_SLICE",
+          "evidence": [
+            "Defines recipient-side process; Section 3.6 states smaller-part expectation conjecture and only general bound and small values."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.16300",
+          "material_read": "Full arXiv HTML, Definition 1.1 and Section 3.6 incl Theorem 3.7 and Conjecture 3.12",
+          "method": "Primary arXiv HTML full-text",
+          "title": "Randomized zero forcing",
+          "trigger": "Original definition and explicit biclique source-side conjecture"
+        },
+        {
+          "assessment": "ASYMPTOTIC_ONLY_NOT_FINITE_ALL_A",
+          "evidence": [
+            "Shows eventual strict preference by limits but its Limitations explicitly say it does not prove the starting-part inequality for all finite a."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-origin-dependent-completion-time-limits-for-randomized-zero--2720e505489e/RESULT.md",
+          "material_read": "Full published RESULT.md, joint finding and proof of small-origin q-series law and large-origin Exp(2) limit",
+          "method": "GitHub published result full-text",
+          "title": "Two origin-dependent completion-time limits for randomized zero forcing on K_{a,2}",
+          "trigger": "Same object/parameters and possibly stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: this proves the full natural width-two slice of an explicitly posed source-location conjecture and an unbounded asymptotic expected-time advantage. The process is recipient-side RZF, not sender-side PZF, so no conflation with opposite-rule conjectures; the exact small-size checks bridge a genuine gap between eventual asymptotic ranking and all finite a.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2602.16300",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-origin-dependent-completion-time-limits-for-randomized-zero--2720e505489e/RESULT.md",
+    "https://arxiv.org/abs/1906.11083"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The same-day limit-law record and assigned record cannot be chronologically ordered within November 8 without timestamps; no priority ordering claimed.",
+    "The uninspected 2025 Lichtenberg Rice thesis could conceivably include finite width-two results; only repository abstract located.",
+    "Conclusion does not extend to all K_{a,b} with b>=3 or sender-side probabilistic zero forcing."
+  ],
+  "residual_risks": [
+    "The same-day limit-law record and assigned record cannot be chronologically ordered within November 8 without timestamps; no priority ordering claimed.",
+    "The uninspected 2025 Lichtenberg Rice thesis could conceivably include finite width-two results; only repository abstract located.",
+    "Conclusion does not extend to all K_{a,b} with b>=3 or sender-side probabilistic zero forcing."
+  ],
+  "schema_version": 1
+}
