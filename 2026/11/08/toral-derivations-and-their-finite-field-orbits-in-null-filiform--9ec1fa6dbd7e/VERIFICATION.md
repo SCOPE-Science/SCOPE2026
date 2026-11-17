@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification
 
-The script `verify_toral.py` is self-contained and uses only Python 3's standard library. Run `python3 verify_toral.py` in a directory containing that file. It computes finite fields of orders 2, 3, 4 (using \(t^2+t+1\)), and 5; it derives the matrix of each candidate derivation and directly checks all defining Leibniz derivation equations. It then compares powers \(D^p\), matrix rank, and the explicit spectral-projection conjugacy. Seventeen cases range from \((q,n)=(2,2)\) to \((5,4)\), including \((4,5)\). In six additional small cases the script enumerates every \(n\)-by-\(n\) endomorphism and independently recovers the complete derivation parameterization and predicted toral count.
+# Independent mathematical audit
 
-The captured stdout is in `toral_output.txt` with the final line `NULL_FILIFORM_P_TORAL_DERIVATIONS_PASS`. Sample outputs: \(q=2,n=7\) gives 9 toral derivations, \(q=3,n=5\) gives 55, \(q=4,n=5\) gives 17, and \(q=5,n=4\) gives 501. All assertions completed. These finite tests do not certify infinitely many field orders and dimensions; those rely on the proof in `RESULT.md`.
+## correctness
 
-No independent audit or certification has been performed.
+PASS
+
+The Leibniz derivation recursion is forced by D(e_1)=sum a_j e_j, giving diagonal (i a_1) and fixed upper-triangular bands. D^p=D implies a_1^p=a_1, hence a_1∈F_p; if a_1=0, D nilpotent and D=D^(p^j) forces zero. Otherwise the separable polynomial t^p−t yields a diagonalizable D and spectral projector I−(D−cI)^(p−1). Applied to e_1 it gives a c-eigenvector with first coefficient 1, whose iterated brackets form a generator basis. The resulting algebra automorphism conjugates D to cH. The quotient eigenvalue c is invariant. Automorphisms arise from generators with nonzero e_1 coefficient, and commuting generators have possible nonzero coefficients only in indices 1 mod p; this gives stabilizer (q−1)q^floor((n−1)/p) and orbit size q^(n−1−floor((n−1)/p)). Rank and odd-characteristic idempotent boundary follow from diagonal. Independently exhaustively enumerated all linear maps n=2,3,4 at q=2 and n=2,3 at q=3; these are corroborations, not infinite proof.
+
+## originality
+
+PASS
+
+The classical formulas for automorphisms and toral gradings of NF_n are prior knowledge; the final claim does not reassert a new grading classification. The exact characteristic-p composition-power equation, rational conjugacy classes over every field and finite-q population/stabilizer formulas were not established in the inspected characteristic-zero grading literature. A previously published finite-field n=3 derivation-conjugacy classification may imply its n=3 special case, which is not a separate novelty claim; the all-n p-toral stratum remains a qualified best-of-knowledge addition.
+
+## value
+
+PASS
+
+This natural restricted-toral equation is the positive-characteristic analogue of semisimple derivations. Its complete all-dimension orbit/rank and exact finite-field population classification, including a sharp characteristic-two idempotence jump, is an intrinsically useful algebraic invariant rather than a renamed generic grading observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

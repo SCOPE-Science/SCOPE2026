@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The derivation matrix is reconstructed directly from the defining brackets, with all omitted products checked. A derivation satisfying \(D^p=D\) has diagonal coefficient in the prime field and is diagonalizable by the separability of \(X^p-X\). A polynomial eigenspace projection constructs a generating eigenvector and an explicit algebra automorphism, proving the global conjugacy statement. The automorphism stabilizer is counted via indices congruent to one modulo \(p\). The rank and idempotent boundary follow without extrapolation from finite tests. A standalone checker independently verifies the original identities in 17 parameter configurations and sweeps all endomorphisms in six small configurations.
+## correctness
 
-## Originality
-PASS (provisional). The characteristic-zero triangular derivation and group-automorphism descriptions are known (Casas–Ladra–Omirov–Karimjanov, arXiv:1202.5275, and Khudoyberdiyev–Omirov, arXiv:1304.0126). The 2017 grading classification (Calderón et al., arXiv:1708.01753, §3.1) already supplies the torus and equivalence classes of group gradings; neither is claimed new. The narrower assessed arithmetic fact is the exact \(D^p=D\) conjugacy and finite-field population law including the special characteristic-two idempotent jump. Targeted literature and published mathematical-record searches did not expose this precise census or a dominating positive-characteristic theorem. This is not a historical uniqueness certificate: broad classification results could imply it, and the automorphism computation is structurally close to known work.
+PASS
 
-## Value
-PASS. The restricted power operation is natural on the derivation Lie algebra in characteristic \(p\); determining its toral solutions gives a complete intrinsic finite-field count and a uniform rank spectrum for the canonical maximally nilpotent one-generated non-Lie family. The sharp dichotomy between \(p=2\) and odd characteristics for ordinary idempotent derivations distinguishes a genuine field-characteristic boundary. These are motivated arithmetic invariants rather than an arbitrarily chosen parameter slice. The contribution is modest and does not assert a downstream theorem for all Leibniz algebras.
+The Leibniz derivation recursion is forced by D(e_1)=sum a_j e_j, giving diagonal (i a_1) and fixed upper-triangular bands. D^p=D implies a_1^p=a_1, hence a_1∈F_p; if a_1=0, D nilpotent and D=D^(p^j) forces zero. Otherwise the separable polynomial t^p−t yields a diagonalizable D and spectral projector I−(D−cI)^(p−1). Applied to e_1 it gives a c-eigenvector with first coefficient 1, whose iterated brackets form a generator basis. The resulting algebra automorphism conjugates D to cH. The quotient eigenvalue c is invariant. Automorphisms arise from generators with nonzero e_1 coefficient, and commuting generators have possible nonzero coefficients only in indices 1 mod p; this gives stabilizer (q−1)q^floor((n−1)/p) and orbit size q^(n−1−floor((n−1)/p)). Rank and odd-characteristic idempotent boundary follow from diagonal. Independently exhaustively enumerated all linear maps n=2,3,4 at q=2 and n=2,3 at q=3; these are corroborations, not infinite proof.
 
-## Closest literature and limitations
-Full materials examined: arXiv:1202.5275, arXiv:1304.0126, and arXiv:1708.01753 (particularly §3.1, the automorphism calculation, toral gradings, Theorem 4). The inspected 2026 null-filiform derivations paper treats characteristic-zero automorphism and derivation descriptions. Prior grading theorems cover the normal-form pattern; the positive-characteristic operator equation and finite-field orbit size are the specific additional claims. An unidentified general restricted-Lie or group-grading theorem remains a possible subsumption risk. Independent priority and correctness auditing have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical formulas for automorphisms and toral gradings of NF_n are prior knowledge; the final claim does not reassert a new grading classification. The exact characteristic-p composition-power equation, rational conjugacy classes over every field and finite-q population/stabilizer formulas were not established in the inspected characteristic-zero grading literature. A previously published finite-field n=3 derivation-conjugacy classification may imply its n=3 special case, which is not a separate novelty claim; the all-n p-toral stratum remains a qualified best-of-knowledge addition.
+
+## value
+
+PASS
+
+This natural restricted-toral equation is the positive-characteristic analogue of semisimple derivations. Its complete all-dimension orbit/rank and exact finite-field population classification, including a sharp characteristic-two idempotence jump, is an intrinsically useful algebraic invariant rather than a renamed generic grading observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
