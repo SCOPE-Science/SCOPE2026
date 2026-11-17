@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the first two orbit moments in every dimension and vanishing cubic moment from dimension four onward. A nonnegative degree-three polynomial forces the sharp support threshold and, at equality, restricts all orbit projections to two values. Walsh-character independence proves complete axis–flat rigidity for dimensions at least five. The complementary-pair aliasing of Walsh characters in dimension four admits precisely one further flat–flat opposite-parity stratum; the three-dimensional case follows from tetrahedral orbit rigidity. Every converse is exhibited explicitly. The rank-one singular-value identity gives the norm assertion. The attached diagnostic code checks the low-rank boundaries; it does not prove the uniform theorem.
+## correctness
 
-## Originality — PASS (qualified)
-The source introducing the group Daugavet identity proves qualitative orbit transitivity, while its quantitative parameter is a group displacement diameter rather than the complete minimizing rank-one pair set for \(W(D_d)\). The general spherical 3-design covering-radius inequality already implies the numerical lower bound, and the elementary axis orbit already yields equality in value. These facts are **not** counted as novelty. The identified new result is the global equality classification: two axis–flat strata in higher ranks, an exceptional flat–flat stratum at rank four, and a tetrahedral stratum at rank three. An indexed study of spin-weight polytope John balls also treats fixed-orbit contacts, including the special rank-four contact, but its accessible summary does not establish all-pair completeness. Its unavailable full text remains a priority risk. Database queries for exact type-D optimizer equivalences returned no directly covering record; failure to retrieve one is not proof of priority.
+PASS
 
-## Mathematical value — PASS
-Sharp-pair geometry is a natural and nonredundant refinement of the numerical group-Daugavet constant. It identifies **all** worst rank-one operators for an infinite sequence of irreducible reflection groups, with a distinct rank-three tetrahedral mechanism and rank-four parity/triality mechanism. The equality proof explains why the extra flat–flat family disappears after rank four, via independence of two-coordinate Walsh characters. This structural equality information is not determined by the older scalar bound and is useful for extremizer stability and comparison of signed-permutation symmetries.
+PASS: Uniform even-sign coordinate permutations give E⟨gu,v⟩=0 and E⟨gu,v⟩²=1/d; for d>=4 odd third moments vanish. The nonnegative polynomial (b-X)(X+1/sqrt(d))² forces b>=1/sqrt(d) and equality X∈{±1/sqrt(d)}. Walsh orthogonality for d>=5 makes all pair products zero for a fixed permutation, hence axis-flat. At d=4 complementary Walsh characters permit the additional full-support flat-flat opposite-sign-product equality solutions. At d=3 (b-X)(1+X) forces b>=1/3, and equality yields a four-point tetrahedral orbit and flat-flat opposite parity. The rank-one norm is the increasing spectral expression (1+sqrt(5+4c))/2; it takes c=mu_d. Exhaustive independent even-signed-permutation orbit checks at d=3,4,5 verified all named extremal values and the d=5 nonextremal flat-flat witness; all-d equality classification relies on Walsh proof, not these finite tests.
 
-## Limitations and literature risk
-A published spherical-design bound already yields the scalar minimum, and published spin-weight inball formulas give certain fixed-orbit sharp contacts. The complete original text of the closest indexed spin-weight study was not accessible, so some optimizer-priority risk remains. This package makes no claim for arbitrary orthogonal representations, does not substitute finite enumeration for proof, and has not undergone independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Published group Daugavet/spherical-design work gives a general rank-one norm identity, the full type-B signed permutation minimizers and a simplex lower bound. The exact canonical even-sign type-D action is a proper subgroup; its d=3 tetrahedral and d=4 exceptional parity strata, plus d>=5 exclusion, are not implied by the full type-B classification or general design inequality. Search found no complete earlier type-D equality classification; Dantas primary full text could not be accessed and remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Complete equality rigidity across all ranks of a natural Weyl group D reflection representation, with exceptional phenomena exactly at d=3 and d=4, is a natural sharp geometric classification and identifies all optimal rank-one operators. The numerical lower bound alone is known, but the full equality case geometry is substantively distinct from a routine norm substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
