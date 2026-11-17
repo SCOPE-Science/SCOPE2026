@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The genus-four hyperelliptic model is smooth because the degree-nine right side is squarefree. On the nine-element subfield the right side vanishes; for every other element of the 81-element field its fortieth power is \(-1\), so there are no new quadratic solutions. This proves \(N_4=N_2=10\) and \(B_4=0\). Proposition 2.2 of Aubry–Herbaut–Monaldi gives \(B_r>0\) uniformly for all curves at every \(r\ge5\). The rational inequalities are exact. The packaged checker runs independently over a fixed finite-field representation.
+## correctness
 
-**Originality — PASS (best-knowledge, with historical priority risk).** The exact \(\rho(3,4)\) case is absent from the inspected 2023 primary theorem, which treats exact values for genera one through three. The 2020 complete genus-four census is specifically over \(\mathbb F_2\), whereas the present claim is over \(\mathbb F_3\). Lario's tables do not supply this particular universal threshold. Meaning-based published-claim searches found no equivalent. The witness is a classical-looking curve, so the point count or a direct implication may already be known in literature not indexed by the search; this remains the central originality risk.
+PASS
 
-**Value — PASS.** The result gives an exact value of the original natural invariant at the next genus beyond the existing tabulation, resolving both its uniform upper and obstruction lower sides. It is not just an arbitrary finite coefficient enumeration: its lower bound has an explicit structural explanation via the quadratic character of a trace-zero line.
+The degree-nine squarefree polynomial x^9−x gives a smooth genus-four hyperelliptic normalization with one rational point at infinity. Over F9, x^9−x=0 so N2=10. For x in F81 outside F9, v=x^9−x obeys v^9=−v, v^40=−1 and is a nonsquare, giving N4=10 and B4=(N4−N2)/4=0. Independently enumerated the 81-element field using u^4+u−1, confirming nine-element F9 and no additional points. Aubry–Herbaut–Monaldi Proposition 2.2 implies B_r>0 whenever (q^(r/4)−1)^2 >=2g; exact inequalities at q=3,g=4,r=5 establish the upper threshold and monotonicity covers r>5. This proof uses the published theorem as an input, not an unverified finite extrapolation.
 
-The proof uses a published general bound and does not generalize to other ground fields. External independent verification is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary source giving universal closed-point bounds states exact thresholds for genus <=3 but not rho(3,4); its upper bound alone does not give the required degree-four obstruction. Xarles counts genus4 curves only over F2, a distinct base field; the nearby Resultary exact thresholds concern F2, F4 and F5, not F3. A classical hyperelliptic point-count identity may independently imply the lower witness and is recorded as a priority risk.
+
+## value
+
+PASS
+
+The next genus beyond published exact rho tables gives a natural finite-field arithmetic invariant, not a contrived small-sample check. The theorem closes the exact universal upper/lower gap using a structural trace-zero nonsquare obstruction rather than a brute-force genus-four census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
