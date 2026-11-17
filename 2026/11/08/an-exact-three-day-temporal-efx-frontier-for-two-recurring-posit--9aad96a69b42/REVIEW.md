@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed quantifiers and boundary cases have been checked independently of the finite verifier. The compulsory first-day split follows from positive values. Conditioning on that split, precisely four day-2 assignments exist. The cross branch caps all day-3 outcomes by \(C=(H+2L)/(2H)\), including the both-to-one subcase. Repeating day-1 assignments gives a cap \(2L/H\le C\) for \(H\ge2L\); assigning both to the day-1 high-value holder gives a cap \(L/(2H)\le C\); assigning both to the other holder gives a cap \(D=H/(H+L)\). Explicit schedules attain each branch without a later prefix violation. Algebra gives the unique crossover \((3+\sqrt{17})/2\) and minimum \((\sqrt{17}-1)/4\). Separately, alternating high/low recipients gives exact EFX at every prefix if \(H\le2L\). Three-day failure therefore excludes all later exact solutions for \(H>2L\). The standard-library checker exhaustively evaluates 64 three-day schedules at each of 21 rational ratios (1344 paths), and checks nine-day exact reachability; finite tests are not substituted for the real-parameter proof.
+PASS
 
-## Originality — PASS, qualified
+At each prefix the strongest EFX inequality against the higher-valued rival deletes its smallest good. For positive alpha, first-day H,L must be split. Up to agent symmetry there are precisely four day-two allocations: crossing yields cap C=(H+2L)/(2H) even after checking both day-three goods to one agent; repeating gives 2L/H<=C when H>=2L; both to the initially high recipient gives L/(2H)<=C; both to the other recipient yields D=H/(H+L). Explicit 3-day schedules attain C and D without early prefix violations. An alternating high/low assignment attains exact EFX at every horizon precisely when H<=2L; the day-3 upper bound excludes exact EFX for H>2L for all T>=3. C decreases and D increases on h>2; their crossing solves h²-3h-2=0 and yields the stated sharp minimum. Independently enumerated all 64 three-day labeled schedules with rational arithmetic at 10 ratios including branch boundaries; symbolic case proof handles real h and all T.
 
-The closest source is Choi and Li (arXiv:2601.12835), which *already* proves a three-day identical-round TEFX impossibility for values \(\{0,1,3\}\), with an argument reducing to \(\{1,3\}\). The present theorem does **not** claim novelty for that counterexample. Its precise contribution is the *whole positive continuous two-value* feasibility threshold, the *optimal three-day approximation* including two competing strategies, the crossover and the sharp worst-case uniform guarantee. Their later paper arXiv:2607.17224 includes a general \(1/2\)-TEFX identical-day construction and value-dependent lower bounds for other broad domains, but no exact three-day frontier in the inspected full text and appendix. Elkind et al. (arXiv:2410.14593) and Cookson et al. (arXiv:2410.23416) study broader temporal guarantees and distinct per-day versus cumulative criteria. Semantic research-record and earlier work comparisons did not reveal a directly implying statement; that absence is evidence of noncoverage, not a mathematical uniqueness certificate. Residual risk: unindexed equivalent two-good three-day analysis.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the smallest natural repeated two-good schedule in which exact TEFX can fail, and the problem is explicitly motivated by the 2026 identical-day approximation gap. The exact boundary \(H/L=2\) and the sharp factor \((\sqrt{17}-1)/4>1/2\) are motivated invariants, not arbitrary finite enumeration. The switch between balanced daily splitting and deliberately bundling one day's goods explains a substantive tradeoff in maintaining cumulative fairness. The all-horizon exact-feasibility classification and sharp worst-case three-day performance improve the understanding of a canonical structured market, without claiming a general fair-division algorithm for arbitrary goods or horizons.
+Choi and Li 2026 primary papers establish general impossibility even for identical days and two agents, a 1/2-TEFX constructive guarantee for that broader class, and L/H approximation under bi-valued goods. Their exact witness uses three goods per day including zero, whereas this theorem restricts to two strictly positive goods recurring daily and computes the sharp ratio-dependent three-day optimum. Full accessible arXiv HTML for the 2607 paper was inspected in relevant Sections 4,5,6 and appendices: Theorem 4.2 is a lower guarantee, Theorems 5.1 and 6.1 are general input-class lower guarantees whose global tightness witnesses do not force a matching upper bound in this strict subfamily. The submitted entire two-branch frontier is not implied by the general results; priority is qualified.
 
-## Sources and limitations
+## value
 
-Primary full texts and relevant proofs/appendices examined: https://arxiv.org/abs/2601.12835, https://arxiv.org/abs/2607.17224, https://www.ifaamas.org/Proceedings/aamas2025/pdfs/p676.pdf, https://ebadian.org/preprint/temporal.pdf, and https://olinarr.github.io/files/publications/pdf/IgarashiEtAlAAAI2024.pdf. The exact approximation formula is for three days; beyond that, only the exact feasibility criterion is established. Equivalently phrased unindexed results may exist. Independent external validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first obstructed horizon and exact H/L=2 existence boundary are natural structure parameters in repeated allocation, and the nontrivial switch between splitting and assigning both goods to one agent produces an exact tight two-branch policy frontier. This resolves a meaningful constrained fair-division question rather than merely restating the prior 1/2 guarantee or negative instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:10:11.708279Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each prefix the strongest EFX inequality against the higher-valued rival deletes its smallest good. For positive alpha, first-day H,L must be split. Up to agent symmetry there are precisely four day-two allocations: crossing yields cap C=(H+2L)/(2H) even after checking both day-three goods to one agent; repeating gives 2L/H<=C when H>=2L; both to the initially high recipient gives L/(2H)<=C; both to the other recipient yields D=H/(H+L). Explicit 3-day schedules attain C and D without early prefix violations. An alternating high/low assignment attains exact EFX at every horizon precisely when H<=2L; the day-3 upper bound excludes exact EFX for H>2L for all T>=3. C decreases and D increases on h>2; their crossing solves h²-3h-2=0 and yields the stated sharp minimum. Independently enumerated all 64 three-day labeled schedules with rational arithmetic at 10 ratios including branch boundaries; symbolic case proof handles real h and all T.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2607.17224 Theorem 4.2 1/2 for two agents identical days",
+          "arXiv:2607.17224 Theorems 5.1 and 6.1 L/H worst-case lower guarantee, tight over general input class",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-sharp-one-half-success-frontier-for-online-efx-with-two-agen--5609d624fa0a"
+        ],
+        "reasoning": "The general bound does not dominate exact optimum for the restricted repeating {H,L} instance: for h>2, max{(h+2)/(2h),h/(h+1)} is strictly greater than both 1/2 and 1/h. Broad-class tightness counterexamples need not occur in this two-item-per-day subclass. The Resultary online three-good success probability studies a different randomness/adversary metric.",
+        "searches": [
+          "Resultary: temporal EFX two identical agents two positive goods recurring each day H L exact three-day optimal approximation factor",
+          "Resultary: EFX temporal two identical goods per round three rounds sharp ratio H/L 2 0.78",
+          "arXiv:2601.12835 temporal fairness identical days theorem four",
+          "arXiv:2607.17224 Theorems 4.1 4.2 5.1 6.1 and appendices"
+        ]
+      },
+      "checked_sources": [
+        "Choi--Li arXiv:2607.17224 Theorems 4.1 4.2 5.1 6.1 and appendices",
+        "Choi--Li arXiv:2601.12835 identical days",
+        "Resultary one-spike EFX frontier 2026-11-02"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2607.17224 Section 4 1/2-TEFX guarantee and Sections 5-6 L/H guarantees",
+          "arXiv:2601.12835 independent 3-good-zero negative example",
+          "Source RESULT.md explicit 4 day-two cases and 2 achieving schedules"
+        ],
+        "reasoning": "Existence of a >=1/2 approximate allocation in a superset does not yield the exact >~0.78 three-day minimum, nor does general impossibility produce its precise H/L boundary. The new upper bounds depend on counting just four second-day choices; neither prior theorem implies them.",
+        "searches": [
+          "Resultary: temporal EFX two identical agents two positive goods recurring each day H L exact three-day optimal approximation factor",
+          "Resultary: EFX temporal two identical goods per round three rounds sharp ratio H/L 2 0.78",
+          "arXiv:2601.12835 temporal fairness identical days theorem four",
+          "arXiv:2607.17224 Theorems 4.1 4.2 5.1 6.1 and appendices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choi--Li arXiv:2607.17224, Theorems 4.1, 4.2, 5.1, 6.1 and Sections 4-6",
+          "Choi--Li arXiv:2601.12835 identical-days 1/2 guarantee and 3-good {0,1,3} witness"
+        ],
+        "reasoning": "The same temporal EFX definition and identical-days category are used, but the paper treats arbitrary day sizes and gives a 1/2 or L/H class guarantee; its 3-good-zero impossibility witness does not show the sharp two-positive-item transition at H/L=2 or 3-day C-vs-D optimum.",
+        "searches": [
+          "Resultary: temporal EFX two identical agents two positive goods recurring each day H L exact three-day optimal approximation factor",
+          "Resultary: EFX temporal two identical goods per round three rounds sharp ratio H/L 2 0.78",
+          "arXiv:2601.12835 temporal fairness identical days theorem four",
+          "arXiv:2607.17224 Theorems 4.1 4.2 5.1 6.1 and appendices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite exact 64-allocation enumerator in frozen code check_temporal_efx.py",
+          "Theorem 5.1/6.1 source appendix algorithms and tightness examples in arXiv:2607.17224"
+        ],
+        "reasoning": "The 64 schedules are exhaustive at T=3 once each physical good is separately assigned, but finite h grid alone cannot prove a continuous formula; the complete four-case analytic bound does. Neither inspected primary theorem nor Resultary database record provides a table of the exact restricted h-dependent optimum.",
+        "searches": [
+          "Resultary: temporal EFX two identical agents two positive goods recurring each day H L exact three-day optimal approximation factor",
+          "Resultary: EFX temporal two identical goods per round three rounds sharp ratio H/L 2 0.78",
+          "arXiv:2601.12835 temporal fairness identical days theorem four",
+          "arXiv:2607.17224 Theorems 4.1 4.2 5.1 6.1 and appendices"
+        ]
+      },
+      "rationale": "Choi and Li 2026 primary papers establish general impossibility even for identical days and two agents, a 1/2-TEFX constructive guarantee for that broader class, and L/H approximation under bi-valued goods. Their exact witness uses three goods per day including zero, whereas this theorem restricts to two strictly positive goods recurring daily and computes the sharp ratio-dependent three-day optimum. Full accessible arXiv HTML for the 2607 paper was inspected in relevant Sections 4,5,6 and appendices: Theorem 4.2 is a lower guarantee, Theorems 5.1 and 6.1 are general input-class lower guarantees whose global tightness witnesses do not force a matching upper bound in this strict subfamily. The submitted entire two-branch frontier is not implied by the general results; priority is qualified.",
+      "residual_risks": [
+        "Originality is best-knowledge; specialized unpublished exact two-item repeated TEFX bounds may exist.",
+        "Oxford authenticated PDF source returned vpn_disconnected; arXiv full HTML was available and its relevant full theorem/proof sections were read, but a separate publisher PDF was not obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad 1/2 and L/H guarantees are not exact in the two-agent two-positive-goods-per-day fixed three-day subclass; no restricted two-branch H/L optimum in inspected theorem and proof sections",
+          "evidence": "arXiv:2607.17224 HTML lines 406-460 and 661-766",
+          "identifier_or_url": "https://arxiv.org/abs/2607.17224",
+          "material_read": "Full text available in arXiv HTML: introduction, Table 1, Sections 4-6, Theorems 4.1/4.2/5.1/6.1 and appendix algorithms/tightness examples; the PDF remained inaccessible to the institutional download",
+          "method": "web full HTML scientific text, Sections 4-6 and appendices",
+          "title": "Temporal Fair Division of Indivisible Goods with Structured Constraints",
+          "trigger": "Most plausible primary source: exact TEFX bounds with identical valuations and bi-valued goods"
+        },
+        {
+          "assessment": "General 1/2 guarantee and 3-goods-per-day example including a zero-valued good; they do not imply precise 2-positive-goods-per-day h frontier",
+          "evidence": "arXiv:2601.12835 sections 4 and 5",
+          "identifier_or_url": "https://arxiv.org/abs/2601.12835",
+          "material_read": "Accessible arXiv HTML main results and relevant theorem/counterexample sections, earlier primary PDF relevant pages screened",
+          "method": "web HTML and PDF relevant-section reading",
+          "title": "Temporal Fair Division of Indivisible Goods with Scheduling",
+          "trigger": "Identical-days TEFX impossibility and two-agent approximation"
+        },
+        {
+          "assessment": "Three personalized one-spike agents and adversarial online arrivals, not two identical agents with daily positive pair",
+          "evidence": "Resultary 2026-11-02 search summary",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-finite-horizon-efx-factor-for-three-one-spike-agents--31eea09745bb",
+          "material_read": "Resultary title and summary, not full source",
+          "method": "Resultary semantic search",
+          "title": "Sharp finite-horizon EFX factor for three one-spike agents",
+          "trigger": "Nearby published EFX optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first obstructed horizon and exact H/L=2 existence boundary are natural structure parameters in repeated allocation, and the nontrivial switch between splitting and assigning both goods to one agent produces an exact tight two-branch policy frontier. This resolves a meaningful constrained fair-division question rather than merely restating the prior 1/2 guarantee or negative instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Two agents with identical additive preferences, exactly one H and L each day, goods never reallocated, cumulative EFX at every prefix. Approximate factor only classified through T=3; for T>3 exact feasibility only.",
+  "schema_version": 1
+}
