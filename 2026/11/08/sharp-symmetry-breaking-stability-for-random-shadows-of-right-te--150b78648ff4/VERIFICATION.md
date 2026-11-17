@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic argument proves the exact inequality and the complete equality cases for every nondegenerate trirectangular tetrahedron, not just those with rational legs or sampled directions.
+## correctness
 
-Run `python verify.py` with `numpy`, `scipy`, `sympy`, and `mpmath`. The verifier recomputes the exact degree-nine Sturm variations (5 at \(1/3\), 4 at \(1\)), the rational strict boundary comparison, and the numerical root of the scalar stationarity equation. A seeded simulation checks 130,000 positive triples against the claimed sharp inequality and calculates convex-hull shadow counts for 54,000 independent random orientations.
+PASS
 
-Actual execution:
+For t_i proportional to squared inverse legs, Katsuura/Feldman–Klain gives p3=(2∑acos(sqrt(t_i))-pi)/(2pi). The center has D/V limit 9/(8sqrt2) and boundary has strictly larger ratio. Lagrange multipliers plus negative g third derivative force two coordinates equal at a noncentral interior minimizer. The one-variable derivative reduces to a degree-nine Sturm polynomial with exactly one root in (1/3,1); numerical optimizer x*=0.784991151151..., C*=0.586187019691... . Independently verified third derivative sign, h(b)/h(x) exact algebraic identity, polynomial crossing equivalence, one root by SymPy Sturm, and high-precision stationarity/constant. Monte Carlo is not proof.
 
-`VERIFY_OK sturm=(5,4) sharp_constant= 0.586187019691207749 optimizer= 0.784991151151295253 random_simplex_tests= 130000 geometric_projection_trials= 54000 max_projection_error= 0.002235`
+## originality
 
-Finite tests are cross-checks only; the universal inequality and uniqueness are established by differentiation, compactness, exact rational comparisons and Sturm's theorem. Computed decimal values are not claimed as independently certified numerical intervals. The mathematical priority assessment is provisional. Independent audit has not been performed.
+PASS
+
+Katsuura 2020 Theorem 2 proves the unrefined minimum of the right-tetrahedron solid-angle sum; Korotov 2026 gives a separate dispersion defect for isogonic tetrahedra and only an orthocentric lower bound. Neither provides the optimal global variance-normalized right-face-area defect with non-equiangular equality.
+
+## value
+
+PASS
+
+The sharp quadratic stability modulus for a natural metric dispersion strengthens a classical shape extremum; the unexpected second family of asymmetric equality shapes is structurally informative for rigidity of random silhouette probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
