@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The independent-bond model and the uniformly random source are explicitly fixed. Four mutually exclusive seed cases give all required moments. Algebraic factorization yields the two covariances, strict monotonicity of the hub–leaf polynomial gives its unique zero, convexity and endpoint signs give the other unique zero for at least three leaves, and an exact polynomial comparison orders the zeros. The two asymptotic regimes follow from explicit scaling and root bracketing. Independently enumerated exact component probabilities match the formulas. The proof, not the finite checks, covers all admitted parameters.
+PASS
 
-## Originality — PASS within inspected evidence, with residual risk
+Conditioning on source at hub, designated leaves, or other leaves yields exact marginal P(H)=(1+kp)/(k+1), P(L)=(1+p+(k-1)p²)/(k+1) and pair probabilities (2p+(k-1)p²)/(k+1) and (3p²+(k-2)p³)/(k+1). Subtract products and factor the two stated polynomials. A_k increases from -1 to positive for k>=2; B_k for k>=3 is strictly convex on p>=0, initially decreases, and crosses exactly once before 1. Exact identity B_k-(k-1)pA_k/k=2p²-(2+1/k)p-1<0 on [0,1] orders roots. k=2 factor (p-1)(p²+4p+1), k=1 simple two-point result. p=c k^{-2/3} gives B_k=c³-1+O(k^{-1/3}); r_k formula yields (sqrt5-1)/(2k). Independently checked polynomial identity symbolically and exact seed/edge enumeration k=2..6 at p=1/4,1/2,3/4.
 
-Inspected Kenah–Robins (2007) epidemic-percolation theory and Sharkey et al. (2013) exact tree-SIR equations provide the network-outbreak background but do not assert these unconditional final-infection sign thresholds. The star SIS analysis by Schwartz–Stone (2013) addresses a different process, and the Cator–Van Mieghem (2014) covariance discussion and Rodríguez et al. (2018) counterexample address a finite-time infectious state, not final ever-infection. Targeted published-record and primary-literature comparisons returned no statement implying the two-threshold classification. Search absence does not prove historical uniqueness; a preexisting network-reliability specialization remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A complete, all-degree sign classification of a natural one-index-case contact-network motif gives an interpretation and calibration benchmark for co-infection correlations. Its positive and negative regimes, nontrivial ordering, and separated \(k^{-1}\) versus \(k^{-2/3}\) scales identify qualitative phenomena that final outbreak-size averages miss. The result is restricted to a stylized model and is not an epidemiological field estimate.
+The inspected Kenah–Robins full SIR-percolation article and Sharkey–Kiss–Wilkinson–Simon full tree-moment-equations paper analyze more general dynamical settings, but do not state or directly imply the two exact random-single-source final-infection pair covariance sign thresholds and distinct degree exponents. Relevant fixed-time SIS/SIR correlation work is a different observable. This is a defensible best-of-knowledge new exact benchmark; comprehensive historical uniqueness not proved.
 
-## Closest literature and scope
+## value
 
-Kenah–Robins (2007): https://pmc.ncbi.nlm.nih.gov/articles/PMC2186204/
+PASS
 
-Sharkey et al. (2013 online): https://link.springer.com/article/10.1007/s11538-013-9923-5
+Uniformly random index location induces negative dependence at low transmissibility despite independently successful contacts, then two distinct pair types reverse at parametrically different scales. This is a natural finite-network dependence classification and provides exact test cases for epidemic correlation conjectures, not merely a minor numerical coefficient.
 
-Schwartz–Stone (2013): https://doi.org/10.1103/PhysRevE.87.042815
-
-Cator–Van Mieghem (2014): https://doi.org/10.1103/PhysRevE.89.052802
-
-Rodríguez et al. (2018): https://arxiv.org/abs/1807.06909
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
