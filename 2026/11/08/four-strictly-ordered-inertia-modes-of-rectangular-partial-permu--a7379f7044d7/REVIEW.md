@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All vertices are partial permutation zero–one matrices. Deleting rows and columns proves the exact single- and disjoint-pair inclusion probabilities. The Kronecker expression for covariance gives four mutually orthogonal invariant subspaces, and dimension counting exhausts the spectrum. The strict row/column and column/interaction comparisons are direct positive multiples of the two-edge probability. For the remaining strict comparison, the rectangular rook generating polynomial is the reversed generalized Laguerre polynomial with parameter \(q-p>0\). Classical simplicity and positivity of its zeros give distinct Bernoulli parameters; the covariance of two row-occupancy indicators is strictly negative and equals the stated root-spread deficit. The fixed-short-side asymptotic follows from top-two matching sizes and controls all smaller sizes by \(O_p(q^{-2})\). Finite rational enumeration corroborates rather than proves these all-dimensional claims.
+PASS
 
-## Originality
+For all integer 2<=p<q, the vertex law includes all partial permutation matrices, including empty matching; the exact cell probabilities are a=F_(p-1,q-1)/F_(p,q), b=F_(p-2,q-2)/F_(p,q) for disjoint row/column cells, and zero for mutually conflicting cells. Its covariance operator is a I+b(J_p-I_p)⊗(J_q-I_q)-a² J_p⊗J_q. Tensoring constant and contrast subspaces yields four dimensions and eigenvalues λ0=a+(p-1)(q-1)b-pqa², λR=a-(q-1)b, λC=a-(p-1)b, λI=a+b. Strict positive first gap follows from p simple positive zeros of L_p^(q-p), which factor the matching size PGF into distinct Bernoulli factors; λR−λ0=Σ(π_i−πbar)²/[q(p−1)]>0. Other gaps (q-p)b and pb are explicit, λ0>0 by varied matching size. Fixed p, q→∞ matching-size deficit gives λ0=q^-2+O_p(q^-3), λI=q^-1+O_p(q^-2), condition ratio q+O_p(1). Independently counted small boards and exact rational eigenvalues; finite checks are not the universal Laguerre proof.
 
-**PASS under inspected-source and available-record comparisons, without independent historical-priority certification.** The earlier square covariance theorem has only three eigenspaces and its same-length asymptotics, so it does not assert the four strictly separated modes or the fixed-short-side linear conditioning of genuine rectangles. The earlier two-row partial-permutation calculation treats uniform **interior volume**, not uniform vertices. The principal literature of Cao–Chen, Heuer–Striker, and Torres provides polyhedral descriptions, vertex counts, volume or normality, but not these spectral comparisons. John/Löwner ellipsoid results use optimization and a different geometric quantity. Residual risks are earlier rook-statistics or monomer–dimer covariance formulations, and further unchecked sources.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Complete eigenvalue/multiplicity and extremal-axis classification determines an intrinsic Euclidean vertex-inertia invariant for every genuinely rectangular partial-permutation polytope. The strict splitting of row and column contrast modes is absent on square boards; the Laguerre-zero variance gives a structural explanation for the hardest inequality. The condition number's linear growth with a fixed short side quantifies a new anisotropy regime, distinct from the previously analyzed square growth. This is not a rebranding of a vertex count or a one-case computation.
+PASS for genuinely rectangular 2<=p<q four distinct covariance modes, strict Laguerre root-spread gap, and anisotropy. A complete published same-measure result for square boards p=q has only three distinct modes (row/column degeneracy) and does not determine strictly ordered four modes on unequal rectangles. Heuer–Striker supplies vertices and polytope faces but not covariance; Heilmann–Lieb and classical Laguerre zeros support a lemma, not the targeted covariance. Historical monomer-dimer/rook-correlation literature remains potential priority risk.
 
-## Scope and remaining uncertainty
+## value
 
-The proof requires the standard Laguerre zero theorem, cited explicitly. The result does not address general support boards, interior volume measure, or joint growth of both side lengths. Earlier equivalent statistical-mechanics formulations have not been exhaustively excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform-vertex inertia is a natural geometric statistic of complete bipartite matching polytopes. Unequal board sides split the square row/column degeneracy into four rigorously ordered scales and create a precise fixed-short-side condition number, a motivated structural classification rather than renaming known spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

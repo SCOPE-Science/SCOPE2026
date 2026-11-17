@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T14:04:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integer 2<=p<q, the vertex law includes all partial permutation matrices, including empty matching; the exact cell probabilities are a=F_(p-1,q-1)/F_(p,q), b=F_(p-2,q-2)/F_(p,q) for disjoint row/column cells, and zero for mutually conflicting cells. Its covariance operator is a I+b(J_p-I_p)⊗(J_q-I_q)-a² J_p⊗J_q. Tensoring constant and contrast subspaces yields four dimensions and eigenvalues λ0=a+(p-1)(q-1)b-pqa², λR=a-(q-1)b, λC=a-(p-1)b, λI=a+b. Strict positive first gap follows from p simple positive zeros of L_p^(q-p), which factor the matching size PGF into distinct Bernoulli factors; λR−λ0=Σ(π_i−πbar)²/[q(p−1)]>0. Other gaps (q-p)b and pb are explicit, λ0>0 by varied matching size. Fixed p, q→∞ matching-size deficit gives λ0=q^-2+O_p(q^-3), λI=q^-1+O_p(q^-2), condition ratio q+O_p(1). Independently counted small boards and exact rational eigenvalues; finite checks are not the universal Laguerre proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete published square covariance theorem applies p=q only, with three eigenvalues and sqrt-side anisotropy, not fixed-p q→∞ four-mode hierarchy.",
+          "Classical monomer-dimer zeros apply to the matching polynomial but do not state these four covariance eigenvalues."
+        ],
+        "reasoning": "Square covariance symmetry collapses row/column contrasts; it cannot be specialized to unequal p<q. Neither polytope geometry nor general zero theorem alone identifies the exact anisotropic covariance hierarchy.",
+        "searches": [
+          "rectangular partial permutation polytope uniform vertex covariance four eigenvalues Laguerre zero root spread",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
+          "arxiv:2012.09901",
+          "doi:10.1007/BF01877590"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md and companions",
+        "Resultary query: rectangular partial permutation polytope uniform vertex covariance four eigenvalues Laguerre zero root spread",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
+        "Heuer–Striker arxiv:2012.09901",
+        "DLMF 18.2.vi",
+        "Heilmann–Lieb DOI 10.1007/BF01877590"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heuer–Striker vertices and classical zeros are premises; strict first spectral gap requires the distinct Bernoulli-parameter variance identity.",
+          "Square published theorem covers a boundary not in 2<=p<q."
+        ],
+        "reasoning": "The new conclusion is not a corollary of the published square covariance formula under parameter substitution, though it naturally extends a method from the square case.",
+        "searches": [
+          "rectangular partial permutation polytope uniform vertex covariance four eigenvalues Laguerre zero root spread",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
+          "arxiv:2012.09901"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The underlying polytope is the rectangular matching/doubly-substochastic polytope; its vertex-uniform law is a monomer-dimer distribution on K_(p,q).",
+          "Heuer–Striker Definition/Proposition 3.x counts partial permutation vertices; the square p=q covariance source fixes only a three-eigenspace degeneration."
+        ],
+        "reasoning": "Compared vertex-moment covariance, rook placement and matching correlation formulations; vertex enumeration and Laguerre PGF alone do not present the strict rectangular spectral ordering.",
+        "searches": [
+          "rectangular partial permutation polytope uniform vertex covariance four eigenvalues Laguerre zero root spread",
+          "arxiv:2012.09901",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At (p,q)=(2,3), 13 vertices yield eigenvalues 11/169, 1/13, 2/13, 4/13, unlike the square-case three-mode table.",
+          "Known partial-permutation counts supply F_pq, but a cardinality generating table does not give all coordinate-covariance eigenmodes and ordering without further calculation."
+        ],
+        "reasoning": "No retrieved exact rectangular spectral table covered the all-parameter root-spread gap and fixed-p scaling; any prior rook-statistics equivalent remains residual risk.",
+        "searches": [
+          "rectangular partial permutation polytope uniform vertex covariance four eigenvalues Laguerre zero root spread",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
+          "arxiv:2012.09901"
+        ]
+      },
+      "rationale": "PASS for genuinely rectangular 2<=p<q four distinct covariance modes, strict Laguerre root-spread gap, and anisotropy. A complete published same-measure result for square boards p=q has only three distinct modes (row/column degeneracy) and does not determine strictly ordered four modes on unequal rectangles. Heuer–Striker supplies vertices and polytope faces but not covariance; Heilmann–Lieb and classical Laguerre zeros support a lemma, not the targeted covariance. Historical monomer-dimer/rook-correlation literature remains potential priority risk.",
+      "residual_risks": [
+        "Unindexed older monomer-dimer occupancy correlation or rook-polynomial eigenanalysis could imply the rectangular modes.",
+        "Historical same-board covariance and some thesis material were not fully obtained; absence from search alone is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "boundary_square_only",
+          "evidence": [
+            "Assumes equal sides and identifies three eigenvalues; not a covering rectangular four-split classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
+          "material_read": "Entire published RESULT.md: exact square vertex moments, Laguerre factorization, eigenvalues, asymptotic limits",
+          "method": "GitHub full primary file",
+          "title": "Exact three-eigenspace covariance and growing anisotropy of uniform partial-permutation vertices",
+          "trigger": "Closest same measure and same polytope but square matrices"
+        },
+        {
+          "assessment": "geometry_not_covariance",
+          "evidence": [
+            "Established all partial permutations as vertices, not their Frobenius covariance spectrum or strict root-spread gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.09901",
+          "material_read": "Introduction and Section 3 (definition, vertex count, facets and related propositions), searched for covariance",
+          "method": "Public arXiv full-text relevant sections",
+          "title": "Partial Permutation and Alternating Sign Matrix Polytopes",
+          "trigger": "Same rectangular polytope and vertex-set definition"
+        },
+        {
+          "assessment": "auxiliary_premise_only",
+          "evidence": [
+            "Provides p distinct positive Laguerre zeros, implying Bernoulli factorization but not spectral conclusion."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.2.vi",
+          "material_read": "Statement of simplicity and location of zeros of orthogonal polynomials, applied to q-p>-1 Laguerre",
+          "method": "NIST DLMF theorem inspection",
+          "title": "DLMF: General Orthogonal Polynomials, Zeros",
+          "trigger": "Critical nonstandard analytic lemma"
+        },
+        {
+          "assessment": "possible_priority_risk",
+          "evidence": [
+            "General matching-zero context cannot be labeled whole-document noncovering from this limited material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01877590",
+          "material_read": "Bibliographic abstract and real-zero summary, complete article not independently read",
+          "method": "Primary record/abstract",
+          "title": "Theory of Monomer-Dimer Systems",
+          "trigger": "Potential dominating correlation/rook-statistics theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform-vertex inertia is a natural geometric statistic of complete bipartite matching polytopes. Unequal board sides split the square row/column degeneracy into four rigorously ordered scales and create a precise fixed-short-side condition number, a motivated structural classification rather than renaming known spectra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md and companions",
+    "Resultary query: rectangular partial permutation polytope uniform vertex covariance four eigenvalues Laguerre zero root spread",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
+    "Heuer–Striker arxiv:2012.09901",
+    "DLMF 18.2.vi",
+    "Heilmann–Lieb DOI 10.1007/BF01877590"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Discrete uniform all-vertex law, not interior uniform volume and not fixed matching size.",
+    "Asymptotic fixed p only; no joint p,q growth or Euclidean ellipsoid characterization.",
+    "Finite checks do not prove all polynomial and real-zero assertions."
+  ],
+  "residual_risks": [
+    "Unindexed older monomer-dimer occupancy correlation or rook-polynomial eigenanalysis could imply the rectangular modes.",
+    "Historical same-board covariance and some thesis material were not fully obtained; absence from search alone is not novelty proof."
+  ],
+  "schema_version": 1
+}
