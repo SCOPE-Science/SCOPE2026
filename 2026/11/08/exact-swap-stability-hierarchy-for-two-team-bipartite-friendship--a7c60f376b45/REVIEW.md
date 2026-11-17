@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The full gain table has been rederived from each agent's teammate counts, including strict versus weak inequalities and unavailable endpoint swaps. The welfare difference equals twice the sum of moving-agent gains, and strict quadratic concavity proves the global SSTU characterization. The binomial coefficient counts individually labeled assignments without rotation or team exchange. The extracted verifier independently checks every pairwise swap for 9,588 complete assignments across 155 positive-parameter settings up to ten agents. The proof, not finite testing, establishes the infinite result.
+## correctness
 
-**Originality — PASS (subject to stated publication-priority risk).** Searches were directed at the exact object (two named capacity-constrained teams, complete-bipartite binary valuations), the three exchange notions, their aliases, the welfare-optimal equivalence, occupancy intervals, exact assignment counts, and sharp first separations. The closest initiating source defines the three notions and gives broader bounds, but its accessible contribution statement does not give the all-equilibria classification or binomial census. The partially inaccessible technical sections of that same source remain a specific risk; no general novelty is inferred from lack of indexed hits. Indexed results on stable roommates and unrelated graph invariants do not imply the claim.
+PASS
 
-**Value — PASS.** The question determines the complete solution sets of three standard exchange notions for a natural team-assignment network: exact counts, socially optimality and sharp minimum sizes of their separations. This is more than an existence observation, arbitrary small census, or restatement of the general price-of-anarchy bounds. The capacity imbalance is the structural parameter that distinguishes the notions, and the formulas apply to arbitrarily many agents.
+For two named fixed-size teams (s>=t>=1, a,b>=1, a+b=s+t), only opposite-type cross-team exchanges alter utility. Exact gains for decreasing occupancy x are (2x-a-d-1,2x-a-1), for increasing x (a-2x-1,a+d-2x-1), d=s-t. Endpoint availability is checked. Thus SSS iff a-1<=2x<=a+d+1; SS agrees when d=0, otherwise uses strict bounds. Welfare W=2[x(s-x)+(a-x)(t-a+x)] is a strictly concave quadratic centered at (2a+d)/4; total moving-agent gain is half of an adjacent welfare difference, so SSTU iff global welfare maximum over feasible integer x. Labeled counts C(a,x)C(b,s-x). Independently reimplemented direct gains/utility for 3439 labeled allocations through 9 agents, including first separation examples; no extrapolation from the finite checks.
 
-Closest literature: Bilò, Monaco and Moscardelli (2022), *Hedonic Games with Fixed-Size Coalitions*, https://doi.org/10.1609/aaai.v36i9.21156; Gairing and Savani (2019), *Computing Stable Outcomes in Symmetric Additively Separable Hedonic Games*, https://doi.org/10.1287/moor.2018.0960; Bullinger et al. (2025), *Single-Deviation Stability in Additively Separable Hedonic Games with Constrained Coalition Sizes*, https://arxiv.org/abs/2510.12641.
+## originality
 
-Scientific limits: exactly two named teams, complete bipartite binary preferences, additive utilities, single cross-team swaps; unindexed equivalent literature is possible. Accessible sections of the primary paper were reviewed but its later technical body was not available for full-text exclusion. No independent external audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The examined exact primary statements and indexed Resultary claims, including direct implication/subcase checks, do not cover the surviving complete theorem as scoped. Specific overlaps and uncertain inaccessible full texts are recorded; negative searches are not taken as novelty proof.
+
+## value
+
+PASS
+
+Two-team fixed-capacity complete bipartite friendships is an elementary but natural canonical instance of fixed-size hedonic games. The complete equilibrium and labeled multiplicity classifications for all three standard exchange notions, exact efficiency criterion and sharp first sizes when notions diverge capture how capacity imbalance changes strategic stability, beyond mere existence or coarse PoA bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
