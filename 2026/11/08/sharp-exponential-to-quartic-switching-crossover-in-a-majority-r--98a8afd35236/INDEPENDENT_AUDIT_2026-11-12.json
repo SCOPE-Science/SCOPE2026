@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:17:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Magoni et al arxiv:2202.12655 S3-S11",
+        "Assigned full RESULT.md and check.py",
+        "Independent increasing-N binomial quadrature and Laplace reconstruction"
+      ],
+      "rationale": "Rabi evolution independently flips each spin with q(t)=a sin²(omega t); odd-N strict majority is B_N(q), so periodic Poisson integration yields exact per-cycle p_N. Unsuccessful cycles reset to same up state, and stopped-sum/renewal gives E[T_N]=1/(gamma*p_N), despite outcome-duration dependence. For a<1/2, Stirling first-success mass and geometric tail yield B_N(q)~sqrt(2/(pi*N))*sqrt(q(1-q))/(1-2q)*[4q(1-q)]^(N/2), uniformly near q=a. Nondegenerate Laplace saddle at t=P/2 adds N^-1/2, giving p_N~C(a)N^-1 exp(-N I(a)), I(a)=-1/2 log(4a(1-a)). For a_N=1/2-lambda/sqrt(N), t=P/2+y/(omega*N^1/4) gives q=1/2-(lambda+y²/2)/sqrt(N)+O(N^-1), hence central-limit integrand Phi(-2lambda-y²), dominated by e^(-c*y^4), so p_N~A(lambda)N^-1/4; direct Fubini gives F(0)=2^(1/4)Gamma(3/4)/sqrt(pi). Exact renewal transform E exp(-sT_N)=U_N(s)/(s/(gamma+s)+U_N(s)) with U_N(s)=E[e^-s tau J] gives gamma p_N T_N=>Exp(1) and variance ratio 1. Independent quadratures at fixed a=.2 and lambda=0 for increasing odd N approach both predicted prefactors. These numerical checks are not an infinite proof.",
+      "residual_risks": [
+        "Finite quadratures corroborate but do not establish the uniform binomial tail or critical Hoeffding-dominated limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2202.12655",
+          "https://arxiv.org/abs/2106.13761",
+          "published stochastic resetting collective behavior and semi-Markov formulations"
+        ],
+        "reasoning": "The primary paper has a more general finite-size reset protocol, and general semi-Markov renewal results determine transforms conditional on the specific kernel, but do not already state the explicit N^-1/4 critical profile or its F(0) constant.",
+        "searches": [
+          "Resultary: majority rule random switching metastability exponential quartic crossover",
+          "Magoni Carollo Perfetto Lesanovsky Rabi majority stochastic resetting Protocol II supplemental S3 S11",
+          "quartic saddle critical binomial majority tails Poisson reset first switch"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.12655",
+        "https://arxiv.org/abs/2106.13761"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2202.12655",
+          "https://arxiv.org/abs/2106.13761",
+          "critical rescaling a_N=1/2-lambda/sqrt(N)"
+        ],
+        "reasoning": "Source S3-S4 implies exact p_N, and its exponential lifetime observation motivates asymptotics; deriving rate I(a), prefactor C(a), critical quartic saddle, and Exp(1) law uses substantial new uniform asymptotic/renewal analysis, not just renaming source formulas.",
+        "searches": [
+          "Resultary: majority rule random switching metastability exponential quartic crossover",
+          "Magoni Carollo Perfetto Lesanovsky Rabi majority stochastic resetting Protocol II supplemental S3 S11",
+          "quartic saddle critical binomial majority tails Poisson reset first switch"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2202.12655",
+          "https://arxiv.org/abs/2106.13761",
+          "Resultary reset majority spin ensemble exponential to quartic"
+        ],
+        "reasoning": "Equivalent formulations are majority-conditioned common-clock Rabi resets, renewal first-switch probabilities and rare binomial exceedance under periodic q(t). Prior exact p_N is a starting formula; it is not equal to the fixed-detuning saddle asymptotic plus critical scaling profile.",
+        "searches": [
+          "Resultary: majority rule random switching metastability exponential quartic crossover",
+          "Magoni Carollo Perfetto Lesanovsky Rabi majority stochastic resetting Protocol II supplemental S3 S11",
+          "quartic saddle critical binomial majority tails Poisson reset first switch"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2202.12655",
+          "Supplement S3-S11 binomial tail Gaussian calculations"
+        ],
+        "reasoning": "No database/table covering all odd N asymptotics was identified; the source exact finite integral and finite Gaussian approximations are not an all-N sharp LD and critical crossover theorem. Finite independent integrations are corroborative only.",
+        "searches": [
+          "Resultary: majority rule random switching metastability exponential quartic crossover",
+          "Magoni Carollo Perfetto Lesanovsky Rabi majority stochastic resetting Protocol II supplemental S3 S11",
+          "quartic saddle critical binomial majority tails Poisson reset first switch"
+        ]
+      },
+      "rationale": "The primary 2022 Rabi-reset paper already gives exact majority transition integral and qualitative exponentially long finite-size lifetime, and the 2021 framework supplies general conditional reset renewal theory; these are credited, not claimed new. The sharp exact binomial LD prefactor, quarter-power scaling function and first-switch limit are additional mathematical analyses not found in inspected primary material.",
+      "residual_risks": [
+        "General exact transition integral in 2022 paper makes these asymptotics derivable; unlocated supplementary or later specialized finite-size analyses may already have them.",
+        "Strict odd-N projective common Poisson reset, ideal noninteracting qubits; fixed a or fixed lambda, not general physical noise or uniform lambda tending to infinity.",
+        "First-switch law is not a global mixing-time law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact majority binomial transition integral and qualitative exponential finite-size lifetime already known; inspected sections do not show sharp C(a), critical F(lambda) or mean-scaled first-switch law",
+          "evidence": "Magoni, Carollo, Perfetto, Lesanovsky 2022 Supplemental S3-S11",
+          "identifier_or_url": "https://arxiv.org/abs/2202.12655",
+          "material_read": "Full lawful arxiv PDF main text and supplementary equations S3-S11 and their surrounding interpretation; page screenshot independently inspected",
+          "method": "arxiv PDF full-text and screenshot",
+          "title": "Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+          "trigger": "same majority-conditioned Rabi reset Protocol II and published exponential lifetime"
+        },
+        {
+          "assessment": "Prior renewal formalism and conditional reset context, not independently specific critical Rabi majority prefactors",
+          "evidence": "Perfetto, Carollo, Magoni, Lesanovsky arxiv:2106.13761",
+          "identifier_or_url": "https://arxiv.org/abs/2106.13761",
+          "material_read": "Abstract and available cited formulation of conditional resetting; not used to assert a whole-document NOT_COVERING claim",
+          "method": "public bibliographic/source excerpt and candidate comparisons",
+          "title": "Designing non-equilibrium states of quantum matter through stochastic resetting",
+          "trigger": "general semi-Markov conditional-reset framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.12655"
+      ],
+      "rationale": "Quantifying a natural sharp finite-size collective threshold from exponential rare switches to quartic-saddle polynomial switches with constants and a waiting-time limit is a motivated physically interpretable asymptotic boundary, not an arbitrary parameter substitution.",
+      "residual_risks": [
+        "Earlier unindexed analysis of the same integral remains an originality risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General exact transition integral in 2022 paper makes these asymptotics derivable; unlocated supplementary or later specialized finite-size analyses may already have them.",
+    "Strict odd-N projective common Poisson reset, ideal noninteracting qubits; fixed a or fixed lambda, not general physical noise or uniform lambda tending to infinity.",
+    "First-switch law is not a global mixing-time law."
+  ],
+  "schema_version": 1
+}

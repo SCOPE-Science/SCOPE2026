@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The one-cycle law is the exact binomial majority tail under independent Rabi rotations. Periodic exponential integration, Stirling plus a geometric tail, a localized nondegenerate Laplace calculation, and a separate critical \(N^{-1/4}\) central-limit/Hoeffding-dominated calculation reconstruct every displayed constant. The exact renewal transform establishes the exponential waiting-time law despite correlation between cycle duration and switching outcome. The executable checks pass 37 independent finite assertions. Limitations are explicit and the numerical tests are not used as infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The 2022 primary article (arXiv:2202.12655, especially Supplemental Material S3–S11) already provides the exact conditional majority probability and renewal integral and notes exponentially long finite-size transients. The 2021 framework (arXiv:2106.13761) supplies general semi-Markov resetting. These are credited, not relabeled. Neither inspected text states the sharp \(I(a)\) first-switch rate, the critical quartic-saddle \(N^{-1/4}\) crossover function and its exact leading constant, or the normalized first-switch exponential limit for this ideal protocol. Relevant published mathematical-record searches found no statement-level equivalence. Since the prior exact integral can in principle be asymptotically analyzed, specialized prior work or an unnoticed appendix could still affect priority.
+PASS
 
-**Mathematical value — PASS.** The motivating publication highlights exponentially slow finite-size equilibration but does not quantify the distinct polynomial relaxation at the collective threshold. The exact lifetime prefactors and the universal critical profile identify a physically natural crossover for interpreting finite-size measurements, and the exponential law determines the shape of rare switching fluctuations. The \(1/4\) exponent arises from the degeneracy of the majority-tail rate at the coherent-oscillation maximum, rather than an arbitrary parameter slice or routine substitution.
+Rabi evolution independently flips each spin with q(t)=a sin²(omega t); odd-N strict majority is B_N(q), so periodic Poisson integration yields exact per-cycle p_N. Unsuccessful cycles reset to same up state, and stopped-sum/renewal gives E[T_N]=1/(gamma*p_N), despite outcome-duration dependence. For a<1/2, Stirling first-success mass and geometric tail yield B_N(q)~sqrt(2/(pi*N))*sqrt(q(1-q))/(1-2q)*[4q(1-q)]^(N/2), uniformly near q=a. Nondegenerate Laplace saddle at t=P/2 adds N^-1/2, giving p_N~C(a)N^-1 exp(-N I(a)), I(a)=-1/2 log(4a(1-a)). For a_N=1/2-lambda/sqrt(N), t=P/2+y/(omega*N^1/4) gives q=1/2-(lambda+y²/2)/sqrt(N)+O(N^-1), hence central-limit integrand Phi(-2lambda-y²), dominated by e^(-c*y^4), so p_N~A(lambda)N^-1/4; direct Fubini gives F(0)=2^(1/4)Gamma(3/4)/sqrt(pi). Exact renewal transform E exp(-sT_N)=U_N(s)/(s/(gamma+s)+U_N(s)) with U_N(s)=E[e^-s tau J] gives gamma p_N T_N=>Exp(1) and variance ratio 1. Independent quadratures at fixed a=.2 and lambda=0 for increasing odd N approach both predicted prefactors. These numerical checks are not an infinite proof.
 
-Close literature: Magoni et al. (2022), arXiv:2202.12655; Perfetto et al. (2021), arXiv:2106.13761. Remaining scientific limits: odd sizes; perfect single-clock projective reset; no interactions or noise; separate fixed-detuning and fixed-\(\lambda\) regimes; no uniform simultaneous \(\lambda\)-large theorem; independent publication-priority check outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2022 Rabi-reset paper already gives exact majority transition integral and qualitative exponentially long finite-size lifetime, and the 2021 framework supplies general conditional reset renewal theory; these are credited, not claimed new. The sharp exact binomial LD prefactor, quarter-power scaling function and first-switch limit are additional mathematical analyses not found in inspected primary material.
+
+## value
+
+PASS
+
+Quantifying a natural sharp finite-size collective threshold from exponential rare switches to quartic-saddle polynomial switches with constants and a waiting-time limit is a motivated physically interpretable asymptotic boundary, not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
