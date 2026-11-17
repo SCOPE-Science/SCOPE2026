@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof was reconstructed from the exact clauses and quantified hypotheses in RESULT.md. Boundary tests include empty witness sets, empty neighbourhood families, empty instance lists and the two-world strict example. A standalone Python checker compares the semantic upset-preservation condition for both modal operations against the structural criterion on seven finite posets. The checker reports 8,384 comparisons, with exhaustive smaller cases and fixed-seed sampling on larger ones. This finite computation is a corroboration, not the proof of a universal statement. The argument applies to finite posets only; all instance arities and arbitrary upset valuations are assumed. Independent external mathematical validation has not been performed.
+## correctness
+
+PASS
+
+PASS: By induction on syntax, upset preservation of modal operators is equivalent to all-formula persistence when sufficiently many atoms name arbitrary upsets. For B necessity choose scope U and singleton tests at maximal points of U; for D necessity choose scope W\downarrow T and all finitely many upsets not containing T. B sufficiency sends each upset witness intersection to a maximal point; D sufficiency transports violating co-witnesses with T⊆S⊆downarrow T. The proof explicitly handles n=0, U=empty, T=empty and empty neighbourhood families. On 0<1 the given W/H neighbourhood assignments satisfy B,D while violating raw inclusions. This is a proof for arbitrary finite W, not an extrapolation from finite checker cases.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: prior positive PINL frames impose sufficient literal inclusions; inspected same-semantics published local observational signature theorems do not imply this two-sided cross-world necessity and sufficiency.
+
+## value
+
+PASS
+
+PASS: Identifies exactly when positive modalities preserve the upset lattice, replacing a merely sufficient literal-neighbourhood condition by an iff and a minimal separating 2-world frame. This is a motivated foundational semantic property, not a renaming or arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
