@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:11:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary rotation classes (no reversal or complement), every deletion from the same cyclic run produces one descendant, giving the r-run bound. Nonconstant binary necklaces have even run count. Even n: alternating words have only two descendants and other words have at most n-2 runs. Odd n: r=n-1 forces one double run, and deletion symmetries create at least one collision (n=5,7) and two independent collisions for n>=9; other words have <=n-3 runs. The family 0^a(10)^t1^b with a,b>=2 has 2(t+1) distinct run descendants anchored by the long 0 and 1 runs; given constructions attain all cases. This proves the exact piecewise M(n). Independent full-necklace enumeration through n=14 produced all claimed maxima and class counts; infinite claim relies on the run argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Circular trace reconstruction studies multiple deletion traces and statistics.",
+          "Published exact two-deletion result treats restricted elongated-run necklace families, not global one-deletion maximal degree."
+        ],
+        "reasoning": "Neither a probability/sample theorem nor a two-deletion special family entails the all-source one-deletion maximum.",
+        "searches": [
+          "binary necklace rotation classes single deletion descendants maximum outdegree necklace deletion poset",
+          "https://arxiv.org/abs/2512.02412",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0207197",
+        "https://arxiv.org/abs/1202.1644",
+        "https://arxiv.org/abs/2512.02412",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Levenshtein/Sloane and Liron–Langberg run-sensitive linear-deletion formulas ignore output rotation collisions.",
+          "Burudgunte–Valiant–Wang concerns statistical circular trace reconstruction, not deterministic one-deletion orbit outdegree."
+        ],
+        "reasoning": "Precise quantifiers and quotient structures differ; no inspected cited theorem implies M(n) after both rotation quotients.",
+        "searches": [
+          "binary necklace rotation classes single deletion descendants maximum outdegree necklace deletion poset",
+          "https://arxiv.org/abs/math/0207197",
+          "https://arxiv.org/abs/1202.1644",
+          "https://arxiv.org/abs/2512.02412"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sloane Section 5 gives linear one-deletion descendant count equal to the number of linear runs.",
+          "Current sources and outputs both identify words modulo rotation, leading to collisions among distinct cyclic runs."
+        ],
+        "reasoning": "The linear run enumerator is only an upper bound; it does not identify the extra odd-length necklace collisions and exceptional maxima.",
+        "searches": [
+          "binary necklace rotation classes single deletion descendants maximum outdegree necklace deletion poset",
+          "https://arxiv.org/abs/math/0207197",
+          "https://arxiv.org/abs/1202.1644"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive enumeration of all binary necklaces n=1..14 found maxima [1,2,2,2,3,4,5,6,6,8,8,10,10,12].",
+          "No previously published all-length identical table/sequence was identified in searched sources."
+        ],
+        "reasoning": "A finite matching table alone would not imply the infinite formula; here the analytic run proof establishes all n.",
+        "searches": [
+          "binary necklace rotation classes single deletion descendants maximum outdegree necklace deletion poset",
+          "https://arxiv.org/abs/math/0207197"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: no exact prior maximum single-deletion outdegree for rotation classes of both source and descendant was located in the actual Resultary semantic query or inspected published primary material. Linear word deletion degrees count runs without cyclic quotient; circular stochastic trace reconstruction concerns likelihood/sample complexity, not the exact support maximum. Earlier two-deletion necklace enumerations use different deletion count and restrict source families. Unindexed cyclic-deletion-poset priority remains an explicit risk.",
+      "residual_risks": [
+        "Unindexed older necklace deletion-poset enumerations might contain an equivalent maximum; semantic search is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL OVERLAP",
+          "evidence": "Linear one-deletion descendant count is ordinary run number; does not count output necklaces.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0207197",
+          "material_read": "Relevant arXiv PDF Section 5 and surrounding definitions, not a claimed full-document proof of noncoverage.",
+          "method": "Opened PDF and examined relevant pages",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Classical run/deletion descendant theorem"
+        },
+        {
+          "assessment": "NOT SAME QUOTIENT",
+          "evidence": "Results for linear subsequences do not implement circular input/output quotient.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+          "material_read": "Relevant introduction and one-deletion/subsequence framework in arXiv PDF.",
+          "method": "Opened PDF and read applicable definitions/results",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "Potential general run-sensitive deletion formula"
+        },
+        {
+          "assessment": "DIFFERENT OBJECTIVE",
+          "evidence": "No global exact one-deletion outdegree identified in inspected model/results.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.02412",
+          "material_read": "Introduction and random circular trace model in arXiv PDF, with distinction between random traces and exact support maximum.",
+          "method": "Opened primary PDF and inspected model",
+          "title": "New Bounds for Circular Trace Reconstruction",
+          "trigger": "Same circular object and deletion operation"
+        },
+        {
+          "assessment": "CORRECT AND MOTIVATED",
+          "evidence": "All parity bounds and explicit witnesses reconstructed.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11",
+          "material_read": "Full RESULT.md, verify.py source and audit metadata.",
+          "method": "Frozen GitHub read and independent exhaustive n<=14 enumeration",
+          "title": "Sharp one-deletion outdegree of binary necklaces",
+          "trigger": "Assigned final proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: M(n) is a natural extremal degree invariant of the necklace single-deletion graph. The even-versus-odd n>=9 loss, explicit sharp exceptional lengths, and all-length extremal witnesses are substantive cyclic combinatorics not available by substituting the linear run bound. Researchers of cyclic reconstruction and deletion-poset topology could require the exact invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one binary symbol deletion; input/output rotation only. No general reconstruction probability, multiple-deletion theorem or code-size claim.",
+    "Unindexed older necklace deletion-poset enumerations might contain an equivalent maximum; semantic search is not proof of novelty."
+  ],
+  "schema_version": 1
+}
