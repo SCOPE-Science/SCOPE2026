@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact P5 hazard expansion, conditional Poisson splitting, memoryless continuation and finite-horizon coupling yield the stated offspring PGF. The PGF has the exact fixed point lambda/c when supercritical. A uniform absorbing-step bound controls first-passage times at each fixed K, and G double prime equals 2*kappa at criticality, so the lattice local CLT and Dwass identity yield the stated coefficients. Numerical checker corroborates the formulas but is not used to prove them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ball and Donnelly 1995, DOI 10.1016/0304-4149(94)00034-Q: accessible abstract describes broad epidemic-to-branching approximations.",
+        "Goodman 1967: abstract covers offspring dependent on parent survival in discrete age-dependent processes."
+      ],
+      "reasoning": "Both theories furnish general mathematical tools; neither accessible statement specifies the present integrated-exposure finite-population chain, its c=p*rho*(1-exp(-nu*tau))/(nu*tau), or its particular two-stage hitting and critical tail constants. Goodman is the largest residual coverage risk because full text was not accessible.",
+      "searches": [
+        "stochastic epidemic large population early invasion probability 1 minus inverse reproduction number with correlated offspring lifetime",
+        "round-based competing-risk contagion stochastic branching probability extinction 1-1/R0",
+        "truncated exponential survival Bernoulli plus Poisson offspring covariance extinction root lambda c",
+        "Ball and Donnelly 1995 Strong approximations for epidemic models",
+        "Goodman 1967 age-dependent birth and death"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.08353v2: complete HTML",
+      "doi:10.1093/biomet/54.3-4.579: abstract only",
+      "doi:10.1016/0304-4149(94)00034-Q: repository abstract",
+      "doi:10.2307/3212112: journal extract",
+      "published research records on branching extinction, Poisson epidemic risk and non-Markovian lifetime covariance: title/summary comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Proposition 4 gives mean offspring eigenvalue 1+kappa*(R-1) but not offspring law or full extinction probability.",
+        "Dwass 1969 DOI 10.2307/3212112 gives classical total-progeny reduction, whose numerical coefficient needs the new model-specific variance 2*kappa."
+      ],
+      "reasoning": "A linear stability eigenvalue alone does not determine establishment probability. General branching results imply extinction from a known PGF and n^(-1/2) tails from a known variance; the novel steps here are extracting that PGF and exact critical variance from the specified finite chain and proving the fixed-K finite-N passage. This does not claim the classical general deductions as new.",
+      "searches": [
+        "two-stage contagion discrete-time rounds stochastic single adopter invasion probability Galton Watson offspring truncated exponential active time branching model Muñoz Nuño Meacci",
+        "From elementary processes to chaos a discrete-time two-stage contagion model and its continuous limit",
+        "round-based competing-risk contagion stochastic branching probability extinction 1-1/R0",
+        "universal round length independence of extinction in exponential-lifetime discrete generation delayed births",
+        "arXiv:2611.08353v2 Proposition 4",
+        "Dwass 1969 total progeny identity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.08353v2, full HTML Sections 4.2–5 and Appendix S2: chain and deterministic invasion threshold, no single-seed extinction-probability statement.",
+        "Goodman 1967 Biometrika, DOI 10.1093/biomet/54.3-4.579: abstract shows general survival-correlated births treated, but complete text inaccessible."
+      ],
+      "reasoning": "General one-type Galton–Watson extinction is the smaller PGF fixed point, a known equivalent method, but the specific correlated offspring PGF, its unexpectedly exact root and its critical amplitude must be derived from this chain. An unindexed instantiation could be equivalent.",
+      "searches": [
+        "two-stage contagion discrete-time rounds stochastic single adopter invasion probability Galton Watson offspring truncated exponential active time branching model Muñoz Nuño Meacci",
+        "Galton Watson delayed births exponential lifetime within rounds extinction probability ratio birth death c lambda independent round length",
+        "\"Muñoz\" \"Nuño\" \"Meacci\" branching-process survival probability initial adopters",
+        "arXiv:2611.08353v2 Section 4.2 and Appendix S2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific search hits concerning low-rate non-Markovian branching covariance, two-type Poisson epidemic survival bounds and finite-chain epidemic incidence do not tabulate this offspring distribution.",
+        "The source Appendix S2 tabulates finite-horizon numerical epidemic survival for macroscopic initial conditions, rather than one-founder threshold events."
+      ],
+      "reasoning": "No matching exact parameter table or database entry was identified; this is a bounded search rather than proof of absence.",
+      "searches": [
+        "From elementary processes to chaos a discrete-time two-stage contagion model and its continuous limit",
+        "finite population two stage contagion early invasion Galton Watson critical total progeny tail",
+        "universal round length independence of extinction in exponential-lifetime discrete generation delayed births"
+      ]
+    },
+    "rationale": "The source explicitly derives the deterministic linear invasion threshold and a full finite-N chain, but gives no single-founder branching limit, parameter-specific extinction cancellation, or critical adopter-round amplitude. Generic age-dependent and epidemic branching theory supplies methods, not the explicit integrated-exposure model calculation or its two-scale first-passage statement. Historical priority remains provisional due to limited full-text access to some older papers.",
+    "residual_risks": [
+      "Older broad age-dependent extinction literature may contain an equivalent model-specific cancellation not visible in accessible abstracts.",
+      "Full Goodman and some other older primary texts were not available through authorized access.",
+      "The two-stage threshold event is not a macroscopic epidemic event; changing the order of limits changes the meaning.",
+      "General Galton–Watson tail exponent and general coupling tools are classical and are not proposed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "P5 transition rules and deterministic threshold are present. No model-specific single-founder limit, extinction probability formula or critical total-adopter-round tail identified.",
+        "evidence": [
+          "arXiv:2611.08353v2 Section 4.2 rules (i)-(iv), Proposition 1, Proposition 4, Appendix S2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.08353v2",
+        "material_read": "Complete accessible 545-line HTML version, including Section 4.2, Proposition 4 and Supplement S2",
+        "method": "Full-text reading, direct comparison of transitions, theorem claims and S2 numerical setup",
+        "title": "From elementary processes to chaos: a discrete-time two-stage contagion model and its continuous limit",
+        "trigger": "Exact same stochastic model and deterministic invasion threshold"
+      },
+      {
+        "assessment": "General theory plausibly applies but no evidenced model-specific claim. Remains a substantive historical-priority risk.",
+        "evidence": [
+          "Goodman, Biometrika 54 (1967), 579–596, publisher abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/54.3-4.579",
+        "material_read": "Full published abstract and bibliographic metadata only; full text not accessible",
+        "method": "Publisher abstract inspection; authorized institutional PDF attempt could not proceed without a separate VPN connection",
+        "title": "The probabilities of extinction for birth-and-death processes that are age-dependent or phase-dependent",
+        "trigger": "Potential covering theory for survival-correlated offspring and age-dependent extinction"
+      },
+      {
+        "assessment": "Gives broad coupling methodology, not an identified closed-form law for this discrete integrated-hazard chain.",
+        "evidence": [
+          "Ball and Donnelly 1995, Stochastic Processes and their Applications 55, 1–21."
+        ],
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:255d03d5-446a-488e-a5f9-63f624417a58",
+        "material_read": "Oxford repository abstract and bibliographic record; not full text",
+        "method": "Abstract and scope comparison",
+        "title": "Strong approximations for epidemic models",
+        "trigger": "General epidemic-to-branching coupling may subsume finite-threshold convergence"
+      },
+      {
+        "assessment": "Generic identity credited; does not provide new model-specific critical offspring variance.",
+        "evidence": [
+          "Dwass, Journal of Applied Probability 6 (1969), 682–686."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3212112",
+        "material_read": "Cambridge article extract and bibliography; full text gated",
+        "method": "Bibliographic/extract comparison, classical identity independently reconstructed in proof",
+        "title": "The total progeny in a branching process and a related random walk",
+        "trigger": "Exact generic progeny identity used for critical asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "73d3d4dd-1c1f-4017-9bfd-ff56029f84c0",
+  "value": {
+    "rationale": "The deterministic threshold of the motivating chain leaves the one-founder probability unanswered. Exact first-passage coupling makes that question mathematically precise. The cancellation to 1-1/R, despite correlated reproduction and parent survival, and the contrasting kappa-dependent critical occupation amplitude are natural, interpretable structural properties of this specified social dynamical model. General branching theorems themselves are openly credited.",
+    "status": "PASS"
+  }
+}
