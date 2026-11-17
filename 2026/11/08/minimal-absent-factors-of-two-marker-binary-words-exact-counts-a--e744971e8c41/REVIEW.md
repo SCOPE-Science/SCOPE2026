@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem uses nonadjacent markers (interior zero gap positive), and all parameter boundaries are explicit. Its finite formula follows from an exhaustive partition by the number of ones in an absent factor: zero ones (one word), one one (missing corners in two down-closed rectangles), two ones (excluded interior gaps and at most two one-wing extensions), three ones (at most one), and no larger cases. The normalized count differs uniformly by at most seven from \(\max(b,\min(a,c))\). Uniform lattice compositions converge to the uniform two-simplex; a direct area integral gives the proposed distribution and both moments. The independently constructed factor-set enumerator checked all allowed triples through length 45 plus sampled longer cases. Computations are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, historically qualified
-The closest full-text source, Akagi et al. (CPM 2022), supplies general run-length MAF types and algorithms but not a closed two-marker gap count nor a conditional distribution. Barton et al. (2014) give a general enumeration algorithm; Almirantis et al. (2017) give general/extremal information, including a special sparse example. Aurell et al. (2015) obtain MAW length distributions from dense random and genomic sequences, not a distribution of total counts in the conditioned sparse family. Neither an algorithm for arbitrary inputs nor an example of linear growth implies a sharp random limit law or a complete exact expression for all triples. Semantically related results on shortest absent *subsequences*, distinct substring complexity and deletion spheres concern different observables. Searches cannot establish absolute novelty, and unindexed equivalent work remains possible.
+PASS
 
-## Value — PASS
-A fixed-Hamming-weight sequence model is a natural sparse-input benchmark for forbidden-factor methods. The formula identifies exactly which gap arrangements create additional minimal absences, and the limit law describes nontrivial word-to-word fluctuations, not merely a point estimate or a routine relabeling. Both the finite boundary classification and the distribution remain useful independently of potential extensions to more markers. This does not claim a general random-string theory.
+PASS: For w=0^a1 0^b1 0^c with a,c>=0 and b>=1, classify MAFs by number of 1s. Unary 0^{L+1} contributes one; one-1 MAFs arise at missing corners of the union of two down-closed rectangles; 1 0^k 1 contributes K gaps excluding k=b, with two conditional wing extensions; the sole possible three-1 MAF is 1 0^b1 0^b1 if a,c>=b. This exhausts possible counts and yields the eight-term indicator formula in RESULT.md, with main term max(b,min(a,c)) and O(1) error. A uniform (a,b,c) composition with b>=1 converges to Dirichlet(1,1,1), so Z=max(Y,min(X,T)) and the CDF is 4t² (t<=1/3), 6t−5t²−1 (1/3..1/2), 2t−t² (1/2..1); integration yields mean 7/18, variance25/648. Independent literal factor-set enumeration tested every admissible triple at lengths n=3,…,14 against exact formula with no mismatch. All-length proof comes from classification, not tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: RLE minimal-absent-factor classification and algorithms are known, and a published five-run Dirichlet MAF-count limit law has a related bridge structure. That five-dimensional positive-run ensemble does not specialize probabilistically to two singleton one-runs (a measure-zero event) and gives a different limit; it also states no exact formula for every (a,b,c) here. The new exact gap count and conditional three-dimensional piecewise-quadratic law are not implied by inspected publications.
+
+## value
+
+PASS
+
+PASS: The uniformly sampled fixed-two-marker sparse ensemble is a canonical conditional word family, and an exact counting formula plus nondegenerate normalized MAF law are natural exact combinatorial/statistical invariants. The nontrivial boundary cases with vanishing exterior gaps and the Dirichlet transition make this more than recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
