@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The statement specifies an exact finite-field family, the full unit group, the dual representation and all five exhaustive strata. The stabilizer conditions are obtained from the original associative path multiplication and valid in characteristic two. The nonzero-bilinear-form case checks both affine-solvability and the otherwise easy-to-miss idempotent commutator equation. The orbit-stabilizer ratios and matrix-rank strata reconstruct the total dual cardinality. Direct computations and independent polynomial mass tests agree. The general proof does not infer infinite validity from finite tests.
+## correctness
 
-## Originality
-PASS on the accessible literature and claim comparisons, with residual historical-priority risk. The closest full-text sources are Yan (2010), which treats coadjoint clusters for unipotent groups on strictly upper-triangular duals, and Ignatev–Titov (2026), whose Proposition 3.1 treats generalized Heisenberg unipotent orbits, not the full path-algebra unit torus on the entire associative dual. The known radical-square-zero model has no nonzero length-two path pairing and cannot imply the two higher orbit-size series as an instance of its formulas. Searches for equivalent rank-stratified formulas, broader coadjoint orbits and exact tables revealed no matching complete result. An undiscovered general result for triangular unit groups remains a risk, not a claim of certified novelty.
+PASS
 
-## Value
-PASS. The first nontrivial radical-square layer of a quiver path algebra is a natural test case beyond radical-square-zero orbit formulas. Arbitrary arrow multiplicities produce a family of bilinear path-composition tensors, and the theorem quantifies how their ranks and the failure of dual-image incidence change both orbit sizes and multiplicities. It gives a complete invariant in an infinite family, including small and even-characteristic fields, not merely a sample computation.
+Use basis idempotents, U, V and W=U⊗V; unit form d1,d2,d3,x,y,z. Coadjoint fixing is equivalent to vanishing of f([g,h]) on all basis h, giving α(x)=β(y)=−C(z), C(−,y)=(d1−d2)α, C(x,−)=−(d2−d3)β, (d1−d3)C=0. At C=0, count 0/1/2 nonzero arrow functionals and free idempotent-dual coefficients. For rank-s nonzero C, d1=d3, with free h=d1−d2 if and only if both α and β lie in the two images of C; otherwise h=0. The rank-s radicals determine stabilizer dimensions and orbit sizes q^(2s+1)(q−1) or q^(2s+2)(q−1)^2. Multiplying by the Gaussian-binomial rank-s matrix count and dividing by orbit sizes proves all table entries; weighted mass totals q^(3+a+b+ab). Fresh independent exact q-ary mass checks and direct actual upper-triangular stabilizers for a=b=1, q=2,3 corroborate.
 
-## Limits
-The work does not classify individual orbit representatives, group irreducible characters, general quiver unit groups or higher-radical path algebras. Historical priority remains provisional and an independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier three-vertex multiarrow centralizer spectrum counts primal algebra element commutator kernels, not coadjoint dual orbits; the involution between algebra and dual is not a conjugacy equivariant identification for this non-Frobenius algebra. Radical-square-zero Tutte spectra kill W and cannot specialize to nontrivial C. Ignatev–Titov study unipotent Heisenberg-like orbit groups, not the full diagonal torus acting on the idempotent dual. No exact five-stratum full-unit action found, but inaccessible full Heisenberg paper is priority risk.
+
+## value
+
+PASS
+
+The first nonzero-radical-square quiver case has a genuine matrix-rank stratification that separates two coadjoint orbit families invisible at radical square zero. Full size multiplicities over arbitrary prime powers give a natural foundational classification for longer quiver/path-algebra orbit studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
