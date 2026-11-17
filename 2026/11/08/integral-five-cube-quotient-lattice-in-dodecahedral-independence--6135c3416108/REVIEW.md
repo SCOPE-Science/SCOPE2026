@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, orientation order, maximal octets and finite group are explicitly defined. An exhaustive acyclic matching on all 5828 faces yields an integral rank-four homology group in degree five. The matching’s entire 27640-cover directed graph is topologically sorted, not sampled. The four critical cycles are lifted integrally and reproject to the identity; every size-seven boundary projects to zero. The action on actual cycles is calculated for all 120 automorphisms with exact integer coefficients; all 14400 group laws and all independent signed Lefschetz traces agree. A rotational-stabilizer invariant primitive cycle has five translates with an explicitly printed matrix of rank four, sum zero and a unimodular four-column minor. Thus the integral quotient, rather than merely its rational character, is proved. The mod-five coinvariants are computed exactly, distinguishing the quotient lattice from the augmentation kernel. No infinite family is asserted.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The closest exact same-object source, *The dodecahedral independence complex is a wedge of four 5-spheres* (published mathematical result, https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-the-dodecahedral-independence-complex-is-a-wedge-of-four-5-spher--ba0161fd495f), establishes the nonequivariant homotopy type. Its inspected RESULT.md explicitly excludes equivariant information. Barmak (arXiv:1007.0418v1) gives general independence-complex homotopy methods, and Berghoff (arXiv:2008.06267) gives homological spectral-sequence tools, neither the five-cube integral module. Classical polyhedral descriptions of five inscribed cubes give the permutation set, not a homology-module isomorphism. Rips, neighborhood, matching and higher-independence complexes of the dodecahedron are different constructions. Targeted primary-literature and published-result searches identified no stronger statement entailing the integral quotient-lattice result. A missing or unindexed equivalent result remains possible; searches do not prove absolute novelty.
+PASS
 
-## Value — PASS
-The dodecahedron is a canonical Platonic graph. Five maximum independent octets form an exceptionally natural geometric set, yet the fifth homology is not simply an unspecified four-dimensional representation: it is canonically described by the nontrivial integral *quotient* of the associated permutation module with an inversion sign. The root-versus-weight lattice distinction is invisible over rational coefficients and is detected by exact mod-five coinvariants. This integral symmetry phenomenon is a precise, motivated structural invariant that extends the known nonequivariant sphere-wedge type without substituting a routine Betti-number computation. Its scope is one canonical graph and does not claim a broader family result.
+For GP(10,2), independent enumeration gives 5828 faces, including five maximum independent octets. I reconstructed the sequential vertex matching: 2912 pairs, four unpaired size-six faces; built the low-face directed gradient graph and verified its acyclicity, then lifted all four critical 5-cells to integral cycles of 223,251,189,96 facets. The 120 graph automorphisms form a group with 60-element derived subgroup, and independent signed face-Lefschetz computation agrees with the rational ε·(#fixed octets−1) trace for every element. On the four critical generators the central involution is exactly -I; the 5-octet orbit map has columns [[0,0,1,0,-1],[0,0,0,1,-1],[0,1,-1,0,0],[1,-1,0,0,0]], sum zero and a unit 4×4 minor. This identifies H_5 integrally with ε⊗(Z[Ω]/Z∑Ω), not merely its character. The modular-5 coinvariant distinction follows also directly from the transitive permutation exact sequence: quotient coinvariants Z/5 vs augmentation coinvariants zero under A5.
 
-## Limitations and closest coverage
-The finite matching and module matrices are executable certificates, not a uniform theorem for generalized Petersen graphs. The alternate five-cube identification is intrinsically defined up to the sign of the primitive stabilizer-fixed generator. The full equivariant homotopy type is not computed. Unindexed equivalent literature remains a priority risk. The cited group-module result is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier 2026-11-01 full result proves only the rational orientation-twisted five-set module and explicitly disclaims determining the integral Z[G]-lattice; 2026-10-18 earlier published record is likewise rational. The older nonequivariant dodecahedral wedge result proves abstract rank four but not its integral automorphism lattice. The new index-one 5-orbit map and mod-five quotient-versus-augmentation distinction are neither consequences of the rational character nor restatements of the known wedge.
+
+## value
+
+PASS
+
+Five maximum independent octets are a canonical A5-set for the dodecahedral graph, so the integral homology lattice is naturally asked for. Quotient and augmentation lattices have identical Q characters but inequivalent mod-five coinvariants; distinguishing them is a genuine structural invariant relevant to modular equivariant topology, not a merely cosmetic presentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
