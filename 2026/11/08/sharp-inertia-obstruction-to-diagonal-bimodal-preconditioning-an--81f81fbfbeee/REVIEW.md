@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the exact loss, real symmetric nonsingular hollow matrices, positive diagonal factors, and inertia. Trace zero and Sylvester inertia reduce the loss to two groups of positive magnitudes; the two Cauchy–Schwarz inequalities and one completed square give exactly \((r-s)^2/n^2\). Equality fixes both spectral levels. Constant-diagonal real Fourier projections realize the sharpness construction. For positively weighted complete graphs, \((2/n)(J-I)\) attains the bound; positivity and the rank-one representation of the shifted equality matrix force the unique diagonal factor. The outer-product correction is checked by spectral projectors. Code passed 900 finite diagnostics from the packaged source; no enumeration is used as the proof of the universal result.
+## correctness
 
-## Originality — PASS, qualified
-The June 2026 paper by Brarda et al. defines a bimodal spectral target and acknowledges that fixed sparse supports may prevent exact two-point clustering, but its inspected Section 3 and conclusion do not state the sharp hollow-matrix inertia bound, the global unique positive diagonal optimum for weighted complete graphs, or the exact diagonal-plus-rank-one escape. Published comparison with similarity-scaling optimization (Balakrishnan–Boyd), classical inertia and Schur–Horn results, complete-graph spectra, accessible historical claim statements, and targeted published-finding corpus searches found no direct covering statement. The mathematical ingredients are classical; a broader unindexed matrix inequality or equivalent specialized preconditioning result remains a priority risk. The conclusion does **not** concern the paper's fully smoothed logarithmic penalty.
+PASS
 
-## Value — PASS
-The result identifies a sharp, quantitative limitation of the sparsest natural congruence-factor support. For weighted complete graphs the best normalized clustering loss tends to one as size grows, while adding one explicitly specified global rank-one direction gives exactly zero. This is a concrete benchmark for factor-support choice and shows that optimizing values alone cannot overcome the diagonal-support obstruction. Its mathematical object and support comparison are natural to spectral preconditioner design; no numerical-solver acceleration is claimed.
+A zero-diagonal symmetric A remains trace-zero under a diagonal congruence, while Sylvester inertia fixes positive count r and negative count s. Their magnitudes have equal sum S, and separate Cauchy–Schwarz inequalities give nL0 >= (n/(rs))(S−2rs/n)^2+(r−s)^2/n, establishing L0>=(r−s)^2/n² and equality magnitudes 2s/n and 2r/n. Real Fourier constant-diagonal rank-r projections produce hollow matrices realizing equality for every inertia. For weighted complete-graph A=W(J−I)W, G=sqrt(2/n)W^-1 attains the floor; all positive off-diagonal entries plus rank-one spectral equality force uniqueness when n>=3. The explicit diagonal-plus-rank-one W^-1[I+((n−1)^(-1/2)−1)P] transforms A into 2P−I, eigenvalues exactly ±1. This addresses unsmoothed loss only; no performance guarantee for regularized loss or Krylov convergence.
 
-## Closest literature and limitations
-The motivating full-text preprint gives the spectral objective and projected gradients but not this sharp factor-support boundary. Sylvester's law supplies inertia invariance; Schur–Horn/real Fourier columns supply uniform-diagonal projections; classical complete-graph spectra supply one family. The claim is a sharp combination and complete global result for the stated family, not an assertion of novelty for any individual classical lemma. It is restricted to the unsmoothed objective and exact arithmetic; an equivalent older theorem may exist outside the inspected index. Independent evaluation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brarda et al. introduce the indefinite bimodal target and fixed-support optimization, but their inspected full published text optimizes a smoothed objective with an anti-zero regularizer and does not establish a sharp zero-diagonal inertia floor or a diagonal-versus-rank-one exact separation. Resultary searches found various SPD condition-number scaling results, not this exact indefinite spectral target. Classical inertia, trace and Schur–Horn ingredients are credited; the combined sharp obstruction, equality and factor-support escape survive on best-of-knowledge evidence.
+
+## value
+
+PASS
+
+The inertia imbalance gives a precise structural obstruction to a natural bimodal eigenvalue target under diagonal factor support, and a rank-one added direction removes it exactly on a nontrivial weighted complete-graph family. Uniqueness of the diagonal optimizer and matching equality constructions determine a sharp support-versus-spectrum boundary. This is a motivated exact result even though its proof uses elementary classical linear algebra and does not establish Krylov acceleration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:57:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A zero-diagonal symmetric A remains trace-zero under a diagonal congruence, while Sylvester inertia fixes positive count r and negative count s. Their magnitudes have equal sum S, and separate Cauchy–Schwarz inequalities give nL0 >= (n/(rs))(S−2rs/n)^2+(r−s)^2/n, establishing L0>=(r−s)^2/n² and equality magnitudes 2s/n and 2r/n. Real Fourier constant-diagonal rank-r projections produce hollow matrices realizing equality for every inertia. For weighted complete-graph A=W(J−I)W, G=sqrt(2/n)W^-1 attains the floor; all positive off-diagonal entries plus rank-one spectral equality force uniqueness when n>=3. The explicit diagonal-plus-rank-one W^-1[I+((n−1)^(-1/2)−1)P] transforms A into 2P−I, eigenvalues exactly ±1. This addresses unsmoothed loss only; no performance guarantee for regularized loss or Krylov convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brarda et al. address general A and support patterns but do not give the claimed explicit global optimizer or bound. Resultary hits for positive-definite one-spike, stars and diagonal conditioning are different spectra/metrics."
+        ],
+        "reasoning": "Broad numerical spectral optimization and SPD conditioning do not imply exact solution of this indefinite hollow unsmoothed-loss problem; diagonal congruence preserves inertia but not zero diagonal for general dense factors.",
+        "searches": [
+          "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+          "Resultary: positive diagonal scaling hollow matrix inertia imbalance optimal eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+        "https://arxiv.org/abs/2606.22742",
+        "https://en.wikipedia.org/wiki/Schur%E2%80%93Horn_theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inertia law and Cauchy–Schwarz yield a trace-zero necessary bound; additional special-family equality, uniqueness and diagonal-plus-rank-one factor construction are explicitly supplied."
+        ],
+        "reasoning": "Classical lemmas prove components but do not state or automatically solve the three-part preconditioner factor-support comparison; no novelty credited to standard lemmas in isolation.",
+        "searches": [
+          "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+          "https://en.wikipedia.org/wiki/Sylvester%27s_law_of_inertia",
+          "https://en.wikipedia.org/wiki/Schur%E2%80%93Horn_theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized unsmoothed loss L0 is a component of Brarda et al. smoothed/log-regularized bimodal objective. Their spectral-target description is not the same optimization objective."
+        ],
+        "reasoning": "No inspected theorem performs the exact trace-zero quadratic minimization, complete-graph uniqueness and explicit rank-one spectral escape for this normalization.",
+        "searches": [
+          "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+          "Resultary: zero diagonal two well eigenvalues inertia rank one spectral objective"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact ((n−2)/n)^2 optimum plus positive diagonal uniqueness plus explicit 2P−I transform is present in inspected comparisons."
+        ],
+        "reasoning": "The claim is all n and positive weight profiles rather than a small-instance table; classical complete-graph eigenvalues are not the optimized factor result alone.",
+        "searches": [
+          "Resultary: zero diagonal symmetric matrix inertia diagonal congruence two well spectral preconditioner rank one",
+          "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization"
+        ]
+      },
+      "rationale": "Brarda et al. introduce the indefinite bimodal target and fixed-support optimization, but their inspected full published text optimizes a smoothed objective with an anti-zero regularizer and does not establish a sharp zero-diagonal inertia floor or a diagonal-versus-rank-one exact separation. Resultary searches found various SPD condition-number scaling results, not this exact indefinite spectral target. Classical inertia, trace and Schur–Horn ingredients are credited; the combined sharp obstruction, equality and factor-support escape survive on best-of-knowledge evidence.",
+      "residual_risks": [
+        "Older spectral equalization/scaling literature could contain an equivalent simple hollow-matrix floor not indexed by contemporary preconditioning terminology.",
+        "The optimized unsmoothed loss is one component of a regularized numerical objective; no iteration-count or numerical conditioning theorem is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces smoothed loss and general fixed-support optimization but does not state sharp hollow diagonal bound/weighted complete-graph uniqueness/rank-one factor",
+          "evidence": "Section 3.1 indefinite bimodal target; remaining sections numerical methods",
+          "identifier_or_url": "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+          "material_read": "Complete publicly available full-text article, especially Section 3.1 on bimodal spectral loss and numerical/optimization sections",
+          "method": "read accessible full-text reproduction after arXiv PDF/HTML was unavailable",
+          "title": "Factored Sparse Approximate Inverse Preconditioning via Spectral Optimization",
+          "trigger": "Exact motivating spectral objective and possible stronger preconditioner result"
+        },
+        {
+          "assessment": "Confirms only the classical premise, not originality of the combined optimization",
+          "evidence": "Inertia congruence and trace identity",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Sylvester%27s_law_of_inertia",
+          "material_read": "Standard named theorem and applied projection argument in submitted complete RESULT.md",
+          "method": "direct proof reconstruction, classical result",
+          "title": "Sylvester law of inertia and constant-diagonal projection construction",
+          "trigger": "Classical implication and sharpness prerequisites"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inertia imbalance gives a precise structural obstruction to a natural bimodal eigenvalue target under diagonal factor support, and a rank-one added direction removes it exactly on a nontrivial weighted complete-graph family. Uniqueness of the diagonal optimizer and matching equality constructions determine a sharp support-versus-spectrum boundary. This is a motivated exact result even though its proof uses elementary classical linear algebra and does not establish Krylov acceleration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/407509177_Factored_Sparse_Approximate_Inverse_Preconditioning_via_Spectral_Optimization",
+    "https://arxiv.org/abs/2606.22742",
+    "https://en.wikipedia.org/wiki/Schur%E2%80%93Horn_theorem"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only L0, unsmoothed clustering objective; the full smoothed/log-regularized loss may behave differently.",
+    "Rank-one corrected factor generally dense; no sparse iteration-time benefit follows automatically."
+  ],
+  "residual_risks": [
+    "Older spectral equalization/scaling literature could contain an equivalent simple hollow-matrix floor not indexed by contemporary preconditioning terminology.",
+    "The optimized unsmoothed loss is one component of a regularized numerical objective; no iteration-count or numerical conditioning theorem is claimed."
+  ],
+  "schema_version": 1
+}
