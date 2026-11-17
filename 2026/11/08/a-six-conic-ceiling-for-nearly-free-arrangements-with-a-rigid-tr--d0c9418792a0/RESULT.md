@@ -1,92 +1,68 @@
-# A six-conic ceiling for nearly free arrangements, with a rigid triple-free boundary
+# Triple-free boundary rigidity in nearly free smooth-conic arrangements
 
 ## Finding
-Let \(\mathcal C\subset\mathbb P^2_{\mathbb C}\) be the reduced union of \(k\ge2\) distinct smooth conics. Suppose that all its singularities are nodes \(A_1\), tacnodes \(A_3\), ordinary transverse triple points \(D_4\), two-branch contacts \(A_5\), or two-branch contacts \(A_7\). If \(\mathcal C\) is nearly free, then **\(k\le6\)**. If there are no ordinary triple points, then **\(k\le5\)**, and \(k=5\) forces precisely
+
+Let \(\mathcal C\subset\mathbf P^2_{\mathbf C}\) be a nearly free reduced union of \(k\ge2\) distinct smooth conics, with no singularities other than nodes \(A_1\), tacnodes \(A_3\), transverse triple points \(D_4\), and two-branch contacts \(A_5,A_7\). Suppose **no transverse triple points occur**. Then \(k\le5\). If \(k=5\), its entire necessary singularity-count vector is
 \[
 (n_2,t_3,n_3,t_5,t_7)=(13,0,0,1,6).
 \]
-Here \(n_2,t_3,n_3,t_5,t_7\) count the five singularity types in the order given above. In that hypothetical five-conic case, the graph joining pairs of conics at their \(A_7\)-contact points is exactly \(K_{2,3}\); the unique \(A_5\) pair is a nonedge. In the still narrower subclass permitting only \(A_1\) and \(A_7\), one has the **sharp bound \(k\le4\)**. The explicit four-conic witness below realizes equality.
+Moreover, the simple graph on the five conics whose edges represent \(A_7\)-contacts is necessarily \(K_{2,3}\), and the single \(A_5\)-contact pair is a nonedge of that graph. This is a **necessary** five-conic configuration: no geometric realization is asserted.
 
-The conditional five-conic profile is not asserted to be geometrically realizable. No assertion of existence is made for six conics with ordinary triple points.
-
-## Assumptions and scope
-The ground field is \(\mathbb C\). The conics are smooth and pairwise distinct; their union is reduced. The singularities listed above are **exhaustive**, so no quadruple points, triple tangencies, or contacts involving three branches are permitted. The local contact multiplicities of \(A_3,A_5,A_7\) between two smooth branches are, respectively, two, three, four. Each of these quasihomogeneous singularities has local Tjurina number three, five, seven; a node has one, an ordinary triple point four. For \(f\) the degree-\(2k\) defining equation, near freeness is characterized by the standard Dimca–Pokora criterion in Reference [2]: if \(r=\operatorname{mdr}(f)\), then \(r\le k\) and
-\[
-\tau(\mathcal C)=(2k-1)^2-r(2k-r-1)-1.
-\]
-The Arnold-exponent syzygy inequality used in Reference [2] gives \(r\ge5k/4-2\), since all allowed local thresholds are at least \(5/8\). In particular Reference [2] establishes \(k\le8\) for nearly free arrangements under these assumptions, and \(r=k\) when \(5\le k\le8\). The theorem here improves and stratifies this published upper bound.
+In the narrower class having only nodes and \(A_7\)-contacts, \(k\le4\), and this bound is attained by the four-conic nearly free example already known in the literature. The general upper bound \(k\le6\), without the triple-free assumption, was established previously and is *not* claimed as a new theorem here.
 
 ## Proof
-**1. Incidence equations.** Write \(K=k(k-1)\). Pairwise Bézout and the local Tjurina numbers give
+
+Put \(K=k(k-1)\) and denote the numbers of \(A_1,A_3,D_4,A_5,A_7\) points by \(n_2,t_3,n_3,t_5,t_7\), respectively. Pairwise Bézout and local Tjurina numbers give
 \[
 2K=n_2+2t_3+3n_3+3t_5+4t_7,\qquad
 \tau=n_2+3t_3+4n_3+5t_5+7t_7.
 \]
-For \(5\le k\le8\), the cited near-free syzygy constraint gives \(r=k\), hence \(\tau=3K\). Subtracting yields
+The known Dimca–Sernesi/Pokora lower bound \(r=\operatorname{mdr}(f)\ge5k/4-2\), together with the near-free condition \(r\le k\), forces \(r=k\) for \(5\le k\le8\). The already-published general ceiling \(k\le6\) excludes larger \(k\); for the remaining \(k=5,6\), the nearly-free Tjurina formula thus yields \(\tau=3K\). Eliminating \(\tau\) gives
 \[
-K=t_3+n_3+2t_5+3t_7,\quad
-n_2=t_5+2t_7-n_3.
+K=t_3+n_3+2t_5+3t_7,\qquad n_2=t_5+2t_7-n_3.
 \]
-Put \(x=n_3,\ y=t_5,\ z=t_7\), so that \(x\le y+2z\) and \(x+2y+3z\le K\).
+The published Zieliński orbifold inequality for exactly these singularity types reads
+\[
+560k+100n_2+75n_3\ge184t_3+404t_5+608t_7.
+\]
+Substituting yields
+\[
+159n_3+64t_5+144t_7\ge184K-560k.
+\]
+Since there are no triple points, \(n_3=0\), and
+\[
+64t_5+144t_7\le48(2t_5+3t_7)\le48K,
+\]
+so \(136k(k-1)\le560k\). This excludes \(k=6\). For \(k=5\), \(K=20\), hence
+\[
+2t_5+3t_7\le20,\qquad64t_5+144t_7\ge880.
+\]
+If \(t_7\le5\), the first bound implies \(64t_5+144t_7\le848\). If \(t_7=6\), it gives \(t_5\le1\), while the second requires \(t_5\ge1\). Larger \(t_7\) are impossible. Thus \(t_7=6,t_5=1\), and the preceding equalities yield \(t_3=0,n_2=13\). For \(k<5\), the asserted component bound is automatic.
 
-**2. An improved global bound.** Zieliński's inequality [1, Theorem 1.1] is
+The \(A_7\)-contact graph is triangle-free. Indeed, if two distinct conics \(Q_2,Q_3\) meet \(Q_1\) in order four at distinct points \(P,Q\) (distinctness follows from the excluded three-branch contacts), put \(Q_1=xz-y^2\), \(P=[1:0:0]\), \(Q=[0:0:1]\) by projective coordinates. After scaling their equations, the restrictions to \(Q_1\) having divisors \(4P,4Q\) imply
 \[
-560k+100n_2+75n_3\ \ge\ 184t_3+404t_5+608t_7.
+Q_2=Q_1+\alpha z^2,\qquad Q_3=Q_1+\beta x^2,\quad\alpha\beta\ne0.
 \]
-The displayed substitutions reduce it, with no discarded terms, to
-\[
-F:=159x+64y+144z\ \ge\ 184K-560k.
-\]
-On the other hand,
-\[
-462(x+2y+3z)-5F=-333x+604y+666z\ge271y\ge0.
-\]
-Consequently \(F\le462K/5\). For \(k=8\), this contradicts the preceding lower bound since \(458(k-1)>2800\). The existing \(k\le8\) bound rules out every larger integer.
+Their difference \(\alpha z^2-\beta x^2\) is the product of two distinct lines. Those lines meet at \([0:1:0]\), which is not on \(Q_2\) or \(Q_3\), so their common intersection divisor with either conic has support at two or more distinct points. Consequently \(Q_2,Q_3\) cannot have a single order-four contact. Thus no three \(A_7\)-contact edges form a triangle. A triangle-free simple graph on five vertices with six edges is precisely \(K_{2,3}\) by the equality case of Mantel's theorem. The unique \(A_5\) pair cannot also be an \(A_7\) edge: such an edge already uses all four pairwise Bézout intersections.
 
-To exclude \(k=7\), put \(K=42\), \(a=n_2\), and \(b=t_3\). The two incidence equations imply
-\[
-3y=42-5z+a-b,\qquad
-3F=223\cdot42+271z-254a-223b.
-\]
-The lower bound on \(F\) is equivalent to
-\[
-271z-254a-223b\ge2058.
-\]
-If \(z\le7\), the left side is at most \(1897\). If \(z=8\), then \(a=b=0\) would be forced, but \(3y=2\) has no integer solution. If \(z\ge9\), nonnegativity of \(y\) gives \(a\ge5z-42+b\), hence
-\[
-271z-254a-223b\le10668-999z-477b\le1677,
-\]
-again impossible. This proves \(k\le6\).
-
-**3. Excluding the triple-free six-conic case.** If \(x=0\), then
-\[
-F=64y+144z\le48(2y+3z)\le48K.
-\]
-Thus \(136K\le560k\), or \(136(k-1)\le560\), excluding \(k\ge6\). With \(k=5\), \(K=20\) and \(F\ge880\). The inequalities \(2y+3z\le20\) and \(64y+144z\ge880\), for nonnegative integers \(y,z\), force \(z=6\), \(y=1\): if \(z\le5\) the maximum is \(848\), whereas \(z=6\) allows \(y\le1\) and requires \(y\ge1\). Back substitution gives \(t_3=0\), \(n_2=13\). Since \(y=1\), the narrower nodes-and-\(A_7\) class has no five-conic member and hence has \(k\le4\).
-
-**4. Structure of the six extreme contacts.** Build a simple graph on the conics, joining two vertices when those conics have an \(A_7\) contact. It is triangle-free. Indeed, suppose two conics \(Q_2,Q_3\) have full order-four contact with a common smooth conic \(Q_1\) at distinct points \(P\) and \(Q\). Distinctness follows from the exclusion of higher multibranch singularities. A projective coordinate change puts \(Q_1=xz-y^2\), \(P=[1:0:0]\), \(Q=[0:0:1]\). Since the complete intersection divisor on \(Q_1\) is \(4P\) or \(4Q\), the quadratic equations may be scaled to \(Q_2=Q_1+\alpha z^2\), \(Q_3=Q_1+\beta x^2\) with \(\alpha\beta\ne0\). Their difference factors as \(\alpha z^2-\beta x^2\), a pair of distinct lines meeting away from \(Q_2\) and \(Q_3\). Therefore \(Q_2,Q_3\) have at least two distinct intersection points and cannot themselves meet in one \(A_7\) point. Every triangle is excluded. The unique triangle-free graph with six edges on five vertices is \(K_{2,3}\), by the equality case of Mantel's theorem. The remaining unique \(A_5\) contact must occupy a nonedge, because an \(A_7\) pair already accounts for all four Bézout intersections.
-
-**5. Sharpness for nodes and \(A_7\) contacts.** The following four smooth conics form a nearly free arrangement:
+If only nodes and \(A_7\) occur, the forced five-conic basket is impossible because it needs one \(A_5\); therefore \(k\le4\). For sharpness, an earlier published construction gives four smooth conics
 \[
 \begin{aligned}
-Q_0&=x^2+y^2-z^2, &Q_1&=2x^2+y^2+2xz,\\
-Q_2&=x^2+y^2+2xz, &Q_3&=4x^2+6y^2+4xz-8z^2.
+Q_0&=x^2+y^2-z^2,&Q_1&=2x^2+y^2+2xz,\\
+Q_2&=x^2+y^2+2xz,&Q_3&=4x^2+6y^2+4xz-8z^2.
 \end{aligned}
 \]
-The identities \(Q_1-Q_0=(x+z)^2\), \(Q_1-Q_2=x^2\), \(6Q_2-Q_3=2(x+2z)^2\), and \(6Q_0-Q_3=2(x-z)^2\) prove exact fourfold contacts at \([-1:0:1]\), \([0:0:1]\), \([-2:0:1]\), \([1:0:1]\), respectively. Each conic is smooth. The two other pairs have exactly four transverse intersections each: \(Q_0-Q_2=-z(z+2x)\) gives two points at \(z=0\) and two at \(z=-2x\), while \(Q_3-2Q_1=4(y^2-2z^2)\) gives two on each line \(y=\pm\sqrt2z\). These eight points are all distinct and lie away from the four contacts. There are no triple intersections: \(Q_1=Q_2=0\) forces \(x=y=0\), when neither \(Q_0\) nor \(Q_3\) vanishes; \(Q_0=Q_1=0\) forces \(x=-z,y=0\), when \(Q_3=-8z^2\ne0\); and \(Q_0=Q_2=Q_3=0\) would force \(z(z+2x)=0\) and \(x+2z=0\), hence \(x=z=0\), contrary to \(Q_0=0\). Hence the singularity vector is \((8,0,0,0,4)\) and \(\tau=8+4\cdot7=36\). The reproducible exact coefficient-linear-algebra check below gives \(\operatorname{mdr}(Q_0Q_1Q_2Q_3)=3\), including the exclusion of syzygies in degrees zero, one, two. Since \(36=7^2-3(8-3-1)-1\), the near-free criterion applies.
+Their reduced union has eight nodes and four order-four two-branch contacts, with \(\tau=36\) and \(\operatorname{mdr}(Q_0Q_1Q_2Q_3)=3\). The standard near-free numerical criterion for degree eight gives \(36=(8-1)^2-3(8-3-1)-1\), so it is nearly free. The construction and its minimal-syzygy certificate are prior; it is included only to demonstrate sharpness.
 
-## Verification
-Run `python verify_conic_cutoff.py` (Python 3 standard library) for the exhaustive integer necessary-condition census on \(5\le k\le8\). Run `python verify_four_conic_example.py` (SymPy) for the exact quadratic identities, projective smoothness tests, and the degree-by-degree Jacobian-syzygy calculation for the explicit octic. The expected success markers are `CONIC_CUTOFF_ARITHMETIC_PASS`, `FOUR_CONIC_INCIDENCE_PASS`, and `FOUR_CONIC_MDR_3_PASS [0, 0, 0, 1]`. The general nonexistence results are proved symbolically in Steps 1–4; enumeration is corroboration, not an argument over infinitely many arrangements.
+## Motivation, comparison, and scope
 
-## Relationship to prior work
-Zieliński [1] proved the orbifold inequality used here. Pokora [2] proved the coarse nearly free upper bound of eight conics and explicitly noted the absence of known examples with five through eight conics; an existing four-conic nearly free construction motivates sharpness of the last clause. The results here concern the simultaneous application of the near-free Tjurina identity, the orbifold inequality, an integer integrality obstruction at seven conics, and the combinatorial structure of the five-conic boundary. They exclude seven and eight conics rather than merely searching for them, eliminate the no-triples six-conic case, and isolate a single hypothetical five-conic incidence profile and its contact graph. Bromboszcz, Jarosławski and Pokora [3] examine plus-one-generated arrangements and prove another general arrangement inequality; their principal conclusions do not classify this nearly free upper boundary.
+Five and six smooth conics are the first component counts for which existence of nearly free unions with the specified ADE singularities remains open. The no-triples boundary is a natural incidence restriction; forcing an exact five-conic basket and a unique six-edge contact graph rules out almost all candidate configurations without assuming that the remaining one is realizable. This structural reduction is distinct from the earlier general \(k\le6\) theorem and its modulo-five exclusion of \(k=7,8\), which are **not** new here. The sharp four-conic witness and its full stratum were also established previously. The result makes no existence assertion at five or six conics, does not classify configurations with triple points, and does not settle projective realizability of the \(K_{2,3}\) five-conic contact graph.
 
-## Limitations
-The universal bound six is not proved sharp. No six-conic near-free example is claimed. The unique five-conic numerical profile is **necessary only**, not an existence or realization theorem. The only sharpness statement here is for arrangements whose singularities belong to \(\{A_1,A_7\}\). The cited external theorems, particularly the near-free characterization and orbifold inequality, are mathematical premises; verification scripts check the new reductions and explicit finite witnesses, not all published foundational proofs. Priority remains subject to independently checking older unindexed treatments of the same near-free constraints.
+The arithmetic necessary conditions can be checked by exhaustive integer enumeration for \(k=5,6\), but the theorem follows from the displayed elimination and Mantel argument; the finite census is not used as a proof of geometric nonexistence.
 
 ## References
-[1] M. Zieliński, *On plane conic arrangements with \(A_5\) and \(A_7\) singularities*, Rendiconti del Circolo Matematico di Palermo, first published 17 May 2023, DOI 10.1007/s12215-023-00890-8. Theorem 1.1.
 
-[2] P. Pokora, *On free and nearly free arrangements of conics admitting certain ADE singularities*, arXiv:2303.08584 (15 March 2023), and Annali dell'Università di Ferrara, DOI 10.1007/s11565-023-00481-6 (27 November 2023). Definition 1.3, Theorem 2.3 and Remark 2.7.
-
-[3] A. Bromboszcz, B. Jarosławski, P. Pokora, *On plus–one generated arrangements of plane conics*, Geometriae Dedicata (21 January 2026), DOI 10.1007/s10711-025-01063-w, Theorem 3.4.
+1. P. Pokora, *On free and nearly free arrangements of conics admitting certain ADE singularities*, arXiv:2303.08584 (2023), notably the near-free criterion, syzygy lower bound, and four-conic example.
+2. M. Zieliński, *On plane conic arrangements with A5 and A7 singularities*, Rendiconti del Circolo Matematico di Palermo (2023/2024), Theorem 1.1 (orbifold inequality), DOI:10.1007/s12215-023-00890-8.
+3. *A six-component ceiling for nearly free smooth-conic arrangements with A1,A3,D4,A5,A7 singularities* (2026-11-02), https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-six-component-ceiling-for-nearly-free-smooth-conic-arrangement--c7898da4d723 . The previously published universal six-component ceiling.
+4. *Singularity strata and the unique nearly-free member of an explicit four-conic family* (2026-10-13), https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-singularity-strata-and-the-unique-nearly-free-member-of-an-expli--849decf44190 . The prior sharp four-conic example and its Jacobian certificate.
