@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The executable `checker.py` is complete and needs only the Python 3 standard library. Execute `python3 checker.py` from the extracted file directory. Its output is `PASS: 40 numerical assertions; q=2 mean, spectral covariance, derivative signs, asymptotic coefficient; q noninteger positivity.`
+## correctness
 
-The checker compares two independently parameterized integrals for the same stationary covariance: the exponential-age renewal integral and a double integral of Gamma spectral rates, at five lags. It independently checks the known stationary second moment and mean, tests four low-order derivative-sign families, verifies decrease of the effective relaxation rate, and checks long-time coefficient ratios. It also tests positive noninteger cooling exponents. Quadrature and finite differences are finite numerical evidence, not proofs of strict complete monotonicity at all orders or asymptotic results at infinite lag.
+PASS
 
-The mathematically decisive verification is the proof in RESULT.md: the explicit no-reset decomposition, positive kernel \(rsu/[(r+s+u)(r+s)(r+u)]\), dominated-convergence edge expansion, analytic exponential integral, and positivity of the tilted spectral variance. At the physical exponent \(q=2\), the coefficient can be verified by differentiation of the source's stationary mean. These calculations establish the theorem under exactly the stated idealized renewal assumptions.
+Split on whether a Poisson reset occurs during lag t; independence after a reset gives exact C(t)=exp(-r*t)Cov(g(A),g(A+t)) for stationary A~Exp(r). Since g(a)=T0∫w_q(s)e^-sa ds (Gamma density), Cov(e^-sA,e^-uA)=[r*s*u]/[(r+s+u)(r+s)(r+u)]>0. Tonelli yields strictly positive AC exponential density W(r+s), all moments finite; differentiation gives strict complete monotonicity. As s->0 W(r+s)~[T0*tau^q*mprime(r)/Gamma(q)]s^q, where mprime(r)=T0∫w_q(u)u/(r+u)^2 du>0. Watson/Laplace asymptotics give C~q*T0*tau^q*mprime(r)e^-rt t^(-q-1), with one-order remainder; tilt of the positive density yields LambdaPrime=-Var_t(lambda)<0 and Lambda-r=(q+1)/t+O(t^-2). The q=2 mean derivative yields the stated exponential-integral coefficient, positive from the integral. Independently evaluated exponential-age covariance by adaptive quadrature at r=.7,tau=1.2,q=2: normalized exact/asymptotic ratios at t=5,10,25,60 are 0.2684,0.4673,0.7098,0.8595, consistent with approach to one and not treated as proof; the analytic Laplace argument establishes all t and every q.
+
+## originality
+
+PASS
+
+The 2025 primary source Bodrova-Chechkin-Dubey establishes Poisson reset cooling, one-time PDF and moments but no fixed-rate two-time correlation spectral density or edge coefficient. Crucially, an earlier 2026-10-26 public same scalar age-process result explicitly DOES already prove the renewal covariance identity, positivity, integrated variance and weak-reset transitions; those ingredients are not novel. The audited work adds the positive completely monotone full relaxation-rate density, sharp fixed-r t^(-q-1) prefactor, monotone effective rate and identification. These do not follow as explicitly stated conclusions from the earlier integrated-variance formulas without a new spectral/Laplace derivation. Qualified best-of-knowledge PASS with overlap clearly recorded.
+
+## value
+
+PASS
+
+The explicit relaxation spectrum, strict complete monotonicity, sharp polynomial correction to the universal exponential reset decay and recovery of cooling exponent from log-slope are motivated temporal-memory observables beyond previously known one-time distributions and weak-reset integrated variances. Exact positive density and q=2 cubic prefactor are meaningful self-contained analytic facts, not a mere reparameterization of an existing table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
