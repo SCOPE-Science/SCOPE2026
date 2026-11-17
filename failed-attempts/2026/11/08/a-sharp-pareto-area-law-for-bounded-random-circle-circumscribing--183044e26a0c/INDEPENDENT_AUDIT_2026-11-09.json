@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T16:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniformly rotated circular gaps anchored at a sampled contact point form Dirichlet(1,...,1). Boundedness is max gap<1/2 with probability 1-n/2^(n-1). Area equals sum tan(pi Y_i). The Beta(1,n-1) marginal gives strip density (n-1)/2^(n-2) at 1/2, so t times the bounded one-gap tail tends to this divided by pi; double large gaps are O(t^{-(n-1)})=o(1/t) for n>=3. A deterministic max/sum squeeze proves joint coefficient n(n-1)/(2^(n-2)pi), hence conditional 2n(n-1)/(pi(2^(n-1)-n)). Layer-cake yields finite q-moments iff 0<q<1. Independent symbolic substitution of the prior Dirichlet general theorem at alpha=1 agrees exactly (n=3 constant 12/pi).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First prior is strictly broader in gap distribution (all alpha>0), same fixed n and same circle geometry. Later result addresses general smooth positively curved bodies."
+        ],
+        "reasoning": "The earlier universal Dirichlet theorem already dominates the assigned iid-uniform circle case, regardless of other convex-body work.",
+        "searches": [
+          "Resultary 2026/11/2 universal Dirichlet polygon area tail",
+          "Resultary 2026/11/8 curvature width Pareto law general body"
+        ]
+      },
+      "checked_sources": [
+        "Assigned source RESULT.md, verify_tail.py, METADATA.json, AUDIT.json, VERIFICATION.md, SLOGAN.txt at 9cdc162514bc5f08dd4cd8b7c00a7d0c813d5fbe",
+        "Complete earlier published Resultary Dirichlet Pareto theorem",
+        "GitHub commit histories of both published prior and assigned source",
+        "Independent sympy alpha=1 coefficient specialization",
+        "Xu 2015 DOI abstract and bibliographic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier published theorem: c_{n,1}=n(n-1)/(pi2^(n-2)(1-n/2^(n-1))), p_{n,1}=1-n/2^(n-1), moments finite exactly q<1. Assigned source: same c rewritten 2n(n-1)/[pi(2^(n-1)-n)]."
+        ],
+        "reasoning": "Published source timestamp 20:01:35Z precedes assigned source import 21:29:45Z on Nov8. Prior implies and includes all substantive submitted conclusions, so O fails.",
+        "searches": [
+          "https://github.com/Resultary/2026/commits?path=2026/11/2/SCOPE-a-universal-pareto-tail-for-areas-of-dirichlet-spaced-circumscri--d99c959a6c65/RESULT.md",
+          "GitHub assigned original source file commit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published theorem sets symmetric Dirichlet gaps alpha>0, explicitly provides alpha=1 iid uniform contacts and c_{n,1}=n(n-1)/[pi2^(n-2)(1-n/2^(n-1))]."
+        ],
+        "reasoning": "Set alpha=1 in published beta law to recover every key statement of the assigned formula exactly.",
+        "searches": [
+          "Resultary circumscribed random tangent polygon fixed-n conditional Pareto area",
+          "Resultary universal Pareto tail Dirichlet-spaced circumscribed polygons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact alpha=1 coefficient, boundedness probability and n=3 value 12/pi are printed in published source."
+        ],
+        "reasoning": "This is exact formula coverage, not a suggestive abstract match or an interpolated table.",
+        "searches": [
+          "Resultary semantic query fixed n tangent polygon Pareto coefficient",
+          "Prior RESULT.md alpha=1 exact formula"
+        ]
+      },
+      "rationale": "The complete earlier published “A universal Pareto tail for areas of Dirichlet-spaced circumscribed polygons” (Resultary 2026/11/2, published-file commit 2026-11-08T20:01:35Z) explicitly states the same iid-uniform model as alpha=1, the same bounded probability, the same conditional coefficient and the identical q<1 moment boundary. The assigned source was first committed 2026-11-08T21:29:45Z, 88 minutes later. There is direct older logical coverage, not merely matching keywords or a failed search. The assigned narrower claim is an immediate parameter specialization.",
+      "residual_risks": [
+        "Full Xu (2015) article not inspected; priority comparison is already decisively covered by the accessible earlier general Dirichlet result.",
+        "The rejection is scientific duplication, not a proof error, code failure or access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERING",
+          "evidence": "The formula c_{n,1} and 0<q<1 are identical; observed published commit ed113a at 2026-11-08T20:01:35Z.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-pareto-tail-for-areas-of-dirichlet-spaced-circumscri--d99c959a6c65",
+          "material_read": "Read entire published RESULT.md, including stated alpha=1 specialization, Dirichlet conditioning proof, pair-extreme bound and layer-cake moment argument.",
+          "method": "Published GitHub full primary text",
+          "title": "A universal Pareto tail for areas of Dirichlet-spaced circumscribed polygons",
+          "trigger": "Exact same unit-circle tangent law with broader beta gaps"
+        },
+        {
+          "assessment": "POSSIBLE_ADDITIONAL_PREDECESSOR",
+          "evidence": "Xu discusses unbounded magnitudes even when circumscribing polygons exist, but full text not read.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2015.06.026",
+          "material_read": "Read bibliographic record and abstract; full text inaccessible, not asserted inspected.",
+          "method": "Indexed abstract",
+          "title": "Random circumscribing polygons and approximations of π",
+          "trigger": "Original same tangent model"
+        },
+        {
+          "assessment": "POTENTIALLY_BROADER_LATER",
+          "evidence": "Smooth-convex-body result is another possible dominating theorem but unnecessary for rejection.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-curvature-width-pareto-law-for-bounded-random-tangent-polygons--df3f4bf5ad69",
+          "material_read": "Resultary title and summary inspected; full source text not read.",
+          "method": "Resultary semantic search",
+          "title": "Curvature–width Pareto law for bounded random tangent polygons",
+          "trigger": "Other broader model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although a fixed-n Pareto tail and infinite conditional mean are worthwhile mathematical information, this submitted final result contributes no separately motivated unknown invariant beyond the already published Dirichlet theorem: all coefficients, moment thresholds, and n=3 example are expressly included there. Correct proof and a Monte Carlo reproduction are not independent value or novelty.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Full Xu (2015) article not inspected; priority comparison is already decisively covered by the accessible earlier general Dirichlet result.",
+    "The rejection is scientific duplication, not a proof error, code failure or access failure."
+  ],
+  "schema_version": 1
+}
