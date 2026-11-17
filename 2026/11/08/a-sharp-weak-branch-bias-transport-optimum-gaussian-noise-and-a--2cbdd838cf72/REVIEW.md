@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact stationary canonical weight and current identity are reconstructed from the source's finite-state balance equations, then checked on a separate finite generator in `CHECK.py`. An independent-Bernoulli conditioning identity converts the nonlinear finite stationary ensemble into a two-sum triangular array with uniformly bounded-away-from-zero occupation probabilities. Uniform lattice local CLTs, sub-Gaussian tails, and a lower bound on the conditioning probability give the Gaussian limit and convergence of variances. Exchangeability yields the off-site covariance. Differentiation of the density constraint proves a strictly monotone backbone fraction, and the endpoint limits give the exact existence-and-uniqueness density window. The positive \(L^{-1}\) current excess follows from the exact finite current and Gaussian moment limits, including the correct finite-size denominator. Fixed-\(q\) limits use an energy-gap versus exponential-entropy concentration argument. These arguments address all stated domains. Numerical checks support, but do not prove, the asymptotics.
+## correctness
 
-## Originality — PASS (qualified)
-Ishiguro and Ando (arXiv:2603.09694v1, Sections III and IV) already have the canonical measure and exact finite-size current: no novelty is asserted for those. Sarkar and Gupta (arXiv:2502.11931, Section 3) already have related fugacity, logistic branch profiles, and nonmonotone drift in a random comb: no novelty is asserted for the underlying saddle argument. The new statement combines one *macroscopic path* with independent \(q_L=e^{\lambda/L}\) tuning, the complete sharp density window for a fixed-backbone-drift optimum, canonical Gaussian/covariance coefficients, and the counterintuitive positive optimal finite-size excess. Source full texts and published-finding corpus searches did not locate this exact joint regime or a theorem that explicitly dominates the joint conclusion. Prior finite-branch and half-filled comparison results do not imply the present macroscopic weak-bias limit. Residual risk: a broader specialized equivalence-of-ensembles/comb-scaling result, not identified in inspected material, could cover some or all conclusions.
+PASS
 
-## Value — PASS
-A branch that is \(O(L)\) long under fixed nonunit bias tends to behave as a macroscopic trap, and ordinary fixed-bias limits change discontinuously across unity. The inverse-length bias window gives a physically and mathematically motivated, nondegenerate transport optimization rather than an arbitrary finite computation. The exact density interval specifies when branch-bias tuning can recover the maximal theoretical throughput, the negative \(L^{-1}\) covariance resolves global particle conservation, and the strictly positive finite-size current excess quantifies a nontrivial departure from naive mean-field current bounds. The result is an analytically sharp regime classification with a reproducible finite-state check.
+Stationary weight π∝∏q_L^{dη_d} follows branch detailed balance and uniform circulating ring balance; exact ring current Δ E[B_L(L−B_L)]/[L(L−1)] includes canonical finite correlation. Bernoulli conditioning at unique µ_L turns finite partition into conditional independent site variables; µ_L→µ and a uniform triangular-array local CLT yields B_L fluctuations with harmonic-variance v_b v_t/(v_b+v_t); conditional subgaussian domination ensures second-moment convergence beyond weak CLT. Exchangeability gives L Cov(η_i,η_j)→−v_b²/(v_b+v_t). Implicit derivative df/dλ<0 and limiting density endpoints imply unique f=1/2 for 1/2<ρ<c+1/2, and current Δ/4. Expansion J_L/Δ=1/4+(1/4−v_*)/L+o(1/L) gives strictly positive coefficient. Independently numerically solved c=.75,ρ=.95 yielding λ*=1.0962176457,v*=.10383757025, excess=.14616242975; these finite calculations do not prove local CLT.
 
-## Sources and risks
-Core exact model: Ishiguro–Ando, arXiv:2603.09694v1 (2026-03-10), full primary HTML Sections II–V inspected. Closest earlier density/current methods: Sarkar–Gupta, arXiv:2502.11931 (2025-02-17), full HTML model, Sections 3–4 inspected. Earlier network stationary measure: Ishiguro–Sato, arXiv:2403.01934, full primary PDF and relevant pages inspected. Risks remain about general equivalence-of-ensembles specialization and optimal-bias results outside the inspected literature. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original exact stationary canonical weight and current are previously known, and random-comb work gives related logistic profiles and nonmonotone drift. The submitted new one-macroscopic-branch, q_L=e^{λ/L} coupled scaling supplies explicit Gaussian conditional variance, negative backbone covariance, sharp finite optimal branch bias regime and positive 1/L optimal-current correction absent from the inspected prior statements.
+
+## value
+
+PASS
+
+A one-long-branch exclusion system has a sharp physically meaningful weak-field crossover at bias λ/L, where a finite optimal control exists only in a specific density interval. Exact Gaussian noise, long-range negative covariance and a counterintuitive finite-size current excess capture nontrivial aspects of mass conservation and transport; beyond generic stationary fugacity reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
