@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:53:55.178499Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-condition-number-envelopes-and-block-size-cutoff-for-volum--b4d8c12466a2/RESULT.md",
+        "/mnt/data/scope_worker03_20261112T1438Z/independent_checks.py"
+      ],
+      "rationale": "Direct size-r product weighting gives p_i=lambda_i e_{r-1}(lambda_-i)/e_r(lambda), sum p_i=r. Difference p_j-p_i=(lambda_j-lambda_i)e_{r-1}(other)/e_r gives order. With min lambda=1, the ratio e_r(rest)/e_{r-1}(rest) is nondecreasing in each positive variable by Newton inequalities; its maximum when all others K gives p_min=r/[r+(d-r)K]. For the ratio p_max/p_min, fixing h=lambda_max gives h(s+1)/(s+h) with s=e_{r-1}(middle)/e_{r-2}(middle), maximized as middle coordinates equal h; the final h maximum is K, giving (r-1+(d-r)K)/(d-1). Check all boundaries r=1,r=d,K=1 and strict equality cases. Exact independent subset enumeration checked 24,912 bounded integer-spectrum/dimension/block cases, both bounds and attainment; this corroborates but does not replace the symbolic monotonicity proof.",
+      "residual_risks": [
+        "Older inclusion-probability/elementary-symmetric extremal inequalities could implicitly contain the sharp envelope; no exhaustive literature priority claim.",
+        "Bounded finite checks are corroboration and not universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General expected projector spectrum and spectral equalization are known; Yu majorization concerns unequal-probability without-replacement inclusion weights."
+        ],
+        "reasoning": "The general transform includes current setting but not its min-eigenvalue and max/min sharp simultaneous optimization; inclusion-probability monotonicity alone does not state equality spectra or integer cutoff.",
+        "searches": [
+          "volume sampled projection mean projector condition number eigenvalue elementary symmetric sharp spectral envelope block size cutoff",
+          "https://www.paperpeel.com/paper/2610.12346",
+          "https://arxiv.org/abs/1005.4107"
+        ]
+      },
+      "checked_sources": [
+        "https://www.paperpeel.com/paper/2610.12346",
+        "https://arxiv.org/abs/1904.04587",
+        "https://arxiv.org/abs/1005.4107",
+        "Resultary semantic queries: volume sampled projection mean projector condition number eigenvalue elementary symmetric sharp spectral envelope block size cutoff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible full source treats λ_i^(r) and numerical equalization examples, without worst-case fixed-K extremizers."
+        ],
+        "reasoning": "Unlike merely substituting the transform, the proof uses monotonicity of elementary-symmetric ratios and a global equality analysis to produce r/(r+(d-r)K), (r-1+(d-r)K)/(d-1), and ceil(theta*d*K/(1+theta(K-1))).",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.12346",
+          "https://arxiv.org/abs/1904.04587",
+          "volume sampled projection mean projector condition number eigenvalue elementary symmetric sharp spectral envelope block size cutoff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Entezari et al. Theorem 1: eigenvalue transform for volume-sampled mean projector; current bound is an extremization over condition-capped spectra."
+        ],
+        "reasoning": "Translate their transformed spectrum into p_i=lambda_i e_{r-1}/e_r. No closed uniform bound equivalent to the two submitted expressions was found in the entire accessible primary paper sections read.",
+        "searches": [
+          "volume sampled projection mean projector condition number eigenvalue elementary symmetric sharp spectral envelope block size cutoff",
+          "https://www.paperpeel.com/paper/2610.12346",
+          "arXiv:1904.04587"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searches returned the current result plus projection results on different samplers or geometries, not a tabulated cap/r envelope."
+        ],
+        "reasoning": "The claim optimizes over continuous spectra for arbitrary d,r,K; finite integer grids in checker are diagnostics, not the source of a known-table computation.",
+        "searches": [
+          "volume sampled projection mean projector condition number eigenvalue elementary symmetric sharp spectral envelope block size cutoff",
+          "Resultary volume sampling spectral envelope search"
+        ]
+      },
+      "rationale": "The complete accessible Entezari–Banerjee–Kalantari source provides the nonlinear expected-projector transform and its qualitative spectral equalization, but the inspected main theorem/section 3.2/proof gives no uniform sharp extremum under a Gram condition-number cap or exact smallest guaranteed block size. Rodomanov–Kropotov and Yu provide volume-sampling and inclusion majorization antecedents. The source theorem implies the input p_i formula but the sharp worst-case extremizer and simultaneous conditioning envelope require the nontrivial symmetric-ratio optimization; no stronger matching Resultary finding was located.",
+      "residual_risks": [
+        "Older inclusion-probability/elementary-symmetric extremal inequalities could implicitly contain the sharp envelope; no exhaustive literature priority claim.",
+        "The guarantee is for exact volume sampling on SPD Gram spectra; it does not apply to approximate sampling, incompatible subspaces or inconsistent systems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The p_i spectral transform and qualitative equalization are prior art; sharp uniform condition-cap envelope not contained in inspected full text",
+          "evidence": [
+            "Section 3: nonlinear transform; Section 4: recursive quasi-projector and combinatorial spectral calculation; Section 3.2: geometric/polynomial/clustered examples rather than fixed-condition-number extremization."
+          ],
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.12346",
+          "material_read": "Accessible complete reflowed text, introduction, Theorem 1, Section 3.1 and 3.2, proof Sections 4.1 and 4.2, discussion and numerical results",
+          "method": "Full text via lawful OA PaperPeel, retrieved 2026-11-12",
+          "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+          "trigger": "Identical volume-sampled mean projector"
+        },
+        {
+          "assessment": "Priority risk; no whole-document noncoverage inference",
+          "evidence": [
+            "Volume-sampled coordinate descent, not an inspected complete bound over condition-capped spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+          "material_read": "Abstract and bibliographic description only; full text not independently read",
+          "method": "arXiv listing and comparison from main paper references",
+          "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+          "trigger": "Related inclusion-probability formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.paperpeel.com/paper/2610.12346",
+        "https://arxiv.org/abs/1904.04587",
+        "https://arxiv.org/abs/1005.4107",
+        "Resultary semantic queries: volume sampled projection mean projector condition number eigenvalue elementary symmetric sharp spectral envelope block size cutoff"
+      ],
+      "rationale": "The exact worst-case one-step contraction and exact smallest block size translate a spectrum cap to an algorithm-independent design guarantee, with equality spectra showing unavoidable limits. This gives a precise usable invariant not simply an ad hoc table or rearrangement of an existing numerical bound.",
+      "residual_risks": [
+        "Older inclusion-probability/elementary-symmetric extremal inequalities could implicitly contain the sharp envelope; no exhaustive literature priority claim.",
+        "The guarantee is for exact volume sampling on SPD Gram spectra; it does not apply to approximate sampling, incompatible subspaces or inconsistent systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older inclusion-probability/elementary-symmetric extremal inequalities could implicitly contain the sharp envelope; no exhaustive literature priority claim.",
+    "The guarantee is for exact volume sampling on SPD Gram spectra; it does not apply to approximate sampling, incompatible subspaces or inconsistent systems."
+  ],
+  "schema_version": 1
+}
