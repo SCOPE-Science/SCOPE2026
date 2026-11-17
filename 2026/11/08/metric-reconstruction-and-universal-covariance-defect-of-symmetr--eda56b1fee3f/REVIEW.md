@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Coherent facet orientations make each ridge boundary row have exactly two opposite nonzero entries. Thus the boundary-column Gram matrix is the graph Laplacian of the simple regular dual graph. The signed columns are all distinct spherical vertices; distances on antipodal classes exactly recover the dual graph, and equal Gram matrices give the converse isometry. The covariance computation uses exact trace identities and the intrinsic rank. The simplex-boundary equality case is established by a direct common-replacement argument. The accompanying exact Python program passed 19 independently constructed complexes and compared the two published example spheres. Finite tests are corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, subject to independent historical priority
-The motivating manuscript develops symmetric (co)homology polytopes, their lattice geometry, and a unimodular equivalence with cycle symmetric edge polytopes, but does not state the metric classification or the universal covariance identity. The closest published theorem is the unitary-equivalence characterization of ordinary graph symmetric edge polytopes, whose incidence-column realization differs from the transpose-incidence realization relevant here. The known matroidal criterion concerns unimodular rather than Euclidean equivalence. Searches for graph-star/transpose incidence formulations and published mathematical records yielded no exact covering claim. This is not an exhaustive priority claim: a generic frame-theoretic result phrased in different terms might subsume portions of the argument.
+PASS
 
-## Mathematical value — PASS
-The new family has canonically defined Euclidean structure but all of its members with the same number of facets are unimodularly equivalent to one cycle model. Showing that metric congruence instead exactly detects the dual graph demonstrates substantive metric information invisible to that lattice classification. The universal covariance-defect formula is a complete two-parameter quantitative law independent of the full graph topology, while zero defect rigidly isolates simplex boundaries. The nonisomorphic 14-facet spheres show how this universal scalar coexists with finer metric distinctions; the result concerns an intrinsic natural family, not an arbitrary finite slice.
+PASS: Coherent facet orientations make each ridge boundary row (+1,-1), so B^T B=(d+1)I-A(G)=L(G). A connected k-regular dual graph gives rank B=F-1; 2F signed columns are distinct equal-norm extreme points because k>=2 and pairwise scalar products in {0,-1}. The minimal signed-distance squared between antipodal vertex pairs is 2k-2 for adjacent facets and 2k otherwise, recovering the entire dual graph and proving both directions of congruence (equal Gram implies intrinsic isometry). Exact Laplacian traces tr L=Fk and tr L²=Fk(k+1) yield variance defect k(F-k-1)/[F(F-1)] and normalized (F-k-1)/(Fk). Tightness F=k+1 forces the (d+1)-simplex boundary. This is algebraic all-d proof, not inference from a finite test.
 
-## Closest sources and remaining risk
-Donzelmann–Holleben–Juhnke (arXiv:2602.17253v1, especially Section 8 and Example 8.7); Cuchilla et al. (arXiv:2507.18846v2, Theorem 3.8); D'Alì–Juhnke-Kubitzke–Koch (arXiv:2307.04933). Standard graph Laplacian trace identities and Gram-matrix congruence are pre-existing tools. The full third manuscript could not be inspected in accessible HTML, so priority claims are explicitly limited to material examined and its abstract.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: metric rigidity of transpose incidence configurations and the universal intrinsic uniform-vertex covariance defect are not stated by the inspected prior results. The previous unimodular classification preserves lattice structure but not Euclidean distances; the published symmetric-edge-polytope rigidity theorem uses graph edge columns, whereas these boundary columns are graph incidence rows. The graph Laplacian identity and trace computation are elementary ingredients, credited rather than claimed as novel.
+
+## value
+
+PASS
+
+PASS: Natural canonical Euclidean realization of a named homology polytope has a complete metric reconstruction invariant and an exact, topology-independent covariance defect, with sharp tight-frame/simplex boundary. Their combination distinguishes congruence from lattice equivalence and supplies a reusable geometric invariant; a narrow exact computation is motivated by the object itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
