@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof reduces the exact Euclidean radius to a two-component orthogonal decomposition. This geometric step is independent of numerical integration and establishes equality for every eligible subspace; the distributional theorem then uses the exact squared-Gaussian ratio and beta law.
+## correctness
 
-`verify_cylinder.py` performs 90 independent numerical constrained maximizations over actual random section coordinates; 69 empirical CDF and atom comparisons based on 90,000 beta draws per case; and 18 finite-dimensional checks of the Gaussian and chi-square asymptotic formulas. All 168 checks passed with the code's stated tolerances when executed using NumPy and SciPy. Stochastic checks are reproducible because seeds are fixed. They are not proofs of universal equalities, uniqueness of atoms or weak convergence.
+PASS
 
-The key proof checks are: normalized cylinder of unit transverse radius; \(m\ge2\) for a transverse equality vector; \(B/(1-B)\) with \(B\in(0,1)\) almost surely; beta parameters \(m/2\) and \((d-m)/2\); continuity of the beta distribution in the interior; Gaussian delta-method variance \(1/[2(1-\rho)^2]\); and independent \(\chi^2_k\) scaling in fixed codimension.
+For 2<=m<d the orthogonal split L=span(P_Le_d) ⊕ (L∩e_d^⊥) allows attainment of squared radius 1+min(h²,B/(1-B)); the transverse subspace is nonzero exactly because m>=2. Haar projection B has Beta(m/2,(d-m)/2) distribution, yielding the interior CDF and endpoint atom. Chi-square LLN/CLT and delta method yield the critical window variance 1/[2(1-rho)^2], while fixed k gives G_{d-k}/G_k and the claimed chi-square contact law. Independent distributional numeric checks for multiple d,m,h and high-dimensional regimes supplement but do not prove the analytic statements.
 
-An external historical or independent mathematical audit has not been performed. The complete motivating source could not be inspected; that limitation is bibliographic, not computational verification.
+## originality
+
+PASS
+
+Classical Haar projection Beta laws and Gaussian delta method are acknowledged tools, but the complete capped-cylinder section diameter distribution has a distinctive positive endpoint atom and two asymptotic contact regimes. Prior full texts inspected concern smooth ellipsoids or cylinder section areas, neither implying the cap-controlled diameter law; relevant general random-diameter paper was inaccessible and is explicitly a priority risk.
+
+## value
+
+PASS
+
+The exact full diameter law with a nontrivial atom for all central section dimensions is a natural distributional geometry invariant of a nonsmooth convex body. The sharp cap-contact scaling in proportional dimensions and separate fixed-codimension chi-square law give meaningful boundary behavior beyond general random-section estimates and smooth ellipsoid analogues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
