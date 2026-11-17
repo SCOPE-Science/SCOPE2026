@@ -1,19 +1,17 @@
-# Scientific review
+# Scientific review of the corrected finding
 
-## Correctness — PASS
+## Correctness
 
-The claim is confined to fixed, finite, positive rank-one kernels and fixed graph surplus. The symmetric kernel \(u\otimes u/\alpha\) has Perron root one under \(\mathbb E u=1\). The scalar reduction to the analytic critical pair is obtained directly from the rooted-tree equation and its Perron derivative condition; the inverse is legitimate because the derivative is \(-\beta/\alpha\ne0\). Exact formal-series algebra, including the fifth-moment cancellation, yields the cubic coefficient, and the two-type quartic and its two roots have exact polynomial proofs. The moderate-tilt limit depends on the uniform shrinking-neighborhood version of Hu--Sun's Theorem 3.6, not on simulation. A standalone symbolic and finite graph checker passes all its checks. Risk: any change in the source's edge-tilt gauge, surplus normalization, or uniformity domain would change the conclusion; the matching conventions are given explicitly in RESULT.md.
+The corrected claim concerns the analytic critical radius only. The finite-type rank-one critical-pair equation reduces to the explicit scalar parameterization in RESULT.md. Its inverse exists since \(t'(0)=-\beta/\alpha\ne0\). Exact independent Taylor expansion verifies the coefficient \(\alpha^2(3\alpha^2\beta+\alpha\gamma-6\beta^2)/(6\beta^3)\), including cancellation of the fifth moment. The two-type sign polynomial and its two simple roots follow by rational expansion and derivative signs. The original broader assertion about a fixed-surplus enumerator ratio at \(k^{-1/3}\) is withdrawn; the accessible source statement only supplies uniformity at \(O(k^{-1/2})\), and no adequate wider-range proof was established. The historical earlier same-model review concerned that superseded broader statement and remains distinguishable from this corrected claim.
 
-## Originality — PASS (provisional historical priority)
+## Originality and literature risk
 
-Hu--Sun (arXiv:2610.23003v1), read in its theorem, critical-pair proof, and field-tilt argument, proves the quadratic radius coefficient and leaves the cubic coefficient in its \(O(|t-1|^3)\) remainder. Its general shrinking-tilt enumeration already makes a moderate-scale consequence possible, so **that theorem is credited as a necessary input**, not claimed anew. The distinct calculation is the explicit rank-one cubic coefficient, its fourth-moment dependence, and the two sign reversals in a concrete positive two-type family. Bhamidi--Sen--Wang's rank-one scaling-limit treatment and Bollobás--Janson--Riordan's phase-transition theory address broader graphs but do not visibly state this coefficient. Published-record and semantic research-index comparisons found no dominating match. Searches cannot prove priority, and additional uninspected saddlepoint literature could contain equivalent formulas.
+The Hu–Sun preprint (arXiv:2610.23003v1) gives an analytic radius and explicit quadratic term but publicly states its cubic term as an error. The present calculation identifies that derivative and a sharp two-reversal family. Prior rank-one graph and weighted-tree results support the general setting, not a verified identical explicit third-order moment formula. A differently named critical-tree or saddlepoint coefficient might nevertheless cover the calculation; complete full-text inspection of the principal recent preprint was unavailable during this review, and priority is provisional.
 
-## Mathematical value — PASS
+## Mathematical value
 
-For large connected components, the established quadratic response alone does not determine finite, nonsymmetric corrections when the edge-intensity tilt is of order \(k^{-1/3}\). The new cubic coefficient supplies that finite factor and reveals a change of sign **twice** within a single natural two-type family. This demonstrates that neither a universal skew sign nor the leading Perron moments alone capture the first asymmetric correction. The result is a motivated structural refinement of the Perron--Wright enumerator, not a relabelling of a finite table or a claim about an ambient random-graph fluctuation law.
+The first asymmetric analytic response of a critical rank-one graph enumerator radius is a natural invariant of its edge-intensity perturbation. It depends on the fourth moment, unlike the quadratic term, and changes sign twice among strictly positive normalized two-type kernels. This is a motivated coefficient and structural sign boundary even without an additional asymptotic theorem at a new tilt scale.
 
-## Closest literature and limits
+## Scope
 
-The precise comparison is with Hu and Sun (2026), Theorem 3.6 and its proof, especially the analytic critical pair and the uniform error bound. Classical rank-one random-graph work provides background rather than the asserted moment-explicit moderate-tilt coefficient. The result assumes strictly positive finite types and fixed surplus, imports the source's asymptotic theorem, and does not establish historical uniqueness, general finite-rank extension, or independent validation.
-
-Self-review: passed. Independent audit: not yet performed.
+Fixed finite positive types, unit Perron normalization, local analytic radius only. The superseded moderate-scale enumerator limit is neither asserted nor implicitly certified by symbolic checks. The original source package and its historical review remain available for comparison; no new authorship or external certification is claimed.

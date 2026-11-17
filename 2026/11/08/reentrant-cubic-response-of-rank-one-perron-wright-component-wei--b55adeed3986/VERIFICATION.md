@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-Install the dependency from `requirements.txt`, then run `python verify.py` in the same directory. The checker uses exact symbolic algebra for series inversion and exact rational arithmetic for the two-type sign polynomial and its concrete positive example; it also exhausts weighted labelled trees on two to five vertices using the Prüfer/Cayley identity and checks the exact one-type gauge. The checker prints a count of passing tests and stops with an assertion error on any mismatch.
+## correctness
 
-The proof in `RESULT.md` additionally uses the analyticity and uniform shrinking-neighborhood component-enumeration theorem established by Hu and Sun (arXiv:2610.23003v1, Theorem 3.6, equations (3.12) and (3.13)). That infinite-size theorem is not certified by the accompanying finite checker. The checker does not establish absence of stronger prior results or conduct an independent audit.
+PASS
+
+Final repaired finding is the exact local cubic radius coefficient only. Derived critical pair t=α(F1/F2−z), ρ=α/(tF2), inverse derivative −β/α, then independently re-expanded logρ through cubic with cancellation of fifth moment. The exact two-type quartic and two-root signs were independently reproduced. Unproved k^−1/3 enumerator transfer is entirely withdrawn from final RESULT and SLOGAN.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the corrected claim: Hu–Sun establishes analytic rho and a displayed quadratic coefficient with O(cubic) remainder; an explicit rank-one fourth-moment coefficient and its two sign switches were not found in inspected published statements.
+
+## value
+
+PASS
+
+The first nonquadratic analytic response is a natural kernel invariant, depends on fourth moment and displays two sign reversals within strictly positive two-type models. This self-contained exact structural coefficient is useful without asserting a further enumerator limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
