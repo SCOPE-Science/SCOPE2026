@@ -1,0 +1,52 @@
+# Rectangular bipartite edge faults: equivariant collapse and a terminal homology rebirth
+
+## Finding
+Let \(k\ge4\), \(s\ge k-1\), and \(b\ge k\) be integers. Choose a bipartition \(A=A_0\sqcup\{u\}\) and \(B\), where \(|A_0|=s\) and \(|B|=b\). Choose a nested sequence \(\varnothing=T_0\subset T_1\subset\cdots\subset T_b=B\) with \(|T_t|=t\). Delete precisely the complete edge rectangle \(A_0\times T_t\) from \(K_{s+1,b}\), yielding \(G_t\). Define the \(k\)-robust clique complex \(X_t=\{\sigma\subseteq A\sqcup B:\alpha(G_t[\sigma])<k\}\), including the empty face.
+
+**Theorem.** For every \(0\le t\le b\), writing \(m=b-t\), there is a simplicial strong collapse with a canonical \((\mathfrak S_{A_0}\times\mathfrak S_{T_t}\times\mathfrak S_{B\setminus T_t})\)-equivariant simplicial deformation retraction
+\[
+X_t\searrow \operatorname{sk}_{k-2}\Delta(A)*\operatorname{sk}_{k-2}\Delta(B\setminus T_t),
+\]
+where the second factor is \(\{\varnothing\}\) if \(m=0\). Consequently,
+\[
+|X_t|\simeq
+\begin{cases}
+\displaystyle\bigvee^{\binom{s}{k-1}\binom{m-1}{k-1}}S^{2k-3}, & m\ge k,\\
+\mathrm{point}, & 1\le m<k,\\
+\displaystyle\bigvee^{\binom{s}{k-1}}S^{k-2}, & m=0.
+\end{cases}
+\]
+Thus deletion of a whole final column of edges produces nonzero homology in degree \(k-2\) after a contractible interval of \(k-1\) stages, whereas the earlier nonzero homology lives in degree \(2k-3\). For \(m\ge k\) the top integral homology as a lattice of the displayed symmetry group is
+\[
+\widetilde H_{2k-3}(X_t;\mathbb Z)\cong
+\bigwedge^{k-1}\mathbb Z[A_0]\otimes
+\bigwedge^{k-1}\ker\bigl(\mathbb Z[B\setminus T_t]\xrightarrow{\mathrm{sum}}\mathbb Z\bigr),
+\]
+with the permutation action on the displayed factors and trivial action of \(\mathfrak S_{T_t}\). At \(t=b\), the degree-\(k-2\) module is \(\bigwedge^{k-1}\mathbb Z[A_0]\). The edge-deletion inclusions \(X_{t+1}\hookrightarrow X_t\) induce, whenever both endpoints have nonzero top homology, primitive split injections in degree \(2k-3\), compatible with restriction to the surviving right-hand vertices; once \(m<k\) all intermediate complexes are contractible until the final stage, when a new lower-degree sphere wedge appears.
+
+## Assumptions and scope
+All graphs are finite simple undirected graphs. The word *edge rectangle* means every edge in \(A_0\times T_t\) is removed, no others. In particular, \(u\) remains adjacent to all of \(B\). The subset sequence may be arbitrary, and vertex relabelings preserving its decomposition do not affect the theorem. The skeleton \(\operatorname{sk}_{k-2}\Delta(V)\) consists of subsets of \(V\) of size at most \(k-1\); a simplex of size below \(k\) is contractible. An empty vertex set contributes the abstract complex \(\{\varnothing\}\), which is the unit of the simplicial join (not an ordinary point). A wedge with zero spheres is understood as a point.
+
+## Proof
+**1. An equivariant dominated-vertex reduction.** Fix \(t\), and let \(v\in T_t\). For every simplex \(\sigma\in X_t\) containing \(v\) but not \(u\), we claim \(\sigma\cup\{u\}\in X_t\). Otherwise, since \(\sigma\) itself contains no independent set of size \(k\), a forbidden independent \(k\)-set in \(\sigma\cup\{u\}\) must contain \(u\). All other vertices in that set lie in \(A_0\), because \(u\) is adjacent to every vertex in \(B\). Replace \(u\) by \(v\); this remains independent since every edge from \(v\) to \(A_0\) was removed. It is now an independent \(k\)-set in \(\sigma\), a contradiction. Therefore the link of \(v\) is a cone with apex \(u\), so \(v\) is strongly dominated by \(u\). Pair each face containing \(v\) and omitting \(u\) with its enlargement by \(u\), and remove these elementary pairs in descending face-size order. This simplicially collapses away \(v\). The same argument persists after earlier dominated vertices have been removed. Removing all \(t\) such vertices gives a simplicial strong collapse onto the induced subcomplex on \(A\sqcup(B\setminus T_t)\). The vertex map sending all vertices in \(T_t\) to \(u\) and fixing all others is a simplicial retraction. It is canonical and commutes with independent permutations of \(A_0\), \(T_t\), and \(B\setminus T_t\). For every original face \(\sigma\), the union of the face and its image under this retraction is still a face: when \(\sigma\) meets \(T_t\), adding \(u\) is permitted by the same argument, and otherwise the map fixes the face. Thus the identity and retraction maps are contiguous, giving an explicit equivariant simplicial homotopy and hence an equivariant geometric deformation retraction. No equivariance of the arbitrary sequential order of elementary pairs is required.
+
+**2. Identify the reduced complex.** The remaining induced graph is precisely \(K_{s+1,m}\). Its independent sets lie entirely in one shore. A subset contains no independent \(k\)-set if and only if it uses at most \(k-1\) vertices from each shore. Therefore the reduced complex is exactly \(\operatorname{sk}_{k-2}\Delta(A)*\operatorname{sk}_{k-2}\Delta(B\setminus T_t)\). This is an equality of face families, not just a homology comparison.
+
+**3. Homotopy and integral groups.** For \(v\ge k\), the \((k-2)\)-skeleton of a simplex on \(v\) vertices has the homotopy type \(\bigvee^{\binom{v-1}{k-1}}S^{k-2}\). An explicit acyclic simplicial matching pairs each nonempty face \(\sigma\) not containing a distinguished vertex \(z\), of size at most \(k-2\), with \(\sigma\cup\{z\}\). It leaves one critical zero-cell and exactly \(\binom{v-1}{k-1}\) critical \((k-2)\)-cells. The boundaries \(\partial[z\cup Q]\), as \(Q\) ranges over \((k-1)\)-subsets of the other vertices, give a free integral top-homology basis. The skeleton is \((k-3)\)-connected and has dimension \(k-2\), so this gives the homotopy classification. For \(m\ge k\), the join of the two skeletons is a wedge of \(\binom{s}{k-1}\binom{m-1}{k-1}\) spheres in dimension \(2k-3\). For \(1\le m<k\), the second skeleton is the entire nonempty simplex, so the join is a cone. For \(m=0\), the join has only its first factor, yielding the claimed lower-dimensional wedge. All assertions hold over \(\mathbb Z\), without torsion.
+
+**4. Equivariance.** Let \(U_A=\ker(\mathbb Z[A]\xrightarrow{\mathrm{sum}}\mathbb Z)\). The top integral homology of the \((k-2)\)-skeleton is canonically \(\bigwedge^{k-1}U_A\), through the oriented boundary basis above. Since \(u\) is fixed, \(e_a-e_u\) for \(a\in A_0\) is a permutation basis of \(U_A\) under \(\mathfrak S_{A_0}\). On the second shore its top module is \(\bigwedge^{k-1}U_{B\setminus T_t}\). Integral join Künneth, with the factors kept in the stated order, gives the tensor-product module, and \(\mathfrak S_{T_t}\) acts trivially on the reduced core. At \(m=0\) only the first-shore module survives.
+
+**5. Maps across the deletion filtration.** Since deleting graph edges enlarges the collection of independent sets, \(X_{t+1}\subseteq X_t\). The core inclusions are the obvious simplicial inclusions arising by removing one vertex from \(B\setminus T_t\); they commute with the inclusions of cores into the original complexes, which are homotopy equivalences. The top homology of \(\operatorname{sk}_{k-2}\Delta(V)\) is \(\bigwedge^{k-1}U_V\), and for nested nonempty vertex sets the map of augmentation lattices is a primitive split injection: a chosen vertex in the smaller set supplies an integral complement to the basis differences. Exterior powers preserve this split inclusion, as does tensoring with the free first-shore homology. Hence the asserted split maps. A source of zero homology maps trivially, and the terminal new low-dimensional classes appear only when \(m=0\).
+
+## Verification
+The accompanying standard-library-only Python program enumerates the full abstract face sets for four independent parameter triples and every intermediate \(t\), checks every strong-domination condition before deleting each dominated vertex, checks the exact remaining join face family, computes all reduced mod-two Betti numbers using complete simplicial boundary matrices, and compares the resulting Euler characteristics with the theorem. The tests cover \((s,b,k)=(3,5,4),(4,5,4),(4,6,4),(4,6,5)\). All checks pass. These finite tests corroborate the structural proof but do not prove the theorem for unbounded parameters or certify integral torsion-freeness on their own; those statements follow from the explicit simplicial collapses and standard skeleton homotopy types.
+
+## Relationship to prior work
+The definition and current grid/square-sequence motivation of robust clique complexes are from Filakovský (2026), arXiv:2602.11365. Its theorems classify square-sequence graph classes and do not include the dense rectangularly defected biclique filtration. The earlier complete multipartite classification, restated as Proposition 37 in Carnero Bravo (2026), arXiv:2602.21427, already gives the homotopy type of the **reduced complete-bipartite core** and is explicitly credited: the new step is the canonical equivariant strong-collapse identification for a nested **edge-rectangle fault**, and its resulting terminal degree change and natural maps. Other published computations address one-vertex star defects and disjoint missing \(K_{2,2}\)-blocks; neither arrangement is the overlapping rectangular fault with all columns deleted in succession and a surviving hub. This is an exact special-family calculation, not a solution of the general square-sequence conjecture.
+
+## Limitations
+The deleted edge set is one full rectangle \(A_0\times T_t\) with exactly one unfaulted hub \(u\); it does not cover arbitrary Ferrers fault shapes, several surviving hubs, arbitrary edge subsets, or all bipartite graphs. The top-degree injection concerns the **reverse inclusion maps** for decreasing simplicial complexes, not a claim that deletion induces covariant inclusion in the other direction. The homology representation is described for the naturally preserved subgroup of graph automorphisms; no classification of all automorphisms is asserted. Finite verification is supplementary to the written proof.
+
+## References
+1. M. Filakovský, *The Topology of k-Robust Clique Complexes in Grid-like Graphs*, arXiv:2602.11365, first public version 2026-02-11. https://arxiv.org/abs/2602.11365
+2. G. Carnero Bravo, *Total cut complexes and their duals*, arXiv:2602.21427, Section 5.2, Proposition 37. https://arxiv.org/abs/2602.21427
