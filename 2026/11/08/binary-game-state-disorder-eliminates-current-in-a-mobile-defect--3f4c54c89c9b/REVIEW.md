@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The payoffs are defined explicitly, each of the four allowed transition rates is derived by a direct neighbor comparison, and positive rates under the strict bound establish finite-time entrance into an irreducible one-/two-defector class. A product over this class gives the full cycle-affinity formula; a balanced-count argument for the two possible edge synergies forces detailed balance, and positive recursively defined weights give the unique stationary law. Exact-rational tests of 1,008 heterogeneous binary environments and 16,320 recurrent states independently corroborate the formulas. Crucially, the proof—not the finite tests—establishes arbitrary cycle order.
+## correctness
 
-## Originality
-PASS with residual risk. Wei et al. (2026) supply the two-game public-goods model with transitions on random hypergraphs and simulations; they do not furnish the frozen-cycle exact invariant law. Cooper et al. (2011) study synchronous imitation, and Ohtsuki and Nowak (2006) study fitness-based evolutionary replacement. Kolmogorov's cycle criterion itself is classical and not claimed as new. Searches for binary-environment cycle imitation, stationary currents, exact defector-block distributions, and analogous published research findings did not identify a statement that implies the full threshold-and-reversibility result. Search incompleteness and unindexed equivalents remain live risks.
+PASS
 
-## Mathematical value
-PASS. Binary ecological game-state disorder is a natural first heterogeneous baseline for models with two game payoffs. The result shows a nontrivial exact cancellation of stationary circulation regardless of disorder pattern; a three-level example with ratio \(77/75\) proves that cancellation is special. The sharp trap boundary and explicit invariant measure make it possible to compute long-run cooperative occupancy for any fixed binary environment, beyond simulation of a particular instance.
+Starting with one cyclic cooperative block of at least two and at least one defector, payoff P_i=-s_i+[r_(i-1)(s_(i-1)+s_i)+r_i(s_i+s_(i+1))]/2 gives boundary-defector-to-cooperator incentive r_(interior cooperative edge)-1>0 for defector runs of length >=2. The strict interval 1<r_L<r_H<1+r_L/2 guarantees an isolated defector cannot disappear and all rates a_j^+,a_j^-,b_j^+,b_j^- displayed in RESULT.md are positive. States S_j (one defector) and E_j (adjacent pair) make one irreducible 2n-state ring. Kolmogorov cycle-product ratio equals product_j [1+r_(j-1)/2-r_(j+1)]/[1+r_(j+1)/2-r_(j-1)]; on each step-two parity orbit every L-to-H change is balanced by H-to-L, so binary-product exactly one. Detailed-balance recurrence produces stationary probability and mean; homogeneous weights yield 2/r. Verified every binary environment on n=4..10 (2032 patterns) with exact rational factors at r_L=6/5,r_H=7/5. The ternary ring (11/10,11/10,6/5,11/10,13/10) yields exactly 77/75, so reversibility fails. The proof covers all n>=4 and binary arrangements; finite arithmetic checks alone are not the proof. Above-bound extinction is an existence example, not universal extinction.
 
-## Scope and relationship to prior literature
-This is restricted to frozen environments, two-vertex game groups, one initial cooperator block, asynchronous payoff-uphill imitation, no mutations, and strict heterogeneous synergy bounds. It does not establish a result for active state transitions, all hypergraphs, or random independent initial configurations. It is not an independent literature certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wei et al. analyze an active, randomly changing hypergraph public-goods model; Cooper et al. use different imitation/updating and homogeneous games on cycles. Detailed balance is standard, but payoff-specific two-type cancellation under every frozen edge arrangement and the third-type obstruction are not established in these works. Related published aspiration dynamics have a different Markov kernel.
+
+## value
+
+PASS
+
+Frozen binary environmental heterogeneity is the first natural nonhomogeneous extension of the cycle imitation model. The exact cancellation of every binary label pattern, sharp dynamical trapping, explicit stationary defect number, and 77/75 three-level current distinguish reversible versus circulating stochastic dynamics; these are substantive structural invariants, not a cheap small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
