@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-The exact numerical claim and its strict-inequality convention are defined in `RESULT.md`. Compile and run the independent programs with the commands in `RESULT.md` and compare the emitted table and extremizer list with `CENSUS.txt`. The expected C++ diagnostic is `SYNC_TERNARY_CXX_VERIFY_OK`; the expected Python final line is `SYNC_TERNARY_PY_VERIFY_OK`. Both verifiers enumerate all canonical square-free ternary words through length 28, and compute exact rational worst adjacent-interval LCS values independently. `CENSUS.txt` stores every row and all canonical extremizers at the transition lengths. These computations certify the finite exhaustive scope; the prefix argument supplies the stated unbounded-length cutoff, not further minimax values. Unindexed historical priority and external mathematical audit remain unverified.
+## correctness
+
+PASS
+
+Insertion-deletion distance equals combined interval length minus twice LCS; hence strict synchronization iff R(w)<epsilon. Squarefree pruning is exhaustive below ratio one and restricted-growth words uniquely represent alphabet-permutation orbits. I independently wrote, compiled and ran a C++17 canonical square-free enumerator using bit-parallel LCS, distinct from the source C++ DP and Python bit-vector implementations. It reproduced every layer, the exact 27 count 2581/minimum 20/23/one orbit and 28 count 3370/minimum 8/9/thirteen orbits. The 28-prefix hereditary obstruction correctly extends strict epsilon<=8/9 to all longer words; at epsilon=20/23 the 26 length optimum 6/7 remains valid.
+
+## originality
+
+PASS
+
+The October 18 published theorem already proves the length-27 unique extremizer and exact gap 3/23 and forbids 28 symbols for epsilon=7/8. These facts are NOT new and are explicitly excluded from the novelty claim. The present work determines the strictly stronger exact n=28 minimax value 8/9, thirteen canonical minimizers and the full first-28 spectrum, extending the strict length-27 cutoff from epsilon=7/8 up to epsilon=8/9. No inspected earlier source implies the new threshold; substantial previous overlap is a major qualification.
+
+## value
+
+PASS
+
+The exact 28-length LCS minimax and all 13 normalized extremizers constitute a natural complete finite extremal classification. It strengthens an established strict length cutoff over the entire nonempty interval 7/8<epsilon<=8/9, even though the 27-word optimizer was previously known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

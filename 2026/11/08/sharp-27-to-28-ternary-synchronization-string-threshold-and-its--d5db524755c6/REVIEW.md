@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standard insertion/deletion distance identity reduces the strict condition to the maximum normalized adjacent-interval LCS ratio. Square factors have ratio exactly one, so all finite minimizers with ratios below one are square-free. The restricted-growth generator reaches every symmetry class exactly once; its suffix-square rejection is complete by induction. Independent C++ dynamic-programming LCS and Python bit-vector LCS programs agree on all 28 exact rational minimum values, each symmetry-class count and all 14 listed critical extremizers. Thus the exact 27/28 threshold follows from exhaustive, independently replicated finite computations plus the elementary hereditary-prefix argument, not an extrapolation. There has been no external mathematical audit.
+PASS
 
-## Originality — PASS, qualified
+Insertion-deletion distance equals combined interval length minus twice LCS; hence strict synchronization iff R(w)<epsilon. Squarefree pruning is exhaustive below ratio one and restricted-growth words uniquely represent alphabet-permutation orbits. I independently wrote, compiled and ran a C++17 canonical square-free enumerator using bit-parallel LCS, distinct from the source C++ DP and Python bit-vector implementations. It reproduced every layer, the exact 27 count 2581/minimum 20/23/one orbit and 28 count 3370/minimum 8/9/thirteen orbits. The 28-prefix hereditary obstruction correctly extends strict epsilon<=8/9 to all longer words; at epsilon=20/23 the 26 length optimum 6/7 remains valid.
 
-The closest source is Xu et al., arXiv:2609.04122, first public 2026-09-03. Its ternary construction establishes all-length existence at parameters near one, not the sharp finite thresholds at 27 and 28 or their multiplicities. Cheng et al., arXiv:1803.03530, Appendix A and Table 1, explicitly compute the **infinite-word** lower bound \(B_3\ge12/13\), not the length-27 and length-28 optimum, and their unpublished enumeration data may conceal overlapping intermediate results. Camungol–Rampersad, arXiv:1308.1620, analyzes equal-length adjacent blocks, not the unequal-length intervals required here. Comparisons with related published mathematical records and a ledger of earlier available claims identified no covering statement. Priority cannot be certified against unindexed manuscripts or unavailable historical code.
+## originality
 
-## Value — PASS
+PASS
 
-For the newly established ternary synchronization-string existence problem, a sharp short-length phase transition quantifies the precise limit of a three-symbol labeling scheme at demanding edit-distance parameters. The exact natural cutoffs, one canonical 27-symbol extremizer and thirteen canonical 28-symbol minimizers are nontrivial finite extremal facts with reproducible certificates and clear bearing on improving finite blocklength synchronization parameters; the result neither claims a new long-string construction nor assumes a downstream theorem.
+The October 18 published theorem already proves the length-27 unique extremizer and exact gap 3/23 and forbids 28 symbols for epsilon=7/8. These facts are NOT new and are explicitly excluded from the novelty claim. The present work determines the strictly stronger exact n=28 minimax value 8/9, thirteen canonical minimizers and the full first-28 spectrum, extending the strict length-27 cutoff from epsilon=7/8 up to epsilon=8/9. No inspected earlier source implies the new threshold; substantial previous overlap is a major qualification.
 
-## Scientific limitations and closest prior work
+## value
 
-The result treats only three-symbol strings and the standard insertion/deletion synchronization condition; its full minimum-parameter spectrum stops at length 28. The older computational bound for an infinite string is stronger numerically but neither entails nor reports the finite classification. Independent validation, and definitive priority checking of unpublished intermediate enumeration data, remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact 28-length LCS minimax and all 13 normalized extremizers constitute a natural complete finite extremal classification. It strengthens an established strict length cutoff over the entire nonempty interval 7/8<epsilon<=8/9, even though the 27-word optimizer was previously known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
