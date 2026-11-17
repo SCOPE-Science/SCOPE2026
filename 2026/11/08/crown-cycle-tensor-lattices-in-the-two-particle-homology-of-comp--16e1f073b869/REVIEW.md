@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every ordered pair of disjoint graph edges is identified with an edge of each crown factor. The four explicit types of cellular boundary coefficients impose the two crown incidence-kernel conditions independently. Connected crown incidence images are direct summands over \(\mathbb Z\), proving the **integral** intersection identity rather than merely a rational rank equality. Product-orientation signs give particle swap as negative simultaneous transpose and bipartition swap as factor exchange. Explicit character traces follow from the crown incidence short exact sequence. The standalone checker verifies 4,176 finite symmetry instances and the full boundary ranks in four sizes. Limitation: the finite computation supports, but does not replace, the all-size proof.
+## correctness
 
-## Originality
-**PASS relative to the inspected literature.** Farber–Hanbury's 2010 Proposition 22 and Corollary 24 already establish maturity and the rank product; their general intersection-kernel construction does not evaluate the **integral** kernel as a pair of crown cycle lattices or its full symmetry action. Ramos–Yun 2026, section 3.3, Theorem 3.16 and Table 3, already give the rational diagonal symmetric-group and particle-label representations on balanced graphs; that restriction is explicitly excluded from the novelty claim. The new theorem gives a canonical integral isomorphism uniformly for unequal sizes, the full separate side-permutation action, and the additional side exchange. A published sink-configuration formula concerns a different topological space. Risk: an uncatalogued earlier equivalent integral description may exist.
+PASS
 
-## Mathematical value
-**PASS.** The crown-cycle factorization is a structural explanation for the classical product of two quadratic Betti numbers, not a re-evaluation of the rank alone. It makes the entire integral symmetry module computable from two familiar graph-cycle lattices, including the nontrivial particle-swap sign and the full automorphism group when the two parts agree. Graph configuration spaces are a motivated central family in two-particle topology; this exact identification can be used without a new cellular calculation for each pair of part sizes.
+Abrams deleted-product two-cell model for two distinct particles on K_{p,q}, p,q≥3, has basis e_ij×e_kl with i≠k,j≠l. Its four oriented boundary families impose precisely d_p⊗id and id⊗d_q zero-sum equations on ordered distinct-index pairs. The crown incidence kernel L_m is a direct summand of the free A_m for m≥3, so the simultaneous Z-kernel is canonically L_p⊗L_q, not merely a rational dimension count. Edge count m(m−1), vertices 2m gives rank m²−3m+1. Particle exchange changes cell product orientation by -1 and interchanges each ordered crown pair, yielding -T_p⊗T_q; balanced bipartition swap flips both edge orientations and interchanges lattice factors. Traces follow from the incidence exact sequence and the rank-one cokernel. The p=q=3 rank-one case and trace formulas provide independent boundary checks. Does not imply an equivariant homotopy splitting.
 
-## Closest literature and limits
-Farber–Hanbury (2010), arXiv:1005.2300; Ramos–Yun (2026), arXiv:2606.13813; and the published published-finding corpus two-point sink-configuration study are the closest inspected sources. The result has not been independently audited and does not classify equivariant homotopy types, the cohomology ring, or higher-particle configurations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2010 mature-graph rank theorem and the 2026 rational full S_p×S_q×particle character are genuine earlier coverage of all Betti ranks and rational character values. However, they do not identify the canonical integral lattice as L_p⊗L_q or extend to balanced bipartition-class exchange. These are the narrowly claimed new conclusions, supported by an integral chain-kernel proof. Residual risk: unpublished or unindexed integral description.
+
+## value
+
+PASS
+
+The canonical integral tensor decomposition explains the preexisting product rank formula and determines exact automorphism and particle-involution actions without semisimplification, including a natural class-exchange symmetry missing from the earlier product-group rational treatment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
