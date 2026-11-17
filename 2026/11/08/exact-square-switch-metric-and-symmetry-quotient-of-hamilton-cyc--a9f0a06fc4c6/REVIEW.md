@@ -1,19 +1,21 @@
-# Scientific assessment: square-switch metric on \(Q_4\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a finite, fully specified theorem. Rooted Hamilton tours are exhaustive because each Hamilton cycle contains vertex \(0\); fixing its orientation eliminates the single reversal duplication. All \(24\) coordinate squares are enumerated, every disjoint opposite-edge switch is considered, and the result is admitted only if it belongs to the exhaustive Hamilton tour list. Connected components are determined by complete traversal, and every vertex in the unique nontrivial component is used as a BFS source; this reconstructs radius and diameter, not estimates. Independent C++ path-inversion and Python face-switch implementations agree; a complete table of \(1344\) vertex masks and their adjacencies is separately checked. The equivariant quotient is verified under all \(384\) cube automorphisms. Risks: implementation mistakes are bounded by separate paradigms and reproducible code/certificate; no assertion is made for dimensions other than four.
+PASS
 
-## Originality — PASS, historically qualified
+Undirected Hamilton cycles are rooted at binary vertex 0000; DFS over all injective cube walks, closing at the root, enumerates 1344 edge masks without double counting. Every one of 24 coordinate faces is tested for two opposite used edges and the symmetric-difference mask is retained iff Hamiltonian. An independent newly written DFS/square-scan graph program enumerated all 1344 states, all 1920 edges, exactly 240 isolated vertices and one connected 1104-state component, and BFS from each of 1104 sources yielded radius 10, diameter 12 and eccentricity counts 10:96,11:192,12:816. It reproduced degrees 0:240,1:384,2:192,4:288,8:240 and nine orbit sizes 48,96,96,384,192,96,192,48,192 under 384 affine coordinate automorphisms; all neighbor-orbit vectors were constant on each orbit. Those finite exhaustive operations are an exact proof for this finite object, not a statement for general Q_d.
 
-The 2018 work of Contassot-Vivier, Couchot and Héam already defines the exact local move, discusses isolated cycles and gives isolation percentages for dimensions up to five. Gilbert (1958) predates the nine-type classification. None of these ingredients is claimed new. In the inspected substantive main text of the 2018 paper, the **complete metric structure**—one \(1104\)-state mobile component, radius \(10\), diameter \(12\), eccentricity spectrum and orbit-adjacency quotient—is not asserted. The 2016 Gray-code construction paper concerns existence and generation, not distances between arbitrary optimal cyclic listings. Conceptual equality of square switch and subsequence inversion was explicitly checked. The 2018 Table 2 numerical cells were not readable in the available HTML; possible overlap concerning the isolate count is excluded from the originality rationale. Unindexed or inaccessible exact-data sources remain a historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact connectivity and metric of an explicitly defined natural local-reconfiguration model answer whether inversion-based generation can reach all movable cyclic Gray codes and establish the worst-case number of moves for \(Q_4\). The symmetry quotient distinguishes two mobile degree-eight types from three frozen types and exposes structural local transition counts. These invariants are not recovered from the known \(1344\) cycle count or the existence of frozen instances; no general higher-dimensional claim or application to mixing is made.
+The 2018 primary publication already defines the identical subsequence inversion / coordinate-square switch and reports isolated Gray-code types in dimension four; Gilbert 1958 gives nine orbit types. Inspection of the 2018 full open text and Table 2 found the prior 3 isolated symmetry types of nine, but not the exact 1104 mobile-state connectedness, all-pairs distance spectrum, radius/diameter or nine-by-nine equitable adjacency quotient. Resultary semantic search found metric results for perfect-matching flip graphs on Q4, which are different configurations. On available evidence this combined full Hamilton-cycle flip graph metric and quotient is original.
 
-## Closest literature and limits
+## value
 
-Gregor–Mütze (arXiv:1607.08806) concerns Gray-code existence and generation. Contassot-Vivier–Couchot–Héam (DOI:10.3390/math6060098) uses the same inverse-subpath operation and reports isolation phenomena but not the complete metric and quotient in the available material. Gilbert (DOI:10.1002/j.1538-7305.1958.tb03887.x) counted types. Historical priority is qualified because the printed numeric table could not be fully extracted, and external independent assessment has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete metric and orbit quotient of the natural reconfiguration graph for cyclic Gray codes answers exactly which nonfrozen codes communicate and how many square inversions suffice (at most 12), and distinguishes local transition types. A specific meaningful finite classification remains useful even without an all-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

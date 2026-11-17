@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T06:52:59.302286Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md sha 055071663d27e306fba5da47348cee8fcbe02844",
+        "frozen check_faces.py sha b1cf5438ba279bf337bba9fda0a4185858cf4226"
+      ],
+      "rationale": "Undirected Hamilton cycles are rooted at binary vertex 0000; DFS over all injective cube walks, closing at the root, enumerates 1344 edge masks without double counting. Every one of 24 coordinate faces is tested for two opposite used edges and the symmetric-difference mask is retained iff Hamiltonian. An independent newly written DFS/square-scan graph program enumerated all 1344 states, all 1920 edges, exactly 240 isolated vertices and one connected 1104-state component, and BFS from each of 1104 sources yielded radius 10, diameter 12 and eccentricity counts 10:96,11:192,12:816. It reproduced degrees 0:240,1:384,2:192,4:288,8:240 and nine orbit sizes 48,96,96,384,192,96,192,48,192 under 384 affine coordinate automorphisms; all neighbor-orbit vectors were constant on each orbit. Those finite exhaustive operations are an exact proof for this finite object, not a statement for general Q_d.",
+      "residual_risks": [
+        "All exact assertions are only for Q4, undirected labeled configurations and switches preserving one Hamilton cycle.",
+        "Computational exhaustiveness is documented by enumerating all 16-vertex cycles; it cannot prove similar structures for Q5 or larger."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gregor–Mütze construct and generate cyclic Gray codes; https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef concerns perfect-matchings (dimers) on Q4 and a different flip graph."
+        ],
+        "reasoning": "Neither Gray-code existence nor a perfect-matching flip distance theorem determines all Hamilton-cycle switch distances.",
+        "searches": [
+          "Q4 hypercube Hamilton cycles square flip 2-opt inversion local move configuration graph component radius diameter automorphism orbits",
+          "Trimming and gluing Gray codes arXiv:1607.08806",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md sha 055071663d27e306fba5da47348cee8fcbe02844",
+        "frozen check_faces.py sha b1cf5438ba279bf337bba9fda0a4185858cf4226",
+        "frozen q4_flip_graph.tsv sha b7372e055c3877c58c0280670e882b39aa0b6076 (tree listed; complete adjacency independently regenerated)",
+        "https://www.mdpi.com/2227-7390/6/6/98",
+        "https://arxiv.org/abs/1607.08806",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source §5.2 only studies percentage of isolated Gray codes, reports 3 isolated of 9 types for Q4. Present graph quotient lists all nine orbit vectors and exact degree and eccentricity spectra."
+        ],
+        "reasoning": "Isolated-class enumeration and local inversion definition do not mathematically imply the exact all-pairs graph metric; a new exhaustive enumeration supplies the missing inference.",
+        "searches": [
+          "Q4 hypercube Hamilton cycles square flip 2-opt inversion local move configuration graph component radius diameter automorphism orbits",
+          "https://www.mdpi.com/2227-7390/6/6/98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2018 §2 inversion cuts and reverses a Gray-code subsequence, equivalent to swapping two opposite used edges of one coordinate square, with validity checked as a Hamilton cycle."
+        ],
+        "reasoning": "The move is NOT novel; the finite graph metric and equitable orbit quotient are strictly stronger data than knowing the move.",
+        "searches": [
+          "Q4 hypercube Hamilton cycles square flip 2-opt inversion local move configuration graph component radius diameter automorphism orbits",
+          "Contassot-Vivier Couchot Héam 2018 §2 inversion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gilbert 1958 enumerates the nine isomorphism classes. 2018 Table 2 explicitly gives three isolated code classes of nine at dimension 4, equivalent to the previously known frozen-code fraction. The submitted 1344 configuration count is also prior."
+        ],
+        "reasoning": "The earlier table covers the old type and isolation counts but not the new 1104-state component metric/eccentricity spectrum and full neighbor-orbit quotient.",
+        "searches": [
+          "Q4 hypercube Hamilton cycles square flip 2-opt inversion local move configuration graph component radius diameter automorphism orbits",
+          "Gilbert Gray Codes and Paths on n-Cube 1958",
+          "https://www.mdpi.com/2227-7390/6/6/98"
+        ]
+      },
+      "rationale": "The 2018 primary publication already defines the identical subsequence inversion / coordinate-square switch and reports isolated Gray-code types in dimension four; Gilbert 1958 gives nine orbit types. Inspection of the 2018 full open text and Table 2 found the prior 3 isolated symmetry types of nine, but not the exact 1104 mobile-state connectedness, all-pairs distance spectrum, radius/diameter or nine-by-nine equitable adjacency quotient. Resultary semantic search found metric results for perfect-matching flip graphs on Q4, which are different configurations. On available evidence this combined full Hamilton-cycle flip graph metric and quotient is original.",
+      "residual_risks": [
+        "Historical unpublished exact Q4 switch-distance table could predate this work.",
+        "The move, Gray-cycle counts, nine orbit types and Q4 isolate fraction are already known and not accepted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_ONLY",
+          "evidence": "§5.2: dimension four has 3 isolated code types among 9, but no distance-spectrum or Hamilton cycle equitable-neighbor quotient",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/6/6/98",
+          "material_read": "Full accessible article in HTML, particularly §§2.2–2.4 (reversal move and Gray-code orbit partition), §5.2, actual Table 2 numerical rows and conclusions",
+          "method": "read original OA HTML in depth",
+          "title": "Gray Codes Generation Algorithm and Theoretical Evaluation of Random Walks in N-Cubes",
+          "trigger": "identical local inversion and Q4 isolate table"
+        },
+        {
+          "assessment": "INAPPLICABLE_OBJECT",
+          "evidence": "Its states are dimer tilings/perfect matchings, not Hamilton cycles; no inference of submitted metric",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef",
+          "material_read": "Resultary indexed mathematical title, summary and object (perfect matchings) rather than full paper",
+          "method": "semantic search and inspect summary",
+          "title": "Exact square-flip distances in the four-dimensional hypercube",
+          "trigger": "same underlying Q4 and flip-distance title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md sha 055071663d27e306fba5da47348cee8fcbe02844",
+        "frozen check_faces.py sha b1cf5438ba279bf337bba9fda0a4185858cf4226",
+        "frozen q4_flip_graph.tsv sha b7372e055c3877c58c0280670e882b39aa0b6076 (tree listed; complete adjacency independently regenerated)",
+        "https://www.mdpi.com/2227-7390/6/6/98",
+        "https://arxiv.org/abs/1607.08806",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef"
+      ],
+      "rationale": "A complete metric and orbit quotient of the natural reconfiguration graph for cyclic Gray codes answers exactly which nonfrozen codes communicate and how many square inversions suffice (at most 12), and distinguishes local transition types. A specific meaningful finite classification remains useful even without an all-dimensional theorem.",
+      "residual_risks": [
+        "Historical unpublished exact Q4 switch-distance table could predate this work.",
+        "The move, Gray-cycle counts, nine orbit types and Q4 isolate fraction are already known and not accepted as new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact complete-square-switch reconfiguration graph and symmetry quotient of Hamilton cycles in Q4",
+  "limitations": [
+    "All exact assertions are only for Q4, undirected labeled configurations and switches preserving one Hamilton cycle.",
+    "Computational exhaustiveness is documented by enumerating all 16-vertex cycles; it cannot prove similar structures for Q5 or larger."
+  ],
+  "schema_version": 1
+}
