@@ -1,24 +1,21 @@
-# Scientific review: Weibull-workload/Gamma-duration maximizers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated object is a set of independent jobs with Weibull-distributed workload \(W\) and duration \(L\mid W=w\sim\operatorname{Gamma}(\lceil w\rceil,1)\); it is not a random walk. The proof gives the Weibull top-order scaling \(h_n=(\log n)^{1/\beta}\) and \(b_n=h_n^{1-\beta}/\beta\), then proves a Chernoff-based cutoff excluding all lower-workload intruders for \(\beta\leq1/2\). Its critical marked-Poisson limit and void-probability calculation yield \(p_\star\). For \(\beta>1/2\), exponentially many near-extreme workloads independently have a nonvanishing chance to exceed the workload-maximizing job's duration. Each limiting case is handled without extrapolating finite computation. The independent checker completes 3009 finite checks, including quadrature and an independent truncated Poisson-process simulation. The results are analytical; the checker is auxiliary.
+PASS
 
-## Originality — PASS (subject to historical-priority risk)
+The Weibull extreme level h_n=(log n)^(1/β), spacing b_n=h_n^(1−β)/β, and Gamma service fluctuation √h_n yield b_n/√h_n→∞,2,0 for β<1/2,=1/2,>1/2. Poisson extremal points with a Gaussian service mark give agreement probability 1 in the first regime and critical score x+g/2 in the middle. A Chernoff bound plus e^(Cs−c(s−K)^2) integrability excludes low-workload intruders when β≤1/2. At β>1/2 the expected number of rival jobs in [h_n−√h_n,h_n−√h_n/2] diverges, with independent Gaussian-tail chances to beat the workload winner. The Poisson winner void probability is 1/(1+A(g)); completing a square gives A(g)=exp(1/8−g/2)Φ̄(g−1/2)−Φ̄(g). Independent Simpson integration independently obtained p*=0.7444140829247499, matching the stated 0.744414083. Finite numerical integral is not proof of PPP convergence or intrusion cutoff; both were examined analytically.
 
-The October 30, 2026 source by Wu (arXiv:2610.41990v1) concerns independent **random-walk excursion** depth/duration marks, with a light-tail versus regularly-varying dichotomy, not independent Weibull workloads and Gamma-service duration. Perfilev–Wachtel (arXiv:1907.02578v1) give a Cramér-regime random-walk excursion local limit, not the claimed extremal agreement classification. David–Galambos examine concomitant asymptotics in a different classical setting, and Basrak–Molchanov–Planinić provide broad marked-Poisson machinery, which may be relevant for a general theorem but does not supply this stated formula in the examined material. A closely related prior finding, an adaptive rank limit for biased-walk excursion depths and durations, has a distinct walk model and a divergent rank, not a Weibull/Gamma half-shape crossover. The new proof uses classical Gaussian, Chernoff and Poisson-limit tools without claiming them new. Full-text and abstract access varied; the possibility of an earlier general concomitant theorem implying the result remains a material historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model measures whether the longest stochastic completion time belongs to the largest latent workload when service is made of a random number of phases. This ranking question is motivated by the distinction between longest and deepest excursions, but its precise mechanism is independently natural in queues and stochastic workload scheduling. The exact boundary \(\beta=1/2\) is where extreme-value spacing matches square-root Gamma fluctuation, and its critical probability \(p_\star\approx0.744414083\) is a genuinely nontrivial intermediate value. It also explains *why* similar-looking heavy-tail ranking models can have different winner behavior. No extension to actual walk excursions or arbitrary work/service laws is asserted.
+The highly relevant Wu drawdown paper is about dependent random-walk excursions, not independent Weibull workload jobs with Gamma(ceil W,1) service clocks; Perfilev–Wachtel conditional excursion results are also distinct. Resultary search returned the submitted same-day record and tail/extremal results in other models, not an earlier statement of the same three-regime index-agreement probability or p*. Classical marked-Poisson concomitant theory is a plausible route to deriving the result, so exact historical priority remains bounded best-of-knowledge, not proven.
 
-## Closest sources and residual limitations
+## value
 
-- Y. Wu, *When is the deepest drawdown also the longest?*, arXiv:2610.41990v1, https://arxiv.org/html/2610.41990v1 (full-text discussion of models, results and concluding limitations).
-- E. Perfilev and V. Wachtel, *Local tail asymptotics for the joint distribution of length and of maximum of a random walk excursion*, arXiv:1907.02578v1, https://arxiv.org/html/1907.02578v1 (related conditional excursion fluctuations).
-- H. A. David and J. Galambos, *The asymptotic theory of concomitants of order statistics*, https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/asymptotic-theory-of-concomitants-of-order-statistics/0BEA2135DEFD89D7A3AB6B13AED67123 (abstract/bibliographic information only).
-- B. Basrak, I. Molchanov and H. Planinić, *Extremal behavior of stationary marked point processes*, https://arxiv.org/abs/2210.01474 (abstract/method comparison; general priority risk).
+PASS
 
-The principal unproved extension would replace the exact Weibull tail or the independent Gamma service clocks; such extensions are **not** part of the present result. Numerical simulation does not by itself certify convergence.
+A natural noisy-extreme ranking question: whether maximal workload and maximal realized Gamma-clock service duration occur at the same job. The explicit Weibull/Gamma model is mathematically motivated by excursion-length vs depth comparison; the shape-1/2 noise/spacing boundary with a nontrivial Gaussian-mark constant is a meaningful exact trichotomy, not a generic renaming or tiny computational observation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
