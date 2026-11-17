@@ -1,19 +1,21 @@
-# Review of fixed-mean orientational resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact angular Fourier correlations have been integrated independently; the resulting cycle moments agree with the regenerative drift and centered diffusivity formulas, including the reset duration–displacement covariance. Strict convexity and two explicit two-point law sequences establish, respectively, the unique transverse minimum, sharp upper supremum and longitudinal divergence. The deterministic anisotropy factor is strictly negative. The standalone source checker passes 1,626 assertion groups and reproduces the primary article’s Poisson effective coefficients. The infinite law-space claims rest on the analytic proof.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+Fourier Brownian correlations E[sin theta_s sin theta_t]=1/2(e^-d(t-s)-e^-d(t+3s)), and plus sign for cosine, integrate to H_d and K_d. Regenerative centered reward Jx-uT yields longitudinal variance formula and Jy transverse, normalized by 2mu; finite third moment handles equilibrium residual cycle. H_d double derivative 4/3(e^-dt-e^-4dt)>0 gives unique deterministic transverse minimum; pointwise H_d(t)<t/d and explicit two-point positive laws yield strict sharp upper endpoint. Another mean-preserving rare-long-interval family with probability n^-3/2 at n*mu yields E T²~mu²sqrt(n), Dx -> infinity while Dy -> deterministic minimum. Deterministic anisotropy factors strictly negative. Independently checked symbolic convexity and example Dx,Dy values.
 
-The 2024 orientational-reset work of Baouche and collaborators supplies general renewal equations and the closed Poisson-specific diffusivities; these are acknowledged rather than republished as new. The new contribution is the sharp attainable fixed-mean transverse range, the equality characterization and the two-point heavy-variability construction with unbounded longitudinal diffusivity and anisotropy reversal. The 2020 and 2024/2025 related orientation-reset papers, accessible earlier claim summaries and semantic research records were compared on the physical assumptions and statements. No direct covering theorem was identified. Because general renewal equations are broad, the possibility of an unindexed specialization remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact bounds are motivated by controlling off-axis wandering of a self-propelled particle when the reset budget fixes its average frequency. The singular difference between bounded transverse motion and unbounded longitudinal fluctuation is a structural boundary, not an arbitrary computed value. The full interval and extremizers clarify protocol design and the failure of mean-rate-only transport prediction.
+PASS (qualified): Full accessible Baouche et al. 2024 paper derives angular renewal machinery and Poisson interval drift/dispersion, not the fixed-mean optimization across arbitrary iid interval laws and anisotropy-reversing rare-long-interval construction. Resultary angle-distribution Poisson optimization holds a different reset-angle budget. No prior full claim was found implying this precise range/sign reversal, but possibility of generic regenerative optimization in less indexed literature persists.
 
-## Scientific limitations
+## value
 
-Ideal instantaneous complete heading resets, independent thermal and angular Brownian noise, positive iid intervals with finite third moment, stationary renewal initialization and no other interactions. The divergent diffusivity arises along a family of laws whose moments are not uniformly bounded. An external independent audit and empirical finite-sample validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A sharp fixed-budget attainable diffusivity interval and surprising absence of a longitudinal upper bound quantify how resetting variability controls active transport, including an explicit reversal of anisotropy at unchanged mean reset frequency. Meaningful transport design obstruction and complete natural classification; not just a single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
