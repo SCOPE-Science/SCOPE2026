@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns all finite fields and all surjective alternating maps from a four-dimensional vector space to a two-dimensional derived ideal, including characteristic two. Surjectivity excludes zero nonzero-pencil forms. The Pfaffian determinant identity gives the rank-two/rank-four alternative; explicit character-orthogonality and the projective-line sums prove the target-by-target formula without finite-computation extrapolation. The direct 11-case enumeration over prime fields of orders two, three, five verifies all target fibers of the tested examples, and its independent matrix-rank calculation checks the critical rank dichotomy.
+## correctness
 
-**Originality — PASS, subject to independent priority review.** Cicalò–de Graaf–Schneider (arXiv:1011.0361, Theorem 4.4 and Section 5) give the orbit classification of the same alternating pencils and associated six-dimensional nilpotent Lie algebras; this is a substantive prior result and is fully credited. Their inspected mathematical statements do not count the ordered solution pairs for each bracket target. De Graaf's earlier characteristic-not-two classification is likewise structural. The nearby published results concerning matrix-Lie-algebra commuting-pair generation concern different Lie families and primarily zero fibers. Searches covering exact fibers, Pfaffian pencils, commutator word maps, and finite-field class-two algebras did not expose a dominating formula. However the calculation is short given classical rank-pencils and character orthogonality; an unidentified rank-distribution-to-fiber theorem might imply it. A negative database result alone is not treated as proof of priority.
+PASS
 
-**Value — PASS.** The output is an exact, natural complete invariant of a bracket polynomial map: all nonzero fibers and their geometric location, not only the commuting count or a classification table. It distinguishes split, nonsplit, repeated-root, and identically-singular pencil behaviors uniformly over every finite field and explains why specific output directions have enhanced multiplicities. Because bracket fibers govern the distribution of commutators, the statistic is natural in class-two Lie algebra arithmetic. No claim about all higher-dimensional Lie algebras or newness of the Pfaffian invariant is made.
+For surjective alternating β:Λ² F_q⁴→F_q², every nonzero dual alternating 4-form has rank 2 or 4, detected by binary quadratic Pfaffian Q. Character orthogonality gives F(c)=q^(-2)[q⁸+q⁴Σ_{λ≠0}ψ(−λc)+(q⁶−q⁴)Σ_{Qλ=0,λ≠0}ψ(−λc)]. Summing projective root lines gives the stated separate N(0) and N(c≠0) formulas with root count r and annihilator indicator s(c); central factors contribute q⁴. Characteristic two, Q identically zero, and q=2 follow identically. Summing fibers returns q^12. Independent exhaustive pair enumeration over q=2,3,5 for split and identically-zero pencil families agreed target by target.
 
-**Residual risks:** Broader word-map or representation-theoretic theorems may give the same formula without matching terminology. The verification covers explicit representatives in three prime fields, not all fields; the unrestricted correctness rests on the proof. Independent literature-priority and mathematical audits remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Six-dimensional nilpotent-algebra classification already lists 2-planes of alternating 4-forms and their Pfaffian strata, not the explicit prescribed commutator counts. Levy 2016 Theorem 2.1 provides a powerful **broader rank-stratum/hyperplane formula for commutator word maps of odd-p exponent-p groups**, and its odd-characteristic specialization essentially produces this distribution. That general machinery is prior mathematics and substantially reduces the novelty scope. However Levy excludes p=2 (class 2 is not <p), and does not tabulate this full all-characteristic 4-to-2 Pfaffian-root target census; the submitted direct additive-character proof covers characteristic 2 and degenerate Q, including central extensions not requiring full center=derived. Qualified novelty survives only for explicit uniform all-field target stratification and the characteristic-two boundary, not general Fourier or odd-p orbit-method methods.
+
+## value
+
+PASS
+
+For the natural complete family of 6-dimensional 2-step Lie algebras with 2-dimensional derived ideal, the exact distribution of each labeled commutator target is a useful structural arithmetic invariant, including characteristic two, degenerate pencils and the two enhanced target populations. It is not a classification up to Lie-isomorphism and should not be oversold as a new general word-map method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
