@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns every reduced arrangement of one smooth complex conic and six distinct lines with basket \((n_2,t,n_3)=(3,3,6)\). The twelve conic–line intersection multiplicities force at least three three-line triples. At most four are possible among six distinct lines; the case of four is excluded because its complete-quadrangle line graph leaves at most two lines available to be tangent to the conic. With exactly three line-only triples, the three secants form a triangle inscribed in the conic and the three tangents form a triangle with one vertex on each secant. This implication exhausts all permitted configurations. Projective normalization and exact elimination give \(s^2-s-1=0\); swapping two coordinates exchanges the two roots, establishing one orbit. Direct exact arithmetic verifies that an example is nondegenerate and has the stated singularities. The existing near-freeness result for a representative transfers by projective invariance; it is not being reproved as a new assertion.
+## correctness
 
-The standalone files `verify_geometry.py` and `verify_classification.py` were executed successfully after their final edits. The first checks the complete intersection graph and tangencies over \(\mathbb Q(\sqrt5)\); the second checks all four-triple abstract six-line patterns and the tangent-parameter equations. These are exact algebraic calculations rather than random sampling. The geometric argument supplying universal quantification is written explicitly in `RESULT.md`.
+PASS
 
-## Originality — PASS
-Gałecka's arXiv:2204.13969v1 (2022-04-29) poses the degree-eight existence problem but does not classify this basket. The published result *A degree-eight nearly free conic-line arrangement over a quadratic field* constructs one member with exactly this basket and explicitly declines any classification claim. Its exact example and near-freeness are acknowledged, not republished as new. Existing results classifying *free* conic-line arrangements do not dominate a projective classification of this *nearly free* basket. Searches for projective uniqueness, rigidity, and equivalent incidence patterns did not identify an earlier complete result. Searches alone do not establish priority; a differently phrased older geometric classification remains possible.
+Let h count line-only triples, c=6−h conic-containing triples. Bézout with precisely three tangent lines yields 2(h−3) conic-line nodes; six lines have 15 pair intersections so h is 3 or 4 (h=5 impossible by incidence parity). For h=4, four line triples force complete-quadrangle incidence with three disjoint residual pairs; two conic-containing triples occupy four lines, leaving only two available for three tangent lines, a contradiction. Hence h=c=3 and no conic-line nodes; the three secants are a triangle with its vertices on the smooth conic, and three pairwise tangent intersections lie one each on its three secants. Normalize secants to coordinate lines and smooth conic to Q=xy+xz+yz. Distinct tangent parameters s,t,u satisfy 2st+s+t=0, s+u=0, t+u+2=0; algebra gives u=−s, t=s−2 and s²−s−1=0. The coordinate swap x↔z induces v↦1/v and exchanges the two roots; hence a single unlabelled PGL₃(C) orbit. Independently verified the exact tangent-pair elimination with SymPy; read both packaged geometry and classification checkers and their symbolic incidence logic. Near-freeness is inherited from the earlier exact arrangement existence, not claimed independently.
 
-The distinction between the old and new propositions is substantive: the old statement is existential, \(\exists D\) with the basket and near-freeness; this result proves \(\forall D,D'\) with the basket, \(D\) and \(D'\) are projectively equivalent. The proof derives the unique incidence graph and proves there is only one projective orbit, neither of which follows from exhibiting one equation.
+## originality
 
-## Mathematical value — PASS
-The singularity basket is not an arbitrary parameter cut: it is the exact basket of the first known degree-eight existence example for Gałecka's open nearly-free conic–line problem. Determining its entire realization locus answers the natural next moduli/classification question, shows there are no other projective realizations with that basket, and explains the forced quadratic coefficient field in normalized coordinates. The classification is a nontrivial rigidity statement, not a routine numerical re-evaluation of the known example. It has a direct use when distinguishing potential near-free arrangements with other baskets and when classifying their equisingular realization spaces.
+PASS
 
-## Closest literature and remaining limitations
-The strongest prior comparison is the previously published degree-eight existence construction. The exact title and full `RESULT.md` were inspected: its stated limitation explicitly says that it does not classify all degree-eight arrangements. The two 2022 papers by Gałecka and Dimca–Pokora establish the near-freeness setting and classification of a different (free) class. Modern surveys of free-curve combinatorics provide background but no theorem implying this uniqueness. This review has not established an independent historical-priority certificate. The theorem is limited to one basket over \(\mathbb C\), does not settle degree-nine existence, and does not identify the scheme structure of the marked realization space.
+The October 4, 2026 published Resultary RESULT.md constructs a concrete near-free degree-eight arrangement with the identical (3,3,6) basket and explicitly does not assert uniqueness; its complete proof was read. The new theorem quantifies over every realization and proves no other projective orbit exists. Related rigidity findings concern different conic-line component counts/baskets. The earlier existence is completely credited. Best-of-knowledge original projective rigidity; possible obscure full classification remains a residual risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The weak-combinatorial basket is natural in near-free line–conic arrangement classification and the degree-eight existence problem. A complete realization-space rigidity theorem answers a new moduli question for all possible models, not a coordinate reparametrization or a computed single example; the golden-ratio algebraic orbit coalescence is a substantive geometric constraint. It does not imply global degree-eight near-free classification for other baskets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
