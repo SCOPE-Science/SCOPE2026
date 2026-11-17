@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:58:10.050062Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f=1 on first dyadic half and zero on second, u=f(k_i)f(k_j) belongs to sparse space for N>=2. Decomposing transverse factor f=(1+s)/2 gives P_N D_i u = (D_N f)/2 + (P_{V_{N-1}}D_N f)s/2; at k_i=k_j=m/2+1 the input is zero, D_Nf=0 but adjacent-pair average of negative jump equals -1/2, so projected derivative is +1/4. Thus u-r_i P_ND_iu-r_jP_ND_ju is -(r_i+r_j)/4<0 for every positive step with any nonzero transport speed, independently of dimension or level. A small constant offset gives strictly positive initial state. At N=1 the sparse cone a>=sum|b_j| is invariant exactly for every 0<=r_j<=1; d=1 reduces to full upwind. Independently recomputed dyadic tensor projection at d=2,N=2 with derivative values 1/4 each, and inspected exact verify.py. Edge cases N=0 and zero speeds correctly yield identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang sharp L2 threshold applies to standard sparse-grid transport and broader downward-closed sets but bounds norm rather than positivity.",
+          "Positivity-limited DG schemes change the update and therefore do not determine failure for the unmodified operator."
+        ],
+        "reasoning": "General L2-stability theory cannot imply order preservation nor its universal failure; this theorem adds a different mathematical property.",
+        "searches": [
+          "arXiv:2609.17312 Huang general downward closed sparse DG",
+          "arXiv:1602.02124 Guo Cheng sparse DG",
+          "Resultary: positivity CFL sparse Haar upwind"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/no-positive-courant-window-for-multidimensional-haar-sparse-grid--836e4fa20ada/RESULT.md",
+        "https://arxiv.org/abs/2609.17312",
+        "https://arxiv.org/abs/1602.02124",
+        "https://arxiv.org/abs/2405.16117",
+        "https://doi.org/10.1007/s42985-023-00250-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The L2 contractive CFL interval can coexist with a negative fine-cell coefficient because L2 contraction is weaker than order-cone invariance.",
+          "Published positive methods use a different discretization/limiter; not logical consequences for unmodified sparse projection."
+        ],
+        "reasoning": "Explicit quadrant tensor projection produces +1/4 flux derivative in a zero input cell at every d>=2,N>=2, establishing strictly new negative result relative to norm-stability predecessors.",
+        "searches": [
+          "Huang 2026 sharp CFL Theorem 4.3",
+          "Gong Lee Li Yu positivity limited DG 2024",
+          "Guo Cheng sparse DG 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fine-cell positivity of the projected forward Euler map equals order-cone preservation, distinct from L2 contractivity.",
+          "The negative projected incoming derivative is an explicit boundary-cell matrix-coefficient obstruction."
+        ],
+        "reasoning": "Terminological aliases include monotonicity and positivity-preserving discrete semigroups, but the cited L2 CFL theorem does not imply this cone classification.",
+        "searches": [
+          "Resultary: Haar sparse grid positivity forward Euler no CFL monotonicity upwind",
+          "arXiv:2609.17312 sharp CFL"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a sharp all-(d,N) positivity frontier N<=1 vs N>=2, not a finite dataset or a table of known stage thresholds."
+        ],
+        "reasoning": "No known exact multidimensional Haar positivity table covers the claimed all-level boundary in actual searches; plausible unindexed treatment remains risk.",
+        "searches": [
+          "Resultary: sparse grid Haar no positive Courant window",
+          "arXiv:2609.17312 source search"
+        ]
+      },
+      "rationale": "Huang 2026 proves sharp L2 contractivity of the same sparse method, not in its accessible abstract an order-positivity theorem. Guo–Cheng scheme background and alternative positivity-limited DG are not logical implications of this all-level negative barrier. Actual semantic searches revealed no identical published theorem. Full-text access to most relevant Huang paper blocked, retained priority risk.",
+      "residual_risks": [
+        "Original Huang 2026 full text could not be inspected; the strongest same-operator prior might discuss positivity beyond its indexed abstract.",
+        "Different positivity limiter, full-grid, or downward-closed index set might evade failure; theorem expressly restricted to standard unmodified Haar total-level scheme."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-dimensional proof is analytical, with independently reconstructed N=2 projected derivatives matching 1/4.",
+          "evidence": "Quadruple dyadic product witness and r_i+r_j negative update.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/no-positive-courant-window-for-multidimensional-haar-sparse-grid--836e4fa20ada/RESULT.md",
+          "material_read": "Complete RESULT.md proof, dyadic slice identity, level-one cone classification and independent verify.py exact projections.",
+          "method": "pinned Git blobs",
+          "title": "No positive Courant window for multidimensional Haar sparse-grid upwinding",
+          "trigger": "assigned final theorem"
+        },
+        {
+          "assessment": "Published result explicitly states sharp L2 stable CFL, not an established fine-cell positivity classification in accessible material; no full-document noncoverage claim.",
+          "evidence": "Huang 2026 claims Delta t<=h/max_j|c_j| for L2 contraction.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.17312",
+          "material_read": "Original arXiv bibliographic metadata and accessible complete abstract via papers.cool; full paper unavailable via arXiv, ar5iv and authorized Oxford (vpn_disconnected).",
+          "method": "indexed arXiv abstract and alternative index",
+          "title": "The sharp CFL condition of the piecewise constant sparse grid discontinuous Galerkin method for high-dimensional transport equations",
+          "trigger": "identical basic sparse DG operator and strongest competing paper"
+        },
+        {
+          "assessment": "Background methods, not evidence of precise all-level monotonicity frontier.",
+          "evidence": "Guo and Cheng 2016 sparse DG scheme.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.02124",
+          "material_read": "Original cited publication metadata and summary in assigned reference; original full text not read.",
+          "method": "literature references and searchable metadata",
+          "title": "A sparse grid discontinuous Galerkin method for high-dimensional transport equations and its application to kinetic simulations",
+          "trigger": "original sparse DG formulation"
+        },
+        {
+          "assessment": "Positivity-preserving alternate scheme does not contradict failure of the specified unmodified sparse projection.",
+          "evidence": "Gong et al. 2024 positive DG method.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.16117",
+          "material_read": "Original cited title and abstract-level bibliographic information, not complete full text.",
+          "method": "indexed publication",
+          "title": "Positivity and Maximum Principle Preserving Discontinuous Galerkin Finite Element Schemes for a Coupled Flow and Transport",
+          "trigger": "possible positive method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinguishing L2 stability from positivity is mathematically important for transport discretizations. The explicit universal failure for every d>=2,N>=2, paired with a sharp N=1 and one-dimensional boundary, is a motivated complete structural classification affecting the need for positivity limiting. The all-level theorem is not a sample counterexample or a mere routine use of CFL conditions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/no-positive-courant-window-for-multidimensional-haar-sparse-grid--836e4fa20ada/RESULT.md",
+    "https://arxiv.org/abs/2609.17312",
+    "https://arxiv.org/abs/1602.02124",
+    "https://arxiv.org/abs/2405.16117",
+    "https://doi.org/10.1007/s42985-023-00250-2"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sharp absence of positive forward-Euler Courant window for unmodified periodic multidimensional Haar sparse-grid upwinding at every total level N>=2",
+  "limitations": [
+    "Same-operator Huang full paper unavailable through tested lawful access; institutional VPN disconnected, so no whole-document noncoverage claimed."
+  ],
+  "residual_risks": [
+    "Original Huang 2026 full text could not be inspected; the strongest same-operator prior might discuss positivity beyond its indexed abstract.",
+    "Different positivity limiter, full-grid, or downward-closed index set might evade failure; theorem expressly restricted to standard unmodified Haar total-level scheme."
+  ],
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is an all-level algebraic calculation, not a finite-dimensional extrapolation. The dyadic quadrant is in the degree-zero Haar sparse space as soon as total level two is present. A transverse first-level Haar factor truncates the longitudinal update to its one-level coarser average, yielding an exact positive projected difference of one quarter on a zero-input fine cell. Every positive Euler step therefore produces a negative value. Adding a sufficiently small positive constant proves failure for strictly positive data. The level-one positive cone has an exact coefficient representation and gives an if-and-only-if Courant restriction. The one-dimensional and level-zero cases are also exact.
+PASS
 
-The independent-from-formula standard-library implementation in `verify.py` checks exact rational projections in dimensions two and three at several levels. It is finite validation; the general proof is symbolic and supplied in RESULT.md.
+For f=1 on first dyadic half and zero on second, u=f(k_i)f(k_j) belongs to sparse space for N>=2. Decomposing transverse factor f=(1+s)/2 gives P_N D_i u = (D_N f)/2 + (P_{V_{N-1}}D_N f)s/2; at k_i=k_j=m/2+1 the input is zero, D_Nf=0 but adjacent-pair average of negative jump equals -1/2, so projected derivative is +1/4. Thus u-r_i P_ND_iu-r_jP_ND_ju is -(r_i+r_j)/4<0 for every positive step with any nonzero transport speed, independently of dimension or level. A small constant offset gives strictly positive initial state. At N=1 the sparse cone a>=sum|b_j| is invariant exactly for every 0<=r_j<=1; d=1 reduces to full upwind. Independently recomputed dyadic tensor projection at d=2,N=2 with derivative values 1/4 each, and inspected exact verify.py. Edge cases N=0 and zero speeds correctly yield identity.
 
-## Originality — PASS (best-knowledge, qualified)
+## originality
 
-Huang (arXiv:2609.17312, Theorem 4.3) establishes an exact \(L^2\) stability limit, but does not analyze order preservation. Guo and Cheng (arXiv:1602.02124) establish sparse DG stability and conservation, not the all-level positivity classification. Gong et al. (arXiv:2405.16117) use a different locally conservative full DG framework; Zeiser (2023) uses a different implicit and stabilized sparse Galerkin method.
+PASS
 
-Published-record and literature searches, including equivalent cone-tangency, non-Metzler, maximum-principle and projected-upwind formulations, found no covering theorem. The closest records concern local simplex projections, positivity of unrelated numerical time integrators, or a distinct function-space SBP CFL. The absence of an indexed match is not proof of historical priority. An unindexed generic projection/semigroup treatment remains a residual risk.
+Huang 2026 proves sharp L2 contractivity of the same sparse method, not in its accessible abstract an order-positivity theorem. Guo–Cheng scheme background and alternative positivity-limited DG are not logical implications of this all-level negative barrier. Actual semantic searches revealed no identical published theorem. Full-text access to most relevant Huang paper blocked, retained priority risk.
 
-## Value — PASS
+## value
 
-This completes a natural preservation-versus-failure classification for the lowest-order periodic Haar sparse-grid method, including exact spatial-level and dimension boundaries. It reveals that the scheme's sharp Hilbert-norm CFL guarantee and its fine-cell positivity guarantee separate maximally: past the first mixed Haar level **no positive timestep works**, even for one-dimensional motion on a multidimensional sparse grid. This is an actionable mathematical obstruction for transport of nonnegative densities and distinguishes shrinking a step size from changing the spatial projection or adding limiting.
+PASS
 
-## Limits
+Distinguishing L2 stability from positivity is mathematically important for transport discretizations. The explicit universal failure for every d>=2,N>=2, paired with a sharp N=1 and one-dimensional boundary, is a motivated complete structural classification affecting the need for positivity limiting. The all-level theorem is not a sample counterexample or a mere routine use of CFL conditions.
 
-Exact periodic dyadic grids, total-level sparse Haar space, nonnegative constant speeds and unmodified forward Euler only. No assertion about nonlinear limiters, other sparse index sets, variable velocities or complete higher-order DG discretizations. Full historical-priority confirmation remains outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
