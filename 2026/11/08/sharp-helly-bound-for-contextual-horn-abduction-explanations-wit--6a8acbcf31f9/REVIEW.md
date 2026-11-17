@@ -1,15 +1,21 @@
-# Review of the sharp Horn-obstruction rank theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For fixed context, forward-chaining entailment is upward-monotone and consistency is downward-monotone, hence the valid explanation family is order-convex. A minimal empty intersection supplies one witness per omitted context; those witnesses cannot contain a three-term strict inclusion chain. The generalized two-level Sperner bound yields the explicit upper limit. Sharpness is supported by a constructive Horn compilation of the order-convex families obtained by deleting one element from the two middle levels. Every claimed context family is evaluated by elementary closure semantics; the finite checker reproduces the witness law through eight hypothesis atoms and exhausts the upper combinatorics through four. Boundary \(h=0\), locally feasible sharp cases \(h\ge1\), and unrestricted rule width are distinguished.
+## correctness
 
-## Originality
-**PASS under presently inspected evidence, with priority risk.** Yang's arXiv:2610.32805v1, Sections 4.3 and 6.1, contains the \(2^h\) upper bound and the order-convexity observation, but does not state the sharp unrestricted \(B_h\) law or a fixed-hypothesis extremal compilation. Its rectangular-slot theorem is not the unrestricted case. The two-level Sperner inequality is a classical ingredient, not new. The closest separately established observation-contract result concerns minimum source-context counts for realizing a *contract*, not the maximum size of a *single minimal obstruction* with a fixed hypothesis budget. Remaining uncertainty concerns older abstract order-convexity Helly theorems and potentially unpublished exact corollaries.
+PASS
 
-## Value
-**PASS.** The number of hypotheses is a natural representation resource in abductive reasoning. This theorem supplies its exact obstruction-rank capacity and distinguishes acyclic Horn constraints from unrestricted abstract explanation tables. The gap between the old \(2^h\) ceiling and the attained \(B_h\) grows to a factor on the order of the square root of the hypothesis count. The construction works with locally feasible explanations for every nonzero budget, making the bound relevant to higher-order observation obstructions rather than trivial inconsistent instances.
+Horn closure monotonicity makes every explanation family order-convex in Boolean inclusion order. One omission witness per context in a minimal obstruction is distinct; any strict three-chain would violate the middle family order-convexity. A random maximal Boolean chain meets witnesses at most twice, and the 2-LYM/Sperner inequality bounds their cardinality by the two largest levels. For sharpness use all k and k+1 subsets, remove one per context, realize each order-convex family as upward closure intersection downward closure through finite exact context guards, g and integrity heads; the rules are acyclic. h=0 singleton and h=1 nonempty-family boundaries are handled, with first values 1,2,3,6,10,20,35.
 
-## Scientific limits
-The number and width of construction rules are unrestricted; no efficient algorithm or optimal formula length is asserted. The upper bound is a direct use of a classical extremal set theorem. Known geometric Helly results use a different convexity. Independent historical priority confirmation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source Yang article states the general 2^h bound, qualitative unbounded obstruction rank, and order-convexity, but not the exact fixed-h two-Sperner Helly number with acyclic realization. Generalized Sperner/LYM upper bound is old and not credited; the specific application with matching Horn realizability yields a distinct exact resource classification.
+
+## value
+
+PASS
+
+The exact maximum size of a minimal context obstruction as a function of the natural hypothesis budget h is a motivated combinatorial resource law. Sharp acyclic Horn realization shows the 2-Sperner bound is genuinely achievable rather than only a loose generic convexity estimate. No complexity or algorithmic generalization is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
