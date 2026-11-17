@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T15:04:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen Git blob RESULT.md f1ffd8a0f2b179c2edcf884e09a3d2c25b4b639a",
+        "frozen Git blob verify_gap.py 59f781e59fc23366e56a722fb006f39984bfe1ac"
+      ],
+      "rationale": "The 1-a antisymmetric eigenmode and 2x2 symmetric block give the exact SPD domain. For any diagonal scaling, Loewner sandwich by a diagonal H and transposition averaging gives a globally valid equal-first-two-coordinate optimizer (not merely symmetry conjecture). The resulting eigenvalues lambda0=(1-a)x and lambda+/- for the 2x2 block yield x*=max{1/(1+a),(a-b^2)/(a(1-a))}; the three regimes u=b^2<=a^2, a^2<=u<=2a^2/(1+a), u>=2a^2/(1+a) give strict positive F1,F2,F3 bounds. Independent symbolic reexpansion verified F2 square completion and F3 factorization, and the family a=1-t^2,u=1-t gives kappa_*=(1+t)(2-t)/t^2, Jacobi lambda_max->3, lambda_min=t^2, ratio->3/2. Finite numerical checks were not used as proofs.",
+      "residual_risks": [
+        "Source analytical argument is necessary for infinite parameters; independent finite/symbolic checks establish only stated identities and finite ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolotilina general 3x3 optimization; dimensional n-factor Jacobi inequality"
+        ],
+        "reasoning": "Existing general n-factor Jacobi bound gives at most 3 in dimension three, not the sharp subfamily factor 3/2. SCOPE windmill and one-hub results optimize other matrix families, without the audited global ratio.",
+        "searches": [
+          "optimal Jacobi diagonal scaling spectral condition number isosceles 3x3 correlation matrices sharp approximation factor 3/2 Kolotilina",
+          "https://doi.org/10.1007/s10958-005-0488-1"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10958-005-0488-1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2",
+        "2026/11/08/the-sharp-three-halves-jacobi-gap-on-isosceles-positive-definite--4996ec89d4c9/RESULT.md @ b0e95ae124c6a0e1a43dab35f490b119e0fbbb37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kolotilina 2006 complete pointwise optimizer and Jacobi characterization"
+        ],
+        "reasoning": "Pointwise optimality does not literally state sharp uniform supremum; from explicit formulas one can derive it by the three-region inequalities plus limit supplied here. No inspected stronger theorem directly implies the 3/2 value without this analysis.",
+        "searches": [
+          "optimal Jacobi diagonal scaling spectral condition number isosceles 3x3 correlation matrices sharp approximation factor 3/2 Kolotilina",
+          "https://doi.org/10.1007/s10958-005-0488-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kolotilina exact optimal 3x3 Hermitian scaling and Jacobi optimality"
+        ],
+        "reasoning": "Kolotilina 2006 completely determines pointwise optimal diagonal scaling for quasireal Hermitian SPD 3x3 matrices, including this subfamily; audited theorem explicitly claims only the global supremum of the Jacobi/optimal ratio over a,b. The former could yield the latter only with additional family-wide optimization not stated in inspected material.",
+        "searches": [
+          "optimal Jacobi diagonal scaling spectral condition number isosceles 3x3 correlation matrices sharp approximation factor 3/2 Kolotilina",
+          "https://doi.org/10.1007/s10958-005-0488-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search for 3/2 Jacobi isosceles three-by-three ratio"
+        ],
+        "reasoning": "Resultary matches other Jacobi scale families and current record, not an exact published table of the two-parameter family-wide sharp 3/2 loss; nonindexed derivations remain possible.",
+        "searches": [
+          "optimal Jacobi diagonal scaling spectral condition number isosceles 3x3 correlation matrices sharp approximation factor 3/2 Kolotilina",
+          "https://doi.org/10.1007/s10958-005-0488-1"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: Pointwise optimality does not literally state sharp uniform supremum; from explicit formulas one can derive it by the three-region inequalities plus limit supplied here. No inspected stronger theorem directly implies the 3/2 value without this analysis.",
+      "residual_risks": [
+        "The pointwise Kolotilina formula is entirely prior art; a specialized family-wide 3/2 corollary may be implicit in uninspected sections or older approximation-bound literature.",
+        "Proof concerns only positive two-equal-correlation 3x3 SPD, not all correlations or matrix sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pointwise result covers intermediate optimizer but no verified family-wide maximum loss of 3/2",
+          "evidence": "Kolotilina, Journal of Mathematical Sciences 132 (2006), 190-213; author copy https://www.researchgate.net/publication/250796934",
+          "identifier_or_url": "https://doi.org/10.1007/s10958-005-0488-1",
+          "material_read": "Author-hosted full-text visible introduction and passages detailing complete 3x3 pointwise optimizer and Jacobi-optimality characterization; not every section of the long document",
+          "method": "Publisher metadata and author-uploaded full-text passages",
+          "title": "Solution of the Problem of Optimal Diagonal Scaling for Quasireal Hermitian Positive-Definite 3x3 Matrices",
+          "trigger": "Exact same matrix dimension and global congruence scaling"
+        },
+        {
+          "assessment": "Friendship graph blocks and mode-switch curve, not this 3x3 Jacobi-to-best worst-case ratio",
+          "evidence": "Published 2026-10-26 abstracted result",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2",
+          "material_read": "Resultary indexed theorem/summary and comparison of matrix shape/parameters; full proof not asserted read",
+          "method": "Published mathematical search record",
+          "title": "A sharp mode-switch law for optimal diagonal scaling on windmill matrices",
+          "trigger": "Published related exact diagonal-scaling optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/the-sharp-three-halves-jacobi-gap-on-isosceles-positive-definite--4996ec89d4c9/RESULT.md",
+        "https://doi.org/10.1007/s10958-005-0488-1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2"
+      ],
+      "rationale": "A natural dimension-three worst-case approximation constant for ubiquitous Jacobi scaling, considerably sharper than the generic dimension factor; strictness and a near-singular extremizing family provide a usable conditioning benchmark rather than merely rederiving a pointwise optimizer.",
+      "residual_risks": [
+        "The pointwise Kolotilina formula is entirely prior art; a specialized family-wide 3/2 corollary may be implicit in uninspected sections or older approximation-bound literature.",
+        "Proof concerns only positive two-equal-correlation 3x3 SPD, not all correlations or matrix sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 0<a<1, 0<b<sqrt((1+a)/2), the ratio of ordinary Jacobi condition number to globally optimum positive-diagonal congruence condition number on C=[[1,a,b],[a,1,b],[b,b,1]] lies in [1,3/2), with unattained sharp supremum 3/2 along a=1-t^2, b=sqrt(1-t).",
+  "limitations": [
+    "The pointwise Kolotilina formula is entirely prior art; a specialized family-wide 3/2 corollary may be implicit in uninspected sections or older approximation-bound literature.",
+    "Proof concerns only positive two-equal-correlation 3x3 SPD, not all correlations or matrix sizes."
+  ],
+  "schema_version": 1
+}
