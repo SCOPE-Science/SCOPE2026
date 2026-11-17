@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:58:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 1c36fd2c4c9bba69aa6aa4b3eadd140865d22a37, proof §§1–4",
+        "verify_matrix.py blob 91d7a449b9bc929536ef3b1d3fae972c02e47be0, verify_orbits.py blob 3c3f386bd8863ff25842ca5abed259235087b459",
+        "Independent direct GF(2) bitset Gaussian-elimination calculations: 570 total torus nullity comparisons"
+      ],
+      "rationale": "The group algebra K[X^±1,Y^±1]/(X^m−1,Y^n−1) splits into length-(2^a,2^b) root-pair local algebras. P=X+X^-1+Y+Y^-1 has vanishing constant term iff η=ζ or ζ^-1, giving 2g−1 pairs. Nontrivial root pairs permit invertible coordinate changes U=f(X)−f(ζ),V=f(Y)−f(η), and multiplication by U+V has k uniform chains length L by Frobenius. At (1,1), f(1+u)=u²/(1+u), P^(L/2)=0; the quotient by P is free rank two over K[v]/(v^k), giving 2k blocks and forcing length L/2. Fitting decomposition then gives cumulative kernel c(t), sharp time and counts Q^(d+c(t)). Independently reconstructed binary Cayley adjacency and compared 570 nontrivial kernel ranks (distinct from open-square comparisons below); no finite test was treated as an all-size proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete earlier dyadic RESULT.md theorem applies only when m=2^a; new theorem handles arbitrary m0,n0 and Q=2^f",
+          "Gcd invertibility criterion concerns zero eigenvalue, not block sizes"
+        ],
+        "reasoning": "The earlier dyadic result is subsumed as a special case (g=1 when one odd part 1); it does not imply g>1 independent length-L blocks. General invertibility criteria do not determine nilpotent indices.",
+        "searches": [
+          "Resultary: dyadic circumference law four-neighbor binary torus",
+          "Peters–Goldwasser–Young 2017 invertibility Cartesian products"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: rectangular torus parity cellular automaton characteristic two nilpotent Jordan blocks entry time 2-adic cycle Cartesian product",
+        "2026/11/2/SCOPE-a-dyadic-circumference-law-for-four-neighbor-binary-torus-dynami--a5383f1b22d7/RESULT.md (read complete)",
+        "Martin–Odlyzko–Wolfram (1984), Algebraic Properties of Cellular Automata, §4D (inspected original text)",
+        "Peters–Goldwasser–Young (2017), Lights Out! on Cartesian Products, Theorem 2.6 (published criterion)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published dyadic law has uniform blocks for one dyadic side; current theorem has 2k blocks L/2 and 2(g−1)k blocks L when g>1"
+        ],
+        "reasoning": "The arbitrary-g theorem implies the earlier g=1 dyadic slice after specialization; the converse does not imply mixed-length sectors or finite Q generality.",
+        "searches": [
+          "Resultary: dyadic circumference law",
+          "Martin–Odlyzko–Wolfram 1984 §4D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X+X^-1+Y+Y^-1 group algebra",
+          "root-pair equivalence η=ζ±1, 2g−1 zero pairs"
+        ],
+        "reasoning": "Compared equivalent Fourier/group-algebra language and inverse-root collisions; those methods permit the exact computation but inspected prior statements do not assert the complete mixed-gcd block census.",
+        "searches": [
+          "Resultary: two-adic torus parity Jordan; cyclotomic four-neighbor parity tori",
+          "Martin–Odlyzko–Wolfram §4D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source contains formulas for c(t), terminal fraction and exact N_t for all m,n, compared against published pure-dyadic formulas"
+        ],
+        "reasoning": "No accessible exact table of full general rectangular torus block lengths was identified; Aso–Honda could not be compared in full, so absence from literature is not asserted.",
+        "searches": [
+          "Resultary: torus Jordan population and exact temporal census",
+          "Aso–Honda 1985 abstract and DOI"
+        ]
+      },
+      "rationale": "Best-of-knowledge original complete rectangular-cycle zero-primary Jordan / exact time-census extension. An earlier published four-neighbor theorem proves the full uniform-chain law only when one circumference is dyadic, which is a genuine special case and is excluded from new-credit; standard algebraic cellular automata and invertibility criteria alone do not give general g>1 block structure.",
+      "residual_risks": [
+        "Aso–Honda 1985 Dynamical characteristics of linear cellular automata could not be inspected in full; older equivalent formulations may exist.",
+        "The restriction one circumference a pure power of two and the general group-algebra technique are known and receive no novelty credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS pure-dyadic-one-circumference GF2 slice; DOES_NOT_COVER arbitrary odd g nor both arbitrary circumferences",
+          "evidence": "Its nilpotent chains are all length max(2^a,2^ν2(n))/2 with 2 min(...) blocks; current theorem has separate length-L chains when g>1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-dyadic-circumference-law-for-four-neighbor-binary-torus-dynami--a5383f1b22d7/RESULT.md",
+          "material_read": "Entire RESULT.md including theorem, proof and boundary cases",
+          "method": "Read actual published repository blob",
+          "title": "A dyadic-circumference law for four-neighbor binary torus dynamics",
+          "trigger": "Same operator, overlapping dyadic rectangular tori"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXACT_CLASSIFICATION",
+          "evidence": "Bivariate polynomial/group-ring representation and transient algebra; no matching stated full rectangular open-neighbor zero Jordan census in inspected material.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+          "material_read": "Relevant original text especially §4D on two-dimensional algebraic CA",
+          "method": "Read available full-text material and section, not certify exhaustive appendix comparison",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Historical primary cellular-automaton group-algebra method"
+        },
+        {
+          "assessment": "RELATED_DECISION_NOT_COMPLETE_JORDAN",
+          "evidence": "A criterion for invertibility cannot determine the higher c(t) and split Jordan lengths.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.3483",
+          "material_read": "Relevant theorem/description of characteristic-polynomial-gcd invertibility criterion",
+          "method": "Inspected primary-source theorem discussion",
+          "title": "Lights Out! on Cartesian Products",
+          "trigger": "Same graph product and adjacency invertibility question"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "Cannot conclude no equivalent theorem from a snippet; retained as specific risk.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-0000(85)90048-0",
+          "material_read": "Bibliographic and abstract-level material only; full text unavailable",
+          "method": "Abstract/bibliographic inspection",
+          "title": "Dynamical characteristics of linear cellular automata",
+          "trigger": "Plausible older equivalent general CA structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Motivation and full statement in frozen RESULT.md at blob 1c36fd2c4c9bba69aa6aa4b3eadd140865d22a37",
+        "Frozen RESULT.md blob 1c36fd2c4c9bba69aa6aa4b3eadd140865d22a37, proof §§1–4"
+      ],
+      "rationale": "A complete nilpotent Jordan and transient-time distribution classification for a natural two-dimensional, bounded-degree graph automaton; the nontrivial g>1 resonance and exceptional (1,1) half-length local factor identify genuine structural effects, and the exact populations and unbounded clocks have direct dynamical use beyond known invertibility checks.",
+      "residual_risks": [
+        "Prior general additive-cellular-automata formalisms reduce computational novelty of parts of the proof, but not the explicit classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every m,n>=3 characteristic-two four-neighbor torus has zero-primary Jordan partition (1)^(2g-1) for L=1 or (L/2)^(2k) + L^(2(g-1)k) for L>=2, with exact Fitting entrance-time populations over every finite field F_Q.",
+  "limitations": [
+    "Characteristic-two finite fields only, open-neighbor C_m×C_n with m,n>=3; no primitive period census on invertible Fitting component.",
+    "Primary Aso–Honda 1985 full text inaccessible; historic priority cannot be certified."
+  ],
+  "schema_version": 1
+}
