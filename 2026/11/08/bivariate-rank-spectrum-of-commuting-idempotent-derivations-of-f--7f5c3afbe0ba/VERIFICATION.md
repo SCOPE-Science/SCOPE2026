@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Execute `python3 verify.py` from a directory containing the bundled standalone script. It requires Python 3's standard library and no network access. The captured `verification_output.txt` is the expected output. The script exhaustively enumerates scalar-normalized implementing matrices \(A\), tests \(A^2+A\) scalar and the original Leibniz/idempotence identities for derivations, and computes their bivariate rank distributions. It tests commutation directly on derivation maps in the smaller configurations, with a proved commutation-to-implementer equivalence used for the four-dimensional case. The checked fields are \(\mathbb F_2,\mathbb F_3,\mathbb F_4\), with \(\mathbb F_4\) implemented as a genuine extension field.
+# Independent mathematical audit
 
-Verified pair totals include \(13\) for \((n,q)=(2,2)\), \(49\) for \((2,4)\), \(253\) for \((3,2)\), and \(18169\) for \((4,2)\). All coefficients agree, not only totals. The final marker is `COMMUTING_IDEMPOTENT_DERIVATION_BIVARIATE_RANK_OK`.
+## correctness
 
-**Boundary:** finite exhaustive checks cannot prove an assertion for all dimensions or field sizes; the independent six-step mathematical proof is in RESULT.md. These checks do not verify conjugacy classifications, nonlinear maps, or arbitrary (non-idempotent) derivations. Independent audit is not performed.
+PASS
+
+Every associative F_q-derivation of M_n is inner. In odd characteristic an idempotent derivation has square-zero image as a two-sided ideal, hence zero. In characteristic two, ad(A)^2=ad(A^2), so idempotence forces A^2+A=cI, classifying split projection and irreducible quadratic implementers. For commuting idempotent ad(A),ad(B), [A,B] is scalar and lies in im(ad(A)) intersect ker(ad(A)), hence is zero. Counting B in split M_r x M_s or nonsplit M_m(F_{q^2}) centralizers, with q scalar-equivalent implementations, produces L,H,K and complete bivariate rank polynomial with balanced even-n boundaries. Independent F2 small n counts agree: n2 13 pairs, n3 253. Enumeration corroborates, not replaces all-field proof.
+
+## originality
+
+PASS
+
+The earlier complete single-derivation rank polynomial supplies L_n and the split/nonsplit classification, but its marginal P_n,q does not determine ordered commuting-pair rank correlations H and K. Galois-descent grading and M2 Klein-four classification concern isomorphism types, not full labeled all-n bivariate coefficients. The new conditional centralizer census survives prior implication.
+
+## value
+
+PASS
+
+The full joint rank enumerator of commuting derivations is a natural invariant of finite matrix algebra gradings and captures centralizer correlations omitted by known single-derivation spectra. Its all-size closed expression distinguishes split from nonsplit cases and shows characteristic-two phenomenon; it is not a mere table for small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
