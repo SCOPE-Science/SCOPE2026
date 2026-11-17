@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of arithmetic checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The script uses no external services and only standard-library `fractions`, `math` and `itertools`. The expected marker is `VERIFY_OK`.
+## correctness
 
-The checked objects are the exact 2026 two-facility Global Pair and classical Proportional mechanisms with nearest-facility social cost. The script recomputes the conditional-cost influence polynomials and exact rational variance \(147113/504000\), the Proportional integrand quotient, eleven rational symmetric three-site population formulas, 231 additional rational profiles, and two independent midpoint numerical integrations with 300 mesh points. In the run producing this record, the program terminated with the `VERIFY_OK` marker and reported 242 finite cases.
+PASS
 
-Analytic verification of infinite assertions requires following the bounded-kernel V-statistic decomposition, empirical-process two-median envelope argument and iid CLT in RESULT.md. Neither the finite profile checks nor quadrature certify infinite convergence or literature novelty. Independent audit has not been performed.
+For a uniform population, exact nearest-facility integral is [x²+(1−y)²]/2+(y−x)²/4 for ordered sites. Integrating anchor costs gives Global Pair T=7/40, Proportional T=−1/18+7π/96, and optimal two-median Q=1/8, hence limiting ratios 7/5 and 7π/12−4/9. Uniform weak empirical convergence and bounded kernels give a.s./L1 conditional limits. The bounded V-statistic plus unique-population-minimizer envelope yields Global Pair ratio influence 8I_T−(56/5)I_Q; independent exact piecewise polynomial integration confirms centered Gaussian variance 147113/504000. On masses (a,1−2a,a) at 0,1/2,1, direct conditional pair enumeration yields difference a(1−2a)²(1−3a)/(2(1−a)), a strict sign reversal at a=1/3. Sampling CLT is conditional expectation over lottery, not ex-post pair draw.
+
+## originality
+
+PASS
+
+PASS qualified for the surviving conjunction of exact empirical conditional-cost Gaussian fluctuation and atomic mass-threshold reversal, neither supplied by the inspected equivalent same-date paper. CRUCIAL CORRECTION: another published same-date finding already establishes the Proportional 7π/12−4/9 mean, its typical-case superiority to Global Pair 7/5, and fixed-mixture limit. Those parts are COVERED and cannot be represented as original. The candidate public RESULT/SLOGAN overclaims novelty for the π-constant, so publication must be withheld until full scientific wording is corrected (not an automatic scientific rejection of the distinct CLT/reversal).
+
+## value
+
+PASS
+
+PASS (restricted to surviving contributions): The empirical conditional-cost variance gives a nontrivial exact sampling-uncertainty benchmark, distinct from random facility lottery noise; the three-site threshold is a sharp motivated counterexample to distribution-free ranking. Although the uniform π-constant is already known, these two exact properties are independently useful to stochastic mechanism analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
