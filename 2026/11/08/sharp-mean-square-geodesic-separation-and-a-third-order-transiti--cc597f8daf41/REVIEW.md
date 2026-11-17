@@ -1,19 +1,21 @@
-# Scientific review of the cone-disk squared-distance theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analytic result uses intrinsic cone distance, two independent normalized-area radial distributions and the shorter uniform angular separation. The proof derives both exact branches of the scale-free second moment and proves the complete critical-point count from \(G''(x)=8x\cos x\) together with endpoint signs. A radical comparison at \(7\pi/8\) proves the local maximum is above the flat-disk level; a Taylor expansion proves exactly the \(C^2\)-not-\(C^3\) transition. Numerical calculations and \(1{,}540{,}000\) simulated pairs supplement the proof. The geometric statement excludes smooth embedded interpretations when total angle exceeds \(2\pi\).
+PASS
 
-## Originality — PASS (provisional historical priority)
+On an intrinsic Euclidean cone disk, radial area density 2r/R² and uniform shorter angular difference δ on [0,x] (x=α/2) combine with d²=r²+s²-2rs cos(min(δ,π)). Using E r²=R²/2 and E(rs)=4R²/9 gives F(x)=(9x-8sin x)/(9x²) to π and (17x-8π)/(9x²) above π, with apex-geodesic probability 1-π/x only for x>π. For the ordinary cone branch the derivative numerator G=16sin x-x(9+8cos x), G''=8xcos x, and endpoint signs prove exactly two roots x_-≈0.925373 and x_+≈2.922168 and one global minimum at x_-; the upper root is a local maximum. The exact F(7π/8)>F(π) gives three solutions for levels in (1/π,F(x_+)). For x>π, F'<0. Expansion about π verifies F is C² not C³ with third derivative jump -8/(9π²). The analytic derivation, not the finite Monte Carlo checker read in full, proves all parameter claims.
 
-Izmestiev, arXiv:1409.7681v1 (materially read: PDF pages 1–2), proves isoperimetric inequalities for cone surfaces, not this uniform-pair distance-moment classification. Charitos–Papadoperakis–Tsapogas, arXiv:1412.3404v1 (materially read: PDF pages 1 and 3), study geodesic structure on closed surfaces, not truncated one-apex disks with area-uniform pair distances. Published mathematical-record results on right circular cone Steiner-root transitions, conic surface-area ratios and polygon short-distance coefficients do not mathematically imply the present statement. An accessible earlier claim on local distance-CDF expansions for closed cone surfaces neither evaluates nor optimizes this global moment, and an earlier flat-cylinder distance theorem has a different quotient geometry. The elementary metric-cone distance law is prior background. Older unindexed literature and incomplete full-text access remain residual priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a sharp fixed-area metric optimization for every ordinary right circular cone, with a unique nonflat optimizer. It also completely classifies the stationary bifurcations of the squared-distance statistic, establishes a nontrivial interval of exact three-shape ambiguity, and detects a curvature-sign transition by an order-three singularity. These are motivated geometric-invariant facts, not unsupported claims about arbitrary surfaces.
+The full published 2026-11-02 cone-disk result ALREADY states the ordinary-angle moment formula and at-least-threefold inverse ambiguity on a smaller open range: these pieces are NOT new. The assessed surviving result is the exact stationary-root count/unique fixed-area optimizer, maximal exact triplicity interval, and explicit extension to abstract α>2π giving the apex-route onset and C²-but-not-C³ phase transition. The earlier proof contains no x>π statement and proves only at least three roots, not exact counts, so no stronger implication was established. Best-knowledge with incomplete external cone-geometry primary full texts.
 
-## Limits
+## value
 
-No claim is made for nonrotational surfaces, different sampling laws, higher moments, higher-dimensional cones, or independent validation. The nonembedded larger-angle metric cones are treated only intrinsically. The checker confirms finite cases, not all parameters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The strictly evaluated fixed-area intrinsic distance statistic is natural for conical surfaces. The exact global minimizer within embedded right cones, two critical points with exact three-to-one inverse interval, and apex-geodesic phase onset at 2π with third-derivative discontinuity form a nontrivial full qualitative classification. It strengthens the prior at-least-three ambiguity and extends beyond its geometric domain, rather than merely reprinting the already known moment identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
