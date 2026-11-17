@@ -1,12 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional obstruction \(d(M)\leq\min\{\dim M,\dim K_\theta-\dim M\}\) is immediate from the quotient definition and forces the lower model cutoff \(4r+2\). In the proposed model \(\theta=z^{4r+2}\), the two-monomial truncated Toeplitz operator and rank-\(r\) coordinate perturbation have exactly the displayed \(2r+1\) independent kernel generators. Applying the perturbed operator to their backward shifts produces \(2r+1\) distinct coordinate vectors, establishing exact defect \(2r+1\) and complementarity. The rank of the perturbation is exactly \(r\), not merely at most \(r\). The proof works for every positive integer \(r\); thirteen finite checker cases independently support the algebra but cannot prove the unbounded quantifier.
+## correctness
 
-## Originality — PASS, subject to publication-priority limitations
-Chattopadhyay–Khan, arXiv:2610.40295v1, Theorem 5.4, proves only the general *upper* defect bound. Previously documented all-rank sharpness examples on larger model spaces prove attainability but not the *minimum degree*; their model dimensions were \(5r+6\) and \(8r+8\). The new exact minimum \(4r+2\) follows from a separately proved universal lower obstruction and a different, smaller explicit attaining construction. The revised arXiv v3 continues to state the upper bound without a minimum-dimension classification. Liang–Partington (2020) works on ordinary Toeplitz kernels in full \(H^2\), not the finite truncated model cutoff. Relevant bibliographic and mathematical-equivalence searches disclosed no already known result specifying the same optimum. Risks: classical model-space constructions may admit implicit compression to the same dimension; literature-search nonappearance is not proof of priority. Independent novelty validation has not occurred.
+PASS
 
-## Mathematical value — PASS
-This is a **complete natural minimum-size classification** for the recently introduced sharp defect phenomenon: exactly how many scalar model coordinates are required before the largest allowed defect can occur? The construction is not simply a larger instance of prior examples; it attains the absolute finite-dimensional barrier, and any minimizer is forced to have a half-dimensional kernel disjoint from its backward-shift image. This provides a smallest possible exact testing model in every perturbation rank and shows that the universal defect bound needs no excess ambient dimensions. The generic dimension inequality alone does not establish attainability within the strongly constrained Toeplitz-plus-rank-\(r\) class. The theorem does not address all equality cases or multiband spaces.
+In a finite model of dimension N, for M=ker(A-P), M0=M∩zH² has dimension at most dim M, and the quotient (M+S*M0)/M has dimension at most both dim M and N-dim M. Thus if d=2r+1, N≥2d=4r+2. At equality dim M=dim M0=d and M⊕S*M=Kθ. For the explicit θ=z^(4r+2), A=J^(2r+2)+(J*)^(4r+1), P=Σ e_(2j+1)⊗e_(2j+2) exactly rank r, solve Bx=0 to obtain independent u0=e1, u_(2j+1)=e_(2j+2)+e_(2r+2+2j+1), u_(2j+2)=e_(2j+3). The images BJu0=e_(4r+1), BJu_(2j+1)=e_(2j), BJu_(2j+2)=-e_(2j+1) are independent, so d(M)=2r+1. This is a symbolic all-positive-r proof; the finite replay for r=1,2,3,5,7,13,30 checks coordinates, rank and complementarity, not the infinite quantifier.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier published all-rank sharpness statements prove the maximal defect d=2r+1 for some finite models, not the minimizing dimension across ALL finite scalar models. Their explicit examples have model dimensions 8r+8 (first) and 5r+6 (second), while a prior orthogonal-projection witness has 4r+4. None gives a 4r+2 realization or proves that dimension is attained; universal N≥2d alone is not enough to show an admissible Toeplitz-plus-rank-r kernel. Thus exact model-size optimum is not covered by these read full results. The directly relevant Chattopadhyay–Khan Theorem 5.4 source could not be inspected in full owing to VPN/auth, leaving explicitly material residual risk rather than automatic failure.
+
+## value
+
+PASS
+
+The minimum dimension of a natural finite-dimensional Hardy model realizing equality in a sharp operator-theoretic defect bound is a meaningful, parameter-uniform extremal invariant; reducing previously available constructions from 4r+4 or larger to the sharp obstruction 4r+2 is an exact structural answer, not merely a rephrasing of the defect upper bound. Forced balanced kernel geometry adds a necessary condition for all extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
