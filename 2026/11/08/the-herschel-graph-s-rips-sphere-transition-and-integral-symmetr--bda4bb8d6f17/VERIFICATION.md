@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The included standard-library program `verify_rips.py` computes the exact graph distances from the literal edge list and checks them using two independent shortest-path algorithms. It enumerates all eleven-vertex subsets at each distance threshold, constructs an 88-pair acyclic discrete-Morse matching, topologically sorts all 178 directed cover faces and 526 incidences, and checks 767 explicit unique-coface elementary collapses at distance three. A separate mod-two simplicial boundary-rank computation corroborates the nonzero integral sphere stage but does not alone prove the homotopy statement.
+## correctness
 
-For symmetry, the graph degree pattern proves the automorphism group has at most twelve elements, and the program constructs and checks all twelve permutations. It calculates signed simplex traces and Lefschetz numbers exactly, verifying the product-sign orientation character. All stages, restrictions, critical cells and terminal counts are independently reproducible from the graph's 18 edges; no downloaded data or third-party libraries are needed.
+PASS
 
-To replay, run `python3 verify_rips.py` alongside the extracted file. The provided `verification_output.txt` contains the complete recorded standard output; the final line is `ALL_CHECKS_PASS`. This check is computational verification of an explicit finite proof, not independent validation and not a statement about all graph families.
+Using exactly the supplied 11-vertex 18-edge Herschel adjacency, independently computed all 11-by-11 shortest-path distances, yielding diameter four, triangle-free graph and scale-1 cycle rank 18-11+1=8. The complete 2^11 nonempty subset enumeration gives scale counts 11,29,178,1535,2047 at integer distances 0..4 and scale-two f=(11,42,69,46,9,1). Independent replay of pivots (9,4,0,10,3,7,2,1,8,5,6) yields 88 pairs and critical 0/3-cells; all 526 covers topologically sort, proving X2≃S3 integrally. An independent exhaustive free-face procedure legally performs 767 elementary simplicial collapses of X3 to vertex {0}; at scale four the full simplex is contractible. All 12 S3×C2 graph automorphisms were constructed and the signed simplex Lefschetz traces agree with sgn(S3)⊗epsilon(C2). Rank-one integral top homology forces degrees ±1; the all-field reduced barcode consists of ten [0,1) in H0, eight [1,2) in H1 and one [2,3) in H3.
+
+## originality
+
+PASS
+
+Targeted searches for Herschel graph Rips, Herschel distance-two clique complex and its sign character found no earlier equivalent result besides the exact assigned record. Older Herschel independence/matching/cut classifications concern different simplex predicates; other named graph Rips classifications have different metrics/graphs and no universal implication. Adamaszek (arXiv:1104.0433), inspected primary PDF, analyzes powers and clique complexes under girth/forbidden-cycle restrictions and named families; Herschel has four-cycles (e.g. 0-5-1-6-0), failing relevant girth restrictions. Its general graph-power perspective does not determine this 11-vertex finite computation or its orientation. Best-of-knowledge with unindexed risk.
+
+## value
+
+PASS
+
+The smallest non-Hamiltonian polyhedral graph is a natural graph-metric test case. Its shift from a wedge of eight loops to an integral three-sphere at r=2, collapse at r=3, and nontrivial full symmetry orientation are motivated exact filtration invariants, useful for graph-power and persistent equivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
