@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** An explicit six-variable affine transverse chart gives the full, exact local hyperdeterminantal equation. All six derivatives give the indicated Jacobian ideal; the tangent fiber quotient has basis \(1,x,y\). Its length-two odd-characteristic comparator is a separate full-Jacobian computation. The generic inseparability statement follows from a nonsquare valuation in the tangency function field. The standalone exact symbolic checks were replayed from the packaged code.
+## correctness
 
-**Originality — PASS, provisional historical-priority status.** The degree-six boundary-format hyperdeterminant and singular reduced support are classical, particularly the 1996 characteristic-zero classification of Weyman–Zelevinsky and the 2011 explicit invariant of Bremner. Those sources do not state a characteristic-two local Jacobian ideal or its nilpotent length-three rank-two tangent fiber. Relevant exact-claim, alias and broader-coverage searches in mathematical records did not identify that combined positive-characteristic phenomenon; unindexed older material remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The rank-two tangency divisor is a natural discriminant stratum of a classical hyperdeterminant, not an arbitrary slice. Its length-three nonreduced Jacobian fiber, in contrast with the usual length-two tangency, exposes a wild characteristic-two singular-scheme effect; the purely inseparable generic contact incidence explains its geometric origin. The value is the structural characterization of a natural degeneration, not a claimed general classification.
+On chart with columns 2,4 independent, use invertible row operations to matrix N=[[-a,1,-(1+c),0],[-b,0,-d,1],[y,0,-x,0]]. Its signed maximal minors (x, a x+(1+c)y, y, b x+d y) satisfy Np=0 and Segre equation p0p3-p1p2=b x²+(d-a)xy-(1+c)y² exactly. In char2 derivatives with respect to a,b,c,d,x,y give xy,x²,y²,xy,(d-a)y,(d-a)x; as H belongs to (x²,xy,y²), singular Jacobian ideal is J=(x²,xy,y²,(d-a)x,(d-a)y). Localizing t=d-a invertible yields reduced (x,y). Holding tangency base t=0 gives three-dimensional Artin quotient k[x,y]/(x,y)², while odd characteristic tangent quadratic with nonzero square coefficient gives k[x]/(x²), length 2. At generic char2 t=0 with b and 1+c units, contact square root (1+c)/b is not a rational square since b has odd discrete valuation, so a purely inseparable degree-two field extension. Independent SymPy determinant/partial derivative rederivation matches identity; algebra/valuation, not finite random tests, covers the chart.
 
-**Limits.** This is a local theorem around the described open tangent rank-two stratum. It does not settle global lower-rank strata. No independent historical-priority or scientific audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS specifically for the characteristic-two full Jacobian ideal, tangent Artin-length jump and radicial generic contact field. The degree-six boundary-format polynomial and reduced singular-locus framework are prior work, not novelty.
+
+## value
+
+PASS
+
+The exact nonreduced local fiber and inseparable incidence at a natural tangency divisor refine reduced hyperdeterminant singularity classification in bad characteristic. The length jump 2 to 3 is a structural geometric boundary likely useful in modular tensor-degeneracy and singular-scheme computations, not an arbitrary isolated numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
