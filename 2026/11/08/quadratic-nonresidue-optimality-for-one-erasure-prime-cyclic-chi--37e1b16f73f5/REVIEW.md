@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof independently reconstructs the masked autocorrelation as the two deleted terms from the zero cyclic correlation of a prime-length chirp. The algebraic identity gives the full complex correlation, including all factors of two and the erasure-location phase. Coset analysis yields exact maxima; the standard quadratic Gauss-sum formula gives exact integrated energies. Quantifiers cover all odd primes, every nonzero root, every erased position, and all nonzero shifts. The packaged standalone checker directly recomputes the complex correlations for all roots and two erased sites for each odd prime through 101. This check is finite corroboration rather than proof.
+PASS
 
-## Originality — PASS, with documented residual risk
+For one deleted chirp entry, exact cancellation of the complete CAZAC correlation leaves the two missing terms: R(k)=-2 exp(pi i u k(2a+1)/p) cos(pi u k^2/p). Peak minimization becomes nearest-to-zero representative in quadratic residue cosets; Gauss sum real parts give I=2(p-2)+2 chi(u)sqrt(p) for p=1 mod 4, and 2(p-2) otherwise. Both objectives select nonresidue roots for p=1 mod 4 and all roots for p=3 mod 4. Independently constructed chirps and checked all roots p=5,7,11,13, multiple lags and energies. Prime-only one-erasure unnormalized cyclic scope is essential.
 
-Full text inspected: Andrews, arXiv:2211.05702, sections on chirp definitions, cyclic autocorrelation, and modified sequences; Gregoratti–Arteaga–Broquetas, arXiv:2311.01035, sections 2–4 and Appendix B. These establish full-period ideal autocorrelation and Gauss sums but do not formulate the one-hole optimization. Research-record searches using Zadoff–Chu, CAZAC, single erasure, missing chip, root, quadratic nonresidue, and sidelobe aliases returned related chirp tomography and phase-rigidity findings but not this claim. Related accessible mathematical statements were checked for the same implication. Lee–Yang (2014) is a plausible specialized source on partial-period correlations, but only abstract-level material could be inspected: an equivalent hidden implication there remains a specific priority risk, not a verified noncoverage claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Robustness of ideal cyclic correlation under one missing symbol is a canonical damage model for phase-coded reference sequences. Exact worst sidelobe and total sidelobe energies are complementary engineering and mathematical invariants; their common optimizer, the \(p\bmod4\) dichotomy, and the explicit quadratic-nonresidue criterion give a complete, unbounded-prime root-selection classification. The result is not a general CAZAC optimality theorem or a model of multi-symbol losses.
+Andrews and Gregoratti et al. supply chirp CAZAC and Gauss-sum prerequisites, but the inspected accessible descriptions do not establish root minimizers after one erased entry. Lee and Yang 2014 is highly relevant because its partial-period formulas might specialize to the same one-hole model; only abstract was accessible and authorized institutional access was VPN-disconnected, leaving significant risk. No inference that an unread whole paper lacks the result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete simultaneous exact sidelobe-energy and peak-optimal root classification for natural one-erasure communication training sequences is a motivated natural invariant; although elementary once the phase cancellation is written, the all-prime coset decision is not merely the known unpunctured CAZAC identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
