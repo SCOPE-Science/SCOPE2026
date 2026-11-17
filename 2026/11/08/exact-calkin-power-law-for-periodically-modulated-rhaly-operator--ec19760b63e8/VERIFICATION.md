@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standard-library-only checker `check_periodic_cesaro.py` was executed directly with Python 3 and reported 2,884 successful finite identities and diagnostics. Its direct rational-arithmetic matrix calculations verify the formulas for finite Cesàro-sandwich entries and weighted Gram entries, using five periodic coefficient patterns and five finite matrix sizes. Four lower-bound Cesàro packet norms were checked numerically.
+# Independent mathematical audit
 
-The universal statements do not follow from finite testing. Independently inspect the explicit infinite sums and their summability in the proof: a periodic mean-zero cancellation estimate produces the Hilbert–Schmidt identity \(CD_cC-mC^2\in\mathcal S_2\); the same argument applies to the Gram sandwich. The weakly null packet argument proves the essential norm of the ordinary Cesàro operator, and the direct selfcommutator estimate proves its essential normality. The quotient algebra identities then imply the stated power law and the square-zero example.
+## correctness
 
-Boundary conditions checked in the proof: \(q\ge2\); complex periodic coefficients, including zeros; nonzero mean-square \(\mu\); integer power \(p\ge1\); and the separate interpretation of \(|m|^0\) at \(p=1\) when \(m=0\). No full essential-spectrum formula for \(m\ne0\), no nonperiodic extension and no independent audit are claimed.
+PASS
+
+PASS: Periodic zero-mean partial sums are uniformly bounded, so summation by parts bounds Σ_{j=k}^n d_j/j=O(1/k) and Σ_{j>=M}e_j/j²=O(M^-2). Thus CD_dC and C*D_eC are Hilbert–Schmidt. The Cesàro weakly null harmonic packets give essential norm 2; its commutator C*C-CC* is Hilbert–Schmidt, so its Calkin image a is normal. With b=pi(D_c), aba=ma² and a*b*ba=mu a*a imply (ba)^p=m^(p-1)ba^p and ||ba^p||=sqrt(mu)2^p. The zero-mean square-zero and numerical-radius conclusions follow by C*-algebra calculus, with p=1 interpreted separately at m=0. A finite independent check tested periodic cancellation entrywise for multiple patterns; the proof is infinite-dimensional.
+
+## originality
+
+PASS
+
+PASS (best knowledge): the relevant earlier periodic Rhaly Gram theorem computes the trace-class Gram averaging and first essential norm, and Sang gives Toeplitz-algebra membership, but neither establishes the full complex-periodic all-power essential norm or square-zero Calkin behavior. The additional mean m controls powers, while the earlier Gram result involves only mu. General earlier power-calculus coverage is a residual risk.
+
+## value
+
+PASS
+
+PASS: the contrast of identical positive Gram operators with sharply different essential spectral radii is a motivated operator-theoretic distinction. The exact two-moment, all-power law and noncompact square-zero Calkin example are reusable structural facts and are not a generic restatement of Gram compactness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
