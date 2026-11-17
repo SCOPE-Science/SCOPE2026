@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification procedure and boundaries
+# Independent mathematical audit
 
-The enumeration proof is in `RESULT.md` and covers every integer \(n\ge2\), using the prior known optimum-support theorem of Chee et al. (2024). Reproduction of its finite numerical table uses only the files included alongside this document.
+## correctness
 
-1. With Python 3, run `python3 verify.py counts.csv`. This performs independent exact-integer full-graph Bareiss cofactors for \(2\le n\le12\), a separately constructed compressed-graph Bareiss computation for \(3\le n\le15\), exhaustive enumeration of balanced minimum deleted-edge sets for \(2\le n\le7\), and a direct circular-word/rotation census for \(2\le n\le6\). The checked run printed `FULL_GRAPH_DETERMINANTS_OK_2_TO_12`, `INDEPENDENT_COMPRESSED_BAREISS_OK_3_TO_15`, `UNIQUE_MAXIMAL_SUPPORT_ENUMERATION_OK_2_TO_7`, `DIRECT_CIRCULAR_WORDS_OK_2_TO_6` and `VERIFY_OK`.
-2. With a C++17 compiler and Boost.Multiprecision headers, compile `g++ -std=c++17 -O2 count_cycles.cpp -o count_cycles` and execute `./count_cycles 15`. The output is exactly `counts.csv`. CRT modulus accumulation exceeds the proved combinatorial bound \(2^{F_{n-1}-1}\), so these reconstructed nonnegative integers are exact.
+PASS
 
-The finite enumeration checks are cross-checks of the recurrence-free construction and determinants, not proofs of the assertions for arbitrarily large \(n\). The previously known all-order optimality and uniqueness are cited from Chee et al. (2024); the newly assessed complete-cycle counting formula follows from a proved forced-corridor arborescence bijection, BEST and the directed matrix-tree theorem in `RESULT.md`. No independent scientific audit has been conducted.
+The known Chee–Etzion–Nguyen–Ta–Tran–Vu maximum/support theorem fixes exactly the cyclically no-11 n-words as Eulerian overlap edges, for all n>=2. Vertices beginning/ending 0 have indegree=outdegree=2; every other vertex has degree one with forced zero continuation. Every forced corridor reaches a branch, and contraction establishes a bijection on root-directed arborescences with parallel arcs kept distinct. Directed BEST has factorial product 1, so the root cofactor of (2I-A_n) is the complete rotation-class count. Independently constructed full-graph Laplacians at n=2..8 gave C_n=1,1,1,2,2,28,216 and 216 for n=8 (the sequence for n=2..8 is 1,1,1,2,2,28,216); none is an infinite proof. Numerical census beyond n=8 was inspected as source evidence, not independently rerun.
+
+## originality
+
+PASS
+
+The maximum length L_n and uniquely determined cyclic support are prior results, and the matrix-tree and BEST ingredients are standard. The submitted all-order compressed-tree cofactor counts ALL optimal cycles rather than the lengths, the number of necklaces or a method constructing a subset; the directly relevant 2024 primary paper Section 4 was inspected and counts necklace/word populations and lengths, not all Euler circuits. No dominating full-tour enumeration was established by the actual Resultary search or inspected primary text. Historical priority of an unindexed exact census remains a genuine risk.
+
+## value
+
+PASS
+
+The complete multiplicity of maximum run-constrained de Bruijn cycles is a natural exact combinatorial invariant for universal-cycle enumeration and constrained coding. The forced-corridor reduction from F_(n+1)-1 vertices to F_(n-1)-1 supplies a nontrivial structural formula and computable counts, beyond a routine redefinition of known maximal length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

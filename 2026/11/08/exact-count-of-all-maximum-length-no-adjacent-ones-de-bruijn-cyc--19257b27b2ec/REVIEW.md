@@ -1,27 +1,21 @@
-# Scientific review: complete enumeration of optimal constrained de Bruijn cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The known optimal support is exactly the set of length-\(n\) cyclically no-`11` binary words; this premise is established by Chee et al. (arXiv:2403.01454, Corollaries 2.12 and 2.14) under exchanging zeros and ones. The derived overlap graph has degrees \(1\) except at the vertices beginning and ending in `0`, where they equal \(2\). Its unique outgoing arcs from nonbranch vertices append `0`, reaching a branch. The bijection between full-graph rooted in-arborescences and those of the two-outgoing-arc compressed multigraph is proved, including acyclicity and parallel-arc distinctions. BEST and the directed matrix-tree theorem therefore give a correct exact determinant for the number of *all* optimal cyclic words modulo rotation. This is a proof for all \(n\ge2\), not an inference from finite experiments.
+PASS
 
-The final extracted computations reproduced exact determinant values via C++ modular CRT and independently written Python Bareiss (both compressed and full-graph), plus exhaustive short circular-word and balanced-support tests. The C++ modulus product exceeds a proven numerical bound and the counts through \(n=15\) are exact.
+The known Chee–Etzion–Nguyen–Ta–Tran–Vu maximum/support theorem fixes exactly the cyclically no-11 n-words as Eulerian overlap edges, for all n>=2. Vertices beginning/ending 0 have indegree=outdegree=2; every other vertex has degree one with forced zero continuation. Every forced corridor reaches a branch, and contraction establishes a bijection on root-directed arborescences with parallel arcs kept distinct. Directed BEST has factorial product 1, so the root cofactor of (2I-A_n) is the complete rotation-class count. Independently constructed full-graph Laplacians at n=2..8 gave C_n=1,1,1,2,2,28,216 and 216 for n=8 (the sequence for n=2..8 is 1,1,1,2,2,28,216); none is an infinite proof. Numerical census beyond n=8 was inspected as source evidence, not independently rerun.
 
-## Originality — PASS, qualified
+## originality
 
-The 2024 source decisively covers maximum length, the Lucas count of admissible windows, and uniqueness of the maximizing support, so none of those assertions is presented as original. Moreno–Matamala (2004/2007) and Sawada–Williams–Wong (2016) already develop constrained-language cycles. The 2024 paper Theorem 3.1 generates a lower-bounded family of optimal cycles, whereas its Section 4 enumerates **word/necklace populations**, not the total population of **all distinct optimal cycles**. The present compressed Laplacian determinant, proof of exact correspondence, and full integer census up to length 15 do not follow from that paper's claimed number of constructive choices. BEST/matrix-tree are explicitly credited as standard tools.
+PASS
 
-There remains genuine risk of unindexed older full-tour tables, or a previously published equivalent cofactor for the golden-mean shift. We do not equate an unsuccessful search with priority proof. The narrowly stated exact full-cycle enumeration nevertheless survives comparison of the strongest relevant theorems inspected.
+The maximum length L_n and uniquely determined cyclic support are prior results, and the matrix-tree and BEST ingredients are standard. The submitted all-order compressed-tree cofactor counts ALL optimal cycles rather than the lengths, the number of necklaces or a method constructing a subset; the directly relevant 2024 primary paper Section 4 was inspected and counts necklace/word populations and lengths, not all Euler circuits. No dominating full-tour enumeration was established by the actual Resultary search or inspected primary text. Historical priority of an unindexed exact census remains a genuine risk.
 
-## Value — PASS
+## value
 
-For maximum-length constrained de Bruijn sequences, knowing a single efficient construction or even many choices does not tell how many inequivalent optimal cyclic schedules exist. The exact total is a natural invariant for diversity, uniform selection, and the complexity of the full solution space. A forced-degree-one-corridor argument reduces the arborescence count to a graph with \(F_{n-1}\) rather than \(F_{n+1}\) vertices, enabling a reproducible complete numerical census of orders through \(15\). Unlike a routine restatement of the known maximum length, this evaluates a motivated previously unreported population size at each order, with an all-order exact counting expression.
+PASS
 
-## Compared literature and remaining limitations
+The complete multiplicity of maximum run-constrained de Bruijn cycles is a natural exact combinatorial invariant for universal-cycle enumeration and constrained coding. The forced-corridor reduction from F_(n+1)-1 vertices to F_(n-1)-1 supplies a nontrivial structural formula and computable counts, beyond a routine redefinition of known maximal length.
 
-- Moreno–Matamala: https://arxiv.org/abs/0711.1695 (restricted de Bruijn Euler constructions; WG 2004 antecedent)
-- Sawada–Williams–Wong: https://doi.org/10.37236/5517 (specified cyclic forbidden-substring families)
-- Chee et al.: https://arxiv.org/abs/2403.01454 (maximal length and unique support already proved; many constructions, not an evaluated total cycle census)
-
-The determinant counts all orders; only the evaluated integers through length 15 are certified by included programs. Independent mathematical and historical-priority audits remain outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
