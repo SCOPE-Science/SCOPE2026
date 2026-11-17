@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:57:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-absent-subsequence-length-spectrum-of-permutation--694f06b3553b/RESULT.md",
+        "verify.py blob 2870d484703f05df542d25c7372e6ba73ccf47f6",
+        "Independent literal enumerator q4 k1..3"
+      ],
+      "rationale": "For W=P^k, greedy embedding advances copies exactly at weak descents, so v occurs iff D(v)≤k-1. Minimal absence forces D(v)=k, endpoint weak descents, and every interior Δ_i=d(v_{i-1},v_i)+d(v_i,v_{i+1})-d(v_{i-1},v_{i+1})=1. Ascents are isolated and induce strict two-step increases in BOTH parity tracks; with a ascents, remaining k-a-1 nonincreasing two-step edges imply k≥a+1+2floor((a-1)/(q-1)). Doubled staircase blocks T_h=00 11 ... (h-1)(h-1), repeated and supplemented with leading zeros, attain each allowed ascent count. Inverting gives exactly lengths k+1 to k+1+(q-1)floor((k-1)/(q+1))+min((k-1) mod(q+1),q-1), q≥4. Independently brute-forced all candidate MAS for q=4,k=1,2,3: length supports {2},{3,4},{4,5,6}, respectively, agreeing. Inspected separate finite-state/literal verifier, not using its output as universal proof.",
+      "residual_risks": [
+        "General proof depends on parity-track and staircase construction; finite host checks alone cannot establish unbounded k or q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2504.21471",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-minimal-absent-subsequence-spectrum-of-repeated-ter--fe91200b1768"
+        ],
+        "reasoning": "General O(n log sigma) longest-MAS algorithm can compute each finite input but does not yield the symbolic q,k sharp length interval. Published ternary enumerator is a q=3 special alphabet outside q≥4. Neither dominates all arbitrary q≥4.",
+        "searches": [
+          "Manea Ringleb Siemer Winkler longest minimal absent subsequence arbitrary string algorithm",
+          "Resultary complete ternary repeated permutation minimal absent subsequence bivariate series"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2108.13968",
+        "https://arxiv.org/pdf/2504.21471",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-absent-subsequence-length-spectrum-of-permutation--694f06b3553b/RESULT.md",
+        "Resultary semantic query: permutation powers exact longest minimal absent scattered subsequence weak descent parity staircase q k"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2108.13968",
+          "https://arxiv.org/pdf/2504.21471",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-absent-subsequence-length-spectrum-of-permutation--694f06b3553b/RESULT.md"
+        ],
+        "reasoning": "2021 explicitly constructs a large subfamily for B_k, not an extremal length proof. 2025 computes longest MAS of arbitrary *fixed* input but does not imply algebraically the all-q,k gap-free length spectrum without additional reasoning; the new parity-track proof and constructive staircase attainments furnish this missing implication.",
+        "searches": [
+          "Kosche et al 2021 Section 3 B_k proposition exponential MAS construction",
+          "Manea et al 2025 longest minimal absent subsequence algorithm Theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2108.13968",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-absent-subsequence-length-spectrum-of-permutation--694f06b3553b/RESULT.md"
+        ],
+        "reasoning": "Host B_k in Kosche et al. is the same repeated-permutation object; their construction produces exponentially many MAS but does not state a full longest-length/gap-free-support formula in inspected Section 3. The claims overlap in objects, not in final statements.",
+        "searches": [
+          "Resultary: minimal absent scattered subsequences permutation powers length support q>=4",
+          "Kosche Koß Manea Siemer B_k=(1...sigma)^k minimal absent subsequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-rational-minimal-absent-subsequence-enumeration-for-quater--cbfa755e19d6",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-absent-subsequence-length-spectrum-of-permutation--694f06b3553b/RESULT.md"
+        ],
+        "reasoning": "Quaternary generating-series work addresses q=4 and can encode individual lengths, a genuine known overlap. It does not supply the uniform all-q formula, parity-track upper bound, or gap-free attainment for every q≥4; no exact database covering all q,k was located.",
+        "searches": [
+          "Resultary quaternary permutation powers entire minimal absent subsequence enumeration rational generating function",
+          "Resultary sharp minimal absent subsequence length spectrum permutation powers"
+        ]
+      },
+      "rationale": "Sharp length-support interval for all permutation powers with q≥4 is not given by the inspected 2021 same-host exponential MAS construction or by the 2025 arbitrary-host algorithm for finding one longest MAS. It goes beyond a single computed value: supplies exact closed formula, no gaps and structural witnesses uniformly in two unbounded parameters. Special smaller alphabets and a quaternary length/count generating-function finding overlap in limited cases, not all q≥4.",
+      "residual_risks": [
+        "Known quaternary enumerator may independently imply q=4 portion, and an unindexed general generating function might cover all q.",
+        "Inspected relevant primary sections rather than claiming exhaustive full-document negative searching."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exponential MAS subset and shortest/longest distinctions; no inspected formula of exact all-q length interval",
+          "evidence": [
+            "https://arxiv.org/pdf/2108.13968"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Full PDF retrieved; Section 3 around p. 207, end of exponential MAS construction, Proposition 3.7 and associated proofs; PDF screenshot inspected",
+          "method": "Web PDF text and page-8 screenshot",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Exact same permutation power family B_k"
+        },
+        {
+          "assessment": "Algorithmic coverage of individual input maximum, not symbolic full support for P^k",
+          "evidence": [
+            "https://arxiv.org/pdf/2504.21471"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+          "material_read": "Full PDF retrieved; abstract, introduction, main contribution of O(n log sigma) longest-MAS algorithm, definitions on pp. 1-3; page-2 screenshot inspected",
+          "method": "Web PDF text and screenshot",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "Potential stronger algorithm on arbitrary input words"
+        },
+        {
+          "assessment": "Only q=3 comparison from indexed summary; not used to assert absence of any all-q claim",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-minimal-absent-subsequence-spectrum-of-repeated-ter--fe91200b1768"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-minimal-absent-subsequence-spectrum-of-repeated-ter--fe91200b1768",
+          "material_read": "Search record summary only, not full manuscript",
+          "method": "Resultary semantic search",
+          "title": "Complete minimal-absent-subsequence spectrum of repeated ternary permutations",
+          "trigger": "Same host type at q=3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-absent-subsequence-length-spectrum-of-permutation--694f06b3553b/RESULT.md",
+        "https://arxiv.org/pdf/2108.13968",
+        "https://arxiv.org/pdf/2504.21471"
+      ],
+      "rationale": "Permutation powers are natural canonical subsequence hosts; the exact contiguous spectrum of minimal absent lengths and sharp longest-length slope 2q/(q+1) solve a meaningful all-parameter combinatorial invariant. The parity-track obstruction and explicit extremal staircase witnesses provide structural interpretation beyond generic instance-by-instance algorithms.",
+      "residual_risks": [
+        "Does not count MAS by length or address arbitrary host words; earlier q=2,3 special cases and q=4 enumeration are not claimed as independently new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "q≥4, exact powers of one permutation over its full alphabet, all k≥1; determines possible lengths, not multiplicities. Finite corroboration does not establish infinite universal quantifiers.",
+  "schema_version": 1
+}
