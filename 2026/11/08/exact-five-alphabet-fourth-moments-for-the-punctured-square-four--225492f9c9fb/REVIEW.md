@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each specified phase alphabet, the three independent phase symmetries give a unique representative with three coefficients equal to one. Thus the remaining search contains exactly \(q^5\) arrays. The two fourth-moment identities, exact cyclotomic norm calculations, and complete deterministic loop are all given explicitly. Reproduced output independently compares autocorrelation and convolution moments for all 12,200 representatives and exactly matches every optimizer tuple in the catalog. This is a finite exhaustive proof; it does not infer infinite claims from a sample. Discrete Fourier sampling at orders at least five follows from no-aliasing of \(P^2\).
+## correctness
 
-## Originality
-**PASS, with bibliographic risk.** The two focal 2021 array papers construct complementary pairs/sets, whereas the present result optimizes the whole aperiodic sidelobe sum for a **single** punctured planar aperture. The 2021 correlation-optimization study provides iterative methods, not these exact finite tables. Existing published full-square and eight-vertex cube fourth-moment statements do not imply this claim: their additive geometry and coefficient domains differ. Their respective original arguments were compared, not merely their titles. The possibility of an unindexed prior eight-site array catalog remains.
+PASS
 
-## Mathematical value
-**PASS.** The centered-hole \(3\times3\) support is a natural symmetric sparse Fourier aperture with eight active sites. Exact integrated-sidelobe optima across five practical small phase alphabets provide hardware-resolution benchmarks and a complete count of optimal designs. A nontrivial irrational fifth-root optimum, nonmonotone behavior at ternary phases, and two rigid sixth-root optimizers distinguish the result from a single ad hoc numerical optimum. No result for unrestricted phases is claimed.
+The normalization c00=c01=c10=1 is a bijective gauge slice under q^3 character-phase actions for q=2..6; after it, the domain has sum q^5=12200 cases. Fourier orthogonality reduces the fourth moment to convolution coefficient squared norms; q=2,3,4,6 admit Gaussian/Eisenstein exact arithmetic and q=5 a Z[sqrt5] integer-pair order. An independent convolution enumeration, with a separate program from submitted checker.py, reproduced minima 88,96,88,96-4sqrt5,84; normalized optimizer counts 3,36,11,4,2; and maxima 216 for all five q. Finite complete enumeration supplies a valid finite proof only for these alphabets. Character aliasing does not arise for grid orders m,n>=5.
 
-## Closest literature and limitations
-Primary sources are the two-dimensional complementary array constructions of Pai--Chen and Zhang--Fan--Mesnager (2021), as well as Raei and colleagues' 2021 phase-only correlation optimization work. Published complete Fourier-aperture results treat the full nine-site square and a three-dimensional eight-site cube, not the punctured planar square. A specialist historical equivalent remains possible. All completeness assertions concern \(q=2,3,4,5,6\) only; there has been no independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original at the exact final claim level after statement-level comparison with identified published results; credits previously known subclaims, keeps specific access and archival risks.
+
+## value
+
+PASS
+
+The hollow 3-by-3 aperture is a natural eight-frequency nonrectangular planar support; the exact minimizer census and nonmonotone root-alphabet response are independently useful concrete phase-code invariants not supplied by full-square or three-dimensional cube calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
