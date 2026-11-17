@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Exact computational checks
-Compile and run `verify.cpp` using a standard C++17 compiler and optimization such as `g++ -O3 -std=c++17 verify.cpp -o verify && ./verify`. The expected output starts `VERIFY_OK states=43046721 fixed=99819 max_transient=10 maximizing_state=109805 sum_transient=110746398` followed by the four rows of the maximizing configuration. Both the program and this command were executed using the attached source.
+# Independent mathematical audit
 
-Independently run `g++ -O3 -std=c++17 check_fixed.cpp -o check_fixed && ./check_fixed`; expected `CHECK_FIXED_OK fixed=99819`. This computes the fixed count by row triples without using the directed-distance array or the main update function. The test passed.
+## correctness
 
-The sharpness witness is independently reconstructed step-by-step in `witness_trace.txt`. Its active-site counts are positive at times zero through nine and zero at time ten.
+PASS
 
-The principal proof is finite exhaustive enumeration: it accounts for exactly \(3^{16}\) states and rejects any nontrivial cycle, explicitly rather than treating timeout as evidence. The results are not extrapolated to any larger lattice. No independent audit has been performed.
+PASS: the complete transition is synchronous 4x4 modular eight distinct Moore neighbors, threshold four, 3^16 states. Packaged integer C++ functional graph assigns every distance or catches nontrivial cycle; independently compiled and ran separate complete deterministic 43,046,721-state check, obtaining fixed=99,819, max depth=10 and sum depth=110,746,398; no periodic cycles. Separate row-triple check source and explicit ten-step witness inspected. Finite exhaustive argument applies to exactly this finite lattice, not larger tori.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: no inspected source proves the exact 4x4 eight-neighbor threshold-four all-configuration functional graph stabilization, 99,819 fixed states and sharp maximum transient ten. Prior 2026 cyclic-dominance paper reports sampled freezing, not a census. Resultary other Moore torus work gives different strip or period-exclusion statements without this census.
+
+## value
+
+PASS
+
+PASS: critical threshold-four Moore dynamics is outside strict-majority theoretical fixation; exact first noncomplete square is a canonical smallest lattice. Complete all-state fixation, maximal ten-step transient and fixed count eliminate potential unsampled cycles and give a reusable finite benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

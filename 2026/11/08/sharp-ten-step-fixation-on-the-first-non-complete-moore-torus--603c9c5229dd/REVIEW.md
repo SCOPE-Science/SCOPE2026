@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has a finite, precisely bounded domain: all \(3^{16}\) colorings of the periodic \(4\times4\) lattice. The supplied `verify.cpp` traverses every vertex in its deterministic functional graph and rejects any detected nontrivial directed cycle; if no such cycle exists it computes the exact distance to the eventual self-loop. The completed run reports maximal distance ten with an explicit attaining state, and an independent row-triple calculation in `check_fixed.cpp` yields the same count of fixed points. The proof is exact integer enumeration and does not treat experiments on smaller domains as proof of this domain. The source programs and the witness trace are embedded with the result.
+## correctness
 
-## Originality — PASS within checked material
-The nearest exact mathematical prior is a strict-majority Lyapunov theorem which covers eight-neighbor systems only at thresholds at least five. It does not imply fixation at the critical threshold four. Muñoz–Nuño, arXiv:2610.37990v1, Section II gives the rule and Section V.13 only reports sampled runs at threshold four, not an exhaustive \(4\times4\) census or exact sharp transient. Prior cyclic-automaton literature studies phase patterns and bounds in other settings, but none of the accessible checked texts states the claimed specific complete census. Searches and implication comparisons are recorded in AUDIT.json. Residual specialized-priority risk remains; lack of an indexed match alone does not establish novelty.
+PASS
 
-## Mathematical value — PASS
-The first non-complete square Moore torus is the smallest lattice displaying genuinely local rather than complete-graph interactions. The source explicitly identifies the half-neighborhood threshold four as its first empirically freezing regime and does not prove all-initial-condition fixation there. Exact global convergence, its **sharp** worst-case settling time, and the complete fixed-state cardinality therefore answer natural precise finite dynamical questions at this critical boundary. This is a complete finite classification, not an arbitrary parameter slice or an inference about larger systems.
+PASS: the complete transition is synchronous 4x4 modular eight distinct Moore neighbors, threshold four, 3^16 states. Packaged integer C++ functional graph assigns every distance or catches nontrivial cycle; independently compiled and ran separate complete deterministic 43,046,721-state check, obtaining fixed=99,819, max depth=10 and sum depth=110,746,398; no periodic cycles. Separate row-triple check source and explicit ten-step witness inspected. Finite exhaustive argument applies to exactly this finite lattice, not larger tori.
 
-## Limitations
-No conclusion about larger tori, other neighborhoods, or universality of finite-time freezing. The work is computationally exact but remains subject to independent scientific validation and broader historical-priority checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: no inspected source proves the exact 4x4 eight-neighbor threshold-four all-configuration functional graph stabilization, 99,819 fixed states and sharp maximum transient ten. Prior 2026 cyclic-dominance paper reports sampled freezing, not a census. Resultary other Moore torus work gives different strip or period-exclusion statements without this census.
+
+## value
+
+PASS
+
+PASS: critical threshold-four Moore dynamics is outside strict-majority theoretical fixation; exact first noncomplete square is a canonical smallest lattice. Complete all-state fixation, maximal ten-step transient and fixed count eliminate potential unsampled cycles and give a reusable finite benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
