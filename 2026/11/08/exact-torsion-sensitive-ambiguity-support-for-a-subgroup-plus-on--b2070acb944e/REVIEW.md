@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses specify a proper subgroup with at least two elements, an outside point, a nonzero complex amplitude, unnormalized character conventions, and exact zero support. Directly expanding the autocorrelation isolates: \(h-1\) subgroup rows of \(q\) characters; a zero-delay row with a cancellation fiber of size \(q/r\) only when the quotient has even order and the impulse energy is \(h\); and either two disjoint cross-cosets or one merged order-two cross-coset. In the merged case the single-row cancellation criterion is character evaluation \(\chi(x)=-\bar z/z\), which gives exactly \(N/o(x)\) zeros when permitted. The stated formulas, attainable values, optimizer classification, sharp universal lower bound, and torsion detection follow with no limiting arguments. Exact cyclotomic checks on eleven distinct group/support geometries passed all 80 tested cases. The checks corroborate, rather than prove, the all-group theorem.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The transform convention is unnormalized A_f(x,χ)=∑ f(t) overline(f(t−x)) overline(χ(t)), for finite abelian G, proper H of order h>=2, y outside, z nonzero. Expanding four disjoint product types proves h−1 nonzero H-shift rows of q=N/h characters and a zero-shift row with N entries minus q/r cancellations iff r is even and |z|²=h. For quotient order r>2 the ±(y+H) cross-cosets do not overlap, contributing 2hN. For r=2 they coincide, cross-row factors z+bar z overline χ(x); evaluation of character χ(x) over its o(x) roots produces exactly N/o(x) vanished entries iff d=ord(−bar z/z) divides o(x). This gives the complete support formulas, all phase-attainable levels, minimum at calibrated |z|²=h and d|gcd orders, and the lower bound from o(x)>=2 with sharp elementary two-torsion equality classification. Independent exact Fourier enumeration over cyclic Z8 with H even and z=2,2i returned support 41, with z=1 support 42; a binary two-dimensional equality check and original exact cyclotomic test cases corroborate. These finite examples are not an arbitrary-group proof.
 
-The most pertinent inspected primary texts are Nicola's 2023 general abelian-group extremizer classification (arXiv:2305.02738, especially Introduction and Theorem 4.5) and his 2022 cyclic-group STFT equality theorem (arXiv:2204.14176, especially Theorem 1.2 and Section 4.2). They classify the minimum ambiguity support and its equality cases, but the inspected statements do not specify the nonzero off-subgroup impulse support count, its arithmetic phase levels, or the exact quantitative gap. Current mathematical-record searches included aliases for subgroup-indicator perturbations, finite Gabor ambiguity, quotient-order-two cancellation, and support spectra. Closest located records address two-sparse STFTs, three-tap cyclic supports, or measurement-operator ranks rather than this subgroup-plus-impulse self-ambiguity invariant. The broader literature might contain the same combinatorial count under different notation; a negative search cannot certify novelty. Three particularly close public mathematical results were additionally inspected in full; some other search neighbors were compared only from indexed summaries.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A subgroup indicator is a standard maximally concentrated finite time-frequency waveform. Adding exactly one off-subgroup point is the minimal controlled loss of that support geometry. The theorem gives a complete, scale-independent exact zero-support profile for every finite abelian ambient group, including a group-theoretic torsion test and a sharp universal lower bound with equality classification. It reveals that an order-two quotient produces an entire arithmetic phase staircase, whereas higher quotient orders collapse the profile to at most two levels. These are natural structural support invariants and a concrete instability mechanism for exact uncertainty extremizers, not merely a numerical instance. They do not imply approximate or noise-stable localization estimates.
+Nicola 2022/2023 theorems classify extremal finite Gabor/STFT ambiguity support and equality waveforms, including subgroup indicators, but the materially inspected 2023 Theorem 4.5 does not enumerate all exact support levels after adding one nonzero off-subgroup impulse, optimize its phase for each torsion coset, or distinguish quotient order two from higher orders. Nearby two-sparse or three-tap cyclic support records address different supports/window geometries. The self-ambiguity expansion here is elementary Fourier orthogonality; novelty is restricted to the full torsion-sensitive support stratification, sharp bound and equality phases for every finite abelian G. Historical priority provisional because a specialized Gabor-perturbation paper may contain an equivalent count.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A subgroup indicator is a natural exact localization extremizer in finite time-frequency analysis; adding one point outside the subgroup is the minimal structural perturbation. Classifying exact cancellations shows an otherwise invisible order-two quotient produces an arithmetic phase staircase, provides a sharp universal gap with exact equality configurations, and distinguishes all higher quotient orders. This useful structural instability result neither claims a general new uncertainty principle nor noise-stable estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
