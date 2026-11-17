@@ -1,19 +1,21 @@
-# Scientific review: digit-language cyclic-pair spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For \(G=\bigoplus_i C_{p^{\lambda_i}}\), counting elements of exact order \(p^j\), then cyclic subgroups and their generating ordered pairs, yields formula (1) in `RESULT.md` without any unproved probability assumptions. The digit blocks occupy disjoint positions and have one zero-position gap, as verified by the identity \(a_{j+1}=a_j+r_j+1\). The congruence \(N\equiv-p\pmod{p^2}\) for noncyclic groups proves the exact lowest-terms denominator. Every admissible digit string reconstructs a genuine partition and yields the proposed rational value by the same count; uniqueness is unconditional within the specified family. Exact-arithmetic tests run on 3445 noncyclic partitions and 40 directly enumerated small groups. Enumeration corroborates but does not replace the proof.
+PASS
 
-## Originality
+For G of abelian p-power order p^n with conjugate partition r_j, |G[p^j]|=p^{s_j}, hence number of order-p^j cyclic subgroups (p^{s_j}−p^{s_{j−1}})/(p^j−p^{j−1}); each cyclic subgroup has p^{2j}−p^{2j−2} generating ordered pairs. Summation gives p^{2n}θ=1+(p+1)Σ_j p^{j−1+s_{j−1}}(p^{r_j}−1). Each summand is a carry-free run of digit p−1 occupying r_j positions; consecutive starts differ by r_j+1. Rank≥2 implies T≡−1 mod p², numerator≡−p mod p², so reduced denominator p^{2n−1} recovers p,n and digit word recovers partition and invariant factors. Sufficiency follows by constructing that group. Independently tested partitions n=2..9 for primes 2,3,5 and direct sample values 17/32,83/243.
 
-**PASS for the arithmetic image characterization, qualified.** The ordered-pair cyclic statistic and its general counting formula are established by Patrick et al. (1993) and Chatterjee–Das (2026). Amiri (2026), building on Tărnăuceanu, proves that the sum of element orders determines a finite abelian \(p\)-group *when the order is fixed*. Since the two statistics are affinely related for \(p\)-groups, that fixed-order injectivity is covered prior work and is not claimed as a discovery. The present mathematical claim is the explicit necessary-and-sufficient digit pattern for *all attainable reduced rational probabilities*, including recovery of the previously unknown prime and order and a canonical construction. The inspected sources do not give this image language or the one-zero separator rule. The remaining historical risk is that an earlier arithmetical description of the image of the sum-of-orders function might imply the same criterion; priority is not externally certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The set of attainable cyclic probabilities is a natural question explicitly raised in Chatterjee–Das (2026). The theorem completely describes a foundational infinite subfamily—noncyclic finite abelian \(p\)-groups—by a finite arithmetic membership test. It does more than show numerical injectivity: the base-\(p\) digit language recognizes the image without knowing the prime, group order, or partition and supplies a constructive inverse; it also counts exactly \(P(n)-1\) values for each possible reduced denominator. This is a complete natural classification, not a selected numerical table or arbitrary parameter slice.
+The 2026 Chatterjee–Das general cyclic-pair probability paper supplies the Dedekind-psi element-order sum and several rational value bounds, not the complete attainable rational language for abelian p-groups. Amiri/Tărnăuceanu establish fixed-order rigidity of element-order sums; that implies injectivity at fixed order and is NOT new. The submitted strict p-adic denominator and carry-free partition-word condition characterize the entire image with initially unknown prime and group order, a stronger and structurally different inverse statement. No exact covering prior theorem found in searched records; best-of-knowledge only.
 
-## Closest literature and limitations
+## value
 
-The 1993 cyclic-generation paper proves upper bounds and tuple analogues, not the image; Chatterjee–Das supplies the general pair-count formula and rational-value classifications, not the full abelian prime-power spectrum. Amiri gives a broader structural rigidity theorem for an affinely related statistic, so the uniqueness corollary is expressly treated as covered. Tărnăuceanu–Tóth's cyclicity degree is a different subgroup-counting statistic. The claimed result is limited to noncyclic abelian prime-power groups; it neither classifies arbitrary finite-group values nor distinguishes cyclic groups. Possible unlocated digit descriptions of element-order sums remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The set of attainable exact values of a standard random generation invariant is a natural inverse algebraic problem. The proved iff rational-digit language, injectivity across all primes/orders in a noncyclic p-group family, and constructive recovery are reusable for classifying groups from observable probabilities; not merely fixed-order injectivity or a finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

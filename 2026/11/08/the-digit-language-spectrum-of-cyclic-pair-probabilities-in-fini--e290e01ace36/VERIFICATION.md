@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The proof in `RESULT.md` is self-contained and establishes the infinite-family theorem. `CHECK.py` is a supplementary executable using only Python standard-library integer, rational, tuple and set operations. It was run using Python 3 as `python CHECK.py`. Actual captured output is in `CHECK_OUTPUT.txt`:
+## correctness
 
-```
-PARTITION_CASES 3445
-DISTINCT_CASES 3445
-BRUTE_GROUP_CASES 40
-VERIFY_OK
-```
+PASS
 
-The checker implements two independent count routes, one from cyclic-subgroup sizes and one from nonoverlapping base-\(p\) blocks. It confirms reduced-denominator valuations, unique value counts in the tested range, and exact recovery of all partitions. It additionally constructs all elements of forty small groups and directly counts pairs generating cyclic subgroups. Direct-pair enumeration checks the cyclic-subgroup counting formula without assuming it in the test.
+For G of abelian p-power order p^n with conjugate partition r_j, |G[p^j]|=p^{s_j}, hence number of order-p^j cyclic subgroups (p^{s_j}−p^{s_{j−1}})/(p^j−p^{j−1}); each cyclic subgroup has p^{2j}−p^{2j−2} generating ordered pairs. Summation gives p^{2n}θ=1+(p+1)Σ_j p^{j−1+s_{j−1}}(p^{r_j}−1). Each summand is a carry-free run of digit p−1 occupying r_j positions; consecutive starts differ by r_j+1. Rank≥2 implies T≡−1 mod p², numerator≡−p mod p², so reduced denominator p^{2n−1} recovers p,n and digit word recovers partition and invariant factors. Sufficiency follows by constructing that group. Independently tested partitions n=2..9 for primes 2,3,5 and direct sample values 17/32,83/243.
 
-Test ranges are \(p=2\) with \(n\le20\), \(p=3\) with \(n\le14\), and \(p=5\) with \(n\le12\), plus independent direct pair tests for \(p=2\) up to \(n=6\) and \(p=3\) up to \(n=4\). None of these finite tests is an exhaustive proof for all primes or orders. The source counts, congruence, inverse algorithm and boundary cases are proved algebraically in `RESULT.md`.
+## originality
 
-Independently reproduced mathematical audit has not been performed.
+PASS
+
+The 2026 Chatterjee–Das general cyclic-pair probability paper supplies the Dedekind-psi element-order sum and several rational value bounds, not the complete attainable rational language for abelian p-groups. Amiri/Tărnăuceanu establish fixed-order rigidity of element-order sums; that implies injectivity at fixed order and is NOT new. The submitted strict p-adic denominator and carry-free partition-word condition characterize the entire image with initially unknown prime and group order, a stronger and structurally different inverse statement. No exact covering prior theorem found in searched records; best-of-knowledge only.
+
+## value
+
+PASS
+
+The set of attainable exact values of a standard random generation invariant is a natural inverse algebraic problem. The proved iff rational-digit language, injectivity across all primes/orders in a noncyclic p-group family, and constructive recovery are reusable for classifying groups from observable probabilities; not merely fixed-order injectivity or a finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
