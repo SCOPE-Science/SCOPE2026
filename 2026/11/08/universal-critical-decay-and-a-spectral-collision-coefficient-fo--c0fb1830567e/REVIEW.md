@@ -1,19 +1,21 @@
-# Scientific assessment of critical product-hazard network relaxation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes a connected finite undirected loopless graph, a positive unit Perron vector, exact critical transmission \(\beta=\delta/\rho\), and interior recovery probability. The analytic proof separately establishes all-vertex positivity, global extinction (using a uniform positive drift contradiction), Perron alignment (the primitive linearization and a forced contraction), the exact second-order coefficient, and the reciprocal-amplitude asymptotic. The coefficient is strictly positive even for bipartite graphs because the linear map has positive diagonal. The included checker confirms the quadratic identity across 3,084 small-graph/parameter tests and the predicted global profile on five topologies. Finite tests are not substituted for the proof.
+PASS
 
-## Originality — PASS, qualified
+Positive primitive L=(1-delta)I+beta A has Lv=v. The exact product-union bound F(x)=Lx-H(x), H>=0, gives monotonically decreasing Perron mass a=v^T x. Nonzero limiting mass contradicts uniform positivity propagation and strictly positive H. Stable spectral modes are O(a²) and z/a->0. Expanding independent-neighbor product yields collision quadratic H_2 projected to K=delta[1-delta(1+1/rho)/2]sum v_i³; then 1/a increments ->K and t a->1/K. Own independent n=2 edge and n=3 path numerical nonaligned states at t=30000 agree to 0.03%; cannot prove infinite n. Original checker.py and pinned proof inspected.
 
-The exact nonlinear probability map and its threshold come from Chakrabarti et al. (2008), and Dung–Phuc (2026) contributes the community threshold set. The 2008 full text, including Theorems 2–4 and its appendices, covers strictly subcritical exponential decay, not the exact critical polynomial decay or its coefficient; the 2026 full text covers threshold comparisons, not temporal asymptotics at equality. The 2019 Prasse–Van Mieghem additive Euler NIMFA model and its 2020 continuous-time treatment have a distinct quadratic nonlinearity. The general \(t^{-1}\) phenomenon is standard for scalar parabolic dynamics and is not claimed as new. The distinctive claim is the globally valid network-specific constant and its explicit product-collision correction; an unindexed independent proof remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A spectral threshold alone does not quantify how slowly infection vanishes at the boundary: the theorem supplies the precise large-time coefficient for every connected finite network and any nonzero initial profile. It collapses a potentially neighborhood-dependent quadratic collision sum into the spectral pair \(\rho\) and \(\sum v_i^3\), and exhibits the quantitative discrepancy between different models with the same linear threshold. This makes a substantive, independently usable critical prediction, not a mere renaming of the strict-threshold results.
+Existing literature establishes same model and threshold but not this equality-case global decay coefficient in inspected accessible results. Collision correction is model-specific, not implied by NIMFA critical formula.
 
-## Evidence and limits
+## value
 
-Primary sources examined: Chakrabarti et al. 2008, https://www.cs.cmu.edu/~jure/pubs/virus-tissec.pdf (recurrence, theorem, and appendix text); Dung–Phuc 2026, https://arxiv.org/abs/2607.14048 (full article); Prasse–Van Mieghem 2019, https://arxiv.org/abs/1903.08027 (full HTML equation and assumptions); Prasse–Van Mieghem 2020, https://doi.org/10.1007/s00285-020-01542-6 (full OA article). Related searches did not locate a same-product-map, same-critical-coefficient statement, but no search can prove uniqueness. The model is deterministic and independence-closed, not the true finite SIS Markov process; directed networks, \(\\(\delta=1\)\), and infinite-network limits are excluded. Independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A model-specific exact critical relaxation coefficient for every finite connected graph identifies epidemic clearance speed at marginal threshold, a meaningful quantity not provided by a binary epidemic threshold or a generic parabolic existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

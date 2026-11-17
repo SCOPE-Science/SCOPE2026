@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and evidence boundaries
+# Independent mathematical audit
 
-Execute `python3 checker.py` with Python 3, using no nonstandard modules or external files. The program independently computes the Perron vector of each small graph, evaluates the quadratic collision sum directly, and compares it against the closed spectral expression. It also compares the full product map to its second-order expansion at small amplitude and numerically observes the large-time asymptotic on five illustrative networks.
+## correctness
 
-The finite verification consists of 3,084 connected labelled-graph/recovery-parameter comparisons for graphs on 2–5 vertices, and five separate critical-orbit calculations of length 100,000. Floating-point tolerances and iteration limits are explicitly present in the script; this is computational corroboration rather than a proof over all finite networks. The complete analytic justification is in `RESULT.md`, especially the decay, alignment and Taylor-coefficient steps. Independent mathematical audit or certification has not been performed. No real-world epidemic observations or stochastic Markov-chain experiments are claimed.
+PASS
+
+Positive primitive L=(1-delta)I+beta A has Lv=v. The exact product-union bound F(x)=Lx-H(x), H>=0, gives monotonically decreasing Perron mass a=v^T x. Nonzero limiting mass contradicts uniform positivity propagation and strictly positive H. Stable spectral modes are O(a²) and z/a->0. Expanding independent-neighbor product yields collision quadratic H_2 projected to K=delta[1-delta(1+1/rho)/2]sum v_i³; then 1/a increments ->K and t a->1/K. Own independent n=2 edge and n=3 path numerical nonaligned states at t=30000 agree to 0.03%; cannot prove infinite n. Original checker.py and pinned proof inspected.
+
+## originality
+
+PASS
+
+Existing literature establishes same model and threshold but not this equality-case global decay coefficient in inspected accessible results. Collision correction is model-specific, not implied by NIMFA critical formula.
+
+## value
+
+PASS
+
+A model-specific exact critical relaxation coefficient for every finite connected graph identifies epidemic clearance speed at marginal threshold, a meaningful quantity not provided by a binary epidemic threshold or a generic parabolic existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
