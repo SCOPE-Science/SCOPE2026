@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy and SciPy installed. The program uses deterministic numerical quadrature and seeded random sphere-point simulations. It directly constructs candidate affine supporting planes from singular-value decompositions, conditions on the facet event, and compares the observed mean heights with integration of the exact conditional density. It separately checks curvature, saddle Gaussian variances/CDFs, sphere/Gaussian total-variation integrals, and the coefficient in the nonlinear centering transition.
+## correctness
 
-Representative results: for \(d=600,m=1800\), the integrated centered variance is \(0.46175\), compared with the predicted \(0.46130\). For \(d=500,m=1000\), the computed total-variation distance between spherical and Gaussian conditional offset densities is approximately \(0.01630\). For the critical-centering calculation at \(d=3000000\), the finite shift is \(-0.49869\), approaching \(-\mu^3=-0.50795\). The completed script prints `ALL_HEIGHT_UNIVERSALITY_CHECKS_PASSED`.
+PASS
 
-The proof is analytical. Numerical quadrature and finite random experiments neither establish infinite-dimensional limits nor independently certify the mathematical result. Independent audit has not been performed.
+The exact candidate-facet conditioned spherical density is proportional to (1−h²)^((d²−2d−1)/2)F_d(h)^m, including signed h, m=n−d. The negative log-density in y=dh has V≥κ_d=1−2/d−1/d²>0 for d≥3, giving the finite-sample centered sub-Gaussian bound. With rho=m/d→finite, a uniform local Gaussian expansion gives moving saddle r_rho defined by r=rho φ(r)/Φ(r) and variance [1+rho λ(r)(r+λ(r))]^(−1). Strong convexity supplies tails so local Laplace expansion upgrades to total variation and moments. The Gaussian-model facet offset has tilted N(0,1/d) density and same saddle; TV comparison follows. Taylor r_rho=μrho−μ³rho²+O(rho³) yields the precise m~d^(3/4) linear-centering transition. Independently solved five saddle equations rho=0,.1,.5,1,3, obtained variances 1,.941626,.779898,.661296,.461297 and checked positivity and monotonicity. The finite calculations corroborate, not prove, the Laplace theorem.
+
+## originality
+
+PASS
+
+Bonnet–O’Reilly (2019/2022) establish the original exact spherical facet-height density and various first-order regimes, including m/d proportional. The new final claim retains prior formula as an ingredient but adds moving-centered finite-ratio TV Gaussian fluctuations, explicit variance, metric-offset universality, finite curvature and 3/4 centering threshold. These stronger second-order conclusions were not located in inspected primary theorems.
+
+## value
+
+PASS
+
+A quantitative distribution for the annealed labeled candidate-facet height in the proportional high-dimensional regime is a natural random-polytope invariant; the universal curvature and sharp nonlinear-to-linear centering boundary offer usable asymptotic fluctuation detail beyond first-order heights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
