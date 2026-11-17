@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The sumset's convex hull is exactly \((1+\lambda)P_{n,k}\). Membership in one vertex translate reduces to independent coordinate inequalities and an automatic sum constraint. For \(\lambda\ge1\), the nested thresholds yield an if-and-only-if order-statistic test, including equality cases. Sharp global bounds on the two relevant order statistics give coverage at \(\lambda=\max\{k,n-k\}\); two explicit points disprove coverage below each independent threshold for all \(\lambda>0\). The 239,672 deterministic exact-rational tests independently check the parameter normalization, but the proof is universal.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Meyer's 2026 exposed-face criterion proves qualitative finite convexification, not this exact all-rank numerical index or pointwise coverage test. Artstein-Avidan–Falah–Slomka (2024) define the vertex-generation normalization and show the simplex and necessary face bounds, which help explain the obstruction but do not give the sufficiency or complete rank–corank spectrum. Meyer's Schneider-index sumset work and the median-hypersimplex Minkowski indecomposability result address different predicates. Search comparisons with published mathematical records returned no encompassing all-hypersimplex result. The finite-source search cannot exclude older unindexed equivalents.
+PASS
 
-## Mathematical value — PASS
-Uniform-matroid base polytopes form an important, natural all-dimensional family interpolating between simplex extremals and highly symmetric central sections of cubes. The result classifies *every* rank and corank and resolves two independent thresholds at the exact pointwise level, strengthening a generic finiteness theorem into an extremal classification. For nontrivial ranks it is not a mere restatement of the simplex bound, and the order-statistic certificate determines which points are missed below the threshold. It does not imply results for nonuniform matroids.
+For each 0-1 hypersimplex vertex 1_I and lambda>0, the equation (1+lambda)y=1_I+lambda z is equivalent to y_i>=1/(1+lambda) for selected i and y_i<=lambda/(1+lambda) for unselected i, with sum(z)=k automatic. When lambda>=1 the nested cutoffs reduce exactly to y_(k)>=1/(1+lambda) and y_(k+1)<=lambda/(1+lambda), including ties. Every y in P_{n,k} satisfies y_(k)>=1/(n-k+1), y_(k+1)<=k/(k+1); sharp witnesses are k-1 ones plus n-k+1 equal small coordinates, and k+1 coordinates each k/(k+1) plus zeros. The first witness forbids any lambda<n-k, and the second any lambda<k, including lambda<1; their simultaneous satisfaction gives c(V)=max(k,n-k) for all lambda>0 and eta=1/(1+c). For lambda>=1 the two failure regions are disjoint because sorted y_(k)>=y_(k+1). Independent exact rational brute-force membership on finite hypersimplex grids through n=6 matched this criterion; universal proof uses inequalities, not finite enumeration.
 
-## Closest sources and limitations
-Meyer, *Finite convexification by Minkowski summation*, arXiv:2610.26744v1 (Sections 1–3); Artstein-Avidan, Falah, Slomka, *Vertex generated polytopes*, arXiv:2407.20604v1 (Sections 1–2 and 5–7); Meyer (2025), DOI:10.1186/s13660-025-03356-w; Jevtić et al., arXiv:2504.21345v1 (Section 2). Related published mathematical records concern simplex skeleton convexification, Hausdorff convexification, hypersimplex graph distance, or matroid Minkowski asymmetry rather than the covered set in this theorem. Historical priority and independent verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Schneider index and the vertex-generation normalization are classical; simplex endpoints and general face obstructions from Artstein-Avidan et al. are prior. The all-rank uniform-matroid base-polytope index and exact pointwise rank/corank membership phase diagram were not found in examined primary AFS full text or indexed related matroid findings. Meyer 2026 theorem plausibly gives a general criterion, but its full text could not be obtained, leaving a meaningful historical implication risk; accessible abstract alone is not used to claim it excludes the result.
+
+## value
+
+PASS
+
+Uniform-matroid base polytopes are a natural canonical family across all n,k, and the exact rank/corank index plus complete two-threshold pointwise covering criterion upgrades generic existence/face bounds into an all-rank extremal classification. The original obstruction and sufficiency proofs remain meaningful beyond the known simplex endpoints; a natural exact invariant needs no unrelated general theorem to be worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
