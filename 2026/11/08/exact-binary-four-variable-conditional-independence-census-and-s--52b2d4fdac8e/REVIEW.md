@@ -1,15 +1,21 @@
-# Scientific review: exact binary conditional-independence profiles
+# Independent mathematical audit
 
-## Correctness — PASS
-The quantified team-semantics definition reduces, on each fixed conditioning fibre, to rectangularity of a subset of a Boolean \(2\times2\) matrix. The proof identifies all and only the six forbidden support masks, namely the two diagonal pairs and the four three-corner masks. Two separate algorithms implement the explicit quantified definition and this characterization. Both agree on all \(1{,}572{,}840\) nonempty-team/atom pairs. All \(65{,}535\) teams are enumerated, their exact signatures are grouped, and the complete \(S_4\) action is evaluated; the scripts assert every claimed count. Since the universe is finite and completely traversed, this supports exact counts and the global bound for **four Boolean variables**, not an assertion for arbitrary domains.
+## correctness
 
-## Originality — PASS within inspected evidence
-The older logical source establishes the relational independence atom but not this restricted four-variable enumerative classification. Published probabilistic independence-model censuses over four variables concern random variables/distributions with different realization semantics, so do not imply the number of profiles or sharp witness bound for binary teams. The 2026 finite-atom sequent-calculus source concerns proof theory; accessible abstract and publication metadata do not report these numerical classifications. Targeted literature and research-index searches found no exact match for the figures, the 24-bit team semantics or the ten-assignment cutoff. Originality remains subject to historical-priority uncertainty because an equivalent older binary-relational table may be unindexed; the recent source's full text was not available for complete inspection.
+PASS
 
-## Mathematical value — PASS
-Conditional independence is a fundamental relational invariant of a team. The result supplies all possible elementary profiles at the first fixed Boolean arity where the full \(24\)-atom signature is sizable, identifies the precise resource needed to realize any profile, and settles the sharp worst-case witness number. The archived canonical witnesses and per-profile counts support later comparisons of logical axiom systems, representation bounds and independence entailment on a fixed binary universe. This is a complete motivated finite classification rather than a handful of isolated small cases.
+The literal semantics requires rectangular support for each 2x2 conditioning fibre. Its six failing supports are the two diagonal pairs and four three-cell sets. Exhausting all nonempty subsets of 16 assignments is a genuinely complete finite proof for this fixed domain. Independent fresh C++ enumeration used an alternate direct fibre-mask implementation, independently obtained 1,342 signatures; minimum-team histogram (1,11,29,114,264,397,307,129,62,28); exactly 125 S4-orbits (sizes 1:5,3:7,4:14,6:22,12:60,24:17). Inspected actual checker.cpp also compares literal forall/exists semantics for every (team,atom); its loops and mask transport are sound. No inference to non-Boolean domains.
 
-## Comparison and risks
-The strongest related numerical study located was P. Šimeček's 2006 classification of probabilistic four-variable independence models, whose realizability notion is not the relational product-of-projections criterion. The original logical semantics is from E. Grädel and J. Väänänen; the contemporaneous paper by F. Barbero, M. Girlando, V. Müller and F. Yang treats finite-variable team logics. Only the mathematical assertion inside the present stated scope is supported. Independent checks of historical priority and mathematical correctness remain to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No matched earlier theorem establishes a four-Boolean support-team census of all 24 relational elementary conditional-independence atoms. Independence atom semantics is established prior art; probabilistic CI model counts use probability distributions and different realizability, not these supports. Nearby published dependence/supervenience enumerations concern distinct logical atoms. Independent full-text material was compared; priority outside indexed work remains conditional.
+
+## value
+
+PASS
+
+Complete finite semantic classification on a natural smallest nontrivial conditioning universe with a sharp counterexample boundary of ten worlds; the full 24-atom truth profiles and orbit data can serve as a reference/model-test universe, not a merely relabelled textbook result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite verification
 
-Compile `checker.cpp` with a C++17 compiler, for example `g++ -std=c++17 -O2 -Wall -Wextra -pedantic checker.cpp -o checker`. Run `./checker --tables` in a directory where the output CSV files may be written. It will regenerate `profiles.csv` and `orbits.csv` and check the semantic definition against a separate rectangular-fibre algorithm for every one of the \(65{,}535\) nonempty teams and \(24\) atoms, a total of \(1{,}572{,}840\) pairwise checks.
+# Independent mathematical audit
 
-The checker asserts the exact \(1{,}342\)-profile count, the \(125\)-orbit count, the minimum-world distribution through the sharp bound \(10\), and orbit sizes and representatives. Successful execution prints `TEAM_CI4_EXHAUSTIVE_OK`. The table files are complete rather than samples. The encoded team is a \(16\)-bit indicator of assignments, the profile a \(24\)-bit indicator of atomic truth, and variable orders are fixed in `checker.cpp` and `RESULT.md`.
+## correctness
 
-This verification is exact for the finite Boolean assignment space and does not constitute an independently performed mathematical or historical-priority audit; the independent-audit channel remains unperformed.
+PASS
+
+The literal semantics requires rectangular support for each 2x2 conditioning fibre. Its six failing supports are the two diagonal pairs and four three-cell sets. Exhausting all nonempty subsets of 16 assignments is a genuinely complete finite proof for this fixed domain. Independent fresh C++ enumeration used an alternate direct fibre-mask implementation, independently obtained 1,342 signatures; minimum-team histogram (1,11,29,114,264,397,307,129,62,28); exactly 125 S4-orbits (sizes 1:5,3:7,4:14,6:22,12:60,24:17). Inspected actual checker.cpp also compares literal forall/exists semantics for every (team,atom); its loops and mask transport are sound. No inference to non-Boolean domains.
+
+## originality
+
+PASS
+
+No matched earlier theorem establishes a four-Boolean support-team census of all 24 relational elementary conditional-independence atoms. Independence atom semantics is established prior art; probabilistic CI model counts use probability distributions and different realizability, not these supports. Nearby published dependence/supervenience enumerations concern distinct logical atoms. Independent full-text material was compared; priority outside indexed work remains conditional.
+
+## value
+
+PASS
+
+Complete finite semantic classification on a natural smallest nontrivial conditioning universe with a sharp counterexample boundary of ten worlds; the full 24-atom truth profiles and orbit data can serve as a reference/model-test universe, not a merely relabelled textbook result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
