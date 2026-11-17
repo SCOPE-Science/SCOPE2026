@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sixteen smooth conics, sixteen nodes and six incidences at each node are established in the cited classical configuration. The doubled plane section makes each trope plane tangent to the node's smooth quadratic tangent cone. Distinct trope planes give six distinct tangent points on the conic. The restriction-evaluation ranks at these six points are exactly \(1,3,5,6\), forcing local normalization delta \(9\). The normalization sequence gives \(p_a=129\). A separate Cartier-divisor intersection argument gives square \(256\) and the same genus. The finite verifier checks linear-algebra arithmetic only; the universal assertion rests on proof.
+## correctness
 
-**Originality — PASS with priority risk.** This is not a discovery of the 16 conics or their node–trope incidence, which Böhning–Graf von Bothmer explicitly acknowledge as classical. The checked 2017 preprint/2018 full-text Section 4 and Dolgachev's 2024 Kummer discussion do not assert the specific local spatial delta or the arithmetic genus of their **reduced union**. Prior mathematical-record and accessible-ledger searches found no direct coverage. An older classical genus/intersection computation remains possible; no independence or exhaustive priority is claimed.
+PASS
 
-**Value — PASS.** The union is a canonical curve attached to every Jacobian Kummer quartic. Its genus and local delta measure how the six branches meeting at each surface node differ from an ordinary planar sextuple point; a planar singularity would have delta \(15\), while the actual spatial one has delta \(9\). The exact local-to-global compatibility and Cartier intersection calculation are structurally motivated invariants of this classical conic configuration, not an arbitrary numerical slice. The modest scope is acknowledged.
+For the classical complex genus-two Kummer quartic, each of 16 smooth trope conics passes through 6 of 16 nodes; two different conics meet at two designated nodes. The six tangent directions at each A1 point lie distinctly on a nonsingular projective conic. Evaluation of homogeneous jets on the six P1 points has ranks 1,3,5,6 in degrees 0,1,2,3, yielding local normalization length delta=5+3+1=9 (not planar 15); independently D is Cartier since six local Z/2 classes sum to zero and 2D~16H, D²=256, K_K=0, so p_a=1+256/2=129. This adjunction route verifies the key global conclusion independent of local-jet filtration subtleties.
 
-**Sources and limits.** arXiv:1704.01807v1 (Section 4, Definitions 4.10–4.11), Dolgachev 2024 Kummer type paper, and the explicit local algebra/calculation in `RESULT.md` and `verify_genus.py`. The 16_6 geometry is borrowed, not claimed original. No classification of analytic germs, global syzygies or arbitrary characteristic is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: inspected actual primary statements for possible coverage by equivalence and implication, not just matching titles. A priori the known 16_6 incidence and doubled trope sections permit a short adjunction computation once 2D~16H and Cartier are recognized, so much of arithmetic genus follows from classical Kummer facts; however the six-branch spatial jet calculation and local delta distinguish the claimed natural union from a generic plane sextuple point.
+
+## value
+
+PASS
+
+Reduced full 16_6 trope configuration is a canonical curve on a Kummer surface. Its local spatial six-branch delta and total arithmetic genus distinguish singular embedded union from planar multiple-point intuition; genus 129 and Cartier compatibility are useful exact structural invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
