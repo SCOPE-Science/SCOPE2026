@@ -1,11 +1,21 @@
-# Review of the \(A_4\) Kuhn-packet theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized \(A_4\) Voronoi cell is derived directly from the root inequalities. Its two-level vertices give squared covering radius \(6/5\). Explicit binary-shift centers enclose all 24 packet simplices for any directed-path frame. For any putative optimal frame the subset-sum diameter bound, parity of the root lattice, coordinate-row restrictions and linear independence force exactly such a path. The independent exact-integer script checks the 50-vector short shell, all 230300 finite candidate frames, and 2880 packet sphere inclusions. The one external implication \(\mu\le\kappa\) is supplied by Xue's Proposition 2.4 [1].
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Xue [1] defines the original invariant and proves general bounds, planar equality and standard-coordinate examples, but does not give the \(A_4\) original-packet computation or its 120-frame classification. The relaxed periodic-triangulation identity in that paper does not imply the original-frame identity. Nebe and Sloane [2] record the lattice's classical data, not this new minimizer theorem. Root-lattice Delaunay descriptions are relevant background; a differently formulated old equivalence remains a possibility.
+PASS
 
-**Mathematical value — PASS.** The first nontrivial four-dimensional type-A root lattice yields a complete canonical benchmark for the newly introduced common-frame fitting invariant, in contrast with examples where it strictly exceeds the covering radius. The theorem determines the entire optimal-frame orbit and proves that no optimal independent frame generates a proper sublattice. The pointwise binary-center mechanism and the short-shell rigidity give a useful structural explanation, not just a numerical equality.
+For the Euclidean root lattice A4 in the zero-sum five-space, the Voronoi cell is exactly the coordinate-range<=1 polytope by root inequalities and z_i^2>=|z_i| for integral zero-sum lattice points. Its vertices have k high coordinates and squared norm k(5-k)/5, so mu^2=6/5. For every directed Hamilton path root frame, each permutation simplex has a uniform binary-coordinate translation and a containing sphere of squared radius k(5-k)/5<=6/5. The published general mu<=kappa bound supplies equality. Conversely any optimal frame has every subset sum squared norm<=4 (integral even squared norm and diameter<=2 sqrt(6/5)); no coordinate row can repeat positive or negative incidence. A squared-norm-four vector forces either >10 entries or dependent columns, so all four are roots; indegree/outdegree<=1 and connected rank four yield exactly an oriented five-vertex Hamilton path, 5!=120 full lattice bases. Independent exact integer enumeration of 50 short vectors and 230300 four-subsets produced exactly these 120, and 2880 packet witness checks in original verifier were inspected. Enumeration corroborates the infinite geometric proof; not its substitute.
 
-The scope is fixed Euclidean \(A_4\); no universal higher-rank claim is made. The analytic proof is self-contained except for the established triangulation-to-covering bound. No external independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Xue defines original packet invariant and proves mu<=kappa. A related same-date published A_n theorem for n>=5 proves the common simple-root packet optimality and its argument extends to n=4, hence the numerical kappa(A4)=mu and existence of an optimal frame alone are already implied. It explicitly does not classify all minimizers. The full necessity and rigidity theorem, precisely 120 oriented-Hamilton-path frames among arbitrary independent lattice frames, is the noncovered contribution.
+
+## value
+
+PASS
+
+PASS: classification of every optimal packet frame is a natural structural lattice-geometry question, not a recomputed A4 covering radius. Its forced unimodularity and oriented-path rigidity distinguish optimal common-frame triangulations in a nontrivial four-dimensional root lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
