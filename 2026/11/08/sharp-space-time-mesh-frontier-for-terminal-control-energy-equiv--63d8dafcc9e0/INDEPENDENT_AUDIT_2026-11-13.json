@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:50:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On each finite Dirichlet m-grid the eigenvalues are 4m²sin²(jπ/(2m)), λ_min≥4 and λ_max=4m²cos²(π/(2m)). In one mode, θ-step factor r=[1−(1−θ)λk]/[1+θλk], control coefficient p=k/(1+θλk) and weighted discrete cost kΣ|u_i|² yield Wθ= (1−r^{2N})/[λ(2+(2θ−1)λk)]. The continuous semidiscrete Gramian is (1−exp(−2λT))/(2λ). Their ratio is exactly 2/(2+α λk) × (1−r^{2N})/(1−exp(−2λT)). Two bounds B1=sup αλ_max k and B2=sup λ_max k² give a positive uniform ratio by r^{2N}≤exp[−N(1−r²)] and λ_min≥4; unbounded B1 or B2 produces high-frequency modal ratio tending to zero. With a=αλ_max k→a∞ and b=λ_max k²→b∞, r→−1 and N log r²→−4T(2+a)/b if b>0, giving the stated exact profile; b=0 gives 2/(2+a). Independently checked 240 finite modal Gramian examples. No infinite-family inference from those samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer–Hubert–Le Rousseau 2011 treats uniform controllability/relaxed observability for space/time-discretized parabolic equations; 2025 Boyer–Hernández-Santamaría treats boundary-control spectral moment kernels."
+        ],
+        "reasoning": "A fully general uniform-observability theorem could be related, but boundary actuation and filtering do not directly imply fully distributed minimal-energy comparison for every grid target. The inaccessible 2011 full text is specifically recorded as a priority risk, not declared noncovering.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00211-011-0368-1",
+          "https://link.springer.com/article/10.1007/s00211-025-01484-5",
+          "Resultary query: theta method terminal heat control energy uniform equivalence Crank Nicolson O(h) fully distributed"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00211-025-01484-5",
+        "https://link.springer.com/article/10.1007/s00211-011-0368-1",
+        "https://arxiv.org/abs/2610.40461"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Infinite-horizon moment denominator is known, but finite-horizon endpoint factor and highest-mode θ mesh asymptotic need additional analysis; Kwon–Nunda study soft-hard penalty refinement."
+        ],
+        "reasoning": "The new necessary b-bound is an independent high-frequency time-oscillation condition: denominator alone would not detect failure when θ=1/2 and λk²→∞. This prevents deriving complete claim from older displayed diagonal alone.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00211-025-01484-5",
+          "https://link.springer.com/article/10.1007/s00211-011-0368-1",
+          "https://arxiv.org/abs/2610.40461"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer–Hernández-Santamaría 2025/2026 infinite-horizon θ moment kernel diagonal 1/[λ(2+αλk)] agrees with denominator of the finite-horizon Wθ."
+        ],
+        "reasoning": "Infinite-horizon scalar kernel matches a known ingredient, but lacks finite horizon factor 1−r^{2N}; fully-actuated all-target uniform comparison and b=λk² critical competition are stronger and not immediate just from its displayed moment diagonal.",
+        "searches": [
+          "Resultary query: fully actuated theta scheme heat equation terminal control Gramian uniform equivalence grid time step Crank Nicolson high frequency",
+          "https://link.springer.com/article/10.1007/s00211-025-01484-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned exact full-family energy table or theorem matching conditions sup αλk and sup λk² or the nonconstant F_T(a,b); most hits concerned entrywise positivity rather than control Gramian equivalence."
+        ],
+        "reasoning": "A failed database hit cannot prove priority; conclusion rests on actual model/statement comparison with available original source material.",
+        "searches": [
+          "Resultary semantic queries: theta heat control Gramian mesh and fully actuated terminal energy",
+          "https://link.springer.com/article/10.1007/s00211-025-01484-5"
+        ]
+      },
+      "rationale": "Best-of-knowledge original: exact finite-horizon fully distributed control Gramian and sharp necessity/sufficiency across simultaneous spatial/time refinement, plus the two-dimensional high-frequency critical ratio, are not established by relevant reviewed boundary-control and general numerical-control works; possible inaccessible classical coverage is expressly reserved.",
+      "residual_risks": [
+        "The complete 2011 classical controllability article was not obtained; its precise high-frequency/Gramian implications remain a material originality risk.",
+        "Full-actuation is essential; improper extrapolation to boundary actuation or full PDE not justified.",
+        "Critical profile requires integer N_m=T/k_m, θ_m∈[1/2,1], fixed T, λ_max→∞; general schemes not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: infinite-horizon theta spectral moment denominator already known; no inspected full-actuation finite-horizon simultaneous-grid equivalence theorem or b-profile",
+          "evidence": [
+            "§5.2 equation (160): 1/[λ+λ′+ατλλ′]; diagonal gives 1/[λ(2+αλk)]."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-025-01484-5",
+          "material_read": "Full accessible Springer HTML, especially §5.2 moment-kernel formula (160), surrounding analysis of boundary controllability and references",
+          "method": "Primary full article HTML sections read",
+          "title": "Boundary controllability of time-discrete parabolic systems: a moments method approach",
+          "trigger": "same theta spectral kernel, potentially broader source"
+        },
+        {
+          "assessment": "PRIORITY RISK: no whole-document exclusion; possible relaxed observability or filtered control results could overlap",
+          "evidence": [
+            "Numerische Mathematik 118 (2011), 601–661; title/abstract on discrete parabolic controllability."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-011-0368-1",
+          "material_read": "Publisher abstract, introduction/access summary and model details; complete article unavailable in examined route",
+          "method": "Publisher full-text-access attempt; abstract only",
+          "title": "Uniform controllability properties for space/time-discretized parabolic equations",
+          "trigger": "highly relevant classical same heat discretization"
+        },
+        {
+          "assessment": "Adjacent study; cannot establish entire contents do not cover exact family",
+          "evidence": [
+            "arXiv:2610.40461, first-mode terminal penalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.40461",
+          "material_read": "arXiv abstract and documented first-mode target numerical context; complete text not claimed read",
+          "method": "Preprint abstract only",
+          "title": "Numerical Investigation of Soft-to-Hard Convergence: Discretization, Admissibility, and Spectral Regularity",
+          "trigger": "recent Crank–Nicolson control target paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The natural question is whether numerical terminal energy remains uniformly comparable to exact continuous-time energy simultaneously across all spatial frequencies; the sharp two-parameter mesh threshold distinguishes Crank–Nicolson's k~h from the k~h² requirement for fixed θ>1/2. The high-frequency boundary profile is a nontrivial exact quantitative result, not an arbitrary slice or mere reparameterization, with direct implications for selecting fully-actuated discrete control meshes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All results compare exact semidiscrete-in-space time-continuous dynamics with discrete time on the same fixed grid, not to a continuum PDE.",
+    "No boundary or local controls, nonlinear dynamics, θ<1/2, uncontrolled roundoff error or exact energy convergence are claimed."
+  ],
+  "schema_version": 1
+}
