@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The alternating Hessian has the radial and canonical vectors as its complete kernel off the canonical point; tangent-space linear algebra determines rank zero versus rank two. Under the off-surface hypothesis, the square polar is a transverse coordinate \(u\), so the plane section is smooth. The proof of the stronger ideal identity uses an explicit local differential factor \(u^2\) and two independent divided columns; its order-four minor is not extrapolated from computer examples. Exact GF(2), GF(4), and GF(8) point checks and an independent chart identity are included as finite corroboration only.
+## correctness
 
-**Originality — PASS, provisional.** The canonical point, square polar, and canonical plane are already established in Dolgachev–Duncan's accessible 2017 preprint, so those facts are not claimed new. The checked sections classify these objects but do not assert the fourth-power maximal-minor ideal of the Gauss differential. Earlier 2010 and 2012 Gauss-map literature concerns generic rank and embeddings; the 2012 primary article was available in text, whereas full text of the 2010 primary article was inaccessible. Mathematical-record overlap queries yielded no equivalent fourth-order degeneracy statement. That remaining archival priority risk warrants specialist checking.
+PASS
 
-**Mathematical value — PASS.** The exact multiplicity four supplies a scheme-theoretic ramification invariant common to all smooth cubic surfaces in this characteristic-two canonical-point regime. It distinguishes the actual degeneracy subscheme from the reduced critical elliptic curve and quantifies wild nonimmersivity, beyond a standard Hessian-rank calculation.
+For smooth char2 cubic X with nonzero squarefree tensor and canonical point p not on X, alternating Hessian has ker span{x,p}; the polar derivative in direction p is a square L^2 and p off X makes L transverse. Coordinates reduce F to C(x0,x1,x2)+u^2M+u^3, with C smooth ordinary ternary cubic. Tangent linear algebra gives differential rank 2 off R=X intersect {u=0}, rank 0 on R. In local smooth coordinates every differential entry is divisible by u^2 and its divided two columns are independent on R, forcing maximal-minor ideal exactly I_R^4, degree 12. Inspected verify.py: one smooth sample over F2/F4/F8 and a symbolic local minor u^4/t^3; additionally independently checked this local minor algebraically. These finite tests do not establish the global scheme identity; proof rests on local division and transversality.
 
-**Scope and risks.** No result for the on-surface canonical point or dual hypersurface scheme is asserted. The theorem's infinitesimal-divisor claim is proved in local regular coordinates; no inference from enumeration is used for arbitrary algebraically closed fields. Independent review of both proof and historical priority remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Characteristic-two canonical point and square polar were already established by Dolgachev–Duncan. The surviving contribution is the *scheme-theoretic fourth power* of the differential maximal-minor ideal for the original smooth cubic embedding, with exact zero/two rank jump. Older Gauss-rank-zero papers discuss existence of alternative embeddings, not this intrinsic critical thickening. Highly relevant Fukasawa–Furukawa–Kaji (2010) full text could not be inspected; priority is qualified, not falsely certified.
+
+## value
+
+PASS
+
+An exact fourth-order scheme-theoretic Gauss degeneracy is a nontrivial wild-ramification invariant invisible to reduced rank loci; the uniform degree-12 thickening on smooth char2 cubics is structurally motivated by the canonical-plane geometry, beyond a routine Hessian rank check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

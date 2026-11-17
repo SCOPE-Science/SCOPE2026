@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:54:21.760883Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md",
+        "pinned verify.py blob 1f1da2ec13418f3cb47c93628fb26febbea50533",
+        "independent_checks.py and independent_checks.log",
+        "Dolgachev–Duncan arXiv:1712.01167 Section 4"
+      ],
+      "rationale": "For smooth char2 cubic X with nonzero squarefree tensor and canonical point p not on X, alternating Hessian has ker span{x,p}; the polar derivative in direction p is a square L^2 and p off X makes L transverse. Coordinates reduce F to C(x0,x1,x2)+u^2M+u^3, with C smooth ordinary ternary cubic. Tangent linear algebra gives differential rank 2 off R=X intersect {u=0}, rank 0 on R. In local smooth coordinates every differential entry is divisible by u^2 and its divided two columns are independent on R, forcing maximal-minor ideal exactly I_R^4, degree 12. Inspected verify.py: one smooth sample over F2/F4/F8 and a symbolic local minor u^4/t^3; additionally independently checked this local minor algebraically. These finite tests do not establish the global scheme identity; proof rests on local division and transversality.",
+      "residual_risks": [
+        "Local rank-two assertion after dividing by u² is the critical geometric step; stated only under p not on X.",
+        "The full dual-surface scheme and Gauss morphism degree are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fukasawa–Furukawa–Kaji 2010 describes projective varieties admitting *some* Gauss-rank-zero embedding. Furukawa 2012 characterizes such alternative embeddings, including smooth rational surfaces.",
+          "Neither accessible claim computes the scheme cut out by maximal minors for the specific original cubic embedding."
+        ],
+        "reasoning": "The distinction between existence of an embedding with generically rank-zero Gauss map and local order-four degeneracy of the fixed Gauss map prevents direct implication, pending full 2010 archival review.",
+        "searches": [
+          "Gauss map Hessian polar fourth order inseparable ramification smooth cubic surfaces characteristic two",
+          "doi:10.1016/j.aim.2010.02.017",
+          "doi:10.1016/j.aim.2012.03.006"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1712.01167",
+        "https://arxiv.org/abs/2007.12018",
+        "https://doi.org/10.1016/j.aim.2010.02.017",
+        "https://doi.org/10.1016/j.aim.2012.03.006",
+        "Resultary search: Gauss map Hessian polar fourth order inseparable ramification smooth cubic surfaces characteristic two"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known existence of canonical plane plus rank-zero embedding property does not force the fourth scheme power for the original Gauss map.",
+          "The off-surface hypothesis is essential and excludes degeneracies studied in special singular cubics."
+        ],
+        "reasoning": "An exact fourth Cartier thickening is an additional local determinantal computation, not merely a different name for the old canonical plane.",
+        "searches": [
+          "Dolgachev Duncan char2 cubic §4 canonical plane",
+          "Gauss map Hessian polar fourth order inseparable ramification smooth cubic surfaces characteristic two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scheme of rank <=1 of d gamma is the fourth Cartier thickening 4R of the canonical plane section, equivalent to exact order-four Fitting/determinantal ideal. Dolgachev–Duncan only identify the canonical point and plane in inspected Section 4."
+        ],
+        "reasoning": "The proof checks scheme structure, not only reduced locus; established canonical-plane definitions do not themselves assert fourth-power minors.",
+        "searches": [
+          "Gauss map Hessian polar fourth order inseparable ramification smooth cubic surfaces characteristic two",
+          "arxiv:1712.01167 canonical cubic point characteristic two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available cubic-surface classification databases describe normal forms and canonical point but did not provide all 2x2 Gauss-minor ideal generators or a uniform exponent-four table."
+        ],
+        "reasoning": "Not a finite enumerative table; scheme-formula database searches were undertaken through canonical-point and Hessian aliases, with priority limits.",
+        "searches": [
+          "Gauss map Hessian polar fourth order inseparable ramification smooth cubic surfaces characteristic two",
+          "Resultary characteristic-two cubic Hessian 4R Gauss degeneracy scheme",
+          "arxiv:2007.12018 cubic surfaces characteristic two"
+        ]
+      },
+      "rationale": "Characteristic-two canonical point and square polar were already established by Dolgachev–Duncan. The surviving contribution is the *scheme-theoretic fourth power* of the differential maximal-minor ideal for the original smooth cubic embedding, with exact zero/two rank jump. Older Gauss-rank-zero papers discuss existence of alternative embeddings, not this intrinsic critical thickening. Highly relevant Fukasawa–Furukawa–Kaji (2010) full text could not be inspected; priority is qualified, not falsely certified.",
+      "residual_risks": [
+        "Original 2010 Fukasawa–Furukawa–Kaji full text inaccessible: authorized Oxford retrieval stopped with VPN disconnected, no bypass; no whole-paper NOT_COVERING claim.",
+        "A classical wild-Gauss ramification/Fitting-scheme result could imply the fourth thickening under alternative terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS canonical point, NOT fourth-order differential-minor ideal",
+          "evidence": "Canonical point and distinguished plane already established.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.01167",
+          "material_read": "Section 4.1 canonical point, square polar and characteristic-two cubic normal forms",
+          "method": "Full author primary arXiv HTML, relevant sections read",
+          "title": "Automorphisms of cubic surfaces in positive characteristic",
+          "trigger": "Direct same-object canonical point and normal-form result"
+        },
+        {
+          "assessment": "PRIORITY_RISK: not whole-document exclusion",
+          "evidence": "Alternative projective embedding with generically rank-zero Gauss map; possible related proof not ruled out.",
+          "identifier_or_url": "https://doi.org/10.1016/j.aim.2010.02.017",
+          "material_read": "Abstract and scope only; full text inaccessible",
+          "method": "Primary abstract / university publication metadata; arXiv and OA attempt, authorized institutional access returned VPN disconnected",
+          "title": "Projective varieties admitting an embedding with Gauss map of rank zero",
+          "trigger": "Plausible earlier specialist theorem on Gauss-map rank"
+        },
+        {
+          "assessment": "NOT_DIRECT_COVERING original cubic fourth-minor scheme",
+          "evidence": "2012 theorem concerns existence of another embedding with generic Gauss rank 0; not the critical ideal of original embedding.",
+          "identifier_or_url": "https://doi.org/10.1016/j.aim.2012.03.006",
+          "material_read": "Abstract, introduction and stated main theorems",
+          "method": "Publisher-hosted full HTML rendered mathematical sections",
+          "title": "Cubic hypersurfaces admitting an embedding with Gauss map of rank 0",
+          "trigger": "Cubic-surface Gauss maps in char2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1712.01167",
+        "pinned local differential proof"
+      ],
+      "rationale": "An exact fourth-order scheme-theoretic Gauss degeneracy is a nontrivial wild-ramification invariant invisible to reduced rank loci; the uniform degree-12 thickening on smooth char2 cubics is structurally motivated by the canonical-plane geometry, beyond a routine Hessian rank check.",
+      "residual_risks": [
+        "Specialized to a fixed cubic embedding and off-surface canonical point, not dual-surface normalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Highly relevant 2010 primary full text unavailable because institutional VPN disconnected; priority historical qualification only.",
+    "Scheme ideal for p on X and dual variety not classified."
+  ],
+  "schema_version": 1
+}
