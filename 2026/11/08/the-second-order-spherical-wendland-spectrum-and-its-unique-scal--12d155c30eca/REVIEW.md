@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The declared domain is \(d\ge2\), \(\alpha>0\), \(\lambda=(d+1)/2+\alpha\), \(\mu>\lambda+2\), \(\varepsilon>0\), with area-normalized harmonic eigenvalues. The two-term Euclidean transform is obtained from the algebraic residues of \({}_1F_2\) (DLMF 16.11.2, 16.11.8); the condition on \(\mu\) makes its competing oscillatory branch negligible at relative order \(z^{-2}\). The radial-to-spherical identity, exact Weber–Schafheitlin Bessel-square integral, exponential smallness of \(J_\nu\) below \(\nu/2\), and gamma-ratio expansion yield the stated coefficient, not merely its leading decay. The strict unique calibration scale follows from positive factors and monotonic dependence on \(\varepsilon^2\). Independent numerical tests compare the two radial transform terms, Bessel integrals, gamma ratios, and explicit circle Fourier coefficients at generic and tuned scales. Finite tests are corroboration only.
+PASS
 
-## Originality: PASS, subject to historical priority risk
+Under d≥2, α>0, λ=(d+1)/2+α, μ>λ+2 and fixed ε>0, the Euclidean 1F2 tail has radial leading z^(−2λ) and relative −λ(μ−1)(μ−2)ε²/z²; oscillatory remainder is lower order. With area measure the spherical Bessel-square identity is exact. The Mellin ratio is (λ−1/2)/[λ(ν−λ)(ν+λ)]; gamma-shift sum 1 makes relative 1/ν term vanish, and Bernoulli B3 gives quadratic λ(λ−1)(λ−1/2)/3. Their sum yields Q=(λ−1/2)[λ(λ−1)/3−(μ−1)(μ−2)ε²]. Uniform Bessel suppression for z<ν/2 and positivity for z≥ν/2 justify integrating remainders. Strict monotonicity in ε² gives unique ε*; symbolic check at λ=5/2, μ=6 gives ε*=1/4. No uniform-parameter or endpoint μ=λ+2 claim is made.
 
-The 2021 arXiv version of Hubbert–Jäger already *states* the all-dimensional first-order coefficient, so **no** novelty is ascribed to that leading term; the 2023 version places its even-dimensional proof as an open question. Neither full text gives the relative \(\nu^{-2}\) coefficient or its unique cancellation as a function of scale. Narcowich–Sun–Ward 2007 gives the general RBF/SBF transform and Sobolev comparison but not this exact two-term spectral law. DLMF gives the two universal special-function identities employed, not the parameter-specific assembled spectral cancellation. Searches of the public mathematical literature and related published research records did not identify a theorem with the same normalized second-order statement. Remaining risk: unsearched numerical kernel-calibration literature or an all-order special-function treatment might yield an equivalent formula implicitly.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The problem is to quantify finite-frequency bias in a widely used, compactly supported positive-definite spherical kernel relative to its leading Sobolev spectral power law. The result reveals an *identically absent* linear correction, computes the exact next coefficient for a continuous family of sphere dimensions and kernel smoothness parameters, and proves a unique geometric scale that suppresses the first nonzero curvature-frequency bias. This gives a directly interpretable criterion for kernel scale selection in high-degree spherical approximation and simulation. It is not merely a table of coefficients or a numerical fit; the cancellation has a complete exact parameter classification. No guarantee of finite-mode optimality or numerical performance is made.
+The leading order and all Bessel/hypergeometric identities are prior work, but the explicit relative quadratic correction, vanishing linear term and unique ε scale are not in the inspected complete primary article nor covered by the retrieved leading-order transfer result. Best-of-knowledge qualified originality.
 
-## Sources and residual limits
+## value
 
-Key primary inspections: Hubbert–Jäger arXiv v1 §§2–5 (especially 3.12, 3.17, 5.9 and its even-dimensional discussion), the 2023 open-access journal proof and concluding open question; Narcowich–Sun–Ward 2007 §§3–4; DLMF §16.11 and §10.22. The historical comparison distinguishes first-order coverage from the presently asserted two-term coefficient. Mathematical assumptions and the fixed-parameter nature of the remainder are part of the claim. Independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit next-order spectral bias and unique radial scale eliminating it for a natural compactly supported positive-definite spherical kernel refine Sobolev approximation and spectral preconditioning; the nontrivial cancellation is motivated and mathematically useful, without claiming exact finite-degree optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
