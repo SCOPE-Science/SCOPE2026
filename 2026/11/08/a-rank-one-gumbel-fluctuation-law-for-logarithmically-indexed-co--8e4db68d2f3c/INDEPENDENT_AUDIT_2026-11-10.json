@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:41:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent rate-one type processes couple exactly to discrete coupon labels; cover time C_N=max first arrival has exact max-exponential CDF and bounded centered fourth moment. For each threshold j, empirical Gamma(j,1) tail has uniform-in-time DKW error O(N^−1/2), and there are only O(√logN) distinct thresholds on a fixed x-window; the union-bound L² supremum is o(1/logN). The Poisson CDF derivative equals minus its boundary pmf, with uniform local CLT giving √logN times derivative→−φ(x); bounded max pmf and centered cover fourth moments promote linearization to L². Optional isometry of total-rate-N Poisson martingale gives E|(T_N/N)−C_N|²=H_N/N→0. The uniform functional remainder and Gumbel moment convergence imply joint law and covariance. Finite companion code was inspected but is not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ilienko studies all infinitely many indices but only product topology, not a uniform moving-index window; infinite-coordinate indexation does not strengthen its topology.",
+          "Long fixes a finite rank range, whereas the new window has rank→∞.",
+          "The 2026/10/12 published result concerns Gaussian errors after time centering at fixed album ranks, not the leading random Gumbel shift at rank logN."
+        ],
+        "reasoning": "Broader words such as infinite-dimensional do not imply strong moving-index limits without uniformity; target proof supplies new DKW and local-CLT controls.",
+        "searches": [
+          "Ilienko 2026 Theorem 1 product topology and Section 5 proof",
+          "Long 2026 Theorem 5 and Remark 3",
+          "Resultary 2026/10/12 observable-centered coupon sibling Gaussian fluctuations"
+        ]
+      },
+      "checked_sources": [
+        "https://www.vmsta.org/journal/VMSTA/article/358/read",
+        "https://arxiv.org/abs/2606.29635",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ilienko Theorem 1: (r!U_r/(ln n)^r,r∈N)⇒(E,E,...) in R∞ product topology, for each fixed r.",
+          "Moving j_N requires O(√lnN) threshold simultaneous control and a Poisson-CDF local limit, absent from the fixed-index implication."
+        ],
+        "reasoning": "The new kernel is not a corollary of product topology or fixed-r normalization; the needed indexed uniformity and leading cover-time fluctuation are separately established.",
+        "searches": [
+          "Full Ilienko journal 2026 Theorem 1 Section 5",
+          "Long 2026 fixed-sibling Theorem 5 and Remark 3",
+          "Target proof DKW uniform Gamma threshold and de-Poissonization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ilienko normalizes each fixed r by (logN)^r/r! and uses product topology in R^∞, converging to an Exponential common amplitude.",
+          "The target uses j_N≈logN with √logN fluctuations, Poisson-CDF centering and supremum-norm Gumbel kernel."
+        ],
+        "reasoning": "There is no equivalence of fixed-coordinate product-topology convergence and a moving-index uniform process limit; the former cannot control the latter.",
+        "searches": [
+          "Resultary query: coupon collector sibling growing logarithmic index Gumbel fluctuation uniform profile central limit",
+          "Ilienko Theorem 1 2026 extended coupon collector",
+          "Long 2026 Extremality and Limit Laws for the Siblings of the Coupon Collector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target is an asymptotic functional distribution not a finite numerical table.",
+          "No indexed table or limit theorem exactly supplied φ(x)φ(y) Gumbel rank-one covariance across j_N(x)≈logN."
+        ],
+        "reasoning": "No enumerative table dominates a compact-uniform functional theorem; no novelty claim rests on missing search alone.",
+        "searches": [
+          "Resultary query: coupon siblings growing album index log n Gumbel rank one",
+          "Ilienko extended coupon collector published Theorem 1"
+        ]
+      },
+      "rationale": "Ilienko 2026 Theorem 1 proves infinite-dimensional sibling limits only in product topology with coordinatewise fixed-r normalizations r!U_r/(logN)^r→Exp common amplitude, not for moving r≈logN or compact-supremum profiles; the distinct fixed-index limit does not imply the target functional law. Long 2026 studies fixed sibling indices and explicitly excludes growing indices. Resultary nearby 2026 fixed-index residual and terminal-singleton laws control different counts/scales. No exact prior compact-uniform moving-index Gumbel law was found, with residual risk from broad occupancy/empirical-process literature.",
+      "residual_risks": [
+        "Long 2026 full manuscript was not independently downloaded/read in this execution; the stated fixed-index restriction is from the assigned result and accessible material.",
+        "Unindexed general empirical-process/occupancy laws might imply the moving-window limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING target moving-index compact-supremum law",
+          "evidence": "Theorem 1 uses r!U_r/(ln n)^r for fixed coordinates, convergence in product topology to (E,E,...), not j_N(x)→∞.",
+          "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/358/read",
+          "material_read": "Open-access full HTML introduction and exact model, Theorem 1 and proof section navigation, especially product topology and displayed formula",
+          "method": "Compared fixed-r quantifiers and R^∞ topology to moving threshold sequence",
+          "title": "Limit theorems in the extended coupon collector’s problem",
+          "trigger": "Most plausible same-object infinite-dimensional prior theorem"
+        },
+        {
+          "assessment": "No decisive coverage established; full-text inspection remains priority risk",
+          "evidence": "Assigned source states its fixed indices 2..J and a growing-index exclusion in Remark 3.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+          "material_read": "Accessible article abstract and theorem descriptions from assigned research bibliography; full published manuscript not independently read in this run",
+          "method": "Compared reported fixed-index Theorem 5 and Remark 3 against moving rank",
+          "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+          "trigger": "Nearest named sibling limit law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The logN sibling-index window is the natural transition where a typical type has roughly as many occurrences as the queried album rank at main completion. A compact-uniform rank-one non-Gaussian fluctuation law and full limiting covariance kernel are useful quantitative structure beyond classical fixed-sibling limits.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.vmsta.org/journal/VMSTA/article/358/read",
+    "https://arxiv.org/abs/2606.29635",
+    "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-observable-centered-gaussian-fluctuations-of-coupon-collector-si--0d3ee5e36129"
+  ],
+  "disposition": "passed",
+  "final_claim": "At first completion of N uniformly sampled coupon types, the sibling deficit profile at j_N(x)=floor(logN+x√logN), centered by Poisson(logN) CDF and multiplied by √logN, is uniformly close in L² on compact x to −φ(x)(T_N/N−logN), hence converges jointly to a rank-one Gumbel process with covariance (π²/6)φ(x)φ(y).",
+  "limitations": [
+    "Uniform coupon distribution, fixed compact x windows, first main-album completion only.",
+    "Finite program assertions cannot prove DKW or functional asymptotics."
+  ],
+  "residual_risks": [
+    "Long 2026 full manuscript was not independently downloaded/read in this execution; the stated fixed-index restriction is from the assigned result and accessible material.",
+    "Unindexed general empirical-process/occupancy laws might imply the moving-window limit."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT COVERING target moving-index compact-supremum law",
+      "evidence": "Theorem 1 uses r!U_r/(ln n)^r for fixed coordinates, convergence in product topology to (E,E,...), not j_N(x)→∞.",
+      "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/358/read",
+      "material_read": "Open-access full HTML introduction and exact model, Theorem 1 and proof section navigation, especially product topology and displayed formula",
+      "method": "Compared fixed-r quantifiers and R^∞ topology to moving threshold sequence",
+      "title": "Limit theorems in the extended coupon collector’s problem",
+      "trigger": "Most plausible same-object infinite-dimensional prior theorem"
+    },
+    {
+      "assessment": "No decisive coverage established; full-text inspection remains priority risk",
+      "evidence": "Assigned source states its fixed indices 2..J and a growing-index exclusion in Remark 3.",
+      "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+      "material_read": "Accessible article abstract and theorem descriptions from assigned research bibliography; full published manuscript not independently read in this run",
+      "method": "Compared reported fixed-index Theorem 5 and Remark 3 against moving rank",
+      "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+      "trigger": "Nearest named sibling limit law"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem has an analytic, infinite-parameter proof in `RESULT.md`; the finite checker is an independent consistency test, not a certification of the functional limit or publication priority.
+## correctness
 
-Run the standalone file with `python verification_check.py` in the same directory as these documents. The checker requires only Python 3.10 or later and the standard library. On the package assembled here it printed:
+PASS
 
-```
-PASS: 87 exact/numerical assertions; finite-size diagnostic MAE=0.057100
-Limitation: numerical tests do not prove the functional limit or originality.
-```
+Independent rate-one type processes couple exactly to discrete coupon labels; cover time C_N=max first arrival has exact max-exponential CDF and bounded centered fourth moment. For each threshold j, empirical Gamma(j,1) tail has uniform-in-time DKW error O(N^−1/2), and there are only O(√logN) distinct thresholds on a fixed x-window; the union-bound L² supremum is o(1/logN). The Poisson CDF derivative equals minus its boundary pmf, with uniform local CLT giving √logN times derivative→−φ(x); bounded max pmf and centered cover fourth moments promote linearization to L². Optional isometry of total-rate-N Poisson martingale gives E|(T_N/N)−C_N|²=H_N/N→0. The uniform functional remainder and Gumbel moment convergence imply joint law and covariance. Finite companion code was inspected but is not the asymptotic proof.
 
-Its checks include exact rational finite-state Markov expectations for \(2\le N\le4\) and \(2\le j\le6\) versus independent alternating-subset formulae, polynomial derivative identities for Poisson CDFs, finite local Poisson approximations, and an independent seeded continuous-time coupon simulation. The empirical-process bound uses the standard Dvoretzky–Kiefer–Wolfowitz inequality, not a finite enumeration. The maximum-first-arrival law and exponential spacing identity give the required Gumbel limit and uniform fourth moments. The compensated total-Poisson martingale yields the exact second-moment transfer bound \(\mathbb E[(T_N/N-C_N)^2]=H_N/N\); these analytical components are indispensable.
+## originality
 
-Not established: historical uniqueness, an independent mathematical audit, a second-order fluctuation theory, nonuniform coupon distributions, or uniformity in growing \(x\)-windows.
+PASS
+
+Ilienko 2026 Theorem 1 proves infinite-dimensional sibling limits only in product topology with coordinatewise fixed-r normalizations r!U_r/(logN)^r→Exp common amplitude, not for moving r≈logN or compact-supremum profiles; the distinct fixed-index limit does not imply the target functional law. Long 2026 studies fixed sibling indices and explicitly excludes growing indices. Resultary nearby 2026 fixed-index residual and terminal-singleton laws control different counts/scales. No exact prior compact-uniform moving-index Gumbel law was found, with residual risk from broad occupancy/empirical-process literature.
+
+## value
+
+PASS
+
+The logN sibling-index window is the natural transition where a typical type has roughly as many occurrences as the queried album rank at main completion. A compact-uniform rank-one non-Gaussian fluctuation law and full limiting covariance kernel are useful quantitative structure beyond classical fixed-sibling limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

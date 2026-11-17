@@ -1,25 +1,21 @@
-# Scientific review: logarithmic-index sibling fluctuations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise, compact-uniform mean-square approximation is supported by an analytic proof: independent rate-one Poisson processes recover the discrete stopped coupon counts; the Dvoretzky–Kiefer–Wolfowitz inequality controls uniformly the empirical Gamma survival functions over \(O(\sqrt{\log N})\) indices and all times; an exact Poisson-CDF derivative plus uniform local Poisson approximation gives the random time shift; the exponential-spacing representation supplies uniform fourth moments; and a stopped Poisson martingale transfers continuous completion time to discrete draw count in \(L^2\). Standard arguments then yield the Gumbel functional limit and limiting means and covariances. Exact-finite/numerical cross-checks passed 87 assertions but do not replace the infinite proof. Limits: the result is not extended to nonuniform weights or expanding index windows.
+PASS
 
-## Originality — PASS, with historical limitations
+Independent rate-one type processes couple exactly to discrete coupon labels; cover time C_N=max first arrival has exact max-exponential CDF and bounded centered fourth moment. For each threshold j, empirical Gamma(j,1) tail has uniform-in-time DKW error O(N^−1/2), and there are only O(√logN) distinct thresholds on a fixed x-window; the union-bound L² supremum is o(1/logN). The Poisson CDF derivative equals minus its boundary pmf, with uniform local CLT giving √logN times derivative→−φ(x); bounded max pmf and centered cover fourth moments promote linearization to L². Optional isometry of total-rate-N Poisson martingale gives E|(T_N/N)−C_N|²=H_N/N→0. The uniform functional remainder and Gumbel moment convergence imply joint law and covariance. Finite companion code was inspected but is not the asymptotic proof.
 
-In arXiv:2606.29635, the source model and notation match, but Theorem 5 restricts the joint theorem to \(j\le J\) for fixed \(J\), and Remark 3 explicitly excludes growing indices. Ilienko (2026, DOI:10.15559/26-VMSTA306) proves an infinite-dimensional fixed-coordinate theorem in the **product topology**, which, unlike a uniform theorem on a moving index window, does not control ranks increasing as \(\log N\). The companion arXiv:2606.31391 proves finite-size transform extremality for any fixed parameters, not a growing-index functional Gumbel law. The older arXiv:1412.4346 studies fixed-index expectations, and arXiv:2005.05270 treats the first sibling. Searches comparing the exact first-cover stopping time, logarithmic sibling index, empirical Poisson centering, rank-one Gumbel process, and covariance did not reveal a directly covering statement. This is **best-knowledge** originality, not a claim of exhaustive priority; a sufficiently broad other occupancy empirical-process theorem could cover the result by specialization and remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating paper explicitly identifies the growing-album-index question as outside the known fixed-index theorem. Near \(j\simeq\log N\), the missing-album fraction changes from microscopic fixed-index size to macroscopic Gaussian-CDF shape. The theorem identifies its fluctuation scale, non-Gaussian limiting driver, compact-uniform dependence, and exact leading covariance profile. In particular, it identifies a natural phase of the sibling problem which fixed-index asymptotics cannot extrapolate to, and provides a starting point for second-order and nonuniform generalizations. It is more than a standalone Poisson-tail estimate because it controls the *stopped, jointly indexed random occupancy profile*.
+Ilienko 2026 Theorem 1 proves infinite-dimensional sibling limits only in product topology with coordinatewise fixed-r normalizations r!U_r/(logN)^r→Exp common amplitude, not for moving r≈logN or compact-supremum profiles; the distinct fixed-index limit does not imply the target functional law. Long 2026 studies fixed sibling indices and explicitly excludes growing indices. Resultary nearby 2026 fixed-index residual and terminal-singleton laws control different counts/scales. No exact prior compact-uniform moving-index Gumbel law was found, with residual risk from broad occupancy/empirical-process literature.
 
-## Closest literature and residual risks
+## value
 
-- Long (2026), arXiv:2606.29635, Theorem 5, Remark 3: same object, fixed-index regime only.
-- Ilienko (2026), DOI:10.15559/26-VMSTA306: an important same-model infinite-dimensional limit theorem in the product topology, meaning convergence of fixed coordinate blocks, not the growing index window.
-- Long (2026), arXiv:2606.31391: fixed-size generating-function and extremality comparisons rather than joint growing-index asymptotics.
-- Mahmoud–Smythe (2012), DOI:10.1239/aap/1339878719: fully inspected earlier general occupancy paper; Theorems 1–2 concern fixed frequency categories at deterministic growing sampling times, not a moving log-frequency threshold at first collection completion.
-- Doumas–Papanicolaou (2014/2018), arXiv:1412.4346: classic sibling expectation estimates, not this functional fluctuation.
-- Papanicolaou–Doumas (2020), arXiv:2005.05270: first-sibling distribution limit, not growing sibling index.
-- Classical stopped occupancy and empirical-process literature: broad theoretical ingredients could offer an equivalent or dominating general statement not yet located. This uncertainty must be distinguished from a proven priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The logN sibling-index window is the natural transition where a typical type has roughly as many occurrences as the queried album rank at main completion. A compact-uniform rank-one non-Gaussian fluctuation law and full limiting covariance kernel are useful quantitative structure beyond classical fixed-sibling limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
