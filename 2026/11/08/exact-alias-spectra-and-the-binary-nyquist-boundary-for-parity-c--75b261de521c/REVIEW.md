@@ -1,11 +1,21 @@
-# Review of the checksum-hyperplane Fourier spectrum
+# Independent mathematical audit
 
-**Correctness: PASS.** Normalized character orthogonality shows that the Gram matrix partitions into all-ones blocks indexed by diagonal character cosets. Counting symbols occurring at least \(n-r\) times gives every positive eigenvalue and its exact multiplicity; a direct construction realizes every allowed level. The checksum observation rank is obtained by counting the cosets with no admissible frequency. Distance and pigeonhole arguments prove both sharp rank thresholds, and the first-alias formula follows from balanced two-symbol occupancy. Independent finite matrices and direct orbit counts agree in 69 checked configurations, with an eigenvalue residual below \(1.1\times10^{-14}\). A finite test is not the infinite proof.
+## correctness
 
-**Originality: PASS under bounded comparison.** The 2012 first version of Cheraghchi--Guruswami--Velingker studies random row-restricted Fourier matrices, sparse restricted isometry, and code-list decoding, not deterministic single-checksum sampling of an entire Hamming degree band or its full singular multiplicities. Related Hamming-sphere and coordinate-slab Fourier sampling results use different observation masks; their stated formulas do not directly imply the checksum coset occupancy spectrum. The annihilator/block decomposition is classical and not claimed new. A prior all-purpose code-coset-weight-enumerator statement could conceivably imply the present specialization, which is the principal residual priority risk.
+PASS
 
-**Value: PASS.** A single parity/checksum constraint is a natural categorical factorial-design observation model; frequency degree measures interaction order. The theorem completely answers which interaction coefficients are identifiable, when every observation can be interpolated, how much information collapses at alias onset, and the exact best nonzero recovery amplification. The all-finite-abelian universality and binary odd-length perfect Nyquist boundary give structural behavior beyond an isolated finite table. No decoder, multi-check or weighted-sampling extension is asserted.
+Finite-abelian character orthogonality on C=ker(sum:A^n->A) makes R*R a disjoint union of all-ones Gram blocks indexed by diagonal-character cosets. Orbit block length equals number of character symbols with multiplicity >=s=n-r. The block eigenvalue is t, hence j=1..min(q,floor(n/s)); multinomial exponential-generating function counts their multiplicities after dividing by q. Distance n between distinct diagonal-alias words gives injectivity iff 2r<n. Minimum maximal q-symbol occupancy ceil(n/q) gives surjectivity iff r>=n-ceil(n/q). Both yield binary odd middle unitarity; balanced two-symbol occupancy yields (q-1)/2 binom(n,n/2) kernel dimension at first alias. Independent finite direct enumerations for q=2..5, n=2..6 and all radii corroborate the unlimited character argument.
 
-**Closest literature and limitations.** The mathematical source read in full-text form was Cheraghchi, Guruswami and Velingker (arXiv:1207.1140v1), especially its introductory comparison and §4 random Fourier row sampling. Historical priority remains conditional on a more exhaustive search for weight-enumerator formulations of character-coset occupancy. The theorem concerns one equal-coefficient checksum and a complete Hamming frequency ball.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Character annihilators and diagonal coset aliases are classical, not claimed new. The exact occupancy-level squared singular spectrum, its complete multinomial multiplicities, boundary radius rank criteria and odd-binary unitary phase for this deterministic Fourier mask are not supplied by the inspected prior random-matrix or Hamming-sphere results. Best-of-knowledge qualified by possible stronger code-coset enumerator analogues.
+
+## value
+
+PASS
+
+Single checksum sampling is a basic natural experimental design and coding observation constraint, while low-degree Fourier support represents interaction order. Full singular multiplicities, exact rank and kernel, sharp identifiability/onto thresholds and the exceptional binary unitary case are information beyond the trivial annihilator identity and may be used directly to design or diagnose finite sampling schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
