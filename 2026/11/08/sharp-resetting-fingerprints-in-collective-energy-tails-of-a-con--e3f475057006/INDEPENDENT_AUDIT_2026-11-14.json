@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T00:15:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In stationary common Poisson resetting, the last reset age T~Exp(r) gives conditional variance theta(1-e^{-2muT}), so Q_N/theta=V*(chi2_N/N) with V~Beta(1,b), b=r/(2mu). The exact survival integral over w=1-V with density b*w^(b-1) yields, under w=s/sqrt N and chi-square CLT with exponential Chernoff domination, the edge N^{-b/2} Gaussian-tail integral and threshold gamma constant. For fixed t>1 the gamma survival equivalent exp[-NI(t)]/((t-1)sqrt(pi N)) combined with endpoint rate derivative (t-1)/2 yields 2^b*Gamma(b+1)/(sqrt(pi)(t-1)^(b+1))*N^{-b-1/2} exp[-NI(t)]. Independently numerically evaluated the exact mixture with scipy gammaincc at N=100..1600, b=0.5,1,2 and fixed supercritical t=1.4: ratios approach both stated prefactors. These finite calculations corroborate rather than prove asymptotic uniformity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier SCOPE beta-law theorem states macroscopic nonconcentration, autocorrelation and time-averaged behavior, not the normalized chi-square tail prefactor for finite N.",
+          "Biroli et al provide a broad conditional iid observable framework and bulk limit, with no inspected all-parameter fixed-energy supercritical coefficient."
+        ],
+        "reasoning": "The broader representation covers the model but does not mathematically include the sharp endpoint crossover and prefactor without additional asymptotic analysis.",
+        "searches": [
+          "Resultary semantic search: reset harmonically confined Brownian gas collective squared displacement energy tail beta chi square sharp large deviations",
+          "Resultary 2026/11/2/SCOPE-a-beta-law-for-macroscopic-energy-in-globally-reset-harmonic-bro--e140ac2fc363"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.31634",
+        "https://arxiv.org/abs/2307.15351",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-beta-law-for-macroscopic-energy-in-globally-reset-harmonic-bro--e140ac2fc363"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior stationary joint density implies V*H_N, and the generic LLN implies Q_N/theta => Beta(1,b).",
+          "Those implications by themselves give neither N^{-b/2} critical leakage nor the full fixed t>1 prefactor."
+        ],
+        "reasoning": "The new claimed tail refinements are not asserted to replace the prior representation, and do not follow from its bulk weak convergence alone.",
+        "searches": [
+          "Resultary semantic search: reset harmonically confined Brownian gas collective squared displacement energy tail beta chi square sharp large deviations",
+          "arXiv:2606.31634",
+          "arXiv:2307.15351",
+          "Resultary semantic search: reset harmonically confined Brownian gas collective squared displacement energy tail beta chi square sharp large deviations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary energy reduces exactly to the product of Beta(1,b) and normalized chi-square, making the problem an endpoint mixture of an iid sum.",
+          "Its bulk limit Beta(1,b) is already implied by a generic conditional-iid sum theorem."
+        ],
+        "reasoning": "The sharp finite-N excess-energy probabilities require an endpoint Laplace/central-layer asymptotic not obtained from the bulk law.",
+        "searches": [
+          "Resultary semantic search: reset harmonically confined Brownian gas collective squared displacement energy tail beta chi square sharp large deviations",
+          "De Mauro et al arXiv:2606.31634",
+          "Biroli et al arXiv:2307.15351"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known stationary Gaussian mixture and beta bulk distribution are exact and not attributed as new.",
+          "The same chi-square tail rate I(t) is classical, while its reset-dependent N^{-(b+1/2)} coefficient is not in the inspected papers."
+        ],
+        "reasoning": "This continuous-parameter tail is not a finite database/table recomputation; gamma-tail and beta mixture are its inputs, not its already-solved output.",
+        "searches": [
+          "Resultary semantic search: reset harmonically confined Brownian gas collective squared displacement energy tail beta chi square sharp large deviations",
+          "arXiv:2606.31634",
+          "arXiv:2307.15351"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: De Mauro–Majumdar–Schehr supplies the exact common-reset Gaussian mixture and Biroli et al generic conditional-iid bulk sum law. Neither inspected primary section gives the sharp critical N^{-1/2} crossover or exact reset-dependent supercritical energy prefactor. Related published SCOPE results concern macroscopic beta energy and maximum-extreme fluctuations; these differ from finite-N sum-square tails.",
+      "residual_risks": [
+        "A general sharp boundary Laplace theorem for common-environment sums might imply the constants, though no exact application to this observable was verified.",
+        "Only fixed r,mu,D, stationary harmonic common resets; no uniform matching as t↓1, no general potential or time-dependent energy tail.",
+        "Not every supplement in potentially relevant Brownian-gas literature was exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_PREMISE_ONLY: stationary common-reset conditional Gaussian mixture is already known",
+          "evidence": [
+            "Conditional on an exponential reset age the particle positions are Gaussian; observable focus includes density, correlations, extremes, gaps"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+          "material_read": "inspected full-text stationary law and correlations/finite-size statistics with PDF pages including p.12",
+          "method": "arXiv PDF text with page-image inspection",
+          "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+          "trigger": "exact same OU common-reset gas"
+        },
+        {
+          "assessment": "PARTIAL_COVERING: general conditional iid sum representation and bulk law; no reviewed exact beta-edge chi-square prefactor",
+          "evidence": [
+            "Its stated sum laws concern generic bulk/non-self-averaging regimes rather than the named critical Gaussian smoothing integral"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.15351",
+          "material_read": "inspected full-text sum statistics discussion and appendices, with PDF pages 4 and 23",
+          "method": "arXiv PDF text and screenshots",
+          "title": "Exact extreme, order and sum statistics in a class of strongly correlated system",
+          "trigger": "general conditional iid sums may dominate energy tails"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The explicit crossover law and sharp rate/prefactor separate reset-rate-independent chi-square large-deviation action from reset-rate-dependent polynomial finite-N energy fluctuations. These are natural observable-specific tail invariants, beyond an elementary restatement of the known beta mixture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general sharp boundary Laplace theorem for common-environment sums might imply the constants, though no exact application to this observable was verified.",
+    "Only fixed r,mu,D, stationary harmonic common resets; no uniform matching as t↓1, no general potential or time-dependent energy tail.",
+    "Not every supplement in potentially relevant Brownian-gas literature was exhaustively inspected."
+  ],
+  "schema_version": 1
+}
