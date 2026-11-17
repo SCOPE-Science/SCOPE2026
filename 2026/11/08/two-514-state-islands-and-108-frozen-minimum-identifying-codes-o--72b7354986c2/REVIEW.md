@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is a precise finite-graph claim with a complete bit-mask characterization of identifying codes, a complete sweep of all 262144 subsets, and a second independent incidence-model sweep of 155382 subsets through the first admissible cardinality. Both independently produce 1028 optimum nine-vertex codes with the same bipartition counts. All potential one-token replacements are checked exactly, and all eccentricities are calculated by a complete breadth-first search from every vertex of each nontrivial component. A fixed, verified edge-preserving bijection identifies the two graph models; an explicit class-swapping automorphism shows paired component isomorphisms. The included standalone scripts were executed and their outputs inspected. No extrapolation or unproved infinite-family assertion is made.
+## correctness
 
-**Originality — PASS (best-knowledge, with reservations).** Karpovsky–Chakrabarty–Levitin (1998) provide definitions, general bounds, and constructions for other graph families; the bound derived from their work is too weak to determine the nine-vertex optimum. Foucaud–Klasing–Kosowski–Raspaud (2010 preprint) prove triangle-free graph bounds but do not derive these exact Pappus invariants in the inspected full-text portions. Foucaud et al. (2011 preprint) treat line-graph edge identification, a different underlying problem. MathWorld supplies the graph representation but no optimum identifying-code state graph. Published-research-record searches for Pappus, F018A, identifying code, Levi graph, affine-plane deleted parallel class, exact numerical counts, token slide, and token jump returned no mathematical implication establishing the claim. The closest existing calculations on other cubic symmetric graphs and different configuration objects do not subsume this statement. Remaining risks are unindexed graph databases or historical unpublished enumerations, and only selected portions of some historical full texts were inspected.
+PASS
 
-**Value — PASS.** The Pappus graph is a canonical cubic symmetric graph and an incidence-geometric test case for optimal fault-diagnosis codes. A complete 1028-state optimum census and its exact imbalance spectrum distinguish optimum selection from mere cardinality. Reconfiguration has two separate obstructions: even arbitrary one-token replacement cannot change the chosen incidence-side majority, while restricting replacements to graph edges creates a further 108 frozen states. Exact component sizes, center, radius and diameter quantify how optimal placement can or cannot be relocated. These are natural finite invariants directly related to fault-monitoring mobility, not a relabeled textbook bound.
+For each 18-bit subset, identifying means 18 nonzero distinct closed-ball intersection signatures, equivalently hitting all 18 closed neighborhoods and 153 pairwise symmetric differences. The supplied verifier reads all 2^18 masks, constructs every one-token replacement, computes both component graphs and all-pairs eccentricities, and independent affine geometry construction cross-checks the Pappus LCF graph by explicit isomorphism. Independent exhaustive code reproduced 1028 minimum size-nine codes, the ten-term bipartition occupancy vector, 108 isolated slide states plus two size-460 slide components (1404 total edges), two size-514 jump components (3780 edges), radii 4 and diameters 8. Exhaustive finite proof applies to this finite graph only.
 
-**Limitations and closest literature.** See RESULT.md, section “Relationship to prior work,” and AUDIT.json for source material inspected and the logical comparison with the scope of each source. Verification is complete for this finite claim, not a general theorem for all cubic incidence graphs. The historical-priority assessment is not a proof of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational identifying-code paper and triangle-free-graph bounds establish notions and general lower bounds but not this full Pappus minimum-code/reconfiguration census. Resultary semantic comparisons returned separate Pappus minimum locating-total and semitotal domination findings with different predicates, not these closed-neighborhood identifying codes. Best-of-knowledge PASS for the exact code count and two mobility geometries; exact unpublished tables remain risk.
+
+## value
+
+PASS
+
+The Pappus incidence graph is a canonical smallest symmetric cubic configuration; the natural identifying-code invariant and the sharp contrast of token jumps versus token slides create an independently useful exact classification, not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

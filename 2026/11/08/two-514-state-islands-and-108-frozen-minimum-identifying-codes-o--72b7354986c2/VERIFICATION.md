@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker_lcf.py` and `python3 checker_affine.py` from a directory containing the two scripts, with a standard Python 3.9+ installation. No third-party dependencies, input data, or downloads are required. Each prints a JSON dictionary and stops with an assertion error if the target census, component sizes, edge counts, radii or diameters differ. Their exact outputs at preparation time are supplied as `output_lcf.json` and `output_affine.json`.
+## correctness
 
-`checker_lcf.py` builds the 18-vertex LCF graph, tests all 262144 possible vertex subsets by nonzero-distinct trace signatures, builds all legal one-token jumps and neighbor-restricted slides on its 1028 nine-vertex minimum codes, and computes all component eccentricities by breadth-first search from every state.
+PASS
 
-`checker_affine.py` independently constructs a point-line incidence graph of the affine plane of order three after deletion of one parallel class. Its code test is the equivalent 171-set hitting requirement rather than signature equality. It enumerates all 155382 sets of cardinality at most nine, verifies an explicit graph isomorphism to the LCF model, reconstructs both movement graphs and computes the same exact shortest-path profiles.
+For each 18-bit subset, identifying means 18 nonzero distinct closed-ball intersection signatures, equivalently hitting all 18 closed neighborhoods and 153 pairwise symmetric differences. The supplied verifier reads all 2^18 masks, constructs every one-token replacement, computes both component graphs and all-pairs eccentricities, and independent affine geometry construction cross-checks the Pappus LCF graph by explicit isomorphism. Independent exhaustive code reproduced 1028 minimum size-nine codes, the ten-term bipartition occupancy vector, 108 isolated slide states plus two size-460 slide components (1404 total edges), two size-514 jump components (3780 edges), radii 4 and diameters 8. Exhaustive finite proof applies to this finite graph only.
 
-This is an exhaustive **finite** certificate. Neither program claims to establish a result for graphs beyond the Pappus graph. Execution outputs must be interpreted together with the stated edge construction, identification condition and transition definitions; output logs alone do not prove a broader statement. No outside assessment was performed.
+## originality
+
+PASS
+
+The foundational identifying-code paper and triangle-free-graph bounds establish notions and general lower bounds but not this full Pappus minimum-code/reconfiguration census. Resultary semantic comparisons returned separate Pappus minimum locating-total and semitotal domination findings with different predicates, not these closed-neighborhood identifying codes. Best-of-knowledge PASS for the exact code count and two mobility geometries; exact unpublished tables remain risk.
+
+## value
+
+PASS
+
+The Pappus incidence graph is a canonical smallest symmetric cubic configuration; the natural identifying-code invariant and the sharp contrast of token jumps versus token slides create an independently useful exact classification, not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
