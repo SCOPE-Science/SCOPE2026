@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T03:54:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda/RESULT.md",
+        "2026/11/08/short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda/verify.py"
+      ],
+      "rationale": "For a circular repeated permutation P^k, q distinct labelled letters, t<=q deletions, every cyclic output V specifies gaps g_i by congruence g_i ≡ index(v_{i+1})−index(v_i)−1 (mod q) with sum t. For t<q each gap is uniquely determined by its residue and source placements differ only by whole-period shifts. For t=q exactly a single q-long deleted interval can have ambiguous 0/q gap, and all q phase-orbits of those intervals give [P^(k−1)] while every other output retains unique orbit preimage. Burnside on the cyclic k-period action yields (1/k)sum_{d|gcd(k,t)}phi(d)C(qk/d,t/d) minus q−1 only for t=q. Independent direct necklace canonicalization of all tested q=2..5,k=2..4,t<=q and orbit mask code inspection agree; universal classification follows gap uniqueness, not finite extrapolation.",
+      "residual_risks": [
+        "t>q is outside the theorem and can have additional collisions; finite checks are not an all-q,k proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rotation-complete theorem classifies necklaces for which every rotation is embeddable; Adamson et al. enumerate general unrestricted/fixed-content necklaces."
+        ],
+        "reasoning": "Neither determines exact descendant image size for a prescribed circular source and deletion number; the gap reconstruction theorem is an extra constraint. Original primary PDF full text was not obtained.",
+        "searches": [
+          "Resultary: rotation-complete scattered-subsequence necklaces of repeated permutation words",
+          "https://arxiv.org/abs/2108.01990",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md",
+        "https://arxiv.org/abs/2108.01990 (abstract/open metadata)",
+        "assigned RESULT.md",
+        "assigned verify.py",
+        "independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous embedded word E_q,k(u) is a binomial coefficient dependent on weak descents; present count is a period-mask Burnside sum with exact (q−1) correction at t=q."
+        ],
+        "reasoning": "The old result can help enumerate rooted outputs but does not directly imply uniqueness of deletion gap vectors modulo whole-period shifts and the one exceptional circular necklace without an additional proof.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md",
+          "https://arxiv.org/abs/2108.01990",
+          "Resultary: rotation-complete scattered-subsequence necklaces repeated permutations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier exact multiplicity result counts linear embeddings E_q,k(u)=C(k+|u|-1−d(u),|u|) by weak descents, not circular necklaces of deletion outputs."
+        ],
+        "reasoning": "Passing from linear embeddings to rotation classes merges distinct target rotations and source phase masks; the published linear histogram alone does not assert the q-threshold collision partition.",
+        "searches": [
+          "Resultary: cyclic permutation powers deletion descendant necklace orbit count rotation phase gaps",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior full published histogram gives target multiplicities for rooted linear subsequences, not distinct circular outputs at fixed deleted count; no matching n-t table for these necklaces was inspected."
+        ],
+        "reasoning": "The counts require identifying the q simultaneous consecutive-block deletion mask orbits; this is not a simple re-index of linear weak-descent frequencies.",
+        "searches": [
+          "Resultary: short deletion necklaces permutation power Burnside correction t=q",
+          "Resultary: exact embedding-multiplicity spectrum cyclic permutation powers"
+        ]
+      },
+      "rationale": "PASS qualified: Previous full published embedding-multiplicity spectrum for cyclic permutation powers counts rooted linear target positional embeddings and a weak-descent histogram, whereas the current theorem quotients circular deletion outputs by rotation and pinpoints the first q-to-1 phase-wrap collision. Standard Burnside enumeration alone counts mask orbits, not the precise collision quotient.",
+      "residual_risks": [
+        "General necklace enumeration literature under deletion/phase-equivalence terminology could contain an equivalent gap-reconstruction lemma; Adamson et al. full text not read.",
+        "t>q is outside the theorem and can have additional collisions; finite checks are not an all-q,k proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ADJACENT, not same circular-count assertion",
+          "evidence": "It counts rooted linear target positional embeddings and probability spectrum; no circular orbit quotient or phase-wrap collision classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md",
+          "material_read": "Complete published RESULT.md, theorem and block-index bijection, histogram and limitations",
+          "method": "GitHub authorized read of complete primary published mathematical record",
+          "title": "Exact embedding-multiplicity spectrum of cyclic permutation powers",
+          "trigger": "Identical repeated-permutation host with deletion multiplicities"
+        },
+        {
+          "assessment": "INCOMPLETE priority comparison, generic necklacing",
+          "evidence": "Available description covers unrestricted/fixed-content necklaces, not circular deletion descendants of a fixed period-q source.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.01990",
+          "material_read": "Abstract and open-access repository metadata; publisher/open preprint full text was not obtained",
+          "method": "arXiv/open repository search and available abstract reading",
+          "title": "Combinatorial Algorithms for Multidimensional Necklaces",
+          "trigger": "Burnside necklaces and fixed content possibly dominating"
+        },
+        {
+          "assessment": "CONSISTENT with checked masks",
+          "evidence": "Gap congruence and q-consecutive-deletion collision proven for all q,k; finite independent examples confirm formula.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda/RESULT.md",
+          "material_read": "Complete proof and source verify.py",
+          "method": "frozen Git source inspection and independent brute-force circular masks",
+          "title": "Short-deletion necklaces of permutation powers: exact orbit counts and the first phase-wrap collision",
+          "trigger": "Assigned claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md",
+        "https://arxiv.org/abs/2108.01990 (abstract/open metadata)"
+      ],
+      "rationale": "Exact first non-injectivity threshold and explicit orbit correction for deletion descendants of a natural periodic source is a meaningful coding/enumerative combinatorics invariant. The full collision-fiber classification matters for circular deletion channels, even though the theorem stops at t=q and uses standard Burnside and modular gaps.",
+      "residual_risks": [
+        "General necklace enumeration literature under deletion/phase-equivalence terminology could contain an equivalent gap-reconstruction lemma; Adamson et al. full text not read.",
+        "t>q is outside the theorem and can have additional collisions; finite checks are not an all-q,k proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General necklace enumeration literature under deletion/phase-equivalence terminology could contain an equivalent gap-reconstruction lemma; Adamson et al. full text not read.",
+    "t>q is outside the theorem and can have additional collisions; finite checks are not an all-q,k proof.",
+    "No GitHub writes, publisher/auth bypass, external certification or formal proof asserted.",
+    "Scientific C/O/V completeness and import/readiness are separate; publication status not_ready is a transport/privacy blocker, not scientific failure."
+  ],
+  "schema_version": 1
+}
