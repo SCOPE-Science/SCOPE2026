@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** All probability conventions are fixed: the coupon completion time includes the first draw, and a chain reaching its terminal state is killed on the following transition. A direct step-basis operator-norm reduction and a monotone substochastic gradient chain prove the equality for every deck size and iteration count. Independent rational enumeration and occupancy recursions agree for the tested range; the Gumbel limit follows from explicit factorial moments. The reverse-shuffle formula follows from enumerated inverse permutations.
+
+**Originality — PASS, qualified.** Historical work describes the full top-to-random shuffle distribution and a coupon-collector mixing phenomenon, not the sharp adjacent-signal variation norm of its averaged positional action. The coupon-collector identity here requires establishing the operator's gradient semigroup, dominance of the final jump, and the one-step transpose asymmetry. Searches of research records and available literature found no covering norm theorem. The 1992 paper by Diaconis, Fill and Pitman is particularly plausible prior art; only its publisher abstract and references were accessible, and an institutional full-text request was blocked by disconnected access. The original claim is therefore provisional against uninspected passages, not certified unique.
+
+**Value — PASS.** The theorem distinguishes a concrete operator stability invariant from permutation mixing distance, identifies the precise horizon of the first loss beyond geometric contraction, supplies an all-time finite formula and a nontrivial Gumbel critical profile, and proves a sharp reversal between adjoint shuffles. The object and scale are naturally motivated by perturbing an ordered numerical signal by random rearrangements; the result is not just a single small-size computation.
+
+**Closest literature and limits.** Jonasson, arXiv:math/0607124v1, sections 1–2, discusses random-to-top mixing and coupon collectors but not this quotient operator seminorm. Diaconis–Fill–Pitman (1992) provides general shuffle distributions and remains only abstract-level inspected here. The work does not address biased shuffles, cyclic path variation, or norms on full permutation distributions.
+
+Self-review: passed. Independent audit: not yet performed.
