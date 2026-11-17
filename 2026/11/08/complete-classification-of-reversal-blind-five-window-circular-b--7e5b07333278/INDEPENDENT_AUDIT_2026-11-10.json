@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T08:56:09.923868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are 20 reversal-equivalence classes of 5-bit words (8 palindromes, 12 reversal pairs), so a circular identifier with distinct classes has 5<=k<=20. Every circular binary word corresponds to a closed walk in the 4-bit de Bruijn graph with edges labeled by 5-bit reversal classes. The assigned verify_graph.py explores both possible bits from every 4-bit state while forbidding class reuse, exhaustively reaches 3242 recursion nodes, and canonicalizes every closed walk. Independent reconstruction returned 20 rotation classes with counts by lengths 6:2,7:4,8:4,9:4,10:2,12:4; none at other k. Their same-length class masks overlap pairwise, proving capacity at most one at each viable k. The length<=20 proof makes finite enumeration an exhaustive proof, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full earlier paper treats ordered windows and a different relaxation about position rather than direction; no reversal-class closed-walk population."
+        ],
+        "reasoning": "Bounds on 32 ordered windows cannot determine the behavior of 20 reversal-equivalence classes; palindromes are allowed here.",
+        "searches": [
+          "Resultary: reversal blind five window cyclic identifiers length 12 one codebook",
+          "Grubman et al 2015 eBug capacity for ordered five-bit windows"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1502.02199",
+        "https://arxiv.org/pdf/1608.08480",
+        "https://pure.royalholloway.ac.uk/en/publications/orientable-sequences/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dai classical orientability forbids palindromic windows; the present k12 witness has palindrome observations."
+        ],
+        "reasoning": "Orientable-cycle maximum theorem cannot imply the present palindrome-allowing position-only capacity one; old 1993 full material not inspected, residual risk noted.",
+        "searches": [
+          "Resultary: binary reversal window positions orientation distinguish cyclic",
+          "Dai et al 1993; Grubman et al 2015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All work with de Bruijn windows, but earlier objectives respectively ordered position+orientation identification and shortest linear cover of reversal classes."
+        ],
+        "reasoning": "Position-only distinctness of all cyclic five-window reversal classes is a different quotient of edges; neither problem equals the present cycle packing/avoidance classification.",
+        "searches": [
+          "Resultary: reversal-blind binary five-window circular identifiers 20 cycles length 6 7 8 9 10 12",
+          "Grubman et al arxiv:1502.02199; Burris et al arxiv:1608.08480"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its tables are shortest linear covering words for reversal classes, whereas present census is length-wise circular words with nonrepeated classes."
+        ],
+        "reasoning": "No inspected earlier table lists these twenty rotation-canonical words or their length counts; this remains best-of-knowledge, not an absolute negative.",
+        "searches": [
+          "Resultary: reversal-blind binary five-window circular identifiers 20 cycles length 6 7 8 9 10 12",
+          "Burris–Motta–Shipman 2016 arxiv:1608.08480"
+        ]
+      },
+      "rationale": "The earlier circular robot-ID study uses ordered windows and additionally distinguishes read direction, while classical orientable sequences disallow palindromes. Unoriented de Bruijn sequences instead seek shortest (often linear) coverings of all reversal classes, not maximum no-reuse circular cycles or a same-length codebook packing. Related ordered five-window capacity bounds cannot be specialized by simple parameter change because reversal merges edges. The 1993 orientation literature unread original is an explicit residual risk.",
+      "residual_risks": [
+        "No noise, binary symbols and five-window only; receiver identifies position but not orientation.",
+        "Unreviewed complete 1993 orientable sequences conference source could conceal equivalent early finite classification.",
+        "INACCESSIBLE_HISTORICAL_RISK: Orientable Sequences"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBSERVATION_MODEL",
+          "evidence": [
+            "Uses ordered windows for identifying direction and position (different quotient); even position-only relaxation in Section 4.5 is not the five-bit reversal-class observation model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.02199",
+          "material_read": "Original accessible PDF including introduction and position-and-orientation capacity section, page screenshot",
+          "method": "Primary arXiv PDF",
+          "title": "Partitioning de Bruijn Graphs into Fixed-Length Cycles for Robot Identification and Tracking",
+          "trigger": "Same circular robot identification and length-five windows"
+        },
+        {
+          "assessment": "DIFFERENT_COVERING_PROBLEM",
+          "evidence": [
+            "Determines shortest linear cover of every reversal class, not maximum closed walks with distinct reversal classes nor pairwise capacity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.08480",
+          "material_read": "Original accessible paper including definitions and its linear covering objective; PDF page screenshot inspected",
+          "method": "Primary arXiv PDF",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Same words up to reversal could hide dominating classification"
+        },
+        {
+          "assessment": "INACCESSIBLE_HISTORICAL_RISK",
+          "evidence": [
+            "Orientation-aware model excludes palindromic windows, unlike reversal-blind position-only model; unread full original may contain additional finite cases."
+          ],
+          "identifier_or_url": "https://pure.royalholloway.ac.uk/en/publications/orientable-sequences/",
+          "material_read": "Bibliography and source descriptions only; full conference text unavailable",
+          "method": "Publisher/institutional bibliographic metadata",
+          "title": "Orientable Sequences",
+          "trigger": "Early circular orientation/position sensing and possible finite tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The position-only, reversal-blind observation model is a natural distinct sensor-identification constraint. The full sharp length support, exact 20-word necklace census and codebook-capacity-one obstruction are independently usable finite combinatorial classifications, not arbitrary negative tests.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1502.02199",
+    "https://arxiv.org/pdf/1608.08480",
+    "https://pure.royalholloway.ac.uk/en/publications/orientable-sequences/"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No noise, binary symbols and five-window only; receiver identifies position but not orientation.",
+    "Unreviewed complete 1993 orientable sequences conference source could conceal equivalent early finite classification."
+  ],
+  "residual_risks": [
+    "No noise, binary symbols and five-window only; receiver identifies position but not orientation.",
+    "Unreviewed complete 1993 orientable sequences conference source could conceal equivalent early finite classification.",
+    "INACCESSIBLE_HISTORICAL_RISK: Orientable Sequences"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_OBSERVATION_MODEL",
+      "evidence": [
+        "Uses ordered windows for identifying direction and position (different quotient); even position-only relaxation in Section 4.5 is not the five-bit reversal-class observation model."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1502.02199",
+      "material_read": "Original accessible PDF including introduction and position-and-orientation capacity section, page screenshot",
+      "method": "Primary arXiv PDF",
+      "title": "Partitioning de Bruijn Graphs into Fixed-Length Cycles for Robot Identification and Tracking",
+      "trigger": "Same circular robot identification and length-five windows"
+    },
+    {
+      "assessment": "DIFFERENT_COVERING_PROBLEM",
+      "evidence": [
+        "Determines shortest linear cover of every reversal class, not maximum closed walks with distinct reversal classes nor pairwise capacity."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1608.08480",
+      "material_read": "Original accessible paper including definitions and its linear covering objective; PDF page screenshot inspected",
+      "method": "Primary arXiv PDF",
+      "title": "An Unoriented Variation on de Bruijn Sequences",
+      "trigger": "Same words up to reversal could hide dominating classification"
+    },
+    {
+      "assessment": "INACCESSIBLE_HISTORICAL_RISK",
+      "evidence": [
+        "Orientation-aware model excludes palindromic windows, unlike reversal-blind position-only model; unread full original may contain additional finite cases."
+      ],
+      "identifier_or_url": "https://pure.royalholloway.ac.uk/en/publications/orientable-sequences/",
+      "material_read": "Bibliography and source descriptions only; full conference text unavailable",
+      "method": "Publisher/institutional bibliographic metadata",
+      "title": "Orientable Sequences",
+      "trigger": "Early circular orientation/position sensing and possible finite tables"
+    }
+  ]
+}
