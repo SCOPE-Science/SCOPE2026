@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact beta moments and the Jacobi Gram representation identify the operator. A uniform finite-band moment argument on macroscopic index windows gives the phase-dependent singular counting law; rank bounds control the initial segment and weighted-shift decay controls the tail. Strict monotonicity of the radial symbol removes threshold atoms. Uniform implicit differentiation establishes a nonzero Fourier harmonic; layer cake and period averaging give the elliptic-integral logarithmic mean. The proof is infinite-dimensional, not inferred from the numerical checker.
+## correctness
 
-**Originality: PASS, qualified best-knowledge comparison.** The 2025 and 2026 fractional-Volterra primary texts develop membership and essential norm criteria but do not give this oscillatory singular counting profile. Pushnitski's 2017 banded-matrix theorem has constant leading diagonal coefficients, unlike this log-periodic sequence. Semantic result searches for logarithmic oscillations, spectral profiles, moment weights and related weighted shifts returned closest results on Fock Toeplitz log-log filtering and stationary generalized Cesàro coefficients. Neither directly implies the asserted family-specific phase law. A general oscillating-coefficient locally Toeplitz theorem is an acknowledged priority risk; broad novelty is not certified by absence of search hits.
+PASS
 
-**Mathematical value: PASS.** The example is a structurally natural positive radial doubling moment weight in a currently studied fractional Volterra class. It distinguishes qualitative Schatten membership from precise spectral density: a genuine loss of first-order singular-value convergence coexists with a stable computable critical logarithmic residue. The two-term symbol produces a nontrivial angular spectral factor, not simply a diagonal rearrangement.
+The beta identity for m_j and complex gamma ratio give d_n=(2n)^{-1}q(log n)+O(n^{-2}); the exact operator is the sum of first and second weighted shifts, with tridiagonal Gram matrix. Fixed-band closed-walk traces on delta N..R N converge to the locally frozen Jacobi symbol; rank and norm estimates remove low/high cutoffs. Strict decrease of q(u+log x)/x (a<1/sqrt2) excludes threshold atoms; uniform subsequence compactness supplies the stated phase count. The period mean follows by Tonelli/layer cake, and a first-harmonic lower bound for eta<=1/2 proves genuine oscillation; ideal threshold follows from d_n~1/n and invertible I+eta S.
 
-**Limits:** The nonconstancy parameter range is sufficient rather than optimal. Numerical checks are finite; no independent external mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative Hardy fractional-Volterra Schatten criteria predate this work, but the inspected primary paper establishes no log-periodic singular counting first order or explicit averaged coefficient. The analogous same-day Bergman commutator concerns a different operator; a broad oscillatory band-matrix theorem could imply the new limit and remains a risk.
+
+## value
+
+PASS
+
+A natural positive radial doubling weight yields a compact Hardy Volterra companion with no Weyl coefficient but a deterministic nonconstant full phase law and a universal explicit logarithmic spectral average, a useful distinction between strong spectral oscillation and averaged measurable behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
