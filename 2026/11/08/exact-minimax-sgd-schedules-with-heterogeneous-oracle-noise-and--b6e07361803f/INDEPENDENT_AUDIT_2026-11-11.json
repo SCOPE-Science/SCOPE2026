@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:18:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=1, d>=N+1, L,D>0 and positive deterministic per-step variance ceilings, reconstruct the sharp short-step bound Phi=LD²/(2T0)+sum v_i h_i²/(2L T_{i+1}), T_i=1+2 sum_{j>=i}h_j. Published nonnegative smooth-convex interpolation certificate weights each conditional noise term separately. The separable coordinate Huber construction with fresh independent symmetric errors attains every summand for every sign history. Quadratic-perspective strict convexity and coercivity prove unique nonnegative optimizer; interior first-order equations give v_{i+1}c_{i+1}=v_i c_i(1+c_i), c_i=h_i/T_{i+1}, and monotonic scalar root. Algebra gives h_i>=h_{i+1} iff v_{i+1}/v_i>=1-c_i-2c_i². Rational case c=(1/10,11/25), v=(78125/39762,78125/159048) yields h=(47/250,11/25) and strictly reversed ordering. GLOBAL minimax equality requires the computed optimum lie within the 0..3/2 short-step certificate; no claim beyond that domain. Finite tests supplement, not replace, the published nonstandard interpolation inequality and analytic construction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform-variance Grimmer–Shen smooth-convex terminal bound is included as v_0=...=v_(N-1). Other quadratic sorting papers assume different objectives and noise models."
+        ],
+        "reasoning": "The common-variance theorem is a strict specialization, not a stronger theorem covering general vectors with ordering reversal; no inspected prior result dominates all the new statements.",
+        "searches": [
+          "heteroscedastic time-dependent noise exact minimax stochastic gradient descent Huber stepsize reversal optimal steps schedules smooth convex Grimmer Shen",
+          "https://arxiv.org/abs/2610.42048",
+          "https://arxiv.org/abs/2608.15035"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.42048",
+        "https://arxiv.org/abs/2608.15035",
+        "https://www.paperpeel.com/paper/2610.42048",
+        "https://arxiv.org/abs/2507.11274"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier interpolating certificate supplies the weighted upper-bound mechanism termwise, but homogeneous optimization yields c_next=c+c² rather than v_next*c_next=v*c(1+c). The exact ratio threshold changes sign for suitable different v_i."
+        ],
+        "reasoning": "The source method can be generalized but its published optimized theorem does not logically imply the new nonuniform optimum/step-order theorem without independent optimization and sharpness analysis.",
+        "searches": [
+          "heteroscedastic time-dependent noise exact minimax stochastic gradient descent Huber stepsize reversal optimal steps schedules smooth convex Grimmer Shen",
+          "https://arxiv.org/abs/2610.42048",
+          "https://arxiv.org/abs/2608.15035"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grimmer–Shen Theorem 1.1, formula (1.4) and optimizer use a common variance and homogeneous recurrence c_(i+1)=c_i(1+c_i); Bai–Zhou uses two steps and strongly convex squared-distance loss."
+        ],
+        "reasoning": "Identical optimization terminology does not yield the separate v_i minimax objective, heteroscedastic recurrence or if-and-only-if neighboring step inequality.",
+        "searches": [
+          "heteroscedastic time-dependent noise exact minimax stochastic gradient descent Huber stepsize reversal optimal steps schedules smooth convex Grimmer Shen",
+          "https://arxiv.org/abs/2610.42048",
+          "https://arxiv.org/abs/2608.15035"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an all-horizon symbolic variational and optimization formula, not a numerical table; searches returned adjacent SGD topics but no indexed exact v_i classification."
+        ],
+        "reasoning": "No matching published database or symbolic table was identified. Search absence alone is not novelty proof; the substantive source implication comparison supplies O.",
+        "searches": [
+          "heteroscedastic time-dependent noise exact minimax stochastic gradient descent Huber stepsize reversal optimal steps schedules smooth convex Grimmer Shen",
+          "arxiv:2610.42048v1"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Grimmer–Shen exactly solves common single-variance smooth-convex SGD and supplies the crucial potential and Huber construction, but does not state a vector of distinct ceilings or the exact unique optimized nonuniform recursion and sharp local step-order reversal. Bai–Zhou treats strongly convex two-step distance objective. The new result is a technically modest but meaningful full heteroscedastic finite-horizon and step-order classification; not a new interpolation lemma.",
+      "residual_risks": [
+        "A nonindexed or later heteroscedastic refinement of Grimmer–Shen may have derived the full recursion and step-order rule.",
+        "Weighted certificate is an adaptation of an external sharp nonstandard interpolation proof; the external proof hypotheses must be retained, especially h_i<=3/2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared-variance theorem and nonnegative interpolation weights; supports conditional weighted bound, not exact heterogeneous optimizer",
+          "evidence": [
+            "Theorem 1.1 has one noise variance; last-iterate potential sum is linear in iteration-specific conditional second moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.42048",
+          "material_read": "Public full-text mathematical statements, proof of the weighted certificate, Theorem 1.1 and Sections 1–3 plus appendices read in accessible mirror",
+          "method": "Full-text mathematical inspection of arxiv:2610.42048v1 via https://www.paperpeel.com/paper/2610.42048",
+          "title": "Exact Theory and Optimal Stepsizes for Stochastic Gradient Descent in Smooth Convex Minimization",
+          "trigger": "Nonstandard interpolation certificate used as main C premise"
+        },
+        {
+          "assessment": "Does not settle arbitrary-horizon smooth-convex terminal objective with step-specific ceilings",
+          "evidence": [
+            "Strong convexity, two steps and squared-distance target differ from the result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.15035",
+          "material_read": "Indexed primary abstract and reported model/objective; whole text not claimed inspected",
+          "method": "Public arXiv abstract and source statement comparison",
+          "title": "Optimal Two-Step Stepsize Schedule for Stochastic Gradient Methods",
+          "trigger": "Adjacent minimax stepsize topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.42048",
+        "https://arxiv.org/abs/2608.15035",
+        "https://www.paperpeel.com/paper/2610.42048",
+        "https://arxiv.org/abs/2507.11274"
+      ],
+      "rationale": "PASS: In time-dependent noisy optimization the correct nonuniform minimax schedule and exact monotonicity boundary matter; the rational reversal defeats naive homogeneous-noise step-order intuition. It is a complete meaningful parameter classification, not merely a rebranding of the published homogeneous optimizer.",
+      "residual_risks": [
+        "A nonindexed or later heteroscedastic refinement of Grimmer–Shen may have derived the full recursion and step-order rule.",
+        "Weighted certificate is an adaptation of an external sharp nonstandard interpolation proof; the external proof hypotheses must be retained, especially h_i<=3/2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge prior-literature assessment, not exhaustive historical-priority certification.",
+    "Scientific assessment refers to exact assigned Git snapshot; no GitHub write or dispatcher closeout performed.",
+    "Public change-set not_ready: no unguarded public metadata containing operational identifiers may be published."
+  ],
+  "schema_version": 1
+}
