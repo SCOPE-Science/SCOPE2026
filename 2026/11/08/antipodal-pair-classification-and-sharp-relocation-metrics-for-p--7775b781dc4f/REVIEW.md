@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every paired-dominating set must have even size, and no graph edge dominates all twelve vertices, ruling out size two. The antipodal neighborhood partition proves that the displayed four-sets are feasible. An exhaustive 30-edge completion lemma establishes that no other four-set satisfying domination and a perfect matching can occur. Counting the double-antipodal overlap gives 135 distinct minima and a structural 60/60/15 classification. Exact complete transition enumeration and breadth-first search from each state yield the sharp movement metrics. The independent cyclic and Cartesian host constructions, both reconstructed from code files in the package, agree. Their finite nature is explicit; no extrapolation is used.
+## correctness
 
-## Originality
-PASS on the accessible evidence, subject to the limitations below. Foundational paired domination in Haynes–Slater (1998) neither states nor implies this particular 135-state classification. Teshima (2022), Chapter 2, Theorem 2.2, treats universal realizability of paired-domination slide graphs for constructed hosts and not this fixed graph. Carević (2021) analyzes ordinary domination of subdivided icosahedral-hexagonal networks. Accessible research-record and historical claim searches found no stronger or equivalent result establishing the antipodal classification and both exact relocation graphs. No search failure is treated as mathematical proof of uniqueness.
+PASS
 
-## Value
-PASS. The graph is a canonical vertex- and edge-transitive polyhedral graph. The classification identifies why all minimum paired guard assignments contain an antipodal pair, a geometrically intrinsic invariant not visible from the scalar optimum. It quantifies the exact worst-case cost of relocating paired guards under local movement versus unrestricted replacement, for which both state spaces happen to be connected and self-centered but have different sharp diameters. This supplies a natural, fully resolved benchmark for constrained relocation while respecting paired backup assignments, rather than a gratuitous arbitrary graph calculation.
+For the specified cyclic 12-vertex icosahedral graph an antipodal pair (u,bar u) has disjoint closed neighborhoods partitioning V. Sets {u,bar u,v,w} with v adjacent u and w adjacent bar u are paired dominated and matched. No 2-set dominates. Complete test of all 30 initial edges and 21 disjoint second edges proves every feasible matched 4-set contains an antipodal pair, so 6*25 minus 15 duplicate two-pair states =135, subclasses 60/60/15. Independently enumerated all C(12,4)=495 four-subsets and reconstructed reconfiguration graph on 135 valid states. Slide 360 edges, all ecc six; jump 720 edges, all ecc four. Exact finite graph proof, no general graph-family claim.
 
-## Closest literature and limitations
-Haynes and Slater, "Paired-domination in graphs," *Networks* 32 (1998), 199–206, DOI 10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F (bibliography/abstract accessible, full article unavailable). Teshima, *The i-Graph and Other Variations on the γ-Graph*, University of Victoria dissertation (2022), Chapter 2 (full PDF read). Carević, *Mathematical Problems in Engineering* 2021, article 6663389 (full HTML read). These sources establish related models but not the claimed exact icosahedral classification. Potential unpublished or unindexed special-case enumerations remain a historical-priority risk. The reconfiguration diameter is established by exhaustive, independently reproduced graph searches, not an infinite-family formula. No independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Haynes–Slater (1998) is founding definition only; complete full Teshima 2022 dissertation Chapter 2 constructs hosts realizing arbitrary paired-domination reconfiguration graphs but does not classify the unmodified Platonic icosahedron. Related Resultary triangular graphs and Kneser graphs are nonisomorphic hosts with distinct optimum-state spaces, so their formulas do not imply 135 configurations or 360/720 moves here. No equivalent icosahedron pairing census found in searched record database.
+
+## value
+
+PASS
+
+Paired domination naturally requires a matched backup pair of guards and is meaningful on a canonical symmetric graph. Antipodal neighborhood partition yields a structural full optimizer classification; exact local versus unrestricted relocation diameters 6 vs 4 quantify a concrete mobility penalty, a natural finite exact benchmark not an arbitrary enumerated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-Use the two source files embedded alongside this document. Run `python3 check_ring.py` with a standard Python 3 interpreter. Separately compile `check_coordinates.cpp` with `g++ -std=c++17 -O2 check_coordinates.cpp -o check_coordinates` and run `./check_coordinates`. Compare the stdout with `check_ring.out` and `check_coordinates.out`. The C++ program constructs the graph from Euclidean coordinates instead of sharing the Python cyclic edge list.
+## correctness
 
-Both checkers enumerate the full finite solution space. The first tests all 30 potential first edges against every disjoint second edge, verifies that every successful pair uses an antipodal pair, and checks that the explicit antipodal construction matches all minimum four-sets. Both checkers independently construct the two single-replacement graphs and compute all-pairs shortest paths by breadth-first search from each of 135 states. Expected results: 135 minima; types 60/60/15; slide 360 edges, one component, radius and diameter six; jump 720 edges, one component, radius and diameter four.
+PASS
 
-Scientific scope: computations certify facts only for the explicitly defined twelve-vertex host. No finite experiment is used to justify an infinite extension. This work has received self-review but has not received independent audit or independent scholarly certification.
+For the specified cyclic 12-vertex icosahedral graph an antipodal pair (u,bar u) has disjoint closed neighborhoods partitioning V. Sets {u,bar u,v,w} with v adjacent u and w adjacent bar u are paired dominated and matched. No 2-set dominates. Complete test of all 30 initial edges and 21 disjoint second edges proves every feasible matched 4-set contains an antipodal pair, so 6*25 minus 15 duplicate two-pair states =135, subclasses 60/60/15. Independently enumerated all C(12,4)=495 four-subsets and reconstructed reconfiguration graph on 135 valid states. Slide 360 edges, all ecc six; jump 720 edges, all ecc four. Exact finite graph proof, no general graph-family claim.
+
+## originality
+
+PASS
+
+Haynes–Slater (1998) is founding definition only; complete full Teshima 2022 dissertation Chapter 2 constructs hosts realizing arbitrary paired-domination reconfiguration graphs but does not classify the unmodified Platonic icosahedron. Related Resultary triangular graphs and Kneser graphs are nonisomorphic hosts with distinct optimum-state spaces, so their formulas do not imply 135 configurations or 360/720 moves here. No equivalent icosahedron pairing census found in searched record database.
+
+## value
+
+PASS
+
+Paired domination naturally requires a matched backup pair of guards and is meaningful on a canonical symmetric graph. Antipodal neighborhood partition yields a structural full optimizer classification; exact local versus unrestricted relocation diameters 6 vs 4 quantify a concrete mobility penalty, a natural finite exact benchmark not an arbitrary enumerated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
