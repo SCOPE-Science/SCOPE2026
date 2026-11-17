@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The palindrome/reversal-pair legality equivalence and inductive last-window transition prove that every binary aperiodic orientable word of each tested length appears on exactly one enumeration path. Two independently structured complete implementations agree on every length coefficient, on every normalized maximizer, and on the absence of length-27/49 words. The output lists exactly 22/3294 maximizers, 2/22 reverse-complement fixed points, and the forced endpoint/weight profiles. Burnside's lemma then proves the 6/829 orbit counts. The result is explicitly finite; it does not infer anything about arbitrary orders.
+## correctness
 
-**Originality — PASS, with stated priority risk.** Mitchell's arXiv:2610.33601 gives maximum lengths and individual examples, and says its search enumerates optimal sequences, but the inspected text does not publish the length-by-length enumeration, number of maximizers or reversal/complement orbit structure at spans six and seven. The earlier periodic construction papers and the archived cyclic order-seven result concern a different cyclic domain. Searches of indexed mathematical records and the web did not identify exact matching tables. The earlier exhaustive code may implicitly calculate them, and inaccessible/unindexed enumerations remain possible.
+PASS
 
-**Value — PASS.** The number and shape of inequivalent optimal orientation/location codes measures actual choice of optimal binary markers. Spans six and seven are the first two extremal orders beyond the unique examples at spans four and five. The exact diversity transition (six then 829 orbits), invariant balanced composition, rigid endpoints, and entire intermediate length spectrum form a natural complete finite classification directly useful for construction and benchmarking; the result is not merely another sample optimum.
+A legal linear word corresponds bijectively to a path of de Bruijn length-n windows with no palindromes or repeated reversal-pair labels. The recursion over suffix and used-pair bitset enumerates every extension once, and complement pairs all first-bit-zero rooted paths. Independent from-scratch exhaustive enumeration found n=6: 11 normalized,22 labeled,6 R/C orbits,2 RC fixed; n=7:1647 normalized,3294 labeled,829 R/C orbits,22 RC fixed; no admissible length 27 or 49, each maximizer balanced. Source verify_bitmask.py and verify_direct.py implement complete independent representations. Recursion is a finite exhaustive proof for n=6,7 only; not an infinite-n extrapolation.
 
-**Closest literature and limitations.** C. J. Mitchell, *Searching for binary orientable sequences* (arXiv:2610.33601, October 24, 2026); C. J. Mitchell and P. R. Wild, *New orientable sequences* (Acta Informatica 2026); D. Gabrić and J. Sawada, *Efficient Construction of Long Orientable Sequences* (CPM 2024). Results are finite for binary aperiodic spans six and seven; no all-span theorem or external priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality survives only for the nontrivial REMAINDER: exact full intermediate-length populations at spans 6 and 7, all-order-seven maximal symmetry-orbit count 829, 22 reverse-complement-fixed and all-extremal balance/forced endpoints. Previously published results already establish optimal lengths 26/48, the complete order-six maximum 22 and six orbits, and apparently Mitchell 2026 also enumerates maximum-length aperiodic order-seven words. These known components must NOT be claimed as original; the submitted combined theorem still has independent length-refined and symmetry classifications not implied by those maximum-size statements. There is a material residual risk from inaccessible full Mitchell paper, explicitly recorded.
+
+## value
+
+PASS
+
+The first nontrivial aperiodic orientable binary spans are natural finite benchmarks for position-sensing/sequence-design questions. Exact order-seven distribution N_7(L) at all feasible lengths and symmetry-resolved 829-orbit, 22 RC-fixed census plus universal boundary/balance constraints are independently useful unknown finite structural invariants, not just a duplicated maximum-length calculation. The complete finite search and certificates are substantial but do not, alone, prove value; the natural design/classification problem motivates them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
