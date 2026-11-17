@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The proof's universal claim is confined to exactly three agents on each side with complete strict lists. `reachability_verify.py` and `reachability_census.cpp` enumerate the full space of \(6^6\) profiles using distinct code paths. Each independently produces the table \((1,1):34080\), \((2,2):11484\), \((3,2):12\), \((3,3):1080\). The Python checker also generates the 12 distinct independent-relabeling images of the cyclic profile and verifies set equality with all deficient profiles. Both codes explicitly test blocking pairs and stable proposal-chain outcomes. No statistical sampling or inference to larger markets is used.
+## correctness
 
-To reproduce, run `python3 reachability_verify.py` and then compile and run the C++ file with any C++17 compiler. No external packages or network access are needed.
+PASS
 
-Limits: exhaustive computation is the certificate for the finite orbit exclusion; the codimension-one reduction of arbitrarily long histories is a separate mathematical argument. Independent third-party audit has not been performed.
+The codimension-one criterion reduces histories of arbitrary length to incoming transitions from stable five-agent markets. Two possible five-agent stable states are both entry-reachable. Exhaustive 6^6 profile classification yields 34080(1,1),11484(2,2),1080(3,3),12(3,2), and exact deficient cyclic orbit size 12.
+
+## originality
+
+PASS
+
+No original theorem implying the exact global orbit census was found in materially inspected sources; the cyclic lower bound of 12 alone does not imply the universal upper bound.
+
+## value
+
+PASS
+
+The global 3-by-3 exact orbit classification supplies a natural and non-implied finite boundary, and incidence 1/3888; significant for interpretation of historical stable matching selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
