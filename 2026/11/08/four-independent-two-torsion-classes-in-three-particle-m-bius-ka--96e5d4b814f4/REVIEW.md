@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The integral reduced Świątkowski model computes homology of unordered configurations on a graph. Exact chain construction with 24 sorted graph edges and two local halfedge differences per cubic vertex yields weight-three chain ranks 2600, 9600, 11520, 4480. Full column checks verify the chain identity, finite-field ranks of the third differential are 4475 in characteristic two and 4479 in characteristics three and five, and a primitive integral kernel vector with 1919 terms proves exact rational rank 4479. Four binary kernel representatives independent modulo the integral primitive kernel have even nonzero boundaries; dividing by two gives four integral two-cycles of exact order two, independent by the mod-two kernel argument. The nullity difference proves there are exactly four independent order-two classes. The attached executable, input chains, and recorded output are self-contained. Risk: reliance on correct implementation and applicability of the published chain-model comparison, not a formal proof assistant certificate.
+## correctness
 
-## Originality — PASS against inspected literature
-The earliest archive reference, Ko–Park (arXiv:1101.2648, 2011), computes first rather than second graph-braid homology. The reduced chain model (An–Drummond-Cole–Knudsen, arXiv:1708.02351) supplies a computational tool, not these ranks. An–Knudsen (arXiv:2008.10371) treat planar graph generators, while the present graph is nonplanar. An (arXiv:2610.04305) computes complete bipartite families, not this graph. Relevant primary sections and retrieved records for Möbius–Kantor matching/independence complexes and for other incidence graph configuration spaces were compared by implication, and none inspected yields this result. Risk: an unindexed or alternate-name computation could subsume it; the literature search cannot prove uniqueness.
+PASS
 
-## Value — PASS
-The Möbius–Kantor graph is the canonical edge-transitive cubic incidence graph of an \((8_3)\) configuration, and integral degree-two torsion in graph configuration spaces is of independent topological interest. The exact order-two subgroup and explicit integral cycles distinguish this natural case from field-only Betti calculations and from first-homology planarity criteria. There is no unsupported family-level or minimality claim. Limitations: higher two-primary invariant factors and the remaining second homology are undetermined; independent validation and definitive priority assessment are outstanding.
+The weight-three reduced Swiatkowski chain basis is specified by distinct vertices with two reduced halfedge choices and monomials in the 24 graph-edge variables. Reconstructed 4480 C3 and 11520 C2 basis elements, their integral D3 columns, and independently computed rank_F2(D3)=4475 and rank_F3(D3)=4479 (GF3 sparse elimination). Read the original 1919-term primitive kernel certificate: re-evaluated D3*k=0 and gcd coefficients=1, so rank_Q D3=4479 and H3=Z. Re-evaluated each of four certificate mod2 chains c_i: D3 c_i has all even coefficients; the five mod2 vectors k,c1..c4 are independent. Hence w_i=D3c_i/2 give four independent exact order-two H2 classes. Since nullity_F2 D3=5 and rank_Z ker D3=1, UCT/SNF gives exactly four independent order-two classes in coker D3. The quotient to im D2 is torsion-free, so H2[2]=(Z/2)^4. This does not determine possible higher 2-power torsion nor H2 free rank.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge original integral rank and order-two subgroup for B3 of the nonplanar Möbius–Kantor graph; known graph-braid chain comparison is a method, while checked neighboring graph computations and planar theorems do not imply these exact ranks.
+
+## value
+
+PASS
+
+Exact 2-torsion rank in three-particle configurations of the natural 16-vertex Möbius–Kantor cubic graph is a motivated integral topological invariant; torsion information is not implied by rational Betti numbers and the explicit generating cycles are reusable. The self-contained exact fact need not complete all integral H2 invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
