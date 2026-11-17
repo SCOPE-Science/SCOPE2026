@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical identities
+# Independent mathematical audit
 
-The supplied `verify.py` is a standalone exact checker requiring Python 3 and SymPy. Run `python3 verify.py` from the directory containing this file. Its run returned `PASS: 77 exact assertions; symbolic 8/7-orbit identities and independent 14-state solutions`.
+## correctness
 
-The script independently constructs the complete birth–death first-step equations, with absorbing all-resident and all-mutant states. It verifies orbit partitions, obtains fixation formulae by exact symbolic matrix inversion, checks their rational difference against the stated factorization, and reconstructs the full 14-state system at seventeen rational parameter pairs. It also checks the cubic and diagonal algebra, the isothermal limit and explicit rational examples. The positivity of the denominator and uniqueness of positive roots are analytical deductions presented in RESULT.md; finite checks do not purport to certify all parameter values by enumeration.
+PASS
 
-The verification is a reproducible check of the finite-state symbolic identity and a self-review of its implications. No independent audit or expert certification is asserted.
+Reconstructed generator Dirichlet equations on all 14 transient subsets for birth-death updating, resident fecundity fixed to 1, mutant fecundity site-specific r,s; symmetric orbit reduction gives rational expressions for alternating and clustered fixation. Independently solved the uncompressed rational 14-state systems for parameters (1,1),(2,1),(10,1),(4,2),(11,4),(7,3) and verified the stated closed difference. Its denominator is strictly positive for r,s>0 and r!=s; the symmetric numerator polynomial becomes F_ell(h). Descartes sign changes (+,possibly,-,-) give exactly one positive root; diagonal F_ell(ell)=2ell(ell+1)(ell³-2ell²-3ell-3) locates the switch uniquely for ell below ell_c. Equality on diagonal r=s. Finite rational examples do not establish unique-root conclusion without the analytic sign argument.
+
+## originality
+
+PASS
+
+Prior mutant-specific fitness on cyclic graphs examines alternating environments, while prior two-color graph optimality for matching benefits varies resident AND mutant fitness; neither implies this adjacent-vs-alternating mutant-only four-cycle exact sign diagram. Published properly colored formula already covers rho_A and is explicitly credited. Searching related Moran 4-site results found different graphs, initial-state comparisons, or selection scheduling but not this exact mutant-only habitat rearrangement.
+
+## value
+
+PASS
+
+The smallest balanced two-habitat cycle already exhibits a single nontrivial parameter transition from clustered-favored to alternating-favored fixation at fixed mutant quality multiset. The exact root threshold distinguishes spatial arrangement from intrinsic fitness and shows why proper-coloring intuition cannot be transferred across fitness conventions; a natural finite structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
