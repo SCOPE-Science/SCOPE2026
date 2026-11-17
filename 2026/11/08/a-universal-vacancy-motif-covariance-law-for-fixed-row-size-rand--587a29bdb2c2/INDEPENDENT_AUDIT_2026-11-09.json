@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:50:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-vacancy-motif-covariance-law-for-fixed-row-size-rand--587a29bdb2c2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-vacancy-motif-covariance-law-for-fixed-row-size-rand--587a29bdb2c2/verify_incidence.py"
+      ],
+      "rationale": "Each ordered injection of motif left and right vertices has a product of row-specific falling-factorial inclusion probabilities, so ET_H=(n)_k sum_alpha prod_j (r_alpha(j))_(t_j)/(n)_(t_j). Conditioning one given right label to be absent preserves row independence and replaces n with n-1 for all rows. As no motif right vertex is isolated, conditioned embeddings avoid that label; the ratio E[T|vac]/ET is (1-k/n)/prod_j(1-t_j/n), independent of r_i, m. Summing vacancy indicators yields the claimed normalized covariance. For f(x)=1-prod_j(1-t_j x), f''<0 when s>=2 and 0<x<1/k; hence f(x)/x strictly decreases, proving the stated exactly-one real sign crossing with the e<=k, max t_j=k endpoints handled separately. The shared-leaf double-d-star specializes algebraically to (n-d^2)/(n-d)^2; independently verified this rational simplification. The supplied verify_incidence.py enumerates actual row subsets for seven cases; no finite enumeration is used to justify general n, motif or heterogeneous row patterns.",
+      "residual_risks": [
+        "If ET=0 or EZ=0 normalization is undefined; excluded. Induced motifs and motifs with isolated right vertices violate the stated conditioning argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Other published laws are for globally uniform fixed-edge G(n,m) or fixed-total-edge hypergraphs; the rowwise fixed-sizes ensemble is distinct, especially after conditioning on a vacancy.",
+          "Their induced-graph motifs/edge-pair overlaps do not encode arbitrary labeled bipartite incidence left-degrees."
+        ],
+        "reasoning": "A global edge-budget constraint destroys row independence after conditioning. The prior covariance identities cannot be substituted into this product conditional-law calculation to cover the asserted family.",
+        "searches": [
+          "random incidence hypergraph fixed row size covariance isolated right vertices motif subgraph embeddings sign",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-isolation-motif-covariance-phase-boundary-in-fixed-e--4638b81bb36f",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-nt-r-2-boundary-for-isolation-overlap-dependence-in-ran--6fe3ab2f523b"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-vacancy-motif-covariance-law-for-fixed-row-size-rand--587a29bdb2c2/RESULT.md",
+        "https://arxiv.org/abs/0805.2814",
+        "https://arxiv.org/abs/1209.4675",
+        "https://doi.org/10.1017/S0963548398003459"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blackburn–Gerke treats connectivity in the projected uniform-subset intersection graph.",
+          "Karoński–Scheinerman–Singer-Cohen publisher abstract identifies threshold appearance/disappearance of induced projected subgraphs, not vacancy count covariance."
+        ],
+        "reasoning": "Neither accessible theorem supplies conditional inclusion multipliers for all ordered incidence-motif embeddings; the older 1999 complete text was inaccessible and is retained as a priority risk, not asserted NOT_COVERING.",
+        "searches": [
+          "random incidence hypergraph fixed row size covariance isolated right vertices motif subgraph embeddings sign",
+          "fixed row size incidence graph vacancy motif covariance isolation non induced embeddings independent random subsets",
+          "https://doi.org/10.1017/S0963548398003459"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Row subsets are independent conditional on fixed sizes, whereas projected random intersection graphs connect two row-vertices if their assigned subsets overlap.",
+          "The new normalized ratio is expressed by t_j and k, not graph projected induced-subgraph appearances."
+        ],
+        "reasoning": "Matched objects and joint observables: vacancy of right labels versus NON-induced motif embeddings in original bipartite incidence, not projected clique or intersection copies. The known model uses random subsets, but identified theorems do not imply this exact mixed moment.",
+        "searches": [
+          "random incidence hypergraph fixed row size covariance isolated right vertices motif subgraph embeddings sign",
+          "fixed row size incidence graph vacancy motif covariance isolation non induced embeddings independent random subsets",
+          "https://arxiv.org/abs/0805.2814",
+          "https://doi.org/10.1017/S0963548398003459"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The computed square n=d^2 for the double-star H_d occurs in the present fixed-row covariance formula; an unrelated n t=r^2 threshold appears in a fixed-edge hypergraph study."
+        ],
+        "reasoning": "No pre-existing incidence-motif table with the all-parameter formula was identified; matching a square-looking numerical boundary under a different model does not imply equivalence.",
+        "searches": [
+          "random incidence hypergraph fixed row size covariance isolated right vertices motif subgraph embeddings sign",
+          "fixed row size incidence graph vacancy motif covariance isolation non induced embeddings independent random subsets",
+          "https://arxiv.org/abs/1209.4675"
+        ]
+      },
+      "rationale": "Best-of-knowledge source and statement comparison distinguishes independent uniform fixed-row-size incidence embeddings from fixed-total-edge ER or uniform-hypergraph motif counts, and from projected random intersection graphs. The Palm conditioning ratio depends on left degree multiset and yields a natural exact square n=d^2 sign boundary; no inspected earlier Resultary or primary source establishes this all-motif fixed-row law. Inaccessible 1999 primary full text remains an explicit risk, not evidence of novelty by absence nor reason alone to fail O.",
+      "residual_risks": [
+        "The 1999 Cambridge induced-subgraph paper full text was not accessible, and institutional VPN disconnected; implicit factor-moment coverage in its body cannot be ruled out.",
+        "A previously unknown general Palm identity for incidence-motif counts could imply this specialization despite searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBSERVABLE in inspected text; no full-document noncoverage assertion",
+          "evidence": "The established result is a threshold for connectivity/isolated vertices of projected random intersection graph.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.2814",
+          "material_read": "Published arXiv abstract, model, primary theorem descriptors and source-quoted connectivity comparison; full 19-page paper not newly read end to end in this execution",
+          "method": "Primary public abstract plus mathematical comparison of model and target; source package cites connectivity theorem",
+          "title": "Connectivity of the Uniform Random Intersection Graph",
+          "trigger": "Same independent fixed-subset row ensemble"
+        },
+        {
+          "assessment": "POTENTIAL_COVERAGE_RISK; cannot assert full-text noncoverage",
+          "evidence": "1999 paper concerns induced subgraphs of projected random intersection graphs, not explicitly incidence motif/vacancy covariance.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548398003459",
+          "material_read": "Cambridge publisher abstract and bibliographic metadata; full paper unavailable",
+          "method": "Primary publisher abstract inspected; authorized Oxford retrieval requested after open routes failed, returned VPN disconnected",
+          "title": "On Random Intersection Graphs: The Subgraph Problem",
+          "trigger": "Plausibly stronger subgraph paper on nearly the same random-subset setting"
+        },
+        {
+          "assessment": "Different projected-graph clustering observables in accessible material",
+          "evidence": "Projected assortativity and clustering, not conditioned vacancy and arbitrary incidence embeddings.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.4675",
+          "material_read": "Original arXiv bibliographic/abstract description, with model and statistics summarized in referenced package; full manuscript not newly read",
+          "method": "Bounded primary search and independent theorem comparison",
+          "title": "Assortativity and clustering of sparse random intersection graphs",
+          "trigger": "Possible earlier motif correlation theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-vacancy-motif-covariance-law-for-fixed-row-size-rand--587a29bdb2c2/RESULT.md",
+        "https://arxiv.org/abs/0805.2814"
+      ],
+      "rationale": "The covariance between unused labels and arbitrary non-induced incidence motifs is a naturally motivated dependence question in fixed-degree/row-size random incidence networks. The exact cancellation of all host row-size parameters, the complete at-most-one-real-transition classification, and the infinite family with an integer square threshold n=d² are structural, reusable facts not merely a small simulation or a known-table recomputation. The statement carefully excludes degenerate normalizations and distinguishes integer sign changes from the real threshold.",
+      "residual_risks": [
+        "Scope is row-independent fixed-subset sampling; it does not settle conditional-total-edge or induced projected subgraph models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "If ET=0 or EZ=0 normalization is undefined; excluded. Induced motifs and motifs with isolated right vertices violate the stated conditioning argument.",
+    "The 1999 Cambridge induced-subgraph paper full text was not accessible, and institutional VPN disconnected; implicit factor-moment coverage in its body cannot be ruled out.",
+    "A previously unknown general Palm identity for incidence-motif counts could imply this specialization despite searches.",
+    "Scope is row-independent fixed-subset sampling; it does not settle conditional-total-edge or induced projected subgraph models."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model, injection convention, positivity conditions and expectation normalization are explicit in RESULT.md. For each right label, vacancy restricts every independently sampled row to a uniformly chosen subset of one fewer label; since every right motif vertex is incident, none can map to the vacant label. Comparing the exact falling-factorial expectation sums gives a multiplier independent of the actual row sizes. Summing indicator covariances proves the identity. Strict concavity of \(1-\prod(1-t_jx)\) proves the exhaustive sign trichotomy, and direct substitution gives the integer square threshold. The extracted standalone exact checker verifies seven exhaustive finite parameter cases and 638 additional double-star identities. Finite evidence is not used to justify the all-order statements.
+PASS
 
-## Originality — PASS, qualified
+Each ordered injection of motif left and right vertices has a product of row-specific falling-factorial inclusion probabilities, so ET_H=(n)_k sum_alpha prod_j (r_alpha(j))_(t_j)/(n)_(t_j). Conditioning one given right label to be absent preserves row independence and replaces n with n-1 for all rows. As no motif right vertex is isolated, conditioned embeddings avoid that label; the ratio E[T|vac]/ET is (1-k/n)/prod_j(1-t_j/n), independent of r_i, m. Summing vacancy indicators yields the claimed normalized covariance. For f(x)=1-prod_j(1-t_j x), f''<0 when s>=2 and 0<x<1/k; hence f(x)/x strictly decreases, proving the stated exactly-one real sign crossing with the e<=k, max t_j=k endpoints handled separately. The shared-leaf double-d-star specializes algebraically to (n-d^2)/(n-d)^2; independently verified this rational simplification. The supplied verify_incidence.py enumerates actual row subsets for seven cases; no finite enumeration is used to justify general n, motif or heterogeneous row patterns.
 
-The most closely related primary model is Blackburn–Gerke (arXiv:0805.2814v1, 2008), which establishes connectivity thresholds of projected random intersection graphs, not dependence between vacant attributes and underlying bipartite incidence-motif embeddings. The accessible Bloznelis–Jaworski–Kurauskas (arXiv:1209.4675v1, 2012) concerns assortativity and clustering in the projected graph. Karoński–Scheinerman–Singer-Cohen (1999) studies induced projected-graph motifs, but only abstract-level material could be inspected; implicit coverage remains possible and is not claimed absent. A previous exact isolation–motif covariance in \(G(n,m)\) does not imply this formula: global fixed-edge conditioning differs from independent row sums, its motif count is induced and undirected, and its transition parameter is the number of edges rather than the right-attribute universe. No direct equivalent or dominating result was identified in the performed comparisons; this is not a definitive historical uniqueness assertion.
+## originality
 
-## Value — PASS
+PASS
 
-The all-finite-size covariance law identifies a natural statistical relation between unused attributes and motif occurrences in random incidence structures, separates the dependence on motif shape from its left degree profile, and exposes a sharp transition controlled solely by the attribute universe size. The entire heterogeneous-row family collapses to one rational expression, while the two-star-overlap family exhibits a transparent nontrivial square threshold \(n=d^2\). This is a structural all-parameter result, not an arbitrary finite example or a recalculation of a known table.
+Best-of-knowledge source and statement comparison distinguishes independent uniform fixed-row-size incidence embeddings from fixed-total-edge ER or uniform-hypergraph motif counts, and from projected random intersection graphs. The Palm conditioning ratio depends on left degree multiset and yields a natural exact square n=d^2 sign boundary; no inspected earlier Resultary or primary source establishes this all-motif fixed-row law. Inaccessible 1999 primary full text remains an explicit risk, not evidence of novelty by absence nor reason alone to fail O.
 
-## Remaining risks and scope
+## value
 
-Historical implicit coverage in the inaccessible full 1999 article or other older incidence-pattern literature has not been excluded. No result is claimed for induced projected-graph motifs, for fixed-total-edge sampling, or with right-isolated motif roles. The computational replay tests finitely many parameter sets but the proof is algebraic for every admissible model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The covariance between unused labels and arbitrary non-induced incidence motifs is a naturally motivated dependence question in fixed-degree/row-size random incidence networks. The exact cancellation of all host row-size parameters, the complete at-most-one-real-transition classification, and the infinite family with an integer square threshold n=d² are structural, reusable facts not merely a small simulation or a known-table recomputation. The statement carefully excludes degenerate normalizations and distinguishes integer sign changes from the real threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
