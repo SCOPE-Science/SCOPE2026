@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-With Python 3.9 or newer and no third-party dependencies, run `python verify.py` in this directory. The script compares exact \(\operatorname{tr}(L_{FF}^{-1})\) values obtained by rational Gauss--Jordan elimination to six independently written class formulas, exhaustively across all leader pairs for a finite family of network sizes and chord weights. It separately verifies the exact rational difference identity, minimizer type and the presence or absence of conductance thresholds in a much larger finite grid.
+## correctness
 
-Recorded successful replay: `PASS: 2696 exact full grounded-inverse pair comparisons; 2610 exact symbolic-formula/optimizer grid checks; all boundary checks`.
+PASS
 
-The infinite statements are proved in RESULT.md by block inversion, a rank-one update and exact polynomial sign analysis. The enumerations are safeguards against algebraic mistakes and do **not** prove infinitely many values or certify source novelty. This research package has not undergone independent external validation.
+For all integers 3<=p<=q and real t>0 the six leader-orbit classes, grounded biclique block inverse, Sherman–Morrison rank-one response and strict four-class elimination yield exact AS/BS comparison. Independently rederived five rational identities with sympy cancel -> 0 including Ppq(t) and all baseline gap formulas; checked positivity/roots and p3/4/5 integer boundary factors by algebra. Independent full grounded-matrix inversion reproduced p3 q9 t24 tie J=46/15, its t1 AS and t100 BS regimes, and p4 q13 small/large t switch. The package verify.py was read, not executed; finite checks supplement the analytic identity and polynomial sign argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the evaluated all-positive-conductance six-orbit two-leader classification and the exact p=3/4/5 phase-transition inequalities. General joint-centrality/resistance formulas and known unweighted, deleted-cross-edge or other weighted graph cases do not themselves prove this extra-intrapart-edge complete phase diagram. The index finds the submitted same-day item, which is excluded as self-coverage; the other close sources are not isomorphic perturbations. Publication priority is not certified.
+
+## value
+
+PASS
+
+A minimally defected two-community complete network has a closed, all-positive-weight all-size leader-placement phase diagram with an unexpected sharp small-part restriction (p=3,4,5), exact q boundaries, switch conductance, objective and optimizer multiplicities. This specific natural graph optimization is not a routine reparameterization of an unmodified or deleted-cross-edge case, and the exact threshold is a reusable network design benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
