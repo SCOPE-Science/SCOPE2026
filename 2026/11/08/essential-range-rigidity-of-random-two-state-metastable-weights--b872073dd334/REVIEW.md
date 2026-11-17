@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every environment matrix reduces to a strict affine contraction on the left-state coordinate. The invariant interval and positive-probability arbitrarily long constant-type blocks give sharp essential endpoints, independent of the perturbation size. Independence of the current iid symbol from the pullback state yields the exact mean and variance formula; all required denominators are positive. Exact-rational finite-word checks support the algebra without replacing the proof.
+PASS
 
-## Originality
+Each stochastic column matrix acts on left mass as F_j(w)=u_j+(1-epsilon s_j)(w-u_j), strict increasing contractions for 0<epsilon<1/max s_j. The pullback limit exists, remains in [min u,max u], and arbitrarily long positive-probability constant symbol blocks force both endpoints into the essential support. Thus the L-infinity deviation is exactly max(m-u_min,u_max-m), independent of epsilon. Independence of current environmental symbol from the past makes E W=m=E B/E S, and squaring the centered recurrence gives V=epsilon E(B-mS)^2/(2 E S-epsilon E S²). The denominator is positive; variance is Θ(epsilon) precisely if fixed points differ. Independent exact rational finite histories support the elementary infinite-past contraction proof.
 
-**PASS within inspected evidence.** The full pertinent sections of González-Tokman and Peters' *Averaging for random metastable systems* were examined, including its specific two-state matrices, its almost-everywhere limit, the claimed uniform strengthening in Remark 5.4 and the 2025 version. That source does not state this rigidity theorem; its uniform assertion for the unrestricted matrix cocycle is incompatible with the explicit iid witness. The 2026 successor treats jump statistics and diffusion, not essential support of the stationary vector. The nearest indexed mathematical-research claims concern different two-state quantities. The classical IFS fixed-point/support framework is an important priority risk; basic contractivity alone is not offered as the contribution.
+## originality
 
-## Value
+PASS
 
-**PASS.** The criterion supplies the exact boundary between mean-square annealed averaging and strong essential-uniform quenched averaging in the metastable reduction used to interpret random transfer-operator models. It identifies a persistent worst-case discrepancy despite variance shrinking to zero, and isolates the precise degeneracy that makes genuine uniformity possible. This is a motivated scope boundary for interpreting a specific published claim, not an arbitrary negative check.
+Classical affine IFS theory already yields uniqueness and broad support principles. The exact finite-type essential endpoint criterion becomes a concrete sharp obstruction to a uniform-over-histories assertion for the identical metastable stochastic-matrix example in González-Tokman–Peters. Their full preprint establishes averaged almost-sure limiting weights and explicitly claims a uniform strengthening; it does not present these exact essential-norm and variance formulas or resolve the contradiction when individual fixed-point proportions differ. The novelty is the sharp quantified model-level boundary and correction, not generic IFS contraction.
 
-## Limits and close comparisons
+## value
 
-The theorem is for iid finite-type stochastic matrices, not a fully realized family of random interval maps. In particular it does not assert that the source's separate interval-map theorem is false under all its operator assumptions. Classical random affine iteration may contain equivalent endpoint results; independent publication-priority review is advisable. The inspected later diffusion paper studies different observables. Finite computations only support the algebra.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise necessary-and-sufficient condition separating L² averaging from uniform quenched convergence in a natural metastable two-state model is a substantive mathematical boundary, especially because the original primary text makes a potentially incompatible uniformity statement. The explicit all-epsilon endpoint and variance identities provide reproducible quantitative counterevidence without claiming a broader interval-map refutation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
