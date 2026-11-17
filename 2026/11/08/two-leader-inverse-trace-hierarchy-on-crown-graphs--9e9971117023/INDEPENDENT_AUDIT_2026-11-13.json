@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:01:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-leader-inverse-trace-hierarchy-on-crown-graphs--9e9971117023/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-leader-inverse-trace-hierarchy-on-crown-graphs--9e9971117023/VERIFICATION.md"
+      ],
+      "rationale": "The follower Laplacian has block form [[dI,-C],[-C^T,dI]], d=m-1. SVD yields (q-p)/d + sum 2d/(d^2-sigma_i^2). Missing-edge leaders give singular values squared (m-2)^2 and 1; same-side leaders give (m-2)^2+1 and 1; adjacent leaders have t-1 unit singular values and a 2x2 residual block whose squared eigenvalues sum to m^2-4m+6 and product one. Substitution gives 6(m-1)^2/[m(2m-3)], (3m^2-4m+3)/[m(m-1)], and 2(m-1)(3m^2-5m+3)/[m(m-2)(2m-1)]. Directly positive differences establish the unique best orbit. Independent rational inversion of original graph Laplacians across all pair placements for m=4,5,6,7 agreed with formulas and ranking.",
+      "residual_risks": [
+        "The theorem excludes m=3, which is C6 and already solved within cycle literature.",
+        "Only unit weights and exactly two pinned noise-free leaders; multiply by 1/2 if using the stochastic variance convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joint centrality solves path/cycle leaders; Cr_3 alone is a C6.",
+          "Resultary 2026-10-25 classifies exactly three leaders on Cr_m; the source theorem does not include two leaders."
+        ],
+        "reasoning": "Neither path/cycle cases nor different leader budget mathematically subsume the complete two-leader hierarchy.",
+        "searches": [
+          "crown graph two leader grounded Laplacian inverse trace minimum nonedge leader pair variance",
+          "https://arxiv.org/abs/1407.1569",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-strict-three-leader-coherence-hierarchy-on-crown-graphs--024ebfda0650"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1302.0450",
+        "https://arxiv.org/abs/1407.1569",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-strict-three-leader-coherence-hierarchy-on-crown-graphs--024ebfda0650"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior optimization framework defines the trace objective, not crown singular-value blocks.",
+          "Three-leader optimum is all one side, while two-leader optimum is a deleted-edge cross-part pair."
+        ],
+        "reasoning": "Optimization with another budget is not monotone in orbit class and does not imply the displayed two-leader rational gaps.",
+        "searches": [
+          "crown graph two leader grounded Laplacian inverse trace minimum nonedge leader pair variance",
+          "https://arxiv.org/abs/1302.0450",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-strict-three-leader-coherence-hierarchy-on-crown-graphs--024ebfda0650"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unscaled inverse trace of grounded Laplacian equals twice common unit-white-noise steady-state variance.",
+          "The crown graph is K_(m,m) minus the perfect matching, not complete bipartite."
+        ],
+        "reasoning": "Leader-coherence variance and grounded trace are identical up to constant; broad methodology does not determine pair orbits.",
+        "searches": [
+          "crown graph two leader grounded Laplacian inverse trace minimum nonedge leader pair variance",
+          "https://arxiv.org/abs/1302.0450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three pair-orbit costs and exact m optimal sets form an infinite symbolic sequence; previous three-leader table has distinct formulas."
+        ],
+        "reasoning": "No matching two-leader crown lookup was identified; finite numerical tables alone could not establish all m.",
+        "searches": [
+          "crown graph two leader grounded Laplacian inverse trace minimum nonedge leader pair variance",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-strict-three-leader-coherence-hierarchy-on-crown-graphs--024ebfda0650"
+        ]
+      },
+      "rationale": "General grounded-Laplacian leader-selection papers cover inverse-trace objectives and some path/cycle placements. Published Resultary three-leader classification on the same crown family has a different exact budget and opposite best orbit (three same-side), so does not imply the two-leader hierarchy. Search of named crown + leader pair found no earlier complete m>=4 two-leader triple rational ranking.",
+      "residual_risks": [
+        "A specialist published two-leader crown calculation outside the indexed records could cover the same invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General combinatorial optimization/relaxations; no exact crown-pair three-orbit hierarchy",
+          "evidence": "Grounded-Laplacian inverse trace is the network error criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "ArXiv PDF inverse-trace objective setup and optimization-method section",
+          "method": "PDF page screenshot and theorem text examination",
+          "title": "Algorithms for leader selection in stochastically forced consensus networks",
+          "trigger": "Foundational same objective"
+        },
+        {
+          "assessment": "Specific graph models do not subsume crown graph n>=4",
+          "evidence": "Cycle and path placements are not complete-matching deleted bipartite crown graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "Full theorem discussion of joint centrality and path/cycle examples",
+          "method": "ArXiv PDF page screenshot and targeted text",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Potential general leader-optimization dominance"
+        },
+        {
+          "assessment": "Exactly three-leader hierarchy, not two-leader classification",
+          "evidence": "Three-leader best orbit consists of 2*C(m,3) all-same-side triples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-strict-three-leader-coherence-hierarchy-on-crown-graphs--024ebfda0650",
+          "material_read": "Complete RESULT.md statement, block SVD proof and ranking",
+          "method": "GitHub full file read",
+          "title": "Strict three-leader coherence hierarchy on crown graphs",
+          "trigger": "Same graph and objective, different leader count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1302.0450",
+        "https://arxiv.org/abs/1407.1569",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-strict-three-leader-coherence-hierarchy-on-crown-graphs--024ebfda0650"
+      ],
+      "rationale": "Exact leader placement on a canonical dense bipartite graph is a natural discrete network-optimization invariant. The strict counterintuitive optimum of two nonadjacent deleted-edge endpoints, all three orbit costs and positive asymptotic gaps form a complete useful classification for a fixed meaningful budget.",
+      "residual_risks": [
+        "No claim about more than two leaders, weighted edges or noisy leaders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every m>=4, precisely the m endpoints of deleted-matching nonedges minimize the grounded-Laplacian inverse trace over exactly two noise-free leaders of Cr_m; three orbit costs are exact rationals with positive m^-1 gaps.",
+  "limitations": [
+    "Exactly two leaders on Cr_m with m>=4 and unweighted combinatorial Laplacian."
+  ],
+  "schema_version": 1
+}
