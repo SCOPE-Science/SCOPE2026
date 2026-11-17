@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The bundle specifies the labelled icosahedral graph in `edges.csv`, the complete sector minima in `sector_minima.csv`, the nineteen open-sector energies in `open_chambers.csv`, thirty exact convex-dominance witnesses in `domination_certificates.json`, and nineteen strict rational exposure witnesses in `open_chamber_witnesses.json`.
+## correctness
 
-Run `python3 verify_direct.py` and `python3 verify_transfer.py` from this directory using only the Python 3 standard library. The first check exhausts \(3^{12}=531441\) classical assignments and verifies exact rational comparisons. The second performs a separate upper/lower pentagon-shell contraction and reproduces all forty-nine sector minima and multiplicities. Both were executed successfully against the complete bundled data and printed `VERIFY_OK`.
+PASS
 
-The coverage is exact for the stated finite classical model at zero temperature and any real crystal field or longitudinal magnetic field. No quantum spectral or positive-temperature property is checked. No independent external audit has been performed.
+All couplings J>0, delta=D/J real and x=|h|/J>=0 are covered. The labelled graph has 12 vertices, 30 edges; every one of the 3^12=531441 spin assignments was independently enumerated into (K,|M|,B), giving all 49 nonnegative-magnetization sector bond minima and degeneracies. Spin reversal gives h<0. All thirty omitted sectors have explicit nonnegative rational convex combinations of the 19 listed sectors matching K and at least M while not exceeding bond minimum; hence for x>=0 every omitted affine energy is dominated at arbitrary delta. All 19 selected rows have strict rational exposure witnesses with exact positive gaps against every one of the 49 sectors; thus precisely 19 open field chambers exist. At x=0 the envelope simplifies to min{-10+12delta,-8+8delta,0}; explicit boundary sums including occupancy-only ties are 462 at delta=1/2 and 351 at delta=1. Independent complete enumeration and certificate validation reproduced all claimed integers. Finite graph exhaustive proof is exact but not a thermodynamic-limit statement.
+
+## originality
+
+PASS
+
+The exact finite classical axial Blume-Capel icosahedron under vacancy cost and a uniform magnetic field is not covered by inspected general two-dimensional Blume-Capel Monte Carlo, quantum Heisenberg icosahedron, nearby small magnetic clusters or different Potts/Ising icosahedron published results. The domain is the same 12-vertex graph but a different Hamiltonian/parameter family. Numerical and rational exact 19-chamber/crossover census is new on the inspected record; retain unindexed exact-table risk.
+
+## value
+
+PASS
+
+A regular icosahedron is a natural highly frustrated finite magnetic cluster and the three-state classical Blume-Capel single-ion vacancy mechanism is physically motivated. The exact entire (D,h) field diagram and multiplicities, especially boundary-only occupancy sectors and coexistence spikes, are complete finite-cluster invariants that can serve as exact benchmarks. They are not an arbitrary small slice or a mere reproduction of a known spin-one table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
