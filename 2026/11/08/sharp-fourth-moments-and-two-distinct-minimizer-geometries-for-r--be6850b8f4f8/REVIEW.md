@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives both moments from the quaternion double cover and the exact fourth-order uniform-sphere tensor. It identifies the three possible degree-four invariants under two-sided proper rotations and fixes all three coefficients from explicitly evaluated matrices. The identity is independently checked as a complete sixteen-variable quartic polynomial; the nonnegative lower three-square remainder and the upper AM--GM/Cauchy--Schwarz remainder prove the sharp bounds without extrapolating from finite tests. Rank-one and determinant-negative conformal matrices are precisely the two lower equality types; determinant-positive conformal matrices are precisely the upper equality type. Squared-form averaging under left/right rotations proves the optimal Euclidean distortion.
+PASS
 
-## Originality — PASS, with residual risk
+For arbitrary nonzero real 4×4 A and Haar SO(4), the quaternion S³×S³ double cover yields E F²=S/4 and E F⁴=(5S²−2U)/24+det A. A separately implemented quaternion-bilinear fourth-moment computation confirmed the invariant formula exactly on 20 integer matrices; the package checker compares all monomial coefficients of the 16-variable quartic identity. In oriented signed singular values, the positive three-square lower deficit yields ratio>=2, with equality precisely rank-one or determinant-negative conformal matrices. Cauchy–Schwarz and arithmetic–geometric mean yield upper 4, equality proper conformal matrices. Averaging arbitrary Euclidean norm squared under left/right SO(4) reduces to Frobenius, establishing globally minimal Banach–Mazur distortion 2^(1/4), not merely one chosen Euclidean comparison.
 
-Closest primary literature: Collins and Śniady, arXiv:math-ph/0402073 (2004), gives general orthogonal-group integration rules, and Fujii, Oike and Suzuki, arXiv:quant-ph/0608186 (2006), gives an explicit two-spin description of four-dimensional rotations. These sources provide ingredients, not the stated optimized two-sided moment theorem with its disconnected-in-rank minimizer classification and optimal sixteen-dimensional Hilbert distortion. Targeted searches of source texts, the mathematical record and indexed related findings did not identify an equivalent extremal statement. Residual risk: representation-theoretic moment identities might have led to this exact classification elsewhere, particularly in older or poorly indexed harmonic-analysis literature. Absence from search results is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the complete real \(L^2\)-versus-\(L^4\) norm geometry for a natural sixteen-dimensional matrix-coefficient space of a classical compact group. Its special-orthogonal orientation term creates two structurally different *lower* equality orbits, in contrast with the usual one-orbit extreme geometry; the exact nonnegative remainder and sharp Euclidean distortion are useful for comparing non-Hilbert norms on the entire space. The problem is not defined by a selected matrix or arbitrary parameter slice.
+Best-of-knowledge original sharp orientation-sensitive real SO4 full matrix-coefficient fourth-moment range, two distinct lower equality geometries, exact three-square deficit and globally optimal Hilbert distortion. Standard quaternion covers and Weingarten integration are explicitly known.
 
-## Scientific limitations and integrity
+## value
 
-The theorem is four-dimensional, real, and quartic; no unproved dimension-uniform extension is asserted. Standard Haar integration and the quaternion cover are credited, not claimed as new. Standalone exact-polynomial verification is supporting evidence, while the analytical proof supplies all quantifiers and equality cases. Prior-work novelty remains qualified pending independent literature assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full 16-dimensional matrix-coefficient space of classical compact SO(4) is canonical, not an arbitrary spectral slice. Orientation introduces rank-one and improper-conformal minimizers at a shared sharp lower bound, with a distinct proper-conformal upper class; exact positive remainders and optimal Euclidean distortion make this a meaningful complete norm-geometry classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
