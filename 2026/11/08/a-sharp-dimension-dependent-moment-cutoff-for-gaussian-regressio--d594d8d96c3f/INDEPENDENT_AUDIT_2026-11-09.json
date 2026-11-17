@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T14:54:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, Proof steps 1-4; verify_gaussian_cv.py; exact algebra of residual Gaussian and spherical sixth moments"
+      ],
+      "rationale": "Reconstructed the same-sample OLS intercept decomposition: for centered design U and Wishart S, m is independent of U and hat_mu=c+tr(AS)/n-m^TAm-m^T gamma, gamma=S^{-1}U^Tz, z_i=U_i^TAU_i. Orthogonally diagonalizing nonzero symmetric A and applying Frisch-Waugh-Lovell to a column leaves Gaussian residual w in dimension n-d; gamma_j has a 1/||w|| upper singularity, and a positive-probability nonzero projection P_W z_0 for a nonzero eigenvalue gives the matching lower singularity in a cone. Chi_(n-d) negative q moments exist exactly q<n-d, and independent Gaussian m transfers this threshold to absolute integration error. Polynomial remainders have all moments; no cancellation can rescue an infinite moment. For d=1, gamma=a sum u_i^3/sum u_i² is bounded by |a|max|u_i|, and rotational sixth-moment algebra gives the displayed exact MSE. For n-d>1, independent centered m yields bias -2tr(A)/n. Verified algebraically the near-singular n=3,d=2 witness gamma_1=1/(3 epsilon)-epsilon; the certificate checks 509 finite exact designs but cannot prove the all-q threshold.",
+      "residual_risks": [
+        "Nondegeneracy cone and radial integration are analytic arguments; finite computations alone cannot prove all positive q. n<=d, A=0, regularized and pilot-split fits are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mourtada arxiv:1912.10754 studies random-design least squares and sample covariance tails; Resultary reused Gaussian quadratic five-pair estimator has a different fitted/reused sampling design."
+        ],
+        "reasoning": "General inverse-Wishart tails make the phenomenon plausible, yet do not directly imply this exact nonlinear random-response coefficient necessity for every A or one-dimensional cancellation.",
+        "searches": [
+          "Resultary: Gaussian regression control variate fitted OLS intercept quadratic integrand moments n-d heavy tails inverse Wishart",
+          "arxiv:1801.01797",
+          "arxiv:1906.10920",
+          "arxiv:1912.10754",
+          "Resultary: 2026/11/2/SCOPE-a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1801.01797",
+        "arxiv:1906.10920",
+        "arxiv:1912.10754",
+        "Resultary Gaussian quadratic control-variate search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Portier–Segers control formulation is compatible with the setup but asymptotic Monte Carlo limits do not imply finite-n expectation divergence; Mourtada inverse sample-covariance theorems lack this exact quadratic-residual nondegeneracy."
+        ],
+        "reasoning": "The specific q cutoff is not a formal corollary of the inspected presentation without the added FWL/nondegeneracy proof; limited full-text access is a residual risk.",
+        "searches": [
+          "Resultary: Gaussian regression control variate fitted OLS intercept quadratic integrand moments n-d heavy tails inverse Wishart",
+          "arxiv:1801.01797",
+          "arxiv:1906.10920",
+          "arxiv:1912.10754",
+          "Resultary: 2026/11/2/SCOPE-a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Portier–Segers arxiv:1801.01797 discusses OLS same-sample intercept for Monte Carlo; Leluc–Portier–Segers arxiv:1906.10920 selection; current threshold requires controlling a quadratic projected residual divided by chi radial variable."
+        ],
+        "reasoning": "An intercept control variate is an OLS prediction at zero; this is the same estimator as in the original integration literature, but the integrability statement is not merely the estimator identity.",
+        "searches": [
+          "Resultary: Gaussian regression control variate fitted OLS intercept quadratic integrand moments n-d heavy tails inverse Wishart",
+          "arxiv:1801.01797",
+          "arxiv:1906.10920"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed the present result and related sample-size thresholds; no matched all-q table or identical Gaussian fitted-intercept entry found."
+        ],
+        "reasoning": "A numerical risk table would not prove all q and d, but a prior complete formula could dominate if discovered; none was located in the checked set.",
+        "searches": [
+          "Resultary: Gaussian regression control variate fitted OLS intercept quadratic integrand moments n-d heavy tails inverse Wishart",
+          "arxiv:1801.01797",
+          "arxiv:1906.10920",
+          "arxiv:1912.10754",
+          "Resultary: 2026/11/2/SCOPE-a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896"
+        ]
+      },
+      "rationale": "No prior exact all-q same-sample quadratic fitted-intercept moment threshold was identified in bounded semantic/result and primary research comparisons. Portier-Segers make the OLS control-variate connection and asymptotics, and classical inverse-Wishart phenomena explain possible heavy tails, but neither alone supplies necessity for every nonzero A, d=1 exception, or the exact q<n-d integrability equivalence; best-of-knowledge rather than absolute priority.",
+      "residual_risks": [
+        "Some specialist exact finite-sample regression-control-variate moment formula could have escaped the bounded indexed search; relevant PDF full texts not all read independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_DEMONSTRATED_COVERING",
+          "evidence": "OLS estimator correspondence; grows-controls asymptotic theorem not this all-q finite-n law",
+          "identifier_or_url": "https://arxiv.org/abs/1801.01797",
+          "material_read": "Abstract and searchable indexed exposition of OLS formulation/asymptotics; full PDF not independently read in this run",
+          "method": "Arxiv/primary public abstract plus assigned references",
+          "title": "Monte Carlo integration with a growing number of control variates",
+          "trigger": "Same-sample OLS intercept estimator"
+        },
+        {
+          "assessment": "RELATED_NOT_DEMONSTRATED_COVERING",
+          "evidence": "Control choice under nonasymptotic assumptions, not this integrability equivalence",
+          "identifier_or_url": "https://arxiv.org/abs/1906.10920",
+          "material_read": "Abstract and available primary summary; not full PDF",
+          "method": "Arxiv metadata and indexed description",
+          "title": "Control variate selection for Monte Carlo integration",
+          "trigger": "Potential overlapping regression-CV theorem"
+        },
+        {
+          "assessment": "RELATED_RISK",
+          "evidence": "General inverse covariance tail methods not conclusively excluded as an indirect implication",
+          "identifier_or_url": "https://arxiv.org/abs/1912.10754",
+          "material_read": "Abstract and available result descriptions; full text not separately read",
+          "method": "Arxiv and primary result description",
+          "title": "Exact minimax risk for linear least squares, and the lower tail of sample covariance matrices",
+          "trigger": "Potential inverse-sample-covariance domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Proof of universal threshold; intercept-oracle contrast; explicit d=1 exception"
+      ],
+      "rationale": "The exact moment-existence boundary for a natural, widely used same-sample OLS Monte Carlo estimator is a consequential and dimension-sensitive integrability fact: a seemingly helpful control fit loses even its mean near interpolation while raw Monte Carlo stays integrable. The d=1 cancellation and precise q=n-d frontier explain estimator reliability and are not routine substitutions or cosmetic finite examples.",
+      "residual_risks": [
+        "Value and practical reach limited to Gaussian quadratic integrands and unregularized same-sample linear controls."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nondegeneracy cone and radial integration are analytic arguments; finite computations alone cannot prove all positive q. n<=d, A=0, regularized and pilot-split fits are excluded.",
+    "Some specialist exact finite-sample regression-control-variate moment formula could have escaped the bounded indexed search; relevant PDF full texts not all read independently.",
+    "Value and practical reach limited to Gaussian quadratic integrands and unregularized same-sample linear controls."
+  ],
+  "schema_version": 1
+}

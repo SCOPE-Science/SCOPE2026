@@ -1,19 +1,21 @@
-# Scientific assessment: Gaussian quadratic OLS Monte Carlo moment frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-\(q>0\) statement is based on an explicit Gaussian mean/residual decomposition and a partial-regression formula. Its sharp upper bound uses the independent \(\chi_{n-d}\) residual norm, and its necessity uses a positive-probability open witness that forces a nonzero linear numerator in the otherwise singular OLS slope. The independent sample mean transfers every such divergence to the integration intercept, while the remaining terms have all moments. The proof separately handles the integrable bias threshold, exact MSE decomposition, \(d=1\) exception, and excluded affine case. The packaged Python/SymPy checker passed 509 exact assertions. These finite checks are not presented as proving the moment cutoff.
+PASS
 
-## Originality — PASS with bounded historical risk
+Reconstructed the same-sample OLS intercept decomposition: for centered design U and Wishart S, m is independent of U and hat_mu=c+tr(AS)/n-m^TAm-m^T gamma, gamma=S^{-1}U^Tz, z_i=U_i^TAU_i. Orthogonally diagonalizing nonzero symmetric A and applying Frisch-Waugh-Lovell to a column leaves Gaussian residual w in dimension n-d; gamma_j has a 1/||w|| upper singularity, and a positive-probability nonzero projection P_W z_0 for a nonzero eigenvalue gives the matching lower singularity in a cone. Chi_(n-d) negative q moments exist exactly q<n-d, and independent Gaussian m transfers this threshold to absolute integration error. Polynomial remainders have all moments; no cancellation can rescue an infinite moment. For d=1, gamma=a sum u_i^3/sum u_i² is bounded by |a|max|u_i|, and rotational sixth-moment algebra gives the displayed exact MSE. For n-d>1, independent centered m yields bias -2tr(A)/n. Verified algebraically the near-singular n=3,d=2 witness gamma_1=1/(3 epsilon)-epsilon; the certificate checks 509 finite exact designs but cannot prove the all-q threshold.
 
-Compared with arXiv:1801.01797 (OLS control-variate general formulation and asymptotic CLTs), arXiv:1906.10920 (method selection and finite-sample risk under different assumptions) and arXiv:2006.07487 (stochastic optimization of control variates), the evaluated statement is a fixed-dimensional Gaussian *quadratic-integrand* theorem with a sharp \(n-d\) absolute-moment threshold for every \(q>0\) and every nonzero symmetric quadratic matrix. The comparison is about logical coverage, not title matching. Earlier exact regression formulas and inverse-Wishart principles are acknowledged rather than presented as new. The closest accessible records examined concern related but distinct Gaussian regression or one-dimensional cubic control-variate questions. Historical priority cannot be conclusively established by a finite literature search.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated boundary of a commonly used same-sample regression-based integration method. The theorem identifies a genuine transition from undefined mean to infinite MSE to finite MSE as sample size exceeds the number of fitted controls. Its proof exposes the geometric residual rank responsible for the failure, while the complete one-dimensional exception and exact bias distinguish it from an arbitrary small numerical counterexample. It has immediate implications for the design and benchmarking of near-interpolating Monte Carlo control-variate schemes; it does not assert superiority of a particular remedy.
+No prior exact all-q same-sample quadratic fitted-intercept moment threshold was identified in bounded semantic/result and primary research comparisons. Portier-Segers make the OLS control-variate connection and asymptotics, and classical inverse-Wishart phenomena explain possible heavy tails, but neither alone supplies necessity for every nonzero A, d=1 exception, or the exact q<n-d integrability equivalence; best-of-knowledge rather than absolute priority.
 
-## Scientific limitations
+## value
 
-Only unregularized OLS, iid standard Gaussian inputs and a nonzero quadratic are covered; no independent testing or publication-priority certification is claimed. The sharpness lower bound depends on the explicit conditional nondegeneracy witness and a Gaussian radial small-ball integral. Related general inverse-Wishart literature might contain a specialization which has not been fully ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact moment-existence boundary for a natural, widely used same-sample OLS Monte Carlo estimator is a consequential and dimension-sensitive integrability fact: a seemingly helpful control fit loses even its mean near interpolation while raw Monte Carlo stays integrable. The d=1 cancellation and precise q=n-d frontier explain estimator reliability and are not routine substitutions or cosmetic finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
