@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a rational \(11232\)-element symmetry-module isomorphism, not a general rank formula. The bidegree-four endpoint blocks and exact signed integer boundaries were independently enumerated; all \(338\) nonzero blocks admit full unit-pivot reductions, and every \(\partial_3\partial_4\) was zero. The prior girth-six diagonal rank theorem gives \(\operatorname{rk}H_{4,4}=104\), with explicit oriented-edge cycles providing an equivariant basis. Equivariant Euler–Poincaré reduces the \(H_{3,4}\) character to fixed chain tuples. All \(5616\) projectivities were enumerated and checked against the separate ordered-triangle permutation action. Every swap-of-type coset element has zero trace on each side. Equality of the complete rational characters establishes the asserted representation. A second endpoint-indexed trace evaluation independently agreed for every fixed-vertex profile. The exact verifier and replay output are included.
+## correctness
 
-## Originality — PASS against inspected work
-The strongest comparison is the previously published all-orders endpoint-rank theorem. Its inspected full proof gives the \(q^2\) dimension, but does not identify the \(\operatorname{PGL}_3(\mathbb F_3)\) character, the triangle permutation representation, or polarity-fixed space. The rank \(2808\) is explicitly excluded from the new contribution. The older girth theorem and graph-magnitude algebraic Morse paper treat diagonal rank and other graph families. Siemons–Smith concerns a different subspace-poset incidence homology theory, despite the similar geometry and representation vocabulary. Exact and alias searches of relevant indexed research records found no stronger or equivalent rational magnitude-homology representation. This is not a mathematical proof of global literature uniqueness; an unindexed equivalent result remains possible.
+PASS
 
-## Value — PASS
-Magnitude homology is often known only as bigraded ranks; describing how a canonical large projective symmetry group permutes its classes is additional structural information not implied by the known endpoint dimensions. The near-regular character and the transitive ordered-projective-triangle model identify a natural \(2808\)-dimensional module, and distinguish two collineation-invariant directions from the unique polarity-invariant direction. The result uses a nontrivial finite calculation and a motivated, exact finite-geometric object, rather than an arbitrary parameter slice.
+The bidegree (3,4), graph metric, signed internal deletion differential, 13+13 vertices and endpoint decomposition are explicit. Independent fresh exact reconstruction of the F_3 projective incidence graph gave 26 equal-endpoint blocks (C2,C3,C4)=(12,36,28), boundary ranks (12,24) and zero H3; for representative distinct same-type endpoints it gave (17,45,19), ranks (17,19), H3 rank 9, with all tested Smith factors units. Incidence symmetries transfer the two endpoint profiles. A separate direct enumeration of normalized invertible 3x3 matrices established 5616 projectivities and the ordered point-plus-line triangle permutation character (2808:1,72:117,0:5498). Source code further identifies the magnitude chain Euler trace using a diagonal 104-generator basis and checks the projective group; equality of rational characters plus polarity trace zero proves the rational module. The integral explicit basis for distinct endpoints is prior work; the fresh q=3 equal-endpoint vanishing closes the total representation.
 
-## Limitations and closest literature
-No canonical or integral triangle-labelled basis, no equivariant chain equivalence, and no all-prime-power formula are asserted. The exact finite group enumeration is complete for \(\mathbb F_3\) only. The primary comparison is *Endpoint-localized first off-diagonal magnitude homology of finite projective planes*; supporting context is Asao–Hiraoka–Kanazawa, Gu, and the distinct poset homology of Siemons–Smith.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026-10-25 integral hexagon-basis theorem already gives the complete integral permutation module for all distinct same-type endpoint summands and therefore predicts the large part of this character. It does not claim zero equal-endpoint summands at q=3; it expressly proves their vanishing only for q=2. The current exact q=3 equal-endpoint cancellation upgrades that proper subrepresentation to a theorem for the entire bidegree and supplies the full PGL/duality character and fixed dimensions. Accept only this full-group closure and resulting character, not a novel hexagon basis or distinct-endpoint representation.
+
+## value
+
+PASS
+
+The first off-diagonal magnitude-homology module of the smallest non-Fano Desarguesian plane with 13 points is a natural group invariant. Determining whether unexplained equal-endpoint summands survive is a concrete obstruction to passing from an established canonical subrepresentation to the entire homology action. Their exact vanishing and the resulting complete collineation/polarity character are useful for graph-metric homology and symmetry calculations; this is more than reporting the already-known rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
