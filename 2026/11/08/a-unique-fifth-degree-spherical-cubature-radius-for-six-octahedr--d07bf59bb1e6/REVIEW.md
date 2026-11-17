@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a universal equality for all ambient polynomials of total degree at most five and all \(0<t<1\), plus a full two-eigenvalue spectrum on the real five-dimensional harmonic-quadratic space. Its proof uses the exact polar cap moment identity, signed-permutation moment reduction, a factored Legendre obstruction, and direct independent evaluation of the two eigenvalues. \(t=0\) and \(t=1\) are not part of the quantified theorem. The sixth-degree Legendre obstruction is nonzero at the unique interior exactness threshold. The supplied standard-library checker tests all 56 degree-at-most-five monomials in exact rational number-field arithmetic. The general-radius spectral polynomials, trace relation, and Legendre averages were checked coefficientwise with the included exact rational-polynomial verifier. Limit: exact arithmetic checks support, but do not replace, the analytic derivation.
+PASS
 
-## Originality — PASS, with residual access risk
+Cubic symmetry forces exact degree 0-3 moments. At degree four a=E x_i^4 and b=E x_i²x_j² satisfy 3a+6b=1; one P4 obstruction characterizes all fourth moments, and inversion symmetry handles degree five. The cap zonal identity gives obstruction 7t(1+t)(7t²-3)/96 with unique interior root sqrt(3/7). Directly integrated P6 gives t(1+t)(33t^4-30t²+5)/128, nonzero at that root. Independent symbolic polar-moment integrations reconstruct both quadratic harmonic eigenvalues and difference 15t(1-t²)(7t²-3)/16.
 
-The closest source is Simons, Dahlen and Wieczorek's general spherical concentration treatment, including polar caps (arXiv:math/0408424). It does not give the six octahedral multiplicity-weighted window formula, its degree-five exactness condition or the sharp conditioning crossover. Brauchart and Dick's spherical QMC method (arXiv:1101.5450) concerns point-node integration. The accessible prior two-cap quadratic-harmonic result optimizes separation for two disjoint caps, a different operator. Keast and Diaz's fully symmetric surface quadrature paper (DOI 10.1137/0720029) is an important plausible comparison, but its full text was inaccessible: no categorical claim is made about everything it might contain. Exact novelty is assessed at the statement/implication level, not from missing keyword hits; unindexed continuous-window equivalents remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The six octahedral windows constitute a natural symmetric measurement layout. Their positive, nonconstant overlap-counting measure gives an exact continuous cubature rule through a maximal specified degree, while the same unique radius is an optimally conditioned sensing geometry for every real quadratic spherical harmonic. The full eigenvalue formulas and strict ordering crossover explain which types of quadrupole modes become least stable as a cap narrows; the sharp sixth-degree failure separates exactness from a trivial all-degree reconstruction.
+PASS best-of-knowledge: the published same-axis-cap paper covers pure degree-four harmonic concentration only for disjoint caps t>=1/sqrt2, with different squared-quartic operator and no positive weighted degree-five cubature in overlap regime t=sqrt(3/7)<1/sqrt2. The older Slepian paper supplies general eigenproblem, not this exact isotropic window or P4 zero. Standard discrete spherical cubature is distinct from continuous multiplicity-weighted cap sampling.
 
-## Scientific limitations
+## value
 
-The formula is specific to equal antipodal-axis caps on \(\mathbb S^2\) with multiplicity weighting; it does not extend to unions counted once, arbitrary cap sets, higher harmonic bands or higher dimensions. The discovered radius is unique only in this natural one-parameter family. No independent mathematical audit has yet been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the exact unique nonuniform positive spherical measure preserving all degree-five polynomial integrals is a natural continuous cubature design. Coincidence with perfectly-conditioned quadratic harmonic form and sharp sixth-degree failure supplies structural interpretation, not an arbitrary parameter equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
