@@ -1,19 +1,21 @@
-# Scientific review: optimal Lyndon subsequences of distinct-run powers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has exact quantifiers \(q\ge2\), \(k\ge2\), pairwise distinct run labels beginning with the least label, and positive integer run lengths. For a one-position deletion, every candidate is handled: the first copy, a middle copy, and the last copy. The first/last comparisons reduce exactly to inequalities at adjacent run labels, with the cyclic terminal boundary treated separately. Proper suffixes beginning inside a least-letter run are explicitly treated, not discarded; other suffixes begin with a larger symbol. The unmodified power is not Lyndon, yielding the sharp upper bound. The distinct-word count follows from different deleted Parikh coordinates. Direct tests of all single deletions corroborated \(2447\) parameter profiles without mismatch, including \(1647\) exhaustive small profiles; these tests are not substituted for the universal proof.
+PASS
 
-## Originality
+Reconstructed sharp upper bound: the undeleted power P^k is not Lyndon because suffix P^(k-1) is also a prefix, so any optimal length is at most kp-1. For a single deletion, the first or final cycle lexicographically dominates comparisons at its altered run; all interior-copy deletions retain a suffix equal to the initial P and fail. Minimum-letter internal suffixes and terminal-run shortening are treated. At every nonterminal run, exactly one of ascent/descending cases qualifies, giving p positions and q distinct Parikh vectors. Independent literal suffix-checking verified all predicted winning positions on 232 exhaustive small parameter profiles (q=2..4, run lengths=1..2, k=2,3), including nonmonotone letter permutations.
 
-**PASS, with bibliographic qualification.** The primary full-text comparison is Bannai–I–Kociumaka–Köppl–Puglisi, *Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences* (arXiv:2201.06773; Algorithmica online 2023). Its general algorithms compute a longest Lyndon subsequence, while its unique-character special case excludes repeated powers. Neither the inspected Section 4 nor its conclusions gives the simultaneous closed forms: longest length \(kp-1\), exactly \(p\) qualifying deletion positions, exactly \(q\) distinct optimal words, and the ascent/descent deletion-location rule. These numerical claims are not implied merely by a general polynomial-time optimization algorithm. Urabe and coauthors (2018) concern edited *substrings*, not scattered subsequences; Glen–Simpson–Smyth (2017) count Lyndon *factors*. Focused literature and semantic index queries did not identify the same theorem. Such search does not exclude unindexed equivalents, and the conclusion is not a claim of independent priority certification.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a natural complete classification of every optimizer on an unbounded family of nontrivial repeated-run instances of a recognized optimization problem. The optimum is always one deletion away, but the optimizing copy switches at each rise or fall of adjacent ordered run labels. Every run contributes exactly its run length to an optimal deletion count, producing the invariant \(p\), while collapsing equivalent deletions yields the different invariant \(q\). These are exact position-sensitive and output-sensitive answers not furnished by the unconstrained optimization algorithm. The proof's elementary comparison method may serve as a closed-form test family for Lyndon-subsequence implementations; no unproved downstream implication is asserted.
+General longest-Lyndon-subsequence algorithms and a special case of unique-symbol words do not imply the explicit complete output classification for repeat-run powers: kp-1 length, p positions, q distinct optimizers, ascent/descent switch. Published results on longest run-constrained subsequences and shortest consecutive Lyndon substrings have different predicates. Best-of-knowledge PASS, not priority certification.
 
-## Closest comparisons and limitations
+## value
 
-The primary source and the two related sources are listed with links in `RESULT.md`. Relevant full article Sections 1, 2, 4 and 7 were read via the accessible journal HTML; the other two sources were consulted at title/abstract and bibliographic level, and their clearly distinct problem types do not support an assertion about uninspected technical appendices. The result does not extend, without new work, to cycles with repeated labels in separate runs or to arbitrary cyclic phases. Independent scientific validation and exhaustive historical coverage remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete optimizer classification on a natural infinite family of a recognized scattered-subsequence optimization problem. Position- and word-count invariants differ: p potentially many winning positions but exactly q distinct maximizing words, with decisive boundary ascent/descent rule. These exact closed forms and explicit witnesses make a mathematically useful test family not obtained from generic polynomial-time algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

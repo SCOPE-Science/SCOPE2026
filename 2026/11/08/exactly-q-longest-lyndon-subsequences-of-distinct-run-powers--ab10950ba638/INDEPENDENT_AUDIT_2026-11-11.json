@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:04:48.918872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed sharp upper bound: the undeleted power P^k is not Lyndon because suffix P^(k-1) is also a prefix, so any optimal length is at most kp-1. For a single deletion, the first or final cycle lexicographically dominates comparisons at its altered run; all interior-copy deletions retain a suffix equal to the initial P and fail. Minimum-letter internal suffixes and terminal-run shortening are treated. At every nonterminal run, exactly one of ascent/descending cases qualifies, giving p positions and q distinct Parikh vectors. Independent literal suffix-checking verified all predicted winning positions on 232 exhaustive small parameter profiles (q=2..4, run lengths=1..2, k=2,3), including nonmonotone letter permutations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bannai et al provide a general optimization procedure, with a distinct-letter special case, not an all-optimizer repeated-run theorem."
+        ],
+        "reasoning": "A generic solver covers instances algorithmically but does not mathematically state/imply explicit formulas for their entire optimizer family without new analysis.",
+        "searches": [
+          "longest Lyndon subsequence algorithm repeated word periodic runs",
+          "https://arxiv.org/abs/2201.06773"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2201.06773",
+        "https://doi.org/10.1007/s00453-023-01125-z",
+        "https://doi.org/10.4230/LIPIcs.CPM.2018.19",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-longest-run-subsequence-classification-for-weighted-per--f8851dd87d7f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General algorithms return optimal words; the theorem determines every winning one-letter deletion, a stronger explicit classification."
+        ],
+        "reasoning": "Neither the special one-occurrence-per-symbol algorithm nor alternative run-constrained optimization yields the all-optima boundary rule as a stated corollary without additional work.",
+        "searches": [
+          "https://doi.org/10.1007/s00453-023-01125-z",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-longest-run-subsequence-classification-for-weighted-per--f8851dd87d7f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Period-power run subsequences also appear in run-optimal classification, but the constraint is not Lyndon lexicographic comparison."
+        ],
+        "reasoning": "No equivalence via run-counting: the one-run-per-symbol condition and strict suffix minimality constrain different word sets.",
+        "searches": [
+          "longest Lyndon subsequences periodic words powers distinct run lengths number of solutions deleting one letter",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-longest-run-subsequence-classification-for-weighted-per--f8851dd87d7f",
+          "https://arxiv.org/abs/2201.06773"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic results index had the submitted record and neighboring, nonidentical word problems, not a direct matching table."
+        ],
+        "reasoning": "No authoritative exact table of optimal deletion positions or distinct maximizing outputs for this run-power family was identified; failed search is not proof of novelty.",
+        "searches": [
+          "Lyndon subsequence number of maximizers periodic word run powers",
+          "longest Lyndon subsequences periodic words powers distinct run lengths number of solutions deleting one letter"
+        ]
+      },
+      "rationale": "General longest-Lyndon-subsequence algorithms and a special case of unique-symbol words do not imply the explicit complete output classification for repeat-run powers: kp-1 length, p positions, q distinct optimizers, ascent/descent switch. Published results on longest run-constrained subsequences and shortest consecutive Lyndon substrings have different predicates. Best-of-knowledge PASS, not priority certification.",
+      "residual_risks": [
+        "Unindexed or later specialist Lyndon subsequence classifications may already give an equivalent run-power corollary; the general algorithm itself is acknowledged as prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECTLY_COVERING",
+          "evidence": "Computes longest Lyndon subsequences in general; the inspected results do not express all deletion positions/output count for repeated-run powers. General computability does not imply claimed explicit formula.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-023-01125-z",
+          "material_read": "accessible full journal HTML: introductory scope, definitions, Section 4 algorithm, Section 7 and unique-symbol special-case statements",
+          "method": "web full-text reading of primary journal article",
+          "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+          "trigger": "same optimization target and a priori stronger algorithm"
+        },
+        {
+          "assessment": "DIFFERENT_PROPERTY",
+          "evidence": "Optimizes number of runs/letter order, rather than lexicographically minimal Lyndon scattered subsequences; formula sum a+(k-1)max a differs from kp-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-longest-run-subsequence-classification-for-weighted-per--f8851dd87d7f",
+          "material_read": "Resultary published summary of theorem and object, not full proof",
+          "method": "semantic mathematical-results search",
+          "title": "Complete longest-run-subsequence classification for weighted permutation powers",
+          "trigger": "same periodic word family; potentially equivalent optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete optimizer classification on a natural infinite family of a recognized scattered-subsequence optimization problem. Position- and word-count invariants differ: p potentially many winning positions but exactly q distinct maximizing words, with decisive boundary ascent/descent rule. These exact closed forms and explicit witnesses make a mathematically useful test family not obtained from generic polynomial-time algorithms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2201.06773",
+    "https://doi.org/10.1007/s00453-023-01125-z",
+    "https://doi.org/10.4230/LIPIcs.CPM.2018.19",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-longest-run-subsequence-classification-for-weighted-per--f8851dd87d7f"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed or later specialist Lyndon subsequence classifications may already give an equivalent run-power corollary; the general algorithm itself is acknowledged as prior."
+  ],
+  "schema_version": 1
+}
