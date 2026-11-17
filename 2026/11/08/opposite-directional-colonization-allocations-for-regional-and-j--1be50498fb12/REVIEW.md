@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The definition specifies every transition rate of a positive irreducible four-state continuous-time Markov chain. The stationary formulas follow from exact generator balances and normalization; these ten polynomial identities are also replayable in the embedded checker. Both denominators and the linear complement are strictly positive on the entire feasible interval. The regional objective reduces to strict concave quadratic maximization. The joint objective has a derivative numerator with derivative \(-4\lambda H<0\), so its optimum is unique even if a boundary allocation is selected. At equal budget split, the regional and joint derivative signs are exactly opposite when extinction rates differ. The proof handles arbitrary positive rates and both endpoints, not just sampled values.
+PASS
 
-## Originality (PASS within inspected material; priority provisional)
+The 4-state CTMC with equal external immigration is irreducible. Explicit stationary numerators for 00,10,01,11 obey normalization and every generator balance identity, independently checked symbolically. D(t)=C(h+k)+lambda delta t−2lambda t²>0; R(t)=1−constant/D has unique maximizer at clipped t=delta/4. For J(t)=1−H/D, exact differentiation gives G(t)=H D′−H′D, G′=−4lambda H<0 with H>0 over the full budget interval. G(0)=−lambda delta C(h+2k) makes J optimizer lie strictly opposite the center from R whenever delta≠0. All endpoints and delta=0 covered; independent symbolic generator and derivative identities reconstructed.
 
-Four specific searches against published research records and source-level web searches for the stationary two-patch directed-budget problem returned no matching theorem. The closest accessible primary full article (Grilli et al. 2015) studies large-landscape quasi-stationary/spectral persistence without equal positive external immigration or the paired stationary objectives. Etienne and Heesterbeek (2001) directly discuss colonization investment, but their accessible abstract treats mean time to extinction, rather than the present two stationary probabilities and their opposite-direction theorem. Westphal et al. (2003) study state-dependent finite-horizon actions, and McCarthy et al. (2004 online) study reserve size and extinction objectives. A previously available closed two-patch exact all-horizon allocation theorem has an absorbing empty state and prefers symmetric colonization; it does not imply the stationary positive-immigration opposition here. This is a claim-level comparison, not a proof of global novelty. The full older Etienne–Heesterbeek article and some other plausible literature were not accessible and remain priority risks.
+## originality
 
-## Value (PASS)
+PASS
 
-Regional presence and simultaneous local occupation are distinct natural objectives for managing patch networks under continual mainland input. This result shows that their optimal *directions of investment* are always on opposite sides of equal splitting when extinction risk differs, without requiring calibration-specific thresholds or numerical optimization. It yields a complete parameter-uniform classification of both optimizers and a counterexample to treating these two goals as interchangeable. Its practical translation is limited by model idealizations; no site-level conservation policy is claimed.
+Best-of-knowledge statement/implication comparison across relevant published findings and primary papers; no direct stronger theorem covering the precise final result was identified. Unread/inaccessible sources remain concrete priority risks rather than novelty certification.
 
-## Closest sources and limits
+## value
 
-- Grilli, Barabás and Allesina (2015), full accessible methods and results read: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004251.
-- Etienne and Heesterbeek (2001), accessible abstract only: https://pubmed.ncbi.nlm.nih.gov/18707335/.
-- Westphal et al. (2003), accessible article summary and references, not full PDF: https://doi.org/10.1890/1051-0761(2003)013[0543:TUOSDP]2.0.CO;2.
-- McCarthy, Thompson and Possingham, first online 2004-12-22, accessible abstract: https://doi.org/10.1086/427297.
-- Alonso and McKane (2002), mainland immigration background, abstract: https://doi.org/10.1006/bulm.2002.0307.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal external immigration is a natural irreducible mainland-island model with nontrivial stationary distributions. A fixed directional colonization budget has mathematically incompatible optimum for regional persistence versus joint occupancy; the strict universal reversal for all positive rates is a useful exact conservation-objective distinction not dictated by an absorbing mean-extinction-time optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
