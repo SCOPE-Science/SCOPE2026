@@ -1,0 +1,15 @@
+# Scientific review: a seven-sphere in a cylindrical matching complex
+
+## Correctness — PASS
+The exact 21-vertex, 35-edge graph and all 356,863 matching faces are reconstructed from graph definitions. Two separately specified lexicographic acyclic matchings have 178,361 and 178,362 pairs and respectively 99/42 and 98/41 six/seven-dimensional augmented critical cells. The complete 2,303,210-cover Hasse orientation is topologically sorted for each matching. Correct signed gradient-path reduction yields matrices with 41 and 40 integer unit pivots respectively and otherwise zero entries. Adding the one ordinary critical vertex gives CW models in dimensions zero, six and seven only. The first nonzero homotopy group identifies the attaching maps with the integral boundary and gives \(\bigvee^{58}S^6\vee S^7\), not just field homology. The verifier and its matrix are embedded and replayed; no unverified infinite extension is used.
+
+## Originality — PASS, with residual priority uncertainty
+The closest full published reports cover the different rectangular graph \(P_3\square P_7\) and the shorter periodic graph \(P_3\square C_5\). The 2026 motivating primary work addresses rectangular \(P_3\square P_n\), not cyclic-column edges. Distinct face sets and graph parameters prevent implication of the present exact two-degree homotopy type. Available research searches for graph aliases, the 58/1 multiplicities, periodic strips and broader matching-complex theorems produced no exact covering claim. The full 2026 motivating manuscript was inaccessible, leaving a real appendix/priority risk; unindexed results also remain possible. Search silence is not itself a proof of novelty.
+
+## Mathematical value — PASS
+The cylinder is a canonical periodic-boundary companion to the intensively studied three-row rectangular grids. At seven columns, closing three cyclic edges changes the known \(55\)-sphere pure degree-six homotopy of the open strip to a **mixed-dimensional** integral wedge with 58 six-spheres and a new seven-sphere. This is a complete natural boundary-condition classification on a nontrivial 356,863-face complex, retaining exact torsion and homotopy information that Euler characteristics or connectivity bounds do not provide. It is useful as a finite constraint on future cylindrical-grid recurrences and does not depend on a speculative family theorem.
+
+## Closest sources and scientific limits
+Chauhan–Sharma–Shukla, arXiv:2609.27366 (2026), gives rectangular-grid context and no documented cyclic-column theorem; the available abstract was read, not the inaccessible entire manuscript. The public full reports for the rectangular seven-column grid and the pentagonal cylinder were read and explicitly exclude the heptagonal cylinder. Goyal–Shukla–Singh (2021) is a withdrawn rectangular-grid paper. No general cylinder formula, induced-map calculation, symmetry-module decomposition, or independent mathematical review is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
