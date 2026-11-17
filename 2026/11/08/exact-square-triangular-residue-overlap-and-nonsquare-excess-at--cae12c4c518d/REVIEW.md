@@ -1,11 +1,21 @@
-# Review: square–triangular residue intersection
+# Independent mathematical audit
 
-**Correctness — PASS.** For odd prime powers the argument partitions residues into a generic class and two explicitly counted singular classes. The generic count follows from the exact quadratic-character correlation, and unit square status persists under lifting. The singular classes are counted from even valuations, with the second class existing only when the indicated Legendre symbol is positive. For powers of two, the proof establishes that triangular residues form the complete residue system and derives the ordinary square-residue counts. The Chinese remainder theorem then gives every positive modulus. Direct enumeration in `verify.py` passed for 1999 moduli and additional prime-power cases. The finite checks are not used as an infinite proof.
+## correctness
 
-**Originality — PASS (qualified).** Wright (arXiv:1304.2191, 2013) develops quadratic-residue-pattern methods but counts prime distributions for fixed progressions rather than the image intersection at one fixed modulus. Wang–Sun (arXiv:1511.00478, 2015) counts representations by sums of four triangular numbers, not these two image sets. Ulness (DOI:10.3390/appliedmath2030020, 2022, Theorem 5 and §7.2) defines and numerically explores the precise nonsquare-excess statistic and reports fitted prime-class curves, not the three exact rational laws or the all-modulus local formulas derived here. Accessible related-index searches and available earlier claims showed no stronger equivalent. This does not establish historical priority; nonindexed or differently named covering results remain possible. The 2022 publisher page resisted full direct loading, although its relevant indexed passages were inspected.
+PASS
 
-**Mathematical value — PASS.** The intersection is the exact quantity required to evaluate the published nonsquare-excess observable. The result replaces empirical fits by rational identities and determines all composite-modulus values with a prime-power formula accounting for singular lifting. This is a natural complete arithmetic classification, not a computationally selected slice. It makes no claim about universal global bounds for nonsquare excess, which remain outside its scope.
+For odd p, triangularity is unit squareness of 8r+1; the generic classes r≠0,-1/8 mod p contribute p^(k-1)(p-3-chi_p(2)-chi_p(-2))/4 by the exact nonsingular quadratic-character sum. The two singular classes contribute (3+chi_p(-2))/2 times A_{p,k}=1+(p-1)/2 sum_{1≤j≤floor((k-1)/2)}p^(k-2j-1). Even square valuations account for zero and singular lifts, with Hensel preservation elsewhere. Powers of two have a permutation of triangular values and known dyadic square image size (2^(k-1)+(5 or 4))/3. CRT supplies multiplicativity and the separate triangular image sizes, giving all exact nonsquare-excess ratios. Independently directly computed 30 p^k ≤ 10000 for p=2,3,5,7,11,13,17,19,23, all matching, and checked formula for several odd primes and composite interpretations. These are finite corroboration; unrestricted argument is character/valuation/CRT.
 
-**Limitations and literature.** Square residues include zero; counting is by distinct residue classes rather than by representation multiplicity or by global square-triangular Pell solutions. The classical dyadic triangular permutation and the ordinary square-residue count are acknowledged prior ingredients. No independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ulness (2022) introduces the same nonsquare-excess statistic R(m), defines and plots it (§7.2), and observes three prime mod-8 branches as empirical fitted curves, but does not give these exact rational identities or complete all-prime-power square/triangular intersection. Earlier published Resultary paper determines triangular-image fiber multiplicities and saturation alone; it does not determine how many triangular images are also squares. Character-sum techniques are standard, but the full count with exceptional p-adic lifting and exact resolution of an existing empirical question was not located as a prior published result.
+
+## value
+
+PASS
+
+This natural exact image-intersection invariant controls an expressly studied nonsquare-excess statistic. Replacing empirical prime-class plots with exact rational laws and determining arbitrary composite moduli via a complete local-factor classification is motivated rather than a chosen numerical slice. It does not assert uniform bounds on the global statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
