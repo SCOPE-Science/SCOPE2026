@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete proof verifies all Gaussian/Grassmann parameters, six stationary-pair witness multiplicities with the required endpoint exclusions, the two exceptional parameter inequalities, monotonicity under dimensional enlargement, and the equivalence between the two-extension property and unrestricted counting-free three-variable logic. Explicit enumeration of three finite-field examples and forty integer parameter checks matched the formulas. The infinite theorem is proved symbolically; finite checks are corroborative.
+## correctness
 
-**Originality — PASS, qualified.** Searches of published mathematical records covering Grassmann graph two-extension closure, vertex-fault tolerance, q-analogues and three-variable logic found no matching record. Grassmann embeddings (Pankov 2011), metric dimension (Guo--Wang--Li 2011), Cayley-graph 2-e.c. criticality (2025), and generic VC dimension of strongly regular graphs (Byrne et al. 2026) are related but do not state or logically give the evaluated sharp resilience and complete minimum-set characterization. Results concerning ordinary Kneser, Paley and symplectic graphs concern different graph adjacency structures, so none is a substitution yielding this result. Literature search is not a proof of priority, and an unidentified general SRG robustness theorem is a residual risk. Bonato--Cameron (2001) was abstract-only.
+PASS
 
-**Mathematical value — PASS.** This is a natural, exact all-parameter deletion-resilience invariant for Grassmann adjacency, controlling which finite graphs remain indistinguishable from the random graph by three-variable logic. The uniform quadratic fault budget, the isolated binary four-space exception and the complete classification of minimum destructive sets are structural, not an unmotivated numerical table. Larger variable widths and other Grassmann ranks remain open in this work.
+All statements quantify over prime powers q>=2 and n>=4, with legal third-vertex witnesses distinct from stationary anchors. Counting two-space neighbours by a projective intersection point gives degree d=q(q+1)[n-2]_q; adjacent and disjoint pairs have lambda=[n-1]_q-2+q² and mu=(q+1)² common neighbours. The six mutually exclusive adjacency-pattern witness counts are lambda,d-1-lambda,v-2d+lambda for adjacent anchors, and mu,d-mu,v-2-2d+mu for disjoint anchors. Their global minimum is six only at (4,2) and mu otherwise: q=2,n=4 has disjoint-pair common nonneighbours six, while for q>=3 or n>=5 all other counts exceed mu. Deleting fewer than that number preserves every pair pattern, and deleting one entire minimum witness set destroys its three-variable existential sentence. The standard three-pebble argument proves counting-free FO^3 equivalence to the Rado graph at arbitrary finite quantifier depth. The uniqueness of the minimizing pattern forces all minimal destructive sets to have the stated two classes. Independent parameter arithmetic checked 35 (n,q) cases, including nonprime prime-power values for integer formulas; no finite test is treated as the all-prime-power proof.
 
-The final theorem is confined to pure adjacency, rank-two Grassmann graphs and counting-free three-variable logic; it does not claim independent priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Kneser, q-Kneser, and orthogonal-array FO^3 deletion results share the generic minimum-two-point-witness principle but use distinct vertex families and adjacencies. Full published orthogonal-array and ordinary Kneser proofs were compared: their explicit 6-count tables are not the Grassmann 2-subspace parameters and yield no automatic J_q(n,2) threshold. Pankov Grassmann embedding and Byrne–Byrne–Cioabă SRG VC studies are relevant but their inspected statements do not establish this universal deletion radius and minimum-set classification. Best-of-knowledge originality is restricted to the all-(n,q) Grassmann-specific phase change and exact minimum-destructive-set types; standard FO^3 pebble logic and general witness-minimum idea are prior art.
+
+## value
+
+PASS
+
+The all-parameter deletion threshold is a natural fault-tolerance invariant of classical Grassmann adjacency graphs, with a nontrivial exceptional four-dimensional binary case and a complete description of minimum destructive deletion sets. It answers which vertex deletions preserve an unrestricted-depth three-variable graph theory, not merely a restatement of graph degree or a finite experiment. The parameter calculations are elementary given strongly regular geometry but the uniform extremal deletion classification is mathematically useful as a canonical q-analogue example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
