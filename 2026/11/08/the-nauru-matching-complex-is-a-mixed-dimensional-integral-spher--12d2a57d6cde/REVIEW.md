@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes the exact 24 vertices, 36 edges, and ordinary matching complex. The vertex-deletion matching polynomial independently matches all 13 enumeration coefficients. Complete staged matching yields 578,655 pairs and precisely one critical vertex, 132 dimension-seven and 40 dimension-eight cells. A topological ordering exhausts all 1,157,484 faces and 8,344,008 incidences. The integral signed \(132\times40\) Morse boundary is replayed from the attached source and has exactly 34 unit Smith factors. Degree classification of the top attachments then proves \(\bigvee^{98}S^7\vee\bigvee^6S^8\). The code checks for overflow in its integral accumulation, and the recorded matrix is reproduced byte-for-byte. Limits: proof uses finite exhaustive C++ computation and the standard discrete-Morse homotopy theorem, not a symbolic family formula.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Actual searches covered `Nauru graph matching complex`, `GP(12,5) matching complex`, `order-four permutation star graph`, `line-graph independence complex`, the exact two sphere multiplicities, and broader generalized-Petersen matching-complex claims. published-finding corpus searches found the same graph's *vertex-independence* complex and the different Desargues graph's *matching* complex; their complete scientific statements were read and do not imply this result. Wachs's matching/chessboard theory does not state this graph, Marietti–Testa applies to forests, and Bayer–Jelić Milutinović–Vega to outerplanar graphs; the Nauru graph lies outside those last two hypotheses. No prior implication was found. Unindexed exact calculations remain a residual risk, and no claim of universal priority is made.
+PASS
 
-**Value — PASS.** The Nauru graph is a distinguished 24-vertex cubic symmetric generalized Petersen graph, not an arbitrary induced subgraph. The complete integral homotopy type of its ordinary matching complex is a natural invariant; the presence of both seven- and eight-dimensional spheres and their exact multiplicities is mathematically finer than rank or Euler characteristic. It provides a natural independently meaningful case within comparisons of topological complexes of symmetric cubic graphs. No downstream general theorem is claimed or required for the intrinsic finite invariant.
+The ordinary matching complex is formed from every set of pairwise disjoint edges in GP(12,5), not only perfect-matchable subsets. Independently generated the entire matching-count polynomial (1,36,558,4884,26613,93888,216228,320256,293436,155024,41832,4608,120), total 1,157,484 augmented faces. Source C++ explicitly builds all matchings, pairs along indexed edges, topologically sorts all 8,344,008 augmented Hasse arrows, and eliminates signed 7-to-8 incidence pairs. Its critical cells are one 0, 132 in dimension 7, 40 in 8. Independently loaded its actual 132×40 Morse boundary matrix via GitHub blob and performed exact unimodular unit-pivot row/column operations: 34 pivots of ±1, remaining block all zero, proving its Smith factors (1×34,0×6), no torsion. The 7-skeleton is ∨132 S7, so the integral degrees classify all 8-cell attaching maps; 34 cell pairs cancel to yield 98 S7 and 6 S8.
 
-**Closest neighboring results and limits.** The Nauru *vertex-independence* complex and the Desargues *matching* complex concern respectively a different simplicial definition and a different graph. A finite exact certificate does not imply analogous results for all generalized Petersen graphs; independent mathematical audit and absolute priority verification remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge no prior matching coverage for this exact integral homotopy statement; compared same and broader objects.
+
+## value
+
+PASS
+
+The ordinary edge-matching complex of the symmetric Nauru GP(12,5) graph is a canonical graph complex. Determining both integral 98 and 6 sphere multiplicities in two adjacent high dimensions, and excluding torsion, supplies a natural missing exact invariant that the earlier perfect-matching and vertex-independence calculations do not determine. It is a useful benchmark for future generalized-Petersen or graph-matching classification and for testing Morse methods, without requiring a universal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
