@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact cardinality cut identity; convex endpoint estimate for every integer m>=2; singleton witnesses; real-signal coarea; m=1 treated separately; exact rational checks from current embedded standalone checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier continuous-time normalized heat on K_{p,q} has exp[t(D^{-1}A-I)] and a two-exponential fixed-time Gini norm.",
+        "Peres et al. arXiv:1412.8458 §1, Theorems 1.1/1.5, bound intersection and mixing quantities."
+      ],
+      "reasoning": "Exact continuous-time heat and abstract mixing-time bounds do not imply the norm of P=(I+D^{-1}A)/2 by any stated specialization. The new formula explicitly computes discrete one-step cut gains.",
+      "searches": [
+        "complete bipartite equal parts heat smoothing 1/2 lazy walk Gini dispersion norm singleton sharp",
+        "finite bipartite graph one step Markov averaging pairwise dispersion stability exact operator norm"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1108.0133 (relevant full-text sections)",
+      "arxiv:1412.8458 (relevant full-text sections)",
+      "published-finding corpus:77f0e7590ff5 (indexed statement only)",
+      "previous complete-bipartite normalized-heat Gini claim 2ed513aa-7e24-4010-95ab-e59b8a4d0a7a (recoverable claim for deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At alpha=1/2 the indexed edge-variation coefficient is 1-1/m, which differs from the current 3(m-1)/(2(2m-1)) for m>=3.",
+        "The earlier heat formula controls e^{t(Q-I)}, not (I+Q)/2 as a single step.",
+        "ArXiv:1108.0133 Theorem 1.1 concerns mixing-time comparability with hitting times, not exact fixed-step Gini norm."
+      ],
+      "reasoning": "None of the inspected statements implies the precise new cut operator norm, singleton equality class, or optimal unattained 3/4 envelope without new argument.",
+      "searches": [
+        "balanced complete bipartite lazy random walk half holding Gini pairwise variation exact coefficient 3(m-1)/(2(2m-1))",
+        "complete bipartite equal parts heat smoothing 1/2 lazy walk Gini dispersion norm singleton sharp",
+        "finite bipartite graph one step Markov averaging pairwise dispersion stability exact operator norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Graph-edge TV counts only A-B edges whereas Gini also includes A-A and B-B pairs; the differing formulas at m=3 are edge variation 2/3 versus complete-pair Gini 3/5.",
+        "Peres–Sousi arXiv:1108.0133 §1 uses TV between transition-law rows, not all-pairs signal dispersion."
+      ],
+      "reasoning": "The two functionals are not equal, and their induced operator coefficients differ for m>=3. A duality with probability-law TV would require an explicit transform not present in inspected statements.",
+      "searches": [
+        "balanced complete bipartite lazy random walk half holding Gini pairwise variation exact coefficient 3(m-1)/(2(2m-1))",
+        "Gini pairwise variation operator norm complete-pair seminorm Markov matrices stochastic averaging exact sharp contraction coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed mathematical record identifier 77f0e7590ff5 is titled Sharp edge-variation contraction of lazy walks on complete bipartite graphs.",
+        "No consulted record states 3(m-1)/(2(2m-1)) for complete-pair Gini half-lazy bicliques."
+      ],
+      "reasoning": "The closest graph-specific exact table is based on edge variation, not complete-pair variation. A negative database search alone is not uniqueness proof.",
+      "searches": [
+        "balanced complete bipartite lazy random walk half holding Gini pairwise variation exact coefficient 3(m-1)/(2(2m-1))",
+        "finite bipartite graph one step Markov averaging pairwise dispersion stability exact operator norm"
+      ]
+    },
+    "rationale": "The exact graph-edge variation result uses a different seminorm, and the accessible lazy-chain primary texts establish TV mixing/hitting/intersection estimates, not the sharp all-pair Gini norm of the one-step half-lazy operator. A continuous-time normalized heat formula addresses an exponential semigroup and does not directly supply the one-step affine Markov norm. All searched comparisons are qualified by the possibility of unindexed equivalents.",
+    "residual_risks": [
+      "The indexed edge-variation paper was available at statement level only; uninspected detailed discussion may include all-pair estimates.",
+      "Unindexed historical work in mean-absolute-difference seminorms or probability-measure duality could anticipate this special formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different total variation of Markov-law distributions and mixing/hitting parameters; no exact complete-pair Gini one-step norm statement in inspected relevant sections.",
+        "evidence": [
+          "Original first submission 2011-07-31; §1 defines lazy chain (I+P)/2 and probability-measure TV mixing."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.0133",
+        "material_read": "Complete accessible arXiv HTML outline, introduction, theorem 1.1, theorem 1.4 and scope; relevant definitions and statements.",
+        "method": "Read full-text HTML including primary theorem statements rather than search snippet.",
+        "title": "Mixing times are hitting times of large sets",
+        "trigger": "Canonical original lazy-chain and total-variation reference."
+      },
+      {
+        "assessment": "Intersections and TV mixing times, no stated sharp one-step pairwise signal variation.",
+        "evidence": [
+          "First arXiv publication 2014-12-29; paper explicitly uses lazy P_L=(P+I)/2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.8458",
+        "material_read": "Accessible arXiv full-text HTML introduction, theorem 1.1, theorem 1.5, regular-graph proposition, definitions and article scope.",
+        "method": "Read primary text, not publisher abstract alone.",
+        "title": "Intersection and mixing times for reversible chains",
+        "trigger": "Original research on lazy reversible finite Markov chains."
+      },
+      {
+        "assessment": "Graph-edge variation has a different pair index set, and differing sharp coefficient. Full-text implication remains residual risk.",
+        "evidence": [
+          "Indexed coefficient max{1-2 alpha,1-2(1-alpha)/M} for graph-edge variation."
+        ],
+        "identifier_or_url": "published-finding corpus:77f0e7590ff5",
+        "material_read": "Indexed published mathematical record statement and formula (full primary file not accessed).",
+        "method": "Statement-level indexed record comparison; not characterized as full-text exclusion.",
+        "title": "Sharp edge-variation contraction of lazy walks on complete bipartite graphs",
+        "trigger": "Exact same graph and lazy-step setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6219a588-1272-48f5-bb39-d93b36a78178",
+  "value": {
+    "rationale": "Natural sharp one-step Gini mixing stability, explicit separation from spectral 1/2 bound for m>=3, complete singleton extremizers and sharp finite/uniform 3/4 gap. Not a parameter renaming or known-table recomputation.",
+    "status": "PASS"
+  }
+}
