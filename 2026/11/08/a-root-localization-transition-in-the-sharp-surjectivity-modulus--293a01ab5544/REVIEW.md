@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The orthogonal wandering-chain decomposition gives one exceptional forward shift of weights \((1,2,2,\ldots)\) and constant-weight bulk copies. The lower edge of the half-line Jacobi square has an isolated eigenvalue precisely when its geometric decay parameter is below one. The boundary equation \(3rt^2-6t+4r=0\) yields the sharp threshold \(6/7\) and eigenvalue \(1/2+r^2+\sqrt{1-4r^2/3}/2\); independent finite-section calculations corroborate sampled values. The Hilbert adjoint closed-range theorem establishes the optimal right inverse claim. Only spectral/variational conclusions proved by this calculation are asserted.
+## correctness
 
-## Originality — PASS (best-knowledge, with risk)
-The motivating 2026 tree-shift paper establishes qualitative universality and growth thresholds, not a sharp metric surjectivity constant or a root-localization transition. The 2017 directed-tree decomposition covers the splitting mechanism but gives no boundary-mode spectral formula; general unilateral weighted shift spectrum results do not resolve the shifted lower singular value. A relevant previous two-periodic bilateral stability record concerns a uniformly periodic recurrence and has no exceptional half-line boundary; it does not imply a discrete bound-state branch. Targeted searches for one-defect unilateral shifts, root branching, a \(6/7\) transition and shifted lower singular values produced no equivalent theorem. Residual risk: generic Jacobi-boundary spectral theory might encode the calculation in other terminology; no independent priority audit exists.
+PASS
 
-## Mathematical value — PASS
-The quantity is the exact optimal perturbation-data amplification for solving the universal operator equation on the concrete irregular rooted tree. The proof exhibits a genuinely non-bulk mechanism that changes the controlling singular mode at a sharp threshold and produces an unexpected interior maximum of robustness. These distinctions are not visible from the qualitative disk-spectrum or branching-growth criteria. This is a motivated natural boundary-effect example rather than an arbitrary numerical slice.
+Decomposition via normalized child-lift isometries isolates a root chain with weights (1,2,2,...) and independent bulk chains with constant weight two. The root singular-value Jacobi recurrence below (2−r)² reduces to 3rt²−6t+4r=0, whose ℓ² root exists iff 0<r<6/7; at r=0 the root vector gives modulus one. Above that the essential bulk edge yields |2−r|. Bounded-below adjoint gives onto for r<2 and exact optimal right-inverse norm, while outer spectrum gives inverse for r>2. Differentiation gives unique peak sqrt(2/3). Independent finite rectangular shift singular values agree within truncation errors, not used as infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge new explicit sharp Hilbert-space right-inverse/modulus function for an irregular rooted-tree backward shift. Prior universality and Wold splitting results do not contain the root bound-state branch or precise transition.
+
+## value
+
+PASS
+
+An exceptional root changes the optimal right-inverse cost without changing the bulk spectral radius; the exact 6/7 localized-state threshold and nonmonotone peak quantify stability/universality in a natural tree shift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

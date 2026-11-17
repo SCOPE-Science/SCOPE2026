@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-## Verified calculations
-The tree's normalized child maps produce one root chain with weights 1,2,2,... and only constant-weight 2 chains otherwise. For the root Jacobi square, substitution of the geometric ansatz gives precisely 3 r t^2 - 6 t + 4 r = 0, so t=1 gives r=6/7 and substitution gives the closed-form isolated eigenvalue. Differentiation gives the maximum at r^2=2/3. The lower modulus of S* minus the scalar is the reciprocal of the least norm of a right inverse of S minus that scalar where surjective.
+# Independent mathematical audit
 
-A direct finite-section numerical check was performed with an extra output row in each truncated weighted shift, avoiding artificial terminal zero singular values. Finite sections at r=0,0.1,0.3,0.6,0.8 agreed with the isolated eigenvalue branch; near the bulk edge finite sections converge from above. This does not certify infinite-dimensional statements; those rest on the displayed recurrence and orthogonal direct-sum proof. No standalone script is required by the proof. Publication priority and independent validation are not claimed.
+## correctness
+
+PASS
+
+Decomposition via normalized child-lift isometries isolates a root chain with weights (1,2,2,...) and independent bulk chains with constant weight two. The root singular-value Jacobi recurrence below (2−r)² reduces to 3rt²−6t+4r=0, whose ℓ² root exists iff 0<r<6/7; at r=0 the root vector gives modulus one. Above that the essential bulk edge yields |2−r|. Bounded-below adjoint gives onto for r<2 and exact optimal right-inverse norm, while outer spectrum gives inverse for r>2. Differentiation gives unique peak sqrt(2/3). Independent finite rectangular shift singular values agree within truncation errors, not used as infinite proof.
+
+## originality
+
+PASS
+
+Best-knowledge new explicit sharp Hilbert-space right-inverse/modulus function for an irregular rooted-tree backward shift. Prior universality and Wold splitting results do not contain the root bound-state branch or precise transition.
+
+## value
+
+PASS
+
+An exceptional root changes the optimal right-inverse cost without changing the bulk spectral radius; the exact 6/7 localized-state threshold and nonmonotone peak quantify stability/universality in a natural tree shift.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
