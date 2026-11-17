@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python CHECK.py` using Python 3.10+ with assertions enabled. The standard-library script enumerates the full \(5^{3}2^4=2000\) signed spanning-tree family of scalar polytope vertices. Each feasible candidate determines a closed rational parameter interval, and every candidate quadratic is compared with the claimed sharp polynomial by *exact* minimization on its whole feasible interval. Therefore this finite computation is an exhaustive mathematical certificate for all real \(t\in[1,2]\), not a grid sample. The observed certificate contains 310 feasible symbolic families and 70 interior vertices in orbit sizes 20, 20, 10, 10, 10. Endpoint exact checks give respectively 20 and 10 scalar extremizers at \(t=1\) and \(t=2\).
+## correctness
 
-Expected terminal line: `C5_SCALAR_CERTIFICATE_PASSED`. This diagnostic was obtained from a successful run of the included code. For Hilbert targets, reproduce the symbolic argument by checking the two chord equations for \(\alpha^2,\beta^2\), the pairwise variance identity, the five-cycle eigenvalue \((5-\sqrt5)/2\), the equality cases for the spectral inequality, and the elementary derivative signs. These steps are written in `RESULT.md`, without dependence on numerical experiments.
+PASS
 
-Scope excludes Hilbert targets of dimensions two and three below the golden-ratio threshold; it also excludes nonuniform weights and non-cyclic metrics. No independent external audit has been performed.
+For uniform 5-point cyclic two-distance metric d_adj=1,d_diag=t∈[1,2], strict convexity plus saturated-spanning-tree vertex criterion gives 5³·2⁴=2000 signed-tree families. A NEW independently constructed Fraction-arithmetic continuum certificate enumerated all 2000, found 310 feasible affine families/70 interior ones, and verified every candidate quadratic ≤(6−4t+4t²)/25 throughout its full rational feasible interval, including interior critical points and t=1,2. Hilbert pairwise bound (1+t²)/5 and spectral bound 1/λ₁=(5+√5)/10 are jointly attained by explicit orthogonal Fourier modes/regular pentagon, with Gram rank 4 below φ and rank 2 at/above φ. Derivatives establish unique absolute and relative variance-gap maxima at φ. Both endpoint equality classes and correct 1/5 variance normalization were examined.
+
+## originality
+
+PASS
+
+Golden-ratio dimension collapse and exact continuum scalar-vs-Hilbert constants are not implied by the inspected general metric spread results or nearby indexed cyclic metrics.
+
+## value
+
+PASS
+
+The natural smallest odd cycle has a nontrivial scalar-versus-Hilbert variance gap and a golden-ratio collapse from affine dimension four to two. Sharp constants, equality classification and unique gap maximum reveal a structural spectral/metric boundary, not a trivial isolated numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

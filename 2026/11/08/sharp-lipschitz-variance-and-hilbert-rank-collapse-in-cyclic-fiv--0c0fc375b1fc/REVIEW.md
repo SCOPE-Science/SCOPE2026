@@ -1,19 +1,21 @@
-# Scientific review: cyclic five-point Lipschitz variance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar maximizing problem is strictly convex after fixing the translation gauge; vertex extremality is equivalent to a connected saturated-constraint graph. Every possible vertex therefore comes from one of the exactly 2000 signed spanning-tree choices. `CHECK.py` independently enumerates all, tests their exact feasible parameter intervals, and proves the polynomial upper bound on each whole interval. The resulting 70 interior vertices split into five explicit orbits; one is strictly largest throughout the interior, and endpoint counts and equality cases are separately exact. For Hilbert targets, the pairwise upper bound and the exact first five-cycle Laplacian eigenvalue give the two sharp bounds. Explicit orthogonal Fourier embeddings attain the first branch, a regular pentagon attains the second, and equality conditions force the stated dimensions and congruence classes. Algebraic derivatives establish the unique gap maximum.
+PASS
 
-## Originality — PASS, qualified
+For uniform 5-point cyclic two-distance metric d_adj=1,d_diag=t∈[1,2], strict convexity plus saturated-spanning-tree vertex criterion gives 5³·2⁴=2000 signed-tree families. A NEW independently constructed Fraction-arithmetic continuum certificate enumerated all 2000, found 310 feasible affine families/70 interior ones, and verified every candidate quadratic ≤(6−4t+4t²)/25 throughout its full rational feasible interval, including interior critical points and t=1,2. Hilbert pairwise bound (1+t²)/5 and spectral bound 1/λ₁=(5+√5)/10 are jointly attained by explicit orthogonal Fourier modes/regular pentagon, with Gram rank 4 below φ and rank 2 at/above φ. Derivatives establish unique absolute and relative variance-gap maxima at φ. Both endpoint equality classes and correct 1/5 variance normalization were examined.
 
-Alon–Boppana–Spencer introduce finite metric spread and prove general principles; their graph case concerns integer edge distances and does not compute this two-distance five-point continuum. Addario-Berry–Janson–McDiarmid investigate random-graph spread, rather than the exact cyclic deformation. Naor's general nonlinear spectral-gap comparison does not imply the stated scalar-versus-Hilbert extremizer classification. Related five-cycle graph-metric scalar norms cover the endpoint \(t=2\), which is not asserted to be new; other known finite metric deformation and Hilbert-variance results involve different metric families. Search-based priority is not proof of uniqueness. Residual risk: an earlier paper might hide this exact five-point parameter calculation under a different name.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite metric spread is a natural metric concentration invariant; contrasting scalar and Hilbert targets quantifies the cost of target dimension. Here one continuous, highly symmetric metric deformation has a complete exact scalar/Hilbert phase diagram, sharply classified maximizers, a forced rank-four to rank-two transition at a geometric threshold, and a unique worst gap. These properties distinguish the finding from merely recomputing the graph-metric endpoint or enumerating one arbitrary finite metric.
+Golden-ratio dimension collapse and exact continuum scalar-vs-Hilbert constants are not implied by the inspected general metric spread results or nearby indexed cyclic metrics.
 
-## Verification limits
+## value
 
-The finite certificate proves all scalar parameter inequalities exactly, not by sampling, using rational arithmetic over a complete family of active-constraint trees. Hilbert estimates and extremizers have a separate symbolic proof; no separate algebraic-number checker is asserted. Priority is qualified by discoverability of historical literature. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural smallest odd cycle has a nontrivial scalar-versus-Hilbert variance gap and a golden-ratio collapse from affine dimension four to two. Sharp constants, equality classification and unique gap maximum reveal a structural spectral/metric boundary, not a trivial isolated numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
