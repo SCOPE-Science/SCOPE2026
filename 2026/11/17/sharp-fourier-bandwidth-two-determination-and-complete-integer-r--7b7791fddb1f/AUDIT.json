@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Fubini factorizes the box transform into normalized sinc factors. The first axial harmonic vanishes iff that side is a positive integer, when all higher nonzero axial frequencies also vanish. Otherwise the ratio of second to first moduli equals |cos(pi L)|; together with the first modulus, the identity sin^2+cos^2=1 uniquely recovers L>0. The first phase then recovers exp(-2pi i c). Equality of finitely many samples therefore determines all lattice data and the exact integer-factorization and center-residue alias fibers. A strictly decreasing sinc function on (0,1) gives a first-cube counterexample from widths lambda and 3/2, and explicitly identifies the bandwidth-two sharpness. A 43,460-check standard-library numerical script independently exercises the stated formulas, without substituting finite tests for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1510.00384, §2 and §3: annihilating-filter image reconstruction presupposes unit-cell support and a finite trigonometric edge representation",
+        "arXiv:2608.29217, Theorem 2: sparse-lattice plus connected regular set yields lattice-translate rigidity from all samples"
+      ],
+      "reasoning": "Broader object classes in those papers do not automatically imply a stronger *sample-count* result. The sparse-lattice assumption fails for arbitrary noninteger lengths exceeding one, as well as integer widths; this new theorem specifically resolves those cases by sinc separation and exhibits the unavoidable aliases.",
+      "searches": [
+        "recover axis aligned rectangles boxes from finite Fourier coefficients at low integer frequencies shape reconstruction",
+        "Fourier sampling rectangular box exact recovery from few lattice samples 2d+1",
+        "Off-the-Grid Recovery of Piecewise Constant Images from Few Fourier Samples arxiv:1510.00384"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.29217v1",
+      "arxiv:1104.0446",
+      "arxiv:1510.00384",
+      "https://arxiv.org/html/2608.29217",
+      "https://arxiv.org/html/1510.00384v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Asipchuk–Robins 2026 Theorem 1 equates complete Fourier data to equidecomposability; their Theorem 2 gives only a nonaliasing sufficient rigidity criterion",
+        "Mao 2011 Theorem II.5 handles periodic binary signals, and Ongie–Jacob 2016 §2 handles images supported in [0,1]^2"
+      ],
+      "reasoning": "Their theorems do not give the algebraic inverse formula L=sqrt(1-r^2)/(pi|b_1|), the positive-integer length fiber classification, or the dimension-at-least-two counterexample matching the entire first-frequency cube. A known sinc identity alone is insufficient as a statement of this global sharp finite determination, though an older equivalent calculation cannot be excluded.",
+      "searches": [
+        "2026 Asipchuk Robins Fourier sampling on a lattice geometric shape indicators boxes finite first second moments",
+        "rectangle box parameters Fourier coefficients samples 0 1 2 sinc inverse uniqueness side lengths",
+        "Fourier coefficient finite determination of rectangle spectra, integer side resonances, ambiguity class factorization of integer widths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.29217, Theorem 1: full lattice Fourier equality is equivalent to finite measurable equidecomposability by lattice translations",
+        "arXiv:1104.0446, Theorem II.5: first low Fourier frequencies recover periodic binary one-dimensional few-jump signals under its own assumptions"
+      ],
+      "reasoning": "Equidecomposability is a statement given the entire infinite sample set, whereas the new theorem establishes exact equivalence of the entire spectrum with 2d+1 specified values on arbitrary-size Cartesian boxes. The one-dimensional binary assumption does not include the multivalued torus periodization of intervals of length exceeding one and does not classify integer-side factorizations.",
+      "searches": [
+        "axis parallel boxes rectangular solids recovery from a finite set of lattice Fourier transform samples coordinate frequencies 0 1 2, sinc ratio width and center exact formula",
+        "indicator of axis-parallel box Cartesian product intervals on R^d torus periodization inverse widths sinc first second Fourier coefficients",
+        "Fourier sampling on a lattice indicator rectangular boxes ambiguity integer side lengths finite Fourier moment reconstruction and nonunique aliasing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published claims concern lattice Fourier support of cross-polytopes, finite cyclic rectangle phase zeros, and finite Fourier designs rather than the present continuous-box inverse data",
+        "The analytic theorem has free dimension and continuous side parameters, not a finite database lookup or recomputation"
+      ],
+      "reasoning": "No retrieved exact lookup table or database resolves the continuous box inverse map or its integer-factorization fibers. Nearest semantic matches use different objects or objectives; this is absence of an identified cover, not a proof of novelty.",
+      "searches": [
+        "complete Fourier lattice sample identification of boxes positive lengths mod integer shifts via product sinc",
+        "alias classes periodicization of translated axis parallel rectangular boxes positive integer side widths",
+        "two harmonics sinc ratio cos pi length exact recovery rectangular boxes Fourier interpolation minimal cutoff"
+      ]
+    },
+    "rationale": "The 2026 lattice-set sampling theorem establishes full-frequency equidecomposability and sparse-lattice rigidity, not finite all-spectrum determination for arbitrarily long boxes. Inspected finite-rate-of-innovation papers concern unit-period binary intervals or unit-cell image models, without the sharp global box bandwidth-two cutoff and complete positive-integer width/center ambiguity classification. Relevant semantic searches revealed neighboring but mathematically different claims; prior priority remains a risk rather than a certification.",
+    "residual_risks": [
+      "A bibliographic priority risk remains: classical sinc or finite-rate-of-innovation literature may contain an earlier algebraically equivalent finite-box inverse formula.",
+      "Some sections of the 2026 motivating HTML could not be reopened for full-paper comparison; this is a material access limit, not evidence of noncoverage.",
+      "The theorem is deliberately limited to fixed-axis boxes with exact complex samples; it does not extend to rotated boxes or generic shapes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published equivalence of all Fourier coefficients to lattice equidecomposability does not itself settle the sharp finite axial frequency cutoff and box parameter classification",
+        "evidence": "Theorem 1 and Theorem 2 on the arXiv HTML version, lines around Introduction and Periodization",
+        "identifier_or_url": "https://arxiv.org/abs/2608.29217",
+        "material_read": "Public arXiv abstract, dated v1 submission history, arXiv HTML introduction, Theorem 1 and Theorem 2, periodicization statements and lattice multi-tiling framework in accessible initial sections",
+        "method": "Read accessible mathematical statements and implications in arXiv HTML; later HTML fetches were unavailable",
+        "title": "Fourier sampling on a lattice",
+        "trigger": "Exact primary motivating paper on full lattice Fourier equality and geometric ambiguity"
+      },
+      {
+        "assessment": "Low-frequency recovery of unit-period binary few-jump signals, not the wide-box multiwrap alias fibers or sharp two-band global determination",
+        "evidence": "§II-B and Theorem II.5",
+        "identifier_or_url": "https://arxiv.org/abs/1104.0446",
+        "material_read": "Available full-text rendering: introduction, periodized binary-function setup, §II-A, §II-B, Lemma II.4, Theorem II.5 and adjoining discussion",
+        "method": "Read text-rendered complete mathematical statements and hypotheses",
+        "title": "Reconstruction of Binary Functions and Shapes from Incomplete Frequency Information",
+        "trigger": "Potential prior low-frequency reconstruction theorem for periodic interval indicators"
+      },
+      {
+        "assessment": "Image support is within the unit cell, with trigonometric-curve annihilation and different sampling conditions; no direct implication identified for box sizes exceeding one lattice period and integer-width equivalence fibers",
+        "evidence": "§2.1 equations (1)–(5), §2.2 unit-cell support model, §3 recovery conditions",
+        "identifier_or_url": "https://arxiv.org/html/1510.00384v2",
+        "material_read": "HTML abstract, §§1–2, §2.1 review of Prony/finite-rate-of-innovation, and §3 sample-geometry discussion",
+        "method": "Read HTML mathematical formulation and hypotheses",
+        "title": "Off-the-Grid Recovery of Piecewise Constant Images from Few Fourier Samples",
+        "trigger": "Potential stronger general low-pass image reconstruction theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b7791fd-db1f-4650-a788-8f10416e49ee",
+  "value": {
+    "rationale": "The question of how little of the lattice Fourier spectrum determines the rest is natural for exact shape identification. The theorem gives an all-dimensional O(d)-sample exact certificate despite unbounded box widths, proves the coordinate bandwidth threshold cannot be reduced globally for d>=2, and fully classifies intrinsically invisible integer-side geometry. It also isolates the no-wrap first-harmonic regime and provides explicit reconstruction, useful for inverse-sampling design and alias diagnostics. It does not mistake mere formula computation for a universal noise-stability or general-shape theorem.",
+    "status": "PASS"
+  }
+}
