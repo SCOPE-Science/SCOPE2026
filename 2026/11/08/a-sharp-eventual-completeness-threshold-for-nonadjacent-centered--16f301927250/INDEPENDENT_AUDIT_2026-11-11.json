@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:43:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Partitioning legal subsets by whether their largest index is used proves B_n=B_(n−1)∪(c_n+B_(n−2)). The independent bitset computation on the pinned arithmetic recurrence verified all 8,147 integers from 9084 to U41=17230 and all 9,439 from 9084 to U42=18522, with 9083 absent from B45 and c45=8911≤9083<c46=9316. The source checker uses a second boolean-array DP for finite exhaustion; its complete Python source was inspected. For every n≥43, inequalities U_n−U_(n−2)≤c_n and U_(n−1)+1≥9084+c_n, U_n=⌊n³/4⌋, ensure overlapping/touching intervals and induction to unbounded U_n. Independent numerical checks of inequalities to 5000 only supplement their elementary symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kureš centered-nonagonal Pollock theorem permits repeated summands; Warren–Kureš generalizes polygonal side count while still allowing multiplicities",
+          "OEIS A352349 distinct-only cutoff 2648 concerns a strictly larger representation collection"
+        ],
+        "reasoning": "Unrestricted additive universality or distinct-only representation cannot imply the exact cutoff of a smaller subset under forbidden consecutive indices; direction of set inclusion runs the other way.",
+        "searches": [
+          "centered nonagonal numbers sums distinct nonconsecutive indices no adjacent forbidden gap exact largest nonrepresentable 9083",
+          "https://doi.org/10.1007/s00283-023-10307-0",
+          "Every Positive Integer Is a Sum of at most n+2 Centered n-gonal Numbers 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2210.10577",
+        "https://doi.org/10.1007/s00283-023-10307-0",
+        "https://oeis.org/A352349",
+        "Resultary search: centered nonagonal numbers sums distinct nonconsecutive indices no adjacent forbidden gap exact largest nonrepresentable 9083",
+        "Oxford institutional attempt: Kureš DOI returned vpn_disconnected, no text (no access bypass)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2210.10577v2 Definition 1.9 uses greedy a_n as smallest positive omitted legal sum",
+          "Pollock theorem allows arbitrary repeated c_j; OEIS distinct-only table allows adjacent indices"
+        ],
+        "reasoning": "The exact recurrence holds for any prescribed summands, but no inspected prior theorem supplies this infinite interval covering or the 9083 obstruction for the fixed centered nonagonal sequence; the finite base and elementary polynomial overlap bound are substantive new ingredients.",
+        "searches": [
+          "https://arxiv.org/pdf/2210.10577",
+          "https://oeis.org/A352349",
+          "https://doi.org/10.1007/s00283-023-10307-0",
+          "centered nonagonal numbers sums distinct nonconsecutive indices no adjacent forbidden gap exact largest nonrepresentable 9083"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dantas e Moura et al. Definition 1.9 defines S-LID sequences as greedy minimal omitted legal sums",
+          "The present c_j is a prescribed quadratic sequence, rather than the greedy S-LID output"
+        ],
+        "reasoning": "The same no-consecutive-index combinatorial constraint has distinct names (S-legal, Zeckendorf-type), but equality of the *summand sequence* is essential; the S-LID recurrence theorem does not identify this fixed quadratic range.",
+        "searches": [
+          "centered nonagonal numbers sums distinct nonconsecutive indices no adjacent forbidden gap exact largest nonrepresentable 9083",
+          "arxiv:2210.10577 legal index difference S-LID centered polygonal sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A352349 reports 2648 for distinct centered nonagonal summands with no index adjacency constraint",
+          "Independent bitset check finds 9083 last gap in stricter family"
+        ],
+        "reasoning": "The closest known exact database entry is for a different superset of allowable sums; it does not list the no-adjacent-index complement threshold. Search absence is not a novelty certificate.",
+        "searches": [
+          "centered nonagonal numbers sums distinct nonconsecutive indices no adjacent forbidden gap exact largest nonrepresentable 9083",
+          "OEIS A352349 centered 9-gonal largest sum distinct",
+          "centered nonagonal no adjacent indices 9083 subset sums"
+        ]
+      },
+      "rationale": "Pollock/Kureš proves at most eleven centered-nonagonal summands with repetition, and OEIS A352349 lists largest obstruction 2648 for sums of DISTINCT centered nonagonal numbers without forbidding adjacent indices. Neither permits the exact inversion of the stricter nonconsecutive-index subset constraint. Dantas e Moura et al. S-legal index-difference theorem concerns a specially greedily built sequence, not the fixed quadratic c_j; its full paper Definition 1.9 was inspected. No exact 9083 obstruction table for this indexed quadratic sequence was found in independent indexed searches.",
+      "residual_risks": [
+        "The two-page Kureš source was not available as lawful OA or arXiv, and authorized Oxford download reported disconnected VPN; its full proof was not represented as read. Its published theorem statement is structurally different.",
+        "An unindexed table for nonadjacent indexed centered nonagonals could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_PRESCRIBED_QUADRATIC",
+          "evidence": [
+            "Definition 1.9 defines a_n greedily as smallest integer omitted by previous S-legal representations, while current a_n=1+9n(n−1)/2 is prescribed"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.10577",
+          "material_read": "full 18-page arXiv PDF text, with rendered page 4 (zero-index 3) for Definition 1.9 and introductory theorems",
+          "method": "arXiv PDF text and rendered page direct scientific review",
+          "title": "Recurrence Relations for S-Legal Index Difference Sequences",
+          "trigger": "same forbidden index-difference rule"
+        },
+        {
+          "assessment": "FULL_TEXT_INACCESSIBLE_DISTINCT_STATEMENT",
+          "evidence": [
+            "Public statement is at most eleven centered nonagonal numbers, allowing repeats; no evidence read that it treats forbidden index adjacency. Full text is an explicit residual priority risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00283-023-10307-0",
+          "material_read": "publisher bibliographic/preview and lawful OA/arXiv title searches; full article NOT obtained, Oxford institutional attempt returned VPN-disconnected without text",
+          "method": "public preview and accessible secondary statement only; protected-source authorization not bypassed",
+          "title": "A Proof of Pollock’s Conjecture on Centered Nonagonal Numbers",
+          "trigger": "same centered nonagonal summands, different multiplicities"
+        },
+        {
+          "assessment": "DIFFERENT_CONSTRAINT",
+          "evidence": [
+            "Nonagonal distinct-only obstruction 2648 permits consecutive selected indices and therefore cannot establish the stricter 9083 threshold"
+          ],
+          "identifier_or_url": "https://oeis.org/A352349",
+          "material_read": "indexed sequence summary and exact nonagonal entry; full updated OEIS page could not be directly retrieved",
+          "method": "OEIS indexed metadata and description; specific statement comparison",
+          "title": "OEIS A352349: Largest integer not representable as a sum of distinct centered polygonal numbers",
+          "trigger": "natural exact database alternative for same summands"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ban on adjacent indices is a natural representation constraint from Zeckendorf-style legal sums; the complete finite complement cutoff for a standard centered polygonal sequence is an exact independent invariant, not an arbitrary tiny numerical slice. It quantifies a nontrivial distinction between unrestricted, distinct-only, and index-gap-restricted additive coverage. Finite computation supports a provable infinite classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2210.10577",
+    "https://doi.org/10.1007/s00283-023-10307-0",
+    "https://oeis.org/A352349",
+    "Resultary search: centered nonagonal numbers sums distinct nonconsecutive indices no adjacent forbidden gap exact largest nonrepresentable 9083",
+    "Oxford institutional attempt: Kureš DOI returned vpn_disconnected, no text (no access bypass)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For c_j=1+9j(j−1)/2, j≥1, and subsets of pairwise nonconsecutive distinct indices, the largest nonrepresentable nonnegative integer is exactly 9083: 9083 is absent and all t≥9084 are representable.",
+  "limitations": [
+    "Only centered nonagonal numbers and forbidden neighboring indices; no general centered m-gonal cutoff or representation-count claim.",
+    "Finite DP is exhaustive at bases and obstruction only; the induction is necessary for all integers ≥9084."
+  ],
+  "residual_risks": [
+    "The two-page Kureš source was not available as lawful OA or arXiv, and authorized Oxford download reported disconnected VPN; its full proof was not represented as read. Its published theorem statement is structurally different.",
+    "An unindexed table for nonadjacent indexed centered nonagonals could still exist."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_PRESCRIBED_QUADRATIC",
+      "evidence": [
+        "Definition 1.9 defines a_n greedily as smallest integer omitted by previous S-legal representations, while current a_n=1+9n(n−1)/2 is prescribed"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2210.10577",
+      "material_read": "full 18-page arXiv PDF text, with rendered page 4 (zero-index 3) for Definition 1.9 and introductory theorems",
+      "method": "arXiv PDF text and rendered page direct scientific review",
+      "title": "Recurrence Relations for S-Legal Index Difference Sequences",
+      "trigger": "same forbidden index-difference rule"
+    },
+    {
+      "assessment": "FULL_TEXT_INACCESSIBLE_DISTINCT_STATEMENT",
+      "evidence": [
+        "Public statement is at most eleven centered nonagonal numbers, allowing repeats; no evidence read that it treats forbidden index adjacency. Full text is an explicit residual priority risk."
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/s00283-023-10307-0",
+      "material_read": "publisher bibliographic/preview and lawful OA/arXiv title searches; full article NOT obtained, Oxford institutional attempt returned VPN-disconnected without text",
+      "method": "public preview and accessible secondary statement only; protected-source authorization not bypassed",
+      "title": "A Proof of Pollock’s Conjecture on Centered Nonagonal Numbers",
+      "trigger": "same centered nonagonal summands, different multiplicities"
+    },
+    {
+      "assessment": "DIFFERENT_CONSTRAINT",
+      "evidence": [
+        "Nonagonal distinct-only obstruction 2648 permits consecutive selected indices and therefore cannot establish the stricter 9083 threshold"
+      ],
+      "identifier_or_url": "https://oeis.org/A352349",
+      "material_read": "indexed sequence summary and exact nonagonal entry; full updated OEIS page could not be directly retrieved",
+      "method": "OEIS indexed metadata and description; specific statement comparison",
+      "title": "OEIS A352349: Largest integer not representable as a sum of distinct centered polygonal numbers",
+      "trigger": "natural exact database alternative for same summands"
+    }
+  ]
+}
