@@ -1,56 +1,58 @@
-# Catalan residues fill every \(p\)-adic ring when \(2\) is a primitive root
+# Catalan residues at primitive-root primes: a corrected block proof
 
 ## Finding
-Let \(C_n=\frac{1}{n+1}\binom{2n}{n}\) be the Catalan numbers. For any odd prime \(p\) satisfying \(\operatorname{ord}_{p^2}(2)=p(p-1)\), and every integer \(k\ge1\),
-\[
-\{C_n\bmod p^k:n\ge0\}=\mathbb Z/p^k\mathbb Z.
-\]
-Every one of these residue classes occurs for infinitely many indices. Hence the \(p\)-adic closure of the Catalan numbers is the whole ring \(\mathbb Z_p\). The hypothesis holds, in particular, at \(p=3,5,11\). This is a sufficient condition, not a classification of all primes with full Catalan value images.
 
-## Assumptions and scope
-An odd prime \(p\) is fixed and \(2\) is required to generate \((\mathbb Z/p^2\mathbb Z)^\times\). By the standard lifting theorem for primitive roots, \(2\) then generates \((\mathbb Z/p^k\mathbb Z)^\times\) for every \(k\ge1\). Fix any target modulus \(p^k\). Put \(h=(p+1)/2\), so \(1<h<p\). Write \(\nu_p\) for the usual valuation. The assertion concerns existence and infinite recurrence of index witnesses, not their frequency, minimal size, or density in the indices.
+Let \(C_n=\binom{2n}{n}/(n+1)\). If \(p\) is an odd prime and \(2\) has multiplicative order \(p(p-1)\) modulo \(p^2\), then for every \(k\geq1\), the set \(\{C_n\bmod p^k:n\geq0\}\) is the entire ring \(\mathbb Z/p^k\mathbb Z\), and each residue occurs at infinitely many indices. Thus the set of Catalan values is dense in \(\mathbb Z_p\). The hypothesis holds for \(p=3,5,11\). It is sufficient, not claimed necessary, and no infinitude of such primes is asserted.
 
 ## Proof
-**Separated-digit binomial-unit lemma.** Fix an odd prime \(p\), integers \(k\ge1\), \(r\ge1\), and choose \(L\ge2k+3\). Given digits \(d_1,\ldots,d_r\in\{1,h\}\), put
+
+Write \(B_n=\binom{2n}{n}\), \(h=(p+1)/2\), and \(v_p\) for the usual valuation. We first establish a large-block multiplication lemma; this replaces an incorrect fixed-window unit congruence in an earlier version of this argument.
+
+**Lemma 1 (isolated addition of a large block).** For fixed integers \(a\ge0\), \(d\ge1\), and \(s\ge1\), if \(M=d p^T\) and \(T\) is sufficiently large in terms of \(a,s\), then
 \[
-n=\sum_{i=1}^r d_i p^{Li},\qquad
-v=\#\{i:d_i=h\},\qquad b_d=\binom{2d}{d}.
+\frac{B_{a+M}}{B_aB_M}\equiv1\pmod{p^s}
 \]
-Then
+in \(\mathbb Z_p\). Indeed, cancellation of the three factorial ratios gives the exact identity
 \[
-\nu_p\binom{2n}{n}=v,\qquad
-p^{-v}\binom{2n}{n}\equiv\prod_{i=1}^r p^{-\mathbf1_{d_i=h}}b_{d_i}\pmod{p^k}.
+\frac{B_{a+M}}{B_aB_M}
+=\frac{\prod_{i=1}^{2a}(1+2M/i)}{\prod_{i=1}^{a}(1+M/i)^2}.
 \]
-The first identity follows from Kummer's criterion: doubling a digit \(1\) gives no carry, whereas doubling the digit \(h\) gives exactly one carry; the zero gaps absorb all carries. For clarity, the prime-power congruence can be obtained from the standard prime-to-\(p\) factorial block formula. Put \(U_p(m)=\prod_{1\le j\le m,\,p\nmid j}j\) and \(F_p(m)=m!/p^{\nu_p(m!)}\). Removing multiples of \(p\) successively gives the exact identity
+For \(T\ge s+\max_{1\le i\le2a}v_p(i)\), every factor on the right is a \(p\)-adic unit congruent to one modulo \(p^s\). The case \(a=0\) is immediate from the empty products. In particular, if \(B_M\) is a \(p\)-adic unit, \(v_p(B_{a+M})=v_p(B_a)\), and their normalized unit parts multiply to the claimed precision.
+
+**Lemma 2 (primitive limiting unit).** Put \(u_T=B_{p^T}\). Kummer's theorem shows \(v_p(u_T)=0\). By cancellation of multiples of \(p\) in the factorials,
 \[
-F_p(m)=\prod_{t\ge0}U_p(\lfloor m/p^t\rfloor).
+\frac{B_{pN}}{B_N}=\prod_{\substack{1\le i\le pN\\p\nmid i}}\left(1+\frac{pN}{i}\right).
 \]
-For odd \(p\), the product of all units in one complete block of length \(p^k\) is \(-1\pmod{p^k}\). Thus \(U_p(m+p^k)\equiv-U_p(m)\pmod{p^k}\). In the ratio \(F_p(2n)/F_p(n)^2\), each factor associated with \(t\) depends, modulo \(p^k\), only on the \(k\)-digit window of \(n\) beginning at \(t\), the corresponding doubled window and its incoming carry; complete-block signs cancel between windows outside their supports. The gaps of length at least \(L-2\ge2k+1\) isolate these windows. Each isolated window is exactly the one arising from \(\binom{2d p^{Li}}{d p^{Li}}\), and after cancelling complete unit blocks its contribution equals \(p^{-\mathbf1_{d=h}}\binom{2d}{d}\) modulo \(p^k\). Multiplying the nonoverlapping contributions proves the displayed congruence. This is the separated-window specialization of the classical prime-power Lucas/Granville factorial-block method; no finite numerical experiment is used to infer it.
-
-Now \(n\equiv0\pmod{p^k}\) for the prescribed \(L\). Thus \((n+1)^{-1}\equiv1\pmod{p^k}\). Since \(b_1=2\) and \(\nu_p(b_h)=1\), define the \(p\)-adic unit \(u=b_h/p\). The lemma implies
+With \(N=p^{T-1}\), each factor for \(T\ge2\) is congruent to one modulo \(p^T\), so \(u_T/u_{T-1}\equiv1\pmod{p^T}\). The sequence \(u_T\) therefore converges to a unit \(\gamma_p\in\mathbb Z_p^\times\). For \(T=1\), expansion of the same product gives
 \[
-C_n\equiv p^v u^v2^{r-v}\pmod{p^k},
+\frac{u_1}{B_1}\equiv1+p\sum_{i=1}^{p-1}i^{-1}\equiv1\pmod{p^2},
 \]
-where the right-hand congruence is meaningful even for \(v\ge k\).
+because inversion permutes the nonzero residues modulo \(p\) and their sum vanishes for odd \(p\). Consequently \(\gamma_p\equiv B_1=2\pmod{p^2}\). Under the hypothesis on \(2\), the standard primitive-root lifting theorem shows that \(\gamma_p\) generates \((\mathbb Z/p^s\mathbb Z)^\times\) for every \(s\ge1\). The limit assertion does **not** say \(B_{p^T}\equiv2\pmod{p^s}\) for every \(s\) and large \(T\); in general this is false once \(s>2\).
 
-To represent a nonzero target \(a\pmod{p^k}\), let \(0\le v<k\) be its exact \(p\)-adic valuation. Since \(2\) generates all units modulo \(p^{k-v}\), select a nonnegative integer \(t\) such that
+**Lemma 3 (prescribed initial valuation).** Fix \(k\ge1\). For any \(v\ge0\), take
 \[
-2^t\equiv (a/p^v)u^{-v}\pmod{p^{k-v}}.
+ n_v=\sum_{j=1}^{v}h p^{jL},\qquad L=2k+3
 \]
-Use \(v\) digits equal to \(h\) and \(t\) digits equal to \(1\), with zeros between the occupied positions. Then \(C_n\equiv a\pmod{p^k}\). To represent zero, use at least \(k\) digits equal to \(h\). The empty digit configuration represents the unit \(1\) through \(C_0=1\), but for infinitely many positive witnesses one can instead take \(t>0\) divisible by \(\varphi(p^k)\). The same operation, adding any multiple of \(\varphi(p^{k-v})\) extra digits \(1\), yields infinitely many witnesses for each nonzero target; additional \(h\)-blocks preserve a zero target. All hypotheses are preserved as the indices grow.
+(the empty sum is \(n_0=0\)). Each base-\(p\) digit \(h\) produces exactly one carry when doubling, and the next zero digit absorbs it. Kummer's theorem gives \(v_p(B_{n_v})=v\), while \(n_v\equiv0\pmod{p^k}\). The gaps between the digits and their precise length are not used in any claim of multiplicativity of their unit parts.
 
-Finally, \(2\) has order \(4\) modulo \(5\) and \(2^4=16\not\equiv1\pmod{25}\), and has order \(10\) modulo \(11\) with \(2^{10}=1024\not\equiv1\pmod{121}\). The primitive-root lifting criterion gives the two unconditional instances. The \(p=3\) instance follows likewise.
+**Surjectivity and infinitely many witnesses.** Fix a target residue \(z\pmod{p^k}\). For nonzero \(z\), let \(v=v_p(z)<k\), and take the seed \(n_v\) of Lemma 3. The normalized unit \(u=B_{n_v}/p^v\) is invertible modulo \(p^{k-v}\). Since \(\gamma_p\) generates the units modulo that power, choose \(t\ge0\) with
+\[
+ \gamma_p^t\equiv (z/p^v)u^{-1}\pmod{p^{k-v}}.
+\]
+Successively add \(t\) blocks \(p^{T_1},\ldots,p^{T_t}\) to the index, with each exponent larger than all previous ones and large enough to apply Lemma 1 at precision \(k\) and Lemma 2 at precision \(k-v\). At every addition the old central binomial coefficient retains valuation \(v\), and its unit part is multiplied by \(\gamma_p\) modulo \(p^{k-v}\). The final index \(n\) remains divisible by \(p^k\), and hence
+\[
+ C_n=B_n/(n+1)\equiv p^v u\gamma_p^t\equiv z\pmod{p^k}.
+\]
+Appending further groups of \(\varphi(p^{k-v})\) widely separated blocks produces arbitrarily large indices with the same residue, because \(\gamma_p^{\varphi(p^{k-v})}\equiv1\pmod{p^{k-v}}\). For \(z=0\), start with \(n_k\) and append arbitrarily distant unit blocks: Lemmas 1 and 3 preserve its valuation \(k\), so all resulting Catalan values are zero modulo \(p^k\). Thus every residue occurs infinitely often, as required.
 
-## Verification
-The standalone integer-arithmetic program `verify_catalan.py` verifies the complete observed residue sets at \(p=3,5,11\) for prime-power moduli not exceeding \(500\) using the first \(4000\) Catalan numbers. It also tests the separated-block valuation and unit congruences for bounded indices and independently checks an index with mixed \(p=5\) digits. Successful local replay returned `VERIFY_OK`. The proof above, not the finite enumeration, supplies the unrestricted statement.
+For the examples, \(2\) is primitive modulo \(3^2=9\), \(5^2=25\), and \(11^2=121\) (its respective orders are \(6,20,110\)); the lifting criterion applies at all higher powers.
 
-## Relationship to prior work
-Rowland and Yassawi (2013, Section 3.1) computed Catalan automata modulo prime powers and posed their specific no-forbidden-residue question at \(p=3\). Burns (2017, Theorem/Corollary 2.2) established complete coverage modulo every prime \(p\ge5\), not over every power \(p^k\). Classical prime-power binomial congruences (Granville and related Lucas extensions) provide the separated-block arithmetic input, but do not by themselves state the Catalan universal-image conclusion. A previously obtained complete result for \(p=3\) is subsumed here; the new scope is the entire explicitly defined primitive-root class, including \(p=5\) and \(p=11\). In particular, the claim is not that individual Catalan coefficients or the primality criterion are new.
+## Verification and scope
 
-## Limitations
-It is not proved here that infinitely many primes satisfy the primitive-root hypothesis, nor that the hypothesis is necessary. This argument makes no assertion about primes with nonprimitive \(2\), index frequencies, or minimal representing indices. An unindexed historical prime-power covering theorem could supersede the present result; priority remains subject to independent literature review. Independent validation has not been performed.
+The companion standard-library file `verify_catalan.py` tests actual Catalan residue coverage for bounded powers and indices, compares an independent modular factorial-unit evaluation with exact central binomial coefficients, checks the seed carry valuations and block-limit congruences, and includes a regression counterexample to the superseded fixed-window congruence. These checks corroborate the proof but cannot establish its infinite quantifiers; those follow from Lemmas 1–3 and unit generation. The arithmetic is entirely in the standard \(p\)-adic integer ring for odd primes.
 
-## References
-1. E. Rowland and R. Yassawi, *Automatic congruences for diagonals of rational functions*, arXiv:1310.8635v1, first publicly available 2013-10-31, especially Sections 3.1 and 5.2; Journal de Théorie des Nombres de Bordeaux 27 (2015), 245–288.
-2. R. Burns, *The Catalan numbers have no forbidden residue modulo primes*, arXiv:1703.02705v1, first publicly available 2017-03-08, especially Section 2.
-3. A. Granville, *Binomial coefficients modulo prime powers*, Canadian Mathematical Society Conference Proceedings 20 (1997), 253–275; classical prime-power digit/block background.
+## Relation to known work and limitations
+
+Rowland–Yassawi, *Automatic congruences for diagonals of rational functions* (arXiv:1310.8635), analyze Catalan congruence automata and raise the no-forbidden-residue question at three-powers. Burns, *The Catalan numbers have no forbidden residue modulo primes* (arXiv:1703.02705), proves prime-modulus surjectivity, not every higher power. Published results for all three-power residues already cover the \(p=3\) specialization. Berend–Harmse, *On some arithmetical properties of middle binomial coefficients* (1998), establish unrestricted central-binomial \(p\)-adic density; this does not alone assert Catalan coverage at every prime power with the required index congruence. A separately developed all-odd-prime central-binomial index–value fiber theorem, in the contemporaneous research corpus, mathematically implies the present Catalan conclusion in even greater generality. Its recorded source commit follows that of this claim by 46 seconds and the two public records entered the same bulk publication commit; their substantial overlap remains a priority and publication-coordination risk, not a claim that the stronger theorem is an earlier source. The proof above avoids reliance on that stronger theorem.
+
+This finding does not classify primes where full Catalan coverage holds, estimate minimal witness indices or index frequencies, establish uniformity of residue distributions, or prove that infinitely many primes satisfy the primitive-root hypothesis. The correction replaces a demonstrably false prime-power unit-block simplification; it does not assert that finite computations establish an unrestricted theorem. The record's earlier scientific history is preserved separately.

@@ -1,15 +1,17 @@
-# Self-review
+# Scientific review of the corrected Catalan residue theorem
 
-## Correctness — PASS
-The assumptions require \(p\) odd and \(2\) primitive modulo \(p^2\), hence modulo every higher \(p\)-power. Kummer counting gives precisely one carry for each sparse digit \((p+1)/2\); the prime-to-\(p\) factorial block recurrence separates unit factors modulo any fixed prime power when all gaps exceed the required block width. The unit generator \(2\) and independently selected carry count cover each target \(p\)-adic valuation. Finite tests corroborate but are not substituted for the infinite argument. The proof is conditional on the clearly stated primitive-root property, with explicit verified instances \(p=5,11\).
+## Correctness — PASS for the final corrected statement
 
-## Originality — PASS, qualified
-Rowland–Yassawi (2013) ask the no-forbidden-residue question for prime three, and Burns (2017) proves the all-residue statement at modulus \(p\) rather than at each modulus \(p^k\). The prime-three case has an earlier proof using sparse digits, so that special case is expressly not claimed as new. The present all-exponent result for the full primitive-root class includes previously untreated larger primes. Granville's binomial-block arithmetic is an input, not claimed as a new method. An unindexed broad prime-power Catalan image theorem remains a potential priority risk.
+The original version's sparse-window unit congruence was false for prime-power precision beyond two: for example, at \(p=3,k=3,n=3^9\) it predicted \(C_n\equiv2\pmod{27}\), but the actual value is \(20\pmod{27}\). That version of the proof is superseded, not silently declared correct. The complete replacement in `RESULT.md` proves the same unconditional-on-\(k\), conditional-on-primitive-root conclusion by a different argument. Its exact factorial identity makes high blocks multiplicative modulo an arbitrary chosen precision, while central binomial units at indices \(p^T\) converge to a unit congruent to \(2\pmod{p^2}\). The latter is a generator at every prime-power level under the stated hypothesis. Kummer's carry theorem provides base indices with arbitrary prescribed valuation; successive high blocks multiply their normalized units by arbitrary powers of the generator. These facts jointly prove surjectivity and infinitely many witnesses. Bounded independent modular tests, including the regression counterexample, corroborate but do not replace the proof.
 
-## Mathematical value — PASS
-The theorem resolves all residue-existence questions simultaneously at every prime-power level for a natural, arithmetically defined class of odd primes, not just for one modulus. This is a natural strengthening of published prime-modulus coverage; the restriction on \(2\) is explicit and independently testable, and exact witnesses follow from a structural valuation/unit decomposition. It is not a mere numeric improvement over a finite table. The extent of the prime class itself is not asserted to be known.
+## Originality — PASS, materially qualified
 
-## Literature and limits
-Closest evidence: Rowland–Yassawi arXiv:1310.8635v1, Sections 3.1 and 5.2; Burns arXiv:1703.02705v1, Section 2; Granville (1997) for prime-power binomial methods. The 1997 work is used for standard background; available search metadata did not permit a complete historical priority check. No statement is made about the primes excluded by the primitive-root hypothesis, frequencies of witnesses, or independent certification.
+Burns (2017) gives surjectivity only modulo \(p\), and previously established exact all-powers results at \(p=3\) do not imply the larger primitive-root prime class. Rowland–Yassawi and Granville provide background congruence techniques, not this precise universal Catalan-image statement. Berend–Harmse (1998) proves density for *central binomial* coefficients, which does not directly imply the Catalan sequence with the needed index congruence. A contemporaneously published theorem on all-odd-prime central-binomial index–value fibers *does* imply a stronger Catalan coverage result: its source commit was recorded 46 seconds after this source, and both entered the same Resultary publication commit. This unusually strong overlap remains an explicit priority/publication-coordination risk. Do not claim independent global priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## Scientific value — PASS
+
+Unbounded prime-power surjectivity of a classical integer sequence is a motivated arithmetic gap; the explicit generator-and-carry proof gives infinitely many witnesses and extends beyond the single earlier ternary case. This is distinct from a finite residue table. The primitive-root hypothesis is explicit, testable, and sufficient; necessity, abundance of qualifying primes, and witness density are not claimed.
+
+## Scope and verification
+
+The exact domain is odd prime \(p\) with \(2\) primitive modulo \(p^2\), any exponent \(k\ge1\), all residues, with infinitely many indices for each. All files use the standard convention \(C_n=B_n/(n+1)\). `verify_catalan.py` replaces tests of the false sparse-window congruence with independent checks of the corrected lemmas. Earlier scientific review evidence and source blobs are preserved in version history and in the independent-audit ledger; a corrected independent assessment is not an expert attestation or formal verification.

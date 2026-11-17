@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The integer-only file `verify_catalan.py` was replayed successfully and printed `VERIFY_OK`. It checked all residue values from the first 4000 Catalan terms at the tested prime powers of 3, 5, and 11 (moduli no greater than 500), and tested bounded sparse-block binomial congruences. These tests do not exhaust infinitely many indices or all exponents. The proof uses Kummer's carry theorem, the factorial-unit block identity, and primitive-root lifting. The historical overlap comparison includes public full-text sections and known prior mathematical statements. No independent audit has been performed.
+Run `python verify_catalan.py` with Python 3 and the standard library. The corrected checker tests finite residue coverage at small prime powers, exact factorial-unit modular arithmetic, prescribed sparse-seed carry valuations, stabilization of high-block units, and a regression example demonstrating that the original fixed-window congruence was false. It prints `VERIFY_OK` on successful bounded tests. The unlimited assertion rests on the three lemmas in the corrected `RESULT.md`, not this finite test. Earlier reviews are historical evidence and do not constitute independent or formal certification.
