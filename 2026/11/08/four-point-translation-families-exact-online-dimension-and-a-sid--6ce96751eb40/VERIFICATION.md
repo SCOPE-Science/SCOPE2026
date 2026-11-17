@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify_four_translate_online.py` using the Python standard library. The verifier constructs distinct translate membership vectors, independently evaluates the exact full binary decision-tree recursion, compares each dimension to the overlap-and-stabilizer formula, and checks each fixed support in cyclic groups of orders 8 through 16 and five noncyclic product groups. Its output is recorded in `checks_output.txt`. It separately confirms the four normalized perfect difference sets of order thirteen and two equal-VC examples with different online dimensions.
+## correctness
 
-For the universal argument, the essential mathematical identities are the number \(4/h\) of distinct root-positive hypotheses and the four label-pattern populations \(2,2,2,N-6\) at an overlap-two lag. These establish both necessity and sufficiency, independent of computation. The prime-order Sidon corollary uses the absence of short cycles for nonzero shifts of additive order at least eleven. Finite enumeration is not an infinite proof; no independent audit has been performed.
+PASS
+
+Every point x is contained in exactly 4/h distinct translates, so depth >=3 requires h=1. Given h=1, depth3 requires a positive-branch split 2/2 on queries x,y, equivalent to |A∩(A+y−x)|=2. Then four joint-label populations are 2,2,2,N−6, all ≥2 for N≥8, hence each supports a final separating query; no depth4 because the positive branch has at most four hypotheses. h=4 yields depth1, all other cases depth2. At prime p≥11 Sidon translates are exactly absence of repeated off-diagonal differences; r(t)=3 forces r(2t)=2, giving the dichotomy. Normalized (13,4,1) difference sets are exactly four, each with 13 translates, giving 52 of 715 Sidon supports. Independent enumeration verified p11 has zero and p13 52 such sets, matching proof.
+
+## originality
+
+PASS
+
+PASS for all 4-point translate classes over finite abelian groups and the exact stabilizer/autocorrelation online-dimension criterion. Classical Sidon and Singer difference-set counts are acknowledged, as are general Littlestone/thicket definitions and cyclic-window special cases. The inspected literature did not supply this precise classification or the VC=2 versus Ldim=3 comparison; possible theorem under additive combinatorics/model-theory aliases remains a risk.
+
+## value
+
+PASS
+
+Complete natural four-point translation-family classification with a sharp Sidon boundary, stabilizer behavior and explicit adaptive/static shattering separation. This combines difference-set structure and online learning dimensions, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
