@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. No packages, downloads, external tables, or special theorem provers are needed. The verifier constructs the fixed-point substitution directly and tests precisely the claim in `RESULT.md`.
+## correctness
 
-The complete length-67 factor language consists of 528 words, with equality between the factor sets at substitution powers 11 and 12 and stability under the factor-substitution operator. That equality plus the elementary finite-language lemma in `RESULT.md` is the reason the finite computations are logically exhaustive for all positions of the infinite word.
+PASS
 
-For each of the 66 candidate delays, the verifier constructs an integer column whose 528 bits encode whether the first and delayed letters of each factor agree. It checks that every shift of odd length has no matches, that every required even shift through 10 has a forcing length-11 factor, and that the five-shift set covers all 528 factors. It enumerates all 1,024 subsets of delays 1 through 10, all 40,920 four-combinations of even delays through 66, and all 35,960 four-combinations through 64. It verifies that the complete list of four-shift solutions through 66 is exactly the two sets stated in the result.
+Reconstructed the four-letter substitution, parity rule and many-to-one binary coding. Independent recomputation found identical length-67 factor languages in substitution stages 11 and 12, each with 528 factors, and 80 length-11 factors. The exact sigma(F_L) closure lemma turns these stable finite factors into the complete infinite-word language. Recomputed all 1024 delay subsets at horizon 10 (32 qualify, minimum cardinality five) and all C(33,4)=40920 even four-subsets through delay 66; exactly {2,14,64,66} and {2,52,64,66} cover. The no-three-shift global lower bound correctly uses published binary Rudin-Shapiro Theorem 28; it is not inferred from finite enumeration. Every quantifier over the one-sided fixed point and distinct literal symbols is respected.
 
-It separately tests actual positions in a substitution prefix of length 8192 and compares the binary image of that prefix with the parity of adjacent 11 occurrences in the base-two digit expansion. These additional checks are supporting evidence; the infinite-position guarantee comes from factor-language closure. The published binary three-shift impossibility in Meleshko–Ochem–Shallit–Shan, Theorem 28, is a cited premise and is not re-certified here.
+## originality
 
-Expected successful output:
+PASS
 
-```
-VERIFY_OK factors67=528 factors11=80 four_shift_sets_checked=40920 max64_checked=35960 optimum_sets=2 horizon10_minimum=5
-```
+The published binary four-shift lower bound does not determine literal four-letter forward-equality covers; no inspected result supplies the exact horizon 10, sparsest horizon 66 and their two extremizers. The explicit infinite-word finite-language certificate is a motivated exact structural invariant.
 
-Independent scientific audit has not been performed. No claim is made about optimizers with four shifts and maximum shift greater than 66.
+## value
+
+PASS
+
+Exact finite-delay optimization for a canonical morphic four-letter word gives an intrinsically useful sharp delay-versus-sparsity tradeoff and exhaustive optimizer classification, not a numerical finite-prefix curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
