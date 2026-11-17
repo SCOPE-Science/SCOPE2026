@@ -1,15 +1,21 @@
-# Scientific review of the pair-comparison shattering theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-poset argument proves necessary forest, antichain-component, and acyclic-quotient conditions by explicit contradictory orientations. Sufficiency uses the topological sort of the union of any chosen forest orientation with the fixed poset; a cycle must either be internal to a tree or project to a quotient cycle. A longest chain supplies the VC upper bound and rank-level spanning trees supply the matching lower bound. The empty-poset convention is explicit. A standalone enumeration compares the characterization with direct traces on 90,975 finite support cases; the proof does not depend on that enumeration.
+## correctness
 
-## Originality — PASS within examined scope
-The closest accessible prior research compares either a different instance domain (whole partial orders versus whole total orders), average-case preference sorting, or counting linear extensions. The earlier forest characterization for unrestricted rankings is subsumed as the antichain special case and is not presented as novel. No located source establishes the fixed-poset three-condition support theorem or its exact height formula. This is a best-knowledge conclusion, not a uniqueness certification; alternative terminology and unindexed literature remain risks.
+PASS
 
-## Mathematical value — PASS
-A simple, nontrivial structural condition classifies every shattered set of pairwise queries under arbitrary prerequisites, not just a numerical VC bound. The resulting dimension is determined by one longest-chain computation despite the known hardness of counting linear extensions. The quotient-cycle obstruction explains why incomparable query pairs and a forest alone are insufficient. These are natural learning and partial-information order questions, rather than arbitrary finite parameters.
+An orientation of the query graph F containing an undirected cycle can realize a directed cycle, so shattering requires a forest. When two comparable poset elements lie in the same query tree, orient the unique path opposite their fixed precedence; shattering fails, so each component must be an antichain. A directed cycle of fixed poset relations among query components can be connected by suitable within-tree path orientations to obstruct at least one label pattern. Conversely, if the quotient DAG is acyclic, any orientation of forest F remains acyclic with all fixed poset relations: a hypothetical directed cycle entirely inside a component contradicts forest/antichain, and a cycle across components projects to a quotient directed closed walk. Topological sorting yields every answer pattern. Longest chains force >=height(P) forest components, giving VCdim<=n-height; antichain rank levels each with spanning tree attain equality. Empty/total/antichain cases obey the stated conventions. An independently written full n=4 oracle tested 219 distinct labeled posets times 64 supports = 14,016 cases, comparing all linear-extension traces to the quotient criterion, with zero mismatches. Infinite validity follows from the graph proof, not finite enumeration.
 
-## Closest literature and limits
-Dittmer and Pak (arXiv:1802.06312, 2018) treat #P-hard counting of linear extensions; Peters and Procaccia (AAAI 2021) treat expected comparison counts under distributions on rankings. Feng, Geneson, Lee, and Slettnes (arXiv:2209.01366, Section 5.2) give bandit mistake bounds for permutation-comparison learning, not a fixed-poset shattering classification. Duan, Ouyang, and Wang (arXiv:2412.06402, HTML proof consulted) treat a different compatibility VC problem. The present theorem does not address adaptive dimension, distributions, or queries that are whole posets. No external audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The no-precedence antichain case recovers the classical all-permutation forest criterion; Mirsky rank levels are classical. Those are acknowledged. Semantic searches of linear extensions, static pairwise comparisons, VC shattering and height found no earlier all-fixed-poset forest+antichain+acyclic-quotient classification. Duan–Ouyang–Wang 2024/26 study VC dimensions of compatibility sets whose instances are entire posets/total orders, not individual pairwise precedence queries within linear extensions of a fixed poset. Dittmer–Pak address counting rather than trace shattering; related SCOPE records concern different adaptive/constrained hypotheses. The new quotient-cycle obstruction is not implied merely by the known antichain forest case; best-of-knowledge PASS with terminological search risk.
+
+## value
+
+PASS
+
+The complete support classification is an intrinsic structural theorem for inference of rankings constrained by prerequisites. It identifies a genuine global quotient-cycle obstruction and yields the exact simple VC dimension n-height(P) despite #P-hard enumeration of the underlying linear extensions. This is natural in learning/order theory and more than a textbook chain-decomposition count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

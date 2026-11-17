@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T05:10:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An orientation of the query graph F containing an undirected cycle can realize a directed cycle, so shattering requires a forest. When two comparable poset elements lie in the same query tree, orient the unique path opposite their fixed precedence; shattering fails, so each component must be an antichain. A directed cycle of fixed poset relations among query components can be connected by suitable within-tree path orientations to obstruct at least one label pattern. Conversely, if the quotient DAG is acyclic, any orientation of forest F remains acyclic with all fixed poset relations: a hypothetical directed cycle entirely inside a component contradicts forest/antichain, and a cycle across components projects to a quotient directed closed walk. Topological sorting yields every answer pattern. Longest chains force >=height(P) forest components, giving VCdim<=n-height; antichain rank levels each with spanning tree attain equality. Empty/total/antichain cases obey the stated conventions. An independently written full n=4 oracle tested 219 distinct labeled posets times 64 supports = 14,016 cases, comparing all linear-extension traces to the quotient criterion, with zero mismatches. Infinite validity follows from the graph proof, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related VC work gives other bounds on comparability/compatibility of whole order structures and is not a refinement of the same pair-query concept.",
+          "Mirsky antichain rank decomposition provides a construction but not full shattering characterization."
+        ],
+        "reasoning": "There is no identified stronger prior result on the exact same hypothesis class and query domain. Existing complexity/counting theorems do not imply the shattering characterization.",
+        "searches": [
+          "VCdimension linear extensions all topological orders DAG pairwise order queries height n longest chain forest shattering",
+          "https://arxiv.org/html/2412.06402v3",
+          "https://arxiv.org/abs/1802.06312"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2412.06402v3",
+        "https://arxiv.org/abs/1802.06312",
+        "https://arxiv.org/abs/2209.01366",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Duan–Ouyang–Wang Theorems 1.3/1.4 study compatibility of poset/order structures, with parameters and bounds different from n-height(P) for fixed P.",
+          "Prior free-permutation forest criterion is obtained by setting P to antichain."
+        ],
+        "reasoning": "Neither a different VC concept nor a strict special case implies the three-condition all-poset equivalence. Highest-priority residual risk is an older learning-theory result under topological-sort inference terminology.",
+        "searches": [
+          "https://arxiv.org/html/2412.06402v3",
+          "VCdimension linear extensions all topological orders DAG pairwise order queries height n longest chain forest shattering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical forest characterization for comparisons of all permutations equals the P antichain special case.",
+          "Duan et al. whole-poset/whole-order compatibility VC concept uses different query and hypothesis domains."
+        ],
+        "reasoning": "No equivalent theorem for the fixed-poset pair-comparison traces was located; the new antichain-component and quotient-acyclic constraints are absent in the permutation-only case.",
+        "searches": [
+          "linear extensions poset VC dimension pairwise comparisons shattering supports forest antichain quotient DAG height",
+          "VCdimension linear extensions all topological orders DAG pairwise order queries height n longest chain forest shattering",
+          "arXiv:2412.06402v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is an all-finite-poset structural characterization, not a tabulated finite numerical invariant.",
+          "The own n=4 enumeration and published theorem give no external exact database table prior."
+        ],
+        "reasoning": "No table can by itself subsume the all-poset theorem; the mathematical comparison centers on classification of realizable query patterns and the known special permutation case.",
+        "searches": [
+          "linear extensions poset VC dimension pairwise comparisons shattering supports forest antichain quotient DAG height",
+          "VCdimension linear extensions all topological orders DAG pairwise order queries height n longest chain forest shattering"
+        ]
+      },
+      "rationale": "The no-precedence antichain case recovers the classical all-permutation forest criterion; Mirsky rank levels are classical. Those are acknowledged. Semantic searches of linear extensions, static pairwise comparisons, VC shattering and height found no earlier all-fixed-poset forest+antichain+acyclic-quotient classification. Duan–Ouyang–Wang 2024/26 study VC dimensions of compatibility sets whose instances are entire posets/total orders, not individual pairwise precedence queries within linear extensions of a fixed poset. Dittmer–Pak address counting rather than trace shattering; related SCOPE records concern different adaptive/constrained hypotheses. The new quotient-cycle obstruction is not implied merely by the known antichain forest case; best-of-knowledge PASS with terminological search risk.",
+      "residual_risks": [
+        "Terminological alias risk: older research on topological-sort inference or relative-order samples might prove the same quotient-forest criterion without matching the paper titles.",
+        "The finite oracle covers n=4 completely, not all n, and is only a corroboration of the proof.",
+        "No adaptive Littlestone/noisy-preference conclusions are claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: concepts compare complete posets/total orders instead of pairwise query traces for fixed P",
+          "evidence": "https://arxiv.org/html/2412.06402v3",
+          "identifier_or_url": "https://arxiv.org/html/2412.06402v3",
+          "material_read": "Rendered primary full HTML definitions, Theorems 1.3–1.4, proofs and comparison of the actual instance/query domains",
+          "method": "Read arXiv full HTML with web text tool",
+          "title": "VC-dimensions Between Partially Ordered Sets and Totally Ordered Sets",
+          "trigger": "Close title and plausible same VC dimension phenomenon"
+        },
+        {
+          "assessment": "Proof complete and independently checked for 14,016 n4 cases",
+          "evidence": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56/RESULT.md",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56/RESULT.md",
+          "material_read": "Complete RESULT.md all six proof steps and full verify_poset_comparisons.py",
+          "method": "Read complete prior published RESULT.md through connected read-only GitHub source",
+          "title": "Comparison shattering for linear extensions of finite posets",
+          "trigger": "Frozen source proof and checker"
+        },
+        {
+          "assessment": "Classical rank layers give lower-bound construction only, do not supply shattering criterion",
+          "evidence": "https://doi.org/10.2307/2316485",
+          "identifier_or_url": "https://doi.org/10.2307/2316485",
+          "material_read": "Classical statement and its role recorded in submitted proof; complete original journal paper not accessed",
+          "method": "Conceptual comparison to classical result; original primary full text not obtained",
+          "title": "A dual of Dilworth's decomposition theorem",
+          "trigger": "Prior antichain rank decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete support classification is an intrinsic structural theorem for inference of rankings constrained by prerequisites. It identifies a genuine global quotient-cycle obstruction and yields the exact simple VC dimension n-height(P) despite #P-hard enumeration of the underlying linear extensions. This is natural in learning/order theory and more than a textbook chain-decomposition count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2412.06402v3",
+    "https://arxiv.org/abs/1802.06312",
+    "https://arxiv.org/abs/2209.01366",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Static binary pairwise comparison VC on all linear extensions of a finite fixed strict poset; not adaptive learning, whole-order queries or counting linear extensions."
+  ],
+  "residual_risks": [
+    "Terminological alias risk: older research on topological-sort inference or relative-order samples might prove the same quotient-forest criterion without matching the paper titles.",
+    "The finite oracle covers n=4 completely, not all n, and is only a corroboration of the proof.",
+    "No adaptive Littlestone/noisy-preference conclusions are claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT COVERING: concepts compare complete posets/total orders instead of pairwise query traces for fixed P",
+      "evidence": "https://arxiv.org/html/2412.06402v3",
+      "identifier_or_url": "https://arxiv.org/html/2412.06402v3",
+      "material_read": "Rendered primary full HTML definitions, Theorems 1.3–1.4, proofs and comparison of the actual instance/query domains",
+      "method": "Read arXiv full HTML with web text tool",
+      "title": "VC-dimensions Between Partially Ordered Sets and Totally Ordered Sets",
+      "trigger": "Close title and plausible same VC dimension phenomenon"
+    },
+    {
+      "assessment": "Proof complete and independently checked for 14,016 n4 cases",
+      "evidence": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56/RESULT.md",
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56/RESULT.md",
+      "material_read": "Complete RESULT.md all six proof steps and full verify_poset_comparisons.py",
+      "method": "Read complete prior published RESULT.md through connected read-only GitHub source",
+      "title": "Comparison shattering for linear extensions of finite posets",
+      "trigger": "Frozen source proof and checker"
+    },
+    {
+      "assessment": "Classical rank layers give lower-bound construction only, do not supply shattering criterion",
+      "evidence": "https://doi.org/10.2307/2316485",
+      "identifier_or_url": "https://doi.org/10.2307/2316485",
+      "material_read": "Classical statement and its role recorded in submitted proof; complete original journal paper not accessed",
+      "method": "Conceptual comparison to classical result; original primary full text not obtained",
+      "title": "A dual of Dilworth's decomposition theorem",
+      "trigger": "Prior antichain rank decomposition"
+    }
+  ]
+}
