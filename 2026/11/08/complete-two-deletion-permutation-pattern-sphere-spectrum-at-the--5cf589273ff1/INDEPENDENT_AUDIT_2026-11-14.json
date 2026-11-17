@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T05:44:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The domain has exactly 7!=5040 permutations, each with exactly C(7,2)=21 two-position deletion histories. The map from any retained tuple of distinct values to its relative-rank pattern uniquely represents the receiver output. Enumeration of every source and history computes the set of unique S5 standardized patterns, then increments one cell by its size. Independently reimplemented enumeration using direct rank comparison and reproduced all 20 nonzero histogram cells, the 0 at s=20, both maximal witness words and sum_s s H7(s)=55116; sum H7(s)=5040. Since this is a FINITE theorem, complete enumeration is an exhaustive computer-assisted proof, with no extrapolation to n>7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homberger Theorem 19 covers any n,k for full k-prolificity; Theorem 24 handles only the minimum gap k+1 near maximum",
+          "The Bevan paper covers any k and exact first viable prolific length, not the exact source histogram"
+        ],
+        "reasoning": "Although previous results cover arbitrary n,k extremal properties, their hypotheses and outputs do not dominate H7(s) for every s, especially the absence of s=20 across all 5040 sources.",
+        "searches": [
+          "permutation 2-deletion distinct length five patterns distribution S7 20 21 prolific permutations",
+          "Homberger Counting Fixed-Length Permutation Patterns Theorems 19,24",
+          "Bevan et al 2018 JCTA prolific",
+          "Wu et al 2609.37578 permutation deletion codes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1211.7117",
+        "https://strathprints.strath.ac.uk/61550/",
+        "https://arxiv.org/abs/2609.37578",
+        "Resultary semantic query: permutation 2-deletion distinct length five patterns distribution S7 20 21 prolific permutations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior result guarantees B(pi)=21 iff minimum gap>=4, and length 7 first permits this",
+          "No statement in those results enumerates multiplicities for all B(pi)=1..21",
+          "New full table implies exactly two prolific words and missing value 20"
+        ],
+        "reasoning": "The new distribution strengthens the prior extremal characterization; conversely a criterion for B=21 and a near-extremal case do not determine the 19 lower-frequency cells or total mean. The witness characterization alone is known and not claimed new.",
+        "searches": [
+          "Homberger 2012 Theorem 19",
+          "Homberger 2012 Theorem 24",
+          "Bevan Homberger Tenner 2018 first-prolific threshold",
+          "Resultary permutation 2-deletion distinct length five patterns distribution S7 20 21 prolific permutations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deleting any 2 positions and standardizing is exactly the set D_2(pi) of distinct length-5 permutation patterns",
+          "The first 2-prolific block length is 7 and B(pi)=C(7,2)=21 is equivalent to Homberger min-gap≥4"
+        ],
+        "reasoning": "The equivalent permutation-pattern downset terminology identifies the correct prior field; neither an extremal min-gap condition nor deletion-code constructions supply the entire H7(s) frequency distribution.",
+        "searches": [
+          "permutation 2-deletion distinct length five patterns distribution S7 20 21 prolific permutations",
+          "Homberger 1211.7117 §5 distinct n-k patterns",
+          "Bevan Homberger Tenner 1608.06931 2-prolific"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact match is this own November 8 entry, not independent earlier proof",
+          "Direct exhaustive source-by-source enumeration reproduces H7 frequencies including H7(20)=0 and H7(21)=2; no independent matching published table found"
+        ],
+        "reasoning": "The integer histogram is fully computed but no external exact frequency table located. Such absence does not establish historical uniqueness; note residual risk of an unindexed table.",
+        "searches": [
+          "permutation 2-deletion distinct length five patterns distribution S7 20 21 prolific permutations",
+          "\"S7\" \"two-deletion\" sphere-size spectrum histogram",
+          "Resultary S7 standardized permutation deletion frequencies",
+          "permutation pattern spectrum at first prolific length table"
+        ]
+      },
+      "rationale": "The correct deletion-pattern model and first 2-prolific length were known. Original Homberger and Bevan manuscripts provide maximum and near-maximum characterizations but not the exact 5040-element sphere-size frequency spectrum or isolated missing value 20. A complete self-contained finite census is an independently motivated contribution.",
+      "residual_risks": [
+        "Unindexed computational supplements or OEIS tables could contain the same integer histogram",
+        "The prolific words themselves and first-prolific threshold are not novel; originality concerns full histogram and s=20 gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: characterizes maximum distinct (n-k) patterns and near-maximum under gap conditions; §6 explicitly treats remaining pattern-count distribution as further question",
+          "evidence": "Theorem 19 min gap >= k+2 for full prolificity; Theorem 24 near-extreme; §6 asks multivariate distribution for k>1",
+          "identifier_or_url": "https://www.researchgate.net/publication/233809959_Counting_fixed-length_permutation_patterns",
+          "material_read": "Full publicly uploaded article; §4 generating function for k=1, §5 definitions 14–16, Theorems 19 and 24, §6 further questions",
+          "method": "Read rendered full manuscript and compared all-size formulas against exact S7,k=2 histogram",
+          "title": "Counting Fixed-Length Permutation Patterns",
+          "trigger": "Same deletion/standardization pattern metric and potential stronger distribution theorem"
+        },
+        {
+          "assessment": "COVERS extremal prolific threshold and witnesses, not 20-bin frequency histogram",
+          "evidence": "2018 JCTA full manuscript establishes minimum length 7 for k=2 and characterizes all prolific permutations",
+          "identifier_or_url": "https://strathprints.strath.ac.uk/61550/",
+          "material_read": "Accessible accepted manuscript: introduction, minimum-length theorem, k=2 packing and examples (read original PDF with screenshot inspection)",
+          "method": "Compared minimum n for 2-prolific and uniqueness of witnesses against complete source sphere histogram",
+          "title": "Prolific permutations and permuted packings: downsets containing many large patterns",
+          "trigger": "First possible prolific length and extremal permutations"
+        },
+        {
+          "assessment": "DIFFERENT TARGET: coding bounds and systematic constructions, not exhaustive frequency of standardized deletion sphere sizes for S7",
+          "evidence": "2026 arXiv abstract describes deletion codes; does not claim the specific histogram",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37578",
+          "material_read": "Accessible abstract and stated coding channel scope; full text not material-read",
+          "method": "Compared channel normalization and stated deletion-correction objectives",
+          "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+          "trigger": "Deletions studied in permutation-invariant channel potentially changing normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact output-ambiguity distribution for the natural two-deletion/standardized permutation channel at the first length where all histories can be distinguished; it records all attainable values, nonattainable 20, and exact mean. This nonarbitrary finite boundary is motivated by permutation-pattern packing and deletion reconstruction, even without a general generating function.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1211.7117",
+    "https://strathprints.strath.ac.uk/61550/",
+    "https://arxiv.org/abs/2609.37578",
+    "Resultary semantic query: permutation 2-deletion distinct length five patterns distribution S7 20 21 prolific permutations"
+  ],
+  "disposition": "passed",
+  "final_claim": "Among S7 permutations, deleting exactly two positions and rank-standardizing the five survivors gives a complete 20-bin sphere-size distribution: every size 1..19 and 21 occurs, 20 does not; exactly words 3614725 and 5274163 have 21, and the mean number of distinct patterns is 1531/140.",
+  "limitations": "Exact finite n=7,k=2 classification only, not a universal n/k theorem or code-capacity estimate. Extremal witnesses and threshold were known.",
+  "residual_risks": [
+    "Unindexed computational supplements or OEIS tables could contain the same integer histogram",
+    "The prolific words themselves and first-prolific threshold are not novel; originality concerns full histogram and s=20 gap."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL: characterizes maximum distinct (n-k) patterns and near-maximum under gap conditions; §6 explicitly treats remaining pattern-count distribution as further question",
+      "evidence": "Theorem 19 min gap >= k+2 for full prolificity; Theorem 24 near-extreme; §6 asks multivariate distribution for k>1",
+      "identifier_or_url": "https://www.researchgate.net/publication/233809959_Counting_fixed-length_permutation_patterns",
+      "material_read": "Full publicly uploaded article; §4 generating function for k=1, §5 definitions 14–16, Theorems 19 and 24, §6 further questions",
+      "method": "Read rendered full manuscript and compared all-size formulas against exact S7,k=2 histogram",
+      "title": "Counting Fixed-Length Permutation Patterns",
+      "trigger": "Same deletion/standardization pattern metric and potential stronger distribution theorem"
+    },
+    {
+      "assessment": "COVERS extremal prolific threshold and witnesses, not 20-bin frequency histogram",
+      "evidence": "2018 JCTA full manuscript establishes minimum length 7 for k=2 and characterizes all prolific permutations",
+      "identifier_or_url": "https://strathprints.strath.ac.uk/61550/",
+      "material_read": "Accessible accepted manuscript: introduction, minimum-length theorem, k=2 packing and examples (read original PDF with screenshot inspection)",
+      "method": "Compared minimum n for 2-prolific and uniqueness of witnesses against complete source sphere histogram",
+      "title": "Prolific permutations and permuted packings: downsets containing many large patterns",
+      "trigger": "First possible prolific length and extremal permutations"
+    },
+    {
+      "assessment": "DIFFERENT TARGET: coding bounds and systematic constructions, not exhaustive frequency of standardized deletion sphere sizes for S7",
+      "evidence": "2026 arXiv abstract describes deletion codes; does not claim the specific histogram",
+      "identifier_or_url": "https://arxiv.org/abs/2609.37578",
+      "material_read": "Accessible abstract and stated coding channel scope; full text not material-read",
+      "method": "Compared channel normalization and stated deletion-correction objectives",
+      "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+      "trigger": "Deletions studied in permutation-invariant channel potentially changing normalization"
+    }
+  ]
+}

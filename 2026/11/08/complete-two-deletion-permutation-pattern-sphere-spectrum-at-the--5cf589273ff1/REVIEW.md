@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** This is a finite, exhaustive theorem about \(S_7\), not a claim extrapolated to other lengths. The two implementations derive the exact received-pattern sets by distinct rank procedures, agree on every one of the 5040 inputs, and count all 21 deletions per input. All 5040 cases and all histogram cells have been reconciled with the stated result; completeness is ensured by exhaustive generation.
+## correctness
 
-**Originality: PASS, subject to residual priority risk.** The 2026 permutation-invariant deletion construction paper treats systematic codes rather than the complete sphere frequency distribution. Homberger's 2012 pattern paper characterizes some extremal cases and explicitly discusses the distribution problem in its further-questions section. Bevan--Homberger--Tenner's prolific theorem gives the full-sphere threshold but not this complete finite histogram. Matching equivalent and broader-claim searches in relevant public mathematical records yielded no source with the present full frequency table or its gap. This is a best-evidence originality judgment, not proof of unpublished priority.
+PASS
 
-**Value: PASS.** Length seven is the first blocklength where a two-deletion standardized-pattern sphere can have all 21 histories distinct. At that natural threshold, the exact sphere-size profile gives the complete distribution of output-set ambiguity rather than only the previously known maximum; its exclusion of 20 displays a nontrivial spectral hole. Such finite exact distributions are useful test cases for permutation-invariant deletion models and for broader enumerative formulas. The claim is deliberately narrow and makes no unproved general-length inference.
+The domain has exactly 7!=5040 permutations, each with exactly C(7,2)=21 two-position deletion histories. The map from any retained tuple of distinct values to its relative-rank pattern uniquely represents the receiver output. Enumeration of every source and history computes the set of unique S5 standardized patterns, then increments one cell by its size. Independently reimplemented enumeration using direct rank comparison and reproduced all 20 nonzero histogram cells, the 0 at s=20, both maximal witness words and sum_s s H7(s)=55116; sum H7(s)=5040. Since this is a FINITE theorem, complete enumeration is an exhaustive computer-assisted proof, with no extrapolation to n>7.
 
-**Literature limits.** The exact general prolific characterization and the examples of maximum spheres are known. The present result is limited to a finite case, and an unindexed table or implicit equivalent enumeration could predate this calculation. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The correct deletion-pattern model and first 2-prolific length were known. Original Homberger and Bevan manuscripts provide maximum and near-maximum characterizations but not the exact 5040-element sphere-size frequency spectrum or isolated missing value 20. A complete self-contained finite census is an independently motivated contribution.
+
+## value
+
+PASS
+
+An exact output-ambiguity distribution for the natural two-deletion/standardized permutation channel at the first length where all histories can be distinguished; it records all attainable values, nonattainable 20, and exact mean. This nonarbitrary finite boundary is motivated by permutation-pattern packing and deletion reconstruction, even without a general generating function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
