@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The initial closed neighborhood leaves precisely the Cartesian product of unoccupied rows and columns. The forcing step can clear that rectangle if and only if at least one side has size at most one. This yields a complete classification into row and column bases. Connectivity with one spare selected cell and isolation of exact-budget minimal sets proves each component count, including square boards, two-row boards, and adjacent side lengths. An executable direct simulation of the power-domination rule and complete bounded-TAR graph checks on eight small boards corroborates the infinite proof; the computation itself does not prove the general statement.
+## correctness
 
-## Originality
-**PASS, provisionally.** Soh and Koh's known scalar power-domination number for rook graphs is expressly excluded from the claimed contribution. Bjorkman et al.'s 2022 TAR framework and Curtis–Flagg–Hogben's later general framework do not, in their inspected statements, imply the exact two-parameter rook-graph component function. Comparisons against matching source and reconfiguration descriptions found no directly covering component enumeration, but searches cannot exclude unindexed or inaccessible equivalents. Structural correspondence to partial row/column transversals was included among alias checks. The research claim is the full component sequence and its exact exceptional Stirling-number term.
+PASS
 
-## Mathematical value
-**PASS.** The result is a complete natural enumeration of components of reconfiguration graphs for an established two-parameter family. It exhibits a particularly sharp nonmonotone connected–disconnected–connected regime, quantifies precisely how many isolated components appear at the exceptional budget, and separates the first connected budget from the permanent connectedness threshold by an arbitrarily large amount. These are not consequences of the previously known scalar minimum number alone.
+After closed-neighborhood observation, exactly the cells in empty-row×empty-column rectangle remain; forcing is possible iff fewer than two empty rows or fewer than two empty columns, hence r>=m-1 or d>=n-1. Inclusion-minimal row bases and column bases determine isolated TAR configurations. At budget m, row bases become connected using one temporary added cell; at n−1 the B_{m,n}=n sum_{r=1}^{m−2} binom(m,r)r!Stirling(n−1,r) isolated column bases appear, merging by n. In square case inclusion-exclusion of row and column bases gives 2t^t−t²(t−1)!. Independence checked by direct power-domination forcing on all subsets and explicit TAR BFS for 7 small boards, including the nonmonotone 3×5 profile (75,1,16,1). Universal proof is combinatorial not finite enumeration.
 
-## Limitations
-Publication priority is provisional; an unindexed equivalent remains possible. The tested small boards do not constitute a global certificate. The proof supplies the all-parameters justification. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published October 26 rook power-domination polynomial theorem already gives the exact row/column occupancy criterion and minimum-set counts, which are acknowledged prior ingredients. Bjorkman et al. and Curtis et al. give general TAR connectivity/bounds, and a published triangular-graph component spectrum concerns a different graph. None of the inspected mathematical statements determines every two-parameter rook TAR component count with Stirling isolated jump and reentrant connectivity. Best-of-knowledge PASS for the reconfiguration spectrum, not the occupancy characterization.
+
+## value
+
+PASS
+
+The full TAR component phase profile of rook power-dominating sets is natural to understanding sensor-set mobility and robustness under a size budget. The reentrant transition from connected to disconnected to connected, with exact Stirling-number multiplicities and unbounded separation of first versus permanent connectivity thresholds, is a structural graph-theoretic phenomenon not implied merely by knowing minimum power-domination numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

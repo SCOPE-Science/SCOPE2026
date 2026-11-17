@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:15:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, verify_rook.py and frozen source tree",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+        "independent exact brute-force simulated forcing + TAR BFS"
+      ],
+      "rationale": "After closed-neighborhood observation, exactly the cells in empty-row×empty-column rectangle remain; forcing is possible iff fewer than two empty rows or fewer than two empty columns, hence r>=m-1 or d>=n-1. Inclusion-minimal row bases and column bases determine isolated TAR configurations. At budget m, row bases become connected using one temporary added cell; at n−1 the B_{m,n}=n sum_{r=1}^{m−2} binom(m,r)r!Stirling(n−1,r) isolated column bases appear, merging by n. In square case inclusion-exclusion of row and column bases gives 2t^t−t²(t−1)!. Independence checked by direct power-domination forcing on all subsets and explicit TAR BFS for 7 small boards, including the nonmonotone 3×5 profile (75,1,16,1). Universal proof is combinatorial not finite enumeration.",
+      "residual_risks": [
+        "Not a theorem on token jumping, token sliding, other graph products or fixed-cardinality reconfiguration; finite BFS is not all-board proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. general bounds on connectivity thresholds; Curtis et al. general TAR framework; triangular-graph profile on J(n,2), not K_m□K_n."
+        ],
+        "reasoning": "Generality of bounds cannot recover precise number of isolated column bases or interval of reentrant disconnection; the distinct triangular graph has different row/column structure.",
+        "searches": [
+          "https://arxiv.org/abs/2201.01798",
+          "https://arxiv.org/abs/2406.05509",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+        "https://arxiv.org/abs/2201.01798",
+        "https://arxiv.org/abs/2406.05509",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known occupancy criterion and universal TAR swap-bound provide ingredients only."
+        ],
+        "reasoning": "Nonmonotone component jump is established by newly separating row-good connected component and isolated column-good minimal bases then showing merger with one extra token.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+          "https://arxiv.org/abs/2201.01798",
+          "https://arxiv.org/abs/2406.05509"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Oct 26 full rook power-domination polynomial gives criterion r>=m−1 or c>=n−1 and minimal multiplicities; target full bounded TAR c_{m,n}(k) is a distinct invariant."
+        ],
+        "reasoning": "Same feasible-set family but graph of permitted single-vertex additions/removals demands new connectivity arguments; polynomial does not determine connectivity by coefficients alone.",
+        "searches": [
+          "Resultary: power domination token addition removal rook graph K_m Cartesian K_n reconfiguration components nonmonotonic threshold",
+          "Resultary: exact component profiles power domination reconfiguration of rook graphs rectangular complete graph Cartesian product K_m K_n TAR Stirling",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier rook full power-domination polynomial gives counts by size but not TAR component partition; small direct BFS profiles (3,5): 75,1,16,1 and (3,6): 108,1,1,19,1."
+        ],
+        "reasoning": "No pre-existing exact component table for all (m,n,k) identified; matching size coefficients are insufficient to infer reconfiguration edges.",
+        "searches": [
+          "Resultary: power domination token addition removal rook graph K_m Cartesian K_n reconfiguration components nonmonotonic threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f"
+        ]
+      },
+      "rationale": "The published October 26 rook power-domination polynomial theorem already gives the exact row/column occupancy criterion and minimum-set counts, which are acknowledged prior ingredients. Bjorkman et al. and Curtis et al. give general TAR connectivity/bounds, and a published triangular-graph component spectrum concerns a different graph. None of the inspected mathematical statements determines every two-parameter rook TAR component count with Stirling isolated jump and reentrant connectivity. Best-of-knowledge PASS for the reconfiguration spectrum, not the occupancy characterization.",
+      "residual_risks": [
+        "Potential earlier unindexed rook-specific TAR classification; avoid treating row/column characterization as independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN STRONG INGREDIENT; does not provide target component profile",
+          "evidence": [
+            "Power domination iff rows>=m−1 or cols>=n−1; counts minimum row/column sets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+          "material_read": "Entire Resultary RESULT.md including proof, all-subsets polynomial, minimum multiplicities, references",
+          "method": "Fetched full Git text and compared criterion with TAR graph classification",
+          "title": "Complete power-domination-set classification and polynomial of rectangular rook graphs",
+          "trigger": "Exact same rook graph power-domination feasible-set criterion"
+        },
+        {
+          "assessment": "General framework not rook component-by-component formula",
+          "evidence": [
+            "General TAR graph and upper minimal-set budget bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01798",
+          "material_read": "Full accessible primary PDF; definitions and general threshold propositions, relevant applications",
+          "method": "Read PDF source and page images, compare graph-family and quantified conclusions",
+          "title": "Power domination reconfiguration",
+          "trigger": "Foundational TAR power domination theory"
+        },
+        {
+          "assessment": "No dominating all-rook exact component formula located",
+          "evidence": [
+            "General TAR definitions and connectivity thresholds, not all-board Stirling counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.05509",
+          "material_read": "Full accessible primary PDF sections on TAR framework; relevant theorems and page image",
+          "method": "Compare general structural bounds with precise reentrant rook regime",
+          "title": "TAR reconfiguration for vertex set parameters",
+          "trigger": "General connectivity conditions might imply exact profile"
+        },
+        {
+          "assessment": "Different graph family, no rook two-parameter implication",
+          "evidence": [
+            "Triangular-graph minimal sets from star forests, not rook row/column bases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-component-profiles-for-power-domination-reconfiguration-of--69bbf2c2096e",
+          "material_read": "Full RESULT.md and proof checked for underlying graph and parameters",
+          "method": "Compare T_n=J(n,2) versus rook K_m□K_n",
+          "title": "Exact component profiles for power-domination reconfiguration of triangular graphs",
+          "trigger": "Semantically nearest published exact component profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2201.01798",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f"
+      ],
+      "rationale": "The full TAR component phase profile of rook power-dominating sets is natural to understanding sensor-set mobility and robustness under a size budget. The reentrant transition from connected to disconnected to connected, with exact Stirling-number multiplicities and unbounded separation of first versus permanent connectivity thresholds, is a structural graph-theoretic phenomenon not implied merely by knowing minimum power-domination numbers.",
+      "residual_risks": [
+        "The exceptional term vanishes at m=2 and empty parameter intervals must be respected; only m>=3 and n>=m+2 has genuine reentrance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Result claims no new discovery of known power-domination row/column criterion; novelty is exact TAR component spectrum and sharp reentrance. Finite enumerations corroborate only selected boards."
+  ],
+  "schema_version": 1
+}
