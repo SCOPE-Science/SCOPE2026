@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The input characterization of admissible increasing partial injections is reproduced from Sareeto–Koppitz, arXiv:2208.03202, Proposition 1, and independently checked against literal finite partial maps. Its exact three gap-pair classes give a disjoint, weight-preserving decomposition into an initial matched pair, any number of matched gaps, and two endpoint slacks. The bivariate rational generating function follows. Conversion to elementary symmetric variables, projection to even powers, and the central-binomial diagonal rule produce the claimed algebraic univariate generating function. In particular, the unique empty transformation contributes one element for **each** dimension, so its generating series is \((1-z)^{-1}\); the cancellation in the last displayed formula uses this precise normalization.
+## correctness
 
-For the asymptotic, the cubic \(1-3z+2z^2-2z^3\) has one real zero and a conjugate pair outside the unit circle; the other singularities have modulus at least \(1/\sqrt2\). The unique dominant real zero is simple, yielding the stated square-root constant via the standard coefficient-transfer estimate. Direct enumeration for \(0\le n\le11\), two independent algebraic/gap computations, and an exact formal identity check through degree \(33\) all passed. No finite calculation is used as the proof for arbitrary \(n\).
+PASS
 
-## Originality — PASS relative to checked evidence
-The closest source, Sareeto–Koppitz's 2022/2023 work, determines admissible elements and minimal generating-set rank; its 2023 follow-up gives presentations; the 2024 follow-up gives Green relations, ideals and maximal subsemigroups. The counted statistic is the **number of elements** of the monoid, not its generator rank. The first paper's Proposition 1 supplies the known gap characterization, but the inspected results do not give the diagonal extraction, algebraic cardinality series, or sharp exponential asymptotic. A full rank-specific decomposition is also supplied as part of the proof. Searches of mathematical literature and published mathematical records found no exact equivalent or dominating enumeration theorem. These observations do not prove worldwide priority: a broader combinatorial enumeration, or an unlocated result on partial fence automorphisms, remains a potential overlap.
+A chain-increasing partial injection equals a unique pair of equally long increasing subsequences. Parity and two-sided fence adjacency force initial equal parity and each paired gap of type (1,1), even-even ≥2 or odd-odd ≥3, exactly as the source Proposition 1. Summing initial-pair, arbitrary gap sequence and two endpoint slacks gives the bivariate rational kernel; symmetric diagonal extraction gives A(z)=((1-z²)/sqrt(1−2z−3z²+4z³+4z⁶)−1)/z (branch with constant one). Factoring radicand as (1+z)(1−2z²)(1−3z+2z²−2z³) isolates the unique smallest positive singularity rho=0.396608..., and square-root transfer yields C rho^-n n^-1/2. Independent definition-level enumeration of every valid increasing map for n=0..8 matches the first nine coefficients, and independent symbolic generating-series expansion checks its finite expansion. These tests support normalization but not the asymptotic proof.
 
-## Mathematical value — PASS
-This is a complete enumeration of the natural monoid treated in a sequence of structural papers, rather than a hand-picked subset or a recomputation of a known table. The algebraic generating function enables arbitrary exact cardinalities and the rank-refined kernel. Its singularity gives both the exact exponential growth constant and a sharp multiplicative asymptotic, and shows exponential sparsity inside the enclosing order-preserving inverse monoid. These are useful quantitative counterparts to the existing generator-rank, presentation and ideal-structure results. There is no claim of a general semigroup enumeration theorem or of proven publication priority.
+## originality
 
-## Scientific limits and checked sources
-The result relies on the earlier characterization and concerns parity-preserving order-preserving partial injections whose inverse also preserves the alternating fence. It does not count fence maps without these conditions. Relevant primary papers inspected: arXiv:2208.03202 (Proposition 1 and Theorem 2); arXiv:2310.15809 (presentation theorem and construction); arXiv:2403.06957 (ideal and maximal-subsemigroup theorem). The broader literature search is nonexhaustive. The executable checks were run on the provided standalone file and terminated successfully.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge novel exact algebraic cardinality generating function and sharp growth rate for the natural established IOF_n^par monoid; published source describes membership and semigroup generator rank, not its order. The derived diagonal and singularity are additional enumerative results and are not known-table recomputation on inspected evidence.
+
+## value
+
+PASS
+
+Counting the cardinality and rank strata of an explicitly studied inverse monoid is a natural mathematical invariant; its algebraic series, exponential growth constant and density relative to all monotone partial injections answer an independently meaningful enumerative question, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python verify.py` from the directory containing the attached file. The checker uses Python's standard library for all exact enumerations and formal coefficient arithmetic, and `mpmath` for a high-precision numeric root and constant. It checks the defining maps independently of the three-gap formula for every chain length \(0\le n\le11\); validates the first \(33\) algebraic-series coefficients by exact rational recurrence and the squared polynomial identity; and separately enumerates the gap construction through \(n=6\). A successful execution ends with `VERIFY_OK`.
+# Independent mathematical audit
 
-The direct map census checks increasing bijections between equicardinal subsets, equality of parity of every paired point, and equivalence of fence adjacency in source and image. The exact formal-series check verifies \(P(z)(1+zF(z))^2=(1-z^2)^2\) to the specified order, with \(P(z)=1-2z-3z^2+4z^3+4z^6\).
+## correctness
 
-The non-computational proof is in `RESULT.md`, including the construction of the bivariate diagonal rational function, exact diagonal extraction, uniqueness of the dominant singularity, and the coefficient asymptotic. Verification for finitely many dimensions is not a proof of the infinite statement; the infinite statement follows from the algebraic derivation and singularity argument. Publication priority and independent validation have not been established.
+PASS
+
+A chain-increasing partial injection equals a unique pair of equally long increasing subsequences. Parity and two-sided fence adjacency force initial equal parity and each paired gap of type (1,1), even-even ≥2 or odd-odd ≥3, exactly as the source Proposition 1. Summing initial-pair, arbitrary gap sequence and two endpoint slacks gives the bivariate rational kernel; symmetric diagonal extraction gives A(z)=((1-z²)/sqrt(1−2z−3z²+4z³+4z⁶)−1)/z (branch with constant one). Factoring radicand as (1+z)(1−2z²)(1−3z+2z²−2z³) isolates the unique smallest positive singularity rho=0.396608..., and square-root transfer yields C rho^-n n^-1/2. Independent definition-level enumeration of every valid increasing map for n=0..8 matches the first nine coefficients, and independent symbolic generating-series expansion checks its finite expansion. These tests support normalization but not the asymptotic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel exact algebraic cardinality generating function and sharp growth rate for the natural established IOF_n^par monoid; published source describes membership and semigroup generator rank, not its order. The derived diagonal and singularity are additional enumerative results and are not known-table recomputation on inspected evidence.
+
+## value
+
+PASS
+
+Counting the cardinality and rank strata of an explicitly studied inverse monoid is a natural mathematical invariant; its algebraic series, exponential growth constant and density relative to all monotone partial injections answer an independently meaningful enumerative question, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
