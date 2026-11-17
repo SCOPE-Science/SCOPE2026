@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The piecewise-affine soft-threshold map realizes every DCT mask on a nonempty open cell; step decomposition gives the exact finite-mask BV norm. DCT step differences yield the DST-I projection kernel. Orthonormality proves the √(n-1) bound. Independent Bernoulli masks plus the exact sine-product sum and the Rademacher fourth-moment inequality give the explicit lower bound. All finite cases n>=2 are covered; standard-library checker validates representative identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Strang (1999) full text proves DCT spectral structure, not BV shrinkage stability.",
+        "Durand–Froment (2003) treats wavelet thresholding and TV-based coefficient recovery, not exact DCT-II BV sensitivity.",
+        "A generic orthogonal projection has ℓ2 norm one; this does not imply an ℓ1 column norm uniformly bounded in the dimension."
+      ],
+      "reasoning": "Checked whether general transform orthogonality, general wavelet denoising, or unconditional projection results implied this exact DCT-II nonlinear result. The inspected sources do not provide the specific all-mask formula or quantified Θ(√n) estimate. A general classical conditionality theorem may cover its rate and is an explicit residual risk.",
+      "searches": [
+        "Sharp unconditional discrete sine transform spectral projection l1 norm order square root dimension DCT BV",
+        "discrete cosine transform soft thresholding total variation nonlinear operator Lipschitz constant square root N"
+      ]
+    },
+    "checked_sources": [
+      "https://epubs.siam.org/doi/10.1137/S0036144598336745",
+      "https://www.researchgate.net/publication/2404995_Reconstruction_of_Wavelet_Coefficients_Using_Total_Variation_Minimization",
+      "https://doi.org/10.1137/S1064827501397792"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Strang's DCT basis theorem supplies the orthogonal change of basis but not the action of nonlinear coefficientwise shrinkage in path variation.",
+        "Durand–Froment's wavelet TV reconstruction does not analyze DCT-II pairwise Lipschitz variation gain.",
+        "A related Haar soft-threshold result establishes logarithmic growth in a different orthogonal basis and cannot imply the DCT-specific sine-kernel formula or square-root rate."
+      ],
+      "reasoning": "These prior results share either a transform or a signal-variation motivation but lack an implication to the same DCT-II operator, mask family and asymptotic bounds. Novelty is claimed for the combined exact identity and quantitative all-n law, with caveat about unindexed general theorems.",
+      "searches": [
+        "Discrete cosine transform soft thresholding exact adjacent total variation Lipschitz norm square root n sharp spectral masks sine transform",
+        "Sharp unconditional discrete sine transform spectral projection l1 norm order square root dimension DCT BV",
+        "nonlinear wavelet thresholding total variation D4 Daubechies"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Under path differences, every DCT spectral mask is conjugated to a DST-I spectral projection, whose column ℓ1 operator norm is the sharp BV gain.",
+        "The equivalent conditionality problem is the largest ℓ1-column norm among all sine-basis coordinate projections."
+      ],
+      "reasoning": "Searched both the original nonlinear-shrinkage phrasing and the exact DST projection/conditionality equivalent. Related Fourier and wavelet results did not include the claimed equality and dimension law.",
+      "searches": [
+        "Discrete cosine transform soft thresholding exact adjacent total variation Lipschitz norm square root n sharp spectral masks sine transform",
+        "Sharp unconditional discrete sine transform spectral projection l1 norm order square root dimension DCT BV",
+        "Soft thresholding in Fourier cosine basis bounded variation perturbation amplification spectral mask"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searching for specific DCT soft-threshold BV coefficients and spectral-mask sharp constants returned DCT architecture and Fourier operator results, not matching tabulated values or a general identity.",
+        "The result includes an exact variational identity for every length rather than asserting a new numeric value at a selected small dimension."
+      ],
+      "reasoning": "No existing enumerated table or exact-database constant for the same family was recovered; the claimed object is a family-wide operator norm and growth theorem, not an isolated numeric recomputation.",
+      "searches": [
+        "Discrete cosine transform soft thresholding exact adjacent total variation Lipschitz norm square root n sharp spectral masks sine transform",
+        "Soft thresholding in Fourier cosine basis bounded variation perturbation amplification spectral mask",
+        "discrete cosine transform soft thresholding bounded variation Lipschitz amplification order sqrt n"
+      ]
+    },
+    "rationale": "The contribution is not DCT orthogonality or the elementary soft-threshold formula: it is the exact attained two-input BV coefficient, its reduction to all DST-I spectral masks, and a quantitative all-dimension square-root law. Three separate semantic searches of mathematical records and relevant primary text found no statement giving these results; priority remains limited by possible unindexed unconditional-basis literature.",
+    "residual_risks": [
+      "General classical unconditionality and projection-constant estimates for discrete trigonometric systems may imply the square-root order even without the same nonlinear formulation.",
+      "No independent exhaustive literature-priority review has been conducted.",
+      "The exact leading asymptotic coefficient is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DCT orthogonality and second-difference eigenvectors are known, but no nonlinear soft-threshold two-input path-variation constant or mask-maximization law is stated in the inspected text.",
+        "evidence": "The article develops the DCT-I through DCT-IV matrices and their boundary-conditioned second differences; its scope is the transform basis, not coordinatewise shrinkage in the BV seminorm.",
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/S0036144598336745",
+        "material_read": "Full HTML article introduction, DCT basis construction, orthogonality, difference-matrix derivation and references",
+        "method": "Direct reading of the openly accessible full-text HTML, including article sections beyond the abstract",
+        "title": "The Discrete Cosine Transform",
+        "trigger": "Foundational and potentially dominating DCT orthogonality and boundary-difference spectral theory"
+      },
+      {
+        "assessment": "The published analysis concerns wavelet coefficient repair by TV minimization, not the DCT-II soft-threshold map or its sharp two-input BV modulus.",
+        "evidence": "The authors define wavelet hard/soft thresholding and then optimize recovered coefficients under a TV objective; no DCT spectral-mask projection or sine-column formula appears in the inspected analysis.",
+        "identifier_or_url": "https://www.researchgate.net/publication/2404995_Reconstruction_of_Wavelet_Coefficients_Using_Total_Variation_Minimization",
+        "material_read": "Author-posted full text as accessible HTML, introductory threshold formulas and later TV reconstruction model and method",
+        "method": "Read the article text and inspect its wavelet thresholding formulas, reconstruction objective and claims",
+        "title": "Reconstruction of Wavelet Coefficients Using Total Variation Minimization",
+        "trigger": "Direct connection of coefficient thresholding, step artifacts and total-variation stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5000fe7c-11db-484b-a522-038afc08de0b",
+  "value": {
+    "rationale": "Thresholding each transform coefficient is Euclidean nonexpansive yet can amplify path variation on the scale √n. An exact finite-n operator formula and proved universal growth rate identify a substantive stability limitation for a classical nonlinear spectral denoiser; unlike arbitrary parameter slices, the invariant measures worst-case edge creation on the natural ordered signal graph.",
+    "status": "PASS"
+  }
+}
