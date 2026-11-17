@@ -1,19 +1,21 @@
-# Review of endpoint singleton limits
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every prescribed \(r\)-subset of singleton labels, the exact event probability is \(B_{n-r}/B_n\). This yields all joint factorial moments for disjoint spatial windows. The Bell saddle-point formula establishes the Poisson limit under the natural \(B_{n-1}/B_n\) scale; far-left and far-right windows are disjoint in original labels. The expected gaps require a separate fourth-moment estimate for the total singleton count, which controls reciprocal-count tails. A standalone exact checker passed 1,106 cases; no finite test is treated as proof of the limit.
+PASS
 
-## Originality
+For each fixed set J of r singleton labels, the exact probability is B_{n-r}/B_n. Multivariate factorial moments for disjoint endpoint windows are the falling window-size products times this Bell ratio and converge to independent Poisson moments under a_n~W(n)/n; opposite windows disjoint because n*a_n grows. The resulting local point-process limit gives independent exponential first/last gaps. Expected-gap convergence is separately justified using fourth factorial moments of total singleton count, conditional hypergeometric uniformly random locations, and uniform integrability. Finite indicator covariance is strictly positive by Bell/Dobinski log-convexity. Independently enumerated every set partition n=2..7 and checked prescribed one-/two-singleton Bell ratios.
 
-**PASS, with acknowledged priority risk.** Sun and Wu (arXiv:1007.1341v1, Sections 2–3, especially Remark 3.11) derive finite singleton-position counts and request asymptotic expectations, but the inspected paper does not state independent endpoint Poisson point processes or their mean gap scale. Arratia and Tavaré (Advances in Mathematics 104, 1994; arXiv:1308.3279v1, Sections 1, 6, 10.1) derive Poisson approximations for component-size counts; the fixed labeled endpoint singleton process and joint endpoint limit are a different observable. NIST DLMF 26.7.7 supplies an asymptotic ingredient. published-finding corpus semantic comparison did not identify the same theorem. An unrecorded corollary of a more general exchangeable sparse-point-process result could cover it; literature search does not establish uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The 2010 study explicitly motivates asymptotics for extreme singleton labels. The result resolves their scale, gives the full two-ended Poisson process rather than a single marginal, and demonstrates asymptotic independence across the endpoints in a setting of strictly positive finite-sample indicator covariance. The precise \(n/W(n)\) gap size has an intrinsic interpretation as the reciprocal singleton density, not an arbitrary parameter slice.
+Best-of-knowledge: sharp joint endpoint spatial Poisson limit and n/W(n) mean gaps not found in earlier finite-extreme-label formulas or component-size Poisson approximations; inaccessible general-source implications remain a residual risk.
 
-## Limitations and literature
+## value
 
-The conclusion concerns fixed bounded scaled windows, not uniform error bounds for moving windows or finite-\(n\) independence. The finite checker cannot certify the limiting theorem; priority is not independently established. Closest inspected sources: Sun–Wu, https://arxiv.org/html/1007.1341v1; Arratia–Tavaré, https://arxiv.org/html/1308.3279v1; NIST DLMF, https://dlmf.nist.gov/26.7. Goh–Schmutz (1994), https://doi.org/10.1137/S0895480190186974, was available only at abstract level; its stated subject is largest block size, not singleton-label extremes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first and last singleton locations are natural extremes of the uniformly random set-partition model. Joint independence of opposite endpoint limiting Poisson processes and sharp mean gaps n/W(n) answer an explicit prior asymptotic question and explain emergence of independence despite strict finite-size positive correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

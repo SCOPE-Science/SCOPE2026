@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:44:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed set J of r singleton labels, the exact probability is B_{n-r}/B_n. Multivariate factorial moments for disjoint endpoint windows are the falling window-size products times this Bell ratio and converge to independent Poisson moments under a_n~W(n)/n; opposite windows disjoint because n*a_n grows. The resulting local point-process limit gives independent exponential first/last gaps. Expected-gap convergence is separately justified using fourth factorial moments of total singleton count, conditional hypergeometric uniformly random locations, and uniform integrability. Finite indicator covariance is strictly positive by Bell/Dobinski log-convexity. Independently enumerated every set partition n=2..7 and checked prescribed one-/two-singleton Bell ratios.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arratia–Tavare general independent-process approximations cover component sizes of assemblies; Bell number saddle point and fixed-ratio approximations are classical; neither inspected source directly states independent Poisson singleton-label endpoints with scaled expected gaps."
+        ],
+        "reasoning": "General exchangeable rare-set theorems could imply the result after a reduction, a real residual priority risk, but no verified earlier full coverage found.",
+        "searches": [
+          "https://arxiv.org/pdf/1007.1341v1",
+          "https://arxiv.org/abs/1308.3279",
+          "https://dlmf.nist.gov/26.7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1007.1341v1",
+        "https://arxiv.org/abs/1308.3279",
+        "https://dlmf.nist.gov/26.7",
+        "Resultary published singleton and partition point-process search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exactly P(r named singleton labels)=B_{n-r}/B_n; fixed r Bell ratio ~a_n^r, so disjoint windows of length ~1/a_n have independent factorial moment limits. Four factorial moments of total singleton count give uniform integrability and E gap ~1/a_n.",
+          "Earlier Sun–Wu asks for expected position asymptotics and does not give this Poisson-process limit."
+        ],
+        "reasoning": "Although based on standard Bell ratios and moment methods, the joint spatial characterization and answer to the stated endpoint mean-gap question go beyond cited prior statements.",
+        "searches": [
+          "https://arxiv.org/pdf/1007.1341v1",
+          "https://arxiv.org/abs/1308.3279",
+          "https://dlmf.nist.gov/26.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Wu (2010) studies finite largest/smallest singleton label distributions and exact mean formulas; Remark 3.11 explicitly solicits their asymptotics.",
+          "Claimed PPP is indexed by singleton label positions near both ends, not the block-size Poisson process of random assemblies."
+        ],
+        "reasoning": "Joint endpoints require spatial thinning and two-window factorial moments; earlier finite singleton expectations alone do not express asymptotic independence of the two boundary processes.",
+        "searches": [
+          "uniform set partition smallest largest singleton labels independent endpoint Poisson point processes Bell asymptotics",
+          "https://arxiv.org/pdf/1007.1341v1",
+          "random set partitions smallest singleton largest singleton location point process Poisson limit order statistics Bell ratio Sun Wu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sun–Wu tabulates A_{n,k} and finite moments, not a PPP limit; Resultary near hits concern conditional singleton count, block size covariance and noncrossing partitions."
+        ],
+        "reasoning": "Neither published exact finite table nor same-object indexed article already contains the submitted two independent endpoint processes and their mean scales.",
+        "searches": [
+          "https://arxiv.org/pdf/1007.1341v1",
+          "uniform set partition smallest largest singleton labels independent endpoint Poisson point processes Bell asymptotics",
+          "Resultary singleton point process endpoints Bell number covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge: sharp joint endpoint spatial Poisson limit and n/W(n) mean gaps not found in earlier finite-extreme-label formulas or component-size Poisson approximations; inaccessible general-source implications remain a residual risk.",
+      "residual_risks": [
+        "Some general exchangeable sparse-set or random-assembly theorem may specialize to the endpoint Poisson claim without labeling it thus.",
+        "Complete Arratia–Tavare primary text was not read in this run; original exact result is separately identified as a possible broader implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_BACKGROUND_NOT_COVERING",
+          "evidence": "Exact finite formulas established, asymptotic mean left as question, no endpoint Poisson limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1007.1341v1",
+          "material_read": "Full 14-page arXiv v1, in particular Theorem 3.10 and Remark 3.11 on printed page 10",
+          "method": "Read PDF and examined page image of expectation formulas and asymptotic question",
+          "title": "The largest singletons of set partitions",
+          "trigger": "Same statistic: smallest/largest singleton labels"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Known size-count approximation is not directly a positional label PPP; full implication through exchangeability remains a specific risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.3279",
+          "material_read": "Public metadata and source description, plus discussion in assigned proof; complete text not inspected in this run",
+          "method": "Semantic search and bibliographic source comparison; attempt OA via arXiv HTML unavailable",
+          "title": "Independent Process Approximations for Random Combinatorial Structures",
+          "trigger": "Broad assembly Poisson approximation that might dominate claim"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Establishes Bell asymptotics, not singleton label-point-process convergence.",
+          "identifier_or_url": "https://dlmf.nist.gov/26.7",
+          "material_read": "Relevant cited formula §26.7(iv), 26.7.7 in result and public reference description",
+          "method": "Classical asymptotic formula used as imported ingredient",
+          "title": "DLMF Bell Number asymptotics",
+          "trigger": "Numerical asymptotic source for Bell ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first and last singleton locations are natural extremes of the uniformly random set-partition model. Joint independence of opposite endpoint limiting Poisson processes and sharp mean gaps n/W(n) answer an explicit prior asymptotic question and explain emergence of independence despite strict finite-size positive correlations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Local vague window limit only, no global long-window TV estimate. Bell saddle point and standard factorial-moment convergence are imported; potential general probabilistic priority overlap explicitly retained.",
+  "schema_version": 1
+}

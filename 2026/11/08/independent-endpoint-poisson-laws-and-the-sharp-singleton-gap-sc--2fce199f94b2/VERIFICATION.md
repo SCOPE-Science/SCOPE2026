@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification and its limits
+# Independent mathematical audit
 
-Run the supplied `check.py` using Python 3 standard library: `python check.py`.
+## correctness
 
-The tests enumerate each set partition at sizes \(n=1,\ldots,8\), including all 4,140 partitions of size eight. They verify Bell counts; the exact prescribed-singleton probability and joint disjoint-window factorial moments; the conditional mean endpoint gap formula; strict Bell-number log-convexity for \(2\le n\le600\); and exact inclusion–exclusion/no-singleton-window counts with finite-scale diagnostics. The checker reports 1,106 successful checks.
+PASS
 
-An exact finite enumeration does not establish convergence as \(n\to\infty\). The process limit uses the Bell-number asymptotic and factorial-moment convergence; the expected-gap limit uses a fourth-moment tail argument. Results beyond the stated scopes, quantitative rates, and historical originality are not verified by this code.
+For each fixed set J of r singleton labels, the exact probability is B_{n-r}/B_n. Multivariate factorial moments for disjoint endpoint windows are the falling window-size products times this Bell ratio and converge to independent Poisson moments under a_n~W(n)/n; opposite windows disjoint because n*a_n grows. The resulting local point-process limit gives independent exponential first/last gaps. Expected-gap convergence is separately justified using fourth factorial moments of total singleton count, conditional hypergeometric uniformly random locations, and uniform integrability. Finite indicator covariance is strictly positive by Bell/Dobinski log-convexity. Independently enumerated every set partition n=2..7 and checked prescribed one-/two-singleton Bell ratios.
 
-Independent audit is not performed.
+## originality
+
+PASS
+
+Best-of-knowledge: sharp joint endpoint spatial Poisson limit and n/W(n) mean gaps not found in earlier finite-extreme-label formulas or component-size Poisson approximations; inaccessible general-source implications remain a residual risk.
+
+## value
+
+PASS
+
+The first and last singleton locations are natural extremes of the uniformly random set-partition model. Joint independence of opposite endpoint limiting Poisson processes and sharp mean gaps n/W(n) answer an explicit prior asymptotic question and explain emergence of independence despite strict finite-size positive correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
