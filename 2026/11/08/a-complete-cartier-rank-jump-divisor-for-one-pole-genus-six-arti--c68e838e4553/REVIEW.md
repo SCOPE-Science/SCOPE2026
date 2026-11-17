@@ -1,9 +1,21 @@
-# Scientific review: genus-six one-pole Cartier-rank jump
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree-seven one-pole cover is connected, has genus \(6\), and its six regular differentials form a basis. The exact Cartier images show image ranks \(3\) or \(2\), with subsequent ranks \(1,0\) and no other parameter cases. The nilpotent behavior follows from the explicit basis action; the independent finite-field checker corroborates but does not replace the proof. The coordinate-invariance statement applies to marked covers under affine base changes and Artin–Schreier reductions only.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Farnell–Pries (2012) cover constant \(a\)-number when the characteristic is \(1\) modulo the pole-order lcm; this excludes pole order \(7\) in characteristic \(3\). Farnell's 2010 dissertation recognizes the one-branch genus-six family and its monomial member, but the inspected relevant pages do not state the complete hyperplane criterion and iterate ranks. Zhou (2021) gives general constraints for large \(a\)-numbers and does not state this coefficient-level classification in the inspected main results. Booher–Cais (2020), Example 7.3, exhibits a characteristic-five degree-three rank-jump equation; it does not cover the genus-six degree-seven case. The earlier two-pole genus-eight rank-jump calculation is not a general theorem covering the one-pole genus-six family. The full specialized literature may nonetheless contain an equivalent older table.
+PASS
 
-**Mathematical value — PASS.** The family is the complete normalized degree-seven, single-branch, cyclic triple-cover component, not an arbitrary coefficient slice. Its p-rank is constant zero, yet its natural Jacobian \(a\)-number jumps exactly on one intrinsic codimension-one stratum. The complete Cartier-iterate filtration gives a structural distinction in positive-characteristic Jacobian geometry that generic genus and ramification invariants do not capture. No general Newton-polygon or full Ekedahl–Oort classification follows.
+For connected degree-seven one-pole characteristic-three AS cover, Riemann–Hurwitz yields g=6 and the single-branch Deuring–Shafarevich formula yields 3-rank zero. Pole valuations ord∞(x)=-3, ord∞(y)=-7, ord∞(dx)=10 prove the six displayed differentials form a basis. Using inverse-Frobenius-semilinear Cartier and y=y³-f, C(x²dx)=dx, C(ydx)=-c^(1/3)dx-a^(1/3)x dx, and C(x y dx)=-d^(1/3)dx-b^(1/3)x dx-x²dx. Thus rank C is 3 iff a !=0, otherwise 2; rank C²=1 and C³=0 uniformly. Under x->ux+v the x5 coefficient cannot be created from x7 because binom(7,2)=21 vanishes mod3; eliminating powers divisible by 3 does not create x5. The hyperplane condition is well-defined in the marked normalization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (chronology-qualified): another record is mathematically equivalent/broader and was read in full, not dismissed as title variation, BUT its actual source Git import was 2026-11-08 19:48:35 UTC, 84 seconds AFTER the assigned record import at 19:47:11 UTC. Hence that later source cannot be used to reject the earlier target on prior-publication grounds. The broader later record removes the linear x term using translations, whereas target explicitly treats marked covers with that term; the Cartier rank criterion is the same under both descriptions. Earlier specialist primary theorems inspected/cited do not establish this full coefficient-divisor rank profile. Current-corpus duplication and unknown earlier priority remain explicit risks.
+
+## value
+
+PASS
+
+The complete natural one-branch genus-six Artin–Schreier family has constant genus and p-rank but an exact codimension-one a-number jump and a nontrivial uniform nilpotent Cartier filtration; this stratification is a motivated structural invariant of positive-characteristic Jacobians, not a random coefficient table. Despite later public duplication, the target source predates that near-identical record and the mathematical fact remains intrinsically valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
