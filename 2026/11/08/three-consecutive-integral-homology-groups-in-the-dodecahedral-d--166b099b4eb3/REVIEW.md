@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact twenty-vertex graph and closed-neighborhood face criterion are specified. The attached standard-library verifier exhausts all 1,048,576 vertex masks, checks complementary domination, counts 425,028 nonempty faces and 3,559,600 face-poset covering relations, and constructs an acyclic matching with critical cells in dimensions zero, nine, ten, and eleven only. Its signed integer Morse boundary in degree ten has rank two and a unit maximal minor; the degree-eleven boundary is identically zero. Thus the resulting integral homology is free of ranks twelve, one, and ten in degrees nine, ten, eleven. An independently ordered matching gives ranks three and two, the same homology, and independent unimodular minors. Forman's theorem supports eight-connectivity, not a complete sphere-wedge assertion.
+## correctness
 
-## Originality — PASS, with residual search risk
-The directly inspected primary texts establish forest and chordal-graph dominance results, and a general Alexander-dual description, but none evaluates the dodecahedral case. The full indexed mathematical result statements on the same graph concern independent vertex sets, endpoint-disjoint edge sets, or open neighborhoods in the original graph; their face criteria differ. In particular, the Alexander dual of the original-graph neighborhood complex corresponds to the dominance complex of the graph complement, not the dominance complex here. The published-finding corpus mathematical record searches compared graph aliases, dual formulations, and known table parameters without identifying an implication. Discovery is incomplete: an unindexed equivalent calculation, or a broader theorem with unrecognized hypotheses, remains a priority risk. Search non-detection alone is not claimed to prove novelty.
+PASS
 
-## Value — PASS
-For a canonical twenty-vertex Platonic graph, exact integral groups in three adjacent high degrees are a mathematically natural and informative invariant of the dominance complex. The mixed-degree structure, torsion-free conclusion, and exactly eight-connected range give information absent from elementary domination parameters, face numbers, Euler characteristic, and field homology of other complexes. This is a complete integral homology answer for one natural object, with reusable finite certification, although it is not a homotopy classification or an infinite-family theorem.
+Explicit 20-vertex cubic GP(10,2) graph and closed-neighborhood face test. Independent exhaustive examination of 2^20 subsets found 425028 nonempty simplices and the asserted f-vector; checked reverse and forward greedy Morse matchings on every one of 3559600 incidences with 425028-vertex directed acyclic Hasse diagrams. Reverse critical cells (0:1,9:14,10:3,11:10), 212500 pairs, integral signed d10 rank 2 and d11 0; forward critical cells (0:1,9:15,10:6,11:12), 212497 pairs, integer d10 rank 3 and d11 rank 2, each exhibiting unimodular maximal minors. Resulting integral groups 12/1/10 in degrees 9/10/11 and no torsion, plus no cells 1..8 proves exact 8-connectivity. Larger homotopy type unasserted.
 
-## Residual scientific limitations
-The finite certificate has been replayed, but independent scientific validation has not occurred. The groups do not identify higher attaching maps, and priority beyond indexed and inspected sources is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary exact, graph-alias and duality searches recovered dodecahedral independence, two-independence, forest, open-neighborhood and matching complexes, and other graph dominance complexes, but not the complement-of-dominating-set complex of dodecahedron. Matsushita–Wakatsuki Theorem 1.1 gives Alexander duality with the neighborhood complex of the GRAPH COMPLEMENT; it does not give dodecahedral group ranks. Forest/chordal dominance theorems do not apply to dodecahedral induced pentagons. Best-of-knowledge original with explicit unindexed-coverage risk.
+
+## value
+
+PASS
+
+The twenty-vertex dodecahedron is a canonical symmetric nonchordal cubic graph; a complete unusual mixed-dimensional torsion-free dominance homology calculation with exact 8-connectivity supplies useful test data beyond the forest/chordal sphere theorems and the general Alexander-dual identity. No excessive generality or wedge claim is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
