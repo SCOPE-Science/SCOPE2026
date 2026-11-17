@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite checker `verify.py` constructs the closed neighborhoods from adjacency, reconstructs the geometric fixed-point orbit-complex for 233 subgroup/parameter cases over ten multipartition profiles, and performs exact reduced mod-two boundary-rank calculations. Run `python3 verify.py`; the recorded unmodified output is `verify_output.txt` and ends `ALL_VERIFY_OK`.
+# Independent mathematical audit
 
-The proof, not the finite tests, establishes every integral homotopy type for arbitrary finite parameters and arbitrary part-preserving subgroups. The checker does not test all subgroups or certify integral homology independently. No independent audit has been performed.
+## correctness
+
+PASS
+
+The geometric H-fixed point locus has an exact orbit-barycenter triangulation: an orbit-union is a face exactly when some source part is occupied at most once. The exact k-subcomplex cover U_i=D(F_i)*Delta(all other orbits) has contractible nonempty proper intersections and total intersection T=*D(F_i). When T is empty, the proper-intersection nerve is the boundary of a (k-1)-simplex, S^(k-2); when T is nonempty its (k-1)-fold suspension gives the stated wedge, and a factor f_i=1 cones it off. This checks all k>=2, all n_i>=2, all part-preserving subgroups, including k=2, r=0, f_i=1. The verified source script enumerates 233 finite cases; those mod-two diagnostics corroborate but do not establish the general integral homotopy equivalence.
+
+## originality
+
+PASS
+
+The prior multipartite Čech classification contains the trivial-subgroup homotopy result and an integral ambient permutation module, but an H-invariant homology character is not the geometric fixed-space homotopy type. The subgroup-orbit triangulation provides a distinct geometric fixed-point classification under the same graph construction. Best-of-knowledge, subject to explicitly stated unindexed equivariant literature risk.
+
+## value
+
+PASS
+
+Geometric fixed-point functor is a natural and strictly finer invariant of an equivariant simplicial complex than its ambient homology action. All part-preserving subgroups receive explicit homotopy dimensions, ranks and contractibility boundaries, with natural orbit-barycenter derivation. This is a structural family classification, not routine substitution into the known H=identity case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

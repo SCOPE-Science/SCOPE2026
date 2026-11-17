@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim under review:** The complete geometric fixed-space homotopy classification for all subgroups preserving each multipartition part, in terms of common fixed vertices in each part. The ambient identity-subgroup formula is previously known and not claimed as new.
+## correctness
 
-## Correctness — PASS
-The proof identifies actual fixed points through barycenters of whole subgroup orbits, not merely pointwise-fixed graph vertices. The exact closed-neighborhood face criterion yields a cover whose proper intersections are contractible. The full intersection is the join of discrete complexes on globally fixed vertices. Standard cofibration pushouts and a nerve argument prove the three cases, including empty intersection, singleton-factor contractibility and higher sphere wedges. The integral homotopy claim is symbolic. Executed independent face construction and finite-field reductions check 233 subgroup/parameter cases, including every boundary regime; computations are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, residual risk retained
-The source arXiv:2511.12608 (Matsushita, first posted 2025-11-16) supplies the closed-neighborhood construction and a nonequivariant suspension/independence-complex relation. The closest previously published complete-multipartite intrinsic Čech result (published-finding corpus record `2026/10/11/SCOPE-complete-intrinsic-graph-ech-persistence-of-multipartite-graphs--4c8b867ce9c1`) already proves the ambient wedge and within-part integral homology module. Its complete available RESULT.md was read: it does not assert homotopy types of geometric fixed sets. Those previously known consequences are excluded from novelty. The new result answers a different question using a full subgroup orbit model, which need not follow from invariant homology. Searches for group-fixed Čech or closed-neighborhood classifications identified no exact covering statement. Unindexed equivalent work remains possible.
+The geometric H-fixed point locus has an exact orbit-barycenter triangulation: an orbit-union is a face exactly when some source part is occupied at most once. The exact k-subcomplex cover U_i=D(F_i)*Delta(all other orbits) has contractible nonempty proper intersections and total intersection T=*D(F_i). When T is empty, the proper-intersection nerve is the boundary of a (k-1)-simplex, S^(k-2); when T is nonempty its (k-1)-fold suspension gives the stated wedge, and a factor f_i=1 cones it off. This checks all k>=2, all n_i>=2, all part-preserving subgroups, including k=2, r=0, f_i=1. The verified source script enumerates 233 finite cases; those mod-two diagnostics corroborate but do not establish the general integral homotopy equivalence.
 
-## Mathematical value — PASS
-The complete subgroup theorem detects genuine equivariant isotropy topology invisible to the known scalar homotopy type and integral representation. A group with no individually fixed vertices in any part has fixed sphere dimension \(k-2\), while just one globally fixed vertex in some part makes the geometric fixed set contractible; groups fixing at least two vertices in each of \(r\) parts yield precisely counted sphere wedges in dimension \(k+r-2\). This systematic phase diagram is a natural structural classification, not a narrow computational curiosity.
+## originality
 
-## Limits
-No classification is given for automorphisms swapping parts. No normalizer-equivariant type or independent external certification is asserted. Finite tests only compute mod-two homology, and unindexed prior results may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prior multipartite Čech classification contains the trivial-subgroup homotopy result and an integral ambient permutation module, but an H-invariant homology character is not the geometric fixed-space homotopy type. The subgroup-orbit triangulation provides a distinct geometric fixed-point classification under the same graph construction. Best-of-knowledge, subject to explicitly stated unindexed equivariant literature risk.
+
+## value
+
+PASS
+
+Geometric fixed-point functor is a natural and strictly finer invariant of an equivariant simplicial complex than its ambient homology action. All part-preserving subgroups receive explicit homotopy dimensions, ranks and contractibility boundaries, with natural orbit-barycenter derivation. This is a structural family classification, not routine substitution into the known H=identity case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
