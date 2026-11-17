@@ -1,26 +1,21 @@
-# Self-review: sharp endpoint transition for path-network outbreak sentinels
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns uniform-source eventual detection on an undirected homogeneous open-edge path with exactly \(2\le k<n\) error-free monitors. Conditioning on all possible source locations gives the exact objective in terms of two outer and \(k-1\) inner gap rewards. Their first differences, \(b_t=p^t\) and \(h_t=p^t[1+t(1-p)]\), decrease strictly. Therefore selecting the greatest feasible marginal rewards is necessary and sufficient for the global optimum, including ties; the gap exchange arguments prove the balancing inequalities. Restricting both endpoints to be monitored leaves \(N=n-k\) gap units distributed evenly among \(m=k-1\) interior gaps. The global test is exactly \(h_{\lceil N/m\rceil}\ge b_1\). Differentiating its one-variable polynomial establishes the single interior threshold for \(q\ge2\); its fixed-\(c\) logarithmic expansion proves \(1-p_q\sim2/q^2\). All domain restrictions and the separate \(q=1\) case are explicit.
+PASS
 
-A source-enumeration and independent-percolation checker performs 6,546 assertions/diagnostics on finite paths, exact rational parameters, optimization ties, and threshold examples. These checks are supporting evidence, not universal proof. There is no claim of empirical validation.
+For an ordered k-monitor set in an n-vertex path, the unmonitored vertices split into outer lengths L,R and k−1 interior lengths g_i with total N=n−k. Conditioning on the uniform source and open edge path yields the exact nD=k+B(L)+B(R)+sum G(g_i), B(g)=sum_(t=1)^g p^t and G(g)=2B(g)−g p^(g+1). Differencing produces strictly declining outer marginal b_t=p^t and inner marginal h_t=p^t[1+t(1−p)]; their discrete concavity proves the exact N-largest-marginals selection rule with all ties, gap balancing and dominance of interior gaps. Monitoring both endpoints corresponds to allocating all N slots among m=k−1 interior sequences with longest gap q=ceil(N/m), and is optimal iff h_q≥b_1=p. For q≥2, F_q(p)=p^(q−1)(q+1−qp) has a single interior maximum at p=1−1/q², unique nontrivial crossing, strict phases and increasing roots; Taylor expansion logF_q(1−c/q²)=(c−c²/2)/q²+O(q^(−3)) proves 1−p_q~2/q². q=1 follows directly. Independently enumerated all percolation patterns, sources and sentinel sets for n≤7 at three rational probabilities, 639 cases; small checks corroborate the all-n proof.
 
-## Originality — PASS within evidence, with residual priority risk
+## originality
 
-The 2007 Leskovec–Krause–Guestrin–Faloutsos–VanBriesen–Glance paper sets up general outbreak-detection optimization and submodularity but the inspected technical report does not state this all-size exact path-gap solution. The 2013/2014 Khanna–Lucier influence-maximization setting **does cover the entire model by an exact undirected-connectivity equivalence**: our objective is the expected independent-cascade spread of sentinels divided by \(n\). That broader framing and generic approximation guarantees do not, in the inspected material, imply the precise path gap allocation, endpoint threshold, uniqueness-or-tie regimes, or the sharp \(q^{-2}\) asymptotic. The comparison is of implications, not titles or application fields.
+PASS
 
-The 2017 Holme source considers epidemiological node importance/detection time on small graphs, and the 2019 Colman–Holme–Sayama–Gershenson source evaluates heuristic sentinel placements with distinct time-sensitive objectives. Semantic index queries for path sensors, homogeneous independent cascade, margin/gap laws and critical endpoints returned no matching claim. The closest indexed normalized-path endpoint-sampling result concerns a spectral observability Gramian, not epidemic reachability; the closest discounted hitting result concerns a complete bipartite graph and a different objective. This is not a proof that no earlier equivalent result exists. In particular, historical influence-maximization, stochastic covering, and facility-location specializations remain a realistic risk.
+The epidemic detection functional is exactly equivalent to expected influence of the chosen monitors by undirected live-edge symmetry: no novelty claimed for the model or generic submodular framework. The strongest earlier specific two-sentinel path theorems already cover the k=2 threshold/phase diagram. The surviving original all-k contribution is a complete arbitrary-k top-N interior/boundary marginal characterization, all ties, and exact cutoff q=ceil((n−k)/(k−1)) for k≥3, with phase monotonicity. A 2011 thesis gives polynomial-time optimal path influence selection but the available abstract does not imply this explicit symbolic optimizer classification; its inaccessible full text is a material originality risk.
 
-## Value — PASS
+## value
 
-An exact all-size placement rule and nontrivial critical transmission probability resolve a genuine network-surveillance design issue that heuristic or submodular approximation guarantees do not resolve: when does monitoring both path endpoints become optimal rather than interior-only placements? A sharp switch and the \(1-p_q\sim2/q^2\) scale exhibit a structural relationship between path length, fixed monitor budget and transmission reliability. The exact \(n=10,k=3\) reversal is not an arbitrary isolated witness: it illustrates the proved family. Although the idealized eventual-detection model does not prescribe practical surveillance schedules, the result is a reusable analytic benchmark.
+PASS
 
-## Closest literature and limitations
+All-k exact selection of perfect monitors on a natural path network and the onset of forced endpoint monitoring are interpretable optimization invariants, beyond known generic approximation and two-sentinel cases. The strictly diminishing marginal merge rule classifies all optimal placements and ties for every n,k,p, and the q-dependent threshold answers a natural design transition that a polynomial instance solver alone does not articulate. It is a substantive structural classification for k≥3, not an assertion that the independent-cascade model or k=2 threshold is new.
 
-- Leskovec et al. (2007), *Cost-effective outbreak detection in networks*, doi:10.1145/1281192.1281239; technical report https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf. The report specifies June 2007 without a day; the August 12, 2007 conference date is the earliest public day verified for this cited work.
-- Khanna and Lucier (2013/2014), *Influence maximization in undirected networks*, doi:10.1137/1.9781611973402.109; public manuscript https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/Influence-Maximization-in-Undirected-Networks.pdf. The exact model reduction is acknowledged; the specific optimum is not derived in the inspected sections.
-- Holme (2017), arXiv:1708.06456; Colman et al. (2019), doi:10.1371/journal.pcbi.1007517. Their epidemiological sensor objectives differ materially.
-- Only paths, homogeneous independent undirected transmission, uniform initial-source selection, perfect eventual detection and a fixed monitor budget are proved. Independent scientific audit and field validation are absent.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

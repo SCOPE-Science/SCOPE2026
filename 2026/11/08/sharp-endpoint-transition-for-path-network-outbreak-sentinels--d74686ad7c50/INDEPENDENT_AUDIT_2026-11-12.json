@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:52:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an ordered k-monitor set in an n-vertex path, the unmonitored vertices split into outer lengths L,R and k−1 interior lengths g_i with total N=n−k. Conditioning on the uniform source and open edge path yields the exact nD=k+B(L)+B(R)+sum G(g_i), B(g)=sum_(t=1)^g p^t and G(g)=2B(g)−g p^(g+1). Differencing produces strictly declining outer marginal b_t=p^t and inner marginal h_t=p^t[1+t(1−p)]; their discrete concavity proves the exact N-largest-marginals selection rule with all ties, gap balancing and dominance of interior gaps. Monitoring both endpoints corresponds to allocating all N slots among m=k−1 interior sequences with longest gap q=ceil(N/m), and is optimal iff h_q≥b_1=p. For q≥2, F_q(p)=p^(q−1)(q+1−qp) has a single interior maximum at p=1−1/q², unique nontrivial crossing, strict phases and increasing roots; Taylor expansion logF_q(1−c/q²)=(c−c²/2)/q²+O(q^(−3)) proves 1−p_q~2/q². q=1 follows directly. Independently enumerated all percolation patterns, sources and sentinel sets for n≤7 at three rational probabilities, 639 cases; small checks corroborate the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mouravski (2011) abstract states a polynomial-time algorithm for selecting optimal initially seeded vertices on arbitrary paths and approximation on trees. An algorithm for each numerical instance does not by itself publish the global marginal-order formula or analytic critical root, but its thesis could contain additional relevant theorems.",
+          "Khanna–Lucier SODA 2014 proves general undirected independent-cascade approximation theorems rather than exact optimizer lists at all n,k,p.",
+          "Leskovec et al. KDD 2007 provides general outbreak detection/submodular placement, not a sharp path all-k phase formula in inspected material."
+        ],
+        "reasoning": "The model is a special case of known general influence optimization. Exact polynomial-time solvability is previously known, so originality is limited to symbolic all-k optimizer structure and phase boundary; inaccessible thesis contents are not falsely ruled out.",
+        "searches": [
+          "path graph independent cascade uniform random source sentinel monitors endpoint optimal placements gap marginal threshold",
+          "Influence Maximization on Families of Graphs Mouravski pdf",
+          "https://repository.rit.edu/theses/351/",
+          "2026/10/18/SCOPE-a-sharp-near-certain-transmission-transition-for-two-epidemic-se--0bc09296398b",
+          "2026/10/25/SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448",
+          "https://repository.rit.edu/theses/351/"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Oct 18 complete two-sentinel path endpoint theorem",
+        "Resultary Oct 25 complete two-seed path influence phase theorem",
+        "Khanna–Lucier SODA 2014 full primary open manuscript",
+        "Mouravski RIT 2011 thesis institutional abstract; PDF inaccessible HTTP 403",
+        "Leskovec et al. 2007 general outbreak-detection framework",
+        "Resultary indexed all-k sentinel searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier two-sentinel theorem has only one interior gap and two outer tails; for k≥3 there are m=k−1 competing interior gaps and a genuinely new N-largest-marginal interleaving condition.",
+          "The earlier complete two-seed phase diagram cannot by substitution prove all-k optimizer lists, balanced m interior gaps or q=ceil(N/m).",
+          "Mouravski thesis abstract reports computational polynomial-time exact path selection, not a formula for the analytic all-k endpoint threshold."
+        ],
+        "reasoning": "Neither pair-seed theorem implies general k-sentinel structure: adding monitors changes both resource sum and the number of competing interior marginal streams. The arbitrary-k transfer/exchange theorem is the surviving value-bearing claim; priority against unavailable full thesis is qualified.",
+        "searches": [
+          "path graph independent cascade uniform random source sentinel monitors endpoint optimal placements gap marginal threshold",
+          "Influence Maximization on Families of Graphs Mouravski pdf",
+          "https://repository.rit.edu/theses/351/",
+          "2026/10/18/SCOPE-a-sharp-near-certain-transmission-transition-for-two-epidemic-se--0bc09296398b",
+          "2026/10/25/SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform-source eventual outbreak detection equals expected union-of-k open-edge components divided by n, since undirected source-to-sentinel connectivity is symmetric. It is exactly homogeneous path independent-cascade influence maximization.",
+          "Earlier two-sentinel path publications treat precisely this objective for k=2, with the same nontrivial p-root and (n−2)² scaling."
+        ],
+        "reasoning": "Explicitly compare the implication of the same model, not vocabulary. Recognize prior coverage of all k=2 statements while identifying the new all-k discrete-gap convex resource allocation and q dependence for k≥3.",
+        "searches": [
+          "path graph independent cascade uniform random source sentinel monitors endpoint optimal placements gap marginal threshold",
+          "Influence Maximization on Families of Graphs Mouravski pdf",
+          "https://repository.rit.edu/theses/351/",
+          "2026/10/18/SCOPE-a-sharp-near-certain-transmission-transition-for-two-epidemic-se--0bc09296398b",
+          "2026/10/25/SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published October 18 k=2 endpoint theorem contains identical root p^(n−3)[1+(n−2)(1−p)]=1 and 2/(n−2)² scaling.",
+          "Resultary published October 25 complete two-seed phase theorem classifies all optimal distances for k=2.",
+          "Other indexed cycle sentinel spacing and general two-hub crossover findings concern different graphs or objectives."
+        ],
+        "reasoning": "These earlier exact statements fully cover k=2, but their proofs and theorems quantify two sentinels only; they cannot be used as a table for the entire k≥3 hierarchy without new arguments. Avoid inventing the novelty of the k=2 special case.",
+        "searches": [
+          "path graph independent cascade uniform random source sentinel monitors endpoint optimal placements gap marginal threshold",
+          "Influence Maximization on Families of Graphs Mouravski pdf",
+          "https://repository.rit.edu/theses/351/",
+          "2026/10/18/SCOPE-a-sharp-near-certain-transmission-transition-for-two-epidemic-se--0bc09296398b",
+          "2026/10/25/SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448"
+        ]
+      },
+      "rationale": "The epidemic detection functional is exactly equivalent to expected influence of the chosen monitors by undirected live-edge symmetry: no novelty claimed for the model or generic submodular framework. The strongest earlier specific two-sentinel path theorems already cover the k=2 threshold/phase diagram. The surviving original all-k contribution is a complete arbitrary-k top-N interior/boundary marginal characterization, all ties, and exact cutoff q=ceil((n−k)/(k−1)) for k≥3, with phase monotonicity. A 2011 thesis gives polynomial-time optimal path influence selection but the available abstract does not imply this explicit symbolic optimizer classification; its inaccessible full text is a material originality risk.",
+      "residual_risks": [
+        "The full Mouravski 2011 thesis might contain explicit all-k path-gap optimizer formulas not visible in its abstract; HTTP 403 prevented reading it.",
+        "Exact closed forms under facility-location, stochastic coverage or reliability nomenclature may be unindexed.",
+        "The published k=2 endpoint root and its quadratic scaling are not novel and must not be independently attributed to the new all-k record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of k=2 threshold and asymptotic; no conclusion for k≥3",
+          "evidence": "For k=2, q=n−2 gives exactly its p^(n−3)[1+(n−2)(1−p)]=1, identical 2/q² leading phase.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-near-certain-transmission-transition-for-two-epidemic-se--0bc09296398b/RESULT.md",
+          "material_read": "Entire published theorem, proof, optimized two-gap marginal and asymptotic",
+          "method": "Read-only full GitHub RESULT.md",
+          "title": "A sharp near-certain-transmission transition for two epidemic sentinels on a path",
+          "trigger": "Exact same model and potential stronger path theorem"
+        },
+        {
+          "assessment": "Stronger earlier k=2 phase diagram, but no arbitrary k-sentinel result",
+          "evidence": "Theorem explicitly optimizes two deterministic initial seeds and all their distance phases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448/RESULT.md",
+          "material_read": "Complete theorem/proof of exact pair-distance phase ordering and all two-seed maximizing placements",
+          "method": "Read-only full GitHub RESULT.md",
+          "title": "Monotone separation of optimal paired seeds on homogeneous paths",
+          "trigger": "Possible complete earlier influence optimization for a path"
+        },
+        {
+          "assessment": "General approximation results do not give exact symbolic all-k path gap marginal ordering",
+          "evidence": "Undirected independent cascade and expected spread framework is antecedent; no result in inspected main claims supplies p_q(n,k).",
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611973402.109",
+          "material_read": "Public primary conference manuscript full PDF, introduction, objectives, approximation results and proof framework",
+          "method": "Public full PDF with page-image check",
+          "title": "Influence Maximization in Undirected Networks (Khanna, Lucier)",
+          "trigger": "Same exact influence objective on undirected graphs"
+        },
+        {
+          "assessment": "Computational optimal-path algorithm is prior work; detailed all-k analytical thresholds cannot be decided from abstract; material risk preserved",
+          "evidence": "Abstract explicitly reports polynomial-time program computing maximum influence and optimal initially selected nodes on arbitrary paths.",
+          "identifier_or_url": "https://repository.rit.edu/theses/351/",
+          "material_read": "Institutional thesis abstract and index only; download endpoint returned HTTP 403, full thesis not read",
+          "method": "RIT ScholarWorks page and failed original PDF access",
+          "title": "Influence maximization on families of graphs (Andrei Mouravski, 2011 thesis)",
+          "trigger": "Potentially direct optimal-selection result on arbitrary paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-k exact selection of perfect monitors on a natural path network and the onset of forced endpoint monitoring are interpretable optimization invariants, beyond known generic approximation and two-sentinel cases. The strictly diminishing marginal merge rule classifies all optimal placements and ties for every n,k,p, and the q-dependent threshold answers a natural design transition that a polynomial instance solver alone does not articulate. It is a substantive structural classification for k≥3, not an assertion that the independent-cascade model or k=2 threshold is new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only homogeneous independent undirected path edges, uniform source, perfect eventual detection, exactly k monitors, 2≤k<n; cannot infer temporal or heterogeneous epidemic properties.",
+  "schema_version": 1
+}
