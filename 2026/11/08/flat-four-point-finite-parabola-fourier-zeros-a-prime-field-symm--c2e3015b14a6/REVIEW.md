@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete all-prime proof uses the four-unit antipodal-matching lemma, finite-field matching determinant, an odd-order phase incompatibility excluding three simultaneous matchings, and a sine-magnitude argument excluding off-line zeros when a parallel matching is active. Explicit nondegenerate coefficients attain every stated stratum. Exact integer-based computational corroboration in `artifacts/verify.py` passed 104626 checks, including exhaustive prescribed discrete phase alphabets for primes five and seven. Computation is not an infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** Fiorentino and Weigert's 2022 full primary text studies complete-basis total supports but not this all-prime fixed-support flat-amplitude dichotomy. Li's 2026 abstract gives an unrestricted four-site bound \(p+2\) and line rigidity, not the stricter flat bound \(p\) and centrality criterion; the preprint's full text was inaccessible, so uninspected specializations are the principal priority risk. Closest mathematical records covering one-dimensional four-sparse prime Fourier transforms and two-dimensional Cartesian rectangles were read in full; their premises do not include the odd-prime parabola four-site geometry. No absence of a result is inferred solely from search failure.
+PASS
 
-**Mathematical value — PASS.** Four equal-energy sites define a constrained sparse-state uncertainty problem for complete prime-dimensional mutually unbiased bases. The four-site support geometry creates an exact growing gap between a full \(p\)-point zero line and at most two isolated zeros, together with a sharp improvement from the unrestricted four-site upper bound. This determines all realizable zero counts, rather than only existence of sparse recovery. The result does not cover unequal amplitudes, other sparsities, or nonstandard MUB families.
+PASS. The actual all-prime equal-modulus four-site statement has three matching possibilities because four unit complex numbers with zero sum form opposite pairs (first and third elementary symmetric sums vanish). Fixing a matching gives two linear equations in (a,b) over F_p, determinant proportional to (ti-tj)(tk-tl)((ti+tj)-(tk+tl)). Only equal pair sums give a rank-one matching and hence a full p-point frequency line; otherwise exactly one frequency per feasible matching. Three simultaneous matchings impossible for odd p by the disjointness mu_p intersect (-mu_p). For the line case, translating to support {-u,-v,u,v} and opposite coefficients gives two sine terms: for b!=0 equal-modulus cancellation would force |sin(2pi bu/p)|=|sin(2pi bv/p)| and u=+/-v, excluded, so no off-line zeros. Two remaining nonparallel matchings allow explicit coefficient witnesses of exactly 0,1,2 zero frequencies for every support; central symmetry permits p. The MUB support identity 4+(p²-Z) is exact under stated Fourier convention. Independent integer cyclotomic histogram for all four-point supports p=5,7 confirms witnesses and upper counts, and checked pinned artifacts/verify.py; the theorem for all primes and continuous phases is analytic, not finite extrapolation.
 
-**Closest literature and limitations.** See the source-specific comparisons and limitations in `RESULT.md` and the structured audit. A closely related 2026 manuscript could not be read in full; it is not characterized as globally noncovering. No independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified by inaccessible closely relevant primary paper. Fiorentino–Weigert 2022 proves general MUB support inequalities and low-dimensional bounds, not this fixed-four-site equal-magnitude all-prime zero-set spectrum. Dongwei Li 2026 gives a stronger *unrestricted-coefficient* four-site upper bound p+2, and a zero-line condition at sufficiently many zeros, but that upper bound does not yield the restricted p versus 2 dichotomy or all attainable phase-only counts. Rational and 2-power-root phase-alphabet parabola rigidity publications classify a proper subspace of complex unit phases, without two isolated zeros in general. Their statements do not dominate arbitrary unit-modulus phases. Full Li text could not be obtained; priority is expressly qualified, not claimed ruled out.
+
+## value
+
+PASS
+
+PASS. For a fixed four-coordinate quantum state with equal-magnitude amplitudes, the exact zero set and complete p-dependent support uncertainty spectrum across mutually unbiased bases are natural operational/finite-harmonic invariants. The sharp symmetry-versus-nonsymmetry gap from p zeros down to at most two cannot be extracted from the broad complex-coefficient bound p+2 and provides a precise structural classification with equality cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
