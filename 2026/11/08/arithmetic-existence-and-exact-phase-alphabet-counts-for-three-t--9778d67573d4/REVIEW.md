@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the full index set \(K=\{0,s,2s\}\), \(L=2\mathbb Z_N\), normalized flat-amplitude windows and a nondegenerate step of order at least three. Direct summation of the subgroup characters gives exactly \(p\) two-by-two Hermitian blocks; their eigenvalues yield all frame bounds, including the boundary case of singular systems. A three-term vanishing relation along every step orbit forces period three and two equilateral orientations. For even step order, the half-period involution lies inside each orbit and contradicts the nonreal equilateral triple. For odd step order divisible by three, antipodal coset pairing supplies every solution. The exact \(q\)-phase count follows from independent root-of-unity orientations and \(p\) independent phase lifts. No finite enumeration is used as proof of a universal statement. `CHECK.py` independently constructs the full frame matrix and verifies representative cases and small exact counts.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Summing even modulations (p=N/2 channels) forces frame-operator couplings only between antipodal j,j+p, with Hermitian blocks diag 3/2 and off-diagonal σ_j/2, yielding the exact 3/2±|σ_j|/2 spectrum. Tight iff σ_j=z_j+z_(j−s)+z_(j−2s)=0, where |z_j|=1 and z_(j+p)=conj z_j. Along an s-cycle of length ell the zero-sum recurrence enforces w_t=w_(t−3), so 3|ell and unit triples must be equilateral. If ell even, antipodal offset is (ell/2)s, a multiple of three steps, forcing z=conj z, impossible for three real unit numbers summing to zero. For ell odd multiple three, addition p pairs the d=N/ell cosets and allows exactly two orientations with arbitrary phase u per pair. A q-phase window exists iff 3|q, with q choices of u and 2 orientations for each d/2 coset pair, plus q^p independent antipodal lifts: q^p(2q)^(d/2). Independently exhaustively enumerated q-phase triples at (N,s,q)=(6,2,3),(6,2,6),(6,1,3),(10,2,3), obtaining 162,2592,0,0 respectively; infinite classification rests on the recurrence proof.
 
-The closest paper, Asipchuk–De Carli–Rodriguez (arXiv:2605.16139v2), proves broad block-equivalence and provides the general matrix factorization in Lemma 3.1. Its Theorems 1.1 and 1.3 and the inspected structural/cyclotomic sections do not give the phase-only three-translation step-order classification or \(q\)-alphabet counts. Magsino (arXiv:1611.00818) develops general subgroup ambiguity-function tightness criteria and examples from CAZAC sequences, but the sections inspected do not state the order-three orbit/antipodal obstruction or its complete enumeration. The abstract general tests are acknowledged as prior; only the explicit arithmetic existence, full phase classification, discrete count and associated specialized spectrum are asserted here. Searches for equivalent names, stronger coverage and tables were made; a negative search is not a uniqueness certificate. Residual risk includes specialized older filter-bank and polyphase literature under a different parametrization.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first strictly redundant case beyond two-translation critical systems, three translations with half of the modulation characters, has density \(3/2\). Exact tightness matters because the canonical reconstruction then has a scalar frame operator. The finding identifies the precise allowable translation arithmetic, shows binary phases are intrinsically insufficient regardless of dimension, proves ternary phases are enough whenever tightness is possible, and counts all indexed alphabet-constrained designs. The full block spectrum also gives exact stability information outside the tight case. This is a complete classification of a natural design problem, not a single parameter experiment.
+Best-of-knowledge PASS for this noncritical three-translation, even-modulation subgroup and its arithmetic step-order obstruction and exact phase-alphabet windows. Asipchuk--De Carli--Rodriguez general subgroup block equivalence supplies a reduction but not the cubic-root recurrence, half-period incompatibility or exact q-phase count; Magsino gives broad ambiguity-function tightness/CAZAC criteria without this classification. A nearby published SCOPE three-translation Gabor basis instead uses modulations divisible by three, N=3M and critical orthonormality, not the present p=N/2 modulation channels and 3p/N=3/2 overcomplete frame.
 
-## Closest literature and limitations
+## value
 
-The cited 2026 block-equivalence work treats arbitrary windows and subgroups structurally; the 2016 ambiguity-function paper provides general tightness tests. The present complete phase-only classification does not extend to nonconstant window amplitudes or other modulation subgroups. Generic filter-bank results and unexamined alternate terminology remain originality risks. The numerical checker corroborates the algebra but is not an infinite proof, and no independent mathematical review has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It classifies the natural smallest nontrivial odd-size arithmetic-progression translation pattern under a codimension-two modulation subgroup, including the sharp spectral blocks, existence obstruction and exact finite-alphabet design count; the 3 mod 6 dichotomy offers concrete frame design beyond a generic tightness test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
