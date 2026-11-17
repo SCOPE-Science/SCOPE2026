@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The supplied proof checks negative type with the unnormalized Walsh transform. It derives the Krawtchouk telescoping identity directly from its generating function; it does not infer a universal statement from finite samples. For four-cap dimensions at least eight, the nonconstant Fourier spectrum is governed by a cubic in \(z=n+1-2s\). The difference from its parity value factors as \((z+n-1)R(z)\), where \(R\) has the explicit positive lower bound in RESULT.md. The parity root is unique by a strict derivative comparison. The centered Gram rank gives the stated endpoint embedding dimension. The all-even-cap limit is a uniform comparison based on \(|K_j|\le\binom{n-1}{j}\). The supplied reproducibility checker passed all tests; it verifies finite identities only.
+PASS
 
-## Originality — PASS (bounded)
+PASS: For Boolean Hamming distance clipped at fixed even r, nonconstant Walsh eigenvalues equal -Q(s), with Q=1+sum_{t=2}^r[t^p-(t-1)^p]K_{t-1}^{(n-1)}(s-1). Thus negative type iff all Q>=0. For r=4,n>=8, cubic Krawtchouk form subtracts parity mode as (z+m)R(z), with R>0 on full real z domain for 0<p<=1 and m=n-1>=7; derivative comparison makes parity Q strictly decreasing and gives unique root 0<beta<1. Exactly one parity layer null, so embedding dimension drops by one. Uniform Krawtchouk magnitude bounds prove n^(r-1)beta -> (r-1)!/ln(r/(r-1)) for every fixed even r; finite test n8..11 independently checked all frequency modes and roots on both sides, not infinite proof.
 
-The closest previous scientific result is the three-capped Hamming negative-type threshold: its quadratic Walsh minimizer and \(n^{-1}\) scale do not determine the cubic parity minimizer for cap four, the one-dimensional endpoint kernel, or the \(n^{-(r-1)}\) even-cap hierarchy. Sánchez (2011) provides a general finite-metric method, Schoenberg (1938) provides the positive-definite-kernel equivalence, and Feinsilver–Schott (2018) supplies general Krawtchouk machinery. None of the materially inspected text states the present special thresholds. Deza–Maehara (1990) and Maehara (1986) are plausible antecedents in metric transforms, but complete primary text was not accessible; this leaves a historical priority risk. Failed discovery searches are not treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Capped metrics model bounded or saturated dissimilarity. The result supplies a sharp scale for every fixed even truncation radius, not merely a fixed-size computation, and an exact formula and complete Hilbert-embedding rank transition for cap four. The parity obstruction is structurally different from the middle-band obstruction for cap three. This provides a new quantitative boundary for Gaussian distance kernels and a concrete family where a single Walsh direction disappears exactly at the critical exponent.
+PASS with credit limits: Classical Schoenberg/Sánchez supplies negative-type and finite-metric threshold machinery. The published nonbinary four-cap fixed-alphabet asymptotic recovers the binary cap4 leading constant, so the value 6/log(4/3) is not independently original. The exact for-every-n>=8 cap4 threshold, unique null character and sharp embedding dimension, plus hierarchy for all fixed even r>=6, survive the inspected prior comparisons; older metric-transform primary literature remains an access risk.
 
-## Limits
+## value
 
-The exact cap-four proof starts at dimension eight; higher even caps are asymptotic, not exact finite classifications. A relevant older metric-transform paper was available only through secondary descriptions, so stronger historical coverage cannot be categorically excluded. No independent review was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Sharp supremal Hilbert snowflake/conditionally negative definite exponent with a unique Fourier nullspace and endpoint embedding dimension is a natural spectral metric invariant. Determining all fixed even-cap decay orders and a finite-dimensional cap-four exact threshold is motivated by kernel admissibility, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

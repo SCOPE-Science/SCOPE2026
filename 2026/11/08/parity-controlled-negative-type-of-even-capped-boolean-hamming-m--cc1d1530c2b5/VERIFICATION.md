@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The algebraic Walsh formula is proved in RESULT.md via the generating function of binary Krawtchouk polynomials. `check_capped_even.py` was run from these supplied files using standard Python 3 and ended with `EVEN_CAPPED_HAMMING_WALSH_CHECKS_OK`. It checks dimensions eight through thirteen at cap four and finite examples for even caps two, four, six, and eight. All universal claims depend on the displayed proof, not the finite output.
+# Independent mathematical audit
 
-The critical nonstandard verification is the cubic factorization and quadratic lower bound for cap four: the quadratic has global minimum at least \(c(3m^2-21m+47/4)/24>0\) for \(m\ge7\). The derivative comparison establishes a unique root in \((0,1)\), and the general even-cap result follows from uniform Krawtchouk bounds. Exact numeric threshold values printed by the checker are not independent certificates. Historical originality remains bounded by availability of the original metric-transform sources.
+## correctness
+
+PASS
+
+PASS: For Boolean Hamming distance clipped at fixed even r, nonconstant Walsh eigenvalues equal -Q(s), with Q=1+sum_{t=2}^r[t^p-(t-1)^p]K_{t-1}^{(n-1)}(s-1). Thus negative type iff all Q>=0. For r=4,n>=8, cubic Krawtchouk form subtracts parity mode as (z+m)R(z), with R>0 on full real z domain for 0<p<=1 and m=n-1>=7; derivative comparison makes parity Q strictly decreasing and gives unique root 0<beta<1. Exactly one parity layer null, so embedding dimension drops by one. Uniform Krawtchouk magnitude bounds prove n^(r-1)beta -> (r-1)!/ln(r/(r-1)) for every fixed even r; finite test n8..11 independently checked all frequency modes and roots on both sides, not infinite proof.
+
+## originality
+
+PASS
+
+PASS with credit limits: Classical Schoenberg/Sánchez supplies negative-type and finite-metric threshold machinery. The published nonbinary four-cap fixed-alphabet asymptotic recovers the binary cap4 leading constant, so the value 6/log(4/3) is not independently original. The exact for-every-n>=8 cap4 threshold, unique null character and sharp embedding dimension, plus hierarchy for all fixed even r>=6, survive the inspected prior comparisons; older metric-transform primary literature remains an access risk.
+
+## value
+
+PASS
+
+PASS: Sharp supremal Hilbert snowflake/conditionally negative definite exponent with a unique Fourier nullspace and endpoint embedding dimension is a natural spectral metric invariant. Determining all fixed even-cap decay orders and a finite-dimensional cap-four exact threshold is motivated by kernel admissibility, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
