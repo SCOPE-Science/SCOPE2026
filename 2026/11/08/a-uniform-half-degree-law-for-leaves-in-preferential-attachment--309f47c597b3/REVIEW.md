@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is self-contained for the stipulated seed and attachment probabilities. Exact conditional increments \(\Delta(\ell-d/2)=I/2-J\) give mean reversion and bounded conditional variance. An exact expected squared-degree sum controls all degrees simultaneously; deterministic-weight martingale representation, stopping and Freedman's inequality yield the uniform sub-\(\sqrt n\) error. Rising-factorial moments of an initial vertex give a half-normal \(\sqrt n\)-scale lower anchor, and an elementary inequality transfers the uniform error to the two maxima. Exact finite enumerations independently reproduce the local drift and moment identities. Risks: the logarithmic concentration rate is not optimized; finite checks do not certify asymptotics. No limiting assumption is borrowed from the source's unproved global conjecture.
+PASS
 
-## Originality — PASS (provisional)
+For the degree-weighted single-edge preferential-attachment tree rooted in an initial edge, the exact increment of A_v=ell_v-d_v/2 is I{attach to v}/2-I{attach to leaf neighbor of v}; its conditional drift is -A_v/[2(n-1)] and conditional centered variance <=d_v/(n-1). Summing degree squares yields E S_n=2(n-1)H_{n-1}, controlling max degree by Markov at K_n=√n log n. A stopped bounded-increment martingale representation with deterministic damping weights has quadratic variation <=K_n H_{n-1}; Freedman and union over all vertices imply uniform max|A_v|=O_P(n^(1/4)log²n), in fact the stated event threshold holds with probability ->1. The initial vertex degree has rising-factorial moments r! Gamma(n-1+r/2)/(Gamma(1+r/2)Gamma(n-1)), implying degree/√n converges to |N(0,2)|, so √n/max_v d_v=O_P(1). Thus |max ell -max d/2|/max d=o_P(1). Newborn vertices and the n=2 seed are included in the treatment. Source verify.py independently enumerates finite parent histories and checks local drift and moments, but infinite conclusion rests on martingale bounds.
 
-The closest work is Hartle–Krapivsky, *Leaves of preferential attachment trees*, arXiv:2602.01021v1. Its fixed-degree joint distribution and mean/variance comparisons are credited. It explicitly conjectures the maximum leafdegree/maximum degree ratio, whereas the new simultaneous concentration over the entire vertex set and resolution of this conjecture are not stated there. Hartle–Krapivsky, arXiv:2511.04085v1, concerns uniform recursive and leafdegree-based attachment trees; neither is the classical degree-based model in the claim. Targeted scholarly and published-finding corpus searches, including alternative names for leaf-neighbour degree, returned no stronger directly covering result. This is not proof of worldwide novelty; an undiscovered paper using different terminology remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact global extremal ratio is explicitly conjectured in the motivating 2026 paper. Pointwise or fixed-degree concentration cannot by itself control a maximum over \(n\) dependent vertices, especially when hub degrees scale like \(\sqrt n\). The uniform martingale bound closes that structural gap and provides a quantitative comparison applicable simultaneously to all vertices. It does not simply reprint a known marginal distribution or compute a small arbitrary instance.
+Hartle and Krapivsky (2026) study the same classical preferential-attachment leafneighbor statistic; their fixed-degree/leafdegree law gives an asymptotic half-degree relation in fixed-degree strata and expressly states the max-leafdegree/max-degree ratio as a conjecture. The submitted uniform pathwise-in-probability deviation at the n^(1/4)log² n scale controls all vertices with degrees up to √n, a quantifier not implied by fixed-degree marginal asymptotics; it establishes that conjecture. Earlier leaf-driven preferential attachment and recursive-tree studies are different mechanisms. Best-of-knowledge PASS with routine risk of an unindexed later proof.
 
-## Closest literature and limits
+## value
 
-Sources: https://arxiv.org/html/2602.01021 (overview, Sec. III, Sec. V); https://arxiv.org/abs/2511.04085 (introduction and leafdegree-extremes context). The asymptotic result is confined to the degree-proportional single-edge model. The finite checker tests identities only, not an infinite theorem. Further historical priority checks and independent validation would be appropriate before publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum leaf-neighbor count is a natural statistic for a growing network hub, and a precise published conjecture asks for its asymptotic ratio to maximum degree. The submitted simultaneously uniform concentration estimate is substantive because high-degree extremes range over n dependent vertices and cannot be inferred by fixed-degree occupancy distributions. Resolving the conjecture and supplying an explicit error scale fill a motivated probability-theory gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

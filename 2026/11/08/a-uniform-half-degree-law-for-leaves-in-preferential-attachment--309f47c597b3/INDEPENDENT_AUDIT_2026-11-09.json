@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:53:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-uniform-half-degree-law-for-leaves-in-preferential-attachment--309f47c597b3/RESULT.md Git blob ffa48402060c4d82f5f957cbb4e6a2a5c1f8a587",
+        "2026/11/08/a-uniform-half-degree-law-for-leaves-in-preferential-attachment--309f47c597b3/verify.py Git blob 0c3110dbb0a5dadd039f0b51f402cc288b84283c",
+        "Hartle–Krapivsky arXiv:2602.01021v1",
+        "Freedman, On tail probabilities for martingales (1975)"
+      ],
+      "rationale": "For the degree-weighted single-edge preferential-attachment tree rooted in an initial edge, the exact increment of A_v=ell_v-d_v/2 is I{attach to v}/2-I{attach to leaf neighbor of v}; its conditional drift is -A_v/[2(n-1)] and conditional centered variance <=d_v/(n-1). Summing degree squares yields E S_n=2(n-1)H_{n-1}, controlling max degree by Markov at K_n=√n log n. A stopped bounded-increment martingale representation with deterministic damping weights has quadratic variation <=K_n H_{n-1}; Freedman and union over all vertices imply uniform max|A_v|=O_P(n^(1/4)log²n), in fact the stated event threshold holds with probability ->1. The initial vertex degree has rising-factorial moments r! Gamma(n-1+r/2)/(Gamma(1+r/2)Gamma(n-1)), implying degree/√n converges to |N(0,2)|, so √n/max_v d_v=O_P(1). Thus |max ell -max d/2|/max d=o_P(1). Newborn vertices and the n=2 seed are included in the treatment. Source verify.py independently enumerates finite parent histories and checks local drift and moments, but infinite conclusion rests on martingale bounds.",
+      "residual_risks": [
+        "Freedman is used after stopping at a degree threshold; union bound is over all n vertices, with births handled by individual starting indices.",
+        "Result is in probability, not almost sure; log power not asserted sharp; maximizers may differ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior studies fixed-degree joint distribution and distinct attachment rules; classical max-degree results have √n scale but not uniform leaf-neighbor error for all vertices."
+        ],
+        "reasoning": "No inspected theorem implies both uniform bound and ratio. The new result is broader in vertex quantifier, narrower in model selection.",
+        "searches": [
+          "Hartle–Krapivsky 2026 leafdegree fixed degree",
+          "Resultary preferential attachment birth-age covariance and leaf models"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: Preferential attachment tree maximal leaf degree half maximum degree uniform concentration",
+        "Hartle–Krapivsky arXiv:2602.01021, Leaves of preferential attachment trees",
+        "Hartle–Krapivsky arXiv:2511.04085, Statistics of leaves in growing random trees"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior finite-degree as d->infinity: ell approximately d/2 in a suitable fixed-degree limit. Submitted stronger all-n max|ell-d/2|=o_P(√n) and max-quotient limit."
+        ],
+        "reasoning": "Prior marginal convergence cannot be unioned over growing n extreme-degree vertices without quantitative estimates; new proof gives those with a stopped martingale. New implies published conjecture rather than being a restatement of a solved prior theorem.",
+        "searches": [
+          "Hartle–Krapivsky 2026 conjecture passage",
+          "Submitted all-vertex Freedman bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior conjectures maximum leafdegree divided by maximum degree tends to 1/2; submitted result asserts that plus simultaneous max_v|ell_v-d_v/2|=o_P(√n)."
+        ],
+        "reasoning": "The ratio conjecture is an immediate corollary of the new uniform bound plus max degree lower scale, but the published fixed-degree limit is not equivalent to a max-over-v uniform statement.",
+        "searches": [
+          "arXiv:2602.01021 fixed-degree leaves preferential attachment and maximum leafdegree conjecture",
+          "Resultary global leafdegree query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fixed-degree probability tables do not enumerate extreme vertices as n increases. The attached verify.py exhausts small histories only."
+        ],
+        "reasoning": "Not a new finite table; proving all-vertex asymptotics is logically independent of any bounded-size enumeration.",
+        "searches": [
+          "Resultary maximal leafdegree ratio global theorem",
+          "arXiv:2602.01021 tables of degree-leafdegree occupancy"
+        ]
+      },
+      "rationale": "Hartle and Krapivsky (2026) study the same classical preferential-attachment leafneighbor statistic; their fixed-degree/leafdegree law gives an asymptotic half-degree relation in fixed-degree strata and expressly states the max-leafdegree/max-degree ratio as a conjecture. The submitted uniform pathwise-in-probability deviation at the n^(1/4)log² n scale controls all vertices with degrees up to √n, a quantifier not implied by fixed-degree marginal asymptotics; it establishes that conjecture. Earlier leaf-driven preferential attachment and recursive-tree studies are different mechanisms. Best-of-knowledge PASS with routine risk of an unindexed later proof.",
+      "residual_risks": [
+        "The exact global conjecture could conceivably have been resolved elsewhere after the cited February 2026 preprint; no overriding prior theorem found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING global limit; poses it as conjecture",
+          "evidence": "Fixed-degree leafdegree concentration; maximum leafdegree conjecture marked as open.",
+          "identifier_or_url": "https://arxiv.org/html/2602.01021",
+          "material_read": "Primary HTML theorem overview, fixed-degree/leafdegree distribution, and explicit conjectural maximum-ratio discussion",
+          "method": "Lawful arXiv full HTML, targeted substantial sections",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Exact same ordinary degree-proportional attachment model, explicitly stated open global ratio"
+        },
+        {
+          "assessment": "Proves all-vertex bound via stopped Freedman and maximum-degree lower anchor",
+          "evidence": "Drift A and exact E S_n computations, rising factorial moments.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-uniform-half-degree-law-for-leaves-in-preferential-attachment--309f47c597b3/RESULT.md",
+          "material_read": "Complete RESULT.md and verify.py source",
+          "method": "GitHub frozen source",
+          "title": "A uniform half-degree law for leaves in preferential-attachment trees",
+          "trigger": "Current submitted proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hartle–Krapivsky arXiv:2602.01021v1, maximum leafdegree conjecture",
+        "2026/11/08/a-uniform-half-degree-law-for-leaves-in-preferential-attachment--309f47c597b3/RESULT.md"
+      ],
+      "rationale": "The maximum leaf-neighbor count is a natural statistic for a growing network hub, and a precise published conjecture asks for its asymptotic ratio to maximum degree. The submitted simultaneously uniform concentration estimate is substantive because high-degree extremes range over n dependent vertices and cannot be inferred by fixed-degree occupancy distributions. Resolving the conjecture and supplying an explicit error scale fill a motivated probability-theory gap.",
+      "residual_risks": [
+        "Restriction to classical degree-proportional attachment; rate exponent/logs may be improved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Same C/O/V assessment criterion used across all records; verified finite computations treated only as corroboration, not infinite proofs.",
+    "Best-of-knowledge bibliography and reading risks are retained in the respective originality objects.",
+    "Source-tree SHA from assigned frozen commit independently matched exact Git tree object, and no GitHub mutations were performed."
+  ],
+  "schema_version": 1
+}
