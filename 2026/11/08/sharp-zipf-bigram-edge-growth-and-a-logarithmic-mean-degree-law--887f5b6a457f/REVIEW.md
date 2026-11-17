@@ -1,19 +1,21 @@
-# Scientific review: Sharp Zipf bigram edge growth and a logarithmic mean-degree law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact infinite Zipf normalization and the distinction between ordered and unordered edges are specified. Nonloop ordered-pair occurrence indicators are 1-dependent and mutually exclusive at neighboring indices; Stein–Chen gives an aggregate bounded Poisson-occupancy error. A Dirichlet divisor count and an explicitly integrated kernel give both the leading term and the secondary coefficient, with a controlled square-root divisor remainder. Unordered-pair overlaps give a separate \(O_a(n^\gamma)\) aggregate error. The self-bounding deletion inequality yields a rigorous variance bound and the strong law; ordinary heavy-tail occupancy gives the vertex denominator. A standalone checker passed 17,939 exact-rational finite assertions, including complete enumerations, but the infinite arguments are proved analytically in RESULT.md.
+PASS
 
-## Originality — PASS (best-knowledge, subject to priority verification)
+For iid infinite-alphabet Zipf pi_i=c i^-a, a>1, gamma=1/a, nonloop ordered-pattern occurrence events have dependency neighborhoods of size three with self-overlap impossible, yielding aggregate Poisson approximation error O(1). Replacing loops at O(n^{gamma/2}), the directed expectation becomes S(t)=sum_m d(m)[1-exp(-(B/m)^a)] with B=(tc²)^gamma. Dirichlet hyperbola D(x)=x logx+(2gamma_E−1)x+O(sqrt x), Stieltjes integration and Gamma derivative give Gamma(1−gamma)c^{2gamma}n^gamma[gamma log n+2gamma log c+2gamma_E−1−gamma psi(1−gamma)]+O(n^{gamma/2}). Undirected merger has event probability 2pi_i pi_j and adjacent overlap pi_i pi_j(pi_i+pi_j), summably O(n^gamma), giving leading multiplier 2^{gamma−1}. Removing transitions at an input position yields 0<=A_r<=2 and sum_r A_r<=2T, so Efron–Stein Var T<=8 ET; geometric grid plus monotonicity yields a.s. and L² edge laws. Standard vertex occupancy gives V_n~Gamma(1−gamma)c^gamma n^gamma and the two mean-degree constants. Independent numerical grouping of divisor Poisson sums at a=2,n=10000,100000,500000 agrees with two-term approximation within O(n^{gamma/2}); finite truncated tails bounded separately. No CLT or all regularly varying laws established.
 
-Xie and Zhou, *Universal Exponent-Two Degree Laws in Range-Renewal Networks*, arXiv:2609.05290 (2026), prove fixed-degree/iterated-tail results without an asymptotic total-edge count; Chen, Xie and Ying, arXiv:1305.1829, likewise do not supply uniform growing-degree sums. Archibald et al., arXiv:1806.04962, and Louchard, Schachinger and Ward, arXiv:2203.14773, inspect the same adjacent-pair observable but for a geometric rather than power-law distribution. Full primary statements and accessible text were examined. Public mathematical-record searches for range-renewal, ordered adjacent bigrams, Zipf edge counts, and their leading coefficients did not return a covering statement. The nearest published records discuss finite-alphabet substring counts or different graph/urn objects. A more general unpublished or unlocated infinite-alphabet word-pattern theorem could overlap; no uniqueness is asserted from unsuccessful searches alone. Exact queries, IDs, implications and inspections are documented in AUDIT.json.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Total distinct edges and logarithmically diverging mean degrees are natural finite-time network descriptors not settled by a fixed-degree power-law tail. The orientation merger changes the leading constant by a nontrivial factor \(2^{\gamma-1}\). The exact secondary term for directed edges distinguishes power-law product-frequency collisions and permits finite-size estimation; its divisor-method derivation supports related statistics. The result is not merely a renamed coupon-occupancy limit because the adjacent pairs overlap, and controlling that dependence is necessary.
+The finite-time second-order directed edge expectation and both a.s. logarithmic mean-degree constants are a distinct sharp result for Zipf sequence-generated graphs. Chen–Xie–Ying and Xie–Zhou establish range/degree laws; geometric-alphabet adjacent-pair papers have different probability decay. A general unpublished regular variation word-pattern theorem may subsume part, retained as priority risk.
 
-## Scope and limitations
+## value
 
-Only \(a>1\) and the exact normalized infinite Zipf alphabet are covered. The undirected second-order constant, CLT and general slowly varying tails are not proved. Finite numerical/finite-state checks do not replace proof and no independent assessment has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp growth of observed edges and degrees in infinite-power-law sequence graphs is a natural network invariant; the divisor-function second-term expansion and strong-law bridge over overlapping bigrams fill a mathematical gap between fixed-degree limits and finite sample graph size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
