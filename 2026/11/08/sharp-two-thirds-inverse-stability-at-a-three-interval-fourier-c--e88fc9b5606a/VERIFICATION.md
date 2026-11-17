@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run `python3 CHECK.py` under Python 3 without third-party dependencies. This reconstructs the positive and negative pair-distance autocorrelation peaks directly as sums of triangular kernels and integrates their squared difference exactly over the sorted rational breakpoints. Its selected rational samples verify the exact identity \(E(\varepsilon,0)^2=8|\varepsilon|^3\) and nontrivial two-parameter cases. There is no floating-point premise in the cubic identity checks.
+## correctness
 
-The complete proof for arbitrary real \(L>0\), \(d>3L\) and \(|u|,|v|<L/20\) is in `RESULT.md`; finite samples are not an exhaustive proof. The key analytic steps are convolution with reflection, Plancherel, disjoint-support decomposition, exact three-tent integral \(4|s|^3\), translation Lipschitz estimates, and the pure-split contradiction to any larger inverse exponent. This is an internal self-review only. No independent audit, external certification, numerical noise model, or all-pairs inverse theorem has been performed.
+PASS
+
+Plancherel transforms squared-intensity differences to disjoint positive/negative autocorrelation peak differences, yielding E²=2||A||²+2||B||². The triangular kernel K_L=(L-|t|)_+ has ||T_sK+T_-sK-2K||²=4|s|³ when |s|<L/2; translation Lipschitz bounds control the v direction, proving uniform constants independent of d>3L. Setting v=0 gives exact 8|u|³ and rules out inverse exponents >2/3. Independently re-evaluated six exact rational autocorrelation integrals from all pair distances; finite tests corroborate but do not prove the real-parameter estimate.
+
+## originality
+
+PASS
+
+The sharp 2/3 local inverse modulus in full L² squared Fourier intensity at a repeated-distance double peak is distinct from both three-interval finite-jet inverse Hölder 1/2 and general collision-free sparse phase retrieval. Originality is best of knowledge; the most relevant Xia–Xu complete text was inaccessible.
+
+## value
+
+PASS
+
+The first repeated-distance collision is a natural singularity of three-interval phase retrieval; identifying a sharp, parameter-uniform local inverse exponent and exact cusp energy gives a reusable conditioning boundary not supplied by generic uniqueness claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
