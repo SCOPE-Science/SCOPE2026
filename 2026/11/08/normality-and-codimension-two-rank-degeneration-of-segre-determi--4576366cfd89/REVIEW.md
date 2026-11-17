@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The general proof isolates the rank-\(M\) open using explicit coordinate Segre points, constructs the hyperplane incidence, and checks its dimension \(D=M+n(d-1)\). The proper rank-drop inverse image has every fiber at least one-dimensional; that shows its image has codimension at least two. The conormal incidence at one marked point has dimension \(M-1\), and adding the other \(n-1\) hyperplane-section points gives the bound \(D-d\). Away from tangency the incidence equations have independent differentials, so the rank-\(M\) open is regular in codimension one. The published Cohen--Macaulay result supplies \((S_2)\), and Serre's criterion supplies normality. The proof does not incorrectly equate tangency with singularity; it proves a containment only. The finite checker corroborates the coordinate witness and bounds, not the infinite assertion.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest exact-family source is Alstad--Duff--Katzman, arXiv:2606.31965v1. Their prime and Cohen--Macaulay results are expressly used, not claimed as new. Those premises do not by themselves imply \((R_1)\). Pratt's Segre determinant and Breiding et al.'s line-multiview model do not identify the claimed codimension-two exceptional rank geometry. Targeted semantic searches of prior mathematical findings and accessible own-claim records identified no equivalent theorem. A broader unindexed determinantal-incidence theorem or implicit same-paper implication is an unresolved priority risk. This is not an independent audit.
+PASS
 
-## Mathematical value — PASS
-The result upgrades all-dimensional prime/Cohen--Macaulay determinantal families to normal varieties, precluding divisorial conductor phenomena on the multiprojective scheme. The proof gives explicit geometric reasons: rank loss cannot occur in codimension one, and tangencies occupy higher codimension. This is useful for birational reconstruction and singularity analysis of Segre-based multiview models.
+Hyperplane incidence W={(p_i,H):H(p_i)=0} has pure dimension D=M+n(d−1), irreducible by Bertini for d≥2 and constant-dimensional fibers. Its rank-M projection is an isomorphism by local maximal minors. The preimage of rank<M is a proper closed subset and fibers have dimension at least one, hence rank-drop image codimension≥2. Tangent hyperplane-point incidence has dimension M−1; adding n−1 section points bounds singular locus on rank-M by D−d, d≥2. Published prime/CM gives S2, incidence tangent analysis gives R1, so normality follows by Serre. This is multiprojective, not the multicone; finite checker only tests dimension and witness construction.
 
-## Scope and limitations
-All factors must have positive dimension, at least two factors must occur, and \(n\ge M+1\). The conclusion is multiprojective normality, not affine multicone integral closure. Exact singular schemes, rational singularities, and non-Segre camera models are not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Alstad–Duff–Katzman prove prime and Cohen–Macaulay maximal-minor ideal but not its Serre R1, normality, rank-drop codimension or tangent obstruction bounds in the inspected original full text. Pratt studies square Segre determinant and Chow–Lam geometry, and line-multiview models are different. General unrestricted determinantal normality does not automatically apply after restricting rows to Segre points.
+
+## value
+
+PASS
+
+Normality is a nontrivial global geometric property of a natural multiview/Segre degeneracy scheme; the rank-defect and tangency bounds identify why Serre regularity survives specialization. It fills a clear gap between published primality/CM and the geometry of the entire multiprojective rank locus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

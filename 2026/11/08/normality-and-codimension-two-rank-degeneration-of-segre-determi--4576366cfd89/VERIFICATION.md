@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and mathematical scope
+# Independent mathematical audit
 
-**Main proof checks:** The hyperplane incidence has pure dimension \(M+n(d-1)\) and is irreducible by connected generic hyperplane sections and fiber-dimension purity. Full rank \(M\) is explicitly attained using coordinate Segre points. Over rank \(M\), projection from incidence has a regular inverse given locally by maximal nonzero minors. The rank-defect inverse image is proper and has fibers of dimension at least one, hence its image has codimension at least two. The tangency conormal has dimension \(M-1\), and the locus where a selected point is tangent to its containing hyperplane has codimension at least \(d\ge2\). This ensures \((R_1)\); source-proved Cohen--Macaulayness supplies \((S_2)\).
+## correctness
 
-**Finite replay:** Run `python3 verify.py` to verify, in exact rational arithmetic, the rank-\(M\) coordinate-witness construction and dimension formulas on six finite parameter choices. This replay does not establish Bertini irreducibility, Cohen--Macaulayness, or infinite normality, all of which depend on the written mathematical proof and stated published premise.
+PASS
 
-**Unverified extensions:** Normality of the full affine multicone, a complete singular-locus description, and any independent audit or historical uniqueness certification are not claimed.
+Hyperplane incidence W={(p_i,H):H(p_i)=0} has pure dimension D=M+n(d−1), irreducible by Bertini for d≥2 and constant-dimensional fibers. Its rank-M projection is an isomorphism by local maximal minors. The preimage of rank<M is a proper closed subset and fibers have dimension at least one, hence rank-drop image codimension≥2. Tangent hyperplane-point incidence has dimension M−1; adding n−1 section points bounds singular locus on rank-M by D−d, d≥2. Published prime/CM gives S2, incidence tangent analysis gives R1, so normality follows by Serre. This is multiprojective, not the multicone; finite checker only tests dimension and witness construction.
+
+## originality
+
+PASS
+
+Alstad–Duff–Katzman prove prime and Cohen–Macaulay maximal-minor ideal but not its Serre R1, normality, rank-drop codimension or tangent obstruction bounds in the inspected original full text. Pratt studies square Segre determinant and Chow–Lam geometry, and line-multiview models are different. General unrestricted determinantal normality does not automatically apply after restricting rows to Segre points.
+
+## value
+
+PASS
+
+Normality is a nontrivial global geometric property of a natural multiview/Segre degeneracy scheme; the rank-defect and tangency bounds identify why Serre regularity survives specialization. It fills a clear gap between published primality/CM and the geometry of the entire multiprojective rank locus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
