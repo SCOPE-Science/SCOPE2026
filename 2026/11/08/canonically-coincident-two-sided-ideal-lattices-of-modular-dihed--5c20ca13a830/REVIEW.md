@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses an exact presentation of both group algebras on the same coefficient vector space, establishes the identity \((1+r^{m/2})=(r+r^{-1})r(r+1)^{m/2-2}\) for every power-of-two \(m\ge4\) in characteristic two, and constructs the precise left- and right-generator action differences. These differences necessarily preserve any two-sided ideal, in both directions. The coding-theoretic consequences follow because the identification preserves coefficients. Complete binary order-eight enumeration and direct order-sixteen/thirty-two tests corroborate the theorem but are not needed for its infinite scope.
+## correctness
 
-**Originality — PASS, qualified.** The 2014 Elia–Gorla paper develops ideal dimension algorithms, not a comparison of two distinct nonisomorphic group rings' entire two-sided ideal-subspace collections. The 2019 Cao–Cao–Fu–Gao paper classifies left dihedral codes and therefore covers the D8 side of several numerical counts; these counts are explicitly not presented as new on their own. The 2002 Marks work contains known quaternion group-ring ring-property examples. The 2021 Creedon–Hughes–Szabo paper is the closest risk: its accessible abstract documents common ring-theoretic properties and modular nonisomorphism, but full text was unavailable, so whether it or earlier work implies the complete canonical lattice equality remains unresolved. The pass is a best-knowledge provisional comparison, not certified priority.
+PASS
 
-**Value — PASS.** An ideal-lattice equivalence preserving the actual ambient coefficient subspaces is stronger than an abstract lattice isomorphism or a coincidental count. It holds for every power-of-two group order and arbitrary characteristic-two fields, including finite fields relevant to two-sided group codes. It preserves every code's full weight distribution and support geometry, while the left-side code collections may differ, pinpointing exactly which coding-theoretic data fail to distinguish the two algebra families. The result supplies a structural comparison of nonisomorphic modular group algebras rather than an arbitrary small-case invariant.
+Write A_e=R⊕Rw with R=k[r]/(r^m−1), char k=2, z=r^{m/2}, w a=bar(a)w and w²=z^e (e=0 dihedral,1 quaternion). Left and right r actions have the same coefficients in both algebras, while L_w and R_w differ only in first-coordinate terms ((1+z)bar b,0) and ((1+z)b,0). For any two-sided ideal I, L_r+R_r applied to (a,b) gives (0,(r+r^{−1})b); since (1+z)=(r+r^{−1})r(r+1)^{m/2−2}, I contains (0,(1+z)b), and applying w to it on left and right yields both difference terms. Therefore stability for both left/right generators in A_e implies stability in A_{1−e}, symmetrically. This works for every characteristic-two field and m=2^h≥4. The basis map is coefficient identity, hence Hamming supports and subspace lattice structure match, without asserting algebra homomorphism. Independently multiplied polynomials modulo r^m−1 over F2 for m=4,8,16,32 and verified divisibility identity. Source checker was read; its m=4, F2 ideal counts are corroboration, not proof for arbitrary fields.
 
-Remaining risks: complete historical priority checking of Creedon–Hughes–Szabo (2021) and Jeyakumar (1970) was obstructed by unavailable full text. Earlier theorems may cover this statement by an implicit reduction. The finite counts are for \(\mathbb F_2\) only, not all characteristic-two fields.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge narrow theorem is equality of all two-sided ideal SUBSPACES under an explicitly fixed coefficient identification for every char-two field, yielding Hamming-isometric group codes. Published older dihedral coding work largely catalogs left ideals; earlier dihedral/quaternion comparison proves many shared abstract ring-theoretic properties and nonisomorphism but its accessible abstract does not explicitly state canonical equality of all two-sided ideal subspaces. This is a qualified PASS, not a claim that the inaccessible 2021 article lacks an equivalent theorem.
+
+## value
+
+PASS
+
+Canonical equality of full two-sided ideal lattices despite nonisomorphic group algebras and different left-ideal spectra is a natural structural invariant and a meaningful counterpoint to algebraic distinguishability. The explicit char-two generator relation proves all-field, all-2-power-order equivalence and yields entire corresponding two-sided code Hamming weight enumerators, not just an arbitrary small example. This is substantive mathematical motivation before computation; the F2 order-eight census illustrates rather than supplies the theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
