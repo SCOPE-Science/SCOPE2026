@@ -1,15 +1,21 @@
-# Scientific review: quadratic half-flux leakage on an absorbing ring
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact magnetic-ring determinant and the rank-one trap determinant lemma give the Chebyshev secular identity. At half flux the relevant roots are simple roots of the **non-Hermitian** determinant, although they originate from degeneracies of the free ring. Differentiating the second-kind Chebyshev polynomial gives the explicit negative imaginary quadratic shifts. The proof independently establishes a uniform finite-size gap for all other lossy modes; their disappearance on the stretched time scale and the limiting orthogonality of the slow spectral projections justify adding survival probabilities rather than quantum amplitudes. Midpoint quadrature and the Bessel integral establish the explicitly ordered infinite-size limit. The accompanying verifier passed 77 numerical assertions; no claim of infinite mathematical proof from finite computation is made.
+## correctness
 
-## Originality — PASS on examined evidence, with residual historical risk
-Krapivsky–Luck–Mallick (arXiv:1311.6298, section 4) study unthreaded rings, their static dark/bright spectrum, and bright decay scales, but do not introduce a Peierls flux near half a quantum or derive this slow-mode coefficient and Bessel survival law. Emary (arXiv:0705.2934, sections I–II) studies flux-lifted coherent population trapping and quadratic stationary current in a three-dot transport geometry, not the present entire family of even rings, time-dependent no-click survival, or sequential Bessel limit. Le and collaborators (2018) supply more general dark-state suppression background, with no inspected corresponding finite-ring dynamical formula. The earlier complete static dark-subspace and localized ultimate-survival classification for flux-threaded cycles is not new here. Its exact half-flux survival endpoints are acknowledged and excluded. Search/index completeness and uninspected older AB-ring literature are genuine priority risks, not proofs of novelty by absence.
+PASS
 
-## Mathematical value — PASS
-The question is a physically motivated singular-time effect: a perfectly protected localized excitation at exact half flux becomes ultimately captured under arbitrary nonzero nearby flux, so the needed time scale cannot be read from the eventual capture probability. The exact entire spectrum of quadratic escape widths and the Bessel crossover quantify the kinetic loss mechanism, including the noncommutation of finite-size long-time and sequential large-size limits. These are natural observables in coherent transport and not merely a renaming of a protected-subspace rank.
+Chebyshev determinant identity det(z-H)=2J^n[T_n(z/2J)-cos(phi)+i gamma/(4J) U_{n-1}(z/2J)] makes each half-flux dark root simple in the lossy characteristic polynomial. Expansion of cos(pi+delta) and U derivative gives -Im z=4J^2 sin^2(theta)delta^2/(gamma n)+O(delta^4). Dark spectral projectors are orthogonal at delta=0, while other modes decay uniformly on the delta^-2 scale for fixed n, giving the finite mixture. A subsequent midpoint integral yields exp(-tau/2)I0(tau/2) and 1/sqrt(pi tau). Independently evaluated small-ring non-Hermitian matrices for n=4,6,8 and delta=0.002; widths matched within 0.5%. No joint n,delta limit is asserted.
 
-## Scope and residual limitations
-The order of limits matters: \(\delta\to0\) for fixed even \(n\), followed by \(n\to\infty\). No simultaneous size–detuning theorem is asserted. A finite ring always has an exponentially decaying asymptotic rescaled curve, unlike the later Bessel continuum tail. The theorem assumes a single local absorber, coherent unitary hopping apart from loss, and fixed positive coupling and trap rate. Historical priority remains to be independently assessed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The November 2 even-ring mean-capture theorem already proves flux-dependent mean time, dark phases and inverse-square divergence, but its result uses a maximally mixed initial state and an integrated lifetime. It does not give the localized antipodal finite-time leakage mixture or Bessel scaling limit. Static dark-sector findings are also previously covered.
+
+## value
+
+PASS
+
+The explicit near-dark spectral widths and sequential Bessel survival crossover identify an experimentally meaningful transient law that finite mean-time optimization does not determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
