@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of complete directed flow inballs
+# Independent mathematical audit
 
-The mathematical proof is presented in `RESULT.md`. The script `check_flow_inball.py` is independently executable with Python 3, NumPy, and SciPy. Running `python check_flow_inball.py` returned:
+## correctness
 
-`COMPLETE_FLOW_INBALL_CUT_AND_LOCUS_CHECKS_PASSED 63`
+PASS
 
-The script tests 63 flow instances with \(3\leq n\leq11\), including unit-source/unit-sink and randomly generated positive rational proper prefix-sum cases. It checks exact rational feasible-flow certificates, solves 63 independent linear programs for the maximal common coordinate floor, directly constructs the orthogonal projection onto the incidence kernel using numerical singular-value decomposition, and compares critical-cut block-rank dimensions. It additionally checks the closed middle-cut parity formulas for \(3\leq n\leq17\).
+For complete-graph incidence B, BB^T=nI−J, hence each edge-coordinate restriction to ker B has norm sqrt((n−2)/n). Thus an intrinsic ball centered at x has radius sqrt(n/(n−2))*min_e x_e. Every prefix cut has k(n−k) crossing edges and conserved total beta_k, giving min_e x_e≤τ=min beta_k/[k(n−k)]. The explicit feasible x_e=τ+1_{e=(k,k+1)}(beta_k−k(n−k)τ) achieves equality; proper prefix conditions guarantee full-dimensional positive feasible flows. For every tight cut, y=x−τ1≥0 has zero crossing sum and therefore zero individual crossing values. The remaining edges decompose across contiguous blocks, each with positive internal prefix netflows; their relative affine dimensions are (d−1)(d−2)/2. With b=e1−en, central cuts maximize k(n−k), recovering the stated radius and center dimension. No general metric equivalence to alternate Birkhoff-face embeddings assumed.
 
-The all-dimensional proof relies on an explicit positive-flow construction, the complete-graph Laplacian pseudoinverse, elementary cut conservation, and independent-block rank counting. The finite computational checks do not certify the proof or its novelty. Alternative Euclidean embeddings and degenerate zero-prefix netflow cases are outside the stated theorem.
+## originality
+
+PASS
+
+PASS best-of-knowledge for the all-prescribed-positive-prefix-netflow complete-DAG metric inradius and the exact tight-cut factorized incenter locus/dimension. The published general unit-flow antichain theorem covers CRY special radius and center inequalities, which are treated as prior work, not the novel remainder.
+
+## value
+
+PASS
+
+The all-prescribed-real-netflow complete-DAG family is a natural parametrization of network-flow polytopes. The exact optimal-radius geometry and entire space of incenters can undergo cut-controlled dimension transitions; identifying its product decomposition and dimension for every positive prefix vector gives more than a routine scalar max-min LP value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

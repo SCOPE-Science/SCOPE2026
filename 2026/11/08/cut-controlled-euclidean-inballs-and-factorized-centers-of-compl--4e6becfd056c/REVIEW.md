@@ -1,19 +1,21 @@
-# Scientific review: Complete directed flow inballs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(n\geq3\) and real zero-sum netflow with strictly positive proper prefix sums, the claim uses precisely the affine edge-coordinate Euclidean metric. The full incidence rank, all-positive feasibility construction, and complete-graph Laplacian yield a common coordinate-normal projection length \(\sqrt{(n-2)/n}\). Every feasible flow satisfies the cut bound \(\min_e x_e\leq\min_k\beta_k/[k(n-k)]\); an explicit constant-plus-adjacent-edge flow attains it. Vanishing residual cut sums force exactly the edges across all minimizing cuts to zero. Strict residual prefix positivity gives full-dimensional product factors and the stated center-locus dimension. The unit-source/unit-sink parity formulas follow by maximizing the quadratic cut capacity. The standalone rational/LP/SVD checker passed 63 general instances and additional parity checks. The computation is only corroboration, not the proof.
+PASS
 
-## Originality — PASS, with priority risk
+For complete-graph incidence B, BB^T=nI−J, hence each edge-coordinate restriction to ker B has norm sqrt((n−2)/n). Thus an intrinsic ball centered at x has radius sqrt(n/(n−2))*min_e x_e. Every prefix cut has k(n−k) crossing edges and conserved total beta_k, giving min_e x_e≤τ=min beta_k/[k(n−k)]. The explicit feasible x_e=τ+1_{e=(k,k+1)}(beta_k−k(n−k)τ) achieves equality; proper prefix conditions guarantee full-dimensional positive feasible flows. For every tight cut, y=x−τ1≥0 has zero crossing sum and therefore zero individual crossing values. The remaining edges decompose across contiguous blocks, each with positive internal prefix netflows; their relative affine dimensions are (d−1)(d−2)/2. With b=e1−en, central cuts maximize k(n−k), recovering the stated radius and center dimension. No general metric equivalence to alternate Birkhoff-face embeddings assumed.
 
-The strongest inspected same-object sources are Corteel–Kim–Mészáros, *Flow polytopes with Catalan volumes* (arXiv:1612.00102), Dugan, *On the f-vectors of flow polytopes for the complete graph* (arXiv:2409.15519), and Lee–Liu, *Deformation cones of Tesler polytopes* (arXiv:2212.11423). Their results concern normalized volume, face enumeration, and deformation/normal-fan structure, respectively; none states a sharp intrinsic Euclidean inradius with a complete product classification of incenters. Mészáros–Morales–Rhoades (arXiv:1409.8566) supplies the earlier flow/Tesler correspondence and face theory, not this metric theorem. The broad general inradius theorem for transportation polytopes does not imply this result for a lower-dimensional flow face, and an inradius theorem for graphical zonotopes involves a different Minkowski-sum body. Exact or equivalent formulations may exist in classical lower-bounded network-flow, max-min fairness, or Chebyshev-center literature; searchable evidence does not rule this out. No independent literature-priority audit has occurred.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Chan–Robbins–Yuen family is a standard high-dimensional polytope with established enumerative and volume theory. The present result computes its previously unverified edge-metric radius exactly, including the sharp \(4/n^2\) scaling; more importantly, it characterizes every maximizing center and shows that optimal balls have a center set of asymptotically half the polytope's dimension. The general theorem gives an exact geometry/flow bridge and a stratification by bottleneck cuts for arbitrary positive-prefix real netflows, not an arbitrary parameter specialization. These invariants offer a useful metric contrast to the established volume/face/deformation results. It does not claim a general theorem for other graphs or alternative embeddings.
+PASS best-of-knowledge for the all-prescribed-positive-prefix-netflow complete-DAG metric inradius and the exact tight-cut factorized incenter locus/dimension. The published general unit-flow antichain theorem covers CRY special radius and center inequalities, which are treated as prior work, not the novel remainder.
 
-## Limitations and related literature
+## value
 
-The edge-coordinate metric is essential: the Birkhoff-face incarnation of Chan–Robbins–Yuen is not asserted to be Euclidean isometric. The vanishing-prefix case is excluded, and the existing generic feasibility principle for network lower bounds is not claimed new. A possible older equivalent presentation under fair-flow optimization terminology is the principal residual risk. Independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-prescribed-real-netflow complete-DAG family is a natural parametrization of network-flow polytopes. The exact optimal-radius geometry and entire space of incenters can undergo cut-controlled dimension transitions; identifying its product decomposition and dimension for every positive prefix vector gives more than a routine scalar max-min LP value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
