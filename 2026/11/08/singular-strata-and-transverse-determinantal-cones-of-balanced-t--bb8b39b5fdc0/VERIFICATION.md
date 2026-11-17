@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The theorem is proved for every integer \(d\ge3\) in `RESULT.md`. The independent-audit channel has not been used.
+# Independent mathematical audit
 
-Reproduce the finite exact computations with `python3 verify_chart.py` (standard library only). The program explicitly expands Plücker minors in the distinguished affine chart and verifies the key generator/ideal inclusions for \(2\le d\le6\); it also checks the rank-one cone Hilbert-series coefficient identity for degrees zero through seven.
+## correctness
 
-Observed final output:
+PASS
 
-```
-d=2 retained=5 transverse_k=1 CHART_AND_HILBERT_OK
-d=3 retained=19 transverse_k=4 CHART_AND_HILBERT_OK
-d=4 retained=69 transverse_k=9 CHART_AND_HILBERT_OK
-d=5 retained=251 transverse_k=16 CHART_AND_HILBERT_OK
-d=6 retained=923 transverse_k=25 CHART_AND_HILBERT_OK
-ALL_EXACT_PLUCKER_CHECKS_OK
-CERTIFICATE_OK
-```
+For projection of Gr(d,E⊕F) from [∧^d F], a one-swap affine source chart has coordinates a_j,b_i,z_ij,c, with only c (the all-F Plücker coordinate) discarded. All retained maximal minors generate precisely C[a,b,z,c z]: each c term outside the discarded minor contains some z; the retained minors recover each a,b,z and c z. The rank-one relations among (z,c z) give an exact scheme-theoretic chart A^{2d−2}×D_k, k=(d−1)^2. Its vertex locus is the Segre Z_d, with Hilbert numerator 1+(k−1)t, multiplicity k. Outside the projected tangent-direction space, Plücker quadrics solve for the omitted coordinate, proving smoothness elsewhere and global normality. Independently checked every retained minor d=3 and d=4 by exact determinants; the general determinant and inverse arguments prove all d≥3, d=2 is smooth.
 
-Finite computations do not establish the universal assertion. The proof uses an all-size determinant argument and separately establishes smoothness outside the identified Segre stratum. The result does not compute the nonreduced singular subscheme or the geometry of unbalanced truncations.
+## originality
+
+PASS
+
+The earlier fully inspected d=3 projected Grassmannian result already gives P²×P², 2×4 transverse cone and multiplicity four; that overlap is acknowledged. The present uniform theorem for every d≥3 gives unbounded k=(d−1)^2 and no extra strata, not implied by one finite instance. Broader truncated Grassmannian literature may yet imply it; original primary full text was not accessible.
+
+## value
+
+PASS
+
+A uniform exact singular locus and completed determinantal local ring with multiplicity growing as (d−1)^2 is a natural, substantive geometric classification of point projections of Plücker Grassmannians; it is more than a small-case recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
