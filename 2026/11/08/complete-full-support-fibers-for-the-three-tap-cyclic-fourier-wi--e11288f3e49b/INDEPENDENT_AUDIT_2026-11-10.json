@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T09:56:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the complete N-point DFT (N=2m>=6), recover C0(t)=sum_{j=0}^2 |f_{t+j}|², C1(t)=f_t conj(f_{t+1})+f_{t+1} conj(f_{t+2}), and C2(t)=f_t conj(f_{t+2}). Equality C2 and f full support forces g full support and r_t conj(r_{t+2})=1 for r_t=g_t/f_t. Therefore r_{t+4}=r_t; on each parity cycle of odd length m the ratios are constant, and their moduli must be one. The nontrivial relative parity phase imposes alternating adjacent-product ratios, then a_{t+2}=a_t and f_{t+2}/f_t=ρ independent of t. Cyclicity gives ρ^m=1; solving C1 fixes delta=(B conj(A) conj(ρ))/(A conj(B)). Conversely this unique nonidentity parity rephasing preserves all three autocorrelation rows, hence all intensities. The proof includes m=3 and multiples of 3, where zero-lag inversion is unavailable. Independent direct intensities tested at N=6,18,30 for δ=-1; finite tests corroborate but are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resonant-window theorem assumes W(ξ)=|a|²+|b|²ξ+|c|²ξ² nonzero for all Nth roots; for equal taps W(ω)=1+ω+ω² vanishes when 3|N."
+        ],
+        "reasoning": "The more general window result does not dominate the arithmetic boundary added by the submitted claim; Bartusel injectivity criteria do not state the same full-support exact fibers.",
+        "searches": [
+          "Three tap equal window periodic STFT phase retrieval exact ambiguity all full support fibers, odd half length two parity geometric progressions",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-phase-retrieval-fibers-for-resonant-three-tap-cyclic-wi--c572cf40b07f",
+          "arxiv:2206.06729"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-phase-retrieval-fibers-for-resonant-three-tap-cyclic-wi--c572cf40b07f",
+        "arxiv:2206.06729",
+        "arxiv:2112.02836"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old theorem excludes 3|N expressly by nonsingular three-term cyclic convolution. The submitted C2 argument imposes unimodular parity ratios for odd m without using that convolution."
+        ],
+        "reasoning": "On 3∤N the submitted theorem is already implied, and no priority is credited there. On 3|N and odd m the earlier theorem has a false hypothesis and does not imply the missing cases; the new argument proves them.",
+        "searches": [
+          "Three tap equal window periodic STFT phase retrieval exact ambiguity all full support fibers, odd half length two parity geometric progressions",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-phase-retrieval-fibers-for-resonant-three-tap-cyclic-wi--c572cf40b07f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "STFT is the cyclic three-site equal boxcar up to harmless shift/modulation; old full-support fibers have the same alternating-geometric progression and other class."
+        ],
+        "reasoning": "Equivalent measurement formulas and two-phase representatives were aligned; on 3∤N the prior N>=8 result is mathematically identical, but there are legitimate extra N=6 mod 12.",
+        "searches": [
+          "Three tap equal window periodic STFT phase retrieval exact ambiguity all full support fibers, odd half length two parity geometric progressions",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5",
+          "arxiv:2206.06729"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier boxcar exact exceptional locus covers even N>=8 with 3∤N; no inspected table covers N=6,18,30,..."
+        ],
+        "reasoning": "This is a structural family-of-fibers classification, not a lookup table; searched full-support STFT records and exact specialized results rather than relying on title alone.",
+        "searches": [
+          "Three tap equal window periodic STFT phase retrieval exact ambiguity all full support fibers, odd half length two parity geometric progressions",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-phase-retrieval-fibers-for-resonant-three-tap-cyclic-wi--c572cf40b07f"
+        ]
+      },
+      "rationale": "Prior exact boxcar theorem proves the same full-support fiber classification on the major subdomain even N>=8 with 3 not dividing N. This submission has genuine unproved-by-that-paper coverage at N=6,18,30,... (N=2m with m odd divisible by 3), via C2-only parity rigidity rather than C0 magnitude inversion; the stronger resonant-window paper also assumes zero-lag invertibility and cannot cover flat taps at 3|N. Originality accepted only for this nontrivial arithmetic completion, not for the overlapping domain.",
+      "residual_risks": [
+        "Potential unindexed older treatment of flat-window N divisible by three remains possible.",
+        "The already-covered 3∤N domain must not be characterized as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXISTING_DOMAIN_ONLY",
+          "evidence": "Exact same twofold parity phase class and exceptional progressions, but only 3∤N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5",
+          "material_read": "Full RESULT.md: hypotheses N>=8 even 3∤N, three-row autocorrelation proof, necessity/sufficiency, examples and limitations",
+          "method": "GitHub frozen published RESULT.md",
+          "title": "Exact full-support phase fibers for the three-site cyclic boxcar window",
+          "trigger": "Identical three tap window and exact projective fibers"
+        },
+        {
+          "assessment": "NOT_COVERING_3_DIVIDES_N_FLAT_WINDOW",
+          "evidence": "W=1+ξ+ξ² vanishes at primitive cube roots for 3|N; no implication for submitted new boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-phase-retrieval-fibers-for-resonant-three-tap-cyclic-wi--c572cf40b07f",
+          "material_read": "Full RESULT.md: hypotheses |a|=|c|, zero-lag circulant W nonzero, proof, examples and limitations",
+          "method": "GitHub published full RESULT.md",
+          "title": "Complete phase-retrieval fibers for resonant three-tap cyclic windows",
+          "trigger": "Strong apparent broad three-tap theorem"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_EQUIVALENT",
+          "evidence": "Generic/connected-support injectivity does not give the exact nowhere-zero parity-fiber classification for this singular window.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.06729",
+          "material_read": "Relevant sections on finite cyclic STFT, generic windows and separated-support cases as accessible through primary journal HTML",
+          "method": "Primary full HTML and theorem comparison",
+          "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Zd and Rd",
+          "trigger": "General published STFT injectivity and sparse-window fiber mechanisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The missing 3|N arithmetic boundary is natural for length-three boxcar STFT: its zero-lag convolution is singular precisely there. A genuinely all-fiber classification (including N=6 and infinite N=6 mod12) without assuming C0 invertibility distinguishes uniqueness from an apparent amplitude obstruction. It is a motivated mathematical completion, not a one-off isolated numerical example. No stability, sparse-signal or N divisible by 4 claims are inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Accepted novelty is narrowly the previously excluded N divisible by 3 with m odd; the broad 3∤N result is known.",
+    "No claim for m even, signals with zeros, other windows or incomplete measurements."
+  ],
+  "schema_version": 1
+}

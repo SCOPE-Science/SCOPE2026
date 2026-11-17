@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-At every translated three-tap polynomial, a full cyclic frequency sweep recovers exactly the three local autocorrelations. In dimensions \(N=2m\) with odd \(m\ge3\), equality of the lag-two term forces any comparison signal to differ only by unimodular factors on even and odd sites. Equal lag-one terms either merge these factors or imply adjacent correlations alternate by one fixed phase and its inverse. This forces constant two-step coefficient ratios, an \(m\)-th root of unity, and the unique additional partner. The converse is checked by direct substitution; all quantifiers and the degenerate \(\delta=1\) boundary are handled. Finite checker tests support but do not replace this proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+From the complete N-point DFT (N=2m>=6), recover C0(t)=sum_{j=0}^2 |f_{t+j}|², C1(t)=f_t conj(f_{t+1})+f_{t+1} conj(f_{t+2}), and C2(t)=f_t conj(f_{t+2}). Equality C2 and f full support forces g full support and r_t conj(r_{t+2})=1 for r_t=g_t/f_t. Therefore r_{t+4}=r_t; on each parity cycle of odd length m the ratios are constant, and their moduli must be one. The nontrivial relative parity phase imposes alternating adjacent-product ratios, then a_{t+2}=a_t and f_{t+2}/f_t=ρ independent of t. Cyclicity gives ρ^m=1; solving C1 fixes delta=(B conj(A) conj(ρ))/(A conj(B)). Conversely this unique nonidentity parity rephasing preserves all three autocorrelation rows, hence all intensities. The proof includes m=3 and multiples of 3, where zero-lag inversion is unavailable. Independent direct intensities tested at N=6,18,30 for δ=-1; finite tests corroborate but are not the proof.
 
-The primary 2021 periodic-STFT results of Bendory–Cheng–Edidin and the 2015 Jaganathan–Eldar–Hassibi nonvanishing-window results establish generic recovery, not a classification of every fiber for this fixed flat three-tap window. Bartusel's 2023 exact short-window theorems assume separated zero sites and thus do not apply to full-support signals. Closest indexed related claims on two-tap nonvanishing fibers and odd-order endpoint-lag recovery differ in their measurement supports or arithmetic assumptions. Searches for equivalent fixed three-tap full-support fibers did not locate an implication covering the explicit classification. An unindexed specialist derivation may exist; this is a self-review, not an independent priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The three-tap flat window is the most elementary overlapping local Fourier measurement with a lag-one correlation containing two terms. Characterizing its exact failures, rather than merely proving almost-everywhere uniqueness, makes its deterministic limitations transparent. The full two-element fiber law and exact exceptional geometry have direct mathematical content across infinitely many cyclic lengths.
+Prior exact boxcar theorem proves the same full-support fiber classification on the major subdomain even N>=8 with 3 not dividing N. This submission has genuine unproved-by-that-paper coverage at N=6,18,30,... (N=2m with m odd divisible by 3), via C2-only parity rigidity rather than C0 magnitude inversion; the stronger resonant-window paper also assumes zero-lag invertibility and cannot cover flat taps at 3|N. Originality accepted only for this nontrivial arithmetic completion, not for the overlapping domain.
 
-## Scope and verification limits
+## value
 
-Only cyclic lengths twice an odd integer at least three, full modulation/translation sampling, nowhere-zero signals, and equal nonzero taps are covered. The theorem does not assert stability, arbitrary even-order recovery, or independent validation. The standalone checker checks representative periods and reconstructs correlations; the universal result follows analytically.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The missing 3|N arithmetic boundary is natural for length-three boxcar STFT: its zero-lag convolution is singular precisely there. A genuinely all-fiber classification (including N=6 and infinite N=6 mod12) without assuming C0 invertibility distinguishes uniqueness from an apparent amplitude obstruction. It is a motivated mathematical completion, not a one-off isolated numerical example. No stability, sparse-signal or N divisible by 4 claims are inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
