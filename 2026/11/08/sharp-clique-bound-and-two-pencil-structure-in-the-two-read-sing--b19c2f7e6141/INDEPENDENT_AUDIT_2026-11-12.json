@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:17:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The standard Type-A pairwise criterion identifies graph edges with unique alternating phase toggles over the first-to-last differing interval. An interval pair yields another graph edge only if it shares one endpoint with free ends separated by at least two, or forms two adjacent disjoint intervals with an equal-symbol join and common unordered symbol pair. Pairwise constraints force one common-endpoint pencil, or two pencils straddling an equal-symbol boundary; the latter intervals cannot bridge that boundary because it would break alternation. The one/two-pencil free-endpoint packing gives at most floor(n/2) neighbors in a clique, and toggling even-length prefixes of a binary alternating base word attains floor(n/2)+1 for every q>=2. Independently enumerated all one-deletion balls and computed max cliques for (q,n)=(2,2),(2,4),(2,6),(3,4), agreeing with theorem; these finite tests are not its infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://yaakobi.net.technion.ac.il/files/2024/02/75_Multiple_Reads_Deletions_IT22.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6"
+        ],
+        "reasoning": "The 2022 binary lower-bound constructions and 2026 exact edge and triangle formulas do not imply the q-ary all-n maximum or global anchored pencils; they cover smaller or incomparable statistics.",
+        "searches": [
+          "two read single deletion reconstruction graph maximum clique number alternating intervals pencils",
+          "two read deletion confusability graph maximum clique floor n/2 plus one two alternating pencil"
+        ]
+      },
+      "checked_sources": [
+        "https://yaakobi.net.technion.ac.il/files/2024/02/75_Multiple_Reads_Deletions_IT22.pdf",
+        "https://arxiv.org/abs/2001.01376",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6",
+        "candidate RESULT.md blob de497490be8b0b25e892f23f9b0a339abbfab7df",
+        "candidate checker.py blob a0b95abb0b8a490ddc033121efdb3e624b66a592"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://yaakobi.net.technion.ac.il/files/2024/02/75_Multiple_Reads_Deletions_IT22.pdf",
+          "https://arxiv.org/abs/2001.01376",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+        ],
+        "reasoning": "Even knowing all pairwise confusability edges and a lower clique construction leaves the maximum and family of all cliques undecided. The submitted structural lemma supplies that missing implication.",
+        "searches": [
+          "two read single deletion reconstruction graph maximum clique number alternating intervals pencils",
+          "two read deletion confusability graph maximum clique floor n/2 plus one two alternating pencil"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2001.01376",
+          "https://yaakobi.net.technion.ac.il/files/2024/02/75_Multiple_Reads_Deletions_IT22.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+        ],
+        "reasoning": "The Type-A alternating-interval representation is prior and correctly translates deletion-ball intersection size exactly two into a graph of toggles; prior works did not assert the entire clique-intersection classification in inspected text.",
+        "searches": [
+          "two read single deletion reconstruction graph maximum clique number alternating intervals pencils",
+          "two read deletion confusability graph maximum clique floor n/2 plus one two alternating pencil"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6",
+          "independent small graph enumeration q=2,n=2,4,6 and q=3,n=4"
+        ],
+        "reasoning": "Existing counts of edges and triangles are exact tables of different graph invariants; no exact maximum-clique table implying the result was observed.",
+        "searches": [
+          "two read single deletion reconstruction graph maximum clique number alternating intervals pencils",
+          "two read deletion confusability graph maximum clique floor n/2 plus one two alternating pencil"
+        ]
+      },
+      "rationale": "PASS on best-of-knowledge inspected sources. Cai et al establish exactly the Type-A pairwise adjacency description which this theorem uses, not a global clique-family dichotomy. The Chrisnata–Kiah–Yaakobi 2022 paper constructs certain binary cliques in blocks of length 2ell but its inspected Lemma 7 does not give the universal upper bound, alphabet independence, or one/two-pencil classification. Published Resultary edge- and triangle-count results concern totals, not arbitrary clique extremality. No broader covering theorem was observed in actual targeted searches.",
+      "residual_risks": [
+        "A differently indexed theorem classifying all two-read confusability cliques might be absent from targeted searches; no absolute priority assurance.",
+        "Full original Cai et al article was not independently examined, so reliance on its Type-A criterion is explicit and not represented as re-proved from scratch."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "constructs binary cliques of prescribed size, no inspected maximum-all-q upper bound or pencil classification",
+          "evidence": "Section IV Lemma 7 binary length 2ell clique of size ell",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2024/02/75_Multiple_Reads_Deletions_IT22.pdf",
+          "material_read": "PDF pages around Section IV and Lemma 7 including clique construction, not entire paper",
+          "method": "lawful open-access PDF, extracted text and page screenshot",
+          "title": "Correcting Deletions With Multiple Reads",
+          "trigger": "same two-read deletion coding and potential clique lower bound"
+        },
+        {
+          "assessment": "Type-A characterization accepted as prior lemma; full primary independent review incomplete",
+          "evidence": "two distinct common one-deletion subsequences iff opposite alternating phase interval",
+          "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+          "material_read": "ArXiv bibliographic abstract plus exact Type-A theorem as cited in the assigned RESULT; full text unavailable in this run",
+          "method": "arXiv page and candidate proof cross-check",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "direct Type-A adjacency theorem"
+        },
+        {
+          "assessment": "counts confusable edges and characterizes pairwise intervals, not the maximum clique or one/two-pencil classification",
+          "evidence": "edge enumeration ∝ q(1−n q^(n−1)+(n−1)q^n)/(2(q−1))",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "Resultary scientific summary of published exact edge-count result",
+          "method": "semantic published search",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "same graph, possible implied clique count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Clique size is a canonical obstruction for placing multiple source words in a two-read reconstruction code; exact sharp order for every alphabet and length together with classification of all possible cliques is useful structural coding information. The two-pencil dichotomy is a nontrivial geometric restriction not determined by local degree, edge counts, or isolated constructions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A differently indexed theorem classifying all two-read confusability cliques might be absent from targeted searches; no absolute priority assurance.",
+    "Full original Cai et al article was not independently examined, so reliance on its Type-A criterion is explicit and not represented as re-proved from scratch."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof invokes the published Type-A adjacency criterion, then independently classifies every possible relation between two toggled alternating intervals by overlap, one-point contact, and separation. The endpoint-pencil classification and endpoint-spacing bounds yield the universal clique upper bound. An explicit alternating word gives equality. Brute-force deletion-ball and maximal-clique comparisons in the stated ranges reproduce the prediction, with the finite checks clearly separate from the proof.
+## correctness
 
-## Originality
-PASS against the material inspected, with a remaining historical-priority risk. Cai et al. give the pairwise Type-A characterization, but not the global clique structure. Chrisnata et al., Section IV, Lemma 7, construct useful binary cliques of size \(\ell\) on blocks of length \(2\ell\); a lower construction alone neither implies the upper bound \(\lfloor n/2\rfloor+1\) nor forces the one/two-pencil dichotomy. A same-graph edge-count result enumerates edges and gives average degree, not clique number or clique structure. Wang et al.'s 2026 work concerns \(t\ge2\) deletions. Searches by equivalent terminology did not identify a covering theorem, but absence from searches does not prove uniqueness.
+PASS
 
-## Value
-PASS. Two-read confusability cliques are structural obstacles in reconstruction coding: no two vertices of a clique may belong to a valid two-read reconstruction code. The exact maximum clique order and complete interval-family description give alphabet-independent extremal information complementary to existing clique-cover constructions and edge counts. The two-pencil structure is stronger than a numerical improvement, and rules out otherwise plausible complicated overlapping-interval configurations.
+The standard Type-A pairwise criterion identifies graph edges with unique alternating phase toggles over the first-to-last differing interval. An interval pair yields another graph edge only if it shares one endpoint with free ends separated by at least two, or forms two adjacent disjoint intervals with an equal-symbol join and common unordered symbol pair. Pairwise constraints force one common-endpoint pencil, or two pencils straddling an equal-symbol boundary; the latter intervals cannot bridge that boundary because it would break alternation. The one/two-pencil free-endpoint packing gives at most floor(n/2) neighbors in a clique, and toggling even-length prefixes of a binary alternating base word attains floor(n/2)+1 for every q>=2. Independently enumerated all one-deletion balls and computed max cliques for (q,n)=(2,2),(2,4),(2,6),(3,4), agreeing with theorem; these finite tests are not its infinite proof.
 
-## Residual limitations
-The result does not optimize reconstruction-code size, find minimum clique covers, or classify clique orbits. A differently indexed prior maximal-clique theorem is a residual priority risk. All testing is finite, and an independent review has not yet taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best-of-knowledge inspected sources. Cai et al establish exactly the Type-A pairwise adjacency description which this theorem uses, not a global clique-family dichotomy. The Chrisnata–Kiah–Yaakobi 2022 paper constructs certain binary cliques in blocks of length 2ell but its inspected Lemma 7 does not give the universal upper bound, alphabet independence, or one/two-pencil classification. Published Resultary edge- and triangle-count results concern totals, not arbitrary clique extremality. No broader covering theorem was observed in actual targeted searches.
+
+## value
+
+PASS
+
+PASS. Clique size is a canonical obstruction for placing multiple source words in a two-read reconstruction code; exact sharp order for every alphabet and length together with classification of all possible cliques is useful structural coding information. The two-pencil dichotomy is a nontrivial geometric restriction not determined by local degree, edge counts, or isolated constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
