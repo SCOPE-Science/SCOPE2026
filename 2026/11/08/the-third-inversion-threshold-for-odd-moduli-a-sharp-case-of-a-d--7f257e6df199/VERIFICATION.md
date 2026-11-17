@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and mathematical verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file. The verifier requires Python 3 only and tests the third distinct inversion-number bound for every odd \(b\) between \(7\) and \(1001\), inclusive. All coprime multipliers are computed by exact-integer reciprocity, and all odd \(b\le103\) are independently cross-checked by explicitly counting inversions of the permutation. It checks \(J_b(a)=J_b(a^{-1})\), known first and second minima, the universal third minimum bound, and the exact equality-multiplier classification. The successful saved-package replay is expected to print:
+## correctness
 
-```
-VERIFY_OK odd_moduli=7..1001 rows= 498 unit_entries= 203374 direct_rows= 49 direct_entries= 2202 threshold_equalities= 332 reciprocity=PASS independent_inversion_enumeration=PASS third_distinct_bound=PASS equality_classification=PASS
-```
+PASS
 
-The unrestricted theorem requires the published Proposition 2.6, as identified in the paper references, and the algebraic proof in `RESULT.md`. The exact critical endpoint formulas are given there so the argument can be checked without guessing computational ranges. Neither these finite tests nor any incomplete external search proves the infinite statement or definitive novelty. The independent mathematical audit has not been performed.
+The proof uses the precisely stated classical inversion reciprocity and the upper bound of Chen–Dunn–Hewett–Silas Proposition 2.6 on interior residues. For small a, exact L_b(a)-T factorization is (a-3)(b+1)(b+1-3a)/(12a). For large multipliers, reversal reduces to a strictly positive concave N_b(c), and middle multipliers reduce to a strictly positive concave P_b(a); endpoint factorizations were checked symbolically. The exceptional a=(b+1)/2 is the inverse of 2. Independent exact recurrence enumeration of all 498 odd moduli b=7..1001 confirms the inequality and complete equality conditions; symbolic inequalities, not the finite sweep, prove all b.
+
+## originality
+
+PASS
+
+No claim-dominating theorem was found in inspected primary sources and published mathematical record searches; originality is best of knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+Settles the explicit odd-modulus n=3 case of a numbered published open inversion-ordering conjecture. The exact sharpness/equality classification is a nontrivial all-modulus theorem requiring reciprocity plus a new global three-region comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

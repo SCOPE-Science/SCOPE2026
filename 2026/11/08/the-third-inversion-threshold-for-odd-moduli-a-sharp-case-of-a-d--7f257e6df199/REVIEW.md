@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The inversion number and third *distinct* minimum have explicit definitions. All odd \(b\ge7\) and every unit multiplier are partitioned into small, middle, and large ranges; the only exceptions are the known two lower inversion values. Reciprocity and the previously published Proposition 2.6 are the only external mathematical premises. The small-range factorization gives a nonnegative product and exact equality set. The large and middle ranges each reduce to concave quadratics with strictly positive endpoint values for every allowed \(b\). Direct symbolic factorization checks the coefficients. The finite verifier supplies independent low-modulus corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS (historical risk remains).** Chen–Dunn–Hewett–Silas Conjecture 2.7 explicitly asserts the inequality; their Proposition 2.6 proves only the *second* rank. The result establishes the third rank for every odd \(b\ge7\) and a complete equality-classification, so it is neither a restatement of their proposition nor a consequence of its numeric lower bound without further work. Related articles on Dedekind-sum equalities do not imply extremal rank inequalities. Searches of published mathematical results and targeted literature revealed no equivalent proof, but non-discovery is not mathematical proof of priority; an earlier or later overlooked solution is possible.
+PASS
 
-**Value — PASS.** A specific published conjecture about the ordered inversion spectrum of modular multiplication is proved on an infinite, natural family, with sharpness and equality multipliers determined. This is more than a routine finite example or unmotivated restriction: it gives a structural third-rank theorem beyond the already-proved second-rank theorem. The unresolved even-modulus and higher-rank directions remain separate.
+The proof uses the precisely stated classical inversion reciprocity and the upper bound of Chen–Dunn–Hewett–Silas Proposition 2.6 on interior residues. For small a, exact L_b(a)-T factorization is (a-3)(b+1)(b+1-3a)/(12a). For large multipliers, reversal reduces to a strictly positive concave N_b(c), and middle multipliers reduce to a strictly positive concave P_b(a); endpoint factorizations were checked symbolically. The exceptional a=(b+1)/2 is the inverse of 2. Independent exact recurrence enumeration of all 498 odd moduli b=7..1001 confirms the inequality and complete equality conditions; symbolic inequalities, not the finite sweep, prove all b.
 
-The primary source was materially inspected at Conjecture 2.7, Proposition 2.6, the inversion-reciprocity identity, and the proof of Proposition 2.6. The independent calculation checked 498 odd moduli and direct inversion enumeration on 49 moduli, but a separate mathematical audit and exhaustive historical-priority audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No claim-dominating theorem was found in inspected primary sources and published mathematical record searches; originality is best of knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+Settles the explicit odd-modulus n=3 case of a numbered published open inversion-ordering conjecture. The exact sharpness/equality classification is a nontrivial all-modulus theorem requiring reciprocity plus a new global three-region comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
