@@ -1,0 +1,79 @@
+# Consecutive integral two-torsion in the Coxeter-rotation quotient of \(\mathrm{NC}(D_5)\)
+
+## Finding
+Let \(W(D_5)\) be the finite Coxeter group of type \(D_5\), let \(c\) be a Coxeter element of order eight, and let \(X=\Delta(\overline{\mathrm{NC}}(D_5))\) be the order complex of the proper part of its noncrossing partition lattice. The ordinary geometric orbit space \(Y=|X|/\langle c\rangle\), for the conjugation action, satisfies
+
+\[
+\pi_1(Y)\cong \mathbb Z/2\mathbb Z,
+\qquad
+H_i(Y;\mathbb Z)\cong
+\begin{cases}
+\mathbb Z,&i=0,\\
+\mathbb Z/2\mathbb Z,&i=1,2,\\
+\mathbb Z^5,&i=3,\\
+0,&i\ge 4.
+\end{cases}
+\]
+
+Thus the natural rank-five type-\(D\) Coxeter symmetry produces consecutive integral two-torsion groups from a torsion-free sphere bouquet. The claim concerns this specific quotient; it does not assert a uniform classification in type \(D_n\).
+
+## Assumptions and scope
+Represent signed permutations as tuples \((w(1),\ldots,w(5))\) with absolute values \(1,\ldots,5\) each appearing exactly once and an even number of negative entries. Multiplication is composition. Let \(s_1,\ldots,s_4\) swap adjacent coordinates and let \(s_5\) interchange coordinates four and five while changing both signs. Their product \(c=s_1s_2s_3s_4s_5\) has signed images \((2,3,4,-1,-5)\) and order eight.
+
+For a signed permutation \(w\), a signed cycle is *positive* if the product of its edge signs is positive. The reflection length \(\ell_T(w)\) is the codimension of the fixed space, namely five minus the number of positive signed cycles. Define
+
+\[
+\mathrm{NC}(D_5)=\{w\in W(D_5):\ell_T(w)+\ell_T(w^{-1}c)=5\}.
+\]
+
+The absolute-order comparison is \(u\preceq v\) exactly when \(\ell_T(u)+\ell_T(u^{-1}v)=\ell_T(v)\). Delete the identity and \(c\), then take all nonempty strict chains as simplices. The action is by \(w\mapsto cwc^{-1}\). It preserves rank and order, so there are no inversions of a simplex, although there are nontrivial simplex stabilizers. The quotient complex is a genuine three-dimensional CW complex whose open cells are chain orbits, not an abstract simplicial complex obtained merely by identifying orbit vertices.
+
+## Proof
+**Exhaustive finite presentation.** There are \(2^4\,5!=1920\) even-signed permutations. Evaluating the displayed reflection-length predicate gives exactly \(182\) noncrossing elements in ranks zero through five with rank counts \((1,20,70,70,20,1)\). Strict nonempty proper-part chains have counts \((180,1536,3328,2048)\) in dimensions zero through three. The maximal-chain count is independently consistent with the Coxeter enumeration \(5!\,8^5/1920=2048\). This is an exhaustive enumeration of the finite group, not a sample.
+
+**Orbit cells and boundaries.** Conjugation by \(c\) has order eight on the proper-part poset. Its chain-orbit counts are
+
+| Dimension | Number of quotient cells | Orbit size distribution |
+|---|---:|---|
+| \(0\) | \(32\) | two of size \(2\), sixteen of size \(4\), fourteen of size \(8\) |
+| \(1\) | \(228\) | seventy-two of size \(4\), 156 of size \(8\) |
+| \(2\) | \(448\) | sixty-four of size \(4\), 384 of size \(8\) |
+| \(3\) | \(256\) | all of size \(8\) |
+
+Orient every chain by increasing rank. Because an order automorphism preserving ranks cannot permute the vertices of a chain, each open simplex descends homeomorphically onto its orbit cell, and its integral cellular boundary is the signed sum of its face orbits:
+
+\[
+\partial_j[w_0\prec\cdots\prec w_j]
+=\sum_{k=0}^j(-1)^k[w_0\prec\cdots\prec\widehat{w_k}\prec\cdots\prec w_j].
+\]
+
+The complete integer matrices computed from these rules have shapes \(32\times228\), \(228\times448\), and \(448\times256\), with both consecutive matrix products zero. Exact Smith normal forms have nonzero diagonal multisets
+
+\[
+\partial_1:(1^{31}),\qquad
+\partial_2:(1^{196},2),\qquad
+\partial_3:(1^{250},2).
+\]
+
+The ranks are therefore \(31,197,251\). Connectedness follows from \(\operatorname{rank}\partial_1=31\); the free positive-degree homology ranks are \(228-31-197=0\), \(448-197-251=0\), and \(256-251=5\). The torsion of \(\operatorname{coker}\partial_2\) equals the torsion of \(H_1\), since its quotient by \(H_1\) is the free group \(\operatorname{im}\partial_1\). Similarly, the torsion of \(\operatorname{coker}\partial_3\) equals that of \(H_2\), since \(\operatorname{im}\partial_2\) is free. Thus there is exactly one \(\mathbb Z/2\mathbb Z\) factor in each of degrees one and two, and no further torsion. This proves the integral homology statement.
+
+**Fundamental group.** EL-shellability of noncrossing partition lattices implies that the three-dimensional proper-part complex \(X\) is a wedge of three-spheres, and in particular is simply connected. Its Euler characteristic is \(180-1536+3328-2048=-76\), giving \(X\simeq\bigvee^{77}S^3\). For a finite group action on a simply connected polyhedron, Armstrong's orbit-space theorem identifies \(\pi_1(Y)\) with the acting group modulo the normal subgroup generated by isotropy. The two size-two vertex orbits have stabilizer \(C_4\subset C_8\). No nontrivial point is fixed by a generator of \(C_8\): since any fixed point belongs to the interior of a chain simplex, rank-preservation would force every vertex of that simplex to be fixed, whereas every vertex orbit has size at least two. Hence the isotropy-generated subgroup is exactly \(C_4\), and \(\pi_1(Y)\cong C_8/C_4\cong C_2\).
+
+## Verification
+The standalone file `verify_d5.py` reconstructs the entire finite signed-permutation group, the noncrossing interval, all proper-part chains, the cyclic chain orbits and each oriented boundary matrix; it does not use a stored matrix or prior computational artifact. Its exact integer Smith reductions reproduce the three displayed invariant-factor lists and check both boundary compositions. The companion `verification_output.json` records the reproduced counts and final Smith data. Run `python verify_d5.py` with Python 3 and SymPy installed. The independent count of maximal chains agrees with Reading's formula, and reduction modulo two gives Betti dimensions \((1,1,2,6)\), consistent with the integral universal coefficient theorem.
+
+## Relationship to prior work
+Athanasiadis and Reiner (2004) explicitly describe and enumerate type-\(D\) noncrossing lattices; Athanasiadis, Brady and Watt (2005) establish their shellability. Bessis and Reiner (2007) determine fixed-element counts for Coxeter conjugation through cyclic sieving, while Reading (2007) derives general chain enumeration. Kenny (2008/2009) constructs homology bases for the *unquotiented* noncrossing lattice. Those results supply definitions and independent numerical consistency checks but do not identify the integral Smith torsion of the *ordinary geometric quotient*, which requires the signed quotient-chain boundaries computed here. Brady–Falk–Watt (2017) and Zhang (2022) study distinct Milnor-fiber and related models assembled from noncrossing partitions, not the proper-part orbit space defined above.
+
+## Limitations
+This is a finite exhaustive result at type \(D_5\), not an infinite-rank theorem. The conclusions concern ordinary integral homology and fundamental group, not a complete homotopy-equivalence classification or cohomology cup-product structure. Correctness is supported by a fully reproducible exact finite calculation and standard quoted theorems; no independent mathematical audit is claimed. A literature search and primary-source comparison do not establish absolute publication priority, and unindexed equivalences remain possible.
+
+## References
+1. C. A. Athanasiadis and V. Reiner, *Noncrossing Partitions for the Group* \(D_n\), SIAM J. Discrete Math. 18 (2004), 397–417, DOI: https://doi.org/10.1137/S0895480103432192 (first electronically published December 9, 2004).
+2. C. A. Athanasiadis, T. Brady and C. Watt, *Shellability of Noncrossing Partition Lattices*, arXiv:math/0503007, https://arxiv.org/abs/math/0503007 (March 1, 2005).
+3. D. Bessis and V. Reiner, *Cyclic Sieving of Noncrossing Partitions for Complex Reflection Groups*, arXiv:math/0701792, https://arxiv.org/abs/math/0701792 (January 27, 2007).
+4. N. Reading, *Chains in the Noncrossing Partition Lattice*, arXiv:0706.2778, https://arxiv.org/abs/0706.2778 (June 19, 2007).
+5. A. Kenny, *Geometrically Constructed Bases for Homology of Non-Crossing Partition Lattices*, arXiv:0806.4151, https://arxiv.org/abs/0806.4151 (June 25, 2008).
+6. T. Brady, M. Falk and C. Watt, *Non-crossing Partitions and Milnor Fibers*, arXiv:1709.07811, https://arxiv.org/abs/1709.07811 (September 22, 2017).
+7. Y. Zhang, *On the Homology of the Noncrossing Partition Lattice and the Milnor Fibre*, arXiv:2206.05721, https://arxiv.org/abs/2206.05721 (June 12, 2022).
+8. M. A. Armstrong, *The Fundamental Group of the Orbit Space of a Discontinuous Group*, Proc. Cambridge Philos. Soc. 64 (1968), 299–301, DOI: https://doi.org/10.1017/S0305004100042845.
