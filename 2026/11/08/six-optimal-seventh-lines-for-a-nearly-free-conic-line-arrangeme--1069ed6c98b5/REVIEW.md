@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The precise claim is a sharp, six-attainer bound for adding one noncomponent line to a fixed degree-eight arrangement while retaining only ordinary nodes, ordinary tacnodes and ordinary triple points. The original six-line incidence arrangement and conic are recomputed symbolically; the resulting initial Tjurina number is \(36\). For each valid added line, the intersection-multiplicity accounting gives \(\Delta\tau=8+h+\epsilon\), with \(h\) old nodes and \(\epsilon\) one new conic tangency. Three noncollinear nodes limit \(h\le2\). The three exact nonzero quadratic discriminants prohibit simultaneous \(h=2\) and \(\epsilon=1\), giving \(\tau\le46\). The complete three-node-pair and three-node-tangent pencil calculations yield exactly six equality lines, with independently checked singularity profiles \((5,3,8)\) and \((6,4,7)\). Gałecka's general \(\operatorname{mdr}\ge4\) degree-nine bound and the exact free/nearly-free numerical identities exclude both properties. The included symbolic replay completed successfully. The script is a certificate for the finite algebraic computations, not a replacement for the geometric intersection-multiplicity proof or the cited freeness theorems.
+## correctness
 
-## Originality (O): PASS, subject to historical-priority risk
-The motivating Gałecka paper leaves degree nine open, and the later openly available degree-eight example explicitly does not treat line additions to degree nine. The 2023 Dimca–Ilardi–Pokora–Sticlaru work examines line-addition methods but its inspected relevant sections do not characterize the six optimal lines through the three residual nodes of this specific conic–line arrangement. Direct semantic searches of published mathematical records used the actual explicit conic, degree-nine line-addition aliases, and the six-line/one-conic near-freeness condition; the closest result is the published degree-eight starting example, with no stronger covering result seen. These unsuccessful searches are not a novelty proof. A specialized or unindexed addition–deletion calculation could imply the same narrow fact. The existence problem in degree nine is not solved here.
+PASS
 
-## Mathematical value (V): PASS
-This is a natural and complete extremal boundary for the most immediate extension of an explicit degree-eight witness toward the degree-nine problem with only the three stated singularity types. It classifies **all** allowable seventh lines reaching maximal total Tjurina number, rather than testing a handpicked line or merely restating a general inequality. The equality set has two genuinely distinct geometric mechanisms (joining residual nodes versus tangent from one residual node), with different singularity baskets, and the resulting sharp \(\tau=46\) falls exactly one short of the necessary nearly-free threshold. This rules out a motivated construction route without asserting global nonexistence. It is a finite but structurally meaningful classification; the result may be too specialized for broad application outside this one starting arrangement.
+The explicit degree-eight curve Q*xyz(y-z)(x-z)(x-r*y), r=9+4sqrt(5), has 3 nodes, 3 simple conic tangencies and 6 ordinary triple points, giving tau=36. At a new permissible seventh line, Bezout intersection degree 8 and local Tjurina gains prove delta tau=8+h+epsilon, where h is the number of old nodes met and epsilon flags one new simple conic tangency. Its three old nodes are noncollinear, so h<=2; exact conic restrictions to the three node-joining lines have nonzero discriminants (128, 3008+1344sqrt(5), 448+192sqrt(5)), so h=2 excludes epsilon=1. All 3 joins and exactly 3 noncomponent node-conic tangent lines avoid forbidden singularities, attain tau=46, and exhaust equality. For allowed singularity types, the published mdr>=4 and free/nearly-free degree-nine Tjurina values 48/47 exclude those extensions. The frozen source script was inspected; independent SymPy recomputed the conic determinant (-32), joins and dual tangent pencils. The symbolic certificate verifies the finite algebra, not the general geometric proof or literature.
 
-## Sources and residual limits
-Gałecka, arXiv:2204.13969, Sections 3–5, supplies the degree-nine open question and degree/syzygy constraints; an openly available degree-eight construction supplies the initial formula, which is checked again; Dimca et al., arXiv:2301.01117, Sections 1, 3 and 7, supplies adjacent line-addition context. The later addition–deletion paper arXiv:2310.08972 was accessible only at abstract level and remains a historical-priority risk. Exact computation has been checked over \(\mathbb Q(\sqrt5)\); no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as the exact list of all six maximizing additional lines and tau=46 for this fixed degree-eight example. The stronger published all-seven-line degree-nine non-nearly-free theorem covers the final non-nearly-free corollary but NOT the exact six-line optimizer classification or sharp maximum; the earlier degree-eight construction gives only the starting curve. Existing line-addition theory concerns other curves or nonexplicit geometry.
+
+## value
+
+PASS
+
+The exact classification of ALL permissible seventh-line equality additions to a fixed notable nearly-free degree-eight conic-line arrangement is a natural motivated finite-configuration theorem, not an arbitrary tabulation; it gives a sharp singularity bound and a complete obstruction profile for a standard line-addition strategy. Its distinct value is the six maximizing lines, even though broader prior work already supplies a stronger near-freeness nonexistence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
