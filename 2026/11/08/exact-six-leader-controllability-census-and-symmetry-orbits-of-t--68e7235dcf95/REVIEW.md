@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The projective-plane identity \(NN^{\mathsf T}=qI+J\) yields a complete four-eigenvalue Laplacian decomposition; the PBH coordinate criterion reduces to an explicit nonsingular incidence matrix. The minimum is attained by all but one point vertex. In the order-two case, the Hadamard bound \(27\sqrt7<101\) makes a finite-field rank test an exact integer determinant test; all \(3003\) subsets and all \(336\) automorphisms are exhausted. A separate full-Laplacian Krylov computation agrees for every subset. No finite experiment is used to infer the infinite-order spectral theorem.
+## correctness
 
-**Originality: PASS on inspected evidence, subject to specialist priority risk.** Yuan et al. (2013, https://doi.org/10.1038/ncomms3447) already establish the general maximum-multiplicity/PBH lower bound. Monshizadeh, Zhang and Camlibel (2014, https://arxiv.org/abs/1403.4868) give qualitative-family zero forcing criteria. Dai (2022, https://doi.org/10.1049/cth2.12385) treats different graph families. None of the material inspected contains the order-two all-placement census or the fourteen Heawood symmetry classes. The all-order determinant test is an application of known PBH principles to projective incidence geometry; the exact finite census and symmetry classification are the distinguishing contribution. Search incompleteness remains a genuine limitation, not a novelty proof.
+PASS
 
-**Value: PASS.** Heawood is the canonical smallest projective-plane incidence network, and a complete, exact classification of optimal independent actuator locations is a natural discrete-network design invariant. The fourteen-orbit reduction exposes which placements are genuinely different under all symmetries; the all-order incidence reduction explains the geometry behind the census. The result does not claim a general count for higher projective planes or an advance in control-energy optimization.
+NN^T=qI+J supplies exactly four Laplacian eigenvalues with repeated dimension v−1 and PBH minimum v−1=q²+q. At this size, simultaneous repeated-mode PBH reduces to nonsingularity of the stated square row matrix R_S; both simple eigenmodes have nonzero coordinates. For q=2, Hadamard yields |det R|<101, so rank mod101 detects integer singularity exactly. Independent exact enumeration of all C(14,6)=3003 choices returned 1890 and point-selection profile [7,84,420,868,420,84,7]. Symmetry group 336 and fourteen orbit sizes follow from full Fano incidence automorphisms; source proof supplies complete exhaustive method.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General maximum-eigenspace-multiplicity/PBH and zero-forcing theorems give general lower bounds/criteria, not the complete 3003 six-leader Heawood enumeration or its fourteen full-automorphism orbit types. An analogous four-cube six-leader census concerns a different graph. No inspected prior exact Heawood orbit census was found; possible specialized older literature is a residual risk.
+
+## value
+
+PASS
+
+The Heawood graph is the smallest projective-plane incidence network; exact minimal actuator count and all 14 inequivalent optimal placements are natural design invariants. The all-order incidence criterion explains the geometry; exhaustive finite census is meaningful despite lacking closed formulas for larger orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

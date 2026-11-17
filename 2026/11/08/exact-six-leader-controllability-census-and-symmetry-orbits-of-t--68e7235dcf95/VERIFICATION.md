@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory. Python standard library only. The successful replay reports \(3003\) enumerated six-vertex sets, exactly \(1890\) controllable sets, selected-point counts \((7,84,420,868,420,84,7)\), \(14\) controllable orbits under all \(336\) automorphisms, and agreement of all \(3003\) cases with the independently built full-Laplacian four-Krylov-block test.
+## correctness
 
-The exact lifting of the \(7\times7\) rank test from \(\mathbb F_{101}\) to \(\mathbb Z\) uses the proven uniform Hadamard determinant bound \(27\sqrt7<101\). The full-Laplacian finite-field test is an independent finite consistency check; the all-order statement is proved by projective-plane incidence algebra and PBH, not by running finite cases.
+PASS
 
-No experimental claim is made about all larger projective planes, optimal energy, noise, finite precision or actuator costs. Independent review has not been performed.
+NN^T=qI+J supplies exactly four Laplacian eigenvalues with repeated dimension v−1 and PBH minimum v−1=q²+q. At this size, simultaneous repeated-mode PBH reduces to nonsingularity of the stated square row matrix R_S; both simple eigenmodes have nonzero coordinates. For q=2, Hadamard yields |det R|<101, so rank mod101 detects integer singularity exactly. Independent exact enumeration of all C(14,6)=3003 choices returned 1890 and point-selection profile [7,84,420,868,420,84,7]. Symmetry group 336 and fourteen orbit sizes follow from full Fano incidence automorphisms; source proof supplies complete exhaustive method.
+
+## originality
+
+PASS
+
+General maximum-eigenspace-multiplicity/PBH and zero-forcing theorems give general lower bounds/criteria, not the complete 3003 six-leader Heawood enumeration or its fourteen full-automorphism orbit types. An analogous four-cube six-leader census concerns a different graph. No inspected prior exact Heawood orbit census was found; possible specialized older literature is a residual risk.
+
+## value
+
+PASS
+
+The Heawood graph is the smallest projective-plane incidence network; exact minimal actuator count and all 14 inequivalent optimal placements are natural design invariants. The all-order incidence criterion explains the geometry; exhaustive finite census is meaningful despite lacking closed formulas for larger orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
