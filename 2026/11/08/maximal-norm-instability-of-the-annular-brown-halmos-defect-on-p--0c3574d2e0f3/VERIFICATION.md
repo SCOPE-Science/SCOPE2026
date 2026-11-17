@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verification.py` was executed using Python 3 after extraction of the packaged bytes. All sampled arithmetic was exact (`fractions.Fraction`), with no floating-point tolerance. It checks the shift coefficients, telescoping identity, full nonzero diagonal support, piecewise signs, exact maximum, and two-boundary interpolation, for five rational values of \(q\) and every integer \(1\le N\le30\).
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` independently establishes all quantifiers over real \(0<q<1\) and integer \(N\ge1\). Computation alone does not establish infinite-dimensional assertions or publication priority. A separate independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+On the orthonormal Laurent basis the coordinate shift satisfies a_j=(1+q^{j+1})/(1+q^j) and b_j=(1+q^{j+2})/(1+q^j), with (1+q)a_j-b_j=q. The defect diagonal telescopes into q Delta_j-b_j Delta_{j+1}. For the piecewise-linear tent the unique central coefficient dominates all endpoints including N=1, giving the exact norm. Toeplitz boundary averages alpha/beta control all diagonal entries by convex combination; limits at j→±infty force both <=distance and the peak forces distance>=1/2. I/2 gives equality. Thus uniform norm error bound is impossible.
+
+## originality
+
+PASS
+
+The annular Brown–Halmos nullspace theorem was previously established, but Theorem 2.2 and the paper’s compact-perturbation sections supply no positive finite-rank D_N family with maximal distance 1/2 and vanishing residual; quantitative instability is distinct.
+
+## value
+
+PASS
+
+An explicit extremal norm-instability sequence sharply separates exact algebraic kernel characterization from quantitative distance conditioning, a natural operator-theoretic question. Maximal 1/2 distance in the positive-contraction unit ball is a substantive sharp boundary, not a mere negative test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
