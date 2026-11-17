@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-The attached `checker.py` is a self-contained Python 3 program. Execute `python3 checker.py`; a successful run ends with `DYNAMIC_ALEXANDROV_NECKLACE_ALGEBRA_OK`. It enumerates all valuations and pointed worlds at eleven finite \((k,m)\) settings, computes the modal bisimulation-refinement partition using next successors and spatial successor-class sets, checks agreement with the necklace formula, and explicitly evaluates the characteristic formulas in eight settings. These are 2022 pointed valuations in total. Its extra composite-formula checks include eventuality.
+## correctness
 
-The all-parameter formula algebra is justified separately by the normal-form/characteristic-formula proof in `RESULT.md`, not by extrapolation from a finite run. The crucial cases are the root's fixed temporal orbit, leaf rotation orbits, and the unique constant-color root/leaf identification. The checker does not provide an independent human audit or a certificate for infinite parameter ranges. Any claims beyond cyclic dynamics on rooted Alexandrov stars remain unproved here.
+PASS
+
+Closure is existential over upward extensions, leaf next rotates marked color words and root next fixes root. Structural induction fixes candidate (marked word for leaves, colored necklace for root); exactly Q diagonal constant monochromatic root/leaf collisions occur. Explicit E_w, color-disagreement Delta, and boxed root-characteristic R distinguish all other types. Burnside gives N_m. No finite extrapolation is used.
+
+## originality
+
+PASS
+
+Related necklace support and static-star formula-algebra results count different semantic structures and use different modalities. Published general axiomatizability does not entail this exact fixed-frame all-valuation classification. Best-of-knowledge originality with potential differently indexed finite modal algebra precedents.
+
+## value
+
+PASS
+
+Exact expressivity and free Boolean formula-algebra size of a natural finite dynamic topological model. The nontrivial diagonal root/leaf collapse and explicit all-types characteristic formulas are mathematical structure beyond routine necklace counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

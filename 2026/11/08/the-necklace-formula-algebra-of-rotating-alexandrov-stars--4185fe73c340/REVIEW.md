@@ -1,11 +1,21 @@
-# Scientific review: rotating Alexandrov-star formula algebra
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is for every \(k\ge0,m\ge1\) with arbitrary Boolean valuations, the finite rooted-star upset topology, cyclic leaf permutation, and the full Boolean closure/next/eventually signature. A structural induction shows that marked leaf words and root-colored necklaces determine truth. The proof identifies exactly \(Q\) constant diagonal overlaps, constructs characteristic formulas for *every remaining type*, and applies Burnside's lemma. The defining-formula argument supplies both halves of the algebra equality; finite enumeration is supplementary rather than an attempted infinite proof. The embedded checker independently computes bisimulation-refinement classes for 2022 pointed valuations and verifies characteristic formulas in eight configurations. The full bound does not rely on extrapolation from these finite runs.
+## correctness
 
-**Originality — PASS within evidence.** The closest primary article, Vooijs and Fernández-Duque (LICS 2026, DOI:10.4230/LIPIcs.LICS.2026.81), establishes general Alexandrov dynamic-topological semantics and computable axiomatizability, not the exact algebra for rotating rooted stars. Classical necklace counting accounts only for color-word orbits, not the separate marked leaf types or the \(Q\) logical identifications. Related finite-frame formula-algebra results use other modalities and dynamics and do not imply this claim. Search and accessible-literature comparison found no stronger or equivalent fixed-system formula algebra theorem. An unindexed prior computation or an unpublished specialized normal-form argument remains possible; absence of a search match is not a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** This is a complete all-parameters classification of a natural finite dynamical-topological frame family, yielding explicit normal forms, the entire formula algebra's cardinality, and a precise difference between temporal *marked words* and spatial *necklaces*. The exact root/leaf diagonal overlap is essential; neither a routine labeled valuation count nor necklace counting alone gives the formula algebra. The result also proves elimination of eventuality without loss of expressive power for the whole family. It does not claim a broader classification on arbitrary spaces.
+Closure is existential over upward extensions, leaf next rotates marked color words and root next fixes root. Structural induction fixes candidate (marked word for leaves, colored necklace for root); exactly Q diagonal constant monochromatic root/leaf collisions occur. Explicit E_w, color-disagreement Delta, and boxed root-characteristic R distinguish all other types. Burnside gives N_m. No finite extrapolation is used.
 
-**Closest literature and residual limitations.** *Axiomatizability of Alexandrov Dynamic Topological Logic*, LICS 2026, DOI:10.4230/LIPIcs.LICS.2026.81, directly motivates the semantic question and was materially inspected. *Dynamic Polyhedral Logic*, arXiv:2608.25691, is thematically related; only abstract/metadata were accessible, so no whole-document noncoverage claim is made. The standalone verifier does not constitute an independent audit. The fixed-star, cyclic-homeomorphism and unrestricted-valuation hypotheses are essential for this result's proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Related necklace support and static-star formula-algebra results count different semantic structures and use different modalities. Published general axiomatizability does not entail this exact fixed-frame all-valuation classification. Best-of-knowledge originality with potential differently indexed finite modal algebra precedents.
+
+## value
+
+PASS
+
+Exact expressivity and free Boolean formula-algebra size of a natural finite dynamic topological model. The nontrivial diagonal root/leaf collapse and explicit all-types characteristic formulas are mathematical structure beyond routine necklace counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
