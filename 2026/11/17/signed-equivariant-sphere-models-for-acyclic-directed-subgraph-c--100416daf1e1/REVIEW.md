@@ -1,0 +1,15 @@
+# Scientific review: signed equivariant acyclic-directed-subgraph spheres
+
+## Correctness — PASS
+The finite loopless hypotheses, strong-component decomposition and signed action are explicit. The first case has an invariant simplex factor; the second has an open-hemisphere nerve on the strong-component zero-sum representation. The cover argument proves coverage, the cycle/topological-order dichotomy proves the exact nerve, and convex-cone averaging proves every stabilizer-fixed intersection contractible. The equivariant nerve comparison therefore applies at **every subgroup**, not merely at the identity. The complete-graph dimension formula, determinant character and real-projective reversal quotient follow by direct linear algebra. The empty zero-dimensional sphere boundary is included. The finite tests reproduce 93 complete-graph subgroup cases and 491 arbitrary digraph/symmetry cases, but no infinite conclusion relies on enumeration.
+
+## Originality — PASS relative to inspected sources
+Hultman's Theorem 3.3 (2004) proves the ordinary SCC-dependent sphere/contractible dichotomy for this very same acyclic-subgraph complex. Björner–Welker (1999) prove the complete-digraph ordinary sphere. Ayzenberg–Beketov–Magai (2023) describe the complete-DAG/type-A open-hemisphere nerve. Those contributions are respected and not claimed new. The new work establishes a *genuine signed-equivariant* refinement for all finite digraphs, complete fixed-space classification for every subgroup, and a reversal projective quotient; these assertions are not implications of the inspected nonequivariant conclusions. published-finding corpus searches included exact graph objects, sign-reversal aliases, fixed-space and projective-quotient equivalences. The closest matched directed path-avoidance and bidirected-cycle multipath results study different face conditions. Earlier indexed non-strong-connectivity results use a different forbidden-property definition. The 1999 full article was inaccessible and equivalently formulated earlier work cannot be excluded absolutely; these are publication-priority risks rather than hidden certifications.
+
+## Mathematical value — PASS
+The classification replaces an ordinary sphere statement by an explicit model for the entire geometric fixed-point system of every signed symmetry group, including a full representation-sphere description and computable fixed dimensions. The resulting projective-space quotient has integral two-torsion for all \(n\ge4\), a genuinely equivariant feature invisible in ordinary sphere homotopy. The result applies to an unrestricted family of finite directed graphs rather than a selected finite census.
+
+## Scientific limitations
+Finite simple loopless directed graphs only; no PL or smooth equivalence is asserted. The 1999 predecessor was checked from its publisher abstract rather than complete pages. Genuine equivariance is proved by special convex-stabilizer conditions, not certified independently. Publication priority requires separate independent literature verification.
+
+Self-review: passed. Independent audit: not yet performed.
