@@ -1,25 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For agent-dependent, per-good independent Bernoulli utilities, realized EF1 reduces exactly to a binomial comparison with a one-unit margin; independence across agents factors its probability. The four-good binomial probabilities are explicit polynomials. The \(1:3\) score decreases strictly with the singleton agent's parameter, and its comparison with the \(2:2\) score is equivalent to the displayed exact threshold. A derivative with an elementary positive polynomial proves that the critical curve is monotone and has one crossing of \(1/16\). Direct analysis of the \(0:3\) versus \(1:2\) probabilities rules out earlier unbalanced optimizers. For arbitrary fixed \(m\), the only second-order EF1 failures have two successes in the opposing bundle; their coefficients give a strictly convex integer quadratic, proving the rare-event rule with its tie limitation. The standalone program passed 330 exact-rational and small-parameter consistency checks. The proof, not the finite program, establishes all-parameter statements.
+PASS
 
-## Originality — PASS, qualified
+For agent i with a own and b other iid Bernoulli(p_i) goods, realized EF1 is precisely Y_i<=X_i+1 where X_i~Bin(a,p_i), Y_i~Bin(b,p_i); independent agents make both fairness probabilities multiply. At m=4, direct binomial expansions yield f(p_1)f(p_2) for 2:2 and g(p_singleton) for 1:3. Any 0:4 is strictly improved by moving one good. Since g strictly decreases on (0,1), singleton goes to the lower p. Rearranging g(s)>f(s)f(t) yields t^2(1-t)^2>H(s), with strictly increasing H, unique quartic threshold s_c≈0.2032804404095 and symmetric nonmonotone t interval. For fixed m with p_i=eps*lambda_i, violation first requires two other-valued goods, giving quadratic loss lambda1² C(m-a,2)+lambda2² C(a,2)+O(eps), uniformly over finite a choices; its discrete consecutive difference proves the unique/two-candidate optimizer rule. Independently checked exact rational four-good gap 7902186119/10^12, threshold, polynomial factoring. Finite checks corroborate rather than replace exact binomial argument.
 
-Igarashi and Oh's *Fair Division of Lotteries* (arXiv:2610.34906v1; first posted October 26, 2026) studies the same independent utility-realization model, but Theorems 4.2 and 4.5 concern ex-post **EF**, not EF1; their common-distribution hypotheses also exclude two different per-agent success parameters. The paper explicitly names EF1 as a future direction. The present results therefore do not follow by weakening their conclusions: an EF-probability maximizer need not maximize an EF1 probability, and their symmetric-distribution balancing argument cannot establish this heterogeneous phase diagram.
+## originality
 
-Aloisio et al. (2024) optimize expected maximum envy for precommitted allocations, not the probability of EF1. The full text could not be inspected from the available repository path, leaving residual priority uncertainty. Babaioff and Grofman (2026) analyze randomization *over allocations* with fixed valuations, distinct from random valuations under a fixed precommitted allocation. Existing calculations for shared binary good values, and for independent common-rate binary values under equal-size partitions, do not imply the new two-rate unequal-allocation optimization. Specific semantic research-record queries produced related Bernoulli inequalities and assignment-lottery results but no claim with these objects, event and parameters. This is a best-knowledge originality judgment, not an exhaustive proof of priority.
+PASS
 
-## Mathematical value — PASS
+The sharp realized-EF1 four-good phase and general fixed-m squared rare-event allocation law are not implied by known exact-envy-freeness maximization or same-realization shared-good EF1 balancing. The distinct random utility coupling and target matter. Primary 2026 Igarashi-Oh text was inaccessible, so O PASS is qualified best-of-knowledge, not certification.
 
-The natural question is whether a precommitted ex-ante equal, therefore envy-free, allocation maximizes the chance of satisfying the indivisible-goods relaxation EF1 after independent valuations are observed. The result resolves the complete first failure at four goods, not merely one counterexample: it locates all strict and tied parameter regions, including a nonmonotone interval in the high success rate. The separate arbitrary-fixed-\(m\) limit identifies a new squared-rate risk allocation principle and explains why a one-good shift emerges at the exact rate ratio \(\sqrt2\) for four goods. Such exact thresholds are useful for the design of nonadaptive lottery-good allocations when agents' valuation frequencies differ. The theorem is deliberately limited to two agents, binary utilities, full independence and fixed population in the rare-value limit; it is not promoted as a general optimal algorithm for other distributions.
+## value
 
-## Closest literature and limitations
+PASS
 
-- A. Igarashi and Y. Oh, *Fair Division of Lotteries*, arXiv:2610.34906v1, https://arxiv.org/abs/2610.34906 — closest model, but exact EF rather than EF1 and common marginal laws in the optimum theorem; main sections and conclusion inspected.
-- A. Aloisio et al., *Approximately Fair Allocation of Indivisible Items with Random Valuations* (2024), https://iris.gssi.it/handle/20.500.12571/30247 — precommitment and random utilities, but expected maximum envy; repository abstract inspected, full text not obtained.
-- M. Babaioff and Y. Grofman, *On Best-of-Both-Worlds Fairness via Sum-of-Variances Minimization*, arXiv:2601.16579v1, https://arxiv.org/abs/2601.16579 — fairness of lotteries over allocations, not independent Bernoulli valuations of a fixed allocation; main results inspected.
+Optimizing realized EF1 probability for preassigned uncertain binary goods is a natural fair-allocation risk problem. The smallest four-good symmetry-breaking horizon, sharp nonmonotone two-probability phase boundary and exact quadratic small-risk allocation rule across every fixed m supply a meaningful classification, not a cosmetic parameter substitution or mere tiny numerical improvement.
 
-Residual risk remains for unindexed earlier exact probability calculations. At leading-order ties in the rare-value limit, the theorem identifies two surviving candidates but does not assert a finite-rate choice between them.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

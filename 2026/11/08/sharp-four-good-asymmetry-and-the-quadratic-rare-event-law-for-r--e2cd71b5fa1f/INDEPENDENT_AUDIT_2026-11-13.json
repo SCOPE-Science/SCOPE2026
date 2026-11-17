@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T18:15:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob 95720f58b75bc90612b1f86358a17b941b2550ee",
+        "assigned verify.py blob 1d80bde126dcddf32a694f38cb6d036ec5b3387f",
+        "independent exact Fraction/sympy four-good and quartic checks"
+      ],
+      "rationale": "For agent i with a own and b other iid Bernoulli(p_i) goods, realized EF1 is precisely Y_i<=X_i+1 where X_i~Bin(a,p_i), Y_i~Bin(b,p_i); independent agents make both fairness probabilities multiply. At m=4, direct binomial expansions yield f(p_1)f(p_2) for 2:2 and g(p_singleton) for 1:3. Any 0:4 is strictly improved by moving one good. Since g strictly decreases on (0,1), singleton goes to the lower p. Rearranging g(s)>f(s)f(t) yields t^2(1-t)^2>H(s), with strictly increasing H, unique quartic threshold s_c≈0.2032804404095 and symmetric nonmonotone t interval. For fixed m with p_i=eps*lambda_i, violation first requires two other-valued goods, giving quadratic loss lambda1² C(m-a,2)+lambda2² C(a,2)+O(eps), uniformly over finite a choices; its discrete consecutive difference proves the unique/two-candidate optimizer rule. Independently checked exact rational four-good gap 7902186119/10^12, threshold, polynomial factoring. Finite checks corroborate rather than replace exact binomial argument.",
+      "residual_risks": [
+        "No claim for dependent values, more agents, non-binary goods, or m growing with eps^-1. At integer theta ties, finite-eps preference deliberately not determined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Igarashi-Oh title/abstract describes exact EF under convolution-type marginal laws, not a readable assertion of this exact EF1 curve. Full shared-value EF1 theorem gives balance only when each item has a single realization common to all agents, an assumption absent here. Aloisio et al. study expected maximum envy, a different loss."
+        ],
+        "reasoning": "Neither a stronger exact-EF theorem nor a shared-realization EF1 balancing theorem dominates independent agent-specific EF1 probability optimization. Lack of access to full Igarashi-Oh is explicitly carried as priority risk.",
+        "searches": [
+          "https://arxiv.org/abs/2610.34906",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+          "https://iris.gssi.it/handle/20.500.12571/30247"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.34906",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-item-failure-of-expected-fair-optimality-for-ex-post--5030ed809a95",
+        "https://iris.gssi.it/handle/20.500.12571/30247"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shared-realization Bernoulli EF1 balancing is not applicable when every agent independently samples value of the same good. The sister four-good counterexample allows p_j to vary by good but equal across agents; current claim lets p_i vary by agent but constant across goods, so neither one is a corollary of the other without additional identities."
+        ],
+        "reasoning": "The two parameter axes do not contain one another. Only overlapping motivation (four-good possibility) is prior, while exact phase and all-fixed-m quadratic-rate classification are distinct.",
+        "searches": [
+          "https://arxiv.org/abs/2610.34906",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-item-failure-of-expected-fair-optimality-for-ex-post--5030ed809a95"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This claim uses independent realization for each agent-good and a constant Bernoulli probability within each agent; EF1 event each ordered agent X+1>=Y. A published shared-Bernoulli model uses one common realized item value across agents, so its balancing theorem has different coupling."
+        ],
+        "reasoning": "Optimization over labelled allocations collapses to bundle sizes because per-agent parameters are identical across goods. The probability objective is EF1, not exact EF, and rephrasing cannot transfer an exact-EF theorem.",
+        "searches": [
+          "Resultary: two agents random Bernoulli additive valuations probability of realized EF1 optimal 1:3 2:2 allocation four goods rare event",
+          "https://arxiv.org/abs/2610.34906"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the current record supplies the exact quartic phase transition in these searches; another same-week item-heterogeneous Bernoulli record compares ex-ante EF vs EF1 and is on a different parameter slice."
+        ],
+        "reasoning": "The exact phase curve and fixed-m rare-value law are natural allocation classifications, not recomputations of a standard probability table; no observed indexed result lists them independently.",
+        "searches": [
+          "Resultary: exact four-good EF1 Bernoulli success 1:3 2:2 threshold 0.20328",
+          "Resultary: sharp four-good asymmetry quadratic rare event law lottery goods",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8"
+        ]
+      },
+      "rationale": "The sharp realized-EF1 four-good phase and general fixed-m squared rare-event allocation law are not implied by known exact-envy-freeness maximization or same-realization shared-good EF1 balancing. The distinct random utility coupling and target matter. Primary 2026 Igarashi-Oh text was inaccessible, so O PASS is qualified best-of-knowledge, not certification.",
+      "residual_risks": [
+        "Igarashi-Oh 2026 full article not readable; authorized VPN disconnected, possible unpublished EF1 appendix or exact Bernoulli calculation.",
+        "An unindexed classical binomial stochastic optimization theorem could imply this phase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_COUPLING_NOT_COVERING",
+          "evidence": [
+            "one random value per good shared by all agents vs independent agent-specific Bernoulli here"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+          "material_read": "Entire published RESULT.md including fixed-common-realization hypotheses, strict binomial smoothing and finite exact probability",
+          "method": "GitHub verified full blob read",
+          "title": "Strict balancing and polynomial decay of realized EF1 for shared Bernoulli lottery goods",
+          "trigger": "Same EF1 event and random Bernoulli values"
+        },
+        {
+          "assessment": "PRIORITY_RISK_INACCESSIBLE",
+          "evidence": [
+            "abstract concerns exact ex-post envy-freeness and discusses EF1 as distinct; cannot rule out hidden appendix"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+          "material_read": "Public title, abstract and indexed scope; full preprint text unavailable through arxiv/OA and authorized institutional request returned VPN disconnected",
+          "method": "Public metadata then authorized Oxford attempt without bypass",
+          "title": "Fair Division of Lotteries",
+          "trigger": "Direct motivating primary paper on uncertain item valuations"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER_SLICE",
+          "evidence": [
+            "heterogeneity is by item rather than by agent, and it compares ex-ante EF vs fixed B, not exact global phase for agent-specific rates"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-item-failure-of-expected-fair-optimality-for-ex-post--5030ed809a95",
+          "material_read": "Entire assigned sister RESULT.md, proof and model assumptions",
+          "method": "Frozen source blob read",
+          "title": "Sharp four-item failure of expected-fair optimality for ex-post EF1 with Bernoulli lottery goods",
+          "trigger": "Other same-week four-item EF1 phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "exact four-good phase polynomial and monotone boundary proof",
+        "fixed-m quadratic expansion and discrete minimizer"
+      ],
+      "rationale": "Optimizing realized EF1 probability for preassigned uncertain binary goods is a natural fair-allocation risk problem. The smallest four-good symmetry-breaking horizon, sharp nonmonotone two-probability phase boundary and exact quadratic small-risk allocation rule across every fixed m supply a meaningful classification, not a cosmetic parameter substitution or mere tiny numerical improvement.",
+      "residual_risks": [
+        "Very specific two-agent iid-within-agent model; no broader mechanisms or adaptive allocation result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "EF1 risk for independent agent-specific Bernoulli values, only two agents and fixed m in rare-value limit.",
+    "Full motivating primary literature inaccessible; best-of-knowledge priority qualified."
+  ],
+  "schema_version": 1
+}
