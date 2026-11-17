@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and proof verification
+# Independent mathematical audit
 
-## Reproduction
+## correctness
 
-Run `python verify_phase4.py` using Python 3 with SymPy, NumPy, and SciPy installed. The program checks five exact trigonometric reductions, including the full-phase mean velocity. It uses adaptive DOP853 integration of the original four angular equations and the reduced phase-difference equations at 70 combinations of nonzero opposite-pair parameter and positive/negative noncritical energy. It evaluates the predicted complete-elliptic period, checks both equations return to their initial torus coordinates, and tests that the half-period is not a full return for these examples. The numerical tolerance is set to \(3\times10^{-9}\) radians for the period returns. It also tests period ordering and the small-energy and near-center limiting formulas on a finite grid.
+PASS
 
-## Mathematical checks and boundaries
+Direct subtraction yields s constant, xdot=-2 sin(s) sin(y), ydot=2 sin(s) sin(x). Each nonzero |h|<2 level is a single compact regular oval; quarter-period quadrature gives 4K(k)/|2 sin s|. The involution (x,y)->(y,x) reverses flow and makes cos x-cos y odd, establishing zero common-phase holonomy; contractibility excludes phase-difference winding. Elliptic K limits give pi/|sin s| and (2/|sin s|)log(8/|h|). Frozen leaves and saddles are relative equilibria; separatrices are heteroclinic. The theorem is confined to four equal coupled phases at quadrature.
 
-The proof in `RESULT.md` explicitly gives the variable change, exact reduced equations, topology of every critical and regular energy level, the complete elliptic integral for the **minimal** period, and the reversing symmetry forcing zero full-phase holonomy. These analytic arguments apply to every initial state under the exact four-node assumptions. Finite computer checks cannot certify the global classifications, prove minimality for infinitely many orbits, or replace the symmetry argument. Very small \(|h|\) may require higher precision if the elliptic parameter is represented as a nearly-unit floating-point number. No independent scientific validation is claimed.
+## originality
+
+PASS
+
+The complete full-phase periodicity/no-drift and exact minimal period are not established by the inspected 2026 oscillator-ring full article or the earlier published subquadrature four-site theorem. Prior conservation and Hamiltonian structure are explicitly credited. Best-of-knowledge acceptance with residual specialized older compacton-paper risk.
+
+## value
+
+PASS
+
+The no-drift lift and exact original-time elliptic clock distinguish relative integrability from genuine full-phase periodicity; the sharp separatrix constant is an independently useful structural invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
