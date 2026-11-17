@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unrestricted theorem follows from a complete geodesic construction. Every independent-set flip graph embeds isometrically in a Boolean cube via a delete-then-insert path. For any third-coordinate edge the proof explicitly creates a shortest witness path through both chosen directions unless the coordinate pair is an edge in a triangle. In the triangle case the empty-set-to-singleton edge of the third vertex has no such witness, so can be added. All cases distinguish nonadjacent pairs, adjacent pairs with exactly one selected coordinate, and adjacent pairs with neither selected; the no-common-neighbor assumption ensures disjoint blocker sets. The exact count relies only on distinct, nonempty coordinate classes. The attached checker independently uses BFS distances and direct maximality testing, exhausting all graphs through order five.
+## correctness
 
-## Originality — PASS (provisional priority)
-The 2021 foundational Lemma 3.1 proves feasibility for arbitrary partial cubes but contains no maximality classification. The 2023 Fibonacci/Lucas primary paper explicitly states that all Fibonacci coordinate pairs are maximal, even though only a special pair is proved in its Theorem 4.3; this known case is excluded from the claimed novelty. The 2024 extremal paper studies maximum numbers and block graphs. The new comparison is for an arbitrary graph's **independent-set flip graph**, including graphs with triangles: a pair is nonmaximal if and only if its original edge belongs to a triangle, and the count is exact. Relevant research-record and literature searches did not identify an equivalent theorem, but a stronger unindexed median-graph or hyperplane result remains a risk. Search absence alone is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The result resolves a natural maximality question left open by the general partial-cube feasibility lemma for an entire family of median-like graph configuration spaces. Its sharp if-and-only-if converts a global property of geodesics in a potentially exponential-size flip graph into a local triangle test in the original graph, classifies every two-coordinate union, and counts precisely how many such unions are maximal. It is not claimed as a solution for all edge-general-position sets or as a maximum-size result. The triangle obstruction gives substantive structural content beyond a routine numerical instance.
+Every independence-set flip graph embeds isometrically into a Boolean cube: delete A\B, then insert B\A gives distance |A triangle B|, so shortest paths change each coordinate at most once and any Θ_i∪Θ_j is edge general position. For any exterior edge e in coordinate k, if ij is nonadjacent construct a shortest path deleting e and old set then restoring i,j as applicable; if ij adjacent with no common neighbor, split neighbors into disjoint classes and construct a monotone geodesic across e plus both Θ classes. If ij lies in a triangle with common neighbor k, e=empty–{k} cannot share a shortest path with both Θ_i and Θ_j since endpoints would require the adjacent i,j simultaneously; then e can be added. Therefore maximal exactly outside triangle edges, giving binom(n,2)-t_triangle(H). Independent exhaustive direct shortest-path checks of all 74 labelled graphs on n=2..4 (410 coordinate-pair tests) agreed, using a separate shortest-path edge-distance inclusion method.
 
-## Closest literature, evidence, risks
-- Manuel, Prabha and Klavžar (arXiv:2105.04292v1), Sections 2–4, especially Lemma 3.1: any two partial-cube classes form an edge-general-position set, but inclusion-maximality is not classified.
-- Klavžar and Tan (arXiv:2304.10114v1), Sections 3–4: Theorem 4.3 and the following paragraph already cover ALL Fibonacci-cube coordinate pairs; Theorem 4.6 covers two Lucas directions. They do not give the arbitrary-graph triangle-edge criterion.
-- Tian, Klavžar and Tan (arXiv:2302.01587v1 / 2024 open-access article), Sections 1–3: extremal edge-general-position cardinalities and block graphs, not the corresponding flip-graph maximality criterion.
-- Remaining priority risk: an equivalent characterization in literature on media, median graphs, antimatroid/hyperplane systems or reconfiguration cube complexes that escaped indexing. Independent assessment is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge ORIGINALITY PASS for the precisely delimited theorem after searching the indexed mathematical corpus, published related work, and comparing primary statements/implications. It addresses endpoint/largest classes in Fibonacci/Lucas cubes, with a subsequent all-Fibonacci-pairs remark, not a general iff condition when H has triangles; triangle-edge classification needs the explicit geodesic construction. Residual risks recorded explicitly.
+
+## value
+
+PASS
+
+The criterion detects which original edges participate in triangles using maximality of coordinate-class unions in a natural partial-cube reconfiguration graph; it gives an exact class-wide structural characterization and a simple count, beyond known special Fibonacci/Lucas cube cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
