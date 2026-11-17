@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite identity is properly attributed to Pain. The proof checks the correction kernel on all prime powers, shows absolute convergence for \(\Re z>1/2\), proves the exact local cancellation \(H_p(1)=1\), and computes \(H'(1)\) by differentiated Euler factors. Nonnegative dominated convergence handles every fixed \(t<1\); partial summation and the zeta tail handle every fixed \(t>1\); the hyperbola estimate for the divisor function supplies the critical second term and stated error. Integer/fraction tests check local identities and a numeric sieve checks examples; neither is represented as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Pain's complete accessible HTML, §§2–4 and Appendix A, gives the finite parameter identity, Euler products, and a Selberg-sieve analogy, but no global summatory trichotomy or critical prime derivative. The nearby Kaltenböck et al. 2021 article studies the different GCD-averaging form \(M_r(x;f)\), not this precise divisor sum. Targeted web and mathematical-record queries for weighted totient-squarefree averages, derivative constants, shifted exponents and equivalent Euler products found no covering statement; historical indexing cannot establish absolute priority.
+PASS
 
-**Mathematical value — PASS.** A single parameter produces three genuinely different growth laws. The supercritical coefficient \(\zeta(t)/t\) is unexpectedly independent of the Euler-factor corrections, because those corrections individually become one at the pole. The boundary exhibits collision of two zeta poles; the explicit second coefficient and power-saving remainder quantify the transition. This is a structural mean-value result for the full recent one-parameter family, not a renamed isolated special value. The proof does not claim a new general divisor-summatory theorem, a uniform crossover theorem or optimal errors.
+The finite Euler identity is pre-existing. Define a(n)=mu(n)^2 n/phi(n) and h multiplicative with h(p)=1/(p-1), h(p²)=-p/(p-1), h(p^e)=0 for e>=3. Independent rational checks for n<=300 show a=1*h and 900 exact product checks t=0,1,2. Analytically the local h series has absolutely summable deviations for Re(s)>1/2; local factor at s=1 is exactly 1 and derivative H'(1)=sum_p log p/[p(p-1)] with positive sign. Thus A(y)=sum_{n<=y}a(n)=y+O_epsilon(y^(1/2+epsilon)). For t<1, F_t=1*(n^(t-1)a(n)) and summability of positive coefficients/d yields linear mean with C_t=product_p(1+p^(t-1)/(p-1)). For t>1, Abel summation gives A_t(y)=y^t/t+O(y^(t-1/2+epsilon)) and reversing divisor summation gives zeta(t) X^t/t plus the stated X^max(1,t-1/2)+epsilon remainder, valid for fixed t. At t=1, F_1=tau*h; Dirichlet's hyperbola summatory tau formula and convergent weighted h tails give the explicit coefficient (2gamma-1+sum log p/[p(p-1)]). No claim of a uniform transition window or optimal error.
 
-Residual risk: a pre-existing equivalent analytic treatment of this exact multiplicative family may be absent from the accessible indexes; the key elementary steps are established rigorously, but independent specialist priority verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pain's full published mathematical treatment yields the same prime-product identity for all real t (his s=-t) but its inspected Sections 2–4 and Appendix A do not state the infinite summatory phase law or second-term coefficient. Classical divisor hyperbola asymptotics and Euler products are tools, not the same claimed complete parametric result. Existing related GCD-weighted means have a different summand. Historical equivalence remains a residual risk because the argument uses classical methods.
+
+## value
+
+PASS
+
+This is a natural real deformation of a named arithmetic divisor weight. The critical pole collision yields a sharp exponent change from X to X log X to X^t, a universal supercritical leading constant and an explicit non-obvious prime derivative at the boundary. Those quantitative, family-wide exact facts are useful to analytic-number-theoretic comparison; it is more than a renaming of the Euler product, despite its elementary convolution proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
