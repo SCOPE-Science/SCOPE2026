@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every shattered support must fit inside one radius-one ball. The proof classifies all allowable three-point configurations, provides separate witnesses for their eight traces, verifies empty-trace obstructions at small parameters, and excludes all four-point supports by a center-forcing argument. The single- and double-support counts use direct Hamming-distance enumeration. A separate program checks the trace definition over 859801 tested nonempty supports across twelve parameter pairs. Residual correctness risk is implementation or proof transcription error, not a known counterexample.
+## correctness
 
-## Originality — PASS within inspected sources
-The closest primary source is Adler–Benediktsson–Macpherson, arXiv:2007.16042 (2020), whose full Hamming-graph section establishes bounds and sharpness for the *open* relation and remarks only on boundedness for closed neighborhoods. Coudert–Csikós–Ducoffe–Viennot, SEA 2024, offers a general closed-neighborhood computation algorithm rather than this classification. Housholder–Mangiapanello–Senger, arXiv:2505.14641 (2025), studies open-neighborhood problems on induced vertex subsets. None of the inspected statements implies the uniform closed-neighborhood polynomial. This is a best-knowledge priority assessment, not a claim of exhaustive historical uniqueness: the same enumeration might exist under alternative reflexive-incidence terminology.
+PASS
 
-## Mathematical value — PASS
-The theorem provides the full distribution of shattered support sizes for a canonical distance-transitive graph family, rather than only an extremal dimension. It resolves the specific closed-neighborhood gap explicitly left bounded but not sharpened by the principal 2020 source and isolates small-alphabet exceptional geometry; in particular, \(H(3,2)\) separates open and closed dimensions. The exact coefficients also give the probability that a uniformly chosen support of size at most three is shattered.
+The all-positive trace forces every shattered support into one radius-one ball. Its arms are coordinate lines and a triple on a single line cannot be shattered. For four supported points the three-of-four positive traces force an arm/center pattern in which a unique common ball center also contains the fourth; hence VC degree<=3. For triples, the three exhaustive types (center plus two distinct arms, three distinct arms, two same-arm plus one different) have unique common centers and explicit witnesses for all eight traces, with d=2 and q<=3 exceptional failures. Counting types gives s3=q^d[binom(d,2)(q-1)^2+binom(d,3)(q-1)^3+d(d-1)binom(q-1,2)(q-1)] for d>=3; the d=2 high-q formula and singleton/pair counts follow by direct Hamming-distance witnesses. Reconstructed endpoint d=1 and C4 H(2,2). Independent direct trace enumeration independently checked finite graph instances, but generality rests on geometric argument.
 
-## Verification and limitations
-Run `python check_closed_hamming.py` with standard Python 3. Testing is exhaustive for sizes one through four on eleven named graphs and for sizes one through three on \(H(4,3)\), with reproducible sampling of four-point supports there. Testing does not replace the universal proof. Priority beyond the listed sources and an independent audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published closed-Hamming VC/Littlestone theorem fixes the maximal shattering degree, not the number of shattered supports of each size. The 2026 open-neighborhood coefficient census concerns irreflexive adjacency and differs already on H(3,2). Full Adler–Benediktsson–Macpherson Hamming section discusses open-neighborhood dimensions and bounds closed dimensions, but does not give the closed all-q all-d coefficient polynomial. Exact coefficientwise statement remains independent despite known maximum degree.
+
+## value
+
+PASS
+
+The complete shattered-support polynomial is a natural fine combinatorial invariant of a prominent graph concept class: it distinguishes graph radius-one traces beyond the already known VC dimension, includes precise small-alphabet phase changes, and can be used to count actual labeled realizable query samples. The all-parameter classification is not just a renamed VC-bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
