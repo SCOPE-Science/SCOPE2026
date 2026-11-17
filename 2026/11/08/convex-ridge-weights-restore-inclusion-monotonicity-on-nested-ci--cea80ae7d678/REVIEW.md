@@ -1,15 +1,21 @@
-# Review: convex ridge circle perimeter monotonicity
+# Independent mathematical audit
 
-## Correctness (PASS)
-For every pair of nested positive-radius planar disks, the signed projected-center motion is bounded by the radius increase. The exact three-case ReLU perimeter formula and the inequality \(2\tan(\alpha/2)\ge\alpha\) certify all directional derivatives, including touching thresholds. Positive hinge decomposition proves the arbitrary finite nonnegative convex ridge result; rotational averaging proves the power-weight corollary for every real \(p\ge1\). The explicit cap-angle expansion proves square-root failure for a radial step, and bounded convergence produces smooth increasing weights. The standalone checker passed 2,703 numerical diagnostics; these are not substitutes for proof.
+## correctness
 
-## Originality (PASS, provisional)
-Csató–Giovagnoli (arXiv:2610.11677v1), Theorem 1.3, requires the smaller convex body to contain the origin and supplies a triangle-inside-square counterexample to dropping that assumption. Saracco–Stefani (arXiv:2306.07770) show that no nonconstant isotropic weight is monotone over *all* convex-body inclusions. Neither statement implies the new disk-specific positive result or its ridge-weight mechanism. Separate semantic and web searches for nested circles, arcsine convex order, boundary power moments, and convex-ridge weighted monotonicity found no exact equivalent; historical priority against specialized circle-measure literature remains a residual risk.
+PASS
 
-## Mathematical value (PASS)
-A broad, nonconstant functional class has unconditional inclusion monotonicity on every pair of planar disks, even when the origin lies outside both. The simultaneous positive theorem and quantitative radial-step counterexample isolate a meaningful structural restriction on weights, refining the boundary between geometric and weight assumptions that governs weighted-perimeter monotonicity.
+For each one-sided hinge (u-s)_+, the exact circle integral F_s(a,r) has a three-regime formula. Containment implies a radius-increasing interpolation with projected center |da/dr|<=1; evaluating the worst slope -1 gives 2r[2sqrt(1-q^2)-(1+q)arccos q] >=0 via 2 tan(alpha/2)>=alpha. Negative hinges follow by reflection, nonnegative convex g by constant plus positive hinge measure on a compact interval. Radial |x|^p equals directional average of |<v,x>|^p for p>=1, giving strict inclusion monotonicity; the step radial weight at internal tangency loses 4 sqrt(r(a-r)/a) sqrt(epsilon)+O(epsilon) compared with the inner disk, then logistic smoothing yields smooth bounded counterexample. Independent angular quadrature numerically checked randomly nested circles and tangential cap angles; finite checks only corroborate the exact derivative/expansion proof. Caveat: hinge representation uses a chosen minimizer restricted to the projection interval, justified by finite convexity.
 
-## Limitations
-Planar positive-radius disks only; power weights covered for real exponents at least one; no global claim for arbitrary convex bodies, all increasing radial weights, or powers below one. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected Csató–Giovagnoli Theorem 1.3 requires 0 inside the smaller arbitrary convex body. Here the smaller and larger disks may both miss 0, and every nonnegative convex *ridge* g(<v,x>) is allowed, with radial powers from averaging; Saracco–Stefani excludes nonconstant isotropic weights for all convex-body pairs, not the disk-restricted assertion. A very close 1930 Gabriel paper explicitly concerns integrals of positive subharmonic functions on certain circles, but its inaccessible full text prevents a decisive statement-versus-statement implication comparison; title alone is not coverage. Following owner rule, this is best-of-knowledge PASS with a material priority risk, not false certainty.
+
+## value
+
+PASS
+
+The circle-only geometry restores universal inclusion monotonicity for a broad nonconstant convex-ridge family without origin containment, the exact missing hypothesis in general convex-body results. All radial powers p>=1 follow, while the square-root signed counterexample distinguishes the structural hypothesis from mere radial increase. This is a substantive geometric boundary with a sharp quantitative negative witness, not a routine unmotivated case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
