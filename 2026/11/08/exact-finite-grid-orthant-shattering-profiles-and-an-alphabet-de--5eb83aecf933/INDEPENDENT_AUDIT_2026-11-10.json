@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:56:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S⊆∏[n_i], to realize S\\{x} but not x requires x to be a strictly largest coordinate among S in some i; conversely the coordinate maxima of any desired T⊆S then exclude every y outside T by its private maximum. Each coordinate has either one private maximum label or none; for prescribed j labels the count of m-coordinate tuples avoiding them is n_i^m−j∑_{v=1}^{n_i}(v−1)^{m−1}. Inclusion-exclusion divided by m! gives s_m, with no repeated successful points. At m≥2 each nontrivial coordinate supports at most one label and independent two-level witnesses give VCdim max(1,r). For q_m-alphabet samples each coordinate emits label a with probability p_m=A_m(q_m)/q_m^m≤1/m; Bonferroni with d_mp_m=log m+c+o(1), d_mp_m²→0 proves exp(−exp(−c)), and collision probability is o(1). Handles m=1, n_i=1, zero trace, and arbitrary changing alphabets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chalopin et al. §5.3 Corollaries 38,40, Theorem 43 address realizability and VC dimension of complete distributive lattices/ideals, not coefficient counts for the strictly smaller principal-downset range family.",
+          "The axis-parallel-box census permits both lower and upper cuts; shattering by all boxes cannot imply shattering by their anchored subfamily."
+        ],
+        "reasoning": "Broader concept families are not dominating statements for exact coefficients of a restricted subfamily. Qualitative VC dimension results and hypergraph regularity alone do not imply the stated all-degree enumeration or the coupon threshold.",
+        "searches": [
+          "Chalopin Chepoi Knauer Geometry of convex geometries section 5.3 PDF",
+          "Resultary all-dimensional shattering census for discrete axis-parallel boxes",
+          "Chernikov Towsner Hypergraph regularity and higher arity VC dimension arxiv:2010.00726"
+        ]
+      },
+      "checked_sources": [
+        "https://www.ub.edu/comb/koljaknauer/geometryofgeometriesR1.pdf",
+        "arxiv:2010.00726",
+        "Resultary 2026/11/8/SCOPE-all-dimensional-shattering-census-for-discrete-axis-parallel-box--83eb70554249",
+        "Resultary 2026/11/8/SCOPE-complete-shattered-support-census-and-mixed-alphabet-critical-wi--93e4efa2316a",
+        "pinned RESULT.md, AUDIT.json and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited prior statements establish geometric representation/VC dimension or a different larger concept family.",
+          "Same generic coupon collector law requires the new, specifically calculated per-coordinate strict-maximum success probability p_m."
+        ],
+        "reasoning": "Neither known statement entails the exact principal-downset polynomial as a corollary; all-coefficient restrictions require different inclusion-exclusion. The coupon limit is classical once model-specific p_m is established.",
+        "searches": [
+          "arxiv:2405.12660 Section 5.3 Corollary 38 and Theorem 43",
+          "Resultary: all-dimensional shattering census discrete axis parallel boxes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A principal lower orthant is a monotone conjunction of coordinate comparisons; shattering is equivalent to assigning each support point an exclusively strictly maximal coordinate.",
+          "Resultary nearest Hamming-box convexity and categorical-subcube theorems use private coordinate VALUES/outliers rather than oriented strict maxima."
+        ],
+        "reasoning": "The change of language does not itself make a new result: checked closely related shattering characterizations. Neither retrieved theorem gives the product-of-power-sums coefficient for principal lower orthants or the same variable-alphabet Gumbel phase transition.",
+        "searches": [
+          "\"principal downsets\" \"shattered\" finite product chains",
+          "\"monotone conjunction\" shattering private coordinate maximum",
+          "Resultary: finite product of chains principal order ideals anchored orthants VC shattering polynomial unique strict maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published records for categorical subcubes and path-grid boxes state different coordinate witness requirements; no table with the coefficients s_m(n_1,...,n_d) was found.",
+          "Independent traces confirm examples (2,2):1,4,1 and (2,2,2):1,8,9,1."
+        ],
+        "reasoning": "This is a universal symbolic coefficient formula, not just a new recomputation of a known finite table; unsuccessful lookup alone does not certify global historical uniqueness.",
+        "searches": [
+          "Resultary: anchored orthant principal downset shattering finite product chains private coordinate maxima number of shattered supports VC polynomial coupon collector",
+          "Resultary: categorical subcubes mixed alphabet critical window shattering polynomial"
+        ]
+      },
+      "rationale": "Exact principal-downset shattering profiles and the varying-alphabet coupon threshold were not found as a theorem or automatic corollary in the checked higher-arity VC, convex geometry, categorical-subcube or general box literature; formalism and generic coupon convergence are credited. Best-of-knowledge originality, with a significant terminology-priority risk.",
+      "residual_risks": [
+        "An unindexed monotone-conjunction or principal-order-ideal counting theorem could use the same strict-coordinate-max characterization.",
+        "The paper of Chernikov–Towsner was not read in full during this new assessment; its stated broader setting is not an automatic all-coefficient implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the claimed restricted principal-downset shattering polynomial or random support law",
+          "evidence": "§5.3 Corollary 38: dim_VC(L)=dim_E(L), Theorem 43: ideal realization in Euclidean dimension ≤2dim_VC; neither enumerates support counts.",
+          "identifier_or_url": "https://www.ub.edu/comb/koljaknauer/geometryofgeometriesR1.pdf",
+          "material_read": "PDF §2.3 definitions and §5.2–5.3 through Corollaries 38,40 and Theorem 43, including explicit proof context",
+          "method": "Read full relevant primary PDF sections and viewed page image",
+          "title": "Geometry of convex geometries",
+          "trigger": "Potentially dominating result on ideals, distributive lattices and VC-dimension"
+        },
+        {
+          "assessment": "No demonstrated covering implication, but limited access remains risk",
+          "evidence": "Higher-arity relation regularity rather than numerical principal-downset shattering counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.00726",
+          "material_read": "Bibliographic abstract and earlier documented Section 3.1 overview; full primary body not obtained in current assessment",
+          "method": "Read accessible synopsis; not credited as full-text inspection",
+          "title": "Hypergraph regularity and higher arity VC-dimension",
+          "trigger": "Same VC terminology and generalized shattering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Principal order ideals of finite products of chains are a canonical finite geometric range space; an all-coefficient count, not merely VCdim, measures its complete shattering complex. The sampling theorem supplies a natural sharp, model-relevant dimension transition between Boolean and large alphabets. Arbitrary grid dimensions and alphabet lengths prevent an artificial finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.ub.edu/comb/koljaknauer/geometryofgeometriesR1.pdf",
+    "arxiv:2010.00726",
+    "Resultary 2026/11/8/SCOPE-all-dimensional-shattering-census-for-discrete-axis-parallel-box--83eb70554249",
+    "Resultary 2026/11/8/SCOPE-complete-shattered-support-census-and-mixed-alphabet-critical-wi--93e4efa2316a",
+    "pinned RESULT.md, AUDIT.json and verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "All finite products of chains with anchored lower principal orthants have a strict private-maximum shattering criterion, an all-degree inclusion-exclusion support polynomial, exact VC dimension max(1,#nontrivial chains), and an alphabet-dependent random-support coupon-collector Gumbel threshold.",
+  "limitations": "Only finite anchored coordinatewise lower orthants, not unrestricted rectangles, all order ideals, or generic higher-order range families; Gumbel limit is random uniform subset with arbitrary q_m≥2, not a uniform finite-size approximation.",
+  "residual_risks": [
+    "An unindexed monotone-conjunction or principal-order-ideal counting theorem could use the same strict-coordinate-max characterization.",
+    "The paper of Chernikov–Towsner was not read in full during this new assessment; its stated broader setting is not an automatic all-coefficient implication."
+  ],
+  "schema_version": 1
+}

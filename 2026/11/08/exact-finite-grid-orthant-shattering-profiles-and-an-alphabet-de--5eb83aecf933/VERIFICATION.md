@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with its standard library. The program constructs the concepts from their actual threshold definition, evaluates every Boolean trace on all supports of size up to one beyond ambient dimension in eleven small grids, separately tests the private-coordinate criterion, and compares all support counts to the inclusion–exclusion formula.
+## correctness
 
-The observed terminal status is `ALL_ANCHORED_ORTHANT_PROFILE_CHECKS_PASS 11`. Examples separately checked include profiles \(1+4z+z^2\) for the Boolean square, \(1+8z+9z^2+z^3\) for the Boolean cube, and \(1+27z+162z^2+125z^3\) for a three-level three-dimensional grid.
+PASS
 
-These finite calculations are confirmatory only. The all-grid identity, the exact distribution at finite parameters and its universal limiting law are established by the explicit combinatorial and analytic proofs in RESULT.md. Full historical priority and independent scientific audit have not been established.
+For S⊆∏[n_i], to realize S\{x} but not x requires x to be a strictly largest coordinate among S in some i; conversely the coordinate maxima of any desired T⊆S then exclude every y outside T by its private maximum. Each coordinate has either one private maximum label or none; for prescribed j labels the count of m-coordinate tuples avoiding them is n_i^m−j∑_{v=1}^{n_i}(v−1)^{m−1}. Inclusion-exclusion divided by m! gives s_m, with no repeated successful points. At m≥2 each nontrivial coordinate supports at most one label and independent two-level witnesses give VCdim max(1,r). For q_m-alphabet samples each coordinate emits label a with probability p_m=A_m(q_m)/q_m^m≤1/m; Bonferroni with d_mp_m=log m+c+o(1), d_mp_m²→0 proves exp(−exp(−c)), and collision probability is o(1). Handles m=1, n_i=1, zero trace, and arbitrary changing alphabets.
+
+## originality
+
+PASS
+
+Exact principal-downset shattering profiles and the varying-alphabet coupon threshold were not found as a theorem or automatic corollary in the checked higher-arity VC, convex geometry, categorical-subcube or general box literature; formalism and generic coupon convergence are credited. Best-of-knowledge originality, with a significant terminology-priority risk.
+
+## value
+
+PASS
+
+Principal order ideals of finite products of chains are a canonical finite geometric range space; an all-coefficient count, not merely VCdim, measures its complete shattering complex. The sampling theorem supplies a natural sharp, model-relevant dimension transition between Boolean and large alphabets. Arbitrary grid dimensions and alphabet lengths prevent an artificial finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
