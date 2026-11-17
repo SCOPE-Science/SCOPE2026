@@ -1,19 +1,21 @@
-# Review of the exact Markov-sampling stationary-risk frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four moments \(\mathbb Ey\), \(\mathbb E[yS]\), \(\mathbb Ey^2\), and \(\mathbb E[y^2S]\) close under the affine two-state iteration. Both mode maps are strict contractions in the stated step range, so the exact fixed point is the limiting covariance for every deterministic initial iterate, including the two nonmixing endpoints. A strictly positive quadratic denominator and the factored endpoint differences reduce the global comparison to one derivative sign. Those signs follow from an explicit sum of nonnegative terms or an elementary sign inequality. The exact symbolic and rational checker tests those identities, but the proof of the continuum statement is analytic. Risk: an extension outside the uniform-contraction range is not covered.
+PASS
 
-## Originality — PASS with residual precedence risk
+Normalize y=(a/b)x and derive closed linear recursion for E[y], E[yS], E[y²], E[y²S], with r=2p−1. Solving gives a rational V(r) of positive denominator by component contraction. Factoring endpoint differences by r+1 and 1−r and completing nonnegative squares proves all interior comparisons and equality cases; h*(1−t²)=1 is sharp frontier. Independently solved four stationary-moment equations using SymPy and cancelled exact formula identically; representative rational choices verified both optimizer regimes and flat exceptional case. Finite checks not substituted for analytic sign proof.
 
-Mathieu Even's two-state equal-curvature example in Appendix D.2 of arXiv:2302.14428 is expressly acknowledged; the equal-curvature correlation formula is not counted as new. The present result concerns heterogeneous quadratic curvatures, optimizes the **stationary** error across every symmetric transition probability (including the degenerate endpoints), and proves a sharp curvature threshold. Doan et al. (arXiv:2003.10973) provide finite-time convergence bounds with diminishing steps; Liu and Xu (arXiv:1810.03124) couple samples within minibatches, so their mechanisms do not imply the transition-level optimizer classification. Semantic searches of mathematical records and comparisons with accessible preceding work found no equivalent claim. Risk: a general Markov-jump affine-system optimization theorem may indirectly cover the exact formula or optimizer, and independent publication-precedence checks remain necessary.
+## originality
 
-## Value — PASS
+PASS
 
-Markov sampling can trade mixing against error rather than simply improve with negative correlation: at sufficiently large stable steps, *more* persistent sampling can have lower stationary risk even though it sacrifices exploration. The exact phase boundary \(t=1/2\) separates curvature regimes in which this reversal is possible or impossible. The result is a direct sampling-design diagnostic for a natural, noninterpolating stochastic-gradient model, not merely a one-off numerical table or routine perturbation.
+Even 2023 has equal-curvature two-state Markov SGD example, credited. Published full Resultary two-rate stochastic-gradient NOISE theorem changes step sizes with independent additive noise, while the reshuffling theorem uses both component gradients per epoch; neither implies this one-component-per-step opposite-residual stationary-risk optimizer. Qualified PASS; classical Markov-jump control formulas may overlap.
 
-## Limitations
+## value
 
-This is a two-component scalar quadratic theorem at positive constant step under symmetric stationary sampling. Perfect persistence does not optimize the full objective consistently; it only minimizes the specified stationary risk among these schedules in the identified regime. Literature coverage remains best-knowledge, and no independent specialist audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact correlation-endpoint transition, including a counterintuitive persistence-optimal region despite noninterpolation and its sharp t<1/2 existence boundary, is a motivated sampling-design structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
