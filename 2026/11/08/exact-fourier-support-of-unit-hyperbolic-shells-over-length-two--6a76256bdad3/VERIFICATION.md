@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From this package's root, run `python3 checks/verify.py`. It uses only Python's standard library. It explicitly constructs the unit hyperbolic shell in small finite rings and computes every Fourier coefficient as an exact cyclotomic coefficient-count vector, testing the predicted zero pattern against the actual cyclotomic relation. Cyclic prime-square and equal-characteristic split square-zero rings are both included. The extension-field test \(\mathbb F_4[t]/(t^2)\) uses its exact four-element-field arithmetic and exact sign character; the chosen frequencies in the higher-dimensional instance are a reproducible pseudorandom sample.
+## correctness
 
-The tested \(n=2\) frequency universes have \(256\) frequencies for \(q=2\) and \(6561\) frequencies for \(q=3\) in each of the cyclic and split variants. They produce convolution ranks 112 and 2025, respectively. Additional tests include \(n=1\) as a boundary sanity check (not a claim of its novelty), \(q=5\) cyclic, and \(q=4\) split. No tolerance-based zero test is used. Code execution is a finite check, **not** an exhaustive test of all rings or a proof of the universal result.
+PASS
 
-# Mathematical scope and limits
+Independently reconstructed character orthogonality: the t multiplier enforces x dot y=1, with t unit producing q^(2n-2) times the unit Kloosterman sum, t in the nonzero socle producing q^(3n-2) times a field Kloosterman sum for socle frequencies, and t=0 contributing only at the origin. Square-zero unit-fibre stationary phase forces residue t^2=residue a dot b. In odd residue characteristic two stationary phases cannot cancel because generating characters have odd prime-power order; in even characteristic the stationary root is unique. The q-1 terms in the finite-field sum cannot cancel since q-1 is not divisible by the field characteristic. Counting nonzero residue a and prescribed dot-product fibres gives the exact rank, including q=2 and mixed characteristic. Finite exact cyclotomic enumeration over Z/4 and Z/9 for n=2 found ranks 112 and 2025 respectively; these do not prove all rings.
 
-The theorem is proven by exact character orthogonality, square-zero stationary phase, and cyclotomic noncancellation; those proof steps stand independently of the checker. The statement is restricted to finite commutative length-two chain rings, unit level and \(n\ge2\). Broader local-ring Fourier results could duplicate the statement after specialization; the bounded comparison does not certify independent priority. Independent mathematical audit is not performed.
+## originality
+
+PASS
+
+General Kloosterman stationary-phase results supply essential zero conditions, but the inspected primary theorem does not state the exact all-conductor additive shell support, the even-characteristic case, or the rank. Related finite-field hyperbolic Gabor tomography uses a Weyl-lifting operator rather than convolution on length-two rings. Best-of-knowledge PASS qualified by possible stronger unseen local-ring quadratic Fourier theory.
+
+## value
+
+PASS
+
+The unit hyperbolic shell is a canonical smooth split quadratic level set. Its exact complex convolution rank is a structural invariant that distinguishes the socle and primitive character strata and gives a sharp odd/even residue-characteristic Fourier-support density separation; this is neither a tabulated isolated small example nor an unmotivated invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

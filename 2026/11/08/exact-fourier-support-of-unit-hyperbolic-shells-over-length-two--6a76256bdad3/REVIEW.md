@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For an arbitrary length-two commutative chain ring, the generating character supplies orthogonality on the full ring and its socle. Separating unit and socle multipliers proves the exact formulas. The crucial stationary-phase step uses the identity \((t+v)^{-1}=t^{-1}-vt^{-2}\) when \(v^2=0\), hence is exact even in characteristic two. Noncancellation of the two odd-characteristic stationary terms and of the \(q-1\)-term finite-field Kloosterman sum is proved cyclotomically. The counting argument partitions all frequency pairs and leads to the displayed exact rank. Replayed standalone finite checks support, but do not prove, the universal statement. Normalization is the unnormalized plus-sign transform.
+PASS
 
-## Originality — PASS under bounded comparison
+Independently reconstructed character orthogonality: the t multiplier enforces x dot y=1, with t unit producing q^(2n-2) times the unit Kloosterman sum, t in the nonzero socle producing q^(3n-2) times a field Kloosterman sum for socle frequencies, and t=0 contributing only at the origin. Square-zero unit-fibre stationary phase forces residue t^2=residue a dot b. In odd residue characteristic two stationary phases cannot cancel because generating characters have odd prime-power order; in even characteristic the stationary root is unique. The q-1 terms in the finite-field sum cannot cancel since q-1 is not divisible by the field characteristic. Counting nonzero residue a and prescribed dot-product fibres gives the exact rank, including q=2 and mixed characteristic. Finite exact cyclotomic enumeration over Z/4 and Z/9 for n=2 found ranks 112 and 2025 respectively; these do not prove all rings.
 
-The primary comparisons are the full finite-field quadratic Fourier analyses of Iosevich–Koh (arXiv:0712.1627 and arXiv:0804.4505), Nica's local-ring Kloosterman analysis (arXiv:1910.00165, especially Theorem 8.2 and Section 3), and the classical prime-power stationary-phase work of Dąbrowski–Fisher. Nica supplies important zero conditions, not the shell's all-frequency classification or the even-characteristic/nonunit-conductor rank count; the finite-field sources do not imply the length-two claim. An independently located published finite-field hyperbolic-shell Gabor tomography result deals with field ambiguity functions and an operator-lifting rank, not length-two chain-ring additive convolution. Accessible historical claims include a length-two *ternary* quadratic shell over cyclic odd prime squares and one-dimensional hyperbolic representation functions, neither of which states or subsumes the present all-length-two-chain-ring, even-dimensional Fourier support theorem. General local-ring quadratic Fourier transform literature remains a nontrivial residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unit hyperbolic shell is the canonical split quadratic level set over finite local rings. The exact convolution rank provides an intrinsic invariant that differs sharply between odd and even residue characteristics and includes mixed/equal characteristic rings under one theorem. The theorem distinguishes primitive and socle characters, an essential structural feature lost by field-only calculations; it is neither a table lookup nor an arbitrary finite slice. It does not claim to be independent of classical Kloosterman techniques.
+General Kloosterman stationary-phase results supply essential zero conditions, but the inspected primary theorem does not state the exact all-conductor additive shell support, the even-characteristic case, or the rank. Related finite-field hyperbolic Gabor tomography uses a Weyl-lifting operator rather than convolution on length-two rings. Best-of-knowledge PASS qualified by possible stronger unseen local-ring quadratic Fourier theory.
 
-## Limitations
+## value
 
-No priority claim beyond the bounded sources and no independent mathematical audit are made. Finite checker instances do not replace the proof. Scope is exactly length-two finite commutative chain rings, unit level, and at least two coordinate pairs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unit hyperbolic shell is a canonical smooth split quadratic level set. Its exact complex convolution rank is a structural invariant that distinguishes the socle and primitive character strata and gives a sharp odd/even residue-characteristic Fourier-support density separation; this is neither a tabulated isolated small example nor an unmotivated invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
