@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Use Python 3 with only standard-library modules. Execute `python3 verify_euler.py` and `python3 verify_direct.py` from the extracted files; each script uses only its own source and no downloaded data or external package.
+## correctness
 
-The edge-based program enumerates all 512 reversal-pair choices, validates the ten degree-balanced choices, the two strongly connected choices, the exact 5-by-5 directed matrix-tree determinants of four, and four anchored tours for each. Its expected output begins `EULER_VERIFY_OK 10` and ends `cycles=8`.
+PASS
 
-The independently formulated direct program enumerates all 19,683 ternary rooted cyclic words of length nine, checks the unique orientation of each of the nine nonpalindromic reversal classes, verifies the complete eight-word rotation-canonical catalog and confirms its S3-plus-reversal orbit partition of sizes six and two. Its expected output begins `DIRECT_VERIFY_OK 8`.
+At order three on three labeled symbols, nine nonpalindromic reversal pairs bound any orientable cyclic word by nine windows. Every extremal cyclic word chooses one directed edge from each of nine pairs, and Euler balance/strong connectivity characterize its admissibility. The actual verify_euler.py enumerates all 512 choices, ten balanced masks, two connected masks; the matrix-tree/BEST calculation gives four cyclic Euler circuits for each. Independent direct enumeration of all 3^9 rooted words gives exactly eight rotation classes; all six symbol permutations plus reversal split them into orbit sizes 6 and 2. The reported eight canonical words were reobtained independently. No extrapolation to higher orders is used.
 
-Both checks are exhaustive in the specified finite domain, and the graph argument proves why length nine is maximal. They do not establish a formula for general alphabet sizes or orders. No external independent audit has been performed. Historical originality remains qualified by potentially inaccessible early classifications.
+## originality
+
+PASS
+
+The period-nine bound and individual examples were published before this result, but the examined primary papers describe constructions/upper bounds, not the exact eight-cycle population and two alphabet/reversal symmetry classes. A search did not discover a stronger complete low-order orbit census. Historical conference catalogs remain a qualified risk.
+
+## value
+
+PASS
+
+This is an exact complete extremal-census result for the first nonbinary low-window orientable sequence setting. Counting all maximizers and their genuine symmetry types is useful for direction-and-position identifiers even though maximum length is established. The classification is exhaustive with a principled Euler-tour proof rather than an arbitrary selection of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
