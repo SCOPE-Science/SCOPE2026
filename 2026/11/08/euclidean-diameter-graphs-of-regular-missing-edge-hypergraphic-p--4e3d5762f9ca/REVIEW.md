@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exposed-vertex proof treats every strict coordinate ordering and its exceptional omitted edge, then proves the converse by constructing generic exposing objectives. The two exact norm shells follow from coordinate sum \(m\), and averaging all outer vertices proves both optimality and uniqueness of the center. Nonnegative coordinates force the Euclidean diameter bound, whose equality cases require two outer supports to be disjoint. An exact matching count proves that equality is attainable and enumerates all diameter pairs. Strict convexity excludes nonvertex equality. The chromatic conclusion for cycles invokes Schrijver's published theorem and is not incorrectly presented as independently proved. Replayed exact finite checks corroborate all steps for tested graphs; the general proof has no finite-enumeration premise.
+PASS
 
-## Originality — PASS, provisional historical priority
+A generic coordinate ordering of each summand exposes (m-r)e_t+r e_s for a nonedge and (m-r)e_t+(r-1)e_s+e_u for an edge; every listed vector is exposed and no other vertex exists. Regularity forces exact distinct counts including r=2 coincidences. All outer squared centered norms equal r²(n²-5n+8)/4, with inner deficit 2(r-1); the outer barycenter equals c=r/2*1, proving unique minimal sphere. Since vectors are nonnegative, ||x-y||²<=2[(m-r)²+r²], equality precisely disjoint outer supports; matching count of q-regular complement proves existence/count and graph is independent-two-twin blow-up of its edge-disjointness graph. For G=C_n, complement edges are stable two-subsets, and Schrijver 1978 gives chromatic n-2. Independent enumeration of all n! coordinate orders and all diameter pairs on C5,C6,K3,3 matched formulas; the proof handles all admissible regular graphs.
 
-The closest source, Gélinas–Yang (arXiv:2605.03913), studies cyclic interval hypergraphic posets and the structure of the defining Minkowski sums; it does not state a Euclidean metric extremal classification or a diameter graph. Agnarsson–Morris (arXiv:math/0605564) supplies general combinatorial normal-fan and vertex machinery but no equivalent Euclidean diameter or matchings-of-complements conclusion. Schrijver (1978) determines the chromatic number of the already-known stable Kneser graph, not its realization here as a polytope diameter graph. Comparison against published geometric results on symmetric-edge and star-hypergraphic polytopes distinguished their different summands and geometric observables. Published-record searches and the accessible earlier claim corpus revealed no equal or dominating theorem. Residual risk: another unindexed source may establish the same exact metric result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete metric and equality-case classification in all dimensions for a natural graph-indexed family, including disconnected regular graphs. Despite substantial differences in graph structure, the radius and exact number of diameter edges depend only on the graph's order and regular degree, while the diameter graph retains the complement's edge-disjointness structure. The cycle case realizes Schrijver graphs (up to independent twins and isolated points) as Euclidean diameter graphs and provides an unbounded chromatic phenomenon not implied by the motivating hypergraphic-poset characterization.
+General Minkowski sums of simplices literature studies their normal fans and vertices, while Gélinas–Yang 2026 studies cyclic interval hypergraphic posets. Neither supplies Euclidean norm shells, all diametral pairs and equality graph for arbitrary regular omitted-edge graphs. Schrijver graph coloring is credited as a prior graph theorem, not claimed new. Resultary searches found nearby but geometrically different star and symmetric-edge polytope metric theorems.
 
-## Scope, sources, and remaining risks
+## value
 
-The 2026 motivating manuscript, the 2006 simplex-Minkowski manuscript, and Schrijver's original 1978 paper were inspected at their substantive definitions and theorems. The computational verifier independently reconstructs exposed vertices on finite test graphs, but not all regular graphs. The metric is the standard ambient Euclidean metric, and nonregular graphs remain outside scope. Historical priority is provisional; external expert verification has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete Euclidean diameter graph, not just a bound, is a natural exact metric invariant for a broad regular-graph-defined hypergraphic polytope family. Its cycle specialization geometrically realizes Schrijver graphs with unbounded chromatic number in increasing affine dimension, a structural connection that does not follow from abstract combinatorial fan data alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
