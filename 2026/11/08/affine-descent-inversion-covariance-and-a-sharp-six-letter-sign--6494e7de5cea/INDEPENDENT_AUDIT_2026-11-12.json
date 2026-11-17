@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:40:40.860877Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform multiset words are exchangeable sampling without replacement. The local descent probability is p=T/[n(n-1)]. Adjacent swapping decreases total inversion count by one without altering unrelated pair contribution; reversing the word maps I to T-I and D_i to ascent at n-i, giving mirror c_i+c_(n-i)=p. Replacing an earlier third position by a later one changes the covariance by the average of sign(C-A)+sign(C-B) conditioned on A>B; triple-distinct label terms cancel and tied third copies contribute numerator S. Thus constant slope S/[n(n-1)(n-2)] and the affine formula follow for all n>=3. Summing i c_i yields (3T+S)/12; |S|<=(n-2)T proves nonnegative through size five. At n=6 S<-3T is possible uniquely for ordered (5,1), giving -5/12. Direct exact rational enumeration reproduces (5,1) value, and n=2 case is separately handled. The infinite bound is algebraic, not an extrapolation from the checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conger–Viswanath analyzes multiset inversion/descent joint indicator probabilities and normal limits; Thiel studies asymptotic inv/maj joint normality and exact recurrence; Baxter–Zeilberger covers distinct-letter permutations."
+        ],
+        "reasoning": "Published methods yield ingredients and perhaps an implicit covariance identity, but there was no shown theorem describing the sharp n=6 sign boundary for all ordered multiplicity compositions.",
+        "searches": [
+          "https://arxiv.org/abs/math/0508242",
+          "https://arxiv.org/abs/1302.6708",
+          "https://arxiv.org/abs/1004.1160"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1302.6708",
+        "https://arxiv.org/abs/math/0508242",
+        "https://arxiv.org/abs/1004.1160",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/affine-descent-inversion-covariance-and-a-sharp-six-letter-sign--6494e7de5cea/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact formula c_i=T/[2n(n-1)]+(i-n/2)S/[n(n-1)(n-2)] implies (3T+S)/12, and the inequality S>=-(n-2)T gives first negativity at n=6.",
+          "Prior Thiel recurrence gives the joint moment generating object, from which exact aggregate moments are in principle extractable, but neither sign minimality nor the positionwise affine structure appears in its examined statements."
+        ],
+        "reasoning": "Prior does not immediately state or mathematically classify the claim. It is important to credit that general recurrence covers generation of exact moments implicitly, making originality qualified rather than absolute.",
+        "searches": [
+          "https://arxiv.org/html/1302.6708v1",
+          "https://arxiv.org/html/math/0508242v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Thiel exact joint inv/maj generating recurrence aggregates over descent positions via M, and does not explicitly provide Cov(D_i,I)."
+        ],
+        "reasoning": "A bivariate global generating function is not a positional multivariate generating formula. Its exact derivative can recover Cov(M,I), but not independently all c_i without further mathematics.",
+        "searches": [
+          "Resultary semantic query: multiset permutations inversion major index covariance positionwise descent affine negative covariance six letters",
+          "https://arxiv.org/abs/1302.6708"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At n=6, profile (5,1) yields Cov(M,I)=-5/12; enumeration of all compositions through size six establishes unique negative case."
+        ],
+        "reasoning": "The contribution includes an exact all-size affine law and a sharp minimality classification, not an isolated enumeration or recomputation of known Mahonian equidistribution tables.",
+        "searches": [
+          "https://arxiv.org/abs/1302.6708",
+          "Resultary semantic covariance search"
+        ]
+      },
+      "rationale": "Thiel gives a genuinely broader exact inv/maj bivariate recurrence and leading mixed asymptotic moments, while Conger–Viswanath gives inversion/descent marginal/joint indicator ingredients. Such generating formulas permit derivative computations but neither inspected primary statement explicitly states the finite position-resolved affine covariance kernel, its exact signed S term or the unique first negative six-letter ordered profile. The result is a sharp extracted qualitative dependence theorem, not the invention of a new multiset statistic. Priority risk: derivatives of previously published recurrence may make its aggregate covariance straightforward and implicit; no claim of novelty for the raw generating function.",
+      "residual_risks": [
+        "A published exact joint generating recurrence implicitly determines aggregate Cov(M,I) by differentiation; priority of the simplified closed finite formula is qualified.",
+        "No claim is made for iid sampling, nonuniform multiset shuffles or stochastic domination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General recurrence and asymptotic covariance precede this result; explicit finite affine positional profile and sharp six-letter sign classification not stated in inspected passages",
+          "evidence": "Thiel recurrence counts inv and maj jointly, no position-indexed descent variable.",
+          "identifier_or_url": "https://arxiv.org/html/1302.6708v1",
+          "material_read": "Accessible primary full HTML: multiset-word definitions, exact bivariate recurrence, mixed covariance/asymptotics and statements in introduction and theorem sections",
+          "method": "Read primary arXiv full HTML and mathematical exact-moment construction",
+          "title": "The Inversion Number and the Major Index Are Asymptotically Jointly Normally Distributed on Words — Marko Thiel",
+          "trigger": "Strongest prior exact inv/maj joint generating-function source for multiset words"
+        },
+        {
+          "assessment": "Useful moment ingredients and marginal statistics, not a stated all-position affine Cov(D_i,I) or universal smallest negative inv/maj covariance threshold",
+          "evidence": "Different focus on total descents and inversions; no sharp n6 sign profile displayed.",
+          "identifier_or_url": "https://arxiv.org/html/math/0508242v2",
+          "material_read": "Accessible primary full HTML: setting, random-copy sampling, inversion indicators, descent and normal approximation calculations",
+          "method": "Read primary arXiv full manuscript",
+          "title": "Normal Approximations for Descents and Inversions of Permutations of Multisets — Conger and Viswanath",
+          "trigger": "Same random multiset sampling and inversion/descent indicator dependence"
+        },
+        {
+          "assessment": "Self-contained combinatorial proof, no novel generating-function claim",
+          "evidence": "Swap/reversal identity, physical-copy triple count and bound |S|<= (n-2)T.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/affine-descent-inversion-covariance-and-a-sharp-six-letter-sign--6494e7de5cea/RESULT.md",
+          "material_read": "Full final RESULT.md, CHECK.py exact enumerator, SLOGAN and status JSON",
+          "method": "Read published full RESULT.md from exact Git repository source; compare definitions, hypotheses and mathematical formulas",
+          "title": "Affine descent–inversion covariance and a sharp six-letter sign boundary",
+          "trigger": "Assigned exact covariance theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dependence of inversions on each individual descent location is a natural fine statistic for random permutations with ties; the affine signed covariance profile is an all-size structural identity and yields a sharp sign-transition classification. The first negative covariance between equidistributed major-index and inversion statistics at length six with a unique ordered multiplicity profile is a meaningful exact boundary, not a numerical table alone or a rename of a known mean. It is independently useful for finite-sample dependence questions despite prior methods for generating moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1302.6708",
+    "https://arxiv.org/abs/math/0508242",
+    "https://arxiv.org/abs/1004.1160",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/affine-descent-inversion-covariance-and-a-sharp-six-letter-sign--6494e7de5cea/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform fixed-multiplicity sampling, distinct positions and n>=3 for affine formula; n=1,2 handled separately.",
+    "No assertion that inversion/major-index equidistribution or Thiel joint generating function is new."
+  ],
+  "residual_risks": [
+    "A published exact joint generating recurrence implicitly determines aggregate Cov(M,I) by differentiation; priority of the simplified closed finite formula is qualified.",
+    "No claim is made for iid sampling, nonuniform multiset shuffles or stochastic domination."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General recurrence and asymptotic covariance precede this result; explicit finite affine positional profile and sharp six-letter sign classification not stated in inspected passages",
+      "evidence": "Thiel recurrence counts inv and maj jointly, no position-indexed descent variable.",
+      "identifier_or_url": "https://arxiv.org/html/1302.6708v1",
+      "material_read": "Accessible primary full HTML: multiset-word definitions, exact bivariate recurrence, mixed covariance/asymptotics and statements in introduction and theorem sections",
+      "method": "Read primary arXiv full HTML and mathematical exact-moment construction",
+      "title": "The Inversion Number and the Major Index Are Asymptotically Jointly Normally Distributed on Words — Marko Thiel",
+      "trigger": "Strongest prior exact inv/maj joint generating-function source for multiset words"
+    },
+    {
+      "assessment": "Useful moment ingredients and marginal statistics, not a stated all-position affine Cov(D_i,I) or universal smallest negative inv/maj covariance threshold",
+      "evidence": "Different focus on total descents and inversions; no sharp n6 sign profile displayed.",
+      "identifier_or_url": "https://arxiv.org/html/math/0508242v2",
+      "material_read": "Accessible primary full HTML: setting, random-copy sampling, inversion indicators, descent and normal approximation calculations",
+      "method": "Read primary arXiv full manuscript",
+      "title": "Normal Approximations for Descents and Inversions of Permutations of Multisets — Conger and Viswanath",
+      "trigger": "Same random multiset sampling and inversion/descent indicator dependence"
+    },
+    {
+      "assessment": "Self-contained combinatorial proof, no novel generating-function claim",
+      "evidence": "Swap/reversal identity, physical-copy triple count and bound |S|<= (n-2)T.",
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/affine-descent-inversion-covariance-and-a-sharp-six-letter-sign--6494e7de5cea/RESULT.md",
+      "material_read": "Full final RESULT.md, CHECK.py exact enumerator, SLOGAN and status JSON",
+      "method": "Read published full RESULT.md from exact Git repository source; compare definitions, hypotheses and mathematical formulas",
+      "title": "Affine descent–inversion covariance and a sharp six-letter sign boundary",
+      "trigger": "Assigned exact covariance theorem"
+    }
+  ]
+}
