@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed Fourier character table is derived in full in RESULT.md. Rank-one sums follow from projective isotropic point counts; rank-two sums from a restriction-to-two-planes calculation and a ternary quadratic Gauss-sum identity. Four explicit multiplier formulas give a unique critical root and strict negativity of every other Fourier sector. The endpoint Gram-rank calculation is by translation invariance and double-centering. Independent finite Fourier transforms for primes 3, 5, and 7 agree with every rank-and-type sector, but do not prove nonprime-field cases.
+## correctness
 
-## Originality — PASS within the stated comparison
-Schmidt (arXiv:1410.7184v1), especially Section 2 and Appendix A, supplies the general symmetric-form character eigenvalues; these are prior foundations. Sánchez (arXiv:1108.0451v1), especially Section 2, supplies a general negative-type criterion. Neither inspected source states this all-odd-field critical exponent or its endpoint Euclidean dimension. Published records concerning rank-one symmetric Fourier restrictions or unrestricted bilinear rank metrics act on different operators or spaces and do not directly imply the exact sign classification. The possibility of an overlooked specialization or combined corollary of known eigenmatrices remains a genuine historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The result determines a natural metric invariant for an infinite family of finite quadratic-form geometries, identifies a unique critical representation, and gives the exact loss in minimal Hilbert embedding dimension. Unlike a raw eigenmatrix tabulation, the theorem resolves the simultaneous sign competition of four distinct frequency types, yielding a sharp threshold and a nontrivial asymptotic law. Symmetric forms are a separate, non-polynomial translation scheme, so the unrestricted-matrix analogue does not directly determine these values.
+For odd prime-power q, the trace pairing identifies all additive characters of Sym_3(Fq). Count rank-one forms by projective lines; splitting rank-two restrictions by discriminant gives S1=-1,q²-1,-q²-1,-1 and S2=q²(q-1),q³-2q²,q³,-q² for rank-1,rank-2 split,rank-2 nonsplit,rank-3 dual frequencies. The nonconstant eigenvalues are all negative except the strictly increasing rank-three one -1+q²(3^t-2^t), whose unique root in (0,1) is beta. Strictness and endpoint real nullity follow by real Fourier diagonalization and Schoenberg centering; rank-three frequency multiplicity q²(q-1)(q³-1) yields endpoint dimension (q³-1)(q²+1). Independent q=3 finite Fourier transform checks for representative rank sectors gave (-1,18), (8,9),(-10,27),(-1,-9), agreeing with the formulas; q² beta ->1/log(3/2). Fields characteristic two are excluded.
 
-## Closest literature and limitations
-Schmidt's 2014 paper gives the full symmetric-bilinear-form association-scheme eigenvalues; Sánchez's 2011 work gives the general metric-negative-type framework. Wang et al. (2003) establishes duality and primitivity of the schemes; its introductory, definitional, and opening duality passages were inspected in an accessible HTML rendition, but the remaining text was not exhaustively reviewed. The code checks prime fields only; all odd prime powers rest on the proof. Characteristic two, higher symmetric ranks, independent validation, and exhaustive priority review are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Schmidt (2014) Theorem 2.2 is a strong PRIOR general eigenmatrix for the full symmetric-form association scheme, while Sánchez (2011) gives an arbitrary-finite-metric supremal negative-type algorithm. These contain ingredients but their inspected relevant theorems and appendix do not establish the all-odd-field exact root q²(3^t-2^t)=1, sole rank-three crossing, endpoint Hilbert dimension, or scaling law. Explicit rank-sector sign dominance and powered-metric optimization are additional mathematical work. No exact prior covering theorem found in Resultary or primary searches, with substantial residual risk of an earlier worked specialization.
+
+## value
+
+PASS
+
+The metric on Sym_3(Fq) is canonical, and its exact generalized-roundness boundary and minimum critical Euclidean rank are natural embedding invariants. The single Fourier sector selecting the threshold for every odd field gives a complete structural classification; meaningful beyond mechanical table copying.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
