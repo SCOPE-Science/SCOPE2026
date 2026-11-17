@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:00:28.603085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The sum-c edges match all L_i with R_{c−i}; contracting that matching preserves cyclomatic number and yields simple two-distance interval graph H_c(s,t) with s=c−b, t=c−a. Its edges are distances s and t; on Z/(s+t) the translation by s decomposes into g=gcd(s,t) cycles, each with at least three vertices because s<t. Deleting the last g labels (one from each residue class) leaves g paths, so H_{s+t−g−1} is a forest; beyond this cutoff each new vertex remains in its existing residue component, and counting edges 2(N+1)−s−t gives β1=max(0,N+1−s−t+g). Substitution N=c yields the formula and exact strict forest inequality. For any acyclic triple, each added sum d>2c contributes a matching with at most one endpoint in previous nonisolated core; iterating a superlacunary sequence preserves acyclicity. Zeng–Xue–Zeng forest-support theorem then establishes the characteristic-word statement without arbitrary symbol relabeling. Independent original-bipartite-graph union-find verified 12,000 triples, including boundary and gcd cases; analytic graph argument proves all triples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zeng–Xue–Zeng https://arxiv.org/html/2609.28059v5: for arbitrary infinite D, characteristic word is Abelian pattern Sturmian iff Γ_D is a forest (after relabeling).",
+          "Zeng Proposition 6.9: superlacunary sufficient forest support.",
+          "Rankin https://arxiv.org/html/0906.1780v1: generalized Fine–Wilf period graphs and upper/lower connectivity bounds."
+        ],
+        "reasoning": "The general characterization turns prefix forestness into word status but does not decide which three-point prefixes are forests; the present explicit equality and strict boundary supplement it.",
+        "searches": [
+          "Resultary: Abelian pattern Sturmian three spike sparse supports graph acyclicity cycle rank Fine Wilf two distance graph",
+          "https://arxiv.org/html/2609.28059v5",
+          "https://arxiv.org/html/0906.1780v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.28059v5",
+        "https://arxiv.org/html/0906.1780v1",
+        "https://doi.org/10.1090/S0002-9939-1965-0174934-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current full β1=max(0,a+b−c+g+1) yields forest iff c−b>a+g and proves extendability using leaf-only additions.",
+          "Zeng forest-support theorem and Rankin connectivity do not themselves display or prove the three-sum contraction and complete rank values."
+        ],
+        "reasoning": "Prior structure plus an additional explicit graph analysis can imply the current result, but the additional step is precisely the stated sharp three-spike classification; prior published statements do not directly cover the all-parameter rank formula.",
+        "searches": [
+          "Resultary: Abelian pattern Sturmian three spike sparse supports graph acyclicity cycle rank Fine Wilf two distance graph",
+          "https://arxiv.org/html/2609.28059v5",
+          "https://arxiv.org/html/0906.1780v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rankin https://arxiv.org/html/0906.1780v1 analyzes Fine–Wilf period graphs with edges at two differences and critical connectivity lengths.",
+          "Submitted Γ_{a,b,c} contracts to H_c(c−b,c−a), an interval two-period graph; this reduction is necessary to compare exact statements."
+        ],
+        "reasoning": "The graph formulation maps to the same Fine–Wilf periods s and t. Classical connectivity theorem is an ingredient, but an explicit cyclomatic rank of the additive three-sum graph is not simply identical to that prior connectivity statement.",
+        "searches": [
+          "Resultary: Abelian pattern Sturmian three spike sparse supports graph acyclicity cycle rank Fine Wilf two distance graph",
+          "https://arxiv.org/html/2609.28059v5",
+          "https://arxiv.org/html/0906.1780v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zeng source https://arxiv.org/html/2609.28059v5 gives examples Sidon/superlacunary and cycle obstructions, not all 0<=a<b<c exact β1 table.",
+          "Rankin source https://arxiv.org/html/0906.1780v1 focuses period-graph connectivity and threshold, not this three-sum bipartite cycle-rank census."
+        ],
+        "reasoning": "The current gcd expression is an exact natural triple-invariant formula. Searches found no indexed already-complete exact table in this additive setting; a hidden consequence of classical Fine–Wilf counting remains a priority risk.",
+        "searches": [
+          "Resultary: Abelian pattern Sturmian three spike sparse supports graph acyclicity cycle rank Fine Wilf two distance graph",
+          "https://arxiv.org/html/2609.28059v5",
+          "https://arxiv.org/html/0906.1780v1"
+        ]
+      },
+      "rationale": "PASS, with Fine–Wilf priority reservation: Zeng–Xue–Zeng (Sep23 2026, v5 Nov6) proves the general forest-support characterization of Abelian pattern Sturmian words, and its superlacunary construction, but not an explicit first-three sparse support feasibility inequality or full β1 formula. Rankin/Fine–Wilf characterize the connectivity threshold of two-distance period graphs, and edge/component counting makes the cycle rank approachable, so the ingredients are credited; however the exact matching-contraction transfer to additive three-sum graphs and sharp prefix feasibility condition are not stated by the inspected sources. This is a best-of-knowledge narrow structural classification, not a claim that the general forest characterization is new.",
+      "residual_risks": [
+        "Classical period-graph literature may implicitly encode the same cycle-rank formula by vertex/edge counts; exact three-sum transfer was not found in inspected prior primary results.",
+        "Infinite word statement holds only for designated sparse-support labeling, not an arbitrary word letter convention or larger finite supports.",
+        "Proof uses a critical cycle deletion argument; numerical verification on 12,000 triples corroborates but does not replace it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Forest iff symbolic word, plus superlacunary examples; no triple arbitrary (a,b,c) formula or rank.",
+          "identifier_or_url": "https://arxiv.org/html/2609.28059v5",
+          "material_read": "Full arXiv HTML accessible; Theorem D/§6 incidence characterization, Lemmas/Proposition 6.9 and examples, result scope; v5 Nov6",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Abelian maximal pattern complexity and extremal words",
+          "trigger": "exact same incidence-forest definition for Abelian pattern Sturmian words"
+        },
+        {
+          "assessment": "STRUCTURAL_PRIOR",
+          "evidence": "Classical s,t connectivity at N=s+t−g−1 and graph framework; not a sum-three incidence cyclomatic classification.",
+          "identifier_or_url": "https://arxiv.org/html/0906.1780v1",
+          "material_read": "arXiv HTML introduction and §§2–3 on finite period graphs and component merging",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Fine-Wilf graphs and the generalized Fine-Wilf theorem",
+          "trigger": "two-distance graph connectivity threshold equivalence"
+        },
+        {
+          "assessment": "SUBMITTED_EVIDENCE",
+          "evidence": "Sharp exact formula and necessity/sufficiency with explicit labeling of sparse support.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-cycle-rank-and-admissible-three-spike-prefixes-for-abelian--e3a97eafa17a/RESULT.md",
+          "material_read": "Entire RESULT.md, matching contraction proof, forest extension and full scope restrictions",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Exact cycle rank and admissible three-spike prefixes for Abelian pattern Sturmian words (assigned)",
+          "trigger": "check complete all-triple mathematical proof and designated labeling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The set of admissible first-three designated sparse support positions is a natural local obstruction in an established infinite symbolic-word construction. A sharp all-triples gcd/interval boundary and complete cycle rank determine which finite prefixes can be extended at all; the result is an exact natural complete three-point classification. Although elementary after the correct contraction, it resolves a motivated feasibility problem and records the full defect β1; no artificial parameter slicing or paper-sized expansion is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every 0<=a<b<c, the additive bipartite incidence graph of sums {a,b,c} has cycle rank β1=max(0,a+b−c+gcd(b−a,c−b)+1); it is a forest exactly when c−b>a+gcd(b−a,c−b), precisely characterizing admissible designated sparse-support first-three positions of an infinite Abelian pattern Sturmian characteristic word.",
+  "limitations": [
+    "Only exactly three finite support positions are classified. Infinite extension is possible only under the designated sparse support of forest-type Abelian pattern Sturmian characteristic words.",
+    "Potential unindexed Fine–Wilf implied formula remains a residual historical-priority risk."
+  ],
+  "schema_version": 1
+}

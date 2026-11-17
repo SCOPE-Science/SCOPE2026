@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact claim is quantified over every ordered triple of nonnegative integers. Matching contraction transforms the three-sum bipartite graph into the standard two-distance interval graph while preserving first Betti number. Adding \(s\) modulo \(s+t\) decomposes the critical graph into \(g\) cycles, deletion of one vertex from each produces \(g\) paths, and counting edges and components yields the exact cyclomatic formula. The sparse extension proof adds a single diagonal matching with no edge joining two old nonisolated vertices. The packaged checker independently replayed the original incidence graph on 13,750 parameter triples, 6,635 one-step extensions, and 1,000 additional larger triples. The proof, not finite tests, covers infinite parameters.
+## correctness
 
-## Originality
-PASS under the stated source and implication comparisons, subject to priority risk. Zeng--Xue--Zeng (arXiv:2609.28059v3, Theorem E, Sections 7.1--7.3) supplies the global incidence-forest characterization, but not an all-parameter three-support cycle-rank formula or sharp first-three support feasibility criterion. Classical Fine--Wilf and Rankin (arXiv:0906.1780v1) cover connectivity of two-period graphs: this is explicitly retained as prior art. The new transfer identifies the additive incidence graph with a contracted period graph, yields the cycle rank rather than only connectivity, and interprets the sharp obstruction as an infinite-word prefix criterion. Related special-family prefix and shifted-geometric-support claims were compared at the implication level; neither supplies the arbitrary three-support formula. A hidden prior treatment of the contraction is a remaining priority risk.
+PASS
 
-## Value
-PASS. An exact first-three sparse-symbol prefix criterion is a natural finite extension question arising directly from the established forest characterization of Abelian pattern Sturmian words. It provides a sharp gcd-dependent obstruction and an exact count of independent cycles for every triple, not an arbitrary numerical slice. It distinguishes triples that already contain a forbidden cycle from those admitting infinitely many legal completions.
+PASS: The sum-c edges match all L_i with R_{c−i}; contracting that matching preserves cyclomatic number and yields simple two-distance interval graph H_c(s,t) with s=c−b, t=c−a. Its edges are distances s and t; on Z/(s+t) the translation by s decomposes into g=gcd(s,t) cycles, each with at least three vertices because s<t. Deleting the last g labels (one from each residue class) leaves g paths, so H_{s+t−g−1} is a forest; beyond this cutoff each new vertex remains in its existing residue component, and counting edges 2(N+1)−s−t gives β1=max(0,N+1−s−t+g). Substitution N=c yields the formula and exact strict forest inequality. For any acyclic triple, each added sum d>2c contributes a matching with at most one endpoint in previous nonisolated core; iterating a superlacunary sequence preserves acyclicity. Zeng–Xue–Zeng forest-support theorem then establishes the characteristic-word statement without arbitrary symbol relabeling. Independent original-bipartite-graph union-find verified 12,000 triples, including boundary and gcd cases; analytic graph argument proves all triples.
 
-## Closest literature and limitations
-The closest material is arXiv:2609.28059v3 (particularly Theorem E and Proposition 7.12) and classical two-period Fine--Wilf graphs (arXiv:0906.1780v1). Their overlap and the reduction are explained in `RESULT.md`. This result is not an independent reproof of the global characterization, not a classification for supports of four or more elements, and not a claim about an arbitrary choice of binary alphabet labeling. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with Fine–Wilf priority reservation: Zeng–Xue–Zeng (Sep23 2026, v5 Nov6) proves the general forest-support characterization of Abelian pattern Sturmian words, and its superlacunary construction, but not an explicit first-three sparse support feasibility inequality or full β1 formula. Rankin/Fine–Wilf characterize the connectivity threshold of two-distance period graphs, and edge/component counting makes the cycle rank approachable, so the ingredients are credited; however the exact matching-contraction transfer to additive three-sum graphs and sharp prefix feasibility condition are not stated by the inspected sources. This is a best-of-knowledge narrow structural classification, not a claim that the general forest characterization is new.
+
+## value
+
+PASS
+
+PASS: The set of admissible first-three designated sparse support positions is a natural local obstruction in an established infinite symbolic-word construction. A sharp all-triples gcd/interval boundary and complete cycle rank determine which finite prefixes can be extended at all; the result is an exact natural complete three-point classification. Although elementary after the correct contraction, it resolves a motivated feasibility problem and records the full defect β1; no artificial parameter slicing or paper-sized expansion is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
