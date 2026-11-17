@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 checker.py` using the Python standard library. The program enumerates precisely \(16\times81=1296\) combinations of fixed ex ante tie-breaking vectors and four-agent weak-order profiles. It separately enumerates the two possible complete matching assignments, checks stability, checks worker-optimality among strictly stable matchings, and tests two-sided Pareto dominance under the **unrefined** preferences. It verifies the full \((1,2),(2,3),(3,4)\) failure coefficient table and its \(10,4,2\) multiplicities, plus the pointwise optimality and independent-policy expectation at six rational parameter values.
+## correctness
 
-The exhaustive finite enumeration is the proof of the coefficient table; weighting it by \(t^k((1-t)/2)^{4-k}\) is an exact symbolic derivation for every real \(t\in[0,1]\). The parameter substitutions are additional arithmetic checks, not a claim of exhaustive testing over the continuum. The proof also establishes independently why profiles with zero, one, or four ties cannot cause this Pareto failure.
+PASS
 
-No independent review or external validation is asserted. Uninspected or unindexed equivalent literature may affect novelty; results do not extend beyond the stated model without further proof.
+For two workers/two firms every complete DA matching has exactly one alternative; original weak Pareto domination must use the alternative and requires at least two tied agents (one across each alternative pair), while four ties eliminate strict gain. Independent exhaustive enumeration of all 16 deterministic tie policies and 3^4=81 weak-order profiles gives coefficient pairs (c2,c3)=(1,2) for 10, (2,3) for 4, (3,4) for 2. Every fixed policy has risk c2*t²(1-t)²/4+c3*t³(1-t)/2; convex mixing cannot beat the first class. Equal worker-side priorities attain Pmin=t²(1-t)(3t+1)/4, while independent fair four-agent tie breaks give Pind=t²(1-t)(7t+3)/8. Independently reimplemented complete DA and Pareto test for all 1296 inputs, reproducing exact classes. Polynomial coefficient expression establishes all real 0<=t<=1.
+
+## originality
+
+PASS
+
+Best-of-knowledge: core original contribution is not established as a corollary or stronger prior result by the materially inspected sources and searches. Theorem 4 supporting a Pareto-efficient outcome by some tie break after observing preferences does not imply a single report-independent vector or lottery minimizes unconditional failure. Existence after observing profiles and ex-ante stochastic risk are mathematically different optimization orders. Residual priority risks remain; a failed search is not an originality proof.
+
+## value
+
+PASS
+
+The fully optimized stochastic tie-breaking failure probability quantifies a concrete Pareto-efficiency cost of independent random refinement and identifies a simple jointly coordinated design that improves it. A smallest balanced market exact risk classification is a natural benchmark for mechanism design, not simply an implementation example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

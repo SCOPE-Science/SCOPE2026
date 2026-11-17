@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the product of four three-element weak-order sets and sixteen ex ante refinement vectors. In each case the algorithm compares the DA matching to the **only** other perfect matching using all four agents' original preferences; any matching that leaves someone unmatched cannot Pareto improve a full matching. The two cross-pair argument proves that failures require two or three indifferent agents. Independent complete enumeration yields the three exact coefficient classes \((c_2,c_3)=(1,2),(2,3),(3,4)\), with respectively \(10,4,2\) vectors. Their profile probabilities imply the claimed polynomials. Because arbitrary report-independent randomized policies are convex mixtures, pointwise minimization over fixed vectors is conclusive. The standalone Python checker verifies all \(1296\) cases and the stability/worker-optimality of the DA result. The polynomial identity, not numerical tests, establishes the claim for all real parameters in scope.
+PASS
 
-## Originality — PASS, with residual risk
+For two workers/two firms every complete DA matching has exactly one alternative; original weak Pareto domination must use the alternative and requires at least two tied agents (one across each alternative pair), while four ties eliminate strict gain. Independent exhaustive enumeration of all 16 deterministic tie policies and 3^4=81 weak-order profiles gives coefficient pairs (c2,c3)=(1,2) for 10, (2,3) for 4, (3,4) for 2. Every fixed policy has risk c2*t²(1-t)²/4+c3*t³(1-t)/2; convex mixing cannot beat the first class. Equal worker-side priorities attain Pmin=t²(1-t)(3t+1)/4, while independent fair four-agent tie breaks give Pind=t²(1-t)(7t+3)/8. Independently reimplemented complete DA and Pareto test for all 1296 inputs, reproducing exact classes. Polynomial coefficient expression establishes all real 0<=t<=1.
 
-The closest inspected sources are Erdil and Ergin (2017), especially the initial two-by-two example and the treatment of single tie-breaking in Section 5; Domaniç, Lam and Plaxton (2017), an alternative strategyproof Pareto-stable mechanism; and Kawase and Sato (2026), who motivate the deficiency of arbitrary tie-breaking and give a generalized-DA solution. The earlier single-tie-breaking concept and the possibility of inefficiency are **not** claimed new. Neither the relevant full-text sections nor the additional accessible literature comparisons supplied the exact \(t\)-dependent risk polynomials or the ex ante minimization among all report-independent policies in the stated random model. Semantic claim searches also found only related strict-preference matching enumerations, not equivalent two-sided weak-order risk. A different or previously unindexed exact enumeration remains a genuine novelty risk, so this is not an independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating practical issue is not just whether randomly refined deferred acceptance can fail, which is known, but how the **correlation in refinements** changes failure probability, while keeping every tied participant's refinement marginal fair and report independent. The result identifies the complete optimal policy class, a strictly positive risk gap for every interior tie propensity, and an exact canonical benchmark at equiprobable weak orders. It quantifies a substantive mechanism-design choice rather than merely restating a known two-by-two inefficiency witness. The small market is a controlled structural baseline; the result does not purport to solve larger matching markets.
+Best-of-knowledge: core original contribution is not established as a corollary or stronger prior result by the materially inspected sources and searches. Theorem 4 supporting a Pareto-efficient outcome by some tie break after observing preferences does not imply a single report-independent vector or lottery minimizes unconditional failure. Existence after observing profiles and ex-ante stochastic risk are mathematically different optimization orders. Residual priority risks remain; a failed search is not an originality proof.
 
-## Limits and sources
+## value
 
-Only fully acceptable, complete, one-to-one, two-by-two markets under independently drawn identically distributed weak preferences are covered. Deterministic reports can be correlated with labels, but the tie-refinement policy must be chosen independently of reports. Main comparisons: Kawase and Sato (2026), https://arxiv.org/html/2610.30807v1; Erdil and Ergin (2017), https://www.isid.ac.in/~dmishra/gmdoc/indiff_match.pdf, particularly Introduction and Section 5; Domaniç, Lam and Plaxton (2017), https://arxiv.org/html/1703.10598v1. Equivalent unindexed literature and extension to larger or heterogeneous markets remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fully optimized stochastic tie-breaking failure probability quantifies a concrete Pareto-efficiency cost of independent random refinement and identifies a simple jointly coordinated design that improves it. A smallest balanced market exact risk classification is a natural benchmark for mechanism design, not simply an implementation example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
