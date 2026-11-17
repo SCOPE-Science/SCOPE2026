@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 checker.py` using any standard Python 3 installation; no third-party dependencies are required. The checker was run directly on the supplied source and yielded `EXACT_CHECK_PASS`.
+## correctness
 
-Expected tree counts for orders \(2,3,4,5,6,7\): \(1,1,2,3,6,11\) nonisomorphic classes from respectively \(1,3,16,125,1296,16807\) labelled Prüfer sequences. Exact Sturm counts show zero reversing seed pairs on any representative through six vertices and three unordered pairs across the eleven seven-vertex representatives, belonging to exactly two marked-tree classes. All are adjacent. For each witness, \(64\) distinct edge-retention patterns are independently enumerated at probabilities \(1/4\) and \(3/4\). The calculated exact mean differences agree with the distance-profile polynomial and have opposite signs.
+PASS
 
-Independent computational cross-check actually performed: NetworkX 3.6.1 generated nonisomorphic trees, SymPy 1.14.0 isolated polynomial roots exactly, yielding reversing pair counts \(0,0,0,0,0,3\) for trees of order \(2\) through \(7\).
+For independent homogeneous bond retention on an undirected tree, expected outbreak size from root s including seed is M_s(p)=sum_v p^{d(s,v)}. Every pair difference has factors p(1-p). Source checker.py exhausts labelled n^(n-2) Prüfer trees n<=7 (16,807 labelled at n=7), canonical unlabelled trees 1,1,2,3,6,11, all unordered seed pairs and rational Sturm sequences; exactly three representative pairs at n=7 have an interior crossing, in two marked-pair isomorphism classes, none for n<=6. An independent NetworkX nonisomorphic-tree enumeration with SymPy exact interval root count (open endpoints explicitly excluded) reproduced 0 crossings n<=6 and 3 at n=7, witness factors (1-2p) and (1-p-p^2), so strict reversal at 1/2 and (sqrt(5)-1)/2. No general n>7 statement is inferred.
 
-The proof uses Prüfer's bijection, exact rooted-tree canonical strings and classical Sturm root counting. No stochastic simulation, approximate root estimate or extrapolation from seven vertices is used for the theorem. Independent external mathematical validation has not been performed. Bibliographic priority is not established by a search failure, and the 2002 specialized paper remains a stated access risk.
+## originality
+
+PASS
+
+General probabilistic rooted-graph polynomial results already establish arbitrary numbers of reversals on sufficiently large trees, but do not give the exact sharp 7-vertex cutoff and complete two-marked-class classification; no equivalent numerical result located. Inaccessible Aivaliotis–Gordon–Graveman full text is a genuine residual priority risk, not scientific disproof.
+
+## value
+
+PASS
+
+Sharp smallest tree order and complete two-isomorphism-class catalogue for changing expected epidemic source ranking are natural structural boundary data, refine known arbitrary-size existence in rooted reliability, and supply two exact crossover parameters; independently useful for source choice with transmissibility uncertainty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

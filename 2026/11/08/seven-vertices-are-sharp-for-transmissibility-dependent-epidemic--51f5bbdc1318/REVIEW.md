@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probabilistic model is defined by independent retention of each edge. On a tree, the unique path yields \(M_v(p)=1+\sum_j a_v(j)p^j\); this determines all coefficients. Difference polynomials vanish at both endpoints, and the cumulative-distance-profile expression proves the factorization by \(p(1-p)\). The finite proof enumerates all labelled trees of every size up to seven by Prüfer codes, deduplicates via rooted-tree canonical strings, and tests every unordered pair with exact rational Sturm chains, including one-sided endpoint signs and square-free reduction. It finds no interior roots for sizes two through six and exactly three representative source pairs, in two marked-edge orbits, at seven. Independent formulas for both witnesses and edge-pattern enumeration reproduce the differences and crossings. A separate NetworkX/SymPy census agrees on all reversal counts. The exact finite bound is not extrapolated to higher orders.
+PASS
 
-## Originality — PASS within inspected literature, with priority risk
+For independent homogeneous bond retention on an undirected tree, expected outbreak size from root s including seed is M_s(p)=sum_v p^{d(s,v)}. Every pair difference has factors p(1-p). Source checker.py exhausts labelled n^(n-2) Prüfer trees n<=7 (16,807 labelled at n=7), canonical unlabelled trees 1,1,2,3,6,11, all unordered seed pairs and rational Sturm sequences; exactly three representative pairs at n=7 have an interior crossing, in two marked-pair isomorphism classes, none for n<=6. An independent NetworkX nonisomorphic-tree enumeration with SymPy exact interval root count (open endpoints explicitly excluded) reproduced 0 crossings n<=6 and 3 at n=7, witness factors (1-2p) and (1-p-p^2), so strict reversal at 1/2 and (sqrt(5)-1)/2. No general n>7 statement is inferred.
 
-The key literature is Gordon and Jager (2009/2010), whose Lemma 2.4 **already proves** that adjacent tree vertices may have *any prescribed integral endpoint-vanishing difference polynomial*. Therefore the qualitative existence of crossing roots and even arbitrarily many roots is known, not claimed as original. Their Proposition 2.5 also extends crossings to globally top-ranked nodes in substantially larger trees. The final claim concerns instead the *sharp minimum order seven* and the *complete classification of marked pairs at that minimum*. Neither statement follows numerically or structurally from their unspecified-size existence theorem or from Eisenstat–Gordon–Redlich (2008), which studies polynomial properties and reconstruction. The present seven-vertex census and two exact crossover laws supply the new finite answer. Searches for the minimum order, equivalent root-expected-reliability formulation and exact small-tree tables found no matching published statement in inspected material. Nonetheless an older relevant paper, Aivaliotis–Gordon–Graveman (2002), was not accessible in full; human priority review remains necessary. A failed search is not treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing a source/initial case and interpreting its expected affected population are natural tasks in an independent-transmission network. Transmissibility-independent source rankings are valid on trees of order at most six, but fail already on two distinct seven-node branching geometries. The minimum order and complete configurations distinguish local degree (weak transmission) from more distant reach (strong transmission), giving a sharp, interpretable limit to a common degree-based comparison. The exact two-class classification is a meaningful finite structural boundary, not an arbitrarily selected instance. It neither requires nor claims a larger theoretical framework.
+General probabilistic rooted-graph polynomial results already establish arbitrary numbers of reversals on sufficiently large trees, but do not give the exact sharp 7-vertex cutoff and complete two-marked-class classification; no equivalent numerical result located. Inaccessible Aivaliotis–Gordon–Graveman full text is a genuine residual priority risk, not scientific disproof.
 
-## Closest literature and limits
+## value
 
-Eisenstat–Gordon–Redlich (2008), DOI 10.1137/06065951X, gives the exact expected-rank setting and distance formula. Gordon–Jager (2009/2010), DOI 10.1002/net.20363, proves a much broader unrestricted existence theorem, but no exact minimal-order classification; that strong prior is directly incorporated into the novelty assessment. Bucur–Holme (2020), DOI 10.1371/journal.pcbi.1008052, studies epidemic influence at the source under a distinct continuous-time model. Aivaliotis–Gordon–Graveman (2002), DOI 10.1002/jgt.1004, is a plausible inaccessible priority risk. The computational census covers only trees of order at most seven; all mean comparisons are pairwise, not global source optimality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp smallest tree order and complete two-isomorphism-class catalogue for changing expected epidemic source ranking are natural structural boundary data, refine known arbitrary-size existence in rooted reliability, and supply two exact crossover parameters; independently useful for source choice with transmissibility uncertainty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
