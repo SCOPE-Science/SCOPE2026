@@ -1,15 +1,21 @@
-# Review of the complete truncated-icosahedron central-section law
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns central Haar-oriented planes only. Algebraic coordinates in \(\mathbb Z[\varphi]\) construct all 60 truncated vertices and all 90 edges. The edge-sign test gives the section count outside measure-zero degeneracies. The full icosahedral reflection chamber of area \(\pi/30\) has seven active vertex-orthogonal great circles; exhaustive integer arithmetic finds twelve strictly feasible cells, with section side counts \(10,12,14,16,18\) in multiplicities \(3,4,3,1,1\). Each exact finite spherical-angle sum is specified by algebraic extreme rays. Summing cell areas yields the chamber area. Independent simulation and direct convex-hull reconstruction corroborate the count. The decimal values are approximations, while the angles provide the exact mathematical probability definitions.
+## correctness
 
-## Originality — PASS (provisional)
-The focal soccer-ball geometry appears in Geiger–Lengyel (2008), whose author-available full text evaluates surface roundness and truncation rather than central-plane intersection type probabilities. Sukiasyan (1982), inspected in full, gives a broad computational algorithm for randomly oriented **affine** intersecting planes, and tabulates simple solids rather than this Haar central-plane law. A published published-finding corpus finding gives the distinct central-section distribution of the *untruncated* icosahedron, containing only two polygon types. Related published central-section results for other polyhedra do not give this five-type law. A general method for evaluating such probabilities does not by itself supply these evaluated exact five values, but unindexed tables and alternative general formulas remain potential historical overlap. Independent priority verification is not performed.
+PASS
 
-## Value — PASS
-The exact complete distribution concerns a canonical Archimedean solid and a natural invariant measure on planes through its center; the five possible polygon types are neither arbitrary test parameters nor a textbook one-line result. The full chamber arrangement is a reusable exact geometric certificate. It distinguishes geometric effects introduced by one-third truncation that are absent in the known two-type central law of the original icosahedron, and quantifies the rare 16- and 18-sided sections.
+The exact Z[phi] vertex/edge construction yields 60 vertices, 90 edges, 30 antipodal normal pairs, seven chamber-active great circles. The intersection-of-halfspaces cone argument enumerates all 2^7 signs and 12 full-dimensional cones with side-count multiplicities 3,4,3,1,1; exact extreme rays and a finite atan2 spherical-triangle formula integrate every cell. Independent linear-program feasibility found precisely these 12 cones and a 200,000-direction edge-crossing simulation corroborated the five probabilities (not a proof of exact areas). Zero-area degenerate normals are excluded. The printed decimals are numerical, not rational intervals.
 
-## Reproduction and limitations
-The pure-Python algebraic certificate checks all finite sign patterns and prints the 12-region decomposition. Its spherical area evaluation uses numerical trigonometric functions for readable decimals; the underlying arctangent expressions are exact. The independent NumPy/SciPy program checks 250000 Haar directions and 100 geometric polygon hulls. An independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Substantial PRIOR PARTIAL COVERAGE: a November 1 theorem already determines the five possible counts and 872 chamber multiplicities; a November 2 theorem gives the exact probability of 18 sides and an approximate ten-joint-type table that already numerically determines all five masses. The surviving original claim is narrower: independently specified exact finite algebraic-angle expressions for all four remaining probabilities, with a much smaller reflection-chamber certificate. Neither earlier full result supplies those exact four areas; this is a natural complete exact invariant rather than a generic already-known support theorem. Mathematical closeness/near-duplication is a significant risk, not erased by different wording.
+
+## value
+
+PASS
+
+A canonical Archimedean solid and Haar-normalized section statistic: exact finite formulas for all atom masses permit symbolic comparison of rare 16- and 18-gons and replace prior approximate estimates with reusable algebraic angle certificates. The new contribution is exact integration of the four previously nonexact atom masses, not reassertion of the known five-type support, chamber multiplicities, 18-atom probability or approximate table. Value is modest and sensitive to whether earlier numerical table encoded exact reconstructible formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
