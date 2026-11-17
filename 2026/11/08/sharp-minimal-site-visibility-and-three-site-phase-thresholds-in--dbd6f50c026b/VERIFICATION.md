@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and checks
 
-The analytic theorem is proved in `RESULT.md`. Run the standalone Python 3 script with `python verify.py`. No external libraries, data files, or network access are necessary. The script reconstructs exact rational nonconvexity/nonvisibility witnesses and checks 12,338 reproducible finite test assertions, printing `QUADRATIC_VORONOI_PHASE_CHECKS_OK 12338` on success. Parameter-loop tests are finite samples; they do not certify the universal statement. The universal root and endpoint arguments are the displayed symbolic proof. The full first motivating paper was accessible in author-provided arXiv HTML, and comparison was made to accessible primary older studies. No external or independent mathematical audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For the two-site cell, f(x)=xᵀ(A−B)x+2bᵀBx−bᵀBb and its far-ray/intermediate-positive obstruction give site-star-shaped iff A−B is positive semidefinite; semidefiniteness gives convexity. In the three-site isotropic-collinear setup the origin cell is a closed disk minus an open circle disk. Disk first contact occurs at s_conv=λ(1−μ)/[μ(λ+1)]; ray-hole exit t_+(c) divided by disk radial reach sF(c) has a strictly increasing threshold in c>sqrt(1−λ^(−2)), giving the nonstar threshold s_star=λ²(1−μ²)/[μ sqrt(λ²−1)(μ sqrt(λ²−1)+sqrt(λ²−μ²))]. Strict exclusion of the tangent direction yields site-visibility even at s_star. Midpoint exclusion proves nonconvexity for s>s_conv. Independent numeric thresholds λ=2,μ=1/sqrt2 and a 1,000-ray scan in all three regimes support, but do not prove, the analytic arguments.
+
+## originality
+
+PASS
+
+Qualified PASS for the exact three-site phase law and minimal-site nonconvex-but-star-shaped example only. The two-site iff criterion is already identical to the full November 1 Loewner theorem and is not a new part. No inspected earlier theorem implies the two sharp three-site thresholds; priority remains provisional against older weighted Voronoi work.
+
+## value
+
+PASS
+
+The two different sharp visibility/convexity transitions and their exact boundary inclusions identify a natural minimum configuration in a widely used non-Euclidean Voronoi model. They provide a concrete structural counterexample to convexity implying site-visibility with two sites, not merely a routine rewriting of the old two-site lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-site statement includes all \(d\ge2\), any nonzero second-site displacement, and any SPD matrices. The key direction construction explicitly handles a negative quadratic direction, a singular/indefinite difference, and the case where the displacement itself has nonnegative quadratic form. Its ray has a positive excluded interval bracketed by included points. The converse is a convex quadratic sublevel set.
+## correctness
 
-The three-site comparisons were expanded independently into one containing disk and one excluded open disk. Convexity is characterized by the first intersection with the forbidden disk; an open vertical cross-section provides a strict nonconvex witness at every later parameter. The radial cap formula and the two intersection roots establish the site-star-shaped condition, including the tangent-ray endpoint. Monotonicity of the *ratios* of roots and radial caps yields the exact second threshold, and the tangent geometry proves the thresholds never coincide. Symbolic simplification and rational witnesses were checked; the packaged standard-library verifier passed 12,338 finite diagnostics. These tests support, rather than replace, the analytic argument.
+PASS
 
-## Originality — PASS (subject to historical priority)
-The closest primary research is Venkovic–Anzt 2026 (full HTML examined), which treats tensor integration conditional on star convexity; its star definition is a general quantified property, not a matrix criterion or parameter-phase theorem. Labelle–Shewchuk 2003 (relevant PDF material examined) supplies a visibility implication under a wedge restriction, not the unrestricted two-site equivalence. Held–de Lorenzo 2020 (full text browsed for relevant terms and mechanisms) gives algorithmic construction of weighted diagrams and circular bisectors without exact visibility thresholds. Published overlap searches included quadratic/elliptical aliases, multiplicatively weighted circular Dirichlet diagrams, two-site order, and radial star-shapedness; no stronger claim implying this complete theorem was found. The closest published-source risks are older weighted-Dirichlet treatments and unexamined specialist classifications; this is a provisional scientific literature finding, not a uniqueness certificate.
+For the two-site cell, f(x)=xᵀ(A−B)x+2bᵀBx−bᵀBb and its far-ray/intermediate-positive obstruction give site-star-shaped iff A−B is positive semidefinite; semidefiniteness gives convexity. In the three-site isotropic-collinear setup the origin cell is a closed disk minus an open circle disk. Disk first contact occurs at s_conv=λ(1−μ)/[μ(λ+1)]; ray-hole exit t_+(c) divided by disk radial reach sF(c) has a strictly increasing threshold in c>sqrt(1−λ^(−2)), giving the nonstar threshold s_star=λ²(1−μ²)/[μ sqrt(λ²−1)(μ sqrt(λ²−1)+sqrt(λ²−μ²))]. Strict exclusion of the tangent direction yields site-visibility even at s_star. Midpoint exclusion proves nonconvexity for s>s_conv. Independent numeric thresholds λ=2,μ=1/sqrt2 and a 1,000-ray scan in all three regimes support, but do not prove, the analytic arguments.
 
-## Value — PASS
-The theorem answers a structural issue inherent in site-dependent nearest-cell geometry: when can a curved cell be visible from the nucleation site despite failure of convexity? It identifies the minimum required site count, gives a matrix-order characterization for all two-site systems, and proves a **complete nonempty three-regime phase diagram for every pair** of opposite metric scales, not a numerically selected example. The two critical parameter surfaces distinguish convexity loss from visibility loss and provide exact tests for when star-based geometric methods can even be considered. No general arbitrary-site classification or tensor computation is claimed.
+## originality
 
-## Limits and comparisons
-The theorem is restricted to constant SPD site quadratic forms. Three-site thresholds use collinearity and scalar matrices. At transition tangencies further boundary regularity may be needed for external integration formulas. Priority against older generalized Dirichlet literature is provisional; an independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified PASS for the exact three-site phase law and minimal-site nonconvex-but-star-shaped example only. The two-site iff criterion is already identical to the full November 1 Loewner theorem and is not a new part. No inspected earlier theorem implies the two sharp three-site thresholds; priority remains provisional against older weighted Voronoi work.
+
+## value
+
+PASS
+
+The two different sharp visibility/convexity transitions and their exact boundary inclusions identify a natural minimum configuration in a widely used non-Euclidean Voronoi model. They provide a concrete structural counterexample to convexity implying site-visibility with two sites, not merely a routine rewriting of the old two-site lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
