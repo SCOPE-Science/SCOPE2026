@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T03:16:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at Git blob 17e7368a3ff5273fde1c99b6f1a4523d436a3125",
+        "Assigned check_berezin_cusp.py at Git blob 3dfb70a363f4cbb4e394129e2bb70d65c260ca7d",
+        "Schwarz lemma, Schwarz–Pick, normalized Szego kernel"
+      ],
+      "rationale": "Direct Szego-kernel normalization yields b_phi=(1-r^2)/(1-r^2 h(w)) with h=phi(w)/w, h(0)=a. Schwarz–Pick with |a|<1 gives a strict upper bound |b|<1 away from the origin (including r approaching 1), so all near-tip values have w->0. The real denominator expansion is 1-Re b=(1-a)r^2+o(r^2), while Im b=r^(m+1) Im(c exp(i(m-1)theta))+o(r^(m+1)), uniformly on circles. Every exact vertical section has r^2~epsilon/(1-a); fixed angles attaining ±|c| and the radial intermediate value theorem yield both endpoint limits. Compactness of a small preimage disk gives attained extrema. An independent small-angle numerical bisection for a=.25, c=.15, m=3 approached the predicted normalized width; that finite test is corroborative, not proof.",
+      "residual_risks": [
+        "The conclusion assumes real a in (-1,1) and finite first nonlinear m; no nonreal-a, phase-recovery or global-range theorem follows.",
+        "Finite bisection samples do not certify a universal asymptotic; proof uses uniform expansion and localization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourdon–Le–Thompson Lemma 3.10 and Theorem 3.11 treat all zero-fixing symbols qualitatively, with no sharp jet-normalized vertical-section limit.",
+          "2026-11-01 superattracting result covers arbitrary higher analytic tails but only derivative a=0."
+        ],
+        "reasoning": "Broader symbol scope with a weaker qualitative conclusion does not imply exact coefficients; the earlier exact theorem has the restricted derivative a=0.",
+        "searches": [
+          "Resultary: sharp Berezin cusp width jet real derivative zero fixing composition",
+          "Bourdon Le Thompson Berezin ranges composition H2 qualitative cusp theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-berezin-cusp-width-law-for-superattracting-hardy-compositi--59256d6d94a8/RESULT.md",
+        "https://arxiv.org/html/2610.17634v1",
+        "https://arxiv.org/abs/2109.12095"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=0 the published formula gives ±|c| epsilon^((m+1)/2), which the assigned formula specializes to.",
+          "For a≠0 the radial depth is (1-a)r^2 rather than r^2, producing a multiplier (1-a)^(-(m+1)/2) absent from cited exact a=0 theorem."
+        ],
+        "reasoning": "The exact earlier a=0 formula implies one slice; neither that special case nor a qualitative cusp statement entails the remaining parameter-dependent coefficient without new analysis.",
+        "searches": [
+          "https://arxiv.org/html/2610.17634v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-berezin-cusp-width-law-for-superattracting-hardy-compositi--59256d6d94a8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 2026-11-01 superattracting result uses the same Berezin transform and same vertical-section exponent/coefficient when a=0, with stronger O(sqrt epsilon) normalized error.",
+          "Bourdon–Le–Thompson Section 3.4 derives a qualitative cusp but not an all-a exact width formula."
+        ],
+        "reasoning": "The published a=0 theorem is strictly the zero-derivative slice; it is not an all-real-a theorem and does not determine the (1-a) normalization for a≠0. Both are the same kind of set invariant, so the overlapping slice is prior.",
+        "searches": [
+          "Resultary: Berezin range composition operator Hardy zero fixing Taylor jet sharp cusp width nonlinear order",
+          "arxiv:2610.17634v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary includes exact monomial nonlinear symbol ranges and the a=0 cusp width law, but no recovered all-a real linear-plus-nonlinear jet table."
+        ],
+        "reasoning": "This is a continuous asymptotic classification rather than a finite data table; known exact monomial cases overlap only on the a=0 specialization.",
+        "searches": [
+          "Resultary: Berezin range composition operator Hardy zero fixing Taylor jet sharp cusp width nonlinear order",
+          "Resultary: sharp imaginary strip width monomial composition Berezin"
+        ]
+      },
+      "rationale": "Best-of-knowledge new portion is the sharp transverse-section coefficient for nonzero real linear multiplier a, not the a=0 specialization. A published 2026-11-01 result already gives the entire a=0 cusp-section law and inverse jet invariant; the 2026 Bourdon–Le–Thompson theorem is qualitative for general symbols. Thus the original all-real-a statement has a genuinely broader tangent-parameter range than the exact earlier theorem, with the special case expressly credited. This is not absolute priority confirmation.",
+      "residual_risks": [
+        "An uncatalogued earlier jet-Berezin asymptotic may cover real a≠0.",
+        "The published a=0 theorem is prior and must not be represented as novel; no priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS a=0 case; not real a≠0",
+          "evidence": "Theorem assumes phi(z)=a_m z^m+..., m>=2, and proves endpoints ±|a_m| delta^((m+1)/2)(1+O(sqrt delta)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-berezin-cusp-width-law-for-superattracting-hardy-compositi--59256d6d94a8/RESULT.md",
+          "material_read": "Full RESULT.md: Finding, proof Steps 1–4, verification, limits and references",
+          "method": "Read complete GitHub result at the published source",
+          "title": "Sharp Berezin cusp-width law for superattracting Hardy composition symbols",
+          "trigger": "Matching exact inverse-jet local width theorem"
+        },
+        {
+          "assessment": "NOT_COVERING the sharp nonlinear jet coefficient",
+          "evidence": "Theorem 3.11 gives a qualitative cusp at 1; no matching explicit all-real-a epsilon-dependent width coefficient in inspected relevant arguments.",
+          "identifier_or_url": "https://arxiv.org/html/2610.17634v1",
+          "material_read": "Open full HTML, Section 3.4 Lemma 3.10/Theorem 3.11/Remark 3.12 and Section 4",
+          "method": "Read theorem statements and relevant proofs in accessible primary HTML",
+          "title": "Berezin Ranges of Composition Operators on H^2",
+          "trigger": "Qualitative cusp theorem for the same Hardy Berezin object"
+        },
+        {
+          "assessment": "NOT_COVERING the nonlinear jet-normalized width",
+          "evidence": "Earlier work concerns convexity of range and special composition symbols rather than first-nonlinear-order vertical widths.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.12095",
+          "material_read": "Relevant rotation, automorphism and convexity material",
+          "method": "Compared published mathematical assertions",
+          "title": "Convexity of the Berezin Range",
+          "trigger": "Potential older Hardy composition range theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Published 2026-11-01 superattracting exact theorem",
+        "Bourdon–Le–Thompson 2026 qualitative shape theorem"
+      ],
+      "rationale": "The first nonlinear Taylor jet produces a natural local, unparameterized Berezin-range invariant: the exponent identifies the first nonlinear order and the coefficient recovers normalized magnitude. Extending the exact a=0 cusp law to nonzero real multipliers changes radial depth and yields a useful parameter-sensitive classification; it is more than merely rephrasing the known qualitative cusp.",
+      "residual_risks": [
+        "No complex phase recovery, no stability theorem and no global range classification.",
+        "The a=0 subcase itself is already known; value lies in the nonzero-real-a extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For zero-fixing holomorphic disk symbols with real a=phi'(0) strictly between -1 and 1 and first nonlinear term c z^m (m>=2), the Berezin range vertical-section extrema at Re=1-epsilon have leading coefficients ±|c|/(1-a)^((m+1)/2), and width twice that constant times epsilon^((m+1)/2).",
+  "limitations": "Known a=0 exact cusp width is credited as prior; final accepted all-real-a theorem is local, excludes nonreal derivative, and only recovers magnitude and order; residual literature priority risk.",
+  "schema_version": 1
+}
