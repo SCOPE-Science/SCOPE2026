@@ -1,0 +1,15 @@
+# Scientific assessment: exact area and dual-edge geometry of the Chavarriga–Llibre–Sorolla quartic oval
+
+## Correctness — PASS
+For every real \(0<a<1/4\), completing the square yields the correct positive-\(x\) oval, and the two branch difference yields a genuine Euclidean slice integral. The elliptic reduction is established by an explicit substitution and the standard reductions of sine moments. Strict nesting holds slice by slice. The logarithmic coefficient and finite constant follow from the two-term complete-elliptic expansions in NIST DLMF §19.12. A separate shear-adjusted unit-disk limit proves the other endpoint coefficient. The polynomial cofactor identity and several numerical integral comparisons were reproduced from the included `check.py`; such computations are cross-checks, not infinite proofs.
+
+## Originality — PASS, subject to publication-priority risk
+The 2019 open preprint by Alberich-Carramiñana, Ferragut and Llibre (arXiv:1906.10171) establishes the known CLS family and its phase portrait; its relevant full-text sections and full-text term search contain no evaluation of its enclosed area or two endpoint scalings. The 2022 open preprint by Gasull and Giacomini (arXiv:2210.15803) gives the exact quartic and establishes uniqueness of the limit cycle, but its relevant Case 5 and theorem concern existence/classification rather than the object-specific elliptic area, logarithmic correction, strict area nesting, or endpoint domain shapes. Known analogous area results for the Filiptsov family concern a different quartic. General special-function formulas supply a method, not the already-evaluated object-specific conclusion. The 2004 original Chavarriga–Llibre–Sorolla article was found bibliographically but its full text was not accessible, leaving a genuine residual uncertainty; no claim of exhaustive publication priority is made.
+
+## Mathematical value — PASS
+The area enclosed by an isolated planar limit cycle measures the size of its distinguished periodic boundary in the original physical phase plane. The exact strictly monotone map between parameter and area provides a complete quantitative geometric bifurcation coordinate. Its \(4/(3a)+\log a-1-\log16\) divergence, including the finite logarithmic constant, and its linear disappearance with coefficient \(4\sqrt2\pi\) describe two structurally different endpoint degenerations. The differing normalized parabolic-lens and disk limits explain these rates. These constants are neither qualitative restatements of an oval existence result nor parameter-renamed table entries.
+
+## Scope and uncertainties
+Only \(0<a<1/4\), the specified coordinates, the specified quartic oval, and Euclidean enclosed area are covered. Neither endpoint is asserted to retain a periodic orbit. The original 2004 paper's inaccessible full text and possible unindexed equivalent asymptotics remain the principal priority risks. The included checker does not certify an infinite statement independently.
+
+Self-review: passed. Independent audit: not yet performed.
