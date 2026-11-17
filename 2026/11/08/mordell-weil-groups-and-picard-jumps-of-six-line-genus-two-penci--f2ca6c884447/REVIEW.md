@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS (same-model).** The finite-rank claim follows from the exact Picard-to-Jacobian divisor map and a rank-18 vertical/section lattice; the monodromy claim applies a generic-line fundamental-group surjection to the pure five-strand braid group. Four squared transvections along an integral basis force \(2w=0\) on all torsion invariants, and six rational branch points supply the sixteen two-torsion classes. A finite exact-arithmetic checker separately corroborates the rank, determinant and torsion-fixed-point calculations.
+## correctness
 
-**Originality: PASS (provisional).** The six-line fiber types are in Bannai--Tokunaga, and Picard numbers of general and conic-tangent six-line double planes are in Lombardo--Peters--Schuett. The previously obtained *very-general* rank-zero statement is explicitly excluded as an original contribution. The additional uniform rigidity of the torsion subgroup at arbitrary Picard jumps, together with the exact rank-jump identity, is not asserted in either checked paper. Potential implicit consequences of pure-braid monodromy remain a priority risk.
+PASS
 
-**Value: PASS.** The theorem turns Noether--Lefschetz specializations of a natural K3 family into a complete arithmetic description of Jacobian rational point groups. It rules out new torsion throughout singular Picard-jumping loci, not merely at the general member, and gives a concrete rank-one consequence for the conic-tangent locus. This is a natural geometric classification rather than a small numerical increment.
+Under smooth complex K3 double six-line configuration and ten distinct pencil collision directions, the two blown-up base points give a sectioned genus-two fibration Y with rho(Y)=rho(X)+2. Its vertical/section lattice T has generators section, fiber, ten pair-fiber nonidentity (-2) components and a six-dimensional central star, hence rank 18; star determinant 16 and NS(Y)/T identifies J(C)(C(t)) as an abstract finitely generated group, free rank rho(X)-16. The ordered five moving branch points define the A4 discriminant line; affine Lefschetz surjection onto pure braid P5 and the four squared transvections along a unimodular H1 basis force any invariant n-torsion class to satisfy 2w=0. Six rational Weierstrass points supply all 16 J[2], so torsion (Z/2)^4 for every admissible Picard jump. Independent exact star determinant 16, unimodularity, ten distinct directions and finite modular checks corroborate necessary arithmetic, not the geometric global input. Generic rho16 and conic-tangent rho17 use published Picard numbers.
 
-**Literature boundary:** The argument uses known fiber classification, lattice descriptions, affine Lefschetz and Picard--Lefschetz theory; it claims the resulting all-specialization group theorem, not those inputs. The monodromy identification and the topological surjection are essential premises, and the conclusion does not extend automatically to collisions among pair parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A closely related fully inspected published result classifies very-general six-line genus-two Jacobian as (Z/2)^4 with rank zero and six rational curve points; its hypotheses explicitly exclude Picard-jumping specializations. Bannai–Tokunaga supply fiber geometry and Lombardo–Peters–Schuett supply Picard ranks; braid monodromy supplies a mechanism but no inspected paper states the uniform all-admissible-specializations torsion rigidity/rank identity. Full Bannai–Tokunaga article inaccessible, so the best-of-knowledge positive priority judgment retains a significant risk.
+
+## value
+
+PASS
+
+Uniform Jacobian torsion rigidity and exact rank jumps across a natural special K3/Noether–Lefschetz family are nontrivial global arithmetic geometry; the conic-tangent locus shows a rank-one specialization and the result rules out novel higher torsion rather than merely rederiving the known generic rank zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof uses three geometric inputs: the double-plane fiber graphs with the ten pair collisions distinct; the Picard-group exact sequence for a regular genus-two fibred surface with section; and surjectivity from a generic complex line section of the five-root braid arrangement. The squared-transvection calculation is valid for all positive torsion orders because the four vanishing cycles form an integral basis.
+## correctness
 
-The standalone checker `verification/verify_lattice_braid.py` was run with Python 3 using exact rational arithmetic. Observed output:
+PASS
 
-```
-GENUS_TWO_LATTICE_AND_BRAID_CHECK_OK 10 16 11
-```
+Under smooth complex K3 double six-line configuration and ten distinct pencil collision directions, the two blown-up base points give a sectioned genus-two fibration Y with rho(Y)=rho(X)+2. Its vertical/section lattice T has generators section, fiber, ten pair-fiber nonidentity (-2) components and a six-dimensional central star, hence rank 18; star determinant 16 and NS(Y)/T identifies J(C)(C(t)) as an abstract finitely generated group, free rank rho(X)-16. The ordered five moving branch points define the A4 discriminant line; affine Lefschetz surjection onto pure braid P5 and the four squared transvections along a unimodular H1 basis force any invariant n-torsion class to satisfy 2w=0. Six rational Weierstrass points supply all 16 J[2], so torsion (Z/2)^4 for every admissible Picard jump. Independent exact star determinant 16, unimodularity, ten distinct directions and finite modular checks corroborate necessary arithmetic, not the geometric global input. Generic rho16 and conic-tangent rho17 use published Picard numbers.
 
-The checker tests 11 moduli between 2 and 12, an explicit ten-direction arrangement, the central star determinant, and the lattice index. Finite cases do not prove the all-moduli invariant calculation; the integral-basis argument does. Bibliographic originality and the full geometric proof have not been independently audited.
+## originality
+
+PASS
+
+A closely related fully inspected published result classifies very-general six-line genus-two Jacobian as (Z/2)^4 with rank zero and six rational curve points; its hypotheses explicitly exclude Picard-jumping specializations. Bannai–Tokunaga supply fiber geometry and Lombardo–Peters–Schuett supply Picard ranks; braid monodromy supplies a mechanism but no inspected paper states the uniform all-admissible-specializations torsion rigidity/rank identity. Full Bannai–Tokunaga article inaccessible, so the best-of-knowledge positive priority judgment retains a significant risk.
+
+## value
+
+PASS
+
+Uniform Jacobian torsion rigidity and exact rank jumps across a natural special K3/Noether–Lefschetz family are nontrivial global arithmetic geometry; the conic-tangent locus shows a rank-one specialization and the result rules out novel higher torsion rather than merely rederiving the known generic rank zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
