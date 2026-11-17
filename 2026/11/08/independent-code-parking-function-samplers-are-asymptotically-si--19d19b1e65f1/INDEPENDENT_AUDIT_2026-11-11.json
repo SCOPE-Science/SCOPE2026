@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:44:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first k=floor(n/2) factorial-code coordinates always lie <=k, so bulk surplus S_n is a sum of independent indicators from j>k; hence Var_Q(S_n)<=E_Q S_n. For mean <=n^(2/3), Chebyshev gives Q mass 1-o(1) in a window of width n^(5/12), while U mass there vanishes via the atomless weak limit S_n/sqrt(n)=>e(1/2). For mean >n^(2/3), Q mass concentrates above half its mean while U puts o(1) there by tightness. Both bounds uniform in all marginals. Mallows independently generated code is a special case. Small n=3..5 factorial-code surplus enumerations checked independently; finite tests not a substitute for the Brownian limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinsky analyzes one-point/single-symbol marginal regimes and explicitly asks whether any q_n has limiting TV less than one; submitted result covers all positive parameter sequences and all mutually independent (not necessarily identically distributed) coordinate laws."
+        ],
+        "reasoning": "Prior results do not imply this stronger all-independent-code full-law theorem; finite-coordinate convergence alone cannot bound full TV.",
+        "searches": [
+          "https://arxiv.org/pdf/2509.24452v2",
+          "https://arxiv.org/pdf/1611.09821",
+          "total variation Mallows generated parking functions Brownian excursion uniform all q singular Pinsky open question"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2509.24452v2",
+        "https://arxiv.org/pdf/1611.09821",
+        "https://doi.org/10.37236/1558",
+        "Resultary published parking-function similarity searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brownian-excursion F_n(t) limit is prior, and independent-coordinate Bernoulli variance bound is elementary, but the two-case uniform testing argument with mean threshold n^(2/3) proves a new full-TV separation.",
+          "Pinsky's question explicitly contemplates limiting TV<1 regimes and does not conclude their impossibility."
+        ],
+        "reasoning": "The new argument turns familiar ingredients into a complete answer to a stated research problem; not a renaming or a direct restatement of an earlier theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2509.24452v2",
+          "https://arxiv.org/pdf/1611.09821"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky's independently sampled inversion-by-value factorial code, then shuffled, exactly fits the submitted independent X_{n,j} in [j] sampler; the proposed result solves Pinsky's explicit full-law TV open question.",
+          "Diaconis–Hicks Theorem 15 supplies the uniform parking empirical-process Brownian-excursion law, not singularity of these samplers."
+        ],
+        "reasoning": "The proof exploits qualitatively different fluctuations of the same bulk surplus: Poisson-binomial concentration under independent code versus diffuse Brownian-excursion profile under uniform PF.",
+        "searches": [
+          "independent code randomized parking functions uniformly separated total variation Brownian excursion Mallows Pinsky",
+          "https://arxiv.org/pdf/2509.24452v2",
+          "https://arxiv.org/pdf/1611.09821"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact full-measure TV=1 result located for arbitrary independent factorial code laws; earlier parking probability tables concern distinct observables and limiting projections."
+        ],
+        "reasoning": "The claim is an asymptotic uniform nonapproximation theorem, not a known table of small-n PF counts; exact finite enumeration only checks prerequisites.",
+        "searches": [
+          "https://arxiv.org/pdf/2509.24452v2",
+          "Resultary published parking-function full-law total-variation search",
+          "https://arxiv.org/pdf/1611.09821"
+        ]
+      },
+      "rationale": "Pinsky explicitly posed the full-law TV approximation question; the submission answers it uniformly negatively and in greater generality; no located prior result resolves that same quantification. Best-of-knowledge only.",
+      "residual_risks": [
+        "A separate unindexed proof of independent-code singularity might predate the motivating paper or use different probabilistic notation.",
+        "Asymptotic proof depends on established Brownian-excursion functional convergence, which is not reproved here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_OPEN_PROBLEM",
+          "evidence": "Open Question asks whether any parameter regime makes full-TV <1; no general negative answer in inspected text.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.24452v2",
+          "material_read": "Full arXiv manuscript, including inversion code definitions, Theorem 8 and explicit Open Question on printed page 9",
+          "method": "Read arXiv 21-page PDF and inspected page image of open question",
+          "title": "A family of non-uniform distributions on the set of parking functions generated by random permutations",
+          "trigger": "Direct motivating Mallows distribution and open full-TV problem"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Theorem 15 gives limit excursion for uniform PF and is explicitly imported; says nothing about independent-code TV obstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.09821",
+          "material_read": "Full arXiv preprint; Theorem 15 on printed page 30 and its uniform empirical-process statement",
+          "method": "Read 40-page PDF and inspected theorem page image",
+          "title": "Probabilizing Parking Functions",
+          "trigger": "Needed Brownian-excursion limit for uniform PF"
+        },
+        {
+          "assessment": "IMPORT_BACKGROUND",
+          "evidence": "Original earlier Brownian-excursion weak limit credited, not claimed new.",
+          "identifier_or_url": "https://doi.org/10.37236/1558",
+          "material_read": "Citation and primary bibliographic information; complete journal text not independently obtained in this run",
+          "method": "Source citation crosschecked against Diaconis–Hicks full text",
+          "title": "Parking Functions, Empirical Processes, and the Width of Rooted Labeled Trees",
+          "trigger": "Original functional excursion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves a concrete published open question about whether Mallows-generated parking functions can approximate uniform full parking functions, and proves a structural obstruction for the entire independent factorial-code sampler family. Full-law TV distinction is significant even when low-dimensional marginals agree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only independent coordinates with independent uniform reshuffle; dependent samplers can be uniform. Functional excursion theorem is a cited input.",
+  "schema_version": 1
+}

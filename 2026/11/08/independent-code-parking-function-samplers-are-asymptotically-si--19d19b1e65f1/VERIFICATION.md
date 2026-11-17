@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the bundled `verify.py` with Python 3. It uses only the standard library, enumerates Mallows permutations for \(2\le n\le6\), and checks their surplus distributions against an independently evaluated Poisson--binomial product. It also enumerates every parking function and every allowable code vector in those sizes, with exact rational arithmetic. The script exits with an assertion error on any failed test.
+## correctness
 
-These checks substantiate exact finite combinatorial identities, not the infinite conclusion. For the infinite theorem, independently inspect: (1) the support condition implies the parking inequalities; (2) bulk surplus is an independent Bernoulli sum; (3) variance is at most mean; (4) Theorem 15 of Diaconis--Hicks gives a non-atomic, tight limit for the uniform bulk surplus; (5) the two Chebyshev regimes and the small-ball lemma produce one error bound independent of the coordinate laws. The proof explicitly treats the parameter \(q=1\) and all other positive parameter values without using any limiting regime assumptions.
+PASS
 
-Published ingredients: https://arxiv.org/abs/2509.24452 ; https://doi.org/10.1016/j.aam.2017.05.004 ; https://doi.org/10.37236/1558 .
+The first k=floor(n/2) factorial-code coordinates always lie <=k, so bulk surplus S_n is a sum of independent indicators from j>k; hence Var_Q(S_n)<=E_Q S_n. For mean <=n^(2/3), Chebyshev gives Q mass 1-o(1) in a window of width n^(5/12), while U mass there vanishes via the atomless weak limit S_n/sqrt(n)=>e(1/2). For mean >n^(2/3), Q mass concentrates above half its mean while U puts o(1) there by tightness. Both bounds uniform in all marginals. Mallows independently generated code is a special case. Small n=3..5 factorial-code surplus enumerations checked independently; finite tests not a substitute for the Brownian limit.
+
+## originality
+
+PASS
+
+Pinsky explicitly posed the full-law TV approximation question; the submission answers it uniformly negatively and in greater generality; no located prior result resolves that same quantification. Best-of-knowledge only.
+
+## value
+
+PASS
+
+Solves a concrete published open question about whether Mallows-generated parking functions can approximate uniform full parking functions, and proves a structural obstruction for the entire independent factorial-code sampler family. Full-law TV distinction is significant even when low-dimensional marginals agree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

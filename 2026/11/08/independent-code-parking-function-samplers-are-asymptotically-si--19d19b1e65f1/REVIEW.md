@@ -1,19 +1,21 @@
-# Review of independent-code parking-function singularity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof has one decisive statistic: the surplus of preferences at \(\lfloor n/2\rfloor\). Under independent bounded codes it is exactly a Poisson--binomial sum with variance at most its mean. Under the uniform parking-function law it has a non-atomic Brownian-excursion limit after division by \(\sqrt n\), using Diaconis--Hicks Theorem 15 (via Chassaing--Marckert). A two-case Chebyshev argument treats all possible means uniformly and establishes total-variation distance tending to one. The non-atomic weak-limit lemma is proved in RESULT.md. Every quantifier includes arbitrary row-dependent marginal laws. Exact rational finite checks agree with the independent-code formula; they are not used to justify the infinite conclusion.
+PASS
 
-## Originality
+The first k=floor(n/2) factorial-code coordinates always lie <=k, so bulk surplus S_n is a sum of independent indicators from j>k; hence Var_Q(S_n)<=E_Q S_n. For mean <=n^(2/3), Chebyshev gives Q mass 1-o(1) in a window of width n^(5/12), while U mass there vanishes via the atomless weak limit S_n/sqrt(n)=>e(1/2). For mean >n^(2/3), Q mass concentrates above half its mean while U puts o(1) there by tightness. Both bounds uniform in all marginals. Mallows independently generated code is a special case. Small n=3..5 factorial-code surplus enumerations checked independently; finite tests not a substitute for the Brownian limit.
 
-**PASS, with historical-priority qualification.** Pinsky's full arXiv manuscript arXiv:2509.24452v2 contains an explicit open question about whether a Mallows parameter regime can have limiting full-law total-variation distance below one. His marginal and occupancy-count limits do not entail the answer. Diaconis--Hicks and Chassaing--Marckert establish the Brownian-excursion limit, not the separation against arbitrary independent bounded codes. Bellin treats small-coordinate projections and does not imply the global comparison. Targeted literature and mathematical-record searches did not identify the uniform independent-code impossibility theorem. A previously unnoticed combination of the classical excursion theorem with the code independence is the main residual priority risk; novelty is not certified independently.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The claim resolves the explicit approximation question for *every* parameter sequence rather than a handpicked regime, and establishes the structural reason: independent factorial-code coordinates cannot generate the order-\(\sqrt n\) nondegenerate bulk-surplus fluctuations of a uniform parking function. The broad theorem rules out an entire natural family of exchangeable approximate samplers in full-law total variation while remaining compatible with weak agreement of finitely many coordinates. The result is not merely a computation or a restatement of the excursion theorem.
+Pinsky explicitly posed the full-law TV approximation question; the submission answers it uniformly negatively and in greater generality; no located prior result resolves that same quantification. Best-of-knowledge only.
 
-## Closest literature and scope limits
+## value
 
-The code independence and the motivating open question come from Pinsky (2025), the input excursion process from Chassaing--Marckert (2001) and Diaconis--Hicks (2017), and related finite-projection results from Bellin (2023). This theorem does not cover dependent-code sampling, nor does it compute an optimal finite-size variation distance. Its conclusion applies to the entire parking-function law and does not contradict matching low-dimensional marginal limits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solves a concrete published open question about whether Mallows-generated parking functions can approximate uniform full parking functions, and proves a structural obstruction for the entire independent factorial-code sampler family. Full-law TV distinction is significant even when low-dimensional marginals agree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
