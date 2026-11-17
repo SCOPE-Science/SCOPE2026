@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python verify_linear.py` using Python 3.8 or newer. This constructs the \(2n\)-vertex open-neighbor ladder matrix directly and checks \(\dim\ker(A_n^t)=2\min(t,m)\) for singular ladders and zero nullity for reversible ladders. It verifies 525 distinct \((n,t)\) cases with \(2\le n\le84\). `linear_check.txt` contains the actual captured outcome.
+## correctness
 
-Execute `python verify_labelled.py` with Python 3.8 or newer. This constructs neighbor lists independently and follows every binary configuration until it repeats, recording the first periodic-entry index. Its exhaustive cases are \(n=2,3,4,5,6\), totaling 5,456 configurations. `labelled_check.txt` records the observed histograms and pass result. Neither program uses external libraries.
+PASS
 
-The checker code is included complete and self-contained. These checks neither enumerate arbitrary \(n\) nor constitute the mathematical proof. For the infinite family and for arbitrary characteristic-two finite fields, rely on the tridiagonal recurrence, cyclicity, cubic-root valuation, dual-number change of variable and Fitting-decomposition counting steps in `RESULT.md`.
+For n>=2 in characteristic two, S_n is cyclic by its endpoint Krylov basis. Its path characteristic polynomial at eigenvalue one has multiplicity m=2^{ν₂(n+1)+1} exactly when 3|(n+1); otherwise 0, from primitive cube-root Laurent substitution and local nonzero derivative. The ladder matrix becomes (u,v)->(Cu,u+Cv) with C=S_n+I. On its zero-primary sector multiplication by t+ε on K[t,ε]/(t^m,ε²) is equivalent to two length-m nilpotent blocks because m is a power of two. Fitting kernel counts give all first-entry shells and the 1−q^-2 last-step fraction. Independent GF(2) rank checks reproduced 208 cases for n=2..30.
 
-An independent external audit has not been performed.
+## originality
+
+PASS
+
+Path-rule characteristic-polynomial methods were known, and general Fitting transient counting is standard; the sharp two-block ladder Jordan classification, mod-three reversibility, and full two-adic first-entry census for all open ladder lengths are the surviving result.
+
+## value
+
+PASS
+
+A sharp reversibility boundary and unbounded normalized transient depth on a bounded-width natural grid family are meaningful structural dynamics, not merely a small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
