@@ -1,19 +1,21 @@
-# Scientific review: Radau IIA on triangular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is supported by an explicit three-eigenvalue graph decomposition, a rational interpolation identity, and three entry formulas. The diagonal and edge thresholds are proved using exact rational witnesses, coefficient-sign counting and the strictly negative cubic discriminant at the sharp last edge-positive dimension. Reconstructed formulas satisfy the matrix polynomial identity, conservation of mass and the required boundary signs. The standalone exact-rational `check.py` passed 3,770 comparisons, including 25 complete-matrix identities. This is self-review; neither exhaustive finite computation nor independent verification is claimed.
+PASS
 
-## Originality — PASS on currently inspected evidence
+The incidence matrix of K_n gives adjacency eigenvalues 2(n−2), n−4, −2, hence L spectrum 0,n,2(n−1). Independent symbolic spectral interpolation reproduced exactly diagonal 2Q_n/D, adjacent hE_n/D, nonadjacent H_n/D; the latter has strictly positive coefficients for h>0. Independent Sturm checks verified Q4,Q5 and E74 have no positive roots; discriminant(E74)=-24660792741888. For n≥6, Q_n(1)<0 and two Descartes sign changes yield exactly two positive roots; E_n(h=z/n) decreases strictly with n, while E_n(1/5)<0 for n≥75, again with two-root Descartes bound. Representative exact witnesses Q6(1)=-102 and E75(1/5)=-18/25 support sharpness. The proofs, not finite matrix examples, establish all integer n and real h.
 
-Relevant primary literature treats general SSP/absolute monotonicity, diagonally balanced Padé approximation, or TR-BDF2. These results do not imply the evaluated two-stage Radau IIA phase thresholds on \(J(n,2)\). A search under the aliases triangular graph, Johnson graph \(J(n,2)\), and line graph of a complete graph did not disclose the same pair of thresholds. Related graph-specific Radau positivity work for paths, cycles, Hamming graphs and complete multipartite graphs concerns different families; for instance \(J(4,2)\) overlaps the last family, but the infinite triangular-graph classification for \(n\ge5\) does not. Search absence is not a uniqueness proof. Residual priority risk remains from older or unindexed numerical-analysis, graph-filter and association-scheme research.
+## originality
 
-## Value — PASS
+PASS
 
-A graph-heat integrator may be algebraically stable while its finite-step propagator temporarily loses positivity. The theorem locates **two different, sharp dimension thresholds** (\(6\) and \(75\)) for distinct entry types, fully characterizes every sign interval by small-degree polynomials and proves unconditional positivity of all nonadjacent transitions. These are natural and consequential invariants for third-order diffusion on an infinite distance-regular graph family, rather than isolated numerical samples.
+J(n,2) alias and spectrum checked against published graph-specific Radau examples. None of the inspected stronger statements for complete multipartite, Hamming, square-rook or generic SSP methods mathematically implies the dual n=6 and n=75 sign transitions on J(n,2) for all n. Historical unindexed equivalents remain possible.
 
-## Scope and limitations
+## value
 
-Only completed endpoint maps on unweighted triangular graphs are covered; internal stages, weighted graphs and other numerical filters are excluded. Exact arithmetic verifies algebraic formulas on finite samples but is not used as a substitute for the symbolic proof. Older equivalent work may exist despite the inspected comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two exactly separated size thresholds identify distinct positivity failures (self and neighbor transitions) of a stable third-order heat integrator on a canonical infinite family of strongly regular graphs. A complete algebraic criterion for every timestep and proof that nonadjacent entries never go negative are meaningful graph-diffusion invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

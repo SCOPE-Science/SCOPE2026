@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification procedure and limits
+# Independent mathematical audit
 
-The reproducible program `check.py` uses only the Python standard library (not floating-point arithmetic or network access). From the files in this package, run:
+## correctness
 
-```sh
-python3 check.py
-```
+PASS
 
-It reconstructs the triangular graph for \(n=4,5,6,7,8\), forms the exact rational graph Laplacian, and checks the complete matrix identity \((h^2L^2+4hL+6I)T(h)=6I-2hL\) at five positive rational timesteps each. It verifies exact row sums and symmetry; polynomial certificates for the two small cases; the cubic discriminant \(-24660792741888\) at \(n=74\); explicit sign-loss witnesses from \(n=6\) and \(n=75\); and thousands of additional rational polynomial identities.
+The incidence matrix of K_n gives adjacency eigenvalues 2(n−2), n−4, −2, hence L spectrum 0,n,2(n−1). Independent symbolic spectral interpolation reproduced exactly diagonal 2Q_n/D, adjacent hE_n/D, nonadjacent H_n/D; the latter has strictly positive coefficients for h>0. Independent Sturm checks verified Q4,Q5 and E74 have no positive roots; discriminant(E74)=-24660792741888. For n≥6, Q_n(1)<0 and two Descartes sign changes yield exactly two positive roots; E_n(h=z/n) decreases strictly with n, while E_n(1/5)<0 for n≥75, again with two-root Descartes bound. Representative exact witnesses Q6(1)=-102 and E75(1/5)=-18/25 support sharpness. The proofs, not finite matrix examples, establish all integer n and real h.
 
-The replay completed with output: `PASS: 3770 exact-rational checks; 25 full-matrix rational identities; distinct 6/75 transitions`.
+## originality
 
-These are finite algebraic regression checks. The proof of the universal statements, root counts, and sharpness of the two graph-size thresholds is in `RESULT.md`, by spectral interpolation, positivity bounds, Descartes' rule, and the intermediate value theorem. No independent external mathematical audit or certification is represented.
+PASS
+
+J(n,2) alias and spectrum checked against published graph-specific Radau examples. None of the inspected stronger statements for complete multipartite, Hamming, square-rook or generic SSP methods mathematically implies the dual n=6 and n=75 sign transitions on J(n,2) for all n. Historical unindexed equivalents remain possible.
+
+## value
+
+PASS
+
+Two exactly separated size thresholds identify distinct positivity failures (self and neighbor transitions) of a stable third-order heat integrator on a canonical infinite family of strongly regular graphs. A complete algebraic criterion for every timestep and proof that nonadjacent entries never go negative are meaningful graph-diffusion invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
