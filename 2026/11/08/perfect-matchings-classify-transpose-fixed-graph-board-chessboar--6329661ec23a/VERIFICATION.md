@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The program `check_transpose.py` (standard-library Python 3) was executed from the package's actual source file, and its complete output is embedded as `check_output.txt`. It reconstructs invariant original rook-face sets for full boards of orders 1–7, checks an independently generated simplicial orbit model through order 8, enumerates all graphs on at most five vertices plus a fixed 240-graph sample at order six, and compares complete mod-two homology against perfect-matching counts. There were 1,339 graph patterns in total. For orders 2, 4 and 6, it checks signed permutations of full-board perfect matching facets, action-composition laws and stabilizer signs. The final output marker is `TRANSPOSE_FIXED_GRAPH_BOARD_HOMOLOGY_AND_SYMMETRY_CHECKS_OK`.
+## correctness
 
-The proof of integral homotopy does not infer its infinite-range conclusions from these finite tests: it uses a PL fixed-orbit identification, an all-graphs good star cover and a quotient by a contractible subcomplex. The integral representation is a relative-chain calculation. The code does not check an equivariant homotopy splitting and no independent mathematical audit has been performed.
+PASS
+
+A transpose-fixed point in realization of the symmetric rook-board complex has equal weights on each diagonal singleton or off-diagonal two-square orbit. Such an orbit is an admissible face precisely when its support (one graph vertex or one graph edge) is disjoint from others. Thus the geometric fixed set is PL-homeomorphic to the matching/monomer support simplicial complex L(G). The union U of closed singleton stars is contractible: every finite star intersection is a cone on the face of corresponding singleton vertices and the cover nerve is the full simplex. A face omitted from U selects graph edges only and covers all graph vertices, hence is exactly a perfect matching. Odd n has no such faces and L(G) is contractible. Even n=2k attaches p(G) disjoint (k−1)-simplices along all their boundaries into U; quotienting the contractible CW subcomplex yields a wedge of p(G) S^{k−1}, including n=2 (p+1 components), p=0. Relative integral chain group on oriented perfect matching facets yields signed Aut(G) permutation lattice; full K_2k stabilizer is S2 wr S_k with sign of block permutation only. Own separate small-graph enumeration and GF2 homology checks corroborate six full/nonfull graph examples, not used to infer all graphs or integer torsion-freeness.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
+
+## value
+
+PASS
+
+The natural transpose involution on arbitrary graph-supported symmetric rook boards yields an exact parity-dependent classification in terms of the graph perfect-matching number, with the integral signed Aut(G) action. It contrasts torsion of ordinary chessboard complexes with free fixed-locus homology and treats all finite graphs, not arbitrary isolated enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

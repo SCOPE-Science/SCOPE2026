@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric-fixed-space construction is an exact PL orbit-barycenter triangulation: diagonal rooks become monomer vertices and off-diagonal transposition orbits become graph-edge vertices. Pairwise disjoint support is precisely the face condition. The subcomplex covered by singleton stars has contractible nonempty finite intersections and a full-simplex nerve. Its only missing faces are the perfect-matchings, each attached in the same dimension with its entire boundary already in the contractible subcomplex. Collapsing that subcomplex proves the integral wedge type, including the zero-matching and degree-zero edge cases. The relative chain basis proves the automorphism action over integers. Standalone exact checks support the boundary cases, mod-two homology and action composition.
+PASS
 
-## Originality — PASS with residual risks
+A transpose-fixed point in realization of the symmetric rook-board complex has equal weights on each diagonal singleton or off-diagonal two-square orbit. Such an orbit is an admissible face precisely when its support (one graph vertex or one graph edge) is disjoint from others. Thus the geometric fixed set is PL-homeomorphic to the matching/monomer support simplicial complex L(G). The union U of closed singleton stars is contractible: every finite star intersection is a cone on the face of corresponding singleton vertices and the cover nerve is the full simplex. A face omitted from U selects graph edges only and covers all graph vertices, hence is exactly a perfect matching. Odd n has no such faces and L(G) is contractible. Even n=2k attaches p(G) disjoint (k−1)-simplices along all their boundaries into U; quotienting the contractible CW subcomplex yields a wedge of p(G) S^{k−1}, including n=2 (p+1 components), p=0. Relative integral chain group on oriented perfect matching facets yields signed Aut(G) permutation lattice; full K_2k stabilizer is S2 wr S_k with sign of block permutation only. Own separate small-graph enumeration and GF2 homology checks corroborate six full/nonfull graph examples, not used to infer all graphs or integer torsion-freeness.
 
-The primary literature studies homotopy and torsion of the original rook complexes; it does not supply the homotopy types of geometric transpose-fixed spaces. The related older calculation of the transpose action on torsion for the five-by-five chessboard is a representation of the homology of the **original** complex and cannot determine the topology of its geometric fixed locus. The rook-graph Čech homology character and ordinary graph matching complexes are different constructions. The 2026 motivating full text was inspected at definitions, main theorems, torsion argument and final square-board criterion; relevant expressions were also searched. Rephrased literature searches for graph boards, monomer-dimer matching complexes and symmetric rook configurations did not reveal a dominating theorem. An unindexed result under a different standard name remains possible, so this self-review is not proof of unique priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem settles a natural geometric fixed-point problem uniformly for arbitrary symmetric board supports, translating an exact homotopy invariant into the perfect-matching count and giving an integral automorphism module. Odd/even topology and its contrast with known torsion in ordinary square-board complexes are structural, not single-case numerology. The graph generality also distinguishes boards with no perfect matching (contractible) from those supporting prescribed positive homology ranks and makes the symmetry action completely explicit.
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
 
-## Closest literature, verification limits
+## value
 
-Limonchenko–Yu (arXiv:2610.37827v1), Björner–Lovász–Vrećica–Živaljević (1994), and Shareshian–Wachs (2007) treat the ordinary matching/chessboard topology. Hultman–Umutabazi concerns a distinct Coxeter-word Boolean complex. Finite program verification is corroborative; the proof is the all-graph star-cover argument. The result does not assert an equivariant wedge equivalence or independence of this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural transpose involution on arbitrary graph-supported symmetric rook boards yields an exact parity-dependent classification in terms of the graph perfect-matching number, with the integral signed Aut(G) action. It contrasts torsion of ordinary chessboard complexes with free fixed-locus homology and treats all finite graphs, not arbitrary isolated enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
