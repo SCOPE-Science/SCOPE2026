@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:12:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently formed and solved fully labeled absorbing generator systems with rational reset at (a,b,r)=(1,1,0),(1,1,1/5),(4,1,1/2),(2,3,1/3); results exactly agree with given rational formula (8,1826/235,110/7,1225/111). Algebraically condition leaves of hub H to equal S and eliminate second hub via d=b(r+2)/D, proving M=(a+2)(r+2)+d. Derivatives M_second=2b(b+1)[(b+1)(r+2)^3-3(r+2)+2]/D^3>0 for b>=1,r>=0; M_prime_0=a-4b^2-3b+2. Limiting optimizer follows from derivative convergence away from zero. Four rational states are checks, not parameter-complete proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riascos network theorem covers general finite network resetting and examples on rings/Cayley trees; 2021 criterion for discrete-time costs a time step."
+        ],
+        "reasoning": "General theory does not directly supply the exact node-centric CTMC two-hub formula, strict convexity and sharp quadratic a/b cutoff; 2021 discrete-time model differs.",
+        "searches": [
+          "Riascos et al arXiv:1910.13568",
+          "Reuveni PhysRevLett 116 170601",
+          "Riascos et al arXiv:2110.15437"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md 9452b55de3698654f87db22e9bb0fced9b3fecdc and check_reset.py 30c7f0c4f10e27ccb0b4c74962f9e711cd82328a",
+        "Riascos et al 2020 Phys Rev E 101 062147; arXiv:1910.13568",
+        "Riascos et al arXiv:2110.15437",
+        "Reuveni 2016 PRL 116 170601"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General restart formulas give an implicit target-hitting transform; source independently computes quotient generator and parameter optimum for special graph."
+        ],
+        "reasoning": "A specialization plus nontrivial symbolic elimination produces an exact geometric phase boundary not stated by sources inspected; general method is credited.",
+        "searches": [
+          "source RESULT.md and generator derivation",
+          "Riascos et al 2020 Phys Rev E 101 062147 abstract",
+          "Reuveni 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General graph first-passage formula is prior; the graph-specific expression and exact integer boundary are not present in inspected scope."
+        ],
+        "reasoning": "The source is expressible via a general renewal or graph resolvent, but equivalence of an implicit resolvent and the explicit parameterized optimizer is not prior statement-level coverage.",
+        "searches": [
+          "Resultary search continuous-time resetting two hub double star leaf target",
+          "Riascos et al random walks with resetting on arbitrary networks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related double-star fastest mixing and clique-path reset results use other operators, objectives and graphs."
+        ],
+        "reasoning": "No inspected exact double-star-reset table covers this full a,b family; lack of matching hit is not historical proof.",
+        "searches": [
+          "Resultary two-hub resetting first-passage search",
+          "Resultary double-star optimization and reset-distance trichotomy"
+        ]
+      },
+      "rationale": "The genuinely new portion of the complete claim survived statement-level search and primary-source comparisons to best of knowledge; the named known special cases and inaccessible priority risks are explicit.",
+      "residual_risks": [
+        "Full Riascos 2020 network paper unavailable: after arxiv and lawful OA failed, Oxford job 981214105f520f538c815f927e82659c reported vpn_disconnected; cannot exclude an unspotted example.",
+        "An earlier general renewal theorem may mechanically specialize to parts of the formula; originality rests on exact two-hub threshold and global optimizer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INCOMPLETE_SOURCE_INSPECTION",
+          "evidence": "General network first-passage and rings/Cayley trees; exact two-hub a,b criterion not verified by full text. Oxford VPN disconnected.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.101.062147",
+          "material_read": "Publication abstract, model scope, spectral formulation and examples, not full article",
+          "method": "publisher/indexed web + OA/arxiv failed + authorized Oxford request",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "same resetting and mean first passage on networks"
+        },
+        {
+          "assessment": "DIFFERENT_DISCRETE_TIME_MODEL",
+          "evidence": "Resetting consumes a step, unlike instantaneous independent continuous-time reset.",
+          "identifier_or_url": "arXiv:2110.15437",
+          "material_read": "Bibliographic record and abstract; full text inaccessible",
+          "method": "public abstract search",
+          "title": "Discrete-time random walks and Lévy flights on arbitrary networks: when resetting becomes advantageous?",
+          "trigger": "closest general optimum resetting condition"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_SPECIFIC_FORMULA",
+          "evidence": "Classical general restart identity; two-hub family formula and quadratic boundary not documented in available material.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.116.170601",
+          "material_read": "Bibliographic theorem context only",
+          "method": "publisher/abstract searches",
+          "title": "Optimal Stochastic Restart Renders Fluctuations in First Passage Times Universal",
+          "trigger": "general restart optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp discrete branching threshold in a natural two-bottleneck search graph reveals when instantaneous restarting defeats remote trapping; strict convexity gives uniqueness and diverging trap size yields bounded optimal passage while unreset mean diverges. This is a parameterized structural/optimization result, not an arbitrary tiny graph.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md 9452b55de3698654f87db22e9bb0fced9b3fecdc and check_reset.py 30c7f0c4f10e27ccb0b4c74962f9e711cd82328a",
+    "Riascos et al 2020 Phys Rev E 101 062147; arXiv:1910.13568",
+    "Riascos et al arXiv:2110.15437",
+    "Reuveni 2016 PRL 116 170601"
+  ],
+  "disposition": "passed",
+  "final_claim": "For G_{a,b} with a,b>=1, CTMC rate-one neighbor walk started and reset at leaf s and absorbed at sibling leaf t: M(r)=(r+2)[a+2+b/(1+(b+1)r(r+2))]; strictly convex; positive optimum iff a<4b^2+3b-2; fixed a large b positive optimum->1/sqrt(a+2), min->2(a+2)+2sqrt(a+2).",
+  "limitations": [
+    "Continuous-time rate-one node-centric walks only, no result for discrete-time restarting, edge-rate clocks or general trees."
+  ],
+  "residual_risks": [
+    "Full Riascos 2020 network paper unavailable: after arxiv and lawful OA failed, Oxford job 981214105f520f538c815f927e82659c reported vpn_disconnected; cannot exclude an unspotted example.",
+    "An earlier general renewal theorem may mechanically specialize to parts of the formula; originality rests on exact two-hub threshold and global optimizer."
+  ],
+  "schema_version": 1
+}
