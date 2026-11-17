@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:11:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact three-compartment Mondal–Sarkar–Sk ODE with X(0)>0, S(0)+I(0)>0, strictly positive fear K, d4>d3 and c1 f(L)=d3, summing predator equations cancels transmission, treatment and recovery: Pdot=[c1 f(X)-d3]S-(d4-d3)I. Logistic prey comparison makes the positive part of the predator growth integrable, so P has a finite limit; if positive, positive fear bounds prey strictly below L, forcing P to decay exponentially, a contradiction. Hence P->0, X->L. The infected fraction I/P decays exponentially, and stable prey-mode slaving yields (X-L)/P->-B/(r-d1), where B=rLK+f(L). Thus tS->(r-d1)/[c1 fprime(L) B] and t(L-X)->1/[c1 fprime(L)], independent of K. Independent exact rational coefficients for K=1/2 and 1/4 yield tS=1/2 and 3/5, respectively, but both prey deficits 3/2. The full global result rests on the comparison and damping proof, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary global predator extinction laws are for 2-variable fear/refuge predator-prey equations, not the three-compartment infected/treatment system."
+        ],
+        "reasoning": "Neither a two-compartment theorem with different nonlinear feedback nor a strict local-stability result implies these model-specific coefficients and infected-mode exponential suppression.",
+        "searches": [
+          "https://www.nature.com/articles/s41598-023-43021-0",
+          "Resultary: 2026/11/8/SCOPE-global-threshold-dynamics-and-universal-critical-extinction-in-a--61d1c6099fa9",
+          "Resultary: 2026/10/18/SCOPE-a-sharp-global-predator-prey-threshold-and-universal-critical-ex--3206215d6907"
+        ]
+      },
+      "checked_sources": [
+        "https://www.nature.com/articles/s41598-023-43021-0",
+        "https://doi.org/10.1038/s41598-023-43021-0",
+        "https://doi.org/10.1016/j.jocs.2023.102023",
+        "Resultary semantic query: critical predator free infected predators fear refuge saturated treatment algebraic extinction critical"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary source uses c1 f(L)<d3 for local predator-free stability and analyzes treatment/disease regimes; at equality there is a zero eigenvalue."
+        ],
+        "reasoning": "Local strict stability and positivity do not imply global clearance, explicit slaving, or K-independent prey deficit; the proof uses an integrable upper bound plus exact Pdot cancellation.",
+        "searches": [
+          "https://www.nature.com/articles/s41598-023-43021-0",
+          "https://doi.org/10.1038/s41598-023-43021-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mondal–Sarkar–Sk report predator-free equilibrium with strict local stability and epidemic-reproduction conditions; these are not asymptotic dynamics at predator invasion equality."
+        ],
+        "reasoning": "Distinguished predator-free invasion eigenvalue c1 f(L)-d3 from disease reproduction at a positive disease-free predator state; no matching equivalence found.",
+        "searches": [
+          "https://www.nature.com/articles/s41598-023-43021-0",
+          "Resultary semantic query: critical predator free infected predators fear refuge saturated treatment algebraic extinction critical"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier tabulated critical 1/t amplitudes for this exact three-compartment Mondal–Sarkar–Sk system were located in compared results."
+        ],
+        "reasoning": "This is a best-knowledge search observation, not a claim that all possible references were excluded.",
+        "searches": [
+          "Resultary query: critical predator free infected predators fear refuge saturated treatment algebraic extinction critical"
+        ]
+      },
+      "rationale": "The primary Scientific Reports paper introduces the same fear/refuge infected-predator ODE and strict predator-free stability inequalities, but its equilibrium and epidemiological R0 analysis do not supply nonlinear global equality-case clearance rates. Similar Resultary two-compartment fear/refuge results have different differential equations and no infected fraction with treatment cancellation. The related two-path infection paper is a genuine incomplete historical access risk.",
+      "residual_risks": [
+        "Full text of the related two-infection-path paper not inspected; its nonlinear critical analysis could have partial overlap.",
+        "The proof requires K>0 and d4>d3, and excludes initially absent predators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING of global equality-case algebraic clearance and fear-independent deficit; strict local criterion is prior",
+          "evidence": "Original model Eq. (1), predator-free equilibrium and local stability require strict c1 f(L)<d3; disease threshold is distinct.",
+          "identifier_or_url": "https://www.nature.com/articles/s41598-023-43021-0",
+          "material_read": "Accessible primary full-text HTML: original differential equations, predator-free threshold and local stability conditions, Theorems 4–6, discussion",
+          "method": "Publisher full HTML reading and formula comparison",
+          "title": "Treatment of infected predators under the influence of fear-induced refuge",
+          "trigger": "Identical three-compartment ODE, predator-free equilibrium and invasion criterion"
+        },
+        {
+          "assessment": "ACCESS_LIMITED; no full-document noncoverage inference",
+          "evidence": "Two infection paths and a different model are indicated; an equivalent critical reduction cannot be ruled out from snippets.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jocs.2023.102023",
+          "material_read": "Bibliographic metadata and abstract only; primary full text not accessed",
+          "method": "Abstract/bibliographic comparison",
+          "title": "Dynamics of an eco-epidemiological system: Predators get infected in two paths",
+          "trigger": "Plausible three-compartment alternative with two infection routes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The actual predator invasion equality is an ecologically natural nonhyperbolic regime not decided by strict local stability. The exact globally attracting fate, explicit 1/t predator amplitude and cancellation of fear from prey deficit are structural predictions for the full infection/treatment system; they are not a routine substitution from a simpler two-dimensional predator model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full text of the related two-infection-path paper not inspected; its nonlinear critical analysis could have partial overlap.",
+    "The proof requires K>0 and d4>d3, and excludes initially absent predators."
+  ],
+  "schema_version": 1
+}

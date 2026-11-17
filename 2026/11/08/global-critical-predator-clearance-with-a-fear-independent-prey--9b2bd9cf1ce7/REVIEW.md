@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise claim concerns the full three-variable ODE, with positive fear, stricter infected-predator mortality, positive prey and nonzero predator initial conditions, and predator-free invasion equality. The proof verifies positivity, a prey logistic bound, an integrable positive-part bound on total predator growth, global convergence, exponential disappearance of the infected fraction, and the exact critical asymptotic using a stable prey-to-predator ratio equation. The nonstandard step is deriving \(h/P\to-B/\sigma\) **after** global convergence and subexponential predator decay, rather than assuming the center-manifold reduction. The symbolic coefficient and numerical diagnostic code replayed successfully from the packaged file. Numerical integration does not replace proof.
+PASS
 
-## Originality — PASS on inspected material
+For the exact three-compartment Mondal–Sarkar–Sk ODE with X(0)>0, S(0)+I(0)>0, strictly positive fear K, d4>d3 and c1 f(L)=d3, summing predator equations cancels transmission, treatment and recovery: Pdot=[c1 f(X)-d3]S-(d4-d3)I. Logistic prey comparison makes the positive part of the predator growth integrable, so P has a finite limit; if positive, positive fear bounds prey strictly below L, forcing P to decay exponentially, a contradiction. Hence P->0, X->L. The infected fraction I/P decays exponentially, and stable prey-mode slaving yields (X-L)/P->-B/(r-d1), where B=rLK+f(L). Thus tS->(r-d1)/[c1 fprime(L) B] and t(L-X)->1/[c1 fprime(L)], independent of K. Independent exact rational coefficients for K=1/2 and 1/4 yield tS=1/2 and 3/5, respectively, but both prey deficits 3/2. The full global result rests on the comparison and damping proof, not the finite checks.
 
-The initiating Scientific Reports article [1] was inspected at the equations, predator-free equilibrium and local eigenvalue criterion, infection reproduction analysis, Theorems 4–6, and discussion. Its predator-free stability assertion uses a strict inequality; the article does not state global extinction and sharp amplitudes at equality. The related two-path infected-predator paper [2] uses a different model and was available only as abstract/bibliography, so its full contents are a residual priority risk. Targeted public literature search and published mathematical finding-index searches for predator-free critical extinction, \(t^{-1}\) laws, fear/refuge and infected predators yielded analogous results in different predator systems, not a stronger theorem for the same three-compartment ODE. An unsuccessful search cannot prove priority.
+## originality
 
-## Value — PASS
+PASS
 
-The predator-free boundary is ecologically meaningful because predator invasion changes sign there, and a zero eigenvalue does not determine whether predators clear or persist. The theorem resolves global fate of the full infected-predator system at equality and quantifies how fear speeds predator clearance, while a surprising cancellation keeps prey's leading deficit independent of fear, incidence and treatment. This is a structural ecological asymptotic rather than a numerical threshold repeat or an arbitrary parameter slice.
+The primary Scientific Reports paper introduces the same fear/refuge infected-predator ODE and strict predator-free stability inequalities, but its equilibrium and epidemiological R0 analysis do not supply nonlinear global equality-case clearance rates. Similar Resultary two-compartment fear/refuge results have different differential equations and no infected fraction with treatment cancellation. The related two-path infection paper is a genuine incomplete historical access risk.
 
-## Scope and closest work
+## value
 
-This is a result for the original full system, not a proof of endemic or disease-free coexistence stability. The original paper [1] provides strict local predator-free stability and broader disease-bifurcation results; [2] concerns two pathways of infection. Related critical-extinction results for delayed or stage-structured predators have distinct variables and assumptions and therefore do not imply the specific critical amplitudes here. Residual risks are unindexed equivalent analyses, abstract-only access to [2], and possible earlier unverified preprints. No assertion of priority beyond inspected evidence is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The actual predator invasion equality is an ecologically natural nonhyperbolic regime not decided by strict local stability. The exact globally attracting fate, explicit 1/t predator amplitude and cancellation of fear from prey deficit are structural predictions for the full infection/treatment system; they are not a routine substitution from a simpler two-dimensional predator model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
