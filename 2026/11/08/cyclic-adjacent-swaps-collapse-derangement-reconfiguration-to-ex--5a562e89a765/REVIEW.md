@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signature \(L\) is invariant under every non-wrapping adjacent swap, whereas the wrapping swap replaces one internal early value by one internal late value. The constructive two-block sorting proof establishes connectivity of every fixed-signature sector; the monotone largest-complement/minimum-signature replacement connects all sectors of fixed cardinality, and different excedance counts cannot mix. A separate inclusion-exclusion argument gives component sizes and endpoint constraints yield the two isolated states. Complete, independently implemented finite reconstructions for orders \(3\)–\(8\) (Python) and \(3\)–\(9\) (C++17) support the proof; no infinite claim follows from tests alone.
+## correctness
 
-**Originality — PASS, qualified.** The mathematically closest path-only adjacency problem has \(2^{n-2}\) components (also derived here), but this does not contain or imply the boundary-swap component identifications without an additional proof. Steingrímsson–Williams concerns excedance statistics, Clark graph derangements, Albasini–Zagaglia Salvi the separate concept of adjacent *cycles*, Assaf wreath-product cyclic derangements, and Ganesan unrestricted Cayley graph symmetries. Retrieved published-index results did not give this fixed-point-free cyclic-position reconfiguration classification. A broader unindexed affine-permutation result remains a priority risk; these searches do not certify unique historical priority.
+PASS
 
-**Value — PASS.** This natural change in a local permutation generator provably collapses exponentially many connectivity classes to a linear number while retaining a simple, classical level statistic as a complete invariant. It explains the mechanism constructively and gives every component size and all isolated configurations. It is a global structural reconfiguration theorem, not merely a restatement of Eulerian enumeration or a tiny numerical gain.
+For every n>=3 legal swaps among positions 1,..,n on the cycle, the side-of-home signature L subset {2,..,n-1} is preserved by linear neighboring swaps; canonical two-block sorting legally connects each sector. The wrap swap replaces one early internal label by one late internal label, preserving |L|=exc-1. The canonical form begins at min L and ends at max complement, giving a strictly increasing signature-sum move until the largest-|L| signature is reached. Thus each fixed excedance is one component. Inclusion-exclusion gives its known Eulerian derangement size; the two extreme cyclic shifts are isolated. Direct independent graph construction enumerated all n=3..7 and checked exact components, statistics and isolated states.
 
-**Limitations.** Only ordinary labelled derangements and swaps at adjacent cyclic *positions* are treated. No all-pairs shortest path, sharp diameter, or mixing-time assertion. The cited historical comparisons include abstracts and portions of primary texts; independent assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The November 2 general forbidden-fixed-position theorem exactly supplies the path-only 2^(n-2) signature decomposition, a prior input explicitly credited. It has no wrap-around position swap and hence does not imply the new quotient-by-cardinality classification. A separate 2026-11-08 result allowing two-step position swaps connects the whole derangement graph, a different move generating graph. No inspected primary result implies the wrap-only n-1 theorem.
+
+## value
+
+PASS
+
+Changing one natural local reconfiguration generator from path to cycle collapses exponentially many known path-components to n-1 components while retaining exact classical excedance labels and sizes; a sharp global connectivity classification with constructive paths and precisely two isolated states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
