@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric-gap representation proves the exact one-step Markov image. The cited two-step Lebesgue preservation and strong mixing give invariance, ergodicity and full-Lebesgue-basin physicality. The Markov and Bernoulli flip laws give distinct typical cylinder exponents, and the explicitly bounded binary terminal runs justify the passage to Euclidean-ball local dimension. The exact checker completed 2090 finite arithmetic/enumeration checks; finite verification is supplementary. Crucial published premises are Corona–Della Corte (2023), Theorems 2.4 and 3.4.
+PASS
 
-## Originality — PASS with a concrete deduction risk
+The erasing map sends fair-bit input to a two-state Markov output with P(initial 0)=2/3 and flip probability 2/3, giving ν([w])=2^(1_{w1=0}+flips(w))/3^n. Published F²_*λ=λ and ergodicity of F² for λ then yield F_*ν=λ and μ=(λ+ν)/2 invariant and F-ergodic; Birkhoff on the even F² and odd F∘F² subsequences proves full-Lebesgue physicality. Bernoulli and Markov flip laws give cylinder exponents 1 and log₂3−2/3. Typical terminal-run length O(log n) via Borel–Cantelli controls adjacent dyadic cylinders and transfers to Euclidean-ball local dimensions. Mutual singularity of λ and ν gives exact μ masses 1/2 each. Independently checked all 2^n Markov-cylinder masses sum to one for n≤8 and recomputed exponent 0.918295834...; infinite almost-sure claims rest on the cited mixing premise and analytic proof.
 
-The original 2021 manuscript already computes every one-step inverse-cylinder mass in Eq. (38); the equivalent Markov cylinder law is **not claimed as novel**. The 2023 paper supplies Lebesgue preservation and mixing of the square. Neither inspected paper states the exact **ergodic physical mixed measure with its two distinct Euclidean local dimensions**. The result is a narrow but motivated combination of both papers, with standard ergodic ingredients; prior work proving this combination elsewhere would supersede it. The 2022 Della Corte–Farotti paper on general erasing classes emphasizes topological chaos and does not supply the inspected full joint claim. Targeted literature searches did not locate that same invariant statistical conclusion, but this does not establish global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2021 originating paper explicitly asks whether the erasing map has a non-atomic invariant measure. This construction supplies one that is ergodic and physical for a full-Lebesgue basin, yet has both absolutely continuous and singular components. The nonconstant local-dimension distribution within a single ergodic probability is an exact and distinctive structural example for a densely discontinuous interval map; no arbitrary parameter slice or general downstream theorem is claimed.
+PASS (best knowledge): Published 2021 inverse-cylinder formula already determines the one-step Markov ν, and published 2023/2024 work proves F² preserves and mixes λ, so these premises are not novel. The inspected sources do not themselves give the particular F-invariant ergodic physical mixture together with its exact nonconstant two-atom Euclidean pointwise-dimension law. The joint measure-level phenomenon needs the two-cycle extension, phase-resolved Birkhoff limits and separate metric scaling/ball analysis; it is not merely an unchanged reformulation of a cited single theorem. Residual risk that a general ergodic-mixture/local-dimension theorem in unindexed work states the full outcome.
 
-## Limits and independent validation
+## value
 
-The construction relies on two published source theorems. It neither classifies all invariant measures nor proves existence of a purely singular-continuous invariant law. The nearest prior implication is the combination of the published inverse-cylinder formula and mixing of the square; its strength remains a substantive priority risk. The accessible source inspections and statistical computations do not constitute independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The motivating erasing interval map is a natural discontinuous symbolic dynamical system, with a published question about non-atomic invariant measures. The exact physical measure has full Lebesgue basin, is ergodic yet has mutually singular absolutely continuous and singular components and two distinct typical Euclidean local dimensions with exact weights. This is a precise structural dynamical example of independent mathematical interest, not a random parameter slice or merely an enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
