@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T05:11:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-ballot-loss-distributions-and-opposing-tail-risks-in-defau--5ef358d812fd/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-ballot-loss-distributions-and-opposing-tail-risks-in-defau--5ef358d812fd/VERIFICATION.md"
+      ],
+      "rationale": "A loopless functional digraph decomposes into one directed cycle plus in-trees per weak component. If any cycle voter casts, no lost ballots in that component; if every cycle voter abstains (probability p^c), c cycle ballots are lost, and each off-cycle rooted subtree contributes F_u(z)=(1-p)+p z product F_child(z). Independent casting gives the exact factorized probability generating function over components, all coefficients nonnegative summing to one. Differentiation/event counting yields EL=sum_v p^{c(v)+d(v,C(v))} and P(L>0)=1-product_C(1-p^{c}). Because all cycle lengths>=2, the largest possible number of 2-cycle vertices maximizes EL with unique equality configurations: even n all 2-cycles, odd n all but one in 2-cycles with one attached tail. Likewise cycle failure probability is maximized by floor(n/2) disjoint 2-cycles. For 6 voters, L_A=2 Bin(3,p^2), L_B=3 Bin(2,p^3), giving opposing mean and P(L>=3) with difference p^3(1-p)^2(p+2)>0. Independently enumerated all 90 loopless functional digraphs on 2..4 vertices, every cast subset with exact rational p=2/5, and matched each complete loss polynomial. Infinite n proof is functional graph decomposition, not enumeration.",
+      "residual_risks": [
+        "Independent finite calculations corroborate only tested parameters; all-size reasoning relies on reviewed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brill et al. Appendix B.4 and Proposition 19 establish pathwise expected loss and the minimizing Hamiltonian-cycle topology.",
+          "Grossi et al. analyze expected voting weight / random-walk-decay centrality, a different aggregate."
+        ],
+        "reasoning": "Their expectation theorem does not imply the full distribution, maximizing topology or risk inversion; existing minimization is expressly prior.",
+        "searches": [
+          "default delegation cycles abstention exact loss distribution tails maximum expected lost ballots functional digraph",
+          "https://arxiv.org/abs/2607.12610",
+          "https://arxiv.org/abs/2608.13188"
+        ]
+      },
+      "checked_sources": [
+        "Brill et al. arXiv:2607.12610 Appendix B.4 and Proposition 19",
+        "Grossi et al. arXiv:2608.13188 abstract",
+        "Christoff–Grossi arXiv:1612.08048 prior model background",
+        "Resultary semantic search: default delegation cycles abstention exact loss distribution tails maximum expected lost ballots functional digraph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known E L minimization via one Hamiltonian cycle and individual loss paths.",
+          "New claim proves maximum among networks with many 2-cycles and six-vertex positive tail difference p^3(1-p)^2(p+2)."
+        ],
+        "reasoning": "An expectation formula can derive the maximum with extra optimization, but does not specify the full joint PGF or force stochastic tail order; the counterexample is an independently motivated consequence of distributional analysis.",
+        "searches": [
+          "default delegation cycles abstention exact loss distribution tails maximum expected lost ballots functional digraph",
+          "https://arxiv.org/abs/2607.12610"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brill et al. use independent delegation/turnout, individual lost power and cycle abstention events.",
+          "Current L counts all lost unit ballots across all components; objective is its full probability distribution, not only expectation."
+        ],
+        "reasoning": "Same path-survival events under homogeneous p but aggregating them creates dependence and a nontrivial joint law. Reviewed aliases lost votes, unrepresented ballots and reliability.",
+        "searches": [
+          "default delegation cycles abstention exact loss distribution tails maximum expected lost ballots functional digraph",
+          "https://arxiv.org/abs/2607.12610",
+          "liquid democracy default delegation lost voting weight functional graph cycle all abstain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete PGF factorization is recursive for all loopless functional graphs and n rather than a fixed n table.",
+          "Related Resultary records concern delegation equilibrium or specific bipartite network mean losses, not all distributions."
+        ],
+        "reasoning": "No exact all-network PGF database identified. This negative result is not itself novelty proof; strict comparison is to the published statements.",
+        "searches": [
+          "default delegation cycles abstention exact loss distribution tails maximum expected lost ballots functional digraph",
+          "lost unit ballot generating function default delegation cycle abstention polynomial"
+        ]
+      },
+      "rationale": "The first-moment path formula and Hamiltonian-cycle minimum are known from Brill et al.; excluded from novel credit. What remains is total-ballot-loss distribution for arbitrary loopless networks, sharp maximum and equality network structures, and demonstrable reversal of risk ordering at the 3-loss tail. Grossi et al. concern expected influence, not stochastic aggregate loss; earlier equilibrium papers do not imply the same full PGF. Network-reliability polynomial equivalences remain a priority risk, but none dominating was identified.",
+      "residual_risks": [
+        "Alternative network reliability PGFs may already express the same cycle/tree recursion.",
+        "Grossi et al. beyond abstract not fully examined, so no whole-document noncoverage claim.",
+        "Requires independent homogeneous turnout, no self-loops and unit ballot representation; not strategic welfare."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves cycle/path expected-loss expressions and Hamiltonian-cycle MINIMUM, not the assigned total-loss distribution and risk maximizers in inspected results",
+          "evidence": "Appendix B.4; Proposition 19 and cycle definitions",
+          "identifier_or_url": "https://arxiv.org/abs/2607.12610",
+          "material_read": "Full-text HTML consulted with Section 2, Appendix B.4 and Proposition 19 examined",
+          "method": "Primary arXiv HTML reading",
+          "title": "Cycles in Liquid Democracy: A Game-Theoretic Justification",
+          "trigger": "Same participation/default-delegation model"
+        },
+        {
+          "assessment": "Expected-influence network centrality, not verified total-loss PGF; incomplete text means residual risk",
+          "evidence": "Abstract and cited objective",
+          "identifier_or_url": "https://arxiv.org/abs/2608.13188",
+          "material_read": "Abstract and model description only; no complete-paper NOT_COVERING asserted",
+          "method": "Preprint bibliographic/abstract review",
+          "title": "Power in Liquid Democracy: A Network Centrality Approach",
+          "trigger": "Alternative broader coverage on lost-vote aggregates"
+        },
+        {
+          "assessment": "All six proof steps reconstructed including equality cases",
+          "evidence": "RESULT.md steps 1–6",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-ballot-loss-distributions-and-opposing-tail-risks-in-defau--5ef358d812fd",
+          "material_read": "Full RESULT.md proof and source verification files",
+          "method": "Frozen GitHub connector",
+          "title": "Exact ballot-loss distributions and opposing tail risks in default delegation networks",
+          "trigger": "Assigned theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Brill et al. arXiv:2607.12610 Appendix B.4 and Proposition 19",
+        "Grossi et al. arXiv:2608.13188 abstract",
+        "Christoff–Grossi arXiv:1612.08048 prior model background",
+        "Resultary semantic search: default delegation cycles abstention exact loss distribution tails maximum expected lost ballots functional digraph"
+      ],
+      "rationale": "It is mathematically and substantively relevant to assess representational outage severity rather than only mean lost voting weight. The exact polynomial permits every tail query; equality classifications identify worst network topologies, and a strict six-voter example proves mean optimization can reverse large-tail ordering. These are natural finite-network reliability invariants rather than a parameter-renaming exercise.",
+      "residual_risks": [
+        "Alternative network reliability PGFs may already express the same cycle/tree recursion.",
+        "Grossi et al. beyond abstract not fully examined, so no whole-document noncoverage claim.",
+        "Requires independent homogeneous turnout, no self-loops and unit ballot representation; not strategic welfare."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Alternative network reliability PGFs may already express the same cycle/tree recursion.",
+    "Grossi et al. beyond abstract not fully examined, so no whole-document noncoverage claim.",
+    "Requires independent homogeneous turnout, no self-loops and unit ballot representation; not strategic welfare."
+  ],
+  "schema_version": 1
+}

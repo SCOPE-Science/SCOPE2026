@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns finite loopless functional graphs with identical independent non-casting probability \(p\in(0,1)\), and counts unrepresented **unit** ballots. A functional component consists of one directed cycle and its incoming forest. Conditional on all cycle voters abstaining, a tree root is either casting (zero lost ballots downstream) or noncasting (one lost ballot plus independent child losses), yielding the exact generating-function product. The first moment follows by path length. The maximum expectation and any-loss probabilities follow from the restriction that every directed cycle has at least two vertices and the strict inequality \(p^2>p^3\). The six-voter counterexample is a direct calculation with independent cycle-failure Bernoulli variables. A separate, exact-rational brute-force checker passed 16,739 complete graph profiles through six vertices, with 2,534 independent checks of full distributions; these computations are supporting tests, not the infinite proof. All equality conditions and finite endpoints were checked within the stated scope.
+PASS
 
-## Originality — PASS with residual risk
+A loopless functional digraph decomposes into one directed cycle plus in-trees per weak component. If any cycle voter casts, no lost ballots in that component; if every cycle voter abstains (probability p^c), c cycle ballots are lost, and each off-cycle rooted subtree contributes F_u(z)=(1-p)+p z product F_child(z). Independent casting gives the exact factorized probability generating function over components, all coefficients nonnegative summing to one. Differentiation/event counting yields EL=sum_v p^{c(v)+d(v,C(v))} and P(L>0)=1-product_C(1-p^{c}). Because all cycle lengths>=2, the largest possible number of 2-cycle vertices maximizes EL with unique equality configurations: even n all 2-cycles, odd n all but one in 2-cycles with one attached tail. Likewise cycle failure probability is maximized by floor(n/2) disjoint 2-cycles. For 6 voters, L_A=2 Bin(3,p^2), L_B=3 Bin(2,p^3), giving opposing mean and P(L>=3) with difference p^3(1-p)^2(p+2)>0. Independently enumerated all 90 loopless functional digraphs on 2..4 vertices, every cast subset with exact rational p=2/5, and matched each complete loss polynomial. Infinite n proof is functional graph decomposition, not enumeration.
 
-Brill et al. (2026, arXiv:2607.12610, full text Section 2 and Appendix B.4) already derive expected loss and prove in Proposition 19 that a Hamiltonian cycle **minimizes** expected loss. The known model, path probabilities, and this minimization are explicitly excluded from the novelty claim. That result does not state the full lost-ballot probability distribution, the sharp *maximizing* network structures with equality, or the mean/tail inversion. Grossi et al. (2026, arXiv:2608.13188) measure expected influence via random-walk-decay centrality, a different aggregate from the stochastic total-loss distribution. Earlier binary-aggregation/cycle-abstention research by Christoff and Grossi (2016) concerns a different model. Targeted published-literature searches and mathematically oriented indexed-record searches found no equivalent full statement. Residual risks: alternative network reliability formulations, unindexed literature, and material beyond the accessible sections of the additional sources.
+## originality
 
-## Value — PASS
+PASS
 
-Exact total-loss probabilities permit reliability questions unavailable from a first moment alone, including a network's chance of **any** excluded voter and the chance of a major representational outage. The complete sharp maximum and uniqueness clauses clarify which delegation-cycle structures are most vulnerable. The strict six-voter reversal shows that the networks maximizing mean loss need not maximize consequential tails, a structural warning against mean-only network design. The result is restricted but directly motivated by previously studied loss in suspendible delegation networks.
+The first-moment path formula and Hamiltonian-cycle minimum are known from Brill et al.; excluded from novel credit. What remains is total-ballot-loss distribution for arbitrary loopless networks, sharp maximum and equality network structures, and demonstrable reversal of risk ordering at the 3-loss tail. Grossi et al. concern expected influence, not stochastic aggregate loss; earlier equilibrium papers do not imply the same full PGF. Network-reliability polynomial equivalences remain a priority risk, but none dominating was identified.
 
-## Limits and status
+## value
 
-The result requires independent homogeneous turnout and forbids self-delegations. It does not claim improved election outcomes, strategic equilibria, or new knowledge of the established minimum-mean topology. No external independent review has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It is mathematically and substantively relevant to assess representational outage severity rather than only mean lost voting weight. The exact polynomial permits every tail query; equality classifications identify worst network topologies, and a strict six-voter example proves mean optimization can reverse large-tail ordering. These are natural finite-network reliability invariants rather than a parameter-renaming exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
