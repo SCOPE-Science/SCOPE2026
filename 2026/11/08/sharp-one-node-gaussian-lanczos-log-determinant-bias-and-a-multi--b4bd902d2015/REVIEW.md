@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The one-node formula follows exactly from the first Lanczos Ritz value. Gaussian polar independence and the Dirichlet angular law give the expectation; Jensen proves the nonnegative bias, and strict coordinatewise convexity of logarithmic eigenvalues establishes the global two-endpoint extremizers with no missing interior cases. Beta integration proves the finite optimum, and beta moments and dominated convergence prove the two limiting regimes and multiplicity change. The optional executable replay checks formulas numerically, but no universal assertion relies on finite testing.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The nearest primary works provide general stochastic Lanczos quadrature, a one-probe strategy that still uses multiple Lanczos nodes, and general trace/determinant error analyses. None of the inspected full-text portions states the exact all-spectrum one-node Gaussian expectation-bias extremum or its conditioning-dependent multiplicities. Database searches found no equivalent claim. The complete manuscript of the 2026 motivating preprint was inaccessible, and an older equivalent log-sum-exp extremal theorem remains a plausible priority risk; no uniqueness of discovery is claimed.
+PASS
 
-**Value — PASS.** The natural one-node approximation is the cheapest nontrivial Lanczos log-determinant rule. A sharp spectral-condition-number risk law quantifies its worst systematic overestimation in every finite dimension, identifies extremizing spectra, and exposes a transition from balanced to singleton high-eigenvalue groups. These are useful calibration targets for sketch-based determinant estimation; generic Jensen positivity or a crude smoothness inequality does not determine them.
+First Lanczos Ritz value equals Gaussian Rayleigh quotient, hence signed bias B=n E_w log(sum_i w_i exp(x_i))−sum_i x_i, w~Dirichlet(1/2,...,1/2). Jensen gives B>=0; strict separate convexity ∂²_i B=nE[p_i(1−p_i)]>0 forces all worst spectra to endpoints 1,κ (no interior extremizer). Endpoint sums T~Beta(j/2,(n−j)/2) give exact B_j. For n=2, integrate arcsine to obtain 4logcosh(logκ/4). Beta moments give small-δ tie-breaking to j=floor(n/2), and dominated convergence/digamma gives high-κ unique j=1. Independent SciPy beta quadratures for n=2,4,5 at representative κ confirmed closed n2 formula and near/far multiplicity crossover.
 
-**Limits.** Exact arithmetic, one Gaussian probe, one quadrature node, fixed SPD matrices, expectation rather than concentration; no floating-point or multi-step stability claim. Mathematical priority is provisional pending broader literature inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: strict coordinatewise convexity identifies exact worst-case one-node Gaussian Lanczos expected logdet bias by a max over beta integrals, with conditioning-dependent unique extremal multiplicity. The full-text accessible 2026 Mbingui–Tambue–Karambal stochastic Krylov preprint develops Lanczos/Hutch++ trace error bounds and algorithms, not the inspected condition-number-sharp one-node expectation law. The related single-probe paper considers multiple nodes. Priority risk remains from classical Jensen/Dirichlet logsumexp extremal literature.
+
+## value
+
+PASS
+
+The least expensive nontrivial stochastic Lanczos log-determinant rule has a natural, previously unquantified worst systematic overestimate at a fixed spectral condition number; the exact finite-dimensional upper envelope and shift from balanced to singleton spikes provide sharp calibration and conceptual information about bias regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

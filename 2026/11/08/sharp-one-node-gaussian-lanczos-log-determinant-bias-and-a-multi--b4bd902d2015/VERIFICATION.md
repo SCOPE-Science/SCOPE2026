@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` from this package directory; Python standard library is the only dependency. It reports `VERIFY_OK 3934` when all tests complete, with selected numerical values for the beta-integral sharp bound.
+## correctness
 
-The tests check the closed-form dimension-two arcsine integral at eight condition numbers; evaluate the integral for all nontrivial endpoint multiplicities in dimensions two through seven; compare with all small endpoint spectra and randomized interior spectra; check small- and large-condition-number multiplicity selections; and compare four Gaussian Monte Carlo means against the exact beta integrals.
+PASS
 
-These are finite numerical checks and do not certify the theorem. Universal correctness rests on the explicit first-node formula, Gaussian polar decomposition, strict coordinatewise convexity, beta aggregation, Taylor expansion and dominated-convergence argument in RESULT.md. The script has bounded loops, deterministic seed and no network or nonstandard dependencies. Experimental tolerances accommodate quadrature and sampling noise; they are not theoretical error bounds.
+First Lanczos Ritz value equals Gaussian Rayleigh quotient, hence signed bias B=n E_w log(sum_i w_i exp(x_i))−sum_i x_i, w~Dirichlet(1/2,...,1/2). Jensen gives B>=0; strict separate convexity ∂²_i B=nE[p_i(1−p_i)]>0 forces all worst spectra to endpoints 1,κ (no interior extremizer). Endpoint sums T~Beta(j/2,(n−j)/2) give exact B_j. For n=2, integrate arcsine to obtain 4logcosh(logκ/4). Beta moments give small-δ tie-breaking to j=floor(n/2), and dominated convergence/digamma gives high-κ unique j=1. Independent SciPy beta quadratures for n=2,4,5 at representative κ confirmed closed n2 formula and near/far multiplicity crossover.
 
-Independent mathematical audit: not performed.
+## originality
+
+PASS
+
+Best-of-knowledge: strict coordinatewise convexity identifies exact worst-case one-node Gaussian Lanczos expected logdet bias by a max over beta integrals, with conditioning-dependent unique extremal multiplicity. The full-text accessible 2026 Mbingui–Tambue–Karambal stochastic Krylov preprint develops Lanczos/Hutch++ trace error bounds and algorithms, not the inspected condition-number-sharp one-node expectation law. The related single-probe paper considers multiple nodes. Priority risk remains from classical Jensen/Dirichlet logsumexp extremal literature.
+
+## value
+
+PASS
+
+The least expensive nontrivial stochastic Lanczos log-determinant rule has a natural, previously unquantified worst systematic overestimate at a fixed spectral condition number; the exact finite-dimensional upper envelope and shift from balanced to singleton spikes provide sharp calibration and conceptual information about bias regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

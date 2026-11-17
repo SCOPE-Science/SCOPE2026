@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:55:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-node-gaussian-lanczos-log-determinant-bias-and-a-multi--b4bd902d2015/RESULT.md",
+        "verify.py blob 07b87c5eae77f2457b0db563093d557923a9d376",
+        "Independent SciPy beta quadrature tests at n=2,4,5"
+      ],
+      "rationale": "First Lanczos Ritz value equals Gaussian Rayleigh quotient, hence signed bias B=n E_w log(sum_i w_i exp(x_i))−sum_i x_i, w~Dirichlet(1/2,...,1/2). Jensen gives B>=0; strict separate convexity ∂²_i B=nE[p_i(1−p_i)]>0 forces all worst spectra to endpoints 1,κ (no interior extremizer). Endpoint sums T~Beta(j/2,(n−j)/2) give exact B_j. For n=2, integrate arcsine to obtain 4logcosh(logκ/4). Beta moments give small-δ tie-breaking to j=floor(n/2), and dominated convergence/digamma gives high-κ unique j=1. Independent SciPy beta quadratures for n=2,4,5 at representative κ confirmed closed n2 formula and near/far multiplicity crossover.",
+      "residual_risks": "Finite quadrature is supporting, not proof of convex extreme spectra or all conditioning regimes; only one Gaussian probe and one node, expected signed error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.researchgate.net/publication/406375332_Optimal_Stochastic_Krylov_Based_Techniques_for_Large_-_Scale_Log-Determinant_Estimation",
+          "https://doi.org/10.1002/nla.70106",
+          "https://doi.org/10.1137/16M1104974"
+        ],
+        "reasoning": "Broader stochastic Lanczos/Hutch++ and trace-estimation bounds address algorithms and high-probability or multistep errors. They do not explicitly dominate the sharp one-node expectation-bias maximum over all n-dimensional SPD spectra with condition number<=kappa.",
+        "searches": [
+          "Resultary: one-node stochastic Lanczos Gaussian log determinant expectation bias extremal condition number beta Dirichlet",
+          "Mbingui Tambue Karambal OSLQ stochastic Krylov log determinant error",
+          "Cortinovis Toni Detecting When One Probe Vector is Enough Preconditioned Log-Determinant"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-node-gaussian-lanczos-log-determinant-bias-and-a-multi--b4bd902d2015/RESULT.md",
+        "https://arxiv.org/abs/2606.07004",
+        "https://www.researchgate.net/publication/406375332_Optimal_Stochastic_Krylov_Based_Techniques_for_Large_-_Scale_Log-Determinant_Estimation",
+        "https://doi.org/10.1002/nla.70106",
+        "https://doi.org/10.1137/16M1104974",
+        "Resultary: one-node stochastic Lanczos Gaussian log determinant expectation bias extremal condition number beta Dirichlet"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://doi.org/10.1137/16M1104974",
+          "https://doi.org/10.1002/nla.70106",
+          "https://www.researchgate.net/publication/406375332_Optimal_Stochastic_Krylov_Based_Techniques_for_Large_-_Scale_Log-Determinant_Estimation"
+        ],
+        "reasoning": "The one-node Rayleigh quotient and Jensen sign are elementary prior; obtaining all equality spectra requires strict separate log-eigenvalue convexity, and asymptotic j crossover requires beta moment and digamma comparisons. No inspected prior bound or algorithm directly implies the exact final extremum and multiplicity theorem.",
+        "searches": [
+          "Resultary: one-node stochastic Lanczos Gaussian log determinant expectation bias extremal condition number beta Dirichlet",
+          "2017 Ubaru Chen Saad Lanczos quadrature trace f(A)",
+          "2026 one probe log determinant Cortinovis Toni"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.07004",
+          "https://doi.org/10.1002/nla.70106",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-node-gaussian-lanczos-log-determinant-bias-and-a-multi--b4bd902d2015/RESULT.md"
+        ],
+        "reasoning": "Under polar coordinates, the problem is the sharp symmetric Dirichlet(1/2) Jensen-gap maximum over log eigenvalues with fixed range. Generic Jensen/logsumexp inequalities give positivity but not this finite beta-integral sharp extremum and crossover in inspected sources.",
+        "searches": [
+          "Resultary: one-node stochastic Lanczos Gaussian log determinant expectation bias extremal condition number beta Dirichlet",
+          "Gaussian Rayleigh quotient expected logarithm Dirichlet weights extremal spectrum",
+          "logsumexp weighted Dirichlet sharp Jensen gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-node-gaussian-lanczos-log-determinant-bias-and-a-multi--b4bd902d2015/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-unique-conditioning-reversal-between-fixed-norm-sign-and-spher--151310b1c3e7"
+        ],
+        "reasoning": "The published one-node Rademacher/spherical probe risk example uses fixed n=2 and squared error rather than Gaussian unnormalized probe worst expected signed bias for all n. No inspected exact table gives the n-dependent beta-binomial multiplicity crossover.",
+        "searches": [
+          "Resultary: one node Gaussian Lanczos bias beta integral conditioning multiplicity",
+          "Resultary: one node logdet Rademacher orientation risk",
+          "published logdet one-node exact Gaussian Jensen bias tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge: strict coordinatewise convexity identifies exact worst-case one-node Gaussian Lanczos expected logdet bias by a max over beta integrals, with conditioning-dependent unique extremal multiplicity. The full-text accessible 2026 Mbingui–Tambue–Karambal stochastic Krylov preprint develops Lanczos/Hutch++ trace error bounds and algorithms, not the inspected condition-number-sharp one-node expectation law. The related single-probe paper considers multiple nodes. Priority risk remains from classical Jensen/Dirichlet logsumexp extremal literature.",
+      "residual_risks": [
+        "Equivalent sharp Dirichlet/Jensen-gap eigenvalue optimization might have appeared in classical matrix inequalities, even if not indexed under Lanczos.",
+        "No claim about one-node variance, tail concentration, floating-point arithmetic, non-Gaussian probes, or multistep quadrature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No condition-number sharp one-node Gaussian expectation bias theorem in sections read; the work is primarily OSLQ deflation/Hutch++ algorithm and bound.",
+          "evidence": [
+            "https://www.researchgate.net/publication/406375332_Optimal_Stochastic_Krylov_Based_Techniques_for_Large_-_Scale_Log-Determinant_Estimation",
+            "https://arxiv.org/abs/2606.07004"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.07004",
+          "material_read": "Author-uploaded publicly readable complete manuscript text on ResearchGate: introduction, contributions, Section 3.1 quadrature law, OSLQ estimator Sections 3.2–3.3, Section 3.5 error bounds and experimental design; not merely its abstract",
+          "method": "Web full-page HTML text extracted from publicly uploaded full manuscript",
+          "title": "Optimal Stochastic Krylov Based Techniques for Large-Scale Log-Determinant Estimation",
+          "trigger": "Same log-determinant Lanczos/Hutch++ family, explicit OSLQ error bounds"
+        },
+        {
+          "assessment": "Uses a one-probe strategy with multiple Lanczos nodes/preconditioning, not the single node worst-mean-bias spectrum classified here.",
+          "evidence": [
+            "https://doi.org/10.1002/nla.70106"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nla.70106",
+          "material_read": "Open journal full-text HTML: algorithm, estimator, probe selection discussion and error/convergence sections relevant to logdet",
+          "method": "Web primary journal full-text HTML, sections 1,3 and 5",
+          "title": "Detecting When One Probe Vector is Enough for Preconditioned Log-Determinant Approximation",
+          "trigger": "Single Gaussian probe and same logdet purpose"
+        },
+        {
+          "assessment": "General algorithmic background, NOT asserted noncoverage of unread pages.",
+          "evidence": [
+            "https://doi.org/10.1137/16M1104974"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/16M1104974",
+          "material_read": "Bibliography/title/known trace-estimation method; complete manuscript not inspected in this run",
+          "method": "Bibliographic reference and contextual source search",
+          "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+          "trigger": "Foundational stochastic Lanczos quadrature framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-node-gaussian-lanczos-log-determinant-bias-and-a-multi--b4bd902d2015/RESULT.md",
+        "https://www.researchgate.net/publication/406375332_Optimal_Stochastic_Krylov_Based_Techniques_for_Large_-_Scale_Log-Determinant_Estimation"
+      ],
+      "rationale": "The least expensive nontrivial stochastic Lanczos log-determinant rule has a natural, previously unquantified worst systematic overestimate at a fixed spectral condition number; the exact finite-dimensional upper envelope and shift from balanced to singleton spikes provide sharp calibration and conceptual information about bias regimes.",
+      "residual_risks": "No variance, high-probability, finite precision or multi-iteration performance prediction is proved.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only real SPD matrices n>=2, condition<=κ, one standard Gaussian probe and one Lanczos node, expected signed bias.",
+  "schema_version": 1
+}
