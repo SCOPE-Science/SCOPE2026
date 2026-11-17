@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for complex blow-ups at \(n\ge7\) distinct centers on a smooth conic. Bézout with the conic and the nonnegative arithmetic genus of the strict transform give \(D^2\ge d-2\) for every irreducible non-conic plane-image curve of degree \(d\), excluding unlisted negative curves of degree at least two. Explicit intersections classify negative-definite supports, including the exact Schur-complement cutoff \(r<n-4\). The star-or-triangle lemma counts all pairwise-intersecting secant-edge families, with singleton overcount corrected. The binomial convolution yields the stated complete polynomials and totals. As \(-K=H+Q\) is big, Bauer--Schmitz's volume theorem applies to give the finite/infinite distinction. Independent backtracking, geometric matrix tests with exact rationals, and arithmetic replay support—but do not replace—the infinite-family proof.
+PASS
 
-## Originality — PASS, qualified
+For a degree d irreducible plane curve other than the conic with multiplicities m_i, Bézout gives Σ m_i<=2d and genus gives Σ m_i(m_i−1)<=(d−1)(d−2), hence strict self-intersection >=d−2>=0 for d>=2. Only exceptional E_i, secants L_ij (-1), and Q (4−n) are negative. Distinct selected −1 curves must be disjoint, hence secant edges pairwise intersect and avoid selected exceptional labels. Such edge families are stars (with singleton multiplicities corrected) or triangles; T_m=1+m[(1+t)^{m−1}−1]−binom(m,2)t+binom(m,3)t³. With Q, Schur complement against selected E gives −(n−4)+|E|<0, equivalently m>=5. BFN converts support classification to chambers. Since −K=H+Q is big and Q²<=−3, Bauer–Schmitz theorem gives infinite volumes exactly for Q supports. Independently reconstructed n=6 boundary total 1898 with 648 Q supports and n=7 finite 4671, infinite 3396, total 8067. All-n follows from Bézout/genus/Schur and star-triangle arguments, not finite tests.
 
-Bauer--Funke--Neumann's 2009 paper supplies the general negative-definite-support theorem and counts general-position del Pezzo cases, not the explicit uniform \(n\ge7\) conic-point formulas. Bauer--Schmitz's 2012 paper supplies the volume dichotomy and analyzes point blow-ups on a line, not this numerical conic-family census. Rams--Szemberg 2014 concerns comparison with Weyl chambers, not enumeration. The previously treated six-point conic case does not yield the all-\(n\ge7\) closed formula. Searches for the specific \(8067,31053,111894\) sequence and equivalent star/triangle/conic-support formulations revealed no matching published statement. Search coverage does not certify priority; older specialist tabulations and implicit re-derivations are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete classification of a natural chamber-count invariant in an infinite geometric family where \(n\) is unbounded. It contrasts finite chamber counts at all conic configurations with the known infinite-chamber behavior for sufficiently many very general centers. The explicit support polynomials and the exact finite/infinite-volume split refine the count and describe stable-base-locus patterns beyond the classical small-degree del Pezzo range. The formula is not a numerical increment from a single smaller surface: the genus/Bézout negative-curve classification and Schur-complement/star-triangle analysis work uniformly for all \(n\ge7\).
+Best-of-knowledge distinct principal theorem after comparison of actual pinned mathematics, equivalent formulations, stronger claims, exact tables and logical implications; do not construe source searches or inaccessible literature as proof of historical novelty.
 
-## Closest antecedents and limits
+## value
 
-Bauer--Funke--Neumann (arXiv:0912.0958), Bauer--Schmitz (arXiv:1205.3817), Rams--Szemberg (arXiv:1411.4178). Priority remains provisional against specialist literature not fully indexed. No numerical volumes for finite chambers are asserted. Verification code checks bounded integers and rational matrices, not every \(n\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural geometric family with finite chamber count even at unbounded Picard number, all support sizes, and sharp finite/infinite volume partition is intrinsically useful. It extends beyond a known six-point special case and gives an exact general invariant, not just a generic algorithm execution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
