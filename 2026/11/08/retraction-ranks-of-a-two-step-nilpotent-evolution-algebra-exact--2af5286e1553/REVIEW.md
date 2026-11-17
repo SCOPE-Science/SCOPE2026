@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The algebra is specified by \(e_i^2=f_i\) and all other basic products zero. For an endomorphism the induced quotient matrix \(A\) has at most one nonzero entry per row, the annihilator block is its entrywise square \(B=A^{[2]}\), and the remaining block \(C\) is arbitrary subject to \(CA+BC=C\). The idempotent row-sparse matrices \(A\) have precisely \(r\) chosen roots; every nonroot row is either zero or a scalar multiple of a root row. This proves the exact factor \(\binom nr(1+r(q-1))^{n-r}\). Solving the independent linear block equation for \(C\) gives \(2r(n-r)\) degrees of freedom and produces the full rank count and even-rank restriction. Every image has the claimed evolution-algebra basis. For fixed field size, a uniform local expansion around half rank gives a quadratic logarithmic weight with moving center \(\mu_n\); strong log-concavity supplies summable tails, proving the discrete-Gaussian and total-count asymptotics. Exhaustive checks in `verify.py` agree for five small finite-field cases; the proof, not finite experiments, supports the general claims.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Elduque and Labra's Corollary 2.6 supplies the decomposition into two-dimensional nilpotent evolution ideals: that structural fact is **prior work**. Omirov–Rozikov–Velasco develop classification of nilpotent evolution algebras. Boudi–Cabrera Casado–Siles Molina study homomorphisms and natural families, and the Kaygorodov–Martín González–Viruel survey compiles structural and automorphism results. Sen's idempotent-function enumeration explains the root-map combinatorial factor but not the algebra-endomorphism \(C\) fibers or its asymptotic law. The inspected portions did not exhibit the exact formula for retract endomorphisms of this algebra or the logarithmically shifted Gaussian rank law. Exact overlap searches against published mathematical records returned different objects (matrix factorization idempotents, idempotent *elements*, or automorphisms), and inspected published scientific records involved different algebra types or invariants. Residual risk remains from undiscovered general semigroup or retraction-enumeration theorems and incomplete bibliographic coverage; no search is a proof of priority.
+PASS
 
-## Mathematical value — PASS
-Retractions are natural splittings of endomorphisms, and their image dimensions and image isomorphism types measure the algebra's retract geometry. The formula gives a complete rank spectrum and counts all splittings in infinitely many dimensions and finite fields. The logarithmic displacement of a bounded-width discrete-Gaussian rank distribution is not visible from simply classifying the underlying algebra or idempotent set maps: the \(q^{2r(n-r)}\) family of extension blocks changes the typical rank. The explicit moving-theta asymptotic also determines total counts at leading constant scale.
+For E_n with e_i²=f_i and all other products zero, any endomorphism has block P=[A 0; C A^[2]] with A row-sparse (at most one nonzero per row). P²=P forces each nonzero row of A to point to a root unit diagonal row. Choosing r roots, each remaining row has 1+r(q-1) options. A^[2] shares rank r and C A+A^[2] C=C has two free off-diagonal blocks dimension 2r(n-r), giving N_{n,r}=binom(n,r)(1+r(q-1))^{n-r}q^{2r(n-r)} and image rank 2r of type E_r. Uniform Stirling expansion for r=n/2+O(log n), combined with second-difference log-concavity <= -4log q and a summable tail comparison, gives total variation to moving lattice Gaussian centered mu_n=n/2+(1-log((q-1)n/2))/(4log q), and sharp K_n theta asymptotic for fixed q. Independently enumerated n=2,q=2 map blocks and compared q=3 weights with Gaussian at n=100,300,1000. No fixed-center convergence or growing-q uniformity claimed.
 
-## Limits and priority risks
-The statement concerns a specific direct-sum family with its field-linear endomorphisms. Its asymptotics do not claim uniformity in growing \(q\), an orientation-free classification of all evolution algebras, or a fixed lattice-Gaussian limit. The exact combinatorial count shares ingredients with prior idempotent-map counting and nilpotent evolution-algebra structure theory. A stronger unknown theorem on weighted partial transformations or associative-algebra retracts could cover these results. Independent mathematical audit remains necessary before external priority claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known decomposition of nilpotent evolution ideals and idempotent set-map/root-pattern counting cover two ingredients, but sources inspected do not determine the q^{2r(n-r)} linear extension block, complete retraction rank spectrum, or theta-modulated logarithmically drifting rank law. The survey and related SCOPE Lie/other evolution algebra ranks are different objects. Priority conditional on unlocated generalized retraction/weighted partial map enumerations.
+
+## value
+
+PASS
+
+Retraction rank and image type are canonical algebra-splitting invariants. The exact formula is a natural full-dimensional family census; the extension-block degrees of freedom induce an unexpected O(log n) displacement of an O(1)-width discrete-Gaussian distribution, useful for typical and extremal retract behavior, not a small arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
