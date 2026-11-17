@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The open-neighborhood constraints are listed separately for all three path lengths, and the forcing weight of the penultimate vertex is justified by the leaf condition. Each lower bound is attained by an explicit family. Equality is characterized without omitting the center condition; stars-and-bars and a geometric-series coefficient identity count all labelled minimizers. The separate finite dynamic program and direct assignment enumeration agree for the tested ranges. Computations are supporting checks, not infinite proofs.
+## correctness
 
-## Originality
-PASS with provisional historical priority. The closest October 2026 caterpillar paper [1] obtains scalar optimal weights and calls for further tree analysis. The earlier 2024 preprint/2025 paper [2] supplies a weighted chordal-bipartite integer-programming treatment of scalar total \(\{k\}\)-domination; this already has a stronger numerical scope, so numerical equality is not new. The 2022/2024 forest counting paper [3] examines the case of ordinary, binary total domination. The new exact counts for every integer \(k\) and the sharp exponential-to-polynomial multiplicity contrast for arm lengths three versus four are not implied by any located enumeration. Targeted published-source and mathematical-implication searches did not find a covering enumeration. Exact original priority cannot be guaranteed against unindexed work.
+PASS
 
-## Value
-PASS. Multiplicity of minimum feasible multicover assignments is a natural refinement of the total \(\{k\}\)-domination optimum and of forest minimum-set counting: it measures the number of interchangeable optimal configurations, not only the cost. Three closely related infinite families undergo a qualitative change in optimizer count under a single edge subdivision per arm, from \((k+1)^r\)-scale exponential to order \(r^k\) polynomial for fixed demand. The complete equality-case descriptions make this structural change transparent for all branch counts and demands. The result is deliberately restricted to these motivated first noncaterpillar uniform spiders, not claimed as a formula for every tree.
+For each labeled spider with r>=3 arms and k>=1, the leaf-open-neighborhood condition forces each penultimate weight to k. For ell=3 equality in the lower bound forces hub=0, paired arm weights sum to k and sum a_i>=k, giving (k+1)^r - C(k+r-1,r). For ell=4 equality forces hub=0, each b_i=k and sum a_i=k, giving C(k+r-1,r-1). For ell=5 summing constraints gives W>=(3r+1)k-(r-1)t>=(2r+2)k; equality forces t=k and a weak composition of k with independent (a_i+1) choices; count [z^k](1-z)^(-2r)=C(k+2r-1,2r-1). Independent arm-state dynamic programming verifies all 18 cases ell=3,4,5; r=3,4; k=1,2,3, and the source independently exhausts more, without using finite cases as infinite proofs. All normalization uses open, not closed, neighborhoods and labeled functions.
 
-## Residual limitations
-The arXiv article was inspected through a reflowed complete-text rendering, not an independently checked typeset PDF. A broader unindexed multicover-counting theorem might imply this classification. The older forest literature may contain particular binary instances (\(\(k=1\)\)), which are not claimed novel. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## References
-[1] M. Escalante, P. Tolomei, M. I. Lopez Pujato, arXiv:2610.27181 (2026-10-19).
+Earlier publications give scalar total-{k} domination minima on caterpillars and algorithms on larger tree-containing graph classes, but do not count all minimizing functions on the first noncaterpillar uniform spiders for arbitrary demand k. Petr–Portier–Versteegen study maxima of counts of binary minimum sets over forests rather than exact r,k-dependent formulas; for k=1 its questions overlap conceptually and are explicitly prior. Related published Resultary path total-{k} optimum-count classification concerns paths (r=2), not r>=3 spider arms. The exact three family multiplicity formulas and exponential-to-polynomial switch are not implied by those sources; historical priority is qualified.
 
-[2] C.-M. Lee, https://www.preprints.org/manuscript/202411.2117 (2024-11-27), DOI:10.3390/math13030403.
+## value
 
-[3] J. Petr, J. Portier, L. Versteegen, arXiv:2206.13182 (2022-06-27).
+PASS
+
+Counting every minimum integer total-domination function is a natural refinement of minimum weight: it measures degeneracy of optimizers. At the first branching equal-arm noncaterpillar trees the exact count changes from exponential (length 3) to polynomial (lengths 4 and 5) in the number r of arms for fixed k, a motivated qualitative structural transition under one arm-edge subdivision. The result is modest in scope but a complete nontrivial infinite two-parameter classification, not arbitrary known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

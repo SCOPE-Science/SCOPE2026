@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:52:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each labeled spider with r>=3 arms and k>=1, the leaf-open-neighborhood condition forces each penultimate weight to k. For ell=3 equality in the lower bound forces hub=0, paired arm weights sum to k and sum a_i>=k, giving (k+1)^r - C(k+r-1,r). For ell=4 equality forces hub=0, each b_i=k and sum a_i=k, giving C(k+r-1,r-1). For ell=5 summing constraints gives W>=(3r+1)k-(r-1)t>=(2r+2)k; equality forces t=k and a weak composition of k with independent (a_i+1) choices; count [z^k](1-z)^(-2r)=C(k+2r-1,2r-1). Independent arm-state dynamic programming verifies all 18 cases ell=3,4,5; r=3,4; k=1,2,3, and the source independently exhausts more, without using finite cases as infinite proofs. All normalization uses open, not closed, neighborhoods and labeled functions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Escalante–Tolomei–Lopez Pujato arXiv:2610.27181: optimum weights of caterpillars",
+          "C.-M. Lee 2025 weighted chordal-bipartite linear/integer programming for optimum weights"
+        ],
+        "reasoning": "An algorithm evaluating the scalar minimum over a broad class does not classify all optimizer multiplicities, and a spider with r>=3 arms of length >=3 is not a caterpillar. No earlier covering optimizer count found.",
+        "searches": [
+          "Resultary: total k domination minimum function counts equal-arm spider length 3 4 5 multiplicity optima",
+          "web: Escalante Tolomei Lopez Pujato total k domination caterpillars structural properties exact results 2610.27181"
+        ]
+      },
+      "checked_sources": [
+        "Escalante et al. arXiv:2610.27181 complete OA HTML",
+        "Petr et al. arXiv:2206.13182v1 relevant original PDF pages",
+        "Lee, Mathematics 13 (2025) 403 bibliographic results, not full independently inspected",
+        "Resultary total-{k} path count full indexed summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caterpillar article Corollary 4.1 gives scalar minimum formula",
+          "Petr et al. Theorems 1.5-1.7 address extremal number of minimum sets in forests",
+          "Resultary path class is r=2"
+        ],
+        "reasoning": "Optimization-value and extremal-count bounds are weaker than exact labeled minimizer enumeration at each demand for r>=3 uniform spiders. The k=1 setting is acknowledged, while the all-k variation and multiplicity phase change survive.",
+        "searches": [
+          "arXiv 2610.27181 caterpillar total {k} domination",
+          "arXiv 2206.13182 total domination forests count min sets",
+          "Resultary 2026-11-02 path minimum function enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2610.27181v1 (caterpillar optimum values)",
+          "https://arxiv.org/pdf/2206.13182 (binary minimum dominating and total dominating *set* counts on forests)"
+        ],
+        "reasoning": "For k=1 these integer labels become minimum total dominating vertex subsets; for k>1 they are genuinely multivalued integer functions. Older extremal forest counts differ from exact counts for each labeled equal-arm spider and every demand.",
+        "searches": [
+          "Resultary: total k domination minimum function counts equal-arm spider length 3 4 5 multiplicity optima",
+          "Resultary: number minimum total {k} dominating functions subdivided stars spiders fixed arm lengths"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-11-02 Complete minimum-function enumeration for total {k}-domination on paths",
+          "Petr et al. 2024 bounds and constructions on forest minimum sets"
+        ],
+        "reasoning": "Path polynomial cases and global forest maximum bounds do not give the three spider formulas; independent DP reproduces the formulas in concrete small r,k cases. Search incompleteness remains possible.",
+        "searches": [
+          "Resultary: total k domination minimum function counts equal-arm spider length 3 4 5 multiplicity optima",
+          "Resultary: number minimum total {k} dominating functions subdivided stars spiders fixed arm lengths"
+        ]
+      },
+      "rationale": "Earlier publications give scalar total-{k} domination minima on caterpillars and algorithms on larger tree-containing graph classes, but do not count all minimizing functions on the first noncaterpillar uniform spiders for arbitrary demand k. Petr–Portier–Versteegen study maxima of counts of binary minimum sets over forests rather than exact r,k-dependent formulas; for k=1 its questions overlap conceptually and are explicitly prior. Related published Resultary path total-{k} optimum-count classification concerns paths (r=2), not r>=3 spider arms. The exact three family multiplicity formulas and exponential-to-polynomial switch are not implied by those sources; historical priority is qualified.",
+      "residual_risks": [
+        "A general unindexed dynamic-programming enumeration theorem for total integer multicover minimizers on spiders may have explicit formulas already.",
+        "Lee 2025 full article and the earlier Resultary path-count proof were not independently read in full; they do not appear to give the r>=3 counts from indexed conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers numerical minimum total-{k} values on caterpillars; no optimizer-multiplicity theorem for r>=3 spiders.",
+          "evidence": [
+            "Corollary 4.1 computes gamma_t^{k}(G) from caterpillar extensions",
+            "Lemma 2.3 forces support vertices, but only existence of an optimal function"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.27181v1",
+          "material_read": "Full source HTML sections 1-4, Lemma2.3, Theorem3.14 and Corollary4.1, definitions and scope",
+          "method": "Lawful open-access arXiv HTML",
+          "title": "Total {k}-domination in caterpillars: Structural properties and exact results",
+          "trigger": "Closest new primary treatment of same total-{k} function with trees"
+        },
+        {
+          "assessment": "Global upper/lower extremal counts for 0/1 dominating sets, not specific all-k optimum spider multiplicities.",
+          "evidence": [
+            "Theorem1.5 gives a bound on numbers of min total dominating sets",
+            "Theorem1.7 disproves extremal bound using tree constructions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13182",
+          "material_read": "Full abstract/introduction and Theorems1.2,1.5–1.7, their forest extremal count statements; scanned relevant portions",
+          "method": "Open-access PDF text plus first-page screenshot",
+          "title": "On the number of minimum dominating sets and total dominating sets in forests",
+          "trigger": "Highly relevant potentially stronger count of optimum total domination in trees"
+        },
+        {
+          "assessment": "Paths are r=2 rather than three-or-more-arm spiders; specializations of path count do not imply the claimed noncaterpillar phase transition.",
+          "evidence": [
+            "Path-vertex counts by order modulo four; product of simplices, no r>=3 spider claims"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-minimum-function-enumeration-for-total-k-domination-on--d0150eece616",
+          "material_read": "Published indexed scientific summary, not full independent proof",
+          "method": "Resultary math-record search",
+          "title": "Complete minimum-function enumeration for total {k}-domination on paths",
+          "trigger": "Earlier exact optimizer enumeration on related trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting every minimum integer total-domination function is a natural refinement of minimum weight: it measures degeneracy of optimizers. At the first branching equal-arm noncaterpillar trees the exact count changes from exponential (length 3) to polynomial (lengths 4 and 5) in the number r of arms for fixed k, a motivated qualitative structural transition under one arm-edge subdivision. The result is modest in scope but a complete nontrivial infinite two-parameter classification, not arbitrary known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general unindexed dynamic-programming enumeration theorem for total integer multicover minimizers on spiders may have explicit formulas already.",
+    "Lee 2025 full article and the earlier Resultary path-count proof were not independently read in full; they do not appear to give the r>=3 counts from indexed conclusions.",
+    "No public publication due to pre-existing confidentiality-sensitive metadata.",
+    "No further claims beyond the exact model hypotheses stated in the checked RESULT.md."
+  ],
+  "schema_version": 1
+}
