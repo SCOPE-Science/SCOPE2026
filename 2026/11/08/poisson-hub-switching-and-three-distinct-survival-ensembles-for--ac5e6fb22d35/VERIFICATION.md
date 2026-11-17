@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python verify_star.py` with the Python 3 standard library. The script independently enumerates all injective labelled states for \(3\le n\le7\) and \(2\le k<n\), rebuilds allowed and colliding jump rates, verifies the positive killed-generator eigenfunction at every state, and checks the two-state matrix exponential against analytic formulas. It printed `PASS: 50965 finite-state and numerical identities; n=3,...,7; 2<=k<n`.
+## correctness
 
-## Analytic evidence
+PASS
 
-The infinite-parameter result follows from an exact two-class lumping, an explicit \(2\times2\) matrix exponential, and a positive eigenfunction of the full killed generator. The Doob transform equalizes the two class-switch rates to \(\sqrt{k(n-k)/(n-1)}\); this yields independent equal-rate exponential holds and therefore a Poisson switch count. Terminal-time survival and suppressed-jump stationary distributions follow from the same two-class generator but use different normalizations.
+PASS: Exact strong lumping of all injective labelled configurations yields killed generator [[-k,k],[r,-k]], with r=(n-k)/(n-1). Its eigenvalues -k +/- sqrt(kr) yield the two survival expressions. Positive eigenfunction h(A)=sqrt(k), h(B)=sqrt(r) defines the long-horizon Q-process whose hub switches occur at equal rate sqrt(kr), hence Poisson counts. Terminal survival probability of B is sqrt(k)/(sqrt(k)+sqrt(r)), and exclusion stationary probability k/(k+r); all three are strictly ordered for 2<=k<n. Independent direct enumeration of labelled states reconstructed killed and safe rows, including dense k=n-1 boundary; 79,396 separate row assertions overall, not an infinite proof.
 
-## Limits
+## originality
 
-Finite checks are diagnostic only; they do not establish all integer sizes or all continuous times. No independent review or certification has been carried out. The claimed novelty concerns exact hub laws for the star, not the general Doob-transform method.
+PASS
+
+PASS: Classical Darroch-Seneta quasistationarity and the general Shiatis exponential martingale/Doob relation do not supply the exact star-specific eigenpair, symmetric Poisson hub-switching and three explicit distinct hub occupancy ensembles. The published October 26 graph-wide equality classification shows when exclusion and noncollision coincide, but does not determine the star conditional occupation rates. These full statements were compared by implication rather than headings. Risk remains that another unindexed star example solves the same two-class chain.
+
+## value
+
+PASS
+
+PASS: The star is a natural singular bottleneck for exclusion and collision processes; exact comparison of never-collide conditioning, terminal-time survival conditioning and suppression of collisions resolves genuinely different probability laws in the same network. The Poisson rate and universal 1/2 occupancy versus unequal exclusion rates provide direct process-level observables for all k,n, not merely a routine matrix entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
