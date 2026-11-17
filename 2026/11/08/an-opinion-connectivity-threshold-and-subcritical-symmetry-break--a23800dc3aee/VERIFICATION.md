@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limitations
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and SymPy. The standalone verifier reconstructs the four-dimensional epidemic–opinion field in exact rational arithmetic; it checks the positive synchronous equilibria, the healthy spectrum, both Jacobian mode blocks, the equilibrium elimination identities, the two nonzero branch derivatives, and the critical center-manifold cubic coefficient. The verifier exits with an exception if a claimed identity fails and reports `PASS` otherwise.
+## correctness
 
-The global quantifier over \(w\geq0\) for linear stability follows from two explicit \(2\times2\) Hurwitz tests. The local analytic branch and its uniqueness follow from an invertible \(2\times2\) implicit-function Jacobian. The critical nonlinear instability follows from a one-dimensional center manifold with positive cubic coefficient; stable eigenvalues remain separated by continuity. These are analytic deductions, not consequences of finite parameter sampling.
+PASS
 
-The full original opinion system is nonsmooth on the opinion sign-switching surfaces. All equilibrium bifurcation assertions concern a neighborhood of original opinions \(o_1=o_2=-1/6\) and therefore avoid these surfaces. The conclusions do not classify distant equilibria or long-time behavior after the synchronous endemic state loses stability. External independent validation has not been performed.
+For the displayed admissible 4D SIS–opinion ODE, synchronous endemic E=(1/3,1/3,1/3,1/3) is off switching surfaces at original opinion -1/6. Exact symmetric Jacobian block [[19/30,-1],[1,-1]] has trace -11/30 det11/30, antisymmetric [[1/2,-1],[1,-(1+2w)]] has determinant 1/2-w and negative trace. Thus E full stable for 0<=w<1/2, saddle for w>1/2, while synchronous stable all w; healthy eq stable. Center manifold at w=1/2 has u=z=-42/11 v², h=v/2-41/11 v³ and reduced dv/dt=(164/11)v³+O(v⁵), proving critical instability. Exact implicit-function equilibrium reduction has nonsingular Jacobian, yields w=1/2-(246/11)v² and precisely two unstable asymmetric branches just below threshold. Independently verified rational Jacobian and normal-form identities.
+
+## originality
+
+PASS
+
+Samadi et al 2026 introduces this general higher-order SIS–opinion field and a synchronous-only theorem, explicitly not full-state transverse stability; the current sharp two-community transverse w threshold and nondegenerate cubic coefficient were not in accessible primary material. Related pairwise-only opinion SIS and higher-order-only SIS studies lack both mechanisms. Full 2026 source text inaccessible via lawful channels, recorded as risk rather than automatic failure.
+
+## value
+
+PASS
+
+A rigorous boundary to inferring full stability from symmetric epidemic equilibria directly addresses the motivating paper’s limitation. Counterintuitive destabilization by stronger opinion connectivity and proof the asymmetric branches are unstable make a meaningful dynamics result, not only a Jacobian check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
