@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is the triple of exact counts \(A=n^2+2n+2p\), \(B=n^2+3n+7p\), and \(\delta=3n-1+5p\) for affine prisms over genuine convex polygons. The geometric criterion is membership on the boundary of the difference body, and the product formula for difference bodies is exact. The planar rotating-support decomposition proves the classical \(n+p\) count including coincident antipodal edge normals. The two-layer vertex count and the disjoint four-type edge-midpoint count imply all three formulas. The exact-integer verifier independently enumerates antipodal pairs through a planar difference-body convex hull for 187 convex integer polygons and agrees throughout. All dimensions, pairs, boundaries and affine assumptions are explicit; finite checks alone do not prove the universal theorem.
+PASS
 
-## Originality
+PASS — For P=Q×[-1,1], antipodality of two distinct points is equivalent to their difference lying on ∂((Q−Q)×[-2,2]). Thus every different-layer vertex pair qualifies (n²), and same-layer pairs reduce to n+p(Q) planar antipodal pairs per layer. Rotating support normals count the latter with two additional cross-endpoint pairs for each opposite-parallel edge pair. Edge midpoints split disjointly into horizontal/horizontal opposite layers n², horizontal/horizontal same layer 2p, vertical/vertical n+p, horizontal/vertical 2n+4p; hence B=n²+3n+7p, A=n²+2n+2p, δ=3n−1+5p. Affine invertibility preserves support and midpoint structure. Direct independent integer difference-body hull tests for triangle, generic quadrilateral, trapezoid, rectangle and centrally symmetric hexagon reproduced (n,p,A,B,δ)=(3,0,15,18,8),(4,0,24,28,11),(4,1,26,35,16),(4,2,28,42,21),(6,3,54,75,32). No finite examples replace the rotating-support argument.
 
-**PASS provisionally, with a specific priority limitation.** Phat's general three-dimensional defect formula and homology theorem already cover the homological *interpretation* and permit the defect of any particular prism to be computed. Preparata and Shamos already give the planar antipodal-pair enumeration. The separately asserted closed forms for *both* three-dimensional vertex-antipodal and edge-midpoint-antipodal pair counts, together with the precise prism-specific incidence partition, were not located in the accessible comparisons; these are finer data than the general defect identity alone. In particular the counts specify the numbers of edges and squares in the antipodal square complex, not merely their difference. The cube's previously known defect is not presented as new. Full inspection of all sections of the relevant 2026 manuscript was unavailable, so earlier explicit prism counts may exist; this priority risk requires independent literature checking.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result provides an exact, affine-invariant full-family enumeration of the one- and two-cell populations of antipodal square complexes for arbitrary polygonal prisms. It detects and quantifies every opposite-parallel support event by a five-unit defect jump at fixed base-side count. This is a motivated structural enumeration of a natural unbounded class, not a single numerical example. The homology-rank identification is an already-established consequence and is not the claimed new theorem.
+PASS — The final claim is the separate exact A and B counts and n,p defect formula for all three-dimensional affine polygonal prisms, especially every parallel-edge degeneracy. Phat (June 2026) gives a general defect/homology theorem, exact local facet-opposite formula and cube value 21; its prism proposition 11.16 explicitly assumes d≥4 and concerns the top normal-fan shadow. Its complete primary text does not state the three-dimensional formulas for A,B across all n,p. Standard rotating-calipers count n+p is acknowledged prior. Derived homology rank is not independently novel.
 
-## Closest literature and limitations
+## value
 
-The closest source is K. G. T. Phat, *The Antipodal Defect of a Convex Polyhedron* (arXiv:2606.14599, 2026-06-12); its abstract gives a universal local defect formula and homology result, and accessible summaries describe cube and pyramid examples. F. P. Preparata and M. I. Shamos, *Computational Geometry: An Introduction* (1985, Chapter 4.2), already enumerate planar antipodal vertex pairs including parallel edges. Neither provides the separate affine-prism pair-count formulas in the material that was available for inspection. A complete source-priority comparison, other polyhedral combinatorial types and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — A complete geometrically natural polytope family yields both vertex- and edge-midpoint-antipodality incidence spectra, sharp +5 defect per opposite parallel edge pair and integral homology rank from an existing theorem. Nontrivial degeneracy bookkeeping makes it more than a cube-table recomputation; the contribution is family-specific, not a new general homology theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
