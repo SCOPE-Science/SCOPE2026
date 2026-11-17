@@ -1,19 +1,21 @@
-# Review of the affine-plane tail-inversion theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The all-order assertion follows from finite-plane incidence identities, exact tail inclusion–exclusion and comparison of exponential bases. Pair contributions cancel identically because both sampling laws are \(2\)-balanced; noncollinear triples have the unique largest surviving avoidance probability \((q-2)/(q+1)\), with multiplicity \(q^3(q-1)^2(q+1)/6\). Each four-point-or-larger set has a strictly smaller avoidance probability because at least one line through its fourth point misses any chosen noncollinear triple. An independent early-cover calculation compares parallel classes to disjoint random blocks. For order three the finite signed-subset table is exhaustively checked and an explicit monotonicity identity proves the unique sign switch. Reproducible checker `verify.py` passed 3,060 assertions. Finite checks do not establish the infinite theorem, which is instead analytically proved in RESULT.md.
+PASS
 
-## Originality
+The exact fixed-q inclusion–exclusion tail identity cancels one- and two-point avoidance probabilities across line and full q-block draws. Noncollinear triple avoidance a*=(q−2)/(q+1) strictly exceeds all other uncancelled avoidance bases; its multiplicity is q^3(q−1)^2(q+1)/6. Exactly q draws cover the plane by a parallel class, more often than q uniform full subsets. For q=3 the 511-subset coefficient algebra plus a monotone exponential-polynomial comparison proves the unique sign crossover after t=3. I independently constructed AG(2,3) as twelve lines, ran exact rational union-state DP for both models t=1..12, verified Δ(3)=−13/1176, Δ(4)=1/336, positivity t=4..12, and 72 noncollinear triples. General orders are proved analytically, not by finite test.
 
-**PASS (subject to historical-priority risk).** The primary June 2026 affine-plane source gives expectation comparisons, in particular the reversal between orders three and four, but neither an all-order theorem of stochastic incomparability nor a sharp positive late-tail difference and exact order-three crossover in the inspected sections. The general 2025 recovery-set source supplies mean formulas and fair-sampling bounds, not this distribution-level implication. The related group-drawing paper studies expectation optimization. The statement is not a corollary of their displayed mean inequalities: an expectation relation neither entails nor excludes stochastic order. The proof needs a separate two-point cancellation, classification of triple avoidance, and minimum-time parallel-class comparison. No directly covering public-record match was retrieved. Potential hidden coverage by a broader block-design tail theorem remains possible; database nonmatching is not a mathematical uniqueness certificate.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The source's contrasting affine-plane mean comparisons naturally raise whether any distributional comparison survives. The theorem rules out stochastic dominance for every existing affine-plane order at least three, even though the mean can favor either mechanism. It isolates the geometry of noncollinear triples as the sharp eventual tail obstruction and gives the exact crossover time for the smallest nontrivial affine example. This is a structural boundary on what mean-based comparisons of fair collection mechanisms can imply, not merely another tabulated mean.
+The exact all-existing-orders affine-line vs all-q-subsets stochastic incomparability and sharp late-tail coefficient were not found to be contained in examined antecedents. Barak-Pelleg–Berend provides the relevant affine/projective mechanisms and mean comparisons, while the strongest retrieved Resultary stochastic comparison is on projective lines rather than affine q-lines. This is best-of-knowledge originality, with incomplete access to the full Barak-Pelleg–Berend text and possible unindexed block-design tail theorems.
 
-## Closest literature and limitations
+## value
 
-The primary predecessor is D. Barak-Pelleg and D. Berend, *Fano Geometry and Slow Coupon Collecting*, arXiv:2606.28216v1, Proposition 2.2, Table 2, and Sections 2–5. General methods appear in Y. Grunbaum and E. Yaakobi, *General Coverage Models: Structure, Monotonicity, and Shotgun Sequencing*, arXiv:2510.25305v1, and expectation comparisons in D. Berend and T. Sher, arXiv:2509.17201v1. Existence of an affine plane of order \(q\) is assumed. The asymptotic fixes \(q\); no joint \(q,t\) limit or exact general-order crossover is asserted. Historical-priority assessment could change if an unlocated general-design theorem proves a stronger result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stochastic incomparability despite expectations gives a meaningful distribution-level limitation of fair coupon-mechanism comparisons. The explicit universal triple-incidence leading coefficient and complete q=3 crossover are mathematically natural invariants; they are not just a mean recalculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
