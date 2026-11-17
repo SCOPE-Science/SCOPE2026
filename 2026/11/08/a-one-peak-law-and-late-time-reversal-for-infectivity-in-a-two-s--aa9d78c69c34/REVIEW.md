@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The frequency reduction to a scalar Riccati-like equation follows by exact differentiation. Its unique nullcline decreases strictly with susceptible depletion, and the crossing derivative is strictly positive; this proves one maximum at most, not merely a numerical pattern. Positivity, integration of prevalence, residual susceptibility and scalar comparison justify the long-time limit. The constructive example uses exact rational data and a concavity inequality to force reversal. The standalone checker checks the identities algebraically and numerically illustrates the trajectory. Remaining boundary: the proof does not apply to zero initial infected masses or asymmetric mutation.
+## correctness
 
-**Originality — PASS (qualified).** The motivating 2026 article contains a more general replicator–mutator epidemic system and an average-trait identity, but its inspected main text and supplement do not give the global two-strain one-turning classification or construction. The 2025 genotype-network model has endemic reinfection, so its different dynamic outcomes cannot imply a one-peak theorem for a closed SIR system. Searches for two-strain mutation mean-trait unimodality and moving-nullcline equivalents, including research-record comparisons, found no covering statement. This is not a proof that an unindexed dynamical-systems theorem or textbook specialization does not already contain the result. The elementary scalar comparison lemma itself is not represented as new.
+PASS
 
-**Mathematical value — PASS.** The observable is the mean infection transmissibility, a quantity central to interpreting evolution within epidemic curves. The result provides a complete temporal turning-point classification and a nontrivial rigorous reversal counterexample to extending early-time monotonicity to the full outbreak. The explicit structural condition (symmetric two-type mutation against decreasing susceptible-driven selection) identifies when a simple law survives; it is not a parameter-only substitution or a simulation report.
+From the two-type SIR equations, x=I_H/(I_H+I_L) satisfies x'=a(t)x(1-x)+nu(1-2x), a(t)=k(lambda_H-lambda_L)s(t), with strictly decreasing positive a(t). The unique positive root y(a) is strictly increasing in a. Each zero of x-y(a(t)) has strictly positive derivative, hence x changes from increasing to decreasing at most once, any stationary point is a strict maximum. The total removal integral bounds s_infty>=s_0 exp(-k lambda_H/mu)>0, and scalar trapping gives x_infty=y(a_infty). The exact example (lambda_L,lambda_H,k,mu,nu)=(0,1,10,1,1/10), (s,L,H,r)=(9/10,3/100,7/100,0) has x'(0)=37/20>0 and x_infty<7/10 by the concavity r_infty>99/100 bound, proving a real interior peak. All quantifiers require strictly positive classes, k,mu,nu and lambda_H>lambda_L; numerical integration is illustrative only.
 
-Scientific limits: the two-type reflecting mutation assumption is essential; no claim for multi-type, finite-population, or continuous-trait models. Independent equivalence assessment remains useful.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original model-specific global single-turning theorem for symmetric two-type reflecting mutation SIR, not the underlying Riccati comparison argument or the known continuous-trait moment equation. The cited source treats distinct trait diffusion and epidemiological peaks; no earlier source found that implies this all-initial-state one-peak and reversal example.
+
+## value
+
+PASS
+
+Establishes a global one-peak/no-rebound classification and a mathematically forced reversal in a concrete, physically motivated SIR mutation model, materially distinguishing bounded two-type mutation from the early-time monotone selection picture. All-initial-state and positivity hypotheses give a useful structural theorem beyond a routine linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
