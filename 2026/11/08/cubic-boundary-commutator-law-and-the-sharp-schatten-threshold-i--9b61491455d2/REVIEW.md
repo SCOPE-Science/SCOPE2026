@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from the published disk-polynomial block representation, an exact one-step Jacobi leakage identity, and a second-order boundary Taylor expansion. The Jacobi coefficient \(b_{j,\xi}\) was derived from the classical positive-leading-coefficient recurrence and checked against direct shifted-Jacobi quadrature. The two leading singular values and the global counting function are derived analytically. The checker supplied with this result independently confirms 264 finite identities and asymptotic comparisons, but is not used to infer infinite statements from finite evidence. The scope is fixed \(n\ge2\), fixed \(\alpha>-1\), and bounded real symbols with a \(C^2\) germ near \(t=1\).
+PASS
 
-## Originality — PASS, provisional
+The exact normalized shifted-Jacobi decomposition gives compressed multiplication B=PJP and A(t^2)=B^2+b_n^2 E. Hence [A(t),A(t^2)] is rank two with entries +/-b_n^2 b_(n-1). For fixed n,alpha, the rescaled moment blocks converge to Laguerre finite matrices; a C² boundary Taylor remainder is o(xi^-2), with a third Jacobi moment O(xi^-3) for the away-from-boundary part. After deleting scalar terms the commutator is xi^-3 times Delta/2 n(n+alpha)[M,E] plus little-o; two singular directions each have limiting coefficient c and the others are little-o. Counting two per angular block proves m³s_m->8c and Schatten iff p>1/3 for Delta!=0. Independent exact arithmetic checked leakage/rank-two constants for n=2,3,4, not the infinite-dimensional assertion. Cases Delta=0 and n varying excluded.
 
-The closest articles are Barrera-Castelán–Maximenko–Ramos-Vazquez (2020, 2023), Rozenblum–Vasilevski (2018), and Čučković–Le (2010). The first two provide the exact matrix representation and scalar high-frequency limit; the third studies reductions of Toeplitz operators on polyanalytic spaces; the fourth treats harmonic-symbol products. The new statement is the precise order-three noncommutativity, rank-two limiting matrix, coefficient, and sharp Schatten boundary. No stronger covering result was identified in the inspected material or the searched research index. A general previously published Jacobi-compression or polyanalytic Toeplitz semiclassical theorem may still subsume this specialization; further specialist historical checking is warranted.
+## originality
 
-## Value — PASS
+PASS
 
-The result quantifies the first failure of commutativity of two pointwise-commuting radial symbols in a natural family of nonanalytic function spaces. The numerical coefficient, exact polynomial model, and the optimal \(1/3\) ideal threshold are intrinsic spectral invariants. The effect is absent at analytic order one and is caused by the sole Jacobi channel leaking out of a finite polynomial-degree block. This is a structural boundary law, not merely a numerical improvement or finite enumeration.
+An earlier published result gives exactly the order-two n=2 specialization, including the same cubic constant and Schatten cutoff. It is expressly prior, so no claim of novelty is made for n=2. The submitted theorem proves new general n>=3 leading rank-two singular directions and coefficient with weaker C² boundary hypothesis; the n=2 theorem has no mechanism implying the higher-dimensional Jacobi leakage.
 
-## Limits
+## value
 
-No sharp statement is asserted at vanishing boundary-jet determinant, for nonsmooth/nonradial symbols, or in growing polyanalytic order. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp Schatten membership and leading singular-value constant are natural spectral invariants of noncommuting radial Toeplitz operators. The rank-two high-frequency limit and its extension from the previously known bianalytic case to every n>=3 is a substantial operator-theoretic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
