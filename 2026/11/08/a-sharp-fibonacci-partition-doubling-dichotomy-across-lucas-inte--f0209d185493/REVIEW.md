@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-scale identity follows from the common Fibonacci/Knott/natural block recurrence: the Fibonacci terminal word is `100` with boundary \(C_0=2\) and \(C_1=s_1+2\), and these are precisely the sums of the separate Knott and natural boundary states. The value of the second boundary is independently derived from \(R(F_j+3)=j-3\) by a largest-Fibonacci-coin recurrence. The common interior gap transfer matrix then proves the identity by induction, and positivity of the Knott-minus-natural recurrence gives the exact strict/equality classification. The domain includes both interval endpoints, and Fibonacci index \(2\) supplies exactly one \(1\). An independently implemented finite subset-decomposition checker verifies the resulting equalities and sharp inequalities on a representative finite range.
+## correctness
 
-## Originality — PASS with bibliographic risk
-Dekking and van Loon (2023 arXiv; 2024 journal version) explicitly prove \(V(N)=R(F_{r(N)+2}N)\), give recurrences for \(K,V\), and describe Lucas-interval parity. Their inspected article does not state \(R(F_{r(N)+4}N)=K(N)+V(N)\) or the resulting exact Fibonacci-partition doubling/equality law. The new statement requires evaluating the changed *terminal Fibonacci boundary* and comparing it with two separate expansion recurrences, rather than merely renaming an existing expression. Actual published-result searches and accessible historical claims were compared by mathematical implication, not title alone. Risk remains from unindexed sources and the full text of Shallit's 2023 automata paper, which was not fully inspected.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a sharp, infinite, exact inequality for an intrinsically arithmetic partition function, a complete Lucas-interval description of its equality locus, and an explicit family of arbitrarily large ratios. These properties are not supplied by the previously known natural-expansion identity alone. The second Fibonacci scale is forced by a two-digit extension of the unique Bergman representation; it is not an arbitrary selected parameter slice.
+Dekking–van Loon Theorem 4.4 identifies natural base-φ count V(N) with R(F_{r+2}N). The new tail-shift by two Zeckendorf positions gives R(F_{r+4}N) whose block recursion has C0=R(F4)=2 and C1=R(F_{s1+5}+3)=s1+2 (from the F_j+3 decomposition); the same published gap recurrence matrices and initial sums K0+V0, K1+V1 imply C=K+V by induction. Published Knott-vs-natural difference recursion has D0=0 and D1=0 or 1 by least gap parity; positive-gap matrices propagate D>0 exactly when its last gap is odd. Proposition 5.1 identifies precisely the even vs odd Lucas intervals. Lucas boundary K=2j+1,V=1 gives unbounded ratio. Source verifier partitions exact finite integer cases but is not an infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original Dekking–van Loon full paper establishes recurrences, Knott/natural counts and the ONE-scale identity but not the two-step Fibonacci partition bridge R(F_{r+4})=K+V, nor its scale-doubling equality locus; the new result follows by a different tail extension of those established tools. Searches of indexed Fibonacci-partition and numeration results did not identify identical two-scale statement; primary Shallit arxiv:2305.02672 is plausible broader automatic-numeration source whose implications remain a priority risk.
+
+## value
+
+PASS
+
+The exact all-integer comparison of two canonical Fibonacci partition scales, with complete equality intervals and unbounded strict ratios, resolves a natural counting relation between distinct Fibonacci partitions and base-φ representations. It is not arbitrary digit substitution and is useful as a structural enumeration identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
