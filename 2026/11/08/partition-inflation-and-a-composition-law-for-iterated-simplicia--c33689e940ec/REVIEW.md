@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two-stage vertices correspond bijectively to unordered equipartitions of a single \(rs\)-face; the face condition is equivalent on both sides, with no missing disjointness assumptions. The link formula is verified directly. The integral homotopy formula is the explicitly credited published vertex-inflation splitting, with its connectedness hypothesis retained. A contrasting six-vertex simplex verifies parameter-order noncommutativity; independent exhaustive face tests corroborate finite cases.
+## correctness
 
-**Originality — PASS, subject to literature uncertainty.** The 2025 primary source defines \(D_r\) and proves connectivity and weak Cohen–Macaulay results but does not state a two-stage composition formula in the inspected text. The 2005 source covers the stronger generic inflation splitting; its existence is fully acknowledged and this previously published theorem is not claimed as new. Targeted mathematical-record and archival claim searches found no equivalent partition-inflation composition of the recently introduced operator. An unindexed equivalent may exist, especially in matching-complex or weighted-partition literature.
+PASS
 
-**Value — PASS.** Iterating a newly introduced topological operation naturally raises whether its parameters multiply or commute. An exact simplicial composition theorem answers both questions, exposes the unordered block-partition multiplicity, and upgrades the iteration to a link-by-link integral homotopy recursion. Even the six-vertex input distinguishes operation order at the level of components; the nine-vertex input yields a sizeable, fully explained integral wedge. This is an all-complex structural identity, not a relabeling of a preselected finite case. The general splitting ingredient is old and is valued here only as a consequential application, not as a new theorem by itself.
+A D_r(D_sX) vertex is exactly an unordered partition of one rs-element face U of X into r disjoint s-blocks. This gives c=(rs)!/(r!(s!)^r) equally many labels per U. Two or more labels form a simplex iff underlying rs-sets are distinct, disjoint and have union in X; this proves a natural isomorphism to uniform vertex inflation of K=D_rsX, without dimension or connectedness restrictions. Links satisfy lk_K(F)=D_rs(lk_X(U_F)). For connected K the Björner–Wachs–Welker Theorem 6.2 vertex-inflation wedge splitting directly supplies the integral formula with (c−1)^|F| copies of Σ^|F| of those links; disconnected components are handled separately, and the empty-facet link has S^{|F|−1} convention. X=Δ⁵ gives 10 vs 15 isolated vertices for (r,s)=(2,3) and (3,2), and X=Δ⁸ gives 378 vertices, 2835 edges, beta1 2458. The proof checks all face levels, not only 1-skeleton; inspected verifier independently constructs direct and partition-labelled small cases. This is a valid consequence of the earlier splitting, which is credited, not newly proved.
 
-Closest literature: Lesh–Schreiner–Wahl, arXiv:2506.10436v1, Definition 2.1 and Sections 2–4; Björner–Wachs–Welker, *Poset fiber theorems*, Section 6. Residual risks: independently unlocated composition theorem; possible implicit appearance of the partition model under other notation; no external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
+
+## value
+
+PASS
+
+The behavior of two iterations of a naturally introduced simplicial operation is a genuine categorical/topological structural question: the composition law determines precisely how parameters multiply, explains the many labels and is provably order-sensitive even for a 6-vertex simplex; a classical splitting then yields a link-by-link integral homotopy recursion. This is meaningful independent of the previously known splitting itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

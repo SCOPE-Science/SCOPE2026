@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The accompanying `verify_iterated.py` was executed against its actual saved file and emitted the exact included `verification_output.txt`. It reconstructs the two-stage simplicial complex directly and, by a separate algorithm, the predicted inflated face set from set partitions. Cases cover full simplices of sizes four to nine for \((r,s)=(2,2)\), sizes six to nine for \((2,3)\) and \((3,2)\), and a sparse two-facet complex. The nine-vertex graph has \(378\) vertices, \(2835\) edges and integral first Betti number \(2458\); this is independently checked against the wedge-summand calculation.
+# Independent mathematical audit
 
-No finite test proves the unrestricted composition law; the proof in `RESULT.md` does that by an explicit simplicial isomorphism. The homotopy statement uses the published vertex-inflation theorem. No independent audit has been performed.
+## correctness
+
+PASS
+
+A D_r(D_sX) vertex is exactly an unordered partition of one rs-element face U of X into r disjoint s-blocks. This gives c=(rs)!/(r!(s!)^r) equally many labels per U. Two or more labels form a simplex iff underlying rs-sets are distinct, disjoint and have union in X; this proves a natural isomorphism to uniform vertex inflation of K=D_rsX, without dimension or connectedness restrictions. Links satisfy lk_K(F)=D_rs(lk_X(U_F)). For connected K the Björner–Wachs–Welker Theorem 6.2 vertex-inflation wedge splitting directly supplies the integral formula with (c−1)^|F| copies of Σ^|F| of those links; disconnected components are handled separately, and the empty-facet link has S^{|F|−1} convention. X=Δ⁵ gives 10 vs 15 isolated vertices for (r,s)=(2,3) and (3,2), and X=Δ⁸ gives 378 vertices, 2835 edges, beta1 2458. The proof checks all face levels, not only 1-skeleton; inspected verifier independently constructs direct and partition-labelled small cases. This is a valid consequence of the earlier splitting, which is credited, not newly proved.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
+
+## value
+
+PASS
+
+The behavior of two iterations of a naturally introduced simplicial operation is a genuine categorical/topological structural question: the composition law determines precisely how parameters multiply, explains the many labels and is provably order-sensitive even for a 6-vertex simplex; a classical splitting then yields a link-by-link integral homotopy recursion. This is meaningful independent of the previously known splitting itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
