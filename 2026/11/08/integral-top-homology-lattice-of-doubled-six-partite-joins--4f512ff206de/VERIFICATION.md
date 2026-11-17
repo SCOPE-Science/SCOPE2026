@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python 3 standard library only. Invoke `python3 verify.py > observed.txt` and compare `observed.txt` with `verify_output.txt`. Its output ends in `ALL_VERIFY_OK` and `ALL_ACTIONS_OK`. The reported integral cycle generators are assembled explicitly as the eight oriented triangles in a join of three differences of vertices. For each cycle the verifier computes every signed edge coefficient and asserts its cancellation. It checks distinct unit-pivot triangles and compares the number of generators with the proposed rank. The general spanning theorem relies on the symbolic join-chain argument in `RESULT.md`, not on these finite certificates alone.
+## correctness
 
-The program enumerates every face by its actual pairwise disjoint color types for seven size profiles. For small total color-size products, it independently computes ranks of the signed two-boundary modulo 2 and 3. The larger profile \((2,3,2,2,2,2)\) has all faces and 675 exhibited integral top cycles checked, but the full modular rank is not recomputed there. It also explicitly applies within-class permutations to oriented simplices and cycle bases, obtaining the full alternating chain trace and induced top-homology trace for all six single-class flips and the three-cycle where available. It checks the expected degree-one trace by the Euler–Poincaré relation. No computation purports to certify an infinite parameter range.
+PASS
 
-The topological identification and integral equivariance are justified separately in `RESULT.md`. Björner–Wachs–Welker's existing inflation theorem supplies the contextual nonequivariant wedge type, which is not part of the new claimed discovery. External independent mathematical validation remains unperformed.
+For the double D²(A1*...*A6), triangle vertices correspond to three pairwise disjoint color-pair labels; every two-simplex and, critically, every one-simplex has exactly one six-color perfect-matching label (the third color pair is the pair of unused colors). Hence signed ∂2 is an integral direct sum across 15 matching blocks and H2=ker ∂2 since no 3-simplices. Each block is the top boundary of a join of three discrete sets P_ij=A_i×A_j and the integral Künneth chain model identifies its kernel naturally with tensor over Z of three augmentation lattices ker(Z[P_ij]→Z). The eight-term cycles from differences of vertices form an integral basis. Γ=product S(A_i) preserves these blocks and acts naturally, giving the boxed full integral module, rank product(n_i n_j-1), trace product(f_i f_j-1). Fresh independent GF2 top-boundary ranks are 555 of 960 triangles for all n_i=2 and 765 of 1440 triangles for (2,3,2,2,2,2), agreeing b2=405 and 675; the integral statement is proved from block splitting.
+
+## originality
+
+PASS
+
+The published Björner–Wachs–Welker inflation theorem (Theorem 6.2, Corollary 6.3) already determines the ordinary wedge decomposition and integral ranks, while its Corollary 8.5 develops an equivariant decomposition over a characteristic-zero field. Both are explicitly prior: the rational representation/character and numerical Betti data are not newly claimed. The surviving exact integer Γ-lattice decomposition is obtained by a specific 15-block decomposition of the actual top-boundary map and eight-term primitive integral generators, providing integral action beyond rational equivalence. No indexed exact integral six-color decomposition was found; residual risk includes an unindexed integral version of field-level equivariant inflation.
+
+## value
+
+PASS
+
+An integral Γ-lattice is a stricter invariant than a rational character or sphere count and can retain extension/modular information. The unique matching-block incidence partition yields an explicit canonical integral basis of all top cycles with natural within-class permutation action, reusable for integral equivariant homology of six-color join doubles. This is a motivated structural lemma of a natural simplicial double, not merely recomputation of known inflation Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

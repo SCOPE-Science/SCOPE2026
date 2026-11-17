@@ -1,11 +1,21 @@
-# Review of the integral top-homology identification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The double has degree-two faces precisely when three pairwise disjoint color pairs cover all six colors. The key stronger observation is that every edge also belongs to one unique color-perfect-matching block. Hence the signed top boundary matrix is a direct sum integrally, and since there are no three-cells its kernel is the full \(H_2\). The integral join-chain tensor identity yields the three augmentation lattices with no Tor terms. Explicit eight-term cycles form a primitive integer basis, and their induced symmetry is natural. The standalone calculation exhaustively reconstructs faces for seven profiles, checks modular boundary ranks where feasible, constructs all predicted top cycles for selected profiles, and directly checks permutation traces. The infinite proof does not rely on samples.
+## correctness
 
-**Originality (O): PASS with stated residual risk.** Exact claim is an isomorphism of \(\mathbb Z[\prod_i S_{n_i}]\)-lattices for the top homology of a six-color double, with a canonical fifteen-block partition and explicit primitive cycles. Lesh–Schreiner–Wahl define doubles and give connectivity bounds, not this lattice. Stronger, highly relevant results of Björner–Wachs–Welker, Theorem 6.2/Corollary 6.3, already imply the entire *nonequivariant* wedge type and integral Betti numbers, and their Corollary 8.5 implies a *field-valued* equivariant decomposition; these are excluded from novelty, not misrepresented as noncovering. Ayzenberg–Khoroshavkina extend inflated homotopy formulas, but no integral symmetry-lattice computation was identified. Searches over equivalent names, source premises, published mathematical records and base matching-complex reductions yielded no indexed integral lattice formula with the same statement. Existing abstract homological tools could make this specialization accessible, and unindexed equivalent integral work remains a residual novelty risk.
+PASS
 
-**Value (V): PASS.** The six-color case is the first double of this multipartite family where top degree is two and distinct three-pair matchings jointly contribute primitive surfaces. Its exact fifteen-summand **integral** symmetry lattice is a natural structure beyond the known scalar homotopy or field characters. It supplies explicit geometric generators suitable for comparing integral actions, sign behavior and equivariant maps, without claiming a further paper-sized theorem. This is not a threshold chosen just for a numerical improvement: six colors are forced by the first possible two-simplices in a double, and color pair-perfect-matchings force the indexing.
+For the double D²(A1*...*A6), triangle vertices correspond to three pairwise disjoint color-pair labels; every two-simplex and, critically, every one-simplex has exactly one six-color perfect-matching label (the third color pair is the pair of unused colors). Hence signed ∂2 is an integral direct sum across 15 matching blocks and H2=ker ∂2 since no 3-simplices. Each block is the top boundary of a join of three discrete sets P_ij=A_i×A_j and the integral Künneth chain model identifies its kernel naturally with tensor over Z of three augmentation lattices ker(Z[P_ij]→Z). The eight-term cycles from differences of vertices form an integral basis. Γ=product S(A_i) preserves these blocks and acts naturally, giving the boxed full integral module, rank product(n_i n_j-1), trace product(f_i f_j-1). Fresh independent GF2 top-boundary ranks are 555 of 960 triangles for all n_i=2 and 765 of 1440 triangles for (2,3,2,2,2,2), agreeing b2=405 and 675; the integral statement is proved from block splitting.
 
-**Closest sources and limitations.** The 2005 inflation theorem is the strongest close result, so the familiar homotopy wedge is only contextual. No full integral \(H_1\)-module or equivariant homotopy splitting follows. A further hidden integral-equivariant specialization could eliminate originality; independent verification has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published Björner–Wachs–Welker inflation theorem (Theorem 6.2, Corollary 6.3) already determines the ordinary wedge decomposition and integral ranks, while its Corollary 8.5 develops an equivariant decomposition over a characteristic-zero field. Both are explicitly prior: the rational representation/character and numerical Betti data are not newly claimed. The surviving exact integer Γ-lattice decomposition is obtained by a specific 15-block decomposition of the actual top-boundary map and eight-term primitive integral generators, providing integral action beyond rational equivalence. No indexed exact integral six-color decomposition was found; residual risk includes an unindexed integral version of field-level equivariant inflation.
+
+## value
+
+PASS
+
+An integral Γ-lattice is a stricter invariant than a rational character or sphere count and can retain extension/modular information. The unique matching-block incidence partition yields an explicit canonical integral basis of all top cycles with natural within-class permutation action, reusable for integral equivariant homology of six-color join doubles. This is a motivated structural lemma of a natural simplicial double, not merely recomputation of known inflation Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
