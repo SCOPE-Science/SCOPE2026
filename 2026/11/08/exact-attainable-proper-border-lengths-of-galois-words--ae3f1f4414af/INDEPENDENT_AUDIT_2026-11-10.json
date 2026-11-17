@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:15:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition uses strict alternating lexicographic rotation minimality and forces primitive words. The elementary even-border parity contradiction compares two rotations after an even shared border. If an even-length Galois word has odd period d<=n/2, two rotations starting at kd and (k-1)d (n=kd+r) produce the same first differing letters at positions r+j and d+r+j of opposite parity, contradiction; proper powers excluded. Therefore any proper border b is odd and even n forces 2b<n. Odd n witnesses (01)^((n-1)/2)0 have every odd proper border; even n b=1 uses 010^(n-2) and b>=3 uses 010^(d-1)10^(b-2) with d=n-b, and strict rotation comparisons prove all witnesses Galois. Independently exhaustively enumerated all binary words n=2..13 and directly tested explicit witnesses for all allowed n<=69; both match. The infinite proof rests on the two-rotation obstruction and generic witnesses, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 Lemma 11 covers shortest odd periods of pre-Galois words, Lemma 12 even periods and Lemma 14 root-parity; 2019 Lemma 35 parity of borders."
+        ],
+        "reasoning": "These statements handle broader classes of pre-Galois words in other respects but do not furnish the same exact realizability classification as a corollary. The result is not merely 'odd borders possible'.",
+        "searches": [
+          "Resultary: Galois word border lengths odd primitive alternation short odd period 2b<n",
+          "https://doi.org/10.4230/LIPIcs.CPM.2024.18",
+          "https://arxiv.org/abs/1812.04515"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.CPM.2024.18",
+        "https://arxiv.org/abs/2403.02636",
+        "https://arxiv.org/abs/1812.04515",
+        "https://www.mat.univie.ac.at/~slc/wpapers/s54reut.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reutenauer supplies b odd; this alone allows even-n odd b>=n/2 which the new theorem excludes. Hendrian et al. discuss period-root relations and detection algorithms, not the explicit odd-n/even-n spectrum or witnesses."
+        ],
+        "reasoning": "The earlier parity restriction is necessary but not sufficient: proof of a new even-n period obstruction and constructions for every remaining b are required. Neither result follows solely from pre-Galois Galois-root existence.",
+        "searches": [
+          "https://doi.org/10.4230/LIPIcs.CPM.2024.18",
+          "Reutenauer 2006 Proposition 3.1",
+          "Dolce–Restivo–Reutenauer 2019 Lemma 35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A border of length b is equivalent to a period d=n-b; the new even-n cutoff 2b<n is equivalent to no odd period <=n/2, stronger than border parity."
+        ],
+        "reasoning": "Translated the claim to odd-period forbiddance and checked related pre-Galois period theorems against its quantifiers. The paper's Lemma 11 gives a Galois prefix at shortest odd period, not nonexistence of such periods; the new two-rotation obstruction is additional.",
+        "searches": [
+          "Resultary: Galois word border lengths odd primitive alternation short odd period 2b<n",
+          "Reutenauer 2006 Proposition 3.1",
+          "https://doi.org/10.4230/LIPIcs.CPM.2024.18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-n attainable-border database or table in the inspected 2024 paper; length-2..13 independent exhaustive test reproduces the theorem but is not a source of earlier priority."
+        ],
+        "reasoning": "Alphabet-independence and the even-length exact half cutoff are infinite-parameter statements, not recovery of known enumerated small cases.",
+        "searches": [
+          "Resultary: Galois word border lengths odd primitive alternation short odd period 2b<n",
+          "https://arxiv.org/abs/2403.02636"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the *complete attainable* proper-border-length spectrum. Reutenauer 2006 Proposition 3.1 and Dolce–Restivo–Reutenauer 2019 Lemma 35 establish odd border parity only; Hendrian–Köppl–Yoshinaka–Shinohara 2024 Lemmas 11–16 analyze shortest odd/even periods and roots for pre-Galois words, but neither state nor directly imply the half-length restriction for even Galois words plus explicit all-allowed binary realizations. Checked full 2024 primary PDF, not just an abstract. An unindexed equivalent characterization remains a risk.",
+      "residual_risks": [
+        "Full 2006 and 2019 original articles were not examined in this execution; 2024 complete primary reading suggests only parity, but a stronger older statement may be overlooked.",
+        "An equivalent border spectrum under alternate Galois-word terminology could exist in unindexed literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Lemma 11 says the shortest odd period of a pre-Galois word yields a Galois prefix; Lemma 8 old parity; no sharp attainable border spectrum or binary all-b witness theorem.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2024.18",
+          "material_read": "Full 16-page accessible CPM 2024 PDF, with specific close reading of Definitions 9, 13, Lemmas 8, 11, 12, 14–16, algorithms, and conclusions",
+          "method": "Read full primary PDF textual pages and visually inspected PDF page 6",
+          "title": "Algorithms for Galois Words: Detection, Factorization, and Rotation",
+          "trigger": "Relevant direct period/rotation theorem for same Galois words"
+        },
+        {
+          "assessment": "PARITY_SUBLEMMA_KNOWN",
+          "evidence": "Odd proper-border parity is previously known and credited; no specific whole-document exclusion from partial access.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.04515",
+          "material_read": "Source-cited Lemma 35 and bibliographic description; full primary document not read in this execution",
+          "method": "Named lemma and published source comparison",
+          "title": "On generalized Lyndon words",
+          "trigger": "Original lemma on parity of borders"
+        },
+        {
+          "assessment": "PARITY_SUBLEMMA_KNOWN",
+          "evidence": "Known odd border condition credited; risk of unseen stronger result retained.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/s54reut.pdf",
+          "material_read": "Proposition identification and later-paper citation; full 2006 primary text not read in this execution",
+          "method": "Bibliographic and downstream cited-proposition check",
+          "title": "Mots de Lyndon généralisés",
+          "trigger": "Original definition and odd-border Proposition 3.1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural combinatorial structural invariant of alternating-order Lyndon/Galois words: closes the gap from known border parity to the exact all-length existence spectrum, including a sharp new forbidden half-length region for even n and binary witnesses for every allowed odd b. It supplies a complete infinite-parameter classification valid for all ordered alphabets of size >=2, not an arbitrary finite slice or solely a restatement of old parity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Existence of each proper border, not simultaneous border-set spectrum or number of words.",
+    "The all-n theorem follows the two-rotation proof; finite checks only through n=13 and witnesses through n=69 independently.",
+    "Possible unindexed stronger Galois period theory remains a best-of-knowledge priority risk."
+  ],
+  "schema_version": 1
+}
