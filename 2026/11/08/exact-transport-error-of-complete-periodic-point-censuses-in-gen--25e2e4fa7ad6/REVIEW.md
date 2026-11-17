@@ -1,15 +1,21 @@
-# Scientific review: exact transport error of generalized tent periodic censuses
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and measures are explicit: real slopes \(H\ge2\), positive integer periods \(n\), equal-weight inverse-branch Bernoulli law on the compact survivor, and all fixed points of the \(n\)-th iterate counted once. The proof covers branch contacts at \(H=2\), since the self-similar measure has no atoms. Ordered equal-mass cylinders justify the purported optimal coupling, not just an upper bound. The affine-branch sign recurrence gives the exact census mean. Averaging a conditional absolute-deviation identity over the periodic census closes the calculation without passing from finite samples to an unproved infinite identity. The resulting rational formula, positive leading rate and Kolmogorov bound follow algebraically. Standalone exact-rational checking replays both the moment and the absolute-deviation recurrence at 40 slope-period settings, independently checking approximate transport via finite cylinders in 12 cases. No finite test is used to justify an infinite quantifier.
+## correctness
 
-## Originality — PASS within inspected evidence
-The most direct source, Ayers and collaborators, arXiv:2111.08904v1, Section 6, discusses periodic-point density images on the middle-thirds Cantor repeller and explicitly does not solve the analytic distribution of **a single periodic orbit**. The present claim instead solves exact Euclidean \(W_1\) and Kolmogorov discrepancies of the complete, equally weighted fixed-point census, a different observable. Chen–Dong, DOI:10.1090/S0002-9939-2010-10397-0, study barycenters of individual tent cycles; their initial periodic-point formulas are compatible with the inverse-branch step but do not state the finite-period transport expression. The substantial available preview of Chen–Shi–Xu, DOI:10.1007/s10883-022-09594-1, gives coordinates of skew-tent periodic points, without identifying the claimed Wasserstein identity. Graf–Luschgy, DOI:10.1002/mana.19971830108, determine optimal Cantor quantization rather than this dynamically prescribed point set. Scheicher–Sirvent–Surer, DOI:10.1112/jlms/jdv071, concern tent/beta symbolic dynamical correspondences. Comparison with published results sought under periodic-point, Cantor-distribution, equidistribution and Wasserstein terminology gave no statement implying the exact formula. Residual risk: an equivalent calculation may be contained in the complete inaccessible skew-tent article or older unindexed quantization literature; exact novelty is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The motivating 2021 paper explicitly compares periodic-point distributions against Cantor sampling. The full fixed-point census is a canonical deterministic alternative to selecting a few unstable periodic orbits and has a natural invariant limiting law. Here its **actual** Euclidean mass-transport error, rather than merely convergence, is determined for every slope and period. The exact coefficient \((H-1)/(2H-1)\), the absence of a second-order term, and the strictly positive third-order correction allow calibration of periodic-point numerical approximations. In tandem the exact Kolmogorov error \(2^{-n}\) distinguishes geometric transport convergence from total ordered discrepancy, especially on Cantor supports. The result does not resolve individual-orbit distribution, primitive-only sampling, or optimal choice of free atom locations; these limits are disclosed in the theorem.
+For H>=2 the two inverse branches S0=x/H, S1=1-x/H contract with disjoint cylinder interiors (the H=2 shared boundary has zero Bernoulli mass). Every length-n word has one fixed point, distinct across words, with 2^-n per cylinder, so one-dimensional monotone optimal coupling matches each cylinder’s mass to its periodic fixed point. W1=H^-n E|X-Y_n|. Affine-branch sign average computes exact census barycenter m_n=(1-H^{-(2n-1)})/[2(1-H^{-2n})]. A self-similar absolute-deviation recurrence averaged over all fixed points permuted by f_H gives the stated exact W1 formula, including nonzero H^-3n correction; a jump at 0 yields exact Kolmogorov distance 2^-n. Independently recomputed rational periodic points and mean transport for n=1..3 at H=2,3,5/2. All-real H claim supported by algebra, not finite extrapolation.
 
-## Remaining scientific risks
-The source comparison is strongest for the full open-access primary 2021 article and the 2010 author-hosted full paper. The 2022 skew-tent paper was not available in full and the 2016 tent/beta article was available mainly at abstract level. The quantified result concerns only symmetric two-branch tent maps with equal Bernoulli weights.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS WITH OVERLAP: An independent same-date published result explicitly covers exact W1 for H=2 (full tent, Lebesgue), and classical periodic-coordinate papers cover part of the construction. The surviving all-H>=2 formula, including fractal Cantor repellers H>2 and the exact transport coefficient/correction, is not implied by the full-tent special case or optimal free-node quantization. Historical full-text gap in skew-tent paper remains real.
+
+## value
+
+PASS
+
+The complete fixed-point census is a canonical reproducible way to approximate invariant measures of generalized tent repellers; exact W1 cost for every H>=2 and every period, especially fractal H>2, quantifies bias and the missing H^-2n term, while sharp Kolmogorov 2^-n separates order discrepancy from transport. It is a motivated complete parametric quantization law, not a few isolated orbit examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
