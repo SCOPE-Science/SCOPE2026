@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-Run `python verify_triangle_osborne.py` with Python 3. The recorded output is `PASS 10005 exact-geometry and numerical-matrix checks`.
+# Independent mathematical audit
 
-The program exhausts all sequences of update indices through length eight, conditioned on each first index, in exact rational arithmetic. It checks that the number of paths with a given number of switches equals \(\binom{n-1}{k}2^k\), and that each path has the expected norm-squared contraction. It separately checks preservation of the product of the three matrix edge weights and agreement of actual Osborne updates with the logarithmic projections on three numerical inputs.
+## correctness
 
-The checked finite lengths are not an exhaustive proof of the infinite-time law. The proof uses the three pairwise projection angles, independence of the switch indicators and geometric waiting-time limit theory. The \(\ell_1\)-residual CLT depends on the stated generic condition and an analytic uniform norm comparison. No independent verification has been performed.
+PASS
+
+For positive directed-triangle weights, each Osborne step averages the two incident logarithmic edge deviations and preserves their zero sum. The three 1D projection ranges in that plane have mutual absolute cosine 1/2. Conditional on the first selected coordinate, independent uniform future labels yield independent Bernoulli(2/3) switch events, giving R_n=R_1*2^{-Bin(n-1,2/3)}, all p-moments, and negative-binomial log-norm hitting times (mean 3k/2, variance 3k/4). Along the six post-first rays the original normalized ell-one residual B is uniformly comparable with R for a fixed nondegenerate input; the associated stopping levels differ by O(1), with bounded L2 differences of the negative-binomial hitting times, proving the mean/variance/CLT constants. Reconstructed proof and checked exact-rational projection norms and all 3^L coordinate words for L<=7, including binomial multiplicities. Generic condition is necessary for unconditional epsilon-tolerance limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge survival of precise final claim after source-by-source implication comparison, with listed risks; no worldwide priority certification. The general Osborne algorithm and spectral mean-square estimates neither compute the independent switch law nor give the complete epsilon-hitting-time CLT for the original nonlinear residual; the new statement is a specific sharpened result. A specialized triangle law could still exist outside the searched literature.
+
+## value
+
+PASS
+
+Provides a natural complete finite-time distribution, explicit stopping time and actual nonlinear balancing-residual fluctuation law for the smallest strongly connected nontrivial directed cycle. This goes beyond convergence bounds; it is a useful benchmark for randomized balancing and gossip processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
