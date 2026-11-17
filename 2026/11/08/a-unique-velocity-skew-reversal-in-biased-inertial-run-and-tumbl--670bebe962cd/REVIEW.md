@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary convolution exists uniquely for all \(b>0\), \(q>0\), \(-1<\delta<1\), \(T\ge0\). The joint generator gives a closed finite hierarchy for every polynomial degree, with a two-state identity that closes its bias terms. Direct solution of degrees one through three yields the stated four cumulants, including all boundary cases of the positive parameter domain. Positive denominators and a single linear factor give an exact, unique velocity-skew transition, not merely a finite numerical observation. The supplied independent rational-equation and causal-filter checks passed; they supplement, not replace, the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The 2024 inertial run-and-tumble model's inspected moment section uses symmetric switching, which forces every central cubic moment to vanish and does not imply the biased cubic-sign phase boundary. Continuous-angle active Brownian harmonic confinement is not the same two-state forcing. Older general dichotomous oscillator moment machinery is a plausible source of equivalent formulas, so a complete uninspected 1987 paper is explicitly identified as a substantial publication-priority risk. The reviewed contribution is the exact global sign classification and bias-independent unique underdamped reversal, not the general method of moments or the notion of dichotomous driving.
+PASS
 
-## Mathematical value — PASS
-The observable is a stationary velocity-skew sign, a natural third-order diagnostic of asymmetric stochastic propulsion. The complete sign classification reveals a sharp physical boundary that cannot be inferred from symmetric models or second moments: changing trap stiffness reverses velocity cubic asymmetry while positional cubic asymmetry retains its sign, regardless of independent Gaussian thermal forcing. The threshold is exact over the full nontrivial bias domain and is not an arbitrarily selected parameter example.
+For b>0, q=alpha+beta>0 and delta=(beta-alpha)/q∈(-1,1), the oscillator drift is Hurwitz and independent Gaussian noise adds no centered cumulant of order three. Center Y=X-delta/b and telegraph S=sigma-delta. The algebraic two-state identity S²=(1-delta²)-2delta S and Markov generator produce the stated coupled linear recurrences for M_ij and N_ij. Reconstructed degree-one, degree-two and degree-three balance, and independently solved exact rational linear systems at b=2,q=1,delta=1/3,T=1/2; obtained (E Y³,E Y²V,E YV²,E V³)=(-19/297,0,-1/33,2/297), precisely the pinned formulas. Their positive denominator H and strictly positive factors imply position/mixed fixed signs and unique nonzero-bias velocity skew zero at 3b-2(q+1)=0; temperature never enters the third cumulant. Since 2(q+1)/3>2/3>1/4, the threshold is underdamped. Symmetric delta=0 is correctly excluded from a strict skew-sign reversal.
 
-## Closest literature and remaining risks
-- Dutta et al., 2024, https://arxiv.org/abs/2406.06120: complete arXiv HTML model and moments section inspected; orientation dynamics symmetric, so the odd-moment classification is absent.
-- Patel and Chaudhuri, 2024, https://arxiv.org/abs/2404.01107: full arXiv HTML inspected; continuous orientation diffusion differs from autonomous two-state biased forcing.
-- Pawula, 1987, https://doi.org/10.1103/PhysRevA.35.3102: abstract inspected; full text not available during review; general higher-order moment machinery may substantially overlap.
-- Gitterman and Shapiro, 2011, https://doi.org/10.1007/s10955-011-0240-9: abstract inspected; random-mass multiplicative noise and first-moment stability differ.
-- Other literature may contain the same exact cubic tensor or a stronger theorem not discoverable through the inspected sources. Publication-priority verification beyond the identified accessible material remains advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General dichotomous oscillator moment methods and symmetric inertial run-and-tumble harmonic-trap distributions precede this result. The assessed contribution is the exact biased stationary cubic tensor and the unique temperature/bias-independent velocity-skew sign threshold, not general generator techniques. A particularly relevant 1987 Pawula paper derives general output moments for dichotomous-noise-driven oscillators; its full text could not be inspected because authorized institutional access returned VPN disconnected. The publisher abstract does not settle whether it already includes this exact threshold. On accessible evidence the precise theorem survives best-of-knowledge comparison, with explicit significant priority risk.
+
+## value
+
+PASS
+
+Biased telegraph propulsion generates nonzero stationary cubic moments even though symmetric propulsion cannot. The sharp stiffness that reverses *velocity* skew while position and mixed skew retain their signs provides a motivated structural boundary in the standard inertial harmonic swimmer and a robust noise-independent skew diagnostic, not a routine parameter rename or trivial normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
