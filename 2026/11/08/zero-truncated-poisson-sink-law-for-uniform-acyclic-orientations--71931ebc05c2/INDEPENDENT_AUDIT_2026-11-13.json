@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T19:57:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a designated r-subset of sinks in one bipartition, forced incident edges leave B_{a−r,b} acyclic orientations; mixed-part sink sets are impossible. Subset marking gives A_{a,b}(z)=B_{a,b}+∑_{r≥1}C(a,r)B_{a−r,b}(z−1)^r+∑_{r≥1}C(b,r)B_{a,b−r}(z−1)^r, hence bivariate EGF B(x,y)[exp((z−1)x)+exp((z−1)y)−1]. With H=1−(exp x−1)(exp y−1), diagonal p_n=2c_n(z)/c_n(1)−1, c_n(z)=[x^ny^n]exp(zx+y)/H. At ρ=log2, H_x=H_y=H_xx=H_yy=−2, H_xy=−4, and independently computed Q=16ρ³(1−ρ)>0. Khera–Lundberg's source theorem verifies strictly minimal diagonal smooth point; applying entire-numerator ACSV uniformly on bounded |z|≤R gives c_n(z)/c_n(1)=exp((z−1)ρ)+O_R(n−1). Then p_n(z)=2^z−1+O_R(n−1), Cauchy estimates give all-k error C_R/(nR^k) and summable TV error. Independent exhaustive orientation counts for n=1..3 gave sink histograms 2; (12,2); (186,42,2) agreeing with poly-Bernoulli totals 2,14,230. Symbolic Q identity proved independently. Finite tests do not establish ACSV bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hwang et al. general graph sink polynomial includes each finite K_{n,n} polynomial in principle.",
+          "Khera–Lundberg–Melczer Theorem 3.1 gives unmarked diagonal bivariate poly-Bernoulli asymptotics.",
+          "Khera–Lundberg Theorem 4.2 gives general smooth-point ACSV transfer; its model-specific Theorem 1.2 is Gaussian for longest path, not sinks.",
+          "Bényi–Ramírez Theorem 8 weights indexed zero rows/columns rather than deriving this sink-count local limit."
+        ],
+        "reasoning": "These works supply broad techniques, exact finite encoding and unmarked counts. None of the inspected results supplies the marked sink EGF together with uniform complex-parameter ratio and O_R(n^-1) coefficient bounds. Broad applicability of a transfer theorem is credited, not treated as an independent result of the target claim.",
+        "searches": [
+          "https://arxiv.org/pdf/1910.10920",
+          "https://arxiv.org/pdf/1912.08850",
+          "https://arxiv.org/pdf/2408.12716",
+          "https://link.springer.com/article/10.1007/s00010-021-00834-6",
+          "Resultary query: complete bipartite graph acyclic orientation exact sink generating function limit count of sinks"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2408.12716",
+        "https://arxiv.org/pdf/1912.08850",
+        "https://arxiv.org/pdf/1910.10920",
+        "https://arxiv.org/pdf/2010.11236",
+        "https://link.springer.com/article/10.1007/s00010-021-00834-6",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f/RESULT.md",
+        "Resultary semantic searches for lonesum/Poisson, sink asymptotics and same graph orientation",
+        "Web exact phrase searches for lonesum zero rows and Poisson sink laws"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Khera–Lundberg (2024) Theorem 4.2 is an entire-numerator smooth critical point transfer, and Lemma 4.1 establishes minimality for a denominator variant, not a sink statistic.",
+          "The assigned proof obtains the exact sink PGF 2 c_n(z)/c_n(1)-1, with c_n(z)=[x^ny^n]exp(zx+y)/H(x,y); at (ρ,ρ), leading numerator ratio exp((z-1)ρ).",
+          "Published SCOPE parity-feasibility theorem classifies indegree-parity signatures of acyclic K_{m,n}, not sink-count probabilities."
+        ],
+        "reasoning": "The limiting PGF 2^z−1 follows after marking all sink subsets and applying the known ACSV machinery uniformly in a bounded complex marking parameter. Existing longest-path and total-count results do not imply the all-k sink law without this new marked construction; the finite unique-sink theorem gives only one atom. The derivation is an application of known general methods, so novelty credit is restricted to the quantitative specialized law.",
+        "searches": [
+          "https://arxiv.org/pdf/2408.12716",
+          "https://arxiv.org/pdf/1912.08850",
+          "https://arxiv.org/pdf/1910.10920",
+          "https://arxiv.org/pdf/2010.11236",
+          "https://link.springer.com/article/10.1007/s00010-021-00834-6",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the lonesum orientation-matrix encoding, sinks are all-zero rows in one part or all-one columns in the other (depending on edge-bit convention).",
+          "Hwang et al. define the exact full-graph sink-count polynomial; Bényi–Ramírez track all-zero rows/columns via different q-weights without stating a balanced zero-truncated Poisson limit."
+        ],
+        "reasoning": "Equivalent formulation is the limiting distribution of the number of extremal rows/columns of a uniformly random square lonesum matrix, not solely unique-sink probability. The original generating polynomial is recoverable from general frameworks but the geometric-error Poisson limit was not found stated in inspected works.",
+        "searches": [
+          "Resultary query: lonesum matrices random acyclic orientation complete bipartite sink law zero truncated Poisson logarithm two",
+          "Web searches: 'lonesum' 'Poisson' 'zero rows'; 'acyclic orientations' 'sink' 'Poisson' 'complete bipartite'",
+          "https://link.springer.com/article/10.1007/s00010-021-00834-6",
+          "https://arxiv.org/pdf/1910.10920"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ayyer–Hathcock–Tetali count unique sinks for certain complete bipartite sizes, a k=1 coefficient only.",
+          "Cameron et al. and the poly-Bernoulli enumerators count all acyclic orientations; Hwang et al. encode finite sink distributions by a polynomial.",
+          "No inspected table gives all-k zero-truncated Poisson probabilities and the uniform local-error rate."
+        ],
+        "reasoning": "Exact finite counts and one-sink formulas do not state a parameterized large-n limiting law. Even where a general polynomial contains the data implicitly, the uniform analytic asymptotic and its rate are new mathematical conclusions not simply a table lookup.",
+        "searches": [
+          "https://arxiv.org/pdf/2010.11236",
+          "Resultary semantic sink-polynomial query: complete bipartite graph acyclic orientation exact sink generating function limit count of sinks",
+          "https://arxiv.org/pdf/1910.10920",
+          "https://link.springer.com/article/10.1007/s00010-021-00834-6"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the complete zero-truncated Poisson(log 2) law for the number of sinks in uniform acyclic K_{n,n}, including uniform complex-disc O_R(n^-1) PGF control and geometric local probability errors, was not stated in the directly related source material inspected. Established poly-Bernoulli enumeration, general sink polynomials, unique-sink atoms and multivariate ACSV are excluded from originality credit.",
+      "residual_risks": [
+        "A historically earlier full sink law may exist under random lonesum matrices/extremal row-block statistics; not all older combinatorial sources inspected in full.",
+        "The general Hwang sink polynomial can encode exact finite distributions; novelty is only the compact-uniform quantitative limit.",
+        "The ACSV O_R(n^-1) uniformity relies on a parameterized entire numerator and uniform saddle estimates, not merely citing a pointwise theorem; this was reasoned from bounded derivatives on compact discs.",
+        "No unbalanced part-ratio law, sharp TV leading constant or full unrelated-graph generalization is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4.2 is general analytic transfer and Lemma 4.1 strict minimality; main target is Gaussian longest path, not sink-count Poisson.",
+          "evidence": [
+            "PDF p18 Theorem 4.2: F=G/H entire with strictly minimal smooth point, O(n^-1) relative coefficient error",
+            "PDF p19 derives longest-path quasi-powers, not sink-count distribution"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.12716",
+          "material_read": "Original 24-page arXiv PDF introduction/claims, Section 4 Theorem 4.2 and Lemma 4.1 on PDF pages 17–20, saddle-point formula and discussion",
+          "method": "Read selectable PDF text and inspected screenshots of pages 1, 18 and 19",
+          "title": "The distribution of the length of the longest path in random acyclic orientations of a complete bipartite graph",
+          "trigger": "Identical random K_{n,n} orientation model, possible direct coverage and central ACSV lemma"
+        },
+        {
+          "assessment": "Unmarked total B_{n,n} and analytic transfer only, not full sink probability law.",
+          "evidence": [
+            "Theorem 3.1 n=k saddle at log2, with 1+O(n^-1) relative error",
+            "Theorem 3.2 gives general entire-numerator transfer"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.08850",
+          "material_read": "Original 16-page arXiv PDF introductory encoding; Sections 2–3, Theorems 3.1 and 3.2, PDF pages 1,7–9",
+          "method": "Read PDF text and screenshots of first and ninth pages",
+          "title": "Asymptotic Enumeration of Lonesum Matrices",
+          "trigger": "Same lonesum encoding and diagonal asymptotic denominator"
+        },
+        {
+          "assessment": "Defines exact sink polynomial and deletion-contraction, no K_{n,n} non-Gaussian limiting law shown in inspected material; cannot infer whole-document noncoverage.",
+          "evidence": [
+            "PDF p1 explicitly defines a_G(t)=sum orientations t^{# sinks}",
+            "General finite polynomial framework covers the target statistic in principle"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10920",
+          "material_read": "PDF abstract, introduction, definition of A_G(V), specialized a_G(t), and main stated objectives; not whole 21-page paper",
+          "method": "Read primary arXiv PDF text with screenshot of first page",
+          "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+          "trigger": "Exact polynomials for same sink statistic on arbitrary graphs"
+        },
+        {
+          "assessment": "Theorem 8 uses index-sum q-weight of zero rows and zero columns; it does not assert the unlabeled sink-count Poisson asymptotic in the material read.",
+          "evidence": [
+            "Definition 7, publisher HTML lines 255–275: N(A) indexes all-zero rows and columns, weight q^{sum N(A)}",
+            "Conclusion describes q-analogues rather than probability limits"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-021-00834-6",
+          "material_read": "Open-access publisher HTML introduction, Section 3 Definition 7 and Theorem 8, Section 6 conclusion",
+          "method": "Read open-access primary article text including mathematical weighting and ordered-partition proof",
+          "title": "On q-poly-Bernoulli numbers arising from combinatorial interpretations",
+          "trigger": "Closer full primary text: all-zero rows/columns of lonesum matrices"
+        },
+        {
+          "assessment": "Counts acyclic orientations with exactly one sink, not all positive sink counts or a geometric local asymptotic.",
+          "evidence": [
+            "PDF p1 abstract: AUSO of complete bipartite graphs and multipartite generalization"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.11236",
+          "material_read": "PDF abstract, introduction and description of complete-bipartite unique-sink results; full theorem sections not systematically read",
+          "method": "Read primary arXiv PDF text with first-page screenshot",
+          "title": "Toppleable permutations, excedances and acyclic orientations",
+          "trigger": "Earlier explicit K_{a,b} unique-sink counts could dominate an atom"
+        },
+        {
+          "assessment": "Parity signatures of indegree are feasible subject to a global parity/source condition; distinct from enumerative sink count and its limiting distribution.",
+          "evidence": [
+            "Counts parity signatures, explicitly not the number of orientations realizing each signature"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f/RESULT.md",
+          "material_read": "Complete published RESULT.md theorem, parity counts, proof and limitations",
+          "method": "Read actual published GitHub result blob",
+          "title": "A parity-complete characterization of acyclic orientations of complete bipartite graphs",
+          "trigger": "Published same-graph SCOPE alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural intrinsic count of terminal vertices in uniformly random acyclic bicliques has a nondegenerate, non-Gaussian, fully specified limiting distribution with a quantitative total-variation rate and geometric uniform local controls. A useful benchmark contrasting with the known Gaussian longest-path statistic; not merely another isolated finite table or a restatement of the unique-sink atom.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a uniform acyclic orientation of labeled K_{n,n}, the sink-count probability generating function p_n(z) satisfies sup_{|z|≤R}|p_n(z)−(2^z−1)|=O_R(n^{−1}) for each fixed R>1. Thus sinks converge in total variation to zero-truncated Poisson(log 2), with local errors ≤C_R/(nR^k), mean 2 log 2 and variance 2 log 2(1−log 2) up to O(n^{-1}).",
+  "limitations": [
+    "Source tree could not be independently enumerated using available GitHub connector; necessary source blobs were fetched at assigned frozen commit, with result and verifier SHA recorded.",
+    "Full older sink-polynomial manuscripts were not read cover-to-cover; only specifically stated passages and available full HTML mathematical sections are grounds for comparisons.",
+    "Parameter-uniform ACSV correction is justified by analytic compactness reasoning beyond the source's stated uniformity in coefficient directions; no explicit numerical error constants are provided.",
+    "No claim for unbalanced bicliques, sharp leading TV constant, or other graph families."
+  ],
+  "schema_version": 1
+}

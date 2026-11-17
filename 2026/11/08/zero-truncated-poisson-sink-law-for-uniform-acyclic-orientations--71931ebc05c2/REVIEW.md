@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Designated-sink counting yields the exact marked bivariate generating function. The normalized diagonal coefficients are controlled by the smooth, strictly minimal point at \((\log2,\log2)\); the critical-point derivatives give a nonzero curvature determinant, and analytic uniformity in the marking parameter supplies a full-disc \(O_R(n^{-1})\) probability-generating-function approximation. Cauchy's estimates prove the uniform geometric local error and total-variation bound. The independent finite enumerator checks small graphs and factorial moments but does not certify the asymptotic theorem.
+## correctness
 
-**Originality — PASS, qualified.** The established general sink polynomial (Hwang et al., 2019) and the exact unique-sink counts (Ayyer et al., 2020, plus earlier papers) explicitly cover important *components* of the finite problem. Lonesum counting and diagonal asymptotics (Khera, Lundberg and Melczer, 2019) provide the unmarked coefficients; Khera and Lundberg (2024) prove a Gaussian result for a different statistic, longest directed path, and supply the analytic transfer mechanism. The inspected primary results do not state the complete zero-truncated Poisson sink-count limit with its \(O(n^{-1})\) total-variation and geometric local-error bounds. Combining these sources is a substantive marked-asymptotic argument; no claim is made that the counting or saddle-point framework itself is new. Priority under other terminology remains possible.
+PASS
 
-**Value — PASS.** The complete distribution of an intrinsic random-acyclic-orientation statistic has a non-Gaussian, nondegenerate limiting law even as the graph size diverges. The quantitative total-variation estimate, geometric local control, limiting moments, and exact fair side-of-sinks dichotomy make this a precise benchmark distinct from the known growing Gaussian longest-path statistic. It is not an arbitrary finite computation or a reformulation of a named unique-sink count.
+For a designated r-subset of sinks in one bipartition, forced incident edges leave B_{a−r,b} acyclic orientations; mixed-part sink sets are impossible. Subset marking gives A_{a,b}(z)=B_{a,b}+∑_{r≥1}C(a,r)B_{a−r,b}(z−1)^r+∑_{r≥1}C(b,r)B_{a,b−r}(z−1)^r, hence bivariate EGF B(x,y)[exp((z−1)x)+exp((z−1)y)−1]. With H=1−(exp x−1)(exp y−1), diagonal p_n=2c_n(z)/c_n(1)−1, c_n(z)=[x^ny^n]exp(zx+y)/H. At ρ=log2, H_x=H_y=H_xx=H_yy=−2, H_xy=−4, and independently computed Q=16ρ³(1−ρ)>0. Khera–Lundberg's source theorem verifies strictly minimal diagonal smooth point; applying entire-numerator ACSV uniformly on bounded |z|≤R gives c_n(z)/c_n(1)=exp((z−1)ρ)+O_R(n−1). Then p_n(z)=2^z−1+O_R(n−1), Cauchy estimates give all-k error C_R/(nR^k) and summable TV error. Independent exhaustive orientation counts for n=1..3 gave sink histograms 2; (12,2); (186,42,2) agreeing with poly-Bernoulli totals 2,14,230. Symbolic Q identity proved independently. Finite tests do not establish ACSV bounds.
 
-**Scientific limitations.** Balanced bicliques only; no leading total-variation constant or nonbalanced asymptotic claim. Relevant historical works on general sink enumeration could conceal an equivalent formulation, and independent verification of the proof has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the complete zero-truncated Poisson(log 2) law for the number of sinks in uniform acyclic K_{n,n}, including uniform complex-disc O_R(n^-1) PGF control and geometric local probability errors, was not stated in the directly related source material inspected. Established poly-Bernoulli enumeration, general sink polynomials, unique-sink atoms and multivariate ACSV are excluded from originality credit.
+
+## value
+
+PASS
+
+Natural intrinsic count of terminal vertices in uniformly random acyclic bicliques has a nondegenerate, non-Gaussian, fully specified limiting distribution with a quantitative total-variation rate and geometric uniform local controls. A useful benchmark contrasting with the known Gaussian longest-path statistic; not merely another isolated finite table or a restatement of the unique-sink atom.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
