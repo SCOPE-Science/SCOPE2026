@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:15:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In base 3, digit-sum parity equals integer parity, so even numbers fail anti-Niven. For every initial residue r modulo 27, a concrete triple of indices among j=0..12 lies in the same quotient block of r+2j and has low-digit sums 0,1,2 modulo 3, forcing a multiple of 3 regardless of the upper quotient digit sum. Independently checked all 27 triples and all 243 r/upper-sum pairs. Any length-39 step-two progression of odds has exactly 13 multiples of 3, their quotients form 13 consecutive odds; the lemma yields gcd>=3. All 38 terms a=86699+2j, j=0..37 were independently verified as gcd(n,s3(n))=1. This is an infinite upper bound with a finite complete residue certificate, not an inference from sampled starts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blau et al require odd prime divisor of b-1 for general upper bound; b=3 has b-1=2. Their Theorem4.1 provides only a lower bound.",
+          "Published short-even-stride theorem assumes prime p|b-1 not dividing d, and for b=3,d=2 the only prime p=2 divides d."
+        ],
+        "reasoning": "Both potential general results have hypotheses excluding exact base/stride; neither implies sharp maximum 38.",
+        "searches": [
+          "arXiv:2308.05228 Theorems 2.5,3.3,4.1",
+          "Published SCOPE short-even-stride anti-Niven theorem November8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.05228",
+        "https://arxiv.org/pdf/2303.06534",
+        "https://oeis.org/A064150",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-anti-niven-progressions-for-short-even-strides-in-odd-base--f890edbf6d9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 of Blau et al gives a lower bound of b=3, and its concluding remarks say no upper bound established for that class.",
+          "The 2026 general short-stride statement has an inapplicable prime-divisibility hypothesis."
+        ],
+        "reasoning": "Known lower bounds and distinct-parameter theorems do not prove an upper bound or witness of length 38; the base-27 obstruction and explicit witness are additional mathematical statements.",
+        "searches": [
+          "arXiv:2308.05228 Section 4 lower bounds and concluding open upper bounds",
+          "Published SCOPE short-even-stride anti-Niven theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent statement: among 39 step-two odd integers some multiple of three also has digit sum divisible by three; finite base-27 lemma forces obstruction.",
+          "Blau et al 2023 study the same gcd(n,s_b(n))=1 predicate."
+        ],
+        "reasoning": "Niven vs anti-Niven terminology separated; the published exact 38 headline itself is this record, no earlier equivalent found.",
+        "searches": [
+          "Resultary: ternary anti Niven arithmetic progression difference two maximum length 38 base 3 digit sum coprime",
+          "Resultary: ternary anti-Niven difference 2 maximal length 38"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A064150 counts integers with digit sum dividing the integer, a different predicate; no database of maximum anti-Niven AP runs identified.",
+          "The assigned 27-case certificate is complete and independently checked."
+        ],
+        "reasoning": "A Niven sequence table is not an anti-Niven maximum table, and no matching external sharp census found.",
+        "searches": [
+          "Resultary: ternary anti-Niven difference 2 maximal length 38",
+          "OEIS:A064150 ternary Niven numbers"
+        ]
+      },
+      "rationale": "The full 2023 Blau–Harrington–Lohrey–Sosis–Wong source defines the same anti-Niven progression and proves finite lower bounds for base b=2^r+1, explicitly leaving an upper bound open. Its upper-bound hypotheses require an odd prime dividing b−1, absent for b=3, d=2. A published broader short-even-stride theorem likewise requires a prime p|b−1 with p not dividing d; for (3,2) this set is empty, so it cannot entail the 38 bound. The different Niven-divisibility literature and OEIS A064150 do not cover coprimality. Residual risk of post-2023 obscure equivalent.",
+      "residual_risks": [
+        "Unindexed newer equivalent result not excluded.",
+        "The table is a finite certificate, not a classification of all maximizing starting values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not entail sharp 38; relevant case is identified as lacking upper bound",
+          "evidence": "Blau et al 2023 Theorem4.1 and concluding remarks",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.05228",
+          "material_read": "Full primary nine-page paper, definitions, Theorems2.5–4.1, concluding bounds, page-image cross-check",
+          "method": "Primary PDF extraction and web screenshot of relevant pages",
+          "title": "Arithmetic Progressions of Integers that are Relatively Prime to their Digital Sums",
+          "trigger": "Exact base-three anti-Niven step-two problem and potential upper bound"
+        },
+        {
+          "assessment": "NOT APPLICABLE: p|b−1,p∤d impossible for b=3,d=2",
+          "evidence": "Published theorem requires a prime factor of b−1 not dividing d",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-anti-niven-progressions-for-short-even-strides-in-odd-base--f890edbf6d9b",
+          "material_read": "Entire published RESULT.md including theorem hypotheses, proof and limitations",
+          "method": "Full original repository proof read; b=3 d=2 hypothesis explicitly checked",
+          "title": "Sharp anti-Niven progressions for short even strides in odd bases",
+          "trigger": "Potential stronger contemporary all-base stride theorem"
+        },
+        {
+          "assessment": "DIFFERENT PREDICATE: digit sum divides n rather than gcd(n,s_b(n))=1",
+          "evidence": "Harrington–Litman–Wong 2023 main theorem",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.06534",
+          "material_read": "Full primary paper scope and Niven definition",
+          "method": "Primary PDF full-text comparison",
+          "title": "Every Arithmetic Progression Contains Infinitely Many b-Niven Numbers",
+          "trigger": "Potential confusion between divisibility and coprimality problems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides the exact sharp first global maximum for a natural previously unresolved base-three/difference-two anti-Niven progression question, with an explicit attaining witness and a rigorous finite-state forcing lemma. The fact is an intrinsically motivated sharp cutoff, not a random tabulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Base3 and exact stride2 only; no assertion about enumeration or infinitude of attaining starts.",
+    "Historical unindexed equivalence remains possible."
+  ],
+  "schema_version": 1
+}

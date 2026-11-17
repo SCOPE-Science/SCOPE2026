@@ -1,11 +1,21 @@
-# Mathematical review: sharp ternary anti-Niven progression length
+# Independent mathematical audit
 
-**Correctness — PASS.** The key lemma is exact: every \(13\) consecutive odd positive integers contain one with base-three digit sum divisible by \(3\). The base-\(27\) reduction handles arbitrary preceding digits, including a block transition; the \(27\)-case explicit triple table gives three distinct digit-sum residues in one unchanged upper block. Any \(39\) odd integers of step \(2\) include exactly \(13\) multiples of \(3\); division by \(3\) and the lemma produce an inadmissible term. Even terms are inadmissible automatically because ternary digit sum preserves parity. Integer gcd calculations verify all \(38\) terms from \(86699\) through \(86773\). The checker exhausts the finite cases; it is not being treated as an unbounded proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest original paper is Blau, Harrington, Lohrey, Sosis and Wong, arXiv:2308.05228v1 (2023), particularly Theorem 4.1 and its concluding remarks. It establishes a lower bound for bases \(2^r+1\) but specifically does not establish an upper bound; its general odd-prime-divisor hypothesis fails for \(b=3,d=2\). An available lower-bound construction in this exact case gives \(7\), again not an upper bound. The other inspected paper, Harrington–Litman–Wong arXiv:2303.06534v1, deals with Niven divisibility rather than anti-Niven coprimality; OEIS A064150 likewise cannot imply this maximum. Targeted exact, alias, and stronger-coverage queries did not reveal the classification. An unindexed equivalent remains possible.
+PASS
 
-**Mathematical value — PASS.** The result decides a concrete missing sharp upper bound in the most basic member of a published exceptional base family. The \(38\) threshold is exact, obtained from a structural arithmetic obstruction and a reproducible witness, and is substantially stronger than the known lower bounds. Its narrow domain is explicit and scientifically natural.
+In base 3, digit-sum parity equals integer parity, so even numbers fail anti-Niven. For every initial residue r modulo 27, a concrete triple of indices among j=0..12 lies in the same quotient block of r+2j and has low-digit sums 0,1,2 modulo 3, forcing a multiple of 3 regardless of the upper quotient digit sum. Independently checked all 27 triples and all 243 r/upper-sum pairs. Any length-39 step-two progression of odds has exactly 13 multiples of 3, their quotients form 13 consecutive odds; the lemma yields gcd>=3. All 38 terms a=86699+2j, j=0..37 were independently verified as gcd(n,s3(n))=1. This is an infinite upper bound with a finite complete residue certificate, not an inference from sampled starts.
 
-The complete claims, 27-case certificate, executable integer checker, and limitations are supplied with this package. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full 2023 Blau–Harrington–Lohrey–Sosis–Wong source defines the same anti-Niven progression and proves finite lower bounds for base b=2^r+1, explicitly leaving an upper bound open. Its upper-bound hypotheses require an odd prime dividing b−1, absent for b=3, d=2. A published broader short-even-stride theorem likewise requires a prime p|b−1 with p not dividing d; for (3,2) this set is empty, so it cannot entail the 38 bound. The different Niven-divisibility literature and OEIS A064150 do not cover coprimality. Residual risk of post-2023 obscure equivalent.
+
+## value
+
+PASS
+
+Provides the exact sharp first global maximum for a natural previously unresolved base-three/difference-two anti-Niven progression question, with an explicit attaining witness and a rigorous finite-state forcing lemma. The fact is an intrinsically motivated sharp cutoff, not a random tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
