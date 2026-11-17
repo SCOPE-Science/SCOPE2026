@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For independent cycles with \(D,\kappa,\sigma^2>0\), finite \(\delta\ge0\), and \(\Pr(T>u)\sim c u^{-q}\), \(q>1\), the two instantaneous potential switches produce the cycle reward claimed in RESULT.md. Direct Gaussian conditional moments yield \(\mathbb E w=\kappa D\mu\), and centering by the physical-time rate yields \(\xi=T(\kappa DZ^2-v)+\kappa X\sqrt{2DT}Z-v\delta\). Choosing a moment order strictly between \(q\) and \(2q\) proves that the cross term cannot affect the \(u^{-q}\) tails; regular-variation product asymptotics give both explicit signs and constants. Centered stable, borderline Gaussian, and ordinary Gaussian attraction results apply to \(\xi\), followed by a valid random time change: no independence between reset count and work is presumed. Finite-mean renewal age controls incomplete-cycle correction. For \(q>2\) the Gaussian fourth moment and variance decomposition give the stated exact \(\mathcal V\). The code supplies 87 diagnostic tests, not independent proof of distributional convergence.
+## correctness
 
-## Originality — PASS, qualified
-The full primary work of Olsen et al. (arXiv:2310.11267, §§II–VII and appendices) supplies a general renewal generating function and explicit *Poisson-clock* fluctuation examples, but does not state these three power-tail physical-time limits or their signed work compensation coefficients. Gupta, Plata and Pal (arXiv:1909.08512) concern Poisson work and a regular-variance Gaussian limit. Horii et al. (arXiv:2203.08584) establish broader heavy-tail renewal-reward variance phenomena and are credited; their published counting/Knudsen results do not give the Brownian work coefficients, explicit negative-tail mechanism or reset-overhead monotonicity. The general attraction theorems are established prior tools, not claimed as original. A broader renewal-reward theorem could subsume the limit-law *form*, and unindexed model-specific work remains a priority risk. The model-specific physical-time constants, full three-regime classification and distinction between exponentially bounded raw negative work and compensated heavy-tailed negative work are the assessed contribution.
+PASS
 
-## Mathematical value — PASS
-This is a natural finite-mean, unbounded-variance clock boundary in an experimentally motivated trap-switching work model. Mean work remains linear in physical time in all regimes, yet power-tail clocks create either a two-sided stable law, a logarithmically enhanced Gaussian, or an ordinary Gaussian. The sign of the extreme negative work fluctuation is absent from the raw-cycle negative tail and arises only from the correlation of energetic reward with clock duration. The explicit constants and overhead dependence quantify a physical observable not determined by the existing Poisson calculations; this is not merely a numerical table or a parameter substitution.
+PASS: Reconstructed reward w=κDT Z²+κX√(2DT)Z, conditional mean κDT and variance 2κ²D²T²+2κ²Dσ²T. Compensated ξ=w−v(T+δ)=T(κDZ²−v)+O_p(√T) has two one-sided regularly varying tails by Breiman and a finite higher moment for perturbation; Eξ=0. Centered stable/normal domains of attraction, joint renewal functional time-change, and tight renewal backward age give physical-time normalizations. At q=2 truncated variance 2C log u yields sqrt(n log n) variance C. Independently checked exact symbolic formula Var ξ=2κ²D²ET²+2κ²Dσ²µ+(κDδ/(µ+δ))²VarT. Verifier quadrature checked source as finite support, not proof of infinite-time convergence.
 
-## Prior literature and scientific limitations
-The nearest explicit physical model is Olsen et al., *Thermodynamic cost of finite-time stochastic resetting*, https://arxiv.org/html/2310.11267v5. Other primary comparisons: Gupta et al., https://arxiv.org/html/1909.08512v2; Horii et al., https://arxiv.org/html/2203.08584v2. Work on recurrent erasure (doi:10.1038/s42005-025-02277-w) was accessible in abstract, not full text, and concerns smooth finite-time control costs rather than heavy-tailed clocks; a full implication comparison remains a minor literature risk. The result is for independently renewed Gaussian positions at the end of each return, not finite-time OU evolution without refresh. Only self-review have been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge): Primary Olsen et al 2024 derives general renewal generating functions and explicitly treats exponential-time harmonic moments, rather than the three heavy-tail physical-clock limits and two-sided compensated constants. General heavy-tailed renewal-reward stable theorems are acknowledged prior tools; the actual model-specific limit intensities, sign asymmetry and δ monotonicity are worked out here. Risk: a broad general theorem may imply the special case after identification.
+
+## value
+
+PASS
+
+PASS: Physical-time work statistics with power-law reset intervals are a motivated thermodynamic observable; clock compensation generates a nontrivial negative stable tail despite raw work being bounded below by a light-tailed Gaussian square. The exact three-regime transition, critical normalization and sensitivity to return overhead are concrete nonroutine results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
