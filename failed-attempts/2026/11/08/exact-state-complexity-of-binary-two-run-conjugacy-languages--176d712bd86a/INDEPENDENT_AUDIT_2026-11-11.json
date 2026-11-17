@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:48:01.220390Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Rotations of 0^a1^b are distinct for a,b>=1. The Myhill-Nerode quotient layers of the fixed-length rotation language have 2 min(j,a,b,n-j) distinct nonempty right languages at each 1<=j<n; summing yields 2ab intermediate states, with initial, accepting and dead states for 2ab+3 total. The submitted pure/mixed prefix-suffix collision analysis covers all split ranges and integer boundaries. Independent rotation-prefix residual enumeration verified all a,b=1..22 and every layer. Finite checks corroborate the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier exact theorem covers every a,b and optimal fixed-length profile, all submitted parameter ranges.",
+          "Gabric-Holub-Shallit 2019 covers the broad maximum over arbitrary words but is weaker than exact earlier 2026 special-family theorem."
+        ],
+        "reasoning": "The older same-object special-family result is fully covering; no broader general literature necessary to infer duplication.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-complexity-of-rotations-of-a-two-run-binary-word--3b224f05ad26",
+          "https://socs.uoguelph.ca/~dgabric/papers/maximal.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-complexity-of-rotations-of-a-two-run-binary-word--3b224f05ad26",
+        "https://socs.uoguelph.ca/~dgabric/papers/maximal.pdf",
+        "https://doi.org/10.1051/ita:2007038"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier q_d=2 min{a,b,d,n-d} for 1<=d<n, q_0=q_n=1 and one dead quotient.",
+          "Submitted lambda_j and state sc are algebraically identical, including min=2n+1 and max=2 floor(n^2/4)+3."
+        ],
+        "reasoning": "Summing earlier quotient layers directly yields every submitted result; no non-covered corollary.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-complexity-of-rotations-of-a-two-run-binary-word--3b224f05ad26",
+          "RESULT.md theorem q_d and total 2ab+3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 theorem defines exactly L_{a,b} as all cyclic rotations of 0^a1^b over the binary alphabet, complete DFA including sink.",
+          "Its size and every intermediate quotient multiplicity are verbatim algebraic equalities to the submitted ones."
+        ],
+        "reasoning": "Not merely matching parameters: automaton language, alphabet, finite-length convention, and quotient equivalence coincide.",
+        "searches": [
+          "minimal complete DFA conjugates two-run word 0^a1^b rotations 2ab+3",
+          "two run conjugates cyclic rotations 0^a 1^b minimal automaton state complexity",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-complexity-of-rotations-of-a-two-run-binary-word--3b224f05ad26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary published complete all-parameter quotient-layer table/formula, not just computational values.",
+          "Earlier full text has direct Myhill-Nerode proof and 576 sample checks."
+        ],
+        "reasoning": "Exact formula and layer table preexist; exact database or table criterion decisively shows covered special case.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-complexity-of-rotations-of-a-two-run-binary-word--3b224f05ad26",
+          "minimal complete DFA conjugates two-run word 0^a1^b rotations 2ab+3"
+        ]
+      },
+      "rationale": "FAIL decisive: October 25, 2026 full published Resultary theorem Exact state complexity of rotations of a two-run binary word establishes identical language C(0^a1^b), minimal complete DFA size 2ab+3 for all positive runs, exact quotient profile 2 min(a,b,d,n-d), and balanced-run extrema. Full RESULT.md read. The November 8 record restates the same theorem and proof approach; no new result remains.",
+      "residual_risks": [
+        "Decisive earlier exact theorem; no scientific novelty remains even if general pre-2026 papers omit the special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact all-a,b claim and every layer",
+          "evidence": "Formula sc=2ab+3, q_d=2 min(a,b,d,n-d), proof Myhill-Nerode",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-state-complexity-of-rotations-of-a-two-run-binary-word--3b224f05ad26",
+          "material_read": "Full RESULT.md: finding, assumptions, pure/mixed factor proof, quotient layers and fixed-n extrema, verification and limitations",
+          "method": "GitHub published RESULT.md read at main, blob fe175c6c9cefed1889b99bacd01db550ffc2c252",
+          "title": "Exact state complexity of rotations of a two-run binary word",
+          "trigger": "Resultary exact same-language hit published October 25, 2026"
+        },
+        {
+          "assessment": "RELATED: general extremal problem, but earlier Resultary exact formula decisively covers",
+          "evidence": "Section 3 Theorems 6-7",
+          "identifier_or_url": "https://socs.uoguelph.ca/~dgabric/papers/maximal.pdf",
+          "material_read": "Full accessible PDF; introduction, Section 3 maximal bounds and tables, with screenshots",
+          "method": "Web PDF text and screenshots",
+          "title": "Maximal State Complexity and Generalized de Bruijn Words",
+          "trigger": "Prior specialist literature on conjugate-language DFA state complexity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The exact counts, layer profiles, and balanced optimization were already completely proved in the earlier identical theorem. Rephrased counting cases and additional finite verification have no independent mathematical value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only binary two-run conjugacy language of fixed length n=a+b and complete DFA.",
+    "Historical priority of earlier result is separate from whether submitted claim is new relative to it."
+  ],
+  "schema_version": 1
+}
