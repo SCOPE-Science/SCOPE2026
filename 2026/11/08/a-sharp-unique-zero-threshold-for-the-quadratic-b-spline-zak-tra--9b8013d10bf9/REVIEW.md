@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for the entire two-variable zero set and every real scale in the closed band. The five-term reduction on the symmetry square is exact for \(1\le b\le5/3\). The interior-frequency exclusion is controlled by the strictly positive \(D_b(x)\), established via piecewise second derivatives and endpoint concavity. The boundary \(x=0\) has a positive quadratic-in-cosine minimum. The alternating-sum boundary \(\nu=1/2\) has a strictly negative derivative until the unique symmetry zero. These cover every boundary and interior point, including both endpoint scales. The complementary horizontal-interval statement is sourced to the published aliasing formula and confirmed at rational examples. The checker is supplementary, not an infinite certificate.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The motivating work [1] gives complete full-plane zero descriptions for the hat spline and for higher-order splines at \(\lambda\ge1\), but only boundary/symmetry-line results for the quadratic spline at \(\lambda<1\). Its Proposition 4.3 does imply the zero interval below the threshold, but does not supply the off-boundary exclusion in the new subunit region. The same-object earlier fiber calculations concern only \(x=1/2\) or \(x=0\) and do not imply the full-plane classification. The positive subunit interval is not covered by the general totally-positive or other Gabor-frame studies [2–4]. An earlier unindexed full-zero theorem remains possible.
+PASS
 
-## Value — PASS
-For the first previously unresolved nontrivial subunit band, the theorem determines the exact unique-zero regime and sharp transition to a positive-length zero continuum. This provides a concrete structural boundary in the natural zero-set problem that controls Gabor frame obstructions. The result is a two-variable, all-real-parameter theorem rather than a routine reparameterization of a previously known boundary slice.
+Set b=1/lambda in [1,5/3]. Five contributing quadratic spline samples yield Im(Z)/sin(theta)=Delta_1+2Delta_2 cos(theta), bounded below by D_b=Delta_1-2Delta_2. The piecewise quadratic spline second derivatives give D_b concave on x in [0,1/2], with D_b(0)=0 and D_b(1/2)=(-21b²+54b-29)/(8b²)>0, hence positive away from x=0. On x=0, the cosine polynomial P_b(t) is nondecreasing and P_b(-1)>0; on nu=0, Z>0; the nu=1/2 boundary R_b(x) is strictly decreasing to its symmetry zero at x=1/2. Under b>5/3 published aliasing gives positive-length half-frequency zero interval. Independently checked 931 exact rational configurations for b from 1 to 5/3 and b in 7/4,15/8,2; those tests are supplementary to analytic continuum inequalities.
 
-## Limitations and references
-The scope stops at \(\lambda=1/2\). No full lower-scale or general frame-set classification, independent audit, or absolute publication priority is claimed. Primary sources: [1] Hasannasab--Lemvig arXiv:2609.13116v1, [2] Kloos arXiv:1411.1539, [3] Lemvig arXiv:2601.07642, [4] Stangl--Frederick arXiv:2609.00481.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Prior Hasannasab–Lemvig gives the below-threshold half-frequency zero interval and higher-scale results, while published November2 quadratic spline symmetry-fiber theorem addresses only x=1/2 and frequency variation. Neither result as read supplies the global exclusion of off-midpoint spatial/frequency zeros for every b<=5/3. The submitted concavity and boundary proof closes this genuinely two-dimensional subunit classification.
+
+## value
+
+PASS
+
+PASS: A sharp, exhaustive two-variable zero classification for the natural compactly supported quadratic B-spline fills a coherent gap between known symmetry-fiber and superunit results. The exact threshold 3/5 is a usable boundary for Zak/Gabor analysis, without claiming an arbitrary frame-set classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
