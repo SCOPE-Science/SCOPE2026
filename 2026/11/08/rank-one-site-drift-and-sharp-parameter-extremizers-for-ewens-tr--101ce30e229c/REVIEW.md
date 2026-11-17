@@ -1,19 +1,21 @@
-# Scientific assessment: local ordinal-pattern drift in Ewens permutations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies all quantifiers, the exact Ewens normalization, six disjoint relative-order events, the usual finite-space total variation convention, and the distinction between the unattained positive-parameter supremum for size four and the unique interior optimizer for larger sizes. A classical three-arrow partial-image probability formula reduces every pattern probability to a polynomial in the cycle parameter. The proof explicitly enumerates all single and compatible multiple directed cycles among the three prescribed arrows and derives a six-row numerator table. Independent exact enumeration of full permutations with their global cycle counts through size eight, three-arrow injections through size twelve and rational-parameter total-variation identities completed 1,270 checks. A derivative quartic with one positive root, an explicit positive witness polynomial at size five onward and normalized quartic convergence complete the infinite-size argument. Finite enumeration is a check, not the source of the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The Ewens probability of a specified three-arrow partial injection equals θ^{number of forced closed cycles}/[(θ+n−1)(θ+n−2)(θ+n−3)], by contracting open paths and removing closed forced cycles. Exhausting three-arrow loop/two-cycle/three-cycle configurations gives the six cubic numerator polynomials and normalization. Subtraction leaves only four mixed patterns with vector (0,−1,1,1,−1,0), yielding the exact TV expression. On θ<1 the magnitude strictly decreases; above θ=1 the derivative sign quartic has a unique positive zero by its coefficient signs. The explicit witness θ=n dominates θ↓0 for every n≥5 since the difference polynomial becomes m⁴+15m³+72m²+116m+18>0, m=n−5. Scaling yields θ_n/n→2 and TV→8/27. I independently enumerated full permutations n=4..7, computed exact cycle weights for θ=1/2,2 and checked every site pair against the TV formula; all cases passed.
 
-Diaconis–Fulman–Holmes, arXiv:1107.2961, Corollary 3.8, provide a powerful aggregate generating function for peaks and cycle type, but it does not retain site labels or distinguish the two peak shapes. Féray, arXiv:1201.2157, Lemma 2.1, supplies the partial-map identity and studies asymptotic pattern counts, not the explicit six-pattern site law and its optimal total-variation separation. Fulman–Kim–Lee, arXiv:1902.00978, studies aggregate peak-count fluctuations conditioned on conjugacy type. Dubach, arXiv:2402.10116, Section 2.4, addresses global and asymptotic pattern statistics. Searches for finite Ewens consecutive three-pattern probabilities, a rank-one site-shift formula and parameter-maximized local total variation produced no statement implying this whole theorem. An earlier uniform-permutation fixed-point/pattern covariance concerns a different statistic and cannot imply the cycle-weighted all-parameter law. The new claim explicitly excludes foundational enumeration identities and the known aggregate peak law. Residual risk is an implicit extraction from a sufficiently detailed older cycle-type character or pattern generating function not inspected in full.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete six-outcome local distribution is the first nontrivial ordinal-pattern diagnostic and quantifies a natural positional nonexchangeability in a conjugation-invariant law. All positional differences collapse to a single four-pattern contrast despite six possible patterns. The sharp exception at four elements, the unique parameter optimizer for all larger sizes, and the nonzero limiting maximal separation of \(8/27\) when \(\theta\) scales like \(2n\) are structural consequences not provided by marginal peak means. The result clarifies the scope of local order statistics in cycle-biased random permutations without relying on an unsupported downstream application.
+Féray proves asymptotic dashed-pattern counts and uses the Ewens partial-image formula; published uniform-permutation cycle-count/pattern covariance and Diaconis–Fulman–Holmes aggregate peaks do not retain the sitewise six-law vector under variable Ewens θ. No found theorem implies the sharp n=4 versus n≥5 global parameter maximizer. An implicit extraction from older full generating-function machinery remains a named priority risk.
 
-## Scope and limitations
+## value
 
-There is no theorem for windows of length four or more, joint distributions of multiple windows or arbitrary conjugation-invariant laws. The existing full peak/cycle generating function and partial-image identity are explicitly acknowledged; further historic priority inspection may reveal an earlier implicit equivalent result. No external independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conjugation-invariant Ewens law is not invariant under relabeling one-line source positions. Exact six-pattern local order laws and a rank-one difference mode quantify this natural lack of exchangeability. The sharp size-four exception, unique finite bias parameter for every n≥5 and nonvanishing 8/27 macroscopic TV limit are intrinsic, nonroutine probabilistic invariants useful to local permutation-pattern work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
