@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:10:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Identify a Johnson vertex with a base edge; inclusive closed neighborhood of base edge e intersects query support S in precisely the edges meeting e. An empty trace forces two distinct isolated base vertices. A singleton trace for each support edge forces at least one endpoint of every support edge to be degree one, hence every nontrivial connected support component is a star. The full trace needs no more than two components. To realize a three-edge subset but omit another in one star forces star size <=3, and with two components each size <=2. Conversely choose two base endpoint representatives: star centers for full component, leaves for singleton/two selected edges, isolated vertices for omissions. This realizes all traces for exactly the classified shapes. Counting one-star and two-star cases yields coefficients s_1=1[n>=4] C(n,2), s_2=1[n>=5] n C(n-1,2)+1[n>=6]3C(n,4), s_3=1[n>=6]nC(n-1,3)+1[n>=7]nC(n-1,2)C(n-3,2), s_4=1[n>=8]C(n,2)C(n-2,2)C(n-4,2), zero for k>4. The exceptional n=2,3 cases and all cutoffs are covered. Literal independent enumeration verifies every size-<=4 support for n=2..8; upper bound for arbitrary sizes follows from proof, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://eprints.whiterose.ac.uk/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "https://arxiv.org/abs/2405.07588",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-closed-johnson-three-balls-have-one-four-point-shattered-orbit--64cf06f45a62"
+        ],
+        "reasoning": "Adler et al's Theorem 3.7 gives a general four-point open VC bound; its Corollary treats boundedness of boolean combinations including closed sets, not enumeration. Coudert et al's general closed-VC algorithm does not state these motif counts. The closed Johnson-three theorem concerns triples and cannot determine the pair-edge census.",
+        "searches": [
+          "triangular graph Johnson J(n,2) closed neighborhood VC dimension shattering polynomial star forest number of shattered supports",
+          "closed neighborhood shattering Johnson triangular graph J(n,2) entire coefficient polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://eprints.whiterose.ac.uk/178584/1/Adler_Benediktsson_Macpherson.pdf",
+        "https://arxiv.org/abs/2405.07588",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomial-of-triangular-grap--ea869538b5c1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-closed-johnson-three-balls-have-one-four-point-shattered-orbit--64cf06f45a62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://eprints.whiterose.ac.uk/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomial-of-triangular-grap--ea869538b5c1"
+        ],
+        "reasoning": "Open VC dimension four already at n=7 cannot imply the closed formula which first has s_4>0 at n=8. A maximum-dimension theorem also does not imply lower coefficients. Counting the classified star forests requires additional positive combinatorics.",
+        "searches": [
+          "triangular graph Johnson J(n,2) closed neighborhood VC dimension shattering polynomial star forest number of shattered supports"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://eprints.whiterose.ac.uk/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomial-of-triangular-grap--ea869538b5c1"
+        ],
+        "reasoning": "Edge-intersection ranges are exactly the inclusive neighborhoods of J(n,2); published open-edge adjacency excludes center itself. Changing open to closed alters even the n=7 four-point threshold, so same parameters do not imply equivalence.",
+        "searches": [
+          "triangular graph Johnson J(n,2) closed neighborhood VC dimension shattering polynomial star forest number of shattered supports",
+          "closed neighborhood shattering Johnson triangular graph J(n,2) entire coefficient polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomial-of-triangular-grap--ea869538b5c1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-closed-johnson-three-balls-have-one-four-point-shattered-orbit--64cf06f45a62"
+        ],
+        "reasoning": "The checked published records give different open-neighborhood exact tables or a rank-three Johnson four-support count; none presents the listed closed-neighborhood full polynomial. Generic VC tables specify maxima, not counts of all shattered supports.",
+        "searches": [
+          "triangular graph Johnson J(n,2) closed neighborhood VC dimension shattering polynomial star forest number of shattered supports",
+          "closed neighborhood shattering Johnson triangular graph J(n,2) entire coefficient polynomial"
+        ]
+      },
+      "rationale": "The source's coefficientwise closed-neighborhood star-forest classification is not supplied by the primary Johnson graph open-neighborhood VC bound, either published open-neighborhood triangular graph polynomial, or the closed-J( n,3 ) four-query case. An all-n finite-support enumeration is stronger than knowing maximum VC dimension; no equivalent exact closed triangular coefficient census located.",
+      "residual_risks": [
+        "Unindexed equivalent star-forest shattering enumeration may exist under line-graph or edge-hitting-set terminology.",
+        "General graph VC computation paper not read in every appendix; limited abstract comparison recorded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: paper studies edge relation/open neighborhoods, closed only bounded as a consequence",
+          "evidence": "Theorem 3.7 open dimension 4 for J(7,2), while source closed dimension 4 begins at J(8,2).",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "material_read": "Abstract, Johnson definitions, Theorems 3.6–3.7 and figure of shattered supports around PDF lines 23–99 and 449–895",
+          "method": "Full open-access accepted-version PDF parsed text and theorem-focused inspection",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same Johnson graphs and neighborhood VC dimensions"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY: general algorithm, no claimed evaluated motif enumeration found in accessed portion",
+          "evidence": "The abstract is an algorithmic graph VC dimension study; this limited read cannot exclude unknown appendix specializations.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+          "material_read": "Full abstract and stated contribution, not entire article",
+          "method": "Open arXiv bibliographic/abstract text",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "General algorithm uses closed graph neighborhoods"
+        },
+        {
+          "assessment": "NOT_COVERING: open, not closed, coefficients differ",
+          "evidence": "Published open-neighborhood third/fourth fractions asymptotic 12/n and 48/n^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+          "material_read": "Indexed theorem synopsis and compared open-neighborhood statement",
+          "method": "Resultary record search",
+          "title": "Exact open-neighborhood shattering profiles of triangular graphs",
+          "trigger": "Exact coefficient census on same graph family"
+        },
+        {
+          "assessment": "NOT_COVERING: ten motifs are for open neighborhoods",
+          "evidence": "Open-family third and fourth counts differ and threshold occurs earlier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomial-of-triangular-grap--ea869538b5c1",
+          "material_read": "Indexed theorem synopsis and open-neighborhood scope",
+          "method": "Resultary record search",
+          "title": "Exact open-neighborhood shattering polynomial of triangular graphs",
+          "trigger": "Exact motif enumeration on same graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural complete classification of the shattered-support complex of a highly symmetric graph family, with all support-size counts, sharp ambient-size cutoffs and a structural characterization useful for learning-theoretic sample complexity and motif counting. It is not a mere new proof of the known VC dimension: all lower coefficients and the closed/open threshold shift are additional precise invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to closed radius-one neighborhoods in J(n,2), not open or arbitrary Johnson rank.",
+    "Finite checks n<=8; infinite quantifier follows from star-forest proof."
+  ],
+  "schema_version": 1
+}
