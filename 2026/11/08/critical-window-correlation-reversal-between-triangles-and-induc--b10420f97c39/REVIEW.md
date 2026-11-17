@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The final claim consists of the exact finite covariance, two exact variance identities, the finite covariance-sign threshold and the pointwise critical-window correlation limit for triangles and induced four-cycles in independent-edge random graphs. The proof enumerates all possible intersection sizes of a triangle and a four-set; their only nonzero local covariance values are derived explicitly. Orthogonal centered-Bernoulli monomials give a complete finite variance decomposition with the single-edge, adjacent-edge-pair and triangle-edge coefficients evaluated exactly. The critical-window constants follow by substituting \(p=2/3+\lambda/\sqrt n\) into those identities. A separate standard-library verifier reports 45 exact/diagnostic assertions, including complete graph enumeration through six vertices. Bounded enumeration is not used as proof of the limit.
+## correctness
 
-## Originality — PASS, with priority caveat
-No matching explicit triangle–induced-four-cycle critical-window correlation statement was located in the searched accessible history or published-results searches. A prior three-vertex triangle/open-triad covariance result does not imply this four-vertex crossover or its variance scaling. Janson's 1990 paper provides a broad induced-count limit framework; its full text could not be inspected. Sah and Sawhney's graph-factor formulas can, after nontrivial specialization and evaluation, support some of the current calculations but their inspected statements address local limits under fixed densities separated from problematic values, not the presented density-varying correlation profile. The joint-count literature of Sah, Sawhney and Zhu provides related general machinery without an explicit identified profile. The historical novelty risk is nonzero and further specialist literature review is desirable.
+PASS
 
-## Value — PASS
-This is a natural, non-arbitrary joint network-motif statistic. It identifies the unique finite covariance sign threshold, explains why ordinary first-edge Gaussian-scale dependence collapses for induced four-cycles at density \(2/3\), and computes the nontrivial interpolating correlation curve, including the specific constant \(10/27\). The difference between the \(n^{-1}\) covariance-zero offset and the \(n^{-1/2}\) correlation window gives a structural boundary that neither a fixed-parameter sign formula nor a single critical calculation alone conveys.
+Enumerating triangle/four-set intersections of sizes 2 and 3 gives the mixed covariance; for the induced four-cycle indicator, orthogonal centered-edge expansion has squared support coefficients a=p^7 q^3(2-3p)^2, b=3p^6q^4(1-3p)^2+9p^7q^5, c=h(1-h)-6a-4b (h=3p^4q²). Counting edge, wedge/triangle and four-vertex support multiplicities yields exact Var Q_n, while the standard triangle support expansion yields exact Var T_n. At p0=2/3, a=0, b=320/59049,c=784/19683; directly recomputed exact coefficients and the n^5 variance constant 160/177147. Substituting p=2/3+lambda/sqrt(n) gives limiting covariance -16lambda/2187 n^(9/2), VarT/n^4=16/729, VarQ/n^5=16lambda²/6561+160/177147 and hence -lambda/sqrt(lambda²+10/27). No CLT claimed. Finite enumeration through n=6 is source corroboration only.
 
-## Limitations and closest literature
-The claim is about moment correlations, not joint convergence in distribution; convergence is pointwise in fixed \(\lambda\). General induced-subgraph Fourier expansions predate the result, and uninspected earlier induced-count literature may contain an implicit or explicit equivalent. The complete 1990 Janson article was inaccessible. No independent scientific validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the surviving final claim is distinguished by mathematical implications from the inspected prior theorems; see four comparisons and the explicit residual priority risks.
+
+## value
+
+PASS
+
+The finite covariance sign is known, but the critical first-edge cancellation creates a different n^(-1/2) correlation transition, with exact universal profile 10/27 despite a sign root displaced by only O(1/n). This is a natural, interpretable exceptional-density phenomenon for two basic graph motifs, not an arbitrary normalized lookup. Precise boundary law can inform graph-statistical inference at exceptional densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
