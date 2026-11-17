@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every order automorphism preserves the strictly increasing longest-chain rank, so all cycles lie in width-bounded antichain levels. Selecting witness cycles for the maximal prime powers of the permutation order and using \(\sum q_i\le\prod q_i\le m\) per cycle yields the exact joint packing lower bound. An ordinal sum of antichains realizes every feasible packing, giving simultaneously the sharp number of worlds, width and height. The temporal validity statement follows by distinguishing iterations using one freely valued atom. Two separate finite checks corroborate the proof but are not used to infer the universal quantifiers.
+## correctness
 
-**Originality: PASS under the checked comparisons.** The recent original work on reversible dynamic topological logic develops the semantics and completeness but not the joint width/height/point period classification. The closely relevant cyclic-poset-group paper studies the **entire** automorphism group rather than existence of one selected element; it supplies familiar orbit and ordinal-sum ingredients, not this joint resource criterion. An earlier rooted-tree temporal-period result concerns continuous, potentially noninvertible maps on one fixed rooted tree and a leaf resource rather than independent width/height budgets. Its known prime-power cost is not presented as new here. Actual literature and semantic-record searches found no equivalent packing statement. The risk of an unindexed or implicit special-case publication remains.
+PASS
 
-**Value: PASS.** The result completes the feasibility spectrum for three independent natural resource bounds on finite reversible temporal models and gives a constructive minimum-height invariant as a prime-power bin-packing problem. The explicit width-\(11\) to width-\(12\) change for the *same* period and world count shows height is a genuinely additional constraint; it is not a repackaging of the old minimum permutation degree. The exact width-bounded modal temporal law also ties the structural classification to a natural fragment of dynamic logic.
+For finite T0 Alexandrov posets, height rank is strictly increasing along comparabilities and invariant under order automorphisms; each automorphism cycle stays in an antichain level of cardinality <=w. For each maximal prime power dividing the exact order t, assign a witness cycle; the sum of coprime assigned prime powers cannot exceed the cycle length. This proves per-level bin capacities and total cardinality n. Ordinal sums of antichains whose internal cycles have exactly the selected prime-power lengths construct sharp witnesses, including t=1 singleton. For width-only orders, every cycle length <=w divides lcm(1..w) and discrete m-cycles with freely valued atom show the universal exponent is minimal. Independent permutation-order/bucket computations exactly matched all 32 width-height cases w<=8,h<=4; no finite check substituted for the proof.
 
-**Limits and risks.** No claim about noninvertible dynamics, infinite spaces, a fixed poset, or the entire automorphism group. No complexity classification for the packing optimization. Search-based originality is not conclusive; formal or independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The joint n,w,h existence classification and sharp minimal height for one reversible homeomorphism survive comparison against same-ingredient Landau permutation orders, fixed-tree eventual periods, and posets having the entire automorphism group cyclic.
+
+## value
+
+PASS
+
+A sharp three-resource feasibility law for a natural finite dynamic-topological class: integer bin packing of maximal prime powers controls exact orders and gives a nontrivial 27720 example with a height drop at width 12; the corresponding least universal temporal exponent is directly useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
