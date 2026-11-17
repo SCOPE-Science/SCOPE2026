@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:52:53.832155Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any n>=1 with at most four positive constant runs, symbol totals and mixed 2-/3-subsequence counts distinguish <=3 run types and each same-start four-run word. For w=0^a1^b0^c1^d, p=N10=bc, N010=ap and N101=dp recover a,d and then b,c. Comparing an opposite-start source with the same deck forces t=p/(AB-p)>0 and ad t(t-1)=0; positive a,d force t=1, so its unique possible partner is the reversal and requires 2bc=(a+c)(b+d). Pair-subsequence double counting shows fairness suffices for all triple-pattern equality. The fourth-deck difference N0010-N0100=abc(a-c)/2 is nonzero because fairness forces c>a; thus order4 is injective within this source family. Counting unique zero-start fair pairs with A=a+c and b gives the displayed divisibility sum F_n; all fibers have one or two elements and count T_n-F_n. The direct independently implemented DP exhaustively verified n=1..12 and F7=2,T7=84, 82 restricted distinct decks. That finite check corroborates but does not prove the all-length identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Angal et al Theorem 1.3: r′(B_ell)<=2ell; for ell=2 yields order4 in-class injectivity for a larger class.",
+          "The full 2025 fair-word analysis studies 2-binomial equivalence and its nonpalindromic length-seven witnesses."
+        ],
+        "reasoning": "Known order-4 sufficiency is explicitly not novel, and the earlier 2-binomial fairness phenomenon cannot determine the exhaustive stronger length-three fiber relation and divisor sum.",
+        "searches": [
+          "https://arxiv.org/pdf/2610.41110",
+          "Resultary semantic: binary at most four runs and k-deck reconstruction 3 binomial",
+          "https://arxiv.org/pdf/2510.07159"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2610.41110",
+        "https://arxiv.org/pdf/2510.07159",
+        "https://arxiv.org/abs/2201.12671",
+        "https://doi.org/10.3934/amc.2021032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem1.3 of Angal establishes a 4-deck upper bound only, not 3-deck collisions; Richomme Section5 establishes fair words and 2-deck equivalences, not the specific higher-order necessary-and-sufficient condition."
+        ],
+        "reasoning": "Earlier theorems partially imply easy pieces, but neither proves every 3-deck class is a singleton/doubleton with the displayed fair equation or the all-length T_n-F_n census.",
+        "searches": [
+          "https://arxiv.org/pdf/2610.41110",
+          "https://arxiv.org/pdf/2510.07159",
+          "Resultary semantic: binary words at most four runs three binomial equivalence fibers reversal fair words reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Richomme Section 5 treats fair binary words through 2-binomial equivalence N01=N10 and reversal, not the exact full length-3 deck fiber on the four-run class.",
+          "Angal et al considers 2 one-runs, not the exact full 3-deck equivalence classes."
+        ],
+        "reasoning": "Fairness is a necessary and sufficient condition for a word to have equal 2-deck to its reverse; the submitted converse that every 3-deck ambiguity must be such a reversal, and its factorization/census, is additional.",
+        "searches": [
+          "Resultary semantic: binary words at most four runs three binomial equivalence fibers reversal fair words reconstruction",
+          "https://arxiv.org/pdf/2510.07159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known earliest non-palindromic fair word length seven agrees with this n=7 boundary but does not count or characterize all three-deck doubletons for n.",
+          "Submitted exact F_n uses bounded divisibility 2b | A(n-A), unlike the enumerations of all fair words."
+        ],
+        "reasoning": "No known external table of the same restricted 3-binomial fiber counts was found; generic fair word counts or known first witness are not an exact table for these fibers.",
+        "searches": [
+          "Resultary semantic: fair word four-run exact three-deck fiber count",
+          "https://arxiv.org/pdf/2510.07159",
+          "https://arxiv.org/pdf/2610.41110"
+        ]
+      },
+      "rationale": "The restricted 4-deck bound and fair-word concept were already published; they are not new. The claim that every restricted three-deck fiber is singleton or exactly one fair reversal with necessary-and-sufficient equation and the complete all-n divisor census is not provided by those papers or by the relevant indexed results. Best-of-knowledge originality with a residual risk of unindexed 3-binomial restricted-class fiber results.",
+      "residual_risks": [
+        "Potential equivalent 3-binomial low-run classification in unindexed combinatorics-on-words literature.",
+        "The optimal code size is exclusively in-class; words with more runs may share these decks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL",
+          "evidence": "Theorem1.3 already yields the four-deck upper bound; not an enumeration of 3-deck restricted fibers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41110",
+          "material_read": "Theorem 1.3, definitions of r′(B_ell) and related reconstruction bounds, inspected PDF theorem page 2",
+          "method": "Read accessible full-text PDF sections and visual screenshot of theorem",
+          "title": "Deck Reconstruction for Restricted Word Classes",
+          "trigger": "Same bounded-run source via at most two one-runs"
+        },
+        {
+          "assessment": "PARTIAL",
+          "evidence": "The fair-word definition N01=N10 and two-binomial reversal facts are prior, but no complete restricted 3-deck four-run fiber formula is stated in inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.07159",
+          "material_read": "Abstract, Section 3 binomial definition, Section 5 fair-word properties incl p23-25, Lemma 5.5 and smallest length-seven examples",
+          "method": "Read primary 37-page PDF relevant sections and screenshot pp24-25",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Fairness and reversal are essential submitted mechanisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Bounded-run binary words are a natural reconstruction class. The theorem identifies every source ambiguity, its unique reversal mechanism, the exact integer-divisibility census, and the optimal number of codewords when encoder and decoder both restrict to that class. This is a complete all-length natural classification not mechanically implied by the previously known order-four upper bound or the known fair-word examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Complete three-binomial-deck fiber classification and divisor census within binary words having at most four runs",
+  "limitations": [
+    "All code/collision results are relative to R_{n,4}; no unrestricted binary reconstruction claim.",
+    "Numerical enumeration through 12 is supporting data, not the infinite proof; existing 4-deck upper bound credited.",
+    "Historical priority remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
