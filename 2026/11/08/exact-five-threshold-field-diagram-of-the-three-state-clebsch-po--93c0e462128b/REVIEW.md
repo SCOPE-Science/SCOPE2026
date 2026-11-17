@@ -1,19 +1,21 @@
-# Review of the exact Clebsch Potts field classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is defined unambiguously as the five-regular folded cube with 16 vertices and 40 edges, not its ten-regular complement. The named three-color Hamiltonian, sign conventions, real-field quantifiers and coupling normalization are explicit. The proof partitions all \(3^{16}\) states into three named color classes and uses an exact integer induced-edge recurrence, so no extrapolation or statistical sampling occurs. Independent base-three enumeration directly recomputes every bond penalty. Exact rational affine-envelope comparisons certify five and only five crossings, including otherwise collinear additional sectors. The saturation count is separately explained by an independent-set polynomial and exact subset enumeration. Verified reproduction from the embedded code and data matched all numbers.
+PASS
 
-## Originality — PASS on examined evidence, with historical risk
+For vertices F2^4 and XOR generators 1,2,4,8,15, the five-regular Clebsch graph has 40 edges. The partition into three named spin subsets gives exact monochromatic penalty e(S)+e(T)+e(U). Independently implemented an all-2^16-subset induced-edge recurrence plus complete enumeration of 3^16=43,046,721 ternary assignments; independently reproduced all 17 b_k,c_k sector entries, five lower-envelope rational crossing fields -5/4,0,1,11/3,5, zero-field degeneracy 720, and I_C(2)=4065. Finite exhaustive computation proves this one finite graph; affine lower-hull inequalities cover every real field value.
 
-Relevant primary comparisons: DeVos–Šámal (arXiv:math/0602580, graph-homomorphism/folded-cube theorem); Shrock–Xu (arXiv:1009.1182, general field Potts graph families); Klazar–Loebl–Moffatt (arXiv:1311.4348, graph-polynomial equivalence). The accessible HTML texts were inspected for the graph, model, graph families, appendices and evaluation claims. General partition-function identities formally apply to the graph but neither directly supplies the evaluated sector minima, five exact field thresholds and labeled coexistence multiplicities. The Clebsch graph's four-chromaticity, Ising two-color limit, and saturation independent-set mechanism are known or generic background, not separately asserted as original. Search of relevant mathematical records and other explicit graph-spin cases did not find the same numerical classification. An unindexed Clebsch graph-specific Potts computation remains a genuine priority risk; a negative search is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Clebsch graph is a canonical uniquely determined strongly regular triangle-free graph, a folded hypercube and a standard four-chromatic obstruction. Its three-color antiferromagnet is necessarily frustrated, so the exact minimum of three monochromatic bonds, 720 zero-field states, five distinct field thresholds, and six-sector saturation coexistence answer natural finite statistical-mechanics questions rather than an arbitrary parameter slice. The complete labeled multiplicities provide a reproducible benchmark for three-state ground-state algorithms on a highly symmetric nonplanar 16-site system. This does not purport to establish a general thermodynamic phase transition or a universal theorem for all regular graphs.
+Best-of-knowledge original at the exact final claim level after statement-level comparison with identified published results; credits previously known subclaims, keeps specific access and archival risks.
 
-## Limits
+## value
 
-The finding is a complete result for this finite graph and no more. High-level graph-polynomial frameworks are prior art. Priority remains provisional pending broader historical inspection, and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The five-threshold field response and exact degeneracies are natural frustrated-graph invariants because this Clebsch graph is four-chromatic, regular and vertex-transitive; explicit sector optimization is not obtained from generic partition-function existence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
