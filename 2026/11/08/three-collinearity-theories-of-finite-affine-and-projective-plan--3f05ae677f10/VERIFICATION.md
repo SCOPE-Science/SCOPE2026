@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-`verify.py` was executed using Python 3 with no third-party dependencies. `VERIFY.out` is the exact captured standard output. The checker enumerates every ordered stationary triple (with repetitions) and all one-point extension types in finite prime-field affine/projective planes of orders 2, 3, and 5. It verifies equality of extension catalogues inside each predicted four-variable class and their separation between classes. The checker does not enumerate arbitrary finite planes, prove historical priority, or replace the general geometric extension argument.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The four-pebble game forgets one position and retains <=3 atomic anchors. For <=3 stationary points, equality and ternary collinearity extension types depend only on whether line size is 2,3,>=4. Three noncollinear anchors leave q^2-3q+3 off-pair-line points in affine and (q-1)^2 in projective planes, both positive for every q>=2. Permanent matching one-step extension proves unrestricted-depth FO^4 equivalence; 3- and 4-distinct-collinear sentences separate classes and 5-variable existence of two disjoint pair-lines separates affine/projective. Works for non-Desarguesian existing planes, not assumed every numerical order. Proof is general, finite prime-field examples are only corroboration.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel relative to inspected specific priors and primary literature; residual source-access risks as recorded.
+
+## value
+
+PASS
+
+Complete four-variable theory classification of natural finite incidence structures, with an unexpectedly sharp affine/projective indistinguishability and five-variable parallelism boundary; substantial logical structure, not a routine formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
