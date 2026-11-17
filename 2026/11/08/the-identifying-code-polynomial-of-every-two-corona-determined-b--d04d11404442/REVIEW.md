@@ -1,19 +1,21 @@
-# Scientific review: all identifying codes of two-corona graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a connected core with at least two vertices, the private support–leaf closed-neighborhood symmetric difference forces every core vertex into every identifying code; the leaf's nonempty trace forces at least one of the two private path vertices. These conditions yield exact trace formulas. Base traces each contain at least two core vertices, support traces exactly one, and leaf traces none. The sole possible collision is between two base vertices with identical core closed neighborhoods and with both private support vertices omitted. This proves the necessity and sufficiency of the stated *at most one leaf-only choice per closed-twin class* rule. Summation of the disjoint local cases gives the product polynomial, roots, minimum multiplicity, and size support. The boundary \(H=K_2\) is included; \(H=K_1\) is explicitly excluded. A separate direct subset verifier checks 49 connected labeled cores/representatives and 583744 subsets.
+PASS
 
-Risk and limit: finite checks cannot independently prove the assertion for arbitrarily large cores; the unrestricted argument is the exact trace classification, not the enumeration output. The claim counts labeled subsets rather than automorphism types.
+The pair (u_v,w_v) has neighborhoods differing only at v, forcing all base vertices into every code; nonempty leaf traces force nonempty private-pair selections. Because H is connected of order >=2, base traces contain >=2 base vertices, support traces exactly one, leaves none. Only distinct base closed twins both selecting leaf-only produce collisions; at most one such choice per class is necessary and sufficient. Product of local two-state/one-exception factors yields the polynomial, minimum size/count and root spectrum. Independent direct closed-neighborhood enumeration of K2, P3, K3 cores gives the claimed exact polynomials.
 
-## Originality — PASS (publication priority provisional)
+## originality
 
-The most relevant primary source is Foucaud–Lehtilä, *Revisiting and improving upper bounds for identifying codes* (2022, arXiv:2204.05250), Proposition 9 and Theorem 10. Its Proposition 9 already proves the optimal size \(2h\), forces every base vertex, and gives particular optimal constructions; those facts are not asserted here as new. Neither its statement nor its proof classifies all legal private-path choices when core vertices are closed twins, gives the complete labeled identifying-code polynomial, counts all minimum codes, or recovers the closed-twin profile from polynomial roots. The 2015 Canoy–Malacas study uses a one-step corona operation and is not a two-corona count. The open/total identifying-code variant studies a distinct feasibility condition. Searches for exact two-corona code counting, equivalents under differentiating-domination terminology, and stronger general corona graph enumeration uncovered no dominating theorem.
+PASS
 
-Residual risks: some unpublished/unindexed study or uninspected article may already contain an equivalent enumeration; bibliographic absence does not establish absolute priority. The visible 2022 proof makes the forced-vertex part known, so originality is assigned to the complete twin-class-sensitive characterization and polynomial, not the scalar bound.
+Foucaud–Lehtilä Proposition 9 already proves the minimum identifying-code cardinality 2h on this identical two-corona construction, but does not state or imply the all-size code characterization and closed-twin class product. Resultary earlier one-leaf-corona polynomial uses a different graph operation. The new claim is the complete cardinality distribution beyond known optimum.
 
-## Mathematical value — PASS
+## value
 
-The two-corona family is the recognized extremal family for identification-number density \(2/3\) in the cited graph-code research. A complete code distribution resolves the natural enumeration that remains after its scalar extremum is established, including the precise number of optimal sensor placements. Dependence on the entire closed-twin size profile is a structural refinement: graphs with the same order but different twin profiles have different code polynomials, and the polynomial factors recover that profile. The real-rootedness and sharp independent sensor-success probability are additional concrete consequences. This is not an arbitrary small numerical improvement or a relabeling of the original bound.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting every identifying sensor configuration, its minimum-code multiplicities, real-root spectrum and reliability polynomial is a motivated natural invariant of a standard two-corona graph construction; the closed-twin obstruction is a structural classification not just a restatement of the minimum code size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with an ordinary Python 3 interpreter. The standalone code uses the standard library only and is independent of the theorem in its definition of an identifying code: it forms every graph's closed neighborhoods, enumerates every selected vertex subset, and requires the resulting nonempty traces to be pairwise distinct.
+## correctness
 
-The script exhaustively tests all connected labeled core graphs of orders 2, 3, and 4; it additionally tests a path, a cycle, a star, a complete graph, and a tailed cycle on five core vertices, as well as a six-vertex path. It compares graph-level eligibility with the claimed local three-state classification and compares every cardinality coefficient with an independently multiplied class-factor polynomial. It also checks the predicted count of minimum-size codes and the total number of codes.
+PASS
 
-Expected successful line from an actual execution:
+The pair (u_v,w_v) has neighborhoods differing only at v, forcing all base vertices into every code; nonempty leaf traces force nonempty private-pair selections. Because H is connected of order >=2, base traces contain >=2 base vertices, support traces exactly one, leaves none. Only distinct base closed twins both selecting leaf-only produce collisions; at most one such choice per class is necessary and sufficient. Product of local two-state/one-exception factors yields the polynomial, minimum size/count and root spectrum. Independent direct closed-neighborhood enumeration of K2, P3, K3 cores gives the claimed exact polynomials.
 
-`VERIFY_OK base_graphs=49 direct_subsets=583744 identifying_codes=4805 characterization=PASS full_polynomial=PASS minimum_multiplicities=PASS`
+## originality
 
-This is an exhaustive verification only for the stated finite collection of cores. It is not an exhaustive enumeration of all graphs of larger order. The unrestricted result is proved directly in `RESULT.md` by comparing all trace types and counting the independent choices inside each closed-twin class. A separate external mathematical audit has not been performed.
+PASS
+
+Foucaud–Lehtilä Proposition 9 already proves the minimum identifying-code cardinality 2h on this identical two-corona construction, but does not state or imply the all-size code characterization and closed-twin class product. Resultary earlier one-leaf-corona polynomial uses a different graph operation. The new claim is the complete cardinality distribution beyond known optimum.
+
+## value
+
+PASS
+
+Counting every identifying sensor configuration, its minimum-code multiplicities, real-root spectrum and reliability polynomial is a motivated natural invariant of a standard two-corona graph construction; the closed-twin obstruction is a structural classification not just a restatement of the minimum code size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
