@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The complete three-strategy simplex vector field is reconstructed from the original cyclic pairwise and symmetric triadic matrices. The oriented orthonormal reduction preserves physical time, gives \(\mu=-D(a-a_*)/18\) with \(\omega>0\), and yields an exact degree-four polynomial. The nonresonant quadratic removal contributes only an imaginary cubic correction, leaving the exact radial coefficient \(\ell=C(1-\beta)/(2D)\). At \(\beta=1\), exact polynomial reflection identities establish time reversibility, and the reflection-fixed transversal plus half-turn return argument proves a genuine local period annulus. The checker reproduces all parameter-symbolic identities from the explicit matrices. The analytic Hopf/center theorem, not numerical sampling, supports the infinite statements.
+
+## Originality — PASS within the inspected evidence
+Griffin and Wu, *Higher Order Dynamics in the Replicator Equation Produce a Limit Cycle in Rock-Paper-Scissors* (arXiv:2301.02518, 2023), identify the same Hopf surface and numerically observe subcritical oscillations. Those are credited as established. Their inspected model and local analysis do not state the exact all-parameter cubic Lyapunov coefficient or the genuine reversible center at the boundary \(\beta=1\). Griffin, Feng and Wu, *Spatial Dynamics of Higher Order Rock-Paper-Scissors and Generalisations* (arXiv:2312.16722, 2024), calculate a coefficient in a different, four-dimensional spatial travelling-wave system, whose matrices and phase space differ. Equivariance and reversibility literature supplies tools, but the model-specific expressions are distinct. The searched mathematical index returned related Hopf or cyclic-game work on different vector fields. Unindexed computations, earlier general reversible-center formulations, and inaccessible alternative sources remain publication-priority risks; a failed search alone would not prove uniqueness.
+
+## Value — PASS
+The 2023 model's numerically diagnosed Hopf sign is upgraded to an exact analytic parameter-wide sign, and the mathematically distinguished, admissible endpoint is proved to change type from repelling cycles to a whole local annulus of neutral oscillations. This is a structural boundary of a natural published model, not a parameter substitution or isolated numerical curiosity. It cleanly separates nondegenerate Hopf criticality from a genuinely integrable local center. No global dynamics or far-field orbit count is claimed.
+
+## Source comparison and remaining limits
+The original 2023 full model matrices and Hopf locus were inspected against the exact reconstructed field. The 2024 published follow-on treats a spatial wave reduction rather than the well-mixed two-dimensional simplex. An index search identified no same-model stronger result in the checked subset, but incomplete coverage is explicitly a residual priority risk. The proof does not establish global uniqueness or a global center, and the exact amplitude uses a fixed normalization.
+
+Self-review: passed. Independent audit: not yet performed.
