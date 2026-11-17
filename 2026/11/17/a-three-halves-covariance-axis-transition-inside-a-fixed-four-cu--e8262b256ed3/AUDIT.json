@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The exact orthogonal parameterization of the three-dimensional section has constant Euclidean Jacobian \\(2\\sqrt{2(t^2+1)}\\), with rectangular fibers \\(|a|\\le1-t|B|\\) and \\(|b|\\le1-|B|\\). The complete real-parameter covariance spectrum follows from the three displayed one-variable beta-polynomial integrals, plus vanishing mixed moments by reflection and conditional symmetry. All three rational eigenvalue differences are factored and signed, proving \\(\\lambda_B\\) largest for \\(t>1\\) and the single least-eigenspace switch at \\(t=3/2\\). The volume derivative and the constant-face-type assertion have independent elementary proofs. The supplied actual path artifacts/verify.py reproduced 15 profiles (118 vertices, 176 tetrahedra) using exact rational moments and checked all symbolic identities; finite tests support, rather than replace, the all-real proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brandenburg–De Loera–Meroni arxiv:2304.14239 Theorem 2.4 gives a general piecewise rational description of integrals of polynomials on sections; their Example 2 computes second-moment expressions for a pentagon, not this four-cube family.",
+        "Their Section 4 gives general algorithms, but no evaluated spectrum or crossing at \\(t=3/2\\).",
+        "Ambrus–Gárgyán arxiv:2307.03792 determines statements about extrema and derivative Hessians of section volume, not the internal covariance tensor."
+      ],
+      "reasoning": "A general integration algorithm covers computability, a substantial antecedent explicitly acknowledged here. The new theorem is a fully evaluated special-family classification including a real-parameter spectral sign change and eigenspace multiplicity; the inspected general coverage does not already state or logically fix those explicit values without carrying out the missing special computation. The known \\(t=2\\) volume event is excluded from originality.",
+      "searches": [
+        "Brandenburg De Loera Meroni piecewise rational section moments covariance of four cube pair weights",
+        "arxiv:2304.14239 Theorems 1.1, 2.4 and polynomial moment integration",
+        "arxiv:2307.03792 full article section volume functional"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2107.14778",
+      "arxiv:2307.03792",
+      "arxiv:2304.14239",
+      "arxiv:2108.00618",
+      "published:2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac",
+      "published:2026/10/11/SCOPE-exact-ridge-area-profile-for-symmetric-four-dimensional-sections--bd1b77b94571",
+      "published:2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ambrus arxiv:2107.14778 already proves \\(t=2\\) is volume-critical; that consequence is not claimed as new.",
+        "Jevtić–Živaljević arxiv:2108.00618 Theorem 13 identifies the \\(t=1\\) section as a median hypersimplex by affine equivalence, not all t nor the covariance transition.",
+        "Brandenburg et al. 2023 implies the moments can be computed on chambers, but supplies no explicit evaluated \\(t=3/2\\) eigenspace exchange."
+      ],
+      "reasoning": "The exact new implication is \\(\\lambda_C(t)-\\lambda_A(t)=\\dfrac{(t-1)(3-2t)}{5t^2(3t-1)}\\) for \\(t\\ge1\\), while \\(\\lambda_B\\) exceeds both when \\(t>1\\). It yields an internal covariance eigendirection transition at \\(t=3/2\\) inside a constant face lattice. These comparisons do not follow from the previously established volume criticality at \\(t=2\\), the \\(t=1\\) combinatorial identification, or an uninstantiated generic algorithm without a new evaluation.",
+      "searches": [
+        "arxiv:2107.14778 Theorem 3 (1,1,2,2)",
+        "arxiv:2108.00618 Theorem 13 median hypersimplex",
+        "arxiv:2304.14239 Theorem 2.4 general moment algorithm",
+        "uniform volume covariance spectrum of central sections of the four cube with normal (1,1,t,t), crossover t=3/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ambrus arxiv:2107.14778 Theorem 3 classifies volume critical sections; its four-dimensional proof treats facet-volume stationarity and identifies \\((1,1,2,2)\\).",
+        "Ambrus–Gárgyán arxiv:2307.03792 develops Hessians of the section-volume function with respect to the normal; this is distinct from covariance within a fixed section.",
+        "No evaluated three-eigenvalue within-section covariance spectrum appeared in the inspected material."
+      ],
+      "reasoning": "A Hessian of the map normal -> section volume is not the covariance of the uniform measure on that section. A vertex-covariance, facet count, section volume, or projection covariance likewise differs. The four-coordinate intrinsic covariance formulas and \\(t=3/2\\) eigenspace exchange are not equivalent to the previously derived stationary volume normal \\(t=2\\).",
+      "searches": [
+        "uniform volume covariance spectrum of central sections of the four cube with normal (1,1,t,t), crossover t=3/2",
+        "continuous inertia tensor and least-eigenvalue switch for 4D hypercube sections, 3/2 and 2",
+        "four dimensional hypercube central slice (1,1,t,t) covariance eigenvalues variance threshold 3/2",
+        "four cube weighted hyperplane sections second moments covariance t=1.5",
+        "two symmetric pairs hypercube sections moment inertia spectral transition",
+        "central hyperplane section 4-cube second moments inertia tensor two equal pairs",
+        "arxiv:2107.14778 sections 2 and 4",
+        "arxiv:2307.03792 sections 1,4,5,6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest identified published record 2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac concerns distribution of face vectors of Haar-random central four-cube slices, not moments of a uniform point in a deterministic slice.",
+        "Record 2026/10/11/SCOPE-exact-ridge-area-profile-for-symmetric-four-dimensional-sections--bd1b77b94571 concerns ridge areas of four-dimensional sections of a five-cube, distinct dimension and invariant.",
+        "There is no known checked table giving the three rational functions and their sign factorization for the indicated section family."
+      ],
+      "reasoning": "Compared actual objects, measures, normal families, invariants, and implications rather than title similarity. Search absence is not proof of novelty; remaining historical equivalence is recorded as a risk.",
+      "searches": [
+        "uniform volume covariance spectrum of central sections of the four cube with normal (1,1,t,t), crossover t=3/2",
+        "continuous inertia tensor and least-eigenvalue switch for 4D hypercube sections, 3/2 and 2",
+        "two symmetric pairs hypercube sections moment inertia spectral transition",
+        "uniform continuous covariance of median hypersimplex central hypercube slice coordinates second moments",
+        "sliced cube by zero sum hyperplane covariance exact formula second moment"
+      ]
+    },
+    "rationale": "The published 2021 four-cube critical-section paper supplies the exact volume-critical normal \\((1,1,2,2)\\), not the covariance of the uniform-volume distribution in its sections. The 2023 cube-section paper also treats normal-direction volume Hessians, which are not the within-section inertia tensor. The 2023 general moments paper implies that such moments are algorithmically computable, but does not give the evaluated three-eigenvalue spectrum or exact least-eigenspace transition at \\(t=3/2\\); the equal-weight hypersimplex identification only handles the \\(t=1\\) endpoint. Multiple specific semantic searches and previous-claim comparisons found no implication that supplies the exact new result. Historical priority remains provisional; generic integration could facilitate an independent derivation, not automatically establish this particular evaluated identity.",
+    "residual_risks": [
+      "A not-located source may have evaluated the same moment tensor in differently normalized coordinates or under section inertia terminology.",
+      "The broad polytope-section moment algorithm can derive the result with explicit computation and is stronger in scope of calculability, though it does not state the evaluated crossing.",
+      "Only the published search-record abstract, not full text, was read for the closest random-face-vector record; its object and measure differ materially.",
+      "Historical priority and independent mathematical validation have not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Documents volume stationarity of \\((1,1,2,2)\\) and related facet-volume identities, not within-section covariance spectrum",
+        "evidence": [
+          "Theorem 3: non-diagonal critical normal proportional to \\((1,1,2,2)\\).",
+          "Equation (4.9) identifies that normal in its volume proof.",
+          "The paper defines and optimizes the scalar section volume function."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2107.14778",
+        "material_read": "Abstract, introduction, Theorems 1–3, Sections 2 and 4 including pages 2, 7–10 and explicit Theorem 3 proof around equation (4.9); full-text term checks for covariance, variance, moment",
+        "method": "Legitimate full-text PDF rendering and textual inspection",
+        "title": "Critical central sections of the cube",
+        "trigger": "Direct same curve and exact volume-critical parameter \\(t=2\\)"
+      },
+      {
+        "assessment": "Controls volume critical points and parameter-normal Hessian, not the interior-point covariance eigenspectrum",
+        "evidence": [
+          "Theorems 1.1 and 1.2 concern section-volume extrema and existence of critical normals.",
+          "Section 4 Hessian of volume functional is a different object.",
+          "No within-section covariance-eigenvalue formula found."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.03792v4",
+        "material_read": "Full-text Sections 1, 2, 4, 5, 6, theorem statements, Hessian formulas, and searches for covariance/moment",
+        "method": "Open arXiv HTML primary full text and compare source equations",
+        "title": "Non-diagonal critical central sections of the cube",
+        "trigger": "Same cube and arbitrary directions, potentially broader coverage"
+      },
+      {
+        "assessment": "General exact piecewise-rational computability applies, but no special computed four-cube covariance spectrum or sharp three-halves crossing",
+        "evidence": [
+          "Theorem 2.4: piecewise rational polynomial integrals over central sections.",
+          "Example 2 evaluates first and second moments on pentagon slices, not this family.",
+          "General algorithms could reproduce a new result by additional work."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.14239v1",
+        "material_read": "Full-text introduction, Sections 2.1, 3, 4, Theorem 2.4 and Example 2 describing moments of pentagon slices",
+        "method": "Open arXiv HTML primary full text, inspect general theorem and moment example",
+        "title": "The Best Ways to Slice a Polytope",
+        "trigger": "Could dominate via exact formulas for polynomial moment integrals over arbitrary sections"
+      },
+      {
+        "assessment": "Identifies equal-weight median-hypersimplex boundary up to affine equivalence; no weighted family or interior covariance transition",
+        "evidence": [
+          "Theorem 13 identifies the zero-sum hypercube section with a median hypersimplex when dimension is even."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.00618v1",
+        "material_read": "Theorem 13 and proof, Sections on Van Kampen–Flores polar and hypersimplex identification",
+        "method": "Open arXiv HTML primary full text and inspect theorem and proof",
+        "title": "Bier spheres of extremal volume and generalized permutohedra",
+        "trigger": "Equal-weight \\(t=1\\) slice can be represented as median hypersimplex"
+      },
+      {
+        "assessment": "Haar-random face-vector distribution and its threshold concern another measure and invariant, not deterministic uniform-volume covariance",
+        "evidence": [
+          "The record states a two-point law for random section face vectors, rather than an interior covariance result."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac",
+        "material_read": "Published search-record title and mathematical abstract/summary only; full paper not accessed",
+        "method": "Published mathematical-record semantic comparison",
+        "title": "Exact two-point face-vector law for random central sections of the four-cube",
+        "trigger": "Closest published semantic-search record with same four-cube sections"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e8262b25-6ed3-428e-becd-b54b78445b20",
+  "value": {
+    "rationale": "This is the exact classification of a natural intrinsic second-moment invariant of the one-parameter family of central four-cube slices containing the previously discovered non-diagonal volume-critical normal \\((1,1,2,2)\\). It identifies a sharp least-variance axis exchange at \\(t=3/2\\) inside a constant face-lattice chamber, distinct from scalar-volume stationarity at \\(t=2\\), and completely determines the three eigenvalue functions and condition number. That separation between intrinsic inertia and section volume is a structural mathematical fact, not a pre-existing scalar volume formula or an arbitrary finite sample. The narrow family is justified by its role in known critical-section geometry.",
+    "status": "PASS"
+  }
+}
