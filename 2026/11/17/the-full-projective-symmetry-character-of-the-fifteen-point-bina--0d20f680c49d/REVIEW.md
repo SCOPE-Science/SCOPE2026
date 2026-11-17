@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The group is exhaustively parameterized by all \(20160\) ordered independent binary bases. The character formula is derived by direct oriented simplex signs and the rational Hopf trace theorem, not extrapolated from examples. The exact exhaustive cycle-union enumeration returns the stated twelve profiles; separate direct oriented-chain traces verify one representative per profile. The concentration of rational homology in degree four is independently supported by the already published integral Morse classification (\(77\) free fourth-homology generators and one order-two third-homology class). The exact sum of all character values is zero.
+
+**Originality — PASS relative to inspected materials.** Forbes–Grannell–Griggs count independent subsets of Steiner triple systems, not group characters. The published binary projective three-space cap-complex homotopy theorem explicitly says that no automorphism-group action is asserted; its proof and limitations were materially read. Related published projective-plane cap results concern ternary rather than binary three-dimensional projective geometry. Searches of the available mathematical record and contemporary result index found no equivalent complete \(GL_4(\mathbb F_2)\) fourth-homology character or stronger formula implying its twelve profiles. Residual risk: an unindexed equivalent character computation may exist; a negative search cannot establish absolute priority.
+
+**Mathematical value — PASS.** The complete character is a natural equivariant invariant of the finite-geometric cap complex and distinguishes distinct classes of equal-order symmetries, where the ordinary homotopy type cannot. The disappearance of all \(77\) rational homology dimensions after quotienting by full projective symmetry is a nontrivial, exact topological consequence. It refines an already meaningful Moore-space decomposition without redundantly recomputing that decomposition.
+
+The claim does not give an integral representation, an integral quotient, an explicit irreducible decomposition, or a subgroup-by-subgroup fixed-space classification. Those stronger statements are neither assumed nor asserted.
+
+Self-review: passed. Independent audit: not yet performed.
