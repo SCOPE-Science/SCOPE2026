@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-From the directory containing these files, execute `python3 verify_ring.py` with an ordinary Python 3 interpreter. No external packages, internet services or downloaded data are required. The verifier enumerates every A/R/L configuration for all ring sizes 3 through 8. For each configuration it independently constructs the set of type-dependent cohesive subsets by testing the exact local neighbor conditions and searches for two disjoint cohesive subsets; this is compared with the cyclic R-to-L transition statement. It compares exact rational probabilities for two different type probability triples with the closed formula. It separately enumerates all A/T configurations of sizes 3 through 9 and tests the four-median boundary by the same subset enumeration. It prints `ALL CHECKS PASSED 10844 exact network-type configurations` on success.
+## correctness
 
-These are finite corroborating checks. The analytic steps giving validity for every cycle size are in `RESULT.md`. The cited Cheng–Mei consensus theorem is used as a known theorem; its original proof is not replicated by this local verifier. Asymptotics are justified analytically by exponential and binomial limits. This package does not contain any independent scientific audit or externally certified validation.
+PASS
 
-The exact distribution of all R-to-L switch counts is checked against full independent weighted type enumeration for two rational parameter triples at every tested strict-ring size. Closed communicating classes are computed by graph reachability, without using the count formula.
+For strictly biased two-neighbor medians the weighted absolute-deviation minimizer is the favored neighbor opinion, so all updates are a lazy stochastic linear map; averaging vertices have two positive neighbor arcs. Every proper closed interval must begin at R and end at L and each consecutive R-to-L median pair together with intermediate A sites is a closed communicating class. Mixed R/L words have exactly J such recurrent classes; monochromatic reduced words (including empty) have one. Lazy finite Markov chains converge to classwise constants and harmonic transient extensions. Conditional on k median sites, exactly j cyclic R-runs and j L-runs give the factor k/j times two run compositions; binomially place sites to derive the full distribution and the differentiated-binomial closed consensus formula. With exact-half medians any interval with two T endpoints is cohesive, yielding two disjoint iff at least four T. Independently checked recurrent SCC counts for all 3267 type words n<=7 and probability identities 40 rational configurations. This is bounded corroboration, not an infinite proof.
+
+## originality
+
+PASS
+
+PASS qualified: the original Cheng–Mei mixed-averaging/median consensus criterion by disjoint cohesive sets is prior and fully acknowledged. The ring-specific oriented transition count, dimension of the limit subspace, exact iid fragmentation distribution and sparse/balanced boundary formulas are additional nontrivial quantified results, not stated in inspected available primary text. Full author PDF was inaccessible; a detailed article rendering was read and priority risk remains.
+
+## value
+
+PASS
+
+Complete graph-valued / class-count structural law and probability distribution for a natural heterogeneous ring response model, reducing an abstract disjoint-cohesive-set criterion to a one-dimensional transition statistic; independently meaningful even with a known general consensus criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

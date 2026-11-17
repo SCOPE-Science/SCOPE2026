@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from the precise all-initial-condition consensus criterion in Cheng and Mei, Definition 3 and Theorem 11, after verifying the ring-specific positive two-neighbor weight hypotheses and fixed adjustment coefficients. The new proof of the oriented boundary lemma treats proper cohesive subsets as unions of cyclic intervals. It proves both implications between two disjoint cohesive sets and two distinct R-to-L transitions among median vertices. Strict two-neighbor median dominance reduces the updates to a linear lazy stochastic matrix. The boundary-component argument determines the exact number of closed communicating classes and the dimension of the fixed space, rather than only consensus versus dissensus. A circular run-composition argument proves the complete probability distribution of class counts; the symmetric reliability formula and sparse scaling follow algebraically. Direct exhaustive finite checks independently enumerate cohesive subsets and all type assignments through eight vertices; the half-weight boundary is checked through nine vertices. In total 10,844 finite configurations were checked. This is proof supported by computation, not proof by finite experiment.
+## correctness
 
-## Originality — PASS, qualified
-Cheng and Mei (arXiv:2610.16406v1, October 12, 2026) already prove the general *qualitative* equivalence between universal consensus and absence of disjoint type-dependent cohesive sets, and compare random configurations experimentally. No novelty is claimed for that theorem, the median rule, or cohesion. The added exact **cyclic directional-run characterization**, the exact number and distribution of closed influence classes, the asymmetric iid assignment reliability probability, the sparse-type limit and the sharp exactly tied boundary were not found in its mathematical statements/supplement, in the original 2022 asynchronous pure-median analysis, the 2024 continuous-time analysis, or searched scientific records. The close antecedents are inspected in `AUDIT.json`. A general criterion can in principle decide every finite case by exhaustive subset enumeration, so this work's contribution is the new structural reduction and quantitative closed law, not a newly discovered abstract consensus criterion. Unindexed equivalent formulas remain possible.
+PASS
 
-## Mathematical value — PASS
-Opinion-dynamics studies distinguish universal consensus from convergence observed at one random initial condition. For a natural cycle population, the exact law quantifies the probability of guaranteed agreement under independent assignments of local decision mechanisms and shows a sharp sensitivity to directional weighting. The complete distribution of persistent classes, its finite consensus formula, sparse transition and exact tie boundary are directly reusable as structural benchmarks for mixed median/average models. No broader-network theorem or empirical fit is asserted.
+For strictly biased two-neighbor medians the weighted absolute-deviation minimizer is the favored neighbor opinion, so all updates are a lazy stochastic linear map; averaging vertices have two positive neighbor arcs. Every proper closed interval must begin at R and end at L and each consecutive R-to-L median pair together with intermediate A sites is a closed communicating class. Mixed R/L words have exactly J such recurrent classes; monochromatic reduced words (including empty) have one. Lazy finite Markov chains converge to classwise constants and harmonic transient extensions. Conditional on k median sites, exactly j cyclic R-runs and j L-runs give the factor k/j times two run compositions; binomially place sites to derive the full distribution and the differentiated-binomial closed consensus formula. With exact-half medians any interval with two T endpoints is cohesive, yielding two disjoint iff at least four T. Independently checked recurrent SCC counts for all 3267 type words n<=7 and probability identities 40 rational configurations. This is bounded corroboration, not an infinite proof.
 
-## Limits and verification
-This is a nearest-neighbor ring model with fixed weights, fixed types and no self-influence. It does not quantify consensus probabilities conditional on random initial opinions in configurations lacking the universal guarantee. The exact half-weight model requires the specified median projection tie rule. The packaged verifier checks finite cases using exhaustive subsets, while the proof handles all sizes. Bibliographic coverage is incomplete by nature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: the original Cheng–Mei mixed-averaging/median consensus criterion by disjoint cohesive sets is prior and fully acknowledged. The ring-specific oriented transition count, dimension of the limit subspace, exact iid fragmentation distribution and sparse/balanced boundary formulas are additional nontrivial quantified results, not stated in inspected available primary text. Full author PDF was inaccessible; a detailed article rendering was read and priority risk remains.
+
+## value
+
+PASS
+
+Complete graph-valued / class-count structural law and probability distribution for a natural heterogeneous ring response model, reducing an abstract disjoint-cohesive-set criterion to a one-dimensional transition statistic; independently meaningful even with a known general consensus criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
