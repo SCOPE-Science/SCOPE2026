@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Global single-valuedness and strict monotonicity follow from the cubic \(T(z)=z+z^3\), the parameter inequalities and explicit composition. The exact polynomial identity and the derivative identity reduce the orbit census, basin order and stability to convexity of a quartic on the positive half-line. The asymptotic clocks follow from actual fifth- and third-order signed expansions and telescoping reciprocal powers, not finite experiments. The standalone checker supports the exact identities and samples but is not an infinite certificate.
+
+**Originality — PASS within investigated evidence.** Oliveira (arXiv:2611.03336v1), Sections 6 and 8.3, proves a local degenerate-flip normal form with nonzero quintic coefficient; it does not give a global fold and full-basin classification for the entire \(\mu>-1,\nu>-2\) parameter region. General connected-space periodic-attractor obstructions (Elaydi–Sacker, 2005) neither imply the model's exact algebraic wedge nor invalidate it: the persistent lower-period orbit remains. The exact source, alternate amplitude formulation, general monotone-map implication, and nearest published indexed results were compared. The 2005 post-print PDF could not be obtained, leaving a bounded priority risk, but its abstract concerns a different global-attractor assertion.
+
+**Mathematical value — PASS.** The primary work studies a local degenerate period-doubling point; global dynamics need not be determined by a local jet. Here the entire regular family is classified by a sharp explicit fold and exact separating repeller, ruling out all other recurrent periods and quantifying the singular critical return clock. This supplies a complete, nonlocal benchmark for implicit periodically forced bifurcations, not an arbitrary parameter slice or a restatement of the local normal form.
+
+**Limitations and closest sources.** The result depends on globally monotone real implicit branches; it does not extend to multivalued branches or general planar implicit systems. Oliveira (2026), Section 8.3, is the closest source. Elaydi and Sacker (2005) provide a general divisibility obstruction, not these model-specific formulas. Complete historical priority and independent validation are unresolved.
+
+Self-review: passed. Independent audit: not yet performed.
