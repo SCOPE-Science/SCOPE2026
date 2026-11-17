@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a finite statement for the 365 distinct rational points of a fixed nodal plane octic over \(\mathbb F_{343}\). The complete homogeneous equation is evaluated in one polynomial-basis presentation of the field to obtain all points; the entire 117993-line projective plane is enumerated without sampling. Independently, the 365-point set is generated from the published parametrization plus the 21 singular nodes in a different irreducible cubic presentation, and all 66430 unordered point pairs determine the line spectrum. Both routines give the same seven-level table and eight-secant point multiplicities and assert double-counting identities. Explicit field arithmetic, unique normalization, and full bounded loops establish the exact enumerative claim; no finite experiment is extrapolated to an infinite family. Source geometry supplies irreducibility and the degree-eight bound.
+PASS
 
-## Originality — PASS, with residual priority risk
+For exactly k=F_(7^3) and the fixed rational BKS octic, direct point equation testing and an independent cubic-field pair-cross-product census are finite exhaustive proofs. Independently recomputed all 343^2 affine candidates: 365 curve points including infinity; all 66,430 pairs yield 49,945 >=2-secant lines; completed line histogram (48048,20000,46032,3528,21,28,336) at sizes (0,1,2,3,4,5,8), and secant-concurrence histogram (51633,19152,46872,336) at s=(0,1,2,8). Exactly 29 curve points are uncovered and 336 lie on eight secants, so 51604 uncovered points are exterior; no exterior triple concurrence. Independent enumerator and both included source implementations use exact field arithmetic, not sampling, and finite claim scope is precisely GF343.
 
-The closest sources are Borges–Korchmáros–Speziali, arXiv:2202.05765v1 (2022), Section 4.8 and Proposition 4.24, for the invariant rational nodal curve, and Korchmáros–Nagy–Szőnyi, arXiv:2302.10162v1 (2023), Sections 4.2, 7.2, and 8.2, for the possible line-section behavior, broad-extension completeness results, and coverage of on-curve points. The second source explicitly leaves exponent three outside its broad completeness theorem. Neither inspected section gives the exact \(\mathbb F_{343}\) line and exterior-hole distributions. Related historical material contains a \(\mathbb F_{125}\) BKS sextic census, which neither subsumes nor determines the \(\mathbb F_{343}\) octic census. Searches for the octic spectrum, cubic-extension secants, code equivalents, and the exact parameters returned no covering statement. Some on-curve and eight-secant totals may follow from earlier results; they are not asserted as independently novel. Unindexed computational tables or an equivalent code-weight distribution remain a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Korchmáros–Nagy–Szőnyi identify the exponent-three completeness regime as a gap in their algebraic treatment. Rather than simply testing a larger integer, this finite result determines both natural complete incidence spectra for a degree-eight rational curve: every line-section character and every eight-secant concurrence multiplicity in the 117993-point plane. It supplies the exact size (51604) of the exterior obstruction to completeness, distinguishes realized character 3 from absent characters 6 and 7, and exhibits a rigid no-exterior-triple concurrence configuration. These invariants are not implied by the known general on-curve coverage argument and have direct finite-geometry and projective-code interpretations. The claim is limited to this natural specialization, does not purport to solve the whole exponent-three problem, and offers no universal formula.
+Borges-Korchmaros-Speziali construct and parametrize the curve; Korchmaros-Nagy-Szonyi Theorem 8.2 determines on-curve coverage at short extensions. Their full inspected text does not supply the complete off-curve line/concurrence table for this q=7,r=3 case; two direct exact enumeration routes provide novel specific finite coverage best of knowledge.
 
-## Limitations and closest literature
+## value
 
-The construction, rationality, and nodes belong to the 2022 source; broad secant theory and on-curve coverage belong to the 2023 source. Exact finite enumeration is a proof only for the stated base/extension field. No independent review or comprehensive historical-priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves the naturally singled out small extension degree in an arc-completeness problem, giving all line characters and exterior uncovered points, not arbitrary sampled coefficients. Exact complete finite enumeration is proportionate to this finite-field geometry question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

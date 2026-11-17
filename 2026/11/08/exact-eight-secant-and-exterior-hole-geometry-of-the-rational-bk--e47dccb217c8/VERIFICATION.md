@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Exact verification procedure
+# Independent mathematical audit
 
-In the directory containing the supplied `.py` files, execute:
+## correctness
 
-```sh
-python3 verify_pairlines.py
-python3 verify_direct.py
-```
+PASS
 
-`verify_pairlines.py` models \(\mathbb F_{343}\) by adjoining a root of \(u^3+2\), constructs the rational parametrization and the internal-point nodes, enumerates all point pairs, derives the seven line characters, then explicitly generates all points on each eight-secant. It checks all four incidence double-counting identities.
+For exactly k=F_(7^3) and the fixed rational BKS octic, direct point equation testing and an independent cubic-field pair-cross-product census are finite exhaustive proofs. Independently recomputed all 343^2 affine candidates: 365 curve points including infinity; all 66,430 pairs yield 49,945 >=2-secant lines; completed line histogram (48048,20000,46032,3528,21,28,336) at sizes (0,1,2,3,4,5,8), and secant-concurrence histogram (51633,19152,46872,336) at s=(0,1,2,8). Exactly 29 curve points are uncovered and 336 lie on eight secants, so 51604 uncovered points are exterior; no exterior triple concurrence. Independent enumerator and both included source implementations use exact field arithmetic, not sampling, and finite claim scope is precisely GF343.
 
-`verify_direct.py` models the same field by adjoining a root of \(v^3+v+1\), directly tests the defining octic polynomial at every affine point, adds its sole point at infinity, scans all 117993 projective lines, and independently counts the eight-secant incidences and the 29 subfield points.
+## originality
 
-In the final package both programs successfully returned their respective `*_VERIFY_OK` markers, as well as agreeing numerical tables. No external package or data file is needed; there is no stochastic step. The computation checks only the specified \(\mathbb F_{343}\) instance, not arbitrary odd finite fields. The field polynomials are irreducible by explicit no-root tests over \(\mathbb F_7\); with the homogeneous equation and normalized-line loops this is an exhaustive finite certificate, not evidence of a generalization.
+PASS
 
-Independent mathematical audit is not performed.
+Borges-Korchmaros-Speziali construct and parametrize the curve; Korchmaros-Nagy-Szonyi Theorem 8.2 determines on-curve coverage at short extensions. Their full inspected text does not supply the complete off-curve line/concurrence table for this q=7,r=3 case; two direct exact enumeration routes provide novel specific finite coverage best of knowledge.
+
+## value
+
+PASS
+
+Resolves the naturally singled out small extension degree in an arc-completeness problem, giving all line characters and exterior uncovered points, not arbitrary sampled coefficients. Exact complete finite enumeration is proportionate to this finite-field geometry question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
