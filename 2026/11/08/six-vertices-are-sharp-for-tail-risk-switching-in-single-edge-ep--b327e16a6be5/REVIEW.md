@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact statement about finite trees under independent bond transmission, a uniform initial seed and one preemptively deleted edge. An integer coefficient vector for each cut and outbreak threshold represents its exact tail probability in a nonnegative basis. Complete Prüfer enumeration and exact integer component-count computation certify a single componentwise-best edge in all \(555\) tree/threshold cases on two through five vertices. On the specified six-vertex tree, direct rational polynomial identities prove the sole switch at \(p=3/5\) and strict exclusion of other cuts. The supplied standard-library checker reconstructs every finite certificate; it does not extrapolate finite sampling to an unbounded class of trees.
+PASS
 
-## Originality — PASS within checked evidence
+Reconstructed exact Bernoulli-subset Bernstein coefficients c[e,h,k]/n with n-2 surviving edges. Independent program exhaustively checked every Prüfer word and threshold for n=2..5 (1,6,48,500 = 555 labeled-tree/threshold cases), finding coefficientwise dominating cuts. Independently matched all five exact six-vertex broom risk polynomials: Q03=p², Q34=p²(9-5p)/6, Q01=Q02=p²(9-4p)/6, Q45=p²(12-9p+2p²)/6; differences show strict switch exactly p=3/5. The exhaustive finite n<=5 result is genuinely exhaustive, and polynomial nonnegative-basis identity proves all real p in [0,1], not a grid extrapolation.
 
-The closest primary literature includes Kenah and Robins (2006) on the distinction between bond and SIR percolation, Enns and Brandeau (2015) on link removal for expected final infections (and empirical distributions), and Enright and Meeks (2015) on deterministic component-size bounded edge deletion. Those inspected articles do not state this precise all-transmissibility risk-tail switching theorem or its sharp lower-order certificate. Mean-outbreak and deterministic-worst-case objectives do not imply the claimed tail-optimality inequalities. Prior small-network reliability tables not fully searched remain a residual historical-priority risk; a literature search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The probability of at least a specified number of infections is a natural risk-sensitive outbreak objective. This complete sharp finite-network result explains why the best single blocked contact can change with transmissibility even on a tree with only six vertices. It complements but cannot be inferred from the behavior of the expected outbreak size.
+Best-of-knowledge distinct sharp THRESHOLD-TAIL intervention selection from existing mean-outbreak-size, sentinel, and deterministic epidemic-cut problems; no dominating implication identified.
 
-## Limits
+## value
 
-The conclusions assume one cut, a uniform seed, identical independent transmission probabilities, trees, and a fixed size threshold. They are not asserted for other epidemic dynamics, heterogeneous networks, multiple cuts, or actual public-health campaigns. All independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp first-order cutoff for a natural tail-risk epidemic-interdiction objective; exact nonnegative Bernstein certificate and a genuine intervention-ranking switch motivate this finite classification. Not an empirical control policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

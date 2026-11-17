@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3.9 or later from this directory. No third-party dependencies are needed. The code enumerates every Prüfer sequence on \(n=2,3,4,5\), all thresholds \(2\le h\le n\), every edge cut, and each retained-edge bond state; checks componentwise minimization of all exact integer coefficients for at least one edge; checks the complete five-edge six-vertex risk polynomials against exact rational coefficients; and checks the algebraic differences and boundary point at \(p=3/5\). Expected counts for the exhaustive smaller-tree/threshold cases are \(1,6,48,500\), respectively.
+## correctness
 
-The source provides reproducible *finite* exhaustive certificates and exact symbolic identities. It is not a proof about all larger trees, about general dependent-edge SIR transmission, or about empirical intervention impact. All analytic inferences from the coefficients, including positivity and uniqueness of the crossing, are given in `RESULT.md`. No independent audit has been performed.
+PASS
+
+Reconstructed exact Bernoulli-subset Bernstein coefficients c[e,h,k]/n with n-2 surviving edges. Independent program exhaustively checked every Prüfer word and threshold for n=2..5 (1,6,48,500 = 555 labeled-tree/threshold cases), finding coefficientwise dominating cuts. Independently matched all five exact six-vertex broom risk polynomials: Q03=p², Q34=p²(9-5p)/6, Q01=Q02=p²(9-4p)/6, Q45=p²(12-9p+2p²)/6; differences show strict switch exactly p=3/5. The exhaustive finite n<=5 result is genuinely exhaustive, and polynomial nonnegative-basis identity proves all real p in [0,1], not a grid extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct sharp THRESHOLD-TAIL intervention selection from existing mean-outbreak-size, sentinel, and deterministic epidemic-cut problems; no dominating implication identified.
+
+## value
+
+PASS
+
+Sharp first-order cutoff for a natural tail-risk epidemic-interdiction objective; exact nonnegative Bernstein certificate and a genuine intervention-ranking switch motivate this finite classification. Not an empirical control policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
