@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The exponent-semigroup proof proves \(R=\mathbb C\oplus\mathbb C u\oplus(u,v)^2\) and \(\widetilde R=\mathbb C[u,v]\). The conductor's radical forces every normalization lift to fix the origin; preservation of \(u\) enforces the lower-triangular derivative. Conversely, a polynomial-plane automorphism satisfying that exact first-jet condition and its inverse preserve \(R\), proving surjectivity and necessity. The first-jet quotient is split by linear maps; deformation to the linear part proves connectedness. The orbit argument is explicit. The exact-arithmetic checker confirms the coordinate ideal and multiple permitted and excluded maps. It does not replace the general proof.
+PASS
 
-## Originality (O) — PASS, with historical-priority risk
+The normalization computation is reconstructed: the exponent semigroup omits only the linear v monomial, hence R=C⊕Cu⊕(u,v)^2, B=C[u,v], and conductor (u,v^2). Every R automorphism extends uniquely to B, preserves the conductor radical (u,v), and its first coordinate has no linear v term. Conversely a polynomial plane automorphism fixing 0 with a lower-triangular invertible derivative preserves R and its inverse preserves R, proving the exact group rather than merely a subgroup. The differential map splits by linear automorphisms; conjugation by scalar dilation gives polynomial families to their first jets and the connected Borel supplies connectedness. The allowed u→u+v² shear moves any punctured v-axis point off the axis, proving two orbits. The pinned verify.py was inspected: it symbolically checks the presentation/monomials and concrete automorphisms, not the infinite automorphism theorem. Independently checked all semigroup exponents in 0..12 except (0,1); the unbounded classification follows from the above arguments, not this finite check.
 
-Selin's 2026 Section 6 gives the same surface and a family outside the torus/root-generated subgroup, explicitly noting that the third-case full-group structure is unknown. The full equality with a point-and-cotangent-line stabilizer and its derivative splitting are new relative to the inspected statements. Díaz--Liendo's group-isomorphism theorem concerns other normalizations; Boldyrev--Gaifullin classify group structure for rigid/almost-rigid situations; Borovik--Gaifullin--Shafarevich's general orbit results likely cover the separate two-orbit corollary, which is therefore not treated as a source of originality. An earlier calculation already covers normalization and conductor for a larger one-hole family, and these are not claimed as independently original. The published research index was searched using descriptions, algebra generators, alternate tangent-flag terms and Selin's equation aliases. The full identification was not located; this is evidence, not priority proof.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-The full algebraic automorphism group of a distinguished nonnormal toric surface is a motivated invariant, and Selin explicitly isolates its structure as a remaining problem in the isolated-singularity case. A complete necessary-and-sufficient plane-lift criterion plus a split first-jet quotient describes all automorphisms, not just a special family or a numerical experiment. The result explains the unexpectedly large connected group while separating it from the previously known root-generated subgroup.
+Best-of-knowledge original full first-jet stabilizer classification for Selin's exact nonnormal toric surface. Selin 2026 supplies the explicit example and failure of generation by torus and roots but the accessible abstract does not state the complete stabilizer; the unaccessed complete paper leaves material priority risk. General normalization/toric automorphism papers may contain overlapping lemmas; standard conductor and two-orbit consequences are not claimed new.
 
-## Scope and risks
+## value
 
-The result concerns polynomial automorphisms over \(\mathbb C\) of one explicit toric surface. It is not a general classification of all nonnormal affine toric surfaces; the full ind-group kernel \(K\) is described by a membership condition rather than finite algebraic generators. Existing general orbit theory is credited. A historically earlier equivalent description under different terminology cannot be ruled out without independent priority review. Computations are finite supplemental checks only. All reported scientific conclusions derive from the written proof, not an exhaustive computer search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete full automorphism group of a natural explicit counterexample resolves the distinction between torus/root-generated transformations and all automorphisms; it supplies the entire infinite-dimensional group, split first-jet quotient, and an intrinsic lift criterion. This is motivated structural information, not only an orbit count or a coordinate renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

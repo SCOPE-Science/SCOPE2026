@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-With Python 3 and SymPy installed, execute `python verify.py` in a directory containing `verify.py`. The script performs exact Gröbner-basis elimination, a finite monomial semigroup check, explicit polynomial inverse/jet tests for permitted and forbidden plane automorphisms, and orbit witnesses. Expected final line: `ALL_EXACT_CHECKS_PASS`.
+## correctness
 
-The elimination check compares the ideal of the parametrization \((u,uv,v^2,v^3)\) with all four claimed binomial generators. The semigroup enumeration stops at coordinate degree 16; the complete unbounded one-hole assertion follows from the monomial argument in `RESULT.md`. Individual polynomial maps are checked symbolically, but their number is finite; no finite collection of tests can prove a statement about the entire automorphism group. The unrestricted full-group theorem follows from functorial normalization and the exact subring equality. The connectedness claim follows from an explicit algebraic contraction with polynomially extending inverses, not a topological numerical experiment.
+PASS
 
-The theorem has not undergone an independent mathematical audit.
+The normalization computation is reconstructed: the exponent semigroup omits only the linear v monomial, hence R=C⊕Cu⊕(u,v)^2, B=C[u,v], and conductor (u,v^2). Every R automorphism extends uniquely to B, preserves the conductor radical (u,v), and its first coordinate has no linear v term. Conversely a polynomial plane automorphism fixing 0 with a lower-triangular invertible derivative preserves R and its inverse preserves R, proving the exact group rather than merely a subgroup. The differential map splits by linear automorphisms; conjugation by scalar dilation gives polynomial families to their first jets and the connected Borel supplies connectedness. The allowed u→u+v² shear moves any punctured v-axis point off the axis, proving two orbits. The pinned verify.py was inspected: it symbolically checks the presentation/monomials and concrete automorphisms, not the infinite automorphism theorem. Independently checked all semigroup exponents in 0..12 except (0,1); the unbounded classification follows from the above arguments, not this finite check.
+
+## originality
+
+PASS
+
+Best-of-knowledge original full first-jet stabilizer classification for Selin's exact nonnormal toric surface. Selin 2026 supplies the explicit example and failure of generation by torus and roots but the accessible abstract does not state the complete stabilizer; the unaccessed complete paper leaves material priority risk. General normalization/toric automorphism papers may contain overlapping lemmas; standard conductor and two-orbit consequences are not claimed new.
+
+## value
+
+PASS
+
+A complete full automorphism group of a natural explicit counterexample resolves the distinction between torus/root-generated transformations and all automorphisms; it supplies the entire infinite-dimensional group, split first-jet quotient, and an intrinsic lift criterion. This is motivated structural information, not only an orbit count or a coordinate renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
