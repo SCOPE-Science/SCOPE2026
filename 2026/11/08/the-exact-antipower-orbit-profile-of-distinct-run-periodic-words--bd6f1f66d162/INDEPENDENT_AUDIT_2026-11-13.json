@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:51:12.599795Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each ordered unequal adjacent-letter boundary digram appears at exactly one phase, including q=2, so any equal nonmonochrome length-m factors would force the same phase. Equal factors at different phases are exactly monochrome inside the same run. Therefore the first possible index separation is the first modular distance not exceeding M-m; the phase-step orbit order is T=L/g. The subgroup minimum nonzero circular distance is gcd(L,m), giving sharp full-orbit threshold, and residue-class counting gives H. Cases m>=M, m>=L and T=1 are handled. Independent direct word enumeration checked 1692 configurations against both K and H, without extrapolating finite checks to arbitrary run lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.6 provides general finite algorithmic counting; Garg main theorems concern aperiodic morphic or Fibonacci words."
+        ],
+        "reasoning": "The algorithmic breadth includes this as input class but not an explicit uniform closed parameter theorem. Aperiodic assumptions do not specialize to a periodic one-run-per-letter word.",
+        "searches": [
+          "Kociumaka et al., Efficient Representation and Counting of Antipower Factors in Words, Theorem 5.6",
+          "Garg arxiv:1907.10816",
+          "Resultary query: Exact antipower profile for periodic distinct-letter runs, K(m) gcd(L,m) orbit collision phase counts"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1812.08101 primary relevant full sections",
+        "arxiv:1907.10816 aperiodic morphic theorems",
+        "Resultary actual query for periodic ordinary anti-power cyclic distinct runs",
+        "Resultary related Abelian-power phase and finite-word claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factor collision lemma exploits the unique directed boundary digram and gives a length-free cyclic formula. Aperiodic recurrence existence statements have incompatible source assumptions."
+        ],
+        "reasoning": "Deriving K,H from a general enumeration algorithm requires extra structural proof and is not immediate from its complexity statement. No stronger implication of the precise all-parameter formula was established.",
+        "searches": [
+          "Kociumaka et al. 2018 general counting theorems",
+          "Berger–Defant arxiv:1902.01291",
+          "Resultary query: Exact antipower profile for periodic distinct-letter runs, K(m) gcd(L,m) orbit collision phase counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite-word antipower counting reduces repeated block factors to collision/runs, but gives no formula K(m) depending only on L,M nor H(m) via residue classes."
+        ],
+        "reasoning": "Ordinary exact-block antipower is not equivalent to Abelian antipower (equal Parikh vectors); the latter has different collision modes. General finite-word algorithms can compute instances but do not automatically imply this symbolic all-m theorem.",
+        "searches": [
+          "Kociumaka et al. arxiv:1812.08101",
+          "Resultary query: Exact antipower profile for periodic distinct-letter runs, K(m) gcd(L,m) orbit collision phase counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A nearby indexed closed phase census is for Abelian powers rather than ordinary distinct factors; exact equivalence is absent."
+        ],
+        "reasoning": "Existing finite tables and Parikh phase enumerations do not cover all positive m, all q and ordinary pairwise exact block nonidentity.",
+        "searches": [
+          "Resultary query: Exact antipower profile for periodic distinct-letter runs, K(m) gcd(L,m) orbit collision phase counts",
+          "Resultary 2026/11/8 SCOPE-exact-abelian-power-phase-spectra-for-distinct-run-periodic-word--58ef91b6f6be"
+        ]
+      },
+      "rationale": "Full primary work of Kociumaka et al. gives generic algorithms counting antipower factors of a finite word, not a closed all-parameter phase-orbit theorem in a periodic distinct-run family. Other nearby published claims count Abelian powers or antipowers in aperiodic morphic sources. String equality versus Parikh equivalence and quantification over every phase/order make the submitted classification distinct.",
+      "residual_risks": [
+        "An unindexed specialized cyclic string algorithm could state an equivalent closed form.",
+        "A general counting algorithm gives all finite instances; novelty is structural formula, not computability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERIC_ALGORITHM_NOT_CLOSED_PERIODIC_FORMULA",
+          "evidence": [
+            "Theorem 5.6 counts finite-word antipower occurrences via general algorithm; lacks uniform periodic-run gcd/phase formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08101",
+          "material_read": "Abstract, introduction/definitions and relevant Sections 4–7, including Theorem 5.6 and interval-chain method",
+          "method": "Accessible full arXiv PDF text and title/abstract screenshot",
+          "title": "Efficient Representation and Counting of Antipower Factors in Words",
+          "trigger": "Strongest generic finite-word counting result that could dominate periodic case"
+        },
+        {
+          "assessment": "DIFFERENT_APERIODIC_CLASS",
+          "evidence": [
+            "The main guarantees explicitly concern aperiodic uniformly recurrent morphic and Fibonacci sources, not strict periodic distinct-run words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.10816",
+          "material_read": "Abstract, main theorem assumptions and scope as available in open preprint",
+          "method": "Accessible preprint relevant sections and comparisons",
+          "title": "Antipowers in Uniform Morphic Words and the Fibonacci Word",
+          "trigger": "Periodic-vs-aperiodic anti-power generality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural tractable periodic word class has a complete uniform antipower profile and residue-sensitive phase census. It separates worst-phase guarantees from phases attaining the full block orbit, and identifies a sharp gcd transition; this is structurally informative even though general-purpose algorithms can enumerate any fixed instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires distinct symbols and one cyclic run per symbol; repeated letters in disjoint runs invalidate the collision lemma.",
+    "Only exact equality and starting phase counts, not Abelian equality or number of different concatenation strings.",
+    "An unindexed specialized cyclic string algorithm could state an equivalent closed form.",
+    "A general counting algorithm gives all finite instances; novelty is structural formula, not computability.",
+    "No public changes, no new certification or publisher upload; source privacy fields prohibit a ready publication plan until complete sanitization."
+  ],
+  "schema_version": 1
+}

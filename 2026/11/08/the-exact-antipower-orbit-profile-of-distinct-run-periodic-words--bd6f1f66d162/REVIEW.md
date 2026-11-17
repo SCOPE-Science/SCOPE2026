@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The unique-boundary-digram lemma proves that different length-\(m\) factors can coincide only as monochromatic factors of the same run. Exact circular distances control all possible block-index collisions, while addition by \(m\) modulo \(L\) identifies the full phase orbit; this reconstructs equations (1)–(3), the nondivisible two-block threshold, and edge cases \(m\ge L\). The independent enumerator passed 31,840 small exhaustive configurations and 1,600 seeded configurations. Finite tests are corroborative, not proofs for all parameters.
+PASS
 
-## Originality (PASS, with residual risk)
+Each ordered unequal adjacent-letter boundary digram appears at exactly one phase, including q=2, so any equal nonmonochrome length-m factors would force the same phase. Equal factors at different phases are exactly monochrome inside the same run. Therefore the first possible index separation is the first modular distance not exceeding M-m; the phase-step orbit order is T=L/g. The subgroup minimum nonzero circular distance is gcd(L,m), giving sharp full-orbit threshold, and residue-class counting gives H. Cases m>=M, m>=L and T=1 are handled. Independent direct word enumeration checked 1692 configurations against both K and H, without extrapolating finite checks to arbitrary run lengths.
 
-The general-purpose antipower counting algorithm of Kociumaka et al. (arXiv:1812.08101, introduction and sections 4–7 inspected) is a strong comparator; although it would enumerate any fixed finite truncation, it does not state or imply a closed structural longest-run/gcd rule without further specialization and proof. Garg (arXiv:1907.10816, abstract and main theorem proofs inspected) studies aperiodic morphic words, not these periodic run profiles; Berger–Defant (arXiv:1902.01291) addresses aperiodic recurrent words. The closest available research records on Fibonacci antipower radii and earlier Abelian three-antipower phase counts involve different sources or Parikh equivalence. An equivalent specialized formula outside indexed works remains possible.
+## originality
 
-## Value (PASS)
+PASS
 
-The motivating gap is a complete all-phase behavior description for finite-order antipowers in a simple but nontrivial periodic family. This determines infinitely many optimal guaranteed block orders simultaneously, proves a sharp gcd transition for full phase-orbit coverage, and provides the exact number of successful phases when the all-phase property fails. These statements address both universal and partial cyclic antipower behavior, beyond evaluating isolated examples.
+Full primary work of Kociumaka et al. gives generic algorithms counting antipower factors of a finite word, not a closed all-parameter phase-orbit theorem in a periodic distinct-run family. Other nearby published claims count Abelian powers or antipowers in aperiodic morphic sources. String equality versus Parikh equivalence and quantification over every phase/order make the submitted classification distinct.
 
-## Limits
+## value
 
-The classification requires unique letter runs per period; general periodic words can have repeated nonmonochromatic factors. The counting object is the set of starting phases and not the set of distinct antipower strings. Published general counting algorithms already solve fixed instances algorithmically; no independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural tractable periodic word class has a complete uniform antipower profile and residue-sensitive phase census. It separates worst-phase guarantees from phases attaining the full block orbit, and identifies a sharp gcd transition; this is structurally informative even though general-purpose algorithms can enumerate any fixed instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
