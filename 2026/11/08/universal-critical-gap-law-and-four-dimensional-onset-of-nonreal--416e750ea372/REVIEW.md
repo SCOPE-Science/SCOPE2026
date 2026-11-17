@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS for the stated exact-arithmetic block family. The projected least-squares formula is conjugate by an explicit QR factor to the whitened sketched Ritz matrix; it reduces the source definition to a two-column cross-Gram product. Only second moments are required for the Gram law of large numbers and four-coordinate multivariate CLT. The limiting discriminant has zero-probability boundary, permitting convergence of the nonreal-event probabilities. Direct Gaussian polar integration gives the exact profile and its endpoint and Laplace asymptotics. The one-rank residual argument rules out nonreal values at a repeated two-dimensional ordinary Ritz value in ambient dimension at most three; the explicit four-dimensional positive-definite sketch Gram matrix proves sufficiency. Exact experiments and the reproducible standalone checker corroborate these steps but do not substitute for proofs.
+## correctness
 
-## Originality
-PASS on the accessible scientific comparison, subject to historical-priority uncertainty. The originating Liu–Liu study (arXiv:2610.22261v1), inspected in its introduction, Section 3.1, and convergence Sections 5.2–5.3, treats nonreal sketched Ritz values and a real-Schur workaround but not their near-collision frequency. Nakatsukasa–Tropp (arXiv:2111.00113), examined in Section 6.8, establishes the possibility of complex values and qualitative closeness but not this fixed critical-window law. The real-Ginibre complex-pair probability at zero drift is prior random-matrix knowledge and is not claimed original. The new claim is the full iid-entry universality, gap/residual scaling, four-dimensional onset, and explicit nonreal-block reliability law for a concrete symmetric-positive-definite sketched numerical eigenproblem. Relevant historical sketched Ritz scalar, harmonic, and symplectic-reduction claims concern different projected matrices and events. Search absence is not uniqueness proof. A full shifted-Ginibre distribution or earlier real perturbation theory could partially subsume the integral profile; this remains a named risk.
+PASS
 
-## Value
-PASS. Real Schur extraction must handle two-by-two blocks; the result supplies a quantitative frequency law and sharp separation scale for exactly such blocks, which qualitatively prior sRR descriptions lacked. In a vanishing-residual, increasingly accurate four-dimensional subspace-embedding regime, nearly one-third of extractions can still exhibit nonreal conjugate values at a double cluster. The dimension-minimal witness isolates why a two-column residual rank of two is necessary. This supplies a natural test regime for numerical eigensolvers, not a claim that the originating method fails.
+Exact block identity M=H+rho(P^TP)^-1P^TQ and QR whitening similarity verified. Four independent cross-products converge jointly by multivariate CLT with finite second moment of entries (independent distinct columns), while P^TP->I. Real discriminant zero has Gaussian measure zero, giving p(t); divergent gap wins tight noise. Orthogonal Gaussian cone change yields specified integral, p(0) and large-t Laplace asymptotic. Rank(M-mu I)<=m-2<=1 for repeated Ritz m<=3 proves eigenvalues real. Four-dimensional SPD W=[I,eps J;-eps J,I] gives M=H+rho eps J, discriminant g²-4rho²eps². Own independent quadrature p(0)=0.292893218813452, p(1)=0.251972346913465, p(3)=0.077568320106147. Finite quadrature checks only integral normalization; asymptotic proof is CLT.
 
-## Limitations and closest literature
-The proof is a one-step theorem in exact arithmetic, not a convergence theorem for iterative sSI or sTraceMIN. Only iid entries and this SPD matrix family are included. Fixed-profile large-gap asymptotics are not a simultaneous-growing-gap relative approximation. The older qualitative sRR results and broad real-Ginibre literature are closely related but do not, in inspected material, imply the full numerical-method claim; priority against uninspected shifted-drift formulae is unresolved. Independent mathematical assessment is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Deterministic 4D counterexample and unshifted Ginibre p(0) are credited as prior; the entire iid gap-dependent critical probability p(t) and precise repeated-Ritz minimality are not implied by those results.
+
+## value
+
+PASS
+
+The critical random-sketch gap law quantifies probability of a numerically consequential nonreal Ritz pair even under vanishing residual/distortion. The explicit gap-versus-noise scale is a useful risk boundary for sketched eigenvalue extraction beyond a deterministic worst-case inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

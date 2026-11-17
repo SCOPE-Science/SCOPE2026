@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The analytic argument uses an exact least-squares reduction, two independent elementary limit theorems (a Gram law of large numbers and four-coordinate CLT), and a Gaussian cone calculation. The limiting discriminant has a smooth density away from a zero-measure polynomial surface, so its strict sign is stable in distribution. The large-\(t\) claim concerns the fixed limiting profile, not relative convergence in every joint growing-gap scaling.
+## correctness
 
-The accompanying `check_collisions.py` passed as `VERIFY_OK` with Python 3, NumPy and SciPy. It exercises: QR whitening similarity and the projected block identity; exact symmetric positive-definiteness and four-dimensional embedding witnesses; ambient-three rank-one spectral reality; the derived one-dimensional integral against simulations of five shifted real Ginibre laws (350,000 draws each); finite-entry Gaussian and Rademacher sketch comparisons for dimensions \(s=48,128,384\) at two scaled gaps; and large-\(t\) prefactor sanity checks. Tests are random with a fixed seed and tolerance specified in the script.
+PASS
 
-Finite samples establish neither exact infinite-dimensional probabilities nor the universal iid-entry theorem. The proof, not the checker, supports those conclusions. No finite-precision guarantees, statements about structured sketches, or general full-iteration eigensolver convergence are asserted. No independent mathematical audit has been performed.
+Exact block identity M=H+rho(P^TP)^-1P^TQ and QR whitening similarity verified. Four independent cross-products converge jointly by multivariate CLT with finite second moment of entries (independent distinct columns), while P^TP->I. Real discriminant zero has Gaussian measure zero, giving p(t); divergent gap wins tight noise. Orthogonal Gaussian cone change yields specified integral, p(0) and large-t Laplace asymptotic. Rank(M-mu I)<=m-2<=1 for repeated Ritz m<=3 proves eigenvalues real. Four-dimensional SPD W=[I,eps J;-eps J,I] gives M=H+rho eps J, discriminant g²-4rho²eps². Own independent quadrature p(0)=0.292893218813452, p(1)=0.251972346913465, p(3)=0.077568320106147. Finite quadrature checks only integral normalization; asymptotic proof is CLT.
+
+## originality
+
+PASS
+
+Deterministic 4D counterexample and unshifted Ginibre p(0) are credited as prior; the entire iid gap-dependent critical probability p(t) and precise repeated-Ritz minimality are not implied by those results.
+
+## value
+
+PASS
+
+The critical random-sketch gap law quantifies probability of a numerically consequential nonreal Ritz pair even under vanishing residual/distortion. The explicit gap-versus-noise scale is a useful risk boundary for sketched eigenvalue extraction beyond a deterministic worst-case inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
