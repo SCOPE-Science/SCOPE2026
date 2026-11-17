@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The projected two-dimensional battery density matrix and its passive eigenvalue rearrangement yield the precise probability, capacity and ergotropy formulas. A normalized complex two-qubit vector obeys \(N\le(4+2\Gamma)/3\) by a triangle inequality followed by weighted Cauchy–Schwarz; independently \(\zeta\le1+\Gamma\) follows from the determinant definition of concurrence. Two parameterized, normalized witness families attain the respective bounds for every permitted concurrence. The proof also settles optimizer incompatibility, and an independently executable finite-dimensional verifier passed 48,253 assertions. Tests corroborate but do not establish the global inequalities.
+## correctness
 
-**Originality — PASS, qualified.** The October 30, 2026 source already gives the complete branch formulas, the generalized Rayleigh characterization, and product-versus-joint endpoint values; these are not claimed. Its relevant text and appendix do not formulate or prove the two quantitative concurrence-budget frontiers or their incompatible equality families. The 2025 local-measurement study does not permit arbitrary entangled selected auxiliary rays. Relevant indexed W-state product-testing and postselection records were compared by statements: they do not directly give the intermediate-concurrence charged-battery bounds. Residual risk: a generic fixed-concurrence numerical-range theorem not encountered in the checks could subsume the extremal inequality, and independent publication priority remains unverified.
+PASS
 
-**Value — PASS.** The literature's product-versus-entangled dichotomy leaves the experimentally motivated intermediate regime unquantified. The exact two-sided budget answers how much selected-branch success, capacity and work can improve when entangled measurement outcomes are limited, and proves that the best branch-probability and best work outcome differ at every submaximal budget. Both optima are explicit and all-budget rather than arbitrarily chosen numerical samples. It is a sharp resource-performance constraint for this concrete postselected quantum battery, not a claim about physical implementation cost.
+For normalized selected measurement v=a|00>+b|01>+c|10>+d|11>, the W3 branch is p I2/8+(1-p)|chi><chi|/3 with chi=(overline(b+c),overline a). Its success probability, capacity and ergotropy follow exactly from its two eigenvalues with H=epsilon sigma_z. Define N=|a|²+|b+c|², zeta=|b+c|² and concurrence Gamma=2|ad-bc|. In u=(b+c)/sqrt2,w=(b-c)/sqrt2 coordinates, triangle and weighted Cauchy–Schwarz yield 1-Gamma<=(|a|+|d|)²+2|w|² <=(3/2)(|a|²+2|d|²+2|w|²), and consequently N<=(4+2Gamma)/3. Separately zeta<=1+Gamma by triangle/AM-GM. Explicit normalized success witness (2sqrt(1-gamma)/3, sqrt((4+5gamma)/18),same,sqrt(1-gamma)/3) saturates N, and ergotropy witness (0,sqrt((1+sqrt(1-gamma²))/2),sqrt((1-sqrt(1-gamma²))/2),0) saturates zeta with |a|²=0. For 0<p<1 these are global P/C and E optima, mutually incompatible if gamma<1. Independently sampled 2000 normalized complex rays and found maximum inequality residuals N-bound=-0.02410782538 and zeta-bound=-0.02679172544, corroboration only.
 
-The scope is a noiseless Hamiltonian on the battery, a globally depolarized symmetric W resource, rank-one selected outcomes and \(0<p<1\). A mathematical self-check is not independent validation. Literature comparisons and possible priority uncertainties are documented in the attached audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Du–Zhou–Hu October 30, 2026 primary source already proves the exact conditional branch formulas and product (Gamma=0) versus unrestricted Bell (Gamma=1) endpoints. The complete W-state section and outcomes were inspected directly, including Eqs. (39)–(49), and full-text search found no quantitative concurrence-budget parameter or interior all-budget frontier. The new natural 0<=gamma<=1 interpolation yields separate linear maxima N=(4+2gamma)/3 and zeta=1+gamma, explicit different optimizer families and incompatibility for every gamma<1. Known endpoints and standard concurrence inequality are credited. Residual generic numerical-range theorem could imply the budget inequalities but no actual dominating statement was found.
+
+## value
+
+PASS
+
+A quantitative entanglement constraint on the selected measurement outcome naturally interpolates between familiar local/product and Bell/global postselection regimes. Exact all-budget success/capacity and ergotropy frontiers answer separate operational questions, identify optimizers and prove a nontrivial tradeoff: for any submaximal gamma they cannot coincide. These precise benchmark bounds are reusable for this W-state battery model without pretending to quantify physical gate entanglement costs or net work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
