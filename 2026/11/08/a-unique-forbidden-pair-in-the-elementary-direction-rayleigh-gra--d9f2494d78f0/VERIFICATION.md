@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-The result has a finite universe of 45 unordered pairs selected from 10 explicitly defined integer vectors. To reproduce the coefficient certificate, place `verify.py` and `PAIR_CERTIFICATE.tsv` in the same directory as extracted from the research record and run `python3 verify.py`. Python 3 standard library suffices. The program reconstructs the four-dimensional zonotope volumes from all 4-by-4 minors at the two required anchor values of the parameter; it uses integer determinant arithmetic, not optimization or floating point. It compares each computed polynomial coefficient triple to the TSV and checks the exceptional factor, positive-coefficient conditions for all other pairs, and all boundary equality counts.
+# Independent mathematical audit
 
-An additional symbolic-matrix determinant implementation checked all 360 volume expressions (four volumes, two anchor values, and 45 direction pairs) independently against the integer-permutation implementation. It returned `SYMPY_INDEPENDENT_CROSSCHECK_OK 360`. The certificate's actual execution returned `EXACT_PAIR_CLASSIFICATION_OK 45 pairs; 44 nonnegative; one violation for 0<t<2; eight t=0 equalities`.
+## correctness
 
-Completeness is justified because the 10 chosen directions generate exactly 45 unordered distinct pairs. Affineness in the nonnegative scale parameter is an analytic consequence of the one-special-generator determinant expansion, and the continuum sign statement follows from the displayed quadratic polynomials; it is not based on sampling. General directions outside the specified ten and arbitrary-dimensional zonoids are not checked or claimed. Independent mathematical audit has not been performed.
+PASS
+
+Zonotope volume is the sum of absolute 4x4 maximal minors. Since scaled h occurs at most once in each minor, the base volume a and the one-/two-direction increments b,c,q are affine in t>=0. For arbitrary s,r defect is sr(aq-bc), and each pair polynomial F=bc-aq has degree at most two. Independently enumerated all 45 unordered pairs of ten elementary vectors with integer permutation determinants at t=0,1. Recovered F(d14,d23)=4t(t-2), all 44 others with nonnegative constant/linear and strictly positive quadratic coefficients, and exactly eight zero constants. This exhausts the finite graph and implies every real t>=0, s,r>0 by polynomial identity.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Skorupinski 2026 Section 3 explicitly gives only the counterexample pair d14,d23 at t=1 (volumes 14,30,26,56). Published exact scale and two-parameter notes treat the same fixed exceptional pair, not signs of the other 44 pairs. The full 45-pair classification and unique forbidden edge do not follow from those single-pair calculations or general codegree<=3 Rayleigh theory.
+
+## value
+
+PASS
+
+PASS: classification of the full ten-direction Rayleigh sign graph of the natural 2-modular template isolates the only obstruction and all equality boundaries. An exact finite combinatorial census of a canonical object, rather than an unmotivated sample, is independently valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
