@@ -1,12 +1,17 @@
-# Scientific review
+# Scientific assessment of the side-count threshold
 
 ## Correctness
-**PASS.** The finite exact formula follows from the area covariance and an affine kernel, with convexity and strict sign disagreement giving precisely vertex norming. The rational checker independently bounds the finitely many small-polygon cases and the disk majorant at eleven sides. For larger polygons the majorant decreases with side count. The second-order coefficient follows from a uniform facet radial expansion and three explicit disk integrals. The correction coefficient simplifies exactly to the value stated in the theorem; no finite experiment is extrapolated to the infinite range. Risk: as always with self-review, proof reconstruction has not been independently audited.
+
+**PASS.** The known area-covariance kernel reduces the norm to one negative polygon-cap mass. The source's exact cap-clipping computation with rational error bounds separates all nine side counts \(3\le n\le11\). For every \(n\ge11\), containment in the unit disk and monotonicity of polygon area and kernel slope yield the same strict disk upper bound. The enclosed bound at \(n=11\) is strictly less than one half. Thus finitely many exact tests plus an analytic uniform tail imply the full all-integer threshold. The previous second-order limit is correct background, no longer an originality claim.
 
 ## Originality
-**PASS, qualified.** General least-squares projection bounds (Hangelbroek et al., arXiv:1005.2424), exact filled-disk and simplex formulas, and regular-polygon *boundary-arclength* projector formulas do not imply the filled-polygon six/heptagon crossover or its precise second-order disk correction. Searches for the exact polygon domain, operator, positivity defect, asymptotic coefficient and equivalent Lebesgue constants found no dominating claim. A comparable unindexed approximation-theory article might contain the precise result, so priority is not certain. The triangle case and limiting filled-disk constant are known specializations, not offered as independent novelties.
+
+**PASS for the revised claim, with explicit coverage caveat.** Published exact all-side-count affine projection formulas (October 18 and 25, November 2, 2026) cover the source's original cap formula, vertex normers, and disk-limit coefficient; these are now attributed and excluded from the new claim. The surviving sharp six-to-seven threshold is an additional global sign classification requiring rational enclosures plus an all-\(n\) disk majorant, not a point substitution. The older exact formula may make the threshold implicit, and an earlier full-text inequality could cover it; priority remains best-of-knowledge rather than certified.
 
 ## Mathematical value
-**PASS.** The transition from amplification above two to below two at exactly six/seven sides is a concrete sharp stability threshold for a canonical family of polygonal least-squares elements. The positive coefficient \(5\pi\sqrt{15}/12\) quantifies the difference between a filled polygon and its limiting disk; its nonzero sign is not a generic consequence of norm convergence. The exact norming locations and positivity witnesses make the result usable for assessing and constructing worst-case projections. No monotonicity claim is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+**PASS for the revised claim.** The threshold \(\|P_n\|=2\) is meaningful because it is exactly the boundary where a real affine projection of input values in \([0,1]\) can dip below \(-1/2\). The first side count that prevents this severe overshoot is precisely seven. This complete side-number classification is a self-contained exact stability boundary for a natural sequence of polygonal least-squares elements. It does not need to be a new general norm formula; routine restatement of the prior norm and asymptotic coefficient is not claimed as valuable.
+
+## Scope and limitations
+
+Only real affine \(L^2\)-orthogonal projection on filled regular polygons with uniform area measure is classified. Verification of the infinite tail is analytical; numerical values alone would be insufficient. Related or unindexed full-text inequality results remain a priority risk. Earlier same-author scientific review is historical context and not external verification.
