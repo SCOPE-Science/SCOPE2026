@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary convolution exists because all four dampings are strictly positive. Conditional Gaussianity reduces the fourth cumulant to the covariance of two environmental variance functionals. Three explicit two-state generator systems determine the moments uniquely; exact rational inversion gives the displayed factored numerator. Every factor apart from the two stiffness differences is strictly positive, proving both strict signs and the exact zero boundary. The accompanying standard-library checker separately reproduces the moment systems and verifies 1,536 rational test configurations. Numerical tests supplement but do not prove the general identity.
+## correctness
 
-**Originality — PASS, qualified.** The 2023 homogeneous switching-trap study (arXiv:2312.02570, Eqs. 12–14) proves a positive squared-position covariance in its common-response family; it does not classify opposite responses. The 2014 multi-component Markov-modulated OU study (arXiv:1412.7952, Section 6.4) provides a general mixed-moment recursion from which this covariance can be calculated. This broad precedent substantially limits novelty. What is separately derived and asserted is the exact factorization and *sign-only* classification independent of all switching rates, including the strict negative regime and the no-accidental-zero condition. Searchable records checked to date did not reveal an existing explicit statement of that classification; absence from those searches is not proof of publication priority.
+PASS
 
-**Value — PASS.** The physical question is motivated by the positive dynamically emergent correlations reported for identical particles in a switching trap. Opposite stiffness responses permit strong anti-correlations of particle energies even with independent thermal noises and vanishing ordinary position covariance. The exact boundary states when the environmental coupling is detectable at fourth order and applies to every pair in a heterogeneous finite collection, without fitting switching rates. The scope is an exact low-order invariant, not a general characterization of all multivariate distributions.
+For positive dampings and switch rates a,b,c,d,p,q and independent positive diffusivities, the stationary OU convolution exists uniquely. Conditioned on the complete shared environment, X1,X2 are independent centered Gaussians; Cov(X1,X2)=0 and their mixed fourth cumulant equals Cov(V1,V2) of conditional variances. Generator equations for state-weighted first moments U,T and product moment Z are exact invertible 2x2 systems with determinants K1,K2,K12>0. Algebraic elimination yields numerator p*q*(a-b)*(c-d)*N, N a sum of strictly positive parameter monomials, proving the necessary-and-sufficient sign/zero classification. Independently derived the full expression by symbolic 2x2 inversions and factored Cov(V1,V2) into precisely 4D1D2pq(a-b)(c-d)N/[(p+q)^2 K1 K2 K12], for unconstrained symbolic positive parameters; no reliance on finite samples. The sign vanishes exactly when a=b or c=d.
 
-**Residual risks.** A broader previously unindexed sign theorem or a short published reduction from the 2014 general recursion may cover this particular factorization. No multi-state or non-Markov extension is claimed. No external independent verification has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with serious broader-recursion precedent: Huang et al. 2014 derive conditional Gaussianity and multicomponent stationary mixed-moment recursion for arbitrary shared Markov environment, which includes this two-particle two-state model but does not explicitly state the global sign factorization or iff-zero frontier. Biroli et al. 2023 study identical trap responses (necessarily same-direction positive squared correlation), not counter-switching negative response. Resultary semantic queries found related 4th-cumulant and same-environment studies but no prior explicit heterogeneous two-state sign law. An unindexed application of the 2014 recursion may contain it; absence of a search hit does not establish priority.
+
+## value
+
+PASS
+
+PASS: Independent particles may have exactly zero positional covariance but strictly negative squared-position covariance if the shared environment stiffens one while softening the other. The exact rate-uniform sign factorization and no-accidental-zero criterion are a meaningful structural classification of fluctuations in a well-motivated stochastic model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

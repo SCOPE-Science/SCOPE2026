@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T12:00:56.323775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive dampings and switch rates a,b,c,d,p,q and independent positive diffusivities, the stationary OU convolution exists uniquely. Conditioned on the complete shared environment, X1,X2 are independent centered Gaussians; Cov(X1,X2)=0 and their mixed fourth cumulant equals Cov(V1,V2) of conditional variances. Generator equations for state-weighted first moments U,T and product moment Z are exact invertible 2x2 systems with determinants K1,K2,K12>0. Algebraic elimination yields numerator p*q*(a-b)*(c-d)*N, N a sum of strictly positive parameter monomials, proving the necessary-and-sufficient sign/zero classification. Independently derived the full expression by symbolic 2x2 inversions and factored Cov(V1,V2) into precisely 4D1D2pq(a-b)(c-d)N/[(p+q)^2 K1 K2 K12], for unconstrained symbolic positive parameters; no reliance on finite samples. The sign vanishes exactly when a=b or c=d.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. §6.4 supplies a general mixed-moment recursion; Biroli et al. treat common stiffness for all particles."
+        ],
+        "reasoning": "A general algorithm for computing moments contains the model but does not state or logically give without calculation the explicit positive polynomial and sharp sign frontier; broad precedence is fully credited.",
+        "searches": [
+          "Markov switching harmonic trap heterogeneous particles covariance squared positions opposite stiffness sign",
+          "arxiv:1412.7952 Section 6.4",
+          "arxiv:2312.02570"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1412.7952",
+        "https://arxiv.org/pdf/2312.02570",
+        "Resultary semantic query: Markov switching harmonic trap heterogeneous particles covariance squared positions opposite stiffness sign"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2014 moment recursion permits derivation after model-specific elimination, while the 2023 identical-response case has nonnegative variance covariance."
+        ],
+        "reasoning": "Neither gives the all-heterogeneous rate-independent sign factor and exact if-and-only-if zero conditions just by specializing a stated sign inequality; the present formula is an independently proved extra statement.",
+        "searches": [
+          "Markov switching harmonic trap heterogeneous particles covariance squared positions opposite stiffness sign",
+          "Huang Jansen Mandjes Spreij De Turck arxiv 1412.7952 mixed moments",
+          "Biroli Kulkarni Majumdar Schehr arxiv 2312.02570 shared switching trap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional Gaussianity equates the mixed fourth cumulant with covariance of two random variance filters; the sign is sign((a-b)(c-d))."
+        ],
+        "reasoning": "Searched the model under energy correlation, cross variance, shared telegraph environment, heterogeneous Markov-modulated OU and fourth cumulants. Closest results concern identical trap/independent active forcing rather than this iff sign theorem.",
+        "searches": [
+          "Markov switching harmonic trap heterogeneous particles covariance squared positions opposite stiffness sign",
+          "Markov modulated OU heterogeneous particles conditional variance covariance negative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact coefficient table for the heterogeneous N numerator appeared in the queried Resultary findings; independent symbolic calculation verifies 51-term polynomial identity claimed in source."
+        ],
+        "reasoning": "A few evaluations cannot justify a complete sign classification; this theorem supplies all positive parameter tuples by exact factorization.",
+        "searches": [
+          "Markov switching harmonic trap heterogeneous particles covariance squared positions opposite stiffness sign",
+          "two-state harmonic switching heterogeneous opposite covariance squared positions exact sign formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with serious broader-recursion precedent: Huang et al. 2014 derive conditional Gaussianity and multicomponent stationary mixed-moment recursion for arbitrary shared Markov environment, which includes this two-particle two-state model but does not explicitly state the global sign factorization or iff-zero frontier. Biroli et al. 2023 study identical trap responses (necessarily same-direction positive squared correlation), not counter-switching negative response. Resultary semantic queries found related 4th-cumulant and same-environment studies but no prior explicit heterogeneous two-state sign law. An unindexed application of the 2014 recursion may contain it; absence of a search hit does not establish priority.",
+      "residual_risks": [
+        "An earlier unindexed sign simplification of Huang et al. 2014 recursion could cover the exact statement; novelty cannot be certified by search alone.",
+        "Not valid for correlated Brownian inputs, multistate environment, interacting particles or state-dependent diffusivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_MODEL_AND_METHOD; no explicit signed heterogeneous two-state iff theorem in the relevant supplied statements.",
+          "evidence": "Section 6.4 and displayed recursion; conditional Gaussian section.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.7952",
+          "material_read": "Complete 26-page PDF accessible; inspected §6.1 conditional normality, §6.4 stationary mixed-moment recursion and PDF screenshot p20.",
+          "method": "Original arXiv PDF full-text relevant sections and visual page",
+          "title": "Markov-modulated Ornstein–Uhlenbeck processes",
+          "trigger": "Earlier general multicomponent OU with common Markov environment and arbitrary mixed moments"
+        },
+        {
+          "assessment": "NOT_COVERING negative heterogeneous counter-switching regime; all particles share identical stiffness sequence.",
+          "evidence": "Abstract, introductory model definition, position joint distribution and selected fourth-correlation discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02570",
+          "material_read": "Full 22-page PDF accessible; abstract, model, sections on common stiffness and stationary joint law and screenshot p0.",
+          "method": "Original arXiv PDF text and visual page",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Most relevant same-object homogeneous-trap correlation study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Independent particles may have exactly zero positional covariance but strictly negative squared-position covariance if the shared environment stiffens one while softening the other. The exact rate-uniform sign factorization and no-accidental-zero criterion are a meaningful structural classification of fluctuations in a well-motivated stochastic model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1412.7952",
+    "https://arxiv.org/pdf/2312.02570",
+    "Resultary semantic query: Markov switching harmonic trap heterogeneous particles covariance squared positions opposite stiffness sign"
+  ],
+  "disposition": "passed",
+  "limitations": "An earlier unindexed sign simplification of Huang et al. 2014 recursion could cover the exact statement; novelty cannot be certified by search alone.; Not valid for correlated Brownian inputs, multistate environment, interacting particles or state-dependent diffusivity.",
+  "residual_risks": [
+    "An earlier unindexed sign simplification of Huang et al. 2014 recursion could cover the exact statement; novelty cannot be certified by search alone.",
+    "Not valid for correlated Brownian inputs, multistate environment, interacting particles or state-dependent diffusivity."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BROADER_MODEL_AND_METHOD; no explicit signed heterogeneous two-state iff theorem in the relevant supplied statements.",
+      "evidence": "Section 6.4 and displayed recursion; conditional Gaussian section.",
+      "identifier_or_url": "https://arxiv.org/pdf/1412.7952",
+      "material_read": "Complete 26-page PDF accessible; inspected §6.1 conditional normality, §6.4 stationary mixed-moment recursion and PDF screenshot p20.",
+      "method": "Original arXiv PDF full-text relevant sections and visual page",
+      "title": "Markov-modulated Ornstein–Uhlenbeck processes",
+      "trigger": "Earlier general multicomponent OU with common Markov environment and arbitrary mixed moments"
+    },
+    {
+      "assessment": "NOT_COVERING negative heterogeneous counter-switching regime; all particles share identical stiffness sequence.",
+      "evidence": "Abstract, introductory model definition, position joint distribution and selected fourth-correlation discussion.",
+      "identifier_or_url": "https://arxiv.org/pdf/2312.02570",
+      "material_read": "Full 22-page PDF accessible; abstract, model, sections on common stiffness and stationary joint law and screenshot p0.",
+      "method": "Original arXiv PDF text and visual page",
+      "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+      "trigger": "Most relevant same-object homogeneous-trap correlation study"
+    }
+  ]
+}
