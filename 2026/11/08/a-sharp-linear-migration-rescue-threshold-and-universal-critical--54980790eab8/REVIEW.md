@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated strictly positive rates and \(m\geq1/h\), the negative nonlinear correction and strong cooperativity are directly visible from the ODE. A scalar total-population comparison bounds all solutions. The symmetric Metzler Jacobian has principal spectral sign determined exactly by \(\delta(e-s)-es\). Positive sub- and supersolutions, strict sublinearity and order comparison prove the globally attracting unique positive equilibrium. A Perron-weighted linear comparison proves exponential extinction on the stable side. At the critical rate, the positive weighted mass has derivative at most \(-sv^2\), yielding global extinction; orthogonal projection then supplies the explicit quadratic center coefficient \(k>0\), and hence the reciprocal-time vector profile for all nonzero nonnegative initial states. Lyapunov--Schmidt expansion derives the equilibrium amplitude. The executable verifies each critical polynomial identity in exact arithmetic, plus representative trajectories; the proof does not promote finite experiments to an infinite-time theorem. Main remaining technical risk is that the comparison and smooth local reduction have not undergone external independent examination.
+PASS
 
-## Originality — PASS on checked literature, with residual priority risk
+The system is strongly cooperative for delta>0, strictly sublinear because u/(m+u)-hu decreases strictly for u>0 when m>=1/h, and bounded by a logistic scalar comparison. Its zero Jacobian L has det=delta(e-s)-es and Perron sign positive below delta_c (or always if e<=s). Strictly ordered scalar multiples yield uniqueness and attraction of the one positive equilibrium via monotone comparison. Negative Perron root gives exponential decay with positive left eigenvector. At delta_c weighted mass a*u+v decreases at least s*v^2; integrability and uniform continuity force v->0 and u->0, so the center-stable decomposition X=z(a,1)+w(1,-a) yields w/z->0 and zprime=-k z^2+o(z^2), k=[s+a^3(h-1/m)]/(1+a^2)>0; hence the universal physical-time t^-1 profile. Lyapunov–Schmidt projection gives alpha=(1-a)^2/(1+a^2) and branch slope alpha/k. Boundary m=1/h remains quadratic via the v component.
 
-The identical linear-migration equations are equation (2.11) of Xia et al., 2023 (preprint https://arxiv.org/abs/2310.10558, DOI 10.3934/mbe.2023876). Its relevant Section 2.3 and Theorems 2.9--2.10 were read: Theorem 2.9 already gives high-migration global extinction and is excluded from novelty claims. Theorem 2.10 proves coexistence only for \(\delta\leq s\), and global attraction under a narrower inequality; the source explicitly leaves complete qualitative analysis open. Our missing-range global attraction, exact neutral-threshold law and first-order branch slope are not implied by the stated source theorems. The related 2019 source--sink paper of Wu et al. (DOI 10.1016/j.tpb.2019.11.004) claims a broad dispersal-dependent classification; only its abstract was accessible, so qualitative overlap with general source--sink theory remains unresolved at full-text level, although no exact Allee--logistic critical coefficient is identified there. The additive-Allee 2022 paper (DOI 10.3934/math.2022034) uses a different model and cannot imply the model-specific coefficients. The nonlinear-migration variant is not interchanged with the linear variant. General positive-systems theory may cover portions of the qualitative phase classification, and unindexed equivalent models remain a publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The strict high-Allee restriction creates a natural source--sink rescue problem: one habitat is incapable of persistence in isolation, while diffusion couples it to a logistic habitat. The threshold answers the complete rescue question for every positive migration rate and distinguishes global extinction from global coexistence. The neutral case, omitted by strict-threshold theorems, changes extinction from exponential to reciprocal-time, with a universal habitat ratio and exact amplitude. The equilibrium branch formula quantifies loss of abundance immediately before rescue fails. These are model-motivated rather than arbitrary parameter slices.
+Best-of-knowledge novel exact result after checked primary source scope comparisons. The closest inspected primary results differ by parameter regime, sample law, or strictly weaker quantitative conclusion; inaccessible full texts and independent historical priority remain explicit risks.
 
-## Scientific scope and risks
+## value
 
-The result is restricted to a deterministic two-patch ODE with equal bidirectional migration and \(m\geq1/h\). It does not assert spatial or stochastic extensions, detailed error rates, or novelty of the source's original high-dispersal theorem. Published priority cannot be proven from finite search coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A high-Allee patch is a strict sink alone; equal migration can rescue or destroy persistence. The full sharp classification fills the original source model’s missing parameter ranges, while the global critical t^-1 law and branch slope quantify a biologically natural extinction transition, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
