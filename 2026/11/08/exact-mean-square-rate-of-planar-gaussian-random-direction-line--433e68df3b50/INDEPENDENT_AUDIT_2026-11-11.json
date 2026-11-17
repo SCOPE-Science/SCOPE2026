@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T00:08:54.982605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Whiten the 2D quadratic and express a single exact line-search update as orthogonal rank-one projector ww^T. Reflection symmetry closes the diagonal covariance moments. Differentiating E[sin²(theta)/(a cos²(theta)+b sin²(theta))]=1/(sqrt(b)(sqrt(a)+sqrt(b))) yields B=1/[2(t+1)²]*[[t+2,t],[t,t(2t+1)]]. Its trace=(t²+t+1)/(t+1)² and determinant=t/[2(t+1)²], and its positive Perron left/right vectors give the same exact asymptotic expected-objective root for every nonzero deterministic initial state. The strict comparison with t/(t+1) follows the stated polynomial identity for t>1. Independently computed t=2 matrix [[2/9,1/9],[1/9,5/9]] and Perron root (7+sqrt(13))/18, confirming key normalization and the distinction from the 2/3 one-step bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 Theorem 8 bounds expected squared-error by iterating a one-step contraction and gives exact first-moment iterate evolution; its Appendix B computes 2D expected projector.",
+          "RSN Theorem 2 gives E[f(x_k)]-f*<= (1-rho mu/L)^k(f(x0)-f*) rather than the exact rank-one iid two-state asymptotic rate."
+        ],
+        "reasoning": "Broader general algorithmic guarantees are inequalities, not the exact fourth-moment Perron eigenvalue. There is no logical implication of the asserted strictly smaller exponent without additional calculation.",
+        "searches": [
+          "Gower and Richtárik 2015 arXiv:1506.03296 Section 4 and Appendix B",
+          "RSN 2019 arXiv:1905.10874 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen submitted RESULT.md and verify.py pinned source",
+        "https://arxiv.org/abs/1506.03296",
+        "https://arxiv.org/abs/1905.10874",
+        "https://arxiv.org/abs/1111.0194",
+        "Resultary 2026/11/2/SCOPE-exact-two-query-gain-from-orthogonal-sampling-in-planar-quadrati--d73676e44901"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp conditional factor t/(t+1) is attainable at one step from a specified eigenvector. The submitted long-run Perron root at t=2 is (7+sqrt(13))/18, strictly smaller than 2/3.",
+          "Existing first projection moment bounds do not imply that exact rate or its high-contrast 3/2 gap constant."
+        ],
+        "reasoning": "The new claim refines but does not contradict the earlier bounds; a previously unlocated exact projector-product formula is a residual priority risk.",
+        "searches": [
+          "arxiv:1506.03296v5 Appendix B and Sections 4.3–4.4",
+          "arxiv:1905.10874 Theorem 2 and Appendix E"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The update equals rank-one Gaussian random pursuit and the one-column RSN/sketch-and-project specialization, as explicitly stated in both primary papers.",
+          "The two-state operator tracks fourth moments of w and squared whitened coordinates, unlike the first-moment projector operator."
+        ],
+        "reasoning": "The algorithmic alias is established. Method equivalence alone does not imply the submitted sharp expected-objective asymptotic factor; the relevant second-moment operator must still be evaluated and iterated.",
+        "searches": [
+          "Resultary semantic: planar Gaussian random direction line search exact asymptotic mean square rate quadratic fourth moments",
+          "https://arxiv.org/abs/1506.03296",
+          "https://arxiv.org/abs/1905.10874"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related November 2 result concerns specially coupled orthogonal direction pairs and a two-query ratio, not the iid per-query stationary fourth-moment operator."
+        ],
+        "reasoning": "No relevant evaluated exact covariance-rate table was identified. The claim is an all-t analytic rate formula, not a finite table; negative indexing result alone is not novelty proof.",
+        "searches": [
+          "Resultary search: exact planar Gaussian projection long-run second moment",
+          "Resultary search: exact two-query gain orthogonal sampling planar quadratic"
+        ]
+      },
+      "rationale": "The natural algorithm is already Gaussian random pursuit / one-column randomized subspace Newton. The inspected 2015 Gower–Richtárik full result computes expected projection / first-moment identities and one-step worst-case bounds; RSN 2019 Theorem 2 gives a general expected-error upper bound. Neither supplies the submitted exact fourth-projector-moment 2-state transfer nor its sharp all-start long-run Perron rate. Other published orthogonal-pair studies couple two directions and do not imply the iid result. Best-of-knowledge PASS with explicit possible older random projection-product formulations.",
+      "residual_risks": [
+        "A specialist planar random-product or randomized Kaczmarz covariance theorem might yield the same B or Perron root under a different name.",
+        "Only the selected inspected portions of some older literature were compared; no universal priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General first-moment and expected-norm bounds; no matching explicit iterated 2D fourth-moment rate in inspected sections",
+          "evidence": [
+            "Theorem 8 expected squared-error bound; Appendix B Gaussian projection expectation, rather than submitted B matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Primary full manuscript, Sections 4.3–4.4, Section 6, Appendix B and relevant first-moment rate statements",
+          "method": "Read full available open primary manuscript",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Direct original random Gaussian pursuit / sketch-and-project theory"
+        },
+        {
+          "assessment": "General one-step-based contraction, not exact planar expected energy Perron root",
+          "evidence": [
+            "Theorem 2 bound (1-rho mu/L)^k; Appendix E conditioned projector inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.10874",
+          "material_read": "Full arXiv HTML, Algorithm 1, Theorem 2, proof Appendix E, experimental exact line search Algorithm 2",
+          "method": "Read full available arXiv primary text",
+          "title": "RSN: Randomized Subspace Newton",
+          "trigger": "Same one-column exact quadratic sketch update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It resolves a natural sharp asymptotic constant for a common 2D quadratic optimization algorithm and shows strict improvement over the sharp conditional one-step bound, with a 3/2 high-contrast leading-gap factor. Fourth angular moments and invariant covariance eigenstructure are substantive, not mere substitution of first-moment estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen submitted RESULT.md and verify.py pinned source",
+    "https://arxiv.org/abs/1506.03296",
+    "https://arxiv.org/abs/1905.10874",
+    "https://arxiv.org/abs/1111.0194",
+    "Resultary 2026/11/2/SCOPE-exact-two-query-gain-from-orthogonal-sampling-in-planar-quadrati--d73676e44901"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Planar real SPD quadratic, iid isotropic directions, exact line minimization; not almost-sure rate, higher-dimensional rate, or arbitrary direction law.",
+    "Finite angular quadrature claims of source verifier were inspected but not reproduced as a substitute for proof."
+  ],
+  "residual_risks": [
+    "A specialist planar random-product or randomized Kaczmarz covariance theorem might yield the same B or Perron root under a different name.",
+    "Only the selected inspected portions of some older literature were compared; no universal priority certificate."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General first-moment and expected-norm bounds; no matching explicit iterated 2D fourth-moment rate in inspected sections",
+      "evidence": [
+        "Theorem 8 expected squared-error bound; Appendix B Gaussian projection expectation, rather than submitted B matrix."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+      "material_read": "Primary full manuscript, Sections 4.3–4.4, Section 6, Appendix B and relevant first-moment rate statements",
+      "method": "Read full available open primary manuscript",
+      "title": "Randomized Iterative Methods for Linear Systems",
+      "trigger": "Direct original random Gaussian pursuit / sketch-and-project theory"
+    },
+    {
+      "assessment": "General one-step-based contraction, not exact planar expected energy Perron root",
+      "evidence": [
+        "Theorem 2 bound (1-rho mu/L)^k; Appendix E conditioned projector inequality."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1905.10874",
+      "material_read": "Full arXiv HTML, Algorithm 1, Theorem 2, proof Appendix E, experimental exact line search Algorithm 2",
+      "method": "Read full available arXiv primary text",
+      "title": "RSN: Randomized Subspace Newton",
+      "trigger": "Same one-column exact quadratic sketch update"
+    }
+  ]
+}
