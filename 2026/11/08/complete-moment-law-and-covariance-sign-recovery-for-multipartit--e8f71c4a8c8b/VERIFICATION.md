@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks and boundaries
 
-Run `python geometry_stable_set_moment_checker.py` with the requirements listed in `requirements.txt`. The script builds all stable-set vertices from part sizes, invokes an independent convex-hull triangulation, calculates simplex volumes and first/second moments by exact rational arithmetic, and checks the resulting covariance signs and inertia. It also expands barycentric polynomials to integrate arbitrary specified cubic and quartic monomials exactly.
+# Independent mathematical audit
 
-The script was executed from its actual local file path and returned:
+## correctness
 
-```
-MULTIPARTITE_STAB_EXACT_SIMPLEX_MOMENTS_PASSED 17 653
-MULTIPARTITE_STAB_ALL_MOMENTS_CUBIC_QUARTIC_CHECKS_PASSED 368
-```
+PASS
 
-The first marker corresponds to 17 unordered part-size profiles in dimensions 2 to 5 and 653 nonzero hull-to-interior simplices. The second counts 368 distinct checked monomials of degrees three and four in dimensions 2 to 4. The script skips zero-volume simplices arising from some triangulated nonsimplicial faces. All algebraic computations use `sympy` rational expressions; Qhull determines a proposed boundary triangulation, whose integration is done over exact rational vertex coordinates.
+The stable-set polytope is exactly x>=0 with sum of block maxima <=1. Block maxima plus slack have Dirichlet(1,m1,...,mr) law; conditional block maxima yield one uniformly chosen maximum and independent uniform remaining coordinates. Multiplying exact conditional powers and Dirichlet moments proves the arbitrary multiindex formula, not merely sampled moments. Derived all covariances and Schur-convex inertia through strict positive second derivative g_N and splitting. Independent exact fraction checks on six block profiles confirm low-degree means/covariances and inertia, including r=1 cube boundary.
 
-These finite checks do not prove the all-dimensional or arbitrary-order theorem. The proofs of the density, moment formula, covariance signs, and Schur extrema are analytical and appear in `RESULT.md`. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality accepted for the precise surviving claim, not for its cited earlier ingredients; statement/implication comparisons and residual access risks are recorded.
+
+## value
+
+PASS
+
+The whole-family moment identity gives a tractable volume law for an established convex family. Covariance sign recovery exactly identifies graph adjacency from geometry, and partition majorization gives sharp inertia optimizers. The exact all-degree formula and sign characterization are useful mathematical invariants beyond reproducing standard simplex integrals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
