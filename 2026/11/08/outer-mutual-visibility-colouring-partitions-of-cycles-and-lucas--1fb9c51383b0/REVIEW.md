@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pair-distance criterion is proved by identifying the unique blocking shortest path below the half-cycle distance and the alternate antipodal geodesic on even cycles. The no-triples classification is obtained from the triangle-free auxiliary graphs, with the two small exceptional orders checked by explicit geodesics. Each partition therefore corresponds to one matching. Counting odd-cycle matchings is by cyclic gaps; counting even-cycle matchings uses an exact four-state ladder transfer, its symmetric three-dimensional block, and an antisymmetric eigenmode. The Lucas count follows from the characteristic-polynomial recurrence. `verify.py` independently checks the graph definition and coefficient formulas for bounded orders.
+## correctness
 
-**Originality — PASS (provisional priority).** The September 2026 introductory colouring paper derives chromatic parameters for block graphs, Hamming graphs, and strong grids and discusses visibility on small cycles; the September work does not state the complete number-of-class distribution for arbitrary cycles in the inspected material. The earlier visibility-polynomial paper counts individual vertex sets rather than vertex partitions, and its remarks about antipodal pairs do not imply coefficients of a partition polynomial. A relevant published record on complete multipartite visibility colourings does not cover arbitrary cycles. No equivalent cycle partition enumerator was identified by the recorded searches. The exact entire-primary-paper comparison remains a residual priority risk because the later attempts to retrieve more of its HTML/PDF failed.
+PASS
 
-**Mathematical value — PASS.** Colour-class partition enumeration is the natural counting refinement of the recently introduced outer mutual-visibility chromatic number. The theorem gives *every* class-count coefficient for all cycle orders, a structural matching bijection, a fixed-size transfer matrix for the even-order family, and a parity-dependent exact optimal-partition count with a Lucas sequence. The matching and Lucas sequences themselves are classical; the contribution is their proven, exact correspondence to this new colouring problem.
+From the original geodesic definition on labelled C_n, derived that a valid two-element class has odd-cycle separation (n-1)/2 or even-cycle separation n/2-1 or n/2. For n>=8 even and all odd n>=5 the auxiliary compatibility graph has no triangles; direct n=4,6 triple checks rule out its exceptional triangles, so all larger classes are impossible. Thus colour partitions are in bijection with matchings of Gamma_n. Gamma_n is a cycle for odd n and (twisted) ladder for even n, whose occupancy transfer reduces to B(t)=[[1+t,2t,t^2],[1,t,0],[1,0,0]], giving tr(B(t)^m)-t^m; the top coefficient is Lucas L_m. Independently enumerated geodesic visibility classes and full matching polynomials for n=4..11, with direct triple exclusion n<=10, matching the odd binomial and even matrix formulas. At n=3, all classes are allowed and Pi_3=z+3z^2+z^3. All-size proof uses the pair lemma, triangle-exclusion, transfer representation and recurrence; finite tests are corroboration.
 
-The domain is labelled cycles, unordered nonempty classes, and unaltered shortest-path visibility; dihedral orbit counts and other visibility variants are not claimed. Priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existing mutual-visibility polynomial literature counts individual visible subsets, while this result counts UNORDERED partitions into such classes and gives full colour-class distribution. Original 2026 paper introduces outer-visibility coloring and covers other named graph families by abstract; its full text could not be legally accessed in this run, even after trying public arXiv/OA and authorized institutional route (VPN disconnected). That plausible inaccessible source alone is NOT grounds to reject, but specific historical-priority risk remains and no claim of whole-document exclusion is made.
+
+## value
+
+PASS
+
+The exact cycle partition polynomial, canonical reduction to matchings of circular/Moebius ladders, and Lucas count of minimum partitions form a natural complete classification for a newly studied graph colouring invariant. The transfer matrix encodes all class counts, not only a chromatic number. This is a motivated enumeration, beyond naming a matching polynomial after its bijection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
