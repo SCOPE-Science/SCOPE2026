@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim states a precise iid finite-alphabet model and distinguishes ordinary palindrome occurrences from distinct words and reverse-complement DNA patterns. The union of two mirror matchings for unequal centers is a forest because alternating reflections translate by a nonzero integer, so iid uniform labels give exact pairwise tail-event independence for all admissible radii. The converse uses the positive variance of the sampled atom mass at a three-symbol window. The nested events at a center yield the three finite covariance formulas. Tail-sum moments and a summable capacity-boundary deficit give the exact variance and asymptotic coefficient. These nonstandard proof steps were reconstructed and finite-checked separately; the standalone checker passed 13,735 exact assertions. The unbounded theorem rests on the written proof, not the enumeration.
+PASS
 
-## Originality — PASS (with historical priority risk)
+For distinct palindrome centers, their symmetric equality matchings have a forest union because composing reflections translates each position by a nonzero displacement; thus uniform iid q-ary joint thresholds factor as q^{-(r+s)}. For n>=3, covariance of radius-one indicators X1=X2 and X1=X3 equals Var(p_X1), vanishing iff the supported law is uniform. Same-center tails are nested, yielding the stated exact same-parity covariance formulas and mixed parity zero, and summable capacity boundary corrections give variance slope 2q/(q-1)^2. Independent small binary/ternary word enumeration reproduced cross-length covariance and paired centers.
 
-Rubinchik–Shur (arXiv:1505.08043v1, 2015, Section 3 Lemma 3.2, Section 6) gives expected occurrences at one length and studies distinct palindrome values, not the all-length covariance matrix or uniform-only maximal-radius independence characterization. Leung–Choi–Xia–Chen (2005, Proposition 1 and remark following Lemma 1) calculates overlapping occurrence probabilities for fixed-length reverse-complement DNA palindromes; its equal-letter-frequency case is a genuine close precedent for pairwise uncorrelated fixed-length indicators. It does not state a general joint law for ordinary-palindrome maximal radii at both integer and half-integer centers, the full cross-parity covariance matrix, or the nonuniform converse. The 2013 Špoljarić–Ugrina fixed-length reverse-complement study could be inspected only through its abstract; The complete text was unavailable after lawful access attempts. Published records and accessible earlier results were queried for palindrome radii, occurrence covariances, aliases, and alternate formulations; the closest indexed records address a different random-word invariant or palindromic duplication codes. Absence of a search hit is not a proof of historical originality; additional unindexed implicit coverage remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The all-length covariance matrix of positional palindrome counts is a motivated second-order question left open by one-length expectation formulas. Pairwise-independent maximal radii with genuine triple dependence make the variance tractable even for arbitrarily overlapping substrings, yielding a sharp uniform-only iid classification, exact parity splitting, and a variance scaling constant for random-word palindrome statistics. These are natural complete dependence statements, not parameter-specific examples or mere recomputation of one known mean.
+A separate same-date publication already proves the uniform iid pairwise independent center radii, variance generating function and total variance slope, and these are credited rather than new. The remaining full all-length even/odd count covariance spectrum and sharp iff-uniform law for arbitrary iid supported probabilities are not stated or formally implied by the earlier uniform-only result; their natural invariant and structural characterization justify conditional independent originality. Same-date priority order unknown.
 
-## Boundaries and external verification
+## value
 
-The theorem does not extend radius independence to nonuniform letters, non-iid sources, or three-wise independence, and it does not assert a CLT or a Poisson approximation. The source-access limitation and possible implicit earlier formula coverage remain open. All embedded artifacts are complete and use an ordinary reproducibility checker; no independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cross-length covariance of palindrome occurrence counts and the exact uniform-only radius-independence criterion are natural random-word second-order statistics. The sharp finite-length parity-block covariance matrix and nonuniform boundary are independently useful, notwithstanding that a separately published same-date finding had already derived uniform pairwise independence and total variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

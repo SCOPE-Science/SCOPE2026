@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The independent proof gives a forest factorization for the joint threshold probabilities at two distinct palindrome centers; the finite word checks verify this factorization in special cases but are not substituted for the proof. The proof checks exact cross-length covariances from nested indicators and counts eligible centers, and derives variance asymptotics using a bounded, explicitly summable geometric truncation deficit. The standalone `check_palindromes.py` computes the observable statistics by a separate brute-force procedure and performs 13,735 exact assertions over binary words through length eight, ternary words through length six, and graph-forest configurations through length fourteen. It includes counterexamples to nonuniform independence and uniform mutual independence. Its expected final line is `PASS: 13735 independently computed exact checks`.
+## correctness
 
-No external mathematical certification was performed. Historical-priority comparisons are limited to the cited accessible works; a directly relevant 2013 reverse-complement DNA paper was checked by abstract only.
+PASS
+
+For distinct palindrome centers, their symmetric equality matchings have a forest union because composing reflections translates each position by a nonzero displacement; thus uniform iid q-ary joint thresholds factor as q^{-(r+s)}. For n>=3, covariance of radius-one indicators X1=X2 and X1=X3 equals Var(p_X1), vanishing iff the supported law is uniform. Same-center tails are nested, yielding the stated exact same-parity covariance formulas and mixed parity zero, and summable capacity boundary corrections give variance slope 2q/(q-1)^2. Independent small binary/ternary word enumeration reproduced cross-length covariance and paired centers.
+
+## originality
+
+PASS
+
+A separate same-date publication already proves the uniform iid pairwise independent center radii, variance generating function and total variance slope, and these are credited rather than new. The remaining full all-length even/odd count covariance spectrum and sharp iff-uniform law for arbitrary iid supported probabilities are not stated or formally implied by the earlier uniform-only result; their natural invariant and structural characterization justify conditional independent originality. Same-date priority order unknown.
+
+## value
+
+PASS
+
+Cross-length covariance of palindrome occurrence counts and the exact uniform-only radius-independence criterion are natural random-word second-order statistics. The sharp finite-length parity-block covariance matrix and nonuniform boundary are independently useful, notwithstanding that a separately published same-date finding had already derived uniform pairwise independence and total variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
