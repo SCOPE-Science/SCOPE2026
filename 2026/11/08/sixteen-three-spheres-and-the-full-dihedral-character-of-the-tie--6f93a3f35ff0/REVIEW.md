@@ -1,21 +1,21 @@
-# Scientific review: Sixteen three-spheres and the full dihedral character of the Tietze matching complex
+# Independent mathematical audit
 
-## Correctness — PASS
-All 1052 possible valid matching faces were exhaustively enumerated independently by bit-mask DP and recursive include/exclude. The specified staged toggling pairs all but 16 three-simplices in the augmented poset; after retaining the singleton from the empty-face pair, there are exactly 517 ordinary pairs, one critical vertex and 16 critical three-cells. Every one of the 3744 ordinary Hasse cover arrows was built and the acyclic orientation topologically sorted all 1051 nodes. Forman discrete Morse yields a CW model with only one 0-cell and sixteen 3-cells, hence an integral wedge of 16 S^3. Independent mod-2/mod-3 chain ranks corroborate. The complete 12-element automorphism group was obtained by exact backtracking; explicit D6 generators reproduce it. Signed Lefschetz chain traces give the class character (16,0,-2,0,-2,0) on rotations, zero on reflections, with integral nonnegative multiplicities 1,1,1,1,3,3. This proves the rational character, not an integral group-lattice decomposition.
+## correctness
 
-The finite proof certificate consists of the explicit edge list, full face reconstruction, complete acyclic discrete-Morse matching and group-action trace computation supplied in `verify_tietze.py`, with output in `verification_output.txt`. Finite-field homology computations are independent corroboration, not a replacement for the integral discrete-Morse proof.
+PASS
 
-## Originality — PASS (relative to inspected evidence)
-Statement-level comparison was performed for Tietze, J3, cubic flower graphs, line-graph independence complexes, numerical wedge values and symmetry. Three plausible primary texts were materially inspected in full HTML. Forest and outerplanar hypotheses fail for Tietze; perfect-matching enumerations do not determine all partial-matching simplices or their homology, and related-graph classifications are non-implying. No retrieved exact table or theorem was identified that entails either the Tietze integral homotopy or full dihedral character. This is best-knowledge originality with residual publication-priority uncertainty.
+For the specified 12-vertex cubic Tietze graph with 18 ordered edges, independently generated all 1052 (augmented) matching faces. Counts of nonempty simplices by dimensions 0..5 equal (18,117,335,408,165,8). The explicit staged vertex-toggling matching with pivot order 11,9,0,16,2,15,10,3,5,17,14,6,7,8,4,1,13,12 has 518 augmented pairs and 16 remaining four-edge faces; removing the empty pair leaves 517 ordinary pairs, one vertex, sixteen 3-cells. Independent Hasse topological sort visited all 1051 ordinary face nodes and 3744 cover arrows, so the integral CW type is wedge^16 S3. Edge-label permutations induced by given D6 r,s yield signed chain Lefschetz characters on rotations (16,0,-2,0,-2,0) and zero reflections; this decomposes into four one-dimensional characters plus 3 copies of each 2-dimensional rational character. No integral D6 lattice claimed.
 
-The closest primary literature includes Marietti and Testa’s 2007 forest theorem, Fouquet–Thuillier–Vanherpe’s 2010 perfect-matching counts for cubic flower-type graphs and triangular inflation, and Bayer–Jelić Milutinović–Vega’s outerplanar-graph theorem (2024, full text version dated 2026). None has hypotheses or conclusions implying the combined result for the nonplanar Tietze graph. The equivalent independence-complex formulation on the line graph was also searched. Residual risk is unindexed or inaccessible equivalent research, especially any undiscovered general theorem for triangle inflation.
+## originality
 
-## Mathematical value — PASS
-The Tietze graph is a canonical 12-vertex cubic, nonplanar, almost-Hamiltonian graph, naturally constructed by inflating a Petersen vertex to a triangle. Ordinary matching complexes encode all compatible partial edge choices; their integral homotopy type is not reducible to counting perfect matchings. The full 16-sphere classification, despite nonpure simplices reaching dimension five, supplies a non-obvious exact topological invariant. The complete dihedral character provides a meaningful additional symmetry refinement invisible to Betti numbers and determines the multiplicities of all six rational irreducible representations. Its specificity is justified by the graph’s canonical role and the contrast with the related Petersen construction; no family-level significance is overstated.
+PASS
 
-The claim concerns one graph, but the graph is canonical; both the exact integral homotopy classification and complete symmetry character are natural invariants not determined by the prior perfect-matching enumeration. No infinite-family theorem or equivariant integral lattice decomposition is claimed.
+PASS: A full matching complex of the triangle-expanded Petersen (Tietze) graph, not its perfect matching set, is new relative to checked forest and outerplanar matching-complex theorems and flower-snark perfect-match counts. Existing Petersen graph matching results are not automatic under a vertex-to-triangle expansion. The exact dihedral rational character adds symmetry information absent from these theorems. Equivalent line-graph independence computations remain a priority risk.
 
-## Status and limitations
-Full scientific and finite-program verification remains same-model; independent validation and definitive publication-priority assessment have not been performed. Details of the complete finite checks, representation conventions, prior-work implications and residual risks are in the accompanying files.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The Tietze graph is a canonical cubic nonplanar triangle-inflated Petersen graph. Its complete finite matching-complex sphere wedge and full D6 homology character are natural, exact, non-obvious graph invariants; they distinguish triangular inflation from forest/outerplanar behaviors and are not merely a cheap dimension-one test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

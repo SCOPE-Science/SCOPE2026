@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T04:17:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified 12-vertex cubic Tietze graph with 18 ordered edges, independently generated all 1052 (augmented) matching faces. Counts of nonempty simplices by dimensions 0..5 equal (18,117,335,408,165,8). The explicit staged vertex-toggling matching with pivot order 11,9,0,16,2,15,10,3,5,17,14,6,7,8,4,1,13,12 has 518 augmented pairs and 16 remaining four-edge faces; removing the empty pair leaves 517 ordinary pairs, one vertex, sixteen 3-cells. Independent Hasse topological sort visited all 1051 ordinary face nodes and 3744 cover arrows, so the integral CW type is wedge^16 S3. Edge-label permutations induced by given D6 r,s yield signed chain Lefschetz characters on rotations (16,0,-2,0,-2,0) and zero reflections; this decomposes into four one-dimensional characters plus 3 copies of each 2-dimensional rational character. No integral D6 lattice claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marietti–Testa Theorem 4.11 assumes a forest.",
+          "Bayer–Jelić Milutinović–Vega Theorem 2 assumes outerplanar graph; Tietze has Petersen minor so is nonplanar."
+        ],
+        "reasoning": "Neither broader theorem covers this graph because hypotheses fail; an unpublished general cubic graph formula remains possible.",
+        "searches": [
+          "arxiv:0705.1461 Theorem 4.11",
+          "arxiv:2411.04601 Theorem 2",
+          "matching complexes outerplanar forests flower snarks"
+        ]
+      },
+      "checked_sources": [
+        "A simple uniform approach to complexes arising from forests (https://arxiv.org/pdf/0705.1461)",
+        "Matching Complexes of Outerplanar Graphs (https://arxiv.org/pdf/2411.04601)",
+        "On a family of cubic graphs containing the flower snarks (https://arxiv.org/pdf/1003.5459)",
+        "Tietze graph description (https://mathworld.wolfram.com/TietzeGraph.html)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fouquet–Thuillier–Vanherpe count perfect matchings and study 2-factors/strong matchings, not homology of all partial matchings.",
+          "The forest and outerplanar wedge theorems do not apply to this nonplanar graph."
+        ],
+        "reasoning": "Triangular vertex inflation changes edge-vertex incidence of the matching complex. Prior nonplanar Petersen results cannot be specialized directly to the new Tietze complex and its D6 character.",
+        "searches": [
+          "arxiv:1003.5459 §§1–2",
+          "arxiv:2411.04601 Theorem 2 and conclusion",
+          "arxiv:0705.1461 §4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching complex equals independence complex of line graph L(T) (explicit in Bayer et al. Proposition 4).",
+          "Search found same current record and related Petersen/flower graphs but no earlier L(T) exact homotopy/character."
+        ],
+        "reasoning": "Line-graph independence equivalence checked; it does not produce a known result without an earlier computation of that line graph.",
+        "searches": [
+          "tietze graph Rips complex sixteen 3 spheres dihedral automorphism character",
+          "Tietze graph matching complex line graph independence complex 16 third homology",
+          "Marietti Testa 0705.1461 §4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ordinary matching face counts (18,117,335,408,165,8), 16-sphere wedge and D6 character appear in the assigned record; search hit for same published record is not independent prior art.",
+          "Fouquet et al. count perfect matchings on a cubic graph family; perfect matching count is not the simplicial matching complex."
+        ],
+        "reasoning": "No independent exact table giving integral M(T) wedge or D6 character located. Existing combinatorial graph adjacency tables do not imply these topological invariants.",
+        "searches": [
+          "Resultary tietze graph Rips complex sixteen 3 spheres dihedral automorphism character",
+          "Tietze matching complex homology 16 spheres character D6",
+          "perfect matchings Tietze graph enumerations"
+        ]
+      },
+      "rationale": "PASS: A full matching complex of the triangle-expanded Petersen (Tietze) graph, not its perfect matching set, is new relative to checked forest and outerplanar matching-complex theorems and flower-snark perfect-match counts. Existing Petersen graph matching results are not automatic under a vertex-to-triangle expansion. The exact dihedral rational character adds symmetry information absent from these theorems. Equivalent line-graph independence computations remain a priority risk.",
+      "residual_risks": [
+        "Equivalent graph complex under independence complex of line graph or alternative Tietze labeling could have been published in an unindexed table.",
+        "No integral equivariant splitting or integral D6 lattice is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING by explicit forest assumption",
+          "evidence": "Theorem 4.11 is for M(F) with F a forest.",
+          "identifier_or_url": "https://arxiv.org/pdf/0705.1461",
+          "material_read": "PDF introduction, section 4.4, Theorem 4.11 and proof",
+          "method": "PDF text plus screenshot of p.9",
+          "title": "A simple uniform approach to complexes arising from forests",
+          "trigger": "Potential graph matching wedge theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: Tietze nonplanar",
+          "evidence": "Theorem 2 restricts to outerplanar G; triangle contraction yields Petersen minor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.04601",
+          "material_read": "PDF title, introduction, line graph equivalence Proposition 4, Theorem 2 scope",
+          "method": "PDF text plus screenshot p.3",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Potential general matching wedge theorem"
+        },
+        {
+          "assessment": "NOT_COVERING full matching-complex topology",
+          "evidence": "Original paper focuses counts of perfect matchings, not all partial matchings and their homology.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.5459",
+          "material_read": "PDF introduction and statements on perfect-matching counts/strong matchings",
+          "method": "PDF text + title screenshot",
+          "title": "On a family of cubic graphs containing the flower snarks",
+          "trigger": "Possible triangle inflation and perfect matching treatment"
+        },
+        {
+          "assessment": "Supports object normalization only",
+          "evidence": "The specified 12-vertex graph contracts its unique triangle to Petersen.",
+          "identifier_or_url": "https://mathworld.wolfram.com/TietzeGraph.html",
+          "material_read": "Graph construction as cited by assigned paper; direct independent edge verification locally",
+          "method": "Named graph identification",
+          "title": "Tietze graph description",
+          "trigger": "Object alias, triangle-expanded Petersen"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The Tietze graph is a canonical cubic nonplanar triangle-inflated Petersen graph. Its complete finite matching-complex sphere wedge and full D6 homology character are natural, exact, non-obvious graph invariants; they distinguish triangular inflation from forest/outerplanar behaviors and are not merely a cheap dimension-one test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A simple uniform approach to complexes arising from forests (https://arxiv.org/pdf/0705.1461)",
+    "Matching Complexes of Outerplanar Graphs (https://arxiv.org/pdf/2411.04601)",
+    "On a family of cubic graphs containing the flower snarks (https://arxiv.org/pdf/1003.5459)",
+    "Tietze graph description (https://mathworld.wolfram.com/TietzeGraph.html)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite exhaustive certificate for named graph only.",
+    "Exact homotopy is nonequivariant; rational character does not determine integral D6-lattice."
+  ],
+  "residual_risks": [
+    "Equivalent graph complex under independence complex of line graph or alternative Tietze labeling could have been published in an unindexed table.",
+    "No integral equivariant splitting or integral D6 lattice is proved."
+  ],
+  "schema_version": 1
+}

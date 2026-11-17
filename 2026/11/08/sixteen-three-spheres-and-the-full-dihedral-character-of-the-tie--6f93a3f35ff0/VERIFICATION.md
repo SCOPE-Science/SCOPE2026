@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The self-contained certificate is `verify_tietze.py`, executable with Python 3 using only the standard library. Its companion `verification_output.txt` is a verbatim record of one successful execution.
+# Independent mathematical audit
 
-**Finite proof checks:** Two independent algorithms enumerate the same 1,052 matching faces, including the empty face; the augmented toggle pairing has 518 pairs and 16 leftover three-simplices. After omitting the empty face, the ordinary pairing has 517 pairs and exactly one critical vertex and 16 critical three-simplices. Every one of 3,744 Hasse covering relations is constructed, and the whole 1,051-simplex directed graph is exhausted by topological sorting, proving acyclicity.
+## correctness
 
-**Independent corroboration:** Simplicial boundary ranks modulo 2 and 3 are identical in degrees 1–5: 17, 100, 235, 157, 8. This finite-field computation is corroborative, not the proof of the integral wedge. A backtracking graph-isomorphism algorithm counts exactly 12 automorphisms, independent of the stated dihedral generators. Signed fixed-face Lefschetz sums give all 12 top-homology character values and nonnegative integral irreducible multiplicities.
+PASS
 
-**Proof boundary:** Forman's discrete-Morse theorem supplies a CW model with one zero-cell and sixteen three-cells. No higher-dimensional CW attaching map exists, so it is a wedge of three-spheres. This certifies the integral nonequivariant homotopy claim, while the fixed-face method determines only the rational representation character. The calculation does not certify novelty against unavailable work, does not identify an equivariant homotopy splitting, and has not received independent mathematical validation.
+For the specified 12-vertex cubic Tietze graph with 18 ordered edges, independently generated all 1052 (augmented) matching faces. Counts of nonempty simplices by dimensions 0..5 equal (18,117,335,408,165,8). The explicit staged vertex-toggling matching with pivot order 11,9,0,16,2,15,10,3,5,17,14,6,7,8,4,1,13,12 has 518 augmented pairs and 16 remaining four-edge faces; removing the empty pair leaves 517 ordinary pairs, one vertex, sixteen 3-cells. Independent Hasse topological sort visited all 1051 ordinary face nodes and 3744 cover arrows, so the integral CW type is wedge^16 S3. Edge-label permutations induced by given D6 r,s yield signed chain Lefschetz characters on rotations (16,0,-2,0,-2,0) and zero reflections; this decomposes into four one-dimensional characters plus 3 copies of each 2-dimensional rational character. No integral D6 lattice claimed.
+
+## originality
+
+PASS
+
+PASS: A full matching complex of the triangle-expanded Petersen (Tietze) graph, not its perfect matching set, is new relative to checked forest and outerplanar matching-complex theorems and flower-snark perfect-match counts. Existing Petersen graph matching results are not automatic under a vertex-to-triangle expansion. The exact dihedral rational character adds symmetry information absent from these theorems. Equivalent line-graph independence computations remain a priority risk.
+
+## value
+
+PASS
+
+PASS: The Tietze graph is a canonical cubic nonplanar triangle-inflated Petersen graph. Its complete finite matching-complex sphere wedge and full D6 homology character are natural, exact, non-obvious graph invariants; they distinguish triangular inflation from forest/outerplanar behaviors and are not merely a cheap dimension-one test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
