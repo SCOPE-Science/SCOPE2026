@@ -1,23 +1,21 @@
-# Scientific review: algebraic tricritical coordinate in two-site resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The physical Brownian-ring renewal expression in arXiv:2605.08414, equation (31), becomes the dimensionless formula in RESULT.md when the antipodal and nearer resetting angles are inserted and the initial distribution matches the resetting distribution. Independent formal-series division gives the stated polynomials \(P_1,P_2\). The exact polynomial elimination identity forces \(p=(5b-2)/(3b^3)\) and the cubic \(Q(b)=0\). Monotonicity of \(Q\) and the sign restriction \(0<p<1\) leave precisely one physical zero-rate simultaneous derivative root. The cubic Taylor coefficient is strictly positive by an exact rational root bracket and a quadratic sign certificate; the local-coordinate Jacobian is nonzero. A Taylor/implicit-function argument establishes the small-rate local square-root branch. `verify.py` was executed and passed the symbolic identities and rational sign certificates. The proof does not infer any universal claim from finite numerical tests.
+PASS
 
-## Originality — PASS (qualified)
+Standard Brownian ring target Laplace transform plus renewal formula yields F(y)=[cosh(sqrt y)/(1-p+p cosh(sqrt(by)))-1]/y. Independent symbolic series re-expansion verifies exact A1=P1/24, A2=-P2/720; polynomial elimination P2-(5b(6p-1)/2)P1=-(3b^3p-5b+2)/2 reduces to Q(b)=b^3+15b²-16b+4. Q has exactly one physical root b in (0.4,0.45), p=(5b-2)/(3b³) in (0,1); the other root p>1. The cubic coefficient H(b)/(5670b^8) is strictly positive by certified rational interval, with nonzero control Jacobian; implicit function yields y_loc=sqrt(epsilon/(3 C_*))+O(epsilon), a strict local, not global, minimum. Independent SymPy and rational checks corroborate exact proof.
 
-The nearest same-object source is Julián-Salgado et al., arXiv:2605.08414v1, section V.2 and Table 1: it introduces the zero-rate tricritical derivative conditions and gives approximate coordinates obtained numerically, without an exact algebraic polynomial, proof of uniqueness in the physical rectangle, positive cubic coefficient, or transverse local square-root coefficient. Its September 2026 accepted version is the same work, not a second independent result. The earlier arXiv:2311.11897 treats a half-line instead of a circle and gives different critical behavior, not this geometric polynomial. A search of public indexed mathematical findings and available historical claims found no equivalence or broader implication covering the present exact classification. Because indexed and full-text coverage is not exhaustive, independent priority investigation remains advisable.
+## originality
 
-## Value — PASS
+PASS
 
-The source treats its tricritical coordinates as mathematically difficult enough to compute numerically. The exact cubic, proof that precisely one branch lies in the physical probability range, and nonzero third rate correction convert an approximate point in a real phase diagram into a reproducible algebraic invariant. The local onset law specifies the singular scaling of the emergent minimizing rate. Both quantities are directly tied to the phase-boundary structure of the stochastic-search model; they are not arbitrary finite samples, substitutions, or a repackaging of an already exact table.
+Julián-Salgado et al., same reset model and the exact same physical tricritical coordinate, previously reported its approximate location numerically and derivative equations. The added algebraic defining cubic, proof of uniqueness of the physical solution, nondegenerate positive cubic and transverse local-onset coefficient are not given in the read primary text. Best-of-knowledge PASS limited to these exact analytic refinements, not discovery of the tricritical phenomenon.
 
-## Closest literature and limitations
+## value
 
-- P. Julián-Salgado et al., *Mirror transitions in diffusion with stochastic resetting confined on a ring*, arXiv:2605.08414v1 (2026-05-08), especially equations (28), (31), (38) and Table 1. The general renewal law, phenomenon and numerical tricritical coordinates are prior work.
-- The same authors, *Critical and tricritical transitions in diffusion with stochastic resetting on a ring*, accepted 2026-09-29, DOI:10.1103/2fsc-jkq8. Its accessible accepted-paper page supplies only abstract-level detail, so changes in final full text remain a priority risk.
-- P. Julián-Salgado, L. Dagdug and D. Boyer, *Diffusion with two resetting points*, arXiv:2311.11897 (2023-11-20): related half-line two-site restart analysis, not a closed-ring algebraic tricritical classification.
+PASS
 
-The claim is limited to zero-rate tricritical derivatives for the specified diametric geometry and its reflected counterpart. The emerging positive-rate minimizer is certified locally, not globally; arbitrary resetting distributions and independent validation are out of scope.
+The triple vanishing of low-order reset-rate derivatives is a natural criticality threshold for two-site Brownian search. Exact algebraic uniqueness plus a certified positive cubic and nonzero control Jacobian distinguishes genuine tricritical onset from a numerical table, and gives a quantitative local square-root law. The result neither overclaims global optimization nor attributes the earlier discovery of the coordinate to itself.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

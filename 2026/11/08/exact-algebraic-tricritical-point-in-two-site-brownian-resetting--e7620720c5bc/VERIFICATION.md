@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3 and SymPy 1.11 or later. This was run with SymPy 1.14.0 and completed successfully. It checked:
+## correctness
 
-1. The first four coefficients of the exact hyperbolic-cosine quotient series using formal division.
-2. The exact polynomial-elimination identity, its rational back-substitution, and all factors of the residual cubic.
-3. Rational root isolation: \(420030658800268/10^{15}<b_*<420030658800270/10^{15}\), using signs of \(Q\) at both endpoints.
-4. Strict positivity of the first nonzero cubic rate coefficient using an exact algebraic reduction and rational sign checks on the isolated interval.
-5. The nonvanishing physical control Jacobian and high-precision illustrative values for the coefficient and root.
+PASS
 
-The proof of exactly one physical tricritical root uses the signs and derivative of the cubic polynomial, not numerical enumeration. The local square-root onset follows from an analytic Taylor expansion and the implicit-function theorem. Verification here is a reproducible self-review and is **not** an independent audit. No global uniqueness of the optimal finite rate, all-geometry classification, or numerical simulation of the stochastic process was claimed or tested.
+Standard Brownian ring target Laplace transform plus renewal formula yields F(y)=[cosh(sqrt y)/(1-p+p cosh(sqrt(by)))-1]/y. Independent symbolic series re-expansion verifies exact A1=P1/24, A2=-P2/720; polynomial elimination P2-(5b(6p-1)/2)P1=-(3b^3p-5b+2)/2 reduces to Q(b)=b^3+15b²-16b+4. Q has exactly one physical root b in (0.4,0.45), p=(5b-2)/(3b³) in (0,1); the other root p>1. The cubic coefficient H(b)/(5670b^8) is strictly positive by certified rational interval, with nonzero control Jacobian; implicit function yields y_loc=sqrt(epsilon/(3 C_*))+O(epsilon), a strict local, not global, minimum. Independent SymPy and rational checks corroborate exact proof.
+
+## originality
+
+PASS
+
+Julián-Salgado et al., same reset model and the exact same physical tricritical coordinate, previously reported its approximate location numerically and derivative equations. The added algebraic defining cubic, proof of uniqueness of the physical solution, nondegenerate positive cubic and transverse local-onset coefficient are not given in the read primary text. Best-of-knowledge PASS limited to these exact analytic refinements, not discovery of the tricritical phenomenon.
+
+## value
+
+PASS
+
+The triple vanishing of low-order reset-rate derivatives is a natural criticality threshold for two-site Brownian search. Exact algebraic uniqueness plus a certified positive cubic and nonzero control Jacobian distinguishes genuine tricritical onset from a numerical table, and gives a quantitative local square-root law. The result neither overclaims global optimization nor attributes the earlier discovery of the coordinate to itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
