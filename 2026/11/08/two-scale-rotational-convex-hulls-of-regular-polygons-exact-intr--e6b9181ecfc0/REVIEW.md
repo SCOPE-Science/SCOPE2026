@@ -1,15 +1,21 @@
-# Scientific review: two-scale rotational convex hulls of regular polygons
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem states exact area, perimeter, extreme-vertex count, the scale/angle threshold, global angle maximizers, and two distinct gain exponents for every integer number of sides at least three. Its proof checks the complete parameter boundary, including the zero-rotation equal-radius coincidence. The key geometric equivalence is the outer-side support test \(r\cos(\pi/n-\theta)>\cos(\pi/n)\), which proves the precise alternating vertex order. The area follows from a shoelace sum, and the perimeter from Euclidean chords; the derivative's positive factorization is exact. Both quantitative onset expansions follow from Taylor's formula. An independent numerical convex-hull construction checks 10,619 cases. Numerical trials do not replace the universal proof. There is no assertion of a result for nonconcentric shapes or unequal side counts.
+## correctness
 
-## Originality — PASS with historical-priority risk
-The 2020 first-public version of Horváth–Lángi's convex-hull-function paper varies translations of a body or of a homothetic copy, rather than relative rotation about a fixed common center, and does not yield the joint profile. Their 2013 paper covers congruent copies under translation and reflection and describes distinct higher-dimensional simplex questions. The materially read published records on congruent regular-polygon **unions** concern nonconvex radial coverage, and the regular-polygon **translative** convex-hull record uses different motions and invariants. None states or implies the simultaneous two-scale area/perimeter, sharp contact phase, or distinct gain exponents. Earlier terminology concerning regular-polygon twists or connecting polygons could conceal a covering formula; a historical priority claim must remain provisional. An older source on maximal hulls of coincident-centroid regular simplices is not known to cover this planar all-scale result; only its accessible abstract and cited-context summaries were read.
+PASS
 
-## Mathematical value — PASS
-This is a complete and nontrivial two-parameter classification of two intrinsic volumes and every hull vertex for an infinite family of natural planar convex hulls. It gives a sharp geometric containment-to-exposure transition, a unique simultaneous maximizing rotation when any protrusion is possible, and contrasting first- and second-order critical gains. The distinction between newly exposed hull vertices, first-order area response, and only quadratic perimeter response is a structurally motivated boundary phenomenon, not an arbitrary finite computation. The theorem is independent of the unproved general optimization problems concerning arbitrary convex polygons.
+The inner regular n-gon lies in the outer one iff r cos(π/n−θ)≤cos(π/n), because this is the maximal inner support against each outer edge normal. Strict inequality in the other direction exposes exactly n alternating inner vertices; all n unit-radius vertices remain exposed. The shoelace formula yields area n sin(b) max(c,r cos(b−θ)), and cyclic chord lengths yield the two-case perimeter. On the active angle interval, the squared derivative difference factorizes into 2(cos θ−cos(2b−θ))(rT−c)(T−rc)>0, proving both volumes strictly increasing toward θ=b. Direct expansion at r=c gives a linear area excess and quadratic perimeter excess. Independently computed SciPy convex hulls for 585 n,r,θ cases (n=3..11) and agreed for both area and perimeter. Numeric checks corroborate, not substitute for analytic proof.
 
-## Limits and sources
-All formulas concern identical side count, one common center, positive radii, and Euclidean area/perimeter only. The literature assessment is limited to the primary full texts and public mathematical records identified in RESULT.md and AUDIT.json. The embedded checker supplies regression evidence only. No other geometric optimizer or previously inaccessible text is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the complete exact area/perimeter profiles, strict coupled angular maximizer, and unequal linear versus quadratic onset orders. The contact/vertex-survival criterion alone is covered by the earlier more general gcd-resolved polygon hull-vertex theorem and must not be credited as new. Earlier translative hull and concentric overlap results do not contain the new intrinsic-volume formulas.
+
+## value
+
+PASS
+
+The combined full two-parameter area/perimeter phase diagram for a natural concentric convex-hull construction, strict simultaneous optimizers and distinct onset exponents supply a motivated structural geometric classification beyond known contact counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

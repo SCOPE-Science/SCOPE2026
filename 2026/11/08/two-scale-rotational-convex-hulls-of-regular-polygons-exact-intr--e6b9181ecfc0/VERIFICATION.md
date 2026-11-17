@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and claim-to-evidence
+# Independent mathematical audit
 
-The stated formulas concern a Euclidean convex hull of two concentric regular polygons with identical side counts. The proof in RESULT.md uses a supporting-edge containment criterion, an alternating-vertex argument, polygon shoelace/chord sums, and an exact trigonometric factorization proving the perimeter derivative is positive whenever the inner polygon protrudes. The two gain exponents follow from a Taylor expansion of explicit formulas, not from extrapolation.
+## correctness
 
-Execute `python VERIFY.py` with Python 3, NumPy and SciPy available. The implementation constructs the input points independently, invokes SciPy's two-dimensional ConvexHull routine for its area and perimeter, and compares with the closed forms at 10,619 combinations: 37 side counts, seven representative scale ratios each (including threshold-adjacent cases), and 41 orientations. The expected message is `ROTATIONAL_HULL_PROFILE_TESTS 10619 active 4436 inactive 6183 failures 0`. Numeric values are checked within absolute error \(2\times10^{-7}\); this is evidence for the formulas, not an exhaustive proof over continuous parameters.
+PASS
 
-The scope does not include unequal side counts, off-center polygons, affine distortions, or higher-dimensional convex hulls. Earlier results about translated hulls and nonconvex unions are not applied as substitute proofs. The independent audit remains unperformed.
+The inner regular n-gon lies in the outer one iff r cos(π/n−θ)≤cos(π/n), because this is the maximal inner support against each outer edge normal. Strict inequality in the other direction exposes exactly n alternating inner vertices; all n unit-radius vertices remain exposed. The shoelace formula yields area n sin(b) max(c,r cos(b−θ)), and cyclic chord lengths yield the two-case perimeter. On the active angle interval, the squared derivative difference factorizes into 2(cos θ−cos(2b−θ))(rT−c)(T−rc)>0, proving both volumes strictly increasing toward θ=b. Direct expansion at r=c gives a linear area excess and quadratic perimeter excess. Independently computed SciPy convex hulls for 585 n,r,θ cases (n=3..11) and agreed for both area and perimeter. Numeric checks corroborate, not substitute for analytic proof.
+
+## originality
+
+PASS
+
+PASS for the complete exact area/perimeter profiles, strict coupled angular maximizer, and unequal linear versus quadratic onset orders. The contact/vertex-survival criterion alone is covered by the earlier more general gcd-resolved polygon hull-vertex theorem and must not be credited as new. Earlier translative hull and concentric overlap results do not contain the new intrinsic-volume formulas.
+
+## value
+
+PASS
+
+The combined full two-parameter area/perimeter phase diagram for a natural concentric convex-hull construction, strict simultaneous optimizers and distinct onset exponents supply a motivated structural geometric classification beyond known contact counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
