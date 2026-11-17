@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:06:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For symmetric n-vertex weights in [0,1] with w_ii=1 and initial opinion diameter below the confidence radius, the all-interacting FOAF system is w_ij’=(w_ij+(W²)_ij/n)(1-w_ij). The polynomial vector field preserves the weight cube, symmetry, and initial component block zeros and is analytic. For every missing within-component pair at initial distance d>=2, the first nonzero Taylor term has order d-1 and coefficient S_ij/n^(d-1), where S_ij sums products over all shortest paths. The inductive coefficient recursion uses d(i,k)+d(k,j)>=d and exactly d-1 interior split vertices on each shortest route, explaining the cancellation of the derivative factorial. Since S>0, every such tie becomes positive for all positive times; logistic comparison yields saturation to one inside components, while cross-component ties stay identically zero. Strict monotonicity of missing within-component ties yields one crossing of each epsilon in (0,1), with the stated small-epsilon inversion. The result is explicitly restricted to the persistent all-interacting regime; no claims made for changing confidence switches.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original FOAF paper establishes the equation, triadic growth mechanism and qualitative lack of between-component creation; stochastic model studies mean-field bistability."
+        ],
+        "reasoning": "Those broader modelling and qualitative statements do not provide the exact d-1 vanishing order or a weighted path-product coefficient and crossing-scale law. Prior component containment is excluded from originality credit.",
+        "searches": [
+          "Nugent Gomes Wolfram arXiv:2305.09483 eqs (8),(13),(14) §3.2 §5",
+          "Di Giovacchino Higham Zygalakis arXiv:2111.05715"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md and exact-rational verify.py",
+        "Nugent–Gomes–Wolfram arXiv:2305.09483 primary model equations and results",
+        "Di Giovacchino–Higham–Zygalakis arXiv:2111.05715 model comparison",
+        "Resultary semantic queries for FOAF and shortest-path activation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leading (W(0)^d)_ij coefficient counts shortest weighted walks for d=d_G(i,j), but the appearance at time order d-1 in a saturating nonlinear ODE requires an induction using every internal path split."
+        ],
+        "reasoning": "The published ODE plus classical matrix powers permit the derivation but do not by themselves assert the nontrivial universal Taylor theorem. This is a new proved consequence, not an equality of published statements.",
+        "searches": [
+          "arXiv:2305.09483 original FOAF equations",
+          "arXiv:2111.05715 stochastic triadic closure",
+          "weighted graph matrix-power shortest-path identity classical"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model uses the exact published continuous matrix-square triadic-closure ODE, not a generic diffusion equation or stochastic edge-birth process."
+        ],
+        "reasoning": "Compared continuous weighted triadic closure, matrix powers of weighted walks and shortest-path orders. The classical walk sum explains the coefficient combinatorics but does not state the same nonlinear FOAF time-expansion theorem.",
+        "searches": [
+          "Resultary: FOAF Nugent Gomes Wolfram Taylor geodesic weighted shortest paths",
+          "arXiv:2305.09483 §§3.2,5 continuous friend of a friend"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original article discusses FOAF numerics rather than a table of arbitrary graph-distance derivatives; an exact identity for the five-path and opposite cycle follows from the submitted formula."
+        ],
+        "reasoning": "Finite network visualizations or original integration data do not determine all initial graphs and all weighted shortest-path coefficients. No exact table of this universal Taylor hierarchy was located.",
+        "searches": [
+          "Resultary: positive-time support closure shortest path Taylor FOAF exact coefficient",
+          "arXiv:2305.09483 model numerical experiments"
+        ]
+      },
+      "rationale": "The continuous FOAF vector field and qualitative triadic closure are established by Nugent–Gomes–Wolfram; support confinement to initial connected components is also discussed there. The exact analytic order d-1, weighted geodesic coefficient S_ij/n^(d-1), all-positive-time component closure and sharp epsilon first-crossing time are additional mathematical consequences not identified in inspected original sections. Stochastic binary-edge triadic closure models have different generators, so their density/bistability conclusions do not imply these analytic Taylor coefficients.",
+      "residual_risks": [
+        "An equivalent exact Taylor expansion could occur in a little-indexed FOAF follow-up or the published journal article beyond the inspected preprint.",
+        "The all-interacting opinion-diameter assumption is crucial: switching kernels can obstruct closure.",
+        "The ODE is analytically activated immediately, not physically delayed by a positive finite waiting time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL PRIOR; no encountered exact geodesic-order Taylor theorem",
+          "evidence": "Published triadic update through W² and positive relationship saturation; already notes no formation between disconnected components.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.09483",
+          "material_read": "Primary text including equations (8),(13),(14), §3.2 FOAF and §5 discussion, with ODE model and connectivity limitation",
+          "method": "arXiv full-text/PDF primary inspection",
+          "title": "On evolving network models and their influence on opinion formation",
+          "trigger": "exact original FOAF equation and rate normalization"
+        },
+        {
+          "assessment": "DISTINCT STOCHASTIC MODEL; full-text priority risk retained",
+          "evidence": "Stochastic binary-edge transitions and mean-field density, not the exact deterministic weighted matrix ODE.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.05715",
+          "material_read": "Title, abstract and model's birth/death/stochastic governing mechanism",
+          "method": "arXiv bibliographic/abstract comparison, not entire full text",
+          "title": "A Hierarchy of Network Models Giving Bistability Under Triadic Closure",
+          "trigger": "plausible broader triadic-closure literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order of tie creation and its exact leading coefficient are naturally relevant network-formation invariants when an ODE has immediate but differently small newly positive edges. The coefficient identifies how shortest-route multiplicity and starting weights control effective threshold times, a meaningful structural refinement of the original model beyond a trivial sign check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md and exact-rational verify.py",
+    "Nugent–Gomes–Wolfram arXiv:2305.09483 primary model equations and results",
+    "Di Giovacchino–Higham–Zygalakis arXiv:2111.05715 model comparison",
+    "Resultary semantic queries for FOAF and shortest-path activation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent exact Taylor expansion could occur in a little-indexed FOAF follow-up or the published journal article beyond the inspected preprint.",
+    "The all-interacting opinion-diameter assumption is crucial: switching kernels can obstruct closure.",
+    "The ODE is analytically activated immediately, not physically delayed by a positive finite waiting time.",
+    "Scientific originality is best of knowledge, not a worldwide priority certificate or formal-machine attestation.",
+    "No edits, publications or publisher attestations were made."
+  ],
+  "residual_risks": [
+    "An equivalent exact Taylor expansion could occur in a little-indexed FOAF follow-up or the published journal article beyond the inspected preprint.",
+    "The all-interacting opinion-diameter assumption is crucial: switching kernels can obstruct closure.",
+    "The ODE is analytically activated immediately, not physically delayed by a positive finite waiting time."
+  ],
+  "schema_version": 1
+}
