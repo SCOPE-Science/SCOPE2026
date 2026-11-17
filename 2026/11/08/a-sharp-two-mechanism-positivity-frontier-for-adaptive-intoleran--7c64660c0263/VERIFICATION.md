@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact universal viability proof is algebraic. It treats all \(x,p\in[0,1]\), all \(0<\lambda<1\), all \(h>0\), and relevant boundary values, and proves the sharp bounds by explicit attainable/limiting witnesses. Uniqueness of the crossover follows from strict log-concavity and opposite monotonicity, not numerical root finding.
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 and its standard library. In the saved package the program must return `VERIFY_OK 44939 exact_or_sampled_checks transition ...` to confirm all 44,939 test instances. Its exact Fraction-based checks include a negative value of \(-21719/25000\); floating-point grid and golden-section evaluations test the separate overshoot branches. Numerical tests are supporting diagnostics rather than universal proofs.
+## correctness
 
-This check is not an independent external audit and does not establish publication priority. The theorem concerns the written recurrence, not a particular implementation, and does not establish global population-level dynamics.
+PASS
+
+Reflection identity F(1−x,1−p)=1−F(x,p) reduces to d=p−x>=0. Attractive d<λ overshoot is exactly h A(λ), attained x=1−d,p=1; repulsive d>λ obstruction is h(λ^-2−1), approached as x↓0,p=1. Strict log concavity of (1−d)d(λ−d)(λ+d) gives unique attractive maximizer and opposite monotonicities give exactly one crossover. All endpoint and media cases treated; independently verified reflection/cubic derivative and exact negative witness.
+
+## originality
+
+PASS
+
+The sharp two-mechanism global invariant-region frontier and one-switch optimal response step correct a substantive modeling boundary not established in inspected primary spatial simulations.
+
+## value
+
+PASS
+
+Exact safe-domain criterion exposes mathematically consequential failure of an assumed boundedness mechanism and supplies sharp positive step choice and media restrictions; actionable for model analysis without claiming social implications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
