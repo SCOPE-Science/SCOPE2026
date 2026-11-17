@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The upper bound follows from equivariance of upset truth sets under the leaf-stabilizer groups, with the constant cases closed under the algebraic operations. The complementary lower bound uses \(C(A)=\uparrow(W\setminus A)\), four mutually exclusive all-or-nothing selectors, and \(60\) explicit formula normal forms. Every valuation class occurs for at least two leaves. The standalone checker evaluates the same normal forms by independent world-quantified and algebraic semantics on all upsets through five leaves and computes the complete generated term algebra for zero, one, and two leaves; no finite computation is used as a substitute for the universal argument.
+## correctness
 
-**Originality — PASS within the inspected evidence.** The closest source is Tasiou's 2025 article, which specifically describes the same rooted-star posets in Example 4.4, but for inverse limits of bi-Esakia spaces rather than unary formula equivalence. Its representation and profiniteness theorems do not imply the precise \(4,12,60\) count without the new selector calculation. Badia–Kowalski–Olkhovikov's definability results concern classes of models and frames, not a numerical fixed-frame term algebra. Martins–Moraschini's local-tabularity work yields no corresponding stated formula census in the material inspected. Relevant literature and a semantic research index were searched by equivalent descriptions and exact counts. Residual priority risk includes unindexed algebraic-logic tables and earlier specialist treatments.
+PASS
 
-**Value — PASS.** This is the complete smallest-variable quotient of the full bi-intuitionistic formula algebra on a canonical family of connected finite posets, with an exact and sharp branching threshold, as well as constructive uniform normal forms and an effective equivalence decision by four semantic profiles. The fixed-star objects are already standard in the motivating literature. The stable value \(60\) is not a rounded approximation, and its structural origin is explicit. The scope excludes larger variable counts and general posets.
+For P_m one root below m incomparable leaves, upsets form all subsets of leaves plus W. For any one-variable formula, S=∅ and S=W produce Boolean outputs (2 choices each), S=L has 3 automorphism-invariant choices, and proper nonempty S⊂L has 5 stabilizer-invariant outputs (∅,S,L minus S,L,W). These bounds are valid at all formula depths. Co-implication test C(A)=top prec A yields W iff A != W, and Boolean selectors constructed from C(p), C(¬p), C(¬¬p) isolate empty/full/all-leaf/mixed valuation types. The 2*2*3*5=60 independent normal forms therefore achieve the upper bound for m≥2, reducing to 12 for one leaf and 4 for zero leaves. Independent algebraic closure and pointwise Kripke calculations for m=0..4 matched 4,12,60,60,60; their finite scope does not establish all m, which follows from stabilizer and selectors.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison, not a novelty certification. A global free bi-Heyting algebra or frame-validity result only dominates if it determines the quotient by all valuations on this particular rooted star and yields 4,12,60. The framework proves the semantics used as inputs, not the universal four-case independent selector construction or 60-class stabilization from m=2.
+
+## value
+
+PASS
+
+This is the exact one-generator term-function algebra for a canonical finite poset family, and the sharp stabilization threshold is two incomparable successors. The normal forms give a concrete finite basis for formula equivalence and test examples in bi-intuitionistic semantics. It is a motivated complete natural classification despite small cardinality; not merely an arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
