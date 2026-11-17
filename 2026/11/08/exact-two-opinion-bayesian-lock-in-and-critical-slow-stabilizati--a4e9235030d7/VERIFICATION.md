@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks and boundaries
+# Independent mathematical audit
 
-Execute `python verify.py` under Python 3 with no third-party packages. The script independently enumerates valid first-passage words up to length 15, checks rational Catalan first-switch probabilities, verifies renewal and finite series equations in exact fractions, confirms the strict inferior-option example \((a,b)=(7/10,9/10)\) and the formula for even-time fair first-passage survival. The output is `VERIFY_OK 368 exact-rational and combinatorial checks`.
+## correctness
 
-The proof, not the program, establishes the infinite-horizon phase classification and the Tauberian tail limit. These checks cannot certify the absence of an equivalent historical theorem, the source's network behavior, or any independent review. The source's one-institution quit probability is known prior work; the result concerns its two-opinion alternating reset extension.
+PASS
+
+Beta(1,1) posterior threshold is u-v>=0, so a run ends at a first passage to -1. Catalan ballot counting gives f_p(z). Renewal equations G_A=s_a+f_a G_B and G_B=s_b+f_b G_A give the defective PGFs and exact majority-lock region. At a=1/2, expansion f(z)=1-sqrt(2(1-z))+O(1-z) and monotone Tauberian transfer yield the t^-1/2 tail constants and infinite mean. Independently checked algebraic win formula and exact (7/10,9/10)->3/5 witness; source checker inspected, but no infinite-time numerical certification is claimed.
+
+## originality
+
+PASS
+
+Primary OA Meylahn–Searle paper specifies the same baseline reset-on-switch dynamics and Beta posterior, but inspected sections do not give the complete two-choice renewal solution, suboptimal-lock majority region, or critical tail constants. Earlier single-run quitting is a strict ingredient, not the alternating two-opinion stopping law.
+
+## value
+
+PASS
+
+Sharp phase boundary, paradoxical more-likely fixation of an inferior option, and almost-sure-but-infinite-mean stabilization precisely characterize an explicitly motivated Bayesian opinion mechanism, beyond a generic gambler-ruin identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

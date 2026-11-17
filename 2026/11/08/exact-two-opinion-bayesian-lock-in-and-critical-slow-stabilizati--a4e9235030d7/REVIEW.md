@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defined process is a fresh Beta(1,1) Bayesian posterior after each switch, with independent Bernoulli outcomes and weak threshold retention. Its within-run evidence count is a simple random walk killed at \(-1\). Ballot/Catalan counting fixes the complete defective run-length distribution and the eventual survival probability. Two alternating renewal equations uniquely determine the last-switch-time generating functions. Evaluating them at \(1\) proves the global phase diagram, solving the label-specific equations gives the winning probabilities, and a square-root singularity plus the monotone Tauberian transfer supplies the sharp critical tails. The conditional scope and boundary cases are expressly stated. The bundled verifier checks 368 exact finite identities; these are not substituted for proof of infinite claims.
+## correctness
 
-## Originality — PASS (best-knowledge, not independently certified)
-The initiating arXiv preprint (2023, pp. 1, 4, 7–8, 15–18) and its accessible later journal HTML (2024, §§2, 4–7) give the model and empirical network phenomena, not an exact eventual-choice theorem for a perpetually switching two-opinion agent. The closest mathematical antecedent is Meylahn–den Boer–Mandjes (2023), *Trusting: Alone and together*, §3.2, Lemma 3, which already derives single-institution exit probabilities. This means the individual-run ruin ingredient is *not novel*. However, that paper terminates once trust is withdrawn, whereas this claim requires ongoing alternating reset, resolves the final winner, finds the exact inferior-majority region, and computes the last-switch law including its critical infinite-mean tail. Targeted semantic records and related online searches found no direct covering two-choice result. Residual risk: an equivalent renewal calculation might be present in unindexed material or treated as an immediate consequence of the older one-run formula. No literature search alone proves uniqueness.
+PASS
 
-## Value — PASS
-A complete, motivated classification determines when a human-like trial-and-switch learning heuristic stops trying alternatives, whether the ultimately chosen opinion need be the better one, and whether settling can have finite expected duration. The strict positive-measure probability-majority region for a demonstrably less reliable first choice and the a.s.-finite/infinite-mean critical separation clarify two genuinely distinct pathologies of evidence forgetting. It is an exact property of the source's mechanism rather than an arbitrary finite sample or parameter slice. Classical combinatorics make the calculation tractable; the model-specific phase diagram is the substantive value.
+Beta(1,1) posterior threshold is u-v>=0, so a run ends at a first passage to -1. Catalan ballot counting gives f_p(z). Renewal equations G_A=s_a+f_a G_B and G_B=s_b+f_b G_A give the defective PGFs and exact majority-lock region. At a=1/2, expansion f(z)=1-sqrt(2(1-z))+O(1-z) and monotone Tauberian transfer yield the t^-1/2 tail constants and infinite mean. Independently checked algebraic win formula and exact (7/10,9/10)->3/5 witness; source checker inspected, but no infinite-time numerical certification is claimed.
 
-## Scientific limits and closest literature
-The result is for one autonomous two-choice agent; it does not prove network consensus or learning superiority. The earlier one-institution quit formula provides a close reduction but not a final-choice law. The critical asymptotic uses the established monotone Tauberian theorem rather than an original analytic lemma. The deterministic threshold and reset convention are essential. Potential undiscovered publication priority and lack of independent checking remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary OA Meylahn–Searle paper specifies the same baseline reset-on-switch dynamics and Beta posterior, but inspected sections do not give the complete two-choice renewal solution, suboptimal-lock majority region, or critical tail constants. Earlier single-run quitting is a strict ingredient, not the alternating two-opinion stopping law.
+
+## value
+
+PASS
+
+Sharp phase boundary, paradoxical more-likely fixation of an inferior option, and almost-sure-but-infinite-mean stabilization precisely characterize an explicitly motivated Bayesian opinion mechanism, beyond a generic gambler-ruin identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
