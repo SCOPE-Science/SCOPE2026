@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:01:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fixed kappa>1 and 0<eta<=1, both normalized gradient descent rays intersect at the explicit feasible positive parameters t=(epsilon*kappa+epsilon+kappa-1)/(2 epsilon kappa), s=(epsilon+kappa-1)/(epsilon kappa). With common damping the pair distance contracts by 1-eta; epsilon times the common intersection tends to (-(kappa-1)/kappa,-(kappa-1)), so both objectives scale as eta^2(kappa-1)^2(kappa+kappa^-2)/(2epsilon^2) from bounded initial points. For kappa=2, eta=c epsilon gives limiting best-objective minimum of two exact quadratics and unique upper safe threshold (20+2sqrt(19))/9; determinant identity gives 1-cos(theta)~2epsilon^2/25. Direct independent symbolic/rational check confirmed intersection, positivity, two limit quadratics, angle scaling and c*. This is one raw step, not behavior of safeguarded full method.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original 2026 Twin paper treats near-parallel large step, safeguards; no all-fixed-positive-damping bounded-input two-objective blow-up theorem",
+          "Orthogonal result gives a different balanced condition-number frontier"
+        ],
+        "reasoning": "General distance contraction has no logical implication for simultaneous unbounded objective growth from bounded starts; the prior one-path obstruction is not a dominating implication.",
+        "searches": [
+          "Twin-Step normalized gradient method fixed damping diverging objective near parallel rays convex quadratic unbounded",
+          "https://arxiv.org/abs/2607.11575",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.11575",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md",
+        "https://doi.org/10.1007/s10589-026-00778-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At eps->0, initial F_kappa(x),F_kappa(z) bounded; poststep F diverges on both paths",
+          "Earlier orthogonal unbalanced source has initial F(z)=M²/2, not bounded"
+        ],
+        "reasoning": "Earlier sources do not mathematically imply the simultaneous bounded-input counterexample or sharp c* through a direct specialization; exact risk from independent rediscovery remains.",
+        "searches": [
+          "https://arxiv.org/abs/2607.11575",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both formulations use the same two normalized-gradient rays and zero-distance intersection; primary work supplies the geometry",
+          "Prior orthogonal result studies gradient angle pi/2, unlike near-parallel limit cosine ->1"
+        ],
+        "reasoning": "The algorithm is the same, but the controlled initial energies, simultaneous divergence and sharp angle-sensitive scaling are different exact assertions.",
+        "searches": [
+          "Twin-Step normalized gradient method fixed damping diverging objective near parallel rays convex quadratic unbounded",
+          "https://arxiv.org/abs/2607.11575",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantically surfaced current and orthogonal Twin-Step publications, no verified exact c* threshold table"
+        ],
+        "reasoning": "No prior certified database of the bounded-start near-parallel c* threshold was found; this search result alone is not proof of priority.",
+        "searches": [
+          "Twin-Step normalized gradient method fixed damping diverging objective near parallel rays convex quadratic unbounded",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md"
+        ]
+      },
+      "rationale": "Original fixed-curvature bounded-input simultaneous objective divergence is distinct from the primary near-parallel large-step discussion and from the previously published orthogonal-gradient example, whose unbalanced second starting energy grows with the amplification parameter. The angular-safe c* coefficient is not stated in either inspected work. Best-of-knowledge; earlier general optimization counterexamples may exist.",
+      "residual_risks": [
+        "Raw Twin-Step only; angle safeguards, resets and line searches can suppress the example",
+        "No global convergence/divergence conclusion; near parallel configuration in exact arithmetic",
+        "Historical equivalences in unpublished optimization notes may exist"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong known geometric precursor, not covering bounded-input simultaneous unbounded objectives at every fixed damping and sharp c*",
+          "evidence": "Distance minimization and near-collinearity discussed; the fixed-kappa simultaneous pair-objective rate and scaled c* comparison are not stated",
+          "identifier_or_url": "https://arxiv.org/abs/2607.11575",
+          "material_read": "Complete accessible 2026 revised arXiv PDF; Sections 2–5, especially 3.3 Lemma 3.15 and Section 5 damping, including angular/near-parallel analyses",
+          "method": "Primary PDF full-text reading with page checks",
+          "title": "A Twin gradient method for unconstrained optimization",
+          "trigger": "Same named algorithm and exact ray-intersection rule"
+        },
+        {
+          "assessment": "Orthogonal case permits one-path unbounded ascent, not both bounded-start near-collinear objectives nor this c*",
+          "evidence": "Its unbalanced family has z=(-rM,M), unbounded initial f(z); here both initial energies remain bounded",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md",
+          "material_read": "Entire primary RESULT.md including formulas, example and assumptions",
+          "method": "Read full published mathematical statement and proof from GitHub",
+          "title": "Orthogonal twin-gradient steps: a sharp balanced-descent boundary and unbounded unbalanced ascent",
+          "trigger": "Same pair-step and condition-number parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example proves that a common fixed damping cannot enforce even one-step objective safety on a strictly convex two-dimensional quadratic of fixed condition number and quantifies the necessary square-root angular-gap scale. This directly exposes a nontrivial stability limitation of the distance-based step, not a generic steepest-descent observation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.11575",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-orthogonal-twin-gradient-steps-a-sharp-balanced-descent-boundary--864084167adc/RESULT.md",
+    "https://doi.org/10.1007/s10589-026-00778-0"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Raw Twin-Step only; angle safeguards, resets and line searches can suppress the example",
+    "No global convergence/divergence conclusion; near parallel configuration in exact arithmetic",
+    "Historical equivalences in unpublished optimization notes may exist"
+  ],
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized descent rays are exactly the positive-parameter unnormalized rays. The determinant of the two raw directions is nonzero for every positive offset; solving their 2-by-2 system yields strictly positive multipliers and a unique zero-distance feasible minimizer. Substitution yields exact intersection coordinates and common-damping contraction. Their scaled coordinate limits, paired with a positive quadratic form, prove the simultaneous objective blowup at any fixed positive damping. The condition-two limit reduces to two explicit quadratic polynomials and a complete sign classification; the square-root angle relation follows from the planar determinant identity. The standalone rational checker reproduces the formulas on multiple inputs. No inference from finite tests to universal assertions is used.
+PASS
 
-## Originality — PASS, qualified
+For any fixed kappa>1 and 0<eta<=1, both normalized gradient descent rays intersect at the explicit feasible positive parameters t=(epsilon*kappa+epsilon+kappa-1)/(2 epsilon kappa), s=(epsilon+kappa-1)/(epsilon kappa). With common damping the pair distance contracts by 1-eta; epsilon times the common intersection tends to (-(kappa-1)/kappa,-(kappa-1)), so both objectives scale as eta^2(kappa-1)^2(kappa+kappa^-2)/(2epsilon^2) from bounded initial points. For kappa=2, eta=c epsilon gives limiting best-objective minimum of two exact quadratics and unique upper safe threshold (20+2sqrt(19))/9; determinant identity gives 1-cos(theta)~2epsilon^2/25. Direct independent symbolic/rational check confirmed intersection, positivity, two limit quadratics, angle scaling and c*. This is one raw step, not behavior of safeguarded full method.
 
-The motivating primary source already notes the special two-dimensional first-step coincidence and describes near-parallel steps, possible divergence, and several adaptive safeguards (Sections 2–5). Neither its analyzed theorem statements nor its line-search and restart discussion derive the uniform fixed-condition-number unbounded *objective* amplification under every constant damping, or the sharp limiting best-objective damping coefficient. The earlier objective-based two-dimensional acceleration paper minimizes a different functional and uses objective line searches; the older twin-Kaczmarz paper uses paired sweeps for a stopping gauge. Database searches and accessible historical claims offered no direct covering statement. Remaining risk: unindexed equivalent geometry/overshoot computations, especially because the source discusses the qualitative mechanism.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The raw Twin-Step minimizes trajectory separation rather than objective loss, which creates a safety question that its conditional distance-convergence analysis does not settle. This establishes that no fixed damping fraction is uniformly objective-safe even with bounded starting points and fixed Hessian condition number; a quantified sharp limiting safety scale shows which angle-sensitive damping is needed on a natural family. It motivates explicit angular/objective clipping rather than interpreting decreasing separation as optimization progress. It does not assert failure of the source's safeguarded hybrid.
+Original fixed-curvature bounded-input simultaneous objective divergence is distinct from the primary near-parallel large-step discussion and from the previously published orthogonal-gradient example, whose unbalanced second starting energy grows with the amplification parameter. The angular-safe c* coefficient is not stated in either inspected work. Best-of-knowledge; earlier general optimization counterexamples may exist.
 
-## Closest literature and limitations
+## value
 
-- De Magistris–Hochstenbach–Toraldo, *A Twin gradient method for unconstrained optimization*, arXiv:2607.11575, Sections 2, 3.2, 3.3, 5. It establishes distance and angle behavior, including the two-dimensional collapse, but the fully quantified unbounded objective family and coefficient are not stated there.
-- De Magistris–Crisci–De Simone–Toraldo (2026), DOI 10.1007/s10589-026-00778-0, studies objective-based acceleration and linesearch; this does not imply the separation-minimizing step behavior.
-- Van Lith–Hansen–Hochstenbach (2021), DOI 10.1137/20M1349011, couples Kaczmarz iterates for an error gauge, not a simultaneous gradient-ray distance optimizer; only accessible abstract-level comparison performed.
+PASS
 
-The result concerns just one raw Twin step with two distinct descent directions on a diagonal strictly convex quadratic. Both objective values can increase arbitrarily, but the hybrid method can switch or clip and is not evaluated here. A complete prior-art census is not feasible from finite searches.
+The example proves that a common fixed damping cannot enforce even one-step objective safety on a strictly convex two-dimensional quadratic of fixed condition number and quantifies the necessary square-root angular-gap scale. This directly exposes a nontrivial stability limitation of the distance-based step, not a generic steepest-descent observation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
