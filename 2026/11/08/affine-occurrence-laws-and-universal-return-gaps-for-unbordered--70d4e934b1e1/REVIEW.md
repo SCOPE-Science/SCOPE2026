@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical claim covers exactly integer bases \(b\ge3\) and lengths \(n\ge2\). It is derived by an exact marker reconstruction, not extrapolation: each substitution block has only its terminal position variable, so a factor with prescribed endpoint one has a forced residue and its full length-\(m\) parent word is recovered by reading markers. This proves both equivalences of occurrence sets. The construction of the two unbordered factors is justified by the already-published reversal and unborderedness lemmas, and their uniqueness is explicitly attributed to Goč–Mousavi–Shallit's full generalized-base theorem. Exact valuation-class densities justify the asymptotic frequency; absence of adjacent ones justifies the entire short/long gap sequence. Boundaries \(n=2\), \(n=b\), \(d=0\) and \(d=b-1\) are included. The independent finite verifier passed 537764 counted occurrence comparisons and 56 complete short-length classifications. The code is corroboration, not a substitute for proof.
+PASS
 
-## Originality — PASS (with residual bibliographic risk)
+Using p_b(bq+t)=0 for t<b-1 and p_b(bq+b-1)=1-p_b(q), any word starting or ending in 1 has its substitution block marker forced. The cited Goč–Mousavi–Shallit unbordered construction, reversal lemma and exactly-two theorem identify the unique two factors; each occurrence iff its parent occurrence under b-fold dilation and residue b-1 or d. Iteration gives exact sets including n=2, n multiple of b, and d=b-1. The count of odd b-adic valuations yields density 1/(b+1) for ones and b/(b+1) for Z_b; no adjacent ones yields gaps 1 or 2 and asymptotic proportions. An independent valuation-word enumeration verified occurrence equality for b=3,4,5, n=2..29, both orientations, all starts <2900; these are finite diagnostics, not the infinite proof.
 
-Goč–Mousavi–Shallit (2012), Section 5, directly covers the same word family and proves exactly two unbordered factors per length, but not their all-position affine sets, first starts, densities or return gaps. Their factor recurrence is a prerequisite rather than the new conclusion. Huang–Wen (2016) is a stronger **binary-base** return-word result, so no claim is made to new coverage at base two; their results as read do not supply a multibase theorem. Spiegelhofer's (2021) gap result is about Thue–Morse rather than the generalized period-doubling family, and Currie (2023) treats forbidden binary patterns. Semantic mathematical-record searches found a period-doubling attractor theorem and a period-doubling subshift-lift theorem with different objects or invariants, not equivalent coverage. Full-text comparison focused on explicit implication; an unindexed generalized-base return-word classification remains the main risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete exact occurrence-position and return-gap spectrum for both unbordered factors at **every length and every generalized base** is a natural refinement of the established two-factor count. The result identifies a single normalized gap sequence independent of length or orientation, gives all first positions constructively, and computes exact natural densities and long-gap proportions. These structural identities provide testable recurrence information not contained in the cardinality statement. The base-three-and-up restriction deliberately avoids the already studied binary case.
+Goč–Mousavi–Shallit (2012) prove exactly two unbordered factors and their construction for generalized period-doubling words, so neither their count nor reversal is new. The marker iff recursion determines all starting positions and exact common return-gap sequence, not stated in that factor classification. Huang–Wen (2016) gives detailed return words for base-two period-doubling, and the submission excludes base two. Other generalized-base antisquare occurrence tables concern different short factors and do not cover arbitrary unbordered n.
 
-## Limitations and comparisons
+## value
 
-The 2012 count and key unborderedness lemma are borrowed and credited. Finite diagnostics do not establish infinite uniqueness or prove novelty. The theorem is not a classification of arbitrary bordered factors, and no independent scientific validation has been performed. Related primary full text and precise provenance are recorded in the companion result and audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact occurrence locations, densities, and gap sequences for every unbordered length in a natural automatic word family give quantitative recurrence information unavailable from a classification of which factors exist. The common normalized gap sequence across unbounded n is structurally motivated and nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
