@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier integral of a unit-grid aperture factors into the single-pixel transform and a polynomial. Equality of magnitudes on all real frequencies is equivalent to equality of complete aperiodic correlation vectors. The seven-composition enumeration is exhaustive because all seven feature widths must be positive integers at least two and sum to the exact span; reversal is the only remaining trivial symmetry after endpoint normalization. The checked finite certificate exhausts 6,435 seven-tuples for spans 14–22, reduces to 3,270 reversal classes using lexicographic canonicalization checked against Burnside's independent formula, and establishes one two-class collision only at span 22. Independently, the two claimed binary polynomials factor as a common signed factor times a reversed complementary factor, proving continuous Fourier-magnitude equality. The finite checker is a proof only for this specified finite classification, not arbitrary spans.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Xia and Xu (arXiv:2606.19855, 2026) develop ambiguity constructions for finite unions of at least three intervals; the inspected general characterization and examples do not identify the sharp four-run, both-color width-two integer-grid minimum and its unique first ambiguous fiber. Willms (arXiv:1206.4572, 2012) develops run/correlation identities but not the finite classification here. Research-record searches for homometric four-run binary words, integer-grid interval covariograms, and two-pixel minimum feature constraints found no statement covering the exact cutoff and uniqueness. Closest indexed records concern binary word local-multispectra or two-dimensional/four-point Fourier spectra, neither of which implies this real-line aperiodic-correlation classification. A previously recorded three-run first-ambiguity theorem has different parameters and does not imply the four-run cutoff. Residual risk: an earlier unindexed exhaustive binary homometry table might contain the same exact data; priority is not absolutely established.
+PASS
 
-**Value — PASS.** Simultaneous minimum widths on foreground and background are a natural resolution constraint in manufactured binary apertures. They impose a genuinely different geometric requirement than merely fixing interval number. A sharp first failure threshold and full classification of first ambiguous configurations provide exact benchmarks for when ideal diffraction magnitudes cease to uniquely determine even a clean four-block mask. The unique exceptional fiber is structural, not an arbitrary sampled example. This does not imply noise robustness or a general inverse algorithm, and the result is intentionally finite.
+For binary pixel mask w, Fourier transform of the real-line union equals one-pixel factor K(xi) times P_w(e^(−2pi i xi)); K nonzero on a dense set, hence full continuous intensity equality iff all aperiodic integer correlation coefficients agree. Exactly four occupied runs with all 7 alternating occupied/gap widths >=2 bijectively correspond to seven-part integer compositions. Exhaustively compared all 6,435 compositions of spans N=14..22, reduced to 3,270 reflection classes using Burnside count; independent support-pair autocorrelation enumeration shows no collisions for N<=21 and exactly one two-class collision at 22, represented by A=1110011000111110000011 and B=1110000011111001100011. Algebraically P_A=(1−z³+z⁵)G(z), P_B=(1−z³+z⁵)z^16 G(1/z), with G=Σ_(j=0)^6z^j+Σ_(j=12)^16z^j, verifying equality directly. This is a fully finite exact cutoff, not extrapolated to larger spans.
 
-**Literature and reproducibility.** Yu Xia and Zhiqiang Xu, *Fourier Phase Retrieval for Finite Unions of Intervals*, arXiv:2606.19855 (first public 2026-06-18), https://arxiv.org/abs/2606.19855 . Jürgen Willms, *Autocorrelations of Binary Sequences and Run Structure*, arXiv:1206.4572 (2012), https://arxiv.org/abs/1206.4572 . Reproduce all counts with `python3 CHECK.py` using Python 3.10+.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General four-interval continuous Fourier nonuniqueness and reciprocal factor reversal were known (Xia–Xu 2026), as were run-autocorrelation formulas (Willms 2012). Neither accessible statement supplies exact smallest span 22 and unique first pair under simultaneous two-pixel minimum for all seven features. Earlier published three-block first-collision results use different objects and cannot imply four-run cutoff. Full Xia–Xu article was inaccessible in this run; priority explicitly conditional.
+
+## value
+
+PASS
+
+The simultaneous minimum two-pixel widths of solid and transparent aperture features are a natural fabrication resolution constraint. The first loss of uniqueness and its entire double fiber are meaningful finite extremal information for a standard inverse diffraction model, beyond mere exhibition of some ambiguity. Exact cutoff and uniqueness provide a useful reproducibility benchmark without claiming robust noisy inversion or unbounded classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
