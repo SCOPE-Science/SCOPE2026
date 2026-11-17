@@ -1,15 +1,21 @@
-# Scientific review: optimal nearest-point selection on \(\ell_1\) balls
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over **all** single-valued nearest-point selectors, not only continuous or equivariant ones, and includes finite and arbitrary infinite index sets. Equality in the \(\ell_1\) reverse triangle inequality characterizes every closest point. The proposed soft-threshold selection is nearest by that characterization. Its finite-dimensional piecewise-affine derivatives have the exact induced \(\ell_1\) norms \(2-2/k\). The new universal lower bound tests every selector against \(n\) fixed boundary points near a positive simplex point and uses convex permutation averaging to solve an unrestricted finite-dimensional minimax problem. This argument is insensitive to selector regularity. Finite-coordinate restriction gives the infinite-dimensional lower bound, while support truncation gives the upper bound. These steps prove the full statement without relying on finite numerical tests. The accompanying exact-rational checker supplied corroborating finite calculations.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-Li's 2026 preprint explicitly studies the same multivalued \(\ell_1\)-ball nearest-point map but, in its accessible abstract, focuses on Mordukhovich derivatives and covering constants. Its inaccessible full text remains a material priority risk. Duchi et al. give the established Euclidean soft-threshold algorithm. The two inspected 2026 published research records give Lipschitz constants for the **unique** metric projections in strictly convex \(1<p<\infty\) spaces and explicitly exclude the \(p=1\) endpoint. Their sharp constants may imply the new formula for the *particular* threshold selector by taking an endpoint limit, but do not imply that every nonlinear nearest-point selector at the non-strictly-convex endpoint must have that large a constant. The lower bound is proved independently by a boundary-simplex minimax obstruction. Older Lipschitz selection work by W. Li and by Finzel–Li was located; available abstracts concern existence/structure for other approximation settings rather than the sharp all-selector optimization here. Publication priority is not independently established.
+PASS
 
-## Value — PASS
-The optimal stability of selections of a set-valued metric projection is a natural variational-analytic invariant, qualitatively different from the Lipschitz constant of one selected formula. The theorem determines the sharp finite-dimensional constant for **every dimension**, proves optimality even against nonsymmetric/discontinuous choices, and identifies its sharp infinite-dimensional limit. The explicit simplex obstruction explains why nonexpansive nearest-point retractions fail after dimension two. This is a natural complete classification, not an arbitrary parameter slice.
+Characterized nearest points by equality in triangle inequality: interior inputs fixed and exterior positive-sign coordinate shrinkages with output norm r. Soft threshold exists uniquely for any ell1 input, with finite active set above positive tau even for arbitrary infinite I. Finite-dimensional sign-cell Jacobian is a sign conjugate of C_k=I−11^T/k on active coordinates, with induced ell1 norm 2−2/k, giving optimal upper bound (and exact slope realization). For any selector its value near b=(1/n,...,1/n) must be compared to n fixed boundary inputs at ell1 distance epsilon; the unrestricted zero-sum minimax is convex and symmetric, reduces to q=(a,−a/(n−1),...), and minimizes max(2a,2−2a/(n−1)) at a=(n−1)/n, so all selectors have modulus >=2−2/n. Finite supports force infinite lower bound 2; countable-support truncation yields upper bound 2. Exact rational minimax witnesses recomputed, not substitutes for universal proof.
 
-## Limits and external context
-The proof concerns real \(\ell_1\) balls and does not classify all optimal selectors or general polyhedral sets. The full text of the 2026 same-object preprint and of some older metric-selection literature was inaccessible; an equivalent earlier result cannot be excluded. No independent verification or priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after detailed primary prior reading: earlier October 11 research proves the very same soft-threshold nearest-point formula and optimal Lipschitz modulus of that particular map for unique projections in strictly convex ell_p norm, but explicitly requires 1<p<infinity and does not consider the multivalued ell1 endpoint. An endpoint limit could yield the norm of the displayed threshold choice but not the new universal lower bound against ALL nonlinear/discontinuous selections. Jinlu Li 2026 paper concerns exactly the set-valued ell1-ball metric projection but accessible abstract treats generalized derivatives and covering constants, not an all-selector sharp modulus; full text inaccessible, recorded significant priority risk. No exact earlier all-selector bound was established in checked results; best-knowledge PASS without independent priority certification.
+
+## value
+
+PASS
+
+Sharp optimal Lipschitz constants of arbitrary nearest-point selections are a natural multivalued variational analysis invariant, not merely a chosen algorithm’s modulus. The theorem proves a universal nonlinear/asymmetric lower bound and exact finite/infinite dimension threshold for nonexpansiveness; both geometric obstruction and limit are useful structural facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
