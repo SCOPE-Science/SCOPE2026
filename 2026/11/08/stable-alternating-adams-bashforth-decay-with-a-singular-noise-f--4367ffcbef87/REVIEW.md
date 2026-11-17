@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar AB2 coefficients follow by linear interpolation of the two derivative values. Multiplication of the two exact companion matrices gives the trace and determinant, and the three factored real Schur criteria yield the strict boundary \(a+b<2\), including the unit-root equality case. In the stable domain, the periodic covariance solves an ordinary discrete Lyapunov equation. The singular small-step law follows by scaling that equation by \(a^2\), taking the proven stable matrix limit, and explicitly solving the limiting Lyapunov equation. The positive coefficient proves sharp divergence. The standalone symbolic verifier checks symbolic identities, rational covariance equations and the particular \(b=1\) formula; finite checks do not replace the general proof.
+PASS
 
-## Originality — PASS, with precedence risk
+Standard interpolatory variable-step AB2 on scalar decay has transfer T(h,p)=[[1−h−h²/(2p),h²/(2p)],[1,0]]. For H=T(a,b), L=T(b,a), M=LH, tr M=1−(a+b)+(a+b)²/2+ab/4 and det M=ab/4. Jury factorizations prove strict stability iff 0<a+b<2 (boundary a+b=2 is marginal). With independent fixed-variance additive scalar noise each step, long-phase covariance solves P=MPM^T+σ²[(Le1)(Le1)^T+e1e1^T]. As a↓0 at fixed b∈(0,2), M→[[c,0],[1,0]] with c=1−b+b²/2∈[1/2,1), and aLe1→(−b²/2,0). Continuity of the stable discrete Lyapunov inverse gives lim a²V_long=σ²b⁴/[4(1−c²)], positive and finite. Independently reconstructed SymPy transfer/Jury identities and exact b=1,a=1/10 variance 42631561/1200771, with scaled coefficient σ²/3; the universal result follows from the uniform local-in-a stability and limiting covariance proof.
 
-The closest directly inspected literature gives variable-step Adams implementations, step-ratio coefficients, high-order conservative multirate formulas, and adaptive AB3 in PDE computations. No inspected primary source establishes the specific joint period-two real-decay spectral criterion and the stationary additive-noise variance singularity with its exact coefficient. General Lyapunov theory provides a framework but does not supply the AB2 step-ratio cancellation or the scaled singular covariance coefficient without additional analysis. Earlier Nordsieck stability work is important prior art for the stability component; its directly available material was only metadata and abstract, leaving an explicitly documented specialist precedence risk. No claim of novelty is inferred merely from search absence.
+## originality
 
-## Value — PASS
+PASS
 
-For a standard variable-step integrator the spectrum can give a reassuring ratio-insensitive decay interval while independent local perturbations experience unbounded stationary amplification. The sharp \(a^{-2}\) divergence and coefficient quantify that diagnostic failure for every fixed nondegenerate long step. This is a motivated boundary for interpreting adaptive-step stability tests, not an arbitrary numerical slice. The result does not equate the idealized additive forcing with actual hardware floating point.
+The deterministic ratio-free stability boundary and unbounded phase-specific transient are decisively covered in complete earlier October 12 and November 2 AB2 results, and are not credited. Their theorems have no stochastic update forcing or stationary two-periodic Lyapunov covariance. The new positive exact a^(-2) noise-variance coefficient is not implied by a large deterministic operator norm alone. Early Nordsieck variable-step papers might contain similar analyses but available abstracts do not decide that; the authorized full-text attempt failed (VPN disconnected). Best-of-knowledge O is qualified rather than automatically rejected.
 
-## Closest literature and limitations
+## value
 
-Throwe–Teukolsky (arXiv:1811.02499) supply the motivating variable-step Adams framework. López–Romay (DOI 10.1155/2010/765620) study preassigned step ratios and implementation costs. Tavakkol–Son–Lynett (arXiv:1909.04153) study adaptive AB3 for PDEs. Skeel–Jackson (DOI 10.1137/0720056) and Calvo–Lisbona–Montijano (DOI 10.1137/0726052) address variable-step Nordsieck stability, but their full text was not obtained and remains a precedence risk. Model scope and its non-Gaussian finite-variance noise assumption are stated in the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise example where every fixed unequal-step deterministic recursion is strictly asymptotically stable while per-update perturbations have unbounded stationary variance is a useful distinction between Floquet stability and stochastic robustness. The sharp b-dependent coefficient, phase specification and additive-noise model make the mathematical limitation reproducible and informative, not merely an old stability rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

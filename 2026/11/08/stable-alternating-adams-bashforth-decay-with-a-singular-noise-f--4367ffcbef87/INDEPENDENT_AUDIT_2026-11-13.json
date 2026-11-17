@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:52:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md transfer and Lyapunov proof and actual verify.py SymPy identities",
+        "independent_checks.py/log exact rational transfer and stationary covariance re-derivation"
+      ],
+      "rationale": "Standard interpolatory variable-step AB2 on scalar decay has transfer T(h,p)=[[1−h−h²/(2p),h²/(2p)],[1,0]]. For H=T(a,b), L=T(b,a), M=LH, tr M=1−(a+b)+(a+b)²/2+ab/4 and det M=ab/4. Jury factorizations prove strict stability iff 0<a+b<2 (boundary a+b=2 is marginal). With independent fixed-variance additive scalar noise each step, long-phase covariance solves P=MPM^T+σ²[(Le1)(Le1)^T+e1e1^T]. As a↓0 at fixed b∈(0,2), M→[[c,0],[1,0]] with c=1−b+b²/2∈[1/2,1), and aLe1→(−b²/2,0). Continuity of the stable discrete Lyapunov inverse gives lim a²V_long=σ²b⁴/[4(1−c²)], positive and finite. Independently reconstructed SymPy transfer/Jury identities and exact b=1,a=1/10 variance 42631561/1200771, with scaled coefficient σ²/3; the universal result follows from the uniform local-in-a stability and limiting covariance proof.",
+      "residual_risks": [
+        "The noise model is independent fixed-variance additive errors, not floating-point relative rounding error or general nonperiodic variable steps.",
+        "At b endpoints 0 or 2 the c<1 argument fails, and no limit there is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct12 and Nov2 cover stronger deterministic damping and ratio optimization but do not analyze i.i.d. noise injection. Throwe–Teukolsky conservative multirate scheme uses different objectives."
+        ],
+        "reasoning": "No inspected broader result determines this noise covariance. The deterministic coverage is acknowledged explicitly, and only the stochastic additional claim survives.",
+        "searches": [
+          "Resultary Oct12 AB2 full RESULT.md",
+          "Resultary Nov2 ratio-free CFL AB2 full RESULT.md",
+          "Throwe–Teukolsky arXiv:1811.02499"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 12 exact periodic CFL and transient growth AB2 full RESULT.md",
+        "Resultary November 2 ratio-free CFL frontier for periodic AB2 full RESULT.md",
+        "Calvo–Lisbona–Montijano 1989 DOI 10.1137/0726052 abstract only; Oxford institutional route vpn_disconnected",
+        "Throwe–Teukolsky arXiv:1811.02499 relevant conservative multirate method"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original October12 result proves lim_{a↓0} a||HL||₂=b² and stability. Stochastic theorem needs the limiting noise covariance W and (I−M⊗M)^{-1}; norm asymptotic alone does not give the coefficient or phase-specific stationary variance."
+        ],
+        "reasoning": "Deterministic equivalence is prior coverage, but does not imply the independently verified additive-noise assertion; historical equivalent specialist stochastic error study remains a documented risk.",
+        "searches": [
+          "Resultary 2026/10/12 deterministic AB2",
+          "Resultary 2026/11/2 AB2",
+          "1989 SIAM DOI 10.1137/0726052"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier October12 theorem already gives tr/det, Schur boundary and divergent operator norm; new theorem adds independent noise covariance and explicit σ²b⁴/[4(1−c²)] limit."
+        ],
+        "reasoning": "The deterministic statements are equivalent; stochastic stationary variance is a different functional requiring Lyapunov forcing. Do not mistake a transient norm for exact variance coefficient.",
+        "searches": [
+          "Resultary query: two periodic variable-step Adams Bashforth AB2 stability noise variance singular small step Lyapunov",
+          "2026/10/12/SCOPE-exact-periodic-cfl-optimal-damping-and-transient-growth-for-alte--d98a10387f35",
+          "DOI 10.1137/0726052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact b-dependent stationary Lyapunov limit was located in the published result summaries or complete earlier AB2 RESULT.md texts. Historical Nordsieck article was abstract-only, not declared absent from full text."
+        ],
+        "reasoning": "An explicit arithmetic b=1 variance is not independently significant without the whole-parameter a^(-2) law and noise model; no checked table already gives that law.",
+        "searches": [
+          "Resultary query alternating Adams Bashforth stationary variance local stochastic noise",
+          "Calvo et al 1989 DOI 10.1137/0726052"
+        ]
+      },
+      "rationale": "The deterministic ratio-free stability boundary and unbounded phase-specific transient are decisively covered in complete earlier October 12 and November 2 AB2 results, and are not credited. Their theorems have no stochastic update forcing or stationary two-periodic Lyapunov covariance. The new positive exact a^(-2) noise-variance coefficient is not implied by a large deterministic operator norm alone. Early Nordsieck variable-step papers might contain similar analyses but available abstracts do not decide that; the authorized full-text attempt failed (VPN disconnected). Best-of-knowledge O is qualified rather than automatically rejected.",
+      "residual_risks": [
+        "Full 1989 Nordsieck stability paper inaccessible through authorized Oxford because vpn_disconnected, though its accessible description concerns deterministic stability, not i.i.d. stationary noise.",
+        "An unindexed periodic autoregressive error-propagation derivation might contain an equivalent noise coefficient.",
+        "Deterministic part is covered; originality restricted strictly to stationary additive-noise law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DETERMINISTIC_COVERED_STOCHASTIC_NOT_IN_INSPECTED_TEXT",
+          "evidence": "Earlier proof contains no random i.i.d. forcing or Lyapunov stationary variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-periodic-cfl-optimal-damping-and-transient-growth-for-alte--d98a10387f35",
+          "material_read": "Full RESULT.md with proof of trace/determinant, period frontier, global optimum, unbounded transient norm",
+          "method": "Full published Resultary GitHub source",
+          "title": "Exact periodic CFL, optimal damping, and transient growth for alternating Adams–Bashforth two",
+          "trigger": "Identical deterministic AB2 map and singular contrast"
+        },
+        {
+          "assessment": "DETERMINISTIC_COVERED_STOCHASTIC_NOT_IN_INSPECTED_TEXT",
+          "evidence": "Theorem concerns spectral radius/step ratio and states phase amplification, not independent-noise stationary covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-ratio-free-cfl-frontier-and-sharp-equal-step-optimum-for-perio--6bc028f3928e",
+          "material_read": "Full RESULT.md, including the deterministic scalar/SPD extension and ratio penalty",
+          "method": "Full published Resultary GitHub source",
+          "title": "A ratio-free CFL frontier and sharp equal-step optimum for periodic Adams–Bashforth two",
+          "trigger": "Same method/step ratio parameters"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_INCONCLUSIVE",
+          "evidence": "No whole-document NON_COVERING conclusion. Remaining priority risk specifically about equivalent periodic error/noise law.",
+          "identifier_or_url": "https://doi.org/10.1137/0726052",
+          "material_read": "Indexed journal abstract and bibliographic description; arXiv and lawful open access full texts unavailable, authorized Oxford request returned vpn_disconnected",
+          "method": "Lawful arXiv/OA attempts, then Oxford authorized request (VPN not connected)",
+          "title": "On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form",
+          "trigger": "Potential stronger 1989 variable-step Adams result"
+        },
+        {
+          "assessment": "RELATED_METHOD_LIMITED",
+          "evidence": "Conservative multirate time-stepping objective differs from scalar two-periodic i.i.d. noise, but full paper not used to assert absence.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.02499",
+          "material_read": "Bibliographic/abstract-level scientific objective, not full text inspected in this run",
+          "method": "arXiv bibliographic source",
+          "title": "A high-order, conservative integrator with local time-stepping",
+          "trigger": "Adams variable-step multirate historical reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary October 12 exact periodic CFL and transient growth AB2 full RESULT.md",
+        "Resultary November 2 ratio-free CFL frontier for periodic AB2 full RESULT.md",
+        "Calvo–Lisbona–Montijano 1989 DOI 10.1137/0726052 abstract only; Oxford institutional route vpn_disconnected",
+        "Throwe–Teukolsky arXiv:1811.02499 relevant conservative multirate method",
+        "assigned RESULT.md transfer and Lyapunov proof and actual verify.py SymPy identities",
+        "independent_checks.py/log exact rational transfer and stationary covariance re-derivation"
+      ],
+      "rationale": "A precise example where every fixed unequal-step deterministic recursion is strictly asymptotically stable while per-update perturbations have unbounded stationary variance is a useful distinction between Floquet stability and stochastic robustness. The sharp b-dependent coefficient, phase specification and additive-noise model make the mathematical limitation reproducible and informative, not merely an old stability rephrasing.",
+      "residual_risks": [
+        "Full 1989 Nordsieck stability paper inaccessible through authorized Oxford because vpn_disconnected, though its accessible description concerns deterministic stability, not i.i.d. stationary noise.",
+        "An unindexed periodic autoregressive error-propagation derivation might contain an equivalent noise coefficient.",
+        "Deterministic part is covered; originality restricted strictly to stationary additive-noise law.",
+        "The noise model is independent fixed-variance additive errors, not floating-point relative rounding error or general nonperiodic variable steps.",
+        "At b endpoints 0 or 2 the c<1 argument fails, and no limit there is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The noise model is independent fixed-variance additive errors, not floating-point relative rounding error or general nonperiodic variable steps.",
+    "At b endpoints 0 or 2 the c<1 argument fails, and no limit there is claimed.",
+    "Full 1989 Nordsieck stability paper inaccessible through authorized Oxford because vpn_disconnected, though its accessible description concerns deterministic stability, not i.i.d. stationary noise.",
+    "An unindexed periodic autoregressive error-propagation derivation might contain an equivalent noise coefficient.",
+    "Deterministic part is covered; originality restricted strictly to stationary additive-noise law."
+  ],
+  "schema_version": 1
+}
