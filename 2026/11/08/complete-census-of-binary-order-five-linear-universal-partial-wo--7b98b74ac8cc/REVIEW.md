@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes the full length interval \(5\le L\le36\), the necessary weighted-window identity, and an exhaustive recursion over each feasible wildcard placement and every nonwildcard bit. The only pruning condition detects an already duplicated five-bit target, which cannot be repaired by extensions. At every accepted leaf the full target-set union is checked and follows as well from pairwise disjointness plus the exact weight sum. The shipped exhaustive source was compiled and rerun, yielding exactly \(1328\) words after \(31{,}600{,}915\) search nodes; a separate implementation checks every emitted word's \(32\) target occurrences and the four-element symmetry orbits. The complete list provides a reproducible witness to every count. Computational finiteness is essential to the exact constants; no infinite-order claim is made.
+## correctness
 
-**Originality — PASS with historical-priority qualification.** Chen–Kitaev–Mütze–Sun's original study gives sample words for this same order and wildcard count, along with nonexistence and construction results, so existence and individual examples are not claimed here. Its Table 2 is explicitly examples rather than a complete enumeration; the exact \(1328\), all possible lengths and \(332\) equivalence classes do not follow from the inspected theorems. A nonbinary follow-up discusses the broader counting problem, and cyclic universality is not the same domain. Published-record and relevant full-text comparisons did not reveal a covering census. This is evidence for a distinct result, not proof of historical uniqueness; unindexed equivalent enumerations remain possible.
+PASS
 
-**Value — PASS.** Complete enumeration under a natural fixed wildcard count is specifically motivated by the existence/enumeration problem in the foundational literature. Order five is the first larger binary example range in the original examples table with a rich six-length distribution, making both the attainable-length spectrum and the exact symmetry classes nontrivial. The classification supplies all objects, not just an isolated integer or arbitrary parameter slice, and directly answers a finite natural instance of the open enumerative question. Its finite scope is made explicit.
+A linear binary order-five universal partial word has 32 distinct binary targets, one per window. For length L, 5<=L<=36; fixing exactly two wildcard positions a<b determines window cardinalities 2^{c_s}, whose necessary sum is 32. The actual C++ enumerator visits every L and wildcard pair, assigns all other bits recursively, and prunes only when a newly completed window-mask intersects previously covered masks; such duplication is irrevocable. At a terminal branch, 32 disjoint matches force all 32 targets exactly once. A separately compiled, reviewed rolling-state C++ implementation traversed 31,600,915 nodes and independently reproduced precisely 1328 words and per-length counts 26:8, 27:32, 28:32, 29:136, 30:352, 33:768, zero otherwise. Reversal and bit complement preserve the list and yield 332 orbits of four; source verifier analyzes all accepted strings. The finite search is exhaustive because the domain L<=36 and all assignments are covered, not a sample.
 
-The nearest literature supplies sample words but no checked all-word census. The recurrence-free exact count is supported by finite exhaustive computation with transparent pruning and complete output, not an analytic all-order theory. Residual historical-priority risk persists for difficult-to-search historical datasets.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen–Kitaev–Mütze–Sun introduce universal partial words and exhibit binary order-five two-wildcard examples but their investigated theorems and example table do not enumerate every linear two-wildcard word, its length spectrum, or its 332 symmetry classes. The published 2026 order-four complete census concerns a different order, and the one-wildcard results do not imply this two-wildcard census. Qualified best-of-knowledge originality.
+
+## value
+
+PASS
+
+The first genuinely nontrivial length-two-wildcard small-order complete linear u-word census is a natural finite combinatorial classification, including exact attainable-length spectrum and symmetry orbits. It improves example-only literature with a complete reproducible count. Finite scope does not make a mathematically motivated exact invariant trivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

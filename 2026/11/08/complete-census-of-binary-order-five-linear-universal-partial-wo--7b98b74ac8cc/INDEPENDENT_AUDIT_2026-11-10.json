@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T08:56:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A linear binary order-five universal partial word has 32 distinct binary targets, one per window. For length L, 5<=L<=36; fixing exactly two wildcard positions a<b determines window cardinalities 2^{c_s}, whose necessary sum is 32. The actual C++ enumerator visits every L and wildcard pair, assigns all other bits recursively, and prunes only when a newly completed window-mask intersects previously covered masks; such duplication is irrevocable. At a terminal branch, 32 disjoint matches force all 32 targets exactly once. A separately compiled, reviewed rolling-state C++ implementation traversed 31,600,915 nodes and independently reproduced precisely 1328 words and per-length counts 26:8, 27:32, 28:32, 29:136, 30:352, 33:768, zero otherwise. Reversal and bit complement preserve the list and yield 332 orbits of four; source verifier analyzes all accepted strings. The finite search is exhaustive because the domain L<=36 and all assignments are covered, not a sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General nonexistence results constrain placements and give families, not the exact n=5, two-wildcard labeled census.",
+          "The 2026 order-four theorem counts order-four all wildcard profiles only, not order-five two-wildcard strings."
+        ],
+        "reasoning": "Neither earlier general construction/existence criterion nor one smaller-order enumeration logically entails the six n=5 multiplicities.",
+        "searches": [
+          "Chen Kitaev Mutze Sun arxiv 1601.06456 complete classification nonexistence universal partial words",
+          "Resultary complete binary order-four universal partial-word enumerator 2026 October 12"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1601.06456",
+        "2026/10/12 Resultary order-four universal partial words",
+        "assigned verify.cpp, verify.py, upwords_order5.txt Git blobs",
+        "independent compiled full enumeration 31,600,915 nodes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorems and one-wildcard formulas do not imply exact two-wildcard counts at n=5; a complete bounded exhaustive search supplies the missing information."
+        ],
+        "reasoning": "A theorem guaranteeing existence or nonexistence in some placement classes is not a complete exact enumeration across all wildcard position pairs.",
+        "searches": [
+          "arXiv:1601.06456 Section 4 Theorems 11 and 13 binary order 5",
+          "Resultary 2026/11/2 one wildcard boundary-joker counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. arXiv:1601.06456 Table 2 explicitly includes order-five two-wildcard examples but not an exhaustive census.",
+          "The definition uses overlapping contiguous windows and literal wildcard symbols, distinct from cyclic universal words."
+        ],
+        "reasoning": "The aliases universal partial words, partial de Bruijn words, and partial u-words were compared with exact window semantics; cyclic variants and ordinary de Bruijn cycles do not match the same set.",
+        "searches": [
+          "\"universal partial words\" two diamonds order five count linear 1328",
+          "binary partial de Bruijn words exactly two wildcards order 5 enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 contains examples rather than a complete list; the assigned upwords_order5.txt contains 1328 rows and all lengths."
+        ],
+        "reasoning": "The earlier examples may be a subset of this inventory; no equal full source table was identified in inspected primary material.",
+        "searches": [
+          "upwords n=5 exactly two wildcards enumerated table list length",
+          "On universal partial words arxiv 1601.06456 Table 2 order 5 two wildcards"
+        ]
+      },
+      "rationale": "Chen–Kitaev–Mütze–Sun introduce universal partial words and exhibit binary order-five two-wildcard examples but their investigated theorems and example table do not enumerate every linear two-wildcard word, its length spectrum, or its 332 symmetry classes. The published 2026 order-four complete census concerns a different order, and the one-wildcard results do not imply this two-wildcard census. Qualified best-of-knowledge originality.",
+      "residual_risks": [
+        "The census is limited to binary order five and exactly two literal wildcards; no all-order conclusion.",
+        "A hidden unpublished or unindexed exhaustive n=5 enumeration could change historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_EXACT_CENSUS_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "The published table records n=5 two-wildcard examples but does not give 1328, six lengths, or symmetry enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.06456",
+          "material_read": "Table 2 and relevant sections/theorems 11 and 13 with examples and structural restrictions",
+          "method": "arXiv full PDF opened and relevant pages inspected",
+          "title": "On universal partial words",
+          "trigger": "Foundational same objects, same n and wildcard count"
+        },
+        {
+          "assessment": "DIFFERENT_ORDER",
+          "evidence": [
+            "Counts 385 strings at order four, does not subsume n=5 two-wildcard census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-complete-binary-order-four-universal-partial-word-enumerator--2e57c8213fa8",
+          "material_read": "Semantic result/summary of order-four count; full paper not inspected",
+          "method": "Resultary semantic record comparison",
+          "title": "Complete binary order-four universal partial-word enumerator",
+          "trigger": "Nearby earlier exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first genuinely nontrivial length-two-wildcard small-order complete linear u-word census is a natural finite combinatorial classification, including exact attainable-length spectrum and symmetry orbits. It improves example-only literature with a complete reproducible count. Finite scope does not make a mathematically motivated exact invariant trivial.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The census is limited to binary order five and exactly two literal wildcards; no all-order conclusion.",
+    "A hidden unpublished or unindexed exhaustive n=5 enumeration could change historical priority."
+  ],
+  "schema_version": 1
+}
