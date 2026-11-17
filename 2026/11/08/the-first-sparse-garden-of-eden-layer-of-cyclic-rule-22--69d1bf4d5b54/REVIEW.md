@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Boolean four-state predecessor matrices follow from all eight neighborhoods of Rule 22. A cyclic predecessor is equivalent to a closed labeled path, so a nonzero Boolean trace is necessary and sufficient. The exact stabilization of the zero-labeled matrix at its fourth power reduces unbounded gaps to 125 capped triples. An explicit exhaustive table, oriented gap classification, and orbit-size calculation establish the conclusion for every ring length in scope. The standalone verifier independently enumerated 262136 binary inputs and checked the symbolic table and further lengths; extrapolation is not used as an infinite proof.
+## correctness
 
-## Originality — PASS (historically qualified)
-Gravner–Griffeath (2010), particularly the non-surjectivity discussion, and Martínez et al. (2019), particularly the Garden-of-Eden subset diagram, are the closest primary works. The 2019 work lists short forbidden examples (including `10110`), but the inspected works do not state the all-large-ring three oriented families, sharp cutoff, or exact \(3n\) indexed count. General image-testing machinery does not automatically state the stable closed form. Targeted published-record searches found no matching statement, but implicit or unindexed precedents remain a risk.
+PASS
 
-## Value — PASS
-Determining the first impossible image layer is a natural reachability boundary for sparse states of a nonlinear elementary cellular automaton. The classification is infinite, orientation-sensitive, and sharp: every weight-zero-to-two state is reachable at every length at least five, while the three-orbit obstruction begins at weight three and has an exact stable count above the identified cutoff.
+PASS: The two 4x4 Boolean labeled de Bruijn transition matrices are reconstructed from the exact Rule 22 local rule. Closed walks are equivalent to indexed periodic predecessors, and B0^4=B0^5 stabilizes every zero run, reducing all possible weight-3 cases to 125 capped gap triples. The explicit exhaustive table then proves all large-n families, with rotation-count correction n/3 and small n=5..9 boundary values. Independently evolving binary source words through bounded lengths confirmed the low-weight classification, but the unbounded statement is proved by matrix stabilization.
 
-## Scope and limitations
-Only one update on indexed periodic binary rings is covered. The result does not determine higher-weight unreachable outputs, entire image size or inverse-fiber counts. The most relevant prior papers were inspected in their image/predecessor sections; unindexed results and implicit reformulations cannot be excluded. The review is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The stable smallest unreachable Hamming layer of cyclic Rule 22 is described by three orientation-sensitive gap families and exact 3n count.
+
+## value
+
+PASS
+
+The first Hamming layer with a one-step Garden-of-Eden target on a periodic ring is a natural sparse-image invariant for a nonlinear elementary cellular automaton. The exact sharp 3n count and oriented gap rigidity for all ring sizes, including exceptional boundary n=9, are useful as concrete reachable-image constraints, not a gratuitous tiny experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

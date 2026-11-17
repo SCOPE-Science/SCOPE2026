@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:16:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_rule22.py",
+        "https://arxiv.org/abs/2005.01480"
+      ],
+      "rationale": "PASS: The two 4x4 Boolean labeled de Bruijn transition matrices are reconstructed from the exact Rule 22 local rule. Closed walks are equivalent to indexed periodic predecessors, and B0^4=B0^5 stabilizes every zero run, reducing all possible weight-3 cases to 125 capped gap triples. The explicit exhaustive table then proves all large-n families, with rotation-count correction n/3 and small n=5..9 boundary values. Independently evolving binary source words through bounded lengths confirmed the low-weight classification, but the unbounded statement is proved by matrix stabilization.",
+      "residual_risks": [
+        "Only one-step periodic predecessor existence, not total image size or predecessor multiplicity."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Inspected frozen verify_rule22.py and verified its Boolean pair states, capped powers and exhaustive table are generated from neighborhood rule, not assumed known.",
+        "Independent direct enumeration of all source words for n=5..14 gave unreachable target-weight-three counts 5,12,14,16,21,30,33,36,39,42 and no missing weight <=2 outputs.",
+        "Analytically checked the 125 capped-class reduction and positive-gap orbit/cyclic-orientation distinction in RESULT.md."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Rule 22 results give a maximum predecessor multiplicity and lifting to multiples of n; neither determines zero predecessor membership at exactly n for the sparse weight-three outputs."
+        ],
+        "reasoning": "Lifting to 2n or 3n is weaker than reachability at the original n and is consistent with periodic-ring missing outputs.",
+        "searches": [
+          "Resultary search:Rule 22 cyclic ring Garden Eden weight three predecessors sparse outputs gaps",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unique-maximum-predecessor-multiplicity-for-finite-cyclic-rule-2--2c3e215d75c3",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-threefold-periodic-lifting-for-the-rule-22-image--000091ce92bc"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2005.01480",
+        "Resultary searches on cyclic Rule22 predecessor/exact gaps"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Martínez et al discuss Rule 22 de Bruijn/subset diagrams and sample Garden-of-Eden expressions; Gravner–Griffeath study the Exactly-1 cellular automaton and orphan finite blocks. Neither inspected exposition states all n>=10 three-gap classes."
+        ],
+        "reasoning": "An algorithm for testing reachability is not automatically a previously stated all-length sharp closed classification, and the absence of a periodic predecessor is a distinct quantifier.",
+        "searches": [
+          "https://arxiv.org/abs/2005.01480",
+          "https://doi.org/10.1007/s10955-010-0103-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Rule 22 Garden-of-Eden blocks include local strings 10110 and subset-automaton witnesses, but an unextendible free-boundary block is not equivalent to absence of a periodic predecessor of exact ring length n."
+        ],
+        "reasoning": "The given circular gap lists encode periodic global consistency; local forbidden factors in infinite words do not automatically produce the 3n count or exact n>=10 cutoff.",
+        "searches": [
+          "Rule 22 cyclic ring Garden Eden weight three predecessors sparse outputs gaps",
+          "https://arxiv.org/abs/2005.01480"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A no-predecessor subset-machine test exists, but no exact stable three-gap enumeration or indexed 3n table was found in examined texts."
+        ],
+        "reasoning": "The finite transfer matrix is a known method; the complete oriented gap classification and natural sharp lower weight are the specific candidate invariant, not an arbitrary table.",
+        "searches": [
+          "Resultary search:Rule 22 cyclic ring Garden Eden weight three predecessors sparse outputs gaps",
+          "https://arxiv.org/abs/2005.01480"
+        ]
+      },
+      "rationale": "The stable smallest unreachable Hamming layer of cyclic Rule 22 is described by three orientation-sensitive gap families and exact 3n count.",
+      "residual_risks": [
+        "A previously published exhaustive subset-machine table might implicitly contain this enumeration; no such statement identified in material read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_BACKGROUND_NOT_EXACT_COUNT",
+          "evidence": [
+            "Gives subset graph method and local forbidden expressions but not inspected three-oriented-gap n>=10 census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.01480",
+          "material_read": "Full available PDF; inspected sections on de Bruijn diagrams, subset diagrams and forbidden patterns, including page with 10110 example",
+          "method": "Read primary PDF pages and compared one-step image semantics",
+          "title": "On Patterns and Dynamics of Rule 22 Cellular Automaton",
+          "trigger": "Identical local rule and image/Garden-of-Eden discussion"
+        },
+        {
+          "assessment": "RELATED_SCOPE_NOT_EXHAUSTED",
+          "evidence": [
+            "Earlier orphan-pattern work; potential unindexed implicit result remains risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-010-0103-9",
+          "material_read": "Published results and cited forbidden-block discussion, full document not exhaustively reread",
+          "method": "Primary bibliographic and prior scholarly discussion checked",
+          "title": "The One-Dimensional Exactly 1 Cellular Automaton: Replication, Periodicity, and Chaos from Finite Seeds",
+          "trigger": "Earlier Rule 22/Exactly-1 model and orphan block"
+        },
+        {
+          "assessment": "NOT_DOMINATING",
+          "evidence": [
+            "Maximum nonzero preimage count at all-zero does not identify all no-preimage configurations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unique-maximum-predecessor-multiplicity-for-finite-cyclic-rule-2--2c3e215d75c3",
+          "material_read": "Published finding summary and exact output-count formula",
+          "method": "Theorem-summary model/implication comparison",
+          "title": "Unique maximum predecessor multiplicity for finite cyclic Rule 22",
+          "trigger": "Same cyclic rule on ring but different invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first Hamming layer with a one-step Garden-of-Eden target on a periodic ring is a natural sparse-image invariant for a nonlinear elementary cellular automaton. The exact sharp 3n count and oriented gap rigidity for all ring sizes, including exceptional boundary n=9, are useful as concrete reachable-image constraints, not a gratuitous tiny experiment.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one synchronous step and target Hamming weight<=3, indexed outputs; no higher weights or preimage multiplicities."
+  ],
+  "schema_version": 1
+}
