@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The local fixed-set analysis requires that the coordinates zeroed by an involution form a simplex of the polygonal boundary: a singleton gives exactly \(2^{n-3}\) fixed circles, an adjacent pair exactly \(2^{n-2}\) isolated points, and every other support gives a free action. Orientability is detected by sign parity; the finite-CW involution Euler formula and the compact-surface classification give all four asserted types, including the low-dimensional boundaries. An independent-from-the-proof enumeration algorithm (but not an independent reviewer) exhaustively checks 243 involutions over five polygon sizes. The computation is finite corroboration only.
+
+**Originality: PASS subject to the noted literature risk.** The exact comparison is nonfree polygonal *coordinate-sign* quotient homeomorphism types, versus geometric genus of the covering surface (already known), free partial quotients (already implied by vector-colouring results), dihedral *permutation* quotients (a different action), and general manifold-existence criteria (not the same surface classification). The key novel clauses are fixed-circle boundary counts and isolated branch counts with coincident quotient genus. An inaccessible 2015 paper on partial quotients of polygonal moment-angle manifolds remains the most important possible coverage risk; its abstract emphasizes complex moment-angle and quasitoric 4-manifolds. General sign-involution theory in Erokhovets 2024 is another closely related background, inspected at material level in its introductory and first-section results.
+
+**Value: PASS.** This gives the complete natural classification for all \(2^n-1\) nonidentity coordinate involutions at every polygon size, with a sharp fixed-locus criterion and four homeomorphism types. The equality of genera for the two nonfree cases is a geometric comparison not encoded in the covering genus alone. The free cases are included only for context; the main content lies in nonfree branched/bordered quotient topology.
+
+The conclusions are same-model reviews rather than independent certification. The cited inaccessible source creates a residual novelty risk, not grounds for asserting verified uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.
