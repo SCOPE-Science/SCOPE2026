@@ -1,0 +1,15 @@
+# Scientific review: biclique root-polytope Euclidean facet areas
+
+## Correctness — PASS
+The proof uses the complete known facet-normal classification [1, Proposition 3.4], then constructs explicit orthogonal Minkowski prisms and exceptional translated cross-polytopes. Gram determinants in the actual Euclidean root coordinates yield all areas. The binomial squared-area sum and exact rational threshold check are elementary but fully specified; monotonicity after \(q\ge5\) is proved. The Rademacher central limit theorem gives the weak uniform-facet law, with exceptional facets of vanishing counting measure. The standalone checker independently verifies all low-dimensional facets and area values.
+
+## Originality — PASS, with bibliographic limits
+The antecedent facet classification, graph-polytope volume and Ehrhart work are excluded from the new claim. Primary full texts [1]--[3] were materially inspected for the objects and facet geometry. The exact *Euclidean facet-volume distribution*, total surface area, squared-surface dominance transition, and uniform-facet limiting law did not arise from the inspected results. Searches for surface area, facet volumes, complete-bipartite symmetric edge polytopes and the equivalent real Lipschitz-free-ball terminology, including the indexed published result summaries, did not identify an implication covering the package. Published work on inscribed balls and on facet-area results for **trees** concerns other invariants or graph classes. An earlier exact area identity might nonetheless exist under a different convention; the literature comparison is not a proof of priority.
+
+## Mathematical value — PASS
+A complete intrinsic facet-area spectrum is a natural Euclidean measure of geometric boundary complexity, not a facet count or an arbitrary numerical slice. The sharp change at \(q=10\), where just two rare facets begin to dominate the sum of squared facet volumes, contrasts strongly with the uniform-facet weak law and reveals why facet-frequency and area-energy sampling give different geometric answers. The result applies in every dimension to a canonical family whose combinatorial facet types have been studied since [1].
+
+## Closest literature and limits
+[1] Higashitani--Jochemko--Michałek, arXiv:1807.07678v1, Proposition 3.4 and Example 3.6: exact facet-support types and a geometric presentation, not the claimed Euclidean determinant/surface formulas in the inspected sections. [2] Chen--Davis--Korchevskaia, arXiv:2107.12315, Theorem 3: facet graphs, not Euclidean facet-area distribution. [3] D'Alì--Juhnke-Kubitzke--Koch, arXiv:2307.04933v1: matroid extension and polytopal combinatorics, not the claimed concrete metric classification in inspected relevant sections. Indexed prior results about \(K_{2,q}\) Euclidean incenters and tree-root-polytope surface areas do not imply this particular \(K_{2,q}\) facet-area spectrum. Historical priority is provisional, and no independent mathematical audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
