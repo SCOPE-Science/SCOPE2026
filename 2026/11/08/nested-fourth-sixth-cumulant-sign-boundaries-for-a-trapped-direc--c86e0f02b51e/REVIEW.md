@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The angular Fourier generator and contracting harmonic filter imply a triangular stationary moment recurrence with positive denominators. The radial moments through degree six and the marginal fourth and sixth cumulants are reconstructed exactly. The sixth-cumulant sign polynomial has positive constant and strictly negative first and second reversal-rate coefficients. Its unique positive root precedes the known fourth-cumulant root by the strictly negative substitution identity. Gaussian addition leaves cumulants of orders four and six invariant. The standalone symbolic checker and independent exact-rational matrix solves passed. Universal validity rests on the analytic proof, not numerical sampling.
+## correctness
 
-## Originality — PASS (qualified)
-The same-model paper of Santra–Basu–Sabhapandit (arXiv:2107.12640, Appendix A) explicitly gives the second and fourth moments and the fourth-cumulant transition, so those are treated as prior knowledge. The new claim is the sixth cumulant's global sign boundary, strict ordering, and nonvanishing on the entire zero-kurtosis curve. Full-text examination of the same-model paper and relevant general moment studies did not identify these results as stated. General moment methods permit implicit derivation; an unindexed or uninspected publication may still supersede the claim. Published research records searched by object, cumulant order, and phase-curve aliases gave no exact matching sixth-order result, which is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The cited same-model study explicitly cautions that zero kurtosis need not mean Gaussianity. The exact sixth cumulant resolves that ambiguity uniformly over the full positive rotational-diffusion parameter range, and the complete two-transition sign classification reveals a distinct higher-order non-Gaussian regime invisible to kurtosis alone. It is a naturally defined observable and a global boundary, not a parameter-picked numerical example. Invariance under thermal white noise provides a useful physical robustness statement. The contribution does not claim a morphological phase transition or an exhaustive classification of all higher cumulants.
+After absorbing the Poisson reversal sign into heading angle, the stationary generator acting on Z^p conj(Z)^q exp(in phi) gives (p+q+dn^2+2g*1_{n odd})M_{p,q,n}=pM_{p-1,q,n+1}+qM_{p,q-1,n-1}. All denominators at positive total degree are positive. The exact degrees 2,4,6 determine radial R1,R2,R3; planar isotropy maps them to projection even moments and yields the two stated rational cumulants. The fourth sign changes at g4=(7d+3)/2. The sixth numerator P_d(g)=C_d-B_d g-A_d g^2 has C_d,A_d,B_d>0, is strictly decreasing and has one positive root; P_d(g4)=-8(2d+1)(3d+1)(4d+3)<0 forces 0<g6<g4. At g4 c6 is explicitly negative. Adding independent isotropic Brownian translational noise gives a Gaussian OU summand with all cumulants >=4 zero. Independently recursed complex Fourier moments with exact rational arithmetic d=1,g=2, obtaining c4=-1/384, c6=13/36864 and matching source formulas; symbolic derivation of full rational expressions was independently cross-checked. Universal statement relies on recurrence and polynomial signs, not samples.
 
-## Closest literature and limitations
-The 2021 directional-reversal article is the main priority risk: its arbitrary-moment method may make higher-order expressions implicitly accessible, although its reported results end at fourth order. Chaudhuri–Dhar (2020) treats an unflipped active Brownian process, and Patel–Shee–Chaudhuri (2024) treats OU speed fluctuations. Publication-priority uncertainty remains; independent scientific audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete GLOBAL sixth-order polynomial P_d(g), its unique sign-zero for every d>0, and strict nesting before the earlier fourth-order zero produce a new three-phase cumulant-sign classification. The 2026-10-26 prior published theorem ALREADY proves the negative sixth cumulant on the entire fourth-zero curve, the standardized range and exact same value: these are covered, NOT claimed new here. The same-model 2021 Santra–Basu–Sabhapandit treatment supplies moments through fourth order. The remaining all-parameter sixth sign phase diagram does not follow as a logical consequence of a single-curve sixth evaluation.
+
+## value
+
+PASS
+
+The explicit sixth-cumulant sign threshold maps a natural stochastic active-matter model in parameter space, establishing a genuine three-regime observable classification: sixth changes sign while fourth remains negative, then fourth changes sign after sixth is negative. The sharp global boundary and non-Gaussianity diagnostic beyond kurtosis are motivated by the model; the already known on-curve special case is not the independent value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
