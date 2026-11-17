@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of stated singular spectrum and budget law
+# Independent mathematical audit
 
-The analytic proof derives the exact commuting conditional-expectation product on the scalar, first diagonal-traceless, second diagonal-traceless, and doubly orthogonal sectors, then proves the global schedule bound and sharpness. These arguments cover all finite dimensions and parameter values under the hypotheses, including dephasing endpoints.
+## correctness
 
-Run `python check.py` with NumPy available. This independently constructs each matrix-channel superoperator in a matrix-unit basis and checks singular multisets, traceless contraction norms and a finite-grid minimax allocation. The finite experiments only test the claimed formulas in sampled cases; they are not a proof for all dimensions or budgets. The proof does not cover nonmonomial-square unitaries or channel distances in trace/diamond norm. The two-complete-measurement erasure case is previously known in mutually unbiased bases theory.
+PASS
+
+PASS. For a complex Hadamard U with U² monomial, the standard pinching P and U-rotated R are orthogonal projections satisfying PR=RP=Delta; even and odd conjugation factors alternate because U² normalizes standard diagonals. The tracezero Hilbert–Schmidt decomposition has dimensions d-1,d-1,(d-1)² and exact singular factors Qodd,Qeven,QoddQeven (zeros included). A Hermitian traceless extremal sector gives physical density-matrix sharpness after a small perturbation. Product inequality prod(1-p_i)>=1-sum p_i, with equality condition, proves min max(Qodd,Qeven)=max(0,1-B/2), precisely one positive p per parity when 0<B<2; at B>=2 both parity products must vanish. Independent explicit superoperator SVD checks for Fourier U at d=2,3,4 and several nonuniform/full schedules match entire predicted spectrum. This is not a claim about trace/diamond norms.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: known mutually unbiased complete-dephasing identity and general Weyl-diagonal channels supply premises; the inspected indexed sources do not state the full nonstationary singular multiset nor the sharp all-step fixed-sum parity optimization and equality cases for monomial-square complex Hadamards. The exact norm theorem is more than the familiar two-full-measurement corollary.
+
+## value
+
+PASS
+
+PASS. Hilbert–Schmidt mixing of alternating coherent/incoherent quantum channels is a meaningful quantitative benchmark. An all-dimension exact singular multiset under varying strengths and exhaustive fixed-budget optimizer classification distinguish the time-step/parity resource tradeoff beyond the known two-projective-MUB erase example. The model limitations are explicit; no thermodynamic or general graph-walk conclusion is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
