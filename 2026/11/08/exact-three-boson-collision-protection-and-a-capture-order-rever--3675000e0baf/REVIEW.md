@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The symmetric-tensor spectral splitting has four distinct energies. Direct expansion of the projected collision vectors gives four Gram matrices with respective ranks \(1,n-1,n,n\) for every integer \(n\ge3\), proving the exact dimension and an explicit orthogonal projector. The loss-free projector argument handles every strictly positive set of rates. Exact Gram-inverse arithmetic proves the three occupancy-dependent capture fractions and their unique integer crossover. A symbolic identity checker and a separately implemented many-boson Fock-space numerical checker replay successfully. The latter tests dimensions and localized probabilities for \(n=3,\ldots,8\), and unequal-rate dissipative spectra for \(n=3,\ldots,6\). The infinite-family claim is analytic, not inferred from these tests.
+## correctness
 
-**Originality — PASS on examined evidence.** Krovi and Brun's 2006 general projector mechanism does not evaluate the symmetric-cube complete-network loss system. Daley et al. (2008) describe the local three-body loss mechanism in lattice bosons; Diehl et al. (2009) develop a constrained-gas framework. Their inspected full texts do not give the \(3n\) bright rank, the complete all-size collision projector, or the exact ordering reversal. The closest accessible existing calculations treat two bosons and two-body collision channels, not triplet annihilation. Actual published-finding corpus and literature queries and claim-level comparisons are detailed in AUDIT.json. Residual risk: unindexed work may include equivalent complete-graph triple-loss formulas; search absence is not a novelty proof.
+PASS
 
-**Mathematical value — PASS.** A physically standard irreversible three-body mechanism produces an exact, rate-independent absorption law for a canonical all-to-all quantum network. The sharp crossover at the network-size boundary between \(n=5\) and \(n=6\), where initially separated triples switch from being more vulnerable than co-located pairs to being less vulnerable, is a motivated qualitative change—not a routine parameter substitution. The closed projector also addresses arbitrary initial states and enables exact finite-dimensional testing. The claim does not extend to interactions, nonuniform hopping, finite-time rates, or higher populations.
+PASS: The one-body complete-graph adjacency has eigenvalues n−1 and −1, so Sym^3 splits into four distinct energies indexed by r=0,1,2,3 and ranks binom(n+r−2,r). For each sector, collision-vector Gram matrix G_r has constant diagonal and off-diagonal; its uniform/zero-sum eigenvalues give ranks 1,n−1,n,n (n>=3), hence dark dimension binom(n+2,3)−3n and an explicit orthogonal projector. Strictly positive loss rates have exactly the common triple-collision kernel, and dissipativity removes all non-dark asymptotic components. Independently recomputed symbolic Gram pseudoinverse contraction for occupancy patterns (3),(2,1),(1,1,1): 1, (n²−2n+2)/((n−1)(n²−3n+3)), 6(n−2)/((n−1)(n²−3n+3)); difference numerator −n²+8n−14 changes sign exactly between n=5,6. Not merely fitted to finite n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: Krovi–Brun supplies a general spectral dark-space mechanism, and Daley–Taylor–Diehl et al. studies three-body loss in lattice bosons, but neither accessible inspected description nor Resultary nearest-neighbor results establishes the complete-graph symmetric-three-boson Gram rank profile and exact occupation-resolved rational capture reversal. The quantum-loss primary full texts were not obtained in this run; retain that explicit priority/access risk rather than treating inaccessibility alone as scientific failure.
+
+## value
+
+PASS
+
+PASS: Three-body loss in a natural exactly solvable complete-graph Bose model has a nontrivial protected subspace. The explicit Gram ranks and occupation-resolved eventual capture show a concrete reversal of relative loss susceptibility at network size six; this is not a parameter relabeling or routine numerical benchmark. The finite-system theorem gives interpretable exact probabilities for varying graph size and positive nonuniform rates, while not implying finite-time decay kinetics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

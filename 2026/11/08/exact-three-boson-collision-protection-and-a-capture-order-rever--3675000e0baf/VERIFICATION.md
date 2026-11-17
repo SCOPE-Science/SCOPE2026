@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The analytic all-size proof and explicit bright projector appear in RESULT.md. Two independent executable checks accompany this document:
+## correctness
 
-- Run `python verify_symbolic.py` with SymPy. It checks the rank-determining Gram eigenvalue polynomials, the three rational eventual-capture identities and the exact crossover difference as symbolic identities in the number of network sites.
-- Run `python verify_fock.py` with NumPy and SciPy. It constructs the three-boson Hamiltonian directly in occupation coordinates, determines collision-dark subspaces by separate eigenspace nullspace computations for sizes \(n=3\) through \(8\), and verifies exact fraction predictions numerically. It additionally checks the undamped spectral multiplicity for nonuniform positive loss rates for sizes \(n=3\) through \(6\).
+PASS
 
-Both scripts were executed successfully from the packaged source versions. The symbolic checks support the all-integer algebraic derivation; the finite matrix tests are numerical corroboration and are not offered as exhaustive verification of an infinite family. The verification does not test finite-time loss profiles, interactions, or graph perturbations. No independent validation has been performed.
+PASS: The one-body complete-graph adjacency has eigenvalues n−1 and −1, so Sym^3 splits into four distinct energies indexed by r=0,1,2,3 and ranks binom(n+r−2,r). For each sector, collision-vector Gram matrix G_r has constant diagonal and off-diagonal; its uniform/zero-sum eigenvalues give ranks 1,n−1,n,n (n>=3), hence dark dimension binom(n+2,3)−3n and an explicit orthogonal projector. Strictly positive loss rates have exactly the common triple-collision kernel, and dissipativity removes all non-dark asymptotic components. Independently recomputed symbolic Gram pseudoinverse contraction for occupancy patterns (3),(2,1),(1,1,1): 1, (n²−2n+2)/((n−1)(n²−3n+3)), 6(n−2)/((n−1)(n²−3n+3)); difference numerator −n²+8n−14 changes sign exactly between n=5,6. Not merely fitted to finite n.
+
+## originality
+
+PASS
+
+PASS, best of knowledge: Krovi–Brun supplies a general spectral dark-space mechanism, and Daley–Taylor–Diehl et al. studies three-body loss in lattice bosons, but neither accessible inspected description nor Resultary nearest-neighbor results establishes the complete-graph symmetric-three-boson Gram rank profile and exact occupation-resolved rational capture reversal. The quantum-loss primary full texts were not obtained in this run; retain that explicit priority/access risk rather than treating inaccessibility alone as scientific failure.
+
+## value
+
+PASS
+
+PASS: Three-body loss in a natural exactly solvable complete-graph Bose model has a nontrivial protected subspace. The explicit Gram ranks and occupation-resolved eventual capture show a concrete reversal of relative loss susceptibility at network size six; this is not a parameter relabeling or routine numerical benchmark. The finite-system theorem gives interpretable exact probabilities for varying graph size and positive nonuniform rates, while not implying finite-time decay kinetics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
