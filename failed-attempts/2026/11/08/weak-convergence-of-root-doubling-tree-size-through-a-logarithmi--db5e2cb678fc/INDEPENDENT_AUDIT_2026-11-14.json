@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T00:59:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 48bdf560ae8d7d91f8cdde6d903a14a3089b4d4b",
+        "frozen verify.py blob c55c6ea46c87b93c18ff885ad8796b4eb23e9be0",
+        "independent exact root-doubling generator and hazard checks",
+        "Björnberg–Mailler arXiv:2501.18466"
+      ],
+      "rationale": "The discrete chain B_{k+1}=B_k+1 or 2(B_k+1) with respective probabilities B_k/(B_k+1) and 1/(B_k+1) is exact. For Y_k=B_k/k the nonroot update equals flow Φ_Δ(z)=1+(z−1)e^(−Δ); first-jump hazard ∫0^Δ ds/Φ_s(z)=log(1+1/(kz)) makes its Bernoulli probability exactly 1/(kz+1). Subsequent multiple-jump discrepancies have expected O(k^(−2)) cost, giving the stated finite logarithmic-horizon coupling bound. The PDMP Lyapunov drift L(1+z)=3−(1+z), and one-jump density minorization on compact sets yield unique attracting invariant law via standard Harris theory; combined with mean E Y_k=2/tightness this yields full weak convergence. Generator L z^r=(r−1+2^r)z^(r−1)−r z^r matches the known moment recurrence. Independently verified exact generator/hazard identities and bounded chain moments. Full general proof relies on stated small-set/aperiodicity verification, not simulations.",
+      "residual_risks": [
+        "Full Harris theorem assumptions rely on a common one-jump density, not finite simulated moments; inspected proof gives suitable compact minorization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published October theorem additionally gives explicit Z_{j+1}=(1−U+U Z_j)/2 stationary perpetuity and a regenerative occupation formula for π; current paper only identifies it abstractly."
+        ],
+        "reasoning": "Prior result is stronger because it fully constructs the same invariant law instead of only identifying it via unique ergodicity.",
+        "searches": [
+          "Resultary: root doubling random recursive tree size weak convergence PDMP log time doubling moment indeterminate Bjornberg Mailler",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588",
+        "arXiv:2501.18466",
+        "Meyn–Tweedie Harris ergodicity background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Before October, Björnberg–Mailler Remark1.2 said weak convergence unproved; the October Resultary full text proves it with identical state variables and unique invariant law."
+        ],
+        "reasoning": "The original 2025 open question does not confer originality once the stronger October 2026 complete solution exists. The present numerical coupling bound, if valid, is a proof improvement not promoted as a separate motivated claim.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588",
+          "Resultary: root doubling random recursive tree size weak convergence PDMP log time doubling moment indeterminate Bjornberg Mailler",
+          "arXiv:2501.18466 Remark 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem calls the limit X_∞ and uses drift 1−x and rate 1/x; these are exactly π and generator L of the present record, for identical original root-only tree."
+        ],
+        "reasoning": "Names root-doubling recursive tree and logarithmic-time jump process are equivalent; equality of generator, chain and weak limit makes the core claim identical.",
+        "searches": [
+          "Resultary: root doubling random recursive tree size weak convergence PDMP log time doubling moment indeterminate Bjornberg Mailler",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Björnberg–Mailler moment list m_r=prod(j−1+2^j)/j is repeated by both later papers; prior October theorem already transfers it to weak limit."
+        ],
+        "reasoning": "A moment table alone was insufficient to establish the weak limit originally, but October published theorem independently established that missing statement, leaving current claim fully covered.",
+        "searches": [
+          "Resultary: root doubling random recursive tree size weak convergence PDMP log time doubling moment indeterminate Bjornberg Mailler",
+          "Björnberg–Mailler arXiv:2501.18466 Proposition 1.1"
+        ]
+      },
+      "rationale": "Decisive published October 18 Resultary theorem states the SAME B_n/n weak convergence to the SAME unique invariant PDMP law with generator (1−x)f′+[f(2x)−f(x)]/x, matching all moments. It even gives a stronger explicit stationary occupation law from a contractive perpetuity. Present coupling method and error bound are alternative proof mechanics, not a distinct final scientific claim.",
+      "residual_risks": [
+        "No surviving independently original and motivated final theorem was supplied beyond an alternative proof and more explicit error estimate; no retrospective salvage by editorial disclaimer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS final result completely and proves stronger explicit limit law",
+          "evidence": [
+            "Finding, Proof Steps 1–6, generator and weak-limit display"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588",
+          "material_read": "Entire published RESULT.md: model assumptions, weak limit and generator, exact logarithmic transition, unique ergodic law, perpetuity construction and occupation formula",
+          "method": "GitHub full source blob 2d27a7d9a8aae5bc163e89abb7462b44f4a99157",
+          "title": "A weak limit for the root-doubling recursive tree via a contracting jump chain",
+          "trigger": "Exact same model and identical asserted weak limit"
+        },
+        {
+          "assessment": "Proves moments and tightness but explicitly does not establish weak convergence; the independent October theorem had already closed the gap",
+          "evidence": [
+            "Proposition 1.1(a), Remark 1.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.18466",
+          "material_read": "Full HTML primary article, Proposition 1.1, Remark 1.2 and Sections 1–5",
+          "method": "arXiv open primary 840-line HTML",
+          "title": "A random recursive tree model with doubling events",
+          "trigger": "Original tree recursion and open weak-convergence issue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588",
+        "Björnberg–Mailler arXiv:2501.18466"
+      ],
+      "rationale": "The central once-open convergence problem and its uniquely ergodic PDMP identification had been solved and published in October, with stronger constructive characterization. Re-proving the result with a different coupling and routine stationary moment transfer is insufficient as a distinct, substantive original mathematical contribution for the present claim.",
+      "residual_risks": [
+        "A new sharp coupling rate or quantitative mixing theorem might be valuable as a separately specified, fully proved claim, but the submitted final finding does not assert a standalone non-implied rate."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the original root-only doubling recursive tree, B_n/n converges weakly to the unique stationary law of the PDMP with drift 1−z, rate 1/z doubling jumps, moments mean 2 and variance 1; a logarithmic-grid first-jump coupling proves it.",
+  "limitations": [
+    "The rejection is scientific prior-coverage, not absence of a derivation or literature transport failure.",
+    "Only weak convergence, not almost sure or finite-n total variation."
+  ],
+  "schema_version": 1
+}
