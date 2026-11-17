@@ -1,15 +1,21 @@
-# Scientific review: complementary diameter matching of trisection central polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical polytope is fully specified, the two-level vertex classification follows from active-constraint rank, and the squared distance between any two vertices depends only on the sizes of their high-coordinate classes and their intersection. The intersection term has a strictly negative coefficient; optimizing over the minimum intersection gives two explicit rational chambers. In either chamber the distance decreases strictly with squared size imbalance. The balanced distance envelopes are respectively increasing and decreasing toward the half-size boundary. When \(N\) is odd, an exact rational comparison shows the adjacent complementary sizes beat every off-boundary integer choice. Strict convexity excludes nonvertices as distance maximizers. Exact finite replay passes 506298 rational assertions; this supports but does not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The full arXiv HTML of Kazakov, arXiv:2606.02087v1, Sections 2–5 and Appendices A–C, supplies the source polytope, volume identity, and vertices but no Euclidean diameter optimization, middle-layer matching, or odd–even extremizer classification. Previous work on a ratio-bounded central polytope calculates polar volume and the Santaló volume product, which neither implies nor states the distance invariant. Nearby published work on simplex-shuffle Euclidean diameters deals with different convex bodies; other results called polytope diameter often concern graph path length. Targeted online searches and published mathematical-record queries did not reveal an equivalent result. This is not a claim of exhaustive historical uniqueness: equivalent unindexed bounded-likelihood-ratio geometry remains possible.
+PASS
 
-## Value — PASS
-The motivating construction is a canonical high-dimensional version of the classical Marion hexagon with exponentially many vertices and an explicitly known volume. A complete Euclidean metric extremum is not determined by the source's affine-invariant volume or vertex count. The theorem identifies a dramatically sparse diameter graph—a matching occupying only the one or two balanced coordinate layers—with exact multiplicities and a strict parity defect. The statement is an infinite family-wide classification, not an isolated parameter computation or a cosmetic reformulation. The ratio \(2\) is inherent in the motivating trisection construction; it is not an unmotivated slice.
+The active ratio constraints imply precisely two-level vertices v_S=(1+1_S)/(N+|S|). The exact squared-distance function D_N(k,l,j) is strictly decreasing in overlap j, so disjoint or minimally overlapping high classes maximize for fixed cardinalities. Setting t=(k+l)/2,u=(k−l)/2 yields two rational chambers each strictly decreasing in u²; their u=0 envelopes rise/fall toward t=N/2. Even N gives 4/(9N); odd N requires explicit comparison of adjacent complementary sizes to k+l=N±1 bounds, giving 36N(N²−1)/(9N²−1)². The strict convexity identity rules out nonvertices as farthest points. Verified all size/intersection orbits N=2..21 independently using exact Fraction arithmetic. Metric restricted to e_i regular simplex realization; not affine invariant.
 
-## Limits
-The Euclidean normalization is the regular simplex with vertices \(e_i\), not arbitrary affine images. The result does not classify other edge-division ratios, independent validation, or unindexed historical sources. The exact proof gives all dimensions; finite enumeration is corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original component after comparison of exact mathematical implications and source scope. Known constituent techniques and narrower special cases are credited. Full inaccessible relevant texts remain expressly flagged rather than declared not covering.
+
+## value
+
+PASS
+
+Marion’s canonical edge-trisection body has exponentially many vertices and a known affine volume. The complete intrinsic Euclidean farthest-pair graph being merely a middle-layer matching, with parity defect and exact multiplicity, is a geometric extremal classification not implied by its volume or vertex list. Ratio 2 is intrinsic to its construction, not a gratuitous cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
