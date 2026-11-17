@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-To repeat the finite arithmetic checks, run `python3 check_quartic.py` in an ordinary Python 3 environment. The program independently computes the exponent histogram of every ambiguity sum for primes \(5,7,11,13\), applies the exact minimal cyclotomic polynomial criterion, and compares each zero/nonzero result with the discriminant/permutation theorem. It also checks the total surviving frequencies and the CAZAC congruence class.
+## correctness
 
-Completed execution printed `QUARTIC_PRIME_SQUARE_EXACT_CYCLOTOMIC_PASS`, with support counts \(317,1219,7361,14353\). No numerical thresholds, symbolic algebra packages, remote resources or precomputed lookup tables are needed.
+PASS
 
-The infinite family is established by the proof in `RESULT.md`, not by the finite checker. Reproducing the checker does not constitute independent mathematical validation. The historical-priority comparison is bounded and does not exclude every generalized perfect-polyphase construction.
+PASS: Complete p² stationary-phase identity sums over second base-p digit, leaving p times critical residue terms. For unit a, f′ is quadratic with discriminant 48a(b−a³); at most two odd-order roots of unity cannot cancel, so Legendre support is exact. For a=pc≠0, b=pd the sum reduces to p times cubic additive-character sum. Cyclotomic vanishing iff u→4cu³−du permutes Fp; u³+λu only permutes when λ=0 and p≡2 (mod3), via the nonzero quadratic collision form. The support count and CAZAC iff p≡2 (mod3) follow; Weyl orthogonality gives the complex lifting rank. Independent full cyclotomic coefficient checks p=5,7 corroborated exact counts 317,1219; infinite statement follows from stationary-phase/permutation arguments.
+
+## originality
+
+PASS
+
+PASS best knowledge for complete quartic prime-square ambiguity support and Gabor lifting rank. General Weyl diagonalization, classical CAZAC families and prime-field (not prime-square) quartic chirps are known. Mow 1995 may imply the CAZAC substatement, but the exact unit/nonunit shift discriminant-and-cubic all-frequency support was not located in inspected sources. Risk flagged rather than attributing novelty to mere perfect autocorrelation.
+
+## value
+
+PASS
+
+PASS: Exact ambiguity zeros of a natural unimodular polynomial phase govern an entire structured time-frequency tomography operator. The congruence class p modulo 3 switches all off-peak cyclic autocorrelations and changes rank through an explicitly counted nonunit layer, giving useful prime-square arithmetic behavior not fixed by generic Gabor theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

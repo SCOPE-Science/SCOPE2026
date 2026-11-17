@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The length-two stationary-phase identity follows by a complete, exact sum over the second base-\(p\) digit. The critical quadratic has discriminant \(48a(b-a^3)\); two critical contributions cannot cancel at odd root order. In the nonunit-shift case, vanishing of a length-\(p\) cyclotomic sum is equivalent to the displayed cubic being a permutation, and the collision-quadratic argument handles every prime \(p\ge5\). This proves all zero/nonzero cases, the support count and the CAZAC dichotomy. The Weyl-character diagonalization then proves complex lifting rank. Exact independent finite checks cover four primes; they do not replace the universal proof.
+## correctness
 
-**Originality — PASS under bounded evidence.** Blake–Tirkel (2012) supply an even-length array construction; Mercer (2016) a block-quadratic polyphase family; Bojarovska–Flinth (2015) a generic Gabor lifting criterion. Neither of the inspected statements gives the Legendre-discriminant and cubic-permutation criterion for the quartic prime-square phase. A general perfect-polyphase construction from Mow (1995) was not fully readable; it could imply the CAZAC subclaim. No claim of unconditional priority, nor of originality for the general lifting diagonalization, is made.
+PASS
 
-**Mathematical value — PASS.** A fixed, natural polynomial phase of degree four exhibits an exact arithmetic transition between perfect autocorrelation and complete off-peak nonvanishing. Its full ambiguity-support formula provides an exact rank for a structured time-frequency tomography operator in every prime-square dimension. Both are natural harmonic-analysis invariants; this is not an arbitrary numerical slice.
+PASS: Complete p² stationary-phase identity sums over second base-p digit, leaving p times critical residue terms. For unit a, f′ is quadratic with discriminant 48a(b−a³); at most two odd-order roots of unity cannot cancel, so Legendre support is exact. For a=pc≠0, b=pd the sum reduces to p times cubic additive-character sum. Cyclotomic vanishing iff u→4cu³−du permutes Fp; u³+λu only permutes when λ=0 and p≡2 (mod3), via the nonzero quadratic collision form. The support count and CAZAC iff p≡2 (mod3) follow; Weyl orthogonality gives the complex lifting rank. Independent full cyclotomic coefficient checks p=5,7 corroborated exact counts 317,1219; infinite statement follows from stationary-phase/permutation arguments.
 
-**Limits.** The work does not cover \(p=3\), higher prime powers, or complete nonzero singular-value magnitudes. It does not establish nonlinear phase-retrieval injectivity or historical priority against every polyphase-sequence construction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge for complete quartic prime-square ambiguity support and Gabor lifting rank. General Weyl diagonalization, classical CAZAC families and prime-field (not prime-square) quartic chirps are known. Mow 1995 may imply the CAZAC substatement, but the exact unit/nonunit shift discriminant-and-cubic all-frequency support was not located in inspected sources. Risk flagged rather than attributing novelty to mere perfect autocorrelation.
+
+## value
+
+PASS
+
+PASS: Exact ambiguity zeros of a natural unimodular polynomial phase govern an entire structured time-frequency tomography operator. The congruence class p modulo 3 switches all off-peak cyclic autocorrelations and changes rank through an explicitly counted nonunit layer, giving useful prime-square arithmetic behavior not fixed by generic Gabor theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
