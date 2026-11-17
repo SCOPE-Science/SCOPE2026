@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:50:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md (blob b6fcfbccff044364224bf29d7ecf00f6720e70c9)",
+        "assigned verify_two_tier_hardy.py (blob 55b2e52bbc3467186f342c53ad7cdeee614b21f2)",
+        "independent /mnt/data/scope06_current_checks.py (metric tree FE section)"
+      ],
+      "rationale": "The root-to-vertex integration operator is unitarily equivalent (via derivative D on H^1 tree functions vanishing at the pendant root) to the compact embedding from the rooted H^1 energy space to L², so its singular values are reciprocals of positive square roots of the Dirichlet-at-root, Kirchhoff-interior, Neumann-at-leaves Laplacian eigenvalues. For 0<k<pi/2, stem eigenfunction C sin(kx), middle branches U cos(ky)+B_j sin(ky), and terminal Neumann profiles lead exactly to (cos²k-e sin²k)B_j=U(e+1)sin k cos k and C cos k=sum_j B_j. If cos²k!=e sin²k then B_j coincide and cos²k=(de+d+e)sin²k, giving simple k0=atan(1/sqrt(Q)). If equality holds then C=0 and sum B_j=0, giving k1=atan(1/sqrt(e)) of multiplicity d−1. These exhaust k<pi/2; Q>e ensures s1>s2>2/pi. Inverting Q=(d+1)(e+1)-1 and e gives ordered d,e; (2,7) and (3,5) collide in s1 and separate in s2. An independent conforming piecewise-linear finite-element assembly on actual graphs for (d,e)=(2,2),(2,7),(3,5) matched k0²,k1² within 1e-4, with second multiplicity d−1, only corroborative.",
+      "residual_risks": [
+        "Only equal unit edge lengths, no potentials, arclength L² and d,e>=2; boundary conditions matter and a different leaf boundary could change the spectral formula.",
+        "This is an exact two-low-frequency classification, not a full spectrum or arbitrary-tree inverse theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pivovarchik (2023) provides a general characteristic-polynomial scheme and inversion from two full spectra, not first two singular values of one pendant-root problem.",
+          "Rozhenko (2012) gives characteristic functions with all pendant leaves Dirichlet (not Neumann); Evans–Harris–Lang (2000) establish general Hardy approximation-number framework."
+        ],
+        "reasoning": "General spectral algorithms imply the eigenvalues are computable, but the sources inspected do not directly provide this explicit first-two formula plus (d+1)(e+1) collision law and two-number inverse for the requested different mixed-boundary problem.",
+        "searches": [
+          "arxiv:2301.05939 Theorem 2.2 equilateral rooted tree spectrum",
+          "Naimark Solomyak 2000 regular metric tree spectral reduction",
+          "Rozhenko 2012 characteristic functions of equilateral regular star-trees",
+          "rooted equilateral two tier metric tree Hardy integration first second singular values inverse branching d e collision"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.05939",
+        "https://matstud.org.ua/texts/2012/37_1/65-75.pdf",
+        "https://doi.org/10.1080/00036811.2011.639765",
+        "https://arxiv.org/pdf/math/0003215",
+        "rooted equilateral two tier metric tree Hardy integration first second singular values inverse branching d e collision",
+        "assigned RESULT.md and verify_two_tier_hardy.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dirichlet root + Neumann terminal edges lead to k1=atan(1/sqrt(e)) and k0=atan(1/sqrt(de+d+e)); earlier regular tree paper imposes Dirichlet on terminal edges, hence different equations.",
+          "Full two-spectra inverse statements do not assert recovery from two *individual* eigenvalues of one spectrum."
+        ],
+        "reasoning": "The reduction method is prior work and may algorithmically be specialized, but no inspected primary mathematical statement directly entails the complete specific two-singular-value inverse classification under the exact same mixed boundary conditions without carrying out a new specialization.",
+        "searches": [
+          "arxiv:2301.05939 Theorem 2.2",
+          "Rozhenko 2012 Sections 1-4; Dirichlet leaves",
+          "Pivovarchik Rozhenko 2013 Applied Analysis full-spectra inverse",
+          "rooted equilateral two tier metric tree Hardy integration first second singular values inverse branching d e collision"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H singular values are inverse square roots of a rooted Kirchhoff Laplacian spectrum.",
+          "Rozhenko 2012 studies equilateral regular star-trees with Dirichlet conditions at *pendant leaves*, unlike submitted Neumann leaves; its depth-regular family has fixed branching count rather than varying d/e."
+        ],
+        "reasoning": "Spectral reinterpretation is exact and classical. The change of boundary conditions and minimal two-number inverse discrimination mean that the inspected star-tree formula is not an identical instance.",
+        "searches": [
+          "rooted equilateral two tier metric tree Hardy integration first second singular values inverse branching d e collision",
+          "arxiv:2301.05939 pendant root Dirichlet Kirchhoff two low eigenvalues",
+          "Rozhenko 2012 regular star-tree characteristic function Neumann vs Dirichlet leaves"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submission gives all integer d,e>=2 and a complete collision/rigidity law, not a small table of numerical eigenvalues.",
+          "Existing literature discusses full characteristic polynomials and spectral multiplicities but the specific two-number collision/inverse table was not identified."
+        ],
+        "reasoning": "No exact table independently captures all the formulas; mere absence from searches is not treated as proof of novelty.",
+        "searches": [
+          "rooted equilateral two tier metric tree Hardy integration first second singular values inverse branching d e collision",
+          "eigenvalues two-tier regular metric tree first second singular values",
+          "Rozhenko 2012 polynomial spectrum low modes"
+        ]
+      },
+      "rationale": "Metric-tree Laplacian reductions, equilateral graph characteristic functions, and full-spectra inverse problems have long-standing priority. The narrow best-of-knowledge contribution here is the explicit first-two Hardy singular values for a pendant-root, *Neumann-leaf* stem-plus-two-tier tree, their multiplicity, complete product-collision condition and recovery of (d,e) from only two numbers. The inspected regular star-tree paper instead imposes Dirichlet leaves and homogeneous branching; the 2023 full-spectrum inverse treatment uses a different data budget. A generic determinant method could readily reproduce the special formulas, which is a genuine residual risk; it does not by itself state this two-value inverse classification.",
+      "residual_risks": [
+        "An exact two-tier inverse classification may appear as an explicit corollary in unindexed equilateral quantum-tree characteristic-polynomial literature.",
+        "The 2013 Pivovarchik–Rozhenko full paper was only accessible in abstract this run; its coverage is not definitively excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses complete two spectra to recover rooted graph shape, not two eigenvalues of one mixed-boundary spectrum; general characteristic polynomial may algorithmically reduce to submitted case.",
+          "evidence": [
+            "2023 Theorem 2.1 characteristic polynomial of regular graph; complementary Dirichlet spectral problem and two-spectra inverse setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05939",
+          "material_read": "Full primary arXiv PDF opened and Theorems 2.1–2.2, Dirichlet and Neumann boundary setup, graph characteristic functions, relevant discussion read; page 3 screenshot.",
+          "method": "Primary PDF text and page-image examination",
+          "title": "Recovering the shape of a quantum tree by two spectra",
+          "trigger": "High relevance general equilateral graph inverse data"
+        },
+        {
+          "assessment": "Regular star-trees with Dirichlet boundary at leaves, unlike this pendant-Dirichlet-root and Neumann-leaf problem; not identical spectral data.",
+          "evidence": [
+            "2012 paper p66 defines equal branching degree per generation and pendant-leaf Dirichlet boundary; Section 4 polynomial spectrum."
+          ],
+          "identifier_or_url": "https://matstud.org.ua/texts/2012/37_1/65-75.pdf",
+          "material_read": "Primary full 11-page PDF introduction and boundary definitions (pp65–67), characteristic-spectrum structural formulas, Section 4 description; page 66 screenshot.",
+          "method": "Primary full-text PDF and page-image inspection",
+          "title": "On characteristic functions of equilateral regular star-trees",
+          "trigger": "Same class of equilateral metric trees and characteristic factors"
+        },
+        {
+          "assessment": "Different reported Dirichlet-at-leaves regular-tree spectral characterization; full article not read and remains explicit priority uncertainty.",
+          "evidence": [
+            "Abstract: spectral sequences for regular equilateral trees under Dirichlet pendant and Kirchhoff interior boundary."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00036811.2011.639765",
+          "material_read": "Published abstract and bibliographic record only; lawful accessible full text not obtained in this audit.",
+          "method": "Publisher abstract inspection, not full-text noncoverage",
+          "title": "Inverse Sturm–Liouville problem on equilateral regular tree",
+          "trigger": "Another highly relevant prior inverse problem with spectral multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.05939",
+        "https://matstud.org.ua/texts/2012/37_1/65-75.pdf",
+        "assigned RESULT.md"
+      ],
+      "rationale": "A root-to-point Hardy operator on a natural stemmed two-generation branching tree has a structural spectral ambiguity: one leading norm sees only the product (d+1)(e+1), but the next eigenmode encodes e with multiplicity d−1 and eliminates collisions. The precise two-measurement inverse reconstruction is a natural and complete finite-parametric spectral rigidity fact, not an arbitrary numerical slice or a mere copy of a known table. General reductions provide method, while the particular minimal inverse data statement is motivated.",
+      "residual_risks": [
+        "Restricted to regular unit-edge branching and one rooted boundary problem; general inverse graph identification requires more data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Equal edge lengths and d,e>=2; only first two singular values with multiplicities.",
+  "schema_version": 1
+}

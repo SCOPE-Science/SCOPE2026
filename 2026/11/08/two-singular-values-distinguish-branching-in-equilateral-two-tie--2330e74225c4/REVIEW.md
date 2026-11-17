@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the rooted metric tree with one unit stem, \(d\ge2\) identical second-level stems, and \(e\ge2\) terminal unit edges per second-level hub, the root-to-point integration map is unitarily equivalent to the compact Sobolev embedding with energy norm. Its inverse squared singular values are the rooted Dirichlet–Kirchhoff Laplacian eigenvalues. Solving the edge ODEs for \(0<k<\pi/2\) leaves the exact hub conditions \(B_j(c^2-es^2)=U(e+1)sc\) and \(Cc=\sum_j B_j\). The nonresonant case has exactly one frequency \(\arctan(1/\sqrt{de+d+e})\), with one-dimensional eigenspace; the resonant case has exactly \(\arctan(1/\sqrt e)\) with eigenspace dimension \(d-1\). These two disjoint cases exhaust all lower frequencies, establishing the first two singular values, exact multiplicities, and all inverse deductions. A local symbolic determinant and finite-element discretization on the actual graph independently check the critical formulas, without being substituted for proof.
+PASS
 
-## Originality — PASS, qualified
+The root-to-vertex integration operator is unitarily equivalent (via derivative D on H^1 tree functions vanishing at the pendant root) to the compact embedding from the rooted H^1 energy space to L², so its singular values are reciprocals of positive square roots of the Dirichlet-at-root, Kirchhoff-interior, Neumann-at-leaves Laplacian eigenvalues. For 0<k<pi/2, stem eigenfunction C sin(kx), middle branches U cos(ky)+B_j sin(ky), and terminal Neumann profiles lead exactly to (cos²k-e sin²k)B_j=U(e+1)sin k cos k and C cos k=sum_j B_j. If cos²k!=e sin²k then B_j coincide and cos²k=(de+d+e)sin²k, giving simple k0=atan(1/sqrt(Q)). If equality holds then C=0 and sum B_j=0, giving k1=atan(1/sqrt(e)) of multiplicity d−1. These exhaust k<pi/2; Q>e ensures s1>s2>2/pi. Inverting Q=(d+1)(e+1)-1 and e gives ordered d,e; (2,7) and (3,5) collide in s1 and separate in s2. An independent conforming piecewise-linear finite-element assembly on actual graphs for (d,e)=(2,2),(2,7),(3,5) matched k0²,k1² within 1e-4, with second multiplicity d−1, only corroborative.
 
-The general tree-Hardy approximation-number framework is Evans–Harris–Lang (arXiv:math/0003215v1, 2000); the regular metric-tree Laplacian decomposition is Naimark–Solomyak (2000, especially Theorem 7.2); general spectral estimates are Solomyak (arXiv:math/0201015v1, 2002). Pivovarchik (arXiv:2301.05939, especially Theorem 2.2) establishes a general equilateral-tree Dirichlet characteristic-polynomial framework and reconstruction from two complete spectra. These are substantial antecedents and cover the general method of calculating eigenvalues, but their inspected primary text does not state the complete **two leading singular-value** collision law and single-boundary-problem two-value inverse rigidity on the present two-level branching family. Another paper by Pivovarchik–Rozhenko on inverse regular trees studies different pendant-boundary conditions; its full text was inaccessible. Full duplicate-coverage searches across the accessible findings index and relevant primary sources returned no stronger directly covering specialized statement. This is not an exhaustive novelty proof, and literature under equivalent terminology remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The problem has an intrinsic operator-theoretic and inverse-spectral motivation: the first singular value is a sharp root-to-point integration constant, but a sharp constant generally need not identify the underlying geometry. This theorem classifies *all* equal-norm collisions on a natural infinite regular-tree family and shows that the second singular value (and even its value plus multiplicity alone) resolves them. An explicit pair with different total metric length but equal norm demonstrates nontrivial ambiguity. This yields a complete finite-dimensional inverse spectral fingerprint, not just a numerical special case or an arbitrary restricted parameter computation.
+Metric-tree Laplacian reductions, equilateral graph characteristic functions, and full-spectra inverse problems have long-standing priority. The narrow best-of-knowledge contribution here is the explicit first-two Hardy singular values for a pendant-root, *Neumann-leaf* stem-plus-two-tier tree, their multiplicity, complete product-collision condition and recovery of (d,e) from only two numbers. The inspected regular star-tree paper instead imposes Dirichlet leaves and homogeneous branching; the 2023 full-spectrum inverse treatment uses a different data budget. A generic determinant method could readily reproduce the special formulas, which is a genuine residual risk; it does not by itself state this two-value inverse classification.
 
-## Verification and limitations
+## value
 
-The bundled checker reports `EXACT_SECULAR_DETERMINANTS_OK 8`, `INDEPENDENT_CONFORMING_FE_LOW_SPECTRUM_OK 8`, `BRANCH_PRODUCT_COLLISIONS_AND_TWO_VALUE_INVERSION_OK`, and `ALL_TWO_TIER_HARDY_CHECKS_OK`. It checks finitely many instances only; the all-parameter proof is the explicit eigenfrequency exhaustion. An unindexed prior closed-form specialization of the general regular-tree spectral theory remains possible. Claims do not extend to arbitrary trees, higher eigenvalues, or heterogeneous lengths or weights.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A root-to-point Hardy operator on a natural stemmed two-generation branching tree has a structural spectral ambiguity: one leading norm sees only the product (d+1)(e+1), but the next eigenmode encodes e with multiplicity d−1 and eliminates collisions. The precise two-measurement inverse reconstruction is a natural and complete finite-parametric spectral rigidity fact, not an arbitrary numerical slice or a mere copy of a known table. General reductions provide method, while the particular minimal inverse data statement is motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
