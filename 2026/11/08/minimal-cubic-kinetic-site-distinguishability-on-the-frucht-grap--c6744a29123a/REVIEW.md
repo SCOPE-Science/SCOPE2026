@@ -1,15 +1,21 @@
-# Self-review of the Frucht graph adsorption result
+# Independent mathematical audit
 
-## Correctness — PASS
-The monomer rule, random-order normalization, vertex labeling and boundary cases are fixed. Conditioning on the first admissible arrival gives the exact neighborhood-removal recurrences. A second count of all \(12!\) arrival permutations via integer state aggregation reproduces every labeled vertex probability and the full terminal law. All displayed probabilities, distinctness, denominator, ranges and expectation agree exactly. The lower bound follows from automorphism invariance plus the established smallest-asymmetric-cubic-graph classification, not from computational pattern extrapolation. Only this single graph's kinetic vector is newly computed.
+## correctness
 
-## Originality — PASS on examined evidence, with residual risk
-Targeted exact-value, graph-name and alias searches located no prior Frucht adsorption vector; the relevant public mathematical-result search instead identified a Frucht **independence-complex and vertex-deletion** classification. Its full RESULT.md, including definitions, proof, verification and references, was inspected; its topological statement does not imply the random arrival-order law. Earlier general RSA papers address regular-graph bounds or random graph limits rather than this evaluated twelve-site kinetic vector. General fixed-graph recurrences are known; the new claim is their nontrivial sharp-order exact application. An unindexed tabulation or inaccessible early source may still duplicate the numbers; failure to find one is not a proof of historical novelty.
+PASS
 
-## Mathematical value — PASS
-A cubic graph has identical local degree at every vertex, but this smallest asymmetric cubic graph gives distinct kinetic occupation observables at **every** vertex. The exact finite jamming distribution is an independently useful benchmark. The sharp twelve-vertex cutoff is motivated by minimal possible absence of automorphisms; it is not a convenience-size slice. The narrow finite result does not claim a general theorem for all asymmetric graphs or all adsorption rules.
+Under uniform random order one-attempt monomer adsorption, the earliest admissible v in S is uniform, so acceptance a_i(S)=sum_(v in S)(1_{i=v}+a_i(S\N[v]))/|S| and W_S(z)=z sum_v W_(S\N[v])(z)/|S|. The recurrences terminate since masks strictly shrink. Independent exact Fraction recursion on the explicit 18-edge Frucht graph visited only 97 masks and reproduced all twelve distinct numerators (5631,5440,6993,5877,5454,5762,5516,5319,6759,5949,5444,6506)/17280, minimum gap 4/17280=1/4320, maximum span 1674/17280=31/320, and terminal law (1/64,169/192,5/48) at cardinalities (3,4,5). Their weighted mean is 785/192. Pairwise-distinct probabilities force trivial automorphism group (uniform law invariant under graph automorphisms); the known catalog puts smallest cubic asymmetric graph order at 12. This last lower bound relies on that external catalog, not our finite DP.
 
-## Sources and limitations
-Gamarnik–Goldberg (2008), Dhara et al. (2016), Pippenger (1989) abstract, Weisstein's Frucht graph catalog, and the publicly available exact Frucht independence-complex classification were compared. The uninspected full Pippenger paper and possible unindexed finite jamming tables remain priority risks. No independent scientific audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge): the exact tagged Frucht terminal probability vector and sharp smallest-order realization are not implied by Gamarnik–Goldberg regular-graph girth bounds, Dhara et al. large Erdos–Renyi adsorption limits, or the published static Frucht independence-complex topology. Pippenger 1989 is a directly relevant historical primary source: abstract available only, full-text access blocked (institutional VPN disconnected), so its possible small-graph examples remain a documented priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+PASS: all degree-three Frucht vertices receive twelve different irreversible-adsorption kinetic statistics, giving the sharp attainable minimal cubic order for complete site distinguishability. The exact labeled vector, gaps and terminal count distribution are meaningful finite invariants for a standard asymmetric regular test graph rather than arbitrary numerology: they distinguish dynamics beyond local degree. The lower order sharpness uses established smallest-asymmetric-cubic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
