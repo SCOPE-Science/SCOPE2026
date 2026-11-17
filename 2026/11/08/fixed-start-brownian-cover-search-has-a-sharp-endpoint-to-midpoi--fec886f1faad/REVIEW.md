@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generator, reflecting and absorbing boundary conditions, independent initial and reset sites, endpoint-visit memory, and treatment of resets onto targets are explicit. For each of three target sets, first-reset renewal gives \(F_A(y;z)=(1-\phi_A(y))/(r\phi_A(z))\); the three boundary-value solutions are explicit. Pathwise inclusion–exclusion for the maximum of the two hitting times gives the cover mean. Hyperbolic addition reduces minimization to \(1\le u\le c\). The derivative numerator has exactly one positive root and changes sign from positive to negative, excluding interior minima. The endpoint comparison has sign \(4c^3-6c-3\), whose root on \(c>1\) is unique. These are infinite-domain mathematical arguments rather than extrapolations from numerical experiments. An exact symbolic checker and independently constructed finite reflected-lattice process agree with the formulas. Boundary reset hits are explicitly counted. The standalone checker ran successfully.
+## correctness
 
-## Originality — PASS (qualified)
-The closest 2026 interval-cover-time paper fixes both the starting and resetting positions at the midpoint and optimizes resetting frequency. The 2024/2025 general cover-time paper gives an exact interval mean in a coincident initial/reset location model. A previously established phase classification in that model has a *different* threshold: \(2\operatorname{arcosh}((1+\sqrt{17})/4)\) in dimensionless rate square-root units. It cannot be substituted for the distinct fixed-start, freely varied reset-site model: our cubic \(4c^3-6c-3=0\) gives \(r_\star L^2/D=3.1738039310\ldots\), not \(2.1483214929\ldots\). Calvert–Evans study target placement on the unbounded line with an additional reset after finding the first target. Bressloff's multi-target renewal paper concerns splitting probabilities and conditional *first*-target times. Claim-level comparisons, primary full texts, and semantic research-index queries found no direct coverage of this independently reset-site global phase diagram. This does not establish a universal absence of equivalent results.
+PASS
 
-## Value — PASS
-Choosing a reset site independent of the fixed experimental starting state is a natural search-control parameter. The theorem reduces a continuum optimization to precisely three candidates, identifies a nontrivial discontinuous global-optimum transition with an exact sharp cubic, and distinguishes two experimentally meaningful controls. An exact threshold matters because simply importing the known coincident start/reset threshold gives a quantitatively wrong policy. No new general renewal identity is claimed; the new value is the complete fixed-start site-design result.
+For each target A in {left,right,either}, first-reset renewal from y to fixed z gives F_A(y;z)=(1-phi_A(y))/(r phi_A(z)). Independent Neumann/Dirichlet ODEs yield the three phi functions; max(tau_0,tau_L)=tau_0+tau_L-min(tau_0,tau_L) is a pathwise identity even with retained visit flags. With y=L/2 and u=cosh(s(z/L-1/2)), algebra gives H_c(u)=2c(2c^2-1-c)u/(u^2+c^2-1)-(c-1)/u, 1<=u<=c. An independently performed exact SymPy derivative check verifies N_c(u²) and endpoint factorization (c-1)^2(4c³-6c-3)/(c(2c²-1)). The derivative numerator has one positive zero (interior maximum), so endpoints alone compete; critical root c=1.42366105 corresponds rL²/D=3.1738039310. All boundary reset hits count immediately.
 
-## Closest literature and residual limitations
-Ghosh–Sabhapandit (arXiv:2605.31207, 2026), Linn–Lawley (arXiv:2406.12154, 2024), Calvert–Evans (arXiv:2111.02335, 2021), and Bressloff (Phys. Rev. E 102, 022115, 2020). The theorem does not cover non-midpoint starts, time-dependent or random reset sites, target-dependent reset control, costs, quantiles, or joint rate/site optimization. Search evidence is finite and publication-priority confirmation remains independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original fixed-midpoint-start, freely optimized reset-site phase transition. Closest exact prior global optimizer theorems set initial site equal to reset site and have a different critical quadratic and threshold, while Linn–Lawley derives equal-site interval cover times and Ghosh–Sabhapandit fixes the midpoint site while varying rate. The submitted cubic arises in the distinct independent-initial-site problem; no direct prior theorem was found in inspected material.
+
+## value
+
+PASS
+
+The choice of reset site after a fixed initial position is a natural independent control for search design. The proof gives a sharp global continuum classification with only endpoints or midpoint optimal, an explicit algebraic transition and exclusion of all interior competitors; importing the old y=z threshold would lead to an incorrect location policy. Exact all-rate boundary is a reusable physical design invariant rather than a numerical anecdote.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

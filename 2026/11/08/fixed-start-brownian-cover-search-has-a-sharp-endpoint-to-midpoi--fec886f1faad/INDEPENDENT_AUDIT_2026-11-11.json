@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T13:48:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md and verify_location_transition.py",
+        "Independent SymPy rational/hyperbolic derivative and endpoint equality",
+        "Comparison with two earlier equal-start/equal-reset phase diagrams"
+      ],
+      "rationale": "For each target A in {left,right,either}, first-reset renewal from y to fixed z gives F_A(y;z)=(1-phi_A(y))/(r phi_A(z)). Independent Neumann/Dirichlet ODEs yield the three phi functions; max(tau_0,tau_L)=tau_0+tau_L-min(tau_0,tau_L) is a pathwise identity even with retained visit flags. With y=L/2 and u=cosh(s(z/L-1/2)), algebra gives H_c(u)=2c(2c^2-1-c)u/(u^2+c^2-1)-(c-1)/u, 1<=u<=c. An independently performed exact SymPy derivative check verifies N_c(u²) and endpoint factorization (c-1)^2(4c³-6c-3)/(c(2c²-1)). The derivative numerator has one positive zero (interior maximum), so endpoints alone compete; critical root c=1.42366105 corresponds rL²/D=3.1738039310. All boundary reset hits count immediately.",
+      "residual_risks": [
+        "Fixed midpoint y, deterministic z, reflecting BM, independent Poisson clock, persistent visit history. No claim about quantiles, non-midpoint starts or joint site/rate optimization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2406.12154 Section 4.1 gives asymmetric interval geometry with resetting to initial site, and known renewal formulas; https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md gives full optimizer only on y=z."
+        ],
+        "reasoning": "Known general one-target renewal relations and equal-start formulas supply ingredients, but none of the inspected papers supplies or logically entails the fixed-midpoint initial condition with variable reset site or its cubic global argmin. The distinctive proof requires the altered coefficients (K-c),(c-1).",
+        "searches": [
+          "Resultary: Brownian resetting location optimize cover time both endpoints reflecting interval fixed starting midpoint endpoint midpoint transition",
+          "https://arxiv.org/abs/2406.12154",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md",
+        "https://arxiv.org/abs/2406.12154",
+        "https://arxiv.org/abs/2605.31207",
+        "Resultary: Brownian resetting location optimize cover time both endpoints reflecting interval fixed starting midpoint endpoint midpoint transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md keeps initial and reset sites coincident and adds a tail-optimality theorem; submitted theorem uses phi_A(L/2) in numerator and phi_A(z) in denominator for each target."
+        ],
+        "reasoning": "The prior mean formula with y=z cannot be substituted for the submitted mean y=L/2; the distinct-from-resetting initial state changes all coefficients and shifts critical r. Classical renewal lemmas alone are not the new global optimizer result.",
+        "searches": [
+          "https://arxiv.org/abs/2406.12154",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md",
+          "Resultary: Brownian resetting location optimize cover time both endpoints reflecting interval fixed starting midpoint endpoint midpoint transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md Theorem starts at x and resets to x; its optimum threshold rL²/D=2.14832149. https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md also explicitly assumes start=z and reset=z. Submitted theorem fixes start y=L/2 and varies z independently; rL²/D=3.17380393."
+        ],
+        "reasoning": "Earlier sites optimize the diagonal y=z, but the submitted experiment restricts y=L/2 and varies z. The optimized functions differ and have provably unequal critical values; coincident-parameter renaming does not make them equivalent.",
+        "searches": [
+          "Resultary: Brownian resetting location optimize cover time both endpoints reflecting interval fixed starting midpoint endpoint midpoint transition",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md exact equality point quadratic 2c²-c-2=0 versus submitted cubic 4c³-6c-3=0; source papers report contrasting exact rates."
+        ],
+        "reasoning": "Comparison against existing exact parameter data shows distinct boundary, not a disguised copy of same numeric threshold. No matching fixed-start midpoint table found; searches do not certify priority.",
+        "searches": [
+          "Resultary fixed-start Brownian endpoint midpoint reset site c cubic 4c^3-6c-3",
+          "Resultary: Brownian resetting location optimize cover time both endpoints reflecting interval fixed starting midpoint endpoint midpoint transition"
+        ]
+      },
+      "rationale": "Best-of-knowledge original fixed-midpoint-start, freely optimized reset-site phase transition. Closest exact prior global optimizer theorems set initial site equal to reset site and have a different critical quadratic and threshold, while Linn–Lawley derives equal-site interval cover times and Ghosh–Sabhapandit fixes the midpoint site while varying rate. The submitted cubic arises in the distinct independent-initial-site problem; no direct prior theorem was found in inspected material.",
+      "residual_risks": [
+        "Older multiple-target resetting theory might contain an equivalent fixed-start reset-site optimization under a different terminology. Search absence is not a proof of global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_INITIAL_CONDITION",
+          "evidence": "Earlier requires y=z and rL²/D=2.14832149, whereas new fixes y=L/2 and critical rL²/D=3.17380393.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md",
+          "material_read": "Complete RESULT.md including model, mean equation, derivative, exact quadratic phase threshold and local-shape theorem",
+          "method": "Fetched and read full GitHub mathematical text",
+          "title": "An exact discontinuous optimal reset-site transition for Brownian interval cover times",
+          "trigger": "Almost identical endpoint-to-midpoint phenomenon"
+        },
+        {
+          "assessment": "DIFFERENT_INITIAL_CONDITION",
+          "evidence": "All-location optimization still imposes starts at resetting site; no fixed-initial-site theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md",
+          "material_read": "Complete RESULT.md including assumptions and proof Sections 1–4, scope and relation to prior work",
+          "method": "Fetched and read full GitHub mathematical text",
+          "title": "Exact mean–tail reset-location conflict in Brownian interval coverage",
+          "trigger": "Stronger earlier resetting-site optimization with long-time tail"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND",
+          "evidence": "Asymmetric *geometry* distances considered with initial and reset points coinciding, not independent fixed start and varied site.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.12154",
+          "material_read": "Available arXiv full text, especially Section 4.1, model assumptions and formula (38)",
+          "method": "Inspected arXiv HTML article and source passage",
+          "title": "Cover times with stochastic resetting",
+          "trigger": "Primary Brownian reflected interval mean formula for asymmetric endpoints"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE",
+          "evidence": "Model fixes both start and reset at midpoint and optimizes reset rate; no full-paper noncoverage assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.31207",
+          "material_read": "Abstract/bibliographic evidence only",
+          "method": "ArXiv result metadata",
+          "title": "Cover time statistics of one-dimensional Brownian motion under stochastic resetting",
+          "trigger": "Fixed-midpoint resetting papers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-discontinuous-optimal-reset-site-transition-for-brownia--58df668581e9/RESULT.md",
+        "Pinned RESULT.md"
+      ],
+      "rationale": "The choice of reset site after a fixed initial position is a natural independent control for search design. The proof gives a sharp global continuum classification with only endpoints or midpoint optimal, an explicit algebraic transition and exclusion of all interior competitors; importing the old y=z threshold would lead to an incorrect location policy. Exact all-rate boundary is a reusable physical design invariant rather than a numerical anecdote.",
+      "residual_risks": [
+        "Restricted to mean, one reflected interval and fixed midpoint start."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed midpoint y, deterministic z, reflecting BM, independent Poisson clock, persistent visit history. No claim about quantiles, non-midpoint starts or joint site/rate optimization.",
+    "Older multiple-target resetting theory might contain an equivalent fixed-start reset-site optimization under a different terminology. Search absence is not a proof of global priority.",
+    "Restricted to mean, one reflected interval and fixed midpoint start."
+  ],
+  "schema_version": 1
+}
