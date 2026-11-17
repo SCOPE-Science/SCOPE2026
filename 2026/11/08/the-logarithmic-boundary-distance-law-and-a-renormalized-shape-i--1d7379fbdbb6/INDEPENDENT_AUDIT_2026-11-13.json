@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T10:19:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "checks/ideal_polygon_checks.py",
+        "https://arxiv.org/pdf/1410.4052",
+        "https://mat.uab.cat/~egallego/papers/Diperen3%20.pdf"
+      ],
+      "rationale": "Area-uniform sampling is normalized by (n-2)π. In a cusp width h_i the strip integral is 2 sinh(s)[1+log(h_i/(2sinh(s)))]; compact geodesic strips contribute L0 sinh(s)+O_P(s²). Therefore leading coefficient is 2n/((n-2)π) and the next numerator is L0+2∑log h_i+2n(1-log2). Horocyclic cancellation produces the Möbius-invariant chord product. For a quadrilateral Ptolemy gives ratio (x+y)^2/(xy)>=4, with equality at x=y. For a standard ideal triangle the (v,w) area integral yields the displayed exact CDF, support [0, asinh(1/√3)], density and 3√3/π quadratic endpoint tail. Independent symbolic differentiation and evaluation checked the CDF/density identity, F(rho)=1 and sharp quadratic tail coefficient; no uniform bound under cusp degeneration asserted.",
+      "residual_risks": [
+        "The second-order compact/cusp seam estimate is for each fixed nondegenerate polygon only; degenerating shapes can change the error bounds."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Inspected frozen RESULT.md and the actual checks/ideal_polygon_checks.py source.",
+        "Independently computed sympy: CDF at rho=1; derivative equals 6 cosh(s)/π log(1/(2 tanh(s))); lim_{ε→0}(1-F(rho-ε))/ε²=3√3/π.",
+        "Re-derived cusp strip integral, Ptolemy ratio and isometry-invariant endpoint exponent."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gallego–Solanes (2001) addresses compact convex hyperbolic sets and diameter/area/perimeter, including expanding sequences, not cusped finite-area ideal polygons and pointwise collar law."
+        ],
+        "reasoning": "General compact perimeter comparison does not immediately supply infinite-side-length ideal cusp logarithmic renormalization or the chord-product constant.",
+        "searches": [
+          "hyperbolic ideal polygon area uniform point boundary distance logarithmic perimeter cusp shape quadrilateral",
+          "https://mat.uab.cat/~egallego/papers/Diperen3%20.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1410.4052",
+        "https://mat.uab.cat/~egallego/papers/Diperen3%20.pdf",
+        "Cusp-pair tails for random distances in ideal hyperbolic polygons (Resultary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither reviewed earlier paper gave the claimed exact chord-product renormalized perimeter or regular ideal quadrilateral point-boundary minimizer."
+        ],
+        "reasoning": "The exact observables and coefficients were compared, not merely paper titles; earlier Ptolemy inequality alone cannot imply the cusp probability law.",
+        "searches": [
+          "hyperbolic ideal polygon area uniform point boundary distance logarithmic perimeter cusp shape quadrilateral",
+          "https://arxiv.org/pdf/1410.4052",
+          "https://mat.uab.cat/~egallego/papers/Diperen3%20.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu 2014 §5.4 computes geodesic-intersection chord lengths from Liouville geodesic sampling, whereas the candidate samples a point uniformly by hyperbolic area and takes its distance to the union of sides."
+        ],
+        "reasoning": "The probability measures and random observables differ; an integral geometric identity was not found that turns chord-length distributions into this area-point nearest-side CDF.",
+        "searches": [
+          "hyperbolic ideal polygon area uniform point boundary distance logarithmic perimeter cusp shape quadrilateral",
+          "https://arxiv.org/pdf/1410.4052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published cusp-pair theorem treats distance between TWO independently area-uniform points, an R e^{-R} far-distance tail, not one point to boundary at s→0."
+        ],
+        "reasoning": "Different stochastic geometry and asymptotic scale mean that formula does not imply the candidate two-term boundary occupation law.",
+        "searches": [
+          "hyperbolic ideal polygon area uniform point boundary distance logarithmic perimeter cusp shape quadrilateral",
+          "Cusp-pair tails for random distances in ideal hyperbolic polygons (Resultary, 2026/11/8)"
+        ]
+      },
+      "rationale": "Best-of-knowledge: explicit area-point nearest-side boundary law and Möbius-invariant next coefficient not implied by geodesic chord sampling, expanding compact-set perimeter formulas or independent two-point cusp distances.",
+      "residual_risks": [
+        "Earlier renormalized perimeter under other names, or integral-geometric transfer of chord results, remains a historical priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geodesic Liouville chord sampling, not nearest-side distance of area-uniform point",
+          "evidence": "§5.4 integrates geodesic intersection lengths in ideal polygons.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4052",
+          "material_read": "Original complete PDF accessible; read introduction and relevant chord-length distribution sections 5.3–5.4 around pages 16–18",
+          "method": "Read/screenshot original PDF pages and inspect displayed distribution setup",
+          "title": "On the Ambartzumian-Pleijel identity in hyperbolic geometry",
+          "trigger": "Ideal triangle and quadrilateral random geometry"
+        },
+        {
+          "assessment": "Compact-region geometric inequalities; no source derivation for ideal cusp area-point collar logarithm in inspected material",
+          "evidence": "The paper is framed around perimeter, diameter and area of compact hyperbolic convex sets.",
+          "identifier_or_url": "https://mat.uab.cat/~egallego/papers/Diperen3%20.pdf",
+          "material_read": "Original PDF introduction and perimeter/area/asymptotic statements for compact convex sets",
+          "method": "Read and screenshot primary PDF",
+          "title": "Perimeter, Diameter and Area of Convex Sets in the Hyperbolic Plane",
+          "trigger": "Potential stronger general boundary geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal leading logarithmic tube probability and a shape-sensitive next coefficient give a natural exact boundary statistic for finite-area ideal polygons; the sharp quadrilateral optimizer and solvable triangle law furnish meaningful geometric consequences.",
+      "residual_risks": [
+        "Only fixed polygon, curvature -1, finite ideal vertices; no uniform degeneration or general n-gon closed CDF."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The second-order compact/cusp seam estimate is for each fixed nondegenerate polygon only; degenerating shapes can change the error bounds.",
+    "Earlier renormalized perimeter under other names, or integral-geometric transfer of chord results, remains a historical priority risk.",
+    "Only fixed polygon, curvature -1, finite ideal vertices; no uniform degeneration or general n-gon closed CDF."
+  ],
+  "schema_version": 1
+}
