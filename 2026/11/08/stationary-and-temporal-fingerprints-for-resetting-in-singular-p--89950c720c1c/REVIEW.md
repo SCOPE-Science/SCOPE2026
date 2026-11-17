@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact radial Fokker–Planck generator becomes the squared-Bessel generator under \(Y=R^4/(16D_0)\), with shape \(k=1-\alpha/2\). The starting-from-zero gamma law, Poisson-age product, closed stationary moments, affine conditional mean, and strict digamma-based inversion were reconstructed independently of the computational checker. The strict likelihood-ratio order follows by conditioning on the gamma factor and the increasing posterior family, not by inspecting plots. The packaged checker executes symbolic identities, quadrature comparisons and an exact transition simulation. Finite checks do not establish the theorem on their own.
+PASS
 
-## Originality — PASS (qualified)
+Directly computed backward generator under y=ρ⁴/(16D0) as Lg=y g″+k g′ for k=1−α/2 in [1/2,1]. Canonical squared-Bessel extension from zero has Gamma(k,1) scaling t, and exponential age mixing yields stationary product, moments and χ=4k/π[Γ(k)/Γ(k+1/2)]². Reset generator on y is k−ry, so stationary Corr(Y0,Yt)=e^-rt. Digamma integral gives χ strictly falling with k, and gamma-shape tilt combined with monotone conditional G|TG=s gives strict MLR ratio. Independently evaluated generator and endpoint χ, inspected exact-BESQ computational checks; finite numerics not universal proof.
 
-Sandev et al., arXiv:2609.24427v1, already provide the exact propagators and the stationary Bessel densities. Liu et al., DOI 10.1103/xz7y-n8w2, study interpretation choice using time-averaged diffusivities for a related regularized radial model. Rose et al., arXiv:1806.01298, give the general resetting spectral shift. The new contribution concerns the model-specific fourth-power conjugacy and autocorrelation, the strict radial likelihood-ratio hierarchy and the invertible three-parameter observation map. Searches of these publications, published-finding corpus and related literature did not find the complete assertion; an unindexed earlier specialization and the generic spectral implication remain real risks.
+## originality
 
-## Value — PASS
+PASS
 
-The three-parameter inverse problem is directly motivated by published work on identifying multiplicative-noise conventions. The stationary shape ratio is independent of the reset rate and diffusivity, the lag correlation is independent of the convention and diffusivity, and the fourth moment fixes the remaining scale. These exact complementary observables give population-level identifiability without first knowing any of the three parameters. The likelihood-ratio theorem additionally orders every increasing radial cost, not just a few moments. The result does not claim finite-sample identifiability rates or extension to other boundary/reset/memory models.
+Best-of-knowledge model-specific joint three-parameter identification and complete radial MLR hierarchy; gamma stationary mixtures and universal Poisson-reset spectral shift are known prior ingredients, not novel. Closely relevant originating primary full text was inaccessible and remains material priority risk.
 
-## Primary literature and limitations
+## value
 
-Compared the motivating full article's stationary, threshold, memory and conclusion sections; the related open regularized-diffusion inference study; and the general reset spectrum study. The exact singular boundary process, ordinary Poisson resetting, and population observables are essential; general memory subordination or regularized diffusivity may change the two-time statistics. No independent audit or physical measurement has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact identifiable population-observable triple (stationary second/fourth radial moments and one lag) distinguishes stochastic-calculus interpretation, diffusivity and resetting rate for a singular diffusion whose static scale alone is ambiguous. Strong MLR radial ordering is a natural comparative invariant; complete phase-parameter inversion is practically and mathematically motivated despite use of classical gamma/reset identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
