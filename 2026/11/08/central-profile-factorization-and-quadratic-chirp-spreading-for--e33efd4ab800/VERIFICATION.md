@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the provided standard-library-only `CHECK.py` using a recent Python 3 interpreter. The program computes every self-STFT coefficient by exact integer cyclotomic residue histograms in five parameter configurations, separately checks exact squared magnitudes, and counts zero/nonzero tiers against the stated formulas. It covers odd prime orders \(3\), \(5\), horizontal dimensions \(1\), \(2\), and several nonzero quadratic coefficients.
+## correctness
 
-The same checker independently sums the transform directly for two nonconstant complex profiles at prime orders \(3\) and \(5\), testing *every* translation-modulation pair against the arbitrary-profile factorization, with tolerance \(10^{-10}\). The exact integer tests and general-profile tests both passed when run on the complete supplied source. The terminal markers are `ALL_EXACT_STFT_CHECKS_PASSED` and `ALL_GENERAL_PROFILE_CHECKS_PASSED`.
+PASS
 
-These checks are finite and do not certify the unrestricted result for all prime powers or all dimensions. The analytic proof uses only the group law, finite-character orthogonality, a one-dimensional variable substitution, and an elementary quadratic-character sum; no external numerical certificates are assumed.
+With g=U(z)/(q^n sqrt E), central translation rows equal A_U(c,W)/E; for noncentral translations character orthogonality confines horizontal frequency to (lambda b/2,-lambda a/2), yielding psi(lambda c) hat U(W+lambda) overline(hat U(lambda))/(qE). Thus support=(N-q)r^2+a. For quadratic U all q Fourier modes nonzero and A supports exactly q pairs, giving q coefficients modulus1 and (N-q)q^2 modulus1/q; entropy formula follows from two atom probabilities. Independent p=3 exact enumeration checked.
+
+## originality
+
+PASS
+
+Finite coordinatewise additive modulation of a nonabelian Heisenberg group has different domain and coefficients from continuous irreducible-representation Heisenberg uncertainty or nilpotent phase retrieval; searches found no earlier exact general support factorization for arbitrary central U. Full nearest preprint remains unread, so best-of-knowledge caveat.
+
+## value
+
+PASS
+
+The exact arbitrary-profile reduction, two-tier chirp amplitudes and entropy excess quantify a natural commutative/noncommutative spectrogram contrast with a structural support identity, not merely isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
