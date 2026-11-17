@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact \(p\)-integral product for \(\binom{qp^a}{p^a}\) has factors congruent to one modulo \(p\). Moving the base by \(p^kt\) changes the binomial coefficient by \(p^kt\) and the power term by zero modulo \(p^{k+1}\). The resulting unit-slope lifting rule gives precisely one root in every class modulo \(p\), for every prime including two and three. The prime-number-theorem-in-progressions step counts exactly the \(p-1\) reduced root classes. All hypotheses and the fixed-parameter limit are explicit; the code supplies only corroboration.
+## correctness
 
-## Originality — PASS (qualified)
-Guedes and Machado (2026, arXiv:2606.30232v1) study the underlying prime-base congruence, including a square Wieferich case. The directly relevant earlier public result *Prime-power towers for the prime-base binomial congruence* fixes \(q\) and classifies exponents in \(p^a\) through a \(p\)-adic distance. Full result inspected. It neither states nor establishes the required unit-slope congruence in the variable base \(q\), the one-per-residue exact classification, or the prime-base density. A prior-result search did not identify an implication covering the combined result. The motivating original paper's abstract, but not its full text, was accessible; unindexed equivalent work remains a priority risk. This qualified comparison is not a claim of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete, uniform-in-exponent classification of prime-base congruences modulo **every** prime power, including the small prime cases absent from the previously published tower theorem. It changes the quantified question from membership of one fixed base at many moduli to an exact enumeration and prime-density theorem at each fixed modulus; this is a natural dual parameter question, rather than a small numerical extension. The explicit lifting congruence is the structural input that makes this classification possible. It does not provide effective density estimates uniform in the modulus.
+PASS: The exact product binom(q p^a,p^a)=q prod_{1<=j<p^a}(1+(q-1)p^a/j) is p-integral. Every factor has slope divisible by p, giving H(q+p^kt)-H(q)=p^kt mod p^(k+1), while (q+p^kt)^(p^a)-q^(p^a)=0 mod p^(k+1), also for p=2 and k=1. Fermat starts all p classes at level1, and one digit of Hensel lifting is forced at every level. Therefore exactly p classes modulo p^a (one zero and p-1 units); fixed-modulus Dirichlet PNT yields (p-1)/phi(p^a)=1/p^(a-1) relative density among primes. Independently enumerated exact original binomial residues for small p,a and saw unique lifts; finite checks only corroborate unrestricted p-adic argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge: Existing Guedes–Machado prime-base theorem gives first square-Wieferich layers for fixed p,q, and the earlier prime-power tower result fixes prime q and classifies admissible exponents a by p-adic Teichmüller distance; neither gives an exact fixed-modulus classification of all variable base residue classes or density, especially p=2,3. The unit-slope base perturbation is a genuine alternate-parameter structural claim. Prior unindexed Hensel-lifting result may exist; no claim of exhaustive priority.
+
+## value
+
+PASS
+
+PASS: Characterizing precisely which prime bases solve a natural binomial congruence at every fixed prime power, with one class above each mod-p unit and an exact prime density, is a useful global arithmetic classification rather than an isolated modular check. Uniform-in-a lifting and small-prime inclusions extend the parameter directions of published tower criteria. Generic Hensel lemma and Dirichlet PNT are credited, not claimed as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

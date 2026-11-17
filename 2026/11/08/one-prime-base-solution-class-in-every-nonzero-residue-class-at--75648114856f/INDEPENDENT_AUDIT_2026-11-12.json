@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The exact product binom(q p^a,p^a)=q prod_{1<=j<p^a}(1+(q-1)p^a/j) is p-integral. Every factor has slope divisible by p, giving H(q+p^kt)-H(q)=p^kt mod p^(k+1), while (q+p^kt)^(p^a)-q^(p^a)=0 mod p^(k+1), also for p=2 and k=1. Fermat starts all p classes at level1, and one digit of Hensel lifting is forced at every level. Therefore exactly p classes modulo p^a (one zero and p-1 units); fixed-modulus Dirichlet PNT yields (p-1)/phi(p^a)=1/p^(a-1) relative density among primes. Independently enumerated exact original binomial residues for small p,a and saw unique lifts; finite checks only corroborate unrestricted p-adic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full prior tower theorem states p>=5 and fixed q and classifies initial exponent segment through v_p(beta_pq-omega_p(q))."
+        ],
+        "reasoning": "The closest prior applies to p>=5, q prime, a variable, and characterizes a fixed q tower. It does not prove the p-adic simple-root condition as q varies, nor identify p-1 reduced classes at each p^a, and excludes p=2,3. The 2026 motivating arXiv square criterion is narrower in exponent.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28/RESULT.md",
+          "https://arxiv.org/abs/2606.30232"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.30232",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28/RESULT.md",
+        "Classical Dirichlet prime number theorem in arithmetic progressions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Different variable quantified; tower theorem imposes conditions on a for one q and can have finite/infinite cutoff; current result solves all q mod p^a simultaneously."
+        ],
+        "reasoning": "The fixed-q tower theorem plus prime-number theorem in progressions alone cannot imply one root per residue at each p^a. It needs the base-variable unit-slope congruence, reconstructed directly from the integral product. The resulting prime density follows after that new classification.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28/RESULT.md",
+          "https://arxiv.org/abs/2606.30232"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local slope F(q+p^kt)-F(q)=p^kt modulo p^(k+1) gives one root above each q mod p; tower theorem uses beta_pq versus omega_p(q) to bound a for a fixed base."
+        ],
+        "reasoning": "The same binomial congruence can be expressed as p-adic zeros of F_{p^a}(q)=binom(qp^a,p^a)-q^(p^a), or as an exact simple-root Hensel lift of the identity q-q^p modulo p. The earlier tower theorem instead fixes q and varies a; these quantifiers cannot be interchanged.",
+        "searches": [
+          "Resultary semantic: prime base binomial congruences binom(q p^a,p^a) equals q^(p^a) p-adic Hensel lifting residue classes",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28/RESULT.md",
+          "arxiv:2606.30232"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent integer binomial enumeration p=2,3,5,7 for bounded powers matches p roots; proof is an algebraic all-p lifting."
+        ],
+        "reasoning": "No finite database supplies exact p roots for every p^a or asymptotic distribution of primes in those roots; a bounded residue table would not establish the universal lifting.",
+        "searches": [
+          "Resultary semantic: prime base binomial congruences binom(q p^a,p^a) equals q^(p^a) p-adic Hensel lifting residue classes",
+          "SCOPE2026 verify.py"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Existing Guedes–Machado prime-base theorem gives first square-Wieferich layers for fixed p,q, and the earlier prime-power tower result fixes prime q and classifies admissible exponents a by p-adic Teichmüller distance; neither gives an exact fixed-modulus classification of all variable base residue classes or density, especially p=2,3. The unit-slope base perturbation is a genuine alternate-parameter structural claim. Prior unindexed Hensel-lifting result may exist; no claim of exhaustive priority.",
+      "residual_risks": [
+        "Another older Hensel-simple-zero theorem for this exact binomial polynomial may imply root-class enumeration; targeted searches did not locate one.",
+        "Full text of all related binomial-congruence literature not exhaustively checked; novelty is best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING for variable-base roots.",
+          "evidence": [
+            "For fixed p>=5 and distinct prime q, admissible a form initial segment controlled by beta_pq."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28/RESULT.md",
+          "material_read": "Complete published theorem, Jacobsthal and Teichmuller limit proof, parameters and limitations.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "Prime-power towers for the prime-base binomial congruence",
+          "trigger": "Highest related Resultary hit other than submitted theorem"
+        },
+        {
+          "assessment": "No identified all-p^a variable-base root classification.",
+          "evidence": [
+            "Square modulus criterion for p>=5 fixed q not the fixed-modulus all-base root and prime-density assertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.30232",
+          "material_read": "Accessible primary public web HTML, metadata and relevant low prime-power/Wieferich theorem statement and discussion; complete text not independently annotated line by line.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "Structured Solutions of Prime-Base Binomial Congruences",
+          "trigger": "Motivating primary same congruence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Characterizing precisely which prime bases solve a natural binomial congruence at every fixed prime power, with one class above each mod-p unit and an exact prime density, is a useful global arithmetic classification rather than an isolated modular check. Uniform-in-a lifting and small-prime inclusions extend the parameter directions of published tower criteria. Generic Hensel lemma and Dirichlet PNT are credited, not claimed as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "No explicit closed-form formulas for each lifted nontrivial root or uniform PNT error as p,a vary; p-adic proof is infinite, enumeration finite.",
+  "schema_version": 1
+}
