@@ -1,15 +1,21 @@
-# Mathematical review: cross-hyperbola Fourier sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is finite-field and local-arithmetic, with complete definitions of the sampling matrix and the valuation ring. An invertible multiplicative-character change of basis reduces the matrix to the twisted Kloosterman diagonal. Reduction of the cyclotomic binomial coefficients modulo the prime gives the first nonzero term for every nonquadratic character, while an exact involution kills precisely the quadratic character in the nonsquare case. The proof checks all odd primes including the boundary prime three, and computes the determinant valuation and finite Smith factors from these diagonal entries. The standalone verification code additionally checks exact modular coefficients, exact character cancellation, numerical ranks, and proposed null vectors at ten primes. It does not purport to prove the infinite case computationally.
+## correctness
 
-## Originality — PASS, bounded literature comparison
-Classical Salié theory already explains the quadratic-twist zero for nonsquare parameters; that zero alone is not new. Kelmer's 2008 preprint gives the same general twisted Kloosterman sums but primarily studies distributions and explicit evaluation for higher prime powers; its full arXiv HTML text does not present the local Smith list of the prime-field square cross-sampling transform. Gurak's 2009 abstract sets higher-prime-power hypotheses, so it does not on its face give this classification; only its abstract and references were materially checked. Related general character-convolution invertibility arguments do not determine the full local exponents or identify the exact nonsquare one-dimensional defect. Published search results did not locate an identical theorem, but negative searches cannot prove priority. Residual risk: the exact valuation formula may be implicit in older twisted-Kloosterman p-adic literature, including sources whose complete text was unavailable.
+PASS
 
-## Mathematical value — PASS
-This is a natural critical Fourier sampling operator between two finite-field multiplicative hyperbolas. Its rank can lose exactly one mode solely from a quadratic square-class mismatch; the complete Smith sequence describes the stronger arithmetic obstruction, not just nonvanishing. The exact kernel gives a geometrically interpretable unrecoverable signal, and the theorem supplies a uniform classification for every odd prime and every pair of nonzero hyperbola parameters. The result is intentionally narrower than general Kloosterman theory but gives concrete reconstruction information not established merely by an individual twisted-sum evaluation.
+For nonzero a,b with c=ab in F_p^×, character column t↦ω(t)^r transforms the cross-hyperbola Fourier matrix into the inverse-character column times K_r=Σ_{u≠0}ω(u)^r ζ_p^{u+c/u}; since p−1 is invertible in R=Z_p[ζ_p], this gives an integral invertible diagonalization up to permutation. Writing π=ζ_p−1, the j-th binomial coefficient reduces mod p to Σ_u u^r binom(u+c/u,j). Multiplicative power-sum orthogonality forces vanishing for j<d_r=min(r,p−1−r) and yields a unit first coefficient at j=d_r for every r except the quadratic r=(p−1)/2 under nonsquare c. For that mode, the involution u↔c/u pairs terms with opposite quadratic-character weights and cancels K_m identically, not merely to finite valuation. The valuations are 0,1,1,...,m−1,m−1,m for square c and replace m with an infinite valuation for nonsquare c, including p=3. The determinant/nonzero-product valuations and complex rank follow. Independently computed all predicted initial binomial character coefficients for both square classes at p=3,5,7,11,13; checked the exact center-mode cancellation. Arithmetic calculations are finite supporting checks, while the orthogonality/π-adic argument holds for every odd prime.
 
-## Boundaries
-The result is local at the cyclotomic prime above the finite-field characteristic. No claim is made about global integer Smith forms, complex conditioning, extension fields, or all minors. It is not certified to be first in historical priority, and no outside review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS **only for the full cyclotomic-local Smith invariant-factor valuation profile**. A published 2026-11-02 theorem already proves precisely the cross-hyperbola complex rank dichotomy and the quadratic-character nullspace for even more general parameter cases; the submitted rank and kernel consequences are therefore NOT original. The inspected earlier paper does not compute π-adic valuations of the nonzero twisted Kloosterman eigenvalues or invariant factors. Classical Salié explains quadratic cancellation, which is also not claimed new. Historic twisted-sum valuation theory might imply profile; this remains a priority risk.
+
+## value
+
+PASS
+
+The full local Smith profile measures how many cyclotomic uniformizer powers are lost for exact arithmetic inversion and distinguishes complex invertibility from p-adic precision. This natural complete invariant-factor classification gives information not contained in the already known binary rank/nullspace obstruction; therefore the remaining arithmetic result is sufficiently substantive even though rank and nullspace are covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
