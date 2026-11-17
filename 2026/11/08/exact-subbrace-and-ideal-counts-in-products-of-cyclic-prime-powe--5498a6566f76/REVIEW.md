@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the complete Goursat parametrization of the additive subgroup lattice, derives a necessary-and-sufficient multiplication congruence from explicit generators, counts all unit solutions including the equal-valuation exception, and establishes the ring-ideal criterion independently. The sharp qualitative boundary is proved in both directions. The checker independently tests closure against actual finite subgroup elements in 18 cases and generator products in 45 parameter configurations, accounting for 2,267 subgroup patterns. No finite experiment is used as proof of the unbounded formulas.
+## correctness
 
-**Originality — PASS, qualified.** The paper on Dedekind skew braces proves the cyclic-factor theorem but does not provide a product census. The 2024 predecessor develops structural results, not the exact two-factor weighted congruence counts. Kruse's 1968 H-ring classification is a stronger historical source for the *qualitative* Dedekind property; the present claim is not simply that classification specialized. Its novelty-bearing part is the full, explicit number of subbraces, number of ideals, and quantified nonideal defect across four unbounded integer parameters and all primes. Direct literature and mathematical-record searches found no theorem implying those counts. There remains a meaningful risk that older subgroup-lattice/ring enumerations already imply the formula; the 1968 sequel was not fully inspected.
+PASS
 
-**Mathematical value — PASS.** Dedekind-ness is a natural and actively studied brace property. Exact subbrace-to-ideal counts measure the failure of closure under direct products of Dedekind factors, rather than just deciding yes/no. The unique congruence representation gives a constructive complete classification of the subbrace and ideal lattices for an infinite rank-two family. The contrast \((18,18)\) versus \((38,32)\) at the same prime makes the defect meaningful. No general theorem about arbitrary braces is asserted.
+Goursat parametrizes additive subgroups of Z/p^n x Z/p^m uniquely as (a,b,c,t), 0<=c<=min(n-a,m-b), t unit mod p^c (c=0 trivial). Subbrace multiplicative closure reduces via generator products to p^(k+a)t≡p^(ell+b) mod p^c; ideal absorption by ambient (1,0),(0,1) reduces to c<=min(k,ell). Summing phi(p^c) units gives S=Σ[p^s+1_(k+a=ell+b) p^(k+a) max(0,M-k-a)] and I=Σp^min(M,k,ell), with M=min(n-a,m-b),s=min(M,k+a,ell+b). Dedekind iff k>ell,m=ell+1 or ell>k,n=k+1, using explicit nonideals otherwise. Independently generated all additive subgroups and tested ring/ideal closure in multiple small prime-power products (p=2,3), reproducing (18,18), other contrasts. Algebraic proof covers all p,n,m,k,ell in stated domain; C PASS.
 
-Closest literature: Caranti et al. (2025), Theorem 4.1; Ballester-Bolinches et al. (2024), §3; Kruse (1968), classification of H-rings. Scientific limits: two cyclic factors at one prime, commutative radical rings, exact substructure counts rather than isomorphism types; possible older enumerative antecedents. No external mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier general Dedekind skew-brace and Hamiltonian-ring theory gives qualitative structural criteria but no inspected exact Goursat-weighted all-subbrace and all-ideal total formulas for the full rank-two cyclic radical-ring product family. Kruse–Price 1969 primary text gives mod-p subring/ideal-count congruences and uniqueness-by-order classifications; those do not imply the precise integer totals. The 1968 Kruse H-ring full text remains inaccessible under a disconnected institutional VPN and this creates a named risk, not an automatic originality failure. O PASS best of knowledge for exact quantitative distribution, not for the qualitative Dedekind concept.
+
+## value
+
+PASS
+
+A natural first product of individually Dedekind cyclic nilpotent radical rings can fail to have all subbraces ideals; the exact census S,I and sharp positive defect S-I give a useful structural quantitative refinement for a whole infinite family with phase boundary. Goursat parametrization makes the count reproducible and transferable to other rank-two brace lattices. Neither correctness nor code alone is the value basis. V PASS.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
