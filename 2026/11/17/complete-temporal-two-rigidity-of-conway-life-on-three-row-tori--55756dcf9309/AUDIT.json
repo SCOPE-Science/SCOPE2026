@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, every fixed point of the second iterate corresponds bijectively to an n-step closed walk of the complete 4096-vertex two-time column graph. The independently inspectable standard-library certificate checks all 262144 candidate local triples, finds exactly 6140 legal edges and cyclic components (30,75), (27,81), (4,4), with only the last non-phase-diagonal. Its internal edges form one directed four-cycle, proving exactly four nonfixed two-return configurations for multiples of four and none otherwise; direct full-state C++ checks for n=3..7 confirm. No inference from bounded experiments to infinity is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McIntosh, Chapter 4 §§4.6–4.7 explicitly analyzes still lifes, and notes the difficulty of two-period analysis.",
+        "Brown et al., arXiv:2312.02799, concerns existence of oscillators of every temporal period in the unrestricted infinite plane, not complete enumeration on a finite-width torus."
+      ],
+      "reasoning": "General existence and universality of period-two Life patterns do not give an exhaustive classification under three-row toroidal constraints. The inspected fixed-point results leave the non-diagonal two-time component unspecified.",
+      "searches": [
+        "Conway Game of Life periodic boundary 3 rows finite strip oscillators periodic classification",
+        "Harold McIntosh life torus \"still life, width 3\" publication date",
+        "Conway Life on width-three cylinders cyclic strips oscillators blinker classification period two generating function"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/978-1-84996-217-9 (McIntosh, chapter 4, 2010)",
+      "arXiv:1407.1006 (Reia and Kinouchi, full-text model/results)",
+      "https://delta.cs.cinvestav.mx/~mcintosh/newweb/zool/node7.html",
+      "https://conwaylife.com/wiki/Oscillators (general planar oscillators, contextual only)",
+      "Indexed mathematical-record searches of exactly stated 3-by-n Life period-two claim and equivalent aliases; no direct match returned."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McIntosh, Chapter 4, identifies phase-diagonal 30- and 27-vertex components; the new full two-time graph includes those as proper subgraphs and one additional non-diagonal cyclic four-component.",
+        "Reia–Kinouchi, §§II–IV, defines the outer-totalistic rule and discusses density rather than all two-time returning points."
+      ],
+      "reasoning": "Knowledge of every fixed point alone cannot determine the complement of fixed points inside the second-iterate fixed set. The newly proved absence of any other cyclic component gives this complement exactly; neither cited primary result contains that extra information.",
+      "searches": [
+        "Three-column resonance in Conway Life's width-three fixed-state spectrum 3×n torus B3/S23 27-vertex component fixed points",
+        "Conway Life on width-three cylinders cyclic strips oscillators blinker classification period two generating function",
+        "McIntosh Life's Still Lifes width three torus period two 30-vertex 27-vertex diagonal SCC extra four-state temporal cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McIntosh, Life's Still Lifes, Chapter 4, pp. 46–49, DOI:10.1007/978-1-84996-217-9, presents fixed-state width-three components, not period-two enumeration.",
+        "Reia and Kinouchi, arXiv:1407.1006 (2014), studies bulk mean-field density, not the 3-by-n period-two graph."
+      ],
+      "reasoning": "Alternative expressions as a count of nonfixed points of the second iterate, a count of primitive two-orbits, or row-uniform 1100 stripe shifts were searched. None of the inspected sources proves the exact four-versus-zero law. The fact that elementary Life oscillators exist does not imply completeness on a narrow torus.",
+      "searches": [
+        "\"Game of Life\" \"3 x n\" toroidal \"oscillator\" stripes",
+        "Conway B3/S23 width-three torus all temporal period-two orbits exactly two if circumference divisible by four, no other oscillators",
+        "Conway Game of Life three row torus C3 by Cn exact period two oscillators temporal two zeta function",
+        "Complete classification primitive temporal two-cycles Conway Life B3/S23 on 3-by-n periodic torus, exactly two orbits if 4 divides n, horizontal word 1100 and no others"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published Life pattern catalogues located ordinary planar blinker/toad/beacon oscillators, not a table that counts all labelled 3-by-n torus two-cycles.",
+        "Chapter 4 of McIntosh supplies exact width-three fixed-state diagram components only."
+      ],
+      "reasoning": "No exact 3-by-n primitive temporal-two table was identified; catalogues of finite localized Life motifs do not automatically cover fully periodic toroidal strips. Search failure is not mathematical proof of priority.",
+      "searches": [
+        "\"Game of Life\" \"3 x n\" toroidal \"oscillator\" stripes",
+        "\"3 x n\" \"period-two\" \"Game of Life\" torus",
+        "Width three Conway Life torus periodic states period 2 de Bruijn 4096 4-cycle full-column",
+        "Full column stripes `1100` period 2 on three-row toroidal Conway Life"
+      ]
+    },
+    "rationale": "The complete two-return classification is not implied by the known width-three fixed-state de Bruijn components: those identify phase-diagonal returns, whereas the new four-state non-diagonal component and its exclusion of all other oscillators require a separate two-time transfer proof. McIntosh (2010, Chapter 4) and Reia–Kinouchi (2014) were examined materially; relevant web and indexed-result searches found no equivalent theorem. Priority remains qualified.",
+    "residual_risks": [
+      "Historical Life catalogues may contain an unpublished or unindexed all-circumference periodic torus classification.",
+      "A source earlier than the verified 2010-06-14 book publication may have existed online without a reliably recoverable first-public date.",
+      "No external mathematical expert or independent audit has validated the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers width-three still-life components; does not classify all solutions of the second-iterate equation. Indeed section 4.7 describes direct period-two treatment as substantially more demanding.",
+        "evidence": "DOI:10.1007/978-1-84996-217-9, Chapter 4, §§4.6–4.7, pp. 46–49; accessible text https://dokumen.pub/game-of-life-cellular-automata-1849962162-9781849962162.html",
+        "identifier_or_url": "https://link.springer.com/book/10.1007/978-1-84996-217-9",
+        "material_read": "The chapter 4 full HTML-accessible text, especially sections 4.6–4.7 and pp. 42–49, including 30-state and 27-state de Bruijn descriptions.",
+        "method": "Read relevant primary chapter text in online accessible book transcription and checked the publisher bibliographic record (ebook released 2010-06-14).",
+        "title": "Life's Still Lifes (chapter 4 of Game of Life Cellular Automata)",
+        "trigger": "The closest primary method and same width-three torus."
+      },
+      {
+        "assessment": "Bulk two-dimensional density and mean-field approximation, not exact 3-by-n torus primitive two-orbit classification.",
+        "evidence": "arXiv:1407.1006, first publicly posted 2014-07-03; §§II–IV.",
+        "identifier_or_url": "https://arxiv.org/abs/1407.1006",
+        "material_read": "Full accessible article text, especially model definitions §§II, discussion of periodicity in introduction and numerical/mean-field results §§III–IV.",
+        "method": "Read the arXiv full-text rendering and compared mathematical objects and quantifiers.",
+        "title": "Conway’s game of life is a near-critical metastable state in the multiverse of cellular automata",
+        "trigger": "Primary full-text work using exact standard B3/S23 Life local rule and studying dynamical periodicity."
+      },
+      {
+        "assessment": "Describes nontrivial fixed configurations and their column occupancies only; does not state the nonfixed period-two theorem.",
+        "evidence": "H. V. McIntosh, short online width-three still-life account (page itself undated).",
+        "identifier_or_url": "https://delta.cs.cinvestav.mx/~mcintosh/newweb/zool/node7.html",
+        "material_read": "Complete short page, including width-three sections and references to 3-by-n cross-sections.",
+        "method": "Read accessible HTML text.",
+        "title": "still life, width 3",
+        "trigger": "Potential earlier short form of the width-three torus enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "55756dcf-9309-490d-9a3b-7a3dcbd3cf3c",
+  "value": {
+    "rationale": "This is a complete natural invariant for the minimally nondegenerate three-row Moore torus: despite exponentially many fixed configurations, every genuine period-two state is a globally full-column four-stripe word, with an exact zero/two-orbit divisibility law independent of circumference. This rigid global exclusion is stronger than constructing examples and answers a question that McIntosh’s narrow-strip still-life de Bruijn analysis explicitly left computationally difficult.",
+    "status": "PASS"
+  }
+}
