@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:13:22.845718Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob c7460658dd609e3e1468f4d4bfb59b2cecdd0253",
+        "independent_checks.py finite spectral calculations"
+      ],
+      "rationale": "The normalized monomial basis reduces the positive Toeplitz compression to incomplete beta integrals. Its adjacent difference is exactly an endpoint boundary term, giving a unique maximizer except for two adjacent tied modes when the threshold is integral. The logarithmic threshold is strictly increasing by covariance of a weighted mean. After y=u(1-t), gamma-ratio asymptotics yield F(x)=h*x^rho*exp(-x)/Gamma(rho); an integrable exponentially decaying bound gives all positive q trace-power Riemann sums. Trace rho*h follows exactly from the Bergman diagonal reproducing kernel. Independent checks confirm mode locations and gamma profile over rho=.75,1,2,2.5 and several u/h but do not replace the proof.",
+      "residual_risks": [
+        "The real-q limit requires the indicated domination at both tails; the package supplies an exponentially integrable envelope for every q>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem covers all positive p and all escaping annuli with L/S->0, including L variable; it also proves finite relative width L/S->positive rho."
+        ],
+        "reasoning": "Fixed h is a proper special case of L=o(S); the earlier result has greater coverage and the same all-q limit.",
+        "searches": [
+          "fixed area hyperbolic annulus Bergman Toeplitz eigenvalue maximizer spectral staircase gamma Schatten trace",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-gamma-spectral-crossover-for-hyperbolic-annulus-localization--1a134dd07c62/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-gamma-spectral-crossover-for-hyperbolic-annulus-localization--1a134dd07c62/RESULT.md",
+        "https://arxiv.org/abs/2201.11705",
+        "https://arxiv.org/abs/2205.07998"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier (S^{q-1}/L^q)*tr(T^q)->Gamma(pq+1)/(q^{pq+1}Gamma(p)^q); setting S=u-1,L=h gives exact current q law. Earlier trace=pL, so ratio tr(T)^2/tr(T²) yields current u*2^{2rho+1}rho²Gamma(rho)^2/Gamma(2rho+1)."
+        ],
+        "reasoning": "All substantive submitted conclusions follow without new lemmas from earlier theorem, including peak staircase and effective-rank coefficient.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-gamma-spectral-crossover-for-hyperbolic-annulus-localization--1a134dd07c62/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 1 uses beta-prime hyperbolic radial coordinate t=|z|²/(1-|z|²); submitted inner t=1-1/u maps to S=u-1, outer to S+h."
+        ],
+        "reasoning": "Parameter map (p,S,L)=(rho,u-1,h) gives identical operator and eigenvalues. The earlier exact H_{p,S,L} becomes the submitted R_rho(u,h) algebraically.",
+        "searches": [
+          "fixed area hyperbolic annulus Bergman Toeplitz eigenvalue maximizer spectral staircase gamma Schatten trace",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-gamma-spectral-crossover-for-hyperbolic-annulus-localization--1a134dd07c62/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier full theorem explicitly lists trace=pL, all q Schatten moment constants, gamma profile, norm, maximizing degree and twofold tie; beta-prime spectrum already present in Abreu–Mouayn–Voigtlaender."
+        ],
+        "reasoning": "These are exact formula matches under change of variables, not failed search or numerical coincidence.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-gamma-spectral-crossover-for-hyperbolic-annulus-localization--1a134dd07c62/RESULT.md",
+          "https://arxiv.org/abs/2201.11705"
+        ]
+      },
+      "rationale": "The November 1 full published gamma spectral crossover theorem is strictly stronger. It uses the same normalized weighted analytic Bergman space, and annulus S<|z|²/(1-|z|²)<S+L. Setting p=rho, S=u-1, L=h makes its annulus exactly the submitted one. Its arbitrary L/S->0 regime contains every fixed h>0 and states the same exact maximizing-mode criterion, gamma profile, sharp norm and every positive Schatten trace limit. Its trace identity yields the submitted effective-rank constant directly. A later formula changing to u is a parametrization, not new science.",
+      "residual_risks": [
+        "Coverage is exact under explicit parameter mapping; no unindexed-priority assumption is needed to reject this later narrower result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_STRONGLY",
+          "evidence": "S=u-1,L=h,p=rho specialization of broad L/S->0 theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-gamma-spectral-crossover-for-hyperbolic-annulus-localization--1a134dd07c62/RESULT.md",
+          "material_read": "Full Finding, Assumptions and Scope, steps 1–5 Proof, verification and bibliography",
+          "method": "Full GitHub RESULT.md fetched and compared formula-by-formula",
+          "title": "Gamma spectral crossover for hyperbolic annulus localization",
+          "trigger": "Exact same moving annulus and gamma spectral assertions"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Beta-prime annulus diagonalization is known, while decisive comparison is the 2026-11-01 full theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.11705",
+          "material_read": "Abstract, relevant Sections 2–4 and Proposition 4.1 material; PDF screenshots of relevant page",
+          "method": "Opened ArXiv full-text PDF and inspected the relevant proposition",
+          "title": "A fractal uncertainty principle for Bergman spaces and analytic wavelets",
+          "trigger": "Primary beta-prime Bergman radial annuli formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-gamma-spectral-crossover-for-hyperbolic-annulus-localization--1a134dd07c62/RESULT.md"
+      ],
+      "rationale": "The fixed-area escaping-annulus scaling is mathematically natural, but the current claim is already an immediate specialization of a published all-width spectral theorem, with no remaining independently motivated exact invariant or novel boundary mechanism.",
+      "residual_risks": [
+        "The broader theorem includes additional finite-relative-width crossover not present here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Earlier published full theorem is a stronger scientific covering result.",
+    "The familiar beta-prime diagonal representation is prior work independent of this exact coverage."
+  ],
+  "schema_version": 1
+}
