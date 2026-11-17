@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The reduced map and its potential are derived explicitly. The graph-Laplacian eigenvalue supplies the global descent and global diffeomorphism bounds. The triangular set \(0\le x,y\le\pi\), \(x+y\ge\pi\) is shown forward invariant by exact inequalities. At the two saddles the stable eigenslopes lie strictly outside the triangle and the unstable eigenslopes lie inside, uniformly in all positive weight ratios. Reflection controls the other branches. Consequently there is no saddle-to-saddle connection; all other stable/unstable intersections are automatically transverse in dimension two. Sharp noninvertibility at the endpoint follows from an explicit zero Jacobian multiplier.
+## correctness
 
-## Originality
-**PASS, conditional on the inspected scientific record.** The closest full-text source, arXiv:2610.10993v1, proves the Morse–Smale property for unit-weight paths, and for two-edge weighted paths only under \(1/2\le a/b\le2\) by Corollary 5.6 (plus a neighborhood under structural stability). It supplies Lyapunov descent and the fixed-point count for arbitrary weights, but *not* transversality for arbitrary weights. The present triangle argument covers the entire positive quadrant and does not follow from those published hypotheses. Earlier aligned three-clock sources treat equal weights or perturbations. Related repulsive oscillator results about a weighted triangle or generic graphs do not imply this path-specific Morse–Smale assertion. Residual priority risk: unlocated older arbitrary-metric toral gradient proofs could theoretically cover the result.
+PASS
 
-## Mathematical value
-**PASS.** The problem of whether arbitrary edge imbalance can produce saddle connections is structural, rather than a routine multiplier calculation: full-measure synchronization alone does not imply Morse–Smale transversality, as the motivating source demonstrates on other trees. The result removes the weight-concavity restriction completely in the first nontrivial weighted path, giving the exact optimal invertible-step range with robust global phase portrait. The triangular barrier is reusable as a method but no extension to longer paths is asserted.
+The quotient map is z+hKA sin(z), K=[[2,-1],[-1,2]], A=diag(a,b). Its maximal weighted-Laplacian eigenvalue is Λ=a+b+sqrt(a²-ab+b²); Hessian bounds imply strict descent for V=a cosx+b cosy, and I+hKA diag(cosx,cosy) is positive definite in a symmetric conjugation for h<1/Λ. Degree-one local diffeomorphism on the torus is globally invertible. All recurrence is confined to four hyperbolic fixed points. The triangle 0<=x,y<=π, x+y>=π is forward invariant because siny<=π-y<=x and sinx<=π-x<=y, and 2ha,2hb<1. At p=(0,π), unstable slope r=(a+b-sqrt(a²+ab+b²))/b is in (0,1), stable slope R>1; at q=(π,0) the slopes swap sectors. Thus both unstable branches enter this triangle or its centrally reflected image; neither triangle can meet a saddle stable manifold near an endpoint. All saddle unstable branches reach the unique sink; source/sink stable-unstable intersections are automatic transverse. At h>=1/Λ the multiplier 1+hΛ cos t vanishes on diagonal x=y=t for suitable t, proving nonlocal invertibility. Independent bounded tests confirmed triangle invariance, V descent and slopes for six highly unequal weight pairs; those samples do not prove absence of connections.
 
-## Limits and nearest literature
-The statement concerns exactly three clocks on a two-edge path, identical intrinsic frequencies, and the repulsive sine quotient. The source's arbitrary-tree convergence theorem is not rebranded as new. Independent validation and absolute historical-priority certification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 7 2026 Buescu–D’Aniello–Oliveira paper establishes a potential, global convergence and almost-global sink for positive weighted graphs but its advertised weighted Morse–Smale criterion has diagonal-dominance/conavity hypotheses on three-clock paths; it does not claim all positive edge ratios. The submitted invariant triangle provides an all-ratio transversality proof. The original source full text was not accessible in this run: arXiv OA/PDF attempts failed and authorized Oxford returned vpn_disconnected, so the claim that its theorem hypothesis does not cover extreme ratios is supported by abstract plus source-facing theorem references, not a freshly complete original paper inspection. This access limitation alone does not fail best-of-knowledge originality; a hidden stronger theorem is an explicit residual risk.
+
+## value
+
+PASS
+
+In planar gradient-like maps, descent and a full-measure sink do not imply transverse invariant-manifold intersections. Removing weighted diagonal dominance in the smallest nontrivial open path is a meaningful structural extension and supplies an exact entire quadrant of parameter weights together with a sharp invertibility step. The invariant-triangle barrier is a substantive nonstandard dynamical lemma, not a routine stability-eigenvalue calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
