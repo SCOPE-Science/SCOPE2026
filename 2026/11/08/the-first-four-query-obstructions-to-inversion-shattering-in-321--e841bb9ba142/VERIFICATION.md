@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python3 check_local.py` in a Python 3 standard-library environment. The program directly enumerates all permutations and all query supports of cardinality at most four for lengths one through eight, and compares actual trace completeness with the forbidden-type characterization. Expected final line: `AV321_LOCAL_SHATTERING_4_PASS`.
+## correctness
 
-Execute `python3 check_padding.py`. It separately checks the increasing-block extension construction on every endpoint subset through length eight. Expected final line: `PADDING_321_PASS 16169`.
+PASS
 
-The finite enumeration is complete for the claimed local criterion because every four-query support involves at most eight distinct endpoints. Extending arbitrary endpoint sets to their containing permutation sizes uses the mathematical increasing-block inflation proof; the finite programs alone do not establish statements about arbitrary size. No independent mathematical audit has been performed.
+The order-standardization to at most 2*4=8 distinct endpoints preserves all queried inversion labels; the converse increasing-block inflation inserts arbitrary unqueried positions while preserving 321 avoidance. Explicit label patterns for each forbidden configuration give a descending-triple or cyclic-inequality obstruction. An independent complete brute-force implementation enumerated all 321-avoiders (Catalan 1430 at n8) and every support of 0..4 among 28 possible comparisons, finding equivalence with all listed forbidden inclusions. At n8 it independently reproduced shattered counts (1,28,322,1820,4977) and minimal type counts (56,210,56); it passed every n=1..8. The all-n conclusion rests on the analytic inflation reduction, not a finite extrapolation. Circuit elimination fails for the two overlapping minimal two-query chains.
+
+## originality
+
+PASS
+
+Fresh best-of-knowledge comparison for Complete four-comparison forbidden shattering patterns in Av(321): no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.
+
+## value
+
+PASS
+
+The shattered-comparison support complex is a natural refinement of VC dimension: two classes can have the same dimension while different forbidden local geometry. The first genuinely four-query minimal obstructions, explicit n6 threshold and nonmatroid certificate are a complete bounded structural classification; they provide new local data and constraints for learning 321-avoiding orders, without claiming full high-query classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

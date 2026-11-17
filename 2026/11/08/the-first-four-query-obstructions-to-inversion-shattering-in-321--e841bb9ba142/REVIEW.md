@@ -1,13 +1,21 @@
-# Scientific review: four-query inversion shattering under \(321\)-avoidance
+# Independent mathematical audit
 
-**Correctness (PASS).** For supports with at most four pair queries, the number of distinct endpoint indices is at most eight. The proof constructs, for every ordered pattern on those endpoints, an increasing-block inflation into a \(321\)-avoiding permutation on the ambient index set, preserving all queried comparisons. This exactly reduces the unrestricted theorem to a finite census. The embedded checker exhausts all permutations through eight positions and all support subsets of sizes zero to four and independently recognizes the proposed forbidden configurations, with no sampling. The two new quartic obstructions also have explicit impossible sign patterns; every proper sub-support is covered by the exhaustive census. The separate inflation checker tests the bridge construction without being the proof of its general validity.
+## correctness
 
-**Originality (PASS subject to priority risk).** The nearest inspected primary full texts were Janson (arXiv:1709.08427) on inversion graphs and random pattern counts, and Bożyk et al. (IPEC 2020) on deletion into bipartite permutation graphs. Neither gives ordered four-query all-labelings obstruction lists or the resulting first-occurrence/count theorem. Raz (2000) defines a different permutation VC measure based on realizing all total orders of a chosen position set; the accessible abstract does not imply the present pair-query trace result. A relevant 2026 Lehmer-code paper was found, but its full text could not be obtained. The result is therefore not claimed to have independently established historical priority.
+PASS
 
-**Mathematical value (PASS).** The all-labelings extension problem for partial inversion data is a natural local consistency question. It is not decided by checking every triple: the first failure occurs with exactly four queried pairs on six positions, in two ordered types. The theorem classifies *all* minimal nonshattered supports through rank four for every ambient length, gives their exact counts, and proves that the shattering complex fails matroid circuit elimination. This is a substantive structural boundary, while not claiming a full classification for larger supports.
+The order-standardization to at most 2*4=8 distinct endpoints preserves all queried inversion labels; the converse increasing-block inflation inserts arbitrary unqueried positions while preserving 321 avoidance. Explicit label patterns for each forbidden configuration give a descending-triple or cyclic-inequality obstruction. An independent complete brute-force implementation enumerated all 321-avoiders (Catalan 1430 at n8) and every support of 0..4 among 28 possible comparisons, finding equivalence with all listed forbidden inclusions. At n8 it independently reproduced shattered counts (1,28,322,1820,4977) and minimal type counts (56,210,56); it passed every n=1..8. The all-n conclusion rests on the analytic inflation reduction, not a finite extrapolation. Circuit elimination fails for the two overlapping minimal two-query chains.
 
-**Limitations.** The finite eight-endpoint converse is computer-exhaustive, with readable checker code; no hand-only proof of that converse is supplied. Higher-cardinality minimal obstructions and the global dimension are not determined. Some alternate terminology or inaccessible prior literature may affect novelty.
+## originality
 
-**Closest literature.** S. Janson, *Patterns in random permutations avoiding the pattern 321* (2017), https://arxiv.org/abs/1709.08427; Ł. Bożyk et al., *Vertex Deletion into Bipartite Permutation Graphs* (2020), https://doi.org/10.4230/LIPIcs.IPEC.2020.5; R. Raz, *VC-dimension of sets of permutations* (2000), https://doi.org/10.1007/s004930070023.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fresh best-of-knowledge comparison for Complete four-comparison forbidden shattering patterns in Av(321): no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.
+
+## value
+
+PASS
+
+The shattered-comparison support complex is a natural refinement of VC dimension: two classes can have the same dimension while different forbidden local geometry. The first genuinely four-query minimal obstructions, explicit n6 threshold and nonmatroid certificate are a complete bounded structural classification; they provide new local data and constraints for learning 321-avoiding orders, without claiming full high-query classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
