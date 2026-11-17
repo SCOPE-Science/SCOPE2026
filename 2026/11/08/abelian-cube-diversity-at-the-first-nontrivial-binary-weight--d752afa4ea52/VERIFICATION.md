@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing `RESULT.md` and `verify.py`. The self-contained checker enumerates all binary words containing exactly three ones at every length from 3 through 26, computes each literal Abelian-cube factor by independently scanning its three equal blocks, and compares the result to the formula. There are exactly 17,550 such words in the tested range. It independently recomputes population sums and exactly integrates the three-piece planar area with rational arithmetic. It also compares the two-inequality continuum feasibility criterion with all pairs of interval bounds on integer meshes of sizes 9, 15, and 21.
+## correctness
 
-Expected output:
+PASS
 
-```
-DIRECT_CUBE_CLASSIFICATION_AND_AGGREGATES_OK 17550
-CONTINUUM_FEASIBILITY_AND_EXACT_ATOM_OK 2/9
-MEAN_COEFFICIENT_OK 1/270
-```
+With exactly three marker ones an Abelian cube contains either zero ones or one in each of its three equal-length blocks. All-zero distinct factors are precisely 0^(3t) up to floor(max gap/3). Every three-one cube includes all marked ones and its literal content is uniquely specified by block length t and start s; the exact three inequalities on one positions yield lambda_t<=s<=upsilon_t and the sum in (1). Double counting by t,start,and one position in each block proves total sum (n-3t+1)t^3 and the rational generating-function term; inclusion-exclusion on four gaps gives the zero-only term. Uniform composition gaps converge to Dirichlet(1,1,1,1), the Lipschitz Riemann-sum limit is H(G), mean 1/270. The ordered uniform-three-point feasible region z<3y,3y-x<2 has volume 7/9 and therefore the zero atom is 2/9. Finite literal factor/continuum grid checks are corroboration, not an infinite proof.
 
-The finite checker does not establish assertions for every length. The infinite claims rely on the exact interval bijection, the binomial and geometric-series identities, Riemann sums on the compact simplex, and the exact probability integral in `RESULT.md`. A separate independent audit has not been performed. The full text of the 2014 unrestricted-average publication was not accessible, so historical priority is qualified.
+## originality
+
+PASS
+
+Best-of-knowledge new distinct-factor, fixed-Hamming-weight-three Abelian-cube formula and quadratic-scale law. Earlier cube avoidance and average occurrences in unrestricted random words are different theorems/sampling measures, not implications of these exact conditional factor counts.
+
+## value
+
+PASS
+
+Three ones are the first nontrivial fixed weight supporting 3-block Abelian cubes with nonzero markers; an exact factor enumerator, rational aggregate, and nondegenerate limit with rational atom and mean are natural reusable invariants in Abelian stringology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A three-block Abelian cube in a binary word with exactly three ones has either zero or three ones. All-zero cubes are counted by the longest zero gap. Every three-one cube has a unique start and block length, because it necessarily contains the same three marked ones, giving exact interval inequalities and formula (1). Triple counting supplies the population sum and rational generating function; uniform gap-composition convergence supplies the Dirichlet law. The positive-area condition reduces to two inequalities on three ordered uniform points and integrates to the exact mass \(2/9\) at zero. `verify.py` directly checked 17,550 words through length 26, the aggregate counts, and the exact rational area calculation. Infinite correctness rests on the proof, not on the enumeration.
+## correctness
 
-**Originality — PASS, qualified.** Relevant full-text research on infinite Abelian-power avoidance and on Abelian-square distinctness does not assert the fixed-three-one complete cube formula, rational population count or Dirichlet atom. The especially close 2014 study of expected Abelian cubes concerns unrestricted random words and counts occurrences, rather than literal distinct factors under fixed-content sampling. Its full text was not accessible, and no priority guarantee is asserted. Existing finite-word work on two-block Abelian squares does not imply three-block cube counts without a new equivalence argument. Source searches and closest comparisons are documented in `AUDIT.json`.
+PASS
 
-**Value — PASS.** Three ones are the smallest positive Hamming weight permitting a nonzero Abelian cube. This gives a natural first sparse test case for Abelian-power diversity, with complete exact wordwise and all-length counts. The probability of a genuinely three-one Abelian cube tends to \(7/9\), while the normalized count has a strictly positive atom \(2/9\) at zero and mean \(1/270\); these quantify a nontrivial phase split invisible to unrestricted average-occurrence results. The result does not claim a general all-weight formula.
+With exactly three marker ones an Abelian cube contains either zero ones or one in each of its three equal-length blocks. All-zero distinct factors are precisely 0^(3t) up to floor(max gap/3). Every three-one cube includes all marked ones and its literal content is uniquely specified by block length t and start s; the exact three inequalities on one positions yield lambda_t<=s<=upsilon_t and the sum in (1). Double counting by t,start,and one position in each block proves total sum (n-3t+1)t^3 and the rational generating-function term; inclusion-exclusion on four gaps gives the zero-only term. Uniform composition gaps converge to Dirichlet(1,1,1,1), the Lipschitz Riemann-sum limit is H(G), mean 1/270. The ordered uniform-three-point feasible region z<3y,3y-x<2 has volume 7/9 and therefore the zero atom is 2/9. Finite literal factor/continuum grid checks are corroboration, not an infinite proof.
 
-**Closest sources and limitations.** Cassaigne–Richomme–Saari–Zamboni (2010) address infinite words and Abelian-power avoidance; Rao–Rosenfeld (2015) prove nonavoidability of sufficiently long Abelian cubes in infinite binary words; Christodoulakis–Christou–Crochemore–Iliopoulos (2014) estimate unrestricted average occurrence counts but remained partially inaccessible; Fici–Mignosi (2015) address distinct Abelian squares rather than cubes. Unindexed equivalents and the inaccessible paper's detailed contents are residual priority risks. The limit density and variance are not determined here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new distinct-factor, fixed-Hamming-weight-three Abelian-cube formula and quadratic-scale law. Earlier cube avoidance and average occurrences in unrestricted random words are different theorems/sampling measures, not implications of these exact conditional factor counts.
+
+## value
+
+PASS
+
+Three ones are the first nontrivial fixed weight supporting 3-block Abelian cubes with nonzero markers; an exact factor enumerator, rational aggregate, and nondegenerate limit with rational atom and mean are natural reusable invariants in Abelian stringology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
