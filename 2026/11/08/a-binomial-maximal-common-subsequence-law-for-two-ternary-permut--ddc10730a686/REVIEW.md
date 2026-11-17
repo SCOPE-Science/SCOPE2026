@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim includes every positive repetition pair, including the boundary \(r=2s\) or \(s=2r\). Greedy embedding into powers of a permutation gives the two independent weak-descent capacity bounds. Any proper common subsequence with slack in the other capacity can be extended, so every non-whole-word maximal candidate saturates both. A zero-cost insertion argument forces the first letter, last letter and no-equal-adjacencies properties. The strict-transition table proves that these constraints are also sufficient. The resulting rational transfer function gives a three-term recurrence, exactly matched to the displayed binomial coefficients by the polynomial identity. When one word contains the other, the unique MCS is the contained word. The self-contained infinite proof is complemented by the actual passed standalone verifier.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. Searches for exact \((012)^r,(021)^s\) common-subsequence formulas, adjacent-transposition permutation powers, maximal-vs-longest collapse, and binomial MCS multiplicity found no covering primary result. Published-record comparisons returned unrelated permutation-code and binary-multispectrum findings; neither implies the claimed ternary two-power theorem. Previously indexed published claim summaries were checked for matching statements and implication; none identified this pair, maximal-common-subsequence count, or the binomial transition. The main full-text sources were the 2022 Algorithmica accepted manuscript of Conte et al. and the full extracted arXiv text of their 2023 compact-DAG paper. The former proves general polynomial-delay enumeration and necessary/sufficient extension criteria; the latter supplies general polynomial-size MCS representation and counting. General applicability does not establish this explicit two-variable formula or its maximizing-word classification. Possible unindexed or unstated equivalences remain a bibliographic risk; this review does not claim a proof of worldwide uniqueness.
+PASS
 
-## Value
-PASS. General MCS enumeration is algorithmically more involved than LCS enumeration, and the number of MCS strings can be exponential. This motivated family shows an unexpectedly complete collapse of the MCS set to the LCS set, while retaining an exponential central-binomial count; the exact count transitions to one at a sharp factor-two ratio of input powers. This gives an infinite-parameter natural exact enumeration and a structural benchmark for MCS counting/ranking algorithms, not a tiny finite increment or mere recomputation of an existing table.
+For X=(012)^r,Y=(021)^s, r,s positive, the greedy embedding criterion is exactly the pair of weak-descent budgets r−1 and s−1. A proper common word with slack in a budget can be extended by inserting an unused position of the other input; zero-cost insertions rule out equal neighboring symbols and force endpoints 0 and nonzero. The complete four strict-transition costs imply |w|=r+s at double saturation; the transfer series (2+x+y)/(1−xy(3+x+y)) yields the binomial recurrence and count. When r>2s or s>2r the whole shorter word embeds in the longer, giving unique MCS; cases at equality are included. Independent exhaustive distinct-subsequence enumeration for every 1≤r,s≤4 confirms exact MCS sets, all-maximal-is-longest, and count. Repository verify.py actual source read: tests through r,s≤5, lengths through 30, and recurrence through 40. Universal result rests on proof, not finite enumeration.
 
-## Sources and limits
-Closest primary sources: Conte–Grossi–Punzi–Uno, *Enumeration of Maximal Common Subsequences Between Two Strings*, Algorithmica 84 (2022), 757–783, DOI 10.1007/s00453-021-00898-5; and *A Compact DAG for Storing and Searching Maximal Common Subsequences*, ISAAC 2023 / arXiv:2307.13695. The theorem covers only the stated ternary powers; embeddings are not counted separately; an unindexed equivalent formula remains possible. Independent external validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known algorithms for general MCSs count/represent arbitrary inputs but do not state closed expression and all-optimizer structure for these two unequal ternary permutation powers. A same-day adjacent-swap result gives the equal-power central binomial count for q≥4, expressly mentions the known ternary equal-power case, but requires equal repetition counts; it does not cover the unequal-parameter phase boundary or uniqueness regime. This audit accepts the full two-parameter claim best-of-knowledge, with equal-power part acknowledged as known.
+
+## value
+
+PASS
+
+Exact number and full structure of inclusion-maximal common subsequences for a natural pair of periodic ternary words; identifies a nontrivial exponential-to-singleton change at factor-two repetition ratio. This gives an exact benchmark not supplied by general MCS enumeration and is not merely renaming or a tiny isolated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

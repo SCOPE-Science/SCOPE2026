@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T07:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X=(012)^r,Y=(021)^s, r,s positive, the greedy embedding criterion is exactly the pair of weak-descent budgets r−1 and s−1. A proper common word with slack in a budget can be extended by inserting an unused position of the other input; zero-cost insertions rule out equal neighboring symbols and force endpoints 0 and nonzero. The complete four strict-transition costs imply |w|=r+s at double saturation; the transfer series (2+x+y)/(1−xy(3+x+y)) yields the binomial recurrence and count. When r>2s or s>2r the whole shorter word embeds in the longer, giving unique MCS; cases at equality are included. Independent exhaustive distinct-subsequence enumeration for every 1≤r,s≤4 confirms exact MCS sets, all-maximal-is-longest, and count. Repository verify.py actual source read: tests through r,s≤5, lengths through 30, and recurrence through 40. Universal result rests on proof, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior q≥4 adjacent-swap result gives complete equal-k spectrum; general 2023 DAG gives efficient MCS enumeration for arbitrary strings."
+        ],
+        "reasoning": "General algorithmic calculability of each finite instance does not itself furnish closed symbolic all-r,s count; equal-k classification is not a dominating parameter theorem.",
+        "searches": [
+          "adjacent transposition permutation powers all MCS general exponents",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-maximal-common-subsequence-spectrum-of-adjacent-swap-permutation--97ed686577cc",
+          "https://arxiv.org/pdf/2307.13695"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-maximal-common-subsequence-spectrum-of-adjacent-swap-permutation--97ed686577cc",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874",
+        "https://arxiv.org/pdf/2307.13695",
+        "https://arpi.unipi.it/handle/11568/1139265"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-day adjacent-swap result yields central binomial for equal k but has no s≠r parameters.",
+          "Conte et al. provide generic enumeration/ranking of MCSs without this rational generating function."
+        ],
+        "reasoning": "Present theorem implies the known diagonal, whereas neither cited prior formula implies the off-diagonal bins without further derivation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-maximal-common-subsequence-spectrum-of-adjacent-swap-permutation--97ed686577cc",
+          "https://arxiv.org/pdf/2307.13695"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact adjacent-swap theorem is restricted to equal exponents P^k,Q^k and alphabet q≥4; its text acknowledges an equal-power ternary result.",
+          "Present formula varies both exponents independently and has a factor-two collapse."
+        ],
+        "reasoning": "Equal r=s diagonal can be known without implying general r,s; unequal power ratio changes the embedding budgets and genuinely requires the two-variable coefficient.",
+        "searches": [
+          "maximal common subsequences (012)^r and (021)^s binomial count LCS equality distinct strings",
+          "maximal common subsequence ternary periodic reversed last letters binomial counts",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-maximal-common-subsequence-spectrum-of-adjacent-swap-permutation--97ed686577cc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier reversal-of-all-letters result concerns (012)^n and (210)^n, not the pair (012)^r,(021)^s.",
+          "No inspected table gives counts for all unequal r,s; central binomial diagonal is already known."
+        ],
+        "reasoning": "Same words have different permutation relationship, so no unreported substitution equates tables.",
+        "searches": [
+          "ternary periodic reversed permutations MCS binomial counts",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874",
+          "https://arpi.unipi.it/handle/11568/1139265"
+        ]
+      },
+      "rationale": "Known algorithms for general MCSs count/represent arbitrary inputs but do not state closed expression and all-optimizer structure for these two unequal ternary permutation powers. A same-day adjacent-swap result gives the equal-power central binomial count for q≥4, expressly mentions the known ternary equal-power case, but requires equal repetition counts; it does not cover the unequal-parameter phase boundary or uniqueness regime. This audit accepts the full two-parameter claim best-of-knowledge, with equal-power part acknowledged as known.",
+      "residual_risks": [
+        "An unindexed unequal-exponent special case or a deduction from a published transfer automaton may duplicate the exact formula.",
+        "Known equal-exponent ternary central-binomial result is not original and cannot be claimed separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EQUAL_DIAGONAL_ONLY",
+          "evidence": [
+            "Assumes q≥4 and powers P^k,Q^k; total MCS binom(2k,k), no unequal powers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-maximal-common-subsequence-spectrum-of-adjacent-swap-permutation--97ed686577cc",
+          "material_read": "Full Finding, Assumptions, Proof parts 1–4 and Relationship sections from primary RESULT.md",
+          "method": "GitHub full pinned published primary text",
+          "title": "Maximal common-subsequence spectrum of adjacent-swap permutation powers",
+          "trigger": "Same adjacent swap in power words"
+        },
+        {
+          "assessment": "GENERAL_ALGORITHMIC_NOT_EXACT_CLOSED_FORM",
+          "evidence": [
+            "General poly-size DAG supports counting any particular pair, but no stated (012)^r,(021)^s symbolic formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.13695",
+          "material_read": "Abstract, introduction and main data-structure/counting statement of 14-page arXiv PDF; first page screenshot",
+          "method": "Web PDF text plus screenshot",
+          "title": "A Compact DAG for Storing and Searching Maximal Common Subsequences",
+          "trigger": "General algorithm could imply closed instance count"
+        },
+        {
+          "assessment": "PRIOR_ALGORITHM_NOT_ESTABLISHED_FORMULA",
+          "evidence": [
+            "Polynomial output-sensitive listing; a hidden specialization cannot be excluded."
+          ],
+          "identifier_or_url": "https://arpi.unipi.it/handle/11568/1139265",
+          "material_read": "Author repository abstract, publication details and linked accepted-manuscript bibliographic material; manuscript not fully read this run",
+          "method": "Institutional repository web text",
+          "title": "Enumeration of Maximal Common Subsequences Between Two Strings",
+          "trigger": "Earlier general MCS enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact number and full structure of inclusion-maximal common subsequences for a natural pair of periodic ternary words; identifies a nontrivial exponential-to-singleton change at factor-two repetition ratio. This gives an exact benchmark not supplied by general MCS enumeration and is not merely renaming or a tiny isolated enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only powers (012)^r,(021)^s, r,s positive; counts distinct subsequence strings, not embeddings.",
+    "Finite enumeration through r,s≤4 independently; infinity follows from algebraic weak-descent argument."
+  ]
+}
