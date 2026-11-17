@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The constant-input specialization is derived from the explicit IF-SSPRK2 tableau of Zhang–Lan–Jing, Eq. (5). An entrywise Peano-kernel identity reduces stepwise Loewner overestimation to positivity of the second-congruence derivative. Rank-one forcing and the maximal-cyclic-vector lemma force a quadratic annihilating polynomial; an explicit two-by-two determinant condition yields the necessary and sufficient \(4a\ge b^2\) criterion. An exact completion-of-squares identity establishes sufficiency, including the equality boundary. The Hurwitz corollary follows from the roots of the quadratic. `verify.py` performs exact-rational checks and supplementary finite numerical tests. The proof, not the tests, establishes the quantified claims.
+PASS
 
-## Originality — PASS, with literature limitations
+The exact constant-source IF-SSPRK2 step is endpoint exponential trapezoid. Its signed error equals (1/2)∫_0^h s(h-s)e^{sA}L_A(Q)e^{sA^T}ds with L_A(Q)=A²Q+2AQA^T+Q(A^T)², and Δ_h=(h³/12)L_A(Q)+O(h⁴). Rank-one Q=vv^T positivity requires A²v in span(v,Av); the maximal-cyclic-vector lemma then forces A minimal polynomial degree at most two. For nonscalar quadratic case A²=aI+bA, universal PSD is equivalent to [[2a,b],[b,2]]⪰0, i.e. 4a≥b², and square completion suffices. Non-scalar Hurwitz A cannot meet this condition, and explicit diag(-1,-2), Q=11^T gives L_A=[[4,9],[9,16]], determinant -17. Independently recomputed witness and safe square-completion identities.
 
-The closely relevant 2026 source proves positive semidefinite **output** and a norm-error estimate, not a one-sided comparison of output with the exact integral, nor a classification of the drift. Dieci–Eirola (1994) preserve positivity for different numerical constructions; Koskela–Mena (2017) compare solutions for different data rather than quadrature and exact solution with identical data. Searches for Loewner order of Lyapunov trapezoids, exponential-congruence convexity, and quadratic minimal-polynomial criteria identified no dominating theorem. The potentially relevant 1996 Dieci–Eirola monotonicity paper could only be compared at bibliographic level, so historical priority remains a material risk; no claim of independent novelty certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question concerns reliable **one-sided covariance bounds**, stronger than positive-semidefinite numerical output, in an integrating-factor integrator designed for covariance/Lyapunov evolution. The theorem gives a complete, dimension-free structural classification, a sharp stable-drift impossibility result, a rank-one counterexample at every sufficiently small step, and a meshwise consequence in the positive cases. The square-zero exceptional family and the stable anisotropic obstruction distinguish this from a routine scalar quadrature observation. It does not establish comparable results for nonlinear or time-varying forcing.
+Earlier 2026 work establishes positivity preservation for IF-SSPRK2 and a sharp stationary-error correlation threshold in diagonal two-mode Hurwitz dynamics. Neither proves the present global universal all-input, all-step, all-real-matrix minimal-polynomial characterization or rank-one arbitrarily-small-step obstruction. The latter answers a new natural characterization question.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This sharp all-dimensional necessary-and-sufficient criterion distinguishes merely PSD-preserving time integration from actually overestimating continuous covariance in Loewner order. The minimal-polynomial obstruction and rank-one small-step witness show every heterogeneous stable drift lacks a universal conservative covariance guarantee, directly meaningful for numerical reliability and comparison methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

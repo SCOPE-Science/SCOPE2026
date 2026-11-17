@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:51:32.984363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md 8b74241221beb2556562bdc0a132331fd35d626b",
+        "pinned verify.py c6d27a179c5848504907a707eab44d444dda58fb",
+        "independent_checks.log LYAPUNOV"
+      ],
+      "rationale": "The exact constant-source IF-SSPRK2 step is endpoint exponential trapezoid. Its signed error equals (1/2)∫_0^h s(h-s)e^{sA}L_A(Q)e^{sA^T}ds with L_A(Q)=A²Q+2AQA^T+Q(A^T)², and Δ_h=(h³/12)L_A(Q)+O(h⁴). Rank-one Q=vv^T positivity requires A²v in span(v,Av); the maximal-cyclic-vector lemma then forces A minimal polynomial degree at most two. For nonscalar quadratic case A²=aI+bA, universal PSD is equivalent to [[2a,b],[b,2]]⪰0, i.e. 4a≥b², and square completion suffices. Non-scalar Hurwitz A cannot meet this condition, and explicit diag(-1,-2), Q=11^T gives L_A=[[4,9],[9,16]], determinant -17. Independently recomputed witness and safe square-completion identities.",
+      "residual_risks": [
+        "Quantifiers are constant A,Q, exact exponential and all h>0, all PSD Q; output PSD alone is weaker than exact-upper Loewner comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov 2 theorem fully classifies 2x2 stable stationary correlation but not nonnormal, unstable, higher-dimensional or all-h small-step universal order.",
+          "Zhang et al establish SPSD preserving time integrator for general A; guarantee is weaker (PSD solution, not Loewner upper bound)."
+        ],
+        "reasoning": "Greater dimension of algorithmic positivity results does not dominate a stronger comparison property. Previously derived stable special case is consistent with universal classification but insufficient to imply it.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1",
+          "arXiv:1705.07507 Riccati Krylov comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15703",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1",
+        "arXiv:1705.07507",
+        "Resultary covariance-order searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For A=-diag(a,b), a≠b, previous theorem shows rank-one stationary covariance bias indefinite, consistent with current nonscalar Hurwitz failure. It does not give the general necessity A²=aI+bA or sufficient unstable/nilpotent classes."
+        ],
+        "reasoning": "Previously known stationary obstruction is a special case of the new necessity, not a theorem implying the full new universal characterization and rank-one local witness for arbitrary nonscalar Hurwitz.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1",
+          "arXiv:2606.15703 Theorem 3.2 and Theorem 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both use same IF-SSPRK2 update and constant forcing, but prior order theorem is restricted to 2x2 stable diagonal A and stationary error, not universal all-step order across all drifts."
+        ],
+        "reasoning": "Distinguish exact-one-step defect ∆_h(A,Q) for every Q,h from positivity of output and from stationary fixed-point order, which are not logically equivalent in general.",
+        "searches": [
+          "arXiv:2606.15703 stage-map and PSD preservation theorem",
+          "Resultary 2026/11/02 sharp covariance order frontier for IF SSPRK2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior stationary table gives a parameter-dependent Langevin-function correlation frontier θ_h(a,b); present property reduces all forcing to rank-one curvature and minimal polynomial."
+        ],
+        "reasoning": "No published exact all-dimensional minimal-polynomial classification was located; the prior finite-dimensional error-matrix table handles a different quantifier.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1",
+          "Resultary search Lyapunov integrating factor SSPRK2 covariance trapezoid Loewner"
+        ]
+      },
+      "rationale": "Earlier 2026 work establishes positivity preservation for IF-SSPRK2 and a sharp stationary-error correlation threshold in diagonal two-mode Hurwitz dynamics. Neither proves the present global universal all-input, all-step, all-real-matrix minimal-polynomial characterization or rank-one arbitrarily-small-step obstruction. The latter answers a new natural characterization question.",
+      "residual_risks": [
+        "Older matrix trapezoidal order literature might contain an abstract equivalent of the curvature positive-map characterization; historical priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_SPECIAL_CASE",
+          "evidence": "All h>0 but A=-diag(a,b) stable 2x2 and compares stationary rather than one-step; does not prove universal matrix classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1",
+          "material_read": "Full published RESULT.md: exact stage map, fixed-point matrix, all-order threshold, numerical and limiting cases",
+          "method": "Resultary repository full file, blob 1d374342bb7a29dd85bce77f93ddb4770e0b7e25",
+          "title": "A sharp covariance-order frontier for positivity-preserving IF-SSPRK2",
+          "trigger": "Most relevant same-method prior published Nov 2"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Guarantee numerical SPSD and norm convergence; no necessary-sufficient one-sided Loewner defect criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+          "material_read": "Equation (5) stage method, Theorem 3.2 positivity and error estimate discussion inspected in accessible text",
+          "method": "published arXiv/research preprint full-text sections",
+          "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+          "trigger": "Original integrator definition and SPSD theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2606.15703 positive-semidefinite method",
+        "2026/11/02 published 2x2 stationary frontier",
+        "independent symbolic matrix checks"
+      ],
+      "rationale": "This sharp all-dimensional necessary-and-sufficient criterion distinguishes merely PSD-preserving time integration from actually overestimating continuous covariance in Loewner order. The minimal-polynomial obstruction and rank-one small-step witness show every heterogeneous stable drift lacks a universal conservative covariance guarantee, directly meaningful for numerical reliability and comparison methods.",
+      "residual_risks": [
+        "Universal all-input quantifiers are strong; particular forcing matrices may still have positive defect when A fails classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent numerical/finite checks are not formal proofs; unrestricted statements rely on reconstructed analytical arguments.",
+    "Best-of-knowledge historical originality and precise residual risks recorded in originality axis.",
+    "Publication withheld: public-file privacy-safe replacements not completed and verified."
+  ],
+  "schema_version": 1
+}
