@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The halfspace description of the enriched chain polytope and the invariance reduction to diagonal ellipsoids are independently reconstructible. Maximizing a signed chain form over the proposed ellipsoid gives the exact condition \(\sum_{i\in C}u_i\le1\). For a largest antichain of size \(w\), the two squared-axis values in the result obey every chain constraint because a chain intersects the antichain in at most one element. Their product gives the binary KL divergence without hidden normalization constants. Positivity of KL makes the improvement strict when \(n<hw\). When \(n=hw\), Dilworth supplies \(w\) disjoint chains of length \(h\), and multiplying AM--GM along them proves optimality of the ball. The layered family is solved by strict concavity, proving sharpness. The finite checker confirms exact rational feasibility in 1,099 sample profiles, not infinite validity.
+## correctness
 
-**Originality — PASS, priority provisional.** The closest enriched-chain source already establishes the exact inradius and facet-contact classification; those results are deliberately not reasserted as new. Published primary literature of Ohsugi–Tsuchiya, Okada–Tsuchiya, and Kohl–Olsen–Sanyal concerns signed-antichain constructions, triangulations and unconditional reflexivity rather than the asserted sharp relative-entropy **John-volume** inequality. Prior John computations for ordinary nonnegative chain polytopes, and signed-chain **volume** inequalities, use nonidentical feasible bodies and do not imply the new formula directly. The general perfect-graph entropy framework is the closest theoretical reduction: it could independently imply the roundness criterion upon recognizing the log-determinant formulation, and hence is cited as an explicit residual priority risk. The sharp quantitative bound and its layered equality examples were not located in the inspected works.
+PASS
 
-**Mathematical value — PASS.** The main contribution is a uniform, attained quantitative obstruction to maximal-inball optimality in a geometric family indexed by arbitrary finite posets. It turns the exact height–width slack into a KL divergence lower bound on the best ellipsoid-volume gain, and supplies a complete round/nonround classification. This is stronger than merely restating the known inradius or the standard ellipsoid optimizer; the bound is exact for all two-layer ordinal sums and infinitely many higher-layer families.
+The signed-antichain convex hull has maximal-chain signed facets; reflections force a zero-centered diagonal unique John ellipsoid. For u_i equal to squared semiaxes, containment is exactly sum_{i∈C}u_i≤1. A maximum antichain intersects every chain at most once, hence u=w/n on it and (n-w)/(n(h−1)) elsewhere is feasible by n≤hw. Multiplication of semiaxes gives the stated binary relative entropy, strictly positive when n<hw. For n=hw Dilworth partitions into w longest h-chains and AM–GM proves max product h^(−n). For layered ordinal sums, symmetry and weighted AM–GM give exact u=m_j/n. Independent exact arithmetic for layers (3,1) gives 3/4,1/4, determinant gain 27/16 over the radius 1/√2 ball; finite case is corroboration not proof.
 
-**Limitations.** The result is about standard Euclidean coordinates and gives a lower bound, not a complete spectral formula, for arbitrary posets. Existing graph-entropy literature may supply an equivalent route to the roundness half. Priority and mathematical correctness have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS to best knowledge on sharp attained KL volume bound and general roundness criterion; established inradius/chain-facet and graph-entropy convex program are credited. No earlier identical all-poset KL bound found, but graph-entropy equivalences remain priority risk.
+
+## value
+
+PASS
+
+Sharp, dimension-free, attained height-width-entropy inequality and exact roundness characterization for a canonical poset polytope; useful quantified geometry of comparability structures, not just recomputation of ordinary inradius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
