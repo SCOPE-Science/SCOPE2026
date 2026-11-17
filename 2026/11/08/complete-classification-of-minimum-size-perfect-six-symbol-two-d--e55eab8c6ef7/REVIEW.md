@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns exactly six labeled alphabet symbols, four coordinates, two arbitrary position deletions, and perfect six-word codes. The proof deduces the only possible maximal-ball word shape from six distinct position-pair descendants, recovers twelve spoke edges and three missing undirected edges, and excludes every nonmatching three-edge graph. A matching then forces a directed three-cycle among three symbol pairs. The count of matchings, cycles, and orientation choices gives \(240\), and the even-parity action of internal pair swaps gives two \(120\)-element orbits. Independent exhaustive exact-cover enumeration over the six center-word option sets and all \(720\) alphabet relabelings agrees. No claim depends on extrapolating a finite experiment to an infinite parameter range.
+## correctness
 
-## Originality — PASS with residual risk
-The existence of six-word perfect \((4,2)_6\) deletion codes is explicitly reported by Chee–Ge–Ling (2010, Table 7.1), and the possible size spectrum is restated by Wei–Ge (2015, Theorem 1.4). These are **not** claimed as discoveries. The present narrow claim is the complete list encoded by a matching and directed cycle, the total number \(240\), the two relabeling orbits, and their exchange under reversal. The available inspected portions of both primary works study sizes and constructions rather than the complete classification of all minimum realizations. The recent deletion-covering study of Xie–Sun–Ge (2026, §V) is asymptotic, not a classification of perfect six-symbol small codes. Equivalence to directed packings has been explicitly considered. An unindexed isomorphism classification could predate this account and remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The size of a perfect deletion code does not determine its labeled realizations or equivalence classes. This theorem supplies a complete structural description at the smallest exceptional alphabet where the perfect six-word solution occurs, and detects an orientation-parity invariant invisible to the known cardinality spectrum. The finite result is fully classified rather than an arbitrary slice of a search table. It provides an exact benchmark for symmetry-sensitive small-alphabet deletion designs, while not claiming a general bound for other alphabets or lengths.
+Six codewords must cover 36 ordered two-letter descendants, while each length-four word has at most six. With equality every selected word has six distinct descendants and supplies exactly one diagonal pair; hence one per letter, necessarily (a,b,c,a) with a,b,c distinct. Pair coverage splits 15 undirected edges into 12 bidirectional spokes and 3 singly-oriented edges. The three single edges must form a matching; contraction forces a directed cycle among three matched groups. Each group has two complementary orderings, giving 15 matchings times 2 cycle orientations times 2^3 internal choices=240. Parity of the internal ordering bits under local pair swaps creates exactly two alphabet-relabeling orbits of 120; reversal switches them. Independent exact-cover enumeration from 20 feasible words per diagonal center returned 240.
 
-## Limits and closest literature
-The conclusion concerns only minimum-size perfect codes at \(q=6\) and \((n,t)=(4,2)\). The closest primary prior work is the exact six-symbol example and size-spectrum theorem of Chee, Ge, Ling (2010) and Wei, Ge (2015); newer large-alphabet covering results are not directly comparable with perfect partitions. Independent priority confirmation and independent mathematical validation have not been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+2010 Chee–Ge–Ling and 2015 Wei–Ge prove existence and size spectra (q=6 permits size 6), not the complete classified population of 240 labeled perfect codes and two 120-sized orbits in the full material inspected. General covering bounds and nearby deletion-code censuses do not imply the three-pair matching/cycle classification. Residual risk: unindexed design-theoretic equivalence elsewhere.
+
+## value
+
+PASS
+
+The exact classification of ALL optimal realizations of a natural perfect two-deletion packing, with a structural directed-matching representation and relabeling orbit invariant, is a useful refinement of known existence and cardinality spectrum. It can serve as a small directed-packing reference and test for code equivalence. Not merely an isolated numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
