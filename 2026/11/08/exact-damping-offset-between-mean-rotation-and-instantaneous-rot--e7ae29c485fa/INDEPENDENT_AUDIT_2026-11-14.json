@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T04:08:52.410506Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 4x4 drift A is Hurwitz for a in (0,1), g>0, so the Lyapunov equation has one stationary Gaussian covariance. Independently calculated all 16 entries of A Sigma+Sigma A^T+Q=0 with the explicit Sigma; Isserlis gives Var(x v_y-y v_x)=Sigma_xx Sigma_vyvy+Sigma_yy Sigma_vxvx+2 z^2. The rational F(g) numerator is positive and denominator alpha*g^4+beta*g^2+gamma with alpha,beta,gamma>0. Its derivative has sign gamma-alpha*g^4, proving unique global optimum; g_mean=a maximizes ga/(g^2+a^2). The inequalities a^2 S^2<alpha<S^2 follow from HC>0, J>0, a<1 and prove sharp strict separation. Exact symbolic independent checker verified full covariance/variance/derivative/optimal substitution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2606.17554 abstract: spherically asymmetric particle, orientation-dependent tensorial friction, mean and fluctuation of angular momentum",
+          "https://doi.org/10.1098/rspa.2025.0754 studies overdamped ellipsoid and mean rotation"
+        ],
+        "reasoning": "The ellipsoid study covers more complex physical parameters, and may have a spherical or isotropic reduction; full text is inaccessible, so no negative all-paper coverage claim. Abstract-level evidence does not state exact g_precision or universal ratio, but is too relevant to dismiss as unrelated. This is a material priority risk.",
+        "searches": [
+          "Dutta Saha Brownian gyration of an inertial ellipsoid 2606.17554",
+          "Microscopic gyration of a Brownian ellipsoid 2025.0754"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-damping-offset-between-mean-rotation-and-instantaneous-rot--e7ae29c485fa",
+        "https://arxiv.org/abs/2603.18818",
+        "https://arxiv.org/abs/2012.12713",
+        "https://arxiv.org/abs/2606.17554",
+        "https://www.emergentmind.com/papers/2606.17554",
+        "https://doi.org/10.1098/rspa.2025.0754"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Martins covariance and g_mean=a need new Wick variance calculation for g_precision",
+          "Bae integrated fluctuation has different time functional; not same Var(L)",
+          "Dutta abstract: torque/shape orientation degrees, no inspected identical closed formula"
+        ],
+        "reasoning": "The exact snapshot denominator quartic in g is not a mathematical corollary of a mean optimum or integrated-current variance alone. A stronger ellipsoid manuscript could in principle contain its spherical reduction; access limitation prohibits claiming ruled out.",
+        "searches": [
+          "Martins Ben-Yedder Fontana Rondin Role of inertia on performance 2603.18818",
+          "Bae Lee Kim Jeong Inertial effects 2012.12713",
+          "Dutta Saha 2606.17554"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2603.18818 abstract and source comparator reference mean-current peak",
+          "https://arxiv.org/abs/2012.12713 studies long-time current variance D_theta"
+        ],
+        "reasoning": "One stationary snapshot variance is Wick covariance at same time, unlike long-time integrated-current diffusion coefficient: those observables are not algebraically interchangeable. The known mean-rotation optimum g=a is specifically contrasted rather than reclaimed.",
+        "searches": [
+          "Brownian gyrator instantaneous angular momentum precision vs integrated current",
+          "Martins et al 2603.18818 mean rotation optimum",
+          "Bae et al 2012.12713 time-integrated fluctuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only Resultary direct match is assigned theorem; https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sampled-turn-tails-and-a-unique-signal-to-noise-optimum-in--fb0bee8c12b6 concerns sampled turn and optimizes coupling, not damping",
+          "Dutta–Saha abstract gives qualitative finite-inertia benefit, not an exact rate table"
+        ],
+        "reasoning": "No existing exact table for the identical single-snapshot damping objective found; this is not proof of global novelty. Dutta–Saha full document remains unavailable.",
+        "searches": [
+          "Resultary stationary single-time gyrator SNR damping offset",
+          "Brownian gyrator sampled-turn SNR vs coupling",
+          "inertial ellipsoid paper abstract numeric optima"
+        ]
+      },
+      "rationale": "Martins et al derive stationary covariance and mean optimal damping for the same model; neither those ingredients nor long-time integrated-current variance of Bae et al are claimed new. The claim is single-snapshot angular momentum precision optimum and strict universal gap, a different observable from integrated current precision. Dutta–Saha 2026 ellipsoid study has a highly relevant mean/fluctuation and SNR optimization but is not the same fixed spherical/isotropic-friction 2D model in the inspectable abstract, and its exact full text could not be obtained; no accessible statement of the identical g_precision or sharp temperature inequality was found. Best-of-knowledge PASS with serious unresolved priority risk, not a certificate of historical novelty.",
+      "residual_risks": [
+        "Dutta–Saha 2606.17554 primary full text inaccessible; could contain stronger same model spherical specialization / optimum; Oxford VPN disconnected, no bypass attempted",
+        "Martins full Methods not independently accessible here; prior covariance formula only identified from abstract and audited package",
+        "Only stationary single-snapshot SNR; no time-averaged precision or measurement-rate claim; strict unequal positive baths and a in (0,1)"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematically sound and strictly unique optimum; no asymptotic-current claims",
+          "evidence": "All Lyapunov entries zero, variance/derivative/maximum exact",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-damping-offset-between-mean-rotation-and-instantaneous-rot--e7ae29c485fa",
+          "material_read": "Entire RESULT.md including full covariance and Wick proof, domain, prior art and exact verifier source",
+          "method": "Frozen Git, independent SymPy derivations",
+          "title": "Exact damping offset between mean rotation and instantaneous rotation precision in a Brownian gyrator",
+          "trigger": "Final theorem under audit"
+        },
+        {
+          "assessment": "Prior mean rotation and its damping optimum; cannot make whole-document noncoverage claim from abstract",
+          "evidence": "Abstract: rotational dynamics optimized at critical damping; mean first-moment known",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18818",
+          "material_read": "Accessible abstract and bibliographic/full description, not full paper in current run; original package cites Methods Eq7",
+          "method": "arXiv/author-index search",
+          "title": "Role of inertia on the performance of Brownian gyrators",
+          "trigger": "Exact same isotropic inertial Brownian gyrator experimental setting"
+        },
+        {
+          "assessment": "Time-integrated-current diffusion differs from one-snapshot variance; full comparison qualified",
+          "evidence": "Distinguish D_theta integrated fluctuation from Var(L at stationary time)",
+          "identifier_or_url": "https://arxiv.org/abs/2012.12713",
+          "material_read": "Accessible bibliographic description/abstract and source result references to Eq14–16, not independently read complete text",
+          "method": "arXiv / indexed scholarly search",
+          "title": "Inertial effects on the Brownian gyrator",
+          "trigger": "Related fluctuations of angular momentum"
+        },
+        {
+          "assessment": "Important live priority risk; neither declared covering nor declared noncovering whole document",
+          "evidence": "Abstract describes nonspherical ellipsoid, angular momentum fluctuations and finite-inertia performance; no checked matching formula",
+          "identifier_or_url": "https://arxiv.org/abs/2606.17554",
+          "material_read": "Full primary text unavailable via arXiv HTML/PDF and lawful OA; abstract materially read; authorized Oxford retrieval returned vpn_disconnected",
+          "method": "arXiv abstract; scholarly full-text summary as contextual only; authorized institutional tool attempted without bypass",
+          "title": "Brownian gyration of an inertial ellipsoid",
+          "trigger": "Same observable mean-to-fluctuation ratio; possible stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimizing instantaneous rotation detection and mean rotation at different damping rates gives a natural physical measurement design distinction and a sharp closed-form threshold and bound. Objective, normalization, Gaussian covariance and exact strict domain are specified; not merely optimizing an already known mean or a time-integrated current.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-damping-offset-between-mean-rotation-and-instantaneous-rot--e7ae29c485fa",
+    "https://arxiv.org/abs/2603.18818",
+    "https://arxiv.org/abs/2012.12713",
+    "https://arxiv.org/abs/2606.17554",
+    "https://www.emergentmind.com/papers/2606.17554",
+    "https://doi.org/10.1098/rspa.2025.0754"
+  ],
+  "disposition": "passed",
+  "limitations": "H>C>0, 0<u<k, m>0, g>0 stable linear Gaussian only; physical g=Gamma sqrt(m/k); no equal bath or zero coupling where mean=0, and no time-integrated current conclusion.",
+  "residual_risks": [
+    "Dutta–Saha 2606.17554 primary full text inaccessible; could contain stronger same model spherical specialization / optimum; Oxford VPN disconnected, no bypass attempted",
+    "Martins full Methods not independently accessible here; prior covariance formula only identified from abstract and audited package",
+    "Only stationary single-snapshot SNR; no time-averaged precision or measurement-rate claim; strict unequal positive baths and a in (0,1)"
+  ],
+  "schema_version": 1
+}

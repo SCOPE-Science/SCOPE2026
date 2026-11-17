@@ -1,23 +1,21 @@
-# Scientific review: exact damping offset in Brownian gyrator precision
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under the stated strict stability and nonequilibrium assumptions, the Ornstein–Uhlenbeck drift is Hurwitz. The full stationary covariance is independently verified through all entries of the Lyapunov equation. Gaussian fourth-moment contraction gives the one-time variance, and the derivative has precisely one positive zero with a sign change from positive to negative. The strict optimizer comparison follows from positive temperature product and positive temperature contrast. `verify_gyrator.py` independently replays 219 symbolic/rational tests. The proof is finite-dimensional and exact; no unproved asymptotic extension is used.
+PASS
 
-## Originality — PASS (qualified)
+The 4x4 drift A is Hurwitz for a in (0,1), g>0, so the Lyapunov equation has one stationary Gaussian covariance. Independently calculated all 16 entries of A Sigma+Sigma A^T+Q=0 with the explicit Sigma; Isserlis gives Var(x v_y-y v_x)=Sigma_xx Sigma_vyvy+Sigma_yy Sigma_vxvx+2 z^2. The rational F(g) numerator is positive and denominator alpha*g^4+beta*g^2+gamma with alpha,beta,gamma>0. Its derivative has sign gamma-alpha*g^4, proving unique global optimum; g_mean=a maximizes ga/(g^2+a^2). The inequalities a^2 S^2<alpha<S^2 follow from HC>0, J>0, a<1 and prove sharp strict separation. Exact symbolic independent checker verified full covariance/variance/derivative/optimal substitution.
 
-The full motivating arXiv:2603.18818 source publishes the mean angular-momentum maximum and covariance but does not optimize the one-time stationary mean-to-standard-deviation objective. Bae et al. (arXiv:2012.12713) provide long-time **integrated-current** fluctuation coefficients, not the **instantaneous** Gaussian-product variance or damping peak in this claim. The 2026 Dutta–Saha ellipsoidal model discusses related signal-to-noise performance and finite-inertia optima. Its full paper could not be examined, so possible coverage of this exact spherical-limit optimizer remains an explicit publication-priority risk. The claim is restricted to the previously unlocated full analytic all-parameter closed-form optimizer and its strict damping offset, not to the general observation that fluctuations can be optimized.
+## originality
 
-## Value — PASS
+PASS
 
-The mean heat-flow and entropy-production maxima measured in the recent gyrator experiment need not coincide with the damping that maximizes standardized single-frame rotation. A universal exact separation and sharp contrast-dependent bound give a natural, measurable design comparison over the complete stable unequal-temperature regime, not a chosen numerical slice. The result is useful even though the equilibrium Gaussian covariance formula is already known. Single-frame precision is **not** a replacement for trajectory-level measurement precision.
+Martins et al derive stationary covariance and mean optimal damping for the same model; neither those ingredients nor long-time integrated-current variance of Bae et al are claimed new. The claim is single-snapshot angular momentum precision optimum and strict universal gap, a different observable from integrated current precision. Dutta–Saha 2026 ellipsoid study has a highly relevant mean/fluctuation and SNR optimization but is not the same fixed spherical/isotropic-friction 2D model in the inspectable abstract, and its exact full text could not be obtained; no accessible statement of the identical g_precision or sharp temperature inequality was found. Best-of-knowledge PASS with serious unresolved priority risk, not a certificate of historical novelty.
 
-## Closest prior work and remaining limits
+## value
 
-- Martins et al., arXiv:2603.18818, complete accessible HTML Methods and main text, Eq. (7) covariance and Eq. (5) mean.
-- Bae et al., arXiv:2012.12713, full original PDF, Eqs. (11)-(16) and Appendix C on time-integrated current.
-- Dutta and Saha, arXiv:2606.17554, abstract and secondary summary only; full text inaccessible. The broader model presents a plausible residual priority comparison, not a demonstrated identical exact theorem.
+PASS
 
-The result requires a strictly confining linear trap and two positive unequal Gaussian bath temperatures, and addresses instantaneous—not time-averaged—angular-momentum SNR. No independent scientific audit was conducted.
+Optimizing instantaneous rotation detection and mean rotation at different damping rates gives a natural physical measurement design distinction and a sharp closed-form threshold and bound. Objective, normalization, Gaussian covariance and exact strict domain are specified; not merely optimizing an already known mean or a time-integrated current.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
