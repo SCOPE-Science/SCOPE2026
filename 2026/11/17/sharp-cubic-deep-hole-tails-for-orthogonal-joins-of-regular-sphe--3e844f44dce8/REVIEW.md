@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For all fixed integers \(p,q\ge3\), a normalized Gaussian on \(S^3\) has independent uniform squared two-plane radius and independent uniform polar angles. Their nearest-polygon angular deviations are independent uniform variables with endpoints \(\pi/p\) and \(\pi/q\). Conditional interval lengths directly prove the exact CDF. Strict minimization of the maximum of the two projected inner products locates \(pq\) deepest directions. A unique corner of the angular domain controls the rare event near this minimum, with two independent linear angular deviations and a linear interval length, giving an exact cubic coefficient and a fourth-order error. The proof explicitly checks truncation inactivity and the local Taylor remainder. An independent tangent-three-simplex calculation checks the coefficient \(512/(3\pi^2)\) for the four-dimensional cross-polytope. The included `verify.py` passed its quadrature, cross-polytope, and direct-sampling tests, but numerical checks do not establish the universal theorem.
+
+## Originality — PASS (subject to historical priority)
+The primary full text of Medgyes's nine-vertex inscribed-four-polytope paper was examined in the sections defining polygon joins and proving volume optimality. They establish the geometric configuration and its Euclidean volume, not the nearest-direction probability distribution on \(S^3\). Accessible earlier work on tangential orthogonal polygon joins already determines the covering radius, which is explicitly *not* presented as the novelty. Published closest-covering distributions on the 2-sphere, such as the icosahedron and cube–octahedron cases, address different codes and cannot by themselves supply the present all-polygon-pair coefficient. Searches for orthogonal spherical joins, product angular distributions, aliases and deep-hole tails did not reveal a dominating theorem. Failure to find a source is not a proof of priority; unindexed or unexamined equivalent formulas remain a risk.
+
+## Mathematical value — PASS
+The recent sharp nine-vertex volume classification identifies a natural extremal four-dimensional polytope made from two orthogonal polygons. The derived law quantifies their *directional robustness*: not only their worst support value, but the precise fraction of directions nearly as poorly represented. The first nonzero coefficient distinguishes polygon pairs, includes the sharp nine-vertex maximizer, and works for all fixed polygon sizes without a separate case census. A complete natural distribution and exact local tail coefficient provide a useful geometric observable beyond the already-known inradius.
+
+## Scope and limits
+Only regular unit-circumradius planar polygons in orthogonal two-planes; the small-excess error is not uniform over unbounded polygon counts. There is no assertion of optimality of the new coefficient among arbitrary codes, nor a globally elementary closed antiderivative for the full CDF. Historical priority has not been established beyond available comparisons.
+
+Self-review: passed. Independent audit: not yet performed.
