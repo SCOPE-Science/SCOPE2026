@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify.py prism_certificate.tsv` with standard Python 3.10 or later. The checker uses direct Cartesian graph adjacency, BFS geodesics and an independent exact-cover recursion.
+# Independent mathematical audit
 
-- The 34 rows of `prism_certificate.tsv` exhaust the \(\binom42+\binom82=34\) pairs whose endpoints lie both in or both out of the selected four-set \(\{0,1,9,10\}\) of \(C_6\square K_2\). Each row supplies a shortest, selected-interior-free geodesic and the checker independently verifies lengths and interiors. This is a complete, finite certificate for the local compatibility lemma.
-- All offsets \(j=0,\ldots,5\) in \(C_6\square K_2\), and \(j=0,\ldots,4\) in \(C_5\square K_2\), are checked from first principles. Only \(j=3\) of the six-cycle survives.
-- All vertex subsets are independently tested on \(C_5\square K_m\) for \(m=1,2,3\), \(C_6\square K_m\) for \(m=1,2,3\), and \(C_7\square K_m\) for \(m=1,2\). The observed nonempty dual-set counts agree with the polynomial predictions.
-- Independent exact-cover enumeration over the predicted sets gives minimum numbers of classes and unordered optimum counts for \(m=1,\ldots,5\): \((3,2),(3,2),(6,48),(6,48),(9,4320)\).
+## correctness
 
-The unrestricted formulas are justified by the proof's convex restriction, the excluded-offset obstructions, the 34-pair local certificate, and perfect matching arguments. The smaller exhaustive instances alone do not establish the infinite family. The software does not assess historical priority or provide independent mathematical certification.
+PASS
+
+For n>=5 a convex C_n layer restricts dual mutual-visibility M to empty or one adjacent pair for n=5,6, while no occupied layer exists for n>=7. Convex C_n square K_2 subgraphs constrain a pair in distinct layers to antipodal offset three when n=6 and rule it out at n=5; third occupied layer contradicts pairwise offsets. Compatible four-sets remain valid with arbitrarily many extra K_m layers, so polynomial 1+nm z² + 6*C(m,2)z⁴ for n=6, 1+5m z² at n=5, 1 afterward. For n=6 every layer is tiled by one of two horizontal perfect matchings, and pairing opposite phases in three edge types yields sharp 3ceil(m/2) classes and exact factorial optimal partition counts. Independent exhaustive dual-set enumeration n=5 m=1,2; n=6 m=1,2; n=7 m=1 matched the formulas; not an infinite proof.
+
+## originality
+
+PASS
+
+Bujtás–Klavžar–Tian give convex restriction lemma and dual cycle spectra, and the 2026 Babu et al work treats other Cartesian products/color families. Their reported theorems do not classify cross-layer compatibility of C_n square K_m, the n=6 phase tiling threshold, or the optimal-partition factorial census. All claims of novelty are strictly these extra layer-coupling results.
+
+## value
+
+PASS
+
+The all-order polynomial and sharp colorability threshold on a natural Cartesian graph-product family solve a full finite/infinite classification. The antipodal pair interaction and counting of all optimal partitions distinguish this theorem from prior cycle-only spectra; exact counts can be reused in graph-coloring and visibility research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

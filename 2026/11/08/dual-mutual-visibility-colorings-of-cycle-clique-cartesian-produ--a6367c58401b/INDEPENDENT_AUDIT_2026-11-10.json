@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:19:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5 a convex C_n layer restricts dual mutual-visibility M to empty or one adjacent pair for n=5,6, while no occupied layer exists for n>=7. Convex C_n square K_2 subgraphs constrain a pair in distinct layers to antipodal offset three when n=6 and rule it out at n=5; third occupied layer contradicts pairwise offsets. Compatible four-sets remain valid with arbitrarily many extra K_m layers, so polynomial 1+nm z² + 6*C(m,2)z⁴ for n=6, 1+5m z² at n=5, 1 afterward. For n=6 every layer is tiled by one of two horizontal perfect matchings, and pairing opposite phases in three edge types yields sharp 3ceil(m/2) classes and exact factorial optimal partition counts. Independent exhaustive dual-set enumeration n=5 m=1,2; n=6 m=1,2; n=7 m=1 matched the formulas; not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babu et al study mutual visibility coloring on complete multipartite structures, Hamming K_r square K_s and strong grids, not C_n square K_m."
+        ],
+        "reasoning": "Related product results do not dominate the cycle-clique family; strict convexity and antipodal layer compatibility are needed.",
+        "searches": [
+          "dual mutual visibility coloring C_n Cartesian K_m complete spectrum n=5 n=6 optimal color partitions",
+          "https://arxiv.org/abs/2609.31427",
+          "https://link.springer.com/article/10.1007/s00010-025-01197-y"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+        "https://arxiv.org/abs/2609.31427"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known convex restriction implies necessary single-layer adjacent pairs, but neither existence nor uniqueness of compatible antipodal double pairs; no optimal matchings/count follows without new two-layer lemma."
+        ],
+        "reasoning": "The extra two-layer compatibility calculation is the essential independent structural step and leads to all subsequent formulas.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+          "https://arxiv.org/abs/2609.31427"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published single-cycle dual-visible sets are adjacent pairs at n=5,6 and empty for n>=7; product interactions across K_m layers are not stated in that result."
+        ],
+        "reasoning": "The target extends, rather than merely reformulates, the known cycle restriction.",
+        "searches": [
+          "dual mutual visibility coloring C_n Cartesian K_m complete spectrum n=5 n=6 optimal color partitions",
+          "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+          "https://arxiv.org/abs/2609.31427"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published cycle spectra provide only n=5,6 single-layer coefficients; product 6*C(m,2) four-sets and A_m factorial census not tabulated in inspected texts."
+        ],
+        "reasoning": "Direct independent enumeration n=6,m=2 gives six four-sets, supporting a genuinely new cross-layer coefficient.",
+        "searches": [
+          "dual mutual visibility coloring C_n Cartesian K_m complete spectrum n=5 n=6 optimal color partitions",
+          "C6 square Km dual visibility optimal partitions phase matchings",
+          "https://link.springer.com/article/10.1007/s00010-025-01197-y"
+        ]
+      },
+      "rationale": "Bujtás–Klavžar–Tian give convex restriction lemma and dual cycle spectra, and the 2026 Babu et al work treats other Cartesian products/color families. Their reported theorems do not classify cross-layer compatibility of C_n square K_m, the n=6 phase tiling threshold, or the optimal-partition factorial census. All claims of novelty are strictly these extra layer-coupling results.",
+      "residual_risks": [
+        "Unretrieved complete Babu et al 2026 paper could contain an equivalent broader product-coloring implication; the available listed examples differ.",
+        "The fixed 34-pair prism certificate was inspected as a stated finite lemma and independently checked for small n,m via fresh graph enumeration; no claim to reproduce the full original certificate is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CYCLE_SPECIALIZATION_ONLY",
+          "evidence": [
+            "Establishes n=5,6 dual pairs on C_n and empty at larger n; does not contain K_m Cartesian coupling."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+          "material_read": "Full primary article HTML including convex-subgraph restriction Lemma 2.4, Section 4 cycle spectra and definitions",
+          "method": "Full scientific result and proof read from primary document",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Closest single-cycle dual visibility spectra and convex-restriction lemma"
+        },
+        {
+          "assessment": "FAMILY_REPORTED_NOT_TO_INCLUDE_TARGET",
+          "evidence": [
+            "Reported families include Hamming and other products, not an explicit C_n square K_m theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.31427",
+          "material_read": "arXiv abstract and reported family scope in primary bibliography; full article not read",
+          "method": "Abstract and scope, not whole-paper noncoverage",
+          "title": "A variety of the mutual-visibility coloring problem for graphs",
+          "trigger": "Defining coloring parameter and potential dominating product classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-order polynomial and sharp colorability threshold on a natural Cartesian graph-product family solve a full finite/infinite classification. The antipodal pair interaction and counting of all optimal partitions distinguish this theorem from prior cycle-only spectra; exact counts can be reused in graph-coloring and visibility research.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unretrieved complete Babu et al 2026 paper could contain an equivalent broader product-coloring implication; the available listed examples differ.",
+    "The fixed 34-pair prism certificate was inspected as a stated finite lemma and independently checked for small n,m via fresh graph enumeration; no claim to reproduce the full original certificate is made.",
+    "Scientific conclusions follow proof reconstruction; finite computational checks corroborate only bounded instances.",
+    "No repository writes, published status changes, external certification or formal expert verification asserted."
+  ],
+  "schema_version": 1
+}

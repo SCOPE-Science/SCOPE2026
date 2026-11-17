@@ -1,13 +1,21 @@
-# Review: Dual mutual-visibility colorings of cycle–clique Cartesian products
+# Independent mathematical audit
 
-**Correctness: PASS.** The cycle restriction is rigorous because horizontal single layers and any two-layer subgraph are geodesically convex. The single-cycle classification is independently reconstructed in the proof and agrees with the published spectra. The only nontrivial finite local fact is the compatibility of two opposite pairs in \(C_6\square K_2\); all 34 same-status endpoint pairs have explicit shortest paths in the certificate, and the verifier checks their lengths and forbidden interiors. The incompatible offsets have explicit counterpairs. A two-layer obstruction forbids three or more occupied layers. All global sufficiency and the optimal-partition counts follow from the complete-factor geometry and perfect matching bookkeeping. Exhaustive direct checks for several small products and exact cover calculations support the proof. The checks do not alone prove the parameter-uniform statement.
+## correctness
 
-**Originality: PASS, priority provisional.** The September 2026 preprint [1] introduces the dual colouring invariant and studies block graphs, Hamming products of *two complete graphs* and strong path grids; it does not state the Cartesian cycle–clique classification. The July 2025 full paper [2] already gives the dual spectra of *individual cycles* and a convex restriction lemma. Those facts are credited and not claimed as new; the antipodal compatibility, \(z^4\) coefficient, exceptional-colorability dichotomy, and optimal-partition enumeration require additional structural arguments. The 2024 full paper [3] treats ordinary mutual visibility in cycle/path products rather than the dual variant. Searches of mathematical records, variant terminology, and accessible prior claims found no implication covering this theorem. Negative search results are not a novelty certificate; broader unindexed or contemporaneous literature remains a priority risk.
+PASS
 
-**Mathematical value: PASS.** A newly introduced graph colouring has a strong obstruction structure: across an infinite series, nonempty dual sets vanish above circumference six, colouring is impossible at circumference five even though local dual pairs exist, and only circumference six admits a colouring. The result computes the full visibility polynomial, an exact optimal chromatic number, and all optimal partitions including factorial counts. The antipodal phase pairing is a reusable structural explanation rather than a bare calculation of small instances.
+For n>=5 a convex C_n layer restricts dual mutual-visibility M to empty or one adjacent pair for n=5,6, while no occupied layer exists for n>=7. Convex C_n square K_2 subgraphs constrain a pair in distinct layers to antipodal offset three when n=6 and rule it out at n=5; third occupied layer contradicts pairwise offsets. Compatible four-sets remain valid with arbitrarily many extra K_m layers, so polynomial 1+nm z² + 6*C(m,2)z⁴ for n=6, 1+5m z² at n=5, 1 afterward. For n=6 every layer is tiled by one of two horizontal perfect matchings, and pairing opposite phases in three edge types yields sharp 3ceil(m/2) classes and exact factorial optimal partition counts. Independent exhaustive dual-set enumeration n=5 m=1,2; n=6 m=1,2; n=7 m=1 matched the formulas; not an infinite proof.
 
-**Closest literature.** [1] Babu et al., *A variety of the mutual-visibility coloring problem for graphs*, arXiv:2609.31427v1, 2026-09-25. [2] Bujtás–Klavžar–Tian, *Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets*, DOI 10.1007/s00010-025-01197-y (2025). [3] Korže–Vesel, *Mutual-Visibility Sets in Cartesian Products of Paths and Cycles*, DOI 10.1007/s00025-024-02139-x (2024).
+## originality
 
-**Limitations.** The conclusion excludes \(n=3,4\); the formula for unnamed classes differs from assignments using named colours. No independent audit is claimed and historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Bujtás–Klavžar–Tian give convex restriction lemma and dual cycle spectra, and the 2026 Babu et al work treats other Cartesian products/color families. Their reported theorems do not classify cross-layer compatibility of C_n square K_m, the n=6 phase tiling threshold, or the optimal-partition factorial census. All claims of novelty are strictly these extra layer-coupling results.
+
+## value
+
+PASS
+
+The all-order polynomial and sharp colorability threshold on a natural Cartesian graph-product family solve a full finite/infinite classification. The antipodal pair interaction and counting of all optimal partitions distinguish this theorem from prior cycle-only spectra; exact counts can be reused in graph-coloring and visibility research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
