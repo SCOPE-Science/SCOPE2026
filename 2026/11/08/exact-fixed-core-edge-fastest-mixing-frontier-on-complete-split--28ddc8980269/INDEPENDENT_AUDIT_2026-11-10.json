@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T20:52:29.293093Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Group averaging over S_s x S_m preserves every fixed clique transition and cannot increase ||P-J||_op. At invariant cross-edge probability a, the eigenvalues on leaf differences, clique differences and partwise contrasts are 1-sa, 1-ma-st and 1-(s+m)a. Nonnegative diagonal constraints restrict a to 0..min(1/s,[1-(s-1)t]/m). Simultaneously requiring all three absolute values <=r gives exact pairwise lower/upper a bounds; checking their feasibility yields seven and only seven necessary affine lower bounds. The constructed lower endpoint attains the max. At maximal t cross edges vanish and SLEM=1; no irreducible mixing is asserted. Independent rational vertex minimax checked 891 instances, s,m=2..10, 11 rational t-grid values per pair.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October18 proves full optimizer face when internal clique weight is free and its optimum SLEM; no fixed-t frontier. Clique-lift gives unconstrained mixing optimum on split graphs."
+        ],
+        "reasoning": "The strongest directly relevant theorem optimizes clique edges, which is a different feasible region. Its value cannot certify the minimum after constraining every clique edge to equal t.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d",
+          "Jafarizadeh, Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs, arxiv:2501.02421",
+          "Resultary: 2026/11/2/SCOPE-rigidity-and-spectral-freedom-of-all-fastest-mixing-chains-on-co--45dc9950cb66"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d/RESULT.md",
+        "https://arxiv.org/pdf/0709.0955",
+        "https://arxiv.org/abs/2501.02421",
+        "https://doi.org/10.1137/S0036144503423264"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s=5,m=2 at t=0 fixed optimum 3/5 while free-internal-edge prior optimum 1/6; strict inequality precludes implication of constrained optimal value from unrestricted optimum."
+        ],
+        "reasoning": "The earlier optimality certificate for a larger feasible set establishes only a lower bound for the constrained problem; it does not yield the t-dependent sharp envelope or plateau.",
+        "searches": [
+          "Resultary: every fastest-mixing kernel on complete split graphs; actual full RESULT.md",
+          "Boyd Diaconis Parrilo Xiao 2007 Section 3.1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On all symmetric matrices the averaged invariant three-eigenspace problem is a constrained interval feasibility problem; the prior optimizer face allows free clique-edge variation."
+        ],
+        "reasoning": "Generic fastest-mixing SDP and optimizer-face language are equivalent optimization frameworks, not the seven-branch function at fixed clique-edge t.",
+        "searches": [
+          "Resultary: fastest mixing symmetric stochastic Markov chain complete split graph clique independent vertices fixed clique edge transition probability spectral radius seven linear branches",
+          "Boyd Diaconis Parrilo Xiao arxiv:0709.0955"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact seven-branch positive-fixed-core-edge table found in actually checked Resultary hits; complete bipartite formula corresponds to t=0 constrained boundary only."
+        ],
+        "reasoning": "The search did not find a covering table. This is limited evidence for novelty, not a proof of precedence.",
+        "searches": [
+          "Resultary complete split graph SLEM fixed edge seven affine formula search",
+          "Boyd et al 2007 complete-bipartite Section 3.1.2"
+        ]
+      },
+      "rationale": "The full constrained fixed-internal-edge Pareto frontier is not implied by the closest inspected unconstrained optimizer-face or clique-lift results: fixing all core edges at a prescribed t removes previously used feasible optimizers, e.g. s=5,m=2,t=0 gives 3/5 versus unconstrained 1/6. Exact formula is not merely the generic SDP definition.",
+      "residual_risks": [
+        "The Jafarizadeh 2020/2025 clique-lift primary full text was not fully read; equivalently reformulated constrained tradeoff may be in specialist literature.",
+        "The theorem does not assert uniqueness of all noninvariant optimizers or convergence at disconnected maximal t."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides unconstrained optimum and all optimizer kernels but not fixed-positive-t Pareto frontier",
+          "evidence": [
+            "Unrestricted optimum x=2/(m+2s) when m<=2s and internal clique transitions are adjustable; the submitted fixed t may force larger SLEM."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d/RESULT.md",
+          "material_read": "Complete finding, scope, global rigidity proof, interval of permissible internal clique-edge weights, and relationship to clique-lift theorem",
+          "method": "Read the full public GitHub RESULT.md and compared optimized feasible sets",
+          "title": "Every fastest-mixing kernel on complete split graphs",
+          "trigger": "Same graph family and unrestricted optimizer face"
+        },
+        {
+          "assessment": "Found methodological symmetry reduction and complete-bipartite baseline but no fixed clique-edge seven-affine expression",
+          "evidence": [
+            "Complete bipartite corresponds to t=0 and no internal clique transitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "Public arXiv PDF inspected in relevant Sections 3 and 5 and symmetry formulas; PDF page image was checked",
+          "method": "Accessible open arXiv text and PDF screenshot for relevant portion",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Symmetry reduction and complete bipartite special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prescribing every peer-to-peer core transition weight while optimizing all other symmetric Markov couplings is a motivated and structurally natural constrained mixing problem. Its exact infinite-family seven-plane frontier and rational four-phase example with plateau give nontrivial behavior absent from an unconstrained SDP optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For integers s,m>=2, fixed equal clique-edge transition t in [0,1/(s-1)], the optimal symmetric stochastic SLEM on K_s join independent_m equals the maximum of seven stated affine functions, attained by explicit common cross-edge a; four regimes for s=5,m=2.",
+  "limitations": [
+    "The Jafarizadeh 2020/2025 clique-lift primary full text was not fully read; equivalently reformulated constrained tradeoff may be in specialist literature.",
+    "The theorem does not assert uniqueness of all noninvariant optimizers or convergence at disconnected maximal t."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem treats all symmetric nonnegative stochastic matrices with every internal clique edge fixed at the specified probability, not only matrices initially assumed invariant. Averaging over the graph's vertex-permutation group does not increase \(\|P-J\|_{\mathrm{op}}\) and preserves fixed entries. The three nontrivial eigenvalue formulas then give an exact interval feasibility problem. All lower-versus-upper endpoint comparisons have been included, including the nonnegativity of the upper endpoint, which contributes the branch \(st-1\). The seven-affine formula is both necessary and constructive. Exact-rational independent breakpoint minimization agrees in 3332 cases; 180 full matrices pass eigenspace tests; and 3001 points verify the four-piece example. Finite computation is supporting evidence, not the infinite-domain proof.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual risk
-The 2004 convex SDP formulation contains the *optimization problem* but not this formula. The 2007 complete-bipartite closed form covers only the fixed-weight boundary \(t=0\). The 2020 clique-lifting theorem gives an unrestricted internal-clique optimum and is a strong comparison: the constrained optimum can be sharply worse, for instance \(3/5\) versus \(1/6\) for a five-core, two-leaf graph at zero fixed clique weight. The 2019 work explicitly studies fixed edge probabilities and a Pareto trade-off, but its friendship graph has a different adjacency structure and its formulas are not a covering result for the complete split graph. Relevant semantic research-record searches identified no covering claim. The remaining risk is uncatalogued specialist work; absence in indexed search does not establish priority.
+PASS
 
-## Mathematical value — PASS
-Fixing mandatory peer-to-peer transition probabilities while optimizing all other network couplings is a natural constrained consensus and Markov-chain design problem. The closed-form frontier identifies when requiring additional core interaction improves, leaves unchanged, or damages mixing. The explicit four-regime example has exact breakpoints \(1/25\), \(1/10\), and \(1/6\), including a nontrivial optimal plateau. This is a global analytic constrained optimum for an infinite family, not a recomputation of one isolated graph or a mere reformulation of the unconstrained SDP.
+Group averaging over S_s x S_m preserves every fixed clique transition and cannot increase ||P-J||_op. At invariant cross-edge probability a, the eigenvalues on leaf differences, clique differences and partwise contrasts are 1-sa, 1-ma-st and 1-(s+m)a. Nonnegative diagonal constraints restrict a to 0..min(1/s,[1-(s-1)t]/m). Simultaneously requiring all three absolute values <=r gives exact pairwise lower/upper a bounds; checking their feasibility yields seven and only seven necessary affine lower bounds. The constructed lower endpoint attains the max. At maximal t cross edges vanish and SLEM=1; no irreducible mixing is asserted. Independent rational vertex minimax checked 891 instances, s,m=2..10, 11 rational t-grid values per pair.
 
-## Limitations and comparison
-The theorem concerns symmetric uniform-stationary chains only. Endpoints with isolated vertices have SLEM one and are included as spectral-design cases rather than mixing chains. It does not classify all possible noninvariant optimizers or establish independent literature priority. The exact proof applies to every integer \(s,m\ge2\) and every admissible real fixed weight, while computational checks sample finite rational cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full constrained fixed-internal-edge Pareto frontier is not implied by the closest inspected unconstrained optimizer-face or clique-lift results: fixing all core edges at a prescribed t removes previously used feasible optimizers, e.g. s=5,m=2,t=0 gives 3/5 versus unconstrained 1/6. Exact formula is not merely the generic SDP definition.
+
+## value
+
+PASS
+
+Prescribing every peer-to-peer core transition weight while optimizing all other symmetric Markov couplings is a motivated and structurally natural constrained mixing problem. Its exact infinite-family seven-plane frontier and rational four-phase example with plateau give nontrivial behavior absent from an unconstrained SDP optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

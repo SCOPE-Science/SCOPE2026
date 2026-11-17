@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The derivation is analytic: permutation averaging is justified by convexity of the centered symmetric spectral norm; the invariant matrix has three nontrivial eigenvalue classes; interval feasibility translates into seven explicit lower bounds for the optimum. These steps cover all integers \(s,m\ge2\) and all real \(0\le t\le1/(s-1)\).
+## correctness
 
-The supplied `verify.py` uses only the Python standard library and exact rational arithmetic. It independently minimizes a piecewise-affine spectral envelope at every endpoint and every pairwise breakpoint, checking the theorem against 3332 exact test instances. It constructs 180 full matrices and checks all rows, nonnegative entries and the three predicted eigenvector classes. It checks the explicit four-regime witness at 3001 exact rational points. Replay: `python verify.py`.
+PASS
 
-No finite sample, no matter how large, establishes the all-parameter result; the written proof supplies the universal quantifiers. No claim of independent audit or formal certification is made.
+Group averaging over S_s x S_m preserves every fixed clique transition and cannot increase ||P-J||_op. At invariant cross-edge probability a, the eigenvalues on leaf differences, clique differences and partwise contrasts are 1-sa, 1-ma-st and 1-(s+m)a. Nonnegative diagonal constraints restrict a to 0..min(1/s,[1-(s-1)t]/m). Simultaneously requiring all three absolute values <=r gives exact pairwise lower/upper a bounds; checking their feasibility yields seven and only seven necessary affine lower bounds. The constructed lower endpoint attains the max. At maximal t cross edges vanish and SLEM=1; no irreducible mixing is asserted. Independent rational vertex minimax checked 891 instances, s,m=2..10, 11 rational t-grid values per pair.
+
+## originality
+
+PASS
+
+The full constrained fixed-internal-edge Pareto frontier is not implied by the closest inspected unconstrained optimizer-face or clique-lift results: fixing all core edges at a prescribed t removes previously used feasible optimizers, e.g. s=5,m=2,t=0 gives 3/5 versus unconstrained 1/6. Exact formula is not merely the generic SDP definition.
+
+## value
+
+PASS
+
+Prescribing every peer-to-peer core transition weight while optimizing all other symmetric Markov couplings is a motivated and structurally natural constrained mixing problem. Its exact infinite-family seven-plane frontier and rational four-phase example with plateau give nontrivial behavior absent from an unconstrained SDP optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
