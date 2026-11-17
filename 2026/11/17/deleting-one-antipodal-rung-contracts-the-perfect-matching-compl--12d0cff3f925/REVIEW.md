@@ -1,0 +1,15 @@
+# Mathematical assessment
+
+## Correctness — PASS
+The graph is explicitly the \(2n\)-cycle with the antipodal rung \(\{0,n\}\) deleted, where \(n\ge4\) is even. Counting matching edges across every column cut rules out exactly one twisted seam edge. The resulting two perfect-matching families each share two fixed edges and hence give cones. Their common face set equals the perfect-matching complex of the middle open ladder: delete the extra outer column and replace a horizontal pair by a vertical edge when needed, or extend a middle matching with an outer vertical rung. The same argument inductively makes odd-length open-ladder complexes contractible. A finite CW cofibration gluing theorem now proves contractibility for *all* even \(n\ge4\); no inference from finite sampling is used. The packaged executable enumerates exactly \(n=4,6,8,10,12\) and independently confirms the face-set identities; four cases collapse by checked free faces. The source's intact-ladder homotopy theorem is not used as a premise for the defect proof.
+
+## Originality — PASS, with residual risk
+The complete relevant Section 5.1 of Agarwal–Basak (arXiv:2608.30601, revised manuscript) proves the undeleted Möbius-ladder homotopy type, not the edge-defective graph. The full HTML discussion and Theorem 3.3 of Chandrakar–Singh (arXiv:2407.05809) classify *open* ladders and supply the already-known auxiliary odd-length contractibility, but neither states a seam-defective Möbius theorem. Searches for the exact deletion, alternative rung terminology, independence-versus-perfect-matching distinctions and edge-defect homotopy in other records did not find a covering theorem. A distinct result on the independence complex after deleting a Möbius-ladder rung does not imply the perfect-matching statement. Unindexed prior work could still overlap; no search establishes universal novelty.
+
+## Mathematical value — PASS
+The natural one-edge perturbation of a classical three-regular cyclic family turns the known integral wedge of two positive-dimensional spheres into a contractible perfect-matching complex for arbitrarily large even widths. The seam-parity obstruction and exact two-cone cover isolate why a single edge changes the extendibility topology. This is an infinite-family boundary-sensitivity theorem rather than a recomputation of the known open-ladder classification or an arbitrary numerical sample.
+
+## Relationship, limitations, independence
+The single-edge transition rests on a new structural application of the known straight-ladder contractibility theorem. Only even \(n\ge4\), exactly one deleted antipodal rung, and nonequivariant homotopy are proved. The full-width graph result and the open-ladder theorem are expressly credited. The finite program establishes collapsibility only at the tested small widths; it does not justify collapsing all cases or any odd-width assertion. No external independent validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
