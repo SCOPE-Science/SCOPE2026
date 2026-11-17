@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for odd prime powers, positive integer dimension, and all integer times \(t\ge1\). Uniform-Lagrangian double counting fixes the exact transition measure; the irreducible-character classification and a direct Schrödinger kernel calculation give the spectrum. Fourier inversion gives the stated point probabilities, whose signs on the \(z=0\) and \(z\ne0\) fibers are established by strict inequalities for every permitted parameter. Their total deficiency simplifies to the exact all-time total-variation formula. Exact-fraction enumeration checks all point probabilities at times one through four in five fields/dimensions, including the extension field of order nine. The argument is infinite-parameter mathematics; the small-case checker is not offered as a replacement.
+## correctness
 
-## Originality — PASS within bounded comparison
-Gross (arXiv:quant-ph/0602001, 2006) explicitly provides the parity-operator ingredient, so the parity observation is **not** claimed as new. Bump–Diaconis–Hicks–Miclo–Widom (arXiv:1502.04160, 2015) concern a sparse four-generator Heisenberg walk, and Diaconis–Hough (arXiv:1512.06304, 2015) develop local limit theorems for a different unipotent walk. Miclo’s later strong-stationary-time treatment likewise examines sparse coordinate moves, rather than the present dense averaging. These statements do not imply, as results about their specified transition laws, the present walk's exact all-time distance, group point-mass formula, or two-step high-dimensional mixing. Searches for uniform Lagrangian subgroup averaging, Weyl parity, zero-central-layer sampling and two-step Heisenberg mixing did not locate a duplicate. The main residual historical-priority risk is that someone may already have combined the known parity identity and symplectic transitivity to analyze exactly this dense walk; negative searches do not establish priority.
+PASS
 
-## Mathematical value — PASS
-A uniform random Lagrangian subgroup is a natural symplectic-geometric way to generate increments of a finite Heisenberg group. The theorem gives an **exact total-variation law at every positive time**, not merely a qualitative bound; its distance contracts by precisely \(2/(q^m+1)\) each step. In the growing-size regime, it exhibits a sharp one-to-two-step transition, sharply contrasting with sparse-generator Heisenberg mixing. The exact point law and representation-theoretic multiplicities explain why the total-variation decay is a single geometric term despite multiple Fourier eigenvalues. These facts make the result a useful, self-contained benchmark for nonabelian Fourier mixing and subgroup-averaged random walks.
+Uniform symplectic-Lagrangian incidence gives Pr(v nonzero in L)=1/(Q+1), and the step law mu=delta_e/(Q+1)+Q nu/(Q+1), nu uniform on zero-central slice, q odd. For each nontrivial additive central character, the Schrödinger Weyl-slice sum is Q times parity R, so Fourier(mu)=(I+R)/(Q+1), with +1 eigenspace size (Q+1)/2 and -1 size (Q-1)/2. The Q^2 abelian characters give eigenvalues 1 and 1/(Q+1). Counting each dimension-Q irrep Q times gives the stated complete convolution spectrum; finite Fourier inversion yields exactly the point-mass expression. For t>=1 the signed mass excess is on z=0 and deficiency on z!=0 (checked from a_t and b_t); summation gives TV=(q-1)/q*(2/(Q+1))^(t-1). Initial t=0 is expressly excluded from chi-square formula. Independently carried out exact group convolution on every state for q=3,5,m=1 and t=1..4, matching all point masses and TV values; finite tests supplement the Fourier proof for odd prime powers.
 
-## Limitations and closest sources
-Only odd-characteristic groups in the stated normalization and uniform sampling over all Lagrangians are covered. The parity identity and standard Fourier inversion are established theory; independent mathematical validation and unconditional priority determination have not been performed. Related reading includes the Gross discrete Wigner work and the two primary papers on different Heisenberg walks cited above.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gross (2006) establishes the standard odd-dimensional Wigner/parity identity used here, and finite Heisenberg Fourier representation is classical. Bump et al. (2015/17) treat sparse few-generator Heisenberg steps. A similarly named November 8 finding averages only TWO fixed complementary coordinate Lagrangian subgroups and has different Fourier spectrum and mixing law t/2^(t-1), not the UNIFORM mixture over all Lagrangians. The complete dense-measure all-time exact total variation and complete PMF do not follow from those prior theorems without a new measure-specific transform and sign calculation. Priority remains bounded.
+
+## value
+
+PASS
+
+Uniform selection from all symplectic Lagrangians is a natural high-symmetry finite Heisenberg walk. An exact full-time point mass and total-variation identity reveals a sharp one-step-to-two-step asymptotic mixing transition, dramatically different from sparse generators and from mixing only two fixed coordinate subgroups; the exact spectrum is reusable for analysis of this walk. This is a motivated structural calculation, not just general Fourier theory restated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
