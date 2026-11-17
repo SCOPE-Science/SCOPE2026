@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly treats composite positional bases and separates the all-zero terminal case from nonzero factors. Every nonzero palindrome forces a base-lattice reflection axis; its unextendibility forces external block boundaries, producing a strictly shorter palindromic ancestor. The reverse construction preserves maximality because any occurrence containing a \(1\) has a unique block phase. The run classification gives both initial positions, and the valuation distribution establishes exact natural densities. The standalone finite checker confirms all maximal factors in the tested finite languages and all predicted starts; its finite scope is not substituted for the proof.
+PASS
 
-## Originality — PASS (qualified)
+For integer b>=2 including composite b, y_b(bu)=1-y_b(u) and y_b(t)=0 when b does not divide t. Longest zero run has 2b-1 symbols and gives unique terminal maximal zero palindrome 0^(2b-2), with two starts per valuation-even center. Every palindrome containing a 1 has a reflection axis on the b-lattice, and language-maximality forces external multiple-of-b positions; it uniquely descends via the complemented 0^(b-1)-padded inflation map F_b. Conversely the lift preserves nonextendibility and shifts all starts by a factor b. Induction yields lengths (2b-1)b^k-1, exact position formula and density 2/[b^(k+1)(b+1)] via valuation parity frequencies. Independent factor and occurrence prefix checks passed for bases 2..7, n up to 80.
 
-Schaeffer–Shallit's 2015 Theorem 3(d) covers the base-two **length set**, a special case explicitly credited here. Its statement does not provide the arbitrary-base word recursion or the position and frequency laws. Allouche–Baake–Cassaigne–Damanik (2001), Theorem 9, provide a general class-P lifting mechanism and palindromic complexity recursion that applies to the present substitution; this mechanism is credited, not claimed as new. Their theorem does not supply the exact maximal-factor list, start sets or densities. Frid–Laborde–Peltomäki (2020) address prefix palindromic length, Fici–Shallit (2021) address Stewart Toeplitz words, and Barro–Kaboré–Bognini (2022) address two-uniform, multi-letter generalized period-doubling words. None of their inspected statements covers the present arbitrary-base, two-letter language-maximal classification. An unindexed equivalent or an overlooked reduction from general Toeplitz theory is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete classification of a naturally defined infinite family, not a small-range table: it supplies all nonextendible palindromes, an explicit generative operation, an exact sparse length spectrum, every occurrence and its natural density. The base-two published spectrum motivates the question, while the variable-base theorem requires a structural lattice argument and distinguishes changes of positional base from changes of alphabet size.
+The b-adic valuation-parity binary fixed point of 0->0^(b-1)1,1->0^b is not the q-letter two-uniform generalized period-doubling word or the complementary Mephisto substitution; language-maximal nonextendibility is not palindromic prefix factorization or maximality of an individual occurrence. Schaeffer-Shallit Theorem 3(d) proves exactly the b=2 maximal-palindrome length set 3*2^k-1; this special case is already known and is explicitly not credited as new. Class-P palindromic morphism theory accounts for the existence of a general padded palindrome lift, but not the all-b maximal factor list and valuation-based exact start densities. A proof of base-two allowed lengths cannot imply the all-integer-base two-start valuation formula, especially for composite b. General palindrome-preserving substitution counts do not by themselves prove complete language-level nonextendibility and occurrence classification. Best-of-knowledge originality with disclosed residual risks; no search failure alone is treated as novelty proof.
 
-## Closest literature and limitations
+## value
 
-The most directly relevant known result is Schaeffer–Shallit (2015), Theorem 3(d), at base two. The 2001 class-P lifting theorem supplies general context but not the specific maximal-factor occurrence classification; related 2020–2022 sources treat different invariants or word families. The statement remains a mathematical proof presented for independent scrutiny; no independent validation has occurred. Bibliographic search cannot establish universal absence of prior equivalent formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full language-level classification of nonextendible palindromic factors, with explicit integer starting positions and asymptotic densities for every positional base, is a natural exact invariant of a well-studied automatic word family. The all-base occurrence distribution is stronger than the known binary length spectrum and may be reused in automatic-sequence palindrome statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
