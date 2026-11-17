@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-`verification/verify_transfer.py` constructs the full 81-state adjacency predicate and row-swap permutation, reduces the transfer to rational even/odd sectors, recomputes both complete integer characteristic polynomials, and tests the twist-difference power-sum identity through length fifteen. All checks passed using Python 3 and SymPy 1.14.0. Its captured output is `verification/verify_transfer.out`.
+## correctness
 
-`verification/verify_direct.py` independently builds each finite graph and exhaustively evaluates every \(3^{2n}\) coloring for lengths three through six. It also checks the original synchronous update map for every coloring at lengths three through five. All checks passed. Its captured output is `verification/verify_direct.out`.
+PASS
 
-The all-length result follows from the explicitly constructed transfer graph and its exactly verified characteristic polynomials, not from a finite search. No independent audit or external certification was performed.
+A nontrivial 3-periodic state under the deterministic 0/1/2 Greenberg–Hastings rule must have all vertices cycling, because connectedness forbids a stationary zero neighbor to a cycling vertex. Each vertex must have a successor-color neighbor, a local condition on three consecutive rungs. The defined 81-state transfer T gives prism trace tr(T^n); rail swap J yields twisted trace tr(JT^n). Independently constructed both rational 45- and 36-dimensional symmetry blocks and symbolically confirmed the exact two factorized characteristic polynomials; Newton power sums then give P_n-M_n=2(1+(-1)^n)+4s_n with s_n=-5s_(n-2)+3s_(n-3). The dominant root alpha=(3+sqrt(17))/2 lies outside both cubic sectors, proving the strict relative exponential gap for all n. Independently enumerated all original 3^(2n) nonlinear initial states for n=3,4,5: (P,M)=(72,36),(252,48),(450,750), with successor criterion matched to direct three-step dynamics. These finite checks corroborate but do not replace the exact determinant argument.
+
+## originality
+
+PASS
+
+The closest primary excitable-media sources determine activity rates, cycle-density criteria and synchronization but not exact primitive-three starting-state populations on cyclic and Möbius two-rail cubic graphs. Published open-ladder primitive-three recurrence is a genuinely different free-boundary count, not a twisted transfer trace. Other related Resultary Tait-colouring and neighborhood-balanced results use line graphs or different local constraints, so do not imply the present two spectra. A historical unindexed transfer computation remains a bounded risk.
+
+## value
+
+PASS
+
+Twisted-versus-untwisted boundaries in excitable media form a motivated topological comparison. Exact labeled primitive-wave counts, the nontrivial signed cubic seam-difference recurrence, and a common strict leading entropy answer more than a routine existence question; the seam correction is not obtained by substituting n into an open-ladder recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

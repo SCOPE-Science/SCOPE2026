@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The period-three local successor condition is proved from the update rule and connectedness. An explicitly stated 81-state transfer matrix counts all prism colorings by a cyclic trace; the rail swap gives a twisted trace for the Möbius graph. Its rational even/odd sector determinants are exact finite identities computed by the included standalone integer-algebra checker. Eigenvalue power sums establish the recurrence and spectral separation for every integer \(n\ge3\). An independently written direct simulator checks nonlinear dynamics and graph adjacencies for small sizes. Finite enumerations are corroboration, not the infinite proof.
+## correctness
 
-## Originality
-PASS, with a literature-access risk. The exact object is an initially primitive-three state census on two-rail cyclic and Möbius cubic graphs. Published treatments of the Greenberg–Hastings model by Durrett–Griffeath, Gravner–Lyu–Sivakoff, and Doba describe general activity/phase criteria and not this transfer-spectrum or exact twisted-seam difference. The related open-ladder recurrence counts a different graph family and does not imply either closing-seam trace. Published mathematical-record and text searches for primitive-three, successor-color domination, circular ladders, Möbius ladders and equivalent transfer descriptions did not find a covering exact statement. This is best-knowledge originality, not a proof of uniqueness. The Durrett–Griffeath full text was unavailable here.
+PASS
 
-## Value
-PASS. The finite-size effect of a topological twist in a graph excitable medium is a natural quantitative question beyond period existence. Formula (1) gives the exact seam sensitivity for every width-two cylinder length and a nontrivial signed order-three recurrence; the sector factorization proves that the seam becomes exponentially irrelevant to the normalized primitive-wave population. The distinction between free, ordinary cyclic, and twisted cyclic boundary conditions is not a routine substitution in the previously known free-ladder formula.
+A nontrivial 3-periodic state under the deterministic 0/1/2 Greenberg–Hastings rule must have all vertices cycling, because connectedness forbids a stationary zero neighbor to a cycling vertex. Each vertex must have a successor-color neighbor, a local condition on three consecutive rungs. The defined 81-state transfer T gives prism trace tr(T^n); rail swap J yields twisted trace tr(JT^n). Independently constructed both rational 45- and 36-dimensional symmetry blocks and symbolically confirmed the exact two factorized characteristic polynomials; Newton power sums then give P_n-M_n=2(1+(-1)^n)+4s_n with s_n=-5s_(n-2)+3s_(n-3). The dominant root alpha=(3+sqrt(17))/2 lies outside both cubic sectors, proving the strict relative exponential gap for all n. Independently enumerated all original 3^(2n) nonlinear initial states for n=3,4,5: (P,M)=(72,36),(252,48),(450,750), with successor criterion matched to direct three-step dynamics. These finite checks corroborate but do not replace the exact determinant argument.
 
-## Limits and review status
-Only immediate least-period-three configurations and their temporal orbits are determined, not eventual basins or other periods. The transfer determinant is certified by an exact reproducible calculation, and the significance concerns this natural family, not arbitrary graph strips. Unindexed coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary excitable-media sources determine activity rates, cycle-density criteria and synchronization but not exact primitive-three starting-state populations on cyclic and Möbius two-rail cubic graphs. Published open-ladder primitive-three recurrence is a genuinely different free-boundary count, not a twisted transfer trace. Other related Resultary Tait-colouring and neighborhood-balanced results use line graphs or different local constraints, so do not imply the present two spectra. A historical unindexed transfer computation remains a bounded risk.
+
+## value
+
+PASS
+
+Twisted-versus-untwisted boundaries in excitable media form a motivated topological comparison. Exact labeled primitive-wave counts, the nontrivial signed cubic seam-difference recurrence, and a common strict leading entropy answer more than a routine existence question; the seam correction is not obtained by substituting n into an open-ladder recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
