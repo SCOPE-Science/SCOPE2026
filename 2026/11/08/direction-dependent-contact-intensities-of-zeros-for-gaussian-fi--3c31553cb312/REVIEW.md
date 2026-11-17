@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For two nearby zeros, the conditional time-direction derivative is asymptotically half their separation times the second derivative, with opposite signs at the two points. This yields the factor \(1/4\) times a conditional squared imaginary derivative product in the contact Kac–Rice identity. Direct Hermite-coordinate orthogonal projection supplies the exact conditional covariance. Gaussian fourth moments give the stated \(2s^3(4+7s-8s^2)/(1+2s)^2\) and \(6s^4/(1-2s+4s^2)^2\), with positive denominators throughout \(0\le s\le1\). The independent Gram-Schur numerical checker passes. Finite tests do not constitute the proof.
+PASS
 
-## Originality
+For circular white-noise STFT with g_s=sqrt(1-s)h0+sqrt(s)h1, 0<=s<=1, the two-point Kac–Rice coalescence expansion reduces contact to one quarter of p_(F,F_u)(0,0) times the conditional square of Im(conj(F_uu)F_v). The Hermite ladder yields explicit derivative linear forms in four independent circular Gaussians. Orthogonal conditioning on F=F_x or F=F_y gives opposite Jacobian signs and the exact axis limits 2s^3(4+7s-8s^2)/(1+2s)^2 and 6s^4/(1-2s+4s^2)^2. Independent complex Gaussian Gram-Schur regression and fourth-moment evaluation agreed at s=0,.05,.2,.5,.8,1, including 0 and 2/3 endpoints. This verifies finite-dimensional Gaussian algebra; the limiting Kac–Rice dominated-convergence lemma and nondegeneracy away from s=0 are analytic inputs, not finite-experiment conclusions.
 
-**PASS relative to evidence inspected, with risk.** Haimi–Koliander–Romero (2022) treat the general one-point intensity and a radial charged two-point calculation, neither of which supplies the present nonradial *unsigned* contact pair. Feldheim and colleagues (first public 2024) study aggregated large-area variance, not directional collision intensities. Bellourak and colleagues (2026) advertise Hermite-order-specific, rotation-invariant pair statistics; the new claim uses a nontrivial real superposition and displays distinct directional exponents. Relevant indexed searches and accessible mathematical-claim comparisons located no equivalent. The Bellourak full text was inaccessible; that unresolved priority risk requires external checking before any publication claim.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is an exact structural crossover in the natural passage from analytic to polyanalytic spectrogram zero processes. The two physical coordinate directions have sharply different onset exponents, and the limiting zero pairs are oppositely charged. The precise contact constants offer a motivated benchmark for studying anisotropic short-range zeros, without claiming finite-sample performance.
+Haimi–Koliander–Romero 2022 develops one-point intensity and radial charged-pair expressions, not an unsigned anisotropic mixed-window contact limit. Bellourak et al. October 2026 studies pure Hermite order n and has two-point results: its abstract is highly relevant but full text inaccessible through arXiv/OA and authorized Oxford access (VPN disconnected). Its uninspected appendices remain a material risk, not a fabricated exclusion. The two independent x/y formulas and cubic-vs-quartic onset were not found in inspected published statements.
 
-## Closest work and limitations
+## value
 
-The 2022 general first-intensity formula and 2026 pure-Hermite pair statistics are the closest references. Results are restricted to the real nonnegative Gaussian-plus-first-Hermite window, unsigned two-point contact, and two coordinate directions. The full angular correlation, finite separation behavior, and statistical robustness are unproved. Independent priority and mathematical audits remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Signed versus unsigned short-distance zero clustering is a natural geometric local statistic. The explicit anisotropy and distinct power laws quantify the loss of Gaussian repulsion under a precisely motivated first-Hermite perturbation; this is a substantive Kac–Rice structural calculation, not a one-point paraphrase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
