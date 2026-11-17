@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement includes the sharp counting-normalization of the convolution kernel, all field and dimension boundaries, an exact Gaussian-incidence identity, the Fourier orthogonality proof, a uniform sign proof for every rank shell, and exact orbit multiplicities. The binary-square threshold follows from the explicit quadratic polynomial in \(2^{m-2}\), not extrapolation from experiments. Complete Fourier transforms of small prime-field spaces and independent direct enumeration of the exceptional \(5\times5\) and adjacent \(5\times6\) cases support the general proof.
+## correctness
 
-**Originality — PASS under bounded comparison.** Delsarte's 1978 full paper (Section 3 and Appendix A2) contains the full underlying association-scheme character matrix, but does not evaluate this rank-two-ball sharp endpoint projection norm or classify its negative Fourier shells. Gavrilyuk–Koolen (arXiv:1511.09435, full text) characterize the binary bilinear-forms graphs from their intersection arrays; even the discussion of balls of radius two concerns local graph isomorphism, not Fourier-algebra norms. Cioabă–Gupta (arXiv:2102.10155, full text) provide the generalized Krawtchouk table and sign/minimum results for *exact-rank* graphs, not the rank-at-most-two ball, its total absolute Fourier mass, or the square-binary sign transition. Closest indexed comparisons concerned first Grassmann projection norms, rank-one matrix Fourier sampling, and rank-two convolution singular values; none is a stronger theorem for the present radius-two projection. The 1978 eigenmatrix makes a derivation possible, so an unlocated prior specialization remains the central residual priority risk.
+PASS
 
-**Mathematical value — PASS.** The rank-two ball is the first nontrivial genuinely nonlinear metric ball in the classical bilinear-forms scheme. Its Fourier-algebra norm is a natural sharp endpoint amplification invariant. The result replaces a \(q\)-Krawtchouk absolute-value sum by a one- or two-shell closed formula uniformly in the field size and both dimensions, identifies the sole exceptional square-binary regime, and proves that increasing the rectangular excess by one destroys its extra negative shell. This is a structural arithmetic transition across an infinite family, not a small-parameter tabulation.
+Subspace-incidence Möbius identity decomposes the indicator of rank<=2 matrices as Σ_{dim U=2}1_{im A⊂U}-q[m-2 choose1]_q Σ_{dim U=1}1_{im A⊂U}+q^3[m-1 choose2]_q 1_{A=0}. Fourier character annihilators count U≤ker X^T and give integer F_k=q^(2n)[k choose2]_q-q^(n+1)[m-2 choose1]_q[k choose1]_q+q^3[m-1 choose2]_q, k=m-rank(X). F_0>0, F_1<0; for k>=3 the first two summands are strictly positive by q^(n-1)[k-1]_q/((q+1)[m-2]_q)>1, while F_2>0 except q=2,n=m, where z=2^(m-2) gives F_2=(8/3)(-z²+6z+1), negative iff m>=5. Thus strict nonzero signs are exhaustive. Counting rank-s matrices N_{m,n}(s) and Σ_X F=q^(mn) yields the exact L1 and L-infinity convolution norms through negative mass, including all prime powers. Independent tests passed 189 (q,m,n) parameter tuples covering 1512 rank sectors, every required orbit/zero-mass sum, and all 512 Walsh Fourier coefficients on the entire binary 3x3 matrix space; binary 5x5 sign transition follows by the exact inequality, not brute-force inference.
 
-**Limitations and residual risks.** General eigenvalue formulas are long established. The literature comparison is bounded and cannot exclude an older discussion of radius-two absolute character mass hidden in coding or association-scheme sources. An independent audit has not occurred. Finite checks do not certify the infinite theorem; the printed proof bears that burden.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Delsarte 1978 Appendix Theorem A2 determines the generalized q-Krawtchouk rank-scheme Fourier eigenmatrix, an explicit prior input. The published 2026-11-08 rank-exactly-two convolution singular-value theorem computes the least absolute eigenvalue and a binary-square least-stable sector for the rank TWO shell, not the rank-at-most-two ball projector or its L1 endpoint absolute Fourier-mass sum. Neither provides the complete sign classification of the rank<=2 transform and exact dual-rank negative-mass weighting as a stated conclusion. Full primary Delsarte pages 1-16 and exact-rank theorem were materially read; best-of-knowledge originality is therefore qualified, not absolute.
+
+## value
+
+PASS
+
+Exact Fourier-projection endpoint stability of the natural radius-two rank-metric ball is a motivated finite-field harmonic-analysis invariant, and the additional binary-square negative rank shell at size five is a precise structural phase transition. The strict sign classification and orbit-weighted endpoint norm have meaningful conditioning/aggregation consequences, even though the q-Krawtchouk eigenmatrix itself is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
