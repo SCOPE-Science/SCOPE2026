@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T12:49:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/five-facet-fastest-mixing-on-circular-ladders-with-two-mandatory--7683d92029e0/RESULT.md",
+        "Independent 500-LP exact objective comparison",
+        "Boyd et al. Cartesian product Fourier framework"
+      ],
+      "rationale": "Symmetry averaging is valid for the convex spectral norm ||P−Π|| of symmetric stochastic matrices and preserves both pointwise edge floors, proving global reduction to common rim/rung weights. Fourier spectrum on C_m square K2 (Cartesian product) yields three sharp endpoint inequalities 1−ar, 1−2v, br+2v−1 for SLEM. Five resulting lower bounds are also sufficient using r=max(tau,(1−t)/a), v=max(eta,(1−t)/2); analytic a+b>4 proves feasibility for every m≥4 and every 2tau+eta≤1. Odd m needs all five facets, even m the 4tau−1 facet is redundant. An independent SciPy linear program solved 500 parameter instances for m=4..13, matching the claimed optimum to 4.44e−16; this supports but does not replace the analytic all-size proof.",
+      "residual_risks": [
+        "Independent LP uses floating point for corroboration, not certified infinite feasibility; analytic inequalities supply the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/0709.0955v1: full available primary HTML sections on group averages, Cartesian products, unrestrained examples.",
+          "A generic convex SDP exists for every graph, but no algebraic expression for the prism SLEM with independently varying rim and rung floors appears in the inspected published theorems."
+        ],
+        "reasoning": "General symmetry principles and spectral decomposition are credited. Their existence does not yield the new five-term affine max without solving this particular constrained two-dimensional problem.",
+        "searches": [
+          "arXiv:0709.0955v1 Fastest Mixing Markov Chain on Graphs with Symmetries Cartesian products",
+          "Boyd Diaconis Xiao 2004 FMMC SDP all graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/0709.0955v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-without-holding-on-every-cyclic-prism--090eb4b47c29/RESULT.md",
+        "Boyd Diaconis Xiao 2004 original fastest mixing SDP",
+        "Resultary prism FMMC semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/0709.0955v1 provides the eigenvalue decomposition and group averaging already used, not the five lower-bound inequalities with simultaneous floors.",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-without-holding-on-every-cyclic-prism--090eb4b47c29/RESULT.md parity obstruction with rungs and holding zero, mathematically different scope."
+        ],
+        "reasoning": "The submitted affine-envelope formula needs a newly solved constrained LP: knowing the Fourier modes or one no-holding slice does not logically determine all feasible floor pairs.",
+        "searches": [
+          "Boyd et al 2007 Cartesian product formula §3.2",
+          "Resultary exact fastest mixing without holding every cyclic prism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact closest parameter match is assigned finding; other results optimize unconstrained or loopless prism chains.",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-without-holding-on-every-cyclic-prism--090eb4b47c29/RESULT.md loopless prism optimum forbids all diagonal holding, unlike both-floor condition with holding allowed."
+        ],
+        "reasoning": "The constrained two-floor feasible triangle cannot be reproduced by a fixed no-holding or generic unconstrained solution; different active spectral inequalities control the optimum.",
+        "searches": [
+          "Resultary fastest mixing circular ladder prism Markov transition floors rim rung SLEM exact",
+          "\"prism\" \"rim\" \"rung\" \"minimum transition\" \"fastest mixing\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-without-holding-on-every-cyclic-prism--090eb4b47c29/RESULT.md supplies an explicit no-holding result instead of a two-parameter floor table.",
+          "Resultary results include Möbius ladders, unconstrained/loopless prisms and wheel price variants; none has matching two-floor formula."
+        ],
+        "reasoning": "The prior same-object result studies a zero-diagonal slice, not exact values across all feasible (tau,eta). No exact precomputed table known from the inspected sources.",
+        "searches": [
+          "Resultary five-facet fastest mixing circular ladders two mandatory edge flows",
+          "\"two floors\" \"prism\" \"SLEM\" facets"
+        ]
+      },
+      "rationale": "This is a complete explicit all-m two-independent-floor fastest-mixing law and odd/even irredundant facet classification. The inspected Boyd et al. FMMC and symmetry papers give generic SDP, automorphism averaging and Cartesian-product eigenvalues, not the constrained five-facet parameter envelope. A separate published result handles zero-holding cyclic prisms, a different feasible set, and does not imply the two lower-bound floor frontier. Best-of-knowledge originality; possible unindexed constrained prism optimizations remain.",
+      "residual_risks": [
+        "Equivalent nonindexed optimization over Cartesian-product chains with box lower constraints may already exist.",
+        "Exact active facet sensitivity at endpoints is continuous; only the stated all-m odd/even nonredundancy is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": "Group averaging and product Fourier facts are prior but no two-floor prism facet classification in inspected material.",
+          "identifier_or_url": "https://arxiv.org/html/0709.0955v1",
+          "material_read": "Full accessible arXiv HTML, particularly group averaging, Cartesian products and explicit examples",
+          "method": "Read primary HTML sections and checked theorem conditions",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Foundational same optimization class and Cartesian-product spectral reduction"
+        },
+        {
+          "assessment": "DISTINCT_CONSTRAINT",
+          "evidence": "No-holding optimum and even-prism period-two obstruction do not supply two independent edge-floor constrained solution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-without-holding-on-every-cyclic-prism--090eb4b47c29/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem, parity cases, proof, Fourier spectrum, limitations",
+          "method": "Read full raw GitHub mathematical text",
+          "title": "Exact fastest mixing without holding on every cyclic prism",
+          "trigger": "Same graph with distinct zero-diagonal feasibility restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/0709.0955v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-without-holding-on-every-cyclic-prism--090eb4b47c29/RESULT.md",
+        "Independent 500 LP cross-checks"
+      ],
+      "rationale": "The circular ladder is a canonical 3-regular Cartesian-product network, and mandatory traffic through rim and rung edges is a natural constrained mixing design. The solved global optimum is an exact, all-size two-parameter five-facet frontier with constructive optimizer and parity-dependent redundancy, illustrating nontrivial spectral/stochastic constraint interactions. It goes beyond a generic SDP restatement or a numerical small graph case.",
+      "residual_risks": [
+        "No uniqueness claimed for all nonsymmetrized optimizers and no direct TV mixing-time claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to symmetric stochastic matrices and uniform stationary distribution on C_m × K2; no arbitrary directed or nonuniform extension.",
+    "Best-of-knowledge novelty only, not certified historical priority."
+  ],
+  "schema_version": 1
+}
