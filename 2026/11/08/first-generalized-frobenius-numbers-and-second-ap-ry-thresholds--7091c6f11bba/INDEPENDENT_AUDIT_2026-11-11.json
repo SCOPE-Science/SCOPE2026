@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T11:53:13.059443Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set q=h+1, c=hm-1, u=floor(c/q); for residue r, admissible two-coin base costs from x-y congruent r mod m have least candidates A=r(m+1), B=(m-r)c, each repeated at +qm. Other congruence branches start after these first-two candidates by m(m+1)>qm or mc>qm, so the second threshold is min(max(A,B),min(A,B)+qm). Comparing c-qu against 0 determines the four pieces, maximizing w_r minus m yields g1=(m+1)u+(h-1)m-1+[q|m], and summing (w_r-r)/m gives the claimed genus. I independently implemented a three-denomination representation-count DP for every 3<=m<=24 and 2<=h<m (253 parameter pairs), checked all second thresholds, g1 and n1 exactly; no exception. All-unrestricted quantifiers rest on the symbolic branch inequalities, not the finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier lacunary family <qk,qk+1,q(k+1)> has third generator m+q, whereas submitted family has hm-1; the prior formulas do not parameterize the present two-parameter family."
+        ],
+        "reasoning": "A broader general three-coin denumerant algorithm might compute the result but no prior closed all-(m,h) w_r,g1,n1 theorem or dominating specialization was found.",
+        "searches": [
+          "Resultary: p Frobenius number 1 two representations semigroup m m+1 hm-1 second Apéry",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-sharp-first-frobenius-gluing-deficit-and-second-ap-ry-thresholds--84c058c5f5e0/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2206.13052",
+        "https://arxiv.org/abs/2311.06050",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-sharp-first-frobenius-gluing-deficit-and-second-ap-ry-thresholds--84c058c5f5e0/RESULT.md",
+        "Resultary: p Frobenius number 1 two representations semigroup m m+1 hm-1 second Apéry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AP theorem has equal successive gaps, whereas (m,m+1,hm-1) has gaps 1 and (h-1)m-2; the lacunary qk family differs except incidental points."
+        ],
+        "reasoning": "No observed stronger statement implies the four all-residue formulas or the jump condition; generalized Apéry identities alone require new nontrivial minimization.",
+        "searches": [
+          "arXiv:2206.13052",
+          "arXiv:2311.06050",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-sharp-first-frobenius-gluing-deficit-and-second-ap-ry-thresholds--84c058c5f5e0/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Komatsu–Ying use p-Apéry thresholds and generalized Frobenius/genera for actual three-term arithmetic progressions."
+        ],
+        "reasoning": "The same notion of the second Apéry threshold is standard; the new arithmetic lies in the different non-AP family, not in renaming that notion.",
+        "searches": [
+          "Resultary: p Frobenius number 1 two representations semigroup m m+1 hm-1 second Apéry",
+          "arXiv:2206.13052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact earlier table of second thresholds for generators (m,m+1,hm-1) was identified; arithmetic-progression p-Frobenius tables use different generators."
+        ],
+        "reasoning": "This is a parametric classification, not an arbitrary small-case table or recomputation of a known table; lack of search hits is not novelty proof.",
+        "searches": [
+          "Resultary search second Apéry thresholds near-arithmetic triple",
+          "arXiv:2206.13052"
+        ]
+      },
+      "rationale": "No inspected earlier result supplies these explicit residuewise second thresholds and closed two-parameter formulas; general p-Apéry concepts and numerical-semigroup algorithms are credited.",
+      "residual_risks": [
+        "A specialized older three-generator denumerant identity might yield the same closed family after a nonobvious transformation.",
+        "The semigroup is near-arithmetic only in its first two generators; no assertion is made for p>=2 or outside stated m,h."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_NOT_COVERING",
+          "evidence": "Restricted to genuine AP triples (a,a+d,a+2d), not variable near-AP third generator hm-1.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+          "material_read": "Full main theorem, parameter hypotheses, p-Apéry method and conclusions",
+          "method": "Lawful open-access journal/html and arXiv description; main theorem text read",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "p=1 Apéry formula for three generators with closely spaced gaps"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NO_CLOSED_COVERAGE",
+          "evidence": "Does not give the same four-branch second thresholds and genus for this input.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.06050",
+          "material_read": "Abstract and relevant Section 5 formulas and equality/upper-bound criteria",
+          "method": "Lawful open-access primary article main theorem read",
+          "title": "On p-Frobenius of Affine Semigroups",
+          "trigger": "General denumerant/gluing p-Frobenius inequalities potentially dominating this family"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY",
+          "evidence": "Its generators are <qk,qk+1,q(k+1)>, not <m,m+1,hm-1>.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-sharp-first-frobenius-gluing-deficit-and-second-ap-ry-thresholds--84c058c5f5e0/RESULT.md",
+          "material_read": "Complete RESULTS proof, hypotheses, exact residue threshold and formulas",
+          "method": "Full published primary result text",
+          "title": "Sharp first-Frobenius gluing deficit and second-Apéry thresholds for a lacunary triple",
+          "trigger": "Closest published Resultary second-Apéry all-parameter formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full p=1 thresholds and generalized genus are natural next-level Frobenius invariants of a motivated two-parameter family. The sharp divisibility-triggered +1 jump is a structural effect invisible to the classical p=0 formulas, not a tiny unmotivated parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m>=3, 2<=h<=m-1, the numerical semigroup <m,m+1,hm-1> has an exact four-branch first two-representation residue threshold w_r, yielding closed g1 and n1 formulas with a one-unit correction when (h+1)|m.",
+  "limitations": [
+    "Formulas cover p=1 only and exactly m>=3,2<=h<=m-1.",
+    "Finite DP corroborates rather than proves the unrestricted inequalities."
+  ],
+  "schema_version": 1
+}
