@@ -1,15 +1,21 @@
-# Scientific review: sixth moments of centered affine tetrahedral functions
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Dirichlet barycentric mixed moments give the exact complete-homogeneous expression for the sixth moment. Newton identities produce the stated cubic-skewness and quartic-product formula. Normalized AM--GM and Cauchy--Schwarz prove the sharp product bounds, and a complete two-value Lagrange-multiplier classification proves the cubic bound. Both upper-bound inequalities share exactly the one-versus-three extremizers; the lower bound is saturated exactly by balanced two-versus-two values. The independent symbolic checker verifies the critical degree-six identity and exact rational endpoints. No numerical enumeration substitutes for global proof.
+## correctness
 
-## Originality
-**PASS, subject to residual historical risk.** Source and equivalent-statement searches found general simplex/polytopal integration results, but no identified prior result giving both rational optimal normalized sixth-moment constants and their complete tetrahedral equality classes. Baldoni et al. (arXiv:0809.2083) optimize computational complexity of integration, and Gravin et al. (arXiv:1210.3193) treat moment reconstruction/generating functions. Those supply a way to compute moments but not a theorem optimizing the normalized ratio over the centered coefficient sphere. Comparable polynomial norm inequalities in older unindexed sources remain possible. A closely related triangular sharp-moment calculation addresses a different two-dimensional affine space and does not imply these tetrahedral sharp constants.
+PASS
 
-## Mathematical value
-**PASS.** This determines the complete sharp sixth-moment geometry of a natural three-dimensional centered affine subspace of \(L^p\) on **all** tetrahedra. Its lower and upper extremizers have different coefficient partition structures, and the sixth moment detects both cubic skewness and signed fourfold interaction. Exact nonnegative deficits measure how either obstruction prevents equality. This is a full natural finite-dimensional sharp norm classification, not an arbitrary fixed coefficient evaluation.
+PASS: Dirichlet(1,1,1,1) barycentric mixed moments imply E f²=S₂/20, E f⁶=[S₂³/8+S₃²/9−S₂E₄]/84, so K=(2000/21)[1/8+S₃²/(9S₂³)−E₄/S₂²]. Verified the sixth complete-homogeneous symmetric polynomial independently using SymPy after enforcing zero sum. Sharp −1/48<=E₄/S₂²<=1/16 follows from AM–GM and Cauchy, and 0<=S₃²/S₂³<=1/3 from two-level Lagrange multipliers. Joint equality forces exactly the two stated vertex partitions, for every tetrahedral shape via affine invariance. Deficits were checked symbolically, not merely numerically.
 
-## Limits
-The theorem is confined to real affine functions, uniform tetrahedral volume and exponent six. Independent expert verification has not been performed. The general integration formulas are prior work; only the sharp optimization and deficit classification are claimed here. Historical equivalence remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded): General Dirichlet simplex integration and a related all-dimensional centered-affine fourth-moment theorem are prior, but they do not imply this tetrahedral sixth-order sharp 3+1 versus 2+2 optimizer geometry and two invariant deficits. No covering theorem identified among semantic and primary comparisons.
+
+## value
+
+PASS
+
+PASS: Complete exact L6/L2 norm geometry on the natural 3D space of mean-zero affine tetrahedral functions, independent of simplex shape; different extremizer partitions and two meaningful geometric deficits resolve a natural sharp finite-dimensional Sobolev/finite-element moment problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
