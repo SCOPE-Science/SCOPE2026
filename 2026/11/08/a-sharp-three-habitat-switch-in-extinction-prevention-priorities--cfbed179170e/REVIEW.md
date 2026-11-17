@@ -1,24 +1,21 @@
-# Scientific review — a sharp three-habitat intervention switch
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is about the expected global extinction time of the fully occupied three-vertex colonization–extinction process, with one extinction hazard halved. Its exact seven-state first-step equations yield a rational center-minus-endpoint difference with a denominator strictly positive for all allowed parameters. The eight numerator coefficient polynomials have exactly one positive zero apiece, in strictly increasing order, certified by Descartes' rule and disjoint rational root isolations. Their sign sequence proves a single crossover for every middle-range mortality ratio, and fixed optimality outside that range. The two-site formula precludes a comparable change on smaller connected graphs. The bundled exact-arithmetic verifier independently reconstructs the generator and all critical algebraic identities; 35 rational samples are additional checks, not the infinite-domain proof.
+PASS
 
-## Originality — PASS on inspected evidence, with residual historical-priority risk
+Reconstructed seven nonabsorbing-state Markov first-step linear equations. The reported rational formula (T_center-T_leaf)=N(c,t)/D(c,t) has positive denominator for c,t>0. Inspected symbolic checker rebuilds the 7-state generator and computes exact rational inverse, then verifies polynomial numerator and coefficient root isolation rather than relying only on a saved log. Each coefficient A_j(t) has one positive threshold, strictly ordered from theta0=1 to theta7=6; Descartes signs in c give a single positive crossover for 1<t<6, with opposite uniform signs outside. Two-state generator gives a difference with c-independent sign, proving minimality. Independent rational inversions at t=2 gave T_center-T_leaf=-38243/145208 for c=1 and +10721/179952 for c=3. Finite samples are only corroboration.
 
-The principal model relatives are Etienne–Heesterbeek (2001), Frank (2004), Ross–Pollett (2009), and Kitzes–Merenlender (2013). Etienne–Heesterbeek propose conservation priorities from patch-specific extinction rates, but the relevant full text was inaccessible, so no whole-document noncoverage assertion is made. Frank's examined article uses an approximate established-metapopulation lifetime for habitat-area allocation. Ross–Pollett give exact homogeneous patch-count formulas and numerical spatial-network management comparisons, not this exact heterogeneous three-patch protection ordering. Kitzes–Merenlender study a demographic simulation and finite-horizon reserve selection, not Markov first-extinction times or a universal one-switch theorem. Search and statement-level comparison to existing mathematical records found no identical phase diagram or stronger general theorem implying it. Contact-process and older metapopulation priority results remain plausible sources of historical overlap; the claim must not be represented as independently certified novel.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a complete and sharp answer to a natural resource-allocation problem with competing patch quality and graph position. It identifies the previously non-obvious exact boundary at a sixfold center-to-leaf baseline extinction-rate ratio and proves that, between the boundaries, **exactly one** colonization intensity reverses the best single-patch intervention. The theorem is parametric rather than a hand-picked numeric example, and three patches are minimal. It clarifies a structural limitation of choosing conservation priority from local mortality alone. Its value is mathematical and model-specific; no field efficacy or wider-network optimality is asserted.
+Best-of-knowledge originality survives statement/implication comparison: The older all-discount center-protection theorem assumes uniform pre-treatment hazards with one common distinguished hazard q and covers the homogeneous t=1 slice. This finding varies baseline center t and changes that center hazard to t/2 versus a leaf to 1/2. The named reductions and remaining inaccessible plausible sources are recorded as residual risks, not treated as proof of originality.
 
-## Sources and limitations
+## value
 
-- Etienne and Heesterbeek, 2001, https://doi.org/10.1086/321986 — publication metadata and abstract examined; full text inaccessible despite attempts to find legal public text and institutional access.
-- Frank, 2004, https://www.cbd.int/doc/articles/2004/a-00069.pdf — original accessible paper inspected for model, approximation, optimization and discussion.
-- Ross and Pollett, 2009, https://www.maths.uq.edu.au/MASCOS/MODSIM09/RossPollett.pdf — original accessible conference paper inspected for exact count-process formulas and spatial-management comparisons.
-- Kitzes and Merenlender, online 13 February 2013, https://doi.org/10.1111/conl.12015 — original full-text article inspected for intervention objective, methods, results and discussion.
+PASS
 
-The conclusion is restricted to the stated closed, initially occupied, symmetric three-path process and an equal-proportional half-rate intervention. Historical-priority research was not exhaustive.
+The competing interventions have a natural fixed-cost comparison and mean time to global extinction is a standard persistence invariant. The complete hazard-ratio 1/6 phase diagram and unique colonization crossover are mathematically useful extensions beyond the known homogeneous-patch result; the finite three-habitat boundary is motivated, not an arbitrary sample.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
