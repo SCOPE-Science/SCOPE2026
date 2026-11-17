@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The anchored Lipschitz polytope is integral by total unimodularity, and positive definiteness of centered variance modulo constants ensures *all* maximizers are integral. Diameter two reduces to three levels and to disjoint cross-intersecting families of two-sets. The elementary four-cross-pair bound proves the sharp size restriction for families with both sizes at least two; a single extreme two-set gives the competing closed numerator. The \(n=6\) equality profiles and the \(n=11\) phase switch follow from exact integer arithmetic. The supplied checker performs genuinely independent finite cross-intersection enumeration for three sizes and does not serve as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2009 graph-spread paper develops the invariant, general integer reductions and complete-graph benchmark, but its inspected results study random-graph cases rather than the \(KG(n,2)\) sharp norm and equality transition. The 2011 cross-intersection paper concerns cardinality sums/products, not the centered-variance objective with disjoint signed level sets. An earlier exact Euclidean inradius calculation for the Petersen symmetric-edge polytope implies the \(n=5\) norm; the claim explicitly starts at \(n=6\). Indexed work on a Kneser pair-eigenpolytope concerns a different polytope, not the symmetric edge polytope dual to the graph Lipschitz unit ball. Residual risk: an unindexed or differently named exact Kneser spread formula might subsume the theorem. No claim of universal literature exclusion is made.
+PASS
 
-## Value — PASS
-The graph family has a canonical metric and a high-symmetry finite-dimensional Lipschitz Banach space. The theorem is a complete, all-order sharp embedding norm with all equality types; the threshold at \(n=11\) precisely identifies when all missing graph constraints become irrelevant to the worst-case centered variance. The extra \(n=6\) extremizer geometry provides a nontrivial boundary classification, and the cross-intersecting-family reduction connects the operator norm to a motivated extremal-set problem.
+On KG(n,2), strict convexity and total unimodularity of root-anchored edge difference constraints force integral norming potentials; diameter two implies range 0,1,2. Their extreme zero/two sets are disjoint cross-intersecting edge families in K_n. The two-nonsingleton family inequality a+b<=max(n,6), the singleton extremum E_n=N(2n-3)-(2n-5)^2, and the balanced binary B_n=floor(N^2/4) yield the maximum with a distinct n=6 equality exception, 7<=n<=10 three-level winners, n=11 tie and n>=12 balanced binary winners. Independently exact enumeration corroborated the n=6 size profiles (1,8),(2,4),(4,2),(8,1) and n=7 singleton profiles. Infinite statement uses the combinatorial inequality and arithmetic comparisons.
 
-## Scientific boundaries
-Only real-valued uniform-vertex graph Lipschitz spread of \(KG(n,2)\) for \(n\ge6\) is established. The previously known Petersen case is omitted from novelty. Other Kneser parameters and nonuniform laws remain open here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: generic graph-spread theory, Borg cross-intersecting family cardinality sums, Petersen n=5 radius, the separate Kneser eigenpolytope ellipsoids, and a C4-free-complement spread theorem do not imply this exact KG(n,2) spread and all equality types for n>=6. KG(n,2) has complement J(n,2) with K(2,2) subgraphs, so the C4-free hypothesis fails. Residual risk of an unindexed special-case exact radius remains.
+
+## value
+
+PASS
+
+PASS: a natural highly symmetric graph metric has an exact all-order Lipschitz embedding norm and equality geometry with a sharp first point n=11 where the missing adjacency constraints cease increasing spread; n=6 is a meaningful exceptional structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
