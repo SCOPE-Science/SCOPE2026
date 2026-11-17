@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_window.py` using Python 3 with no nonstandard dependencies. The actual completed execution returned `PASS: 4096 exact rational checks (7 characteristic values and one Routh equivalence per case)`. This checks 512 rational parameter configurations and seven characteristic-determinant evaluations per case using exact Gaussian elimination over fractions, plus exact rational stability-condition comparisons.
+## correctness
 
-## Meaning and limitations
+PASS
 
-The checker independently constructs each six-dimensional linearization from cross-product matrices and compares characteristic determinants to the two closed cubics. It then compares Routh-Hurwitz coefficient signs with the angular inequalities. These finite computations do not prove the claim for all real parameters. The RESULT.md proof supplies the all-parameter factorization via the exact exchange involution, all strict Hurwitz inequalities, and the elementary positivity argument. Near the strict equality boundaries, numerical signs may be delicate; no numerical floating-point eigenvalue test is used as a proof. Independent audit has not been performed.
+The six-dimensional Jacobian for two axis-cross-product matrices splits on (v,±Rv) under R=diag(-1,-1,1) into two 3x3 blocks. Independent symbolic charpolys match P_+(z)=z³+4hz²+(4h²+ω²)z+2hω² sin²(theta/2) and P_-(z)=z³+2hz²+ω²z+2hω² cos²(theta/2) with z=lambda-1 and h=K/2. Cubic strict Routh-Hurwitz coefficients plus the submitted E>0 comparison reduce stability to K>3 and L<u<U. U-L=(K-3)/K*(1-(2K-3)/ω²); 0<L<U<1 iff omega²>2K-3; minimizing over K and imposing u=1/2 gives omega>sqrt(3) and omega>4sqrt(2). Independent numerical eigenspectra agreed for stable K=4,omega=3,u=.8 and K=6,omega=6,u=.5, unstable K=4,u=.5; smooth local exponential stability iff Hurwitz, no boundary/global assertion.
+
+## originality
+
+PASS
+
+Zou et al. (2023) give the parent D-dimensional mean-field model and general amplitude-death spectral relations, but accessible full main text does not derive the exact equal-speed N=2 all-axis-angle six-eigenvalue Hurwitz interval or sharp sqrt(3) versus 4sqrt(2) thresholds. Gogoi et al. (2025) examine two misaligned 3D oscillator dynamics and fixed points but do not state these exact local origin-stability conditions. The original finite-network supplementary material remains a significant specific comparison risk; no assertion that it was read.
+
+## value
+
+PASS
+
+Motivated phase diagram isolates orientation alone without frequency heterogeneity, gives exact nonempty angle interval and two sharply different geometrical frequency thresholds, with a structural involutory block reduction. The full parameter family is a substantial classification, not a single numeric stability point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

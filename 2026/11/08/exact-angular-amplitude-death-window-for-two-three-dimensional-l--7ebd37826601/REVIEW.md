@@ -1,19 +1,21 @@
-# Scientific assessment: Exact angular amplitude-death window for two three-dimensional limit-cycle oscillators
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Jacobian is reduced by the proper-rotation involution to two explicit three-by-three blocks. The characteristic cubics, all Routh-Hurwitz coefficients and inequalities, the positive E comparison implying the plus cubic, and the angle-interval equivalence are proved in RESULT.md. The standard smooth linearization theorem establishes exactly local exponential stability, not global attraction. The embedded standard-library checker passes 4096 exact rational checks; these are auxiliary and not substituted for the full proof.
+PASS
 
-## Originality — PASS within inspected evidence
+The six-dimensional Jacobian for two axis-cross-product matrices splits on (v,±Rv) under R=diag(-1,-1,1) into two 3x3 blocks. Independent symbolic charpolys match P_+(z)=z³+4hz²+(4h²+ω²)z+2hω² sin²(theta/2) and P_-(z)=z³+2hz²+ω²z+2hω² cos²(theta/2) with z=lambda-1 and h=K/2. Cubic strict Routh-Hurwitz coefficients plus the submitted E>0 comparison reduce stability to K>3 and L<u<U. U-L=(K-3)/K*(1-(2K-3)/ω²); 0<L<U<1 iff omega²>2K-3; minimizing over K and imposing u=1/2 gives omega>sqrt(3) and omega>4sqrt(2). Independent numerical eigenspectra agreed for stable K=4,omega=3,u=.8 and K=6,omega=6,u=.5, unstable K=4,u=.5; smooth local exponential stability iff Hurwitz, no boundary/global assertion.
 
-Direct theorem-level comparisons with accessible full main text of arXiv:2302.05603 and relevant Section III.1.2 of arXiv:2511.19052v1, with source/parameter/alias searches, public research-record similarity searches, found no coverage of the explicit all-angle finite-two-node Hurwitz window or its strict frequency threshold. The original paper does mention inaccessible finite-N supplementary analysis, a documented publication-priority risk; search absence alone is not conclusive. The precise closest references are Zou et al. (arXiv:2302.05603) for the parent model and distributional spectral criteria, and Gogoi et al. (arXiv:2511.19052v1, Section III.1.2) for two misaligned three-dimensional oscillators. The inaccessible original finite-network supplementary material is an unresolved publication-priority risk, not evidence that its contents were read.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The equal-frequency finite-pair setting isolates pure orientational disorder, and the classification gives a complete natural stability phase interval rather than an arbitrary parameter point. It reveals the exact angular window width, a sharp existence threshold ω>√3, and an unexpectedly stronger perpendicular-axis threshold ω>4√2. This supplies a quantitatively motivated complement to qualitative and numerical misaligned-axis oscillator studies.
+Zou et al. (2023) give the parent D-dimensional mean-field model and general amplitude-death spectral relations, but accessible full main text does not derive the exact equal-speed N=2 all-axis-angle six-eigenvalue Hurwitz interval or sharp sqrt(3) versus 4sqrt(2) thresholds. Gogoi et al. (2025) examine two misaligned 3D oscillator dynamics and fixed points but do not state these exact local origin-stability conditions. The original finite-network supplementary material remains a significant specific comparison risk; no assertion that it was read.
 
-## Verification limitations
+## value
 
-The finite rational checker supports the exact proof but cannot exhaust continuous parameters. No global-attraction or marginal nonlinear-stability conclusion is assessed. Final scientific priority requires independent human literature comparison and mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Motivated phase diagram isolates orientation alone without frequency heterogeneity, gives exact nonempty angle interval and two sharply different geometrical frequency thresholds, with a structural involutory block reduction. The full parameter family is a substantial classification, not a single numeric stability point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

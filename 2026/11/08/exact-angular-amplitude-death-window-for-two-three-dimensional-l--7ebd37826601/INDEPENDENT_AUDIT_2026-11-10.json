@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:01:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The six-dimensional Jacobian for two axis-cross-product matrices splits on (v,±Rv) under R=diag(-1,-1,1) into two 3x3 blocks. Independent symbolic charpolys match P_+(z)=z³+4hz²+(4h²+ω²)z+2hω² sin²(theta/2) and P_-(z)=z³+2hz²+ω²z+2hω² cos²(theta/2) with z=lambda-1 and h=K/2. Cubic strict Routh-Hurwitz coefficients plus the submitted E>0 comparison reduce stability to K>3 and L<u<U. U-L=(K-3)/K*(1-(2K-3)/ω²); 0<L<U<1 iff omega²>2K-3; minimizing over K and imposing u=1/2 gives omega>sqrt(3) and omega>4sqrt(2). Independent numerical eigenspectra agreed for stable K=4,omega=3,u=.8 and K=6,omega=6,u=.5, unstable K=4,u=.5; smooth local exponential stability iff Hurwitz, no boundary/global assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The physical model was first introduced in a high-dimensional all-N setting; its main text gives general spectral evolution rather than sharp two-node equal-omega interval.",
+          "The full accessible 2025 follow-up covers different and common axes but does not quote the theta-dependent K,omega threshold pair."
+        ],
+        "reasoning": "Specialization of a general model does not itself establish the nontrivial necessary-and-sufficient Routh algebra; however uninspected 2023 supplementary results could cover it, so retain this explicit residual.",
+        "searches": [
+          "Resultary search: angular amplitude death stability axis-angle two oscillators equal frequency Routh Hurwitz 3D generalized Stuart Landau",
+          "https://doi.org/10.1103/PhysRevLett.130.107202",
+          "arxiv:2511.19052v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2302.05603",
+        "https://arxiv.org/html/2511.19052v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Governing Eq(4) matches the 2023 two-node specialization; the source supplies broad linear stability tools, not directly the strict u interval or thresholds in its inspected main text."
+        ],
+        "reasoning": "No decisive proof of implication from any fully inspected prior named theorem; nonetheless original supplementary treatment is a distinct material priority risk.",
+        "searches": [
+          "Resultary search: angular amplitude death stability axis-angle two oscillators equal frequency Routh Hurwitz 3D generalized Stuart Landau",
+          "arxiv:2302.05603",
+          "arxiv:2511.19052v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zou source model specializes to two nodes with K/2 mutual diffusion; its main formulas describe general collective spectra, rather than the explicit strict three-parameter angular Hurwitz inequalities.",
+          "Gogoi Section III.1.2 different-eigenvector dynamics is mostly synchronization, phase locking, and oscillation-death configurations."
+        ],
+        "reasoning": "Amplitude death and oscillation death must be distinguished; no inspected equivalence identifies the all-angle origin Hurwitz window with a published closed criterion.",
+        "searches": [
+          "Resultary search: angular amplitude death stability axis-angle two oscillators equal frequency Routh Hurwitz 3D generalized Stuart Landau",
+          "arxiv:2302.05603",
+          "arxiv:2511.19052v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational independent eigenvalue checks cover isolated real parameters, but the theorem classifies all angular/coupling/frequency triples; available prior plots and numerical scans are not a dominating exact table."
+        ],
+        "reasoning": "This is a continuous phase-boundary result, not a recomputed numerical lookup table.",
+        "searches": [
+          "Resultary search: angular amplitude death stability axis-angle two oscillators equal frequency Routh Hurwitz 3D generalized Stuart Landau",
+          "arxiv:2302.05603",
+          "arxiv:2511.19052v1"
+        ]
+      },
+      "rationale": "Zou et al. (2023) give the parent D-dimensional mean-field model and general amplitude-death spectral relations, but accessible full main text does not derive the exact equal-speed N=2 all-axis-angle six-eigenvalue Hurwitz interval or sharp sqrt(3) versus 4sqrt(2) thresholds. Gogoi et al. (2025) examine two misaligned 3D oscillator dynamics and fixed points but do not state these exact local origin-stability conditions. The original finite-network supplementary material remains a significant specific comparison risk; no assertion that it was read.",
+      "residual_risks": [
+        "2023 parent paper alluded to finite-N supplementary spectrum: full technical supplementary material was not available and could contain an equivalent angle criterion.",
+        "Strict local exponential stability says nothing about global attraction or nonlinear stability at equality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MODEL_NOT_EXPLICIT_FULL_CLASSIFICATION",
+          "evidence": "Same coupled oscillator ODE, but the strict all-angle Hurwitz inequality and two exact infimum thresholds were not found in accessible main text.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05603",
+          "material_read": "Accessible main research article and its parent mean-field equations, D=3 amplitude death discussion and general spectral statements; supplementary finite-N derivations not read",
+          "method": "open-access arXiv main research-paper text",
+          "title": "Solvable Dynamics of Coupled High-Dimensional Generalized Limit-Cycle Oscillators (Zou et al., 2023)",
+          "trigger": "Exact parent model and potential finite-N spectral implication"
+        },
+        {
+          "assessment": "DIFFERENT_CONCLUSIONS",
+          "evidence": "Studies distinct-axis coupled fixed states and partial oscillation death without the specified strict finite-pair zero-equilibrium Hurwitz window.",
+          "identifier_or_url": "https://arxiv.org/html/2511.19052v1",
+          "material_read": "Full HTML paper sections II, III.1.2, IV and appendices checked for origin Hurwitz and angle-dependent amplitude death versus other fixed points",
+          "method": "open-access arXiv HTML source",
+          "title": "Dynamics of coupled D-dimensional Stuart-Landau oscillators (Gogoi et al., 2025)",
+          "trigger": "Two-node D=3 noncollinear axis dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Motivated phase diagram isolates orientation alone without frequency heterogeneity, gives exact nonempty angle interval and two sharply different geometrical frequency thresholds, with a structural involutory block reduction. The full parameter family is a substantial classification, not a single numeric stability point.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2302.05603",
+    "https://arxiv.org/html/2511.19052v1",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-angular-amplitude-death-window-for-two-three-dimensional-l--7ebd37826601"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two equal-frequency three-dimensional Stuart–Landau oscillators with isotropic diffusive coupling K/2, the origin is locally exponentially stable precisely on an explicit strict squared-half-angle interval; some angle works iff omega>sqrt(3), whereas perpendicular axes require omega>4sqrt(2).",
+  "limitations": [
+    "2023 parent paper alluded to finite-N supplementary spectrum: full technical supplementary material was not available and could contain an equivalent angle criterion.",
+    "Strict local exponential stability says nothing about global attraction or nonlinear stability at equality.",
+    "No full-document claim is made for sources inspected only by abstracts or selected sections; finite computations are corroboration, not infinite proofs.",
+    "Source material and metadata remain unchanged; status not_ready is a publication/privacy constraint, not a scientific axis."
+  ],
+  "residual_risks": [
+    "2023 parent paper alluded to finite-N supplementary spectrum: full technical supplementary material was not available and could contain an equivalent angle criterion.",
+    "Strict local exponential stability says nothing about global attraction or nonlinear stability at equality."
+  ],
+  "schema_version": 1
+}
