@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T03:54:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/shattering-maximal-sperner-families-an-exponential-lower-bound-a--dc9f8577cb39/RESULT.md",
+        "2026/11/08/shattering-maximal-sperner-families-an-exponential-lower-bound-a--dc9f8577cb39/verify.py"
+      ],
+      "rationale": "The fixed-atom rank-r support is shattered: for each positive T retain those rank-r sets; for each omitted x introduce x\\{a} at rank r-1, an antichain incomparable with the retained sets, then extend to a maximal antichain; each omitted x is blocked by its subset. Sperner width bounds every shattered support by C(n,floor(n/2)), giving Theta(2^n/sqrt n) with the attained C(n-1,floor((n-1)/2)) lower bound. Exact n=1..5 maximal-clique/trace recursion, independently implemented in independent_checks.py, gave maximal-antichain totals (2,3,7,29,376) and shattered vectors (1,2), (1,4), (1,8,9), (1,16,55,52), (1,32,285,1090,1780,1224,310). The independent orbit check independently computed all 310 six-supports and 11 S5 orbits of sizes 5,5,10,15,15,20,30,30,60,60,60. The provided ORBIT_CLASSES.json and finite verifier were inspected; no exact n>=6 dimension asserted.",
+      "residual_risks": [
+        "No general exact formula for n>=6 is claimed; finite exhaustiveness is restricted to n<=5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Griggs et al., arXiv:2302.07062, Theorems 1–2 concern sizes and flat constructions of individual maximal antichains; Balogh et al. concern adjacent hypercube layer induced matchings and other VC-bounded classes."
+        ],
+        "reasoning": "Antichain-width and flat maximal-antichain coverage give neither every labeling on a fixed support nor the full n=5 support enumeration. The rank-star lower bound shares a standard induced-matching construction, but not the finite orbit result.",
+        "searches": [
+          "Resultary: maximal Sperner families shattering",
+          "https://arxiv.org/pdf/2302.07062",
+          "https://arxiv.org/abs/1710.08509"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.07062 (PDF abstract/intro/theorems)",
+        "https://publications.hse.ru/en/articles/839893683 (abstract only)",
+        "https://oeis.org/A326358",
+        "https://arxiv.org/abs/1710.08509",
+        "independent_checks.py",
+        "independent_orbit_check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Griggs et al. classify cardinalities of maximal antichains; Duffus–Sands–Winkler give existence/avoidance of antichains, not arbitrary 2^k membership patterns for a fixed support."
+        ],
+        "reasoning": "The new bounds are consistent with Sperner, but none of these results logically entails the exact five-atom shattering polynomial or group orbits. The upper bound alone is known and not credited as original.",
+        "searches": [
+          "https://arxiv.org/abs/2302.07062",
+          "https://www.math.emory.edu/~dwight/papers/1-DSW-Boolean.pdf",
+          "Resultary: maximal antichain membership shattering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sperner family is an antichain; maximal Sperner family is a maximal incomparability-graph clique; the submitted theorem concerns shattered support sets, not the individual family-size spectrum."
+        ],
+        "reasoning": "Alternative maximal-clique and incidence-matrix wording describes the same object; the indexed comparisons did not provide a prior full trace polynomial.",
+        "searches": [
+          "Resultary: VC dimension shattering maximal antichains Boolean lattice maximal Sperner families five atoms enumeration",
+          "arXiv:2302.07062"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known maximal-antichain totals include 376 for n=5; submitted polynomial counts 310 distinct size-six shattered supports distributed over 11 S5 orbits."
+        ],
+        "reasoning": "An enumeration of hypotheses, or of individual-antichain sizes, does not determine their binary incidence shattering traces. The inaccessible complete Ignatov text is a residual risk.",
+        "searches": [
+          "OEIS:A326358",
+          "OEIS:A348260",
+          "https://publications.hse.ru/en/articles/839893683"
+        ]
+      },
+      "rationale": "PASS qualified: The Boolean-lattice maximal Sperner-family incidence class has a rank-star exponential lower bound and an exact five-atom shattering polynomial/orbit classification. Earlier works enumerate maximal antichains or their possible sizes, not the incidence traces over all 2^|S| labelings, so they do not entail the 310 shattered six-supports or 11 orbits. Ignatov's inaccessible full body is an explicitly retained historical risk.",
+      "residual_risks": [
+        "Ignatov 2023 primary full text inaccessible, so a hidden exact incidence enumeration cannot be ruled out.",
+        "No general exact formula for n>=6 is claimed; finite exhaustiveness is restricted to n<=5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the incidence-shattering enumeration",
+          "evidence": "Theorems enumerate possible cardinalities of individual maximal antichains, not the support polynomial of the whole hypothesis class.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.07062",
+          "material_read": "PDF abstract, introduction and theorem statements concerning possible antichain cardinalities and flat maximal antichains",
+          "method": "arXiv PDF page inspection",
+          "title": "Sizes of flat maximal antichains of subsets",
+          "trigger": "Same lattice, same maximal antichain object"
+        },
+        {
+          "assessment": "INCOMPLETE plausibly adjacent source",
+          "evidence": "Counts maximal antichains themselves. Unread journal body could in principle contain a shattering table; not assumed absent.",
+          "identifier_or_url": "https://doi.org/10.1134/S1995080223010158",
+          "material_read": "Public abstract and metadata, enumeration citation; full journal body not accessible",
+          "method": "public bibliographic/abstract reading; publisher restricted",
+          "title": "On the Number of Maximal Antichains in Boolean Lattices for n up to 7",
+          "trigger": "Exact five-atom enumerations and potential hidden table"
+        },
+        {
+          "assessment": "INTERNAL proof coherent with bounded independent finite checks",
+          "evidence": "Independently confirmed exact 310 six-supports and all 11 orbits; finite checks do not establish unrestricted bounds, which follow from the rank-star and Sperner arguments.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/shattering-maximal-sperner-families-an-exponential-lower-bound-a--dc9f8577cb39/RESULT.md",
+          "material_read": "Full mathematical RESULT.md, ORBIT_CLASSES.json and verification source",
+          "method": "frozen Git blob reading and independent enumeration",
+          "title": "Shattering maximal Sperner families: an exponential lower bound and the exact five-atom profile",
+          "trigger": "Assigned final claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/shattering-maximal-sperner-families-an-exponential-lower-bound-a--dc9f8577cb39/RESULT.md",
+        "arXiv:2302.07062 (PDF abstract/intro/theorems)",
+        "https://publications.hse.ru/en/articles/839893683 (abstract only)"
+      ],
+      "rationale": "A natural, independent VC-complexity invariant of maximal Sperner families is resolved asymptotically and given a complete nontrivial five-atom support/orbit census, identifying the first VC dimension larger than the number of atoms. This is useful beyond counting individual maximal antichains, although the general upper bound is classical Sperner and the exact n>=6 values remain unknown.",
+      "residual_risks": [
+        "Ignatov 2023 primary full text inaccessible, so a hidden exact incidence enumeration cannot be ruled out.",
+        "No general exact formula for n>=6 is claimed; finite exhaustiveness is restricted to n<=5."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Ignatov 2023 primary full text inaccessible, so a hidden exact incidence enumeration cannot be ruled out.",
+    "No general exact formula for n>=6 is claimed; finite exhaustiveness is restricted to n<=5.",
+    "No GitHub writes, publisher/auth bypass, external certification or formal proof asserted.",
+    "Scientific C/O/V completeness and import/readiness are separate; publication status not_ready is a transport/privacy blocker, not scientific failure."
+  ],
+  "schema_version": 1
+}
