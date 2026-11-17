@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:54:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strip-walk-shattering-polynomial-of-catalan-up-step-concepts--900e52ee307a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strip-walk-shattering-polynomial-of-catalan-up-step-concepts--900e52ee307a/verify_catalan_shattering.py",
+        "Independent enumerator n=1..6 and strip formula"
+      ],
+      "rationale": "Dyck up-step sets are the bases of Catalan matroid. A shattered support S is exactly independently extendable for both all-up and all-down assignments; matroid basis exchange fills in intermediate traces. Since first position is up and last down, only internal paired Q_i={2i,2i+1} can occur. Prefix constraints yield for N=n−1, d=N−|S| the exact strip path h_0=0, h_i=h_{i−1}+1−|S∩Q_i|, 0≤h_i≤d and h_N=d. Choices per pair give tridiagonal transfer A_d with diag2, offdiag1, so coefficient [z^k]Φ_n=(A_{N-k}^N)_{0,N-k}. Top coefficients 2^N and (3^N−1)/2 are exact; an explicit support with a doubly selected pair is maximal of size n−2 for n≥4, establishing nonpurity. Independent exhaustive raw Dyck traces match all coefficients for n=1..6.",
+      "residual_risks": [
+        "Finite enumeration is a corroboration; unbounded n proof uses matroid exchange and exact transfer matrix.",
+        "n=1 boundary polynomial 1, nonpurity starts n=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ardila provides matroid structure, rank, Tutte data, not the all-degree ordinary trace f-vector.",
+          "Engström–Sanyal–Stump standard complex has one face per matroid base, different from the ordinary shattered supports."
+        ],
+        "reasoning": "Neither broad theory provides the specific strip transfer-matrix coefficient (A_{N-k}^N)_{0,N-k}; known matroid exchange supplies one lemma only.",
+        "searches": [
+          "https://arxiv.org/html/math/0209354v1",
+          "https://arxiv.org/pdf/1911.12290",
+          "https://arxiv.org/abs/1801.07640",
+          "Resultary semantic: Dyck path Catalan matroid shattered supports shattering polynomial transfer matrix"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/math/0209354v1",
+        "https://arxiv.org/pdf/1911.12290",
+        "https://arxiv.org/abs/1801.07640",
+        "Resultary semantic: Resultary semantic: Dyck path Catalan matroid shattered supports shattering polynomial transfer matrix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-positive/all-negative matroid basis criterion is a classical consequence of exchange.",
+          "Converting prefix feasibility to bounded walk gives pairs-of-positions step weights 1,2,1 and exact path endpoint matrix."
+        ],
+        "reasoning": "The established Catalan-matroid identification and exchange rules make the problem well posed, but the full strip walk enumeration, top layers and explicit nonpurity do not follow without the present combinatorial derivation.",
+        "searches": [
+          "https://arxiv.org/html/math/0209354v1",
+          "https://arxiv.org/pdf/1911.12290",
+          "Resultary semantic: Dyck path Catalan matroid shattered supports shattering polynomial transfer matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a matroid basis family, S shattered iff a basis contains all S and another avoids all S; exchange yields each intermediate pattern.",
+          "For Catalan matroid, both feasibility inequalities yield 0≤h_i≤n−1−|S| per internal pair."
+        ],
+        "reasoning": "The relevant alias is common independent/coindependent support sets in a Catalan matroid, not the ordinary Catalan path count or lexicographic standard complex.",
+        "searches": [
+          "Resultary semantic: Dyck path Catalan matroid shattered supports shattering polynomial transfer matrix",
+          "https://arxiv.org/html/math/0209354v1",
+          "matroid bases shattered coordinate trace iff support independent and coindependent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalan bases count C_n; ordinary shattering polynomial at n=4 totals 28, compared to C_4=14.",
+          "Direct finite n≤6 enumeration matches coefficients, but proof gives n arbitrary."
+        ],
+        "reasoning": "Catalan number tables and Tutte polynomial do not serve as a complete table of shattered coordinate supports. No exact preexisting ordinary shattering coefficient table located.",
+        "searches": [
+          "https://arxiv.org/pdf/1911.12290",
+          "https://arxiv.org/html/math/0209354v1",
+          "Resultary semantic: Dyck path Catalan matroid shattered supports shattering polynomial transfer matrix"
+        ]
+      },
+      "rationale": "Ardila proves Dyck up-position sets form Catalan-matroid bases; this foundational equivalence and matroid exchange are not novel. Engström–Sanyal–Stump define a lexicographic standard complex of lattice-path matroids, not this ordinary coordinate shattering complex: n=4 gives 14 Catalan bases versus 28 shattered supports. The nontrivial bounded-strip weighted-walk enumeration gives the full ordinary trace/shattering polynomial and explicit nonpurity witness, which are not implied by those inspected primary statements.",
+      "residual_risks": [
+        "Catalan matroid basis description and matroid all-positive/all-negative trace criterion are classical and not novel.",
+        "Engström–Sanyal–Stump standard complexes count different faces; an equivalent ordinary trace enumeration under alternative matroid terminology remains possible.",
+        "Complete classification of all inclusion-maximal shattered supports is not claimed, only nonpurity witness and full f-polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms matroid bases and known structural properties but not inspected complete ordinary shattered-support f-polynomial.",
+          "evidence": [
+            "arXiv:math/0209354 matroid definition and basis theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0209354v1",
+          "material_read": "Open-access arXiv complete HTML: basis definition, exchange theorem, duality, rank and Tutte polynomial sections.",
+          "method": "Full primary HTML text inspection.",
+          "title": "The Catalan matroid",
+          "trigger": "Exact same Dyck up-step set objects"
+        },
+        {
+          "assessment": "The standard complex is lexicographic/dual-invariant and has one face per basis; differs from ordinary coordinate shattering: 14 vs 28 at n=4.",
+          "evidence": [
+            "arXiv:1911.12290 definitions and standard complex theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.12290",
+          "material_read": "Original 16-page primary PDF examined as text with page images of first page and standard-complex discussion (including p.6); definition and comparison with bases.",
+          "method": "Primary PDF text plus required page-image inspection.",
+          "title": "Standard complexes of matroids and lattice paths",
+          "trigger": "Potentially equivalent lattice-path shattering complex"
+        },
+        {
+          "assessment": "General VC/banned patterns motivation, no located Catalan strip transfer-matrix formula.",
+          "evidence": [
+            "arXiv:1801.07640 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.07640",
+          "material_read": "Accessible abstract and published metadata, not claimed full paper read.",
+          "method": "Public abstract/bibliography.",
+          "title": "Model theory and combinatorics of banned sequences",
+          "trigger": "Background on labelled sequence shattering concepts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/math/0209354v1",
+        "https://arxiv.org/pdf/1911.12290",
+        "https://arxiv.org/abs/1801.07640",
+        "Resultary semantic: Resultary semantic: Dyck path Catalan matroid shattered supports shattering polynomial transfer matrix"
+      ],
+      "rationale": "The complete ordinary shattering f-polynomial and nonpurity classification are natural invariants of a canonical Catalan-matroid path concept class. A full transfer-matrix formula for all support sizes is independently useful in combinatorial VC theory; the distinction from existing lexicographic standard complexes is substantive, not mere renaming.",
+      "residual_risks": [
+        "No exact full maximal-face classification or individual trace multiplicity theorem.",
+        "Priority under alternative independent/coindependent matroid terminology still qualified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact face polynomial, VC dimension and some facets; not all facets classified.",
+    "Result concerns Dyck up-step coordinate membership, not all lattice-path matroids."
+  ],
+  "schema_version": 1
+}

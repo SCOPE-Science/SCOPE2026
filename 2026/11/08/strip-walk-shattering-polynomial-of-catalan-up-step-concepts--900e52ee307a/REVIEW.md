@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The proof separates the old matroid basis-exchange fact from the new prefix/suffix characterization and walk enumeration. The all-off condition is tested by taking earliest permitted up positions; the all-on condition follows by reversal and up/down interchange. Their joint inequalities identify a strip walk of fixed endpoint. Its transition weights produce exact integer matrix powers. The top layers and the nonpure face follow without extrapolation. Full direct trace enumeration for semilengths one through seven agrees with the theorem. The proof is all-order; computation is finite corroboration.
+## correctness
 
-## Originality
-Ardila's Catalan matroid and the general simultaneous independent/coindependent criterion are prior. Engström, Sanyal and Stump's lattice-path *standard complex* is not the ordinary shattering complex: its total face count equals the Catalan base count, whereas ordinary shattering at semilength four has twenty-eight faces. Chase and Freitag's banned-sequence work and the linear zero-set work study broader/different trace families, not the complete Catalan ordinary-support census. Relevant primary sections, semantic literature searches, and known result comparisons did not reveal an exact equivalent polynomial or an implication covering the new enumerator. A synonym-level priority risk remains, especially among matroid-intersection or lattice-path enumerators; one relevant order-shattering article was accessible only via abstract.
+PASS
 
-## Mathematical value
-The full coefficientwise polynomial is a natural invariant of a classical Catalan concept class, finer than a single dimension. Its sharp layer formulas and a nonpure maximal-face construction expose combinatorial behavior not captured by a standard complex or Tutte activity formula. The enumerator is efficiently computable and offers a concrete structural bridge between shattering and restricted Motzkin walks.
+Dyck up-step sets are the bases of Catalan matroid. A shattered support S is exactly independently extendable for both all-up and all-down assignments; matroid basis exchange fills in intermediate traces. Since first position is up and last down, only internal paired Q_i={2i,2i+1} can occur. Prefix constraints yield for N=n−1, d=N−|S| the exact strip path h_0=0, h_i=h_{i−1}+1−|S∩Q_i|, 0≤h_i≤d and h_N=d. Choices per pair give tridiagonal transfer A_d with diag2, offdiag1, so coefficient [z^k]Φ_n=(A_{N-k}^N)_{0,N-k}. Top coefficients 2^N and (3^N−1)/2 are exact; an explicit support with a doubly selected pair is maximal of size n−2 for n≥4, establishing nonpurity. Independent exhaustive raw Dyck traces match all coefficients for n=1..6.
 
-## Limits
-The general matroid criterion is not claimed as new. No complete enumeration of all maximal faces, trace multiplicities or all lattice-path matroids is given. Independent historical and mathematical audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ardila proves Dyck up-position sets form Catalan-matroid bases; this foundational equivalence and matroid exchange are not novel. Engström–Sanyal–Stump define a lexicographic standard complex of lattice-path matroids, not this ordinary coordinate shattering complex: n=4 gives 14 Catalan bases versus 28 shattered supports. The nontrivial bounded-strip weighted-walk enumeration gives the full ordinary trace/shattering polynomial and explicit nonpurity witness, which are not implied by those inspected primary statements.
+
+## value
+
+PASS
+
+The complete ordinary shattering f-polynomial and nonpurity classification are natural invariants of a canonical Catalan-matroid path concept class. A full transfer-matrix formula for all support sizes is independently useful in combinatorial VC theory; the distinction from existing lexicographic standard complexes is substantive, not mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
