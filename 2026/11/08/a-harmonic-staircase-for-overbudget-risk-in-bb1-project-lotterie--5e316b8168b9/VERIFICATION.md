@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the sharp lottery risk frontier
+# Independent mathematical audit
 
-The proof's necessary inequality follows exactly from \(\mathbb E Z=cq\), the integer omitted-count bound under a cap, and the distinction between overbudget and non-overbudget outcomes. Its sufficiency uses a three-type distribution and uniform cyclic omission blocks, verifying all individual marginals rather than only their sum. The integer-cost case is treated separately.
+## correctness
 
-The included `verification/verify_frontier.py` executed successfully on the delivered copy: `PASS: 2940 exact-fraction construction checks and 420 independent full-distribution LP comparisons.` The exact tests cover integer and noninteger exceptional costs, multiple project counts, boundary and interior caps, several inclusion marginals, and both attainable and unattainable cases. The LP checks enumerate every labeled subset and enforce the BB1 and cost-cap predicates independently. SciPy is optional for LP tests, while exact rational construction tests need only the Python standard library.
+PASS
 
-These are finite checks only; the proof covers all real parameters in the stated domain. No external independent audit or human proof verification is claimed. Possible equivalent published formulas remain a priority limitation.
+With H indicator for expensive project and Z count of unselected cheap ones, E[H]=q, E[Z]=c q and total expenditure k-Z+cH. For c=m+f noninteger, below-budget expensive outcomes require Z>=t=m+1, capped expensive outcomes require Z>=ell=max(0,ceil(c-delta)); thus r>=q(t-c)/(t-ell) or infeasible if delta<f. Three outcome types (H,Z)=(0,0),(1,ell),(1,t), with masses 1-q,r,q-r, satisfy the bound with equality. Cyclic averaging of omitted blocks ensures every cheap marginal; direct addition/removal checks BB1 and cap. For integer c omit exactly c when H=1, giving zero risk. Independent full-outcome LP at k=5,c=7/2,q=1/2 confirms optimum 1/4,1/8,1/12,1/16 at caps 1/2,3/2,5/2,7/2; infinite theorem follows analytical bound/construction.
+
+## originality
+
+PASS
+
+Aziz et al. prove general BB1 marginal-preserving implementation, but not the minimum strict-overbudget probability subject to a hard overspend cap. General dependent rounding/joint mixability and Bernoulli risk optimization can formulate coupling problems, without an identified logical implication giving this explicit staircase. Primary Aziz full text was examined; more remote risk-coupling literature is not fully excluded. Best-of-knowledge originality passes provisionally.
+
+## value
+
+PASS
+
+Under BB1, existence of a lottery alone does not control risk frequency. The complete sharp feasibility/risk tradeoff with explicit finite-support optimal distributions answers a natural policy-design question for a motivated symmetric cost family rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
