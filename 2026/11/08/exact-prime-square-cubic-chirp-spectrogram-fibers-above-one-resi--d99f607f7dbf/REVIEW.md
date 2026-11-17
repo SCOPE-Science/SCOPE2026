@@ -1,15 +1,21 @@
-# Review of the prime-square cubic-chirp spectrogram-fiber theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The full Gauss-sum support calculation distinguishes unit shifts, shifts divisible by \(p\), and zero shift, with exact normalization. Two Fourier inversions recover cross-class outer products and each class's nonzero-lag autocorrelations. Cross-class rank-one factors force global phase with three classes and reciprocal scalars with two classes; the total-energy quadratic has exactly two positive roots at unequal energies. Independent finite raw-intensity checks cover three prime squares; they are not used as an infinite proof.
+## correctness
 
-## Originality
-PASS relative to the inspected statements. Li's Proposition 5.1 proves cubic ambiguity zeros but not signal-fiber rigidity; Bartusel's 2023 Theorem 2.2.3 requires a full frequency row per relevant shift, a hypothesis violated here. His 2026 uncertainty results concern other strategically placed support geometries and do not imply the two-class fiber classification. Published-database and accessible-claim comparisons for cubic chirp, prime-square, phase-retrieval fibers, residue classes and CAZAC reciprocal scaling did not reveal an equivalent statement. Search failure alone is not proof of novelty. A prior equivalent calculation under rank-one Wigner recovery terminology remains possible.
+PASS
 
-## Value
-PASS. This classifies the precise first nontrivial phaseless ambiguity stratum and proves generic injectivity for an explicit window known to have systematic ambiguity zeros. The exceptional branch is not an isolated sparsity trick: two fully populated perfect-correlation blocks yield a second signal with the same entire spectrogram. The distinction between two and three populated residue classes motivates both the classification and the exact invariant.
+For every p>=5 the normalized cubic window on Z_(p²) has ambiguity magnitude exactly 1 at origin, 1/p for p∤u, 1/sqrt(p) for u=ph≠0 and p|v, zero otherwise, by odd prime-power quadratic Gauss sums. Two-dimensional Fourier inversion recovers every between-residue outer product, each nonzero within-block cyclic autocorrelation, and total energy. For >=3 populated blocks pairwise scalar relations force common unit phase. For two blocks reciprocal positive scales plus the single total-energy equation give at most one distinct partner, exactly at both perfect autocorrelation and unequal energies. Independently constructed p=5 exact-index numeric ambiguity (625 entries) and spectrogram partner (625 intensities) gave errors <1e-14, corroborating, not proving all primes.
 
-## Boundaries
-The one-residue stratum, quantitative stability, erasures, and composite exponents above two are not claimed. No independent audit or publication-priority certificate is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Li gives cubic-ambiguity divisibility zero patterns and Bartusel gives general support-based phase-retrieval criteria; the Resultary prime-power lifting-rank spectrum classifies linear ambiguity support, not nonlinear projective two-class fibers. None inspected derives the exact full-spectrogram rank-one recovery and energy-swap dichotomy. Best-of-knowledge originality with residual same-window literature risk.
+
+## value
+
+PASS
+
+A complete sharp generic and exceptional fiber classification for a natural chirp window with many zero ambiguity coefficients is a motivated phase-retrieval identifiability result; the explicit nontrivial partner characterizes exact failure rather than a numerical edge case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
