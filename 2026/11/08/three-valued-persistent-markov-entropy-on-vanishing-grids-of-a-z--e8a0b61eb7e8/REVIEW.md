@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The candidate is an exact theorem for every integer \(N\ge10\): the source image of the zero cell spans exactly the two or three consecutive target cells, the slope \(-2\) yields their overlap weights, and all these cells lie on the constant branch so form a closed two-step class. Every other cell admits positive transition paths into this class because all nonfixed deterministic orbits eventually enter the clipped branch. The unique stationary vector follows by balance, giving a three-valued entropy rate. Monotonicity of every map iterate proves zero topological entropy with a separated-set bound. Exact rational checks for \(10\le N\le200\) corroborate but do not replace these arguments.
+## correctness
 
-## Originality
-**PASS within examined literature.** The primary 2026 study defines and computes weighted transition graphs and Markov entropy rates but does not give a fixed zero-entropy map with nondecaying exact Markov entropy under all mesh refinements. Classical Ulam and graph-entropy studies establish the general distinction between coarse transition chains and deterministic trajectories; their stated results do not imply this unique-stationary-law residue-class classification. In particular, graph path entropy upper bounds are not the stationary, row-weighted Shannon entropy considered here. The 2023 article on coarse-grained Kolmogorov entropy concerns a broader stochastic-process framework; its full proof was not inspected, leaving an explicit historical-priority risk. Database search is not proof of novelty.
+PASS
 
-## Mathematical value
-**PASS.** Entropy rate of a finite weighted transition graph is a natural quantitative diagnostic, so determining whether it converges as cell size vanishes is mathematically motivated. This example provides an all-resolution classification, proves stationary-measure weak convergence, and quantifies an entropy gap uniformly bounded below despite zero entropy and a finite attracting orbit. It isolates irreversible within-cell resampling rather than deterministic chaotic motion as the source of entropy. It is a meaningful sharp boundary for interpreting coarse-grained Markov statistics, not merely a toy finite count.
+The clipped affine f(x)=max(0,3/5-2x) is monotone decreasing so its iterates have O(n/ε) separated-set counts and zero topological entropy. f² has repelling fixed point 1/5 and a.e. finite capture to the two-cycle 0↔3/5. Exact integration from I0 yields weights ((5-r)/10,1/2,r/10) to cells m-2,m-1,m, all mapped deterministically back to I0 for N≥10. Other states reach this closed class via a positive-measure path; its unique stationary masses are 1/2 and half the three row weights. Independently evaluated exact rational support/weights and all three entropies across N=10..19. This proves persistent three-valued nonconvergence while stationary measures weakly converge to the physical cycle.
 
-## Limitations and risks
-The result does not concern finite Monte Carlo samples, filtering, teleportation, or a specific experimental classification. The exact gap is not asserted for every grid alignment or every interval map. Related historical coarse-graining literature may contain other constructions; independent review and exhaustive priority verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Jaworek–Pilarczyk use finite-grid graph/Markov entropy for chaotic itinerancy, while Froyland treats entropy estimates under hyperbolicity. No checked source supplies this exact zero-entropy piecewise-linear example, residue-class formula or the weak-stationarity/entropy separation. Access to the main motivating preprint in full was unavailable; the comparison remains qualified rather than asserting a whole-document negative based on its abstract.
+
+## value
+
+PASS
+
+A constructive, completely soluble counterexample separates coarse-grained resampled Markov entropy from dynamical entropy even as invariant measures converge; three stable nonzero residue levels diagnose a meaningful finite-resolution pitfall. This is a motivated method boundary, not a spurious entropy of deterministic symbolic itineraries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
