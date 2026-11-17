@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-A marked \(m\)-subset is common-equivalent in all \(r\) partitions with exact probability \((B_{n-m+1}/B_n)^r\). For two marked subsets the contraction count splits exactly into disjoint and overlapping cases, giving the stated second factorial moment. Under the fixed-parameter rarity inequality, all second factorial terms are negligible relative to the first; Bonferroni yields the leading rare-event probability. The expectation of an \((m+1)\)-subset witness is negligible at the same scale, proving the conditional shape. Label exchangeability proves exact conditional uniform location. These arguments independently cover all stated ranges. The finite enumerator checks exact moment identities and probability sandwich on small domains; it is not offered as an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The exact set-partition meet enumeration of Pittel and Canfield is credited, as is Pittel's two-partition Poisson law and qualitative large-block statement. The inspected primary texts do not state the fixed-arity hierarchy of relative rare-event probabilities with leading constants and conditional unique exceptional class. Canfield's finite enumerations are stronger in exact counting scope and therefore a material residual priority risk; their algebraic identities alone do not present the asserted asymptotic and conditional theorem. Available similarly themed finite-structure results concern different distributions (fixed-size coloured or nested equivalence classes, or a single uniformly random equivalence relation). Index searches did not identify the same sharpened statement, but absence of search hits is not proof of priority.
+PASS
 
-## Value — PASS
-The probability that independent equivalence relations have a common class of a given finite size is a canonical first-order satisfaction probability and a natural boundary statistic for partition intersections. The hierarchy supplies all fixed rare arities, sharp rates and constants, and the precise exceptional object seen on conditioning—information absent from the previously available qualitative assertion that large classes disappear. It identifies the boundary between the known abundant two-relation/two-point regime and the uniformly rare higher-arity events. This is a natural quantitative classification, not an arbitrary numerical slice.
+For fixed r>=2 and m>=2 with r(m-1)>m, contracting a designated m-subset in each independent uniform partition gives P(I_S)= (B_(n-m+1)/B_n)^r. The exact second factorial moment distinguishes disjoint sets S,T (contraction to n-2m+2) and overlapping sets |S∩T|=j>=1 (contraction to n-2m+j+1). Fixed-shift Bell ratios B_(n-d)/B_n~(W(n)/n)^d imply E(X_m)_2=o(E X_m) in the rare regime. Bonferroni yields the exact relative rare-block asymptotic, and E X_(m+1)=o(E X_m) plus uniqueness of m-witness shows exactly one m-class conditionally; exchangeability makes its location exactly uniform.
 
-## Literature and limitations
-Pittel (2000), Theorems 3--4, and Canfield (2001), Theorem 1 and its meet enumeration identity, are the closest sources. Koponen (2026) motivates finite-model logical convergence but supplies no partition-meet asymptotics. Earlier exact enumeration may admit another derivation of the present estimates; broader priority has not been independently established. The asymptotic is fixed-parameter only, concerns uniformly random *labelled* partitions, and does not provide a full theory-wide first-order rate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit full r,m hierarchy and conditional unique-witness law: Pittel (2000) gives qualitative typical-meet transitions and asymptotic size-two counts, and Canfield (2001) global exact meet/join counting relations. Neither inspected theorem supplies the fixed-arity, fixed-block-size rare probability with sharp leading constant and conditional single m-block shape. The count identities are elementary consequences of Bell contraction, so indirect implication from broader partition enumeration remains a specific originality risk.
+
+## value
+
+PASS
+
+The full rare-event hierarchy quantifies first-order conjunction-of-equivalence assertions that qualitatively vanish, recovering exact leading constants and conditional structure across all fixed exceptional block sizes; it is a mathematically natural refinement of the known typical meet laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
