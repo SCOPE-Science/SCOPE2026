@@ -1,15 +1,21 @@
-# Review of coadjoint orbit-size distributions
+# Independent mathematical audit
 
-## Correctness
-PASS. The direct semidirect decomposition \(A^\times=(k^\times)^n\ltimes(1+J)\) is valid because \(J^2=0\). The explicit coadjoint action shows that the unipotent radical moves diagonal dual coordinates through the weighted graphic incidence image of rank \(n-c(S)\), and the diagonal torus has active-weight orbit size \((q-1)^{n-c(S)}\). The quotient has \(q^{c(S)}\) diagonal cosets. These independent factors prove the complete support-wise orbit count and the Tutte substitution; the mass check yields all \(q^{n+|E|}\) dual points. The proof includes loops, parallel edges, disconnected graphs, characteristic two and nonprime finite fields. Independent exhaustive finite-field orbit searches and deletion-contraction checks passed.
+## correctness
 
-## Originality
-PASS, provisional. The relevant archival literature establishes poset-algebra Lie-cohomology decompositions (Coll--Gerstenhaber, 2014) and studies singular equivalences of radical-square-zero quiver algebras (Nasr-Isfahani, 2016), but their inspected sections give no full finite-field coadjoint orbit-size enumerator. Coll--Mayers (2019) proves a height-one Lie-poset index formula, not the orbit-count polynomial. Arathoon (2018), via classical little-group theory, gives general coadjoint orbit parametrization for semidirect products: that framework is acknowledged, but an exact finite-field graph-weight classification and Tutte specialization are not in the inspected statements. Published-record searches and accessible research-claim comparisons found no identical or dominating finite-field formula. This is not proof of absolute priority; an unlocated general semidirect-product enumeration could make this formula a corollary.
+PASS
 
-## Value
-PASS. The number and size distribution of coadjoint orbits are canonical representation-theoretic invariants of the unit group acting on its associated Lie dual. The result computes these quantities for every finite radical-square-zero quiver algebra, not an arbitrary narrow numerical slice. It reveals an orientation-independent dependence on the graphic cycle matroid and transfers the entire two-variable Tutte polynomial into a coadjoint orbit distribution. Forests and cycles have distinct exact orbit-size profiles, and loops/parallel edges are covered uniformly. The result provides more than existence or the minimum Kirillov kernel: it enumerates all orbit sizes, with direct quantitative consequences.
+Write A=D⊕J with J²=0 and G=(k×)^V⋉(1+J). Dual coordinates are vertex values α and arrow values w. For support S={a:w_a≠0}, unipotent conjugation translates α by the incidence image L_S, rank r(S)=n−c(S) over every finite field (forest leaf-elimination proof, loops zero). The diagonal torus scales nonzero arrows by endpoint ratios, with orbit cardinality (q−1)^r(S) and (q−1)^(|S|−r(S)) torus orbits at each support. The α-coset space has q^(n−r(S)) classes; hence each combined coadjoint orbit has cardinality [q(q−1)]^r(S), and number q^(n−r(S))(q−1)^(|S|−r(S)). Summing supports gives q^c z^(n−c) T(1+q/z,q), and weighted mass equals q^(n+|E|). Independently checked small multigraph rank/mass, including loops, parallel, disconnected and q=4.
 
-## Closest literature and limitations
-Sources: Coll--Gerstenhaber arXiv:1407.0428 (introduction and cohomology reduction); Coll--Mayers arXiv:1908.06573 (introduction and Theorem 3); Arathoon arXiv:1806.08406 (Section 1 and the little-group orbit theorem); Nasr-Isfahani arXiv:1603.04191 (introduction and singular-equivalence setup). Classical Tutte-polynomial identity and general little-group theory are not claimed as new. The specialization does not count conjugacy classes or representations of \(A^\times\), nor does it extend to \(J^3\ne0\). No independent historical priority or proof audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026/10/12 algebra-element inner-conjugacy class theorem already proves the scalar total q^c T(q+1,q) for primal adjoint action. That scalar equality also follows from Burnside (equal dimensions of fixed spaces for a linear action and its dual); it is NOT new. Earlier 2026/10/26 unit-group conjugacy-spectrum theorem treats orbits on G itself, not dual A*. The new surviving claim is the full coadjoint orbit-size histogram; it is mathematically different from primal sizes: on the two-vertex single-arrow quiver over q=3, primal algebra conjugacy sizes are 1,2,3 while coadjoint sizes include 6. Full rank support weights are not inferable from the scalar total, despite matching Tutte evaluations. Strong qualified pass only for entire spectrum.
+
+## value
+
+PASS
+
+This exact orbit-size spectrum is a natural full classification of a torus-by-radical action, making orientation-independent matroid structure visible at every orbit size (rather than just total orbit number). Loops, parallel arrows, and all characteristics are uniformly included; this is a meaningful global structural invariant, even though scalar total is prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

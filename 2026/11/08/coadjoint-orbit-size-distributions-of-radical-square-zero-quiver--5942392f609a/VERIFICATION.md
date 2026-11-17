@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run the three included standalone Python scripts from the same directory, without external packages:
+## correctness
 
-```
-python verify_orbits.py
-python verify_gf4.py
-python verify_tutte.py
-```
+PASS
 
-The first script independently builds coadjoint orbits under explicit group generators over the prime fields of orders two and three for loops, parallel arrows, chains, cycles, and disconnected/empty graphs. The second constructs arithmetic in the degree-two extension field of order four and repeats independent orbit enumeration. The third uses a deletion--contraction Tutte recurrence that is separate from its spanning-subgraph enumeration. Full recorded standard outputs appear in `verification_output.txt`; each script ends with an `ALL_..._PASS` marker when its assertions succeed.
+Write A=D⊕J with J²=0 and G=(k×)^V⋉(1+J). Dual coordinates are vertex values α and arrow values w. For support S={a:w_a≠0}, unipotent conjugation translates α by the incidence image L_S, rank r(S)=n−c(S) over every finite field (forest leaf-elimination proof, loops zero). The diagonal torus scales nonzero arrows by endpoint ratios, with orbit cardinality (q−1)^r(S) and (q−1)^(|S|−r(S)) torus orbits at each support. The α-coset space has q^(n−r(S)) classes; hence each combined coadjoint orbit has cardinality [q(q−1)]^r(S), and number q^(n−r(S))(q−1)^(|S|−r(S)). Summing supports gives q^c z^(n−c) T(1+q/z,q), and weighted mass equals q^(n+|E|). Independently checked small multigraph rank/mass, including loops, parallel, disconnected and q=4.
 
-These are finite cross-checks. The proof of the general formula rests on the exact semidirect coadjoint action, incidence matrix rank for spanning subgraphs, torus orbit-stabilizer and the Tutte rank expansion. No finite case establishes historical novelty, general-field correctness, a character-theoretic orbit method or an independent audit. Results involving \(\mathbb F_4\) in `verify_tutte.py` are only polynomial evaluations; the extension-field coadjoint action itself is tested by `verify_gf4.py`.
+## originality
+
+PASS
+
+The 2026/10/12 algebra-element inner-conjugacy class theorem already proves the scalar total q^c T(q+1,q) for primal adjoint action. That scalar equality also follows from Burnside (equal dimensions of fixed spaces for a linear action and its dual); it is NOT new. Earlier 2026/10/26 unit-group conjugacy-spectrum theorem treats orbits on G itself, not dual A*. The new surviving claim is the full coadjoint orbit-size histogram; it is mathematically different from primal sizes: on the two-vertex single-arrow quiver over q=3, primal algebra conjugacy sizes are 1,2,3 while coadjoint sizes include 6. Full rank support weights are not inferable from the scalar total, despite matching Tutte evaluations. Strong qualified pass only for entire spectrum.
+
+## value
+
+PASS
+
+This exact orbit-size spectrum is a natural full classification of a torus-by-radical action, making orientation-independent matroid structure visible at every orbit size (rather than just total orbit number). Loops, parallel arrows, and all characteristics are uniformly included; this is a meaningful global structural invariant, even though scalar total is prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
