@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definitions distinguish labelled proper vertex-colourings from edge-colourings and Kempe transformations. The finite proof enumerates all \(4^{10}\) candidate words, checks the fifteen Kneser adjacencies, generates every one-coordinate legal recolouring and proves graph-edge reversibility. Exhaustive all-source breadth-first searches establish connectivity, diameter, radii, the full distance table, and the eccentricity counts. A separately structured Python enumeration using recursive colouring constraints and the \(S_5\times S_4\) action independently reconstructs all eleven symmetry orbits and their distance profiles. The two programs were compiled or executed from the stated standalone paths and produced matching exact integer results. No extrapolation beyond the specified graph is made.
+## correctness
 
-## Originality — PASS, qualified
-Closest primary literature: Cereceda, van den Heuvel and Johnson (December 2007 report; 2010 online article) address three-colouring reachability; Bonamy and Bousquet (arXiv:1302.3486) provide general diameter bounds; Johnson et al. (arXiv:1403.6347) develop shortest-path algorithms; Feghali, Johnson and Paulusma (arXiv:1501.05800), especially their Theorem 2, prove the general \((\Delta+1)\)-colouring component structure. These imply at most one nontrivial four-colouring component for the Petersen graph, but not its exact radius \(13\), diameter \(14\), orbit eccentricity classification or \(44{,}400\) diametral pairs. The classical \(120\) and \(12{,}960\) chromatic-polynomial values are not novel. Targeted equivalence, broader-coverage and exact-table searches yielded no matching complete Petersen-specific metric. Residual risk: an unindexed specialized computation may already contain it; this self-review is not definitive historical priority verification.
+PASS
 
-## Value — PASS
-The Petersen graph is the canonical ten-vertex cubic graph of girth five and chromatic number three. Its one-extra-colour recolouring space is a natural boundary case of the Brooks-style reconfiguration theory: general results give connectivity up to frozen states and only broad asymptotic distance bounds. The exact maximal shortest-path cost, complete pair-distance counts and sharp distinction between center and periphery supply a reproducible small-graph benchmark for optimal recolouring paths. The two eccentricity strata and their eleven-orbit structure are not obtained by merely substituting its vertex count into a textbook theorem. This is a finite classification and does not claim a family-wide consequence.
+Petersen KG(5,2) has ten 2-subset vertices and 15 disjointness edges. All proper named palette assignments were directly enumerated: 120 at k=3 and 12960 at k=4. Every legal single-coordinate recolouring was constructed, yielding 60 edges at k=3 (every state degree one) and 53280 at k=4. Independent full-source BFS across all 12960 four-colour states found connected graph with radius 13 and diameter 14, eccentricity multiplicities 3360/9600, exactly 44400 unordered diametral pairs, and every one of the stated 14 distance-shell counts. Git source includes a separate 11-orbit construction via S5 and colour-label canonicalization; 11 table orbits sum to 12960. This is an exhaustive finite proof with defined complete adjacency generation, not partial enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The metric of Petersen named four-colour single-vertex recolouring is distinct from known three-colour Petersen Kempe-swap graphs, four-edge-colouring reconfiguration and bounds for arbitrary subcubic graphs. Existing literature supplies chromatic counts and connectivity/mixing bounds but not these sharp metric/orbit and distance-pair spectra.
+
+## value
+
+PASS
+
+A complete exact reconfiguration metric for a canonical 10-vertex graph at its sharp palette transition is a motivated finite classification: the radius–diameter gap and 11 symmetry orbit shell census distinguish structure not recoverable from connectivity or chromatic-polynomial counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction and evidence limits
+# Independent mathematical audit
 
-The accompanying self-contained files `verify_exhaustive.cpp` and `verify_orbits.py` use distinct generation and shortest-path reductions. In the same directory, run:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 verify_exhaustive.cpp -o verify_exhaustive
-./verify_exhaustive
-python3 verify_orbits.py
-```
+PASS
 
-`verify_exhaustive.cpp` checks all \(4^{10}\) assignments, constructs valid recolouring edges directly, checks adjacency symmetry and all-source breadth-first search distances. Expected four-colour output includes `states=12960`, `edges=53280`, `radius=13`, `diameter=14`, `13:3360`, `14:9600`, and `14:44400` in the pair-distance table. Three-colour output checks \(60\) disjoint edges.
+Petersen KG(5,2) has ten 2-subset vertices and 15 disjointness edges. All proper named palette assignments were directly enumerated: 120 at k=3 and 12960 at k=4. Every legal single-coordinate recolouring was constructed, yielding 60 edges at k=3 (every state degree one) and 53280 at k=4. Independent full-source BFS across all 12960 four-colour states found connected graph with radius 13 and diameter 14, eccentricity multiplicities 3360/9600, exactly 44400 unordered diametral pairs, and every one of the stated 14 distance-shell counts. Git source includes a separate 11-orbit construction via S5 and colour-label canonicalization; 11 table orbits sum to 12960. This is an exhaustive finite proof with defined complete adjacency generation, not partial enumeration.
 
-`verify_orbits.py` independently backtracks through proper colourings, uses all \(120\) induced automorphisms from permutations of five underlying points, enumerates all \(540\) colour-canonical configurations, verifies the eleven symmetry orbit representatives and their shells, and checks the weighted pair-distance table, including \(44{,}400\) unordered pairs at distance \(14\). It also reconstructs the displayed fourteen-step witness sequence and checks each move and the endpoint distance.
+## originality
 
-These executions give an exhaustive finite verification for the stated ten-vertex graph. Neither script certifies scientific priority or generalizes the computation to infinitely many graphs. Independent scholarly auditing has not been performed.
+PASS
+
+The metric of Petersen named four-colour single-vertex recolouring is distinct from known three-colour Petersen Kempe-swap graphs, four-edge-colouring reconfiguration and bounds for arbitrary subcubic graphs. Existing literature supplies chromatic counts and connectivity/mixing bounds but not these sharp metric/orbit and distance-pair spectra.
+
+## value
+
+PASS
+
+A complete exact reconfiguration metric for a canonical 10-vertex graph at its sharp palette transition is a motivated finite classification: the radius–diameter gap and 11 symmetry orbit shell census distinguish structure not recoverable from connectivity or chromatic-polynomial counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
