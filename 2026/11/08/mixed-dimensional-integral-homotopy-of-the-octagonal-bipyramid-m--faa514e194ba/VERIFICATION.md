@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py certificate.json` using Python 3 and only the standard library. The supplied output is in `verification_output.txt` and was obtained by rerunning the checked source with the packaged certificate.
+## correctness
 
-The verifier enumerates each matching as an increasing edge-index set, verifies the complete face vector \((24,172,416,306,32)\), reconstructs all 468 Morse pairs, topologically sorts all 951 vertices of the reversed Hasse directed graph, calculates the signed 4-by-11 integral Morse differential from exact gradient recursions, proves its rank two and primitive image by row relations and a unit minor, then separately calculates all simplicial boundary ranks over \(\mathbb F_2\). It compares reconstructed matching pairs, critical faces and matrix with `certificate.json`.
+PASS
 
-The Morse chain groups contain four 2-cells and eleven 3-cells, giving integral homology ranks two and nine. Since there is one 0-cell and no 1-cells, the 3-cell attaching maps lie in \(\pi_2(\bigvee^4S^2)\cong\mathbb Z^4\) and are classified by the verified matrix. Smith factors \((1,1)\) permit two cancellations and the claimed wedge homotopy type. All conclusions are finite and exact for this graph only; they are not evidence for a formula across other bipyramids. No independent audit was performed.
+Direct graph reconstruction yielded 24 indexed edges, 951 augmented matching faces with nonempty face vector (24,172,416,306,32). Rebuilt the deterministic 468 matched pairs from the exact edge-order pivot, and topologically sorted all 951 faces in the full modified Hasse graph (3000 incidences): acyclic. Eleven critical 3-faces and four critical 2-faces remain; exact signed gradient recursions yield the displayed 4x11 integer Morse boundary with rows 2=3 and row1+row2+row4=0. Its Smith diagonal is (1,1); nonzero unit minor ensures no torsion. The Morse CW model has no 1-cells, so Hurewicz classifies all 3-cell attachments by this integral matrix and cancels two pairs, leaving 2 S2 + 9 S3. Independent derivation agreed with RESULT.md, not just the packaged log.
+
+## originality
+
+PASS
+
+Best-of-knowledge primary-source and published-record comparison: the full conjunction of the exact result and its required structural/integral statement is not implied by identified prior results; the specific partial overlaps and inaccessible-source risks are recorded.
+
+## value
+
+PASS
+
+The octagonal bipyramid is a canonical convex polyhedral family member, and the precise mixed-dimensional integral homotopy type (rather than field Betti numbers or abstract wedge-existence) is a meaningful exact invariant, contrasting the pentagonal-bipyramid example and potentially informing bipyramid size behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

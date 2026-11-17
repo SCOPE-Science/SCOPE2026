@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and matching complex are explicitly defined. Complete face enumeration gives 951 augmented faces, 468 disjoint matched pairs and four critical 2-simplices plus eleven critical 3-simplices. An unrestricted topological-sort test of every original reversed Hasse incidence establishes acyclicity, not merely an observed Morse-vector count. The signed gradient-path recursion returns an integral 4-by-11 boundary matrix of rank two with a unit minor. Because the CW reduction has no 1-cells, the attaching degrees classify all 3-cell attachments up to homotopy, proving two 2-spheres and nine 3-spheres, with integral torsion absent. Standalone mod-two homology verifies the ranks separately. Risk: the computational certificate is finite and model-generated, not externally audited; exact source code and full matching pairs are supplied.
+## correctness
 
-## Originality — PASS (literature-relative)
-The recently published simplicial-vertex Morse theorem arXiv:2604.12606 is read through its main theorem and applications; its required simplicial vertex does not exist in the line graph of the octagonal bipyramid, so its theorem does not imply this instance. The full available outerplanar matching-complex article arXiv:2411.04601 only covers outerplanar graphs, whereas the bipyramid has 24 edges on ten vertices. The available manuscript arXiv:1906.03328 classifies only cases when the matching complex is a homology manifold. A 2026 public description of the pentagonal bipyramid torus case does not state the octagonal case; the complete source was inaccessible. The octahedral graph matching-complex result concerns the four-gon bipyramid, not the octagon. No exact octagonal-bipyramid homotopy calculation surfaced in specific database and literature searches, but lack of retrieval cannot prove global uniqueness. Risk: unindexed equivalents and inaccessible primary text.
+PASS
 
-## Mathematical value — PASS
-The ten-vertex octagonal bipyramid is a canonical convex-polyhedral, non-outerplanar planar graph. Its matching complex is a naturally motivated continuation of the pentagonal bipyramid torus counterexample: in contrast to the torus, the octagonal example is simply connected and has simultaneous nonzero integral homology in two adjacent positive dimensions. The result completely resolves a natural exact invariant of this graph, including attaching maps and torsion, rather than merely an Euler characteristic or a recomputed known table. It does not assert a general family result.
+Direct graph reconstruction yielded 24 indexed edges, 951 augmented matching faces with nonempty face vector (24,172,416,306,32). Rebuilt the deterministic 468 matched pairs from the exact edge-order pivot, and topologically sorted all 951 faces in the full modified Hasse graph (3000 incidences): acyclic. Eleven critical 3-faces and four critical 2-faces remain; exact signed gradient recursions yield the displayed 4x11 integer Morse boundary with rows 2=3 and row1+row2+row4=0. Its Smith diagonal is (1,1); nonzero unit minor ensures no torsion. The Morse CW model has no 1-cells, so Hurewicz classifies all 3-cell attachments by this integral matrix and cancels two pairs, leaving 2 S2 + 9 S3. Independent derivation agreed with RESULT.md, not just the packaged log.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge primary-source and published-record comparison: the full conjunction of the exact result and its required structural/integral statement is not implied by identified prior results; the specific partial overlaps and inaccessible-source risks are recorded.
+
+## value
+
+PASS
+
+The octagonal bipyramid is a canonical convex polyhedral family member, and the precise mixed-dimensional integral homotopy type (rather than field Betti numbers or abstract wedge-existence) is a meaningful exact invariant, contrasting the pentagonal-bipyramid example and potentially informing bipyramid size behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
