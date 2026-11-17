@@ -1,19 +1,21 @@
-# Scientific review: All-scale coordinate-fixed spheres in Hamming-cube Vietoris–Rips complexes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\geq1\), \(0\leq r<n\), the geometric fixed-space orbit-barycenter construction is valid for a finite simplicial complex under coordinate permutations. The exact intralayer and interlayer Hamming-distance maxima identify the fixed model with the independence complex of a specified bipartite band graph, without losing any orbit simplices. The open-neighborhood folding lemma is proved by ordering elementary free pairs; the deterministic block procedure verifies every required neighborhood inclusion and reduces the band graph to exactly \(1+\lfloor\lfloor r/2\rfloor/(n-r)\rfloor\) disjoint edges. Their independence complex is a cross-polytope boundary, proving the integral homotopy type. The free complement action and its sign follow from the absence of complement-invariant simplices and the Lefschetz identity. Edge cases \(r=0\), \(r=n-1\), and \(n=1\) are included. The standalone checker reproduces 55 direct orbit comparisons, 55 independent mod-two homology checks, 1,220 admissible fold sequences and 28 complete small elementary-collapse calculations. Neither finite checks nor homology alone replace the unrestricted proof.
+PASS
 
-## Originality — PASS with residual risk
+From the actual RESULT.md, geometric S_n-fixed simplices are orbit-barycenter combinations of full Hamming-weight orbits, not fixed original vertices. Independent weight-distance calculations give diam(W_i)=2min(i,n-i), max cross-layer distance=min(i+j,2n-i-j); hence the fixed model is Ind of a bipartite band graph |i-j|<t=n-r. Inspecting the explicit fold proof and verify_fixed_rips.py, left/right neighbor containments successively reduce to s+1 disjoint edges where s=floor(floor(r/2)/(n-r)), making a cross-polytope boundary S^s for all 0<=r<n. The complement involution cannot fix a point and Lefschetz gives degree (-1)^(s+1). n=1,r=0 and r>=n agree with the exact models. The 55 direct orbit comparisons, 1,220 fold sequence checks and 28 explicit collapses in the saved verifier output corroborate, rather than replace, the unbounded argument.
 
-Galetto–Montaño–Wellner, arXiv:2606.20784, Sections 1, 7 and 8, provide the whole-complex rational homology representations at selected radii but do not classify geometric coordinate-fixed spaces. Bendersky–Elia–Grbić, arXiv:2605.00705, Sections 1–2 and 4, establish whole-complex cohomological bounds and generators, not this fixed locus. Adams–Virk, arXiv:2309.06222, Sections 1, 3 and 4, address whole-complex Betti bounds and scale inclusions; those maps are not equivariant fixed-space equivalences. The closest earlier fixed-space statement covers only \(r=n-2\), which the new all-radius theorem recovers while determining every other \(0\leq r<n\), including explicit dimension jumps and the complement character. Relevant direct literature searches and mathematical-result searches did not locate an all-radius equivalent. Searches are not proof of novelty, and equivalent work may be unindexed or described differently.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete radius-by-radius fixed-space classification gives an exact, nontrivial topological phase diagram over two unbounded integer parameters, even where ordinary hypercube Rips homotopy remains difficult. The uniform variable-band folding lemma reveals that all nonempty full-coordinate fixed spaces are single spheres, with potentially large jumps in dimension across successive radii. The top-degree integral complement sign distinguishes a residual symmetry not available from the nonequivariant sphere count. This is substantially broader than a single endpoint-scale example and isolates a natural equivariant invariant relevant to current hypercube Rips research.
+Best-of-knowledge PASS for the full all-scale geometric S_n-fixed classification and complement character; ambient homology representations and Rips cohomological bounds do not determine geometric fixed points. An earlier single-radius n-2 assertion mentioned by the package is not treated as novelty; its unidentified primary source remains a search risk.
 
-## Limits and closest sources
+## value
 
-The result does not classify arbitrary subgroups, the maps between successive fixed-space stages, or the unrestricted complex at unknown scales. Prior equivalent work not captured by the checked sources remains possible. The most relevant public scientific sources are arXiv:2606.20784, arXiv:2605.00705, and arXiv:2309.06222. All programmatic checks are reproducible with the included Python program.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform geometric fixed-point homotopy at every Hamming radius for all cube dimensions is a natural equivariant invariant, especially when ambient Rips homotopy is complex. The variable-width band collapse gives a sharp sphere-dimension diagram, and complement character distinguishes symmetry not encoded by the nonequivariant sphere count; not a parameter renaming or tiny sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
