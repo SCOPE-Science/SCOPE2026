@@ -1,0 +1,11 @@
+# Mathematical review: hypersimplex ridge curvature
+
+**Correctness: PASS.** The exact claim follows from the exhaustive two-coordinate ridge census, Eulerian/Irwin–Hall section-volume normalization, projected coordinate normal Gram matrix, and the polyhedral sector-angle formula for \(V_{n-3}\). The asymptotic claim follows by a uniform local Fourier expansion of the centered uniform-sum density through the fourth derivative, together with the elementary exterior-angle expansion. Finite direct convex-hull checks cover \(n=4,\ldots,9\) and compare 1,812 ridge profiles; four further dimensions stress-test the Gaussian coefficient. The computations are supplementary to, not substitutes for, the analytic proof.
+
+**Originality: PASS on checked evidence; historical priority remains provisional.** The most directly relevant inspected primary preprint, Parisi–Sherman-Bennett–Williams (2021), develops hypersimplex positroid tilings and explicitly credits Eulerian volume in Section 10; its inspected arguments do not provide this Euclidean ridge curvature decomposition or the Gaussian-rank crossover. Published comparisons involving hypersimplex minimum width, facial distance, and random-shadow behavior do not imply a formula for the second Steiner intrinsic volume. Broader searches did not uncover an equivalent claim, although unindexed convex-geometric formulas and an unnoticed Eulerian reformulation remain genuine historical risks.
+
+**Mathematical value: PASS.** The second intrinsic volume is a canonical Euclidean valuation and the equal/mixed split is a geometrically intrinsic ridge-type classification. The sharp nontrivial threshold \(\sqrt{1-2/(3\pi)}\) describes when opposite angle-weighted ridge families dominate in the central \(\sqrt n\)-rank window; this is not supplied by the known Eulerian volume count, nor is it a mere dimension substitution. The exact finite classification and the asymptotic transition are linked by a single proof.
+
+**Limits and nearest literature.** Full proof uses standard Eulerian volume and uniform-sum local asymptotics. It does not claim those ingredients as new; it gives no critical-boundary sign and no uniform extreme-rank result. Primary antecedent: https://arxiv.org/abs/2104.08254 . The historical comparison is not exhaustive.
+
+Self-review: passed. Independent audit: not yet performed.
