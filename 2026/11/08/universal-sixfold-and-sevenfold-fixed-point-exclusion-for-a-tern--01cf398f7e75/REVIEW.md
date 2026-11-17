@@ -1,11 +1,21 @@
-# Correctness, originality, and value
+# Independent mathematical audit
 
-**Correctness: PASS.** For each of the two multipliers, every period-\(mk\) solution induces a closed walk in the complete support-mask transition graph, because the recurrence's column differences equal zero-one masks. All masks have weight divisible by three. The graph is reconstructed by the three possible solutions of \(Dy=B\), with independently exhaustive binary and ternary enumeration; it has only the zero directed cycle for both \(m=6\) and \(m=7\). The wrap transition is a row rotation and therefore closes in the quotient graph. Direct independent recurrence iteration for all states at lags two through nine corroborates the two unrestricted conclusions. The proof, not the bounded experiment, establishes the uniform result.
+## correctness
 
-**Originality: PASS, qualified.** Finch (2026) Section 3 computes the fourth-multiple fixed-point set, which does not determine sixth- and seventh-multiple fixed sets. An earlier separate fifth-multiple exclusion is not being claimed. OEIS A112684 records the distinguished initial-word orbit and cannot classify all starting states. Cassaigne–Finch (1995) studies a different nonlinear ternary rule. Targeted literature and semantic mathematical-results searches did not expose an equivalent sixth/seventh-multiple theorem. The full argument in the 1995 PDF is imperfectly machine-readable and unpublished or unindexed equivalent results remain possible.
+PASS
 
-**Mathematical value: PASS.** For a recently studied bijective finite-field recurrence with an unexpectedly large structured \(4k\)-period corner, the theorem identifies two adjacent universal gaps in iterate fixed sets, using a small structural automaton rather than checking growing state spaces. Together with the separately established fifth-multiple exclusion, the statement brackets a complete three-multiplier exclusion phenomenon, with concrete nonzero cycles at \(4k\) and \(8k\) when \(k=2\). It is a natural period-spectrum obstruction, not a parameter renaming, an arbitrary finite slice of lags, or an extrapolation from sample orbits.
+Invertibility extends every T^(mk)-fixed state to an mk-periodic word satisfying x_n=x_{n-k}+1[x_{n-1}!=0]. Organize m cyclic rows and k columns: each column difference Dy equals the prior column support mask, rotated at wrap, so telescoping forces binary mask weight divisible by 3. For m=6,7 enumerate all admissible binary masks up to cyclic rotation and all three lifts y_t=a+sum_{i<=t}b_i mod3; retain successor masks also of weight multiple 3. Independently implemented the full quotient mask graphs (6 vertices at m6 and 7 at m7) and verified all nonzero vertices are acyclic, with only zero-loop closed walk. Cyclic rotation at wrap preserves reachability. Hence every mk-periodic word is zero uniformly for all k, not inferred from finite k checks. Direct enumerations k=2..9 also each give one fixed state at both multipliers; T_2 has an 8-cycle at the known endpoint.
 
-**Limitations.** No full classification of all periods, basins, or the special-seed orbit is established. An earlier equivalent proof remains a residual priority risk. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original final claim after direct statement/implication comparison; earlier general frameworks, alternative rules or smaller families are credited, with access and historical priority risks explicitly retained.
+
+## value
+
+PASS
+
+Uniform spectral gaps for a natural and independently studied finite-field quadratic permutation are useful exact period-structure data, with a short finite symbolic obstruction valid for arbitrary memory length. Together with the known 5k gap and 4k cycle count, 6k and 7k fill the next two natural multipliers, not an arbitrary unmotivated slice of experimental lags.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

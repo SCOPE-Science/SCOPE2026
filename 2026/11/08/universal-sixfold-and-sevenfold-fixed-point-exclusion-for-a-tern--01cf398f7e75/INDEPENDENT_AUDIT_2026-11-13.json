@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:57:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/universal-sixfold-and-sevenfold-fixed-point-exclusion-for-a-tern--01cf398f7e75/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/universal-sixfold-and-sevenfold-fixed-point-exclusion-for-a-tern--01cf398f7e75/verify.py"
+      ],
+      "rationale": "Invertibility extends every T^(mk)-fixed state to an mk-periodic word satisfying x_n=x_{n-k}+1[x_{n-1}!=0]. Organize m cyclic rows and k columns: each column difference Dy equals the prior column support mask, rotated at wrap, so telescoping forces binary mask weight divisible by 3. For m=6,7 enumerate all admissible binary masks up to cyclic rotation and all three lifts y_t=a+sum_{i<=t}b_i mod3; retain successor masks also of weight multiple 3. Independently implemented the full quotient mask graphs (6 vertices at m6 and 7 at m7) and verified all nonzero vertices are acyclic, with only zero-loop closed walk. Cyclic rotation at wrap preserves reachability. Hence every mk-periodic word is zero uniformly for all k, not inferred from finite k checks. Direct enumerations k=2..9 also each give one fixed state at both multipliers; T_2 has an 8-cycle at the known endpoint.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier all-k short-cycle census covers periods dividing 4k, not all periods dividing 6k or 7k.",
+          "Five-lag result has a different local zero-mask argument and cannot exclude e.g. a period dividing 6k but not 5k."
+        ],
+        "reasoning": "There is no containing earlier theorem in inspected full published Results that rules out every 6k and 7k nonzero periodic point.",
+        "searches": [
+          "Resultary: quadratic recurrence ternary T_k(w) shift w0+wk-1 squared fixed 6k 7k all states",
+          "2026/11/2 exact primitive short-cycle census for ternary quadratic recurrence",
+          "Finch 2026 Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-universal-five-lag-forbidden-period-law-for-a-ternary-quadrati--50d142a68b24/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-primitive-short-cycle-census-for-a-ternary-quadratic-recur--4fc407051b10",
+        "https://arxiv.org/abs/2610.34300",
+        "https://oeis.org/A112684"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior 5k exclusion is obtained from adjacent vs nonadjacent zero pair obstruction in five rows.",
+          "For 6k or 7k, valid support masks can have more zeros and require distinct complete quotient transition graphs; supplied graph tables show no nonzero directed cycle."
+        ],
+        "reasoning": "Fixed-point count one for 5k and a positive count for 4k does not imply fixed-point count one for unrelated exponents 6k and 7k without fresh computation/proof.",
+        "searches": [
+          "Resultary: quadratic recurrence ternary T_k(w) shift w0+wk-1 squared fixed 6k 7k all states",
+          "2026/11/8 five-lag full RESULT.md",
+          "Finch 2026 Proposition 7 and Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same exact ternary quadratic shift has established 4k fixed-point counts and a separate 5k exclusion.",
+          "The new sixth/seventh results are complete closed-walk exclusions in different six/seven-row cyclic support graphs, not restatements of fifth multiplier."
+        ],
+        "reasoning": "Fixed by T^(mk) means least period divides mk. Equalities for m=4 or 5 cannot be transferred by renaming multiplier or from one common divisor alone.",
+        "searches": [
+          "Resultary: quadratic recurrence ternary T_k(w) shift w0+wk-1 squared fixed 6k 7k all states",
+          "Finch arxiv:2610.34300 §3",
+          "Resultary 2026/11/8 five-lag forbidden-period law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A112684 concerns the designated initial word, not all F3^k states.",
+          "Published 5-row and 4-row transition tables are complete only for m=5 and m=4, respectively."
+        ],
+        "reasoning": "Known period tables for a special seed and different multipliers do not provide an exact census for all states at m=6,7.",
+        "searches": [
+          "Resultary: quadratic recurrence ternary T_k(w) shift w0+wk-1 squared fixed 6k 7k all states",
+          "OEIS A112684",
+          "2026/11/8 five-lag RESULT.md",
+          "2026/11/2 fourfold short-period census"
+        ]
+      },
+      "rationale": "Best-of-knowledge original final claim after direct statement/implication comparison; earlier general frameworks, alternative rules or smaller families are credited, with access and historical priority risks explicitly retained.",
+      "residual_risks": [
+        "Full Finch 2026 paper and older Cassaigne–Finch paper not read page-by-page in this run; unindexed symbolic-dynamics classification might include 6k/7k.",
+        "The 6/7-row exhaustive mask graphs prove only the claimed two iterate exponents, not a full period-spectrum classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "does not cover sixth and seventh multiples",
+          "evidence": "Five-row support masks of weight three; alternating adjacency/nonadjacency contradiction",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-universal-five-lag-forbidden-period-law-for-a-ternary-quadrati--50d142a68b24/RESULT.md",
+          "material_read": "Full RESULT.md: finding, column decomposition, five-row adjacency obstruction, verification and limits",
+          "method": "GitHub complete primary published result",
+          "title": "A universal five-lag forbidden-period law for a ternary quadratic permutation (2026-11-08)",
+          "trigger": "exact same permutation and adjacent multiplier"
+        },
+        {
+          "assessment": "no full-text negative claim; fourth-multiple theorem cited as prior",
+          "evidence": "Proposition 7 defines same bijection; Theorem 8 enumerates fixed points at 4k",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34300",
+          "material_read": "Primary abstract and indexed Section 3/Theorem 8 summaries, not complete article text",
+          "method": "arxiv abstract and external index",
+          "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess (Steven Finch, 2026)",
+          "trigger": "source recurrence and fourth-multiple theorem"
+        },
+        {
+          "assessment": "verified scope advertised periods dividing 4k; appendix broader coverage remains residual",
+          "evidence": "Summary explicitly restricts enumeration to period dividing 4k and power-of-two lags",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-primitive-short-cycle-census-for-a-ternary-quadratic-recur--4fc407051b10",
+          "material_read": "Published scientific title, semantic summary and search result; complete result not read in this run",
+          "method": "Resultary record discovery and metadata",
+          "title": "Exact primitive short-cycle census for a ternary quadratic recurrence (2026-11-02)",
+          "trigger": "possible stronger all-k cycle enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-universal-five-lag-forbidden-period-law-for-a-ternary-quadrati--50d142a68b24/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-primitive-short-cycle-census-for-a-ternary-quadratic-recur--4fc407051b10",
+        "https://arxiv.org/abs/2610.34300",
+        "https://oeis.org/A112684"
+      ],
+      "rationale": "Uniform spectral gaps for a natural and independently studied finite-field quadratic permutation are useful exact period-structure data, with a short finite symbolic obstruction valid for arbitrary memory length. Together with the known 5k gap and 4k cycle count, 6k and 7k fill the next two natural multipliers, not an arbitrary unmotivated slice of experimental lags.",
+      "residual_risks": [
+        "Full Finch 2026 paper and older Cassaigne–Finch paper not read page-by-page in this run; unindexed symbolic-dynamics classification might include 6k/7k.",
+        "The 6/7-row exhaustive mask graphs prove only the claimed two iterate exponents, not a full period-spectrum classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-universal-five-lag-forbidden-period-law-for-a-ternary-quadrati--50d142a68b24/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-primitive-short-cycle-census-for-a-ternary-quadratic-recur--4fc407051b10",
+    "https://arxiv.org/abs/2610.34300",
+    "https://oeis.org/A112684"
+  ],
+  "disposition": "passed",
+  "final_claim": "For T_k(w0,...,wk-1)=(w1,...,wk-1,w0+wk-1²) over F3, all integers k>=2 have Fix(T_k^(6k))=Fix(T_k^(7k))={0}; this excludes periods dividing each multiple, not all numeric periods between 4k and 8k.",
+  "limitations": [
+    "All k>=2 is proved by bounded complete mask certificates; finite k enumeration is corroboration only.",
+    "No claim about multiplier 5, full cycle periods, or special initial-word dynamics."
+  ],
+  "schema_version": 1
+}
