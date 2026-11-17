@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_even_isolation.py` from the directory containing this file. Standard Python 3 suffices; there are no external packages or downloaded datasets. All arithmetic in the checker uses exact fractions and integer counts.
+## correctness
 
-Checks performed: exhaustive enumeration of all labeled even simple graphs with \(3\le n\le6\) at seven rational probabilities, parity-space dimension checks, the uniform \(p=1/2\) covariance identity for \(3\le n\le18\), the \(n=4\) exact rational identity at 99 positive rational probabilities, sign instances for even \(4\le n\le22\), plus positive odd dense signs and relative asymptotic-ratio checks through \(n=23\). Output recorded: `PASS: 189 exact comparisons; exhaustive parity-filtered graph enumeration for n=3..6.`
+PASS
 
-These are finite computational checks, not proofs of the universal sign change. The infinite assertions are proved directly in RESULT.md by Fourier parity projection and the parity-dependent minimum complement edge sets. Cross-checking does not constitute independent validation.
+Parity character projection gives P_m(p)=2^{-m}sum_k binom(m,k)(1-2p)^{k(m-k)}, with P0=1. The unconditioned probabilities of one and two isolated vertices are q^{n-1}P_{n-1} and q^{2n-3}P_{n-2}, so exact conditioned covariance is q^{2n-3}(P_{n-2}P_n-qP_{n-1}²)/P_n². At p=1/2 the even-degree subspace has size 2^{(n-1)(n-2)/2}, giving the exact positive value. For even n, complement of even-degree graphs has all degrees odd; smallest edge count n/2 gives only perfect matchings, so P_n~(n-1)!!q^{n/2}, while P_{n-1}->1. The one-point square dominates the joint q^{2n-4}/(n-1), making the negative coefficient. For odd n the complete graph is even-degree, so P_n,P_{n-2}->1 and positive pair term dominates. n=4 direct even graph enumeration gives p³q²(2-3p)/(6p²-4p+1)² and unique zero 2/3. Independent rational brute enumerations of all graphs n=3,4,5 at p=1/2,2/3,4/5 agreed; source longer finite checker was inspected rather than trusted as proof.
+
+## originality
+
+PASS
+
+Grimmett–Janson earlier define and analyze random even graphs, parity partition functions and related forbidden-degree ensembles, and enumerate small n=4 cases; they do not explicitly establish the fixed-n all-orders conditional pair-isolation covariance sign dichotomy in the material inspected. Related Resultary 2026/11/08 findings concern incident/disjoint EDGE covariance in the same ensemble, and unconditioned isolation vs odd-degree covariance, not the pair of isolation indicators under all-even conditioning. No dominating source identified, with residual risk of a hidden covariance corollary in classical random-cluster work.
+
+## value
+
+PASS
+
+A sharp sign reversal created by conditioning independent edges on global degree parity is a structurally motivated counterexample to naive positive-association intuition. The full parity split, fixed-order dense asymptotic coefficient and exact n=4 threshold clarify when global parity constraints reverse local dependence, beyond the classical even-graph model itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
