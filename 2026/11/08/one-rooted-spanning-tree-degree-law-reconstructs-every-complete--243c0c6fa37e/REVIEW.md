@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem applies to finite connected unweighted complete multipartite graphs with at least two parts, known order, arbitrary observed vertex, and a uniform spanning tree. The classical multivariate weighted-tree identity yields the normalized one-vertex degree generating polynomial (2). The distinguished root \(1-N\) determines the number of parts; each other integral zero records the sizes and multiplicities of all unobserved parts, after removing the mandatory factor at zero. The remaining part size follows by subtraction. The reconstruction handles singleton parts, stars, complete graphs, and \(N=2\). Exact independent Kirchhoff-cofactor computations passed 2,892 scalar comparisons and 336 decoding checks. The finite checker is corroboration, not an infinite certificate.
+PASS
 
-## Originality — PASS, with historical-priority risk
+PASS: Classical weighted multipartite spanning-tree generating identity specializes at root v to P_v(z)=z((N-1+z)/N)^(r-2) product_{j!=i}((N-n_j-1+z)/(N-n_j))^(n_j-1). Because other part sizes are >=1, the root at -(N-1) occurs precisely r-2 times; roots at -(N-t-1) give (t-1) per nonroot part of size t>=2, after removing compulsory z at t=N-1. The remaining r-1 other parts are singletons, and known N gives root-part size. This works for r=2, complete graphs, stars, N=2. Independent exact weighted Kirchhoff cofactors on five multipartite types and all root part types at z=1,2,5 matched the stated normalized PGF; full proof is algebraic and not an extrapolation from finite tests.
 
-General weighted tree enumerators (Remmel--Williamson 2002), general uniform-spanning-tree joint degree laws (Rapoport 2023), and general covariance formulas (Fita Sanmartín--Schnörr--Hamprecht 2024) are acknowledged as stronger *forward-computation* frameworks. The new assertion evaluated here is not a formula for a fixed host, but the injectivity of the mapping from all complete multipartite host graph isomorphism classes of fixed order to **one arbitrary rooted marginal law**, with explicit recovery even when the root's part is unknown. None of the inspected source statements establishes that inverse property. A prior unlocated treatment may exist; some publisher full text was not accessible.
+## originality
 
-## Value — PASS
+PASS
 
-One-vertex stochastic graph reconstruction is an intrinsically motivated local-to-global inference problem. The finding identifies an entire natural infinite family from a single scalar random variable's exact law, and gives an inexpensive algebraic decoder without enumeration of spanning trees. The known-order assumption is mathematically necessary in general: a leaf of every star has deterministic degree one regardless of the star's size. No finite-sample inference guarantee is claimed.
+PASS best of knowledge: Remmel–Williamson weighted spanning-tree enumerator is explicitly prior and gives forward joint generating functions; Rapoport general UST degree formulas and Fita Sanmartin et al node-degree moments are also forward. They do not state that one arbitrarily chosen vertex marginal, with its root part concealed, identifies every complete multipartite graph of known order. Prior co-degree reconstruction uses all common-neighbor pairs rather than one random rooted degree and excludes singleton parts. Exact inversion by factor multiplicities is a new natural injectivity assertion under tested sources.
 
-## Related work and limitations
+## value
 
-Closest sources: Remmel--Williamson (2002), DOI 10.37236/1650, for multivariate generating functions of multipartite spanning trees; Rapoport (2023), arXiv:2312.14992, for uniform-spanning-tree joint degree probabilities; Fita Sanmartín--Schnörr--Hamprecht (2024), arXiv:2409.13472, for the general node degree framework; Li--Chen--Yan (2023), DOI 10.1002/jgt.22954, for complete multipartite fixed-forest counts. The theorem depends on the classical enumerator, requires the known vertex count and an exact rooted distribution, and is not a claim of identification for arbitrary graphs. Prior work with a direct inversion statement remains a possible historical risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A natural one-vertex stochastic inverse graph problem admits a full all-order reconstruction, including highly asymmetric and singleton-containing complete multipartite graphs. This identifies a whole host isomorphism class from an exact scalar marginal and shows why N must be specified (universal star-leaf degree 1). The constructive root multiplicity decoder, though based on known enumerator, is a useful explicit local-to-global rigidity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

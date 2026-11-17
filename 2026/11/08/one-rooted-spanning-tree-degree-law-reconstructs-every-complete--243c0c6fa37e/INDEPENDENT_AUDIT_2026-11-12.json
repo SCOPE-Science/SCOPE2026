@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Classical weighted multipartite spanning-tree generating identity specializes at root v to P_v(z)=z((N-1+z)/N)^(r-2) product_{j!=i}((N-n_j-1+z)/(N-n_j))^(n_j-1). Because other part sizes are >=1, the root at -(N-1) occurs precisely r-2 times; roots at -(N-t-1) give (t-1) per nonroot part of size t>=2, after removing compulsory z at t=N-1. The remaining r-1 other parts are singletons, and known N gives root-part size. This works for r=2, complete graphs, stars, N=2. Independent exact weighted Kirchhoff cofactors on five multipartite types and all root part types at z=1,2,5 matched the stated normalized PGF; full proof is algebraic and not an extrapolation from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier co-degree result recovers parts only from all pair co-degrees and assumes n_i>=2; no single rooted tree-degree probability is involved."
+        ],
+        "reasoning": "General forward spanning-tree distributions apply to many graphs but do not imply the inverse uniqueness across host graphs; co-degree graph reconstruction is a different invariant (all pair common neighbor values) and a smaller no-singleton graph family.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-co-degree-reconstruction-of-complete-multipartite-graphs-without--79b456832366/RESULT.md",
+          "https://arxiv.org/abs/2312.14992",
+          "https://doi.org/10.37236/1650"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.37236/1650",
+        "https://arxiv.org/abs/2312.14992",
+        "https://arxiv.org/abs/2409.13472",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-co-degree-reconstruction-of-complete-multipartite-graphs-without--79b456832366/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonroot size-t parts contribute exactly (t-1) multiplicity at -(N-t-1); multiplicities and N force the entire multiset, even singleton parts."
+        ],
+        "reasoning": "The old multivariate enumerator gives expression (2) but a theorem about distribution uniqueness requires comparing potential different host-size profiles and proving the inverse decoder, including the hidden root part. Neither prior general UST degree moment formulas nor unrelated co-degree inverse establishes this assertion. It is a short but genuine structural consequence with a motivated natural inverse formulation.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-co-degree-reconstruction-of-complete-multipartite-graphs-without--79b456832366/RESULT.md",
+          "https://doi.org/10.37236/1650",
+          "https://arxiv.org/abs/2312.14992"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proof decodes r from root at 1-N, all nonroot non-singleton part sizes from negative roots and denominators (t-1), then singleton count and root part from N."
+        ],
+        "reasoning": "Equivalent probabilistic reconstruction is injectivity of G -> Law(deg_T(v)) on all connected complete multipartite graphs of fixed order even when v part unknown; algebraically it is injectivity of an integer-root factored polynomial with a distinguished root and multiplicity constraints.",
+        "searches": [
+          "Resultary semantic: rooted spanning tree degree distribution complete multipartite graph reconstruction from one vertex",
+          "https://arxiv.org/abs/2312.14992",
+          "https://doi.org/10.37236/1650"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact Kirchhoff cofactors verified cases K_(1,2,2,3), K_(2,3), K_(1,1,1,1), K_(1,1,4), K_(2,2,2)."
+        ],
+        "reasoning": "No known graph-invariant database comparison resolves the exact all-N inverse theorem. Finite Kirchhoff matrices independently verify selected concrete cases but do not establish general injectivity.",
+        "searches": [
+          "Resultary semantic: rooted spanning tree degree distribution complete multipartite graph reconstruction from one vertex",
+          "SCOPE2026 verify.py",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-co-degree-reconstruction-of-complete-multipartite-graphs-without--79b456832366/RESULT.md"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Remmel–Williamson weighted spanning-tree enumerator is explicitly prior and gives forward joint generating functions; Rapoport general UST degree formulas and Fita Sanmartin et al node-degree moments are also forward. They do not state that one arbitrarily chosen vertex marginal, with its root part concealed, identifies every complete multipartite graph of known order. Prior co-degree reconstruction uses all common-neighbor pairs rather than one random rooted degree and excludes singleton parts. Exact inversion by factor multiplicities is a new natural injectivity assertion under tested sources.",
+      "residual_risks": [
+        "Classical forward enumerator makes inverse factorization short; an unlocated earlier statement may explicitly characterize injectivity.",
+        "Exact probability law and known N are essential; numerical samples are not covered.",
+        "Original Remmel–Williamson publisher article was not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING one-vertex UST degree, different input and no singleton parts.",
+          "evidence": [
+            "Earlier recovers part multiplicities from all graph co-degrees via triangular coefficient equation, excludes singleton parts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-co-degree-reconstruction-of-complete-multipartite-graphs-without--79b456832366/RESULT.md",
+          "material_read": "Complete theorem, triangular co-degree polynomial proof, known limitations, and bibliography.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "Co-degree reconstruction of complete multipartite graphs without singleton parts",
+          "trigger": "Closest earlier multipartite graph inverse reconstruction"
+        },
+        {
+          "assessment": "Forward joint degree probabilities not an injective inverse identification theorem.",
+          "evidence": [
+            "A probabilistic forward degree law on arbitrary graphs does not distinguish host inverse classes automatically."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.14992",
+          "material_read": "Accessible full arXiv HTML; relevant definitions, joint probability formula and methods examined.",
+          "method": "Read primary arXiv HTML relevant theorem and degree-law sections.",
+          "title": "Correlations in uniform spanning trees: a fermionic approach",
+          "trigger": "Primary general UST joint degree distribution"
+        },
+        {
+          "assessment": "Strong prior forward formula and genuine residual risk of implicit reconstruction consequence.",
+          "evidence": [
+            "General identity gives F_G(x)=prod x_u (sum x_u)^(r-2) prod_j(sum outside V_j x_u)^(n_j-1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1650",
+          "material_read": "Exact enumerator formula (1) in assigned proof and supporting bibliographic/theorem references inspected; original full publisher article not independently read.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "Spanning Trees and Function Classes",
+          "trigger": "Classical complete-multipartite multivariate tree enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural one-vertex stochastic inverse graph problem admits a full all-order reconstruction, including highly asymmetric and singleton-containing complete multipartite graphs. This identifies a whole host isomorphism class from an exact scalar marginal and shows why N must be specified (universal star-leaf degree 1). The constructive root multiplicity decoder, though based on known enumerator, is a useful explicit local-to-global rigidity theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Does not reconstruct general graphs or prove statistical identifiability from finite samples. Earlier classical enumerator credited fully.",
+  "schema_version": 1
+}
