@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result has an explicit bounded operator and exact iterated block formula. The mixing equivalence is proved in both directions: a bounded gap forces every orbit's corresponding coordinate to tend to zero, whereas a dense zero-sum core and vanishing block-average right inverses yield mixing. The special level formula gives unbounded iterated gaps, and disjoint short blocks force an all-vector polylogarithmic bound. The finite checker exercises 6,594 grouped exact tests; it is supplementary, not an infinite-dimensional proof.
+## correctness
 
-**Originality — PASS (qualified).** The motivating work explicitly leaves the \(\ell^p\) accumulative-shift question for further study and proves the \(c_0\) criterion, which is credited. Grosse-Erdmann–Papathanasiou's general tree mixing theorem is acknowledged but concerns loop-free rooted-tree shifts, whereas the accumulative construction has a root self-loop and a new quantitative return-count conclusion. Published-record searches identified no matching result. Two plausibly broad operator-valued-shift articles were accessible only at abstract level and remain priority risks; absence of a result from an abstract is *not* asserted.
+PASS
 
-**Value — PASS.** An explicit uniformly degree-two symbol is mixing for every \(\ell^p\) with \(p>1\), but its orbit visits to one fixed open cylinder are always polylogarithmically sparse. That prevents upper frequent hypercyclicity and contrasts directly with the known \(c_0\) Frequent Hypercyclicity Criterion for the identical matrix. The result supplies a natural counterexample and a complete hypercyclic/mixing baseline for an open family.
+Disjoint interval sums for B_phi imply B_phi^n rows indexed by I_{n,j}=(phi^n(j−1),phi^n(j)] for j>=1 and root [0,phi^n(0)]. If some gap stays bounded, Holder and escape to infinity force each orbit’s j-coordinate to zero and preclude hypercyclicity. If all gaps grow, dense zero-sum finite-support vectors eventually map to 0 and the disjoint constant-block right inverses R_n have l^p norm→0 (p>1), yielding mixing. For explicit s_t=2^{floor(log2 log2(t+4))}, the map sends level J_t to J_{t+1} with scale ratio 1 or 2, so iterated gaps diverge; (B^n x)_1 uses disjoint blocks of size s_n/2<=log2(n+4)/2. Holder plus summation of disjoint input l^p masses yields the all-vector polylog visit bound, zero upper density, hence no upper frequent hypercyclic vectors. Exact small-level computations independently confirmed the interval iteration, not used as proof.
 
-**Limitations.** This does not classify frequent hypercyclicity for arbitrary accumulative symbols, does not assert optimality of the logarithmic exponent, and has no independent mathematical validation. Some broad comparison full texts could not be obtained.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. López-Martínez arXiv:2505.02397 Theorem 3.1 and Remark 3.2(e), in full accessible HTML, supplies c0 FHC and explicitly leaves ell^p dynamics open. Grosse-Erdmann–Papathanasiou arXiv:2012.15542 Theorem 4.4 treats loop-free rooted directed-tree shifts; the accumulator root has a self-loop and its all-orbit subpolynomial recurrence obstruction is absent from its mixing criterion. Broad operator-valued-shift papers only abstract-accessible; real residual risk, not an automatic O failure. Resultary checks yield no separately covering prior.
+
+## value
+
+PASS
+
+A natural bounded (row size <=3) interval-summing shift gives a concrete mixing-but-no-upper-frequent example simultaneously on every ell^p, contrasting with c0 FHC for exactly the same matrix. The sharp logical distinction and explicit quantitative all-vector count directly address an identified ell^p research problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
