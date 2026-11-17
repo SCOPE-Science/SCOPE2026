@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The main result specifies all even cycle orders starting at six, the binary symmetric pair utility, the weak/strict two-agent swap rule, and the labeled-vertex/unlabeled-pair counting convention. Exhausting the three swap types gives the exact two-part local criterion. This forces odd gaps of length at least three, except that bad pairs are forbidden to close length-three gaps. Inclusion-exclusion over disjoint edges of the compressed cycle yields the counting formula; the case of two unhappy vertices is treated separately. The sharp welfare bound follows from gap lengths and explicit constructions with opposite-index bad pairs. Direct exhaustive computations check each individual exchange on all 146595 pair partitions of cycle orders 6,8,10,12,14, independently reproducing the formula; they are not used as an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+All even n>=6 simple cycle matchings into unordered pairs are considered with utility 1 precisely for neighboring partners. Direct exchange analysis shows stability iff bad/unhappy vertices are independent and no existing bad pair closes a 3-edge path with its middle edge a good pair. The other vertices pair consecutively inside gaps, forcing odd cyclic gap lengths >=3, and endpoints of gap 3 may not partner. For even u>=4, inclusion-exclusion over size-j matchings of the compressed u-cycle yields the claimed summand with u/(u-j) C(u-j,j)(u-2j-1)!! C(s+u-j-1,u-j-1) and n/u root correction; u=2 counted separately and u=0 gives two matchings. Gap bound 3u<=n and opposite-index constructions give u_max and price n/(n-u_max), including exceptions n6,8 and n10. Independent direct enumeration of all pair partitions for n=6,8,10,12 confirms counts 2;2;(2,5);(2,12,3); finite data are not proof.
 
-The published AAAI 2022 Bilò–Monaco–Moscardelli paper sets up precisely the same fixed-size, symmetric, simple-game swap stability framework (the closest direct precursor) and proves existence, a potential, and general worst-case upper bounds, but does not derive the cycle-specific exact stable-pairing census or the uniform sharp welfare ratio. The ordinal seat-arrangement setting of Wilczynski (IJCAI 2023) differs in its utility/graph role and does not imply this binary friendship pairing count. Nearby matching and stable-roommates records concern distinct objectives or general preference profiles. The specific three-edge obstruction is weaker than forbidding all matching augmenting paths, because endpoints must already be paired together. Targeted exact-claim and alias comparisons found no covering statement. Unknown specialized enumeration or inaccessible material could still affect priority, so no novelty certainty is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The agent network is a natural sparse symmetric friendship graph with the smallest nontrivial coalition size. The result provides a complete test for stability, a finite and computable formula for *all* labeled stable allocations, and a sharp social-welfare guarantee independent of the number of coalitions. The transition from no inefficient equilibria at six/eight agents to inefficient cases at ten, followed by an attained asymptotic bound of three halves, gives a meaningful boundary for the general fixed-size hedonic model rather than an arbitrary numerical example.
+The examined exact primary statements and indexed Resultary claims, including direct implication/subcase checks, do not cover the surviving complete theorem as scoped. Specific overlaps and uncertain inaccessible full texts are recorded; negative searches are not taken as novelty proof.
 
-## Closest literature and limitations
+## value
 
-Bilò, Monaco, and Moscardelli, *Hedonic Games with Fixed-Size Coalitions*, AAAI 2022, DOI 10.1609/aaai.v36i9.21156, is the principal precursor. Wilczynski, *Ordinal Hedonic Seat Arrangement under Restricted Preference Domains: Swap Stability and Popularity*, IJCAI 2023, has different host graph and preference semantics. Source-priority uncertainty remains for unindexed specialized studies; the result is confined to even cycles, binary symmetric pair utility, and the specified swap-stability rule. The finite checker does not establish the infinite theorem independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sparse cycle is a canonical nontrivial graph for binary symmetric hedonic pairing. The exact local obstruction, full labeled equilibrium count by welfare and sharp bounded price of anarchy (first inefficient n=10; maximum 3/2) form a complete structural result unavailable from generic bounds, with a meaningful sharp inefficiency threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

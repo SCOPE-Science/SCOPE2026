@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T05:52:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All even n>=6 simple cycle matchings into unordered pairs are considered with utility 1 precisely for neighboring partners. Direct exchange analysis shows stability iff bad/unhappy vertices are independent and no existing bad pair closes a 3-edge path with its middle edge a good pair. The other vertices pair consecutively inside gaps, forcing odd cyclic gap lengths >=3, and endpoints of gap 3 may not partner. For even u>=4, inclusion-exclusion over size-j matchings of the compressed u-cycle yields the claimed summand with u/(u-j) C(u-j,j)(u-2j-1)!! C(s+u-j-1,u-j-1) and n/u root correction; u=2 counted separately and u=0 gives two matchings. Gap bound 3u<=n and opposite-index constructions give u_max and price n/(n-u_max), including exceptions n6,8 and n10. Independent direct enumeration of all pair partitions for n=6,8,10,12 confirms counts 2;2;(2,5);(2,12,3); finite data are not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilò–Monaco–Moscardelli prove broad PoA<=2k-1 for k fixed-size coalitions; at k=n/2 the upper bound grows with n, unlike this sharp <=3/2 bound."
+        ],
+        "reasoning": "General bound/PoS existence does not imply the exact cycle local characterization, counts, and sharp stability spectrum.",
+        "searches": [
+          "Hedonic Games with Fixed-Size Coalitions AAAI 2022 Theorem 6 PoA",
+          "cycle friendship graph swap stability pair coalitions exact bound 3/2"
+        ]
+      },
+      "checked_sources": [
+        "Bilò–Monaco–Moscardelli 2022 full relevant paper",
+        "IJCAI 2023 Wilczynski model/abstract",
+        "Resultary cycle matched search",
+        "Resultary 2026 random-preference cycle matching summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest same fixed-size deviation source contains no cycle-specific theorem in inspected complete paper. Wilczynski treats a host seating graph with ordinal utilities, so the statement is not an implication of its results."
+        ],
+        "reasoning": "A general existence theorem for stable matchings or coarse welfare bounds cannot determine the forbidden endpoint pair in each length-3 gap or count legal cyclic gap matchings; that requires the displayed structural derivation.",
+        "searches": [
+          "Bilò Monaco Moscardelli Hedonic Games with Fixed-Size Coalitions 2022 full text",
+          "Wilczynski IJCAI 2023 seat arrangement swap stability",
+          "Resultary cycle graph paired agents swap stable matchings exact counting price of anarchy symmetric hedonic games"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is a symmetric binary matching game with exchange of partners; this differs from ordinal stable roommates and from local Schelling position swaps. An augmenting 3-path obstructs only when the two endpoints are paired together."
+        ],
+        "reasoning": "Exact mapping of the deviations prevents false coverage by general augmenting-path avoidance or ordinal preference stable roommates formulas.",
+        "searches": [
+          "Resultary: cycle graph paired agents swap stable matchings exact counting price of anarchy symmetric hedonic games",
+          "exchange-stable roommates 2-person coalitions cycle adjacency utility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A 2026 preference-cycle 2-stable matching count concerns a random directed ordinal preference model and counts matchings by size, not perfect pairings with binary friendship and welfare."
+        ],
+        "reasoning": "The exact B_n(u) formula gives an all-even-order census beyond finite tables. Independent small counts are corroboration; no matching established table was found.",
+        "searches": [
+          "Resultary: cycle graph paired agents swap stable matchings exact counting price of anarchy symmetric hedonic games",
+          "Resultary exact size spectrum 2-stable matchings on randomly oriented preference cycles"
+        ]
+      },
+      "rationale": "The examined exact primary statements and indexed Resultary claims, including direct implication/subcase checks, do not cover the surviving complete theorem as scoped. Specific overlaps and uncertain inaccessible full texts are recorded; negative searches are not taken as novelty proof.",
+      "residual_risks": [
+        "An older specialized enumeration in matching/hedonic graph literature may be unindexed; novelty is best-of-knowledge.",
+        "Counts apply only even n>=6 simple cycles with binary adjacency utilities and weak/strict cross-pair swapping; odd n or strict-both are excluded.",
+        "Direct enumeration through 12 vertices cannot certify the general formula; full proof rests on cyclic gaps and inclusion-exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "broad upper bounds not exact cycle pairings",
+          "evidence": "Theorem 6 price bound 2k-1; no cycle matching census",
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v36i9.21156",
+          "material_read": "Full publicly accessible AAAI 2022 paper, definitions and theorems on SS and efficiency",
+          "method": "primary PDF extracted text",
+          "title": "Hedonic Games with Fixed-Size Coalitions",
+          "trigger": "same agent utility and swap notion"
+        },
+        {
+          "assessment": "different host-seating/ordinal preference model",
+          "evidence": "Different agents/locations and utility model preclude direct special-case inference",
+          "identifier_or_url": "https://www.ijcai.org/proceedings/2023/324",
+          "material_read": "Abstract and model-definition passages",
+          "method": "IJCAI proceedings abstract and relevant accessible excerpts",
+          "title": "Ordinal Hedonic Seat Arrangement under Restricted Preference Domains: Swap Stability and Popularity",
+          "trigger": "name matches swap stability and graph placement"
+        },
+        {
+          "assessment": "randomly oriented ordinal preference cycles, not this symmetric binary graph",
+          "evidence": "Published count 2^{1-n}4^j C(n,2j) for random preference matchings",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-size-spectrum-of-2-stable-matchings-on-randomly-oriented-p--14ea62fa52bf",
+          "material_read": "Full Resultary indexed finding summary and parameters; original result not read in full",
+          "method": "Resultary semantic search",
+          "title": "Exact size spectrum of 2-stable matchings on randomly oriented preference cycles",
+          "trigger": "closest published Resultary cycle matching count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sparse cycle is a canonical nontrivial graph for binary symmetric hedonic pairing. The exact local obstruction, full labeled equilibrium count by welfare and sharp bounded price of anarchy (first inefficient n=10; maximum 3/2) form a complete structural result unavailable from generic bounds, with a meaningful sharp inefficiency threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older specialized enumeration in matching/hedonic graph literature may be unindexed; novelty is best-of-knowledge.",
+    "Counts apply only even n>=6 simple cycles with binary adjacency utilities and weak/strict cross-pair swapping; odd n or strict-both are excluded.",
+    "Direct enumeration through 12 vertices cannot certify the general formula; full proof rests on cyclic gaps and inclusion-exclusion.",
+    "Protected external Lean and expert attestation remain not_performed. Existing source metadata has operational provenance and no public file was modified."
+  ],
+  "schema_version": 1
+}

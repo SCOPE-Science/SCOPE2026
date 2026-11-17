@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` is self-contained. For corroborating computations, execute the supplied standalone Python file using:
+## correctness
 
-```bash
-python3 verify_cycle_pairs.py
-```
+PASS
 
-Only Python's standard library is required. The verifier enumerates all pair partitions of labeled cycles of sizes 6, 8, 10, 12, and 14, checks whether any swap is a weak/strict improvement by direct comparison of the two swapping participants, independently checks the structural characterization, and compares exact integer counts with the inclusion-exclusion expression. It additionally evaluates formula totals through 30 agents. The expected count of enumerated partitions is 146595; the stable totals for the five exhaustively checked orders are 2, 2, 7, 17 and 37. Computation cannot establish the infinitely quantified theorem; the deductive proof supplies that step.
+All even n>=6 simple cycle matchings into unordered pairs are considered with utility 1 precisely for neighboring partners. Direct exchange analysis shows stability iff bad/unhappy vertices are independent and no existing bad pair closes a 3-edge path with its middle edge a good pair. The other vertices pair consecutively inside gaps, forcing odd cyclic gap lengths >=3, and endpoints of gap 3 may not partner. For even u>=4, inclusion-exclusion over size-j matchings of the compressed u-cycle yields the claimed summand with u/(u-j) C(u-j,j)(u-2j-1)!! C(s+u-j-1,u-j-1) and n/u root correction; u=2 counted separately and u=0 gives two matchings. Gap bound 3u<=n and opposite-index constructions give u_max and price n/(n-u_max), including exceptions n6,8 and n10. Independent direct enumeration of all pair partitions for n=6,8,10,12 confirms counts 2;2;(2,5);(2,12,3); finite data are not proof.
 
-No external independent scientific audit has been performed. The code evaluates only the indicated finite cases and is not a complete global enumeration for arbitrary input order.
+## originality
+
+PASS
+
+The examined exact primary statements and indexed Resultary claims, including direct implication/subcase checks, do not cover the surviving complete theorem as scoped. Specific overlaps and uncertain inaccessible full texts are recorded; negative searches are not taken as novelty proof.
+
+## value
+
+PASS
+
+A sparse cycle is a canonical nontrivial graph for binary symmetric hedonic pairing. The exact local obstruction, full labeled equilibrium count by welfare and sharp bounded price of anarchy (first inefficient n=10; maximum 3/2) form a complete structural result unavailable from generic bounds, with a meaningful sharp inefficiency threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
