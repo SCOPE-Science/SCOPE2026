@@ -1,94 +1,70 @@
-# Four-modal observational profiles of finite intuitionistic chains
+# Large observational fibers for four intuitionistic modalities on finite chains
 
 ## Finding
 
-Let \(C_n=\{0,1,\ldots,n-1\}\) have its usual order, where \(n\geq1\). For every binary relation \(R\subseteq C_n\times C_n\), interpret the four intuitionistic modal operators of Balbiani and Gencer (Přenosil possibility, Fischer–Servi necessity, Wijesekera possibility, and its dual necessity) on the lattice of upsets of \(C_n\). Two relations are **observationally equivalent** when the four unary operations are identical on all upsets; equivalently, every formula in the corresponding intuitionistic language has the same truth set for every upset valuation, with worlds held fixed.
+Let \(C_n=\{0<\cdots<n-1\}\), \(n\ge4\), be a fixed labelled intuitionistic chain. For each arbitrary binary relation \(R\subseteq C_n^2\), interpret the four Přenosil, Fischer–Servi, Wijesekera and dual modal operators on all upsets by the standard clauses of Balbiani–Gencer. Two relations belong to the same observational fiber if all four operators have the same truth-set action on every upset. Set \(M_n\) equal to the largest number of concrete binary relations in one such fiber.
 
-For each row \(R[i]=\{j:iRj\}\), put \(a_i=\min R[i]\) and \(b_i=\max R[i]\) when the row is nonempty, with \(a_i=n\) and \(b_i=-1\) when the row is empty. Define four profiles at each world \(s\):
-
+**Improved unbounded-size fiber theorem.** For every \(n\ge4\),
 \[
-F_s=\max_{i\leq s} b_i,\qquad H_s=\min_{i\geq s} b_i,\qquad I_s=\max_{i\leq s}a_i,\qquad G_s=\min_{i\geq s}a_i.
+\boxed{ M_n\ \ge\ 9^{n-2}2^{n^2-4n+2}. }
 \]
+The displayed size is attained by one explicit fiber, not merely by a union of fibers or a collection of isomorphic relations. This lower bound is strictly sharper, for every \(n\ge4\), than the earlier general bound \(2^{n(n-2)}\) from *Four-modal observational fibers on finite intuitionistic chains* (November 2, 2026); their ratio is \(9^{n-2}/4^{n-1}\), increasing exponentially with \(n\).
 
-**Profile theorem.** Two arbitrary relations on \(C_n\) are observationally equivalent if and only if all four profiles \((F,H,I,G)\) agree pointwise. Every relation is observationally equivalent to one with at most \(2n\) edges, and this uniform edge bound is attained for every \(n\geq2\). The map from relations to observable four-modal algebras is injective exactly when \(n\leq2\). For every \(n\geq4\), at least one algebra has \(9^{n-2}2^{n^2-4n+2}\) distinct inducing relations; this lower bound is exact for \(n=4,5\).
-
-The following exact finite census counts the distinct four-modal algebra expansions of the **fixed, labelled** chain (not merely frame validities). The largest fibre is the greatest number of relations yielding one such expansion.
-
-| Worlds \(n\) | Relations | Observable expansions | Largest fibre | Expansions with largest fibre |
-|---:|---:|---:|---:|---:|
-| \(1\) | \(2\) | \(2\) | \(1\) | \(2\) |
-| \(2\) | \(16\) | \(16\) | \(1\) | \(16\) |
-| \(3\) | \(512\) | \(279\) | \(8\) | \(5\) |
-| \(4\) | \(65{,}536\) | \(7{,}171\) | \(324\) | \(1\) |
-| \(5\) | \(33{,}554{,}432\) | \(235{,}152\) | \(93{,}312\) | \(1\) |
-
-Thus three worlds are the sharp point at which the joint semantics of all four connectives ceases to reconstruct accessibility. For five worlds, a single observable algebra can be induced by \(93{,}312\) different relations.
-
-## Assumptions and scope
-
-A relation \(R\) is **arbitrary**: it is not required to be reflexive, serial, transitive, functional, or confluent. The chain order is fixed and every propositional variable is interpreted by an upset. Every upset has the form \(U_k=\{k,k+1,\ldots,n-1\}\), for \(0\leq k\leq n\), where \(U_n=\varnothing\).
-
-For any upset \(U\), write \(\mathsf P U\) for Přenosil possibility, \(\mathsf B U\) for Fischer–Servi necessity, \(\mathsf W U\) for Wijesekera possibility, and \(\mathsf D U\) for dual necessity. Their world conditions are, respectively,
-
+**Sharp five-world maximum.** The largest observational fiber on the five-world labelled chain has exactly \(93,312\) relations, and it is unique among observable profiles:
 \[
-\begin{aligned}
-s\in\mathsf P U &\Longleftrightarrow \exists i\leq s\ \exists j\in R[i]:j\in U,\\
-s\in\mathsf B U &\Longleftrightarrow \forall i\geq s\ \forall j\in R[i]:j\in U,\\
-s\in\mathsf W U &\Longleftrightarrow \forall i\geq s\ \exists j\in R[i]:j\in U,\\
-s\in\mathsf D U &\Longleftrightarrow \exists i\leq s\ \forall j\in R[i]:j\in U.
-\end{aligned}
+\boxed{M_5=93,312,\qquad \#\{\text{observable profiles with fiber }93,312\}=1.}
 \]
+The preceding four-world maximum is \(M_4=324\), already proved in the October 25 and November 2 results cited below. The known five-world *number of distinct observational profiles*, \(235,152\), was published on October 18 and is not claimed new here.
 
-Empty rows satisfy universal conditions and fail existential conditions. Formula equivalence is evaluated under the same upset valuation on the same labelled world set, **not** by comparing only sets of globally valid formulas or by arbitrary bisimulations.
+This theorem does **not** claim as original the four running-extrema signature, equivalence criterion, two-edge-per-row sparsification, sharp two-world identifiability threshold, general fiber product formula, or previously published class counts. These are explicitly credited prerequisites, not new findings.
 
-## Proof
+## Assumptions, definitions and previously established profile machinery
 
-**Step 1: threshold evaluation.** For every \(0\leq k\leq n\), an inhabited row \(R[i]\) meets \(U_k\) exactly when \(b_i\geq k\), and the inclusion \(R[i]\subseteq U_k\) holds exactly when \(a_i\geq k\). The chosen empty-row conventions make both equivalences hold also for empty rows. Substitution into the four semantic clauses yields
-
+No frame confluence, seriality, reflexivity or transitivity is assumed. Upward-closed truth sets are \(U_k=\{k,\ldots,n-1\}\), including \(U_n=\varnothing\), and comparisons are pointwise on the same ordered carrier under the same valuation. For row \(R[i]\) put \(a_i=\min R[i]\), \(b_i=\max R[i]\), using \(a_i=n,b_i=-1\) for an empty row. The already-published complete invariant consists of
 \[
-\begin{aligned}
-s\in\mathsf P U_k&\Longleftrightarrow F_s\geq k,\\
-s\in\mathsf B U_k&\Longleftrightarrow G_s\geq k,\\
-s\in\mathsf W U_k&\Longleftrightarrow H_s\geq k,\\
-s\in\mathsf D U_k&\Longleftrightarrow I_s\geq k.
-\end{aligned}
+F_s=\max_{i\le s}b_i,\quad H_s=\min_{i\ge s}b_i,\quad I_s=\max_{i\le s}a_i,\quad G_s=\min_{i\ge s}a_i.
 \]
+These profiles exactly determine the action of the four operators on all upsets; equivalence of profiles is equivalent to observational equivalence. In particular, the number of relations with a specified profile can be evaluated by independently summing the endpoint multiplicities in each row. The weight of an empty row or a singleton interval is one, and a nonempty endpoint pair \((a,b)\) with \(a<b\) has multiplicity \(2^{b-a-1}\). See the three earlier published mathematical records in the references; this prior theorem is used, not reproved as new.
 
-**Step 2: if and only if.** Identical profiles immediately give identical modal operations on every \(U_k\), hence on every upset. Conversely, the truth values of an operator on all \(U_k\) reconstruct the relevant integer profile by the preceding threshold equivalences: \(F_s,H_s\in\{-1,\ldots,n-1\}\) and \(I_s,G_s\in\{0,\ldots,n\}\) are all uniquely determined by which thresholds hold. Thus equality of all four modal operations forces equality of profiles. Since intuitionistic conjunction, disjunction, implication and coimplication depend only on the order and input upsets, induction on formulas proves the asserted equivalence with equality of all formula denotations. Applying each unary operator to a propositional variable proves the converse for formula denotations.
+## Proof of the improved bound
 
-**Step 3: sparse representatives.** Replace every inhabited row by the set of its one or two endpoints, leaving empty rows empty. Its minima and maxima, hence its four profiles, are unchanged. Therefore no more than \(2n\) edges are needed. Sharpness for \(n\geq2\) is witnessed by the relation having \(R[i]=\{0,n-1\}\) for every \(i\). Its profile \(I_s=0\) for all \(s\) forces any observationally equivalent relation to have \(a_i=0\) for every row (because every term of each prefix maximum is nonnegative). Its profile \(H_s=n-1\) for all \(s\) forces \(b_i=n-1\) for every row. Thus every representative contains both endpoints in every row and has at least \(2n\) edges.
+For fixed \(n\ge4\), prescribe row endpoints \(a_0=1,b_0=n-1\) and \(a_{n-1}=0,b_{n-1}=n-2\). For each intermediate row \(1\le i\le n-2\), choose freely
+\[
+ a_i\in\{0,1\},\qquad b_i\in\{n-2,n-1\},
+\]
+and choose any actual subset of targets having the prescribed endpoints. All these rows are nonempty. Every such relation has identical profiles \(F_s=n-1\), \(H_s=n-2\), \(I_s=1\), and \(G_s=0\), for every world \(s\): the first row fixes both prefix extrema and the last fixes both suffix extrema. By the prior four-profile criterion, all the relations constructed are observationally equivalent.
 
-**Step 4: sharp reconstruction threshold.** For \(n=1\), the two possible relations have distinct profiles. For \(n=2\), the four profiles explicitly recover the row extrema: \(a_0=I_0\), \(a_1=G_1\), \(b_0=F_0\) and \(b_1=H_1\). Because a subset of a two-element chain is uniquely determined by emptiness and these extrema, every relation is recovered. For every \(n\geq3\), relations that differ only by the presence of the interior target \(1\) in the row \(R[0]\), whose other targets are \(0\) and \(n-1\), have identical row extrema and hence identical four profiles. They are distinct, so reconstruction fails.
+Each boundary row, with endpoints differing by \(n-2\), can be filled in \(2^{n-3}\) ways. In one intermediate row the four endpoint choices have respective multiplicities
+\[
+2^{n-3},\qquad 2^{n-2},\qquad2^{n-4},\qquad2^{n-3},
+\]
+which sum to \(9\cdot 2^{n-4}\). The row choices are independent and yield distinct raw relations. Thus a **single** observable fiber contains exactly
+\[
+ 2^{2n-6}\,(9\cdot2^{n-4})^{n-2}
+ =9^{n-2}2^{n^2-4n+2}
+\]
+relations, proving the lower bound. This argument is valid for every \(n\ge4\) without finite-size extrapolation. Comparing with the earlier bound gives the exact factor \(9^{n-2}/4^{n-1}>1\) for \(n\ge4\).
 
-**Step 5: a uniform large-fibre family.** For \(n\geq4\), fix the first row extrema at \(a_0=1\), \(b_0=n-1\) and the last row extrema at \(a_{n-1}=0\), \(b_{n-1}=n-2\). Allow each intermediate row to have any \(a_i\in\{0,1\}\) and any \(b_i\in\{n-2,n-1\}\), with arbitrary interior target choices. Every such relation has \(F_s=n-1\), \(I_s=1\), \(H_s=n-2\), and \(G_s=0\) for all \(s\). The first and last rows each have \(2^{n-3}\) choices, and an intermediate row has exactly \(2^{n-3}+2^{n-2}+2^{n-4}+2^{n-3}=9\cdot2^{n-4}\) possible actual target sets. The resulting single observational fibre therefore has cardinality \(2^{2n-6}(9\cdot2^{n-4})^{n-2}=9^{n-2}2^{n^2-4n+2}\). This provides the asserted lower bound independently of the finite computations.
+## Proof of the sharp five-world maximum
 
-**Step 6: exact census.** A row has either the empty type \((a,b)=(n,-1)\), of multiplicity one, or endpoints \(0\leq a\leq b<n\). For \(a=b\) there is exactly one row with those endpoints; for \(a<b\), its endpoints must occur and each of the \(b-a-1\) interior targets may occur independently, giving multiplicity \(2^{b-a-1}\). Therefore the Cartesian product of these row-type choices, weighted by the product of their multiplicities, partitions all \(2^{n^2}\) relations without omission or duplication. The profile theorem identifies precisely which choices belong to the same observational class. The included `checks/profile_census.cpp` enumerates these choices for each \(1\leq n\leq5\), groups them by all four profiles, and sums exact integer weights to obtain the table. This is a genuinely exhaustive finite calculation, **not** a sampling argument. The independently implemented `checks/direct_semantics.py` evaluates the four original semantic clauses on every relation and upset for \(1\leq n\leq4\), reproducing all overlapping counts, fibre maxima, and maximizing-class counts. The weighted checker also verifies that the sum of multiplicities is exactly \(2^{n^2}\) in every case.
+The exact all-size *fiber-product formula* is already known. For \(n=5\), there are precisely \(1+5(6)/2=16\) distinct row endpoint types: one empty sentinel and fifteen pairs \(0\le a\le b<5\). Enumerating all \(16^5=1,048,576\) ordered endpoint-type vectors is exhaustive. For each vector, form the four running-extrema profiles, multiply the five weights \(w(a,b)=2^{\max(b-a-1,0)}\) (or one for the empty sentinel), and accumulate weights sharing the same profile. Every one of the \(2^{25}=33,554,432\) binary relations has exactly one endpoint vector and contributes weight exactly once. Consequently the resulting table computes every observational fiber without omission or double counting. The file `checks/profile_census.cpp` implements this finite integer algorithm with a lossless 60-bit key; its output for \(n=5\) is
 
-## Verification
-
-Compile and run `checks/profile_census.cpp` with a C++17 compiler, for example `g++ -std=c++17 -O2 -Wall -Wextra checks/profile_census.cpp -o profile_census && ./profile_census`. It prints, in order, the number of worlds, the number of distinct profiles, the total represented relations, the largest fibre, and the number of fibres attaining the maximum:
-
-```text
-1 2 2 1 2
-2 16 16 1 16
-3 279 512 8 5
-4 7171 65536 324 1
+```
 5 235152 33554432 93312 1
 ```
 
-Run `python3 checks/direct_semantics.py` to independently enumerate all \(2^{n^2}\) relations for \(1\leq n\leq4\). It gives the matching values in those four rows. The general profile, reconstruction, edge-bound and large-fibre assertions are proved algebraically in Steps 1–5 and are not inferred from finite experiments. The numerical statements for \(n\leq5\) depend on the complete finite enumeration in Step 6.
+in the order (chain size, number of profiles, total relations represented, maximum fiber weight, number of maximizing profiles). The last two entries prove both upper bound and uniqueness. The analytic construction in the preceding section independently supplies a fiber of size \(9^3 2^7=93,312\), confirming attainment. A separate complete integer implementation which reconstructs profiles and counts directly over endpoint vectors reproduced the same five entries, independently of the source checker. The first three entries for \(n=5\) include a previously known quotient count and a consistency total; they are not new discoveries.
 
-## Relationship to prior work
+## Value, novelty boundary and limitations
 
-Balbiani and Gencer (2026) introduce the four semantics and study their eliminability, frame correspondence, axiomatization, and decidability. Their semantic clauses are used verbatim above. Přenosil (2023) gives a more general framework of compatible positive and negative modalities on distributive lattices and describes a canonical intersection of relation condensations; this is an important broader source for the **idea of quotienting relations by observable operators**, not evidence that that idea is new here. The present contribution is the explicit chainwise four-profile criterion, the sharp reconstruction/sparsification thresholds, and especially the full weighted enumeration and extremal fibre sizes through five worlds, as well as a uniform large-fibre construction. Related published chain-frame censuses count relations satisfying confluence constraints rather than equivalence classes of **all** relations under these four operators.
+The maximum size of an observational equivalence class measures the worst-case ambiguity in reconstructing a concrete relation from all four modal truth transformers. This is a natural exact invariant of a labelled finite chain. The new five-world maximum and unique maximizing fiber close the first open computational case beyond the earlier maximal-fiber tables ending at four worlds. The new uniform bound improves the previously published all-length guaranteed ambiguity by a factor that grows exponentially with chain length. These are independently useful even though the exact global formula for \(M_n\) at all \(n\ge6\) remains open.
 
-## Limitations
+The proof uses an exhaustive *finite* calculation for \(n=5\), not an extrapolation. The general lower bound is proved combinatorially. No optimality for \(n\ge6\), unlabelled/isomorphism census, or formulas on non-chain preorders are claimed. Historical priority is best-of-knowledge: a larger maximum table or general improved fiber formula under different names could exist.
 
-The counting table stops at five worlds. The profile theorem and sharp reconstruction and sparsification bounds hold for all finite chain lengths, but no general closed formula for the number of observational classes or the largest fibre is claimed. This classification uses all four modalities simultaneously and valuations into all upsets of a chain; it does not determine the number of formula meanings for a fixed finite set of variables, nor compare merely globally valid formulas. The full historical-priority landscape of related distributive modal algebras and digital relation convexity is not completely indexed; in particular, the general canonical-condensation literature is close and could contain implicit variants of the observational criterion. The primary 2026 paper's later sections were not all retrievable for a line-by-line check; no statement that those unread sections lack an equivalent census is made.
+## Prior mathematical results and references
 
-## References
-
-1. P. Balbiani and Ç. Gencer, *Four intuitionistic modal connectives*, first public arXiv version 5 June 2026, arXiv:2606.07348v1, https://arxiv.org/abs/2606.07348 . Semantic clauses in Section 3.4, especially the four modal operators.
-2. A. Přenosil, *Compatibility between modal operators in distributive modal logic*, 16 November 2023, arXiv:2311.10017, https://arxiv.org/abs/2311.10017 . Especially Section 2, Definition 2.2 and the general canonical relation/condensation framework.
-3. The published research record *Maxima normal form and exact census for chain birelational relations*, publicly searchable at https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-maxima-normal-form-and-exact-census-for-chain-birelational-relat--f1e0f9b64170 . This enumerates constrained relations rather than four-operator observational classes.
-4. The published research record *Endpoint normal form and exact census for finite-chain KI frames*, publicly searchable at https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97 . Its confluence hypotheses differ from the arbitrary-relational domain here.
+1. *Four-modal semantic quotients and optimal relation sparsification on finite intuitionistic chains* (October 18, 2026). Establishes the four-extrema observational invariant, optimal rowwise sparsity and quotient counts through five worlds: https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-four-modal-semantic-quotients-and-optimal-relation-sparsificatio--b99647029094/RESULT.md
+2. *Sharp sparse normal form and exact observational fibers for four intuitionistic modalities* (October 25, 2026). Establishes the explicit all-size fiber product, the sparse bound and maximal fibers through four worlds: https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-sparse-normal-form-and-exact-observational-fibers-for-four--0c002f416cb4/RESULT.md
+3. *Four-modal observational fibers on finite intuitionistic chains* (November 2, 2026). Establishes the same all-size observable invariant, injectivity for \(n\le2\), maximal fibers through four worlds, and the general earlier lower bound \(2^{n(n-2)}\): https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-four-modal-observational-fibers-on-finite-intuitionistic-chains--7e6e6da0bef7/RESULT.md
+4. P. Balbiani and Ç. Gencer, *Four intuitionistic modal connectives*, arXiv:2606.07348 (June 5, 2026), Section 3.4 for the semantic clauses: https://arxiv.org/abs/2606.07348.
+5. A. Přenosil, *Compatibility between modal operators in distributive modal logic*, arXiv:2311.10017 (2023): https://arxiv.org/abs/2311.10017.

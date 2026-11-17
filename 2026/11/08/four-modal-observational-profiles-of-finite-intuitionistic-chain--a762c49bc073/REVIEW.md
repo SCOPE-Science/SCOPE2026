@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The four clauses from Balbiani–Gencer reduce on the chain upset \(U_k\) to four explicit threshold tests. Their threshold outputs recover the running maxima and minima exactly; this proves the all-formula equivalence by induction, with empty rows and the empty upset included. Endpoint reduction yields the sharp \(2n\)-edge bound. The sharp two-to-three-world reconstruction transition is proved without enumeration. A uniform explicit family has exactly \(9^{n-2}2^{n^2-4n+2}\) members in one fibre for every \(n\ge4\). The finite weighted census is an exhaustive partition of all relations; the independent direct semantic enumerator confirms its first four rows. The five-world row is backed by the weighted exact enumeration and the independent general partition argument, not a sampling experiment.
+PASS
 
-## Originality
+The published four-extrema observational invariant and row endpoint multiplicities are used as established prerequisites. Fix first row a0=1,b0=n-1 and last a_{n-1}=0,b_{n-1}=n-2; intermediate rows choose a∈{0,1},b∈{n-2,n-1}. Every resulting relation has constant four profiles. The boundary rows yield 2^(n-3) subsets each; each middle row has sum 2^(n-3)+2^(n-2)+2^(n-4)+2^(n-3)=9·2^(n-4). Thus one single fiber has 9^(n-2)2^(n²-4n+2) members for every n≥4, a strict improvement over earlier 2^(n(n-2)) factor 9^(n-2)/4^(n-1). At n=5, the exact 16^5 endpoint-vector census groups all profiles, weights by 2^max(b-a-1,0), totals 2^25 relations and computes a unique maximal fiber 93,312. I independently wrote and ran a distinct C++ integer enumeration for n=3,4,5 obtaining (279,512,8,5),(7171,65536,324,1),(235152,33554432,93312,1). This exhaustive n=5 calculation is finite and not a proof of optimality for n≥6. The corrected claim and full self-contained proof are in supplied replacement RESULT.md; no novelty claimed for known profiles, sparsification, injectivity or class counts.
 
-**PASS with a documented scope and risk.** The 2026 Balbiani–Gencer paper defines the four operators; the read material concerns their semantics and general logical properties rather than counts of observational equivalence classes on labelled chains. Přenosil's 2023 general compatibility/condensation theory provides broader abstract machinery for recovering modal-algebra representations from relation closures. The abstract existence of a relation quotient and the elementary endpoint reduction should therefore not be presented as unprecedented general ideas. The new contribution assessed here is the finite-chain *complete four-profile parameterization together with the exact quotient and largest-fibre counts through five worlds, the sharp reconstruction threshold, and the uniform many-to-one bound*. The closest indexed chain-frame enumerations count constrained relations under confluence, not quotient classes of arbitrary relations. The complete later sections of the 2026 paper and unindexed literature are a remaining priority risk; no unread material is asserted to lack this census.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** There is an intrinsic algebraic question: how many different four-modal operator expansions of the finite upset (Gödel) chain arise from arbitrary accessibility relations, and how much of the original relation do the four operations collectively retain? The uniform profile criterion makes this observable quotient explicit. The exact counts \(2,16,279,7171,235152\), the maximal fibre counts \(1,1,8,324,93312\), and the sharp three-world transition answer natural finite identifiability questions rather than an arbitrary restriction of formula syntax. The all-length large-fibre construction provides a quantitative lower bound even beyond the exhaustive census. These are not implications of the published confluence-restricted relation counts without additional nontrivial counting.
+Original package overclaimed originality of the four-profile equivalence theorem, edge sparsification, threshold and n=5 class count: all prepublished in October 18/25 and November 2 exact full theorems. Corrected final claim removes those novelty assertions. Its all-n exponentially improved explicit large-fiber lower bound and unique five-world maximum remain genuine best-of-knowledge new refinements.
 
-## Limits and closest work
+## value
 
-The counting table ends at five worlds, and no closed all-length count or maximum-fibre formula is asserted. The profile theorem holds for arbitrary relations on fixed finite chains, but says nothing about relations on non-chains, multiple propositional variables with non-upset valuations, or equality of *validity sets only*. Balbiani–Gencer (arXiv:2606.07348v1) supplies the syntax/semantics; Přenosil (arXiv:2311.10017) supplies the closest abstract canonical-relation comparison. Related public indexed finite-chain counts concern other constrained frame classes. The general abstraction may anticipate parts of the normal form, and the precise numbers require independent historical-priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Worst-case observational ambiguity is a natural exact representational invariant. The explicit general bound improves prior best guaranteed fiber size by an exponentially diverging multiplicative factor, and the five-world exact unique maximum is the next natural complete finite case after prior n≤4 tables. The corrected note is independently useful although M_n remains open for n≥6.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
