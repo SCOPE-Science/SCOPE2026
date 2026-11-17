@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. The standalone `verify.py` computes the exact formula from elementary hyperbolic functions and separately solves a truncated nearest-neighbor continuous-time Markov chain with absorption, reflecting far boundary, stochastic resetting, and delta-local-time approximations. It compares the finite-chain Feynman–Kac transforms at decreasing mesh size with the claimed continuum transform, across three physical parameter sets and various transform parameters. The program also independently checks killed Green identities, the exact two-point potential matrix, strict correlation monotonicity on numerical grids and endpoint/normalized limits.
+## correctness
 
-Execute from a directory containing both files using `python3 verify.py`. It depends only on the Python standard library. Numerical mesh convergence is corroboration; the infinite-dimensional claim rests on the Green-kernel and Feynman–Kac argument, not finite enumeration. No independent external validation has been performed.
+PASS
+
+PASS: Killed half-line Brownian resolvent is (exp(-k|x-y|)-exp(-k(x+y)))/(2Dk); renewal at R produces U(x,y)=G_r(x,y)+(1-exp(-kx))G_r(R,y)/exp(-kR). Evaluating U at a,b<=R yields the two-site 2x2 occupation matrix and Kac point-potential equations. Its determinant yields [1+As+Bt+eta ABst]^{-1}. Differentiation gives covariance (1-eta)AB, z*coth(z) monotonicity gives strict r monotonicity, and eta->0 yields (E,E). Independent 27 Green/resolvent checks passed; actual scale is occupation time density, not Tanaka semimartingale local time.
+
+## originality
+
+PASS
+
+The inspected literature covers one-site resetting local times or broader homogeneous Lévy models, not this exact two distinct sub-reset sensors, reset-location invariance, and strict correlation interpolation.
+
+## value
+
+PASS
+
+PASS: A complete explicit coupled two-sensor occupation law with independence from reset location and sharp rate-dependent synchronization is a natural stochastic-process fact, not just a one-point moment or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

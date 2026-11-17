@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:53:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Killed half-line Brownian resolvent is (exp(-k|x-y|)-exp(-k(x+y)))/(2Dk); renewal at R produces U(x,y)=G_r(x,y)+(1-exp(-kx))G_r(R,y)/exp(-kR). Evaluating U at a,b<=R yields the two-site 2x2 occupation matrix and Kac point-potential equations. Its determinant yields [1+As+Bt+eta ABst]^{-1}. Differentiation gives covariance (1-eta)AB, z*coth(z) monotonicity gives strict r monotonicity, and eta->0 yields (E,E). Independent 27 Green/resolvent checks passed; actual scale is occupation time density, not Tanaka semimartingale local time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Chatterjee–Reuveni–Kundu, arXiv:1902.00907, single-site fixed-horizon resetting local time.",
+          "Singh–Pal, arXiv:2202.02715, first-passage functionals including reset-site local time.",
+          "Li–Zhou, arXiv:1705.01289, joint local times for spectrally negative Lévy processes with spatially homogeneous increments."
+        ],
+        "reasoning": "General Lévy local-time formulas assume spatially homogeneous increments; resetting to a fixed R creates position-dependent jumps. Kac-resolvent theory supplies a proof method but no inspected theorem states the specialized explicit synchronization law.",
+        "searches": [
+          "arXiv:1705.01289 two local times spectrally negative Lévy first passage",
+          "two point local time Brownian Poisson resetting absorbing boundary joint Laplace transform exact formula"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1902.00907",
+        "https://arxiv.org/abs/2202.02715",
+        "https://arxiv.org/abs/1705.01289",
+        "Resultary semantic query two point local time Brownian Poisson resetting absorbing boundary joint Laplace transform exact formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pal–Chatterjee–Reuveni–Kundu, arXiv:1902.00907, single-site fixed-horizon resetting local time.",
+          "Singh–Pal, arXiv:2202.02715, first-passage functionals including reset-site local time.",
+          "Li–Zhou, arXiv:1705.01289, joint local times for spectrally negative Lévy processes with spatially homogeneous increments."
+        ],
+        "reasoning": "The earlier moment/one-site theorems lack a two-site mixed st coefficient and do not imply that the law is independent of any R>=b. General resolvent machinery permits derivation but is not an earlier explicit classification. Qualified best-of-knowledge novelty.",
+        "searches": [
+          "two point local time Brownian Poisson resetting absorbing boundary joint Laplace transform exact formula",
+          "Pal Chatterjee Reuveni Kundu 2019 fixed horizon single-site resetting local time",
+          "Singh Pal 2022 first passage local time at resetting point",
+          "Li Zhou 2017 joint local times Lévy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pal–Chatterjee–Reuveni–Kundu, arXiv:1902.00907, single-site fixed-horizon resetting local time.",
+          "Singh–Pal, arXiv:2202.02715, first-passage functionals including reset-site local time.",
+          "Li–Zhou, arXiv:1705.01289, joint local times for spectrally negative Lévy processes with spatially homogeneous increments."
+        ],
+        "reasoning": "The transform is a two-point occupation resolvent for Brownian motion with position-dependent Poisson reset jumps. Published one-point reset-site local times cannot be identified with the off-reset pair (L_a,L_b).",
+        "searches": [
+          "two point local time Brownian Poisson resetting absorbing boundary joint Laplace transform exact formula",
+          "arXiv:1902.00907 local time resetting and absorption",
+          "arXiv:2202.02715 first passage Brownian functionals local time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-11-02 joint first-passage exposure: completion time, local time at reset point, residence time above it; does not state two distinct interior local times."
+        ],
+        "reasoning": "Published adjacent joint transforms concern other observables and cannot supply this exact cross-site correlation without additional calculation.",
+        "searches": [
+          "two point local time Brownian Poisson resetting absorbing boundary joint Laplace transform exact formula",
+          "Resultary joint first passage exposure law Brownian Poisson resetting 2026/11/02"
+        ]
+      },
+      "rationale": "The inspected literature covers one-site resetting local times or broader homogeneous Lévy models, not this exact two distinct sub-reset sensors, reset-location invariance, and strict correlation interpolation.",
+      "residual_risks": [
+        "General Kac resolvent/permanental-process theory can implicitly yield the law, so attribution of novelty to a specific specialization remains uncertain.",
+        "No unreported full-document no-coverage claims based merely on search snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not exact two-site before-absorption joint transform.",
+          "evidence": "Focus on local time near initial position and fixed horizon.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.00907",
+          "material_read": "Abstract and single-site/local-time scope, including absorption and fixed observation horizon",
+          "method": "arXiv open material and direct observable comparison",
+          "title": "Local time of diffusion with stochastic resetting",
+          "trigger": "same Brownian reset process but single-site local time"
+        },
+        {
+          "assessment": "Does not give the inspected off-reset two-site mixed transform.",
+          "evidence": "One-site reset-point focus.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02715",
+          "material_read": "Results concerning first-passage observables and local time at reset site",
+          "method": "arXiv source inspection of stated observables",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "same first-passage reset process"
+        },
+        {
+          "assessment": "Reset-to-fixed-position Brownian process falls outside homogeneous Lévy-increment hypotheses.",
+          "evidence": "Fixed-location reset jump lacks spatial homogeneity.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.01289",
+          "material_read": "Joint local-time transform scope for spatially homogeneous Lévy processes",
+          "method": "accessible arXiv textual source and assumptions comparison",
+          "title": "Local times for spectrally negative Lévy processes",
+          "trigger": "plausible general multi-local-time theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A complete explicit coupled two-sensor occupation law with independence from reset location and sharp rate-dependent synchronization is a natural stochastic-process fact, not just a one-point moment or normalization check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The two point killing resolvent is an analytic distributional calculation, not simulated sensor data.",
+    "Finite lattice checks do not prove exact continuum theorem.",
+    "Git subtree object hash not independently enumerated.",
+    "The assigned source-tree sha is copied as the intended identity; it was NOT independently verified from a Git directory listing.",
+    "Publication plan is not_ready due to operational metadata disclosure risk; the science review is complete."
+  ],
+  "schema_version": 1
+}
