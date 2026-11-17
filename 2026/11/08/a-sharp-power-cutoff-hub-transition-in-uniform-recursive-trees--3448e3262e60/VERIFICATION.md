@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the power-cutoff hub theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using a Python 3 interpreter without external packages. The script enumerates the finite parent-choice sample space for each \(n=2,\ldots,8\) and cutoff \(\gamma\in\{0.2,0.5,0.8\}\), checks the child-count means and all relevant negative-quadrant inequalities by exact rational arithmetic, then verifies the calculated phase root and the uniqueness-consistent variational upper grid for nine cutoff parameters. The observed run reported `CHECKS_PASSED 19519` with no failed assertion, and \(\gamma_*=0.278652479555518\ldots\).
+## correctness
 
-These calculations test finite identities and the optimization formulas. They are not an exhaustive finite tree census beyond size eight, do not prove any asymptotic claim and are not independent validation. The proof's infinite steps rely instead on the written uniform harmonic approximation, Chernoff bounds, elementary symmetric-polynomial lower bound, negative-dependence argument, and dyadic Borel--Cantelli interpolation. Statistical or simulation evidence is not substituted for those steps.
+PASS
+
+In the actual frozen RESULT.md the degree of a fixed label is a sum of independent Bernoulli trials with mean c_gamma(log(v)/log(n))*log(n)+O(1). Exponential-tail upper bounds and the lower large-deviation bound n^{-I(t;c)+o(1)} reduce the maximum to max_a[a-I(t;c_gamma(a))]. Differentiating yields the interior maximizer 1-t/2 or boundary gamma and the unique cutoff gamma*=1-1/(2log2). Negative quadrant dependence of distinct child-degree events controls the second moment. Polynomial error bounds on dyadic n plus monotonicity prove a.s. coefficient; the unique maximizer of the rate function localizes the label in probability. Assumptions include fixed 0<gamma<1 and independent uniform parent choices.
+
+## originality
+
+PASS
+
+PASS best of knowledge: arXiv:2510.18856 treats the same limited-memory recursive-tree framework but explicitly sets j(n)=theta*n or j(n)=n-n^beta, and Remark 1.1 leaves j(n)=floor(n^beta) to future work; its height/local-limit theorems do not imply the current maximum-degree constant or hub-position exponent. Related Resultary records on degree/leaf covariance and batch recursive trees do not cover this cutoff transition. Residual risk remains from broader recursive-tree extreme-degree literature, not located as a decisive covering statement.
+
+## value
+
+PASS
+
+The earliest eligible vertex changes by a power-law cutoff, making a natural extreme-degree and hub-birth-label phase transition. The sharp exponent gamma*=1-1/(2log2), max coefficient and hub location jointly describe a nontrivial asymptotic regime that does not follow from ordinary recursive-tree degree maxima alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

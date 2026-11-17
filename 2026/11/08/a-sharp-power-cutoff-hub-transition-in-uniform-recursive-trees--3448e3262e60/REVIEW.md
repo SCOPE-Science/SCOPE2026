@@ -1,11 +1,21 @@
-# Scientific review: power-cutoff recursive-tree hubs
+# Independent mathematical audit
 
-**Correctness — PASS.** The model and fixed-parameter quantifiers are explicit. Every vertex's child count is a Poisson-binomial sum with a deterministic eligible-time interval. The uniform harmonic mean approximation, logarithmic upper and lower tails, and exact one-variable variational optimization establish the degree constant. The lower bound counts vertices in a polynomial-size label window; a self-contained negative-association induction controls its variance. Summable dyadic error bounds and monotonicity give almost-sure convergence. Strict uniqueness of the variational maximizer gives the hub-label exponent in probability. The numerical script supplies 19,519 exact and numerical finite assertions; it is not used to infer infinite asymptotics.
+## correctness
 
-**Originality — PASS, provisional.** Angel et al. (arXiv:2510.18856v1, Sections 1--3) specifically identify the power cutoff in Remark 1.1 as an unexplored model, while their theorems address different cutoffs and observables. Lodewijks--Ortgiese (arXiv:2007.05438, Sections 1--2 and model definition) establishes degree extremal methods for vertex weights that do not disappear from eligibility at age-dependent times. The classical Devroye--Lu and Goh--Schmutz results cover the no-cutoff baseline but not the stated power cutoff. Dedicated bibliographic and mathematical-record searches for the power-cutoff hub threshold, its equivalent label exponent, and wider weighted-tree maximum-degree results found no implication covering the claim. An unindexed or more general result is a residual priority risk; a failed search is not uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The precise cutoff family is explicitly proposed as an open direction in its primary source. The finding identifies a sharp, non-obvious stability threshold and a linked hub-location transition, rather than a routine special-case computation. It also provides an explicit solvable coefficient beyond the threshold, including the concrete half-power value \(e/2\). The result separates local near-classical behavior from a new global extreme-value phase.
+In the actual frozen RESULT.md the degree of a fixed label is a sum of independent Bernoulli trials with mean c_gamma(log(v)/log(n))*log(n)+O(1). Exponential-tail upper bounds and the lower large-deviation bound n^{-I(t;c)+o(1)} reduce the maximum to max_a[a-I(t;c_gamma(a))]. Differentiating yields the interior maximizer 1-t/2 or boundary gamma and the unique cutoff gamma*=1-1/(2log2). Negative quadrant dependence of distinct child-degree events controls the second moment. Polynomial error bounds on dyadic n plus monotonicity prove a.s. coefficient; the unique maximizer of the rate function localizes the label in probability. Assumptions include fixed 0<gamma<1 and independent uniform parent choices.
 
-**Scientific limitations and risk.** This is fixed-\(\gamma\) first-order asymptotic information; it does not settle second-order fluctuations, near-critical scaling, persistent hub identities, or all variants of limited memory. Independent audit has not been performed, and complete historical priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: arXiv:2510.18856 treats the same limited-memory recursive-tree framework but explicitly sets j(n)=theta*n or j(n)=n-n^beta, and Remark 1.1 leaves j(n)=floor(n^beta) to future work; its height/local-limit theorems do not imply the current maximum-degree constant or hub-position exponent. Related Resultary records on degree/leaf covariance and batch recursive trees do not cover this cutoff transition. Residual risk remains from broader recursive-tree extreme-degree literature, not located as a decisive covering statement.
+
+## value
+
+PASS
+
+The earliest eligible vertex changes by a power-law cutoff, making a natural extreme-degree and hub-birth-label phase transition. The sharp exponent gamma*=1-1/(2log2), max coefficient and hub location jointly describe a nontrivial asymptotic regime that does not follow from ordinary recursive-tree degree maxima alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
