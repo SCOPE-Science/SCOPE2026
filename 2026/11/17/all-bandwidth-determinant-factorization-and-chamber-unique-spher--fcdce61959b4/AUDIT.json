@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Unitary DFT of 2j+1 nodes per ring gives block upper triangular evaluation matrix: rows of order q receive no columns with |m|<|q|. The signed-order diagonal blocks are N_{ell,k} sqrt(2j+1)(1-x_j^2)^{k/2} times Legendre derivatives, whose leading coefficients and Vandermonde determinants are explicit. Multiplicity summation proves constant, pole exponents and collision exponents for all integer L>=2. The resulting log determinant is strictly concave with negative-definite Hessian in each height-order chamber; its boundary tends to minus infinity, giving a unique nondegenerate maximum. The standalone checker passed 387 supplementary assertions after public package creation; finite testing is not substituted for these infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2014 Section III-E optimizes a maximum condition number of matrices P_m over chosen latitudes and presents no continuous full determinant design theorem.",
+        "2017 Sections III–IV address numerical conditioning and iterative transform accuracy.",
+        "Haines 2024/2025 optimal regression design paper treats spherical t-designs, not the 1,3,... minimal ring restrictions."
+      ],
+      "reasoning": "Condition-number optimization and spherical t-design optimality do not logically imply a count of all local maxima of the unweighted minimal-ring evaluation determinant. Their feasible sets or objectives are different.",
+      "searches": [
+        "D optimal spherical harmonic interpolation full band limit all L nested iso latitude 2j+1 points unique critical point each latitude ordering chamber",
+        "arxiv:1403.4661",
+        "arxiv:1709.02497",
+        "doi:10.1007/s00362-024-01630-5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.13124",
+      "https://arxiv.org/abs/1403.4661",
+      "https://arxiv.org/html/1709.02497v1",
+      "https://doi.org/10.1007/s00362-024-01630-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 and 2017 order-by-order inversion matrices are known, and the present product factorization is a natural analytic consequence using a polynomial Vandermonde identity.",
+        "No inspected theorem supplies the strict Hessian and existence/uniqueness on every height-ordering chamber.",
+        "The previously established nine-point quadratic exact determinant is subsumed as a small special case, not republished as a standalone new result."
+      ],
+      "reasoning": "The new mathematical conclusion is not mere invertibility: it gives the full constant and all pairwise multiplicities, angular phase invariance, and the exact landscape of nondegenerate D-optimal critical points for every L. The overlap risk is an unlocated implicit general determinant formula plus standard log-gas concavity.",
+      "searches": [
+        "D optimal spherical harmonic interpolation full band limit all L nested iso latitude 2j+1 points unique critical point each latitude ordering chamber",
+        "exact determinant L squared spherical harmonics minimal nested odd latitude ring 1 3 5 7 per-ring rotations; weighted Vandermonde all bandlimits local D optimal design factorial chambers",
+        "arxiv:2605.13124",
+        "arxiv:1403.4661",
+        "arxiv:1709.02497"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2014 and 2017 ring schemes have per-order matrices with associated Legendre entries; an independent Vandermonde calculation yields an explicit full determinant but their discussed optimization is per-order condition number, not the number of local D-optima.",
+        "The 2026 interpolation–regression manuscript uses rank assumptions on a Vandermonde sampling matrix and studies constrained least squares, not latitude chamber optima."
+      ],
+      "reasoning": "The same evaluation problem can be formulated as a family of degree-shifted Legendre Vandermonde determinants. The existence of known per-order matrices is acknowledged as an enabling premise, not identified as a published result asserting the all-chamber landscape. A classical implicit formulation may exist; that remains a residual risk.",
+      "searches": [
+        "exact determinant L squared spherical harmonics minimal nested odd latitude ring 1 3 5 7 per-ring rotations; weighted Vandermonde all bandlimits local D optimal design factorial chambers",
+        "product squared determinant spherical harmonic collocation x_j pair distances exponent 2(2i+1) endpoint powers j(j+1)",
+        "arxiv:1403.4661",
+        "arxiv:1709.02497"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches did not produce an exact all-degree product or a table of chamber-unique optimal latitudes.",
+        "An earlier all-degree L=3 determinant identity is a direct special case, with its numerical/exact optimum not claimed anew."
+      ],
+      "reasoning": "An isolated quadratic-band table does not cover all integer bandlimits, arbitrary ring rotations and the factorial chamber classification. No database silence is asserted as a proof of uniqueness.",
+      "searches": [
+        "spherical harmonic evaluation determinant all bandlimit iso-latitude rings 1 3 5 ... 2L-1 spherical samples arbitrary azimuth rotations product Vandermonde Legendre",
+        "product squared determinant spherical harmonic collocation x_j pair distances exponent 2(2i+1) endpoint powers j(j+1)",
+        "arxiv:1709.02497"
+      ]
+    },
+    "rationale": "No inspected accessible primary result states or proves the all-bandwidth full evaluation determinant factorization together with the exact count and nondegeneracy of local D-optimal latitude configurations. Earlier works give the underlying rings and per-order Legendre blocks, so the result explicitly does not claim a new sampling geometry or the prior degree-two case. The strict chamber landscape is a new classification relative to these inspected statements. Older implicit weighted-Fekete treatment is the main priority uncertainty; text and repository searches cannot prove world-wide novelty.",
+    "residual_risks": [
+      "An older weighted Fekete or multivariate interpolation treatment could imply the complete product and local landscape without those exact words.",
+      "The 2014/2017 per-order matrices make the determinant product accessible by classical polynomial algebra, so novelty rests substantially on the all-chamber optimization theorem.",
+      "Search ranking and accessible manuscript inspections are finite; independent bibliographic priority verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_CLAIM",
+        "evidence": "Section 2 states general Vandermonde rank assumptions and constrained interpolation–regression; no minimal nested ring determinant product or D-optimal chamber theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.13124",
+        "material_read": "Full HTML abstract and sections 1–6, including rank assumptions, theorem statements and reference context; search for determinant returned no match.",
+        "method": "Read primary arXiv HTML and searched for full-determinant language",
+        "title": "Polynomial interpolation–regression on the sphere",
+        "trigger": "Recent spherical sampling rank/design motivation"
+      },
+      {
+        "assessment": "UNDERLYING_METHOD_NOT_FULL_CLAIM",
+        "evidence": "Section III-E selects latitudes by per-order condition-number minimization. All-degree determinant product and chamber classification are not stated.",
+        "identifier_or_url": "https://arxiv.org/abs/1403.4661",
+        "material_read": "Full accessible HTML, especially Sections III-A/B/E and formulas for per-order blocks and greedy conditioning",
+        "method": "Read primary arXiv HTML; compared underlying blocks and target optimization objective",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "Original construction of minimal 1,3,5,... rings"
+      },
+      {
+        "assessment": "UNDERLYING_BLOCKS_NOT_LANDSCAPE",
+        "evidence": "Gives per-order associated Legendre sampling matrices and well-conditioning improvements, not the logarithmically strictly concave D-optimal full determinant.",
+        "identifier_or_url": "https://arxiv.org/html/1709.02497v1",
+        "material_read": "Full five-page HTML, including eq. (11) for per-order matrices and Sections III/IV on conditioning",
+        "method": "Read primary arXiv HTML and compared with the exact claim",
+        "title": "Optimal-Dimensionality Sampling on the Sphere: Improvements and Variations",
+        "trigger": "Closest follow-up on the same minimal rings"
+      },
+      {
+        "assessment": "DIFFERENT_FEASIBLE_CLASS",
+        "evidence": "Treats spherical t-designs with sufficiently many support sites and standard regression optimality; not the restricted minimal nested odd-ring configuration.",
+        "identifier_or_url": "https://doi.org/10.1007/s00362-024-01630-5",
+        "material_read": "Open access HTML sections 1–4, including spherical design criterion and node counts",
+        "method": "Read journal primary HTML, compared design feasible sets",
+        "title": "Optimal designs for spherical harmonic regression",
+        "trigger": "D-optimal spherical regression can be related through information determinants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fcdce619-59b4-411e-8c1b-954ef5525fdf",
+  "value": {
+    "rationale": "Minimum-cardinality spherical harmonics sampling has a natural determinant/information-volume design objective, previously treated by heuristic or greedy conditioning. Here its entire analytic volume and phase invariance are derived for every bandwidth, with an exact interpolation-singularity boundary. The factorial count of unique nondegenerate local maxima completely characterizes the nonconvex geometry of this natural restricted design: every height ordering is a strictly concave optimization with a uniquely certifiable solution. This is a reusable structural theorem, not an arbitrary small numerical table or a claimed condition-number improvement. Global ordering remains open.",
+    "status": "PASS"
+  }
+}
