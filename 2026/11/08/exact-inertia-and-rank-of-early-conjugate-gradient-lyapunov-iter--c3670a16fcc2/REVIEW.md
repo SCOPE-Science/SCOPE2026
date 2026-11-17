@@ -1,19 +1,21 @@
-# Review of exact early-iterate inertia
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The result follows from an exact CG polynomial of degree \(k-1\), whose leading sign is \((-1)^{k-1}\), and an anti-triangular Vandermonde factorization of \(q(\lambda_i+\lambda_j)\). Nonbreakdown through the stated range is guaranteed by at least \(2r-1\) active eigenvalue sums. The sum-kernel determinant is nonzero regardless of lower coefficients, and Sylvester's law transfers the resulting signature through full-column-rank congruences. Exact rational tests of the real recurrence and polynomial kernel passed. The finite tests are not used as infinite proof.
+PASS
 
-## Originality
+For SPD A and rank-one bb^T, nonzero active spectral components of b produce at least r distinct Lyapunov-operator eigenvalues and prevent CG breakdown in the first r steps. The exact k-th CG iterate is q_{k-1}(L_A)(bb^T), with leading coefficient (-1)^{k-1} product of positive CG step lengths. Its sum kernel q(lambda_i+lambda_j)=V C V^T has an invertible anti-triangular middle matrix C of size k; continuous removal of lower coefficients preserves its inertia, leaving alternating positive/negative pairs and, for odd k, a positive central value. The full-rank spectral-projection matrix adds n-k zeros. The exact continuous-time Gramian solution is PSD of rank r. This proves the universal first-r inertia, not later iterates or finite-precision rank. Independent Frobenius CG calculations for 15 SPD samples in dimensions 2..6 corroborated every early iterate.
 
-PASS, with residual historical-priority risk. The September 2026 source derives rank *upper bounds* but not exact positive/negative inertia. The 2020/2021 projection-method literature discusses semidefinite output and possible indefinite corrections, but different algorithms and no universal alternating inertia count. Relevant record searches and available prior claims did not show a stronger covering statement. Hochbruck–Starke (1995) could only be compared at the abstract level; an unindexed equivalent treatment remains a risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is a rank-and-inertia classification over every symmetric positive-definite coefficient matrix and every nonzero rank-one right-hand-side factor, with no condition-number restriction. It provides a mathematical reason that unpreconditioned matrix CG, even on a positive-semidefinite Gramian problem, cannot preserve the Gramian cone in intermediate iterations. The exact rank growth also strengthens previously established upper bounds and informs low-rank storage and safeguards.
+Resultary checks on early CG rank/indefiniteness and published Lyapunov solvers did not yield the specific matrix-CG law In(X_k)=(ceil(k/2),floor(k/2),n-k). Lungová and Plešinger study the same operator CG and give upper rank bounds (secondary substantive account and primary abstract read) but the full paper was inaccessible, so their complete proof cannot be declared not covering from abstract alone. A general real-polynomial sum-kernel anti-triangular inertia lemma coupled with CG alternating leading coefficient is the distinct content on current evidence.
 
-## Scope and limitations
+## value
 
-The classification is restricted to exact, unconstrained, unpreconditioned matrix CG initialized at zero on \(AX+XA=bb^\mathsf T\), and to \(1\le k\le r\), where \(r\) is the active spectral support dimension. It does not give a magnitude of the negative eigenvalues, stability in floating point, or inertia after this range. Comparisons with preconditioned and projected solvers do not transfer directly.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact signs and rank of every early iterate give a sharp, surprising positivity failure of an algorithm solving a PSD Lyapunov equation. This resolves a natural qualitative numerical-linear-algebra question beyond upper rank bounds and gives a reusable polynomial sum-kernel inertia lemma. The result is exact arithmetic and restricted to rank-one right-hand sides; these scope limits are stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
