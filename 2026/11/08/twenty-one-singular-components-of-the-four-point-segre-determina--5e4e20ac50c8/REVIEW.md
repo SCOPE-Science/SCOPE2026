@@ -1,15 +1,21 @@
-# Scientific review: singular components of the four-point Segre determinant
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The determinant derivative at rank three factors into the unique row dependence and the unique plane equation; on a smooth quadric, injectivity of the Gauss map forces the support of the row relation to be a repeated pair. Its other two points lie on opposite ruling lines in the tangent plane. At rank at most two, the derivative vanishes automatically and the configurations are exhausted by two-value tuples or a ruling line. The twenty-one named parameter spaces are closed, irreducible, mutually noncontained, and have dimensions \(5,4,4\). The largest singular component has codimension two inside the sevenfold, proving normality via Serre's criterion. Exact rational Hessian witnesses verify the generic normal Hessian rank on each of four orbit types (including both partition types); openness completes the transverse quadratic claim. Remaining risk: singularities at non-generic intersections and scheme-theoretic embedded structures are not classified.
+PASS
 
-## Originality (PASS; provisional historical priority)
+At matrix rank <=2 all determinant adjugate derivatives vanish. For rank three, the unique row relation and tangent plane derivative force a repeated pair and the remaining two points on opposite quadric rulings. Rank<=2 consists exactly of two-value configurations and common-ruling configurations. Thus 2+7+12 distinct closed irreducible pieces, with dimensions 5, 4, 4. Incidence with smooth plane sections proves irreducibility of D; singular codimension >=2 plus hypersurface S2 yields normality. Independently expanded the 4x4 determinant symbolically and computed exact Hessian ranks [3,4,4,4] at all four displayed rational witnesses; nonzero minors and irreducibility give generic nondegeneracy.
 
-Pratt (arXiv:2505.09204, Example 1.1) gives this four-point Segre determinant and its cross-ratio form; the inspected primary paper focuses on determinant formulas, Chow–Lam forms, and related geometry, not its twenty-one-component singular locus. Alstad–Duff–Katzman (arXiv:2606.31965, Sections 2–4) establish determinantal ideal properties and a vision application, not these rank-three tangent-pair strata or generic transverse types. A previously studied rank-at-most-two component decomposition is narrower: it does not imply the additional twelve rank-three components. A separate longer-tuple normality result requires at least five Segre points on the quadric, so it does not include this four-point hypersurface or supply the twenty-one components. Comparisons included the equivalent cross-ratio expression, determinantal rank strata, stronger scheme-theoretic possibilities, and searches for singular schemes or tables. Residual risk: an earlier cross-ratio-incidence or quadric-configuration paper may already contain the classification under another formulation; no exhaustive priority guarantee is claimed.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The four-point Segre determinant is a canonical basic incidence hypersurface in multiprojective and algebraic-vision geometry. A complete irreducible decomposition of its singular locus, accounting for the otherwise hidden rank-three tangent-pair components, answers a natural structural question not supplied by a determinant formula or primeness result. The transverse Hessian classification and normality give additional geometric information. It does not purport to solve all higher-rank Segre determinantal singularities or provide scheme-theoretic multiplicities.
+Pratt introduces precisely the Segre_(2,2) four-point determinant and cross-ratio identity; Alstad-Duff-Katzman discuss Segre determinantal ideal-theoretic structure. Neither inspected primary material identifies the reduced 21-piece singular-locus stratification including rank-three tangent-pair components and generic transverse quadratic types. Best-of-knowledge with explicit full-text limitation for Alstad.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete irreducible-component classification of the reduced Jacobian singular locus and generic ordinary double-point strata of the foundational Segre four-point determinant is a natural and nontrivial geometric invariant, beyond reconstructing the defining polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

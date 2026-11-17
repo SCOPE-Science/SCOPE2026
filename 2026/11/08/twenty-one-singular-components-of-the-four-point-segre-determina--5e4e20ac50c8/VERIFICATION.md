@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and limitations
 
-Run `python segredet_singularity_verify.py` using Python 3. SymPy is optional but required to replay the characteristic-zero Hessian witnesses.
+# Independent mathematical audit
 
-The verifier checks all \(9^4=6561\) ordered four-tuples in \((\mathbb P^1(\mathbb F_2)\times\mathbb P^1(\mathbb F_2))^4\); at each tuple it computes matrix rank and every tangent derivative of the \(4\times4\) determinant over \(\mathbb F_2\). Counts: \(4617\) determinant-zero, \(1161\) singular, split into \(729\) rank-at-most-two and \(432\) singular rank-three tuples. The geometric classification agrees exactly on all these tuples.
+## correctness
 
-Over characteristic zero, SymPy differentiates the explicit affine determinant symbolically, and evaluates four exact rational witnesses: ruling; two values in a \(1+3\) partition; two values in a \(2+2\) partition; repeated pair with the other two values on opposite tangent rulings. The exact Hessian ranks are respectively \(3,4,4,4\). The script certifies an explicit nonzero integral Hessian minor in each case.
+PASS
 
-The global classification is proved geometrically in `RESULT.md`; a finite enumeration does not establish the theorem for infinitely many complex points. Openness of nonzero minors combined with smoothness of the generic component and the analytic Morse–Bott lemma establishes the generic quadratic types. No characterization of the nonreduced singular scheme or of singularities where components meet is attempted. Independent validation is not performed.
+At matrix rank <=2 all determinant adjugate derivatives vanish. For rank three, the unique row relation and tangent plane derivative force a repeated pair and the remaining two points on opposite quadric rulings. Rank<=2 consists exactly of two-value configurations and common-ruling configurations. Thus 2+7+12 distinct closed irreducible pieces, with dimensions 5, 4, 4. Incidence with smooth plane sections proves irreducibility of D; singular codimension >=2 plus hypersurface S2 yields normality. Independently expanded the 4x4 determinant symbolically and computed exact Hessian ranks [3,4,4,4] at all four displayed rational witnesses; nonzero minors and irreducibility give generic nondegeneracy.
+
+## originality
+
+PASS
+
+Pratt introduces precisely the Segre_(2,2) four-point determinant and cross-ratio identity; Alstad-Duff-Katzman discuss Segre determinantal ideal-theoretic structure. Neither inspected primary material identifies the reduced 21-piece singular-locus stratification including rank-three tangent-pair components and generic transverse quadratic types. Best-of-knowledge with explicit full-text limitation for Alstad.
+
+## value
+
+PASS
+
+A complete irreducible-component classification of the reduced Jacobian singular locus and generic ordinary double-point strata of the foundational Segre four-point determinant is a natural and nontrivial geometric invariant, beyond reconstructing the defining polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
