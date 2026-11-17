@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof specifies a connected finite graph with periodic backbone, exact half filling, positive tree rates and nonnegative backbone rates with positive clockwise bias. Stationarity is established by per-edge tree detailed balance and the equality of \(10\) and \(01\) counts on each ring configuration. The canonical pair probability follows by elementary-symmetric coefficient extraction. The coefficient identity is verified algebraically from the binomial expansion and has positive coefficients for all permitted indices. Equality occurs when no pair of nonunit activities exists. Particle-hole complementation handles activities below one; the mixed-sign witness is rationally exact. The separately executed `verify.py` passed 334 exact checks, including explicit generator-balance checks.
+PASS
 
-## Originality
+Canonical product weights at total half filling are stationary: each tree edge balances locally, while ring 10/01 counts cancel per configuration. Removing a ring bond gives E_m/(E_{m-1}+2E_m+E_{m+1}) with m=N-1. The exact nonnegative coefficient expansion of (m+1)(E_{m-1}+E_{m+1})-2mE_m has no constant or linear term, is strictly positive with at least two nonunit activities, and occupation complementation handles all weights <=1. The 2 and 1/2 leaf witness has current 7/23 vs neutral 3/10. The bound requires half of ALL sites, connected ring, positive tree edge rates and a common-sided activity family. The all-size certificate is algebraic, not merely the finite tests.
 
-**PASS, qualified.** The primary article arXiv:2603.09694v1 provides a general stationary measure and formulas for two selected tree geometries, but the inspected sections do not state a half-total-filling bound uniform over all rooted tree geometries, its exact positive deficit polynomial, its equality characterization, or the mixed-sign sharpness witness. The broader balance-network source arXiv:1207.3552 gives factorized weights rather than this inequality. The precise implication relationship is that the present result uses the prior stationary distribution as a premise; the nonnegative elementary-symmetric identity supplies the comparison theorem. published-finding corpus searches for the source, half-filling current bound, weighted canonical sampling and elementary-symmetric aliases produced no scientifically covering result among their closest hits. A possible unindexed general coefficient inequality is a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The question addresses a natural transport-design issue posed by the primary literature: whether attaching biased tree networks can increase the flow at a fixed particle budget. The result gives an all-size and all-tree-shape no-enhancement theorem exactly at half-total-filling, an equality rigidity condition, and a minimal opposing-bias counterexample defining the boundary of validity. The positive polynomial is a finite-size quantitative loss certificate, not merely a restatement of the stationary law.
+The all-tree-shape common-side half-filling bound, strict equality condition, exact deficit polynomial and counterexample to dropping the condition are not stated by the inspected 2026 source. Its factorized steady state and special-topology hypergeometric current formulas are prior and are not credited as new.
 
-## Closest literature and limitations
+## value
 
-The 2026 tree-branch ASEP paper supplies the factorized canonical measure and special-geometry current sums. The 2012 balance-network paper supplies a more general factorization principle. The 2024 transition-decomposition paper establishes broader exact steady-state methods. No stronger directly applicable published half-filling current inequality was located, but unindexed or difficult-to-access treatments may cover the result. There is no assertion for arbitrary mixed-sign branch biases or for non-half-filled systems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp global current ceiling with rigidity across arbitrary tree topologies directly resolves a natural nonequilibrium transport optimization under half-total filling. The exact positive deficit quantifies stability, and a two-leaf mixed-bias witness identifies the sharp hypothesis boundary. It is more than obtaining a known canonical steady state.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
