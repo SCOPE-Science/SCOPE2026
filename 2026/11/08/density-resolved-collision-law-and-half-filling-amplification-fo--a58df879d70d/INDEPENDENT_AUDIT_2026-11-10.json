@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T11:11:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Rule-184 local map f(a,b,c)=(1-b)a+bc conserves particle count on cyclic words. A 16-state paired de Bruijn matrix T(z) enforces equality of two outputs at each site; closed walks correspond bijectively to ordered input pairs with weight z^{|x|}. Independent exact SymPy reconstruction confirmed det(tI-T)=t^10(t²+z)(t⁴-(1+z)t³-z t²+z(z+1)t-2z²). Hence the formal log determinant identity proves all-length ∑C_n(z)u^n=-u∂_u log D(u,z). At z=1 the largest simple eigenvalue λ=1/2+sqrt(5/4+sqrt3) uniquely dominates, yielding C_n(1)~λ^n. Independently verified the proposed 12-state principal directed component has strictly positive adjacency sixth power, and unit-weight and z-weight loops break all nonzero-frequency phase periodicity. Implicit differentiation of the quartic gives density mean 1/2, variance σ²=(λ²−1)/(4(2λ−1)(λ²−λ−1))>0; ordinary analytic Perron saddle yields C_{n,n/2}~λ^n/sqrt(2πnσ²), and Stirling on binomial(n,n/2)^2 produces sqrt(πn/(8σ²))(λ/4)^n. Independent direct output-fiber enumeration for n=3,...,9 matched palindromic coefficients: C_4=[1,4,18,4,1], C_6=[1,6,27,56,27,6,1], C_8=[1,8,44,136,234,136,44,8,1]. Finite tests do not prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier image language criterion avoids cyclic 1100 and counts distinct output words; no per-output multiplicity weighting.",
+          "Relaxation layers and maximal fiber sizes classify different statistics."
+        ],
+        "reasoning": "A stronger universal collision-moment theorem could imply this; investigated related all-size counts instead address image cardinality or temporal entrance. No exact all-sector squared-moment dominance identified.",
+        "searches": [
+          "Resultary: exact cyclic one-step image density enumerator Rule 184 2026/11/8",
+          "Resultary: one-step reachability inversion Rule184 2026/11/2",
+          "Resultary: exact mass resolved Rule184 entrance time census 2026/11/1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/comp-gas/9902001",
+        "https://doi.org/10.1007/978-3-540-30479-1_32",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-and-density-resolved-enumerator-of-t--c437e9773b2c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Image counts ∑1_{fiber>0} and traffic flow mean do not fix ∑fiber²; simple distributions can share image cardinality and differ in squared sums.",
+          "Rule4 has a different eight-bit local truth table; its characteristic polynomial does not substitute for Rule184."
+        ],
+        "reasoning": "The sources do not imply the new all-sector moment by direct specialization. A full historical de Bruijn computation could conceivably contain it; lacking full text, residual risk is explicitly retained.",
+        "searches": [
+          "Fukś 1997 density classification Rule184; Fukś 1999 traffic flow preimage formulas",
+          "Compare 2026/11/2 Rule184 exact one-step image counts to ∑|preimage|²",
+          "Resultary Rule4 collision moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A collision C_{n,k} equals sum over outputs y with k particles of |F^{-1}(y)|², not count of distinct reachable outputs or single chosen preimage.",
+          "Fukś derives block preimages and traffic flow, not this global squared-fiber moment."
+        ],
+        "reasoning": "This is an exact second-moment interpretation; mere image enumerators, individual fiber extremes and block-preimage counts do not determine the moment without full fiber multiplicity distribution.",
+        "searches": [
+          "Resultary: Rule 184 one step preimages collision second moment at fixed density",
+          "Fukś 1999 Exact results for deterministic cellular automata traffic models",
+          "Rodríguez Zamora and Chapa 2004 de Bruijn Rule184"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected direct all-size transfer determinant computed here in exact symbolic arithmetic.",
+          "Wolfram atlas has finite transition data, not a published all-size two-variable collision moment in accessible entry.",
+          "2004 de Bruijn source abstract specifically targets Rule184 but full mathematics unavailable."
+        ],
+        "reasoning": "Cannot conclude the entire 2004 paper lacks the result from its abstract; this is a recorded priority risk, not automatic scientific failure. No exact known table found in accessible texts.",
+        "searches": [
+          "Resultary: Rule184 collision law characteristic polynomial t10(t2+z)",
+          "Wolfram Atlas Rule184 finite size properties",
+          "Rodríguez Zamora Chapa DOI:10.1007/978-3-540-30479-1_32"
+        ]
+      },
+      "rationale": "PASS best knowledge, qualified by inaccessible 2004 close primary chapter. Earlier Rule-184 exact works classify current, flow, block preimages, time-to-relaxation, image sets or maximal predecessor fibers; none of the read complete texts yields this global density-resolved one-step second moment and half-filling local-limit prefactor. Earlier Rule-4 collision moments are for a different map. The 2004 Rule-184 de Bruijn chapter is plausible and inaccessible in full, so the assessment does not declare it non-covering.",
+      "residual_risks": [
+        "Closest 2004 Rule184 de Bruijn chapter full text not read; authorized Oxford request returned vpn_disconnected with no circumvention.",
+        "Local-limit proof uses analytic spectral gap and positive saddle variance, not merely finite regression.",
+        "One-step cyclic collision law does not assert multi-step traffic relaxation or other automata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING full one-update global output-fiber second moment",
+          "evidence": [
+            "Published formulas count local zero-block preimages and traffic flow, not ∑_y|F_n^{-1}(y)|² resolved at each conserved mass."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9902001",
+          "material_read": "Complete 12-page arXiv PDF, including beginning, governing formulas, finite-block preimage enumeration and conclusions",
+          "method": "Read complete PDF and visually checked pages 1 and 4",
+          "title": "Exact results for deterministic cellular automata traffic models",
+          "trigger": "Direct Rule-184 analytic preimage/flow literature"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULLTEXT; possible prior coverage not excluded",
+          "evidence": [
+            "Abstract says Rule184 model analyzed with de Bruijn diagrams; does not specify one-step collision moment or full density-resolved generating function."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-30479-1_32",
+          "material_read": "Conference chapter abstract and bibliographic metadata only; complete text not accessible",
+          "method": "Lawful OA/preprint attempts unsuccessful; authorized institutional retrieval reported VPN disconnected",
+          "title": "Using de Bruijn Diagrams to Analyze 1d Cellular Automata Traffic Models",
+          "trigger": "Same Rule-184 de Bruijn technique; strong plausible same-model comparison"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Counts distinct output words avoiding 1100; does not weight each output by squared preimage count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-and-density-resolved-enumerator-of-t--c437e9773b2c",
+          "material_read": "Resultary abstract and exact reachable-output generating function, not full proof",
+          "method": "Read returned published summary and compared invariants",
+          "title": "Exact cyclic one-step image and density-resolved enumerator of traffic Rule 184",
+          "trigger": "Closest same rule/density resolved published statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conserved-density output-fiber squared multiplicities are a canonical information-loss and order-two Rényi statistic of deterministic traffic CA. The exact two-variable rational series resolves every microcanonical sector; the sharp sqrt(n) amplification distinguishes half-filled and unrestricted independent input ensembles. This exact structural transfer computation goes beyond a known finite table or long-time traffic-flow rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/comp-gas/9902001",
+    "https://doi.org/10.1007/978-3-540-30479-1_32",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-and-density-resolved-enumerator-of-t--c437e9773b2c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Closest 2004 Rule184 de Bruijn chapter full text not read; authorized Oxford request returned vpn_disconnected with no circumvention.",
+    "Local-limit proof uses analytic spectral gap and positive saddle variance, not merely finite regression.",
+    "One-step cyclic collision law does not assert multi-step traffic relaxation or other automata."
+  ],
+  "residual_risks": [
+    "Closest 2004 Rule184 de Bruijn chapter full text not read; authorized Oxford request returned vpn_disconnected with no circumvention.",
+    "Local-limit proof uses analytic spectral gap and positive saddle variance, not merely finite regression.",
+    "One-step cyclic collision law does not assert multi-step traffic relaxation or other automata."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING full one-update global output-fiber second moment",
+      "evidence": [
+        "Published formulas count local zero-block preimages and traffic flow, not ∑_y|F_n^{-1}(y)|² resolved at each conserved mass."
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9902001",
+      "material_read": "Complete 12-page arXiv PDF, including beginning, governing formulas, finite-block preimage enumeration and conclusions",
+      "method": "Read complete PDF and visually checked pages 1 and 4",
+      "title": "Exact results for deterministic cellular automata traffic models",
+      "trigger": "Direct Rule-184 analytic preimage/flow literature"
+    },
+    {
+      "assessment": "INACCESSIBLE_FULLTEXT; possible prior coverage not excluded",
+      "evidence": [
+        "Abstract says Rule184 model analyzed with de Bruijn diagrams; does not specify one-step collision moment or full density-resolved generating function."
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/978-3-540-30479-1_32",
+      "material_read": "Conference chapter abstract and bibliographic metadata only; complete text not accessible",
+      "method": "Lawful OA/preprint attempts unsuccessful; authorized institutional retrieval reported VPN disconnected",
+      "title": "Using de Bruijn Diagrams to Analyze 1d Cellular Automata Traffic Models",
+      "trigger": "Same Rule-184 de Bruijn technique; strong plausible same-model comparison"
+    },
+    {
+      "assessment": "DIFFERENT_INVARIANT",
+      "evidence": [
+        "Counts distinct output words avoiding 1100; does not weight each output by squared preimage count."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-and-density-resolved-enumerator-of-t--c437e9773b2c",
+      "material_read": "Resultary abstract and exact reachable-output generating function, not full proof",
+      "method": "Read returned published summary and compared invariants",
+      "title": "Exact cyclic one-step image and density-resolved enumerator of traffic Rule 184",
+      "trigger": "Closest same rule/density resolved published statement"
+    }
+  ]
+}

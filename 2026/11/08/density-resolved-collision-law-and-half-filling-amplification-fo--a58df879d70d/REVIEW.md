@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim fixes labelled cyclic words, synchronous Rule 184 and ordered input pairs. The paired-symbol de Bruijn construction is a bijection between closed walks and colliding ordered inputs, with its monomial recording exactly the conserved particle number. Exact symbolic elimination verifies the displayed determinant; formal trace logarithms yield the full bivariate generating function. The fourth-degree factor has a unique largest positive root at unit weight. A primitive 12-state component with loops of weights \(1\) and \(z\) supplies a strict nonzero-frequency spectral gap, making the central local limit valid without an unacknowledged lattice factor. An exact implicit derivative gives the positive variance. Standalone direct enumeration at all lengths 3–16 and central coefficients at even lengths to 200 provide additional checks, but are not presented as an infinite proof.
+PASS
 
-## Originality
+The Rule-184 local map f(a,b,c)=(1-b)a+bc conserves particle count on cyclic words. A 16-state paired de Bruijn matrix T(z) enforces equality of two outputs at each site; closed walks correspond bijectively to ordered input pairs with weight z^{|x|}. Independent exact SymPy reconstruction confirmed det(tI-T)=t^10(t²+z)(t⁴-(1+z)t³-z t²+z(z+1)t-2z²). Hence the formal log determinant identity proves all-length ∑C_n(z)u^n=-u∂_u log D(u,z). At z=1 the largest simple eigenvalue λ=1/2+sqrt(5/4+sqrt3) uniquely dominates, yielding C_n(1)~λ^n. Independently verified the proposed 12-state principal directed component has strictly positive adjacency sixth power, and unit-weight and z-weight loops break all nonzero-frequency phase periodicity. Implicit differentiation of the quartic gives density mean 1/2, variance σ²=(λ²−1)/(4(2λ−1)(λ²−λ−1))>0; ordinary analytic Perron saddle yields C_{n,n/2}~λ^n/sqrt(2πnσ²), and Stirling on binomial(n,n/2)^2 produces sqrt(πn/(8σ²))(λ/4)^n. Independent direct output-fiber enumeration for n=3,...,9 matched palindromic coefficients: C_4=[1,4,18,4,1], C_6=[1,6,27,56,27,6,1], C_8=[1,8,44,136,234,136,44,8,1]. Finite tests do not prove asymptotics.
 
-**PASS, with historical uncertainty.** The closest fully read works are Fukś (1997), https://arxiv.org/pdf/comp-gas/9703001, and Fukś (1999), https://arxiv.org/pdf/comp-gas/9902001, concerning density classification, traffic current, and fixed-block preimage enumeration. They do not state the global one-update, particle-number-resolved second moment or its Gaussian central-density asymptotic. Rodríguez Zamora and Chapa (2004), https://doi.org/10.1007/978-3-540-30479-1_32, analyze Rule 184 using de Bruijn diagrams, but its full text was unavailable; possible coverage is a residual risk, not declared absent. The accessible finite-size atlas gives finite illustrations, not this infinite-family formula. An existing exact mass-resolved Rule-184 entrance-time census counts settling times to free flow, not colliding preimages after one update. Earlier exact collision work for Rule 4 is a different local rule and does not imply this transfer characteristic polynomial or conserved-density result. Published-record searches located no stronger covering statement; search absence alone does not prove novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Rule 184 is a canonical conservative traffic automaton. Its output fibers measure irreversible information loss even though particle number is conserved. The exact two-variable count resolves the natural entire microcanonical collision profile, not an arbitrary small-size slice or known traffic-current statistic. The distinction between Bernoulli and exact-half-filling input ensembles is sharp: the same exponential rate acquires an explicit \(\sqrt n\) factor. This is a structural ensemble effect and a useful benchmark for information-theoretic analysis of conservative cellular automata, rather than a mere new finite census.
+PASS best knowledge, qualified by inaccessible 2004 close primary chapter. Earlier Rule-184 exact works classify current, flow, block preimages, time-to-relaxation, image sets or maximal predecessor fibers; none of the read complete texts yields this global density-resolved one-step second moment and half-filling local-limit prefactor. Earlier Rule-4 collision moments are for a different map. The 2004 Rule-184 de Bruijn chapter is plausible and inaccessible in full, so the assessment does not declare it non-covering.
 
-## Scope and priority limitations
+## value
 
-The theorem addresses only one-step collisions on labelled finite rings and the central-density asymptotic; no claim is made about long-time equilibrium, other rules or independent validation. The 2004 de Bruijn chapter was materially inaccessible, and unindexed equivalent formulas are possible. The determinant is a finite exact identity whose source is fully supplied in executable form; the asymptotic proof identifies its necessary spectral conditions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conserved-density output-fiber squared multiplicities are a canonical information-loss and order-two Rényi statistic of deterministic traffic CA. The exact two-variable rational series resolves every microcanonical sector; the sharp sqrt(n) amplification distinguishes half-filled and unrestricted independent input ensembles. This exact structural transfer computation goes beyond a known finite table or long-time traffic-flow rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
