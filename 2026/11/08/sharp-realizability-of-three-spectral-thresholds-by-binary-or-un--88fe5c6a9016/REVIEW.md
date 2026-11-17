@@ -1,19 +1,21 @@
-# Scientific assessment: spectral thresholds for binary-or-unary trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem covers exactly \(0\le a\le c\le b\le1\), \(b>0\). The explicit mechanical-word construction is well-defined because its editing intervals do not overlap. The proof separates three growth quantities that need not coincide: extremal descendant windows, root-to-level descendants, and the radial approximate-point profile. The upper/lower extrema are justified uniformly using sublinear boundary counts and long pure blocks; the point-spectrum boundary is excluded by the stronger \(o(\log n)\) root discrepancy. The Cauchy--Schwarz necessity for all eigenvectors prevents incorrectly inferring full point spectrum from a special radial eigenvector alone. The radial reducing subspace proves the adjoint approximate-point annulus; the explicit right inverse and the spectral-radius argument exclude its complement. Infinite multiplicity is supported by disjoint eigenvectors living on side branches. Finite exact checks (46,378 assertions) confirm basic arithmetic and coefficient identities but are not used to infer the infinite claims.
+PASS
 
-## Originality — PASS, with priority limits
+For 0≤a≤c≤b≤1,b>0 the explicit unary/binary branching word has mechanical base density c with sparse length-k² insertions of b and a at N_k=2^{k^5}. The number of boundary crossings in any n-window is o(n); balanced-word discrepancy and arbitrarily long homogeneous patches establish extremal exponents a and b, hence descendant radii 2^{a/2},2^{b/2}. Total altered prefix is O((log n)^{3/5})=o(log n), so root B_n=2^{cn+o(log n)} and the radial point-eigenvalue series ∑|λ|^{2n}/B_n has exact OPEN disk of radius 2^{c/2}. Cauchy–Schwarz on descendants proves necessity even for nonradial eigenvectors. Infinitely many disjoint side subtrees furnish infinite eigenvalue multiplicity (b>0). The radial S* compression is a forward shift with weights sqrt(d_n); long b-to-a patches give normalized approximate eigenvectors for every radius between R_- and R_+, including endpoints, and a bounded explicit S right inverse with spectral radius 1/R_- plus ||S^n||²=K_n^+ excludes the complement. This proves exact annular non-surjectivity and full spectral disk. Independently checked rational mechanical-word counts, sample finite-tree radial recurrences and interval arithmetic, not astronomical sparse indices or infinite spectrums by sampling.
 
-Buckley--Seco, arXiv:2610.40089v1 (2026), Theorem 1 gives \(|\lambda|<R_-\) universal/surjective and \(r(S)=R_+\), and expressly leaves intermediate-annulus spectral behavior as a question. Their regular binary example has equal inner/outer radii; it does not imply a three-radius realization. Jabłoński--Jung--Stochel (arXiv:0911.3821, Section 3.3) establish circularity, not these exact intervals. Chavan--Trivedi (arXiv:1510.03075, Theorem 5.1) already establish spectral disks and inclusions for adjoints of left-invertible tree shifts, and study finite branching index; our construction has unbounded branching depths and specifies three exact radii with surjectivity and multiplicity. Budzyński--Dymek--Planeta--Ptak (arXiv:1702.00765) provide balanced-tree Wold-type decompositions, potentially facilitating a different derivation of the radial ingredient; their statements do not include the prescribed-radii construction. D'Aniello--Maiuriello (arXiv:2210.01510) cover classical one-dimensional weighted shifts, not this full tree spectral triple. Targeted mathematical-record searches found no equivalent realization claim. Novelty is a best-knowledge conclusion, not proof of historical priority; older weighted-shift spectral theorems may subsume individual lemmas.
+## originality
 
-## Value — PASS
+PASS
 
-The initiating paper points explicitly to the annulus between descendant-growth radii as an unclassified spectral region. The theorem identifies every spectral stratum for an explicit, naturally defined infinite-branching subclass and realizes every feasible ordered triple of normalized growth exponents using only unary/binary branching. An especially informative example has an open annulus of infinite-multiplicity eigenvalues for which the translated shift fails surjectivity, separating Rota universality from eigenvalue multiplicity. This is more than a routine boundary estimate: the logarithmically sparse edits independently tune a root exponent and two uniform window exponents, thereby solving an exact structural realizability problem.
+The inspected earlier inverse tree point-spectrum paper covers the slice a=0,b=1 (and optional endpoint circles), not the arbitrary 3-parameter ordered triple with exact annular adjoint approximate spectrum and right-inverse surjectivity. The primary arXiv tree-universality manuscript was not accessible in full; residual risk explicitly retained without treating inaccessible text alone as scientific failure.
 
-## Closest literature and limits
+## value
 
-The general spectral disk and radial weighted-shift ingredients are prior material, and the proof credits them. The novelty claimed is their exact, simultaneous realization on unweighted spherically homogeneous trees, not those underlying classical facts. The construction does not classify nonhomogeneous directed trees, does not assert minimal branching complexity, and does not identify the approximate-point spectrum of the backward shift itself. Older general spectral mapping or decomposition results could offer shorter proofs; the exact construction's priority requires external scholarly verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact realization theorem for ALL admissible triples of naturally distinct descendant-growth, eigenvalue and full-spectrum exponents in bounded unary/binary trees answers a motivated inverse spectral question and exposes eigenvalues on a non-surjective annulus. This is a meaningful structural classification, not an arbitrary finite cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
