@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The state space, tie rule, fixed states, probability normalization and integer thresholds are explicitly defined. Strict majority flips reduce bichromatic edge count; the only traps are two equal-bit consensus states and doubly tied mixed states. First loss of a strict opposing majority selects which consensus is subsequently unavoidable. The order of first activation times of all initially eligible vertices is a uniform random permutation, yielding the exact finite sum. The order-statistic beta laws establish odd-odd fairness and parity effects. Two independently implemented exact-rational checkers cover 1,936 aggregate states and 7,684 labelled states respectively. These are checks, not substitutes for proof.
+PASS
 
-## Originality
+With ties retaining the present bit, each actual strict-majority flip reduces the bichromatic-edge count, so no nontrivial recurrence. Fixed states are unanimous colors or (only for both even parts) jointly tied counts; a one-part tie is broken deterministically by the other part's strict majority. For opposite initial strict majorities, exactly a initial one-vertices on the first shore and c=n-b initial zero-vertices on second shore are eligible; their first individual update times form a uniformly ordered permutation. First shore loses strict positive majority after r=a-floor(m/2) flips, second gains positive majority after s=ceil(n/2)-b flips. The second shore reaching s first corresponds to a winning prefix with j<r first-shore flips and yields the displayed finite sum of falling factorial weights. Exact color-complement handles reverse orientation. Order statistics show odd-odd polarization symmetry and even-sided tie advantages; fixed-n limit follows from binomial tails. Independently solved rational Markov count-state equations for 729 initial macrostate cases for m,n<=6; tests include even-even ties. Finite checks do not prove all m,n.
 
-PASS, qualified. Auletta et al. (arXiv:1402.4050) use the same deterministic local flip rule but ask existential and adversarial reachability questions, not probabilities under uniform random update order. Feldman et al. (arXiv:1408.5192) and Mohan–Prałat (arXiv:2309.04691) study asynchronous majority with initially unannounced opinions and private-signal tie resolution, and do not evaluate this bipartite absorption kernel. Accessible full-text arXiv versions were consulted for all three, including model statements and relevant results, and no relevant complete-bipartite closed winner-selection formula was observed. Searches of related nomenclature and stored prior claims disclosed no equivalent or stronger theorem. The beta-order-statistic tools themselves are classical. Residual historical-priority uncertainty remains because not all mathematical literature is indexed or searchable.
+## originality
 
-## Value
+PASS
 
-PASS. Conditional consensus selection from antagonistic community majorities is a natural quantitative question in sequential opinion dynamics. The finite-sum all-start kernel yields exact probabilities for every bipartite size, including update-order sensitivity; the size-independent fairness of *unequal odd* unanimously opposing camps and the even-size bias/large-camp limit are structural, not just isolated arithmetic examples. Neither graph shape alone nor the deterministic set of reachable states answers these probabilities. Expected absorption times and extension to other tie conventions remain open here.
+PASS but heavily qualified: odd-odd complete initial-profile hypergeometric kernel is already published by the 2 November Resultary theorem and is NOT independently new; all-size polarized two-opposing-unanimous-camp parity and rate-race results are also published by a separate 8 November Resultary theorem and are NOT independently new. The surviving full statement includes arbitrary mixed initial profiles when one or both part sizes are even, the exact all-parity kernel and complete nonconsensual doubly-tied fixed-state classification. These are a natural extension of the race to genuinely new cases not covered verbatim by those earlier scoped results, although the mathematical derivation is close and a broader unindexed theorem remains plausible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The full all-initial-configuration exact fixation kernel for arbitrary community parities, including a nonconsensus trap classification, is a coherent natural completion of previously odd-only and fully polarized partial results. Useful to predict strict-majority fixation in arbitrary bipartite communities without assuming odd degree; value is restricted to that completion, not the already known fairness or polarized result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
