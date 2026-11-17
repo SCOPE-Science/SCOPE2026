@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses exact symbolic arithmetic in Python 3 with SymPy. Run `python verify.py` in the same directory as this document. Its successful output is `VERIFY_OK`.
+## correctness
 
-The script constructs the published polynomial SIS dynamics, the two-class Perron vectors, the nonzero stable eigenvalue, the projected quadratic coefficient, the quadratic center-manifold correction, and the full cubic coefficient. Each claimed rational expression is checked by symbolic simplification to zero. It also checks the derivative signs' *formulae* and the exact endpoint, neutral-mixing, and zero-assortativity identities; inequalities themselves follow from explicit positive coefficients and positive denominators on the declared parameter interval.
+PASS
 
-The analytic argument requires the irreducible Perron eigenvalue to be simple; it is for \(-1\le r<1\). Standard local center-manifold theorems then justify the amplitude equation and its stable transverse contraction. The calculated polynomial signs provide an infinite-parameter proof; finite numerical simulations are neither needed for nor substituted for the theorem. The conclusion is local and deterministic and no external independent verification has been performed.
+Using equal degree-weighted stubs for (20,5) with frequencies (1/5,4/5), the reversible P=[[a,1-a],[1-a,a]], a=(1+r)/2, yields a simple Perron eigenmode v=(1,z) and left mode u=(1,4z) on -1<=r<1, 0<z<=1/2. Deriving a=(1-4z²)/((1-z)(1+4z)), lambda_c=(1+4z)/(20(1+z)), quadratic center coefficient B(z)(alpha-alpha_*(z)) with positive B, and monotone alpha_*(z) establishes the transcritical direction/stability. At alpha=alpha_* the explicit center-manifold correction w=Q(v)/kappa produces C(z)=-(16384z^10+8192z^7+6016z^6+964z^4+2888z³+361)/((1+4z²)(19+64z³)²)<0. Independently reconstructed the symbolic cubic via the source ODE and checked C(1/4)=-659/800, hence the stable t^-1/2 profile; near positive states the negative-sign transverse strong-stable direction cannot contain a positive state. This is local deterministic ODE science; no global hysteresis or finite-network extinction is proved.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the explicit entire irreducible-assortativity local degeneracy curve, negative cubic and critical physical-time decay in this fixed published two-class hazard. Mizutaka–Mori–Hasegawa introduced the model and a numerical neutral-mixing switch (~0.086), but accessible material does not establish the closed all-r curve and cubic. Related exponential susceptible-neighbor, regular-network and global-prevalence-synergy studies have non-equivalent hazards. Full initiating PDF unavailable and Oxford VPN disconnected; these are explicit material originality risks, not invented scientific coverage or automatic failure.
+
+## value
+
+PASS
+
+Assortativity is a natural structural parameter of a well-studied correlated SIS model. The exact strictly decreasing onset-switch threshold 1/9 to 1/19, zero-mixing rational 17/200, and negative cubic at all irreducible mixing parameters explain the change in local bifurcation and universal critical t^-1/2 relaxation. These are motivated dynamical invariants of the published ODE, not numerical curve-fitting or an arbitrary tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
