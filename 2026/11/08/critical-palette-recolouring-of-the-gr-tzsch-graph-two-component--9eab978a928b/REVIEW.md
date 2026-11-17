@@ -1,12 +1,21 @@
-# Research review: critical-palette recolouring of the Grötzsch graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The eleven labelled vertices and twenty undirected edges are explicitly specified. Two independent complete enumerators agree on the number of proper named four-colourings (12,480), legal recolour edges (45,240), two connected components of size 6,240, component radii 15, component diameters 17, eccentricity multiplicities and full pair-distance table. All-source BFS in the C++ program establishes minimum paths exactly. The separate Python program uses colour/dihedral graph automorphisms, checks orbit cardinalities and independently reproduces the distances; it checks the unique farthest vertex for every member of the peripheral orbit. An explicit distance-17 witness and path are replayable. The exact claims are finite; no convergence/infinite extension is assumed. Main residual risk: an implementation or shared graph-specification error, mitigated by structurally different enumerators and precise graph/move definitions.
+## correctness
 
-## Originality — PASS, qualified
-The graph, its chromatic number and 12,480 named four-colourings are not novel. The 2005 Cereceda–van den Heuvel–Johnson connectivity theorem gives a five-colour guarantee for this three-degenerate graph, not critical four-colour connectivity or distances. The 2014 shortest-recolouring-path literature gives general algorithms/complexity results rather than the two 6,240-state components and their exact radius-15/diameter-17 profiles. Related graph-reconfiguration-reconstruction work concerns a different invariant. Searches on the graph's alternative names, \(\operatorname{Hom}(G,K_4)\), reconfiguration graph, component sizes, diameter, antipodes and equivalent permutation/symmetry reductions found no explicit dominating statement. This supports a qualified originality assessment for the narrow four-colour metric; there remains risk from unindexed computations or inadequately accessible historical literature. The older 2005 source has month-only date evidence and is not assigned an invented day.
+PASS
 
-## Value — PASS
-The Grötzsch graph is the standard smallest triangle-free four-chromatic graph and thus a particularly natural test of recolouring at the **minimum** feasible palette. Its two components expose an obstruction not resolved by the general five-colour connectivity theorem. Sharp component radius/diameter, exact count of distant pairs and a one-orbit unique-antipode phenomenon give a complete, motivated metric benchmark for critical-palette graph recolouring; the claim is not just an arbitrary enumeration of a renamed known invariant. It does not purport to settle general recolouring complexity or larger Mycielski families.
+For the explicit 20-edge 11-vertex Mycielski graph, independently enumerated all 12480 proper labelled 4-colour states via pentagon/apex/shadow constraints; built all 45240 legal one-vertex recolour edges. Components have 6240 vertices each, and symmetry action S4 x D5 has 56 orbits (48 size 240, 8 size 120). One exact BFS per orbit determines all source eccentricities and pair distances, giving radius15, diameter17, global eccentricities 15:2160,16:10200,17:120 and 60 diametral unordered pairs. Exactly one 120-element orbit is peripheral, and each member has one antipode. This is exhaustive finite proof, not extrapolation to other graphs or palettes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Oct26 published paper covers the state count, 2x6240 components, 45240 edges, diameter17, degree histogram and palette/dihedral exchange; these are PRIOR premises. The new, narrower mathematical information is the complete radius/eccentricity distribution (radius15), 60 diametral pairs, uniqueness of antipode for all peripheral colourings, and single peripheral symmetry orbit. These are not consequences of component counts/diameter/degree alone and were not stated/proved in the inspected Oct26 result. The true final RESULT includes the new precise peripheral theorem, so it survives without changing the mathematical claim; the audit explicitly corrects novelty attribution. Residual unindexed metric-census risk remains.
+
+## value
+
+PASS
+
+For the 4-chromatic triangle-free Grötzsch graph at its exact critical palette, the otherwise-known disconnected reconfiguration graph has a nontrivial peripheral geometry. The exact radius, eccentricity census, 60 diametral pairs and unique antipode orbit form a natural complete extremal-metric classification not read off from the previously known diameter and degree histogram; no general-family claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
