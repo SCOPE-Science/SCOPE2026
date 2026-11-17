@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The comparison follows from two sharp elementary inequalities between the Gini and oscillation seminorms. Both optimal constants are realized by explicitly constructed strictly positive bistochastic rank-one perturbations of the all-uniform kernel, with direct formulas for the induced coefficients. Two symmetric four-state graph-Laplacian perturbations are checked using a complete binary-cut computation. Exact rational checker output independently confirms the advertised finite cases. No finite enumeration is used to infer the all-dimensional proof.
+
+**Originality: PASS, qualified.** The most pertinent primary source is Gaubert–Qu (arXiv:1302.5226, especially Section 4), which identifies Dobrushin contraction in oscillation and its total-variation dual. Cohen et al. (1993, Sections 2–5) instead prove data processing for coordinatewise relative-entropies on pairs of probability laws. Neither inspected statement covers sharp two-sided comparison with complete-pair Gini dispersion, nor both extremal signs under strict bistochastic positivity. Closest published-record searches concerned Gini statistics, Dobrushin coefficients, and specialized graph contractions but did not give an equivalent theorem; absence from an index alone is not proof. The main residual risk is an earlier unindexed comparison in the broad ergodicity-coefficient literature.
+
+**Value: PASS.** The sharp comparison answers a natural transfer question between two non-equivalent consensus seminorms. It proves no coefficient ordering exists beyond three states, even under strict positivity and reversibility, and identifies a sharp dimension-loss factor growing as \(n/4\). The positive bistochastic sharpness and reversible sign reversal are substantive restrictions not delivered by norm equivalence alone. The bound is not claimed sharp within the reversible subclass.
+
+Self-review: passed. Independent audit: not yet performed.
