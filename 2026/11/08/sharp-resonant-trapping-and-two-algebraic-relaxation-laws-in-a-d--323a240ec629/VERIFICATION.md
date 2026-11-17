@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, `sympy`, and `mpmath`. It computes the scalar reduction's trigonometric identity, jets at all four fixed phases, the unique critical extremum and leakage coefficient, three local leakage intervals, 5,988 test points for sector trapping, and long numerical trajectories from four distinct basins. The success line reads `VERIFY_OK harmonics=1 fixed_phase_zeros=4 exact_jets=8 sharp_threshold=1 leak_onset_cases=3 branch_samples=5988 orbit_classes=4`.
+## correctness
 
-The universal phase classification follows from the exact max-ratio and monotonicity proof, not the finite grid. The \(n^{-1}\) and \(n^{-1/3}\) laws follow from reciprocal-power increments. Numerical root evaluation does not replace uniqueness of the trigonometric root; that uniqueness is analytical. The leakage expansion uses the nondegenerate maximum and Taylor's theorem. The code does not establish global behavior above the frontier, an independent audit, or definitive literature priority.
+PASS
+
+PASS: Frozen RESULT.md reduces the specified full-reset, unit-resonance map to F_b(theta)=theta-b^2 f(theta)^2 with f=4 sin(2 pi theta) cos^2(2 pi theta). For all four lifted quarter-sectors, the ratio f(ell+u)^2/u is bounded by the even-sector maximum R_e(t*) at the unique root H(t*)=2t*cot(t)-4t*tan(t)-1=0; H strictly decreases, providing a nondegenerate maximum and sharp b*=0.189706856... . For b<b*, positive within-sector displacement decreases to zero, giving four fixed states, no other recurrent orbit, invariant-measure mixtures and entropy zero. Taylor jets f'(even)=+/-8 pi, f'(odd)=0 with half second derivative +/-16 pi^2 prove n*d->1/(64 pi^2 b^2) for even and n*d^3->1/(768 pi^4 b^2) for odd sectors. Nondegenerate tangency yields sqrt(b-b*) leakage length; odd sectors stay nonleaking locally. This proves only stated canonical sector threshold, not global chaos beyond it.
+
+## originality
+
+PASS
+
+PASS (best-of-knowledge): the model originates in dissipative Labyrinthic map literature, but the inspected primary paper emphasizes shearless/periodic attractors and numerical basins for different parameters; it does not derive this full-reset exact four-sector invariant-measure theorem, two sharply different parabolic rates, or tangency leakage constant. Standard parabolic iteration is credited as the rate method. No stronger same-parameter theorem appeared in targeted Resultary search; searches do not certify novelty.
+
+## value
+
+PASS
+
+PASS: The exactly solvable resonant slice supplies a sharp basin-decomposition frontier, measures/entropy classification, and genuinely different relaxation exponents with a computable leakage bifurcation. These are precise dynamical invariants and a natural contrasting normal-form example; not merely a numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
