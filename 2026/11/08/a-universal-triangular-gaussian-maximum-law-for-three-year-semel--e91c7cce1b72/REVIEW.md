@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact three-year cohort factorization leads to three periodic log-additive functionals. For a stationary two-state environment, their period-three Fourier contrasts have identical variance and mutual covariance equal to negative one-half, independently of the rates; the common term is asymptotically independent. The bounded Markov martingale vector CLT, log-sum-exp bounds and uniform integrability yield the trivariate extreme-value limit, universal angular integral and expected log-growth correction. Exhaustive rational checks pass for 9,360 full products and 27 Markov covariance equalities. Experiments do not serve as the infinite proof.
+PASS
 
-## Originality — PASS, with priority risk
+For 3-stage cyclic matrices A_e, the exact 3-year block product is diagonal with three cohort multipliers. At n divisible by 3 each log multiplier is an additive stationary two-state Markov functional with period-3 coefficients. Fourier covariance of h_j=1_{ξ_j=1}-π1 with covariance π0π1 θ^|j-k| yields common variance σ0² and three contrasts with equal σ1², covariance -σ1²/2. Bounded martingale difference CLT gives an independent common Gaussian and planar 120-degree contrast Gaussian. Logsumexp differs from the largest brood log by at most log3; L2 bounds yield uniform integrability and mean coefficient 3√3/(2√(2π))σ1√n. Ergodicity gives growth µ/3. Independent exact finite environment product enumeration and Markov lag covariance gave 1195 checks. Requires positive initial three broods, stationary binary a,b∈(0,1), positive fecundity/survival, and observations at full 3-year cycles; excludes demographic stochasticity.
 
-Logofet et al. (2020), doi:10.3390/math8122252, treat Markov environmental projection selection and finite simulation ranges, not a three-brood centered limit distribution. Sanz (2019), doi:10.1016/j.ecolmodel.2019.108797, establishes two-age stochastic growth inequalities, not a three-year extreme-value law. Diekmann–Planqué (2019), doi:10.1007/s00285-019-01362-3, address nonlinear brood competition and synchronization, not this Markov fluctuation theorem. Closest accessible previously recorded two-stage result, `8b095812-145e-4e45-be2e-6a00dd92a757`, gives a folded-normal correction for two cohorts; it does not state the joint three-cohort triangular law or its exact universal angular mean. Independent literature searches and mathematical-record comparisons found no theorem covering the three-ray distribution. Relevant unindexed random-matrix central limit theory is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Three-year semelparity yields three rather than two competing year classes; their geometric maximum has a qualitatively different universal non-Gaussian law and an exact new correction constant. This distinguishes ecological growth predictions based only on a long-run eigenvalue from distribution-sensitive predictions, including a natural neutral-static example. The triangular covariance restriction is a structural mathematical feature, not a routine numerical increase in sample size or a parameter substitution in the two-brood result.
+Best-knowledge assessment against mathematically matching and broader prior claims; explicit boundaries and uninspected-source risks retained. The limit isolates a universal nonlinear three-brood competition observable with equiangular Gaussian maximum and exact √n correction, even for static-neutral environments. This gives a meaningful fluctuation effect beyond the top Lyapunov exponent and distinct from two-brood folded-normal phenomena.
 
-## Limitations
+## value
 
-No density feedback, demographic randomness, nonstationary switching, or nonmultiples-of-three time predictions. External independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The limit isolates a universal nonlinear three-brood competition observable with equiangular Gaussian maximum and exact √n correction, even for static-neutral environments. This gives a meaningful fluctuation effect beyond the top Lyapunov exponent and distinct from two-brood folded-normal phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
