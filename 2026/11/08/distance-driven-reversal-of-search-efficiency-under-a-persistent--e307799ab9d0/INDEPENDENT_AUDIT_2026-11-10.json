@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:50:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set B=diag(r+delta,r-delta)-Q, E=exp(-L sqrt(B/D)), F=B^{-1}(I-E). The first-excursion survival integral is F, and the phase-preserving reset kernel is F Lambda. Strong Markov at reset gives (I-F Lambda)m=F 1, equivalently m=(h_L(B)-Q)^(-1)1; this does not falsely reinitialize the environmental phase. The symmetric/antisymmetric 2x2 spectral projector has eigenvalues r+nu±sqrt(nu²+delta²) and weights c,1-c, giving the stated mean. As L downarrow0, Jensen for b^(-1/2) and barycenter r forces a positive difference from constant rate; as L increases, b_-<r gives exponential ratio zero. Numerical independent matrix-renewal reconstruction agreed with scalar formula at 15 test parameter-distance combinations to 1e-7 relative (ill-conditioned at L=10 with large mean); e.g D=r=nu=1,delta=.5: at L=.02 0.0209616>0.0202013, L=8 2190.9232<2979.9580. No claim of unique crossing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2509.25365",
+          "https://doi.org/10.1088/1751-8121/ab97e0"
+        ],
+        "reasoning": "Doubly stochastic resetting stationary-position distributions or switching diffusivities with a new phase at reset cannot dominate the persistent phase-retaining FPT model and its comparison for all D,r,delta,nu.",
+        "searches": [
+          "Resultary: Markov modulated stochastic resetting persistent two state switching mean first passage time target distance crossover",
+          "Web: Arutkin Reuveni diffusion with doubly stochastic resetting 2025 first passage"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-square-root-search-barrier-and-a-finite-speed-optimum-for-tele--62ce19fec6eb/RESULT.md",
+        "https://arxiv.org/abs/2509.25365",
+        "https://doi.org/10.1088/1751-8121/ab97e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-square-root-search-barrier-and-a-finite-speed-optimum-for-tele--62ce19fec6eb/RESULT.md"
+        ],
+        "reasoning": "Boundary δ=r invalidates the asserted positive lower bound r-δ and different asymptotic comparison; the earlier paper optimizes switching frequency, while this theorem fixes parameters and varies L with a strict sign at both ends.",
+        "searches": [
+          "Resultary: Markov modulated stochastic resetting persistent two state switching mean first passage time target distance crossover",
+          "Web: Arutkin Reuveni diffusion with doubly stochastic resetting 2025 first passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2509.25365",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-square-root-search-barrier-and-a-finite-speed-optimum-for-tele--62ce19fec6eb/RESULT.md"
+        ],
+        "reasoning": "The 2026 exact phase-resolved telegraph FPT matrix formula is for hazard rates (0,rho) at delta=r, excluded by 0<delta<r here; it supplies a boundary-model formula but does not state or imply the strict two-distance fixed-mean reversal by a direct parameter substitution.",
+        "searches": [
+          "Resultary: Markov modulated stochastic resetting persistent two state switching mean first passage time target distance crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-square-root-search-barrier-and-a-finite-speed-optimum-for-tele--62ce19fec6eb/RESULT.md",
+          "https://arxiv.org/abs/2509.25365"
+        ],
+        "reasoning": "Resultary query returned target record, zero-vs-positive telegraph FPT and other reset geometries; no exact earlier all-positive two-state near/far sign theorem in the inspected results. This is not a proof of absence.",
+        "searches": [
+          "Resultary: Markov modulated stochastic resetting persistent two state switching mean first passage time target distance crossover"
+        ]
+      },
+      "rationale": "Arutkin–Reuveni 2025 studies a phase-fluctuating reset intensity and its stationary spatial law, but its accessible model-level abstract does not supply this phase-retaining target first-passage comparison. A 2026 square-root telegraph result studies zero-versus-positive hazard (boundary delta=r), and optimizes over nu rather than proving near/far comparison at every strictly positive pair of rates. The new two-target-distance universal sign reversal is a nontrivial FPT outcome.",
+      "residual_risks": [
+        "Arutkin–Reuveni complete text not read; possible unindexed persistent Markov-modulated FPT general theorem.",
+        "Strictly assumes 0<delta<r, nu>0, stationary phase initialization and one-dimensional absorbing geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact FPT solution, but its on/off hazards and switching-speed optimization do not give the same strictly-positive-hazard fixed-mean distance reversal",
+          "evidence": "Earlier B_nu for rates 0,rho; slow nu square-root divergence; fast nu criterion z_*=1.5936",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-square-root-search-barrier-and-a-finite-speed-optimum-for-tele--62ce19fec6eb/RESULT.md",
+          "material_read": "Complete 2026/11/2 RESULT.md: assumptions, 2-phase backward equations, matrix solution, both switching-rate asymptotics and theorem",
+          "method": "GitHub pinned Resultary full text",
+          "title": "A square-root search barrier and a finite-speed optimum for telegraph-modulated resetting",
+          "trigger": "Exact persistent two-phase reset-clock first-passage theory"
+        },
+        {
+          "assessment": "Stationary spatial density only in material read; uninspected full text remains priority risk",
+          "evidence": "2025 abstract explicitly highlights exact steady-state and three spatial regimes",
+          "identifier_or_url": "https://arxiv.org/abs/2509.25365",
+          "material_read": "Full abstract and accessible paper metadata; arXiv HTML retrieval failed, not a full-text negative finding",
+          "method": "arXiv metadata search and HTML attempt",
+          "title": "Diffusion with doubly stochastic resetting",
+          "trigger": "Same independent fluctuating reset-intensity mechanism"
+        },
+        {
+          "assessment": "Switching diffusion/constant reset clock is different, but full-text coverage is uncertain",
+          "evidence": "Journal reference 2020, 53 275003",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab97e0",
+          "material_read": "Title/abstract and recorded contrasting model description; full journal article not inspected",
+          "method": "Bibliographic search",
+          "title": "Switching diffusions and stochastic resetting",
+          "trigger": "Switching resetting and phase dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit exact FPT for correlated nonrenewal search and a parameter-uniform sign reversal is a motivated substantive distinction between reset-rate variability and a constant mean-rate policy. The near/far contrast and far-field exponential ratio are scientifically useful without any uniqueness theorem for intermediate crossings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No uniqueness of crossings or intermediate-distance ordering.",
+    "Literature full text for some exact Markov-modulated resetting references inaccessible."
+  ],
+  "schema_version": 1
+}

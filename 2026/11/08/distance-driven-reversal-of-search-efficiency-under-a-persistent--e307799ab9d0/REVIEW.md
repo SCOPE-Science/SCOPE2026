@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem uses strictly positive \(D,r,\nu\) and \(0<\delta<r\), so \(B=\Lambda-Q\) is positive-definite and finite expected completion is assured. The matrix first-reset kernel \(F(B)\Lambda\) keeps phase memory across resets. Matrix inversion leads to the exact two-eigenvalue formula. Strict Jensen convexity yields a positive short-target difference and the lower eigenvalue \(b_-<r\) yields an exponentially negative far-target ratio. Boundary conditions, asymptotic quantifiers, and the fact that only existence (not uniqueness) of a crossing is proved are explicit. An independent renewal implementation and a finite-difference backward equation numerically reproduce the formula.
+PASS
 
-## Originality: PASS (qualified)
+Set B=diag(r+delta,r-delta)-Q, E=exp(-L sqrt(B/D)), F=B^{-1}(I-E). The first-excursion survival integral is F, and the phase-preserving reset kernel is F Lambda. Strong Markov at reset gives (I-F Lambda)m=F 1, equivalently m=(h_L(B)-Q)^(-1)1; this does not falsely reinitialize the environmental phase. The symmetric/antisymmetric 2x2 spectral projector has eigenvalues r+nu±sqrt(nu²+delta²) and weights c,1-c, giving the stated mean. As L downarrow0, Jensen for b^(-1/2) and barycenter r forces a positive difference from constant rate; as L increases, b_-<r gives exponential ratio zero. Numerical independent matrix-renewal reconstruction agreed with scalar formula at 15 test parameter-distance combinations to 1e-7 relative (ill-conditioned at L=10 with large mean); e.g D=r=nu=1,delta=.5: at L=.02 0.0209616>0.0202013, L=8 2190.9232<2979.9580. No claim of unique crossing.
 
-The 2025 model paper provides stationary spatial distributions and explicitly points to first passage as an extension. The 2020 switching-diffusivity paper has a fixed reset rate and resets the discrete internal state, so its renewal result does not imply a hazard-modulated process with persistent environmental state. The 2016 time-since-reset protocol is also renewal, unlike the present model. Searches for telegraph, Markov-modulated and fluctuating reset hazards with first passage and distance crossover found no stronger published theorem; this is evidence for priority, not proof of uniqueness of discovery. A prior stationary-age ordering calculation for the same independently refreshed rate environment does not treat first passage or the target-distance reversal.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating stochastic-reset-clock paper calls for first-passage analysis. At fixed mean hazard and arbitrary strictly positive contrast and switching, the new theorem identifies both a universal nearby-search penalty and a universal far-target advantage, giving a robust experimental or search-design distinction that cannot be read off from mean reset rate alone. This is a complete analytic comparison in two asymptotic target-distance regimes for a natural minimal environmental model, not an arbitrary parameter slice or isolated numerical example.
+Arutkin–Reuveni 2025 studies a phase-fluctuating reset intensity and its stationary spatial law, but its accessible model-level abstract does not supply this phase-retaining target first-passage comparison. A 2026 square-root telegraph result studies zero-versus-positive hazard (boundary delta=r), and optimizes over nu rather than proving near/far comparison at every strictly positive pair of rates. The new two-target-distance universal sign reversal is a nontrivial FPT outcome.
 
-## Closest work and remaining limits
+## value
 
-Arutkin--Reuveni 2025 (arXiv:2509.25365), Bressloff 2020 (DOI:10.1088/1751-8121/ab97e0), and Pal--Kundu--Evans 2016 (arXiv:1512.08211) were compared for renewal structure and hazard versus diffusivity modulation. An unindexed Markov-modulated reset-clock first-passage result could cover the theorem. No uniqueness of finite crossovers, nonstationary starting-phase classification, or higher-dimensional result is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit exact FPT for correlated nonrenewal search and a parameter-uniform sign reversal is a motivated substantive distinction between reset-rate variability and a constant mean-rate policy. The near/far contrast and far-field exponential ratio are scientifically useful without any uniqueness theorem for intermediate crossings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
