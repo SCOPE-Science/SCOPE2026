@@ -1,12 +1,21 @@
-# Scientific assessment of the Nauru two-independence homotopy calculation
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines the graph and simplex rule unambiguously. A complete constructive face enumeration gives 561,397 nonempty faces; direct induced-degree checking validates each one. The 280,690 disjoint matched incidences and 17 critical simplices are reconstructed independently of any saved matching certificate. All 4,345,776 Hasse incidences are directed and the entire 561,397-vertex diagram is topologically sorted. The exact signed Morse boundary has two unit Smith invariant factors, and its seventh-dimensional attaching maps are completely determined by those degree vectors; hence the asserted *integral homotopy type*, not only field Betti ranks, follows. The computation remains finite and graph-specific.
+## correctness
 
-## Originality — PASS on accessible evidence
-The inspected primary work of Taylan (arXiv:1501.06754v1) classifies path, cycle and forest devoid complexes; Deshpande–Singh (arXiv:2001.05448) classify different higher-independence graph families. The closest complete Nauru computation concerns ordinary independence, whose homotopy type is \(\bigvee^4S^5\vee S^6\) rather than the different two-independence face condition used here. The dodecahedral \(\operatorname{Ind}_2\) and Nauru Vietoris–Rips cases concern different graphs or constructions. Targeted index and literature searches under Nauru, generalized Petersen, dissociation, and \(P_3\)-devoid did not locate a theorem implying this exact two-independence result. Risk: an equivalent unindexed or unpublished computation may exist; index noncoverage is not proof of priority.
+PASS
 
-## Mathematical value — PASS
-A named cubic symmetric graph provides a natural, independently motivated topology problem at the first higher-independence parameter. Its mixed-dimensional wedge of nine 7-spheres and three 8-spheres is an exact integral classification with nonzero homology in two neighboring dimensions. It genuinely distinguishes higher from ordinary independence on the same graph and complements, without being subsumed by, calculations for smaller generalized Petersen graphs. The value is this specific natural invariant and its structural homotopy classification, not numerical novelty or computational scale alone. No infinite-family or equivariant result is claimed.
+Independently generated complete 561397 nonempty degree<=1 induced faces from 24-vertex generalized Petersen graph, same f-vector across dimensions 0..12. Independently constructed 280690 vertex-pivot matching pairs and 17 critical cells (one 0, eleven 7, five 8), checked all 4345776 oriented cover incidences acyclic by full Kahn traversal. Independently computed signed 11x5 Morse boundary columns: c1=(row4+row6), c2=c3=-(row5), c4=-c1, c5=row5. Rank two primitive image with minor +/-1 gives H7=Z9,H8=Z3; because wedge 7-skeleton simply connected and pi7 is free on generators, unimodular cancellation yields wedge of spheres.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published ordinary Nauru independence homotopy Ind_1 and Nauru perfect-matching complex concern different simplex conditions. Taylan supplies general P3-devoid Morse machinery and various graph family classifications, not this GP(12,5) exact integral Ind_2 type. Other generalized Petersen graph Ind_2 computations have different vertices/parameters. No covering exact result found in searched records; this does not certify global novelty.
+
+## value
+
+PASS
+
+Nauru is a natural symmetric cubic graph; its first higher independence/dissociation complex is a meaningful structural invariant. The exact nonpure, mixed-dimensional integral wedge with primitive boundary is useful independent of a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

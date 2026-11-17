@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using standard Python 3. The script constructs the exact \(\operatorname{GP}(12,5)\) adjacency graph from its vertex formulas. It recursively enumerates every face of the induced-maximum-degree-one complex, checks each face by a separate degree-based predicate, then constructs every matching pair using a specified vertex order. The complete reversed-matched Hasse digraph is topologically sorted, establishing acyclicity rather than relying on a toggle heuristic.
+## correctness
 
-The script then recursively eliminates exact signed matched 7/8-cell incidences and compares the full eleven-by-five boundary with the stated matrix. It verifies that two columns form a primitive rank-two integer image and that all five columns are combinations of those two, so its Smith invariant factors are \(1,1\). Standard discrete Morse and cellular homotopy arguments described in `RESULT.md` convert these checks into the wedge-of-spheres conclusion.
+PASS
 
-The provided `verification_output.txt` is the recorded stdout from executing this very script. The output terminates in `ALL_CHECKS_PASS`.
+Independently generated complete 561397 nonempty degree<=1 induced faces from 24-vertex generalized Petersen graph, same f-vector across dimensions 0..12. Independently constructed 280690 vertex-pivot matching pairs and 17 critical cells (one 0, eleven 7, five 8), checked all 4345776 oriented cover incidences acyclic by full Kahn traversal. Independently computed signed 11x5 Morse boundary columns: c1=(row4+row6), c2=c3=-(row5), c4=-c1, c5=row5. Rank two primitive image with minor +/-1 gives H7=Z9,H8=Z3; because wedge 7-skeleton simply connected and pi7 is free on generators, unimodular cancellation yields wedge of spheres.
 
-Limitations: the script verifies a particular finite 24-vertex object and its full finite incidence relations. It is not a general solver for generalized Petersen families. It does not provide external independent mathematical review, and searches do not establish uniqueness or publication priority.
+## originality
+
+PASS
+
+Published ordinary Nauru independence homotopy Ind_1 and Nauru perfect-matching complex concern different simplex conditions. Taylan supplies general P3-devoid Morse machinery and various graph family classifications, not this GP(12,5) exact integral Ind_2 type. Other generalized Petersen graph Ind_2 computations have different vertices/parameters. No covering exact result found in searched records; this does not certify global novelty.
+
+## value
+
+PASS
+
+Nauru is a natural symmetric cubic graph; its first higher independence/dissociation complex is a meaningful structural invariant. The exact nonpure, mixed-dimensional integral wedge with primitive boundary is useful independent of a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
