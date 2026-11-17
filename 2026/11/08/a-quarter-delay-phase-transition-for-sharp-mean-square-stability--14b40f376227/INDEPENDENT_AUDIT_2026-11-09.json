@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:12:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the 2x2 random update matrices and the induced 3x3 symmetric covariance map. Independent SymPy construction from tensor action shows det(I-L)+h F=0 identically and exact example F(1/10,7/4,3/11)=-315/3872 versus F(...,0)=9/160. Cone-preserving Perron root must cross 1 only at root F=0; small h contraction follows eigenvalue slope -2/(1-beta) while large h is unstable by repeated A0 event; F increases strictly with h. Optimization of F at fixed h over beta yields beta=(1-4p)h/4 when p<1/4, explaining unique tangent and explicit ceiling; at p>=1/4 optimum beta=0. Matrix proof is unbounded, numeric grid only supplements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier exact energy proves beta=0 subcase h+p h^2<2, also exact noise floor. Arjevani et al analyze fixed-delay SGD convergence, not iid Bernoulli momentum updates; Su et al random packet arrival model differs."
+        ],
+        "reasoning": "No inspected prior result covers the full two-parameter beta>0 process or optimizes its stable h over momentum. Known beta=0 is explicitly credited.",
+        "searches": [
+          "Resultary 2026/11/2 exact quadratic energy Bernoulli stale-gradient descent",
+          "Arjevani Shamir Srebro arXiv:1806.10188",
+          "Su Li Lu arXiv:2108.12795"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md 10f9cf5e0ab0b6ef630175e167d27eb811e16356, verify.py 0a3dbd85d1a860f692982859db6d03362f53379c",
+        "Resultary Bernoulli stale-gradient descent 2026/11/2 complete RESULT.md 22213b802022a37a648320d6b3cf562144fc2877",
+        "Arjevani et al arXiv:1806.10188 abstract",
+        "Su et al arXiv:2108.12795 model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier beta=0 frontier is recovered exactly by F_p(h,0)=ph^2+h-2, but says nothing about beta>0 or p=1/4. General PSD spectral criterion would require the new algebra and optimizer argument."
+        ],
+        "reasoning": "Full claim is not a mere named-parameter substitution of beta=0; positive momentum changes the random update matrices and produces a new sharp phase boundary.",
+        "searches": [
+          "Resultary 2026/11/2 Bernoulli stale descent complete RESULT.md",
+          "Source moment determinant derivation",
+          "Arjevani 2018 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generic switched-system test rho((1-p)A0⊗A0+p A1⊗A1)<1 is standard, equivalent to source moment lift but not the explicit scalar F and optimization."
+        ],
+        "reasoning": "The criterion as a general matrix test is prior machinery; its exact polynomial simplification and unique momentum probability threshold are not recorded in inspected prior statements.",
+        "searches": [
+          "Resultary mean square heavy ball randomly stale gradients query",
+          "randomly switched linear systems Kronecker moment criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Different parameter noise source and threshold (stochastic curvature vs Bernoulli delay); no matching full F_p table was located."
+        ],
+        "reasoning": "Exact F polynomial and beta*(p) not found in inspected database, without asserting global search exhaustiveness.",
+        "searches": [
+          "Resultary mean-square stale gradient heavy ball probability quarter",
+          "Resultary 2026/10/13 momentum curvature coefficient-of-variation transition"
+        ]
+      },
+      "rationale": "The genuinely new portion of the complete claim survived statement-level search and primary-source comparisons to best of knowledge; the named known special cases and inaccessible priority risks are explicit.",
+      "residual_risks": [
+        "Full Arjevani et al primary text inaccessible (authorized Oxford VPN disconnected), and stronger random switching literature might state equivalent momentum region.",
+        "The endpoint p=0 or beta=1 is excluded; stepsize ceiling is a strict unstable boundary, not an attained stable h."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ZERO_MOMENTUM_ONLY",
+          "evidence": "Known iff h+ph^2<2 and noise stationary floor, no momentum optimization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-quadratic-energy-and-the-sharp-mean-square-frontier-for-be--1b8d6aef9d3a",
+          "material_read": "Complete RESULT.md, Lyapunov energy proof and parameters",
+          "method": "GitHub full source read",
+          "title": "Exact quadratic energy and the sharp mean-square frontier for Bernoulli stale-gradient descent",
+          "trigger": "exact same model at beta=0"
+        },
+        {
+          "assessment": "INCOMPLETE_SOURCE_INSPECTION",
+          "evidence": "Fixed tau delayed SGD finite-time bounds; Oxford job 0d45c5a5da3eac9cf580d7bf7d00a50 vpn_disconnected.",
+          "identifier_or_url": "arXiv:1806.10188",
+          "material_read": "Abstract and bibliographic model; full text not accessible",
+          "method": "arxiv/OA searches; authorized Oxford oxford_paper",
+          "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+          "trigger": "plausible stronger delayed-quadratic theorem"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_DIFFERENT_CHANNEL_MODEL",
+          "evidence": "Random packet reception timing is not iid read of one-step stale gradient at every update.",
+          "identifier_or_url": "arXiv:2108.12795",
+          "material_read": "Title and model description in accessible records, not full text",
+          "method": "public literature search",
+          "title": "Mean-Square Input-Output Stability and Stabilizability of a Networked Control System with Random Channel Induced Delays",
+          "trigger": "random-delay spectral framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact sharp, optimizable stability region in a basic asynchronous momentum model isolates a quantitative engineering-relevant boundary p=1/4 where positive momentum switches from beneficial to detrimental for maximal stable stepsize; it explicitly does not equate a bigger admissible step with faster convergence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md 10f9cf5e0ab0b6ef630175e167d27eb811e16356, verify.py 0a3dbd85d1a860f692982859db6d03362f53379c",
+    "Resultary Bernoulli stale-gradient descent 2026/11/2 complete RESULT.md 22213b802022a37a648320d6b3cf562144fc2877",
+    "Arjevani et al arXiv:1806.10188 abstract",
+    "Su et al arXiv:2108.12795 model"
+  ],
+  "disposition": "passed",
+  "final_claim": "For scalar iid Bernoulli fresh/one-step-stale heavy-ball iteration with p in (0,1), beta in [0,1), h>0, mean-square stability iff F=p h^2+[1+(4p-1)beta]h+2beta^2-2<0; unique maximum stable h across beta changes from beta>0 to beta=0 at p=1/4 with explicit formulas.",
+  "limitations": [
+    "Only scalar quadratic, iid Bernoulli one-step read delays; no general Hessian, additive noise or convergence rate optimum."
+  ],
+  "residual_risks": [
+    "Full Arjevani et al primary text inaccessible (authorized Oxford VPN disconnected), and stronger random switching literature might state equivalent momentum region.",
+    "The endpoint p=0 or beta=1 is excluded; stepsize ceiling is a strict unstable boundary, not an attained stable h."
+  ],
+  "schema_version": 1
+}

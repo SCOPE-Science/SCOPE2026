@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied `verify.py` is a self-contained executable checker requiring Python 3, SymPy and NumPy. Run `python verify.py` from this directory and compare with `verification_output.txt`.
+## correctness
 
-It rebuilds the two update matrices, covariance operator, determinant factorization and stationary optimization equalities symbolically, checks the exact rational fixed-step example, and compares matrix spectral radii with the analytic boundary across a finite parameter grid. It produced 812 numeric stability-grid assertions as well as exact symbolic checks, with all assertions passing.
+PASS
 
-Those finite checks do not establish the continuum claim independently. The proof relies on the analytically justified positive-cone Perron property, simple eigenvalue perturbation at zero step, large-step divergence and strict monotonicity of the boundary polynomial. Earlier publication precedence is not independently certified.
+Reconstructed the 2x2 random update matrices and the induced 3x3 symmetric covariance map. Independent SymPy construction from tensor action shows det(I-L)+h F=0 identically and exact example F(1/10,7/4,3/11)=-315/3872 versus F(...,0)=9/160. Cone-preserving Perron root must cross 1 only at root F=0; small h contraction follows eigenvalue slope -2/(1-beta) while large h is unstable by repeated A0 event; F increases strictly with h. Optimization of F at fixed h over beta yields beta=(1-4p)h/4 when p<1/4, explaining unique tangent and explicit ceiling; at p>=1/4 optimum beta=0. Matrix proof is unbounded, numeric grid only supplements.
+
+## originality
+
+PASS
+
+The genuinely new portion of the complete claim survived statement-level search and primary-source comparisons to best of knowledge; the named known special cases and inaccessible priority risks are explicit.
+
+## value
+
+PASS
+
+An exact sharp, optimizable stability region in a basic asynchronous momentum model isolates a quantitative engineering-relevant boundary p=1/4 where positive momentum switches from beneficial to detrimental for maximal stable stepsize; it explicitly does not equate a bigger admissible step with faster convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
