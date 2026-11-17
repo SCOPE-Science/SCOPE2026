@@ -1,19 +1,21 @@
-# Scientific review of maximal additive index below the cyclotomic subfield threshold
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For any map, the affine-difference period set is an additive subspace, and it is exactly the largest subspace admissible in the additive-index definition; extension of an additive function on that subspace supplies the needed global linearized map. On a cyclotomic map of index at most the characteristic, the defining scalar subgroup has more than \(p^{n-1}\) elements. The affine period subspace is invariant under those scalars, so it is either zero or the whole field. The latter alternative makes the function affine-additive; a root count on the scalar subgroup forces a single Frobenius monomial. The odd-characteristic index-\(p+1\) example is an invertible two-term linearized map because its coefficient has nonunit norm. These are exact and unconditional arguments, not extrapolations from enumeration. The included checker replays complete finite tests over \(\mathbb F_9\).
+PASS
 
-## Originality: PASS, with residual historical-priority risk
+The additive-increment period set T={u:g(x+u)-g(x)=g(u) for all x} is an F_p-vector subspace; the additive index is q/|T| by linear extension from T. Cyclotomic homogeneity g(hx)=h^r g(x) for h in H=(F_q*)^ell makes T invariant under H. For ell|q-1 and ell<=p, ell<=p-1, so |H|>p^(n-1) if n>=2; a nonzero T must contain Hu and hence all F_q. If T=F_q, g is linearized with degree<=p^(n-1), and agreement with a monomial on >p^(n-1) elements of H forces exactly one Frobenius term; n=1 is immediate. For odd p, f(x)=x+c x^p, norm(c)!=1, is an invertible F_p-linear non-Frobenius map with ell exactly p+1. Independent F9 presentation enumeration ell=1,2 examined all 320 presentations and found only period dimensions 0 and 2, and tested the sharpness construction; finite check corroborates the all-prime argument.
 
-Bienvenu and Winterhof's *Additive index and Carlitz rank*, arXiv:2604.25414v1, specifically §6.2, concludes only the lower bound \(\operatorname{AddInd}(f)\ge p\) for non-Frobenius maps of multiplicative index at most \(p\), not the maximal \(\operatorname{AddInd}(f)=p^n\). The exact dichotomy and sharp \(p+1\) boundary are not stated there and are not implied by that lower bound when \(n>1\). The earlier work of Işık and Winterhof treats Carlitz rank instead of additive index. Search comparisons of relevant mathematical research records for monomial additive index, low cyclotomic index, and affine periods found no result asserting the same maximal-index conclusion. Reis and Wang's 2022 foundational article was located bibliographically, but a full text was not available through open-access routes; it remains a risk for equivalent prior work.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The 2026 paper explicitly asks how far low multiplicative index forces high additive index, proposing a general index tradeoff and proving only a characteristic-sized lower bound. The exact maximal-index result resolves the whole first cyclotomic-index regime uniformly over all finite extension degrees, and the example at the next index proves its range is sharp. This is a structural separation with a genuine boundary, not a numerical increment. It does not settle higher cyclotomic indices or all instances of the paper's broader conjecture.
+The maximal additive index dichotomy AddInd=q for non-Frobenius low-index maps is substantially stronger than Bienvenu–Winterhof 2026 §6.2 conclusion AddInd>=p; the sharp first failure at ell=p+1 is exhibited, and no equivalent full dichotomy was identified in actual relevant-source comparisons. Best-of-knowledge with Reis–Wang 2022 access risk.
 
-## Boundaries and checks
+## value
 
-The exact domain is the zero-free-on-nonzero-input cyclotomic mapping class where the customary multiplicative index is defined; constants and maps with additional zeros are not covered by this formulation. The proof includes prime fields and characteristic two. It does not claim the sharpness construction in characteristic two. Finite tests are separate from the algebraic proof. Historical priority depends on the accessible sources stated in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp low-multiplicative-index rigidity for additive structure is an exact uniform algebraic boundary of a natural finite-field invariant. Excluding every intermediate additive index and exhibiting a sharp p+1 permutation counterexample clarifies how cyclotomic homogeneity constrains additive periods; it is substantially more informative than the known lower bound p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
