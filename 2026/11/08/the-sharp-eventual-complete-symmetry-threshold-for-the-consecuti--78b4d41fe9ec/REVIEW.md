@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The generating-function identity is checked as an exact integer polynomial equation using first-period coefficients for the three fixed generators, yielding the all-index law \(d(n+5814)=d(n)+1\). A complete count of the first-period negative steps proves there are exactly \(120\), all of size one, with maximum preceding representation count \(505\). The sharp counterexample at threshold \(504\) is independently direct-enumerated. The proof's inference from these facts to suffix structure and complete symmetry is valid for every integer \(p\ge505\). Risk: execution of the included exact finite verifier is essential; the proof does not rely on a finite extrapolation.
+## correctness
 
-**Originality — PASS under inspected evidence.** The 2022 arithmetic-triple results only cover bounded \(p\), and the 2022 symmetry paper establishes definitions and particular ranges. The 2024 follow-up discusses \((17,18,19)\) and gives examples of small \(p\) through the stated illustrative range, not an exact last failure of complete symmetry. Targeted database/index searches and accessible prior mathematical claims disclosed no all-level cutoff \(505\) with the terminal count drop. The general eventual-monotonicity mechanism is not claimed as novel; the new assertion is the sharp cutoff for the published natural example. Risk: equivalent statements could be unindexed or implicit in different tables.
+PASS
 
-**Mathematical value — PASS.** The cited 2024 work singles out this same consecutive triple to exhibit irregular complete-symmetry behavior at low representation thresholds. Finding the *last* possible failure establishes the precise phase boundary, replacing a finite list of examples with a theorem for infinitely many \(p\). The exact first-period obstruction and symbolic lift provide a reusable model for exact cutoff computations. Limitation: no full lower-level census or generalization to arbitrary triples is claimed.
+The definition r(n) counts nonnegative solutions 17x+18y+19z=n, with S_p={n:r(n)>p}; complete symmetry means a terminal ray. In the actual RESULT.md the rational generating function D(X)=((1-X)-B(X))/(XB(X)) (B=product(1-X^a)) and exact integer polynomial identity certify d(n+5814)=d(n)+1 for ALL n. Since the first 5814 d-values have only 120 negative positions, minimum -1 and largest pre-drop r=505 at n=2394, no later d can be negative. Thus for every p>=505 a first drop out of S_p is impossible, and r(2394)=505>504=r(2395) shows sharp failure at p=504. Independently reimplemented coin-change integer dynamic programming and checked all 5814 period shifts and exact boundary counts; finite evidence complements, not substitutes for, the polynomial identity.
 
-**Closest literature:** arXiv:2206.13052, arXiv:2207.08962, arXiv:2409.02394. Independent scientific assessment has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives: the published example (17,18,19) and the notions of p-complete symmetry are prior, but the explicit least universal cutoff 505 and proof that all larger levels form a terminal ray are not supplied by the inspected Komatsu papers or other semantic matches. An unindexed exact table remains a live priority risk.
+
+## value
+
+PASS
+
+Computes the sharp threshold for a specific, previously published nonmonotone example and supplies a rigorous finite-to-infinite descent certificate, answering an interpretable high-level p-complete-symmetry question. The natural invariant is the LAST possible level where a representation-threshold set ceases to be a tail; the sharp 505 is neither a routine substitution of a known formula nor an arbitrary unexplained integer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

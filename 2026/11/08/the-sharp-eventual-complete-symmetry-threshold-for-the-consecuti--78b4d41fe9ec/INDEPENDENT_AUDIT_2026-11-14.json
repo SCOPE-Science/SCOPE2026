@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T13:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md; frozen verify.py blob 9ce52bd380051407598b5389e27b2953b7213039",
+        "independent_checks.py: coin-change recurrence, 5814 period-shift test, 120 drop positions, boundary pair"
+      ],
+      "rationale": "The definition r(n) counts nonnegative solutions 17x+18y+19z=n, with S_p={n:r(n)>p}; complete symmetry means a terminal ray. In the actual RESULT.md the rational generating function D(X)=((1-X)-B(X))/(XB(X)) (B=product(1-X^a)) and exact integer polynomial identity certify d(n+5814)=d(n)+1 for ALL n. Since the first 5814 d-values have only 120 negative positions, minimum -1 and largest pre-drop r=505 at n=2394, no later d can be negative. Thus for every p>=505 a first drop out of S_p is impossible, and r(2394)=505>504=r(2395) shows sharp failure at p=504. Independently reimplemented coin-change integer dynamic programming and checked all 5814 period shifts and exact boundary counts; finite evidence complements, not substitutes for, the polynomial identity.",
+      "residual_risks": [
+        "The proposed integer polynomial certificate was independently checked through its consequences and first-period recurrence; no separate symbolic proof beyond reconstructed algebra is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu/Ying earlier formulas treat bounded p (p<=floor(a/2)) and Komatsu II uses (17,18,19) as a low-p irregularity example; no universal exact all-p cutoff in inspected text."
+        ],
+        "reasoning": "Earlier formulas for low levels cannot imply that the LAST downward step has pre-drop count 505 without the present extra global descent computation; they do not dominate this theorem.",
+        "searches": [
+          "Komatsu Ying triple arithmetic progression generalized Frobenius large p 17 18 19",
+          "https://arxiv.org/abs/2206.13052",
+          "https://arxiv.org/abs/2409.02394"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2409.02394",
+        "https://arxiv.org/abs/2207.08962",
+        "https://arxiv.org/abs/2206.13052",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-sharp-eventual-complete-symmetry-threshold-for-the-consecuti--78b4d41fe9ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier p-symmetry definitions and bounded-level examples are strictly weaker than the universal quantifier p>=505 with a sharp p=504 witness."
+        ],
+        "reasoning": "No inspected earlier theorem supplies the global drop maximum 505; the candidate is a strengthened, not merely restated, answer on the same (17,18,19) test case.",
+        "searches": [
+          "https://arxiv.org/abs/2207.08962",
+          "https://arxiv.org/abs/2409.02394",
+          "Resultary same-object and broader-semigroup search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S_p terminal-ray is precisely the absence of a drop from >p to <=p; the maximum count immediately preceding any negative difference equals 505."
+        ],
+        "reasoning": "Converted symmetry language to the adjacent denumerant-descent criterion, avoiding an erroneous novelty claim for eventual monotonicity in general.",
+        "searches": [
+          "p-complete symmetry p-numerical semigroups denumerants terminal ray 17 18 19",
+          "https://arxiv.org/abs/2409.02394"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact query returned this claim and related semigroup results with distinct generator sets/criteria; Komatsu II explicitly gives early p example values rather than a cutoff table."
+        ],
+        "reasoning": "A specific natural, published test triple is analyzed; no inspected prior exact database enumerates its all-level terminal-ray onset. Failure to find a table is not a proof none exists.",
+        "searches": [
+          "sharp eventual complete symmetry threshold denumerant consecutive 17 18 19 505",
+          "Resultary semantic search 2026-11-14"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives: the published example (17,18,19) and the notions of p-complete symmetry are prior, but the explicit least universal cutoff 505 and proof that all larger levels form a terminal ray are not supplied by the inspected Komatsu papers or other semantic matches. An unindexed exact table remains a live priority risk.",
+      "residual_risks": [
+        "Unindexed p-numerical semigroup computation may have published exact first-period descent cutoff; no exhaustive historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_PARTIAL_COVERAGE",
+          "evidence": "Original gives low-level irregular example (including p up to 44), no global P=505 classification in inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.02394",
+          "material_read": "Public PDF original sections/example listing p levels for this triple and relevant symmetry discussion",
+          "method": "arXiv full-text/PDF examination with page image",
+          "title": "p-numerical semigroups with p-symmetric properties, II",
+          "trigger": "Same numerical triple (17,18,19) and early p-complete symmetry"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_PROVEN_COVERAGE",
+          "evidence": "Defines related p-symmetry notions; not an exact universal 505 threshold in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08962",
+          "material_read": "Publicly accessible source abstract and cited structural summary",
+          "method": "arXiv abstract and source references",
+          "title": "p-numerical semigroups with p-symmetric properties",
+          "trigger": "Primary definitions and general p-symmetric criteria"
+        },
+        {
+          "assessment": "BOUNDED_LEVEL_COVERAGE",
+          "evidence": "Earlier generator-family formulas cover specified small p, not the sharp eventual cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+          "material_read": "Abstract and result statements cited in submission",
+          "method": "arXiv abstract/source comparison",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Strongest plausible generator-family formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Komatsu 2024 example and definitions; 5814-period exact certificate"
+      ],
+      "rationale": "Computes the sharp threshold for a specific, previously published nonmonotone example and supplies a rigorous finite-to-infinite descent certificate, answering an interpretable high-level p-complete-symmetry question. The natural invariant is the LAST possible level where a representation-threshold set ceases to be a tail; the sharp 505 is neither a routine substitution of a known formula nor an arbitrary unexplained integer.",
+      "residual_risks": [
+        "It is a fixed-triple theorem, not a general method valid without repeating computations for every triple."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The proposed integer polynomial certificate was independently checked through its consequences and first-period recurrence; no separate symbolic proof beyond reconstructed algebra is claimed.",
+    "Unindexed p-numerical semigroup computation may have published exact first-period descent cutoff; no exhaustive historical priority certification.",
+    "It is a fixed-triple theorem, not a general method valid without repeating computations for every triple."
+  ],
+  "schema_version": 1
+}
