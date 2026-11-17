@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted equivalence, structural criterion and count have common hypotheses: a finite star with one center and \(k\ge1\) leaves, \(1\le n\le k+1\) labeled agents, identical nonnegative additive vertex utilities, and complete nonempty connected bundles. Every legal allocation consists of one center bundle and singleton-leaf bundles. The exact local paired maximin share isolates one leaf from the pooled induced star. A PMMS violation exists exactly if a larger-valued leaf is held at the center, a smaller-valued leaf lies outside, and the center bundle has strictly more value than that held leaf. Nonnegative additivity reduces the only exceptional equality to a zero-valued center with at most one positive held leaf. This yields the sorted-threshold binomial count or the exceptional zero/one-positive count without double counting, including empty and all-leaf center subsets. A violating pair can exchange leaves and strictly improve the global leximin vector. All nonviolating allocations have the same sorted utility vector, so PMMS equals leximin for this family. Finite exact checks separately enumerate the legal two-way partitions and the global leximin optimum: 83,309 settings and 1,391,766 center-subset choices, with no discrepancies. The proof, rather than the experiments, establishes the unbounded-real-value theorem.
+PASS
 
-## Originality — PASS, subject to bibliographic uncertainty
+All connected nonempty allocations on a star have one hub bundle with exactly r=k-n+1 chosen leaves and n-1 singleton leaf bundles. For a neighboring singleton j, its exact connected two-way share is max over isolating one leaf i of min(w_i,H+w_j-w_i). A strict improvement exists exactly when selected i and outside j satisfy w_i>w_j and H>w_i. This yields sorted-leaf choices or h=0 and at most one positive selected leaf. Counting tie classes gives Q_r; labels give n!Q_r. Any violating inversion permits a leximin-improving swap. Fair allocations share an identical sorted utility vector, establishing the converse, including r=0, r=k, zero weights and ties. Independently reconstructed 6,012 exact finite (k,weight,hub,r) settings, checking direct pair shares, leximin and Q_r.
 
-Hummel and Igarashi (2024, arXiv:2401.14825, Theorem 6.1) establish the general direction leximin implies local PMMS for identical valuations and prove tree-based existence and algorithms. Their inspected full text does not give the converse for stars, every local PMMS allocation, the all-parameter multinomial/binomial census, or the zero-hub jump. The 2017 *Fair Division of a Graph* treatment of connected allocation and stars addresses proportionality and other guarantees rather than this local PMMS optimizer classification. Unconstrained PMMS studies concern different feasible partitions. Relevant exact claim, alias, implication, and broader-coverage searches in published mathematical records and open scientific literature identified no dominating theorem. An unindexed or otherwise inaccessible equivalent may still exist; failure to find one is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The result closes a natural all-solutions question left open by an existence result: it characterizes every locally PMMS allocation for all common additive nonnegative weights, calculates its exact census and prevalence among all connected allocations, proves an equivalence of local PMMS and global leximin that is special to the star structure, and identifies a discontinuity at precisely zero center value. The zero-center exception makes a sorted-only heuristic incomplete and the full classification nontrivial. Counting and sampling fair connected allocations and understanding when local/global welfare orderings coincide are natural questions in graph-constrained fair division. The result is not asserted to extend to other graphs or heterogeneous valuations.
+Published Hummel–Igarashi Theorem 6.1 gives leximin => local PMMS under common utility, but not PMMS => leximin or the star-specific complete tie-and-zero classification. The other fully inspected Resultary star census concerns ordinary EF1, a different criterion, and does not imply this PMMS all-allocation count. Prior existence and algorithms are explicitly excluded from novelty. Priority remains qualified.
 
-## Closest work and limits
+## value
 
-- H. Hummel and A. Igarashi, *Keeping the Harmony Between Neighbors: Local Fairness in Graph Fair Division*, arXiv:2401.14825 (2024), Sections 3 and 6, especially Theorem 6.1. Inspected full preprint, including its star discussions and tree construction.
-- S. Bouveret et al., *Fair Division of a Graph*, arXiv:1705.10239 (2017), inspected preprint; establishes background connected graph allocations and star algorithms for different fairness goals.
-- G. Amanatidis et al., *Comparing Approximate Relaxations of Envy-Freeness*, arXiv:1806.03114, inspected abstract/background only; unconstrained PMMS is not itself a covering result.
-- Residual risk: possible unindexed equivalent PMMS star classification; no independent audit. Direct enumerations do not certify all real-valued instances.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Star-connected allocations are a canonical solvable boundary for graph-constrained fair division. The exact PMMS class, tie-sensitive probability Q_r/binom(k,r), equivalence with leximin, and discontinuous zero-center transition supply useful structure beyond a routine existence corollary. The precise fair-allocation count is a natural invariant, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T23:54:48.884896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All connected nonempty allocations on a star have one hub bundle with exactly r=k-n+1 chosen leaves and n-1 singleton leaf bundles. For a neighboring singleton j, its exact connected two-way share is max over isolating one leaf i of min(w_i,H+w_j-w_i). A strict improvement exists exactly when selected i and outside j satisfy w_i>w_j and H>w_i. This yields sorted-leaf choices or h=0 and at most one positive selected leaf. Counting tie classes gives Q_r; labels give n!Q_r. Any violating inversion permits a leximin-improving swap. Fair allocations share an identical sorted utility vector, establishing the converse, including r=0, r=k, zero weights and ties. Independently reconstructed 6,012 exact finite (k,weight,hub,r) settings, checking direct pair shares, leximin and Q_r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hummel and Igarashi treat arbitrary trees with existence/algorithmic PMMS, not characterizing every PMMS allocation.",
+          "Resultary weighted-star EF1 has a distinct EF1 deletion condition and may have zero feasible allocations; PMMS here always has a leximin solution."
+        ],
+        "reasoning": "General topology alone does not dominate this exact counting statement; ordinary EF1 is non-equivalent.",
+        "searches": [
+          "Resultary search: graph connected fair allocation PMMS leximin stars",
+          "https://arxiv.org/pdf/2401.14825",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2401.14825",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026/RESULT.md",
+        "https://arxiv.org/abs/1705.10239"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier leximin -> PMMS is a one-way implication; existence does not imply converse.",
+          "In the zero-center regime, any hub choice with <=1 positive selected leaf is fair, yielding a whole extra family absent from sorted-only counting."
+        ],
+        "reasoning": "Neither cited prior statement yields the proposed iff, unrestricted nonnegative tie-sensitive census, or sharp zero-hub fraction.",
+        "searches": [
+          "https://arxiv.org/pdf/2401.14825",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both use local neighboring-bundle connected two-way PMMS and common nonnegative additive utility; prior establishes only the implication leximin => PMMS.",
+          "The present reverse implication is proved through a strict local-swap improvement and equality of all PMMS utility multisets."
+        ],
+        "reasoning": "Same fairness definition, but a genuine logical converse and complete class counting not implied by prior direction.",
+        "searches": [
+          "Resultary semantic query: weighted star identical local PMMS iff leximin exact census",
+          "Hummel–Igarashi arXiv:2401.14825 Theorem 6.1",
+          "https://arxiv.org/pdf/2401.14825"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No full matching PMMS instance-level count was found among checked results; the closest exact n! count concerns ordinary EF1 under dominant hub and strictly increasing leaves."
+        ],
+        "reasoning": "The EF1 table cannot be reused as a PMMS table; count formulas have different fairness definitions and valuation regimes. Search absence is not a novelty certificate.",
+        "searches": [
+          "Resultary semantic query: star PMMS zero hub exact count probability labeled allocations",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026/RESULT.md"
+        ]
+      },
+      "rationale": "Published Hummel–Igarashi Theorem 6.1 gives leximin => local PMMS under common utility, but not PMMS => leximin or the star-specific complete tie-and-zero classification. The other fully inspected Resultary star census concerns ordinary EF1, a different criterion, and does not imply this PMMS all-allocation count. Prior existence and algorithms are explicitly excluded from novelty. Priority remains qualified.",
+      "residual_risks": [
+        "Unindexed PMMS exact star equivalence/census could predate 2026; bounded semantic and primary searches are not exhaustive.",
+        "Finite checks use integer weights k<=5, while theorem includes all nonnegative real weights and arbitrary k; proof supplies universal justification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PARTIAL",
+          "evidence": "Theorem 6.1 proves leximin allocations PMMS under identical additive utility; it does not assert converse/all star allocations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.14825",
+          "material_read": "Article PDF, section 6 and Theorem 6.1, pages around 10–11; exact proof passages and theorem identification",
+          "method": "arXiv PDF open and page screenshot",
+          "title": "Keeping the Harmony Between Neighbors: Local Fairness in Graph Fair Division",
+          "trigger": "Same PMMS definition and leximin theorem"
+        },
+        {
+          "assessment": "DIFFERENT_FAIRNESS",
+          "evidence": "Ordinary EF1 uses deletion of one vertex from an envied bundle, distinct from connected bipartition PMMS and the zero-center phenomenon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arbitrary-instance-level-ef1-spectra-on-weighted-stars-and-an-ex--cf4e9c55c026/RESULT.md",
+          "material_read": "Complete published RESULT.md Finding, assumptions, proof, verification, scope",
+          "method": "GitHub full text via connected repository",
+          "title": "Arbitrary instance-level EF1 spectra on weighted stars and an exact n! allocation census",
+          "trigger": "Same graph and identical valuations, possible exact counting overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Star-connected allocations are a canonical solvable boundary for graph-constrained fair division. The exact PMMS class, tie-sensitive probability Q_r/binom(k,r), equivalence with leximin, and discontinuous zero-center transition supply useful structure beyond a routine existence corollary. The precise fair-allocation count is a natural invariant, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed PMMS exact star equivalence/census could predate 2026; bounded semantic and primary searches are not exhaustive.",
+    "Finite checks use integer weights k<=5, while theorem includes all nonnegative real weights and arbitrary k; proof supplies universal justification.",
+    "Scientific PASS is qualified best-of-knowledge, not formal proof, exhaustive novelty guarantee or external certification.",
+    "Publication withheld as not_ready; no repository changes and no external proof/attestation channel altered."
+  ],
+  "schema_version": 1
+}
