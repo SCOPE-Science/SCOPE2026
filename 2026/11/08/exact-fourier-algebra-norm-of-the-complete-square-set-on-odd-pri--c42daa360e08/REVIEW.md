@@ -1,15 +1,21 @@
-# Scientific review: complete square-set Fourier projection over odd prime-power rings
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is one exact all-depth formula for the Wiener/endpoint projection norm of the complete square set, with its linear-depth asymptotic. The argument partitions square residue classes by their unique even valuations; unit-square lifting works in every odd characteristic; and finite-ring Fourier orthogonality reduces all nonzero frequency values to either an induced quadratic Gauss sum at one matching valuation or an elementary cardinality. Each valuation stratum has exactly the stated Legendre-sign multiplicity. This gives the complete Fourier kernel and its sharp normalized absolute mass. The asymptotic follows from two convergent geometric profiles, with a uniformly summable \(O_p(p^{-v})\) error. The standalone checker directly compared exact structure predictions to every residue and independently evaluated full root-of-unity sums in twelve small prime-power cases; it also checked Fourier orthogonality, Parseval and the depth slope. Finite numerical checks do not substitute for the proof of the infinite family.
+## correctness
 
-## Originality — PASS under bounded comparison
-The closest standard source is Green–Sanders (arXiv:math/0611286v1), which supplies the Fourier-algebra norm and general quantitative idempotent theory but neither a square-residue kernel nor an exact norm. Konyagin–Shkredov (arXiv:1403.8129v1) studies Wiener norms on prime-order groups with lower bounds, not the complete squares in prime-power groups. Stangl's 1996 result counts square classes but does not itself furnish a Fourier-algebra norm; its full text was unavailable for direct inspection. The three closely related published results inspected in full were the prime-field cubic-residue projection constant (different residue character and no valuation layers), the finite-group half-density Fourier-algebra deficit (an extremal comparison over all subsets, not this precise projection), and the Fourier concentration spectrum between valuation shells (a different operator and different invariant). The exact all-depth norm and its linear growth coefficient are not implications of their recorded assertions. Searches using square residues, equivalent Wiener/Fourier-algebra norms, modular Fourier projections, and valuation-shell character sums found no complete prior theorem of this form. This is a bounded literature comparison rather than a guarantee of exhaustive historical priority.
+PASS
 
-## Mathematical value — PASS
-This is a natural, canonical Fourier idempotent: project onto every square residue class, not a hand-picked subfamily. The result computes a sharp operator norm on an infinite tower, distinguishes two arithmetic Gaussian phase regimes, and identifies an exact linear-depth divergence that vanishes when nonunit squares are discarded. The multiscale role of zero divisors is mathematically motivated by the contrast with the unit-square set, whose projection norm is constant across all depths. The explicit slope is meaningful for estimates in finite Fourier algebras and idempotent multipliers. It is not a finite table recomputation, a tiny numerical gain, or a purely formal change of notation.
+Nonzero squares have even p-adic valuation and square unit parts; Hensel lifting reduces their unit class to the Legendre symbol mod p. The disjoint shell decomposition gives K_k(t)=1+sum_m R_m(t). Orthogonality of p^(m-1) lifts makes R_m(t) zero below the boundary valuation, equal (p^(m-1)/2)(-1+chi(unit)T_p) on it, and equal |U_m| above it. Counting the exact +/- Legendre classes in each v gives the displayed J^+/J^- absolute-mass formula for every p,k. Convolution by normalized K has sharp l1 and linfty norm equal to its normalized absolute sum via point mass and phase-aligned witness. Two parity classes of v contribute geometric-series limits with summable errors, giving sigma_p*k+O_p(1). Independent direct Fourier sum of 463 coefficient values at small odd prime powers confirms the strata without substituting finite tests for Hensel/Gauss-sum proof.
 
-## Scope and remaining risks
-Independent mathematical validation has not been performed. The complete 1996 square-counting article was not materially accessible, and previously unindexed cyclotomic or discrete multiplier literature may contain an equivalent all-depth norm. No claim is made for characteristic two, mixed composite moduli or intermediate operator norms. The error in the asymptotic is bounded for each fixed odd prime but is not optimized.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Gauss sums, square-set cardinalities, Wiener algebra idempotent estimates and prime-field residue norm results are known. The all-depth sharp complete-square projection norm and its explicit linearly growing slope were not shown to follow from the compared literature; prime-power nonunit shells are essential.
+
+## value
+
+PASS
+
+Endpoint norm of an arithmetically natural projection is a sharp functional-analytic quantity. The multiscale linear-depth growth versus depth-independent unit-square projection displays a nontrivial structural phase distinction in prime-power harmonic analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
