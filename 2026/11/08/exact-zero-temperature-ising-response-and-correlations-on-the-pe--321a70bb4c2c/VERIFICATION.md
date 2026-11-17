@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The two included source programs independently construct the Petersen graph, one by outer/spoke/star edges and the other as Kneser \(KG(5,2)\). The Python script applies exact 1024-term inclusion-exclusion over local all-equal-triangle events and a separate vertex-deletion matching recursion. The C++17 program enumerates exactly all \(2^{15}=32768\) labelled spin assignments and checks the full zero-field count, field ground-state degeneracies at representative values, and the complete 105-pair distance-correlation census.
+## correctness
 
-Run from the directory containing the source files:
+PASS
 
-```sh
-python3 verify_inclusion.py
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_exhaustive.cpp -o verify_exhaustive
-./verify_exhaustive
-```
+Petersen root vertex has 3 incident edges and contributes a triangle energy -J or +3J. Therefore H=-10J+4JB-h(15-2k), and the degree sum identity B=10-2k+n2+3n3 proves the energy envelope for all real h and gives matching/NAE equality cases. Independently enumerated all 32768 labelled spin assignments, 30 bonds and 105 pairs, obtaining zero-field coefficient vector 6,195,690,690,195,6; shell pair numerators -594,190,-290 and shell sizes 30,60,15; checked matching polynomial (1,15,75,145,90,6), total 332, and field samples h/J=0,1,4,5. Read both supplied independent inclusion-exclusion and Kneser-construction complete verifier source files; no extrapolation to other graphs.
 
-Successful exact outputs contain `IE_MATCHING_OK`, `IE_CORRELATION_OK`, and `EXHAUSTIVE_OK`, with assertion failures raising an error. All integer/rational values are reconstructed inside the scripts; no non-packaged data file is required.
+## originality
 
-These checks support the finite graph coefficients and critical matching numbers. The all-real-field assertion additionally uses the algebraic inequalities given in RESULT.md. They do not check other graphs, interacting quantum dynamics, nonuniform couplings, historical publication priority, or independent external scientific validation.
+PASS
+
+Specific Petersen-line spin-half ground-state magnetization polynomial and all 105 labelled pair correlations are newly evaluated on inspected evidence. Matching multiplicities and general cubic-line Ising/Holant representation are acknowledged as prior. Finite exact object, but no earlier same evaluated correlation table found.
+
+## value
+
+PASS
+
+Petersen is canonical smallest snark; its line graph gives a symmetric nonbipartite fifteen-spin cluster of ten frustrated triangles. Complete zero-temperature finite-system magnetization and distance-shell two-point correlations, especially negative third-shell correlation, distinguish frustration structure beyond the known matching polynomial. This natural exact finite classification needs no bulk-phase or downstream theorem to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
