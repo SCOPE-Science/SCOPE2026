@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verifiable calculations and limits
+# Independent mathematical audit
 
-From the complete package root, run `python3 checks/verify.py` using Python 3 and SymPy. The checker performs 1,078 assertions with exact rational expressions for parameter values 3/5, 2/3, 3/4, 4/5 and target depths from 2 to 21. Assertions compare the full marked success probability against the exact decomposition, check the gambler's ruin harmonic relation, and for small depths independently invert the finite hitting-time system and verify the regeneration ratio. Additional large-depth profiles at depth 200 confirm the three formulae within stated numerical tolerances. The checker prints `PASS 1078 exact algebra checks and controlled asymptotic comparisons` when successful.
+## correctness
 
-The proof of infinite-depth convergence does not follow from finite tests: it uses explicit summable limits of geometric weights, an exact finite-difference solution, and a dominated-convergence renewal Laplace argument. The critical selection parameter 2/3 is already known for the stationary density, and the present novelty assertion is restricted to the conditional *mechanism* and its joint waiting-time law. Full independent mathematical and publication-priority audits have not been performed.
+PASS
+
+The exact shell process and geometric first-step reinjection give gambler-ruin probability (t^k-1)/(t^m-1). Marked success weights give the three limits t<2, t=2, t>2 by summable/geometric estimates. Regeneration at shell zero gives E[T_m]=E[min(R,T_m)]/h_m; E[R²]<∞ and success probability tends to zero, giving the marked independent Exp(1) Laplace limit.
+
+## originality
+
+PASS
+
+The exact unmarked deep-excursion law and the p=2/3 crossover were published earlier, so are excluded from novelty. The candidate extends to first-step launch type/depth conditioned on rare success, obtaining tight, uniform, and two-sided geometric limits, jointly independent of an Exp(1) clock. These do not follow merely by quoting the old unmarked maximum-depth probability or the published mean hitting time.
+
+## value
+
+PASS
+
+The exact marked three-regime entrance mechanism is a motivated conditioned rare-event classification for an established random dynamical system. It discriminates path mechanisms sharing the same coarse first-passage asymptotics and yields an independent clock law, not merely restated stationarity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

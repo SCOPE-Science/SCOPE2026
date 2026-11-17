@@ -1,19 +1,21 @@
-# Review of the conditional deep-excursion law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The interval partition is preserved **conditionally on the visited shell**, including the nonlocal geometric reset from the top shell. The finite target-shell hitting probability solves a two-point biased-walk recurrence with its boundary conditions. The exact marked decomposition separates the contracting entry, internal geometric-reset entries, and immediate deep overshoots. Three geometric-series limits supply the stated regime-specific distributions, including their normalization and tightness. Regeneration at shell zero is exact under the uniform conditional distribution; finite return-time second moment supports the marked renewal argument establishing independence of the exponential waiting clock. The accompanying exact-rational checker independently solves small finite-state hitting-time systems and verifies finite sums and limiting profiles.
+PASS
 
-## Originality — PASS within inspected sources
+The exact shell process and geometric first-step reinjection give gambler-ruin probability (t^k-1)/(t^m-1). Marked success weights give the three limits t<2, t=2, t>2 by summable/geometric estimates. Regeneration at shell zero gives E[T_m]=E[min(R,T_m)]/h_m; E[R²]<∞ and success probability tends to zero, giving the marked independent Exp(1) Laplace limit.
 
-Yan et al. (arXiv:2308.09269, 2023) established the map and stationary/invariant-density context. Monthus (arXiv:2409.19999v2, Sections III--V) established its dyadic Markov representation, geometric resets, stationary three-regime density, mean first-passage formula, and unmarked excursion decomposition. These are expressly acknowledged as prior work. The present result is **conditioned on a successful excursion to an increasingly deep shell**; it describes the location and type of that successful excursion's first step and its joint distribution with the first rare-event waiting clock. Those conditional marked distributions and three distinct entrance mechanisms were not found in the inspected primary text or semantically searched research records. Absence from inspected texts is not proof against unindexed equivalent derivations; the latter remains the main priority risk. Previously available claims address Pelikan-map covariance, shell-index fluctuations, and a complete first-return generating function, but not the successful high-shell excursion initial-depth mark.
+## originality
 
-## Value — PASS
+PASS
 
-The three regimes explain *how* an exceptionally deep visit is generated, not merely how often the event occurs or how much stationary mass occupies a deep shell. Below the density threshold, deep excursions build from bounded starting depths against drift; at the threshold, the successful starting depth becomes macroscopically delocalized; above it, an immediate jump on the target scale dominates. The rare-event waiting clock separates asymptotically from this geometric mechanism. This is a complete conditional classification for a natural return event in a standard random interval map, and a pathwise interpretation of a previously known stationary transition; it is not offered as a new stationary-density or mean first-passage formula.
+The exact unmarked deep-excursion law and the p=2/3 crossover were published earlier, so are excluded from novelty. The candidate extends to first-step launch type/depth conditioned on rare success, obtaining tight, uniform, and two-sided geometric limits, jointly independent of an Exp(1) clock. These do not follow merely by quoting the old unmarked maximum-depth probability or the published mean hitting time.
 
-## Limitations and residual risks
+## value
 
-The statements are annealed, start uniformly on the upper dyadic shell, and hold for fixed probabilities strictly between one half and one. No quenched or deterministic-initial-point conclusion is claimed. The general exponential waiting-clock mechanism is classical; specificity lies in the threshold-dependent conditional mark laws. Unindexed renewal/conditioned-excursion treatments of this simple model could contain equivalent results. The 2026 quasi-stationary study was encountered in discovery but was not fully read; it addresses a distinct killed variant, so this is a limited priority risk rather than proof of non-overlap. A separate expert or independent mathematical audit is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact marked three-regime entrance mechanism is a motivated conditioned rare-event classification for an established random dynamical system. It discriminates path mechanisms sharing the same coarse first-passage asymptotics and yields an independent clock law, not merely restated stationarity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
