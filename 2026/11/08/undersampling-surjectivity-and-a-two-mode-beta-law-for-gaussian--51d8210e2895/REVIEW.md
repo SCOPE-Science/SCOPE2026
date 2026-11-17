@@ -1,15 +1,13 @@
-# Scientific review
+# Mathematical scope and comparison of the corrected finding
 
 ## Correctness
-PASS — Exact quadratic-form reduction yields the sketched scalar Ritz coefficient and the required symmetric numerator. The undersampled proof constructs an explicit real-surjective family from a kernel vector not invariant under the SPD operator, and the full-column two-mode proof reduces the global negative-direction event to the squared angle between independent Gaussian columns. The latter has the beta law, with endpoint integration giving the claimed sharp asymptotic. A standalone numerical checker passed 11,209 identity, event, scalar-exception, and probability-consistency checks. Those checks are supplemental to, and not a substitute for, the proof.
+The exact identity for the quotient along \(w+tx\), where \(w\) lies in a noninvariant nullspace and \(x=P A w\), proves that every real value is attained. Standard Gaussian nullspaces are Haar-distributed and almost surely noninvariant for a fixed nonscalar symmetric operator. The scalar exception is immediate. The proof treats all \(1\le k<n\) analytically; finite numerical checks only corroborate its algebra.
 
 ## Originality
-PASS, with historical-priority limitations — The 2026 similarity-restoration paper, 2024 study of spurious sketched Ritz values, and 2023 randomized orthogonal projection analysis were inspected in full text. They give the sketched coefficient, loss of numerical-range containment, correction mechanisms, and convergence context; they do not furnish the all-start event with its exact beta probability or the almost-sure full-real-range obstruction under undersampling. The classical beta-angle identity is acknowledged rather than claimed as new; similarly a fixed independent-start distribution does not imply a worst-case-over-starts law. Historical risks include unpublished equivalent matrix-pencil positivity calculations and additional unindexed numerical-linear-algebra literature.
+The corrected claim is solely the all-real surjectivity theorem for a post-sketch start and an undersampled Gaussian matrix. Previous Krylov embedding guarantees concern fixed subspaces or modified projections and do not imply this universal event. A previously published harmonic-Ritz theorem already establishes the same two-mode Gaussian *negative-direction beta-tail event* because both harmonic and ordinary quotients have the same signed quadratic-form numerator/denominator criterion. That entire beta-law claim has been withdrawn from the corrected finding; it is not counted as new. An equivalently formulated older singular-pencil theorem remains a historical-priority risk.
 
-## Value
-PASS — The result distinguishes the reliable behavior of an individually prescribed Krylov start from uniform safety across all possible starts for a single sketch. It identifies a sharp rank obstruction and, in the smallest injective nontrivial dimension, a computable exact failure probability plus a sample-complexity exponent. This informs interpretation of universal sketch-based Ritz safeguards, without claiming an adaptive algorithm has this realized failure rate.
+## Mathematical value
+The exact rank threshold identifies a fundamental obstruction to any uniform positivity certificate for the raw sketched scalar Rayleigh coefficient. It distinguishes the vector chosen after observation from a predetermined vector, explains how a noninvariant nullspace creates an all-real pencil, and characterizes the sole scalar exception. This is a structural theorem, not an isolated numerical example.
 
-## Scope and limitations
-Real SPD input and standard Gaussian sketch; exact arithmetic; one-vector unmodified randomized Arnoldi; existential start is chosen after the sketch. The result is not a finite-precision instability theorem or a guarantee about a particular low-dimensional embedded Krylov subspace. Independent historical-priority and mathematical audits are still needed.
-
-Self-review: passed. Independent audit: not yet performed.
+## Limits
+The theorem is real, exact-arithmetic, undersampled and post-sketch quantified. It does not assert instability for a fixed prescribed Krylov start, a new beta-angle probability law, or new results for injective sketches. No independent formal or expert certification is implied.
