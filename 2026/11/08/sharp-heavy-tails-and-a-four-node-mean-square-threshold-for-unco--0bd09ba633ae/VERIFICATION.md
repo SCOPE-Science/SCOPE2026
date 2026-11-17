@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python check.py` with Python 3, NumPy installed. The recorded deterministic run uses the explicitly set pseudorandom seed in the checker. The program performs 9,859 assertions, including exact rational checks of the moment equations and orthogonal-minimum-norm identity for node counts 2–8, an independent floating-point least-squares comparison, finite conditional-noise variance identities, and Monte Carlo estimates of the predicted tail exponent and constant for sizes 2–4. `check_output.txt` contains the actual output.
+## correctness
 
-## Proof-versus-computation boundary
+PASS
 
-The checker is supportive but not a proof of the asymptotic tail, its density dependence, or the infinite-moment threshold. These conclusions require the exact mean/centered-variable Jacobian, dominated convergence and the tail-integration argument in `RESULT.md`. Monte Carlo tail estimates are intentionally approximate; the program asserts only agreement within a finite-sample tolerance. Independent audit has not been performed.
+Minimum-norm affine moment constraints give w_i=1/m+(1/2-z)(X_i-z)/S and W^2=1/m+(1/2-z)^2/S almost surely. The orthogonal splitting of R^m into mean z and sum-zero residual v has Jacobian sqrt(m). Under W>t the residual norm is <|z-1/2|/sqrt(t^2-1/m); rescaling and bounded-continuous rho yield the exact t^{-(m-1)} constant by dominated convergence. Positivity follows from a continuous nontrivial density away from 1/2. Layer cake gives the sharp p<m-1 cutoff and independent noise variance sigma^2W^2 gives m=4 MSE threshold. All statements concern unconstrained weights, zero-integrand measurement noise, bounded continuous densities, fixed Lebesgue target.
+
+## originality
+
+PASS
+
+A surviving original component is the explicit Euclidean-norm tail coefficient sqrt(m)V_{m-1} integral |u-1/2|^{m-1}rho(u)^m for arbitrary bounded continuous sampling density while targeting Lebesgue integration. HOWEVER the tail exponent, moment threshold and m=4 noisy MSE threshold are already established in prior uniform-node and broader density L1 studies; originality is NOT awarded to those parts. The prior full L1 formula does not directly state the distinct L2 leading coefficient, though a related polar calculation makes the extension relatively modest.
+
+## value
+
+PASS
+
+The explicit sharp Euclidean tail coefficient is a natural quantitative noise-amplification invariant: W is exactly the conditional standard-deviation multiplier, and the sampling-density integral measures the risk of near-colliding nodes. The surviving coefficient for nonuniform and off-target samples is a precise finite-sample risk fact independently useful to quadrature design. The previously known exponent and four-node cutoff are not counted as added value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
