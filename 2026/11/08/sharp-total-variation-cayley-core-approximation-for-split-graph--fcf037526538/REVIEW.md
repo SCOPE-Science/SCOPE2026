@@ -1,17 +1,21 @@
-# Review: sharp total-variation Cayley-core approximation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a single structural approximation theorem for the uniform spanning tree of the labeled complete split graph, with its defect and distance consequences. The proof explicitly derives the weighted spanning-tree polynomial from a reduced Laplacian, converts it to a multinomial law, counts the unique Cayley-subdivision structure of the zero-defect event, and shows the total-variation distance is *exactly* the complementary mass. Its logarithmic expansion identifies the \(3/2\) critical constant, and binomial plus birthday-collision factorial moments prove the two independent Poisson limits. A separate rooted-forest count proves the Cayley pair-distance tail, and total-variation transfer establishes the Rayleigh limit. The explicit conditions \(a\to\infty\), \(b\ge a-1\), and the respective relative scales are necessary; there is no assertion of a general result for weighted or arbitrary split graphs. Exact finite enumeration and symbolic determinants replay from `verify.py`; they corroborate but do not replace the infinite proof.
+PASS
 
-## Originality — PASS, with priority qualifications
+For a>=2,b>=a-1, the weighted matrix-tree Schur complement gives a^(b-1)(prod y_i)(a t+sum y_i)^(a-1), hence an exact multinomial law for K clique edges and B-vertex degree excesses. The favorable condition K=0 and no B-degree above 2 bijects uniformly with a labeled Cayley tree, injectively distinct B edge-subdivision labels and independent uniform attachments of remaining B leaves. Therefore Q=P(.|E), dTV=1-(b)_(a-1)/(a+b)^(a-1) exactly. Log expansion gives b~a² transition and iff b/a²→infinity for a→infinity, while the joint occupancy factorial-moment argument gives independent Poisson(λ) clique-edge and Poisson(λ/2) collision defects. The two-marked Cayley path formula gives Rayleigh distances under Q, transferred to P when total variation→0. Independently enumerated all spanning trees using Prüfer sequences for (a,b)=(2,1),(2,2),(2,3),(3,2),(3,3) and checked total and favorable counts; actual verify.py inspected. Classical enumerator and Rayleigh facts are credited, not claimed original.
 
-Klee and Stamps (2019), extending Clark (2003), explicitly provide the **broader weighted complete-multipartite enumerator**, so the forward generating identity and the multinomial degree law are **covered prior knowledge** and are not treated as the new contribution. Dong and Ge (2021) give fixed-forest containment counts for bipartite trees. Nachmias and Peres (2020) give local limits on (almost) regular high-degree graphs, not the highly imbalanced structural regime of this result. The assessed new content is the exact *whole-tree* conditional Cayley-subdivision representation and optimal total-variation formula, its sharp two-defect scaling with independent Poisson components, and the two-clique-vertex Rayleigh distance transfer. Unlike the known enumerator, the claimed whole-tree geometry requires a unique contraction and inverse construction; known regular-graph local-limit theorems do not cover this regime. Searches for Cayley-core approximation, birthday thresholds, split-graph spanning trees and Poisson collision limits found no directly covering statement in the accessible material.
+## originality
 
-The 1994 Egecioglu–Remmel multipartite bijection and 2023 Li–Chen–Yan complete-multipartite forest enumeration remain historical-priority risks because only their abstracts were accessible here. Search failure is not proof of uniqueness, and the broader enumerator is acknowledged rather than relabeled as new.
+PASS
 
-## Value — PASS
+The forward degree-weighted multipartite enumerator is classical (Clark; Klee–Stamps) and already entails the occupancy polynomial, so cannot itself be claimed. The surviving full-tree geometry claim is the exact conditional decorated Cayley model and its optimal TV threshold, independent two-defect critical law, and marked-distance transfer. The same-day published result on random subtrees of complete split graphs studies omitted vertices under b/a proportional and not spanning-tree clique-degree defects. A 1994 multipartite-tree bijection and a 2023 forest containment article remain partially inaccessible and are material priority risks, but no demonstrated stronger covering statement was found.
 
-The natural problem is whether the uniform tree of a highly unbalanced complete split graph can be replaced by a simpler core-tree model **in total variation**, rather than merely matching degree statistics. The theorem gives an explicit optimal finite-size error; an iff scale \(b\gg a^2\); a nondegenerate critical window with the nontrivial coefficient \(3/2\) separated into two independent causes; and a full geometric consequence for marked clique distances. This provides a calibrated constructive model for any bounded observable of the whole tree and explains precisely when the core approximation ceases to be accurate. It is a natural singular-growth result, not a numerical slice or a tiny change in a previously known constant.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp TV approximation of a complicated uniform labeled spanning-tree model by a tractable decorated Cayley core gives a natural geometric reduction with an iff cutoff and a two-mechanism Poisson critical window. The Rayleigh distance consequence gives a usable global metric limit beyond re-evaluation of known weighted enumerators, with a motivated connection to birthday collisions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
