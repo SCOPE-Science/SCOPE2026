@@ -1,19 +1,21 @@
-# Review of the higher-odd-cusp contact-refined series
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The normal form is derived from an arbitrary finite-colength ideal as a free rank-two \(k[[x]]\)-submodule and checked for stability under the full ring. The equation \(x^h\mid x^{2d+1}-g^2\) forces \(0\le h\le2d+1\) and exactly \(\lfloor h/2\rfloor\) free coefficients; the two possible nonzero contacts follow by reduction modulo \(x\). This proves the infinite formula; finite-field enumeration independently checks 48 parameter conditions. The fat-branch conclusion explicitly depends on the published arbitrary-germ theorem.
+PASS
 
-## Originality
+Every finite-colength ideal in k[[x,y]]/(y^2-x^(2d+1)) has a rank-two DVR-lattice Hermite form generated over k[[x]] by x^(b+h) and x^b(y+g(x)), with colength 2b+h. Closure under y is exactly x^h dividing x^(2d+1)-g^2. Odd valuation forces h<=2d+1; for each h the reduced parameter set has g coefficients only in degrees ceil(h/2)..h-1, an affine space A^(floor(h/2)) over any field including characteristic two. Contact with x is 0 only at colength zero, 1 for b=0,h>0, 2 for b>=1. Summation proves G=1+z(F-1)+z^2 Q^2 F/(1-Q^2); the fat-branch formula is correctly imported from the actual HJO Corollary 6.8 including denominator (Qz;QL)_u. Independent congruence enumeration over F2/F3 with d=2,3,h<=6 confirmed the reduced-scheme coefficient conditions; finite tests do not prove the all-field motivic claim.
 
-**PASS, with substantial historical-priority qualification.** The recent source explicitly requests contact-refined series for unibranch germs; it provides a general transfer theorem but no higher-odd-cusp input. The 2015 work of Sōma--Watari gives affine stratifications and semigroup descriptions of all punctual ideals in characteristic zero, and is a close mathematical antecedent; its results might be used to derive some of the same contact information, so no claim is made to the classification of ideals or to affine cell decompositions as such. The exact all-field, contact-graded closed expression and ensuing explicit fat-branch series were not found stated in inspected sources. The known unrefined series, and the ordinary-cusp case, are excluded from the novelty claim.
+## originality
 
-## Value
+PASS
 
-**PASS.** The two-variable generating function supplies explicit missing input to a question in current literature, with a complete all-colength computation and compatibility with every fat-coordinate-line thickness. Unlike the previously known unrefined answer it determines which colength strata have contact one or two. Its applicability in characteristic two and all other characteristics adds scope beyond the earlier characteristic-zero classifications. It is a specific natural family rather than an arbitrary numerical slice.
+Huang--Jiang--Oblomkov 2026 full text Corollary 6.8 is a general fat-branch transfer identity and Question 11.4 explicitly asks for the contact-refined series of unibranch germs y^p=x^q. It does not supply the new higher-odd-cusp input. Sōma--Watari 2015 fully classifies the same A_{2d} punctual ideals and affine cells over algebraically closed characteristic zero, so much geometry is prior and contact bookkeeping might be derivable implicitly. The unrefined 2025 cusp series matches z=1 but does not fix x-contact. The explicit all-field bivariate formula is best-of-knowledge not previously stated; PASS with serious implicit-derivability and unread 2025 full-text risks.
 
-## Literature and limitations
+## value
 
-Primary comparisons: Huang--Jiang--Oblomkov, arXiv:2610.34676, Corollary 6.8 and Question 11.4; Sōma--Watari, Journal of Singularities 11 (2015), §§1–3; Hajli--Mourtada--Zhu, arXiv:2509.06761 (unrefined comparison); Huang--Jiang, arXiv:2305.06411 (ordinary-cusp context). The full text of the 2025 paper was not available for detailed inspection; its established unrefined formula is not claimed. The relationship of the present contact statistic to the 2015 semigroup-cell description is the most important residual priority risk. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cited 2026 primary source expressly motivates computing the exact contact input for unibranch singularities. The all-colength, all-higher-A_{2d}, all-field two-variable motivic series and its precise contact strata are a natural complete invariant not determined by an unrefined zeta alone; combining it with an attributed general theorem yields every fat-line addition. This is more than a normalized textbook computation even though the underlying ideal structure has prior descriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
