@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:54:18.477618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/minimal-quadratic-phase-retrieval-from-two-rotated-square-orbits--52ff35f3bc92/RESULT.md",
+        "RESULT.md:7a43b5095e953df5f7a3f640c3b58067e15fdc97",
+        "two_square_phase_retrieval_check.py:d284cb2312fea67c95c7b29c5457564931b9ae23",
+        "independent_checks.py:two_square_spectrum"
+      ],
+      "rationale": "For complex P_2 and two rotated 4-point circles, four-point Fourier decomposition isolates diagonal mean D, complex first-harmonic C and aliased Nyquist O. With u=r1^2,v=r2^2, the Hermitian lifted kernel is span{diag(uv,-(u+v),1)} iff r1,r2 positive unequal and sin(2alpha)!=0. Its generator has rank 3, so no nonzero rank<=2 difference xx*-yy* lies in the kernel, proving phase injectivity, with explicit ambiguities on zero/same radius or aligned angles. The odd homogeneous Hermitian determinant argument proves a seven-measurement global impossibility. Frobenius-orthogonal Fourier blocks yield two singular values of 2[[1,u,u²],[1,v,v²]], twice those of 2[[r1,r1³],[r2,r2³]], and those of 2sqrt(2)[[u,0],[v cos(2alpha),-v sin(2alpha)]]. Their squared-product equals 2^18 (uv)^4 (u-v)^6((uv)^2+(u+v)^2+1)sin²(2alpha), maximized in angle at alpha=pi/4 modulo pi/2. The rank-two distance-to-full-rank-kernel bound establishes the stated nonsharp stability inequality. Independently reconstructed the raw 8x9 Hermitian sampling matrix in orthonormal coordinates and compared spectrum, kernel, product determinant for 27 distinct parameter triples; all passed.",
+      "residual_risks": [
+        "The angular determinant optimum is not the full condition-number optimum.",
+        "Finite numerical tests corroborate, rather than establish, the universal angular/radial formula and explicit rank-two lower bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General d>=1 two-polygon theorem dominates the qualitative d=2 criterion; Gaussian-bin frame gives a full spectral decomposition for a different row-weight geometry (a,b,c)/(c,b,a), with fixed Gaussian symmetry rather than arbitrary polynomial radial rows."
+        ],
+        "reasoning": "The all-degree prior is stronger for injectivity but does not compute the eight singular values of this particular raw evaluation operator. Gaussian-bin symmetric spectrum is related methodology, not an equality of D,C,O matrices at arbitrary r1,r2.",
+        "searches": [
+          "Resultary: complete two-polygon phase retrieval all degrees",
+          "Resultary: exact conditioning and optimal stagger of two Gaussian spectral-bin intensity measurements",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-balanced-concentric-square-phase-retrieval-the-exact-angular-and--9d587b711c4e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d/RESULT.md",
+        "https://arxiv.org/abs/2403.16255",
+        "https://arxiv.org/abs/1302.5487",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-quadratic-phase-retrieval-from-two-rotated-square-orbits--52ff35f3bc92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known all-degree two-circle alias demixing proves that an 8-point injective frame exists and has a full-rank Hermitian kernel, but these data alone do not specify its singular values or stability constant."
+        ],
+        "reasoning": "Two operators can have identical kernel and injectivity yet different Gram spectra; neither an eight-point lower bound nor the 2x2 Nyquist angular criterion determines all radial conditioning and the product determinant. The new quantitative result follows from fresh Frobenius-normalized Fourier block computation, not automatically from prior qualitative statements.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-balanced-concentric-square-phase-retrieval-the-exact-angular-and--9d587b711c4e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d/RESULT.md",
+          "arXiv:2403.16255"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct 18 all-degree balanced two-polygon theorem specializes at degree 2 to the same r1!=r2 and sin(2alpha)!=0 criterion; Nov 8 balanced-square result has the identical Hermitian kernel diag(uv,-(u+v),1) and 8-point lower bound."
+        ],
+        "reasoning": "Thus qualitative phase-retrieval statements and sharp sampling cardinality are completely covered prior results; only quantitative lifted spectrum/determinant/stability are candidate novel claims, with no false novelty credit for injectivity.",
+        "searches": [
+          "Resultary: two concentric regular squares quadratic polynomials eight intensity samples phase retrieval kernel determinant Nyquist rotated",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-balanced-concentric-square-phase-retrieval-the-exact-angular-and--9d587b711c4e/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior balanced-square RESULT.md states rank and kernel but gives no full 8-singular-value multiset or 2^18(uv)^4(u-v)^6... determinant; Gaussian-bin result tabulates a different 8-value spectrum."
+        ],
+        "reasoning": "The exact current spectrum was not found as a prior table for the same raw two-square polynomial frame; similar formulas in different frame geometries raise a specific priority risk rather than proving coverage.",
+        "searches": [
+          "Resultary: balanced concentric square phase retrieval exact singular values spectrum determinant",
+          "Resultary: two circles Gaussian bins Hermitian lift singular values",
+          "Pohl Li Boche 2017 two circle quadratic measurement construction"
+        ]
+      },
+      "rationale": "A decisive comparison identifies full PRIOR coverage of injectivity, sharp sample count, excluded angles/radii, and even the one-dimensional Hermitian kernel: these must not be credited as original. The narrower surviving claim is the complete Frobenius-normalized eight-value lifted singular spectrum, explicit determinant/squared-volume objective for arbitrary positive radii, and global rank-two difference lower bound. Inspected earlier exact two-polygon and balanced-square proofs do not give those quantitative invariants; different Gaussian-bin spectral results do not specialize to this arbitrary radial polynomial evaluation family without changing weights. Best-of-knowledge O is qualified for this quantitative remainder only.",
+      "residual_risks": [
+        "The complete lifted spectrum may have appeared in an earlier finite-frame/Frobenius Gram design under a different parameterization; the closely related Gaussian-bin formula warrants expert priority checking.",
+        "Only the quantitative remainder qualifies for originality; broad phase-retrieval and minimality claims are prior mathematics.",
+        "A known general orthogonal Fourier measurement theorem may yield the explicit block spectrum mechanically; value judged by the natural exact design invariant rather than a new general method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS qualitative injectivity and angular Nyquist demixing; NOT full nine-to-eight Hermitian singular spectrum",
+          "evidence": "All d gives if-and-only-if sin(d delta)!=0, and two singular values only of normalized top-frequency demixing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd/RESULT.md",
+          "material_read": "Entire available full RESULT.md, findings, four proof steps, relationship and references",
+          "method": "Read GitHub full mathematical source and specialize d=2",
+          "title": "Complete two-polygon phase-retrieval criterion for polynomials of every degree",
+          "trigger": "Direct general theorem dominates quadratic injectivity"
+        },
+        {
+          "assessment": "COVERS r!=s, sin2delta!=0, rank-eight kernel and seven-point impossibility; full spectrum/Gram volume absent in inspected text",
+          "evidence": "Explicit same K=diag(r^2s^2,-(r^2+s^2),1) and 8-minimality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-balanced-concentric-square-phase-retrieval-the-exact-angular-and--9d587b711c4e/RESULT.md",
+          "material_read": "Entire accessible RESULT.md, including Hermitian kernel and proof/lower-bound",
+          "method": "Direct theorem/proof comparison",
+          "title": "Balanced concentric-square phase retrieval: the exact angular and radial criterion",
+          "trigger": "Identical square geometry, likely full coverage"
+        },
+        {
+          "assessment": "DIFFERENT eight-sample Gaussian-bin frame, with symmetric rows and a,b,c spectral weights; no literal arbitrary concentric-square result",
+          "evidence": "Gaussian zero-frequency block 2[[a²,b²,c²],[c²,b²,a²]], not 2[[1,u,u²],[1,v,v²]].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d/RESULT.md",
+          "material_read": "Full RESULT.md, spectral list, orthogonal block proof and condition-number optimization",
+          "method": "Compare normalized row matrices and allowed radial parameter degrees of freedom",
+          "title": "Exact conditioning and optimal stagger of two Gaussian spectral-bin intensity measurements",
+          "trigger": "Potential exact spectral coverage by a nearby structured eight-sample frame"
+        },
+        {
+          "assessment": "COVERS entire circle uniqueness; no claim of whole-document finite-frame noncoverage",
+          "evidence": "Continuum two-circle intensity uniqueness is a prerequisite, not a quantified 8x9 frame singular spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.16255",
+          "material_read": "Accessible abstract and known Theorem 2.16 statement; not a complete re-reading of full paper in this execution",
+          "method": "Scope comparison only",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Classical two-circle phase rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-balanced-concentric-square-phase-retrieval-the-exact-angular-and--9d587b711c4e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d/RESULT.md",
+        "2026/11/08/minimal-quadratic-phase-retrieval-from-two-rotated-square-orbits--52ff35f3bc92/RESULT.md"
+      ],
+      "rationale": "With injectivity and its eight-sample minimum already known, the exact individual measurement singular values, Gram determinant, and explicit global rank-two stability factor are still motivated exact design invariants. They distinguish phase-retrievable configurations with widely different conditioning, give a sharp angular optimum for a specified volume objective, and can guide finite sampling design. The formulas contain nontrivial radial factors and the full orthogonal block decomposition, not a mere restatement of known injectivity. No global condition-number optimum or novel general uniqueness theorem is claimed.",
+      "residual_risks": [
+        "The novelty/value is narrow and conditioned on no prior identical spectrum formula; different quantitative objectives have different optimizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The angular determinant optimum is not the full condition-number optimum.",
+    "Finite numerical tests corroborate, rather than establish, the universal angular/radial formula and explicit rank-two lower bound.",
+    "The complete lifted spectrum may have appeared in an earlier finite-frame/Frobenius Gram design under a different parameterization; the closely related Gaussian-bin formula warrants expert priority checking.",
+    "Only the quantitative remainder qualifies for originality; broad phase-retrieval and minimality claims are prior mathematics.",
+    "A known general orthogonal Fourier measurement theorem may yield the explicit block spectrum mechanically; value judged by the natural exact design invariant rather than a new general method.",
+    "The novelty/value is narrow and conditioned on no prior identical spectrum formula; different quantitative objectives have different optimizers."
+  ],
+  "schema_version": 1
+}
