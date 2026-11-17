@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph, sign convention, scale normalization and quantification over all real \(h\ge0\) are explicit in the main theorem. The large-step Green-function calculation gives five necessary sign inequalities; two inverse identities force each end-rung value even without symmetry assumptions, and the middle inverse identity forces the center value. Sufficiency is established by symbolic identities for all 15 off-diagonal entries, grouped into six explicit strictly positive polynomial certificates over a common positive denominator, plus positive diagonal spectral factors. The source file `verify.py` reproduces the identities with exact rational arithmetic, checks the graph matrix independently, and proves an untuned negative witness. Finite tests alone were not treated as the proof of all-step positivity.
+## correctness
 
-## Originality — PASS, subject to identified literature limits
-The claim concerns an exact **if and only if** tuning for the three *independently free* rung weights of a reversible six-vertex ladder, not a general positivity restriction on Runge–Kutta methods. A full available preprint on polyhedral invariance gives a sufficient method-wide rational steplength bound (Horváth–Song–Terlaky 2014, Theorem 3.12), not the claimed special graph-weight classification. Bibliographic/abstract material for Wade et al. (2004) and Horváth (2005), semantic search of relevant public mathematical results and earlier mathematical statements about four-vertex weighted paths and four-cycles were compared for actual implication. Earlier results on four-vertex weighted paths/four-cycles and weighted ladder spanning-tree kernels neither imply this classification nor dominate the parameter domain. Two older full texts were unavailable; genuinely equivalent unpublished/unindexed mathematics is a residual originality risk. No independent publication-priority certification is asserted.
+PASS
 
-## Mathematical value — PASS
-Two parallel three-vertex heat chains with three tunable couplings are a natural small discretized heat-network design. A sharp **unique, nonuniform** ratio preserves every completed fourth-order Gauss step, although the same stable integrator fails for untuned coupling. The result identifies the exact necessary structural compensation and proves that no other positive rung choice can repair eventual negativity, which is stronger than an isolated numerical counterexample or small-step threshold.
+Read the full frozen RESULT.md. The rail-symmetric/-antisymmetric splitting gives P and M=P+2diag(b_i/a), with G=M^{-1}; the exact graph Laplacian pseudoinverse has off-diagonal entries (P^+_ij±G_ij)/2. F(hL)=I-12L^+/h+O(h^-2) off the diagonal as h→∞, so universal positivity forces G11,G33>=5/9, G22>=2/9 and G12,G23<=1/9. The identities (1+2r1)G11-G12=1 and (1+2r1)G12=G22 force r1=1/2; reflection gives r3=1/2; the middle row forces r2=7/4. I independently recomputed G, both eigenprojector blocks and all 15 offdiagonal rational entries with exact SymPy: six complete numerator-orbit polynomials have strictly positive coefficients over a positive denominator; F(x)=((x-3)^2+3)/(x²+6x+12)>0 establishes positive diagonals. The unweighted h=8 witness is negative. This is an infinite h proof using algebra, not sample positivity; h=0 is I.
 
-## Scope and limitations
-Equal rail conductances and a six-vertex ladder are essential hypotheses. The result does not cover independently weighted rail edges, higher ladders, positivity of implicit internal stages, or methods other than fourth-order Gauss. The closest Padé smoothing article and an earlier Runge–Kutta positivity paper could not be inspected in full; the novelty assessment remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. The published P4 and method-wide statements neither substitute the 3-rung Green inverse rigidity nor provide a graph-specific six-orbit positivity certificate. Inaccessible older Padé literature remains a genuine priority risk.
+
+## value
+
+PASS
+
+The exact conductance design on the first nontrivial two-rail three-rung heat discretization is a naturally motivated, sharp iff weight-rigidity criterion for unconditional positivity of a non-SSP high-order step. Its unique nonuniform tuning is structurally informative and experimentally actionable, not a mere checking exercise; wider unequal-rail ladders are not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

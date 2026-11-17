@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:57:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the full frozen RESULT.md. The rail-symmetric/-antisymmetric splitting gives P and M=P+2diag(b_i/a), with G=M^{-1}; the exact graph Laplacian pseudoinverse has off-diagonal entries (P^+_ij±G_ij)/2. F(hL)=I-12L^+/h+O(h^-2) off the diagonal as h→∞, so universal positivity forces G11,G33>=5/9, G22>=2/9 and G12,G23<=1/9. The identities (1+2r1)G11-G12=1 and (1+2r1)G12=G22 force r1=1/2; reflection gives r3=1/2; the middle row forces r2=7/4. I independently recomputed G, both eigenprojector blocks and all 15 offdiagonal rational entries with exact SymPy: six complete numerator-orbit polynomials have strictly positive coefficients over a positive denominator; F(x)=((x-3)^2+3)/(x²+6x+12)>0 establishes positive diagonals. The unweighted h=8 witness is negative. This is an infinite h proof using algebra, not sample positivity; h=0 is I.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth–Song–Terlaky 2014 §3.2 gives rational-integrator invariance threshold calculations, not graph-specific arbitrary positive rung weight classification.",
+          "Resultary 2026-11-08 four-vertex path theorem classifies weights (a,2a,a) on P4, not the six-vertex ladder with three rungs."
+        ],
+        "reasoning": "Method-wide thresholds and other small graph families do not imply all-h iff for the six-ladder; no theorem covering all weighted ladders with this distinct tuning was found in reviewed full text.",
+        "searches": [
+          "arxiv:1406.6755 polyhedron invariance rational Runge–Kutta Theorem 3.12",
+          "Horváth 2005 Runge Kutta positivity step size threshold",
+          "Resultary fourth order Gauss unconditional weighted path and complete multipartite graph"
+        ]
+      },
+      "checked_sources": [
+        "frozen source RESULT.md sha 7d4a4bd4957efd1f256ee4327526a7b036390124",
+        "frozen verify.py sha 92f2bbf199ec25c32e4a7843ddbab59861d8880f",
+        "https://arxiv.org/pdf/1406.6755",
+        "https://doi.org/10.1002/num.20039",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-unique-all-step-positivity-tuning-for-fourth-order-gauss-heat--a1b6f279c245"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the P4 proof, the weighted tree group inverse yields iff 1:2:1; no lane-antisymmetric 3×3 block appears.",
+          "Wade et al. 2004 public abstract discusses positive smoothing with Padé schemes; full article unavailable, so exact overlap remains uncertain."
+        ],
+        "reasoning": "The published P4 and method-wide statements neither substitute the 3-rung Green inverse rigidity nor provide a graph-specific six-orbit positivity certificate. Inaccessible older Padé literature remains a genuine priority risk.",
+        "searches": [
+          "Resultary four vertex path a unique all step positivity tuning",
+          "arxiv 1406.6755 Theorem 3.12 Padé graph all-step",
+          "doi 10.1002/num.20039 positive Padé smoothing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The [2/2] diagonal Padé stability function is exactly the completed two-stage Gauss–Legendre heat map; its large-h obstruction is the group-inverse sign pattern.",
+          "Previously published weighted 4-vertex path iff ratio 1:2:1 is a different graph, not a relabeling or induced-ladder consequence."
+        ],
+        "reasoning": "Aliases as fourth-order Gauss, Padé [2/2], CTMC heat propagator and group inverse sign criterion were compared; no equivalent six-vertex independent rung iff law found. Source-specific sign inequalities are stronger than method-wide sufficient bounds.",
+        "searches": [
+          "fourth order Gauss Legendre heat diffusion unconditional entrywise positivity weighted six vertex ladder rung tuning",
+          "P3 Cartesian K2 Gauss [2/2] Padé positivity weighted rungs graph Laplacian pseudoinverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact finite-volume rung-kernel entry studies spanning-tree determinants, not [2/2] Gauss update signs.",
+          "Direct source rational certificates for 15 offdiagonals cannot be replaced by a known small-graph graph Laplacian table."
+        ],
+        "reasoning": "No exact previously published table giving this unconditional triple was identified. A database search nonmatch is only a limitation, not a proof of priority.",
+        "searches": [
+          "[2/2] Padé graph heat ladder unique rungs (1/2,7/4,1/2)",
+          "Resultary ladder heat positivity six vertices",
+          "weighted ladder exact graph Green kernel and positivity"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. The published P4 and method-wide statements neither substitute the 3-rung Green inverse rigidity nor provide a graph-specific six-orbit positivity certificate. Inaccessible older Padé literature remains a genuine priority risk.",
+      "residual_risks": [
+        "Two older publisher full texts (Wade 2004 and Horváth 2005) were not fully read; an unindexed equivalent exact case remains possible.",
+        "Source package frozen file blobs read, but entire Git record subtree hash could not be independently enumerated by read-only connector; no guarded public change set staged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General polyhedral invariance and rational step thresholds, not a six-ladder exact iff tuning",
+          "evidence": [
+            "Section 3 and Theorem 3.12 formulate invariance thresholds; no specific conductance triple"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.6755",
+          "material_read": "Complete preprint, concentrating on §3 and invariance/step-threshold theorem; PDF page 1 and page 9 visually checked",
+          "method": "arXiv full PDF text and two page screenshots",
+          "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+          "trigger": "Strong potential rational-function theorem"
+        },
+        {
+          "assessment": "Different topology and three edge weights; not a general theorem subsuming a ladder",
+          "evidence": [
+            "P4 unique (a,2a,a) and a four-orbit rational certificate; no six-ladder iff"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-unique-all-step-positivity-tuning-for-fourth-order-gauss-heat--a1b6f279c245",
+          "material_read": "Entire RESULT.md, including P4 pseudoinverse and exact rational certificates",
+          "method": "GitHub read-only complete source",
+          "title": "A unique all-step positivity tuning for fourth-order Gauss heat diffusion on a four-vertex path",
+          "trigger": "Closest published same integrator and graph-weight uniqueness"
+        },
+        {
+          "assessment": "No whole-document noncoverage assertion possible; retained material priority risk",
+          "evidence": [
+            "2004 abstract concerns Padé positivity schemes, not explicitly six-ladder conductance uniqueness"
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/num.20039",
+          "material_read": "Public bibliographic details and abstract only; full paper could not be lawfully read",
+          "method": "Publisher bibliographic/abstract inspection",
+          "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+          "trigger": "Closest historical Padé positivity literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact conductance design on the first nontrivial two-rail three-rung heat discretization is a naturally motivated, sharp iff weight-rigidity criterion for unconditional positivity of a non-SSP high-order step. Its unique nonuniform tuning is structurally informative and experimentally actionable, not a mere checking exercise; wider unequal-rail ladders are not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a six-vertex two-rail ladder with common rail conductance a>0 and independent positive rungs b1,b2,b3, the [2/2] Gauss–Legendre completed heat map is nonnegative at every h>=0 exactly for (b1,b2,b3)=a(1/2,7/4,1/2); strict positivity holds for h>0 at the unique tuning, and an untuned triple has an eventually negative off-diagonal entry.",
+  "limitations": [
+    "Two older publisher full texts (Wade 2004 and Horváth 2005) were not fully read; an unindexed equivalent exact case remains possible.",
+    "Source package frozen file blobs read, but entire Git record subtree hash could not be independently enumerated by read-only connector; no guarded public change set staged.",
+    "Independent file-level Git blobs were read at the frozen commit, but no complete directory-tree reconstruction was available, so verified_current_tree_sha is null and the publication plan is not ready."
+  ],
+  "schema_version": 1
+}
