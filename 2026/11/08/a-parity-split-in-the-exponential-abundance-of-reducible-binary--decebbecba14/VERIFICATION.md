@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From the directory containing these files, run `python verify.py` using Python 3. No third-party packages are needed. The checker directly enumerates all rank-preserving nonunit outer maps, inner maps of equal weighted image length, and distinct length-uniform composites, deduplicating multiple factorizations. It additionally checks the Fibonacci construction and the even-length square construction.
+## correctness
 
-Observed complete reducible counts at image lengths two through eight are respectively `10, 38, 144, 374, 1648, 2970, 13316`, and the program terminates with `VERIFY_OK`. See `verification_output.txt` for the actual recorded output. The checker terminates after finite lengths and does **not** validate the infinite limits by exhaustion. Those are established in `RESULT.md` using explicit uniform upper and lower bounds.
+PASS
 
-No independent mathematical audit has been performed.
+Factorization into positive endomorphisms forces weighted equal-length inner images and nonunit outer lengths (s,t). Short outer lengths give A_n(s,t)≤φ^n and 2^{o(n)} outer choices. Long lengths force either a mixed inner word with s+t≤n or two pure-power words and a proper-divisor bound s+t≤n+n/p(n); number of inner words is e^{o(n)}. Explicit Fibonacci (1,2) outer code and even-length square-root maps yield matching lower rates.
+
+## originality
+
+PASS
+
+Bell–Foster–Reidenbach provide rank/factor-basis decision theory but not the count by equal image length; a published one-fixed-generator periodic gap criterion is only a restricted subfamily and does not imply this whole-stratum parity split.
+
+## value
+
+PASS
+
+It quantifies the exponentially small reducible subset in a natural length-uniform morphism space, showing two different sharp rates tied to prime-divisor parity; this extends beyond decidability of individual morphisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
