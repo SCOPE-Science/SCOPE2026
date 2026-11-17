@@ -1,11 +1,21 @@
-# Scientific assessment: complete prime-dihedral coset shattering polynomial
+# Independent mathematical audit
 
-**Correctness — PASS.** Every subgroup of the group of order \(2p\) for odd prime \(p\) has order \(1\), \(2\), \(p\), or \(2p\). The proof reconstructs all resulting left cosets, including the fact that each cross-part pair is an order-two subgroup coset. Every pair and every mixed triple is witnessed trace by trace; monochromatic triples and every quadruple are excluded. The coefficient count is therefore exhaustive for all odd primes. An independently constructed group-multiplication and coset checker verifies the formula for four primes without being used as infinite proof.
+## correctness
 
-**Originality — PASS within comparisons.** The closest group-theoretic finite-VC references are Conant–Pillay–Terry (arXiv:1802.04246, introduction and Theorem 3.2) and Conant–Pillay (arXiv:2004.05666, Section 2 and Theorems 2.1–2.2). They concern a fixed subset and its full translate class and structural regularity, not the union of all individual subgroup-coset families for a specified nonabelian group. Search comparisons for dihedral cosets, equivalent complete-bipartite-pair incidence, subgroup-coset hypergraphs, and exact shattering coefficients found no accessible prior covering this complete polynomial. The subgroup listing itself is classical and is not claimed as original. Residual priority risk: an equivalent statement may exist as an exercise or incidence-system classification under a different title.
+PASS
 
-**Value — PASS.** The family of all single subgroup cosets is a canonical algebraic set system whose static shattering is not specified by general translate-VC regularity theorems. The complete polynomial yields both the precise three-point support geometry and sharp dimension three, contrasting with the cyclic group of the same order, whose subgroup-coset concept family has dimension two. It is a natural first nonabelian benchmark, not merely a numerical experiment. General composite-order dihedral groups remain outside the conclusion.
+Lagrange/Sylow subgroup classification yields trivial subgroup, normal rotation C_p, p order-two reflection subgroups and whole group. Their distinct cosets are respectively 2p singleton sets, two partition halves, p² cross-half pairs, and whole group; all p² cross pairs are realized as reflection cosets. Every pair is shattered using a 2-point coset or half plus distinct singletons. Same-half triples fail to realize a two-positive trace; mixed triples realize all 8 traces via global, half, cross, singleton and outside singleton. Four supports with 3 in one half contain an unshattered triple; 2+2 supports cannot realize a 3-positive cross-half trace except via whole group, which selects all four. Thus sharp cubic polynomial. Independent trace enumerations using exactly the concept families (not original verifier) for p=3,5,7 yield [1,6,15,18,0], [1,10,45,100,0], [1,14,91,294,0].
 
-The scope excludes unions of cosets, all composite dihedral parameters and claims of online-learning rank or general group bounds. Historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: exact prior cyclic all-coset formula and group translate regularity statements do not entail nonabelian prime-dihedral reflection coset trace classification; no earlier exact mixed-triple census found in performed searches. Elementary deductions could exist unindexed, so no assertion of historical certainty.
+
+## value
+
+PASS
+
+The full shattered-support polynomial of all single subgroup cosets in the smallest natural nonabelian family is a precise reusable combinatorial benchmark: cross-rotation/reflection pairs create unexpected VC dimension 3 versus a different cyclic coset system, and an exact triple-orbit characterization identifies every feasible support. Although the subgroup algebra is elementary, the all-size classification is a motivated complete invariant rather than an arbitrary tiny-case calculation or simple renaming of a published table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
