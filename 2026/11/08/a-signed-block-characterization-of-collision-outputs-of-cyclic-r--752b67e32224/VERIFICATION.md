@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the attached self-contained `verify_signed_language.py` with Python 3 (standard library only). The script computes the Rule 30 predecessor graph from the eight local truth-table entries. It checks the exact recurrent off-diagonal states and the orientation signs of all seven quotient transitions, then independently checks the signed-graph language, the cyclic signed-block language, and direct enumerated predecessor counts for each output of every ring length from 3 through 16.
+## correctness
 
-Expected terminal text:
+PASS
 
-```
-INDEPENDENT_PAIR_GRAPH_REDUCTION_OK 12 offdiagonal, 8 recurrent
-SIGNED_BLOCK_LANGUAGE_EQUIVALENCE_OK 3..16 131064 targets
-```
+Ordered pair-collision de Bruijn graph has 12 off-diagonal states. Sharing a two-bit pair propagates backwards by Rule 30 left-permutivity and would force the two inputs equal. Exact finite 12-state graph enumeration isolates 8 vertices on closed walks, paired under predecessor swapping. The four-state quotient has seven labeled signed edges with orientation-flip bits; an ordered closed lift exists iff the total flip parity is even. Each excursion from A returns with output 11 0^m b and flip parity 1_{b=0}; the C zero loop gives only 0^n. This is all-length finite automaton proof, not inference from checking n<=16.
 
-These exhaustive finite tests do not assert an all-length proof; the all-length proof follows by finite graph reduction, exact characterization of arbitrary closed walks, and the even-flip lift condition given in `RESULT.md`. No external proof assistant, independent human or external review was used.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact final claim (not of elementary starting tools). The all-length predecessor multiplicity histogram for Rule 30 covers counts by multiplicity, but does not classify which individual indexed words are ambiguous. A fixed-point semigroup algorithm for arbitrary words decides the event by computation without stating the signed-block intrinsic language. An all-length histogram, even together with uniqueness of the triple-predecessor word, cannot select individual outputs from each multiplicity class. The signed quotient derivation is a stronger different type of conclusion, not an immediate restatement.
+
+## value
+
+PASS
+
+Exact intrinsic language recognition of individual ambiguous cyclic Rule-30 output words is independently useful beyond aggregate precursor frequencies; the global parity obstruction is a nonlocal structural condition and yields a small recognition automaton.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
