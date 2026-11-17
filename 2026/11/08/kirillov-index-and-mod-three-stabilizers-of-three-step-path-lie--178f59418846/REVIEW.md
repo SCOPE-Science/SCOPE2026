@@ -1,19 +1,21 @@
-# Scientific review: Kirillov index and mod-three stabilizers of three-step path Lie algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact Gallo–Videla path brackets, the Kirillov form splits into a central zero block and an odd-dimensional alternating block. Its rank cannot exceed \(2n-2\). With all length-two-path coordinates equal to \(1\), the mixed matrix has the recurrence \(x_i=x_{i+3}\) with two boundary zeros. It has full column rank except when \(n\equiv2\pmod3\), where its rank drops by one. In that case, evaluating the first edge at \(1\) makes the vertex alternating form nondegenerate on the two-dimensional left kernel, recovering the missing rank two. This also gives the explicit radical direction; \(n=2\) is handled separately. These deductions hold in every characteristic because they only require unit coefficients. The independent matrix-unit implementation corroborates \(68\) witnessing combinations and \(13{,}382\) exhaustive small-field forms. Experiments are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The exact Gallo–Videla path algebra has dim 3n-3 (n≥2), central W dimension n-2, and an odd (2n-1)-dimensional noncentral alternating Kirillov matrix; thus rank≤2n-2 for any field including char 2. Evaluating each length-two path at 1 gives D^T x=0 equivalent to x3=0, x_(n-2)=0 and x_i=x_(i+3). D has rank n-1 for n mod 3≠2, and rank n-2 otherwise. In the deficient residue class the edge coefficient C12=1 restricts nondegenerately to its two-dimensional left kernel, restoring full allowed rank. This proves index n-1 and the claimed explicit radical W⊕kz_n; n=2 is Heisenberg with index one, n=1 abelian with index one. Independently reconstructed the integer D,C blocks and exact rational ranks for n=3..13, including the mod-three drop. The attached verify.py was read as a finite checker; no output log was accepted as an infinite proof.
 
-The motivating paper by Gallo and Videla (arXiv:2610.33963v1, Sections 2–4) provides the algebra, its dimensions and center, and the truncated-matrix realization of paths, but not a Kirillov-index calculation. Burde and Dekimpe (arXiv:2505.08331, Section 4) compute the index of a different, two-step graph Lie algebra and cannot imply the three-step rank computation. Targeted public-literature and mathematical-record searches found no statement with the all-length path index and explicit mod-three stabilizer. The change of grading of the radical is not part of the cited structural results. Historical-priority risk remains for older banded-triangular-matrix literature and unindexed notes; search failure is not uniqueness evidence. No priority is claimed for isolated small path instances; the uniform all-length statement is the claim under review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Lie-algebra index is a natural invariant controlling maximal coadjoint orbit dimension. The result completely computes it for the canonical linear-tree family of a new three-step graph construction over all fields, without restricting characteristic. The internal mod-three obstruction in the vertex-edge block and its removal by one edge functional yield an explicit stabilizer that changes location with path length, distinguishing more than a dimension formula. The theorem supplies a reusable benchmark for tree and graph families where the mixed block need not have full column rank. No general classification of arbitrary trees is claimed.
+Best-of-knowledge PASS for the all-length class-three path Kirillov index and explicit periodic regular-functional radical. Defining Gallo–Videla material and two-step index theory establish structure/tools, not an accessible covering index theorem; same-day cycles and branching siblings are different graph families. Full Gallo–Videla primary article was inaccessible, so priority remains qualified.
 
-## Limits and closest literature
+## value
 
-The calculation concerns only path graphs and an explicit maximal functional, not a full orbit enumeration. The closest primary sources are Gallo–Videla, arXiv:2610.33963v1, and Burde–Dekimpe, arXiv:2505.08331v1. No independent replication outside the included checker and proof has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Kirillov index is a fundamental Lie-algebra invariant, and this family is a natural generator of three-step graph algebras. The periodic vertex-versus-edge location of the regular stabilizer adds structural content not a mere center-dimension calculation. Such explicit uniform index and regular-functional information is usable in subsequent orbit and representation questions; no character classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

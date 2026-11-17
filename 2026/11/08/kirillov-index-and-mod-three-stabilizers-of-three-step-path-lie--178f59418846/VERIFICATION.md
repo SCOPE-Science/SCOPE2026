@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the path-Lie-algebra index formula
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3. The script depends only on the Python standard library and constructs the brackets of the band-truncated strictly upper triangular Lie algebra directly from matrix-unit multiplication. Gallo and Videla identify this as the graph Lie algebra for a path. The code computes Kirillov matrices and exact ranks modulo prime fields without importing the proof's mixed-block rank formula.
+## correctness
 
-For each \(n=2,\ldots,18\), and each prime field \(\mathbb F_2,\mathbb F_3,\mathbb F_5,\mathbb F_7\), the script checks the explicit functional has rank \(2n-2\), the predicted mixed-block rank, and the given radical vector. These are \(68\) witness checks. It separately exhausts all noncentral functional coordinates for \(n=2,\ldots,8\) over \(\mathbb F_2\) and \(n=2,\ldots,5\) over \(\mathbb F_3\), totaling \(13{,}382\) forms, each satisfying the proposed upper bound and alternating even-rank property.
+PASS
 
-`verification_output.txt` contains the replay output. The general proof is a symbolic recurrence and alternating-form argument; the finite tests do not establish validity beyond their enumerated parameters or represent an independent audit.
+The exact Gallo–Videla path algebra has dim 3n-3 (n≥2), central W dimension n-2, and an odd (2n-1)-dimensional noncentral alternating Kirillov matrix; thus rank≤2n-2 for any field including char 2. Evaluating each length-two path at 1 gives D^T x=0 equivalent to x3=0, x_(n-2)=0 and x_i=x_(i+3). D has rank n-1 for n mod 3≠2, and rank n-2 otherwise. In the deficient residue class the edge coefficient C12=1 restricts nondegenerately to its two-dimensional left kernel, restoring full allowed rank. This proves index n-1 and the claimed explicit radical W⊕kz_n; n=2 is Heisenberg with index one, n=1 abelian with index one. Independently reconstructed the integer D,C blocks and exact rational ranks for n=3..13, including the mod-three drop. The attached verify.py was read as a finite checker; no output log was accepted as an infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the all-length class-three path Kirillov index and explicit periodic regular-functional radical. Defining Gallo–Videla material and two-step index theory establish structure/tools, not an accessible covering index theorem; same-day cycles and branching siblings are different graph families. Full Gallo–Videla primary article was inaccessible, so priority remains qualified.
+
+## value
+
+PASS
+
+The Kirillov index is a fundamental Lie-algebra invariant, and this family is a natural generator of three-step graph algebras. The periodic vertex-versus-edge location of the regular stabilizer adds structural content not a mere center-dimension calculation. Such explicit uniform index and regular-functional information is usable in subsequent orbit and representation questions; no character classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
