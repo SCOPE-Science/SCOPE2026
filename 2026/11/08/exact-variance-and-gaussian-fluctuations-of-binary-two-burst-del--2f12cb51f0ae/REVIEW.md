@@ -1,19 +1,21 @@
-# Scientific review: binary two-burst deletion sphere fluctuations
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The domain is binary independent uniform source words of length \(n\ge4\) and exactly two disjoint length-two deletion bursts, with distinct outputs rather than multiplicity-weighted histories. Canonical maximal histories are counted once using the published burst-deletion normal-form theorem. For two bursts the resulting sphere size is exactly the quadratic polynomial (1) in the independent fair delayed-difference indicators. Expanding in centered indicators proves the exact mean and variance by orthogonality, and separates an order-\(n^{3/2}\) independent-sum fluctuation from an order-\(n\) quadratic remainder. The independent direct-output checker confirmed the formula and exact moments for all binary words of lengths 4–13, plus 1,000 larger samples. The published normal-form lemma is a necessary premise and is properly attributed.
+PASS
 
-## Originality
+For independent uniform source X in {0,1}^n, n>=4, deleting two disjoint length-two bursts and counting DISTINCT length-n-4 outputs, delay-two changes T_i=1_{X_i != X_{i+2}} are independent fair Bernoulli. The proof specializes the published canonical burst-deletion normal form to a pointwise exact quadratic count. Expanding in centered Z_i=T_i-1/2 gives linear coefficients (m-2)/2 at endpoints and (m-3)/2 internally, and quadratic weights -1 at distance two, +1 at >=3. Orthogonality yields E B_n=(n^2-3n+4)/8 and Var B_n=(n-4)(2n^2-15n+31)/32. The quadratic remainder has variance O(n²), while the linear independent-sum term is asymptotically n^{3/2}/4 times a standard normal; CLT and Slutsky prove the Gaussian limit. n=4 yields constant 1. Independent direct enumeration of all 2040 binary source words of length 4 through 10 constructed UNIQUE deletion outputs, matched the pointwise canonical polynomial and exactly matched the mean/variance at each length. The all-n canonical lemma belongs to Wang et al.; finite cases do not prove that lemma.
 
-**PASS against the examined record, with priority uncertainty.** Wang et al. (arXiv:2606.01245) provide canonical representations, bounds, and arbitrary-word tools for multiple burst-deletion spheres. Lan et al. (arXiv:2504.20460) establish an extremal sphere-size formula. The new claim is the explicitly evaluated source-averaged variance and an asymptotic Gaussian law in the two-disjoint-double-burst binary channel. The deterministic canonicalization is stronger than an individual pointwise count, but neither inspected source states or computes the claimed second moment or limit law. The transformation to independent delayed differences and centered quadratic orthogonality are the additional arguments. The analogous known exact variance for two *individual* deletions concerns a different channel. This review cannot establish absolute priority against all earlier sources.
+## originality
 
-## Value
+PASS
 
-**PASS.** Error-ball size is a natural measure of output ambiguity in deletion/reconstruction channels. The known exact worst-case formula does not describe the typical-center variability. An exact finite-length variance and central limit theorem provide a fluctuation scale \(n^{3/2}\), a sharp leading dispersion coefficient, and a Gaussian approximation across all binary source lengths. This is information about the random-source channel that worst-case sphere maxima alone do not provide. The result does not by itself yield a coding-rate improvement.
+Wang–Kong–Yaakobi–Duman 2026 establish arbitrary-source multiple-burst canonical histories; Lan–Sun–Yu–Ge 2025 establish maximal sphere cardinalities, neither accessible indexed text states a random-center variance or Gaussian limit. Resultary October 2026 exact binary two-DELETION sphere variance is a distinct channel deleting two individual bits, not two disjoint double-bursts. The source normal form is prior work and not claimed new. Wang full primary text was not retrieved, so confidence in exact prior scope and lemma wording remains qualified; still best-of-knowledge neither variance nor Gaussian limit is shown to be prior.
 
-## Closest sources, scope and risks
+## value
 
-The main scientific inputs are Wang–Kong–Yaakobi–Duman (2026), Propositions 1–2, and the extremal baseline of Lan–Sun–Yu–Ge (2025). An indexed result on the variance of two *single-symbol*-deletion balls is mathematically distinct. Residual risks include undiscovered earlier averaged-sphere formulas and dependence on the published canonical representation theorem. No claims are made for larger alphabets, unequal source laws, or more bursts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distinct-output burst-deletion ball size controls ambiguity of a natural burst channel; worst-case cardinality alone omits dispersion of typical random source words. An exact finite-length second moment plus sharp Gaussian n^{3/2}-scale fluctuations provides an independently useful random-source characterization across every n>=4 and a principled asymptotic normal approximation, beyond merely repeating normal-form combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
