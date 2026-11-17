@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
-The proof uses two exact finite-field orthogonality identities and Möbius inversion with \(\mu(U,W)=(-1)^{\dim W-\dim U}q^{\binom{\dim W-\dim U}{2}}\), followed by an exact valuation comparison. The comparison is strict for every lower rank and every nonzero subspace term, including field size \(q=2\) and \(n=2\).
 
-To reproduce, execute `python3 check_zero_product_fourier.py` using Python 3 (standard library only). The checker enumerates all Fourier frequencies for \((n,q)=(2,2),(2,3),(2,4),(3,2)\). It verifies integer coefficients using exact Walsh and Eisenstein-arithmetic transforms, the point count, modular congruence, nonzero spectrum, and attained least and greatest singular values. Expected final line: `ALL_ZERO_PRODUCT_FOURIER_CHECKS_OK`.
+# Independent mathematical audit
 
-No numerical experiment is used as an infinite proof. No independent audit or external certification has been performed. Literature novelty remains subject to independent historical verification.
+## correctness
+
+PASS
+
+Columnwise additive character orthogonality gives the row-space condition im B subset W. Subspace-lattice Möbius inversion yields S_W(A)=sum_{U subset W intersect ker A}(-1)^(r-u)q^(binom(r-u,2)+nu); the U=0 top-rank term is (-1)^n q^(n choose 2) modulo its next q-power. Every r<n term in the full F transform adds at least one q-factor, establishing integral nonzero coefficients and sharp smallest singular value. Independent exhaustive n=2,q=2 and n=3,q=2 frequency checks match the theorem; the proof, not finite tests, handles all n,q.
+
+## originality
+
+PASS
+
+The additive indicator Fourier transform of the square two-term complex relation XY=0 is distinct from transforms of invertible matrices, sheaf-theoretic Fourier–Sato transforms, and the stronger mutually annihilating pair variety XY=YX=0. The full-field congruence and least singular value are not implied by the inspected findings, with residual general-quiver priority risk.
+
+## value
+
+PASS
+
+Two-term finite-field matrix complexes XY=0 form a natural incidence variety. Universal Fourier nonvanishing with exact q-adic residue and sharp convolution condition number is a global structural invariant that a later harmonic/quiver researcher can use without a full classification of individual coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
