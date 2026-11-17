@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T00:11:00.175932Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n,p positive coprime, m>Q=n²+p², gcd(m,Q)=1 and m+n+p odd, A=2mn is positive and gcd(B,2m)=1 for B=m²-Q. Reduce an arbitrary S element uA+vD+xB+yC via z=y-x and s=min(x,y), replacing the s(B+C) pair shift with a nonnegative A multiple to some W(v0,z)=2mpv0+m²|z|+Qz, 0<=v0<n. The 2mn baseline W(v,z) for -m<=z<m are pairwise distinct residues modulo A; competing same-residue lifts have z=z0+2mk. Strict lower bounds exclude all k>=1 and k<=-2, and k=-1 except at z0=m-1. That boundary improves precisely the last t row entries for t satisfying pt≡Q-m mod n and ell=Q+p(n-t)-m>0, each by 2m ell. The standard genus=sum(Apéry)/A-(A-1)/2 yields exactly (m³-Q+1)/2+m(np-n-p)-t max(0,ell)/n. For n=1 take t=0. Independently computed shortest representatives by residue-Dijkstra over 105 admissible small (n,p,m), including four with active correction, all exact matches; the unrestricted proof rests on lift inequalities, not this finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hwang–Song high-m region m>=2Q gives baseline residue representatives; no all-m genus sum theorem.",
+          "Subthreshold Frobenius correction restricts Q<m<2Q and gives general membership decomposition, but not all-residue minimal corrections."
+        ],
+        "reasoning": "Previously known broader membership criterion could COMPUTE genus in principle; does not supply the claimed closed formula across all admissible m and one-boundary-row classification; no stronger explicit coverage found.",
+        "searches": [
+          "Hwang–Song arXiv:2609.21397 16-page full text",
+          "Resultary 2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594/RESULT.md",
+          "Resultary Apéry layer law Pell triples"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md e85e3b1e9940bbde7cb8a4fb4f16131d155a60db and verify.py ba9e4f76269294f32150142d7989659a342b671c",
+        "Hwang–Song arXiv:2609.21397 full 16-page paper",
+        "Resultary Oct 4 complete subthreshold Frobenius theorem",
+        "Independent residue-Dijkstra 105 admissible triples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 and 3.8 explicitly label g(S) as largest gap and state m>=2Q for coprime case.",
+          "2026-10-04 result g(S)=G0+(m²-Q)-2mλ_H(m-Q) is Frobenius, not genus; it supplies residue-class membership but no sum over corrected Apéry."
+        ],
+        "reasoning": "The submitted t/n times ell genus correction is not the earlier λ_H correction for the maximum gap; converting membership data to full minimized representatives and summing is a separate calculation explicitly proved.",
+        "searches": [
+          "Hwang–Song Theorem 1.1, Section 2 lift orbit, Section 3 Theorems 3.5 and 3.8",
+          "2026-10-04 exact subthreshold Frobenius RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hwang–Song notation g(S) means Frobenius NUMBER max gap, while submitted g(S) means GENUS number of gaps.",
+          "Both use exactly four generators 2mn,2mp,m²-Q,m²+Q with same coprimality/primitivity restrictions."
+        ],
+        "reasoning": "Same generator family under alternate notation, but invariant is different: maximum Apéry minus A versus sum Apéry/A - (A-1)/2. Their Frobenius formula cannot alone fix genus.",
+        "searches": [
+          "Resultary query: primitive Pythagorean quadruple numerical semigroup Apéry genus one row correction subthreshold",
+          "arXiv:2609.21397 Hwang Song"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact genus table or one-row Apéry representative classification for the four generators found in inspected earlier sources.",
+          "The prior Frobenius expression is an extremal value, not a complete gap count."
+        ],
+        "reasoning": "Claim determines an infinite parameter family with exact symbolic formula, not recomputation of a known numerical-semigroup database table.",
+        "searches": [
+          "Resultary search: Pythagorean quadruples genus four generators",
+          "Hwang–Song full paper",
+          "Resultary exact subthreshold Frobenius record"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Hwang–Song (2026 arXiv:2609.21397, FULL 16-page text examined) establishes Frobenius MAXIMUM of the same four-generator semigroup, in coprime case m>=2Q; it discusses baseline residues but not genus via sum and not exact small-m one-row correction. Published 2026-10-04 subthreshold result gives the Frobenius maximum and membership residue decomposition for Q<m<2Q, and thus allows an algorithm to compute Apéry sets but does not state the submitted complete parameter-level genus formula and t-row replacement. Genus is a different natural invariant from Frobenius and is not generally determined by maximum of Apéry. The precise all-parameter count of replaced representatives and genus correction requires additional minimization/summation. Other Apéry transition records involve different semigroup generators. Remaining risk: clever summation of prior implicit decomposition may mechanically yield formula; comparison finds it nontrivial.",
+      "residual_risks": [
+        "The earlier full membership decomposition might allow an alternative derivation of the exact genus with less work than the submitted lift proof; novelty is claimed only for the explicit complete closed genus and transition, not computability.",
+        "The normalization applies only to coprime n,p, m>Q with primitive parity; not all Pythagorean quadruples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Frobenius maximum theorem and high-m residue construction, but not this genus/low-m Apéry transition",
+          "evidence": "Theorem 1.1: coprime δ=1 requires m>=2Q and computes largest nonmember; Section 3 eq g(S)=max Apéry-A; no formula for number of gaps.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21397",
+          "material_read": "FULL 16 pages, from introduction through proofs of Lemmas 2.4–2.11, Theorem 1.1 and 3.8 and references",
+          "method": "Authorized full extracted PDF text via Oxford; all 16 pages revisited",
+          "title": "Frobenius Numbers Associated with Primitive Pythagorean Quadruples",
+          "trigger": "Exactly the same generating quadruple and Apéry baseline"
+        },
+        {
+          "assessment": "Prior gap maximum, not sum/genus; algorithmic membership antecedent accounted for",
+          "evidence": "Shows g_Frob(S)=G0+B-2mλ_H(m-Q); submitted g_genus(S) includes t separate corrected representatives, a distinct aggregate invariant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594/RESULT.md",
+          "material_read": "Full RESULT.md including exact H-membership residue decomposition and λ_H correction proof",
+          "method": "GitHub published original theorem and derivation",
+          "title": "Exact subthreshold Frobenius correction for primitive Pythagorean quadruples",
+          "trigger": "Same generators at Q<m<2Q"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Genus (total gaps) and Frobenius number (largest gap) are distinct central numerical-semigroup invariants. A complete exact Apéry representative classification in the natural four-generator Pythagorean-quadruple family covers the entire previously delicate Q<m<2Q band, supplies a sharp parameterized boundary-row phenomenon, and gives a closed genus formula. The exact fact can be used to study gaps/Hilbert series and is mathematically motivated independently of a further major theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md e85e3b1e9940bbde7cb8a4fb4f16131d155a60db and verify.py ba9e4f76269294f32150142d7989659a342b671c",
+    "Hwang–Song arXiv:2609.21397 full 16-page paper",
+    "Resultary Oct 4 complete subthreshold Frobenius theorem",
+    "Independent residue-Dijkstra 105 admissible triples"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No genus formula asserted for noncoprime n,p or m<=Q.",
+    "Finite Dijkstra test checks only bounded triples, and all-real parameter proof is the symbolic boundary-lift argument."
+  ],
+  "residual_risks": [
+    "The earlier full membership decomposition might allow an alternative derivation of the exact genus with less work than the submitted lift proof; novelty is claimed only for the explicit complete closed genus and transition, not computability.",
+    "The normalization applies only to coprime n,p, m>Q with primitive parity; not all Pythagorean quadruples."
+  ],
+  "schema_version": 1
+}

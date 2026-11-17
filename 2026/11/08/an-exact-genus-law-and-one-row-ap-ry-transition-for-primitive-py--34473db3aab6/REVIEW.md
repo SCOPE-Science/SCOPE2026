@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof normalizes all semigroup elements to \(W(v,z)\), proves a complete distinct residue system and excludes all lift directions except one boundary transition. Its exact correction counts \(t\) replaced representatives, each lowered by \(2m\ell\), and the Apéry sum derives the genus formula for all quantified parameters. An independent shortest-path enumerator agrees for 512 admissible parameter triples including 76 genuine corrections. These experiments support, but do not replace, the symbolic proof. The positive-generator and gcd boundaries are explicitly checked.
+## correctness
 
-**Originality — PASS, historically qualified.** Hwang–Song (arXiv:2609.21397v1, 18 Sep 2026) proves a Frobenius-number formula in a stronger parameter regime and exhibits residue methods, not this genus law. The closely related published published-finding corpus result `2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594` supplies a subthreshold *Frobenius* correction and an exact residue membership decomposition; it was read in full as the closest potential implication. The new result does not claim the general membership decomposition, but derives the complete closed genus and one-row Apéry transition for \(m>Q\). Generic Apéry genus identities yield an invariant from given least representatives but do not furnish these representatives. Searches for the parameterized genus law, synonyms and higher-coverage results identified no exact statement; this is not proof that none exists. Older Pythagorean triples concern different three-generator semigroups. The strongest residual risk is an unindexed prior derivation of the genus from the existing membership description.
+PASS
 
-**Value — PASS.** The number of gaps is a canonical and independent invariant of numerical semigroups. A fully explicit cubic-plus-modular-correction law and the sharp rule for *which Apéry representatives* change provides an exact classification in the natural previously excluded \(Q<m<2Q\) band; it is more informative than merely enumerating gaps or restating a Frobenius bound. The correction exhibits a structural single-row phenomenon and vanishes by a quantified earlier threshold. No claim is made for noncoprime auxiliary parameters or unrelated families.
+For n,p positive coprime, m>Q=n²+p², gcd(m,Q)=1 and m+n+p odd, A=2mn is positive and gcd(B,2m)=1 for B=m²-Q. Reduce an arbitrary S element uA+vD+xB+yC via z=y-x and s=min(x,y), replacing the s(B+C) pair shift with a nonnegative A multiple to some W(v0,z)=2mpv0+m²|z|+Qz, 0<=v0<n. The 2mn baseline W(v,z) for -m<=z<m are pairwise distinct residues modulo A; competing same-residue lifts have z=z0+2mk. Strict lower bounds exclude all k>=1 and k<=-2, and k=-1 except at z0=m-1. That boundary improves precisely the last t row entries for t satisfying pt≡Q-m mod n and ell=Q+p(n-t)-m>0, each by 2m ell. The standard genus=sum(Apéry)/A-(A-1)/2 yields exactly (m³-Q+1)/2+m(np-n-p)-t max(0,ell)/n. For n=1 take t=0. Independently computed shortest representatives by residue-Dijkstra over 105 admissible small (n,p,m), including four with active correction, all exact matches; the unrestricted proof rests on lift inequalities, not this finite check.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge. Hwang–Song (2026 arXiv:2609.21397, FULL 16-page text examined) establishes Frobenius MAXIMUM of the same four-generator semigroup, in coprime case m>=2Q; it discusses baseline residues but not genus via sum and not exact small-m one-row correction. Published 2026-10-04 subthreshold result gives the Frobenius maximum and membership residue decomposition for Q<m<2Q, and thus allows an algorithm to compute Apéry sets but does not state the submitted complete parameter-level genus formula and t-row replacement. Genus is a different natural invariant from Frobenius and is not generally determined by maximum of Apéry. The precise all-parameter count of replaced representatives and genus correction requires additional minimization/summation. Other Apéry transition records involve different semigroup generators. Remaining risk: clever summation of prior implicit decomposition may mechanically yield formula; comparison finds it nontrivial.
+
+## value
+
+PASS
+
+Genus (total gaps) and Frobenius number (largest gap) are distinct central numerical-semigroup invariants. A complete exact Apéry representative classification in the natural four-generator Pythagorean-quadruple family covers the entire previously delicate Q<m<2Q band, supplies a sharp parameterized boundary-row phenomenon, and gives a closed genus formula. The exact fact can be used to study gaps/Hilbert series and is mathematically motivated independently of a further major theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
