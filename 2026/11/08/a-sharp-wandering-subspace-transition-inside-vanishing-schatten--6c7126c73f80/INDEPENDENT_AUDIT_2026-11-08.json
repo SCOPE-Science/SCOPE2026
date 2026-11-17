@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T22:16:12.565420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each parent, disjoint child supports make S*S diagonal. Positive spine column norm=1 for m>=1 and >=1 for m<=0, unary tooth norm >=1; bounded and left invertible. Exact spine product sqrt(N/(N+m)); new tooth relative squared ratio (1/N)g_m with g_m=(1+m/N)^beta; dual ratio 1/(N g_m). Therefore primal sum diverges always, dual sum diverges iff beta<=1 by the p-series, satisfying cited Chavan–Trivedi rootless Wold criterion. Independently checked the orthogonal-column singular-value multiset: positive-spine squares 2(1-sqrt((N+m-1)/(N+m))), negative spine 1/(N+1+|m|), each m>=2 tooth m-1 copies of [(1+m/N)^(beta/(2(m-1)))-1]^2. The two spine p-sums converge iff p>2 and each tends to N^(1-p/2)/(p/2-1); the tooth sum is O(N^(2-p)) when p>2, giving 4/(p-2). Largest column yields ||K||~N^-1/2. No inference of infinite-dimensional convergence from finite checker samples; the cited theorem remains an external analytic premise.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2501.01296 gives general rootless weighted-shift Wold criterion and construction of non-Wold examples",
+          "Kujur arXiv:2609.14662 studies m-concave non-Wold shifts; Bala–Golla arXiv:2607.15222 studies Schatten perturbations of partial isometries"
+        ],
+        "reasoning": "Neither broad Wold characterization by itself nor generic Schatten membership yields both sides arbitrarily close to the same isometry with exponent and asymptotic constant. The key explicit path and singular-value formulas are additional.",
+        "searches": [
+          "rootless directed tree weighted shift wandering subspace property Schatten p compact perturbation isometry Wold decomposition",
+          "https://arxiv.org/html/2501.01296",
+          "arXiv:2609.14662",
+          "arXiv:2607.15222"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2501.01296",
+        "arXiv:2609.14662 abstract",
+        "arXiv:2607.15222 abstract",
+        "SCOPE frozen RESULT.md and checker.py",
+        "Exact parent-column singular-value calculations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chavan–Trivedi supplies divergent primal and dual series criterion",
+          "New proof calculates singular value terms, two spine tails ~N^(1-p/2)/(p/2-1), tooth tail O(N^(2-p))"
+        ],
+        "reasoning": "Prior general theorem does not guarantee a Schatten-small two-sided family or uniform constant 4/(p-2) without new construction and estimation.",
+        "searches": [
+          "rootless directed tree weighted shift wandering subspace property Schatten p compact perturbation isometry Wold decomposition",
+          "https://arxiv.org/html/2501.01296"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chavan–Trivedi arXiv:2501.01296 Theorem 1.3 gives the Cauchy-dual analytic/Wold criterion, not arbitrarily small Schatten perturbations",
+          "Resultary semantic search returned current theorem plus different shift norm and shadowing results"
+        ],
+        "reasoning": "The current claim is local Schatten-norm instability and a sharp p=2 threshold for one explicit rootless isometry, not merely another application of the known Wold criterion; known criterion supplies its essential if-and-only-if test.",
+        "searches": [
+          "rootless directed tree weighted shift wandering subspace property Schatten p compact perturbation isometry Wold decomposition",
+          "https://arxiv.org/html/2501.01296"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search for rootless directed-tree Schatten p Wold returned current record and other different weighted-shift cases",
+          "No finite database decides the analytic series (1/N)sum g_m and (1/N)sum 1/g_m or Schatten tail convergence"
+        ],
+        "reasoning": "The theorem covers all N>=2,beta>0,p>0 and has exact sharp threshold/asymptotic, so not an already listed finite numeric example.",
+        "searches": [
+          "rootless directed tree weighted shift wandering subspace property Schatten p compact perturbation isometry Wold decomposition",
+          "https://arxiv.org/html/2501.01296"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for constructing on one fixed isometry two opposite wandering behaviors arbitrarily close in every p>2 Schatten norm and their exact sharp exponent/asymptotic. Rootless Wold criterion and earlier non-Wold examples are explicitly prior ingredients; no stronger published general Schatten-stability theorem implying the displayed construction was identified.",
+      "residual_risks": [
+        "Original and dual analyticity rely on applying Chavan–Trivedi full theorem to the specified rootless positive bounded left-invertible tree.",
+        "Search cannot exclude a broader unpublished or differently phrased Schatten-stability result.",
+        "Finite checker values do not prove infinite series or limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "USED_CRITERION_NOT_QUANTITATIVE_SCHATTEN_STATEMENT",
+          "evidence": "Analyticity of original and Cauchy dual determines wandering generation; paper has non-Wold examples but no same-isometry vanishing S_p two-sided phase with the displayed norm law.",
+          "identifier_or_url": "https://arxiv.org/html/2501.01296",
+          "material_read": "Accessible full arXiv HTML, Theorem 1.3, analyticity characterization, relevant rootless-tree example section",
+          "method": "Primary arXiv full-text reading",
+          "title": "Wold-type decomposition for left-invertible weighted shifts on a rootless directed tree",
+          "trigger": "Exact theorem used to characterize analytic versus Wold generation"
+        },
+        {
+          "assessment": "POTENTIAL_PERTURBATION_COVERAGE_RISK",
+          "evidence": "Known explicit non-Wold quasi-Brownian shifts; no exact published near-isometry Schatten p=2 statement verified.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.14662",
+          "material_read": "Accessible abstract and cited thematic scope; full manuscript not established read",
+          "method": "ArXiv abstract/statement comparison",
+          "title": "Wold-type decompositions for norm-increasing m-concave weighted shifts on directed trees",
+          "trigger": "Nearer non-Wold tree constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Wold/wandering-subspace generation is a central structural property of left-invertible shifts. Locating its discontinuity within arbitrarily small Schatten perturbations and identifying p=2 as an exact quantitative boundary is a motivated new structural example, not a finite parameter curiosity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On one rootless quasi-Brownian directed tree, explicit analytic expansive shifts S_{N,beta} have Wold/wandering generation iff beta<=1, while S_{N,beta}-U is in Schatten S_p exactly p>2 with asymptotic ||K||_Sp^p ~ 4 N^(1-p/2)/(p-2).",
+  "limitations": [
+    "Original and dual analyticity rely on applying Chavan–Trivedi full theorem to the specified rootless positive bounded left-invertible tree.",
+    "Search cannot exclude a broader unpublished or differently phrased Schatten-stability result.",
+    "Finite checker values do not prove infinite series or limit."
+  ],
+  "schema_version": 1
+}

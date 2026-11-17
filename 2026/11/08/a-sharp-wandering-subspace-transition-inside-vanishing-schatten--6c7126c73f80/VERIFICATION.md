@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytical argument establishes three independent statements: the analytic-series criterion for the original shift, the analytic-series criterion for its Cauchy dual, and the exact singular-value multiset of the compact perturbation. Comparison of the two series yields the sharp Wold transition; comparison of two spine sums and one tooth sum yields the sharp Schatten threshold and asymptotic constant. No finite computation is used to infer divergence or compactness.
+## correctness
 
-Run `python3 checker.py` in the directory containing this document. The Python script requires only the standard library and performs 17,129 finite checks at sampled parameters, including positive and nonpositive spine levels, primal/dual path products, matrix-column norms, and finite Schatten sums. These checks are consistency tests, not exhaustive verification of an infinite result.
+PASS
 
-The source of the infinite-dimensional Wold characterization is Chavan–Trivedi, arXiv:2501.01296, Theorem 1.3. Its hypotheses are verified explicitly in the proof: the tree is rootless and leafless, the weights are positive, the shift is bounded and left invertible, and both required series are computed as exact expressions. The application does not assume that compact perturbations preserve the Wold property.
+For each parent, disjoint child supports make S*S diagonal. Positive spine column norm=1 for m>=1 and >=1 for m<=0, unary tooth norm >=1; bounded and left invertible. Exact spine product sqrt(N/(N+m)); new tooth relative squared ratio (1/N)g_m with g_m=(1+m/N)^beta; dual ratio 1/(N g_m). Therefore primal sum diverges always, dual sum diverges iff beta<=1 by the p-series, satisfying cited Chavan–Trivedi rootless Wold criterion. Independently checked the orthogonal-column singular-value multiset: positive-spine squares 2(1-sqrt((N+m-1)/(N+m))), negative spine 1/(N+1+|m|), each m>=2 tooth m-1 copies of [(1+m/N)^(beta/(2(m-1)))-1]^2. The two spine p-sums converge iff p>2 and each tends to N^(1-p/2)/(p/2-1); the tooth sum is O(N^(2-p)) when p>2, giving 4/(p-2). Largest column yields ||K||~N^-1/2. No inference of infinite-dimensional convergence from finite checker samples; the cited theorem remains an external analytic premise.
 
-The construction is limited to this rootless comb family and does not establish a universal threshold for all trees. No independent audit has been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge for constructing on one fixed isometry two opposite wandering behaviors arbitrarily close in every p>2 Schatten norm and their exact sharp exponent/asymptotic. Rootless Wold criterion and earlier non-Wold examples are explicitly prior ingredients; no stronger published general Schatten-stability theorem implying the displayed construction was identified.
+
+## value
+
+PASS
+
+Wold/wandering-subspace generation is a central structural property of left-invertible shifts. Locating its discontinuity within arbitrarily small Schatten perturbations and identifying p=2 as an exact quantitative boundary is a motivated new structural example, not a finite parameter curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

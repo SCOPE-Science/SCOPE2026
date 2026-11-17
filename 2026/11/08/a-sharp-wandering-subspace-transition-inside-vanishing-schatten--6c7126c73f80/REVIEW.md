@@ -1,17 +1,21 @@
-# Scientific review: sharp Schatten-local Wold transition for rootless-tree weighted shifts
+# Independent mathematical audit
 
-## Correctness — PASS
-The construction is a bounded positive left-invertible shift on a rootless, leafless quasi-Brownian tree. Its outgoing column norm is exactly one on the positive spine and at least one elsewhere, so expansivity is proven without extrapolating from finite sections. The Chavan–Trivedi analytic-series criterion applies: the original ancestor path ratio is \(g_m/N\), and the Cauchy-dual ratio is \(1/(Ng_m)\), with \(g_m=(1+m/N)^\beta\) for \(m\geq2\). The first series always diverges; the dual diverges exactly for \(\beta\leq1\). This yields analytic shifts with and without wandering-subspace generation at a sharp parameter transition.
+## correctness
 
-The perturbation columns have pairwise disjoint support, making their norms *exact* singular values. Two spine sums enforce \(p>2\); the tooth sum is of lower asymptotic order, giving the coefficient \(4/(p-2)\) and operator-norm decay. The standalone checker passed 17,129 finite tests; it supports algebraic consistency but does not substitute for the infinite-dimensional analysis.
+PASS
 
-## Originality — PASS (qualified)
-Chavan–Trivedi, arXiv:2501.01296, already characterize Wold decompositions for rootless positive weighted shifts and give expansive analytic failures. Kujur, arXiv:2609.14662, extends related examples to higher-order concavity and strict \(4\)-isometries on the same type of tree. Neither inspected full-text result states or implies the construction's arbitrarily small Schatten perturbations of a *fixed* isometry, nor its sharp \(\beta=1\) transition together with the exact perturbation exponent and asymptotic constant. Bala–Golla, arXiv:2607.15222, independently characterize membership in Schatten-perturbation classes but do not study the wandering-subspace property. Searches of relevant primary literature and published claims found no implication covering the combined theorem. An unlocated general compact-perturbation result phrased in different language remains a publication-priority risk; negative search is not independent certification of novelty.
+For each parent, disjoint child supports make S*S diagonal. Positive spine column norm=1 for m>=1 and >=1 for m<=0, unary tooth norm >=1; bounded and left invertible. Exact spine product sqrt(N/(N+m)); new tooth relative squared ratio (1/N)g_m with g_m=(1+m/N)^beta; dual ratio 1/(N g_m). Therefore primal sum diverges always, dual sum diverges iff beta<=1 by the p-series, satisfying cited Chavan–Trivedi rootless Wold criterion. Independently checked the orthogonal-column singular-value multiset: positive-spine squares 2(1-sqrt((N+m-1)/(N+m))), negative spine 1/(N+1+|m|), each m>=2 tooth m-1 copies of [(1+m/N)^(beta/(2(m-1)))-1]^2. The two spine p-sums converge iff p>2 and each tends to N^(1-p/2)/(p/2-1); the tooth sum is O(N^(2-p)) when p>2, giving 4/(p-2). Largest column yields ||K||~N^-1/2. No inference of infinite-dimensional convergence from finite checker samples; the cited theorem remains an external analytic premise.
 
-## Mathematical value — PASS
-The bounded perturbation theory of isometries and the Wold decomposition are classical, natural invariants. The theorem shows a genuine **instability** of wandering-subspace generation in every Schatten topology above a sharp threshold, with both sides analytic and expansive on the same tree. The quantitative constant and the crossing at \(\beta=1\) distinguish qualitative counterexamples from an explicit, parameter-controlled local classification. No downstream theorem is presumed. The threshold \(p>2\) belongs to the specific family, not all isometries or trees.
+## originality
 
-## Closest literature and limitations
-The principal tool is the published Chavan–Trivedi rootless-tree criterion, not an original result here. The closer recent counterexamples of Kujur use the same tree geometry but address higher-order concavity, not small Schatten perturbations. The source of the Schatten perturbation criterion for general partial isometries is Bala–Golla. The construction uses a particular unbounded-depth comb and does not claim global classification of weighted shifts. Possible broader implicit coverage remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge for constructing on one fixed isometry two opposite wandering behaviors arbitrarily close in every p>2 Schatten norm and their exact sharp exponent/asymptotic. Rootless Wold criterion and earlier non-Wold examples are explicitly prior ingredients; no stronger published general Schatten-stability theorem implying the displayed construction was identified.
+
+## value
+
+PASS
+
+Wold/wandering-subspace generation is a central structural property of left-invertible shifts. Locating its discontinuity within arbitrarily small Schatten perturbations and identifying p=2 as an exact quantitative boundary is a motivated new structural example, not a finite parameter curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
