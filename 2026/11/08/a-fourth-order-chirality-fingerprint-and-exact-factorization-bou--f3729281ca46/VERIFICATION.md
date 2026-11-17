@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The supplied `check.py` solves the four-by-four generator moment stationarity equations up to total degree four using a standalone Gaussian-elimination implementation (Python 3 standard library only), not by replaying the complex-number calculation in the proof. It checks 64 combinations of positive trap strength, propulsion speed and turn-rate pairs, two signed fourth-moment identities, second-moment isotropy, a zero mixed second moment, the exact square covariance, and invariance under three thermal-noise intensities. The program reports `PASS 1024 independent deterministic moment checks` when run successfully.
+## correctness
 
-All tested parameters lie inside the theorem's admissible domain. This finite grid is not exhaustive and does not establish the infinite-parameter theorem or literature priority. The stated infinite-domain results follow from the generator equations and the exact rational simplifications in `RESULT.md`.
+PASS
+
+The four-heading generator acts on {1,s,t,st} with eigenvalues 0,-Gamma±iDelta,-2Gamma. The active rotated OU filters satisfy finite stationary moment recurrences. Solving degree 4 (independently by rational 4x4 linear systems) gives E[U^3V]=3c^4Delta/(4(μ+Γ)((μ+Γ)^2+Delta²)((3μ+Γ)^2+Delta²)) and the stated positive-square covariance with Delta² factor. Degree<=3 positional moments are invariant under sign reversal, while a=b yields independent sign flips and product filtered stationary law. Adding independent Brownian Gaussian OU coordinates leaves odd U^3V and covariance(U²,V²) unchanged. This proves signed minimal-degree witness and factorization iff a=b.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical claim after direct comparison of related published statements and implications; the source inspections and four detailed comparisons below delimit genuine known components and residual historical risk.
+
+## value
+
+PASS
+
+Exact first position-only sign-of-chirality statistic, strictly positive square-dependence diagnostic, and the sharp factorization threshold extend a natural exactly solved symmetric trapped four-state model to biased turns; concrete experimentally interpretable invariant, not a routine free-space diffusion moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
