@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:58:03.520904Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-ambient-extension-stability-frontier-for-stiefel-exponenti--bc1e016146d2/RESULT.md",
+        "2026/11/08/sharp-ambient-extension-stability-frontier-for-stiefel-exponenti--bc1e016146d2/verify.py"
+      ],
+      "rationale": "All F_c(x)=x_2+(c/2)(||x||^2-1)exp[-(||x||^2-1)^2] restrict to the identical circle objective -cos(phi). The ambient gradient at the constrained minimizer is (0,1-c). Direct differentiation of the actual EMA-before-projection and normalized retraction gives z_{t+1}=(I+beta_t A+beta_t^2 C)z_t with beta_t=t^-1/2, A=[[-theta(1-c),-theta],[c,-1]], C=[[-theta c,theta],[0,0]], normal memory factor 1-beta_t. det A=theta>0, tr A=theta(c-1)-1, giving the exact Hurwitz threshold c<1+1/theta. A positive definite Lyapunov metric makes sufficiently late updates contract by order beta_t in the stable region; for c>threshold, -A is Hurwitz and metric expansion of every nonzero active perturbation follows. Sum beta_t diverges. Independently differentiated the original nonlinear update and checked its Jacobian. Critical equality not classified; full nonlinear attraction not claimed.",
+      "residual_risks": [
+        "Deterministic St(2,1), beta_t=t^-1/2, mu_t=theta beta_t, normalized tangent retraction, late-time linearized perturbations; critical parameter and nonlinear global attraction left open."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.3 of Yuan-Sun-Yuan establishes sufficient convergence with small parameter choice under ambient smoothness; it does not provide the converse fixed-theta local linearized c frontier."
+        ],
+        "reasoning": "Sufficient convergence under stricter assumptions cannot imply universal stability for theta across all ambient extensions; tangent-space momentum results use distinct updates.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.19944",
+          "https://www.ijcai.org/proceedings/2021/345",
+          "https://proceedings.mlr.press/v130/alimisis21a.html"
+        ]
+      },
+      "checked_sources": [
+        "https://www.paperpeel.com/paper/2610.19944",
+        "https://arxiv.org/abs/2610.19944",
+        "https://www.ijcai.org/proceedings/2021/345",
+        "Resultary semantic: Stiefel RGR EMA ambient gradient extension normal component sensitivity local stability circle normal derivative"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior algorithm formulas give the recursion, but exact Jacobian for a chosen radial perturbation and Lyapunov stability split are extra mathematical steps."
+        ],
+        "reasoning": "No implication from broad expected gradient-convergence complexity to the explicit instability region for a chosen fixed theta and identical restricted f; hypotheses and conclusions differ.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.19944",
+          "arxiv:2610.19944v1 section 3.4 and theorem 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RGR-EMA constructs N_t in Euclidean ambient space and only afterward tangent projects; the proposed extension changes the normal gradient without changing objective on S^1."
+        ],
+        "reasoning": "Intrinsic optimization objectives may be equal even when their ambient gradients differ; the method is not intrinsically extension-invariant. Earlier method statement is equivalent to this update, but does not contain its local counterexample.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.19944",
+          "Stiefel RGR-EMA ambient gradient extension normal component local stability circle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected full source has an exact c=1+1/theta table or analogous paired objective extension stability classification."
+        ],
+        "reasoning": "This is a continuous-parameter Jacobian-stability theorem; lookup concerns exact previously stated threshold, not a finite table.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.19944",
+          "Resultary semantic: Stiefel RGR EMA ambient gradient extension normal component sensitivity local stability circle normal derivative"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the Yuan-Sun-Yuan original RGR paper supplies the actual ambient EMA method and broad convergence under parameter/regularity hypotheses; its theorem 4.3 and appendices do not state the exact local ambient-extension parameter c boundary or invariant-objective opposing-stability witness. The inspected source also explicitly contrasts tangent-space REMA memory, showing that ambient normal memory is distinctive. Other Riemannian momentum sources concern transported tangent gradients. No relevant prior Resultary theorem on this exact normal-extension-dependent local frontier was found.",
+      "residual_risks": [
+        "The original institutional PDF route was inaccessible, but lawful full HTML alternative was read.",
+        "Potential older extrinsic-momentum local normal-extension stability examples may not be indexed.",
+        "Critical trace-zero equality and nonlinear basin are explicitly outside this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_ALGORITHM_NOT_LOCAL_FRONTIER",
+          "evidence": "Algorithm states N_t=beta_t grad f(X_t)+(1-beta_t)N_{t-1} and tangent projection. Their convergence guarantee uses suitable small theta but no c-parametric sharp circle stability converse.",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.19944",
+          "material_read": "Full accessible HTML rendering including original method Section 3.4, convergence result Section 4.3/4.4, comparison Section 5.6 and appendix overview",
+          "method": "Complete main-text HTML alternative to original arXiv PDF; same-paper arXiv/Open Access tried",
+          "title": "Recursive Gradient Retraction Methods for Stochastic Nonconvex Optimization on Stiefel Manifolds",
+          "trigger": "Exact RGR-EMA source, same ambient-memory update and Stiefel setting"
+        },
+        {
+          "assessment": "RELEVANT_DIFFERENT_UPDATE",
+          "evidence": "Comparator updates estimator within tangent spaces and transports gradients; normal-component EMA mechanism is absent from the inspected comparison.",
+          "identifier_or_url": "https://www.ijcai.org/proceedings/2021/345",
+          "material_read": "Reference description and relevant algorithm-comparison passages within the full 2026 RGR paper, not the separate IJCAI full body",
+          "method": "Indirect comparator; no whole-document noncoverage claim",
+          "title": "Riemannian Stochastic Recursive Momentum Method for non-Convex Optimization",
+          "trigger": "Tangent-space comparator for normal-memory effects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.paperpeel.com/paper/2610.19944"
+      ],
+      "rationale": "PASS: the same constrained objective and strict minimizer can have locally stable or unstable ambient EMA trajectories solely through off-manifold extension. This is a substantive modeling and stability-obstruction witness for an actual contemporary algorithm, not a cosmetic change of normalization. The exact threshold identifies what a convergence theorem must control, without claiming to contradict existing small-stepsize guarantees.",
+      "residual_risks": [
+        "Deterministic St(2,1), beta_t=t^-1/2, mu_t=theta beta_t, normalized tangent retraction, late-time linearized perturbations; critical parameter and nonlinear global attraction left open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality; positive prior coverage for rejected result and specific residual risks for accepted ones.",
+    "Deterministic St(2,1), beta_t=t^-1/2, mu_t=theta beta_t, normalized tangent retraction, late-time linearized perturbations; critical parameter and nonlinear global attraction left open.",
+    "Public metadata includes operational provenance; publication is withheld without verified sanitization."
+  ],
+  "schema_version": 1
+}
