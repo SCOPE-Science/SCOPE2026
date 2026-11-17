@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two complete independent face-building procedures reconstruct the graph Čech nerve via Adams–Shukla–Singh Lemma 2.2, with 424 and 2,085 faces including the empty face. Acyclicity checks cover 1,452 and 10,406 Hasse incidences. The exact integer projection of every critical-cell boundary vanishes, and the relevant low-dimensional homotopy groups of the wedge skeleton are free of the indicated ranks. Consequently the stated complete homotopy splittings follow. The separate forward-order Morse matchings and original-chain mod-two ranks corroborate the computations. Risks: standard graph modeling, finite implementation and the standard discrete-Morse theorem; all critical premises are reproducible from the embedded self-contained program.
+## correctness
 
-**Originality — PASS against checked sources.** The motivating hypercube-Čech paper supplies the nerve definition and facet theorem, not the Frucht classification. The closest published Frucht results classify independence/deletion complexes or Vietoris–Rips complexes of asymmetric cubic graphs: neither face construction implies a graph Čech classification. Exact and equivalent aliases of the Frucht graph, neighborhood nerves, open/closed-ball variants, D-neighborhood complex formulations and broader graph-family results were checked. Residual risk: an unindexed calculation or unseen graph-specific table; the accessible literature gives no positive prior implication.
+PASS
 
-**Value — PASS.** The Frucht graph is a canonical twelve-vertex cubic graph with trivial automorphism group, hence a natural stringent contrast to symmetric hypercube and Platonic examples. At two consecutive scale intervals its intrinsic Čech nerve has *mixed-dimensional* integral sphere-wedge types, with four and three spheres respectively; these homotopy statements are not read off a Rips filtration, independence complex or elementary Euler characteristic. The exact result is a useful benchmark for graph Čech computations beyond the girth-based graph-recovery regime. No broader theorem or persistence-map determination is claimed.
+Exact Frucht 12-vertex 18-edge cubic graph with diameter four from VERIFY.py. Adams-Shukla-Singh neighborhood-facet lemma for vertex-centered closed balls in the graph geometric realization gives at odd r=3 unions N1[u]∪N1[v] over each edge, and at even r=4 N2[v] over each vertex, constant until next integer. Independently generated all 423 and 2084 nonempty faces, with facets 17 and 10; the source/independent reverse-vertex acyclic matching yields 209 pairs and critical cells (one 0, two 2, two 3) at r3, 1040 pairs and (one 0, two 3, one 4) at r4. Independently projected exact integer Morse boundaries for each unmatched higher cell, all zero, and inspected source Hasse-DAG acyclicity algorithm and alternative mod-two rank checks. As π2(∨2 S²)=Z² and π3(∨2 S³)=Z², zero attaching degrees suffice for the respective integral wedge homotopy types, not only homology.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No earlier classification of these two consecutive Frucht graph Čech nerves was identified. The full primary Adams-Shukla-Singh source provides the shared combinatorial nerve lemma and calculations for HYPERCUBE graphs, not Frucht; similarly named prior Frucht independence/Rips/three-cut calculations use different face rules. Best-of-knowledge PASS, subject to unindexed equal-case studies.
+
+## value
+
+PASS
+
+The Frucht graph is the canonical small cubic asymmetric graph; its intrinsic closed-ball Čech nerves at adjacent natural thresholds exhibit distinct nontrivial mixed-dimensional sphere-wedge transitions, determined integrally, not merely finite Betti tables. These precise homotopy types are natural benchmark invariants for geometric graph nerves and cannot be read from generic cubic-girth results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
