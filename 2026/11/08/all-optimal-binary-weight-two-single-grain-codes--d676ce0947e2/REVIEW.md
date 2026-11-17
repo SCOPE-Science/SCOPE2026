@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The channel is exactly a one-position overwrite by the preceding bit, including the zero-error outcome. Every weight-two word has zero, one, or two weight-one descendants as explicitly classified. Disjointness makes their supports disjoint and forces the sharp bound. In equality cases the weight-one accounting forces all supports except two choices; possible triple-output collisions eliminate the two invalid boundary choices. The remaining constructions were verified directly from all one-grain balls. The proof covers all integer lengths, with separate verification for \(n=2,3\). The standard-library checker replays independent finite cases and parameterized constructions.
+PASS
 
-## Originality — PASS, qualified
+One-grain overwrite can flip only position j>=1 to its previous bit. For each weight-two support {a,b}, singleton descendants are ∅ for {0,1}, {0} for a=0,b>=2, {b} for a>=1,b=a+1, and {a,b} for a>=1,b>=a+2. Disjoint singleton descendants force at most n codewords, and extremality forces {0,1}, then either all adjacent pairs plus {0,r} with r>=3, or replacement of one adjacent {j−1,j} by {1,j} for j>=4. Pairwise weight-three outputs of these codes are separated by consecutive/nonconsecutive support types. For n>=4 exactly (n−3)² codebooks; n2=1,n3=2. Direct independently constructed collision graphs confirmed optima and full extremizer equality n=2..8.
 
-The model paper (Gabrys–Yaakobi–Dolecek, arXiv:1307.7087) gives unrestricted bounds and constructions; the Kashyap–Zémor paper (arXiv:1302.6154) addresses global bounds. Text searches and substantive inspections found no complete weight-two extremal classification. A related published exact census at \(n=6\) treats unrestricted codes, hence does not imply the all-length weighted capacity or count. Alternate terminology or unindexed results might contain an equivalent classification; this remains a priority risk. The search record and implication analyses are detailed in AUDIT.json.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem resolves a naturally constrained coding problem: exact capacity of the two-one constant-weight layer against a physical overwrite channel. More strongly, it identifies every extremal codebook for all lengths and gives their exact count. This is a structural classification, not just a table, small numeric improvement or normalization observation. Its scope is deliberately restricted to one overwrite and weight two.
+PASS best of knowledge. Gabrys–Yaakobi–Dolecek 2013 defines the same one-grain overwrite channel and proves unrestricted coding bounds, while Kashyap–Zémor gives unrestricted upper bounds; neither inspected statement classifies the all-length Hamming-weight-two optimal codebooks. Prior finite unrestricted n=6 codebook census concerns a different feasible universe. Risk: unindexed constant-weight variants.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The two-one sparse-weight layer is a canonical coding restriction for grain-overwrite media; sharp cardinality and classification of every extremal codebook for all lengths answer a natural exact combinatorial capacity problem. The full (n−3)² indexed multiplicity is structural, not a table or arbitrary small calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
