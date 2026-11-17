@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and claim-to-evidence
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this document. The script uses only the Python standard library. It checks 1,728 exact-rational cost identities over a parametrized family for which the square root is rational, 2,500 randomized parameter choices for the symmetry-broken and unsplit phases, and eight near-threshold asymptotic instances. A successful execution prints `REPRODUCIBILITY_OK` with those counts.
+## correctness
 
-The full mathematical proof is in `RESULT.md`: the tangent-space projector confirms the exact one-step scheme, the leading eigenprojector establishes the best-rank-one state and a uniform singular gap, and the derivative of a strictly increasing scalar threshold function proves the complete global classification for the infinite parameter ranges. The Taylor expansion separately proves the quartic boundary, square-root branching, cost gap and vanishing matrix-retraction residual.
+PASS
 
-Finite numerical or rational checks are not exhaustive proofs of the global claim. Calculations assume exact input matrices and a true optimal rank-one Frobenius retraction; they do not certify floating-point implementations, longer time horizons, other low-rank integrators or historical novelty. No independent mathematical audit has been performed.
+The tangent projector P0Z+ZP0-P0ZP0 fixes E. A(u)=[[1,u],[u,0]] has eigenvalues (1±sqrt(1+4u²))/2, best Frobenius rank-one retraction lambda_plus P_plus, and singular-value gap exactly 1. The exact cost in s=u² has derivative proportional to strictly increasing T_gamma(delta)-q, so threshold q_c=1+gamma/2 yields unique zero below, two symmetric global controls above. Direct expansion gives (q_c-q)s+(2q-1/2)s²+O(s³), quartic at criticality, near-critical split, cost gap and vanishing retraction error; the unreduced cost is strictly convex. Independently confirmed Taylor coefficients and spectral identities.
+
+## originality
+
+PASS
+
+The complete one-step global minimizer classification, threshold and vanishing-error/nonvanishing singular-gap phenomenon is not a corollary of Carrel–Vanzan general continuous DLRA gradient error estimates or observed local minima, nor of general rank-one projector formulas alone.
+
+## value
+
+PASS
+
+Constructs a rigorously quantified smallest-dimensional counterexample to transferring convex control uniqueness through best-rank-one projection without singular-value degeneracy; exact threshold and small-error scaling are meaningful to low-rank control design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
