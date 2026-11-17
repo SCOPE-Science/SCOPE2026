@@ -1,0 +1,11 @@
+# Scientific review: sharp all-period hybrid-cycle census
+
+**Correctness: PASS.** The two circular half-flights each last exactly \(\pi\) and reduce strict alternating section dynamics to the square of one degree-\(n\) reset polynomial. The chosen Chebyshev reset has \(n\) disjoint strict inverse branches of \([0,1]\). Each length-\(m\) branch word provides a distinct real fixed point, saturating the polynomial degree bound \(n^m\); this proves both exhaustive reality and simplicity for every iterate. Möbius inversion gives exact primitive cycles; simplicity at period \(k\) and at doubled period excludes both neutral real multipliers. Strict critical-value margins show coefficient openness. Three finite exact Sturm tests corroborate, but do not replace, the proof.
+
+**Originality: PASS within the examined literature.** Llibre–Santana's originating paper gives the general return construction, a quadratic logistic chaotic example, and a degree-one regular-cycle theorem; it does not give the degree-\(n\) simultaneously sharp periodic census or its open robust realization. The closest published quadratic-reset spatial-correlation finding concerns ergodic time statistics, not the polynomial degree extremal problem. The Chebyshev/branch-counting technique is classical and is acknowledged as such. No full-text claim is made for inaccessible Li–Liu work on linear resets. Negative index searches alone do not establish absolute novelty.
+
+**Mathematical value: PASS.** Maximum finite-time return counts and their primitive-period distribution are intrinsic quantitative invariants of the studied hybrid family. The construction realizes the maximum in **all degrees and all iterate lengths at once** on an open set of genuinely nonlinear resets, complementing the known qualitative chaos construction and contrasting sharply with the affine-reset uniqueness regime. The scope is deliberately confined to strict alternating transverse itineraries; the result is not a universal bound on every hybrid orbit.
+
+**Residual risk:** a later or unindexed paper might already provide the same sharp hybrid realization. The sharp-count proof is elementary full-branch dynamics after a nontrivial exact hybrid reduction. No external independent mathematical audit was conducted.
+
+Self-review: passed. Independent audit: not yet performed.
