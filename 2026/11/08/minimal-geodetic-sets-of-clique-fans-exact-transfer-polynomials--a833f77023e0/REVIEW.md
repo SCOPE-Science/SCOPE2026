@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The hub is redundant in any minimal set because mandatory simplicial end layers already geodetically cover it. A nonselected interior vertex has a two-edge geodesic through it precisely when the adjacent layers both contain selected vertices. Deleting each selected vertex yields the three local states with necessary-and-sufficient neighbor conditions. An explicit transfer matrix enumerates every labelled word once; constructive distinct-size words and finite exceptional checks establish the exact purity boundary for every allowed integer parameter. An independent shortest-path enumerator checks 388736 subsets over 11 graph profiles, and transfer purity is checked over a further finite parameter grid. These experiments are not the unrestricted proof.
+PASS
 
-## Originality
+For n>=3, m>=2 in K_1 vee(P_n[K_m]), verified terminal cliques are simplicial and entirely forced; hub h is covered by a shortest end-to-end path, so never in a minimal geodetic set. Diameter 2 and the neighborhood geometry give the exact per-interior-layer feasibility s_i=m or (s_(i-1)>0 and s_(i+1)>0). Deletion tests leave exactly full F, empty Z, singleton P and the three stated nearest-neighbor conditions; no multi-vertex partial layer is minimal. Pair-state 9x9 transfer weights v(F)=z^m, v(Z)=1, v(P)=mz count labelled sets without quotienting; explicit witness words and small exceptional enumeration prove purity only n=3 or m=2,n=4,6. Independently constructed graph distances and all geodetic vertex closures for n=3..5,m=2 and n=3..4,m=3, matching the transfer values. General proof is local, not reliant on finite tests.
 
-PASS, with residual publication-priority uncertainty. The 2023 general enumeration article gives reductions and algorithmic classifications, not the explicit clique-fan word language, polynomial, or purity. The 2023 fan polynomial concerns a single vertex per path position, rather than complete layers of size at least two. The 2011 lexicographic-product article addresses minimum cardinalities, particularly noncomplete factors, and does not state a labelled minimal-set enumerator for a universal vertex joined to a complete-layer path. Targeted published research-record searches compared the same objects, dual formulations and stronger implicit covering statements. The 2011 full article could not be inspected from available open sources; only its bibliographic abstract was available. An unindexed stronger statement remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A new natural twin-clique enlargement of the classical fan has qualitatively different minimal-set behavior: empty, full and singleton layers all become essential in different circumstances. The exact local word language and fixed-size transfer matrix provide all labelled minimal sets, not merely the geodetic number. The sharp nonmonotone purity characterization, including a return to purity for two-vertex cliques at six layers, is a structural boundary visible only from complete solution enumeration.
+The previously known general minimal-geodetic-set enumeration and fan graph polynomials do not specify this clique-blowup joined path, three-state exact classification, polynomial and sharp purity boundary. The natural family m>=2 differs essentially from ordinary fans m=1.
 
-## Limits
+## value
 
-Only ordinary geodetic sets and n>=3,m>=2. No assertion about arbitrary graph substitution, independent priority certification, or topological homotopy type is made. The equivalence to broader literature has been assessed using the specifically available full texts and exact claimed parameter domains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Clique substitution and joining a universal hub produce a natural diameter-two family whose minimal geodetic sets have a nontrivial local combinatorial classification. The weighted 9x9 transfer matrix counts all labelled minimal sets, and the sporadic pure complex at six doubleton layers is a sharp, mathematically motivated boundary. These are exact invariants researchers may need beyond the scalar geodetic number and beyond a black-box enumerator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

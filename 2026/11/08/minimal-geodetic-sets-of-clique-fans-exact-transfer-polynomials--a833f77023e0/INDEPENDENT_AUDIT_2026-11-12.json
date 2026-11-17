@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:54:18.477608Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/minimal-geodetic-sets-of-clique-fans-exact-transfer-polynomials--a833f77023e0/RESULT.md",
+        "RESULT.md:3e98383ded82a62bf21cf77f6eb62ee840beaa0e",
+        "verify.py:e5c52b2b626898d374b3a5398f138871df61b215",
+        "independent_checks.py:clique_fan_geodetic"
+      ],
+      "rationale": "For n>=3, m>=2 in K_1 vee(P_n[K_m]), verified terminal cliques are simplicial and entirely forced; hub h is covered by a shortest end-to-end path, so never in a minimal geodetic set. Diameter 2 and the neighborhood geometry give the exact per-interior-layer feasibility s_i=m or (s_(i-1)>0 and s_(i+1)>0). Deletion tests leave exactly full F, empty Z, singleton P and the three stated nearest-neighbor conditions; no multi-vertex partial layer is minimal. Pair-state 9x9 transfer weights v(F)=z^m, v(Z)=1, v(P)=mz count labelled sets without quotienting; explicit witness words and small exceptional enumeration prove purity only n=3 or m=2,n=4,6. Independently constructed graph distances and all geodetic vertex closures for n=3..5,m=2 and n=3..4,m=3, matching the transfer values. General proof is local, not reliant on finite tests.",
+      "residual_risks": [
+        "Independent brute force is for small complete clique layers only; uniform proof for arbitrary n,m depends on the verified local geodesic/deletion characterization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier results give algorithmic enumeration on broad graph classes or minimum geodetic number for product classes, but not this family entire inclusion-minimal polynomial."
+        ],
+        "reasoning": "An enumeration algorithm applied to a family could reproduce results after a nontrivial analysis, but its published theorem does not state or imply the exact 9-state transfer plus exceptional purity regime.",
+        "searches": [
+          "Bergougnoux Defrain Mc Inerney arXiv:2309.17419 full text enumeration geodetic",
+          "Brešar Kraner Šumenjak Tepeh 2011 geodetic number lexicographic product"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2309.17419v2",
+        "https://www.questjournals.org/jram/papers/v9-i1/09010108.pdf",
+        "https://doi.org/10.1016/j.disc.2011.04.004",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-geodetic-sets-of-clique-fans-exact-transfer-polynomials--a833f77023e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic complexity and enumeration can coexist with these F/Z/P local words, but do not force the numerical purity cases."
+        ],
+        "reasoning": "Minimal geodetic sets in crown and clique-fan graphs are distinct families. The source proof uses universal-vertex diameter-two geometry and adjacent clique layers in a way prior scalar geodetic-number results cannot imply.",
+        "searches": [
+          "Resultary: geodetic and minimal geodetic cardinality polynomials of crown graphs",
+          "arXiv:2309.17419 full-text sections on enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The definition is ordinary geodetic closure by two selected endpoints; the relevant prior enumeration paper reduces generic minimal-geodetic enumeration to hypergraph transversals."
+        ],
+        "reasoning": "The complete-layer fan is not identical to ordinary fan K_1 vee P_n or K_m square P_n. The source-specific F,Z,P local constraints and label weights are not contained in a generic reduction.",
+        "searches": [
+          "Resultary: minimal geodetic sets clique fan blowup lexicographic P_n[K_m] universal vertex transfer polynomial",
+          "Bergougnoux Defrain Mc Inerney arXiv:2309.17419 minimal solution sets metric graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ordinary fan m=1 data concern a different geometry; only current exact record search contains exceptional (n,m)=(6,2) count 27."
+        ],
+        "reasoning": "No prior exact labelled table for m>=2 surfaced; ordinary fan numbers cannot be substituted because partial clique layers are essential.",
+        "searches": [
+          "Resultary: minimal geodetic sets clique fans purity n 6 m 2",
+          "Dafini Vijayan 2023 On Geodetic Sets and Geodetic Polynomials of Fan Graphs"
+        ]
+      },
+      "rationale": "The previously known general minimal-geodetic-set enumeration and fan graph polynomials do not specify this clique-blowup joined path, three-state exact classification, polynomial and sharp purity boundary. The natural family m>=2 differs essentially from ordinary fans m=1.",
+      "residual_risks": [
+        "An unindexed specialized fan-blowup classifier or other equivalent lexicographic geodetic-set polynomial may exist.",
+        "The ordinary-fan 2023 PDF was not used to make a whole-document negative coverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL reduction/algorithms, no exact clique-fan labelled transfer polynomial or purity classification",
+          "evidence": "General minimal geodetic enumeration result and hypergraph-transversal reductions lack an F/Z/P state formula for K1 vee(P_n[K_m]).",
+          "identifier_or_url": "https://arxiv.org/html/2309.17419v2",
+          "material_read": "Accessible full primary article including definitions and algorithmic equivalence theorems and proofs",
+          "method": "Read HTML technical sections and compare hypotheses/conclusions",
+          "title": "Enumerating minimal solution sets for metric graph problems",
+          "trigger": "Exact research area, geodetic and minimal strong-resolving enumeration"
+        },
+        {
+          "assessment": "RELATED but different graph; historic complete content remains a residual check",
+          "evidence": "Ordinary fan is K1 vee P_n; here each layer contains m>=2 mutually adjacent true twins.",
+          "identifier_or_url": "https://www.questjournals.org/jram/papers/v9-i1/09010108.pdf",
+          "material_read": "Bibliographic record and article scope identified; no full-document mathematical noncoverage asserted for m>=2",
+          "method": "Known title/scope and contrast m=1 vs m>=2",
+          "title": "On Geodetic Sets and Geodetic Polynomials of Fan Graphs",
+          "trigger": "Plausible prior fan polynomial"
+        },
+        {
+          "assessment": "SAME assigned result; not independent earlier coverage",
+          "evidence": "Published summary repeats precise n=3 and n=4,6 exceptions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-geodetic-sets-of-clique-fans-exact-transfer-polynomials--a833f77023e0",
+          "material_read": "Published indexed summary and full frozen source manuscript",
+          "method": "Compare identities and source mathematics",
+          "title": "Minimal geodetic sets of clique fans: exact transfer polynomials and purity",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2309.17419v2",
+        "2026/11/08/minimal-geodetic-sets-of-clique-fans-exact-transfer-polynomials--a833f77023e0/RESULT.md"
+      ],
+      "rationale": "Clique substitution and joining a universal hub produce a natural diameter-two family whose minimal geodetic sets have a nontrivial local combinatorial classification. The weighted 9x9 transfer matrix counts all labelled minimal sets, and the sporadic pure complex at six doubleton layers is a sharp, mathematically motivated boundary. These are exact invariants researchers may need beyond the scalar geodetic number and beyond a black-box enumerator.",
+      "residual_risks": [
+        "No asymptotic coefficient law or all graph substitution theorem asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent brute force is for small complete clique layers only; uniform proof for arbitrary n,m depends on the verified local geodesic/deletion characterization.",
+    "An unindexed specialized fan-blowup classifier or other equivalent lexicographic geodetic-set polynomial may exist.",
+    "The ordinary-fan 2023 PDF was not used to make a whole-document negative coverage claim.",
+    "No asymptotic coefficient law or all graph substitution theorem asserted."
+  ],
+  "schema_version": 1
+}
