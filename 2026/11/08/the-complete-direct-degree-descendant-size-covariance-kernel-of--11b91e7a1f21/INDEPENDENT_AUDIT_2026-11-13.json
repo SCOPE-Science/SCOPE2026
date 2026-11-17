@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:58:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-complete-direct-degree-descendant-size-covariance-kernel-of--11b91e7a1f21/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-complete-direct-degree-descendant-size-covariance-kernel-of--11b91e7a1f21/VERIFICATION.md"
+      ],
+      "evidence": [
+        "Frozen RESULT.md blob 3f15a60b8abeec7e9d230b4aa28622950772d55c",
+        "Independently reconstructed Git tree d14a2fc18fba5f9bae0224334a473efdd4182c06",
+        "Independent exact fraction enumeration of all recursive-tree parent sequences n=2..7 and all birth-label pairs; reviewed source checker and telescoping proof."
+      ],
+      "rationale": "Write D_i=sum_{t=i}^{n-1} B_(i,t), use conditional S_j(n)=(n/(t+1))S_j(t+1) when t>=j, and conditional parent location. The probability a fixed vertex i belongs to j-subtree is zero for i<j, one for i=j, and 1/j for i>j. This gives Cov(B_(i,t),S_j(n))=n[p_(ij)-1/j]/[t(t+1)] for t>=max(i,j). For t<j the future j-subtree is independent of that earlier parent choice. Telescoping yields exactly the claimed triangular matrix and zero boundary columns; sum over i is zero because total offspring n-1 is deterministic. Independently enumerated every parent sequence n=2..7 using exact fractions, checking every i,j.",
+      "residual_risks": [
+        "Uninspected full 2007 degree paper and potential general multivariate increasing-tree formulas are historical-priority risks.",
+        "Covariance zero for later labels does not imply independence of variables."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2009 generalized descendants paper includes bivariate descendant–descendant distribution, but no inspected direct-degree/subtree mixed-covariance theorem."
+        ],
+        "reasoning": "A general joint generating function for children and subtree sizes might imply the result, but direct coverage was not established. The 2007 degree distribution alone is insufficient.",
+        "searches": [
+          "random recursive rooted trees direct children count vertex and descendant subtree size covariance kernel",
+          "https://www.dmg.tuwien.ac.at/kuba/preprintcombdesc.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://www.dmg.tuwien.ac.at/kuba/preprintcombdesc.pdf",
+        "https://www.dmg.tuwien.ac.at/kuba/nodedegree3.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-direct-degree-descendant-size-covariance-kernel-of--11b91e7a1f21"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2009 paper abstract and Sections 1, 3, 4: distributions and joint descendants for j1,j2."
+        ],
+        "reasoning": "The joint law of two descendant sizes is not enough to recover Cov(number of immediate offspring of i, subtree size of j), because D_i is not a fixed function of either subtree size alone.",
+        "searches": [
+          "random recursive rooted trees direct children count vertex and descendant subtree size covariance kernel",
+          "https://www.dmg.tuwien.ac.at/kuba/preprintcombdesc.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuba–Panholzer primary differentiates node-degree (immediate children) and descendant size; Sections 3–4 focus subtree sizes and joint descendant sizes."
+        ],
+        "reasoning": "The present object is a cross-covariance between different types of variables, not the diagonal descendant covariance or degree-depth covariance in other records.",
+        "searches": [
+          "random recursive rooted trees direct children count vertex and descendant subtree size covariance kernel",
+          "https://www.dmg.tuwien.ac.at/kuba/preprintcombdesc.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary targeted search returned the present kernel and related subtree–subtree, degree–depth and leaf-count covariance findings."
+        ],
+        "reasoning": "No independent exact table of the two-index D_i versus S_j covariance was identified; exhaustive finite n<=7 is not novelty evidence.",
+        "searches": [
+          "random recursive rooted trees direct children count vertex and descendant subtree size covariance kernel",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-direct-degree-descendant-size-covariance-kernel-of--11b91e7a1f21"
+        ]
+      },
+      "rationale": "Kuba–Panholzer (2006, 2007, 2009) derive descendant subtree marginal and joint descendant statistics and degree laws, but the inspected 2009 primary text treats random vector of descendant counts, not mixed immediate-child count D_i against descendant size S_j. Related Resultary theorems on sibling leaves, degrees and depths, or covariance of two subtree sizes involve different random variables; they do not imply this mixed kernel by direct specialization. Originality accepted with possibility that a general multivariate generating function could imply it.",
+      "residual_risks": [
+        "Uninspected full 2007 degree paper and potential general multivariate increasing-tree formulas are historical-priority risks.",
+        "Covariance zero for later labels does not imply independence of variables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS descendant marginal and descendant-pair, NOT a stated all-i,j direct-degree/descendant covariance matrix.",
+          "evidence": [
+            "Abstract and §1.2 specify vector of descendant counts j1,j2; §3 focuses subtree-size parameter."
+          ],
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/preprintcombdesc.pdf",
+          "material_read": "Full 20-page lawful author preprint with abstract, Sections 1–4 and later arguments/tables reviewed, including Section 3 growth rule and descendants pair.",
+          "method": "Examined PDF parsed text and rendered page image to check the exact distinguished random variables.",
+          "title": "A combinatorial approach for analyzing the number of descendants in increasing trees and related parameters",
+          "trigger": "Very relevant earlier paper on descendants and node-degree analogues"
+        },
+        {
+          "assessment": "Could potentially supply intermediary degree moment identities but does not on available evidence settle mixed kernel.",
+          "evidence": [
+            "JCTA 114 (2007), 597–618, degree laws."
+          ],
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/nodedegree3.pdf",
+          "material_read": "Reference/title and published scope; not fully read in this execution.",
+          "method": "Access scope limitation disclosed; no whole-document exclusion inferred.",
+          "title": "On the degree distribution of the nodes in increasing trees",
+          "trigger": "Same vertex-degree marginals in increasing trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.dmg.tuwien.ac.at/kuba/preprintcombdesc.pdf",
+        "https://www.dmg.tuwien.ac.at/kuba/nodedegree3.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-direct-degree-descendant-size-covariance-kernel-of--11b91e7a1f21"
+      ],
+      "rationale": "The complete exact two-index covariance matrix is a natural local-global dependence invariant of the foundational recursive-tree growth model, revealing uniform negative predecessor entries, a balanced positive diagonal and an orthogonal younger region. This information is not determined by marginal laws and can be used in second-moment analysis of mixed tree statistics.",
+      "residual_risks": [
+        "Uninspected full 2007 degree paper and potential general multivariate increasing-tree formulas are historical-priority risks.",
+        "Covariance zero for later labels does not imply independence of variables."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.dmg.tuwien.ac.at/kuba/preprintcombdesc.pdf",
+    "https://www.dmg.tuwien.ac.at/kuba/nodedegree3.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-direct-degree-descendant-size-covariance-kernel-of--11b91e7a1f21"
+  ],
+  "disposition": "passed",
+  "final_claim": "For birth-indexed uniform recursive tree, Cov(D_i,S_j)=-(n-j)/j^2 for i<j, (n-j)(j-1)/j^2 for i=j, 0 for i>j, all finite n>=2; D counts immediate children, S entire rooted descendant subtree including j.",
+  "limitations": [
+    "Uniform attachment only; does not establish pairwise independence or full joint law."
+  ],
+  "residual_risks": [
+    "Uninspected full 2007 degree paper and potential general multivariate increasing-tree formulas are historical-priority risks.",
+    "Covariance zero for later labels does not imply independence of variables."
+  ],
+  "schema_version": 1
+}

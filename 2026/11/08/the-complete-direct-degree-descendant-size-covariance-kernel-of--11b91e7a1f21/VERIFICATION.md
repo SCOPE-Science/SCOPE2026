@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_degree_subtree.py` using Python 3 standard library. The checker constructs every uniformly probable parent-choice sequence for tree sizes 2 through 9, computes direct degrees and complete descendant-subtree sizes, obtains mixed covariances as `fractions.Fraction`, and compares all entries to the analytic formula. It additionally checks direct-degree means and the exact conservation of each covariance column through size 109.
+## correctness
 
-Observed stdout when replayed from this candidate's current standalone artifact:
+PASS
 
-```
-PASS 6322 exact checks; all recursive trees with <=9 nodes enumerated
-```
+Write D_i=sum_{t=i}^{n-1} B_(i,t), use conditional S_j(n)=(n/(t+1))S_j(t+1) when t>=j, and conditional parent location. The probability a fixed vertex i belongs to j-subtree is zero for i<j, one for i=j, and 1/j for i>j. This gives Cov(B_(i,t),S_j(n))=n[p_(ij)-1/j]/[t(t+1)] for t>=max(i,j). For t<j the future j-subtree is independent of that earlier parent choice. Telescoping yields exactly the claimed triangular matrix and zero boundary columns; sum over i is zero because total offspring n-1 is deterministic. Independently enumerated every parent sequence n=2..7 using exact fractions, checking every i,j.
 
-All-size correctness comes from the independent-insertion conditioning and the telescoping proof in `RESULT.md`, not from finite enumeration. The program is ordinary reproducibility code, not an external or independent certification.
+## originality
+
+PASS
+
+Kuba–Panholzer (2006, 2007, 2009) derive descendant subtree marginal and joint descendant statistics and degree laws, but the inspected 2009 primary text treats random vector of descendant counts, not mixed immediate-child count D_i against descendant size S_j. Related Resultary theorems on sibling leaves, degrees and depths, or covariance of two subtree sizes involve different random variables; they do not imply this mixed kernel by direct specialization. Originality accepted with possibility that a general multivariate generating function could imply it.
+
+## value
+
+PASS
+
+The complete exact two-index covariance matrix is a natural local-global dependence invariant of the foundational recursive-tree growth model, revealing uniform negative predecessor entries, a balanced positive diagonal and an orthogonal younger region. This information is not determined by marginal laws and can be used in second-moment analysis of mixed tree statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

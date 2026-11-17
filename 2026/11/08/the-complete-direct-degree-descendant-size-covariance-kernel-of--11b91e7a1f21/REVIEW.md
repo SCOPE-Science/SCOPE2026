@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof uses the independent uniform parent process, the exact subtree-size martingale scaling, and the one-step conditional product for a parent-choice indicator. Summing a telescoping covariance yields all three cases for every label pair and every finite tree size, including deterministic boundary columns. The standalone verifier tested all recursive trees through nine vertices by exact rational arithmetic (6,322 assertions including further column-sum checks). Enumeration is not the basis of the all-size proof.
+PASS
 
-## Originality (PASS, with residual risk)
+Write D_i=sum_{t=i}^{n-1} B_(i,t), use conditional S_j(n)=(n/(t+1))S_j(t+1) when t>=j, and conditional parent location. The probability a fixed vertex i belongs to j-subtree is zero for i<j, one for i=j, and 1/j for i>j. This gives Cov(B_(i,t),S_j(n))=n[p_(ij)-1/j]/[t(t+1)] for t>=max(i,j). For t<j the future j-subtree is independent of that earlier parent choice. Telescoping yields exactly the claimed triangular matrix and zero boundary columns; sum over i is zero because total offspring n-1 is deterministic. Independently enumerated every parent sequence n=2..7 using exact fractions, checking every i,j.
 
-The relevant primary literature separates degree counts (Kuba–Panholzer 2007) from descendant-subtree sizes and their two-vertex joint law (Kuba–Panholzer 2006, 2009). The mixed direct-child/whole-subtree kernel, its strict triangular sign structure, and its equal-share cancellation are not explicit in the material inspected. Published-record searches for degree/subtree covariance aliases found no equivalent or stronger stated theorem. An older multivariate increasing-tree generating function might imply the formula without stating it; historical-priority risk remains and independent audit has not occurred.
+## originality
 
-## Value (PASS)
+PASS
 
-Direct branching and entire genealogical lineage are the natural local and global birth-indexed descriptors of the uniform random recursive tree. The result gives the complete all-label dependence kernel, with exact sign localization, an unexpected downstream zero-covariance region, and a conservation-driven equal-share cancellation across older vertices. It provides a reusable baseline for age-sensitive dependence and distinguishes correlation from genealogical dependence.
+Kuba–Panholzer (2006, 2007, 2009) derive descendant subtree marginal and joint descendant statistics and degree laws, but the inspected 2009 primary text treats random vector of descendant counts, not mixed immediate-child count D_i against descendant size S_j. Related Resultary theorems on sibling leaves, degrees and depths, or covariance of two subtree sizes involve different random variables; they do not imply this mixed kernel by direct specialization. Originality accepted with possibility that a general multivariate generating function could imply it.
 
-## Limits
+## value
 
-The law does not assert independence or extend automatically to nonuniform attachment. Exhaustive checks are finite; the analytic argument is necessary. Historical priority is qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete exact two-index covariance matrix is a natural local-global dependence invariant of the foundational recursive-tree growth model, revealing uniform negative predecessor entries, a balanced positive diagonal and an orthogonal younger region. This information is not determined by marginal laws and can be used in second-moment analysis of mixed tree statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
