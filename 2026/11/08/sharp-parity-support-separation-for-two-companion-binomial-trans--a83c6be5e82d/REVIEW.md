@@ -1,25 +1,21 @@
-# Scientific review — sharp parity-support separation for two companion binomial transforms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two foundational run-length-transform identities are published in Rampersad–Wiebe, Theorems 13 and 14. Starting from their respective base-sequence initial vectors, the parity recurrences are independently reconstructed: in characteristic two the fourth-order recurrence immediately yields period five. The allowed one-run residue classes are therefore exact for every nonnegative argument. The binary-word decomposition is bijective (initial zeros, complete run/positive-zero blocks, optional final run). It produces the rational count generating functions without asymptotic assumptions. For each denominator, coefficient positivity, a degree-one term, and the strict positive derivative condition establish one simple dominant positive pole, yielding the leading constants and exact exponents. The universal bound for arbitrary cutoffs follows from dyadic sandwiches. This proves all quantified conclusions, including zero natural density, without extrapolating finite data.
+PASS
 
-A standalone executable reconstruction of both integer binomial sums used Lucas's bit test, comparing direct values and word predicates for \(0\le n<1024\). Exhaustive word counts through 14-bit words match the generating function coefficients. The supplied output was produced from the supplied checker. Experiments corroborate but are not used as an infinite proof.
+Rampersad–Wiebe 2023 Theorems 13 and 14 supply the exact original integer binomial-sum run-length transforms with seeds (1,1,1,1) and (1,2,2,3) and the common order-four recurrence. Modulo 2 the recurrence has period five with parity profiles 11110 and 10010; because the transform is a product over lengths of maximal binary one-runs, U is odd iff every length lies in residues {0,1,2,3} mod5, V iff each length lies in {0,3} mod5. A unique binary-word block decomposition gives rational enumerators (1+z+z²+z³)/(1-z-z²-z³-z⁴-z⁵) and (1+z³)/(1-z-z⁴-z⁵). Denominators have unique simple strictly positive dominant roots via triangle inequality and the degree-one term, so their coefficients grow as C_i λ_i^m with λ_U≈1.9659482, λ_V≈1.4970940, and arbitrary-X support exponents log2 λ_i. Independently computed original binomial residues using Lucas bit criterion for every n<1024 and exact dyadic counts m<=10; the all-n assertion is the recurrence/language proof, not finite enumeration.
 
-## Originality — PASS within inspected evidence
+## originality
 
-The explicit binomial-to-run-length correspondences are **not new**; they are the published starting point in Rampersad–Wiebe (2023), Section 5. The exact arithmetic odd-support description of the second transform, its rational count, its algebraic growth exponent and asymptotic constant, and the strict relative exponential thinning in the companion pair are not asserted in that paper. Its Section 6 treats means of selected original transforms, not parity-support counts for this pair. Wu (2016, preprint; later revisions) establishes related but different older transforms, not this pair. OEIS A124312 **does already tabulate the first transform's binary-word count**, so that enumeration is a comparison baseline rather than independently claimed originality. An entry implying the second transform's count or the support-inclusion/relative-growth theorem was not identified by focused formula, coefficient, keyword, equivalence, and thematic searches. Such searches do not prove global novelty; unidentified equivalent counting sequences remain a residual risk.
+PASS
 
-## Mathematical value — PASS
+The 2023 paper already proves both underlying run-length identities. Further, a 2026-11-02 theorem gives the entire U zero-valuation generating function, U exponent and its fixed higher 2-adic strata; OEIS A124312 independently counts the U language. Neither these nor the separately inspected V-Mersenne valuation theorem give the second V odd-support rational enumerator, its exponent, strict nested support and exponentially vanishing v_m/u_m. Originality is credited solely to that surviving V count and comparative law, not the known U component or the transform identities.
 
-These are two naturally paired arithmetic sums, introduced together by the primary source precisely because their generating recurrences agree but their initial conditions differ. The exact parity-support theorem shows that this small initial-state change produces a strict support inclusion and an unusually large gap between canonical power-law counting exponents (approximately \(0.975225\) versus \(0.582165\)); furthermore their relative dyadic frequency decays at a specified exponential rate. Parity sparsity and its precise exponent describe a nontrivial natural invariant of the arithmetic transforms, complementing the paper's work on mean values. The second rational enumeration and the relative asymptotics are not merely a recomputation of the previously catalogued first count, and the comparison is useful for questions about distribution and constraints in automatic/regular number-theoretic sequences.
+## value
 
-## Closest literature and limitations
+PASS
 
-* Rampersad and Wiebe, *Sums of products of binomial coefficients mod 2 and 2-regular sequences*, arXiv:2309.04012v1 (2023-09-07), Theorems 13–14 and Section 6: supplies input formulas but no stated parity-support count/exponent comparison.
-* Chai Wah Wu, *Sums of products of binomial coefficients mod 2 and run length transforms of sequences*, arXiv:1610.06166v1 (2016-10-19): precursor and general identities, not the two new 2023 transforms.
-* OEIS A124312: older exact forbidden-run enumeration for the first companion. The current claim does not present that independent enumeration as new.
+The exact odd-support density of a named arithmetic binomial sum is a natural 2-adic sparsity invariant. The V formula supplies a new complete exact counting law and entropy exponent, sharply distinguishing two companion transforms with identical recurrence coefficients but different seeds; the V support is asymptotically negligible even among odd U values. The known U count and general regular-language enumeration method alone would not provide the V arithmetic conclusion.
 
-The result applies only to these two binomial sums, presupposes the published identities, and concerns parity, not magnitude distributions. No independent scientific audit has been performed; possible undiscovered equivalent counting statements remain a genuine originality risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
