@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Place `direct_verify.py`, `chamber_verify.py`, and `representatives.csv` together in one directory and run:
+## correctness
 
-```sh
-python3 direct_verify.py
-python3 chamber_verify.py
-```
+PASS
 
-The direct program enumerates exactly \(3^9=19683\) independent three-state complement-orbit choices, rejects directed cycles using DFS, and prints the complete \(16\)-coefficient size distribution. It independently forms all equivalence orbits of the complement-preserving \(48\)-element permutation group, counts each class by size, and verifies all \(220\) rows of the included representative table.
+Dinucleotide circular ambiguity is a directed closed walk; hence circular code iff its arc digraph is acyclic. Arc-reversing fixed-point-free complement gives symmetric source/sink elimination and an invariant topological order. The nine complement-orbits of unordered pairs each allow 3 states; all 3^9=19683 assignments can be exhaustively checked, with 48 complement-preserving relabelings. Independent complete brute-force acyclicity enumeration reproduced all coefficients F and all 48-group orbit coefficients G, totals 8383 labeled and 220 orbits, with 48 maximal labeled codes. Distinguishes complete finite search from an infinite classification; no inference for larger alphabets.
 
-The second program enumerates \(48\cdot2^9=24576\) symmetric-order/subset pairs, deduplicates their resulting codebooks, and verifies the complete labeled distribution independently. It computes the number of equivalence classes by a fixed-point Burnside calculation, not the first program's canonical-representative method. For one and two complement pairs it checks the smaller totals \(3\) and \(65\); for three pairs it checks \(8383\) and \(220\).
+## originality
 
-Actual replay results:
+PASS
 
-```
-DIRECT_VERIFY_OK blocks= 9 codes= 8383 max= 48 inequivalent= 220
-CHAMBER_VERIFY_OK 1 3
-CHAMBER_VERIFY_OK 2 65
-CHAMBER_BURNSIDE_VERIFY_OK 3 8383 220
-```
+The Michel–Pirillo four-letter circular-code census and Pellegrini–Pirillo all-alphabet maximum tournament construction do not determine the full size-refined F(z) and 48-symmetry quotient G(z) for a six-symbol fixed-point-free complement. General graph-theoretic acyclicity criterion is used, not claimed new. No complete six-letter 8383/220 census found in searched published records; historical unindexed enumeration remains possible.
 
-Both programs print the exact coefficient vectors in the finding. The exhaustive enumeration is a proof of these specific finite coefficients because its finite state space and acceptance test have an independently explained bijection; it is not a proof of unclaimed general-alphabet formulas. No independent external assessment was performed.
+## value
+
+PASS
+
+The first complementary alphabet with three paired symbols supplies a natural exact finite census of all circular dinucleotide codes, not merely maxima. Complete cardinality coefficients, symmetry orbits and 220 constructive representatives form a reusable coding-theory benchmark without claims about biology or higher alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
