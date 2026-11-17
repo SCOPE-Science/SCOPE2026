@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proximal formula follows by orthogonal mean/contrast separation. The active Jacobian has quotient form aI+(1-a)uu^T and the exact rank-one BV norm reduces to edge signs and central steps. The two-vector spectral identity and extremal alternating signs prove the closed formula for all n. A one-sided boundary perturbation realizes the sharp limit, and the strict active-derivative bound rules out finite equality for n>=3. Standard-library finite checks reproduced all stated identities and sampled inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chambolle and Pock, Acta Numerica 25 (2016), sections 2 and 3.4, discuss Hilbert-norm contraction of proximity operators and graph-grid total-variation regularization.",
+        "The Euclidean contraction theorem estimates a different input and output geometry and therefore does not bound the path-variation amplification by one."
+      ],
+      "reasoning": "A stronger universal path-BV nonexpansivity statement would contradict the explicit boundary derivative witnesses for n >= 3. No inspected primary source supplies an all-dimensional BV estimate dominating the new formula; Hilbert contraction and coordinatewise shrinkage results cannot be substituted for it.",
+      "searches": [
+        "radial projection Lipschitz bounded variation norm",
+        "radial shrinkage variation seminorm Euclidean norm",
+        "group shrinkage bounded variation Lipschitz seminorm",
+        "rank one projection bounded variation path sharp norm"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1104.1436",
+      "https://arxiv.org/pdf/1001.0736",
+      "https://doi.org/10.1017/S096249291600009X",
+      "https://doi.org/10.1111/j.1467-9868.2005.00532.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yuan–Lin (2005), publisher abstract: introduction of grouped-variable regularization; no verified full-text comparison.",
+        "Friedman–Hastie–Tibshirani (2010), section 2: formula for Euclidean block shrinkage in regression.",
+        "Argyriou et al. (2011), equation (2.4): scalar radial Euclidean proximal formula and Hilbert nonexpansivity.",
+        "Chambolle–Pock (2016), sections 2 and 3: separate group sparsity, discrete TV regularization and Hilbert contraction in proximal optimization."
+      ],
+      "reasoning": "The new statement is about the exact induced seminorm on path differences and its finite attainment, while these inspected statements specify the optimization map, Euclidean stability or general image-variation objectives. None, from the material read, implies the explicit n-dependent constant and nonattainment. The comparison is limited where an original full text was unavailable.",
+      "searches": [
+        "group soft thresholding block soft thresholding proximal operator l2 norm first 2006 paper 2005 group lasso Yuan Lin",
+        "Efficient First Order Methods for Linear Composite Regularizers proximal variation",
+        "sharp Lipschitz norms of nonlinear log-sum-exp or power mean filters with overlapping moving windows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Argyriou et al., arXiv:1104.1436, section 2 and equation (2.4), establish the same radial Euclidean proximal map but no path-variation Lipschitz coefficient.",
+        "Friedman, Hastie and Tibshirani, arXiv:1001.0736, section 2, derive block soft thresholding in an orthonormal-group regression setting."
+      ],
+      "reasoning": "The mean-preserving proximal map is a centered version of Euclidean group shrinkage, so an existing result about this same quotient and variation norm would cover the claim. The inspected derivations cover the proximal rule only, not the exact cross-norm operator constant, the alternating-gradient/central-cut extremizers or nonattainment. The existence of known general proximal calculus is acknowledged and does not by itself imply the closed finite-path coefficient.",
+      "searches": [
+        "group soft thresholding total variation Lipschitz constant path BV signal centered group shrinkage",
+        "centered group lasso total variation Lipschitz",
+        "proximal operators group lasso Combettes Pesquet 2011 total variation l2 norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact expression involves an alternating edge-sign extremizer, a middle step cut and the integer term floor(n^2/4); no matching tabulation or exact finite-path rank-one norm was located in the searched technical sources.",
+        "The original group-lasso paper by Yuan and Lin has a verified first-publication date of 21 December 2005, but only its abstract and metadata were accessible."
+      ],
+      "reasoning": "A known exact table or more general closed formula for this specific rank-one BV projector could cover the new constant. The available checked material provides no such table; absence from search is treated as risk-limited evidence, not proof of global novelty. The inaccessible original is recorded as unresolved access, not declared absent of the claim.",
+      "searches": [
+        "radial shrinkage total variation Lipschitz discrete",
+        "group soft thresholding total variation Lipschitz constant path BV signal centered group shrinkage",
+        "radial retraction bounded variation Lipschitz norm"
+      ]
+    },
+    "rationale": "The exact n-dependent mean-centered two-input path-BV Lipschitz coefficient, dimension-linear growth, nonattainment, and zero-penalty transition are not implied by the materially inspected group shrinkage, proximal optimization or imaging-variation sources. Priority is qualified because the original 2005 paper and potentially other older works could not all be read in full.",
+    "residual_risks": [
+      "The full 2005 Yuan–Lin journal article was inaccessible despite bounded source attempts; its abstract is insufficient for asserting full-document noncoverage.",
+      "Earlier unindexed results on finite-dimensional path BV norms of radial shrinkage may exist; search failure alone is not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the Euclidean-group proximal map but its inspected theorems and computations address proximal optimization, not sharp path BV two-input variation.",
+        "evidence": [
+          "arXiv:1104.1436, section 2, equation (2.4), page 4",
+          "arXiv:1104.1436, introduction, pages 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1104.1436",
+        "material_read": "Full-text PDF introduction, section 2 and equation (2.4), including the scalar and Euclidean soft-threshold formulas and nonexpansivity discussion; broader paper structure reviewed.",
+        "method": "PDF textual extraction with visual inspection of pages 2 and 4.",
+        "title": "Efficient First Order Methods for Linear Composite Regularizers",
+        "trigger": "Same proximal rule and composite penalty class"
+      },
+      {
+        "assessment": "The inspected block-shrink regression derivation contains no mean-centered path-variation seminorm or exact two-input BV coefficient.",
+        "evidence": [
+          "arXiv:1001.0736, section 2, equations (3)–(5), pages 2–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1001.0736",
+        "material_read": "Full-text PDF introduction and section 2, including equations (1), (3)–(5) and the orthonormal-block shrinkage reduction.",
+        "method": "PDF textual extraction and visual inspection of page 3.",
+        "title": "A note on the group lasso and a sparse group lasso",
+        "trigger": "Historical block-group soft thresholding and orthonormality caveat"
+      },
+      {
+        "assessment": "Provides standard Hilbert prox contraction and distinct TV modeling notions; does not state the particular mean-centered radial map coefficient in path BV.",
+        "evidence": [
+          "2016 Acta Numerica, §§2,3.4 and Appendix A"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S096249291600009X",
+        "material_read": "Accessible full HTML sections 2.2–2.4 and 3.4 on grouped norms, discrete TV and Euclidean proximal contraction; article outline and Appendix A checked.",
+        "method": "Full-HTML section inspection and targeted in-document searches.",
+        "title": "An introduction to continuous optimization for imaging",
+        "trigger": "Potentially dominating proximal and total-variation stability results"
+      },
+      {
+        "assessment": "Historical source context only; no full-document absence or coverage determination claimed.",
+        "evidence": [
+          "First published online 21 December 2005; bibliographic DOI 10.1111/j.1467-9868.2005.00532.x"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9868.2005.00532.x",
+        "material_read": "Publisher abstract and first-online publication metadata only; full text not obtained.",
+        "method": "Publisher and bibliographic-page inspection; lawful preprint and open-access searches attempted, full-text access unavailable.",
+        "title": "Model selection and estimation in regression with grouped variables",
+        "trigger": "Original group-lasso source and earliest verified date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1111820a-6506-471f-9870-c7ed3d78ac6d",
+  "value": {
+    "rationale": "This is a natural full classification of a canonical mean-preserving group shrinkage map on path variation: exact n-dependence, sharp nonattaining boundary geometry, a penalty-zero jump, and a linear instability incompatible with its Hilbert nonexpansivity. The result gives a substantive quantitative stability distinction and reproducible sharp examples for arbitrary dimension.",
+    "status": "PASS"
+  }
+}
