@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivative formula is an exact rational identity, and the projective substitution converts the root-count problem into an explicit degree-eight coefficient sign problem. The initial three coefficients are positive, the final two negative, and \(B_3\le0\) forces \(B_4<0\), eliminating the only possible five-sign-change pattern. Descartes' rule gives at most three critical roots with multiplicity. Each basis summand increases on \((0,1/3]\), and the derivative has opposite endpoint signs, giving the claimed root location and odd count. The rational witness has three disjoint strict sign changes, proving optimality. The algebra is independently replayable with `verify.py`.
+## correctness
 
-## Originality — PASS (best-knowledge, not independent priority certification)
-The source's lower-bound formula and restricted uniqueness are prior results. A public settlement and a related narrower sufficient uniqueness condition cover the actual \(b=\sqrt d\) geometric family. The present *upper bound of three in the unrestricted four-parameter family* neither follows from those uniqueness statements nor from the previously available example with three roots, and was not found in the inspected primary text or queried published records. Search absence alone does not establish global novelty; the remaining risk is an unnamed general variation-diminishing theorem specialized to this rational basis.
+PASS
 
-## Mathematical value — PASS
-The result is a sharp, complete complexity ceiling for a natural nonconvex scalar optimization arising as a weighted-shift numerical-radius lower bound. It guarantees at most two local maxima for every positive four-periodic modulation and proves this cannot be reduced to one in the enlarged family. This supplies useful exact control of all competing trial-function maxima without calculating the actual operator numerical radius. The count and witness are natural features of this family, not arbitrary numerical slices.
+Differentiating F gives F’=G/[2sqrt(z)(1-dz^4)^2], with G correct; h_j derivatives strictly positive for 0<z<=1/3, so no earlier root. Reconstructed Q(v)=(1+v)^8 G(v/(1+v)): all 9 coefficients independently computed with SymPy, B0-B2>0, B7-B8<0; the exact inequality B4-(26/7)B3=-9+7d-648a/7-318b/7<-2 excludes the only potential 5-sign-change pattern. Descartes gives at most 3 positive roots counted with multiplicity; endpoint derivative signs imply an odd total, hence 1 or 3. Exact-rational independent substitutions at z=1/2,3/5,3/4,9/10 give +,-,+,-, forcing 3 distinct simple roots and exactly 2 local maxima. This is a universal algebraic proof, not extrapolation of the witness.
 
-## Boundaries
-This is not a theorem identifying the full numerical radius, nor a classification of which parameter tuples have three critical points. A separate independent literature-priority and mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for sharp all-parameter upper bound, not for previously published 3-root witness or restricted-family uniqueness. Published full same-function cone result supplies only b>=sqrt(d) unimodality and >=3 roots somewhere; it cannot exclude a fourth/fifth outside that cone. No broader exact root-count theorem identified, but broader variation-diminishing results remain a priority risk.
+
+## value
+
+PASS
+
+An exact, sharp global count of candidate optimizers is a meaningful structural boundary for the natural geometric-vector lower bound. It reduces continuous optimization to at most 2 local maxima even when the known uniqueness cone fails; it is not merely a sampled example or a claim about the true operator numerical radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
