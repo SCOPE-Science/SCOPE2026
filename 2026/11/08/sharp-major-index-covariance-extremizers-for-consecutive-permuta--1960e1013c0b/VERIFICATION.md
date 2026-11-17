@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 and no external libraries. The supplied checker uses exact rational arithmetic. It independently enumerates every permutation of orders 2 through 7, separately accumulates the joint major-index/consecutive-pattern moments, verifies the exact formula and both equality characterizations, and also checks the combinatorial ascent inequalities through pattern length eight and the positive algebraic identity on a larger integer grid.
+## correctness
 
-The observed result was `PASS 128362 exact assertions`. The exhaustive finite checks do not establish a universal theorem on their own; that conclusion is supplied by the written conditional-probability and ascent-charging proof. No independent external audit has been performed.
+PASS
+
+Conditioning on a prescribed length-m window gives internal descent contributions and left/right boundary probabilities (m+1-σ1)/(m+1), σm/(m+1). Summing over N=n-m+1 windows yields the displayed endpoint/descent kernel. Earliest/latest ascent counts bound endpoint rank losses and leave a strictly positive gap for every nondecreasing pattern other than the decreasing one. Complementing labels negates covariance. Exact exhaustive permutations through n=6 independently validated 1,066 rational comparisons.
+
+## originality
+
+PASS
+
+Consecutive-pattern surveys and refined enumerations are general background; selected inverse-major-index generating functions do not automatically imply the ordinary major-index covariance kernel or sharp extremizers. Known length-three covariance spectra are covariances between pattern counts, not with ordinary major index. No directly dominating all-n all-m theorem found in inspected statements.
+
+## value
+
+PASS
+
+The complete all-pattern finite-n sharp covariance ordering against a classical permutation statistic, including exact endpoint sensitivity, is a motivated extremal classification rather than a special-case count or textbook routine; it enables exact comparison of local patterns with global major-index fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
