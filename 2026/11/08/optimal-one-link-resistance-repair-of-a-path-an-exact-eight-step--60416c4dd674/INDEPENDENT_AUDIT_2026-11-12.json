@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:05:06.716706Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P_n with a single new unit-conductance nonedge i<j, rank-one pseudoinverse update gives Knew=Kpath -(nQ-S^2)/(d+1), d=j-i, where path potential y_t=clamp(t-i,0,d), S=sum y_t, Q=sum y_t^2. Summing explicitly yields g_n(d)-d^2(l-r)^2/[4(d+1)] for exterior lengths l=i-1,r=n-j. Fixed span is best balanced; the proof excludes odd exterior sums by forward difference for d<=(2n+3)/3 or average even neighbor comparison for larger d, with small n checked separately. The exact cubic P(n,k) sign is positive iff n>=8k+10 on admissible steps, proving unique maximizer k=floor((n-2)/8), endpoints k+1,n-k. Asymptotic d=3n/4 gives Kmin=7n^3/96+O(n^2) and relative reduction 9/16. Independently computed exact Fraction potential-variance gains and exhaustive shortcut winners for 3<=n<=44 matched uniqueness. That finite range is not an all-n proof; the sign-polynomial analysis is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General edge-addition complexity results and approximations allow paths as instances but do not state the all-order exact endpoint law; unicyclic extremal results optimize across all unicyclic topologies, not a fixed path plus one link."
+        ],
+        "reasoning": "Broader algorithmic frameworks may compute each instance but do not imply an explicit 8-step closed-form classification absent new summation and sign algebra.",
+        "searches": [
+          "https://arxiv.org/abs/2503.21409",
+          "https://doi.org/10.1016/j.orl.2023.10.002",
+          "https://arxiv.org/abs/1304.7546"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2503.21409",
+        "https://doi.org/10.1016/j.orl.2023.10.002",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3/RESULT.md",
+        "https://arxiv.org/abs/1304.7546"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank-one gain identity is classical and yielded here a rational polynomial in d and l-r; the precise n>=8k+10 sign theorem is the new optimization step."
+        ],
+        "reasoning": "Previously known edge-update facts do not alone select the unique n-dependent minimizer; the all-n sign proof is required.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3/RESULT.md",
+          "https://arxiv.org/abs/2503.21409",
+          "https://doi.org/10.1016/j.orl.2023.10.002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A related path-shortcut result optimizes algebraic connectivity, not Kirchhoff index. General rank-one inverse-update formulas calculate K changes but do not themselves classify maxima."
+        ],
+        "reasoning": "The objective and discrete optimizer are different from the spectral-gap case; this is no simple renaming of previously known path placement.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3/RESULT.md",
+          "https://arxiv.org/abs/2503.21409",
+          "https://doi.org/10.1016/j.orl.2023.10.002",
+          "Resultary: path Kirchhoff index one edge addition unique optimum endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite small-n shortcuts and numerical optimizers are subsumed by formula; no located exact all-n known table or periodic classification."
+        ],
+        "reasoning": "The theorem is an infinite all-n sharp placement law, not only an isolated finite recomputation.",
+        "searches": [
+          "https://arxiv.org/abs/2503.21409",
+          "Resultary: Kirchhoff index chord optimal P_n path n mod 8"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: classical rank-one effective-resistance update and general Kirchhoff-index edge-addition algorithms are not claimed original. The exact unique unit-shortcut placement on every labeled path, modulo-eight staircase, and sharp 9/16 reduction are not supplied by inspected generic augmentation or by the earlier spectral-gap path-shortcut theorem, which optimizes a different invariant.",
+      "residual_risks": [
+        "Potential older extremal-unicyclic or single-edge path-augmentation papers not fully inspected may contain equivalent optimum.",
+        "General edge-addition research algorithm full text was not inspected; no whole-document negative claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING Kirchhoff-index minimization",
+          "evidence": "Earlier theorem maximizes spectral gap and permits many unit-shortcut locations; objective differs from all-pairs effective resistance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3/RESULT.md",
+          "material_read": "Published theorem/semantic summary specifying spectral-gap objective, conductance threshold and optimal placements",
+          "method": "Resultary targeted search",
+          "title": "Sharp conductance and placement thresholds for path shortcuts",
+          "trigger": "same base graph and single added edge, potentially dominating prior result"
+        },
+        {
+          "assessment": "MATERIAL_INCOMPLETE; broad algorithmic overlap noted",
+          "evidence": "Article treats approximation/efficient algorithms for adding edges, not a verified full exact eight-step formula from inspected text.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.21409",
+          "material_read": "Accessible article abstract and research-scope metadata; complete article not retrieved in this execution",
+          "method": "arXiv indexed search and source comparison",
+          "title": "Efficient Algorithms for Minimizing the Kirchhoff Index via Adding Edges",
+          "trigger": "same Kirchhoff-index minimization and edge-addition operation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: single shortcut resistance repair of a path is a natural network robustness optimization. The complete unique endpoint classification and discrete eight-step transition answer a nontrivial exact graph-design problem with a different objective and optimizer from spectral-gap optimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2503.21409",
+    "https://doi.org/10.1016/j.orl.2023.10.002",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3/RESULT.md",
+    "https://arxiv.org/abs/1304.7546"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Potential older extremal-unicyclic or single-edge path-augmentation papers not fully inspected may contain equivalent optimum.",
+    "General edge-addition research algorithm full text was not inspected; no whole-document negative claim is made."
+  ],
+  "schema_version": 1
+}

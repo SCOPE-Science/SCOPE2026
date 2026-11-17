@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has an exact all-order proof. A Sherman–Morrison update on the mean-zero Laplacian space gives the exact Kirchhoff-index gain. The variance of the piecewise-linear path potential produces formula (1), and balancing the two exterior lengths is an exact consequence of a nonnegative square. All odd exterior-length totals are eliminated by strict one-step inequalities and a short explicitly evaluated boundary range. The even totals are globally classified by an exact cubic difference polynomial with a rigorously verified sign threshold. This proves both uniqueness and the stated minimum. The extracted verifier returned `VERIFY_OK 5868`, including independent grounded inverse calculations; finite checks are supporting evidence, not the proof.
+PASS
 
-## Originality — PASS on the available comparative evidence
+For P_n with a single new unit-conductance nonedge i<j, rank-one pseudoinverse update gives Knew=Kpath -(nQ-S^2)/(d+1), d=j-i, where path potential y_t=clamp(t-i,0,d), S=sum y_t, Q=sum y_t^2. Summing explicitly yields g_n(d)-d^2(l-r)^2/[4(d+1)] for exterior lengths l=i-1,r=n-j. Fixed span is best balanced; the proof excludes odd exterior sums by forward difference for d<=(2n+3)/3 or average even neighbor comparison for larger d, with small n checked separately. The exact cubic P(n,k) sign is positive iff n>=8k+10 on admissible steps, proving unique maximizer k=floor((n-2)/8), endpoints k+1,n-k. Asymptotic d=3n/4 gives Kmin=7n^3/96+O(n^2) and relative reduction 9/16. Independently computed exact Fraction potential-variance gains and exhaustive shortcut winners for 3<=n<=44 matched uniqueness. That finite range is not an all-n proof; the sign-polynomial analysis is decisive.
 
-Searches considered path edge augmentation, effective-graph-resistance shortcut placement, alternative notions such as one-link/one-chord network repair, and database records for network design. The closest research deals with arbitrary-graph link selection algorithms (de Ridder et al. 2019; Zhou et al. 2025), extremal unicyclic graphs under matching-number restrictions (Qi et al. 2013), and stepwise edge additions to star/petal graphs (Abbas and Egerstedt 2012). These inspected statements do not imply the exact unique \(\lfloor(n-2)/8\rfloor\) path-chord placement rule or the limiting \(9/16\) fraction. The general Sherman–Morrison gain is known and is not presented as a new identity. A published or unindexed equivalent classification remains a genuine risk. The archival PDF rendered view for Abbas–Egerstedt could not be checked, although indexed sections were accessible; no global absence claim is based on that inaccessible rendering.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing one physical shortcut is a natural, expensive network-design decision. The complete optimizer classification provides a constant-time exact placement rule for every path length and corrects the tempting but globally suboptimal end-to-end shortcut once \(n\ge10\). The sharp eight-step discrete transition, unique minimizer, and asymptotic \(9/16\) improvement are non-obvious structural consequences of the Kirchhoff objective, not a restatement of the general update equation. The proof may serve as a benchmark for edge-augmentation algorithms on path-like infrastructure.
+PASS best-of-knowledge: classical rank-one effective-resistance update and general Kirchhoff-index edge-addition algorithms are not claimed original. The exact unique unit-shortcut placement on every labeled path, modulo-eight staircase, and sharp 9/16 reduction are not supplied by inspected generic augmentation or by the earlier spectral-gap path-shortcut theorem, which optimizes a different invariant.
 
-## Limitations and sources
+## value
 
-The mathematical claim is limited to one added unit-resistance edge, a fixed unweighted path, and the Kirchhoff index. It does not imply optimality for diameter, spectral gap, multi-edge additions, or arbitrary link costs. Primary materials inspected include the rendered arXiv text of Qi–Zhou–Du (2013), the PDF body and algorithms of de Ridder et al. (2019), the introduction and method sections of Zhou–Zehmakan–Zhang (2025), and indexed technical sections of Abbas–Egerstedt (2012). Kooij–Achterberg (2023) was compared at the problem/abstract level only. Independent mathematical audit and comprehensive literature review are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: single shortcut resistance repair of a path is a natural network robustness optimization. The complete unique endpoint classification and discrete eight-step transition answer a nontrivial exact graph-design problem with a different objective and optimizer from spectral-gap optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
