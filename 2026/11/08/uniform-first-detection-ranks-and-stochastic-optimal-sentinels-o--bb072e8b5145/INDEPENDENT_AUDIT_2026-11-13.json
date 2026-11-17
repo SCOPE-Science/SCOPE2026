@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T18:46:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446",
+        "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+        "https://arxiv.org/abs/1004.4792",
+        "https://arxiv.org/abs/2011.01998"
+      ],
+      "rationale": "For an initial seed in an arc of edge length l, independent left/right Exp(lambda) frontiers give total event rate 2lambda until sentinel detection, including the duplicate-edge hazard when both frontiers target one vertex. For any direction prefix of length m the number of interior seed positions surviving it is (l-m-1)_+, so conditional R is uniform on 1..l-1. Summing over uniformly sampled initial vertices gives P(R>m)=n^(-1)sum(l_i-m-1)_+ and Poissonization gives the claimed time law and mean. The discrete second difference of f_l(u) is exp(-u)u^(l-1)/(l-1)!>0 for u>0, proving strict majorization optimization and exact tie cases including k=1 and k=n. Own independent exact full-state masked SI Markov chain checked 1782 event-tail equalities for n=3..8; the all-n proof is analytic.",
+      "residual_risks": [
+        "A literature-wide equivalence under cyclic first-passage coverage/surveillance terminology may exist but has not been excluded.",
+        "Uniform seeding, instantaneous continuous sensing, homogeneous SI and a cycle are essential; no heterogeneous-rate, SIR, multiple-seed or imperfect-sensing extension follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leskovec et al., 2007 technical report, Section 2 placement objectives and Sections 3–4, proves submodularity and near-optimal greedy selection for general cascades; its generic argument does not supply this all-time exact cycle construction."
+        ],
+        "reasoning": "A general approximation guarantee for submodular detection rewards neither fixes the exact optimal gap multiset nor establishes usual stochastic dominance of first-detection times.",
+        "searches": [
+          "homogeneous SI infection on cycle equally spaced sentinel detectors first detection stochastic dominance uniform seed exact infection rank",
+          "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446",
+        "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+        "https://arxiv.org/abs/1004.4792",
+        "https://arxiv.org/abs/2011.01998"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previously established P(X>=1) optimality for finite Bernoulli bond transmission and the new P(T>t) optimality for two active exponential infection frontiers quantify mathematically different events; their random variables are not equivalent by a parameter rename."
+        ],
+        "reasoning": "The new uniform R|l proof, rate 2lambda Poisson mixing, and pointwise convexity for all t are additional nontrivial statements beyond the prior theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446",
+          "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same gap-vector balanced extremizers can be formulated as Schur-convexity of f_l(2lambda t), but an older percolation H_p(l) convexity describes a distinct eventual-infection event."
+        ],
+        "reasoning": "Search for stochastic-order, integer event-rank and gap-majorization equivalents: the inspected prior proves balanced spacing for bond-percolation final alarm probability, not continuous-time first hit; same optimizers are insufficient for implication.",
+        "searches": [
+          "homogeneous SI infection on cycle equally spaced sentinel detectors first detection stochastic dominance uniform seed exact infection rank",
+          "cyclic coverage majorization first-passage time SI sentinel uniform seed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Oct 26 cycle monitor theorem has a complete analytic formula H_p(l) for bond-percolation eventual alarms but no table or distribution of the continuous-time SI event rank R."
+        ],
+        "reasoning": "No retrieved exact-table source of the claimed SI rank law. This is a search limitation rather than proof no source exists.",
+        "searches": [
+          "homogeneous SI infection on cycle equally spaced sentinel detectors first detection stochastic dominance uniform seed exact infection rank",
+          "Resultary cycle SI monitor spacing exact rank tail"
+        ]
+      },
+      "rationale": "The discrete time/event-rank uniformity and all-positive-time SI stochastic dominance are not implied by general network outbreak-detector submodularity or by the related Resultary bond-percolation eventual-alarm theorem. The latter shares balanced/consecutive gap extrema but models retained-edge connectivity, without transmission-time rankings or the uniform integer event-rank law.",
+      "residual_risks": [
+        "A literature-wide equivalence under cyclic first-passage coverage/surveillance terminology may exist but has not been excluded.",
+        "Uniform seeding, instantaneous continuous sensing, homogeneous SI and a cycle are essential; no heterogeneous-rate, SIR, multiple-seed or imperfect-sensing extension follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_ALL_TIME_SI",
+          "evidence": [
+            "Prior uses retained independent bonds and eventual component detection; does not define continuous first-detection T."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446",
+          "material_read": "Complete RESULT.md: finding, assumptions, non-detection H_p(l), convexity proof, two-monitor double-alarm identity, limitations",
+          "method": "GitHub full primary source read",
+          "title": "Exact spacing and opposing alarm objectives for epidemic sentinels on cycles",
+          "trigger": "Closest Resultary geometric-alarm theorem"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": [
+            "General submodularity and greedy approximation; no exact strict SI-cycle event-rank or all-time optimizer theorem."
+          ],
+          "identifier_or_url": "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+          "material_read": "Full technical report Sections 2.1–3 plus abstract and optimization framework (PDF pages 0, 2, 4–7 visually inspected)",
+          "method": "Public lawful PDF text and page screenshot",
+          "title": "Cost-effective Outbreak Detection in Networks",
+          "trigger": "Dominating general sensor-placement setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446",
+        "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+        "https://arxiv.org/abs/1004.4792",
+        "https://arxiv.org/abs/2011.01998"
+      ],
+      "rationale": "A complete time-distribution design criterion for epidemic sentinels is materially stronger than optimizing a single expected delay or eventual alarm. The rank lemma produces a reusable exact finite first-passage law, strict stochastic extremizers for every monitoring budget, and sharp equality cases in a natural network model; useful without a general-network extension.",
+      "residual_risks": [
+        "A literature-wide equivalence under cyclic first-passage coverage/surveillance terminology may exist but has not been excluded.",
+        "Uniform seeding, instantaneous continuous sensing, homogeneous SI and a cycle are essential; no heterogeneous-rate, SIR, multiple-seed or imperfect-sensing extension follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A literature-wide equivalence under cyclic first-passage coverage/surveillance terminology may exist but has not been excluded.",
+    "Uniform seeding, instantaneous continuous sensing, homogeneous SI and a cycle are essential; no heterogeneous-rate, SIR, multiple-seed or imperfect-sensing extension follows."
+  ],
+  "schema_version": 1
+}

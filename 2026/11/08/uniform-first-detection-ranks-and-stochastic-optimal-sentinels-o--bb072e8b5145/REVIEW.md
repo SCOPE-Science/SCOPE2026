@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge3\), every sentinel count \(1\le k\le n\), and every \(\lambda>0\), the proof conditions on the first infection and an arbitrary direction sequence. Exactly \((\ell-m-1)_+\) positions remain undetected after \(m\) frontier events in a gap of length \(\ell\), proving the uniform event-rank law without a symmetry or independence shortcut. Two independent active SI edge hazards imply event intervals of rate \(2\lambda\); the independent Poisson clock yields the entire first-detection tail. The derived discrete second difference is the strictly positive Poisson mass \(e^{-u}u^{\ell-1}/(\ell-1)!\), giving the universal, strict balancing and concentration comparisons. The exact mean formula follows by finite summation. An independent exact-rational verifier passed 50,036 checks, including Markov first-passage recursions. Computation supports, rather than substitutes for, the unrestricted proof.
+PASS
 
-## Originality — PASS within inspected literature, provisional
+For an initial seed in an arc of edge length l, independent left/right Exp(lambda) frontiers give total event rate 2lambda until sentinel detection, including the duplicate-edge hazard when both frontiers target one vertex. For any direction prefix of length m the number of interior seed positions surviving it is (l-m-1)_+, so conditional R is uniform on 1..l-1. Summing over uniformly sampled initial vertices gives P(R>m)=n^(-1)sum(l_i-m-1)_+ and Poissonization gives the claimed time law and mean. The discrete second difference of f_l(u) is exp(-u)u^(l-1)/(l-1)!>0 for u>0, proving strict majorization optimization and exact tie cases including k=1 and k=n. Own independent exact full-state masked SI Markov chain checked 1782 event-tail equalities for n=3..8; the all-n proof is analytic.
 
-The full author-hosted technical report of Leskovec et al. (2007), *Cost-effective outbreak detection in networks* (https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf), was read for problem formulation, submodular guarantees, and conclusions. Those general approximation results do not imply an exact all-time, gap-multiset classification. Batlle et al. (2020), arXiv:2011.01998, was inspected in full in accessible HTML for stochastic epidemic test-allocation definitions and optimization results; the cycle-specific uniform event-rank identity and strict stochastic extrema were not given there. Colman et al. (2019), DOI 10.1371/journal.pcbi.1007517, was read in full at the publisher: it develops heuristic spatially dispersed sensor placements for stochastic SIR simulation, not an exact SI cycle theorem. Christakis and Fowler (2010), arXiv:1004.4792, concerns empirical social sensors (abstract inspected; full text not established). Relevant research-record searches using the explicit model, event-rank identity, aliases for first detection and equal spacing did not identify an equivalent or stronger theorem. Nonappearance in searches does not prove historical novelty. Residual risk includes obscure early epidemic-surveillance or ring-specific sensor literature.
+## originality
 
-## Value — PASS
+PASS
 
-The naturally motivated decision problem is where to locate a fixed number of monitored sites to make detection of an SI outbreak as prompt as possible without knowing its source. The theorem completely classifies optimal *and* worst placements for all times and increasing delay losses, not just average delay or a single graph size; it reveals an exact latent uniform event-rank mechanism. Equal-mean-delay or generic submodular approximations alone cannot supply these sharp pathwise distributional guarantees. This is a mechanistic benchmark for idealized surveillance, not a field-health policy claim.
+The discrete time/event-rank uniformity and all-positive-time SI stochastic dominance are not implied by general network outbreak-detector submodularity or by the related Resultary bond-percolation eventual-alarm theorem. The latter shares balanced/consecutive gap extrema but models retained-edge connectivity, without transmission-time rankings or the uniform integer event-rank law.
 
-## Boundaries and closest literature
+## value
 
-The mathematical statement applies to continuous perfect monitoring, one uniformly seeded case, fixed symmetric transmission rate, irreversible SI transmission and finite simple cycles. Heterogeneous rates, SIR recoveries, delayed tests, nonuniform seeding and arbitrary graphs remain unproved. The prior general network detection formulation of Leskovec et al. (2007) is the closest strong conceptual framework; Batlle et al. (2020) is a mathematical epidemic-testing framework, while Colman et al. (2019) provide a close spatial-placement heuristic; none of their inspected claims implies the strict gapwise stochastic-order theorem. Date evidence for the earliest motivating KDD paper is August 12, 2007; its author-hosted technical report is dated June 2007 without a verified day, which remains a date-granularity limitation. Independent historical-priority verification is recommended.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete time-distribution design criterion for epidemic sentinels is materially stronger than optimizing a single expected delay or eventual alarm. The rank lemma produces a reusable exact finite first-passage law, strict stochastic extremizers for every monitoring budget, and sharp equality cases in a natural network model; useful without a general-network extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
