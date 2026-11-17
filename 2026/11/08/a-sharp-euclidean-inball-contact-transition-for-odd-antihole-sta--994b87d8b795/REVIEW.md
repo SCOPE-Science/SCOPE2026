@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof directly derives the full irredundant facet system from the polar fractional vertex-cover polyhedron of an odd cycle; it does not assume that generic rank inequalities alone are sufficient. It handles zero, singleton and consecutive-pair vertices, full-dimensional Euclidean normalization, all nonnegativity and clique facets, the whole-rank facet, and all dimensions \(n=2a+1\) with \(a\ge2\). The inball bound comes from coordinate, maximum-clique and rank facets; the uniform center attains it, and the active constraints prove uniqueness. The derivative comparison gives exactly one tie, at \(a=4\). The gap-word count of all maximal independent sets yields the complete facet supporting-hyperplane distance multiplicities. A fresh local run of the standalone script passed tests for six values \(a=2,\ldots,7\), including independent linear programs; its tests are not used as infinite proof.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** The closest inspected primary literature concerns facet and rank-inequality descriptions rather than Euclidean inradii or facet-shell distance multiplicities. In particular, Wagler's antiweb work is recognized for classifying the relevant rank facets, while the accessible 2022 full text by Oriolo–Stauffer develops the broader quasi-line/circular-interval facet framework. Coniglio–Gualandi's 2021 online abstract treats separation of small-right-hand-side rank inequalities, and Moszyńska–Saorín Gómez develop general convex-body incenter theory. None of the material actually read states the exact two-regime insphere formula, the sharp tie at nine vertices, or the binomial facet supporting-hyperplane distance multiset. Semantic search results with nearby metric descriptions concern different polytopes, including complete-multipartite stable-set polytopes and symmetric-edge polytopes. A general polyhedral description permits deriving the present result with further Euclidean and counting analysis; the earlier facet description itself is not claimed as novel. Abstract-only older sources and possible alternate names for the zero-inclusive cycle-edge polytope leave residual literature risk.
+PASS
 
-## Mathematical value
-**PASS.** Odd antiholes are canonical minimally imperfect graphs with an exact rank-plus-clique facet structure; the metric competition between these two classes is a natural geometric question beyond their face descriptions. The result identifies the exact radius and unique center in every odd dimension, a unique mixed-contact threshold at nine vertices (19 of 22 facets tangent), and the *entire* Euclidean facet supporting-hyperplane distance multiset by a uniform integer formula. This is a structural family classification rather than a numerical singleton, a parameter-renaming, or an isolated minor improvement. The original combinatorial facet classification is explicitly separated from the new metric conclusions.
+Explicit vertices empty, singletons and consecutive cycle pairs give polar fractional odd-cycle vertex-cover Q={z≥0,z_i+z_(i+1)≥1}. The polar vertices are the 1/2 vector and inclusion-minimal integral covers; duality gives all coordinate, maximal clique and rank facets. Their Euclidean support distances bound any ball by r≤2/(n+√n) and r≤1/(a+√a); the uniform r1 center attains all. At active rank or maximum independent sets, sums of coordinates force unique center. Comparing 2√a−1−√(2a+1) yields exact tie a=4; cyclic 2/3 gaps give M_(n,s)=n/s*C(s,n−2s). Independent construction of full facet matrix from graph independent sets and SciPy Chebyshev LP a=2,3,4,5 gave radii ~0.2763932,0.2073452,1/6,0.1381966 and tangent counts 6,8,19,22. Universal result relies on polar proof.
 
-## Closest literature and limits
-The relevant literature is listed and differentiated in `RESULT.md` and `AUDIT.json`. The proof covers only the canonical unweighted Euclidean realization, not all stable-set polytopes, weighted norms, or nonisometric embeddings. No claim of independent verification or absolute priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for standard-coordinate exact inradius, unique center, rank/clique contact transition, and complete facet supporting-hyperplane distance multiset. Classical odd-antihole facet descriptions are prior and explicitly credited, but inspected relevant primary does not provide the metric solution.
+
+## value
+
+PASS
+
+Meaningful sharp metric phase transition in stable-set polytopes of a natural minimally imperfect graph family, including an exceptional all-orbit contact tie at n=9 and an exact full facet-distance census; facet enumeration alone does not produce these Euclidean distances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
