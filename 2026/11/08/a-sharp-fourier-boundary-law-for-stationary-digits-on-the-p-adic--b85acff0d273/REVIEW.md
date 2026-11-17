@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each integer frequency numerator and positive denominator exponent, the additive character is a weighted finite-digit cylinder character. The canonical two-sided stationary extension gives the exact reversed-block expectation identity. The real digit tail is deterministically bounded by \(p^{-n}\), proving uniform convergence with coefficient \(2\pi\). If the reversed real-digit law were Lebesgue, its nonboundary cylinders would all have equal mass; this forces every finite digit block to be uniform and the original law Haar. Fourier uniqueness and the diverging norms of \(kp^{-n}\) then prove the zero-versus-one Fourier-dimension dichotomy. The fixed-point example shows the estimate is asymptotically optimal. Critical quantifiers include all primes, all stationary Borel probabilities, all integer numerators, and all positive denominator exponents. The independent numerical checker is supplementary.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Stationarity gives equality in law of any forward digit block and a past block in the two-sided stationary extension (without time reversal of the process). Reversing index order in the weighted character proves the exact finite-prefix identity mu-hat(k/p^n)=E exp(-2pi i k U_n). The missing real-base-p tail lies in [0,p^-n], so |difference|<=2pi|k|p^-n for every prime, integer k, and n>=1. Lebesgue nu forces all finite past cylinders to have mass p^-m (endpoints are null), hence via stationarity independent uniform forward digits and Haar mu. Otherwise Fourier uniqueness yields nonzero nu-hat(k) and no Rajchman/positive Fourier decay. The deterministic all-(p-1) digit fixed point attains the sharp coefficient asymptotically at k=1. Independently enumerated prefixes of a non-reversible three-state stationary Markov chain for n<=6 confirmed the reindexing; finite enumeration is not the general proof.
 
-The closest recent paper, Liu–Liao, arXiv:2609.22881, develops \(p\)-adic Fourier dimension and computes it for Riesz products, not the universal stationary-digit class or the sharp reversed-block boundary rate. Kingsbery–Levin–Preygel–Silva, arXiv:0903.4226, supplies digit-shift dynamics, not this Fourier classification. Huang, arXiv:1606.06078, is about the circle \(\times p\) action with additional ergodic or multiplicative invariance hypotheses, not high-norm additive characters on \(\mathbb Z_p\). No directly covering theorem was found in the inspected materials. Residual risk: a version of the digit-reversal/Fourier-boundary identity may have been recorded elsewhere or be regarded as elementary folklore.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies a full structural dichotomy, with no independence, mixing, or ergodicity requirement, for the existence of positive non-Archimedean Fourier decay in a natural invariant-measure class. The circle boundary identifies explicit persistent high-frequency spectral witnesses and gives a sharp quantitative convergence bound. It rules out an entire family of stationary candidates for positive-dimensional non-Archimedean Fourier constructions, complementing recent work on nonstationary Riesz products. The exact rate is independently motivated by the finite-prefix character identity, not an arbitrary small numerical improvement.
+A natural digit-shift invariant probability class acquires an exact circle Fourier boundary and a sharp universal convergence constant; none of the inspected statements about the p-adic shift dynamical conjugacy, Riesz-product Fourier energy, or the real-circle x p action entails a complete all-stationary-law Rajchman classification. The proof uses standard stationary extensions and Fourier uniqueness, so independent rediscovery or an unindexed folklore statement is a real residual risk.
 
-## Limits of the review
+## value
 
-The statement is not a result about support-set Fourier dimension, arbitrary measures, or the spectral recovery of the stationary process from a possibly noninjective circle encoding. Prior literature may contain an unindexed equivalent observation. Finite checker output does not imply the universal result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It settles a natural full-class spectral rigidity problem: correlations, nonergodicity and nonuniform digit distributions cannot yield positive p-adic Fourier dimension under digit stationarity; the explicit boundary gives nondecaying witness frequencies and a sharp quantitative rate. This is a structural impossibility dichotomy, not an arbitrary small numeric refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
