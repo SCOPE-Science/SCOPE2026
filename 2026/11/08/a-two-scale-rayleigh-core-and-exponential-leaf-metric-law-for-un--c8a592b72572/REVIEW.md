@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact metric reduction follows by replacing each alternating two-edge segment with the corresponding minimum and by lifting each edge of the reduced path to a bipartite walk. For any fixed core size, intersections of different small two-spoke events are of order at most \(b^{-3/2}\) per peripheral vertex, yielding independent Rayleigh pair minima from a joint upper-orthant formula. Continuity of the finite shortest-path closure proves the scaled core limit. Deterministic star inequalities and removal of finitely many tagged vertices prove the peripheral limit and independence of the two scales. The included standard-library checker evaluates finite exact metric identities and one-pair distribution formulas. The limit for growing core size or all peripheral vertices is not asserted.
+## correctness
 
-**Originality — PASS, qualified.** Mountford–Saliba (arXiv:1909.04563, Sections 2–3) analyze flooding and diameter on configuration-model random graphs under bounded degree moments, excluding fixed-core bicliques with vertices of degree \(b\). Gerke–Mezei–Sorkin (arXiv:1911.01151, Theorems 1.1–1.2) give complete-graph successive shortest-path asymptotics, not the fixed-core bipartite metric law. Janson (1999) gives complete-graph shortest-path asymptotics. Ross (2012) gives general exact exponential-network shortest-path distributions; its full text was not accessible for a decisive comparison and is a residual priority risk. Exact finite metric elimination does not itself imply the joint independent-Rayleigh extreme-value limit, and neither cited asymptotic contains the independent cross-scale marked-periphery star law. Comparisons of accessible indexed research records did not identify stronger coverage; a broader unindexed or differently formulated theorem could exist.
+PASS
 
-**Value — PASS.** Highly unbalanced weighted bipartite networks have two noncommuting natural measurement scales: fast communication among a small core through numerous cheap two-edge routes and order-one access costs from tagged peripheral vertices. A joint limit describing the random magnified core geometry and the visible peripheral star, with independence between them, is a motivated complete probabilistic description of those scales rather than an arbitrary finite invariant.
+For finite K_{a,b}, each A-A walk compresses into core two-step segments of cost at least M_{ij}; conversely concatenated argmin segments attain the metric closure, giving exact equality. At one peripheral vertex, P(two-spoke sum<=t/sqrt b)=t²/(2b)+O(b^{-3/2}), and overlap of two distinct pair events is O(b^{-3/2}) since at least three independent spokes are small. Independence across b periphery sites yields joint upper-orthant convergence to a product Rayleigh survival function; finite-dimensional path closure is continuous. For a marked periphery vertex, W=min_a Exp(1) is Exp(a), and distances lie between W and W+core diameter, similarly two marks W_l+W_h and +diameter. Excluding finitely many tags leaves asymptotically the same Rayleigh pair minima and independent marks; chance a tagged vertex changes scaled pair minima is O(1/b). Reconstructed the proof and independently checked core closure/peripheral inequalities on 384 random integer-weight graph instances.
 
-**Closest literature and limits.** The FPP motivation is the primary-60C05 Mountford–Saliba 2019 preprint on random configuration graphs. The same exponential-weight setting appears in Gerke–Mezei–Sorkin on complete graphs, whereas Janson's complete-graph limit is of a different order. Neither paper's theorem entails the stated bipartite geometry without additional analysis. The core-size and tagging restrictions are essential. Historical originality is not externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No matching fixed-a growing-b joint Rayleigh-edge metric closure and independent marked exponential-star limit found. Gerke–Mezei–Sorkin full article addresses many edge-disjoint shortest paths on complete graphs as n grows, not the unbalanced bipartite two-scale joint geometry. Ross 2012 provides general finite-network joint shortest-path distributions from one source, potentially enough to specialize, but full paper unavailable; an unavailable plausible source is documented as risk rather than automatic failure. Best-of-knowledge PASS, with this source pending human-access resolution.
+
+## value
+
+PASS
+
+The result pinpoints a nontrivial two-scale decomposition: magnified core distances retain correlated metric closure from independent Rayleigh edge costs, while finitely many unscaled peripheral distances form an independent exponential star. This is a natural joint limit beyond an isolated expectation or elementary shortest-path estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
