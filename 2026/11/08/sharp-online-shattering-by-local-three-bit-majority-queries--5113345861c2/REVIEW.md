@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition uses unordered triples and distinct Boolean response functions. Every base witness in the displayed eight-row table has been explicitly checked. At each inductive leaf, one zero and one one expose a new bit by a majority-of-three query; both extensions preserve all earlier labels and maintain the mixed-witness invariant. Counting the coincident all-zero and singleton-one concepts rules out a depth-\(n\) tree. An executable independently confirms all finite cases through eight and checks the constructive tree through eleven. The small \(n\) boundaries are explicit.
+## correctness
 
-**Originality — PASS within accessible primary and claim comparisons.** Ghazi et al. prove broad aggregation *bounds*, not this exact local-majority self-indexed concept class. Guingona et al. work with nontrivial linear-combination zero sets, not majority-threshold functions of three latent coordinates. Accessible own historical claims and published-finding corpus searches included triple-query, ternary-majority, exact-Littlestone, and equivalence aliases; no exact implication was identified. The strongest residual risk is that an alternative coding/decision-tree language contains an equivalent result not indexed in those sources.
+PASS
 
-**Value — PASS.** Triple-majority interrogation is a canonical, symmetric local observation of a hidden binary string. Exact online mistake complexity is a natural invariant that determines how much adaptive shattering survives using only triples and despite globally indistinguishable low-weight assignments. The nonconstant-leaf invariant supplies a reusable extension principle, and finite static calculations already show a strict adaptive/static gap at orders five and six (this gap is supporting evidence rather than part of the theorem).
+For unordered distinct triples, n<=2 has no queries, n=3 has one nonconstant classifier query. At n>=3 the all-zero vector and n singleton-one vectors collapse to one identically zero concept; at most 2^n-n<2^n distinct functions excludes a mistake tree of depth n. Four-bit queries 123,124,134 realize all eight three-bit response words using mixed assignments. Inductively for each leaf choose existing coordinates of values 0 and 1; query their triple with coordinate n+1, whose majority is exactly the new bit, leaving old labels untouched and all witnesses mixed. Depth increments once per coordinate, proving Ldim=n-1 for n>=4. Reimplemented exact truth-table minimax n<=7 and direct mixed-witness induction; both match. Important: upper bound uses distinct functions, not assignments.
 
-**Limits.** The theorem does not address noise, reconstructing individual assignments, or the complete VC polynomial. Historical priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.
+
+## value
+
+PASS
+
+Determines exact realizable online dimension of a natural local Boolean observation family in which a latent vector is tested only by majority of three *different* coordinates. The near-complete n-1 adaptive capacity contrasts strongly with restricted local query arity and has a concrete recursive optimal mistake tree, not merely a generic composition inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

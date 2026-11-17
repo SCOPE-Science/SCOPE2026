@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The independently executable `verify_majority.py` uses only the Python standard library. Run `python3 verify_majority.py` from the package root. It checks the complete recursive mistake-tree certificate, all terminal witness assignments, and the mixed-witness invariant for every order \(4\le n\le11\). A separate exact minimax search over distinct truth tables establishes the dimensions for \(1\le n\le8\); the script asserts that depths one greater cannot be shattered in each finite case. Its recorded output is `verification_output.txt`.
+# Independent mathematical audit
 
-The theorem for all ambient orders relies on the full inductive proof in RESULT.md. Neither finite checking nor a successful runtime log is claimed to certify infinitely many cases. Independent audit has not been performed.
+## correctness
+
+PASS
+
+For unordered distinct triples, n<=2 has no queries, n=3 has one nonconstant classifier query. At n>=3 the all-zero vector and n singleton-one vectors collapse to one identically zero concept; at most 2^n-n<2^n distinct functions excludes a mistake tree of depth n. Four-bit queries 123,124,134 realize all eight three-bit response words using mixed assignments. Inductively for each leaf choose existing coordinates of values 0 and 1; query their triple with coordinate n+1, whose majority is exactly the new bit, leaving old labels untouched and all witnesses mixed. Depth increments once per coordinate, proving Ldim=n-1 for n>=4. Reimplemented exact truth-table minimax n<=7 and direct mixed-witness induction; both match. Important: upper bound uses distinct functions, not assignments.
+
+## originality
+
+PASS
+
+After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.
+
+## value
+
+PASS
+
+Determines exact realizable online dimension of a natural local Boolean observation family in which a latent vector is tested only by majority of three *different* coordinates. The near-complete n-1 adaptive capacity contrasts strongly with restricted local query arity and has a concrete recursive optimal mistake tree, not merely a generic composition inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

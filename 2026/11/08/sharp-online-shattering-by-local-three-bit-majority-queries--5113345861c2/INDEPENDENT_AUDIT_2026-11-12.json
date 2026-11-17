@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:52:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-online-shattering-by-local-three-bit-majority-queries--5113345861c2/RESULT.md",
+        "2026/11/08/sharp-online-shattering-by-local-three-bit-majority-queries--5113345861c2/verify_majority.py"
+      ],
+      "rationale": "For unordered distinct triples, n<=2 has no queries, n=3 has one nonconstant classifier query. At n>=3 the all-zero vector and n singleton-one vectors collapse to one identically zero concept; at most 2^n-n<2^n distinct functions excludes a mistake tree of depth n. Four-bit queries 123,124,134 realize all eight three-bit response words using mixed assignments. Inductively for each leaf choose existing coordinates of values 0 and 1; query their triple with coordinate n+1, whose majority is exactly the new bit, leaving old labels untouched and all witnesses mixed. Depth increments once per coordinate, proving Ldim=n-1 for n>=4. Reimplemented exact truth-table minimax n<=7 and direct mixed-witness induction; both match. Important: upper bound uses distinct functions, not assignments.",
+      "residual_risks": [
+        "Coordinates on each triple are distinct and unordered; realizable online dimension only, not noise/learning-time or VC polynomial."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghazi et al. obtain upper bounds for Littlestone dimension under Boolean aggregations, not an equality n-1 here.",
+          "Alon et al. address general closure behavior of online concept classes, not this exact latent-majority incidence class."
+        ],
+        "reasoning": "Prior generic upper bounds do not imply the mixed-witness n-1 lower bound or exact small n classification.",
+        "searches": [
+          "https://arxiv.org/html/2007.03668v1",
+          "https://arxiv.org/html/2003.04509v3",
+          "Resultary local majority online shattering"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search local majority triple online dimensions",
+        "https://arxiv.org/html/2007.03668v1",
+        "https://arxiv.org/html/2003.04509v3",
+        "https://arxiv.org/pdf/2109.04805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guingona et al. analyze zero sets of linear combinations, which are not majority-of-three input triples on binary latent coordinates.",
+          "Generic aggregation closure gives limits on combining classes, not a matching shattering tree under coordinate overlap."
+        ],
+        "reasoning": "No surveyed prior theorem subsumes the equality; obtaining it requires explicit mixed-witness extension, beyond trivial 2^n counting.",
+        "searches": [
+          "arXiv:2109.04805",
+          "arXiv:2007.03668",
+          "arXiv:2003.04509"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-coordinate majority on latent assignments is a concept class on triples [n] choose 3; its queries depend on the same latent x with coupled coordinates.",
+          "General Boolean-combination results concern combining independent input-domain hypotheses, not this self-indexed incidence class."
+        ],
+        "reasoning": "No equivalent statement or relabelling identified in the inspected sources; other online-recovery terminology could hide it.",
+        "searches": [
+          "Resultary: Littlestone dimension local three bit majority n minus one triples binary assignments online shattering",
+          "arXiv:2007.03668 Boolean aggregation online classifiers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Accompanying finite verifier has exact dimension through n=8; independent finite cross-check to n=7.",
+          "No external published dimension sequence for exactly these majority-triplet classifiers found."
+        ],
+        "reasoning": "The code verifies finite cases but the theorem rests on unrestricted induction. No existing external table with all-order values was identified.",
+        "searches": [
+          "Resultary exact majority triple Littlestone dimensions",
+          "source verify_majority.py exact_rank n 1..8"
+        ]
+      },
+      "rationale": "After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.",
+      "residual_risks": [
+        "Older active-learning or query-identification literature may contain exact majority-triple Littlestone dimension under another name",
+        "Does not establish efficient recovery of latent assignments from noisy majority answers"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound in a different aggregation setting, no exact majority-latent-vector theorem",
+          "evidence": "Inputs common across aggregated hypotheses; the present query domain is coordinate triples",
+          "identifier_or_url": "https://arxiv.org/html/2007.03668v1",
+          "material_read": "Accessible HTML introduction, main closure statement, Proposition 2.3 and model definitions",
+          "method": "Full relevant sections and hypothesis comparison",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "Boolean aggregation might subsume three-bit majority"
+        },
+        {
+          "assessment": "No inspected exact dimension for latent triple-majority class",
+          "evidence": "Boolean compositions of separately indexed functions",
+          "identifier_or_url": "https://arxiv.org/html/2003.04509v3",
+          "material_read": "Accessible primary HTML introduction, closure framework and online-prediction parts",
+          "method": "Model and theorem comparison",
+          "title": "Closure Properties for Private Classification and Online Prediction",
+          "trigger": "Boolean combinations and online dimensions"
+        },
+        {
+          "assessment": "Linear-zero-set models differ; no strong coverage shown",
+          "evidence": "Linear combination zero sets vs nonlinear Boolean-majority relation",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.04805",
+          "material_read": "Primary PDF first-page and theorem statement; remaining paper not fully read",
+          "method": "Partial primary inspection, not whole-document exclusion",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Candidate geometric/linear online dimension theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/sharp-online-shattering-by-local-three-bit-majority-queries--5113345861c2/RESULT.md"
+      ],
+      "rationale": "Determines exact realizable online dimension of a natural local Boolean observation family in which a latent vector is tested only by majority of three *different* coordinates. The near-complete n-1 adaptive capacity contrasts strongly with restricted local query arity and has a concrete recursive optimal mistake tree, not merely a generic composition inequality.",
+      "residual_risks": [
+        "Coordinates on each triple are distinct and unordered; realizable online dimension only, not noise/learning-time or VC polynomial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Coordinates on each triple are distinct and unordered; realizable online dimension only, not noise/learning-time or VC polynomial."
+  ],
+  "schema_version": 1
+}
