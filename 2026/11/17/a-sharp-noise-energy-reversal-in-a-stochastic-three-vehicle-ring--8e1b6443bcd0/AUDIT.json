@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The Fourier-mode characteristic roots cross the imaginary axis only when d_q=0; the stable side has d_q>0. Three explicit Itô covariance identities yield E|g_hat|^2=C/d_q and E|y_hat|^2=C[1+(1+cos q)/(2T^2 d_q)]. Parseval yields exact N=3 energy and derivative sigma^2(gamma T-1)/(12 gamma T^2 d^2). A standalone independent 25-equation exact-rational Lyapunov solver verified ten stable cases and the rational increasing-energy witness. The theorem explicitly excludes unstable and collision-free claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rüdiger et al. stability and Gaussian existence theorems cover the process and the existence of a covariance, which is credited rather than reasserted as new.",
+        "Ackermann et al. spectral stability conclusions and simulation speed variance do not directly give parameter-dependent stationary Hamiltonian derivative."
+      ],
+      "reasoning": "A stronger preexisting theorem would have to entail the model-specific sign change at gamma T=1 or a closed exact energy comparison. The inspected results entail existence and general representation, not the evaluated sharp monotonicity classification.",
+      "searches": [
+        "arXiv:2212.05139 theorem Gaussian invariant measure stability",
+        "arXiv:2502.00370 stability energy car following",
+        "stochastic traffic ring car following stationary variance velocity headway spring stiffness Gaussian Lyapunov stationary energy"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2212.05139",
+      "https://arxiv.org/html/2502.00370v1",
+      "https://arxiv.org/abs/2203.04877 (abstract only: different string-stability setting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original source Eq. (23) is exactly the specialized stochastic drift, and Eq. (47) represents the covariance as an OU semigroup integral.",
+        "Original source Section 4 reports energy reduction by simulation with beta=0.5, gamma T=1; this is a different alignment regime from beta=0.",
+        "The 2025 continuation has a controlled characteristic polynomial comparable after reparameterization, but it gives no closed stationary energy sensitivity."
+      ],
+      "reasoning": "Existing covariance representations can be worked out to recover our result, but the nontrivial evaluation reveals the opposite sign regime and threshold. The originally simulated decrease does not imply a global all-parameter decrease, nor refute a zero-alignment increasing-energy case.",
+      "searches": [
+        "arXiv:2212.05139 Eq. (23), (47), (73)",
+        "arXiv:2502.00370 Eq. (20)-(25)",
+        "stochastic car-following ring exact stationary covariance mode formula velocity headway variance gamma T"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original article (arXiv:2212.05139) presents Eq. (47) as an unevaluated covariance integral, with no closed derivative or three-vehicle sign boundary.",
+        "Related 2025 paper arXiv:2502.00370 formulates a related Laplacian-controlled model with quadratic coefficient scaled as alpha squared and supplies spectral stability, not the asserted energy trichotomy."
+      ],
+      "reasoning": "A Gaussian Lyapunov integral or modal decomposition is mathematically equivalent as a method for computing stationary moments, but neither inspected published statement specifies the exact comparison of stiffness-weighted energy versus monotone decreasing speed and headway variance.",
+      "searches": [
+        "Rüdiger Tordeux Ugurcan stochastic car following stationary energy covariance alpha analysis",
+        "port Hamiltonian car following stationary energy increases stiffness fluctuations",
+        "three vehicle stochastic car following Hamiltonian energy threshold",
+        "arXiv:2212.05139 sections 3-4",
+        "arXiv:2502.00370 sections 3.3-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original paper provides simulation figure 3 for a selected parameter regime rather than an exhaustive coefficient table or a finite-size energy derivative table.",
+        "Searches for exact three-vehicle OU ring covariance tables did not identify a matching published numerical or symbolic table."
+      ],
+      "reasoning": "This is a symbolic formula valid for a continuum of parameters, not a finite-entry table claim. Database searches reduce duplication risk but cannot establish uniqueness.",
+      "searches": [
+        "stochastic car following exact stationary covariance tables three-vehicle ring",
+        "Rüdiger Tordeux Ugurcan 2212.05139 stationary energy derivative gamma T spring alpha mode Lyapunov",
+        "three-car ring stochastic Hamiltonian stiffness can increase stationary Hamiltonian energy despite lowering position and velocity variance"
+      ]
+    },
+    "rationale": "Inspected primary papers derive invariant Gaussian distributions and spectral stability but not the sharp gamma T=1 energy-reversal law for beta=0. The broader OU covariance method is credited. Search and comparison found no exact published implication; unindexed equivalents remain a stated risk.",
+    "residual_risks": [
+      "An older or unindexed exact OU traffic covariance calculation may already imply the same sharp sign boundary.",
+      "The origin paper provides a generic covariance integral which can be evaluated; novelty resides in its model-specific exact comparison, not the Gaussian method.",
+      "The theorem is for a specific beta=0 slice; the full positive-beta dynamics may show different sign surfaces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers dynamics, stability, Gaussian existence; lacks the evaluated stiffness-energy trichotomy and increasing-energy example",
+        "evidence": [
+          "arXiv:2212.05139 Eq. (23) specialized with beta=0",
+          "arXiv:2212.05139 Eq. (47) covariance integral",
+          "arXiv:2212.05139 Eq. (73) and Fig. 3 numerical energy trend for a particular alignment regime"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.05139",
+        "material_read": "Full accessible article, especially Sections 2.2-2.3, 3 (Eq. 23 and covariance Eq. 47), and 4 (Eq. 73 and simulated energy Fig. 3); abstract, theorem context and concluding claims",
+        "method": "Read open arXiv HTML article with equation text and section-level inspection",
+        "title": "Stability analysis of a stochastic port-Hamiltonian car-following model",
+        "trigger": "Exact originating process, strong possible overlap"
+      },
+      {
+        "assessment": "Different controlled variant, stiffness parameter squared, spectral results; no stated energy derivative sign classification",
+        "evidence": [
+          "arXiv:2502.00370 Section 3.3 characteristic polynomial and spectral stability",
+          "arXiv:2502.00370 Section 4 numerical speed variance"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2502.00370v1",
+        "material_read": "Accessible full HTML, Sections 2.2, 3.3 (Eqs. 18-25), 4, abstract and conclusions",
+        "method": "Compared drift parameterization, stability claims, numerical speed variance and statistical conclusions",
+        "title": "Modelling car-following dynamics with stochastic input-state-output port-Hamiltonian systems",
+        "trigger": "Closest follow-up from overlapping authors, potential stronger stability/covariance result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e1b6443-bcd0-4991-abb1-a93cd1237d4f",
+  "value": {
+    "rationale": "The fluctuation Hamiltonian is explicitly used in the originating traffic model to judge suppression of traffic noise. The theorem proves a sharp complete response trichotomy for the minimal admissible ring: increasing stiffness always lowers speed and headway variances, yet can raise mean Hamiltonian fluctuation energy, with exact neutral boundary gamma T=1. General Fourier derivatives reveal mode-dependent mechanisms and provide a meaningful limit to interpreting simulated monotonic energy reduction. The natural invariant and parameters are fixed by the model, not arbitrary finite sampling.",
+    "status": "PASS"
+  }
+}
