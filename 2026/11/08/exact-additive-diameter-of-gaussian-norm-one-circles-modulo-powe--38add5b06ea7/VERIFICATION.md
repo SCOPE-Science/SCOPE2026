@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the dyadic norm-one additive diameter
+# Independent mathematical audit
 
-The proof derives all exponents from an explicit square-root criterion, rather than from extrapolated finite data. For odd–odd integers \(u,v\), compute \(h=(u^2+v^2)/2\); the fact \(h\equiv1\pmod4\) implies that \(2h^{-1}-1\) is \(1\) modulo \(8\). Choose a modular square root to form the two displayed norm-one vectors. Their norms and exact sum are direct algebraic identities. The modulo-eight obstruction separately establishes sharpness.
+## correctness
 
-## Reproducing finite checks
+PASS
 
-With Python 3, run `python3 verify.py`. No third-party packages, network services, tables, or other files are required. The script checks for every exponent \(1\le k\le7\) that all odd–odd pairs occur in the double sumset, the triple and quadruple sumsets are precisely the two parity cosets, and \((2,2)\) is absent from the double sumset when \(k\ge3\). It additionally constructs both modular norm-one summands explicitly for every odd–odd target for \(1\le k\le9\). On replay the output ends in `VERIFY_OK` with `constructive_oddodd_certificates=87381`.
+The statement is for C_k={(a,b) mod 2^k:a^2+b^2=1}, every k>=1. Odd-odd target (u,v) has h=(u²+v²)/2=1 mod 4. Because 2h^{-1}-1=1 mod 8, the explicitly proved 2-adic square-root induction supplies lambda, and the two integral half-sum vectors have norms 1 mod 2^k and exact sum (u,v). Subtracting (1,0) or (0,1) gives 3C_k=odd parity and 4C_k=even parity; parity rules out shorter lengths of wrong parity. For k<=2, C_k is exactly the odd parity coset. For k>=3, (2,2) mod 8 is not in 2C_k; hence diameter is four. Direct independent finite enumeration k=1..6 and constructive certificates support, but do not prove, all k.
 
-## Proof obligations and unproved limits
+## originality
 
-The critical infinite step is the square-root lemma: units congruent to \(1\) modulo \(8\) have modular square roots at arbitrarily high powers of two, proved by a one-bit lifting argument. The finite checker does not establish this infinite statement; its proof does. The result does not enumerate all two-summand multiplicities or extend to arbitrary quadratic forms or odd prime-power coefficient rings. Independent mathematical validation has not been performed.
+PASS
+
+Best-of-knowledge new sharp dyadic norm-one additive Cayley diameter. The classic Gaussian norm-one group paper treats multiplicative structure, whereas Covert–Demiroğlu Karabulut–Pakianathan prove related additive circle-sum statements over fields of odd characteristic, whose divisions do not specialize to dyadic rings. The all-units Waring theorem for larger generating sets cannot imply covering by this restricted norm-one subgroup. A hidden local-ring norm-form theorem remains possible.
+
+## value
+
+PASS
+
+Intrinsic exact Cayley graph diameter for canonical dyadic Gaussian norm-one subgroup, plus exact three/four sumset parity coverage and sharp modulus-eight transition; the infinite family and explicit obstruction are mathematically motivated, not a tiny numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: dyadic Gaussian norm-one additive diameter
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof covers all integers \(k\ge1\). For an odd–odd target \((u,v)\), the integer \(h=(u^2+v^2)/2\) is odd and congruent to \(1\) modulo \(4\). Hence \(2h^{-1}-1\equiv1\pmod8\) has a square root modulo every power of two. The two explicit half-sum vectors are integral, sum to the target, and both have norm \(1\) modulo \(2^k\). This proves \(2C_k\) contains the entire odd–odd class; subtracting a coordinate unit proves \(3C_k=O_k\) and \(4C_k=E_k\). The lower bound uses a genuine modulo-eight obstruction to writing \((2,2)\) as two norm-one sums. The square-root lemma is proved, not inferred from finite tests. All boundary cases \(k=1,2\) are addressed. The standalone checker independently constructs every target certificate through exponent nine and exhausts sumsets through exponent seven. Remaining mathematical risk is limited to possible errors not detected by this review; no unsupported extrapolation from a finite search is used.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The statement is for C_k={(a,b) mod 2^k:a^2+b^2=1}, every k>=1. Odd-odd target (u,v) has h=(u²+v²)/2=1 mod 4. Because 2h^{-1}-1=1 mod 8, the explicitly proved 2-adic square-root induction supplies lambda, and the two integral half-sum vectors have norms 1 mod 2^k and exact sum (u,v). Subtracting (1,0) or (0,1) gives 3C_k=odd parity and 4C_k=even parity; parity rules out shorter lengths of wrong parity. For k<=2, C_k is exactly the odd parity coset. For k>=3, (2,2) mod 8 is not in 2C_k; hence diameter is four. Direct independent finite enumeration k=1..6 and constructive certificates support, but do not prove, all k.
 
-The underlying norm-one group is classical. Grau et al., arXiv:1401.4708 (2014), develop its **multiplicative** structure and related pseudoprime tests. Covert–Demiroğlu Karabulut–Pakianathan, arXiv:1808.06665 (2018), study additive unit-circle sums, but Sections 4.1–4.1.1 explicitly assume **finite fields of odd characteristic**. A 2026 preprint on sums of units in finite rings studies **all ring units** and normalized norm-one subgroups in finite fields; the inspected parts do not identify the restricted dyadic additive diameter. Targeted literature searches did not locate an equivalent theorem for \(\mathbb Z/2^k\mathbb Z\). The closest mathematical research summary instead concerns norm-one tori in odd-characteristic finite fields, so does not cover dyadic local rings. The residual risk is that an overlooked local-ring Cayley graph theorem or a classical norm-form identity may imply this exact statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The additive Cayley diameter of the canonical Gaussian norm-one subgroup is an intrinsic graph invariant. Its value changes sharply from \(2\) to \(4\) after exponent two; a uniform constructive \(2\)-adic square-root method gives the upper bound, while a local modulo-eight obstruction proves optimality. The result supplies full parity-coset coverage at exact additive lengths three and four, not just connectivity or an arbitrary finite computation. It complements existing odd-characteristic circle-sum theory without claiming to solve its generalizations.
+Best-of-knowledge new sharp dyadic norm-one additive Cayley diameter. The classic Gaussian norm-one group paper treats multiplicative structure, whereas Covert–Demiroğlu Karabulut–Pakianathan prove related additive circle-sum statements over fields of odd characteristic, whose divisions do not specialize to dyadic rings. The all-units Waring theorem for larger generating sets cannot imply covering by this restricted norm-one subgroup. A hidden local-ring norm-form theorem remains possible.
 
-## Limitations and closest literature
+## value
 
-This result does not classify the complete double sumset or count individual representations. The 2014 source concerns multiplicative norm-one groups. The 2018 source is a relevant additive analogue in a different coefficient ring, and the 2026 source supplies a general units framework rather than this restricted circle. Exhaustive checks are finite corroboration only. All originality assessments are qualified by the possibility of unlocated prior work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Intrinsic exact Cayley graph diameter for canonical dyadic Gaussian norm-one subgroup, plus exact three/four sumset parity coverage and sharp modulus-eight transition; the infinite family and explicit obstruction are mathematically motivated, not a tiny numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
