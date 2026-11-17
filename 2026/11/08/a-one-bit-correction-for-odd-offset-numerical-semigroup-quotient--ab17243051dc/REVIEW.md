@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof derives the exact odd-coin length formula from capacity and parity, establishes monotonicity under even increments and under increments exceeding the maximum coin, and proves the quotient Apéry formula directly. Strict growth by two in the residue index reduces the Frobenius maximum to two candidates. The parity and crossing argument identifies the exact correction. A separate Dijkstra implementation independently agrees on 125,586 parameter tuples. Finite checks support but do not substitute for the symbolic proof.
+PASS
 
-## Originality
+For divisor p|a, m=a/p>=2, gcd(a,d)=1, odd q between 3 and a-1, coin offsets 1,3,...,q, the least number of offset coins at x=uq+v (1<=v<=q) is u+1+1_{v even}. Capacity and parity show this for all x; the inequalities lambda(x+2)>=lambda(x) and lambda(x+a)>=lambda(x) for a>q justify minimal quotient Apéry representatives w_{dr}=hm lambda(pr)+dr. They strictly increase along r by steps of 2, so only final/penultimate residues compete; comparing t=a-p-q floor((a-p-1)/q) yields F=B+1_{p,t odd, t>p} max(hm-d,0). Boundary m=2 has no penultimate admissible candidate and no correction; p=1 allowed. Fresh independent Dijkstra shortest-residue calculations match examples (12,3,2,1,9)->14, (15,3,4,2,11)->43, (20,4,1,3,13)->17. Pinned verify_exact.py is an independent broader Dijkstra implementation but its saved 125586-case log was not used as infinite proof.
 
-PASS within inspected evidence. Liu's 2023 preprint supplies the underlying Apéry minimization and the even-remainder case, but explicitly identifies the odd-remainder Frobenius formula as unresolved. The present theorem evaluates the maximum of the entire Apéry family via an additional parity-monotonicity lemma and gives a sharp conditional correction, not simply a restatement of the Apéry list. The 2018 Adeniran et al. article treats other arithmetic-progression quotient cases. Liu's 2026 GCNS quotient study requires recursively growing offsets and corresponding coefficients, not the present odd-offset constant-coefficient pattern; his July 2026 paper concerns two-generator quotient nonexistence questions. Research-index and exact-formula searches did not locate an implication-covering formula. The 2025 journal-version full text and unindexed equivalences remain residual originality risks.
+## originality
 
-## Value
+PASS
 
-PASS. The result directly closes an explicitly identified gap for a natural infinite family of semigroup quotients, reducing a maximum over \(a/p-1\) Apéry representatives to a uniform closed expression and isolating a sharp, sometimes unbounded correction. The structural phenomenon is that coin length is monotone on each parity class but not globally.
+The full 2023 Liu preprint establishes the same quotient Apéry framework and the even-terminal case, explicitly leaves an odd-terminal remainder without a closed Frobenius formula. The audited one-bit switch decides precisely that missing branch. Later 2025 journal revision was not fully read; that is a genuine priority risk but not evidence of covering. No broader published Resultary closed rule for this many-generator odd-offset family was verified.
 
-## Scope and outstanding questions
+## value
 
-Positive \(h,d\), odd offset maximum smaller than \(a\), and divisor quotients only. The theorem does not resolve nondivisor quotients or other shifted generators. Bibliographic coverage is not an exhaustive proof of priority. The independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The odd-terminal remainder is a stated concrete gap in a specific published Frobenius-number classification. A uniform two-candidate exact formula, including arbitrarily positive correction and attaining-residue switch, answers a natural semigroup quotient invariant across infinitely many parameters; it is not merely another numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
