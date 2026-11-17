@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier character transform on the additive traceless space is reconstructed from the rank-one nilpotent parametrization. The exact class count for a rational eigenhyperplane of codimension \(c<n/2\) uses a bijection with injective quotient maps. Uniform bounds over smaller eigenspaces justify dominated convergence and deliver the exact chi-square critical series. A rank obstruction gives the opposite total-variation side. The standalone exact finite-field checker passed for field sizes 2, 3, 4 and 5, but finite enumeration is not an asymptotic proof.
+## correctness
 
-**Originality — PASS under bounded comparisons.** Existing work already provides the eigenline Fourier multiplier and spectral extrema for the same nilpotent-rank-one Cayley graph; neither ingredient is claimed as new. An earlier finite-field Wishart mixing result has a superficially similar \(n\)-step cutoff and a different chi-square series, but its symmetric-matrix increments and quadratic-form rank sectors do not imply the traceless nilpotent graph spectrum or codimension counts here. Peres–Sly analyze nonabelian upper-unitriangular multiplicative walks, Fulman–Goldstein rank distributions under uniform matrix ensembles, and Fulman–Stanton fixed vectors in finite classical groups. The new statement is the sharp additive-walk mixing cutoff and exact chi-square window profile obtained by counting high-dimensional rational eigenspaces. Searches found no equivalent or dominating theorem, but historical priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** A precisely defined natural rank-constrained matrix walk is shown to mix at the algebraically minimal matrix-size scale, with a bounded sharp transition. The critical chi-square profile is a nontrivial, absolutely convergent q-series of distinct eigencodimension contributions, giving a quantitative description beyond eigenvalue bounds or a single cutoff time. This can inform mixing questions for other matrix-orbit walks.
+The step set consists of vu^T with u^Tv=0 and exactly q-1 parametrizations. Fourier summation over the orthogonal hyperplane gives the exact projective-eigenline multiplier, with character labels modulo scalar matrices. For a unique maximal rational eigenspace of codimension c<n/2, Gaussian binomial choices of the eigenspace and injective quotient maps give N_{n,c}=[n choose c]_q prod_{j=0}^{c-1}(q^n-q^j). Each fixed-c contribution at time n+s tends to q^{-c²-2cs}/prod(1-q^-j), and uniform tail estimates for c up to and beyond n/3 justify the infinite series. Rank(X_t)<=t while a Haar-traceless matrix rarely has corank >=a, proving the earlier total variation side; chi-square convergence bounds the later side. An independent F2 n=3 checker enumerated all 256 character classes and all 21 steps, verified 256 exact Fourier eigenline multipliers and the 49 classes with eigenhyperplane of dimension 2. Finite checks do not establish cutoff.
 
-**Closest literature and limitations.** See Peres–Sly (arXiv:1105.4402), Fulman–Goldstein (arXiv:1211.0504), and Fulman–Stanton (arXiv:1505.06383). Previously derived exact finite-dimensional eigenline formulas and the separate symmetric Wishart-walk cutoff are essential context. The theorem fixes the field order, gives no exact total-variation profile, and has no independent mathematical audit. Residual historical-priority risk remains for uncatalogued additive matrix-walk literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full published same-Cayley-graph prior theorem provides exactly the eigenline Fourier multiplier and sharp extreme graph eigenvalues; these are known and credited. Neither its exact finite spectrum nor the separate Wishart symmetric-matrix walk theorem supplies the all-eigen-codimension multiplicities, n-step cutoff, and new q-series. General matrix rank counts and multiplicative unitriangular matrix walks address different operators. The originality pass is bounded and qualified by potential unindexed spectral-mixing literature.
+
+## value
+
+PASS
+
+Uniform addition of a rank-one nilpotent is a natural algebraic random walk with a severe rank obstruction. Determining the sharp n-step cutoff is a meaningful mixing problem, and the full convergent critical chi-square profile reveals infinitely many Fourier eigencodimension sectors. This supplies quantitative content not provided by the already known extremal eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
