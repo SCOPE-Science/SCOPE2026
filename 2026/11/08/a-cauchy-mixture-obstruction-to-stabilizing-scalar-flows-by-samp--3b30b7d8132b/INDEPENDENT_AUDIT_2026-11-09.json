@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T05:56:23.326952Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-cauchy-mixture-obstruction-to-stabilizing-scalar-flows-by-samp--3b30b7d8132b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-cauchy-mixture-obstruction-to-stabilizing-scalar-flows-by-samp--3b30b7d8132b/verify.py",
+        "independent direct Cauchy exact-formula and critical-gain checks 2026-11-09"
+      ],
+      "rationale": "Exact stochastic integral multiplier on each sampling cell follows from stable characteristic functions and variation of constants. Positive alpha-stable subordinator variable V times independent standard Cauchy C has characteristic exp(-|u|^alpha), yielding via Poisson log potential E log|e^(theta tau)+dVC|=0.5 E log(e^(2theta tau)+d^2 V^2). Log absolute moment integrable by stable tails/local density and log-moment bounds; sampled log SLLN applies. Within-cell sup has finite log+ expectation using p<alpha maximal moment and deterministic-kernel integration by parts; Borel-Cantelli removes k^-1 fluctuation, with sampled times giving reverse limsup bound. Nonzero gain strictly increases exponent; continuity and divergence yield unique critical gain theta<0. Cauchy endpoint bcrit=|theta|/sigma sqrt(coth(-theta*tau/2)). Independent numerical Cauchy drift/gain/critical cases checked; source verify.py read, not rerun. Finite checks are not the a.s. proof.",
+      "residual_risks": [
+        "No full continuous-time t^-1 log|X_t| limit is asserted: within-cell zeros/near-zeros can make liminf different.",
+        "Only centered symmetric stable noise and sampled multiplicative noise coefficient; no skew, state-feedback drift or Brownian case."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mao proof and Theorem 2.1 use Brownian diffusion control and a variance threshold sigma^2>2theta, then sufficiently small observation gap; this stochastic driver is alpha=2, not <=1.",
+          "Zhang 2026 sufficient stabilization conditions require alpha>1 and a positive fractional-moment parameter; it does not state a <=1 result.",
+          "Wang/Gao/Yuan publisher abstract is quasi-sure/mean-square G-Levy stabilization and cannot establish exact classical i.i.d.-multiplier rate."
+        ],
+        "reasoning": "Same scalar observation architecture does not make the Brownian or alpha>1 conclusions dominate a tail index <=1 pathwise obstruction; mean-square or sublinear expectation sufficiency is not the same quantifier/event.",
+        "searches": [
+          "Mao 2016 IEEE TAC Theorem 2.1 full open manuscript",
+          "Zhang arxiv:2611.04340v1 abstract and published preliminaries",
+          "Wang Gao Yuan DOI 10.3934/mcrf.2025020 publisher abstract",
+          "Applebaum-Siakalli 2009 Levy SDE stability abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-cauchy-mixture-obstruction-to-stabilizing-scalar-flows-by-samp--3b30b7d8132b/RESULT.md",
+        "https://strathprints.strath.ac.uk/54009/1/Mao_etal_IEEE_TOAC_2016_Almost_sure_exponential_stabilization_by_discrete_time_stochastic.pdf",
+        "https://arxiv.org/abs/2611.04340",
+        "https://doi.org/10.3934/mcrf.2025020"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brownian alpha=2 can stabilize theta>0 with diffusion feedback; the Cauchy result strictly raises theta at nonzero b.",
+          "alpha>1 hypotheses exclude the target alpha<=1 regime.",
+          "No claim from a G-expectation sufficient condition has been shown to imply an exact log expectation for the centered symmetric stable scalar model."
+        ],
+        "reasoning": "Prior claims do not entail the displayed rate, endpoint coth threshold or strict anti-stabilization; their hypotheses or stability notions materially differ.",
+        "searches": [
+          "Mao 2016 Theorem 2.1 coefficient/driver comparison",
+          "Zhang 2026 alpha range comparison",
+          "Wang Gao Yuan 2025 abstract meaning of quasi-sure stabilization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact multiplier is e^(theta*tau)+b*sigma*(int_0^tau e^(alpha theta s)ds)^(1/alpha)*S_alpha; characteristic function and Cauchy mixture show E log|M|=0.5 E log(e^(2theta tau)+d^2 V^2).",
+          "Resultary searches matched this submission itself, not a separate exact same scalar sampled stable-innovation logarithmic theorem."
+        ],
+        "reasoning": "Search was for Lyapunov exponent, random-product, discrete observed noise and Cauchy mixture aliases, not merely an exact title. The classical Cauchy-potential identity alone lacks the sampled-feedback architecture and continuous-time rate.",
+        "searches": [
+          "Resultary: sampled symmetric alpha stable noise feedback scalar stochastic differential equation Cauchy mixture almost sure Lyapunov exponent cannot stabilize nonnegative drift alpha <=1",
+          "Resultary: sampled stable Lévy alpha <=1 discrete-time multiplicative noise feedback Cauchy exact Lyapunov exponent",
+          "Web: sampled stable Levy noise coefficient feedback Cauchy Lyapunov exponent alpha less than one",
+          "Web: Zhang 2611.04340 discrete-time sampled alpha stable control",
+          "Web: Wang Gao Yuan G-Levy sampled state feedback DOI 10.3934/mcrf.2025020"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No tabulated exact stable feedback multiplier Lyapunov rates for indices (0,1] were identified among Resultary hits; closest same-architecture sources offer sufficient stability criteria."
+        ],
+        "reasoning": "This is an analytic continuum-parameter classification, not a finite entry; absence from searches is only a residual-risk observation.",
+        "searches": [
+          "Resultary: sampled symmetric alpha stable noise feedback scalar stochastic differential equation Cauchy mixture almost sure Lyapunov exponent cannot stabilize nonnegative drift alpha <=1",
+          "Resultary: sampled stable Lévy alpha <=1 discrete-time multiplicative noise feedback Cauchy exact Lyapunov exponent",
+          "Web: sampled stable Levy noise coefficient feedback Cauchy Lyapunov exponent alpha less than one",
+          "Web: Zhang 2611.04340 discrete-time sampled alpha stable control",
+          "Web: Wang Gao Yuan G-Levy sampled state feedback DOI 10.3934/mcrf.2025020"
+        ]
+      },
+      "rationale": "Best-of-knowledge finding concerns exact almost-sure logarithmic sample-product exponent for symmetric alpha-stable innovations with 0<alpha<=1 and feedback multiplying the sampled state in the NOISE coefficient. The Brownian same-architecture stabilization theorem has alpha=2 and cannot extend its finite-variance sufficient condition to these infinite-first-moment laws; Zhang 2026 uses alpha>1 and sufficient results; G-Levy results concern nonlinear expectation/moment notions. The stable/Cauchy mixture and Poisson identity are classical and are not claimed original. New result is exact all-gain pathwise exponent and obstruction in this parameter regime. Relevant full G-Levy paper unavailable, so historical priority explicitly qualified.",
+      "residual_risks": [
+        "Full G-Levy discrete-feedback primary text inaccessible; it might contain a relevant unexamined specialization.",
+        "Classical stochastic-control and Cauchy-log-potential literature could include an equivalent previously unnoticed scalar sampling application."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Brownian alpha=2 sufficient stabilization, does not cover alpha<=1.",
+          "evidence": [
+            "Theorem 2.1 and inequality sigma^2>2theta under Brownian increments."
+          ],
+          "identifier_or_url": "doi:10.1109/TAC.2015.2471696 / https://strathprints.strath.ac.uk/54009/1/Mao_etal_IEEE_TOAC_2016_Almost_sure_exponential_stabilization_by_discrete_time_stochastic.pdf",
+          "material_read": "Open full IEEE manuscript including assumptions and Theorem 2.1; representative page screenshot inspected.",
+          "method": "Direct PDF text and page-image comparison of driver, gain and theorem quantifiers.",
+          "title": "Almost Sure Exponential Stabilization by Discrete-time Stochastic Feedback Control",
+          "trigger": "Same sampled-state noise-feedback architecture"
+        },
+        {
+          "assessment": "Explicit main sufficient regime alpha>1; same architecture but target alpha<=1 omitted.",
+          "evidence": [
+            "Positive moment parameter below alpha-1 excludes alpha<=1."
+          ],
+          "identifier_or_url": "arxiv:2611.04340v1",
+          "material_read": "Accessible abstract/relevant web-rendered formulas; not an exhaustive full-text inspection.",
+          "method": "Compared index domain and type of sufficient stabilization conditions.",
+          "title": "Almost sure exponential stabilization of linear stochastic systems driven by a general alpha-stable process via discrete-time state feedback",
+          "trigger": "Direct stable-noise control and almost sure exponent"
+        },
+        {
+          "assessment": "No proven coverage from available material; genuine historical-priority risk remains.",
+          "evidence": [
+            "Publisher abstract describes quasi-sure/mean-square sufficient stabilization, not an accessible exact alpha<=1 multiplier theorem."
+          ],
+          "identifier_or_url": "doi:10.3934/mcrf.2025020",
+          "material_read": "Publisher title and abstract; full text inaccessible.",
+          "method": "Compared stated mean-square/quasi-sure scope with exact classical scalar logarithmic claim; withheld whole-text exclusion conclusion.",
+          "title": "Quasi-sure exponential stabilization of stochastic systems driven by G-Lévy Process with discrete time feedback control",
+          "trigger": "Potential dominating sampled Lévy feedback theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-cauchy-mixture-obstruction-to-stabilizing-scalar-flows-by-samp--3b30b7d8132b/RESULT.md",
+        "https://strathprints.strath.ac.uk/54009/1/Mao_etal_IEEE_TOAC_2016_Almost_sure_exponential_stabilization_by_discrete_time_stochastic.pdf",
+        "https://arxiv.org/abs/2611.04340"
+      ],
+      "rationale": "Sharp stability/instability boundary for an established sampled stochastic-control architecture precisely at the infinite-mean heavy-tail range 0<alpha<=1. It overturns naive extension of Brownian noise stabilizability by showing the universal nonnegative increase in upper a.s. exponent and gives explicit Cauchy gain threshold; control researchers can use the exact rate rather than insufficient moment criteria.",
+      "residual_risks": [
+        "Importance depends on the deliberately limited symmetric scalar sampled-noise family; no general nonlinear or multidimensional claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "G-Levy full text not obtained; some relevant bibliography abstract-only.",
+    "No numerical verification establishes any infinite-time limit; proof uses SLLN, log-integrability, Borel-Cantelli."
+  ],
+  "schema_version": 1
+}

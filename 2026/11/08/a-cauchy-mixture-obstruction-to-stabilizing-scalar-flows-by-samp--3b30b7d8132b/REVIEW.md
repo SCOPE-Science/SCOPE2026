@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The scalar sampled recurrence follows from variation of constants and the characteristic function of stable stochastic integrals. The positive-stable scale mixture of a Cauchy variable gives the exact logarithmic moment by a Poisson-kernel identity. Integrability of the multiplier logarithm follows from stable-density behavior or conditioned Cauchy logarithms; a within-interval supremum with finite logarithmic moment lifts the sampled strong law to the exact pathwise limsup. The gain threshold follows from strict monotonicity. The embedded `verify.py` independently performed 253 grouped numerical/finite checks, including a non-Cauchy stable-index case. No finite experiment is used as a substitute for the general proof.
+## correctness
 
-**Originality: PASS (best-knowledge, residual priority risk).** The 2016 Brownian result has the same sampled architecture but finite-variance Gaussian innovations and a distinct stabilizing conclusion. The March 2025 G-Lévy discrete-feedback source gives mean-square and quasi-sure sufficient results in a different sublinear-expectation setting; its complete proof was not accessible for a full overlap comparison, and this is a residual risk. The June 2025 Lévy-control paper uses drift feedback and mean-square hypotheses, not this heavy-tail feedback endpoint. The November 2026 stable-feedback preprint treats stabilization above stable index one, and its displayed sufficient moment argument excludes the endpoint analyzed here. Searches of related published mathematical literature did not reveal the all-gain exact obstruction, but a general Cauchy-potential or stable-product theorem could already subsume it. Classical lemmas are expressly credited rather than claimed new.
+PASS
 
-**Mathematical value: PASS.** The exact upper exponent resolves a natural model boundary between Gaussian-like stochastic stabilization and the non-stabilizing symmetric stable regime, uniformly across sampling spacings and feedback strengths. The negative-drift classification and explicit Cauchy threshold turn the obstruction into a sharp phase diagram rather than merely a low-cost normalization check. The result covers no skewed/noisy-drift models and does not claim finite-moment stability.
+Exact stochastic integral multiplier on each sampling cell follows from stable characteristic functions and variation of constants. Positive alpha-stable subordinator variable V times independent standard Cauchy C has characteristic exp(-|u|^alpha), yielding via Poisson log potential E log|e^(theta tau)+dVC|=0.5 E log(e^(2theta tau)+d^2 V^2). Log absolute moment integrable by stable tails/local density and log-moment bounds; sampled log SLLN applies. Within-cell sup has finite log+ expectation using p<alpha maximal moment and deterministic-kernel integration by parts; Borel-Cantelli removes k^-1 fluctuation, with sampled times giving reverse limsup bound. Nonzero gain strictly increases exponent; continuity and divergence yield unique critical gain theta<0. Cauchy endpoint bcrit=|theta|/sigma sqrt(coth(-theta*tau/2)). Independent numerical Cauchy drift/gain/critical cases checked; source verify.py read, not rerun. Finite checks are not the a.s. proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge finding concerns exact almost-sure logarithmic sample-product exponent for symmetric alpha-stable innovations with 0<alpha<=1 and feedback multiplying the sampled state in the NOISE coefficient. The Brownian same-architecture stabilization theorem has alpha=2 and cannot extend its finite-variance sufficient condition to these infinite-first-moment laws; Zhang 2026 uses alpha>1 and sufficient results; G-Levy results concern nonlinear expectation/moment notions. The stable/Cauchy mixture and Poisson identity are classical and are not claimed original. New result is exact all-gain pathwise exponent and obstruction in this parameter regime. Relevant full G-Levy paper unavailable, so historical priority explicitly qualified.
+
+## value
+
+PASS
+
+Sharp stability/instability boundary for an established sampled stochastic-control architecture precisely at the infinite-mean heavy-tail range 0<alpha<=1. It overturns naive extension of Brownian noise stabilizability by showing the universal nonnegative increase in upper a.s. exponent and gives explicit Cauchy gain threshold; control researchers can use the exact rate rather than insufficient moment criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
