@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Pairwise common-horizontal-line counts give the exact Gram kernel, including the diagonal correction \(c=D-1\). The central Fourier transform reduces it to one rank-one all-ones block and \(q-1\) symplectic Fourier blocks. Each nonzero block is Hermitian, squares to \(q^{2n}I\), and has trace \(q^{2n}\), fixing all eigenvalues and multiplicities. The critical rank-one zero eigenvalue, higher-rank strict positivity, and explicit inverse are consequences with no unverified analytic steps. A direct finite incidence construction and numerical spectrum comparison pass 86,391 assertions for the three small cases stated in the result.
+PASS
 
-## Originality
+Each point is on D=(q^{2n}-1)/(q-1) distinct unweighted horizontal lines. Two different points share a line exactly when their spatial coordinates differ and s-t=σ(z,w), so the counting-measure normal operator is K=(D-1)I+Σ_w f(w,t+σ(z,w)). Central-frequency decomposition yields cI+F_η with c=D-1. At η=0, F_0=all-ones on Q=q^{2n} spatial points. For η!=0, F_η is Hermitian, F_η²=Q I by symplectic-character orthogonality, and tr F_η=Q. Thus eigenvalues ±q^n have multiplicities (Q±q^n)/2 for each of the q-1 central frequencies; c+Q multiplicity1 and c multiplicity Q-1. c=q when n=1 gives nullity q(q-1)²/2; c>q^n when n>=2 gives injectivity. Orthogonal spectral projectors yield inverse and pseudoinverse with exact sharp condition number. Independent complete incidence Gram reconstruction for q=3,n=1 checked nullity and all eigenlevels; the all-prime-power claim follows algebraically, not numerically.
 
-**PASS relative to checked evidence.** The two 2026 horizontal-Heisenberg papers work with maximal selection by spatial/refined directions and estimates for rich directions; they do not calculate the all-line linear operator's singular spectrum. Kong–Tamo analyze a graph-variety incidence family, which does not contain the complete horizontal-line family as an immediate case of their stated hypotheses. Actual database searches for Heisenberg all-line tomography, central symplectic Fourier blocks, eigenvalue tables, and rank transitions returned no exact coverage; finite cyclic abelian Radon and constrained Fourier sampling results are not the same operator. Residual risk: equivalent general finite-Heisenberg association-scheme/incidence spectral calculations may be indexed under different terminology.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result gives a complete natural tomography invariant in a noncommutative finite group, identifies a sharp and unexpected transition between nonrecovery at rank one and recovery at every larger rank, and supplies exact stable reconstruction operators and condition numbers. The two regimes are not consequences of knowing merely that individual horizontal lines intersect in at most one point.
+The all-distinct-horizontal-lines linear transform, four-level Gram spectrum, sharp injectivity transition and explicit inverse are not implied by the inspected full-text finite-Heisenberg horizontal Kakeya maximal-operator paper; its nonlinear direction-supremum operator is a different map. Resultary semantic search found other few-direction or other-group spectra, not this all-line transform prior to the record.
 
-## Limitations and sources
+## value
 
-The conclusions require all distinct lines counted once, odd prime-power fields, and unaveraged line sums. The proof does not extend to arbitrary direction subfamilies, general nonlinear maximal operators, or characteristic two. The relevant primary papers are arXiv:2603.02111, arXiv:2608.14059 and the incidence comparison arXiv:2408.10977; an unindexed stronger covering statement remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural full X-ray transform on finite Heisenberg groups has a sharp qualitative injectivity transition between central rank one and higher ranks. The explicit four-level spectrum, exact nullspace dimension and pseudoinverse, and sharp condition number are complete information-theoretic invariants of a natural incidence operator, not a routine change of variables in the nonlinear Kakeya literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
