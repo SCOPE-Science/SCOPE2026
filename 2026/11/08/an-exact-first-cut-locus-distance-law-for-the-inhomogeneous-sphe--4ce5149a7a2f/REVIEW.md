@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model and normalizations are explicit: curvature-one \(S^3\), the free order-five action \((z_1,z_2)\mapsto(\zeta z_1,\zeta^2z_2)\), normalized quotient volume \(2\pi^2/5\), and uniform \(|z_1|^2\) from Haar measure. The two orbit-distance classes are derived by real inner products; their complement-cycle combinatorics exclude triple overlaps for every \(r<\tfrac12\arccos(-1/4)\). Each fixed-center quotient ball is obtained exactly by five-cap inclusion-exclusion. The two-cap overlap formula follows from a global spherical tubular-coordinate integral; a one-dimensional substitution and elementary antiderivatives produce the claimed CDF, with a positive cubic deficit coefficient \(10(\sqrt5-1)/(3\pi)\). At the interval endpoint the formula holds by continuity. A separate high-precision quadrature agrees to 55 digits at six radii; 2,000,000 directly sampled quotient distances also match the CDF within declared statistical tolerance. The infinite statement is proven analytically, not inferred from the finite tests.
+PASS
 
-## Originality — PASS (priority provisional)
+For the round S³ order-five quotient by (z1,z2)↦(ζz1,ζ²z2), t=|z1|² is Haar-uniform and yields two nontrivial deck-distance classes d1(t),d2(t). Any triple of the five orbit centers contains both pair-distance classes, and max(d1,d2)≥2b, b=acos(−1/4)/2. Thus at r≤b, inclusion–exclusion contains only 5 single-ball terms and 10 pair overlaps. I checked the spherical overlap integral I(r,d)=2π[r−d/2−cos²r(tan r−tan(d/2))] and its change of variables against the claim's B_a(r) with a=π/5. Numerical independent high-precision integration at r=0.65,0.75,0.9 agreed with the closed CDF to better than 10^−48; this corroborates but does not replace the geometric all-r≤b argument. Taylor expansion B_a(a+ε)=(4/3)sin²(a) ε³+O(ε⁴) yields the C²-but-not-C³ first cut-locus boundary, without claiming r>b.
 
-The closest source is Balch, Peterson and Shonkwiler, arXiv:2004.13196v1 (2020), which proves exact distributions only for homogeneous \(L(n,1)\); its §3 shows simulated \(L(5,2)\) distributions and its conclusion explicitly identifies analytical inhomogeneous distributions as an interesting open direction. The paper's formula for the homogeneous case does not imply the cubic correction here: the center dependence must be integrated. Aurich and Lustig, arXiv:1201.6490v1 (2012), analyze deck displacements, position-dependent Voronoi geometry, and cosmic microwave background observables, not the normalized distribution of independent geodesic distances. Searches for equivalent descriptions, spherical ball-volume tables, and existing research records returned no statement covering the exact initial overlap interval or the cubic coefficient. Exhaustive priority is not claimed; unindexed works remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first inhomogeneous lens space \(L(5,2)\) is a natural benchmark for distance distributions, specifically identified in the closest analytical literature as a target beyond the homogeneous theory. Determining its CDF throughout a nonzero, explicitly quantified pairwise-only-overlap interval resolves a substantive initial part of that benchmark, and the cubic rather than quadratic first-cut-locus onset gives a geometric regularity distinction between inhomogeneous and homogeneous lens spaces. This is not an arbitrary moment or isolated simulation. It does not classify the eventual larger-radius overlapping regimes.
+The exact L(5,2) first-overlap CDF and cubic cut-locus smoothness are not consequences of the published homogeneous L(5,1) laws, which have quadratic onset. Existing inhomogeneous work supplies deck transformations and histograms without the present analytic average. Motivated exact metric statistic on a natural nonhomogeneous lens space.
 
-## Limits and follow-up
+## value
 
-The full pair-distance CDF for larger radii, other inhomogeneous lens spaces, and general inverse shape theorems are not established. The exact law is scale-normalized to curvature \(+1\). Historical uniqueness remains subject to fuller bibliographic review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An inhomogeneous spherical lens space has genuinely center-dependent ball volumes, making an exact random-pair geodesic CDF nontrivial even on the first overlap interval. The closed formula and cubic-versus-quadratic first cut-locus regularity distinguish geometry invisible to homogeneous formulas. The partial window remains a useful exact natural invariant and is not portrayed as an all-radius classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
