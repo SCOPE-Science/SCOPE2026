@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-The machine-checked portion is finite complete enumeration, not random simulation or an infinite-family extrapolation. Execute `python3 verify.py --certificate` and `g++ -O2 -std=c++17 verify.cpp -o verify && ./verify` in a directory containing the extracted files. Both programs have no data inputs; the Python program uses only the standard library, and the C++ program uses only the C++17 standard library. They independently reconstruct the two named graphs on 16 vertices, every 16-bit subset, the code-validity predicate, the minimum-size layers, every token-jump/token-slide adjacency, and all component and degree profiles. Both run breadth-first searches from **all 2,208 rook code states** in each move model, checking every eccentricity.
+## correctness
 
-`states.txt` is the complete ascending hexadecimal list of all minimum code masks, preceded by S or R. `edges.txt` lists every unordered pair of adjacent masks under the four graph/move models, prefixed ST, SJ, RT, RJ. A missing ST line is expected: all 96 Shrikhande optimum codes have no slides. `verify_python_output.txt` and `verify_cpp_output.txt` are recorded execution results, not independently performed scholarly audits.
+PASS
 
-Targeted assertions from both programs: rook slide state count 2,208, edge count 14,976, connected component size 2,208, degree spectrum (12:1,344; 16:864), eccentricity six at every state. The independently known rook jump count 28,800 and diameter six are checked but not claimed new. Shrikhande comparison (96 frozen optimum codes, jump graph 16 six-cycles) is background and not a separate originality claim.
+For host K4 square K4 (16 labeled vertices), a selected subset is a minimum identifying code iff each closed-neighborhood signature C∩N[v] is nonempty and the sixteen signatures are distinct; equivalently its mask hits all neighborhoods and pairwise symmetric differences. Code size monotonicity means checking no size-5 solution excludes all smaller sizes. Independently implemented a fresh exhaustive checker of all C(16,5)=4368 and C(16,6)=8008 subsets, obtaining 0 valid five-codes and exactly 2208 six-codes. Constructed all legal host-adjacent one-token slides and found 14976 undirected edges, exactly 1344 states of slide degree12 and 864 of degree16. Full BFS from each of 2208 states reached all other states with eccentricity exactly 6, proving radius and diameter6. Full code enumeration is a complete fixed-finite proof rather than extrapolation; two supplied independent Python/C++ algorithms separately encode signature criteria and transition generation.
 
-Scientific limits: the exhaustive finite proof covers only the fixed named 16-vertex host graph and specified closed-neighborhood identifying-code and single-swap rules. Independent scholarly review has not been performed; absence of an earlier equivalent unindexed exact slide census has not been proven.
+## originality
+
+PASS
+
+PASS best-of-knowledge for the NEW adjacency-restricted slide graph on the fixed rook graph, not for min code size 6, code count 2208, unrestricted jump 28800 edges/diameter6, or frozen Shrikhande slides. The full 2026-10-26 prior result gives these excluded jump invariants but not which jumps exchange adjacent host vertices. Deleting 13824 edges may disconnect graph or increase distances; prior jump diameter supplies only a lower bound for slide diameter, not six-step upper bound. Mynhardt–Teshima defines this slide reconfiguration model abstractly and proves realizability on constructed graphs, not the given host’s slide spectrum. Foucaud et al determine optimum code size for line graph K4,4 but not exact slide mobility. No covering same-host slide invariant found; unindexed tables remain a residual risk.
+
+## value
+
+PASS
+
+An exact finite, natural sensor-reconfiguration graph shows that imposing local adjacency deletes almost half the legal unrestricted jumps yet preserves connectivity and worst-case shortest distance. Complete vertex degrees, edge count and all-state metric provide a genuinely useful structural classification, even though the host is a motivated 16-vertex example rather than an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

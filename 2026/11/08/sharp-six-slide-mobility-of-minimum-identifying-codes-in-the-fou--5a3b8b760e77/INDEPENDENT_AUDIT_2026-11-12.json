@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T20:06:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For host K4 square K4 (16 labeled vertices), a selected subset is a minimum identifying code iff each closed-neighborhood signature C∩N[v] is nonempty and the sixteen signatures are distinct; equivalently its mask hits all neighborhoods and pairwise symmetric differences. Code size monotonicity means checking no size-5 solution excludes all smaller sizes. Independently implemented a fresh exhaustive checker of all C(16,5)=4368 and C(16,6)=8008 subsets, obtaining 0 valid five-codes and exactly 2208 six-codes. Constructed all legal host-adjacent one-token slides and found 14976 undirected edges, exactly 1344 states of slide degree12 and 864 of degree16. Full BFS from each of 2208 states reached all other states with eccentricity exactly 6, proving radius and diameter6. Full code enumeration is a complete fixed-finite proof rather than extrapolation; two supplied independent Python/C++ algorithms separately encode signature criteria and transition generation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier full finite rook+Shrikhande census establishes 2208 optimum rook codes and 28800 unrestricted jumps, not the 14976 legal slides.",
+          "Mynhardt–Teshima realizes prescribed abstract identifying-code reconfiguration graphs on designed hosts; does not classify this fixed rook host.",
+          "Foucaud et al Proposition10 supplies γ_ID=6 on K4 square K4."
+        ],
+        "reasoning": "General host constructions and unrestricted move graphs do not determine exact edge-restricted slide subgraph and cannot imply its diameter upper bound.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+          "https://arxiv.org/abs/1707.02039",
+          "https://arxiv.org/abs/1107.0207"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+        "https://arxiv.org/abs/1107.0207",
+        "https://arxiv.org/abs/1707.02039",
+        "Resultary semantic rook slide/locating domination code census",
+        "Assigned RESULT.md, verify.py, verify.cpp file list, states.txt and edges.txt full-tree hashes",
+        "Independent /tmp/rook_recheck.py exact enumeration and all-roots BFS"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every slide is a jump, so earlier jump distance six yields slide diameter at least six but not at most six.",
+          "The source’s slide graph excludes 13824 of 28800 jump edges yet independently verified all-state BFS gives eccentricity6 everywhere.",
+          "The Shrikhande slide-freezing comparison follows from older code geometry and is not counted as new."
+        ],
+        "reasoning": "Exact connectivity and the upper diameter6 bound after imposing local slides require new fixed-host edge computation and BFS. Prior papers therefore do not mathematically imply the new finite graph invariants.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+          "https://arxiv.org/abs/1707.02039",
+          "https://arxiv.org/abs/1107.0207"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K4 square K4 is the line graph L(K4,4); closed-neighborhood identifying codes use the same identification predicate as earlier works.",
+          "Previous one-token exchange (jump) graph permits moving to any unoccupied site; submitted slide graph additionally requires adjacency in K4 square K4."
+        ],
+        "reasoning": "The core identifying-code objects coincide, but slide-edge adjacency is genuinely stricter than jump adjacency; there is no equivalence of their metrics without further computation.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+          "arxiv:1707.02039",
+          "Resultary semantic: identifying code rook graph four by four token slide reconfiguration diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An earlier complete jump census records 2208 min codes, 28800 jump edges and diameter6, all explicitly excluded from the novelty claim.",
+          "Independent exhaustive checker of 2208 minimum states found 14976 slide edges, 1344 degree-12 states and 864 degree-16 states, all-root eccentricities6.",
+          "No earlier exact slide-state adjacency table located; a published abstract table may exist unindexed."
+        ],
+        "reasoning": "The actual adjacency-restricted edge table is a distinct complete classification. Known jump tables do not determine which jumps satisfy host adjacency unless one recomputes the slide operation.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+          "Resultary semantic: identifying code slide graph K4 square K4 14976 2208 rook"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the NEW adjacency-restricted slide graph on the fixed rook graph, not for min code size 6, code count 2208, unrestricted jump 28800 edges/diameter6, or frozen Shrikhande slides. The full 2026-10-26 prior result gives these excluded jump invariants but not which jumps exchange adjacent host vertices. Deleting 13824 edges may disconnect graph or increase distances; prior jump diameter supplies only a lower bound for slide diameter, not six-step upper bound. Mynhardt–Teshima defines this slide reconfiguration model abstractly and proves realizability on constructed graphs, not the given host’s slide spectrum. Foucaud et al determine optimum code size for line graph K4,4 but not exact slide mobility. No covering same-host slide invariant found; unindexed tables remain a residual risk.",
+      "residual_risks": [
+        "An unindexed finite code reconfiguration database could include this particular slide graph; no proof of global bibliographic novelty.",
+        "Result is specific to the finite 16-vertex host; it does not generalize diameter invariance to larger rook graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE, NEW SLIDE METRIC NOT PROVIDED",
+          "evidence": [
+            "Explicitly unrestricted one-codeword replacement; no requirement that outgoing/incoming vertices are adjacent in original rook host."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+          "material_read": "Complete RESULT.md, proof, exact 2208 rook code count, 28800 jump-edge count, all-root jump diameter6 and Shrikhande classification",
+          "method": "Full published GitHub source",
+          "title": "Optimal identifying-code exchange geometry of the Shrikhande and 4x4 rook graphs",
+          "trigger": "same host and code state set, earlier unrestricted jump graph"
+        },
+        {
+          "assessment": "ONLY MINIMUM SIZE COVERED",
+          "evidence": [
+            "γ_ID(K4 square K4)=6; no 14976-state-move slide graph theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.0207",
+          "material_read": "Primary PDF pertinent theorem and Proposition 10: minimum identifying code number on line graphs, reviewed via page text and screenshot",
+          "method": "Lawful arXiv primary PDF",
+          "title": "Identifying codes in line graphs",
+          "trigger": "same host is line graph K4,4"
+        },
+        {
+          "assessment": "MODEL DEFINITIONS AND GENERAL EXISTENCE, NOT FIXED ROOK CENSUS",
+          "evidence": [
+            "Arbitrary reconfiguration target realizability concerns constructed hosts, not K4 square K4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.02039",
+          "material_read": "Primary PDF relevant definition and construction/realization theorem, reviewed via page text and screenshot",
+          "method": "Lawful arXiv primary PDF",
+          "title": "A note on some variations of the gamma-graph",
+          "trigger": "exact adjacency-restricted identifying-code reconfiguration model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact finite, natural sensor-reconfiguration graph shows that imposing local adjacency deletes almost half the legal unrestricted jumps yet preserves connectivity and worst-case shortest distance. Complete vertex degrees, edge count and all-state metric provide a genuinely useful structural classification, even though the host is a motivated 16-vertex example rather than an infinite family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d/RESULT.md",
+    "https://arxiv.org/abs/1107.0207",
+    "https://arxiv.org/abs/1707.02039",
+    "Resultary semantic rook slide/locating domination code census",
+    "Assigned RESULT.md, verify.py, verify.cpp file list, states.txt and edges.txt full-tree hashes",
+    "Independent /tmp/rook_recheck.py exact enumeration and all-roots BFS"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Code interpretation uses closed neighborhoods and host edges for token slides, not open-neighborhood locating domination or arbitrary jumps.",
+    "The Shrikhande zero-slide observation is covered by earlier structural code classification and explicitly excluded from assessed novelty."
+  ],
+  "residual_risks": [
+    "An unindexed finite code reconfiguration database could include this particular slide graph; no proof of global bibliographic novelty.",
+    "Result is specific to the finite 16-vertex host; it does not generalize diameter invariance to larger rook graphs."
+  ],
+  "schema_version": 1
+}
