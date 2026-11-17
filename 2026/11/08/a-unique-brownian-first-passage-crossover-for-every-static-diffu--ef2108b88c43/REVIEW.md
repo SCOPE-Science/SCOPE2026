@@ -1,19 +1,21 @@
-# Scientific review: Brownian first-passage crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns static random \(D>0\) with finite mean, without hidden integrability hypotheses. The reflection-principle CDF, strict early-time dominance, and the late-time limit (including the infinite-negative-moment case via Fatou) yield opposite endpoint signs. Exact differentiation reduces the derivative sign to a strict-convexity problem for the exponentially tilted inverse-diffusivity moment. This proves exactly two nondegenerate stationary points and one CDF crossing. Direct second differentiation and strict Jensen yield the stated bounded-support bracket. The full quantified proof is in RESULT.md, with independent symbolic and high-precision test examples in checker.py. Numerical examples alone do not certify the infinite family.
+PASS
 
-## Originality — PASS, qualified
+PASS. Conditional reflection principle gives the erfc CDF. Early positive sign follows from positive mass D>mean and Gaussian tail dominance; late negative sign uses strict Jensen and dominated convergence or Fatou for infinite E[D^-1/2]. Differentiation of K(y)=E[D^-1/2 exp(-y(1/D-1/mean))] is valid for positive y despite singular diffusivities; K''(y)>0. With both endpoint values above 1/sqrt(mean) and a dip below (from the two CDF endpoint signs), strict convexity gives precisely two simple roots and hence two strict nondegenerate CDF extrema, a single intervening zero, and exact a² scaling. Strict diffusivity-curvature Jensen gives the d-/d+ bracket. Independent SymPy differentiation and singular-law integral/crossover tests support the computations; no finite test substitutes for the convexity proof.
 
-The CDF mixture, Jensen-based characteristic-time comparison and an implicit crossover equation are already in Sposini et al. (arXiv:2403.10138v1, equations (31),(34)–(39)); these are **not new**. The paper calls the crossing typical and does not provide a general theorem guaranteeing the one-crossing and two-extrema counts for every static positive finite-mean distribution. Sposini, Chechkin and Metzler (arXiv:1809.09186v1) describe a crossover in a time-varying diffusivity model, with independence from initial position in their scaling formulation; that is not a general static-mixture uniqueness theorem. The 2024 companion concerns extreme searches; Grebenkov et al. (arXiv:2007.05765v1) treat time-varying diffusivity examples. No matching stronger implication was identified in the examined records. An equivalent application of an earlier general variation-diminishing principle remains possible, and one directly related 2024 review chapter could not be fully inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unique threshold makes the preexisting implicit criterion operational for all admissible quenched mixtures and rules out reentrant early/late targeting efficiency. Counting the exactly two extrema gives a complete qualitative phase portrait of the CDF difference. The strict support-only bracket provides a useful prior range for a crossover search, and the theorem remains valid when the negative half-moment diverges, covering a natural nonuniform-diffusivity boundary that cannot be handled by a finite-coefficient long-time expansion. This is a motivated structural result rather than a table lookup or arbitrary parameter slice.
+PASS, narrowed to the genuinely stronger integrable-unbounded and near-zero diffusivity regime. A same-model 2026-11-08 Resultary theorem already proves all claimed sign counts and bracket when D has compact support bounded away from zero, plus weak-disorder positions. The present actual theorem rigorously extends those counts to every positive finite-mean distribution including E[D^-1/2]=infinite; that extension is neither a corollary of the bounded-only statement nor claimed earlier there. It requires modified endpoint and derivative-integrability arguments. Date-only records cannot establish intra-day priority for shared bounded results. This is a qualified best-knowledge PASS, not a novelty claim for bounded D.
 
-## Limits and risks
+## value
 
-Applicability is to independent Brownian trajectories with static diffusivity draws and one absorbing half-line target. It does not cover dynamically fluctuating diffusivity, finite domains, noise in empirical estimates, or an explicit universal closed-form time. The originality comparison is not independent publication certification; unindexed variants or broad total-positivity theorems may overlap. The 2024 handbook chapter listed in RESULT.md was inaccessible for full-text inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. All-integrable-law extension answers the motivated regularity question left by bounded-diffusivity proofs, and handles the natural physically heterogeneous singular case where the usual long-time inverse-half-moment coefficient diverges. Complete one-crossing/two-extremum classification is a useful shape theorem, not an arbitrary size cutoff. Same-day bounded result must be cited before public release.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

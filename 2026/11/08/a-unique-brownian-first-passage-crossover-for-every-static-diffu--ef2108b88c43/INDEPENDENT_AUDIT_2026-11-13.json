@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:14:08.981619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Conditional reflection principle gives the erfc CDF. Early positive sign follows from positive mass D>mean and Gaussian tail dominance; late negative sign uses strict Jensen and dominated convergence or Fatou for infinite E[D^-1/2]. Differentiation of K(y)=E[D^-1/2 exp(-y(1/D-1/mean))] is valid for positive y despite singular diffusivities; K''(y)>0. With both endpoint values above 1/sqrt(mean) and a dip below (from the two CDF endpoint signs), strict convexity gives precisely two simple roots and hence two strict nondegenerate CDF extrema, a single intervening zero, and exact a² scaling. Strict diffusivity-curvature Jensen gives the d-/d+ bracket. Independent SymPy differentiation and singular-law integral/crossover tests support the computations; no finite test substitutes for the convexity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published 2026-11-08 bounded theorem assumes 0<d-<=D<=d+; submitted theorem allows any D>0 a.s. with finite mean, including E[D^-1/2]=infinite.",
+          "Sposini 2024 provides general mixture and Jensen comparison but not the universal crossing-count classification."
+        ],
+        "reasoning": "Prior bounded theorem does not dominate the unbounded/singular law. The 2024 physical formulation yields the kernel but no theorem implying its unique global sign sequence for every static law.",
+        "searches": [
+          "Resultary search: brownian heterogeneous arbitrary diffusivity unique crossover density first passage",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exactly-one-cumulative-crossing-and-two-density-crossings-for-he--c8c729ce867b",
+          "https://arxiv.org/abs/2403.10138"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exactly-one-cumulative-crossing-and-two-density-crossings-for-he--c8c729ce867b",
+        "https://arxiv.org/abs/2403.10138",
+        "https://arxiv.org/abs/1809.09186",
+        "https://arxiv.org/abs/2403.10143"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-day bounded theorem proves same endpoints, density-crossings and d+/d- bracket for compact-support D.",
+          "Full Brownian kernel in 2024 Sposini et al. supports only the mixture formula and less sharp typical-crossover discussions."
+        ],
+        "reasoning": "Our broader theorem implies the bounded theorem's principal sign-count part, not conversely. A limiting approximation of D by truncated laws alone does not establish uniqueness/nondegeneracy of crossings, so a new strict convexity plus singular endpoint proof is substantive.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exactly-one-cumulative-crossing-and-two-density-crossings-for-he--c8c729ce867b",
+          "https://arxiv.org/abs/2403.10138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brownian density is derivative of mixture erfc CDF; two density zeros are exactly two CDF extrema. Same-day bounded source uses exactly the same first-hit model and comparator."
+        ],
+        "reasoning": "Under erfc/first-passage equivalence the bounded case is identical to the prior theorem, so novelty is specifically extension to all positive finite-mean laws with unbounded upper tail/zero lower support and diverging inverse moment.",
+        "searches": [
+          "Resultary search: heterogeneous Brownian quenched finite mean first passage single CDF and two density crossings",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exactly-one-cumulative-crossing-and-two-density-crossings-for-he--c8c729ce867b",
+          "https://arxiv.org/abs/2403.10138"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day bounded theorem gives a complete exact crossing classification and weak-disorder limits; no separate tabulation of all singular finite-mean laws inspected."
+        ],
+        "reasoning": "The bounded case is already an exact known classification, not missing from databases. The singular integrable extension is not obtained by a finite parameter table.",
+        "searches": [
+          "Resultary search: exactly one cumulative crossing and two density crossings",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exactly-one-cumulative-crossing-and-two-density-crossings-for-he--c8c729ce867b",
+          "arXiv 2403.10138 formulas 31, 34-39"
+        ]
+      },
+      "rationale": "PASS, narrowed to the genuinely stronger integrable-unbounded and near-zero diffusivity regime. A same-model 2026-11-08 Resultary theorem already proves all claimed sign counts and bracket when D has compact support bounded away from zero, plus weak-disorder positions. The present actual theorem rigorously extends those counts to every positive finite-mean distribution including E[D^-1/2]=infinite; that extension is neither a corollary of the bounded-only statement nor claimed earlier there. It requires modified endpoint and derivative-integrability arguments. Date-only records cannot establish intra-day priority for shared bounded results. This is a qualified best-knowledge PASS, not a novelty claim for bounded D.",
+      "residual_risks": [
+        "Both overlapping classifications dated 2026-11-08 with unknown intra-day ordering.",
+        "A general earlier total-positivity or variation-diminishing theorem could provide the finite-mean case under different language.",
+        "Lanoiselée–Sposini 2024 review chapter not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS bounded positive-support case only; does not cover all positive finite-mean laws",
+          "evidence": [
+            "Compact-support hypothesis explicitly required; theorem limitations exclude arbitrary unbounded or lower-support-zero laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exactly-one-cumulative-crossing-and-two-density-crossings-for-he--c8c729ce867b",
+          "material_read": "Full RESULT.md theorem, assumptions, strictly convex tilt proof, Jensen bracket and weak-disorder limits",
+          "method": "GitHub file retrieval and theorem-by-theorem implication check",
+          "title": "Exactly one cumulative crossing and two density crossings for heterogeneous Brownian first passage",
+          "trigger": "Identical Brownian static-mixture CDF and density crossings"
+        },
+        {
+          "assessment": "Mixture kernel and Jensen comparison are earlier knowledge; complete unrestricted root-count not established in inspected material",
+          "evidence": [
+            "ArXiv:2403.10138; equations (31), (34)-(39) give first-passage mixture/crossover framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.10138",
+          "material_read": "Full PDF relevant body/section for first-hitting kernel, equations (31),(34)-(39), crossing comparison and references",
+          "method": "arXiv full-text PDF extracted lines and screenshot viewed",
+          "title": "Being heterogeneous is disadvantageous: Brownian non-Gaussian searches",
+          "trigger": "Same Brownian erfc first-hit mixture with heterogeneous D"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. All-integrable-law extension answers the motivated regularity question left by bounded-diffusivity proofs, and handles the natural physically heterogeneous singular case where the usual long-time inverse-half-moment coefficient diverges. Complete one-crossing/two-extremum classification is a useful shape theorem, not an arbitrary size cutoff. Same-day bounded result must be cited before public release.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional killed Brownian half-line; D sampled once, independent of Brownian motion, finite positive arithmetic mean, not dynamic/spatial D.",
+    "No closed expression for arbitrary crossover; bounded support bracket requires strict positive lower/finite upper bounds."
+  ],
+  "schema_version": 1
+}
