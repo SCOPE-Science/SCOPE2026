@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and proof boundaries
+# Independent mathematical audit
 
-The standalone script `verify_arbor_circumball.py` was run as packaged source using CPython's standard library. It enumerated all vertices for \(54\) parameter pairs with \(3\le n\le11\), checked \(12{,}102\) squared-distance evaluations and their contact identities, and verified each dual barycentric center certificate exactly. It also evaluated both vertex-orbit distance formulas for \(12\le n\le150\), \(1\le k<n\).
+## correctness
 
-Recorded output: `PASS cases 54 enumerated_vertices 12102 exact_assertions 2307483`.
+PASS
 
-The proof in `RESULT.md` independently provides the vertex exhaustiveness argument, strict inequalities for all omitted contact orbits, and the weighted variance identity proving global optimality and uniqueness. Enumerations are finite checks; they do not certify the infinite parameter range. The uniqueness result depends on the standard Euclidean norm, not affine invariance. Historical priority and independent scientific audit remain unperformed.
+All vertices are cube indicators 1_S and spikes 1_S+(n-|S|)e_t. Their exact squared distances depend only on j=|S| and candidate center coordinates; spike distances convex in j, reducing maxima to j endpoints. In ell=1 direct formulas give equality at all cube indicators and the lone axis spike; in ell=2 only all-capped indicator and two axis spikes touch; for ell>=3 only the ell axis spikes touch, with strict inequalities elsewhere. Each proposed center is a weighted barycenter of actual contact vertices, proving minimax optimality and uniqueness by the squared-distance variance identity. A separate exact-rational vertex enumeration checked all 35 pairs (n,k), 3<=n<=9; all-contact classifications matched. Finite checks are not proof for arbitrary n.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality retained after direct statement/implication comparison with Resultary published findings and primary literature; strictly credited prior special cases. No inspected stronger theorem implies the squared radii (n²+k)/4, (n²+k)^2/[2(n²+2k)] and n²(ell-1)/ell with equality-contact strata for exactly these Q_nk.
+
+## value
+
+PASS
+
+The standard realization of a named arbor-polytope family has a meaningful extremal metric invariant: sharp phase transitions, exact minimal Euclidean radius and a collapse from exponentially many boundary contacts to three. This complete all-parameter geometric classification is useful independently of its lattice-point enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

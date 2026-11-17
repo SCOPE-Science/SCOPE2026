@@ -1,19 +1,21 @@
-# Scientific review: enclosing spheres of octopus arbor polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polytope's exact vertices are classified from its facet equalities. For an arbitrary proposed block-symmetric center, every vertex distance reduces to either an affine or a strictly convex quadratic function of capped-support size. The three claimed centers and radii are checked by algebraic inequalities, with all equality cases isolated. A convex barycentric combination of contact points equals each center, yielding the global optimality and uniqueness certificate. The proof treats every integer \(n\ge3\), \(1\le k<n\). The independent exact checker passed 2,307,483 assertions on explicit vertex sets and larger orbit profiles. These finite tests are corroboration, not a substitute for the all-parameter proof.
+PASS
 
-## Originality — PASS (provisional priority)
+All vertices are cube indicators 1_S and spikes 1_S+(n-|S|)e_t. Their exact squared distances depend only on j=|S| and candidate center coordinates; spike distances convex in j, reducing maxima to j endpoints. In ell=1 direct formulas give equality at all cube indicators and the lone axis spike; in ell=2 only all-capped indicator and two axis spikes touch; for ell>=3 only the ell axis spikes touch, with strict inequalities elsewhere. Each proposed center is a weighted barycenter of actual contact vertices, proving minimax optimality and uniqueness by the squared-distance variance identity. A separate exact-rational vertex enumeration checked all 35 pairs (n,k), 3<=n<=9; all-contact classifications matched. Finite checks are not proof for arbitrary n.
 
-The March 12, 2026 source arXiv:2603.11654 is the closest match **of objects**. Its text describes the same inequalities and studies Ehrhart, gamma positivity, and parking models; no Euclidean enclosing radius, contact classification, or one-center theorem was found in the inspected searchable manuscript. The broader foundational arbor paper arXiv:2503.04247 concerns the combinatorial and enumerative geometry, not the proposed metric extremal theorem. Literature and mathematical-record searches under the aliases 'smallest enclosing ball', 'Chebyshev center', 'circumsphere', 'truncated/capped simplex', and the actual symbols found related *methods* and *different polytope families* but no formula covering these three regimes. An all-families algorithm for minimum enclosing balls is not equivalent to these explicit sharp equality cases. Global historical priority has not been independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The newly introduced \(Q_{n,k}\) family interpolates from the scaled simplex to the cube by capped coordinates. The exact Euclidean one-center and **all** sphere-contacting points form a natural finite-dimensional convex-geometric invariant, not an arbitrarily sliced numerical example. The sharp transition from exponentially many contacts to only three after releasing a second coordinate cap, followed by support solely on an uncapped simplex, distinguishes geometrically different regimes of an infinite two-parameter family. The explicit barycentric certificates and contact classification are useful for comparison with enclosing ellipsoids and stability questions, though no downstream theorem is asserted.
+Best-of-knowledge originality retained after direct statement/implication comparison with Resultary published findings and primary literature; strictly credited prior special cases. No inspected stronger theorem implies the squared radii (n²+k)/4, (n²+k)^2/[2(n²+2k)] and n²(ell-1)/ell with equality-contact strata for exactly these Q_nk.
 
-## Sources and limitations
+## value
 
-Sources inspected include the first publicly dated arXiv:2603.11654, arXiv:2503.04247, and the general minimum-ball framework arXiv:2402.06629. Closest mathematical-record comparison results involve parking-function circumballs, partial-permutohedron circumballs, and sparse box-Cayley circumballs; their vertex sets and metrics do not imply the present formula. Previously published research claims were compared by mathematical object, parameter range, and implication rather than by title alone. Finite tests do not prove universal correctness, and an undiscovered or non-indexed prior formula remains possible. Nothing here reports independent expert verification or an exhaustive global prior-art search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The standard realization of a named arbor-polytope family has a meaningful extremal metric invariant: sharp phase transitions, exact minimal Euclidean radius and a collapse from exponentially many boundary contacts to three. This complete all-parameter geometric classification is useful independently of its lattice-point enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
