@@ -1,21 +1,21 @@
-# Scientific review of the sharp five-site rotating-wave threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The rotating-wave ansatz and co-rotating Jacobian are derived directly for the stated unit-weight directed cycle. Fourier diagonalization reduces the ten real Floquet exponents to two real quartics plus the rotational zero/radial pair. The included checker independently expands all twelve stated five-site characteristic/Hurwitz polynomial identities, isolates the unique positive root by an exact sign pattern and two rational test points, proves positivity of the auxiliary Hurwitz inequalities in the required half-line, and verifies the higher-winding and smaller-ring obstructions. For each open parameter interval, strict Routh–Hurwitz conditions and the absence of imaginary-axis crossings establish the claimed stable or unstable spectra. The exact algebra, not a finite sampling run, proves the all-parameter result. The nonlinear type at the imaginary-pair crossing is not determined.
+PASS
 
-## Originality
+PASS: Co-rotating linearization gives real 2x2 cyclic shift blocks with g=R^2/tau and P_k(lambda)=lambda^2+2(g-c eta_k)lambda+eta_k^2-2gc eta_k. Conjugate k and 5-k modes form two real quartics, whose Routh-Hurwitz determinants give unique positive g*=1.207479509... and tau*=1/(g*+1-c)=0.526742030488..., with stability for g>g*; exact H(g) sign changes once by Descartes. Other five-site winding ±2 modes have a negative Hurwitz linear coefficient; smaller rings n=2..4 fail suitable transverse stability. Independently assembled Fourier eigenvalue matrices numerically on both sides of the transition, confirming sign reversal and q2 instability. Critical tau lacks exponential attraction; only local monochromatic wave stability is claimed.
 
-**PASS on the literature and database material actually inspected, with specific residual historical-priority risk.** Pouradier Duteil–Poyato–Reynolds (arXiv:2607.11833v1) prove small-relaxation sufficient stability for graph-induced rotating states, but not this sharp five-site algebraic boundary or all-winding classification. Pade–Lücken–Yanchuk (arXiv:1506.03923) give earlier qualitative homogeneous-ring stabilization and an Eckhaus curve; their published discussion does not evaluate the finite five-vertex cutoff. The 2007 Yanchuk–Wolfrum WIAS preprint / 2008 journal study has a general spectral framework for these networks; its full text was unavailable, so it remains the priority risk most likely to weaken the result. A general spectral criterion could imply the finite-size calculation in principle, but no explicitly covering exact root or minimal-size theorem was located in material actually inspected. The other published mathematical reports inspected concern different oscillators and do not state the same exact classification. Absence from literature searches is not proof of novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The five-cycle is the smallest directed ring that permits a stable genuinely rotating monochromatic mode. The calculation replaces an unspecified small-relaxation window with its exact maximal extent, classifies all five winding sectors, and locates precisely the tri-stability-to-single-stable-monochromatic-mode transition. This is a natural finite-size dynamical classification, not an arbitrary numerical parameter slice. The model still may have other attractors outside the monochromatic family, and the sharp spectral boundary is not a nonlinear Hopf theorem.
+PASS with explicit priority risk: earlier identical Stuart-Landau ring model supports generic Eckhaus destabilization, and 2026 graph-rotating-wave existence gives a small-parameter sufficient regime. Neither inspected source supplies this evaluated exact finite-five-site Routh-Hurwitz threshold together with all winding sectors and sharp smallest size. A 2007 original spectral preprint may contain dominating criterion, but full text could not be lawfully obtained in this execution.
 
-## Closest literature and limits
+## value
 
-- N. Pouradier Duteil, D. Poyato, D. N. Reynolds, *Graph-Induced Rotational Twisted States in Systems of Identical Oscillators*, arXiv:2607.11833v1 (2026), Theorem 2, §§3–4.
-- J. P. Pade, L. Lücken, S. Yanchuk, *The Dynamical Impact of a Shortcut in Unidirectionally Coupled Rings of Oscillators*, arXiv:1506.03923, §§2, 4.
-- S. Yanchuk, M. Wolfrum, *Destabilization Patterns in Large Regular Networks*, WIAS Preprint 1213 (2007), later Physical Review E 77 (2008), 026212; only the abstract and the detailed discussion in the Pade–Lücken–Yanchuk paper were available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: An exact real-algebraic bifurcation boundary and the smallest network admitting a stable nontrivial rotating wave are natural discrete dynamical invariants, not merely another numerical stability example. The result pinpoints a sharp switch beyond a qualitative small-relaxation existence theorem and has clear local (not global) limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

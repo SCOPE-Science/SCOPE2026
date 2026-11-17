@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy installed. The script reconstructs the five-site Fourier mode characteristic polynomials symbolically from the original Jacobian formula rather than checking only displayed coefficients. It then reconstructs all stated Routh–Hurwitz expressions, validates the unique positive-root sign pattern and rational isolating bracket, checks strict coefficient positivity on the stable side, proves exclusion of winding-two/four and nontrivial winding for smaller network sizes, and reports the numerical threshold and imaginary-pair frequency.
+## correctness
 
-The observed command output for the current package was:
+PASS
 
-```
-VERIFY_OK five_cycle_fourier_blocks=2 exact_hurwitz_identites=12 unique_positive_root=1 first_stable_size=5 full_five_winding_classes=5 critical_g=1.207479509457 critical_tau=0.526742030488 transverse_frequency=0.712195392328
-```
+PASS: Co-rotating linearization gives real 2x2 cyclic shift blocks with g=R^2/tau and P_k(lambda)=lambda^2+2(g-c eta_k)lambda+eta_k^2-2gc eta_k. Conjugate k and 5-k modes form two real quartics, whose Routh-Hurwitz determinants give unique positive g*=1.207479509... and tau*=1/(g*+1-c)=0.526742030488..., with stability for g>g*; exact H(g) sign changes once by Descartes. Other five-site winding ±2 modes have a negative Hurwitz linear coefficient; smaller rings n=2..4 fail suitable transverse stability. Independently assembled Fourier eigenvalue matrices numerically on both sides of the transition, confirming sign reversal and q2 instability. Critical tau lacks exponential attraction; only local monochromatic wave stability is claimed.
 
-The analytic proof supplies the universal quantifiers. The symbolic computation checks the specific algebraic identities and sign reductions; it is not an independent audit and does not certify any nonlinear bifurcation or global basins. The exact algebraic root is defined by the polynomial and isolating interval, not by decimal output.
+## originality
+
+PASS
+
+PASS with explicit priority risk: earlier identical Stuart-Landau ring model supports generic Eckhaus destabilization, and 2026 graph-rotating-wave existence gives a small-parameter sufficient regime. Neither inspected source supplies this evaluated exact finite-five-site Routh-Hurwitz threshold together with all winding sectors and sharp smallest size. A 2007 original spectral preprint may contain dominating criterion, but full text could not be lawfully obtained in this execution.
+
+## value
+
+PASS
+
+PASS: An exact real-algebraic bifurcation boundary and the smallest network admitting a stable nontrivial rotating wave are natural discrete dynamical invariants, not merely another numerical stability example. The result pinpoints a sharp switch beyond a qualitative small-relaxation existence theorem and has clear local (not global) limitations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
