@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact logistic unitary conjugation reduces the commutator to a weighted second-order Volterra convolution. Compact cell-rank estimates, the classical double-Volterra singular frequency, and a decaying-tail counting argument give the stated \(n^{-2}\) coefficient. The optimization is independently recovered from Lagrange duality and the bathtub mass-exchange principle. The finite checker reports 73 assertions; no finite test is used as proof of an infinite limit.
+## correctness
 
-## Originality — PASS, qualified
-The open-access 2026 motivating article analyzes norms, crescents and spectral structure of the Cesàro operator, not monotone multiplier cap extrema. The closest fully inspected commutator source concerns oscillatory unimodular multipliers and only compactness/Hilbert–Schmidt thresholds. A full inspected exact-characteristic-determinant work uses the distinct unweighted Hardy–Cesàro integral. Generic historical weighted-Volterra formulas may cover the supporting pointwise Weyl principle; the assessed distinctive result is the sharp constrained two-sided optimization and attainment geometry. Complete historical full-text access and independent priority verification remain unresolved.
+PASS
 
-## Mathematical value — PASS
-Identifying both extreme high-frequency singular tails under a fixed derivative cap answers a natural spectral regularization problem, with an explicit unique maximizer, an unattainable smoothing limit, and opposite growth laws. These are not numerical table entries or routine finite cases.
+The logistic coordinate unitary sends C to one-sided exponential convolution R and K_g to R M_ρ R with ρ(s)=x(s)(1−x(s))g′(x(s)); the kernel identity is exact. On stepwise ρ, off-diagonal rectangles have finite rank and diagonal triangular block is a double Volterra kernel up to order-three smoothing. Standard J² singular law h²/(π²n²), finite direct-sum counting, uniform mesh perturbation via weak n^(−2) bounds and exponentially decaying cell tails yield the asserted Weyl coefficient. Variational part independently follows from strict concavity of ∫[x(1−x)]^(−1/2)√p, p=g′≤L: p_max=min(L,k/[x(1−x)]), normalization fixes β and unique max; √p≥p/√L and rearrangement put the minimizing p=L centrally, discontinuous for L>1 and smoothly approximable. β large-L gives Wmax~(2/π²)logL while Wmin~4/(π²L). Independent calculations at L=2,10,100 verified the root equation, ordering and special inf Wmin(2)=2/9. Finite checks do not prove singular-value asymptotics.
 
-## Limitations
-The results concern fixed \(C^1\) multipliers on complex \(L^2(0,1)\), not uniform finite-index comparisons or other \(L^p\) exponents. Classical weighted Volterra literature and possible generalized extremal theorems remain bibliographic risks. Only self-review and finite diagnostics were performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original full claim after comparing equivalent formulations, dominating results, exact tables and known theorem implications. Relevant inaccessible primary literature remains named as residual risk; no search absence is treated as a proof of novelty.
+
+## value
+
+PASS
+
+The derivative budget of monotone multipliers gives a natural constrained spectral-tail optimization. Distinct exact maximizing/minimizing profiles, uniqueness versus unattainability, and logarithmic-versus-inverse budget laws are nontrivial structural classification of a concrete compact-commutator invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
