@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python VERIFY.py` with Python 3.10+; no third-party modules are required. The extracted standalone exact-rational test script reports `VERIFY_OK 86 assertions; Q3 trees 384`.
+## correctness
 
-The independent calculation paths are weighted Laplacian matrix-tree determinants on the cubes of dimension 3, 4, and 5; exhaustive spanning-tree enumeration on the three-dimensional cube; and direct Walsh spectral kernel evaluation in dimensions 3 through 10. All comparisons use integer or exact rational arithmetic. No numerical convergence experiment establishes the general identity: that proof is in RESULT.md. The checker does not test every dimension or resolve historical priority. No independent mathematical audit has been conducted.
+PASS
+
+The matrix-tree/transfer-current inclusion generating determinant for the common edge and the two (d-1)-stars is exact. The Walsh Laplacian spectral formula gives five entry types p,c,a,b, and splitting star coordinates into constant vector and (d-2) mean-zero modes gives exactly a 3x3 determinant times (1+beta(x-1)+beta(y-1)+(beta^2-delta^2)(x-1)(y-1))^(d-2). The marginal x(1+beta(x-1))^(d-1) follows from star eigenvalues 1,beta. Shared-edge covariance correction +p yields positive rational covariance. Independently exact rational transfer-current evaluation d=3..6 and complete enumeration of all 384 spanning trees of Q3 confirm multiweight generating values.
+
+## originality
+
+PASS
+
+PASS for the full bivariate generating function, with explicit credit to the already published all-distance degree-covariance classification. Earlier works provide transfer-current determinant and one-root degree distribution, but not the closed finite all-order adjacent joint law. Any claim that adjacent covariance alone is new would be covered and is excluded.
+
+## value
+
+PASS
+
+An exact all-dimensional bivariate degree law of two adjacent cube vertices determines every mixed moment and coefficient probability, beyond the known covariance sign. The small 3x3 plus repeated 2x2 factorization is nontrivial and reusable in random spanning-tree local statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
