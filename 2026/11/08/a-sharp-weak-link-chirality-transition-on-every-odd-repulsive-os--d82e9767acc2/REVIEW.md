@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-length conclusion follows from closure of odd-ring phase differences, monotonic reduction of total unsigned antiphase error to one half-turn, strict equalization of the \(n-1\) strong-edge errors, and the strictly decreasing ratio \(\sin(k\delta)/\sin\delta\). The critical energy and current coefficients follow from displayed Taylor expansions; the local Hessian is positive definite away from the transition. A separately implemented randomized finite optimizer (`verify.py`) found no configuration below the proved ground-state energy in 1,080 trials. Randomized checks are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full text of Buescu and Oliveira (arXiv:2610.19953v1, 2026) treats unweighted rings and equal-twist dynamics, while the present theorem classifies one variable edge for every odd ring of length at least five. The fully inspected published-finding corpus three-node weighted critical-relaxation result is restricted to a triangle; the four-oscillator Braess result concerns locking. The older quantum defective-spin-ring literature is not the same classical phase-energy problem. Searches for classical XY weak bonds and Josephson frustration did not uncover a stronger source implying the whole sharp theorem. Earlier classical literature and partly inaccessible general network texts remain priority risks.
+PASS
 
-## Mathematical value — PASS
-The first nonuniform edge is a natural and physically motivated perturbation of the source's frustrated ring. The complete \(n\)-dependent weak-link phase diagram and square-root chiral current explain a localized-to-delocalized frustration transition that the unweighted theorem cannot reveal. A simple exact energy law and strict threshold Hessian show the mechanism for all odd ring lengths, not only computational samples.
+The proof reduces odd-cycle frustration to a simplex of nonnegative phase errors of total pi, since strictly decreasing cosine on [0,pi] forces minimal total absolute error. Pairwise cos averaging uniquely equalizes the k=n-1 strong errors; maximizing B_w(delta)=k cos(delta)-w cos(k delta) on [0,pi/k] and monotonic sin(k delta)/sin(delta) prove exactly one collinear minimizing class at and below 1/k, exactly two reflection-paired noncollinear classes above. Taylor expansion verifies the stated current sqrt coefficient, quartic threshold and quadratic energy-gap coefficient; the quotient Hessian is positive at nonthreshold minima and Euler multipliers become stable for sufficiently small h. The argument is all odd n>=5, not extrapolated from the finite numerical script. Independently optimized representative n,w examples and checked exact critical coefficients.
 
-## Boundaries
-Only global minima, their local small-step stability, and their critical asymptotics are claimed. No global convergence, nonglobal equilibrium classification, or external certification is asserted. Historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The defect threshold itself is demonstrably prior art: a 2014 Florek abstract states alpha_c=1/(N-1), and the published arbitrary-coupling weakest-bond theorem includes the same collinear criterion. These are NOT presented as new. Neither inspected result states or algebraically supplies the unique equal strong-bond angles and full two-chirality minimizer classification, exact energy branch, square-root current and quartic/pitchfork coefficients across all odd n. The full candidate remains an explicit nontrivial refinement; no inspected stronger source subsumes that entire claim. A 2016 classical-limit treatment was inaccessible and remains a substantial priority risk.
+
+## value
+
+PASS
+
+A complete minimizer and critical scaling classification for a natural one-defect frustrated XY cycle is useful to interpret chirality and local dynamics; substantive scope beyond the known threshold is exact energy/current branches and quantified degeneracy. This is a natural physical parameter family, not a random small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
