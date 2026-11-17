@@ -1,15 +1,21 @@
-# Scientific assessment: complete zero-fixed-point Berezin convexity classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Szegő-kernel normalization and Schwarz's lemma yield a rational expression in the holomorphic ratio \(A(z)=\phi(z)/z\). Schwarz–Pick proves that inverse images of values approaching one must approach the origin. Convexity forces every point of the image onto the line determined by the derivative of the Berezin transform's radial germ. For any fixed radius, the analytic continuation of that expression has boundary values in the same line; the harmonic maximum principle and open mapping force the ratio function to be constant. The boundary limit zero forces this constant to be real. Thus the complete equivalence is established, including the constant identity and all boundary multiplier cases. Supplementary diagnostics cannot replace this analytic proof.
+PASS
 
-## Originality — PASS, qualified
+For φ(0)=0, write A(z)=φ(z)/z; Schwarz–Pick gives lower control on |1-A|/(1-|z|²) when b=A(0)≠1, hence any Berezin values approaching 1 have preimages approaching zero. Expansion Bφ(z)=1+(b-1)|z|²+O(|z|³) forces all range points onto the same affine real line under convexity. For each r<1 the auxiliary holomorphic F_r(ζ)=(1-r²)/(1-r²A(ζ)) takes its radius-r boundary values on that line; the harmonic maximum principle and open mapping force F_r and A constant. Real-line containment and the limit Bφ→0 imply b real; direct monotone parametrization gives (0,1] for -1≤b<1, singleton {1} for b=1. The estimates also handle |b|=1 and the identity case. Finite diagnostics are not the universal proof.
 
-The 2026 Bourdon–Le–Thompson preprint announces only the *linear-symbol* convexity classification in its verified abstract; Cowen–Felder and Augustine–Garayev–Shankar likewise investigate specific Möbius or linear symbols. A previously established sharp cusp law with **real** multiplier \(b\in(-1,1)\) implies the nonlinear obstruction in that proper subclass, and that overlap is acknowledged explicitly. The claim here is restricted to the complete all-multiplier zero-fixed-point classification, including arbitrary complex derivatives. The proof is independent of the cusp law. Available records and primary literature did not identify a covering general classification. The motivating preprint's full text could not be inspected, so the priority assessment remains qualified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem completes a natural full analytic-symbol class left outside the 2026 literature's linear-symbol theorem. It gives a yes/no geometric classification without assuming a prescribed nonlinear jet or restricting the derivative to a real interval. The rigidity mechanism—convexity, endpoint localization, circlewise harmonic continuation—is structural and applicable without a coefficient enumeration. This is not a classification for symbols with nonzero value at the origin or for other reproducing-kernel spaces.
+The all-zero-fixing symbol classification is not implied by the Oct 2026 published linear-symbol theorem, nor by prior nonconvexity for restricted real-derivative nonlinear symbols. The motivating paper’s full text was unavailable and could contain a stronger result; this is an explicit best-knowledge priority risk, not grounds for an access-only rejection.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural complete family of Hardy disk symbols is classified by a simple geometric property of the Berezin image. The rigidity method replaces local jet-by-jet checks by an endpoint localization plus harmonic continuation argument, and includes arbitrary complex derivative and arbitrary nonlinear symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
