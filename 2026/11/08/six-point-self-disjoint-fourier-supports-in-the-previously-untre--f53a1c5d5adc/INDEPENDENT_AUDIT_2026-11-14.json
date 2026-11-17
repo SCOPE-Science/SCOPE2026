@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T05:12:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p≡7 mod24, the Legendre symbol of -3 is +1, so t^2=-3 exists. Six indicated nonzero Fourier coefficients have unnormalized transform (z-zeta)(z-zeta^2)(zeta^(at+b)-1), which vanishes at each point in the six-site support, including (t,3) since t^2+3=0. For p=7 a support size<=5 would make a principal character minor singular; simultaneous translation and row/column phase factors permit assuming origin is included, reducing to exactly 1+48+1128+17296+194580=213053 cases. The inspected finite-field checker certifies prime 1000000093 and primitive 7th root 993004909, computes each determinant by exact modular elimination, and reports all 213053 nonsingular. A zero cyclotomic integer determinant would necessarily reduce to zero modulo this prime; therefore no complex minor of order<=5 is singular, yielding sigma_7=6. The frozen C++ source was inspected and independently compiled/executed, reproducing exact counts; it does not prove minimality for p>7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou Proposition 3 supplies support 2p-2 for p≡3 mod4, weaker at p>=7 and no sharp sigma_7.",
+          "Earlier four-point result assumes p≡3 mod8, disjoint from the current p≡7 mod8 class."
+        ],
+        "reasoning": "The known broader p≡3 mod4 prime condition gives a weaker support-size conclusion. The four-point result has stronger numerical size but a mutually exclusive residue hypothesis.",
+        "searches": [
+          "https://www.researchgate.net/publication/411823588_On_number_of_cyclic_n-roots_and_disjointness_of_Fourier_supports",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-four-point-self-disjoint-fourier-supports-on-mathbb-f-p-2--7b34d464851b",
+          "https://arxiv.org/abs/2409.09793",
+          "disjoint Fourier support F_p squared singular principal Fourier submatrices six point p congruent 7 modulo 24"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/411823588_On_number_of_cyclic_n-roots_and_disjointness_of_Fourier_supports",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-four-point-self-disjoint-fourier-supports-on-mathbb-f-p-2--7b34d464851b",
+        "https://arxiv.org/abs/2409.09793",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/six-point-self-disjoint-fourier-supports-in-the-previously-untre--f53a1c5d5adc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhou gives sigma_p <=2p-2 in the anisotropic p≡3 mod4 setting, but 2p-2=12 at p=7.",
+          "At p=7 the new exact bound sigma=6 is strictly smaller than 12, and the Oct11 p≡3 mod8 result cannot apply."
+        ],
+        "reasoning": "No earlier checked bound or principal-minor classification implies sigma_7=6 or all-prime six-site construction; exact source comparison respects group normalization and congruence class.",
+        "searches": [
+          "https://www.researchgate.net/publication/411823588_On_number_of_cyclic_n-roots_and_disjointness_of_Fourier_supports",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-four-point-self-disjoint-fourier-supports-on-mathbb-f-p-2--7b34d464851b",
+          "https://arxiv.org/abs/2409.09793"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Support of nonzero f disjoint from its Fourier transform iff the principal Fourier character matrix H_(S,S) has a nonzero kernel.",
+          "p=7 exhaustive nonsingularity for orders 1..5 plus explicit order-6 singular minor."
+        ],
+        "reasoning": "This exact equivalence was used for C and for prior comparisons. Cyclic and noncyclic p² groups give different matrices even at same order 49, so cannot transfer the cyclic-minor theorem without an explicit reduction.",
+        "searches": [
+          "disjoint Fourier support F_p squared singular principal Fourier submatrices six point p congruent 7 modulo 24",
+          "singular principal Fourier character submatrix elementary abelian F7 squared",
+          "https://www.researchgate.net/publication/411823588_On_number_of_cyclic_n-roots_and_disjointness_of_Fourier_supports",
+          "https://arxiv.org/abs/2409.09793"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The new checker covers exactly 213053 translated principal subsets; published searched cyclic Fourier classifications do not enumerate these elementary-abelian principal matrices."
+        ],
+        "reasoning": "No exact table with 213053 principal nonsingular minors for standard F7² pairing was identified. This is a best-of-knowledge, not an assertion that a missing database cannot exist.",
+        "searches": [
+          "disjoint Fourier support F_p squared singular principal Fourier submatrices six point p congruent 7 modulo 24",
+          "F_7^2 principal Fourier minors orders 1 to 5 exact rank table",
+          "https://arxiv.org/abs/2409.09793"
+        ]
+      },
+      "rationale": "Primary Zhou (2026) explicitly studies the same p-square support-disjointness but gives a p-dependent weaker 2p-2 construction and leaves the exact minimum difficult. An earlier four-point solution is restricted to p≡3 mod8; these primes are p≡7 mod8. Cyclic Fourier minor results apply to nonisomorphic cyclic groups rather than Fp^2. The six-support construction for all p≡7 mod24 and exact natural p=7 minimum survive these comparisons.",
+      "residual_risks": [
+        "Potential unindexed earlier six-point construction or specialized principal minor theorem.",
+        "The complete finite certificate proves minimality only for p=7; no sharpness for all p≡7 mod24 is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "relevant weaker construction; no sigma_7=6 or six-support in current residue class",
+          "evidence": [
+            "The source explicitly discusses p≡3 mod4 dimension two and 2p-2 support, with minimum remaining difficult"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/411823588_On_number_of_cyclic_n-roots_and_disjointness_of_Fourier_supports",
+          "material_read": "complete openly posted 2026 preprint text, especially Section 2.3 and Proposition 3",
+          "method": "read published full-text HTML / entire relevant theorem and proof sections",
+          "title": "On number of cyclic n-roots and disjointness of Fourier supports",
+          "trigger": "same self-Fourier support object and p-square parameters"
+        },
+        {
+          "assessment": "not covering p≡7 mod8",
+          "evidence": [
+            "The earlier theorem assumes p≡3 mod8, while 7 mod24 entails p≡7 mod8"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-four-point-self-disjoint-fourier-supports-on-mathbb-f-p-2--7b34d464851b",
+          "material_read": "published mathematical result statement, construction and congruence restriction",
+          "method": "read published full-text HTML / entire relevant theorem and proof sections",
+          "title": "Sharp four-point self-disjoint Fourier supports on Fp² for p≡3 mod8",
+          "trigger": "potential stronger coverage by four-point theorem"
+        },
+        {
+          "assessment": "cyclic group setting distinct from elementary abelian Fp²",
+          "evidence": [
+            "The group Z_(p²) is not isomorphic to Fp×Fp"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.09793",
+          "material_read": "arXiv abstract and group-domain statement as cited in scientific record; not full article",
+          "method": "arXiv abstract and scope statements, not asserted as full manuscript read",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "potential general zero determinant implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum self-disjoint support on the first prime square of a previously untreated anisotropic residue class is a natural exact Fourier uncertainty invariant. A concise six-point construction valid for an infinite congruence family and a fully exhaustive small-prime sharp certificate give usable nontrivial bounds and a reference case. Computation is necessary but not the sole value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Minimality proven only at p=7, upper bound only for all p≡7 mod24.",
+    "Exact modular computation is reproducible; no formal independent proof certificate beyond the fully inspected finite source and run."
+  ],
+  "schema_version": 1
+}

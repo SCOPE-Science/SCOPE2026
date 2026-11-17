@@ -1,15 +1,21 @@
-# Scientific review: six-point self-disjoint finite Fourier supports
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal construction follows from a factorization of the two vertical polynomial slices of a six-supported signal, and the final support point cancels exactly because \(t^2=-3\). For \(p=7\), the equivalence of self-disjoint support and a singular principal Fourier minor is exact. Translation reduces the exhaustive lower-bound problem to \(213053\) subsets containing the origin. `CHECK.cpp` confirms, in a certified prime field admitting a primitive seventh root, that each of those principal minors has nonzero reduction. A complex-zero cyclotomic determinant would have zero reduction, hence no smaller support is possible. The finite calculation is a proof certificate for one specific field, not a claim of exhaustive computation for all primes.
+## correctness
 
-## Originality — PASS relative to checked evidence
-Zhou (arXiv:2608.06335, Section 2.3) explicitly describes the two-dimensional \(p\equiv3\pmod4\) minimum as difficult and constructs supports of size \(2p-2\), without the six-site pattern or a sharp result at seven. The closest published four-point result, *Sharp four-point self-disjoint Fourier supports on \(\mathbb F_p^2\) for \(p\equiv3\pmod8\)* (2026), is disjoint in prime congruence from the present \(p\equiv7\pmod{24}\) class. Caragea–Lee's cyclic principal-minor statements are not equivalent to the two-dimensional elementary-Abelian character-table problem. Targeted searches for a six-site construction, minimum \(\sigma_7=6\), and smaller singular principal minors in \(\mathbb F_7^2\) found no direct covering assertion. A mathematical search result's absence is not a proof of global novelty: an unindexed earlier calculation remains a residual risk.
+PASS
 
-## Value — PASS
-The natural self-disjoint Fourier-support invariant is directly connected to singular principal character-table minors and was explicitly left undetermined in the prime-square, anisotropic case. The six-site construction gives a constant upper bound on an infinite previously untreated congruence class, improving the \(2p-2\) construction, and the exact minimality at its first prime identifies the first sharp boundary for that class. This provides a motivated exact invariant, not a selected numerical statistic without structural context.
+For p≡7 mod24, the Legendre symbol of -3 is +1, so t^2=-3 exists. Six indicated nonzero Fourier coefficients have unnormalized transform (z-zeta)(z-zeta^2)(zeta^(at+b)-1), which vanishes at each point in the six-site support, including (t,3) since t^2+3=0. For p=7 a support size<=5 would make a principal character minor singular; simultaneous translation and row/column phase factors permit assuming origin is included, reducing to exactly 1+48+1128+17296+194580=213053 cases. The inspected finite-field checker certifies prime 1000000093 and primitive 7th root 993004909, computes each determinant by exact modular elimination, and reports all 213053 nonsingular. A zero cyclotomic integer determinant would necessarily reduce to zero modulo this prime; therefore no complex minor of order<=5 is singular, yielding sigma_7=6. The frozen C++ source was inspected and independently compiled/executed, reproducing exact counts; it does not prove minimality for p>7.
 
-## Scope and residual risks
-The sharp equality is claimed only for \(p=7\); larger primes are covered by the upper bound only. The exact finite exclusion uses a reproducible C++ integer certificate, not an independently validated formal proof system. Independent audit has not been performed. Older unindexed mathematical arguments or alternate formulations may still cover the construction or minimality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Zhou (2026) explicitly studies the same p-square support-disjointness but gives a p-dependent weaker 2p-2 construction and leaves the exact minimum difficult. An earlier four-point solution is restricted to p≡3 mod8; these primes are p≡7 mod8. Cyclic Fourier minor results apply to nonisomorphic cyclic groups rather than Fp^2. The six-support construction for all p≡7 mod24 and exact natural p=7 minimum survive these comparisons.
+
+## value
+
+PASS
+
+The minimum self-disjoint support on the first prime square of a previously untreated anisotropic residue class is a natural exact Fourier uncertainty invariant. A concise six-point construction valid for an infinite congruence family and a fully exhaustive small-prime sharp certificate give usable nontrivial bounds and a reference case. Computation is necessary but not the sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
