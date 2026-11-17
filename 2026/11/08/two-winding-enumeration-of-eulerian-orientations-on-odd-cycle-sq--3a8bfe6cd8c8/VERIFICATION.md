@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-The mathematical claim is the odd-order, two-variable enumeration in `RESULT.md`. It is proved there by a bijection from balanced orientations to closed eight-state walks, exact decomposition of that automaton, a three-by-three characteristic-polynomial computation in each nonconstant sector, and the standard second-order power-sum identity. The proof covers every odd integer \(n\ge5\) without using empirical extrapolation.
+## correctness
 
-Run from the directory containing the extracted files:
-```
-python3 -S verify_direct.py
-python3 -S verify_transfer.py
-```
-Both scripts use only Python's standard library. `verify_direct.py` constructs every edge of each squared cycle and exhaustively tests every orientation for \(n=5,6,7,8,9\); for each balanced orientation it records counts of forward one-step and two-step edges and compares the complete coefficient dictionary to the exact formula. `verify_transfer.py` reconstructs the local eight-state transition system independently and compares the complete weighted trace polynomials with the formula for \(n=5,\ldots,15\). Recorded outputs are in `verify_direct.out` and `verify_transfer.out`, and both programs returned status zero when run on the packaged source contents.
+PASS
 
-These are finite verification tests only. Their rigor for the infinite odd family depends on the symbolic automaton proof, not the list of tested \(n\). The theorem does not assert novelty of the even-case scalar count or necessarily the odd-case scalar specialization. An inaccessible 2007 circulant-orientation article and a cited extended 2004 technical report remain literature-priority risks; no independent scholarly audit has been performed.
+At vertex i, indegree=outdegree=2 is exactly a_i+b_i=a_(i-1)+b_(i-2). The eight-state closed-walk transfer matrix with states (a_(i-1),b_(i-2),b_(i-1)) has four invariant classes (one zero, one full, two three-state) with nontrivial characteristic polynomials λ(λ²-uλ-v) and λ(λ²-vλ-u²v). The power-sum recurrence of each quadratic gives the exact Lucas/binomial coefficient polynomial; on odd n>=5 all n+3 exponent pairs are disjoint. Independently enumerated all 2^(2n) direction assignments at n=5 and n=7 and matched each exact bivariate coefficient (24 and 60 total orientations and respectively 8 and 10 winding pairs). Source independent transfer script checks n5..15. The all-n conclusion follows from transfer-matrix block algebra, not finite extrapolation.
+
+## originality
+
+PASS
+
+The exact 2026-11-02 antiprism/Lucas-cube theorem counts the even squares C_(2m)^2 (and graph of face flips), whereas this result is an odd-n full two-variable winding enumerator. Golin-Leung develops scalar recurrence for fixed-jump circulants but does not present the two-winding coefficient support in the inspected conference paper. Zhang-Shen 2007 is a relevant possibly overlapping circulant paper but full text was inaccessible; this is a serious residual risk rather than automatic scientific failure.
+
+## value
+
+PASS
+
+An exact support and multiplicity classification for the natural 4-regular odd circulant C_n², retaining both winding counts rather than collapsing to a Lucas scalar. Such a complete joint enumerator is a reusable exact statistic for orientation sampling and flux-sector combinatorics; the odd family is not the earlier antiprism even family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

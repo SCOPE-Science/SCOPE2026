@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T18:18:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-winding-enumeration-of-eulerian-orientations-on-odd-cycle-sq--3a8bfe6cd8c8/RESULT.md",
+        "verify_transfer.py git blob fe8377af9872dc41351bbabe5846aa19354b38c4"
+      ],
+      "rationale": "At vertex i, indegree=outdegree=2 is exactly a_i+b_i=a_(i-1)+b_(i-2). The eight-state closed-walk transfer matrix with states (a_(i-1),b_(i-2),b_(i-1)) has four invariant classes (one zero, one full, two three-state) with nontrivial characteristic polynomials λ(λ²-uλ-v) and λ(λ²-vλ-u²v). The power-sum recurrence of each quadratic gives the exact Lucas/binomial coefficient polynomial; on odd n>=5 all n+3 exponent pairs are disjoint. Independently enumerated all 2^(2n) direction assignments at n=5 and n=7 and matched each exact bivariate coefficient (24 and 60 total orientations and respectively 8 and 10 winding pairs). Source independent transfer script checks n5..15. The all-n conclusion follows from transfer-matrix block algebra, not finite extrapolation.",
+      "residual_risks": [
+        "The n>=5 graph must have distinct simple ±1,±2 edges; n=3,4 excluded.",
+        "The bivariate count refers to oriented labelled fixed-position edges, not unlabelled orientation orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general fixed-jump transfer methodology and scalar recurrences are known.",
+          "The paper inspected does not give the explicit two-direction coefficient polynomial for odd C_n²."
+        ],
+        "reasoning": "The method resembles general transfer recurrence but the odd bivariate support/multiplicity classification is not implied merely by knowing a scalar count.",
+        "searches": [
+          "Eulerian orientations square odd cycle two winding number bivariate Lucas enumerator",
+          "Golin-Leung 2004 fixed-jump circulant Eulerian orientation counting"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lucas-cube-flux-sectors-in-the-triangular-face-reversal-graph-of--12d6c14110cd/RESULT.md",
+        "https://cse.hkust.edu.hk/~golin/pubs/golin_WG_04_new.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r15/pdf/",
+        "https://www.researchgate.net/publication/266247805_Counting_the_Eulerian_orientations_of_one_class_of_circulant_graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even-order antiprism counts cover 2+2L_n only for even n.",
+          "Scalar Lucas recurrence on odd n, if prior-covered, still does not determine E_n(u,v) coefficient by coefficient."
+        ],
+        "reasoning": "The non-obvious odd full bivariate distribution remains the substantive claim; no demonstrated stronger covering implication.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lucas-cube-flux-sectors-in-the-triangular-face-reversal-graph-of--12d6c14110cd/RESULT.md",
+          "https://cse.hkust.edu.hk/~golin/pubs/golin_WG_04_new.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The antiprism is C_(2m)^2 and has 2+2L_(2m) Eulerian orientations and a Lucas-cube face-reversal decomposition.",
+          "The claim explicitly requires odd n and gives full joint winding distribution (A,B), not just scalar population."
+        ],
+        "reasoning": "The existing even-count classification does not have the same domain or joint enumerator.",
+        "searches": [
+          "Eulerian orientations square odd cycle two winding number bivariate Lucas enumerator",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lucas-cube-flux-sectors-in-the-triangular-face-reversal-graph-of--12d6c14110cd/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A directly relevant 2007 title was located with metadata only; the graph class and theorem contents were inaccessible.",
+          "No exact joint two-winding coefficient table could be verified or ruled out."
+        ],
+        "reasoning": "Neither inaccessible metadata nor failed searches certify novelty; retain explicit priority risk.",
+        "searches": [
+          "Eulerian orientations square odd cycle two winding number bivariate Lucas enumerator",
+          "Zhang Shen 2007 Counting the Eulerian orientations of one class of circulant graphs"
+        ]
+      },
+      "rationale": "The exact 2026-11-02 antiprism/Lucas-cube theorem counts the even squares C_(2m)^2 (and graph of face flips), whereas this result is an odd-n full two-variable winding enumerator. Golin-Leung develops scalar recurrence for fixed-jump circulants but does not present the two-winding coefficient support in the inspected conference paper. Zhang-Shen 2007 is a relevant possibly overlapping circulant paper but full text was inaccessible; this is a serious residual risk rather than automatic scientific failure.",
+      "residual_risks": [
+        "Zhang and Shen (2007) could cover scalar Eulerian counts or even the same joint winding polynomial; full text inaccessible.",
+        "Longer Golin-Leung technical report was not recovered; it may contain stronger specializations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers even-order n via antiprism, not odd bivariate distribution",
+          "evidence": "Theorem: 2K1 union two Lucas cubes on C_(2m)^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lucas-cube-flux-sectors-in-the-triangular-face-reversal-graph-of--12d6c14110cd/RESULT.md",
+          "material_read": "Full RESULT.md including flux j, Lucas cube sectors and scalar count",
+          "method": "Read published GitHub blob",
+          "title": "Lucas-cube flux sectors in the triangular-face reversal graph of antiprisms",
+          "trigger": "Same squared-cycle Eulerian orientation family, even order"
+        },
+        {
+          "assessment": "Methodological precedent; no exact odd two-winding enumerator found in inspected material",
+          "evidence": "General recurrence for scalar Eulerian orientation counts of circulants.",
+          "identifier_or_url": "https://cse.hkust.edu.hk/~golin/pubs/golin_WG_04_new.pdf",
+          "material_read": "Accessible 2004 conference PDF, Eulerian orientation count/recurrence sections and page images",
+          "method": "Read relevant primary PDF sections",
+          "title": "Unhooking Circulant Graphs: A Combinatorial Method for Counting Spanning Trees and Other Parameters",
+          "trigger": "Fixed-jump Eulerian orientation recurrences"
+        },
+        {
+          "assessment": "No explicit joint winding polynomial in passages read",
+          "evidence": "Felsner 2004 general structure of Eulerian and fixed-degree orientations.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r15/pdf/",
+          "material_read": "Primary PDF relevant theorem and orientation lattice sections",
+          "method": "Read relevant primary PDF passages",
+          "title": "Lattice Structures from Planar Graphs",
+          "trigger": "Classical fixed-outdegree orientations"
+        },
+        {
+          "assessment": "Unassessed possible overlap, especially scalar odd case, retained as risk",
+          "evidence": "Exact covered graph class and possible bivariate count cannot be determined from title.",
+          "identifier_or_url": "https://www.researchgate.net/publication/266247805_Counting_the_Eulerian_orientations_of_one_class_of_circulant_graphs",
+          "material_read": "Only bibliographic metadata and title accessible; no mathematical statements or full text",
+          "method": "Open and arXiv attempts did not yield complete text; authorized institutional attempt returned worker unavailable/request invalid; no bypass",
+          "title": "Counting the Eulerian orientations of one class of circulant graphs",
+          "trigger": "Highly relevant 2007 circulant paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lucas-cube-flux-sectors-in-the-triangular-face-reversal-graph-of--12d6c14110cd/RESULT.md",
+        "https://cse.hkust.edu.hk/~golin/pubs/golin_WG_04_new.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r15/pdf/",
+        "https://www.researchgate.net/publication/266247805_Counting_the_Eulerian_orientations_of_one_class_of_circulant_graphs"
+      ],
+      "rationale": "An exact support and multiplicity classification for the natural 4-regular odd circulant C_n², retaining both winding counts rather than collapsing to a Lucas scalar. Such a complete joint enumerator is a reusable exact statistic for orientation sampling and flux-sector combinatorics; the odd family is not the earlier antiprism even family.",
+      "residual_risks": [
+        "The unweighted Lucas count alone is not claimed new where already implied by transfer recurrences; value belongs to exact odd bivariate coefficients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Odd simple squared cycles n>=5, labelled fixed-position edge orientations, not modulo graph automorphisms.",
+    "Only the frozen result, verification and metadata Git blobs were individually fetched; independent traversal/hashing of full repository tree object was not available via the read connector. Assigned tree identity retained as guard for mechanical validation.",
+    "Source verifiers were inspected, not treated as standalone certification. Literature inspections distinguish material read from metadata only."
+  ],
+  "schema_version": 1
+}

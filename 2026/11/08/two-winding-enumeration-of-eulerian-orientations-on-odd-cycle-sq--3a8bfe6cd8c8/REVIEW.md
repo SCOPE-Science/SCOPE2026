@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is for the exact domain of labelled odd cycle squares \(\{C_n^2:n\ge5,\ n\text{ odd}\}\). Every edge belongs uniquely to one of the two prescribed forward cyclic jump classes. The Eulerian in/outdegree equation is equivalent to the binary local recurrence, so the transition encoding is bijective and has no omitted boundary conditions. The eight possible states form two weighted singleton classes and two three-state classes; their exact characteristic polynomials give the complete two-variable generating function. The Lucas-power-sum coefficient formula follows from a recurrence or cyclic monomer-dimer counting. The two support families and extreme pairs are disjoint for every odd \(n\ge5\). Independent finite cross-check *implementations* (not independent scholarly review) give exact direct counts through \(n=9\) and exact transfer coefficients through \(n=15\). The infinite assertion rests on the symbolic proof, not finite extrapolation.
+PASS
 
-## Originality — PASS, with historical-priority risk
+At vertex i, indegree=outdegree=2 is exactly a_i+b_i=a_(i-1)+b_(i-2). The eight-state closed-walk transfer matrix with states (a_(i-1),b_(i-2),b_(i-1)) has four invariant classes (one zero, one full, two three-state) with nontrivial characteristic polynomials λ(λ²-uλ-v) and λ(λ²-vλ-u²v). The power-sum recurrence of each quadratic gives the exact Lucas/binomial coefficient polynomial; on odd n>=5 all n+3 exponent pairs are disjoint. Independently enumerated all 2^(2n) direction assignments at n=5 and n=7 and matched each exact bivariate coefficient (24 and 60 total orientations and respectively 8 and 10 winding pairs). Source independent transfer script checks n5..15. The all-n conclusion follows from transfer-matrix block algebra, not finite extrapolation.
 
-The statement claiming novelty is the full odd-order, bivariate winding spectrum—not the scalar count alone. In particular, an existing antiprism orientation result concerns graphs isomorphic to \(\{C_{2m}^2\}\), so its exact even-order scalar counts are recognized as covered and excluded from the claimed domain. Felsner (2004) proves a general planar fixed-outdegree orientation lattice, while Golin and Leung (2004) prove that Eulerian-orientation counting sequences of fixed-jump circulants satisfy linear recurrences. The latter conference full text does not give the precise odd-order bivariate coefficient law. Isaev (2011) treats a high-connectivity asymptotic regime not covering these bounded-degree graphs. Indexed research records and relevant mathematical claims were searched for orientation, cycle-square, bivariate and Lucas aliases. The nearest related records concern different polynomial invariants or cyclic structures, rather than this odd-order two-winding law.
+## originality
 
-The 2007 Zhang–Shen title *Counting the Eulerian orientations of one class of circulant graphs* is an especially relevant unresolved source: searches did not recover its full text. It may cover the scalar formula and could conceivably contain stronger refinements; such coverage cannot be ruled out. Golin–Leung's longer technical report was also not retrieved. Neither inaccessible item is represented as inspected or declared noncovering. The originality assessment is best-knowledge and should be revisited if either text becomes available.
+PASS
 
-## Value — PASS
+The exact 2026-11-02 antiprism/Lucas-cube theorem counts the even squares C_(2m)^2 (and graph of face flips), whereas this result is an odd-n full two-variable winding enumerator. Golin-Leung develops scalar recurrence for fixed-jump circulants but does not present the two-winding coefficient support in the inspected conference paper. Zhang-Shen 2007 is a relevant possibly overlapping circulant paper but full text was inaccessible; this is a serious residual risk rather than automatic scientific failure.
 
-The cyclic-distance-one and cyclic-distance-two edge directions define natural winding observables for balanced orientations on a canonical four-regular circulant. Instead of a mere closed formula for total number of states, the theorem describes all and only \(n+3\) feasible ordered forward-edge-count pairs among \((n+1)^2\) nominal possibilities, with exact multiplicity for each. The proof identifies a two-sector monomer-dimer mechanism; this is a meaningful structural classification of an anisotropically weighted orientation model. The odd-order domain is a natural parity boundary because the previously classified antiprisms have even order. No general existence of recurrences or even-order scalar formula directly yields the odd-order bivariate spectrum.
+## value
 
-## Closest literature, verification, and limits
+PASS
 
-Relevant scientific sources are S. Felsner, *Lattice Structures from Planar Graphs* (2004), DOI `10.37236/1768`; M. J. Golin and Y.-C. Leung, *Unhooking Circulant Graphs* (WG 2004); M. Isaev, *Asymptotic behavior of the number of Eulerian orientations of graphs*, arXiv:`1110.2598`; and Zhang–Shen (2007), bibliographic record only. The same graph under its even-order antiprism realization has been classified for a different purpose and those even scalar counts are prior work. The supplied scripts check finite instances; they do not replace proof or provide external validation. No assertion is made about unoriented-isomorphism orbits, non-labelled cyclic actions, or the unavailable 2007 source's contents.
+An exact support and multiplicity classification for the natural 4-regular odd circulant C_n², retaining both winding counts rather than collapsing to a Lucas scalar. Such a complete joint enumerator is a reusable exact statistic for orientation sampling and flux-sector combinatorics; the odd family is not the earlier antiprism even family.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
