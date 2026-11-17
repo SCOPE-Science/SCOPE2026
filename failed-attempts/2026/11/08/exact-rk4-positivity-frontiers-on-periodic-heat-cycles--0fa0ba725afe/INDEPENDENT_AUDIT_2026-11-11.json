@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T05:46:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3, the RK4 update is a circulant with nine-point Laurent coefficients a_{0..4}; true entries are their sums by residue j mod n, so examining all residues proves endpoint positivity for arbitrary cycle length. Positive factorizations handle distances zero/two/four; monotone cubics yield thresholds n=3,4,5 and unaliased or wrapped distance-three coefficients yield n=6:1/2, n=7:4/7, n>=8:1/2. Fourier largest Laplacian eigenvalue Λ_n gives spectral cutoff β/Λ_n, equal to positivity only n=3,4. Independently expanded all shift coefficients symbolically for n=3..9, checked mass conservation, critical cubics and distance-three aliases. The analytical residue/monotonicity proof handles all n; finite symbolic instances are checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem covers all connected graphs of maximum degree at most two (paths and cycles), a strictly larger family.",
+          "Submitted spectral addendum follows directly from classical RK4 scalar stability radius and cycle Fourier Laplacian eigenvalues."
+        ],
+        "reasoning": "The older all-path-and-cycle positivity classification is stronger; adding an elementary standard spectral check does not introduce a new major theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821/RESULT.md",
+          "Resultary: RK4 positivity periodic heat cycles sharp step size 3 4 5 6 7"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821/RESULT.md",
+        "Resultary RK4 periodic heat cycle query",
+        "arXiv:1610.00228 bibliographic antecedent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier path-cycle proof uses explicit RK4 graph-walk coefficient classification and sharp distance-three witnesses for n>=6, plus small-cycle cubic constraints.",
+          "The proposed nine-point-stencil proof is a reformulation of the same finite-degree polynomial on the same cycle adjacency operator."
+        ],
+        "reasoning": "The entire claimed positivity classification follows from the earlier complete path-and-cycle theorem. The spectral corollary uses a known scalar stability radius and the standard cycle spectrum, not an independent substantive contribution.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821/RESULT.md",
+          "arXiv:1610.00228",
+          "Resultary: RK4 positivity periodic heat cycles sharp step size 3 4 5 6 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 13 unweighted path-and-cycle theorem has identical C3,C4,C5 cubic polynomials and C6=1/2,C7=4/7,Cn>=8=1/2.",
+          "It establishes no-reentry and nonmonotonic n4→5 and n6→7 behavior on exactly the same unit-rate heat generator."
+        ],
+        "reasoning": "This is the exact same problem, with identical n-index and timestep normalization; treating periodic grid as cycle graph is a tautological identification.",
+        "searches": [
+          "Resultary: RK4 positivity periodic heat cycles sharp step size 3 4 5 6 7",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact table labels C3..C∞ with values b,c,d,1/2,4/7,1/2 and defines identical cubics.",
+          "Prior theorem already records C5>C4 and C7>C6."
+        ],
+        "reasoning": "Every exact cutoff and exceptional residue phenomenon is known from a previously published theorem/table; there is no unreported finite frontier.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821/RESULT.md",
+          "Resultary: sharp RK4 positivity intervals on every unweighted path and cycle"
+        ]
+      },
+      "rationale": "The published October 13 complete path/cycle theorem gives all identical positive-step intervals, including all exceptional cubic roots and no-reentry, for exactly the same periodic heat generator. This source was read in full; stronger prior coverage is decisive.",
+      "residual_risks": [
+        "Submitted spectral cutoff uses standard known RK4 stability radius, so not enough original value after exact positivity table is removed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Earlier C_n table identical for n>=3 and includes additional paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-rk4-positivity-intervals-on-every-unweighted-path-and-cycl--42b36260c821/RESULT.md",
+          "material_read": "Complete public RESULT.md: theorem table, exact cubics, walk polynomial proof, no-reentry, positivity and checks",
+          "method": "Fetched and read all mathematical sections and explicitly matched each n and each cubic",
+          "title": "Sharp RK4 positivity intervals on every unweighted path and cycle",
+          "trigger": "Exact same RK4 periodic heat cycle thresholds and nonmonotonicity"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "October 13 exact same graph theorem, not the general RK literature, determines rejection.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00228",
+          "material_read": "ArXiv bibliographic reference and scoped discussion in earlier full-text prior; not relied upon for no-coverage inference",
+          "method": "Did not claim full current-run reading",
+          "title": "Positivity for convective semi-discretizations",
+          "trigger": "Earlier general PDE RK positivity context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete natural exact table is mathematically useful but has already appeared in an earlier theorem that covers a strictly larger graph family. Recomputing the same table and adjoining a textbook Fourier/spectral-radius comparison does not establish separate value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Result covers endpoint positivity of classical RK4, not stagewise positivity; rejection concerns covered endpoint claim only.",
+    "Complete source package retained."
+  ],
+  "schema_version": 1
+}
