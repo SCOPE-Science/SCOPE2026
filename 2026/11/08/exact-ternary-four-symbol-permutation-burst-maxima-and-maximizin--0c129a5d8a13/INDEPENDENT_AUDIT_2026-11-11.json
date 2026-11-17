@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:15:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Each changed output has unique first and last altered coordinates i<j; the minimal span has length m<=4, its internal word is a multiset permutation with both endpoints changed, and it extends to some four-window. Hence |B_4(x)|=1+sum_{m=2}^4 sum_i T_m(x_i..x_{i+m-1}). Inclusion-exclusion computes exact T_m. The 27 labeled suffixes reduce under alphabet relabeling to five 3-letter equality types; the max-plus recurrence with exact tie-counts is fully specified. The claimed 3-phase tables satisfy an inductive symbolic polynomial identity, not mere finite extrapolation. Independently enumerating endpoint changes over all 3^n words for n=4..9 matched maxima/counts (12,36),(21,18),(30,6),(36,60),(45,24),(54,6). The source checker independently verifies its polynomial induction and explicit channel outputs through n=10.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "P2 gives a sharp U_k bound only if q>=k and binary k=3; P2b explicitly assumes q>=k>=4, while P2c permits only cyclic rotations, yielding 3n-8 rather than 8n+offset."
+        ],
+        "reasoning": "Neither broader-parameter bound nor smaller operation set covers the all-permutation q=3,k=4 extremum.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sphere-volumes-and-extremizers-for-one-permutation-burst--6f89836efb99",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-output-sphere-bound-and-rigidity-for-nonbinary-permutation--6cf2de277e3a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-ternary-four-window-cyclic-burst-maximizers-exact-census-and-ent--6f184b72619c",
+          "Resultary: ternary four window permutation burst maximizers"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sphere-volumes-and-extremizers-for-one-permutation-burst--6f89836efb99",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-output-sphere-bound-and-rigidity-for-nonbinary-permutation--6cf2de277e3a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-ternary-four-window-cyclic-burst-maximizers-exact-census-and-ent--6f184b72619c",
+        "https://arxiv.org/abs/2610.15701",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-ternary-four-symbol-permutation-burst-maxima-and-maximizin--0c129a5d8a13/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest full-text theorem proves the same local T_m identity, U_k(n) attainable iff q>=k, and separately binary k=3; the submitted q=3,k=4 lies in its unoptimized region."
+        ],
+        "reasoning": "Known sphere-size formulas permit but do not imply the submitted max-plus solution and exact tie multiplicities. This is the genuine surviving finding; the shared decomposition is credited to the prior theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sphere-volumes-and-extremizers-for-one-permutation-burst--6f89836efb99",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-output-sphere-bound-and-rigidity-for-nonbinary-permutation--6cf2de277e3a",
+          "arXiv:2610.15701",
+          "Resultary: sharp binary four-window permutation burst"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both the earlier general theorem and this finding consider exactly one nonwrapping four-position arbitrary permutation; the earlier theorem explicitly leaves the sharp q<k maximum unknown except binary k=3."
+        ],
+        "reasoning": "The shared per-center minimal-span formula does not mathematically determine the maximization or the number of extremal words over q=3.",
+        "searches": [
+          "Resultary: permutation burst four window ternary maximum 8n 18 maximizing centers",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sphere-volumes-and-extremizers-for-one-permutation-burst--6f89836efb99",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-output-sphere-bound-and-rigidity-for-nonbinary-permutation--6cf2de277e3a",
+          "arXiv:2610.15701"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed q=3 cyclic-rotation table has exponential count of extrema, not the submitted polynomial period-three counts; no exact all-permutation ternary four-window extremum surfaced outside this record."
+        ],
+        "reasoning": "Different operation sets yield different reachable spheres and cannot be substituted as a database table of this claim.",
+        "searches": [
+          "Resultary: permutation burst length four ternary alphabet maximizing sphere size number of maximizers",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-ternary-four-window-cyclic-burst-maximizers-exact-census-and-ent--6f184b72619c",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-output-sphere-bound-and-rigidity-for-nonbinary-permutation--6cf2de277e3a"
+        ]
+      },
+      "rationale": "Best of knowledge: the sharp maximum and all maximizing-center multiplicities for the missing alphabet-deficient case q=3,k=4 are not implied by the general per-word sphere identity, the q>=k universal extremizers, the binary q=2 case, or four-window CYCLIC ROTATION results. This exact period-three extremum is a specific nontrivial finite-state optimization not found in inspected earlier coverage.",
+      "residual_risks": [
+        "Complete Chen–Milenkovic preprint inaccessible (Oxford vpn_disconnected), so an unknown appendix could overlap the finite extremum; no whole-document negative assertion.",
+        "Other same-date published permutation-burst results do not determine publication order.",
+        "Finite direct checks corroborate but do not replace the all-length max-plus induction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_THE_EXTREMUM: explicitly restricts sharp maxima to q>=k or q=2,k=3",
+          "evidence": "states q<k exact replacement proved only for q=2,k=3; q=3,k=4 not solved",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sphere-volumes-and-extremizers-for-one-permutation-burst--6f89836efb99",
+          "material_read": "complete primary RESULT.md: theorem, exact local identity, proof, limitations",
+          "method": "read-only GitHub primary source inspection",
+          "title": "Sharp sphere volumes and extremizers for one permutation burst",
+          "trigger": "identical arbitrary-permutation channel and potential stronger theorem"
+        },
+        {
+          "assessment": "NOT_APPLICABLE: its theorem requires q>=k>=4; q=3<4",
+          "evidence": "provides a universal per-word formula but no sharp ternary k=4 maximum",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-output-sphere-bound-and-rigidity-for-nonbinary-permutation--6cf2de277e3a",
+          "material_read": "complete primary RESULT.md and hypotheses",
+          "method": "read-only GitHub full result",
+          "title": "Sharp output-sphere bound and rigidity for nonbinary permutation bursts of arbitrary length",
+          "trigger": "general q>=k family"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL: nonwrapping cyclic rotations only, not arbitrary permutations",
+          "evidence": "maximal sphere 3n-8 and exponential maximizer census differ from submitted extrema",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-ternary-four-window-cyclic-burst-maximizers-exact-census-and-ent--6f184b72619c",
+          "material_read": "complete primary RESULT.md",
+          "method": "read-only GitHub full result",
+          "title": "Ternary four-window cyclic-burst maximizers: exact census and entropy",
+          "trigger": "same alphabet/window but smaller cyclic rotation operation set"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT: Oxford reported vpn_disconnected; abstract emphasizes redundancy and constructions; cannot infer complete-document noncoverage",
+          "evidence": "arXiv abstract of 2026-10-11, permutation-burst channel and redundancy results",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15701",
+          "material_read": "arXiv abstract and bibliographic record; preprint HTML/PDF and independent lawful OA full text not accessible",
+          "method": "web search, arXiv and OA attempts followed by Oxford authorized access",
+          "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+          "trigger": "introduces arbitrary permutation-burst channel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The natural extremal output-sphere size controls the worst ambiguity of a defined one-burst synchronization channel, and the precise number of optimizing input centers characterizes extremal rigidity. Ternary q<k is the first nontrivial missing-alphabet four-window boundary of general theorems; the period-three law has a substantive structural finite-state proof rather than a renamed textbook identity. No code-capacity or correcting-code construction is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Closest channel-defining arXiv 2610.15701 full text could not be accessed; best-of-knowledge novelty only.",
+    "The exact theorem concerns a single nonwrapping burst, no full sphere distribution, multi-burst code rate or empirical nanopore error model."
+  ],
+  "schema_version": 1
+}
