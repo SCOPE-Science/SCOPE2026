@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:55:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+        "2026/11/08/sharp-rk4-positivity-on-heterogeneous-weighted-stars-and-a-stric--427fdf80e32f"
+      ],
+      "rationale": "Direct arrowhead matrix multiplication gives (T_h)_{0i}=hw_iQ_{w_i}(h) and (T_h)_{ij}=h² w_iw_j[12-4h(S+w_i+w_j)+h²(S²+V+S(w_i+w_j)+w_i²+w_iw_j+w_j²)]/24. The leaf-leaf quadratic has negative discriminant, and the RK4 scalar polynomial is strictly positive on nonnegative arguments, guaranteeing diagonal positivity by symmetry. The expanded 9A_xC_x-4B_x² certificate is strictly positive using V-x²<= (S-x)², so each edge cubic decreases strictly and crosses zero once. Q_x-Q_y is a negative multiple of the always-positive leaf quadratic for x>y, making the largest spoke first. A stochastic irreducibility/Perron-Frobenius argument forces H<β/λmax for unequal weights, while equal weights yield equality. Independently checked exact rational star matrices and symbolic difference/discriminant identities.",
+      "residual_risks": [
+        "Finite weight/step verification alone does not imply monotonicity on the positive continuum; the polynomial certificates do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+          "Earlier result is for independent inward/outward positive rates, a strictly larger generator family than symmetric weighted stars."
+        ],
+        "reasoning": "The purported heterogeneous symmetric family is a proper special case of the older classification; the earlier exact global positivity interval dominates.",
+        "searches": [
+          "RK4 positivity weighted star heterogeneous edge rates exact timestep spectral stability gap",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+        "2026/11/08/sharp-rk4-positivity-on-heterogeneous-weighted-stars-and-a-stric--427fdf80e32f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+          "Earlier exact g_i and unique positive zero produce submitted Q_{w_i}; Q_x-Q_y=-h(x-y)(positive leaf quadratic)/24. Symmetric irreducible stochastic endpoint with nonuniform weights has a simple Perron eigenvalue 1, so cannot have second eigenvalue R4(-β)=1."
+        ],
+        "reasoning": "The main submitted iff theorem is a direct substitution; the strongest-spoke and strict-gap details are short routine consequences of the same prior formulas, not an independently motivated new phenomenon.",
+        "searches": [
+          "RK4 positivity weighted star heterogeneous edge rates exact timestep spectral stability gap",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+          "Generator Q_{0i}=b_i, Q_{i0}=a_i, Q_{00}=-sum b_i, Q_{ii}=-a_i. Set a_i=b_i=w_i, then Q=-L and g_i=Q_{w_i}."
+        ],
+        "reasoning": "Bidirected-star exact expression specializes without approximation or additional hypothesis to the submitted symmetric weighted-star expression.",
+        "searches": [
+          "RK4 positivity weighted star heterogeneous edge rates exact timestep spectral stability gap",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+          "Earlier complete formulas for all directed rates yield each cubic root and exact positive leaf-to-leaf transitions."
+        ],
+        "reasoning": "An analytic complete classification, not a finite numerical table, already gives the claimed positivity horizon for every weight vector.",
+        "searches": [
+          "RK4 positivity weighted star heterogeneous edge rates exact timestep spectral stability gap",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8"
+        ]
+      },
+      "rationale": "The October 25 bidirected-star theorem treats arbitrary positive inward rates a_i and outward rates b_i. Its specialization a_i=b_i=w_i has precisely the symmetric weighted star Laplacian and exactly the same coefficients: B=S, S1=V, S2=W, and g_i(h)=Q_{w_i}(h). Its unique first hub-edge zero theorem covers the principal iff positivity result. Ordering by largest w_i and strict spectral separation follow by elementary subtraction and Perron–Frobenius from that earlier exact formula; they do not leave a substantial new result.",
+      "residual_risks": [
+        "A new independent proof of an already classified special case cannot establish originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: specialization gives exact cubic and sharp positivity limit",
+          "evidence": [
+            "A_j=B+a_j, C_j=B²+Ba_j+a_j²+S1, D_j=B³+B²a_j+Ba_j²+a_j³+(2B+a_j)S1+S2; H=min positive roots"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+          "material_read": "Full RESULT.md: complete Finding, Hypotheses, matrix-entry factorization, cubic monotonicity proof, 3-state reversible counterexample, References",
+          "method": "Read full published Git RESULT.md",
+          "title": "An exact one-edge positivity horizon for fourth-order Runge–Kutta on bidirected stars",
+          "trigger": "General result on arbitrary directional rates includes all positive symmetric weighted stars"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8"
+      ],
+      "rationale": "The weighted-star exact positivity formula and loss of positivity before spectral stability on reversible nonuniform examples already follow from the broader bidirected-star theorem. Selecting the largest spoke and showing equality only at uniform weights require brief positive-polynomial and Perron–Frobenius arguments from that explicit known formula, without an independently substantial new invariant or classification.",
+      "residual_risks": [
+        "No standalone valuable remainder beyond an elementary characterization of a previously classified special case."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Symmetric finite stars, positive spokes, completed explicit RK4 only. The earlier directed-rate classification covers the core exact result and the additional observations are routine consequences; publication withheld."
+  ],
+  "schema_version": 1
+}
