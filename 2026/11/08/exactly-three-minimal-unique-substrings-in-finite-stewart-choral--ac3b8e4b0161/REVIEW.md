@@ -1,19 +1,21 @@
-# Scientific review: three minimal unique factors of Stewart choral iterates
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The unique middle discrepancy between \(\varphi^j(0)\) and \(\varphi^j(1)\) gives the block decomposition and three of the four repeated intervals. The fourth repeated interval is proved by an explicit induction on substitution boundaries. The four intervals cover every position with increasing endpoints, so any factor escaping all repeated intervals must include one of three bridges. A three-residue synchronization lemma proves unique occurrences for the two trimmed-image bridges; the remaining bridge is a unique left extension of a prefix occurring exactly twice. Each bridge's prefix and suffix are independently covered by repetitions. Consequently the three bridges are precisely the three MUSs, for every integer \(k\ge2\). The extracted independent-of-ledger code computes the same list for lengths \(9\) through \(19683\), using a suffix array and a direct factor census for small instances. Finite checks corroborate, but do not replace, the universal proof.
+PASS
 
-## Originality (O) — PASS, priority risk retained
+For phi(0)=001, phi(1)=011, W_k=phi^k(0), m=3^(k-1), the AAB decomposition with A/B differing at their exact central position creates four repeated-factor intervals. Their increasing endpoints cover all positions, and the bridge lemma forces any unique factor to contain one of three bridges. The substitutions have disjoint start-modulo-three factor patterns, so trimmed-image occurrence bijections preserve uniqueness inductively; each bridge has repeated proper prefix/suffix. Independent direct occurrence counting on W_k for k=2,3,4 produced exactly the predicted three (start,length) pairs: k2 (2,3),(5,3),(7,2); k3 (8,6),(16,7),(22,4); k4 (26,15),(49,19),(67,10). This finite check corroborates, not replaces, universal bridge induction.
 
-Kishi et al. (arXiv:2605.18034v1) discuss occurrence-preserving morphisms and determine MUSs for the Fibonacci and Thue–Morse families. Their full-text theorems on those families do not assert the Stewart choral result. Fici–Shallit (arXiv:2112.12125v1), which explicitly identifies the Stewart choral morphism, studies critical exponent, pattern avoidance, palindrome factors, complexity and common factors; the inspected full text does not provide a finite-iterate MUS classification. OEIS A116178 records the classical word and its morphism, not the MUS classification. Searches for Stewart/choral/Toeplitz MUSs, occurrence-preserving formulations, and existing mathematical-record findings did not show a covering result. Previously encountered complete MUS classifications for other morphisms, including the period-doubling and Mephisto–Waltz words, have different defining substitutions; their formulas do not imply this statement. The absence of a search hit is not a proof of historical priority; a hidden equivalent or unindexed table remains possible.
+## originality
 
-## Value (V) — PASS
+PASS
 
-Minimal unique substrings are canonical shortest anchors for uniquely identifying regions of a string. Recent research explicitly seeks exact MUS structure for named morphic families. The complete fixed-count phenomenon in Stewart choral iterates is not inferred from the word's known factor complexity or cubefreeness: the exact three occurrence intervals and distinct linear-in-length MUS sizes require a four-block structural cover and a synchronization argument. This is a natural infinite-family classification, not a selected finite parameter or routine relabeling.
+Kishi–Guo–Urbina–Bannai characterize occurrence-preserving morphisms and derive MUS results for Fibonacci and Thue–Morse, not the canonical Stewart choral iterates. Fici–Shallit identify this morphism and study complexity, repetitions, palindromes, etc., not the explicit three MUS bridges. Other Resultary records on Mephisto–Waltz concern a different morphism (0->001,1->110). A priority risk remains for unindexed Stewart-specific MUS tables.
 
-## Scope and risks
+## value
 
-The result applies to canonical iterates of a single substitution, not every prefix or generalized Stewart word. The use of exclusive occurrence synchronization must not be mistaken for a claim of globally occurrence-preserving untrimmed substitution. The proof handles arbitrarily large iterates; the computation is finite diagnostic evidence. Possible unindexed prior equivalences and independent mathematical verification are unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete exact three-MUS classification across an unbounded sequence of morphic words provides natural unique-factor anchors relevant to string algorithms. Despite growing length 3^k, the count stays exactly three and their positions/sizes scale in a precise way; this is a structural infinite-family result not mechanically implied by general factor complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

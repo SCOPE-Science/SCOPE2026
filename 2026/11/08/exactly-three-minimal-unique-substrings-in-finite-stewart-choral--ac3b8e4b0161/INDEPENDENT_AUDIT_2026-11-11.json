@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:04:48.918895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For phi(0)=001, phi(1)=011, W_k=phi^k(0), m=3^(k-1), the AAB decomposition with A/B differing at their exact central position creates four repeated-factor intervals. Their increasing endpoints cover all positions, and the bridge lemma forces any unique factor to contain one of three bridges. The substitutions have disjoint start-modulo-three factor patterns, so trimmed-image occurrence bijections preserve uniqueness inductively; each bridge has repeated proper prefix/suffix. Independent direct occurrence counting on W_k for k=2,3,4 produced exactly the predicted three (start,length) pairs: k2 (2,3),(5,3),(7,2); k3 (8,6),(16,7),(22,4); k4 (26,15),(49,19),(67,10). This finite check corroborates, not replaces, universal bridge induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Occurrence-preserving general theorems do not state application-specific Stewart count; Stewart word complexity theorems do not identify unique factors."
+        ],
+        "reasoning": "A broad method must still verify which precise factors are repeated and which bridge images are unique, achieved nontrivially in this proof.",
+        "searches": [
+          "https://doi.org/10.4230/LIPIcs.CPM.2026.24",
+          "https://arxiv.org/abs/2112.12125"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.CPM.2026.24",
+        "https://arxiv.org/abs/2605.18034",
+        "https://arxiv.org/abs/2112.12125",
+        "https://oeis.org/A116178",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-minimal-unique-substrings-in-each-nontrivial-mephisto-waltz--00d0c1e4d8b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The named application classes in CPM 2026 are Fibonacci and Thue–Morse; Fici–Shallit Stewart-specific statements concern other statistics."
+        ],
+        "reasoning": "Neither published explicit claim directly implies the bridge-position formulas without a new occurrence argument.",
+        "searches": [
+          "https://doi.org/10.4230/LIPIcs.CPM.2026.24",
+          "https://arxiv.org/abs/2112.12125"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three minimal unique substrings correspond to minimal unique factors/morphic anchors; literature on other 3-uniform substitutions is not equivalent."
+        ],
+        "reasoning": "Alternative name MUS/minimal unique factor considered; the compared morphism 1->110 is not conjugate by a claimed reduction to 1->011.",
+        "searches": [
+          "minimal unique substrings Stewart choral word phi 0 001 1 011 exact three",
+          "minimal unique factors Stewart 001 011 length 3 power",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-minimal-unique-substrings-in-each-nontrivial-mephisto-waltz--00d0c1e4d8b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A116178 supplies defining word, not a complete exact finite MUS table."
+        ],
+        "reasoning": "No authoritative complete finite-iterate MUS table identified; search absence is not categorical proof.",
+        "searches": [
+          "Stewart choral minimal unique factor exact three 3^k",
+          "minimal unique substrings Stewart choral word phi 0 001 1 011 exact three"
+        ]
+      },
+      "rationale": "Kishi–Guo–Urbina–Bannai characterize occurrence-preserving morphisms and derive MUS results for Fibonacci and Thue–Morse, not the canonical Stewart choral iterates. Fici–Shallit identify this morphism and study complexity, repetitions, palindromes, etc., not the explicit three MUS bridges. Other Resultary records on Mephisto–Waltz concern a different morphism (0->001,1->110). A priority risk remains for unindexed Stewart-specific MUS tables.",
+      "residual_risks": [
+        "An unknown Stewart-specific MUS catalogue or fuller arXiv appendix could cover this classification; currently accessible full CPM conference paper and examined Fici–Shallit paper did not identify it.",
+        "Only exact finite iterates, not arbitrary Stewart directives or prefixes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECT_COVERAGE",
+          "evidence": "Generic occurrence-preservation theory is a possible technique, but theorem does not state the three Stewart-choral MUS intervals and applications are other named words.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.24",
+          "material_read": "Full 16-page open CPM paper accessible; examined abstract, main claims/applications and searched text for Stewart (no match); applications identified as Fibonacci and Thue–Morse",
+          "method": "Dagstuhl OA PDF with page screenshot plus source-text search",
+          "title": "On Occurrence-Preserving Morphisms",
+          "trigger": "directly relevant generic MUS morphism framework"
+        },
+        {
+          "assessment": "NOT_DIRECT_COVERAGE",
+          "evidence": "The Stewart choral morphism appears, but examined results concern factor complexity/avoidance/palindromes, not complete finite-iterate MUS positions.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.12125",
+          "material_read": "Open research PDF including Stewart morphism identification, principal complexity and pattern results (inspected earlier in this execution)",
+          "method": "lawful OA full-text reading and screenshot",
+          "title": "Properties of a Class of Toeplitz Words",
+          "trigger": "original definition and substantive properties of Stewart words"
+        },
+        {
+          "assessment": "DIFFERENT_SUBSTITUTION",
+          "evidence": "The Mephisto–Waltz substitution maps 1 to 110 instead of 011 and has five MUSs, not the Stewart three-MUS result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-minimal-unique-substrings-in-each-nontrivial-mephisto-waltz--00d0c1e4d8b8",
+          "material_read": "Resultary summary of specific morphism and exact five MUS list",
+          "method": "semantic results search",
+          "title": "Five minimal unique substrings in each nontrivial Mephisto–Waltz iterate",
+          "trigger": "same kind of invariant for a related 3-uniform substitution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete exact three-MUS classification across an unbounded sequence of morphic words provides natural unique-factor anchors relevant to string algorithms. Despite growing length 3^k, the count stays exactly three and their positions/sizes scale in a precise way; this is a structural infinite-family result not mechanically implied by general factor complexity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.4230/LIPIcs.CPM.2026.24",
+    "https://arxiv.org/abs/2605.18034",
+    "https://arxiv.org/abs/2112.12125",
+    "https://oeis.org/A116178",
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-five-minimal-unique-substrings-in-each-nontrivial-mephisto-waltz--00d0c1e4d8b8"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unknown Stewart-specific MUS catalogue or fuller arXiv appendix could cover this classification; currently accessible full CPM conference paper and examined Fici–Shallit paper did not identify it.",
+    "Only exact finite iterates, not arbitrary Stewart directives or prefixes."
+  ],
+  "schema_version": 1
+}
