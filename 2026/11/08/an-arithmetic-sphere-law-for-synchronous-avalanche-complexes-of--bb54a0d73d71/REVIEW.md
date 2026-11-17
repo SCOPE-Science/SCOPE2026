@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every cycle independently maintains exactly one vacancy, advancing it by one vertex per synchronous firing. Generalized Chinese remaindering recovers all and only omitted tuples with one common residue modulo the pairwise gcd. Each residue block's complement complex is exactly a join of nonempty simplex boundaries. The complement-of-a-disjoint-hypergraph union decomposes into two contractible subcomplexes intersecting in a join, giving the required homotopy suspension by a genuine cofibration pushout. Iteration yields the stated sphere dimension, including \(d=1\). The verifier separately checks six CRT families and complete reduced mod-two homology in one finite instance. It is not substituted for the all-parameter proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The relevant 2026 primary paper treats the avalanche construction and other cycle operations but not this multicomponent disjoint synchronized classification. The closest recorded two-cycle classification does not imply the statement for three or more cycles and different residue-block topology. Searches for simultaneous firing, CRT, and multipartite-hypergraph reformulations found no broader equivalent. Generalized CRT and the join/suspension lemma themselves are classical and not credited as discoveries. Residual risk remains from unindexed overlap or inaccessible mathematical literature; neither a search absence nor the topical distinction alone constitutes a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The result provides a complete, reproducible integral homotopy classification for infinitely many disjoint-component synchronized sandpile systems, with arbitrarily many components and variable common gcd. This explicit arithmetic-to-topology bridge determines a natural previously unresolved graph-operation case rather than a single finite homology count or a renamed deduction from two cycles. The equal-gcd restriction and firing model delimit its utility honestly.
+Each zero-chip vacancy moves one step per simultaneous firing on its directed cycle; the exact global period is lcm(n_i)=d*product(u_i). With pairwise gcd d, generalized CRT says precisely simultaneous hole tuples whose phase-corrected labels have the same residue mod d occur. In each residue block the complement of a transversal is a join of r simplex boundaries, a sphere of dimension sum u_i-r-1. For disjoint forbidden-hyperedge systems the complement complex is (D_U*Delta(V)) union (Delta(U)*D_V), intersection D_U*D_V, so the cofibration homotopy pushout is a suspension. Iterating d blocks gives dimension N-(r-1)d-2, including d=1. The inspected independent code checks six CRT orbit families and direct GF2 homology of (3,4,5) (60 facets, 3255 faces, degree-8 beta=1); a separate direct subset enumeration independently confirmed these counts. Integer conclusion comes from the proved join/pushout, not from mod-two sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for a multicycle disjoint synchronous avalanche sphere theorem with equal pairwise gcd; primary avalanche authors primarily discuss directed paths/cycles and their revised abstract, and indexed residue support work is distinct. Full revised primary paper was inaccessible, flagged explicitly.
+
+## value
+
+PASS
+
+Natural synchronous chip-firing dynamics on disconnected directed cycles yields an infinite arithmetic-to-topology sphere law with arbitrarily many components and variable common gcd. An exact sphere result is a structural gap beyond either single-cycle behavior or the known two-cycle subcase, not an arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
