@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:09:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered maximal radius array determines all interval palindromicity predicates, hence determines each prefix fingerprint. A nonconstant prefix ending in a^r after b≠a gives at most q−2 continuations because append z=a forces a terminal length-two palindrome and z=b forces terminal b a^r b palindrome; if neither palindrome is prescribed, both symbols are prohibited. Initial constant-run length t is fingerprint determined. Every fiber has ≤q(q−1)(q−2)^(n−t−1), strictly below the target unless t=1, and any forced extension causes further strict reduction because q−2≥2. Equality iff every adjacent and distance-two pair differs, equivalent to absence of every palindrome of length ≥2. The unique trivial fingerprint fiber counts q(q−1)(q−2)^(n−2). The n=2 boundary is handled separately. Independent exhaustive enumeration for q=4,n=2..5 and q=5,n=4 confirms finite cases without establishing the all-n result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SPIRE 2010 accessible abstract announces counting distinct palindrome structures for alphabet size at most three and reconstructing one string from an array.",
+          "Itzhaki full 17-page paper addresses minimal palette, graph construction, reconstruction and counting distinct arrays, not a sharp fixed-q maximum fiber with q>=4."
+        ],
+        "reasoning": "Alphabet<=3 counting and algorithmic reconstruction are different invariants and ranges; neither accessible source states a stronger q>=4 inverse multiplicity theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2507.13671",
+          "https://doi.org/10.1007/978-3-642-16321-0_13",
+          "https://ken.ieice.org/ken/paper/20100929R0Bd/eng/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2507.13671",
+        "https://doi.org/10.1007/978-3-642-16321-0_13",
+        "https://ken.ieice.org/ken/paper/20100929R0Bd/eng/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restriction-graph colorings of an attainable Manacher array are characterized in Itzhaki; it does not establish an upper bound by a second-order recurrence.",
+          "Submitted prefix proof shows at most q−2 continuation letters after a nonconstant prefix because both the preceding run symbol and its predecessor are determined by two terminal palindrome predicates, with strict inequality if either predicate is forced."
+        ],
+        "reasoning": "The upper bound and uniqueness do not follow from general coloring correspondence alone; the local forcing argument yields the new extremal invariant.",
+        "searches": [
+          "https://arxiv.org/pdf/2507.13671",
+          "https://doi.org/10.1007/978-3-642-16321-0_13",
+          "https://ken.ieice.org/ken/paper/20100929R0Bd/eng/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Itzhaki (2025) Theorem 2 represents each Manacher fingerprint by a restriction graph; proper graph colorings correspond to strings sharing the array.",
+          "The submitted question is the MAXIMUM number of q-colorings over all attainable restriction graphs, not merely the existence of a coloring for each graph."
+        ],
+        "reasoning": "An all-fiber coloring bijection does not itself optimize over all fingerprints. The q(q−1)(q−2)^(n−2) maximum and unique no-palindrome fingerprint require the submitted prefix branching bound.",
+        "searches": [
+          "palindrome fingerprint palindrome radii equivalent strings maximum fiber colorings restriction graph",
+          "https://arxiv.org/pdf/2507.13671",
+          "https://doi.org/10.1007/978-3-642-16321-0_13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper is an all-length formula and unique maximizing fingerprint, not a known finite table.",
+          "Direct exhaustive counts for (q,n)=(4,2..5),(5,4) reproduce the unique maximizer and target fiber sizes."
+        ],
+        "reasoning": "Finite enumeration is only corroboration. No database or published exact count for this universal maximum was found in the stated sources.",
+        "searches": [
+          "palindrome fingerprint palindrome radii equivalent strings maximum fiber colorings restriction graph",
+          "https://arxiv.org/pdf/2507.13671",
+          "https://doi.org/10.1007/978-3-642-16321-0_13"
+        ]
+      },
+      "rationale": "Best-of-knowledge: a natural all-q>=4 sharp inverse-fiber extremum not deduced by earlier general restriction-graph coloring or small-alphabet structure enumeration. Full 2010 primary was inaccessible, so retain a specific material priority risk.",
+      "residual_risks": [
+        "2010 I–Inenaga–Bannai–Takeda chapter full text unavailable; an unadvertised inverse-fiber extremum cannot be ruled out. Oxford institutional retrieval blocked by disconnected VPN.",
+        "Potential complexity differences in conventions for maximal radius are addressed by explicit palindrome predicate equivalence in the submitted proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GRAPH_COLORING_FOUND_NOT_MAXIMUM",
+          "evidence": "Theorem 2 yields coloring/reconstruction bijection but no maximum fiber count across arrays for a fixed q>=4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.13671",
+          "material_read": "Complete 17-page arXiv PDF, including Introduction, Section 4 restriction graph Theorem 2, graphs/equality conditions and reconstruction theorems",
+          "method": "Web full PDF text and page-image inspection (page 9); compared exact quantifiers",
+          "title": "Combinatorics of Palindromes",
+          "trigger": "Same complete Manacher array object and possible stronger coloring theorem"
+        },
+        {
+          "assessment": "RELEVANT_FULL_TEXT_UNREAD",
+          "evidence": "Abstract concerns counting pal-distinct arrays for alphabets <=3 and reconstructing one string; full text might contain an unadvertised upper fiber bound, retained as risk.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-16321-0_13",
+          "material_read": "Accessible publisher/IEICE/Sciweavers abstract, bibliography and scope; complete 2010 chapter unavailable",
+          "method": "Searched lawful OA author-hosted PDF (timeout), attempted arXiv/OA then Oxford institutional access (vpn_disconnected, job 7852609a24faa5f79c23109354bc9dee)",
+          "title": "Counting and Verifying Maximal Palindromes",
+          "trigger": "Foundational primary work on same palindrome-radius signatures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a fundamental extremal inverse ambiguity and unique attaining observable for Manacher arrays over every q>=4, relevant to reconstruction/inference rather than a routine count of words.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2507.13671",
+    "https://doi.org/10.1007/978-3-642-16321-0_13",
+    "https://ken.ieice.org/ken/paper/20100929R0Bd/eng/"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed labeled q-symbol alphabet q>=4, length n>=2 and full ordered 2n−1 radius signature."
+  ],
+  "residual_risks": [
+    "Historical priority uncertain due unavailable complete SPIRE 2010 chapter.",
+    "Statement deliberately excludes q<=3 and gives no complete fiber-size distribution."
+  ],
+  "schema_version": 1
+}
