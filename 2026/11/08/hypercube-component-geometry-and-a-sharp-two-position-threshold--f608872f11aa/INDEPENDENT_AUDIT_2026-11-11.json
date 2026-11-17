@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:54:07.982891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Signature of symbol i relative to home i is invariant under feasible adjacent swaps. An explicit left/right sorted canonical representative makes every signature fiber nonempty and connected. The only singleton signatures are all-left/all-right. A distance-two swap crosses at most one intermediate home position; the constructive crossing, including the j=i-1 detour, realizes every coordinate flip of the component signature. Thus quotient is precisely Q_(n-2), giving connectivity for n>=4; n=3 has only two isolated 3-cycles. Independent exhaustive BFS on derangements n=3..7 produced 2,4,8,16,32 components with two isolated vertices and all hypercube quotient edges; not an all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702/RESULT.md proves 2^(|F∩[2,n-1]|) components; makes no range-2 claims"
+        ],
+        "reasoning": "Earlier broader F parameter dominates the r=1 part only, not transposition distance-two quotient or sharp locality threshold.",
+        "searches": [
+          "derangement graph adjacent position swaps connected components sign vector 2^(n-2) range-two swaps hypercube quotient"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702/RESULT.md",
+        "https://jl.baril.u-bourgogne.fr/derange.pdf",
+        "Frozen RESULT.md blob b7f7cfcb09cc9d9d3ba9e26a9a5b88f9bbcc7fba and verify_structure.py blob 97efccb1af97a5feb9c3e188c1ef7fb9cf57c520"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702/RESULT.md canonical signature class theorem",
+          "https://jl.baril.u-bourgogne.fr/derange.pdf Lemma 4 Gray code transitions may involve two operations"
+        ],
+        "reasoning": "Earlier connectivity in unrestricted transposition graphs, or a Gray code using composite operations, cannot imply single-step local r=2 connectivity. Constructive local flips supply additional proof.",
+        "searches": [
+          "derangements distance two transposition local position swap quotient components hypercube Q n-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702/RESULT.md main theorem full F subset includes F=[n]",
+          "https://jl.baril.u-bourgogne.fr/derange.pdf Gray code via one/two nonlocal transpositions or 3-cycle"
+        ],
+        "reasoning": "Sign-component theorem is already covered by more general F-subset theorem; Q_(n-2) quotient and r=2 connectivity are different, additional statements.",
+        "searches": [
+          "derangement graph adjacent position swaps connected components sign vector 2^(n-2) range-two swaps hypercube quotient",
+          "derangements distance two transposition local position swap quotient components hypercube Q n-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary index match: 2026/11/2 component-signatures; 2026/11/8 cyclic adjacent swaps studies cyclic boundary move, not distance-two local swaps",
+          "https://jl.baril.u-bourgogne.fr/derange.pdf full text pp207-221 different Gray transitions"
+        ],
+        "reasoning": "No exact earlier quotient table found for the distance-two derangement reconfiguration graph; finite enumerations alone do not certify novelty.",
+        "searches": [
+          "derangements distance two transposition local position swap quotient components hypercube Q n-2"
+        ]
+      },
+      "rationale": "IMPORTANT PARTIAL COVERAGE: a published November 2 general forbidden-fixed-position theorem proves the exact sign components and 2^(n-2) derangement count already. Those pieces are not new and should be credited. The surviving independent substantive claim is the sharp r=2 connectivity and exact quotient Q_(n-2), not implied by the earlier r=1 component theorem or unrestricted-transposition connectivity; no retrieved prior theorem establishes its range-two edge realization. Thus this combined final claim has a correct and valuable original advance, with explicit partial prior coverage.",
+      "residual_risks": [
+        "Earlier sign component formula is decisively covered and must not be claimed new. An unindexed range-two quotient classification remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FIRST_HALF_NOT_RANGE_TWO",
+          "evidence": "Full F subset implies all derangement sign components; no quotient or range-two theorem",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702/RESULT.md",
+          "material_read": "Entire Finding, Assumptions, Proof, Verification, Limitations",
+          "method": "Connected GitHub full RESULT.md, blob b9dd3066466203d9b903f0462915b072dac71083",
+          "title": "Component signatures for permutations avoiding selected fixed points",
+          "trigger": "Direct stronger theorem for r=1 components"
+        },
+        {
+          "assessment": "DIFFERENT_MOVE_GRAPH",
+          "evidence": "Successor uses one or two unrestricted transpositions or 3-cycle, not required one local swap",
+          "identifier_or_url": "https://jl.baril.u-bourgogne.fr/derange.pdf",
+          "material_read": "Full abstract, notation, Sections 2-4 as relevant to Lemma 4 and successor operations",
+          "method": "Author-hosted 15-page PDF inspected through web text and screenshots",
+          "title": "Gray code for derangements",
+          "trigger": "Early primary source on feasible derangement moves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp transition from disconnected neighbor swaps to connected two-position swaps, with an exact hypercube quotient and explicit coordinate-changing paths, is a structural reconfiguration theorem on a canonical constrained permutation family. It is independently useful beyond the already known component count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=3, legal adjacent-position swaps among derangements give exactly 2^(n-2) signature components and two isolated vertices; for every n>=4, allowing position distance two connects the space and the adjacency quotient of the former components is Q_(n-2).",
+  "limitations": "Old sign theorem is covered; no claim for n=3 connectivity, cyclic position wraparound, distances/diameters beyond given nonisometric example.",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run the Python 3 script directly:
+## correctness
 
-```sh
-python3 verify_structure.py
-```
+PASS
 
-It enumerates all derangements for orders three through eight, reconstructs signature fibers and all distance-one edges, verifies each fiber is connected, checks the isolated states and full quotient adjacency, and checks each possible constructive coordinate crossing for orders four through fourteen. It also runs shortest-path search from a specified order-six witness, confirming restricted adjacent-swap distance seven compared with unrestricted Kendall distance five. The expected final line is `PYTHON_INDEPENDENT_PASS`.
+Signature of symbol i relative to home i is invariant under feasible adjacent swaps. An explicit left/right sorted canonical representative makes every signature fiber nonempty and connected. The only singleton signatures are all-left/all-right. A distance-two swap crosses at most one intermediate home position; the constructive crossing, including the j=i-1 detour, realizes every coordinate flip of the component signature. Thus quotient is precisely Q_(n-2), giving connectivity for n>=4; n=3 has only two isolated 3-cycles. Independent exhaustive BFS on derangements n=3..7 produced 2,4,8,16,32 components with two isolated vertices and all hypercube quotient edges; not an all-n proof.
 
-Compile and run the independent C++17 implementation:
+## originality
 
-```sh
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_components.cpp -o verify_components
-./verify_components
-```
+PASS
 
-This separately enumerates all derangements for orders three through nine, constructs legal swaps by direct position pairs, uses disjoint-set unions to verify adjacent-swap components and distance-two connectivity, and verifies the actual quotient adjacency matrix against Hamming distance one. At order nine it reports `states=133496 fibers=128 qedges=448`; the expected final line is `CPP_EXHAUSTIVE_PASS`.
+IMPORTANT PARTIAL COVERAGE: a published November 2 general forbidden-fixed-position theorem proves the exact sign components and 2^(n-2) derangement count already. Those pieces are not new and should be credited. The surviving independent substantive claim is the sharp r=2 connectivity and exact quotient Q_(n-2), not implied by the earlier r=1 component theorem or unrestricted-transposition connectivity; no retrieved prior theorem establishes its range-two edge realization. Thus this combined final claim has a correct and valuable original advance, with explicit partial prior coverage.
 
-Both programs were executed successfully. The Python procedure checks all coordinate patterns through order fourteen; the C++ procedure exhaustively checks graphs through order nine. Neither finite check is used to establish the universal quantifier; that conclusion is supplied by the proof in `RESULT.md`. This work has received self-review but no independent scholarly audit.
+## value
+
+PASS
+
+The sharp transition from disconnected neighbor swaps to connected two-position swaps, with an exact hypercube quotient and explicit coordinate-changing paths, is a structural reconfiguration theorem on a canonical constrained permutation family. It is independently useful beyond the already known component count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

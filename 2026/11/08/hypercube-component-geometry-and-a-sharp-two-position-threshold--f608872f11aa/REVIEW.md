@@ -1,15 +1,21 @@
-# Scientific review: hypercube components of derangement swap graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-order proof directly shows the sign invariant, connectivity within every sign fiber by legal bubble and insertion-style swaps, and the two singleton fibers. Its critical local lemma constructs, from the canonical representative, a legal distance-two switch that crosses any selected internal label from left of home to right of home without changing other signs. The potentially dangerous intermediate case (an entry equal to the target position of the other swapped entry) is treated explicitly by one legal preliminary adjacent swap. Hence the quotient contains all and only edges of the cube, and connectivity follows for every order at least four. The order-three exception is handled separately. Separate Python and C++17 programs exhaustively confirm the required graph properties through orders eight and nine respectively; the Python program checks every constructive coordinate witness through order fourteen. The proof does not infer any infinite result solely from these tests.
+## correctness
 
-## Originality — PASS, qualified
-The authors of the 2004 derangement Gray-code paper use arbitrary transpositions and sometimes two transpositions or a three-cycle, not single swaps of positions at distance one or two. Jain's public derangement-switch study proves connectivity when any pair of positions may be transposed and explicitly records the **existence** of derangements with no legal neighboring transposition; that observation is prior work. Neither inspected result establishes the exact power-of-two component count, uniqueness of the two frozen states, or the hypercube quotient and sharp distance-two connectivity threshold. Targeted semantic research-record searches and literature/sequence-index searches did not locate an equivalent statement or a stronger theorem covering it. An unindexed older equivalent cannot be excluded. Some general graph models called “derangement graphs” instead connect arbitrary permutations which disagree everywhere, a different vertex set and adjacency. The present theorem therefore claims no priority for basic derangement enumeration or for observation of frozen states.
+PASS
 
-## Value — PASS
-The constraint that no label occupy its own position is a canonical forbidden-matching constraint. Locality of transposition moves changes this model's topology in an unexpectedly structured way: exactly two singleton states, exponentially many components with a simple complete invariant, and a sharp transition to connectivity on widening the allowed move range from one to two. The quotient hypercube identifies precisely which obstructions a single extra position of swap range can remove, while the explicit distance-seven example shows why the fine reconfiguration metric cannot simply be inherited from the permutohedron. These are natural structural properties of an infinite family, not a special-parameter enumeration or a rewording of established derangement counts.
+Signature of symbol i relative to home i is invariant under feasible adjacent swaps. An explicit left/right sorted canonical representative makes every signature fiber nonempty and connected. The only singleton signatures are all-left/all-right. A distance-two swap crosses at most one intermediate home position; the constructive crossing, including the j=i-1 detour, realizes every coordinate flip of the component signature. Thus quotient is precisely Q_(n-2), giving connectivity for n>=4; n=3 has only two isolated 3-cycles. Independent exhaustive BFS on derangements n=3..7 produced 2,4,8,16,32 components with two isolated vertices and all hypercube quotient edges; not an all-n proof.
 
-## Literature comparison and limitations
-Primary texts examined: J.-L. Baril and V. Vajnovszki, *Gray code for derangements*, Discrete Applied Mathematics 140 (2004), 207–221, DOI `10.1016/j.dam.2003.06.002` (abstract, definitions, transition lemmas, algorithm discussion); P. Jain, *Transpositions in Derangements* (2021), DOI `10.13140/RG.2.2.35817.42088` (available public full text including graph definition, remarks on adjacent swaps and connectivity theorem). Supporting classical adjacent-transposition literature and permutation-code records were checked for alternative formulations. The mathematical claim concerns only linear position distance and forbids every fixed point at every step. Historical priority is qualified, and independent external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+IMPORTANT PARTIAL COVERAGE: a published November 2 general forbidden-fixed-position theorem proves the exact sign components and 2^(n-2) derangement count already. Those pieces are not new and should be credited. The surviving independent substantive claim is the sharp r=2 connectivity and exact quotient Q_(n-2), not implied by the earlier r=1 component theorem or unrestricted-transposition connectivity; no retrieved prior theorem establishes its range-two edge realization. Thus this combined final claim has a correct and valuable original advance, with explicit partial prior coverage.
+
+## value
+
+PASS
+
+The sharp transition from disconnected neighbor swaps to connected two-position swaps, with an exact hypercube quotient and explicit coordinate-changing paths, is a structural reconfiguration theorem on a canonical constrained permutation family. It is independently useful beyond the already known component count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
