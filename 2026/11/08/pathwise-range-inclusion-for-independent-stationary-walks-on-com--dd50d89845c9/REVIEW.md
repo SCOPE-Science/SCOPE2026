@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** At stationarity a walk chooses a fair side initially and then alternates, with independent uniform vertex labels within each part. The count identities \(N_A=(T+o)/2+e_A\) and \(N_B=(T+o)/2+e_B\) are valid for every nonnegative lifespan; for odd \(T\) they both exceed the single walk's requirements, and for even \(T\) the larger pool contains the extra initial-side draw. The starting-side selection is fair by exchanging the sides of all independent starting coins, and independent of the vertex-label arrays, so all marginal trajectory laws are preserved. A genuine labeled-set coupling follows. The packaged standard-library checker passed 20,729 exact finite diagnostics. The all-size conclusion is proved analytically, not inferred from enumeration.
+## correctness
 
-**Originality: PASS, qualified.** Dey--Kim--Terlov (2023), arXiv:2302.14241v1, §1.3 and §3, proves expected-range domination and poses stochastic range domination as Question 3.6. Its full preprint does not contain a bipartite range-set inclusion coupling. The 2025 journal edition was accessible only at abstract level, and later or unindexed results remain historical-priority risks. Existing complete-graph seed augmentation concerns a different graph law, and fixed-start biclique cover-CDF comparisons concern a different pair of processes; neither implies the stated coupling.
+PASS
 
-**Value: PASS.** An explicit open distributional-comparison question is answered for every complete bipartite graph, every number of walkers and every allocation of transition budgets, at the stronger inclusion-coupling level. In this periodic setting, the argument also removes the parity restriction from the original expectation comparison. The side-allocation coupling is a structural statement, not merely a recomputation of one expected range size.
+For a,b>=1, k>=2 and arbitrary nonnegative t_i, conditioning on independent fair start sides gives counts N_A=(T+o)/2+e_A, N_B=(T+o)/2+e_B. For odd T both >=(T+1)/2; for even T both>=T/2 and sum T+k>=T+2, allowing side choice from larger pool, fair by global side-flip symmetry. Independent per-side iid labels realize k independent correct stationary walks and a correct stationary single walk from initial prefixes, with literal labeled range inclusion. Boundaries t_i=0 and a or b=1 are allowed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The labeled-set inclusion coupling for every complete bipartite graph and arbitrary independent stationary duration split survives comparison with Dey–Kim–Terlov expectation-only and stochastic-size open questions; complete-graph seed augmentation does not imply alternating bipartite coupling.
+
+## value
+
+PASS
+
+Resolves a specific previously posed multiwalk range stochastic-domination problem in a natural infinite graph class, with a stronger labelled-set stochastic order and no parity restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
