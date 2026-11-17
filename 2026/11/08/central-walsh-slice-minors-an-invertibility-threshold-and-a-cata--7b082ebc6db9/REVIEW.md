@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the unnormalized, real symmetric signed-intersection matrix on all \(k\)-subsets. The complete harmonic multiplicities come from the established Johnson-slice basis, and the action on each degree is reconstructed by summing over distinguished pairs. The resulting exact coefficient extraction is evaluated for offsets zero, one, and two. Monotonicity comparisons identify both extreme absolute eigenvalues; standard central-binomial and Catalan asymptotics then yield the precise condition-number constants. Direct numerical spectra of all twelve matrices at \(1\le k\le4\) agree with the complete predicted lists, and 447 larger arithmetic parameter checks agree with the coefficient forms. These finite checks support but do not substitute for the proof.
+PASS
 
-## Originality — PASS, bounded
+PASS: From the actual RESULT.md at source tree da43cc..., on slice Omega(n,k) harmonic degree j is spanned by pair-difference products; each distinguished pair contributes (-2), while the remaining m=k-j coordinates contribute [z^m](1-z²)^m(1+z)^a. The Johnson harmonic dimensions binom(n,j)-binom(n,j-1) sum to binom(n,k). Explicit coefficient extraction gives zero exactly for odd m when a=0, hence rank binom(2k,k)/2; all coefficients at a=1,2 are nonzero. The absolute eigenvalue extremes are 2^k and 2^k*binom(k,floor(k/2))/2^k for a=1, or 2^k*C_floor(k/2)/4^floor(k/2) for a=2. Elementary monotonicity yields the two exact sharp condition numbers and the Stirling asymptotics. Independently rebuilt binary-intersection matrices and diagonalized each n=2k+a for k=1,2,3 and a=0,1,2; multiplicities, nullities and condition numbers match. These finite checks do not prove the universal theorem; the harmonic argument does. Citation issue: Filmus Theorem 5.1/Lemma 5.2 as named in the package are not the actual harmonic-basis location; see Theorem 4.1/Lemma 2.1 in the primary paper; no false mathematical premise found.
 
-The closest primary theory (Filmus, arXiv:1406.0142, sections 2 and 5) supplies the complete Johnson harmonic eigenspaces for all intersection kernels, and Podestá (arXiv:1603.09156, sections 2, 5 and 6) develops Krawtchouk/Catalan coefficient identities. These mathematical ingredients are acknowledged and are not claimed as new. Neither inspected presentation identifies the three consecutive near-central principal Walsh matrices' exact rank/invertibility threshold together with their sharp, contrasting \(\sqrt k\) versus \(k^{3/2}\) conditioning law and extremal sectors. Related Fourier *band-to-shell* restriction results use a different rectangular or concentration operator, so their rank laws do not imply this fixed-shell *square compression*. Search did not establish global historical uniqueness: a specialized Johnson association-scheme spectral result or an unstated consequence of a general eigenvalue theorem remains a realistic priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The matrix is the exact finite Fourier sampling/reconstruction map when both samples and Fourier coefficients are limited to one constant-weight slice. Its sharp rank and condition number distinguish recoverability from noise amplification. The one-coordinate restoration of invertibility immediately followed by a factor of order \(k\) increase in conditioning is a genuine structural boundary for the natural three consecutive ambient dimensions; the Catalan identity locates the worst harmonic mode exactly. It is not an isolated numerical slice or a claim to rediscover Johnson harmonic eigenvectors.
+Best-of-knowledge originality of the sharp particular near-middle principal Walsh compression conditioning transition, not of Johnson harmonics, Krawtchouk identities or Catalan numbers. Primary sources cover the general spectral machinery and overlapping coefficient values, but no inspected statement establishes all three special rank/conditioning regimes and their sharp ratio.
 
-## Verification limits
+## value
 
-No independent mathematical audit has been performed. The proof assumes the standard Johnson harmonic decomposition, explicitly cited and proved in the literature. The optional numerical checker uses NumPy and covers only finite dimensions; the symbolic identities and extremal inequalities are given separately in the proof. No statement extends to a moving gap \(n-2k\), and the literature check cannot rule out all stronger pre-existing theorems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Distinguishes non-injectivity from full recovery for a natural fixed-weight principal Fourier sampling matrix, and quantifies a surprising strict k-factor deterioration from one to two added ambient coordinates through Catalan numbers. The precise sharp condition numbers and sector analysis are useful for stability of Johnson-slice Fourier interpolation beyond routine coefficient lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
