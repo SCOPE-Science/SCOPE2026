@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is explicitly restricted to equal nonzero real row norms, uncentered rank-one approximation and one deletion. In two columns the double-angle representation makes pilot-score and exact-refit rankings identical; when the leading singular value ties, every exact deletion loss is equal. In three rows the leading Gram eigenprojector's principal minors give the same ranking, and an explicit spectral-degeneracy argument handles every tie. The rational four-by-three example has a unique wrong pilot choice, with the superior alternative established by strict rational spectral inequalities. The standalone checker reproduced these identities and 2,625 supplemental cases. No infinite assertion relies on sampling.
+## correctness
 
-**Originality — PASS subject to historical-priority uncertainty.** The row-storage objective, its fixed-basis surrogate and the subsequent independent refit occur in Szolnoky's 2026 D-SLR study, which does not state the sharp equal-norm planar/three-row guarantee or four-by-three counterexample. Bhaskara and Kumar's 2018 outlier-PCA study treats much broader approximation algorithms without this classification. Queries for equivalent formulations, leave-one-out eigenvalue changes, cofactor identities, and rank-one trimmed PCA, together with mathematical-record searches, did not identify the same statement or a directly dominating theorem. The eigenprojector formula is classical, and a historical source expressing the exact frontier in different language may have escaped indexing. The D-SLR algorithm is not the raw-pilot rule analyzed here.
+PASS
 
-**Value — PASS.** Selecting an exact-storage row based on a fixed subspace is an important inexpensive surrogate for the true leave-one-out, refitted error. The result locates exactly when this one-row criterion is unconditionally safe under a natural row normalization, with *both* minimal sample count and minimal ambient dimension for failure. The strict unit-row counterexample isolates subspace rotation rather than row magnitude as the cause. This is a motivated structural boundary, although it is not an approximation-ratio theorem or a guarantee for the full D-SLR procedure.
+For two columns, doubled-angle phasors show E_i=a^2(m-1-|Z-z_i|)/2 and pilot h_i is oppositely ordered by Re(z_i conjugate(Z)), with Z=0 making all refit errors equal. For three rows, the Gram spectral-projector principal minor identity u_i^2=((lambda-a^2)^2-|g_jk|^2)/p'(lambda) ranks deletions exactly; tied-top cases force equal |g_jk|. Fresh exact SymPy recomputation validated every unit row, the explicit W^T W and characteristic polynomial, lambda>9/4, the three strictly positive cofactor differences, and the strict refit gap (retained largest eigenvalue after deleting third row exceeds that after deleting first). No reliance on random trials for universal quantifiers.
 
-**Closest literature and limits.** Szolnoky, *D-SLR* (arXiv:2610.10636v1, 2026-10-07), Section 7, distinguishes fixed-basis scoring and refitted error, with additional algorithm stages. Bhaskara and Kumar, *Low Rank Approximation in the Presence of Outliers* (arXiv:1804.10696, 2018-04-27), considers general outlier-PCA approximation. No claim is made for unequal row lengths, multiple deletions, approximate singular vectors, or rank greater than one. Equivalent unindexed prior work remains a plausible originality risk; independent mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh best-of-knowledge comparison for Sharp equal-norm residual-pruning boundary for rank-one PCA: no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.
+
+## value
+
+PASS
+
+A natural one-row exact-storage plus rank-one refit objective is frequently approximated by a cheaper full-PCA residual ranking; equal norms remove trivial magnitude effects. The theorem gives a sharp simultaneous sample/ambient dimension safety boundary and an explicit smallest failure of the surrogate. This is not claimed as a failure of the full multistage D-SLR procedure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

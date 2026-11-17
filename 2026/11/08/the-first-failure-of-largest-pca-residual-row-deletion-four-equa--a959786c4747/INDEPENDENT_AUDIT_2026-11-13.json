@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:52:18.858766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two columns, doubled-angle phasors show E_i=a^2(m-1-|Z-z_i|)/2 and pilot h_i is oppositely ordered by Re(z_i conjugate(Z)), with Z=0 making all refit errors equal. For three rows, the Gram spectral-projector principal minor identity u_i^2=((lambda-a^2)^2-|g_jk|^2)/p'(lambda) ranks deletions exactly; tied-top cases force equal |g_jk|. Fresh exact SymPy recomputation validated every unit row, the explicit W^T W and characteristic polynomial, lambda>9/4, the three strictly positive cofactor differences, and the strict refit gap (retained largest eigenvalue after deleting third row exceeds that after deleting first). No reliance on random trials for universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Szolnoky permits recomputing a second basis and optional candidate refitting; Bhaskara/Kumar provide approximate low-rank-outlier solutions, not this exact one-step order."
+        ],
+        "reasoning": "General algorithmic objectives or approximation bounds do not imply exact deletion ordering for this deterministic special greedy rule.",
+        "searches": [
+          "arXiv:2610.10636v1 Sections 3-7",
+          "arXiv:1804.10696",
+          "Resultary: sharp one-moment residual-screened orthogonalization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10636v1",
+        "arXiv:1804.10696",
+        "https://github.com/Resultary/2026/2026/11/8/SCOPE-the-first-failure-of-largest-pca-residual-row-deletion-four-equa--a959786c4747",
+        "Resultary PCA/row-sketch semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D-SLR fixed-basis score controls an upper surrogate and does further basis fitting; it does not assert max raw residual is exact optimal through m<=3,d<=2, or a first 4x3 failure."
+        ],
+        "reasoning": "Neither existing claim yields the sharp dimensional frontier or the rational 4x3 gap, and the new negative example does not refute their distinct procedures.",
+        "searches": [
+          "arXiv:2610.10636v1 Section 7 fixed-basis residual surrogate",
+          "arXiv:1804.10696 rank-k outliers",
+          "Resultary query same object"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is one-step trimmed rank-one PCA versus ranking leave-one-row-out top eigenvalues, with equal row squared norm. D-SLR works on the row-storage/low-rank objective but is not the identical raw pilot."
+        ],
+        "reasoning": "Transposing the outlier-column PCA objective preserves optimization but not an exact raw-pilot greedy rule. No stronger exact equal-norm minimal-dimension criterion surfaced.",
+        "searches": [
+          "Resultary semantic query: equal norm uncentered PCA largest residual delete single row refit rank one first counterexample four rows three dimensions",
+          "arXiv:2610.10636",
+          "arXiv:1804.10696"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neighboring record results analyze different selection policies; no table of this row/ambient dimension frontier was returned."
+        ],
+        "reasoning": "The rational witness is an explicit counterexample, not a known standard benchmark table; negative database searches are not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: PCA leave one out residual ranking equal norm first failure 4x3",
+          "Resultary: row coherence defect PDNQP",
+          "Resultary: dimension free leverage control of E optimal Krylov sketches"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge comparison for Sharp equal-norm residual-pruning boundary for rank-one PCA: no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.",
+      "residual_risks": [
+        "Unindexed spectral influence and one-step trimmed-PCA results might give an equivalent theorem.",
+        "The exact theorem covers only single raw residual deletion, real equal-positive-norm rows, uncentered rank-one refit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad problem and surrogate, not the one-pass exact dimensional theorem.",
+          "evidence": [
+            "Section 7 discusses the pilot fixed-basis score as an upper bound; separately refits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10636",
+          "material_read": "Accessible full HTML Sections 1-9, especially Section 7 fixed-basis surrogate, multistage process and appendix shortlist.",
+          "method": "Read primary accessible HTML and checked optimization and pilot/refit algorithm steps.",
+          "title": "D-SLR: The Disjoint Row-Sparse plus Low-Rank Decomposition",
+          "trigger": "Same exact-storage/rank-one row fitting objective."
+        },
+        {
+          "assessment": "General approximation scope does not imply precise unit-row single-pilot frontier.",
+          "evidence": [
+            "PCA with outliers and approximation/bicriteria algorithmic results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.10696",
+          "material_read": "Accessible primary abstract/introduction, problem definition, algorithmic guarantees; no complete appendix-level exclusion inferred.",
+          "method": "Compared optimization quantifiers and algorithms.",
+          "title": "Low Rank Approximation in the Presence of Outliers",
+          "trigger": "General trimmed PCA by removing outliers."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural one-row exact-storage plus rank-one refit objective is frequently approximated by a cheaper full-PCA residual ranking; equal norms remove trivial magnitude effects. The theorem gives a sharp simultaneous sample/ambient dimension safety boundary and an explicit smallest failure of the surrogate. This is not claimed as a failure of the full multistage D-SLR procedure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed spectral influence and one-step trimmed-PCA results might give an equivalent theorem.",
+    "The exact theorem covers only single raw residual deletion, real equal-positive-norm rows, uncentered rank-one refit.",
+    "The original publication-facing provenance fields are not privacy-safe. The completed scientific decision is not a publication authorization; no GitHub write or status certificate was made."
+  ],
+  "schema_version": 1
+}
