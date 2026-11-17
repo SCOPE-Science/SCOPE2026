@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The star-graph brackets are taken directly from the original construction. In characteristic two their third-layer term is the exterior product. Splitting according to the two hub coordinates, counting the zero exterior fiber, and proving the common nonzero-decomposable fiber size by determinant-one bases yields the precise numerator. Dividing by the noncentral sample space and counting the quotient separately proves both formulas and their limits. The included direct-bracket and distinct fiber routines agree for the stated finite test cases. Finite enumeration is supporting evidence, not the infinite proof.
+## correctness
 
-**Originality — qualified PASS.** The original full construction describes dimensions, the center and structural properties, not element commuting probabilities. The inspected contemporary commutativity-degree article treats different low-derived-dimension families and general bounds. Searches of published mathematical records found the closest results for filiform Lie algebras and path algebras, but none with a matching or dominating star-graph characteristic-two law. The elementary wedge-fiber argument itself is standard linear algebra; the contribution is its complete application to a newly defined class-three family and its quotient asymptotic separation. Prior implicit coverage remains a residual risk, especially from broader commutativity-degree literature; a negative search is not proof of universal novelty.
+PASS
 
-**Mathematical value — PASS.** Commutativity probability is a natural quantitative invariant for finite Lie algebras, and the graph-to-algebra construction motivates calculating it for natural graph families. The theorem is exact for an infinite two-parameter family, not an arbitrary isolated example. Its nonzero asymptotic separation from the two-step quotient quantifies how adding the third Lie layer can change typical commuting behavior fundamentally, although central quotients preserve the same generators. The result does not assert an odd-characteristic or all-graphs classification.
+PASS. Gallo–Videla original star class-three Lie presentation has L=Fc ⊕ U ⊕ U_A ⊕ wedge^2 U, and in characteristic 2 [X,Y]=(tv-su)_A+(u∧b-v∧a). Central wedge coordinates drop out of commuting probability. Zero wedge fiber F=(q+1)q^m-q; each nonzero decomposable bivector has q(q^2-1) ordered preimages because same exterior product means change of basis determinant one; number of distinct nonzero decomposable outputs is ((q^m-1)(q^m-q))/(q(q^2-1)). For hub coordinates t=s=0 commuting noncentral pairs count F^2+q(q^2-1)(q^m-1)(q^m-q); for any of q²-1 nonzero (t,s) they count q^m F. Expansion yields numerator 2q²(q+1)q^{2m}-q²(q+1)²q^m+q^4 over sample q^{2+4m}. Quotient condition tv=su alone gives q^{-2}+(1-q^{-2})q^{-m}. All q even powers and m≥3 follow algebraically, including fixed-q asymptotics. Independent exact brute bracket counting for q=2,m=2 and 3 respectively gave 256/1024 and 1264/16384=79/1024, matching closed formula; finite tests are corroboration.
 
-**Scientific limits.** No independent mathematical audit has been conducted; an earlier paper may imply the formula indirectly. The calculation relies on characteristic two and uniform independent element samples.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Gallo–Videla October 2026 primary full PDF Sections 2 and 3 (Stars) specify identical bracket and dimensions, but do not calculate random-element commuting probabilities. The 2026 Shamsaki–Erfanian–Parvizi general commutativity-degree treatment has structurally different low-derived-dimension examples; this star has derived dimension m+binom(m,2)≥6. Nearby Resultary findings concern two-Engel ad-squared probabilities of same star or commutativity of separate two-step graphical Lie classes, not this same class-three commuting-pair probability. Possible implicit general centralizer formula remains a priority risk.
+
+## value
+
+PASS
+
+PASS. Elementwise commuting probability is an intrinsic natural statistic of finite graph-associated Lie algebras; calculating it uniformly in characteristic-two field size and star valence gives an exact infinite-family invariant. Its contrast with positive limiting quotient commuting probability measures a real effect of the third central Lie layer, beyond a routine rank-one matrix exercise. Characteristic-two dependence and quotient behavior motivate the particular invariant before calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

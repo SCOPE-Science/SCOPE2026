@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computation and proof checks
+# Independent mathematical audit
 
-The noncentral coordinate model is \(\mathbb F_q c\oplus\mathbb F_q^m\oplus\mathbb F_q^m\). The checker `verify.py` computes finite-field operations, tests commuting pairs through the two independent bracket equations, and separately groups ordered pairs of vectors by their exterior-product values. The direct and fiber paths are independent counting implementations. They reproduce the closed numerator and probability. Run `python3 verify.py` using Python 3 standard library only; the matching expected output is embedded in `verification_output.txt`.
+## correctness
 
-Exact direct tests: \((q,m)=(2,2),(2,3),(2,4),(4,2)\), together examining 1,328,128 ordered noncentral pairs. Fiber tests: nine combinations over \(q=2,4,8\), together examining 337,488 ordered vector pairs. A further 66 exact integer/rational substitutions test nonnegativity and the equality of two expressions for the formula. The \(m=2\) tests are diagnostic only; the new claim begins at \(m=3\).
+PASS
 
-Critical symbolic steps reconstructed: the zero exterior fiber has \((q+1)q^m-q\) points; every nonzero decomposable fiber has \(q(q^2-1)\) points; the number of such fibers is \((q^m-1)(q^m-q)/(q(q^2-1))\). The hub split contributes \((q^2-1)q^m((q+1)q^m-q)\) solutions in the nonzero case. All central coordinates cancel from the ratio. These mathematical arguments, rather than experiments, prove the all-rank and all-even-field assertion.
+PASS. Gallo–Videla original star class-three Lie presentation has L=Fc ⊕ U ⊕ U_A ⊕ wedge^2 U, and in characteristic 2 [X,Y]=(tv-su)_A+(u∧b-v∧a). Central wedge coordinates drop out of commuting probability. Zero wedge fiber F=(q+1)q^m-q; each nonzero decomposable bivector has q(q^2-1) ordered preimages because same exterior product means change of basis determinant one; number of distinct nonzero decomposable outputs is ((q^m-1)(q^m-q))/(q(q^2-1)). For hub coordinates t=s=0 commuting noncentral pairs count F^2+q(q^2-1)(q^m-1)(q^m-q); for any of q²-1 nonzero (t,s) they count q^m F. Expansion yields numerator 2q²(q+1)q^{2m}-q²(q+1)²q^m+q^4 over sample q^{2+4m}. Quotient condition tv=su alone gives q^{-2}+(1-q^{-2})q^{-m}. All q even powers and m≥3 follow algebraically, including fixed-q asymptotics. Independent exact brute bracket counting for q=2,m=2 and 3 respectively gave 256/1024 and 1264/16384=79/1024, matching closed formula; finite tests are corroboration.
 
-Limits: the code does not enumerate all matrices over all finite fields, has no external theorem prover, and cannot establish historical novelty; there is no external independent audit.
+## originality
+
+PASS
+
+PASS best of knowledge. Gallo–Videla October 2026 primary full PDF Sections 2 and 3 (Stars) specify identical bracket and dimensions, but do not calculate random-element commuting probabilities. The 2026 Shamsaki–Erfanian–Parvizi general commutativity-degree treatment has structurally different low-derived-dimension examples; this star has derived dimension m+binom(m,2)≥6. Nearby Resultary findings concern two-Engel ad-squared probabilities of same star or commutativity of separate two-step graphical Lie classes, not this same class-three commuting-pair probability. Possible implicit general centralizer formula remains a priority risk.
+
+## value
+
+PASS
+
+PASS. Elementwise commuting probability is an intrinsic natural statistic of finite graph-associated Lie algebras; calculating it uniformly in characteristic-two field size and star valence gives an exact infinite-family invariant. Its contrast with positive limiting quotient commuting probability measures a real effect of the third central Lie layer, beyond a routine rank-one matrix exercise. Characteristic-two dependence and quotient behavior motivate the particular invariant before calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
