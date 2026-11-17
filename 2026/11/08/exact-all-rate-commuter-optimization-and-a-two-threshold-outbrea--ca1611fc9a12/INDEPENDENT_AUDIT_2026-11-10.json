@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:46:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The model fixes 0<R1<R2, N_i>0, positive rates and stationary demographic balances. P1=N1-e1x+e2y and P2=N2+e1x-e2y remain positive, S=k1x+k2y, u=S/P1,v=S/P2. The exact 2x2 matrix is Q=[[R1(1-u),R2v],[R1u,R2(1-v)]], whose column sums are R1,R2; Perron L lies between them for S>0. F(L)=(L-R1)(L-R2)+R1u(L-R2)+R2v(L-R1) has F_L>0. The identity R2(L-R1)v=(R2-L)[L-R1+R1u] and uv_y-vu_y>0 force F_y>0,L_y<0. At any L_x=0, v_x>0, u_xx>0,v_xx<0 force F_xx<0, so every stationary point is a strict nondegenerate minimum and there can be at most one. Continuity handles (0,0). For stated rational witness, independently expanded det(I-Q)=(4x^2-7x+1)/[40(x-5)(x+1)] and exact signs at x=0,3/4,1,2. Roots give the claimed strict subcritical interval. The derivative argument covers all allowed positive rates; numerical examples alone do not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Proposition 6 extends an approximate trichotomy to the exact model only when recovery is sufficiently small relative to movement, not for arbitrary positive gamma."
+        ],
+        "reasoning": "That earlier result covers a restricted rate domain; it does not imply the new unrestricted all-rate theorem. Prior qualitative interior-optimum phenomenon is acknowledged and not credited as newly discovered.",
+        "searches": [
+          "Resultary semantic search: two patch SIR commuters optimal reproduction number full rates two threshold interior optimum Rapaport Mimouni",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9734942/"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9734942/",
+        "https://arxiv.org/abs/2211.16137",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8106338/",
+        "Pinned RESULT.md blob 30d09b1049416386a7fd83d0f0c27fcdcc335fce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older fast-mixing Prop4/5 set gamma=0 inside fractions; Prop6 imposes gamma-smallness. New derivative sign and stationary-point curvature are established for all gamma>0."
+        ],
+        "reasoning": "An approximation does not logically prove a global positive-rate theorem; the new exact algebra carries the extra proof obligation. Restrict credit to this sharp extension and explicit non-fast example.",
+        "searches": [
+          "Resultary semantic search: two patch SIR commuters optimal reproduction number full rates two threshold interior optimum Rapaport Mimouni",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9734942/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rapaport–Mimouni Proposition 1/Corollary 3 give Q and column-sum relations, Section 4 compares stationary commuter allocation; their Propositions 4–5 are explicitly fast-commuting approximations."
+        ],
+        "reasoning": "The paper uses alternate N_ij demographic-group variables but substitution yields exact Q; the new all-rate theorem is not merely the original approximate optimization under renamed variables.",
+        "searches": [
+          "Resultary semantic search: two patch SIR commuters optimal reproduction number full rates two threshold interior optimum Rapaport Mimouni",
+          "https://doi.org/10.1007/s11538-022-01111-6",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9734942/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source has a numerical illustration and related threshold plots, whereas new witness has exact rational det(I-Q) and two algebraic boundary roots for a gamma comparable to commuter rates."
+        ],
+        "reasoning": "The exact specified witness is more than table recomputation because it certifies a counter-intuitive nonasymptotic two-threshold interval at arbitrary recovery, but its significance depends on the global theorem.",
+        "searches": [
+          "Resultary semantic search: two patch SIR commuters optimal reproduction number full rates two threshold interior optimum Rapaport Mimouni",
+          "https://arxiv.org/abs/2211.16137"
+        ]
+      },
+      "rationale": "Rapaport–Mimouni (2022/23) derive this exact next-generation model, prove preliminary qualitative commuter effects and a trichotomy in the fast-commuting approximation (gamma dropped in residence factors); exact transfer only when gamma is sufficiently small. The submitted proof removes any fast/slow-rate assumption, establishes global one-valley uniqueness and an exact algebraic intervention interval with recovery as large as travel rates. Targeted same-model prior result/search has not revealed these quantitative all-rate conclusions; this distinction, not general commuter benefits, earns best-of-knowledge originality.",
+      "residual_risks": [
+        "An unindexed all-rate follow-up to Rapaport–Mimouni could supply the same derivative theorem.",
+        "The optimality statement concerns deterministic invasion at demographic equilibrium only, not nonstationary or stochastic disease dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Exact Q is known; optimizer results require gamma=0 residence approximation or sufficiently small gamma, unlike all-rate target.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9734942/",
+          "material_read": "Full published open-access paper: model equations, Proposition 1/Corollary 3, Section 4 and Propositions 4–6, illustration and limitations",
+          "method": "Read primary open full-text HTML, especially detailed hypotheses/approximations in optimizer propositions",
+          "title": "The Role of Permanently Resident Populations in the Two-Patches SIR Model with Commuters",
+          "trigger": "Exact same six-demographic-group model and directly plausible optimizer coverage"
+        },
+        {
+          "assessment": "NOT_SAME_OPTIMIZER",
+          "evidence": "Compares model classes, not the stated analytic commuter-allocation optimum for the precise six-group rates.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8106338/",
+          "material_read": "Published accessible disease movement modeling discussion and comparison of time-at-location representation",
+          "method": "Read pertinent accessible model/comparison sections",
+          "title": "Comparing metapopulation dynamics of infectious diseases under different models of human movement",
+          "trigger": "Potential stronger general movement model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact optimal commuter participation and two distinct invasion-threshold crossings are motivated, mathematically nontrivial properties of a published epidemic model. Removing the asymptotic assumption is substantively useful because policy rates need not be scale separated; uniqueness and a rational two-threshold witness give reliable sharp boundaries. Does not assert epidemic final size or neutral-threshold behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Source model assumes stationary demographic balance, equal recovery by patch and deterministic SIR invasion linearization.",
+    "All-rate originality is best-of-knowledge; original source already supplies the next-generation matrix and some qualitative effects."
+  ],
+  "schema_version": 1
+}
