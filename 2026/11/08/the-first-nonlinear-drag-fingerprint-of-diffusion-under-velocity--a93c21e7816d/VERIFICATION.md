@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with Python 3. The script uses only `fractions` and `itertools` from the standard library and checks stationary linear moments, two independently derived formulas for linear diffusivity, the exact cubic Poisson-resolvent identity, the derivative with respect to cubic drag at zero, the no-reset first-cycle response, and rational large-rate limits for a fixed grid of parameter choices. It also reproduces the two factorial contributions that sum to the analytic coefficient. Printed PASS counts refer only to finite identity checks.
+## correctness
 
-The complete finite-drag asymptotic statement is established by the coupling and Green–Kubo proof in `RESULT.md`: first-reset resolvent, exponential-age expansions, a resolvent difference of order \(r^{-6}\), and exact assembly of the \(r^{-5}\) term. Finite arithmetic does not certify the infinite-rate theorem or publication priority. The analysis assumes a stationary symmetric telegraph sign that persists across velocity resets, a compact invariant velocity region, and fixed positive \(\lambda\) and \(\Sigma\).
+PASS
+
+Reconstructed the sign-PERSISTENT first-reset resolvent h(v,s)=A_g(v,s)+(r A_g(0,+)/(2lambda))s and Green–Kubo D=E[v A_g(v,s)]+r A_g(0,+)E[v s]/(2lambda). For g=av verify exact linear comparator Sigma²/((r+a)(r+a+2lambda))*(2/(r+2a)+1/(2lambda)). Coupling the nonlinear and linear velocities since their last reset gives velocity O_p(r^-1) and difference O_p(r^-4) at fixed lambda,Sigma,g. On no-flip trajectories the cubic correction is -b Sigma³ T^4/4; sign flips contribute one higher inverse-r power. Thus m_g-m_a=-6b Sigma³/r^4+O(r^-5), A_g(0,+)-A_a(0,+)=-6b Sigma³/r^5+O(r^-6), and the remaining vA correction is O(r^-6); two equal slow terms produce -6bSigma^4/(lambda r^5). For tan versus tanh, b=+-1/3, giving +4 Sigma^4/(lambda r^5) with fixed 0<Sigma<1. Pinned VERIFY.py read; its stationary moment Poisson equations were checked analytically. This is an asymptotic proof under strong compact dissipativity, NOT an all-r inequality.
+
+## originality
+
+PASS
+
+Full relevant Howlader–Mondal–Das primary 2026 source examines the SAME persistent-force velocity-only resetting model and both tan/tanh drags, but reports the leading r^-2 diffusion rate numerically rather than the inverse-fifth nonlinear difference. Full Olsen–Löwen 2024 theory explicitly assumes environmental renewal, which fails if the telegraph force persists through velocity resets. No broader Resultary or primary statement located implying the signed -6b coefficient. General nonlinear perturbation formulas remain a priority risk.
+
+## value
+
+PASS
+
+The first drag-sensitive correction resolves a physically motivated asymptotic degeneracy: equal-slope shear-thinning and thickening rheologies share leading diffusion yet have a definite signed inverse-fifth separation. A model-specific nonrenewal coupling and universal coefficient offer a meaningful analytic threshold for transport rather than a cosmetic Taylor expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
