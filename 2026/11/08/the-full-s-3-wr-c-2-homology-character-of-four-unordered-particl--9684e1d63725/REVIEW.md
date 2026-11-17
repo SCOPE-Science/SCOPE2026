@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete integer weight-four reduced Świątkowski model is built from six trivalent vertices and nine polynomial edges. Explicit bases have ranks \((495,1980,2700,1440,240)\). Boundary squares vanish, integer unit-pivot reductions and the rank-one factor-two residual give the precise Smith forms, and a modular non-boundary generator identifies the one-dimensional top homology's \(+1\) action under every automorphism. The sum-of-particle-paths map identifies rational first homology with the graph cycle space. Signed chain traces for every one of 72 elements independently agree with the orbit-determinant Lefschetz calculation; exact group-character inner products prove the displayed representation decomposition. The attached runnable scripts and data enable every finite check.
+## correctness
 
-**Originality — PASS, subject to stated priority limits.** Maciążek–Sawicki's 2019 Section 5.5 gives the same graph's complete four-point nonequivariant homology, including second Betti number 19 and third Betti number one, and product-cycle relations. Those facts are not new. An–Drummond-Cole–Knudsen's functorial model is also established, and Ramos–Yun's subsequent representation results cover other particle-count and symmetry cases. The novelty assessed here is the complete nine-class character and irreducible \(S_3\wr C_2\) decomposition of this four-point configuration space, absent from the inspected statements. The closest superficially same-graph matching-complex record studies a different space, and a separate three-particle calculation concerns a different particle count. An alternate derivation from earlier product-cycle relations or unindexed equivalent work remains possible.
+PASS
 
-**Value — PASS.** Four unordered particles on the minimal complete bipartite nonplanar graph are naturally distinguished by the previously identified exceptional nonproduct top cycle. The complete symmetry character separates a globally invariant top class from degree-one and degree-two homology with no global invariants. This is meaningful equivariant information not determined by the established nonequivariant ranks; no general-family theorem is claimed.
+PASS: The weight-four reduced Swiatkowski model for B4(K3,3) has exact chain dimensions (495,1980,2700,1440,240), differential from halfedge differences to edge-variable differences, and integral chain-square zero. Inspected source implements unimodular unit-pivot Schur reductions: ranks d1=494, d2=1482 with one invariant factor 2, d3=1199 and d4=240, yielding rational Betti (1,4,19,1,0) and integral H1 torsion Z/2. The 72-action on the weight-four chain model is implemented with local 2D halfedge-difference matrices and Koszul signs. An independently written orbit-determinant Lefschetz computation reproduced all nine supplied representative H2 traces when combined with the graph-cycle H1 character and the rank-one H3 action. Source top-cycle code uses a nonboundary mod-101 class, checks its image modulo im(d4) under all 72 elements, and uses the proved integral rank one to lift +1 signs. The exact integer Smith and 72-element top-cycle programs were inspected but not independently rerun in full; this is retained as a finite verification limitation, not represented as extra certification.
 
-Scientific limitations: only rational representation classes at this one graph and particle number are determined. Integral module extensions, cohomology products, equivariant homotopy and other particle counts are not computed. Independent validation and exhaustive publication-priority certification are absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Current exact claim not covered by a prior identified statement; remaining literature risks are explicit.
+
+## value
+
+PASS
+
+PASS: The complete 72-symmetry rational second-homology representation and the exceptional third-homology orientation of four indistinguishable particles on K3,3 are natural exact invariants for an important minimal nonplanar graph. The 19-dimensional Betti number and geometric generators were known, but deriving the precise nine-class character and wreath-product irreducible decomposition requires nontrivial signed actions and identifies invariant sectors not implied merely by the ranks. No family-wide theorem is required for this exact motivated case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

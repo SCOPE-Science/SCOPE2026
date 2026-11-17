@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T02:58:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The weight-four reduced Swiatkowski model for B4(K3,3) has exact chain dimensions (495,1980,2700,1440,240), differential from halfedge differences to edge-variable differences, and integral chain-square zero. Inspected source implements unimodular unit-pivot Schur reductions: ranks d1=494, d2=1482 with one invariant factor 2, d3=1199 and d4=240, yielding rational Betti (1,4,19,1,0) and integral H1 torsion Z/2. The 72-action on the weight-four chain model is implemented with local 2D halfedge-difference matrices and Koszul signs. An independently written orbit-determinant Lefschetz computation reproduced all nine supplied representative H2 traces when combined with the graph-cycle H1 character and the rank-one H3 action. Source top-cycle code uses a nonboundary mod-101 class, checks its image modulo im(d4) under all 72 elements, and uses the proved integral rank one to lift +1 signs. The exact integer Smith and 72-element top-cycle programs were inspected but not independently rerun in full; this is retained as a finite verification limitation, not represented as extra certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maciążek–Sawicki Section 5.5 supplies Y×Y/O×Y geometric generators and 19-dimensional H2, and reports exceptional rank-one H3, but no nine-class rational 72-group action. Ramos–Yun abstract concerns 2-point graph families and 3-point complete graph family."
+        ],
+        "reasoning": "Geometric cycle generators may allow an additional signed group-action computation, a real residual priority risk, but a rank and nonequivariant generators alone do not state or immediately imply the nine-class character or wreath decomposition.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00220-019-03583-5",
+          "https://arxiv.org/abs/2606.13813",
+          "four unordered particles K_{3,3} full 72 automorphism character H_2=19 H_3=1"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00220-019-03583-5",
+        "https://arxiv.org/abs/2606.13813",
+        "SCOPE tree 046f61be8cdcce9d61469c6ab2d5b48c438a1074; inspected integer_pivot_k33.py, try_k33_4.py, try_k33_char.py, k33_lformula.py",
+        "Independent nine-character orbit-determinant calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 2019 Section 5.5 explicitly derives beta2(B4)=19 and beta3=1 from a geometric presentation but does not compute the action of the part-interchange on the top integral line or full H2 irreducible multiplicities."
+        ],
+        "reasoning": "Submitted 72-action formula and decomposition provide additional mathematical information under fixed natural graph symmetry, not a trivial renaming of Betti ranks.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00220-019-03583-5",
+          "https://arxiv.org/abs/2606.13813"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published K3,3 four-particle Betti numbers H1 rank 4, H2 rank 19 and H3 rank 1 match; published three-particle 72-symmetry character is for B3(K3,3), not B4(K3,3)."
+        ],
+        "reasoning": "Comparing particle count, representation, and coefficient field separates genuinely different statements; simply matching K3,3 is insufficient.",
+        "searches": [
+          "four unordered particles K3,3 graph configuration space S3 wreath C2 equivariant homology representation",
+          "four unordered particles K_{3,3} full 72 automorphism character H_2=19 H_3=1",
+          "https://link.springer.com/article/10.1007/s00220-019-03583-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches surfaced this exact four-particle 2026-11-08 record; older 72-group K3,3 character records concern three particles (H2 dimension 8) rather than four (H2 dimension 19)."
+        ],
+        "reasoning": "No previously published exact four-particle nine-class table located after bounded searches; absence alone is not a novelty proof.",
+        "searches": [
+          "four unordered particles K3,3 graph configuration space S3 wreath C2 equivariant homology representation",
+          "four unordered particles K_{3,3} full 72 automorphism character H_2=19 H_3=1",
+          "https://link.springer.com/article/10.1007/s00220-019-03583-5"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Current exact claim not covered by a prior identified statement; remaining literature risks are explicit.",
+      "residual_risks": [
+        "The published 2019 generator-and-relation presentation might imply the full 72-group character after a nontrivial equivariant basis analysis; cannot certify absolute novelty.",
+        "Complete Smith reductions and the H3 mod-101 generator action were read from transparent source code and exact output records but not independently rerun to completion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Matches nonequivariant ranks and presents geometric cycles; no full automorphism character or nine Specht/wreath multiplicities stated there.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00220-019-03583-5",
+          "material_read": "Full publisher OA HTML, Section 5.5 around Theorem 8, displayed Y×Y relations, H2=19 and H3=1, geometric generators and conclusion",
+          "method": "full-text HTML material reading",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Same graph and n=4 unordered configuration homology"
+        },
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": "Provides the chain model/functoriality, not this computed K3,3 four-particle representation.",
+          "identifier_or_url": "https://ems.press/journals/dm/articles/8965640",
+          "material_read": "Abstract and main method statement; whole text not exhausted",
+          "method": "open-access publication page",
+          "title": "Subdivisional Spaces and Graph Braid Groups",
+          "trigger": "Reduced Swiatkowski functorial chain theorem"
+        },
+        {
+          "assessment": "POSSIBLE_SCOPE_LIMIT",
+          "evidence": "Explicitly names two-particle bipartite families and three-particle complete graphs, not B4(K3,3); residual risk for full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.13813",
+          "material_read": "Abstract/author stated families only; full paper not read",
+          "method": "arXiv abstract",
+          "title": "Computing stable homology representations of graph configuration spaces",
+          "trigger": "Potential broader representation stability coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The complete 72-symmetry rational second-homology representation and the exceptional third-homology orientation of four indistinguishable particles on K3,3 are natural exact invariants for an important minimal nonplanar graph. The 19-dimensional Betti number and geometric generators were known, but deriving the precise nine-class character and wreath-product irreducible decomposition requires nontrivial signed actions and identifies invariant sectors not implied merely by the ranks. No family-wide theorem is required for this exact motivated case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s00220-019-03583-5",
+    "https://arxiv.org/abs/2606.13813",
+    "SCOPE tree 046f61be8cdcce9d61469c6ab2d5b48c438a1074; inspected integer_pivot_k33.py, try_k33_4.py, try_k33_char.py, k33_lformula.py",
+    "Independent nine-character orbit-determinant calculation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The published 2019 generator-and-relation presentation might imply the full 72-group character after a nontrivial equivariant basis analysis; cannot certify absolute novelty.",
+    "Complete Smith reductions and the H3 mod-101 generator action were read from transparent source code and exact output records but not independently rerun to completion.",
+    "Independent orbit character checks did not rerun 1482-pivot integral SNF and 72 full top-cycle action in this execution; source implementation reviewed and algebraic proof structure checked."
+  ],
+  "residual_risks": [
+    "The published 2019 generator-and-relation presentation might imply the full 72-group character after a nontrivial equivariant basis analysis; cannot certify absolute novelty.",
+    "Complete Smith reductions and the H3 mod-101 generator action were read from transparent source code and exact output records but not independently rerun to completion."
+  ],
+  "schema_version": 1
+}
