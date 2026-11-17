@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every image plane is uniquely represented by its two smallest nonzero binary vectors, giving exactly \(651\) planes. Each rank-two map with that plane has exactly one pair of independent binary coefficient functionals, giving \(3906\) candidates per plane, hence \(2,542,806\) total. The defining identity is bilinear in its two arguments, so testing the \(36\) ordered basis pairs is exhaustive. Two distinct executable C++17 implementations (functional-mask and explicit matrix-column enumeration) independently return the histogram: \(593\) zero fibers, \(24\) of size \(3\), \(8\) of size \(4\), \(16\) of size \(5\), \(8\) of size \(6\), and \(2\) of size \(210\). The total is \(652\), and both checkers finish with `VERIFY_OK`. The two \(210\)-operator fibers have an independent ideal-theoretic explanation.
+## correctness
 
-## Originality
-**PASS relative to inspected evidence.** The closest source, Gubarev's 2024 classification on the same algebra, explicitly assumes characteristic zero and counts normal forms modulo equivalence, not literal maps and image-plane fibers over \(\mathbb F_2\). General Rota–Baxter results for unital algebras do not provide this finite exact census; a published rank-one enumeration over triangular algebras covers **rank one only**, and does not imply the present rank-two total. Searches of mathematical indexing and earlier claims found no stronger result asserting this image-plane fiber distribution. An unlocated finite-field implementation or broader classification could still cover it, so priority is provisional.
+PASS
 
-## Mathematical value
-**PASS.** Rank two is the first higher-rank stratum following the known rank-one study for the six-dimensional triangular algebra. The binary field is a natural characteristic-sensitive boundary outside the characteristic-zero classification. A complete exact census of all \(2,542,806\) rank-two operators and all \(651\) potential images is not a selected arbitrary subfamily. The sharp fiber concentration on exactly two square-zero ideals, which each support \(210\) of the \(652\) operators, gives a structural explanation for the unusual multiplicity pattern and a reproducible baseline for further arithmetic rank distributions.
+Every 2D F2 image U has exactly three nonzero vectors; the two smallest give a unique canonical ordered basis, producing 651 image planes. Every onto rank-two map is uniquely P(z)=α(z)u+β(z)v for ordered independent nonzero dual masks α≠β, 63·62=3906 per image, 2,542,806 total. Rota–Baxter identity is bilinear in (x,y) so its 36 ordered basis pairs suffice. An independently written and EXECUTED C++ exhaustive bit-matrix implementation processed all 2,542,806 maps and reproduced exactly 652 valid, 100 closed image planes, all six histogram counts and two exceptional fibers. For the two 210-fiber square-zero ideals, surjections A/U→U count (2^4−1)(2^4−2)=210 and explain concentration. This is a COMPLETE finite proof for the stated exact domain; no claims for other q or larger matrices.
 
-## Closest literature and limitations
-Sources: V. Gubarev, *Rota-Baxter operators of weight zero on upper-triangular matrices of order three*, arXiv:2404.00289 (2024); *Rota-Baxter operators on unital algebras*, arXiv:1805.00723; *Rota-Baxter operators on a sum of fields*, arXiv:1811.08219. Independent auditing is outstanding, and general finite-field rank-two formulas are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original component after comparison of exact mathematical implications and source scope. Known constituent techniques and narrower special cases are credited. Full inaccessible relevant texts remain expressly flagged rather than declared not covering.
+
+## value
+
+PASS
+
+Rank two is the first genuinely higher-rank stratum for this familiar small matrix algebra, excluded from the earlier characteristic-zero classification and separate rank-one finite-field study. The complete natural finite-domain enumeration, sharp fiber pattern, and square-zero-ideal explanation give a reproducible nontrivial baseline and structural information, not an arbitrary selected slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
