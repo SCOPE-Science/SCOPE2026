@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The domain is exactly the five Fano families in Belmans--Reineke, arXiv:2610.22203v1, and all integers \(k\ge3\). Proposition 11 and Corollary 12 supply an actual product decomposition of geometric fibres into framed nilpotent Jordan and two-cycle moduli. An independent torus scaling of path arrows and framing generators gives isolated fixed quotients indexed by two nonnegative cutoffs. In Jordan type there are exactly \(m+1\); in two-cycle type the equal dimension-vector constraint forces equal parity and yields \((m+1)+m=2m+1\). Projectivity permits ordinary Euler localization. Singular-factor charts at a double ordinary root and an exceptional simple root establish both irreducible components of the reduced non-smooth base, while flatness and smooth generic fibres rule out the complement. Ordered-root trivialization and the fact that automorphisms of \(\mathbb P^1\) preserve its integral hyperplane class establish the complete even-degree permutation local systems. The checker independently reproduces all prescribed finite identities; this is not substituted for the universal proof. Risk: the proof uses the precise framed fibre isomorphisms proved in the cited article, not a newly proved classification of those moduli.
+## correctness
 
-## Originality (O): PASS, with residual historical risk
-The nearest source, Belmans--Reineke, arXiv:2610.22203v1, determines the fibre moduli and the \(k=2\) stratification; the new claim is the all-multiplicity numerical Euler profile, the all-\(k\) critical-value divisor and the integral monodromy characters, including the contrast between trivial exceptional-hyperplane monodromy and a singular limiting fibre. The published fibre moduli classification is credited and not presented as new. The authors' earlier arXiv:2607.12895 addresses dimension four. Related Euler characteristic results for affine-ADE Nakajima varieties concern a different GIT moduli problem and do not imply the stated Fano forgetful fibration invariants. Indexed searches for cyclic framed nilpotent fibres, discriminant hyperplanes, monodromy and equivalent quotients, and accessible preceding claims, found no matching/all-parameter theorem. This is not exhaustive historical priority certification; specialized Quot literature or unpublished supplements may overlap.
+PASS
 
-## Mathematical value (V): PASS
-This is a coherent invariant of an explicitly constructed proper family rather than a pointwise numerical exercise: it determines the Euler-characteristic constructible function at *every* base divisor in unbounded dimension, its complete reduced critical-value divisor of degree \(2k-2+s\), and the full rational/integral cohomology local-system permutation representation. The opposite jump signs at the two types of irreducible discriminant components and absence of cohomological monodromy around singular exceptional fibres supply structural degeneration information for future sheaf-theoretic and motivic investigations. These conclusions are not merely normalizations or a table of small instances.
+The claimed all-k formula follows from the cited Luna-stratum product decomposition (Jordan-loop punctual framed quotients J_m for ordinary roots and framed two-cycle quotients C_m for exceptional roots). Fixed monomial Jordan quotients correspond to a+b=m (m+1), and two-cycle path truncations with parity-matched lengths give (m+1)+m=2m+1; torus localization computes each compact factor Euler characteristic. For a divisor with multiplicity profile, χ multiplies these counts. Smooth ordered distinct-root locus is (P1)^k; local nilpotent charts a²+bc=0 for ordinary doubled roots, uv=0 for exceptional roots give non-smooth components. Reduced discriminant degree 2k-2+s. Ordered root covering yields cohomology permutation modules on j-subsets, transposition -eigenrank binom(k-2,j-1), full S_k on H², trivial winding around fixed exceptional root. Independently checked J/C cutoff numbers m<=10, k<=8 transposition eigencounts and k=2 Euler profiles. Crucial inherited geometric product statement depends on the cited primary Proposition 11/Corollary 12; complete primary text could not be accessed, so this is an explicit prerequisite and residual source-validation risk, not an independently reproduced theorem.
 
-## Primary literature and remaining limitations
-Belmans--Reineke, *Series of Fano quiver moduli from extended Dynkin quivers* (2026), Theorems A/B, Proposition 11, Corollary 12, and Section 6.2 were examined through the open HTML text. An earlier same-author paper (arXiv:2607.12895) and related 2025 affine ADE Nakajima Euler characteristic research were compared using their available descriptions; those sources were not exhaustively read. The new theorem does not identify nonreduced discriminant schemes, nearby-cycle sheaves or generalized framings. Independent scholarly priority verification remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on a qualified best-of-knowledge basis. Belmans–Reineke arXiv:2610.22203 already supplies the families, flat map, generic (P1)^k and Luna-stratified fibre decomposition; those are inputs, not new. The all-multiplicity Euler product, all-k exact reduced critical-value divisor and complete integral permutation monodromy as stated were not identified in available abstract, introduction-level description or Resultary comparisons, but the full source was inaccessible, a material priority risk. The inaccessibility by itself is not a scientific failure; avoid asserting the source does not cover uninspected sections.
+
+## value
+
+PASS
+
+Explicit Euler characteristics for every multiplicity divisor and complete integral local-monodromy eigenranks are natural computable invariants of the fixed Fano-fibration family and distinguish exceptional from collision degenerations. Together they give directly usable topological fibre and degeneration data beyond just total-space Betti numbers. This is a motivated complete profile, not a random subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
