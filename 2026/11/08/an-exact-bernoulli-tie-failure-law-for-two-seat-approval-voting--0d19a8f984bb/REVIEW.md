@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof first forces equality in all support/score bounds for any adverse top-two approval pair, obtaining an exact duplicate/complement obstruction for even voter counts. It then derives the all-candidate probability by counting safe words over complementary half-support-mask pairs, justifying the exponential generating function \(2e^z-1+z^2\), and gives the three-candidate formula and fixed-population asymptotic. Exhaustive and rational checks from `verify.py` passed on 374,592 profiles and three non-half approval probabilities. Boundary cases include no adverse pair for odd populations or just two candidates. No numerical experiment is relied upon as an infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** Aziz et al. (2015), Theorem 3, already establishes the two-seat tie-breaking JR existence property: this is **not** claimed as new. Their inspected paper and the other inspected closest sources do not state the exact Bernoulli adverse-tie existence probability, complementary occupancy polynomial, three-candidate formula or fixed-population asymptotic. Searches against mathematical research records and public literature did not identify an implication covering that probabilistic joint claim. This is best-knowledge originality only; unindexed or differently named occupancy facts remain a risk.
+PASS
 
-**Value: PASS.** For a welfare-maximizing voting rule with a known tie-break-sensitive fairness guarantee, the probability of an *unsafe feasible optimal tie* is a directly motivated robustness quantity. The exact answer works for any number of candidates and voters and reveals a parity dichotomy, an exponentially rare three-candidate regime, and a distinct many-candidate limit. The result adds a distributional benchmark, not merely a new proof of the known deterministic two-seat existence theorem.
+If top-two score pair fails JR, a jointly unrepresented group U of size at least n/2 and rival supported on U force n even, every involved score exactly n/2, two identical complementary-support masks and one rival mask, and no score above n/2. Conditional on r half-score candidates their masks are iid uniform over M=binom(n,n/2) half masks; each complementary pair permits occupancy (x,0),(0,y),(1,1), with EGF 2e^z-1+z^2. Coefficient extraction produces the exact formula; for m=3 the three choices times M masks give 3M[p(1-p)]^(3n/2), and uniform tie-break gives 1/3. For fixed even n, a positive probability of every half mask yields conditional bad-event probability tending to one, so P~q^m. Independent exhaustive profiles for (2,3),(2,4),(3,3),(4,3),(4,4) agree with exact occupancy coefficients; all n,m follow analytically.
 
-The full Bernoulli independence assumption limits empirical applicability; the formula measures whether a bad winner exists, not the failure rate of every fixed tie-breaking scheme. Closest sources: Aziz et al. (2015), Elkind et al. (2021), Becker et al. (2026), Jin et al. (2026), Dong (2026); citations are in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No directly covering theorem after statement-level searches, with residual risks recorded. The surviving claim is not an identified corollary of the compared sources.
+
+## value
+
+PASS
+
+A natural adversarial-tie event in justified representation is quantified for every electorate and candidate count, not merely a small witness. The complementary-mask occupancy EGF, exact three-candidate tie-break law, and fixed-electorate many-candidate scaling supply independently useful distributional information for random approval cultures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

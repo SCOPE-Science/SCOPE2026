@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T10:10:46.973193Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If top-two score pair fails JR, a jointly unrepresented group U of size at least n/2 and rival supported on U force n even, every involved score exactly n/2, two identical complementary-support masks and one rival mask, and no score above n/2. Conditional on r half-score candidates their masks are iid uniform over M=binom(n,n/2) half masks; each complementary pair permits occupancy (x,0),(0,y),(1,1), with EGF 2e^z-1+z^2. Coefficient extraction produces the exact formula; for m=3 the three choices times M masks give 3M[p(1-p)]^(3n/2), and uniform tie-break gives 1/3. For fixed even n, a positive probability of every half mask yields conditional bad-event probability tending to one, so P~q^m. Independent exhaustive profiles for (2,3),(2,4),(3,3),(4,3),(4,4) agree with exact occupancy coefficients; all n,m follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1407.8269",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-gaussian-cone-law-at-the-two-seat-ajr-critical-point--6f885c038aef"
+        ],
+        "reasoning": "The earlier JR theorem guarantees a good maximizing tie-break; it neither asserts all ties good nor counts the bad maximizing ones. AJR and other stochastic approval results concern different axioms, events or committees; no covering all-(n,m,p) probability theorem was identified.",
+        "searches": [
+          "Resultary: two-seat AJR critical point Bernoulli",
+          "Resultary: Bernoulli approval representation tie failure exact law",
+          "Aziz et al JR Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1407.8269",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-gaussian-cone-law-at-the-two-seat-ajr-critical-point--6f885c038aef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1407.8269"
+        ],
+        "reasoning": "Aziz Theorem 3 already establishes existence of a JR-compliant AV winner when k=2 and illustrates bad ties, but does not give the combinatorial occupancy generating function or Bernoulli probability. This proof needs a new count over M/2 complementary pairs, not just retelling deterministic tie-break existence.",
+        "searches": [
+          "arxiv 1407.8269 Theorem 3 k=2 AV favorable ties",
+          "Resultary published two-seat approval random election searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1407.8269",
+          "Resultary 2026/11/8 other AJR two-seat / voter random approval findings"
+        ],
+        "reasoning": "The deterministic two-seat bad tie condition is related to Theorem 3 in Aziz et al., but a probabilistic occupancy law under iid voter-candidate approvals is a different conclusion. JR is the stated group-size quota, not AJR/PJR or Pareto efficiency.",
+        "searches": [
+          "Resultary: Bernoulli iid approval tie two-seat justified representation exact probability bad AV committee",
+          "Aziz Brill 2015 JR AV k=2 tie breaking favor JR"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No consulted exact database contains the arbitrary-m EGF occupancy count; the m=3 term derives from three complementary mask placements."
+        ],
+        "reasoning": "This result is an exact probability distribution rather than a precomputed finite committee table. Source search incompleteness is documented rather than used as novelty proof.",
+        "searches": [
+          "two-seat approval JR tie occupancy 2e^z-1+z^2 half support masks",
+          "AV random ballots justified representation exact bad tie table"
+        ]
+      },
+      "rationale": "No directly covering theorem after statement-level searches, with residual risks recorded. The surviving claim is not an identified corollary of the compared sources.",
+      "residual_risks": [
+        "Unindexed ballot-culture calculations could enumerate the two-seat bad-tie motif under another name.",
+        "Full text of some recent fractional and random approval papers not inspected; priority is best knowledge, not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Theorem 3 covers existence of a good AV maximizer when k=2; does not in inspected material supply stochastic probability of a bad tie.",
+          "evidence": [
+            "Theorem 3 PDF page 9: favorable tie-breaking ensures JR; section proof describes 50–50 supports"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.8269",
+          "material_read": "Primary 25-page PDF: introduction, model, definitions and detailed Section 4 Theorem 3 on PDF page 9; full text search for Bernoulli, random and impartial culture found no matches; other pages not all read.",
+          "method": "Read PDF text plus actual page screenshot and targeted full-document term search",
+          "title": "Justified Representation in Approval-Based Committee Voting",
+          "trigger": "Original JR axiom and AV two-seat tie theorem"
+        },
+        {
+          "assessment": "Different representation axiom AJR; summary alone cannot establish all-paper noncoverage.",
+          "evidence": [
+            "Resultary search result titled two-seat AJR critical point"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-gaussian-cone-law-at-the-two-seat-ajr-critical-point--6f885c038aef",
+          "material_read": "Published Resultary title and summary, not complete body",
+          "method": "Semantic record search and statement comparison",
+          "title": "Exact Gaussian-cone law at the two-seat AJR critical point",
+          "trigger": "Closest semantically retrieved 2-seat probabilistic approval claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural adversarial-tie event in justified representation is quantified for every electorate and candidate count, not merely a small witness. The complementary-mask occupancy EGF, exact three-candidate tie-break law, and fixed-electorate many-candidate scaling supply independently useful distributional information for random approval cultures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Independent homogeneous Bernoulli pair approvals; event is existence of at least one bad maximizing 2-committee. Only m=3 obtains uniform random tie-break failure explicitly; fixed-n m->infinity is not a joint limit.",
+  "schema_version": 1
+}
