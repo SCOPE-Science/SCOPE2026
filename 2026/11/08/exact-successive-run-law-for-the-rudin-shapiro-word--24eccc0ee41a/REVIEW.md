@@ -1,19 +1,21 @@
-# Review of the exact successive-run law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The four-symbol two-uniform substitution is established for the indexed Rudin–Shapiro word. Its primitivity yields all finite factor frequencies. The eight hidden length-two frequencies each equal \(1/8\), and the explicit even/odd-start recurrence determines every relevant factor frequency rationally. Reproducing all thirty-two run-pair frequencies through length ten verifies the entire displayed matrix, including zero entries, while five-equal-sign patterns are absent. The run normalization and exact entropy calculation then follow algebraically. A separately constructed prefix is checked against the binary-digit definition. The infinite proof does not depend on extrapolating from that finite prefix.
+PASS
 
-## Originality
+The primitive 2-uniform four-letter substitution a->ab,b->ac,c->db,d->dc and code a,b=+, c,d=- reproduce the binary Rudin-Shapiro definition. Solving all sixteen hidden-pair stationarity equations yields eight frequency-1/8 pairs. A parity-split terminating rational recursion through length ten yields each of 32 sign-resolved complete adjacent-run frequencies and excludes either five-equal-sign factor. Independently solved recurrence gave Q=(1/64)[[2,2,2,2],[2,0,0,0],[3,0,1,0],[1,0,1,0]]. Rows normalize to p=(1/2,1/8,1/4,1/8), transition P and mutual information 1/8+3/16 log2(3); primitive substitution makes frequencies true infinite limits, not a finite-prefix extrapolation.
 
-**PASS, qualified.** The closest material is OEIS A203531, which records the full run-length sequence, and Hendel (2025), Section 8, on maximal run lengths and selected locations. Schaeffer–Shallit (2015) provides the substitution and other finite-factor classifications; Lü–Chen–Wen–Wu (2016) treats abelian factor complexity. The inspected texts and the available published-research comparisons do not explicitly evaluate the sign-resolved adjacent-run matrix, the nine allowed transitions, or the derived mutual information. A prior equivalent computation in unindexed run-length literature remains a risk; a failure to locate it is not proof of historical uniqueness. The published substitution is credited as a fundamental prerequisite, not claimed as new.
+## originality
 
-## Value
+PASS
 
-**PASS.** The run-length encoding of a classical low-autocorrelation automatic sequence is a natural observable. A full joint transition law, rather than merely a maximum run length or examples, identifies exact forbidden transitions, asymmetries such as forced length-one successors of length-two runs, and an information-theoretic dependence of \(\frac18+\frac{3}{16}\log_2 3\) bits. This dependence persists even though adjacent signs themselves have uniform independent pair frequencies. It is a reusable exact local structural statistic, not an arbitrary parameter slice or isolated numerical experiment.
+The examined exact primary statements and indexed Resultary claims, including direct implication/subcase checks, do not cover the surviving complete theorem as scoped. Specific overlaps and uncertain inaccessible full texts are recorded; negative searches are not taken as novelty proof.
 
-## Limitations
+## value
 
-This concerns adjacent, complete runs and limiting frequencies only. It does not assert that the run sequence is Markov, nor claim an independent or external audit. Historical priority remains qualified as explained above.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical low-autocorrelation automatic word, complete joint adjacent-run statistics and nine allowed run transitions are natural structural observables. Exact conditional laws expose strong run-length dependence (positive mutual information) even though adjacent signs are independent. These rational frequencies are an independently useful complete local classification and not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

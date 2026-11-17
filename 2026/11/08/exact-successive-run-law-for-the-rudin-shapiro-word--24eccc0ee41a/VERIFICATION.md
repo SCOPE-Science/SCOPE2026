@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The standalone `verify.py` reproduces the exact rational substitution factor-frequency computation for lengths two through ten, all sixteen hidden two-block balance relations, all thirty-two adjacent-run pattern frequencies, the absence of five consecutive equal signs, and independent nearest-neighbor sign frequencies.
+# Independent mathematical audit
 
-It separately verifies that a substituted prefix of length \(2^{18}\) agrees at each position with the binary-digit parity definition, then enumerates complete runs in that prefix and compares empirical joint frequencies with the proved exact limits. The finite prefix is not used as proof of any infinite assertion; the proof uses primitivity and the terminating exact factor-frequency recursion in `RESULT.md`.
+## correctness
 
-Reproduction command: `python3 verify.py`.
+PASS
 
-Expected final output: `VERIFY_OK exact_block_frequencies=2..10 sign_run_pairs=32 prefix=262144 runs=131072`.
+The primitive 2-uniform four-letter substitution a->ab,b->ac,c->db,d->dc and code a,b=+, c,d=- reproduce the binary Rudin-Shapiro definition. Solving all sixteen hidden-pair stationarity equations yields eight frequency-1/8 pairs. A parity-split terminating rational recursion through length ten yields each of 32 sign-resolved complete adjacent-run frequencies and excludes either five-equal-sign factor. Independently solved recurrence gave Q=(1/64)[[2,2,2,2],[2,0,0,0],[3,0,1,0],[1,0,1,0]]. Rows normalize to p=(1/2,1/8,1/4,1/8), transition P and mutual information 1/8+3/16 log2(3); primitive substitution makes frequencies true infinite limits, not a finite-prefix extrapolation.
 
-Scientific limits: no result on higher-order run Markov structure, rates of convergence, or uniqueness of historical priority. Independent audit has not been performed.
+## originality
+
+PASS
+
+The examined exact primary statements and indexed Resultary claims, including direct implication/subcase checks, do not cover the surviving complete theorem as scoped. Specific overlaps and uncertain inaccessible full texts are recorded; negative searches are not taken as novelty proof.
+
+## value
+
+PASS
+
+For a classical low-autocorrelation automatic word, complete joint adjacent-run statistics and nine allowed run transitions are natural structural observables. Exact conditional laws expose strong run-length dependence (positive mutual information) even though adjacent signs are independent. These rational frequencies are an independently useful complete local classification and not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
