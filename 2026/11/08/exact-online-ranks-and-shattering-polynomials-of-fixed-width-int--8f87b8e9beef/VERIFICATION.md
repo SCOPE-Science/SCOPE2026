@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-Run `python3 verify_windows.py` with Python 3.8+ and no external packages. The observed result is:
+## correctness
 
-`WINDOW_RANK_AND_TRACE_PASS 136 n_r_pairs 272 rank_classes n_max 16 polynomial_n_max 14`
+PASS
 
-The script builds each finite concept family directly as bitmasks, computes Littlestone depth through the defining maximum/minimum recursion over point queries, and enumerates all supports of sizes one, two and three for all 1 ≤ r ≤ n ≤ 14. Online depth was also checked for 1 ≤ r ≤ n ≤ 16, both with and without the empty concept. The checker file included here is the executed code.
+For m=n−r+1 equal-width intervals of length r on a finite chain, a full depth-h query tree needs ≥2^h distinct starts (or m+1 with the null concept), and the positive branch of any root query holds at most r starts, yielding the two upper bounds. On any consecutive block of ≤r starts, querying x=a+t−1 is a prefix threshold: balanced splits create depth floor log₂ of the block size. A first split into two blocks of 2^{h−1} gives the matching minus case; induction with ∅ plus 2^h−1 starts gives plus case. A triple cannot be shattered because any interval containing first/third contains the middle; exact pair-trace conditions and inclusion-exclusion yield both polynomial quadratic coefficients and singleton count. The null jump occurs exactly m=2^k−1 with r≥2^{k−1}; boundary m=1,r=1 checked. Independent direct minimax and support enumeration for all n≤12 confirmed formulas, not a proof of unlimited n.
 
-The formal proof depends on (i) at most r distinct windows passing any positive point query, (ii) consecutive blocks of at most r starting positions supporting prefix tests, (iii) the recursive null-completed construction, and (iv) exact one-, two- and three-point trace analysis. These steps are given in RESULT.md, and remain the foundation for the unrestricted theorem.
+## originality
 
-Finite tests do not establish historical originality, independent audit, or correctness beyond the verified parameter ranges by enumeration alone.
+PASS
+
+The paired exact formulas for *linear* same-length intervals with or without ∅ and their exact shattering coefficients survive; previous exact cyclic translate rank, variable-width interval work, and general Shelah-rank literature concern different hypothesis classes or broader bounds.
+
+## value
+
+PASS
+
+The exact adaptive online-query complexity and every shattered-support count for fixed-size windows are motivated finite learning invariants. The precise null-concept dyadic boundary and unbounded static/adaptive gap for n=2r resolve natural behaviors not implied by cyclic-window or variable-width results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
