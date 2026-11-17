@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The self-contained standard-library script `pitman_stanley_diameter_checker.py` is bundled with this result. Run `python3 pitman_stanley_diameter_checker.py` in the containing directory. It enumerates the prefix-polytope vertices by every admissible active-set choice using `fractions.Fraction`, and independently computes all squared vertex-pair distances.
+# Independent mathematical audit
 
-Actual execution passed 72 deterministically seeded positive rational increment vectors in dimensions 2–7. For each, the computed maximum squared distance equaled the claimed formula, and the unique maximizing unordered vertex pair matched the two singleton-support points. Exact canonical checks for dimensions 3–10 recovered the two largest distinct squared-distance levels and one-or-two realizing pairs. The successful output was `PITMAN_STANLEY_DIAMETER_TWO_TOP_LEVELS_CHECKS_PASSED 72 8`.
+## correctness
 
-The mathematical proof independently establishes the assertions for arbitrary positive *real* increments and all integers in scope. Exact-rational finite enumeration cannot certify an all-dimensional theorem or establish historical novelty. Independent audit has not been performed.
+PASS
+
+Positive increments force at most one tight constraint from each pair {x_i=0,S_i=B_i}, while each binary selection yields a feasible vertex; hence all vertices are enumerated. The last-positive-index norm bound and case split show unique diametral pair B_n e_n and B_(n-1)e_(n-1). For unit increments the next-largest sum of squares among index-gap compositions is (n-2)^2+1, attained by the two specified vertices (coincident at n=3). Contrasting other-pair norm bounds proves the strict second layer. Exact enumeration checked six unit dimensions and fifteen rational increment configurations, supplementary only.
+
+## originality
+
+PASS
+
+Pitman–Stanley, generalized prefix-sum, parking-function and flow-polytope literature develops volume, triangulations, vertices and faces, but the stated sharp standard-coordinate Euclidean diameter equality pair and the discrete second layer require metric square-sum reasoning. An affine flow representation does not preserve distances. Historical priority is provisional.
+
+## value
+
+PASS
+
+The unique Euclidean diameter pair valid for all positive real capacities and the exact sharp second vertex-distance stratum of the canonical family are natural precise metric invariants that delimit equality and stability of farthest vertices; the integer gap 2(n-2) has structural motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

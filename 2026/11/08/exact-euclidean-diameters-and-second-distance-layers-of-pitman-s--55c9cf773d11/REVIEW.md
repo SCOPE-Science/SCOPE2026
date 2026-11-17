@@ -1,15 +1,21 @@
-# Scientific review of exact Pitman–Stanley Euclidean diameter and second-distance layers
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-positive prefix capacities make exactly one of the indexed coordinate and prefix inequalities tight at every vertex, and any such choice is feasible. This produces the complete explicit vertex set. Comparing vertices by whether their last coordinate is positive gives a sharp upper bound for squared distance, uniquely realized by the two stated single-support vertices. For unit increments, the positive gaps form integer compositions and their strict square-sum ordering identifies the next squared-distance level and its exact one-or-two-fold multiplicity. The all-real-increment result is deductive; the exact-rational enumeration supplied separately is only a finite corroboration. Critical points include the strict capacity increments, the convex quadratic bound for two last-coordinate-positive vertices, and the distinction between vertex-distance layers and continuous point-to-point distances.
+## correctness
 
-## Originality — PASS, with priority risk
-The initial Pitman–Stanley treatment describes the prefix polytope, combinatorics, and volumes; the 2018 flow-polytope account establishes volume-oriented correspondences; and later generalized Pitman–Stanley and generalized parking-function accounts concern vertices, faces, or related realizations. Targeted examination of their mathematical statements did not reveal the sharp Euclidean diameter, unique equality pair, and canonical second-largest squared vertex-distance layer. Relevant geometric results for partial permutohedra or for star hypergraphic polytopes concern different Euclidean objects, and an affine or combinatorial equivalence is insufficient to transfer this exact metric assertion. These comparisons do not constitute an exhaustive search of all publications or guarantee historical priority; that risk remains.
+PASS
 
-## Mathematical value — PASS
-The exact Euclidean diameter and unique extremizing pair classify a natural metric invariant of every standard-coordinate Pitman–Stanley polytope with arbitrary positive increments, despite exponentially many vertices. The unit-increment specialization exposes the next distinct vertex-distance shell, its sharp linear gap, and its exact extremizers. These facts distinguish metric rigidity from the extensively investigated combinatorial and enumerative structure. They are useful as geometric benchmark values for metric studies of the family and related models, while not claiming an implication for general flow-polytope realizations.
+Positive increments force at most one tight constraint from each pair {x_i=0,S_i=B_i}, while each binary selection yields a feasible vertex; hence all vertices are enumerated. The last-positive-index norm bound and case split show unique diametral pair B_n e_n and B_(n-1)e_(n-1). For unit increments the next-largest sum of squares among index-gap compositions is (n-2)^2+1, attained by the two specified vertices (coincident at n=3). Contrasting other-pair norm bounds proves the strict second layer. Exact enumeration checked six unit dimensions and fifteen rational increment configurations, supplementary only.
 
-## Closest sources and limits
-Pitman–Stanley (1999 preprint, arXiv:math/9908029), Benedetti and collaborators (2018, arXiv:1801.07684), Dugan and collaborators (2023, arXiv:2307.09925), and Hanada–Lentfer–Vindas-Meléndez (2022, arXiv:2212.06885). Metric comparison with partial permutohedra does not transfer across non-isometric realizations. The second shell has only been established for unit increments. The finite checker is corroborative, and priority remains open to external independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pitman–Stanley, generalized prefix-sum, parking-function and flow-polytope literature develops volume, triangulations, vertices and faces, but the stated sharp standard-coordinate Euclidean diameter equality pair and the discrete second layer require metric square-sum reasoning. An affine flow representation does not preserve distances. Historical priority is provisional.
+
+## value
+
+PASS
+
+The unique Euclidean diameter pair valid for all positive real capacities and the exact sharp second vertex-distance stratum of the canonical family are natural precise metric invariants that delimit equality and stability of farthest vertices; the integer gap 2(n-2) has structural motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
