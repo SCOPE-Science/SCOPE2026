@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in RESULT.md is an infinite argument for every integer \(k\ge2\), using an explicit trace-pairing criterion, a complete six-projector calculation over \(\mathbb F_2\), regular dyadic lifting, and a valuation-stratum count. The self-contained `check.py` separately evaluates the rank-one projector set, its ordered additive convolution, the pointwise formulas in the claimed regular sectors, all zero/nonzero target decisions, and sharp positive lower bounds for \(k=2,3,4,5\). Run it with `python3 check.py` using the package directory as the working directory. Expected marker: `DYADIC_PROJECTOR_CONVOLUTION_SUPPORT_PASS`.
+# Independent mathematical audit
 
-The checker does not establish the all-depth statement and cannot establish historical priority. An earlier matrix-ring decomposition theorem covering the same dyadic obstruction remains a residual literature risk. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+For trace S=2 write S=I+A with trace A=0. Cayley–Hamilton identifies trace-one determinant-zero matrices with rank-one idempotents. The two-projector condition becomes tr(AP)=-det(A). Over F2 the six projectors are enumerated: nonscalar traceless A has four regular roots; scalar primitive A=I+2C reduces to a trace-one pairing with at least two regular solutions. Hensel lifting supplies two choices per regular bit, and 4^j projector lifts across j eliminated digits. Divisible primitive-scalar B=I modulo 2 cannot solve the trace equation, all nonscalar B can, giving the geometric-series hole count and exact minimum. Independently enumerated ALL projectors and ordered pairs for k=2,3,4, yielding (|P|, support, holes)=(24,63,1),(96,503,9),(384,4023,73) and minimum 2^(k+1); finite checks corroborate rather than replace the all-k argument. No full positive histogram is asserted.
+
+## originality
+
+PASS
+
+The local characteristic-two dyadic obstruction, exact hole count and sharp minimum are not statements of the searched field-level two-idempotent classification or the odd-prime-power projector convolution theorem. The field problem has no higher congruence digits; for odd p the known result covers its entire trace-two hyperplane and thus cannot imply these dyadic holes. Best-of-knowledge originality passes for this restricted but structural all-depth result; an unlocated general local-ring two-idempotent result remains a priority risk.
+
+## value
+
+PASS
+
+The rank-one idempotent orbit is a natural matrix decomposition and additive-harmonic object. The precise valuation-stratified obstruction and 55/56 limiting density distinguish local dyadic rings sharply from fields/odd-prime rings; the sharp lower fiber is a substantive mixing invariant. This is an all-depth structural theorem, not just verification of a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

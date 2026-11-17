@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A two-projector decomposition is equivalent to one trace-pairing equation on the smooth rank-one idempotent variety. The proof checks the complete mod-two matrix-case table, distinguishes critical from noncritical trace-pairing fibers, applies the correct two-lifts-per-step regular counting, and accounts for four lifts per level when reducing projectors. Its zero set is exactly the primitive scalar dyadic stratum at valuations one through \(k-1\). A separate standalone integer implementation enumerates the complete convolution and verifies its proposed fiber formulas and all omitted targets for moduli \(4,8,16,32\). The finite calculation supports but does not establish the infinite statement; that follows from the proof.
+PASS
 
-## Originality — PASS, bounded
+For trace S=2 write S=I+A with trace A=0. Cayley–Hamilton identifies trace-one determinant-zero matrices with rank-one idempotents. The two-projector condition becomes tr(AP)=-det(A). Over F2 the six projectors are enumerated: nonscalar traceless A has four regular roots; scalar primitive A=I+2C reduces to a trace-one pairing with at least two regular solutions. Hensel lifting supplies two choices per regular bit, and 4^j projector lifts across j eliminated digits. Divisible primitive-scalar B=I modulo 2 cannot solve the trace equation, all nonscalar B can, giving the geometric-series hole count and exact minimum. Independently enumerated ALL projectors and ordered pairs for k=2,3,4, yielding (|P|, support, holes)=(24,63,1),(96,503,9),(384,4023,73) and minimum 2^(k+1); finite checks corroborate rather than replace the all-k argument. No full positive histogram is asserted.
 
-The closest original field-level classification [1] permits characteristic two and already controls two-idempotent sums modulo two, so that level is expressly not claimed as new. Its hypotheses are for matrices over a field, and its Jordan-factor theorem does not encode the chain of dyadic scalar congruences that generate the new holes. The separate field-level sum theorem [2] concerns a variable number of idempotents. The local-ring strongly-clean work [3] allows a unit rather than a second projector and imposes commutation; neither its object nor its conclusion entails the convolution support. The earlier Hartwig–Putcha classification [4] is relevant historically, but the identified setting is matrix decomposition over fields. The unlocated possibility of a general local-ring theorem encompassing the obstruction remains a priority risk; no absolute uniqueness claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural additive convolution of a nontrivial matrix orbit. The exact geometric progression of holes and the limiting support density \(55/56\) sharply distinguish dyadic depth from the field case and from the odd-prime projector sumset. The sharp least positive fiber measures robustness away from the holes. The finding is a structural all-depth classification, not an arbitrary single-residue computation; it does not claim a weighted Fourier-extension theorem or full positive-fiber histogram.
+The local characteristic-two dyadic obstruction, exact hole count and sharp minimum are not statements of the searched field-level two-idempotent classification or the odd-prime-power projector convolution theorem. The field problem has no higher congruence digits; for odd p the known result covers its entire trace-two hyperplane and thus cannot imply these dyadic holes. Best-of-knowledge originality passes for this restricted but structural all-depth result; an unlocated general local-ring two-idempotent result remains a priority risk.
 
-## Scientific limits and cited sources
+## value
 
-[1] arXiv:0907.4436v1, field-only two-idempotent classification; [2] arXiv:0907.5360v1, field-only sums; [3] arXiv:0803.2176v1, local-ring unit plus idempotent; [4] Hartwig–Putcha, DOI:10.1080/03081089008817983, full text inaccessible. No external specialist validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rank-one idempotent orbit is a natural matrix decomposition and additive-harmonic object. The precise valuation-stratified obstruction and 55/56 limiting density distinguish local dyadic rings sharply from fields/odd-prime rings; the sharp lower fiber is a substantive mixing invariant. This is an all-depth structural theorem, not just verification of a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
