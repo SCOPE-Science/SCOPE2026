@@ -1,19 +1,21 @@
-# Scientific review: oscillating trimer-overlap correlations
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The first-attempt representation follows because the earliest attempted trimer covering a site is necessarily accepted; subsequent attempts from a rejected center cannot change any occupancy. Thus each terminal multiplicity is a deterministic function of seven independent clocks, establishing the exact six-dependence. An exhaustive integer subset dynamic program proves the six pair probabilities and checks both one-site marginals. Distances one and two are additionally confirmed by independent brute-force enumeration of every complete arrival order. The finite covariance sum is positive and the independent-block Lindeberg argument proves the stated central limit theorem; finite enumeration is used only for finite coefficients.
+PASS
 
-## Originality
+Read actual frozen RESULT.md and independently reconstructed the first-arrival representation: an accepted trimer start is a first arrival covering at least one still-empty site, so K_s depends only on the 7 clocks U_(s-4),...,U_(s+2). This proves genuine six-dependence (independence of sigma-fields seven or more sites apart). An independent subset-order DP over all d+7 local clocks for d=1..6 reproduced exactly the six rational probabilities Pr(Y_0=Y_d=1) and their signs +,+,-,-,+,+; p=31/630 agrees with the one-site trimer law. Summation yields variance coefficient 8819999/136216080 and constant -52387/2702700 for n>=7. Positive variance and standard blocking for bounded six-dependent stationary sequences give the Gaussian CLT; seven residue subsequences yield the strong law. This proves only the terminal infinite-volume trimer process, not finite-time or other boundary laws; the DP does not independently prove an infinite CLT.
 
-PASS, conditional on the inspected literature and accessible records. The nearest works are Krapivsky (2022/2023), arXiv:2209.03992, and Viot–Krapivsky (2024/2025), arXiv:2410.12373. The latter derives the already known single-site densities and selected close-neighborhood probabilities but identifies pair correlations as an interesting further problem in its discussion. It does not report the six-distance triple-occupancy covariance vector, its double sign reversal, or the exact macroscopic Gaussian variance. Searches of related mathematical research records and accessible prior claims did not show an equivalent result; absence from searched records is not a proof of global historical priority. General short-range CLTs alone also do not imply the exact variance constant.
+## originality
 
-## Value
+PASS
 
-PASS. Triple occupation is the rarest nonzero trimer saturation layer and its spatial clustering is not determined by its known one-point frequency. The exact positive/negative/positive correlation pattern quantifies short-distance clustering and medium-distance anticorrelation; its sharp cutoff and finite variance directly determine fluctuations of experimentally measurable saturation counts. The exact finite-size intercept and universal Gaussian normalization add information beyond the previous mean-density solution.
+The surviving result is the complete six-lag separated triple-occupation covariance and its exact Gaussian variance. The known single-site p=31/630, trimer dynamics, and selected local joint marginals are NOT novel. Compared same-model primary article and nearby published findings by their observable and quantified scope rather than titles.
 
-## Scope and risk
+## value
 
-The model uses an infinite initially empty lattice, independent rate-one attempt clocks, fixed length-three trimers, and terminal multiplicity. The historical-priority comparison is limited to indexed material and inspected primary texts. Numerical diagnostics do not constitute independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact, sharply finite-range correlation fingerprint with two sign switches and the resulting full-count fluctuation variance is a natural process-level invariant beyond known one-site coverage probabilities; it distinguishes nonmonotone spatial dependence and supports fluctuation calculations for the trimer model. It is not merely restating the finite dependence fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

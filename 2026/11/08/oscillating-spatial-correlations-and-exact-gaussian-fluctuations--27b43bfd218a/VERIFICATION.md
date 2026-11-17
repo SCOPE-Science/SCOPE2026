@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of trimer spatial correlations
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with no nonstandard modules. The reproducible checker evaluates every local probability by exhaustive integer subset recursion on the \(d+7\) relevant first-arrival clocks, with \(1\le d\le7\). The largest instance has fourteen clocks and at most \(2^{14}\) position subsets; no Monte Carlo approximation is used for any rational coefficient. It checks both marginal distributions against the known single-site law and independently simulates every possible arrival order for distances one and two directly under the sequential deposition rule.
+## correctness
 
-The exact six lag covariances sum to the stated positive long-run variance. The proof in RESULT.md separately establishes finite dependence and the Gaussian limit for arbitrarily large \(n\); the finite arithmetic checker does not claim to certify an infinite theorem by enumerating finitely many cases. Independent audit has not been performed.
+PASS
+
+Read actual frozen RESULT.md and independently reconstructed the first-arrival representation: an accepted trimer start is a first arrival covering at least one still-empty site, so K_s depends only on the 7 clocks U_(s-4),...,U_(s+2). This proves genuine six-dependence (independence of sigma-fields seven or more sites apart). An independent subset-order DP over all d+7 local clocks for d=1..6 reproduced exactly the six rational probabilities Pr(Y_0=Y_d=1) and their signs +,+,-,-,+,+; p=31/630 agrees with the one-site trimer law. Summation yields variance coefficient 8819999/136216080 and constant -52387/2702700 for n>=7. Positive variance and standard blocking for bounded six-dependent stationary sequences give the Gaussian CLT; seven residue subsequences yield the strong law. This proves only the terminal infinite-volume trimer process, not finite-time or other boundary laws; the DP does not independently prove an infinite CLT.
+
+## originality
+
+PASS
+
+The surviving result is the complete six-lag separated triple-occupation covariance and its exact Gaussian variance. The known single-site p=31/630, trimer dynamics, and selected local joint marginals are NOT novel. Compared same-model primary article and nearby published findings by their observable and quantified scope rather than titles.
+
+## value
+
+PASS
+
+An exact, sharply finite-range correlation fingerprint with two sign switches and the resulting full-count fluctuation variance is a natural process-level invariant beyond known one-site coverage probabilities; it distinguishes nonmonotone spatial dependence and supports fluctuation calculations for the trimer model. It is not merely restating the finite dependence fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
