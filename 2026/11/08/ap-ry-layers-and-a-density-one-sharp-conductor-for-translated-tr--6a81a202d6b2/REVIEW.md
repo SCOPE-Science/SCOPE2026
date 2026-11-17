@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof determines the exact Apéry height by an optimization over the number of triangular summands and residue shifts. Gauss's three-triangular-number theorem bounds all heights by three, reducing the optimization to three cases without omissions. The standard Apéry identities then yield the exact genus and sharp conductor criterion. The density-one conductor statement follows because exceptional parameters yield either a sum of two triangular numbers or a triangular number in a specified linear expression, both sparse by Landau–Ramanujan and elementary triangular counting. The standalone checker independently verified 51,992 residue classes. Risks: the quantitative error uses the classical Landau–Ramanujan theorem, not a self-contained proof of that theorem; computations are finite corroboration only.
+## correctness
 
-## Originality: PASS within checked evidence
-The closest triangular-generator papers study finite consecutive triangular triples (Robles-Pérez–Rosales 2017; Komatsu 2022), an unshifted triangular cutoff family (Neto–Iglésias 2023), or four consecutive generators (Chomicz 2026). Their accessible claims and the inspected full preprint texts of the first two do not cover the shifted-by-\(a\) infinite generator family or imply its exact Apéry profile and density-one sharp conductor. The published mathematical-result searches and exact-name searches found no covering theorem. Risks: the full Neto–Iglésias article was inaccessible, and unindexed literature may contain an equivalent formulation; the abstract establishes a distinct defining family but not definitive noncoverage of its full text.
+PASS
 
-## Mathematical value: PASS
-The result classifies the entire Apéry set for a canonical parameter family, determines the genus exactly in terms of naturally defined triangular representation sets, gives a sharp conductor test, and proves that the conductor attains its theoretical upper bound for almost every parameter. The resulting ratio of genus to conductor tending to one describes an unusually sparse semigroup regime and is structurally different from finite triangular-generator formulas. These are natural global invariants rather than arbitrary numerical slices, and no claim is made to a second-order constant.
+For a>=2, w_a(r)=r+a min_{ell>=0}(ell+lambda(r+ell a)), lambda shortest number of positive triangular summands; Gauss gives lambda<=3, ell>=2 cannot strictly improve, and ell=1 improves to 2 only when r+a triangular. Hence exact h=1/2/3 layer criteria. Standard Apéry genus formula and conductor=max(w)-a+1 give conductor=3a iff h(a−1)=3, exactly the two stated exceptional tests. Landau–Ramanujan bounds two-triangular representability by O(a/sqrt log a), while the r+a triangular count is O(sqrt a), proving g,c=3a+O(a/sqrt log a) and density-one exact 3a conductor. Independent Dijkstra residue shortest-path comparisons verify small/medium a; the arithmetic asymptotic depends on the cited classical theorems, not enumeration.
 
-## Literature and residual risk
-Principal motivating source: Komatsu, arXiv:2206.13054 (2022-06-27), inspected complete introduction, Apéry discussion, and title/abstract; full mathematical text accessible. Other inspected primary full text: Robles-Pérez and Rosales, arXiv:1706.04378 (introduction and definition of three-term family). Adjacent Neto–Iglésias (2023) abstract inspected; full text inaccessible. Chomicz (2026) abstract inspected and found to concern a four-generator family. The 2022 shifted-square semigroup result concerns different additive offsets and does not imply the triangular classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Prior triangular-semigroup papers inspect three or four consecutive UNTRANSLATED triangular generators or the unshifted tail above a triangular threshold. They do not include the infinite translated generator family {a+T_j:j>=0}, and no exact Apéry h=1/2/3 layer classification or density-one conductor criterion for this family was located. An inaccessible plausible 2023 primary source leaves residual risk but not decisive counterevidence.
+
+## value
+
+PASS
+
+PASS: A complete Apéry stratification for a natural infinite translated polygonal-number family, exact genus and conductor criteria and density-one sharpness is a useful structural result. Gauss and Landau are non-new ingredients but neither alone gives the minimization across translated residue shifts; the proven sparse-exception phenomenon is mathematical, not a random tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
