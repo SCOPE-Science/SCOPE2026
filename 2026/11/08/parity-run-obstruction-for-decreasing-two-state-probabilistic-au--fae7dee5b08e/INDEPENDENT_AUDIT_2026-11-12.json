@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T06:48:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every row stochastic 2×2 letter transition the probability update has slope equal to determinant; strict negativity makes all letter maps decreasing. Upper and lower envelopes satisfy M_{t+1}=U(m_t), m_{t+1}=L(M_t). Both two-step envelope compositions are increasing; each parity subsequence of extrema is monotone. Strict unique winning suffix forces each prefix to be the unique appropriate extremum according to suffix parity. Each letter’s strict max/min region among affine functions is an interval, so a monotone parity input cannot select it in two separated runs. Counting ordered distinct-run labels and positive compositions yields T_q and O_q(n^(2q−2)), including n=1 and odd/even boundaries. Independent brute-force rational PFA verification tested 1080 parameter cases, 775 unique winners. Infinite conclusion rests on envelope/interval proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gill gives complete q=2 behavior; Kjos-Hanssen states every word over any finite alphabet has a three-state witness; prior increasing maps give single-block distinct runs for the whole string, not the decreasing parity split."
+        ],
+        "reasoning": "Broader state-count existence does not imply two-state all-negative impossibility. Increasing-map order preservation does not cover orientation-reversing composition, and q=2 theorem alone does not quantify over arbitrary q.",
+        "searches": [
+          "two-state probabilistic finite automata decreasing affine maps all negative determinant unique maximizer parity subsequences nonrecurrent runs",
+          "arxiv:2402.13376 Theorem 4.1",
+          "arxiv:2607.26275 three-state universal word recognizer",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2402.13376",
+        "arxiv:2607.26275",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288",
+        "Resultary semantic search two-state probabilistic finite automata decreasing affine maps all negative determinant unique maximizer parity subsequences nonrecurrent runs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submitted upper bound is product T_q(ceil n/2)T_q(floor n/2) with T_q(m)=sum (q)_r C(m−1,r−1); this follows from all-negative orientation reversal. Binary exact classification and increasing-map single-block criterion do not yield this statement for arbitrary q≥3."
+        ],
+        "reasoning": "Prior implications were compared under correct hypotheses: no inspected theorem forces the specific two parity-run obstruction or polynomial candidate-space bound for nonbinary negative maps. Full 3-state existence is logically orthogonal.",
+        "searches": [
+          "Gill Section 4 binary PFA classification",
+          "Kjos-Hanssen arxiv 2607.26275 theorem three-state",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288",
+          "two-state probabilistic finite automata decreasing affine maps all negative determinant unique maximizer parity subsequences nonrecurrent runs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-state probability coordinate evolves by f_a(x)=v_a+(u_a−v_a)x, with determinant exactly its slope. Negative determinant equals strict decreasing maps of [0,1]. Gill writes analogous affine representation but his complete Theorem 4.1 is stated for the binary alphabet."
+        ],
+        "reasoning": "An equivalent affine iterated-function formulation was compared. The submitted q≥3 necessary condition concerns two monotone parity-indexed envelopes rather than Gill’s binary-specific complete classification.",
+        "searches": [
+          "two-state probabilistic finite automata decreasing affine maps all negative determinant unique maximizer parity subsequences nonrecurrent runs",
+          "Gill 2024 probabilistic automatic complexity affine decreasing maps ternary alphabet",
+          "all-negative determinant PFA orientation reversing affine maps nonrecurrent runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned the submitted negative-sign theorem, related positive-sign full-word block-distinct result and a ternary signed adjacent-swap obstruction, but no matching infinite q≥3 parity-run enumeration."
+        ],
+        "reasoning": "The bound is a symbolic necessary condition, not a finite database fact. No matching prior exact table was identified; negative search evidence alone is not novelty proof.",
+        "searches": [
+          "probabilistic finite automaton negative slope unique winner parity run q symbols enumeration",
+          "two-state probabilistic finite automata decreasing affine maps all negative determinant unique maximizer parity subsequences nonrecurrent runs"
+        ]
+      },
+      "rationale": "Gill 2024 supplies the affine representation and a full binary-alphabet classification, not the q≥3 all-negative-determinant parity run obstruction. Kjos-Hanssen establishes 3-state universality, not a two-state negative-slope restriction. The 2026-10-26 nonnegative-slope classification uses increasing maps and one run per symbol in the full word, not two independently constrained parity subsequences. No exact q≥3 result implying the submitted necessary upper bound was identified; historical priority remains qualified.",
+      "residual_risks": [
+        "An unindexed nonbinary all-negative affine-envelope classification might contain the necessary condition.",
+        "The upper bound is not asserted sharp and cannot classify mixed-sign or zero determinant transitions.",
+        "Kjos-Hanssen full text not comprehensively read in this execution; accessible statement is logically orthogonal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Affine representation established; categorical binary theorem does not cover q≥3 all negative transitions.",
+          "identifier_or_url": "https://arxiv.org/html/2402.13376v1",
+          "material_read": "Full relevant Section 4.1–4.4, affine recurrence, binary Theorem 4.1 and cases",
+          "method": "Read open arXiv HTML and compare theorem hypotheses",
+          "title": "Probabilistic automatic complexity of finite strings",
+          "trigger": "Foundational two-state affine PFA and closest classification"
+        },
+        {
+          "assessment": "RELATED_LIMITED_READING",
+          "evidence": "Three-state universal upper bound is a different statement; incomplete full-text access remains a residual priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.26275",
+          "material_read": "Title, abstract and indexed Theorem 1.2 summary; full primary text was not reliably accessible in this execution",
+          "method": "Accessible arXiv metadata/summary (no whole-paper NOT_COVERING inference)",
+          "title": "Every string has probabilistic automatic complexity at most three",
+          "trigger": "Broad all-alphabet three-state existence result"
+        },
+        {
+          "assessment": "RELATED_SIGN_DISTINCT",
+          "evidence": "Order-preserving nonnegative slopes are not all-negative orientation reversing maps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288",
+          "material_read": "Resultary indexed summary and exact theorem statement, not full manuscript",
+          "method": "Semantic search index; NOT a full-text noncoverage claim",
+          "title": "Block-distinct words are exactly the monotone two-state probabilistic winners",
+          "trigger": "Potential related full classification for opposite determinant sign"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-state boundary of probabilistic automatic complexity is a natural unresolved counterpart to three-state universality for arbitrary q. For the structural all-negative determinant subclass, the two-parity no-recurrent-run theorem and polynomial bound provide a precise forbidden-pattern filter, exponentially smaller than q^n, and capture a real orientation-reversal phenomenon rather than simply substituting parameters in the increasing-map case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a necessary condition, not a sharp count or realizability theorem.",
+    "Mixed determinant signs and determinant zero excluded."
+  ],
+  "schema_version": 1
+}
