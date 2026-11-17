@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:59:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a fixed ordered axis, two nonnested comparison queries (a,b),(c,d) with a<=c and b<=d obey a preferred to b => c preferred to d by the no-valley property, so cannot be shattered. Strictly nested pairs can be deleted as consecutive endpoint blocks in independently chosen orders, leaving all comparisons outside the selected pairs identical: this produces a strong coordinate cube. Choosing 2k axis positions and pairing extremes gives exactly binom(n,2k) supports, hence VC=floor(n/2). The adaptive extreme-pair deletion tree has 2^(n-1) distinct consistent paths; the class has exactly that many strict orders, proving Ldim=n-1. A common peak at k+1/2 and explicit utility samples 8i±1 on nested pairs realize all 2^k continuous preference labels with strict monotonicity on each side; interpolation gives infinite VC for unrestricted qualitative continuous single-peaked utilities. Independent full pair-comparison trace enumeration confirmed the nested-support criterion for n<=5; finite checks support, not prove, the universal statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conitzer 2009 concerns exact preference elicitation query complexity, not complete VC-shattering complex or full Littlestone tree. Zhan works concern construction and ordering of single-peaked domains. Basu–Echenique discuss qualitative real single peaks but offer an illustrative finite-VC obstruction contradicted by explicit nested queries."
+        ],
+        "reasoning": "No inspected broader theorem implies the all-support formula or continuous shattering witness. Restrict claims precisely to fully flexible qualitative unimodality; constrained distance-to-peak parametric families differ.",
+        "searches": [
+          "https://onlinelibrary.wiley.com/doi/full/10.3982/TE3438",
+          "https://arxiv.org/abs/2202.11352",
+          "https://doi.org/10.1613/JAIR.2606"
+        ]
+      },
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/full/10.3982/TE3438",
+        "https://arxiv.org/abs/2202.11352",
+        "https://doi.org/10.1613/JAIR.2606",
+        "Current RESULT.md and verify_single_peaked.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical endpoint-peeling gives size 2^(n-1); it does not automatically imply support classification of all pair comparisons. Common-peak utilities u(i)=8i+eps_i and u(2k+1-i)=8i-eps_i shatter every nested family, contrasting Basu–Echenique section 2 illustrative finite claim."
+        ],
+        "reasoning": "No source containing only the count or elicitation complexity entails all strong-shattering facets. The continuous construction is an explicit scientifically relevant boundary counterexample under the exact qualitative class as defined.",
+        "searches": [
+          "https://onlinelibrary.wiley.com/doi/full/10.3982/TE3438",
+          "https://arxiv.org/abs/2202.11352",
+          "https://doi.org/10.1613/JAIR.2606"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known endpoint-deletion codes establish 2^(n-1) orders and a sign representation, while new support criterion is strictly nested matchings and establishes all binary support patterns and strong cubes."
+        ],
+        "reasoning": "Standard sign variables do not by themselves characterize which ORIGINAL pairwise comparison coordinates are shattered. New nested matching equivalence is stronger than counting rankings.",
+        "searches": [
+          "Resultary query: VC dimension and strongly shattered nested pair comparisons fixed single peaked preference axis continuous unimodal utility",
+          "https://onlinelibrary.wiley.com/doi/full/10.3982/TE3438",
+          "Zhan single-peaked sign representation arXiv:2202.11352"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source formula is all n: Phi_n(z)=sum_k binom(n,2k)z^k. Independent finite enumerations n<=5 matched coefficients. Other permutation shattering records use pattern-avoiding classes or k! order dimensions."
+        ],
+        "reasoning": "Finite enumerations are corroboration, not a prior table that already counts the natural all-n comparison supports.",
+        "searches": [
+          "Resultary semantic search fixed-axis single-peaked comparisons VC strongly shattered nested",
+          "https://arxiv.org/abs/2112.01946"
+        ]
+      },
+      "rationale": "The source provides the complete labeled comparison-shattering complex, fixed-complement cubes, exact VC and Littlestone dimension on every fixed-axis single-peaked ranking domain, plus a concrete common-peak infinite VC counterexample for unrestricted continuous one-peaked preferences. Classical endpoint-deletion enumeration, sign representation and elicitation complexity do not state the full binary-pair shattering support classification. The Basu–Echenique 2020 paper does explicitly give finite VC as an illustrative claim for qualitative real single-peaked preferences, but the current explicit counterexample shows that illustration does not apply as written to unrestricted utilities; it does not impugn their separate main expected-utility results.",
+      "residual_risks": [
+        "Potential previously established nested-comparison support facets under social-choice elicitation or permutation-tope language.",
+        "The publisher HTML converts some mathematical variables to images, so the original illustrative argument was interpreted conservatively from its textual context and the explicit audited counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The §2.2 illustrative assertion of finite VC for qualitative real single-peaked utilities conflicts with explicit nested-choice construction. Other utility-model results not challenged.",
+          "evidence": "Publisher text explicitly calls real single-peaked preference an example of finite VC with u strictly increasing to one peak and decreasing after.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.3982/TE3438",
+          "material_read": "Full accessible Wiley HTML especially §2.2 single-peaked example, VC discussion and main theorem context; mathematical formulas partly displayed as image placeholders",
+          "method": "Publisher open-access article HTML",
+          "title": "On the falsifiability and learnability of decision theories",
+          "trigger": "same unrestricted real single-peaked VC example"
+        },
+        {
+          "assessment": "Complete proof of nested iff and strong cube, exact Ldim, continuous common-peak witness.",
+          "evidence": "No-valley forbidden-pattern lemma and endpoint pair-block construction are explicit and cover arbitrary n.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nested-comparison-shattering-and-a-continuous-domain-vc-countere--c8a8ba074d20/RESULT.md",
+          "material_read": "Entire RESULT.md and verify_single_peaked.py",
+          "method": "GitHub frozen blob/path read",
+          "title": "Nested comparison shattering and a continuous-domain VC counterexample",
+          "trigger": "the audited final claim"
+        },
+        {
+          "assessment": "Not used to claim whole-document noncoverage; possible implicit comparison-support consequences noted as risk.",
+          "evidence": "Paper studies representations/partial orders; no complete comparison-support theorem established from accessible material.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.11352",
+          "material_read": "Title, abstract and source-related summary; full theorem/appendix not independently read in this run",
+          "method": "Open-access bibliographic/abstract comparison",
+          "title": "Sign representation of single-peaked preferences and Bruhat orders",
+          "trigger": "plausible prior representation under alternate sign variables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete classification of shattered pair-comparison supports and strong cubes for a standard social-choice domain is a natural combinatorial invariant. The exact VC versus adaptive Ldim gap is meaningful for online preference learning, and the continuous common-peak construction identifies a sharp limitation of a widely cited qualitative finite-VC example. These are structural and conceptually motivated results, not a tiny enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://onlinelibrary.wiley.com/doi/full/10.3982/TE3438",
+    "https://arxiv.org/abs/2202.11352",
+    "Current RESULT.md; verify_single_peaked.py"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The continuous witness applies only to unrestricted strictly unimodal utilities; symmetry, distance utility, Lipschitz slope, shared cardinal structure or parametric classes may restore finite VC."
+  ],
+  "schema_version": 1
+}

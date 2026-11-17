@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the triple-point no-valley property to derive the exact obstruction, a blockwise endpoint-deletion subcube for sufficiency, a bijection between supports and even-cardinality endpoint subsets, and a matching lower/upper bound for the online dimension. The continuous statement has explicit strictly increasing/decreasing interpolated utility values at a fixed peak; this works for arbitrary support size and is not inferred from finite computation. The included checker independently tests 132,154 support instances at all sizes through the first necessarily nonshattered cardinality for axes through eight alternatives, tests the full extreme-pair mistake tree through twelve alternatives, and verifies 4,094 fixed-peak sample utility patterns. The finite program has no role as a proof of an all-size proposition.
+## correctness
 
-**Originality — PASS within the available comparisons.** The standard endpoint recursion and domain size are expressly excluded from new priority. Zhan (2019, 2022) derives tilings and signs, not the binary comparison shattering supports, their strong subcubes, coefficientwise count, or exact Littlestone dimension. Karpov's profile counts and Conitzer's elicitation analysis concern other questions; Johnson–Wickes's \(k!\)-permutation shattering uses another instance/answer model. Basu–Echenique's (2020) illustrative assertion that the unrestricted continuously single-peaked preference class has finite VC dimension is opposite to the explicit fixed-peak construction here: the claimed two-query obstruction fails even for nested \((1,4)\) and \((2,3)\). Comparison included public domain research searches and the available related-record search. Historical priority under other terminology, especially equivalent cubical language, remains a nonzero risk and merits independent review.
+PASS
 
-**Mathematical value — PASS.** A natural preference domain has a complete structural shattering classification, all coefficients, a strong-shattering equality, and an exact adaptive/static separation growing linearly with the alternative count. The continuous construction addresses a concrete stated claim in the literature and establishes infinite rather than finite model flexibility without weakening single-peakedness. These are nontrivial, motivated exact structural consequences, not a renaming of the familiar count of single-peaked orders.
+On a fixed ordered axis, two nonnested comparison queries (a,b),(c,d) with a<=c and b<=d obey a preferred to b => c preferred to d by the no-valley property, so cannot be shattered. Strictly nested pairs can be deleted as consecutive endpoint blocks in independently chosen orders, leaving all comparisons outside the selected pairs identical: this produces a strong coordinate cube. Choosing 2k axis positions and pairing extremes gives exactly binom(n,2k) supports, hence VC=floor(n/2). The adaptive extreme-pair deletion tree has 2^(n-1) distinct consistent paths; the class has exactly that many strict orders, proving Ldim=n-1. A common peak at k+1/2 and explicit utility samples 8i±1 on nested pairs realize all 2^k continuous preference labels with strict monotonicity on each side; interpolation gives infinite VC for unrestricted qualitative continuous single-peaked utilities. Independent full pair-comparison trace enumeration confirmed the nested-support criterion for n<=5; finite checks support, not prove, the universal statement.
 
-**Limits.** Known fixed axis, unrestricted strict ordinal domain, binary pairwise queries; continuous result requires arbitrary strictly unimodal continuous utilities. No inference about narrower Euclidean-distance or bounded-parameter preference classes. Checks over finite sizes cannot establish infinite conclusions, which instead have explicit proofs. Earlier undiscovered equivalent treatments could affect priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source provides the complete labeled comparison-shattering complex, fixed-complement cubes, exact VC and Littlestone dimension on every fixed-axis single-peaked ranking domain, plus a concrete common-peak infinite VC counterexample for unrestricted continuous one-peaked preferences. Classical endpoint-deletion enumeration, sign representation and elicitation complexity do not state the full binary-pair shattering support classification. The Basu–Echenique 2020 paper does explicitly give finite VC as an illustrative claim for qualitative real single-peaked preferences, but the current explicit counterexample shows that illustration does not apply as written to unrestricted utilities; it does not impugn their separate main expected-utility results.
+
+## value
+
+PASS
+
+Complete classification of shattered pair-comparison supports and strong cubes for a standard social-choice domain is a natural combinatorial invariant. The exact VC versus adaptive Ldim gap is meaningful for online preference learning, and the continuous common-peak construction identifies a sharp limitation of a widely cited qualitative finite-VC example. These are structural and conceptually motivated results, not a tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
