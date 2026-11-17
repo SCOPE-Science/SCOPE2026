@@ -1,15 +1,21 @@
-# Scientific review: Near-linear optimal time-conscious delegation on interval hierarchies
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is a full structural induction over the prescribed rooted tree. For each child, all feasible time labels form consecutive integers; the parent compatibility windows include their respective integer indices, so their union has no missing integer. Intersecting one such interval per child with the parent's own uninterrupted availability gives the exact feasible-time interval, even for erratically changing horizons. The Bellman recursion sums independent conditional child optima. A heap sweep of weighted window intervals, combined with difference-array range additions, evaluates the recursion in \(O(S\log(2+S))\) operations and linear space. `verify.py` passed 5,750 brute-force comparisons of global optimal score and validated witnesses, plus the four-voter obstruction. This finite replay supplements but does not replace the universal proof. Risks: integer action times, fixed parent hierarchy and explicit values are essential.
+## correctness
 
-## Originality — PASS (provisional)
-The closest full source is Markakis and Papasotiropoulos, arXiv:2307.12898v1, Sections 2-4 and the appendices. It introduces the relevant temporal voting axioms and proves general NP-hardness, as well as different relaxations, but contains no all-score, arbitrary-trust-horizon interval-hierarchy algorithm. Related temporal branching (Bubboloni et al. 2023), constrained reachability (Brunelli and Viennot 2023), and static-tree delegation equilibrium (Escoffier et al. 2019) do not visibly state the same result. General tree-CSP dynamic programming is an acknowledged methodological precursor, not claimed as new. Priority risk: an equivalent specialized weighted-interval tree algorithm could exist in unindexed material; the full Bubboloni text and some related papers were not inspectable here.
+PASS
 
-## Value — PASS
-The source problem asks for time-conscious, confluent, welfare-maximizing delegation. The fixed single-parent hierarchy plus contiguous approval windows is a practicable restriction that preserves both axioms. The exact interval propagation and near-linear welfare optimization handle nonmonotone temporal trust, not just retrospective trust, and the four-person obstruction shows that separate path feasibility is not enough. The result is structural and algorithmic, not a routine small-parameter numerical comparison.
+Each child feasible interval I_c=[l,u] contributes union of integer windows [s-delta_c(s),s] over consecutive s. As each window contains its integer index, their union is exactly [min(s-delta_c(s)),u]; subtree feasibility is an interval by intersection. Disjoint subtrees give exact max-sum Bellman recurrence and weighted interval-stabbing messages. Sorting endpoints, heap maxima and parent difference arrays process S explicitly supplied time-values in O(S log(2+S)) arithmetic/comparisons and O(S) storage. Independently enumerated the four-voter nonconfluence witness. Zero/erratic horizons and signed scores are handled by the structural proof, not the finite verifier.
 
-## Boundaries and nearest literature
-No claim is made for choosing parent recipients, multiple disjoint approval intervals, multiple independent casting roots or compressed input. The result is not an independent proof of publication priority and is subject to broader-coverage risk from general temporal-tree optimization literature. No independent external examination has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest November 2 theorem already proves a fixed-forest action-synchronized welfare DP in O(M+nL log(L+1)) and a sharp four-voter obstruction, so neither the tree recurrence nor the obstruction is claimed new. The submitted narrower contiguous-time assumption permits an additional exact gap-free subtree feasible-time theorem and near-input-size O(S log S) processing that avoids scanning the whole global horizon. The older model uses a persistent caster whose separate child routes may terminate at different dates; the new model binds them to one root ballot time. These distinctions are not stated in the inspected prior theorem. Priority still qualified by generic weighted interval tree-CSP algorithms.
+
+## value
+
+PASS
+
+The exact interval invariant and horizon-independent near-linear algorithm for explicit, possibly short time windows are useful structural/algorithmic improvements over O(nL log L) tables when L is much larger than total available-time input S. The four-voter obstruction is credited as previously demonstrated rather than used to claim novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
