@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Rank-chamber piecewise-affine reduction and discrete coarea justify exhaustive binary-cut optimization; the overlap of the two central shared window samples gives the sharp all-dimensional 5/3 upper bound. A C++17 exact checker examines every n! rank permutation and every nontrivial complemented binary cut through n=9, then verifies explicit exact 10–14 witnesses and padded witnesses. The analytic padding construction proves all larger dimensions, not merely tested cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Longbotham–Bovik 1989 is about OS/FIR equivalence conditions, not all-chamber total variation perturbation norms.",
+        "Earlier published running-median BV results concern a one-rank selector, not an average of three order statistics."
+      ],
+      "reasoning": "The linear-rank structural classification does not supply the computed exact finite-size coefficients; a median statement cannot dominate the trimmed-mean statement because the two operators have different chamber matrices.",
+      "searches": [
+        "\"order statistic filters\" \"variation diminishing\" Lipschitz",
+        "rank order statistic filter five point alpha trimmed mean variation sensitivity adjacent differences",
+        "five-point symmetric trimmed mean running filter cyclic total variation two-input Lipschitz norm sharp 5/3 n=10"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ICASSP.1982.1171857",
+      "https://dblp.org/db/conf/icassp/icassp1982.html",
+      "doi:10.1109/TASSP.1983.1164247",
+      "https://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/VELDHUIZEN/node13.html",
+      "doi:10.1109/29.21690",
+      "https://ecommons.udayton.edu/ece_fac_pub/86/",
+      "https://experts.colorado.edu/display/pubid_518602",
+      "https://uwspace.uwaterloo.ca/items/7426e4ed-37b2-415e-a834-7ffa0e3f5358"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bovik–Huang–Munson 1982/1983: order-statistic noise filtering and mean-square coefficients.",
+        "Veldhuizen 1998: piecewise linearity and trimmed means, no cyclic variation theorem.",
+        "Related sharp cyclic running-median results use rank-three selection only."
+      ],
+      "reasoning": "Knowing the operator is piecewise linear is a proof-enabling premise but does not determine the induced cyclic-BV norm; the new overlap lemma and exhaustive finite chamber/cut reduction provide the missing implications. Published median constants and thresholds do not determine weighted-middle-three rank averages.",
+      "searches": [
+        "Bovik Huang Munson \"generalization of median filtering\" pdf 1983",
+        "Longbotham Bovik \"theory of order statistic filters\" pdf 1989",
+        "Todd Veldhuizen grid filters PhD thesis pdf order statistic 1998"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Veldhuizen 1998 explicitly describes a trimmed-mean member of order-statistic filters, represented by a mean of ranks 2–4.",
+        "University sources identify Bovik–Huang–Munson 1982/1983 as the earlier order-statistic-filter family."
+      ],
+      "reasoning": "The map equals the symmetric alpha-trimmed five-point mean with removal of one extreme at each side; these aliases were included. The full two-input cyclic BV modulus is not contained in the retrieved statements merely defining the operator.",
+      "searches": [
+        "five-point symmetric trimmed mean running filter cyclic total variation two-input Lipschitz norm sharp 5/3 n=10",
+        "rank order statistic filter five point alpha trimmed mean variation sensitivity adjacent differences",
+        "LUM filter trimmed mean image smoothing exact BV two-input stability lower threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact 0,1,4/3,5/3 dimension table found in the scoped literature and mathematical-result searches.",
+        "The original paper listings report mean-square design and rank-filter properties, not the claimed table."
+      ],
+      "reasoning": "This is a negative scoped-search observation, not a uniqueness proof. Exact finite coefficients are proved independently by full rank/cut enumeration.",
+      "searches": [
+        "five-point symmetric trimmed mean running filter cyclic total variation two-input Lipschitz norm sharp 5/3 n=10",
+        "rank order statistic filter five point alpha trimmed mean variation sensitivity adjacent differences",
+        "\"five point trimmed mean\" \"variation\" cyclic"
+      ]
+    },
+    "rationale": "Located the original 1982–1983 order-statistic-filter literature and 1998 piecewise-linear characterization. Those establish the filter family but the accessible inspected texts do not give the sharp cyclic two-input variation classification. Related published results for medians do not imply this middle-three average classification. Priority remains qualified due to inaccessible original full texts.",
+    "residual_risks": [
+      "Full original papers from 1982, 1983, and 1989 were not obtained; their unseen appendices may contain a statement in a different formulation.",
+      "The university-hosted 1998 thesis PDF could not be fetched through the available reader, although the separate full relevant online chapter was read.",
+      "Historical searches and the available mathematical index cannot establish global novelty or independent peer validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible prose gives the trimmed-mean example and rank-chamber premise, without stating sharp cyclic two-input variation coefficients; untranscribed equation figures are a minor source-inspection limit",
+        "evidence": [
+          "The chapter lists the trimmed-mean filter at its lines 20–23 and describes piecewise linear rank regions at lines 32–36."
+        ],
+        "identifier_or_url": "https://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/VELDHUIZEN/node13.html",
+        "material_read": "entire accessible HTML chapter prose (lines 1–49), including the list of filter examples and explanation of rank-cell linearity; embedded equation images not transcribed",
+        "method": "read full accessible chapter text",
+        "title": "Order statistic filters (Veldhuizen online literature-review chapter, 1998)",
+        "trigger": "Direct presentation of middle-rank trimmed mean and piecewise linear order-statistic filters"
+      },
+      {
+        "assessment": "Original family predates this result; abstract is about noise-MSE filter design and does not establish or disprove the target variation formula; unresolved full-text risk",
+        "evidence": [
+          "University publication abstract identifies a linear combination of order statistics as the object; ICASSP 1982 proceedings were held May 3–5."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ICASSP.1982.1171857",
+        "material_read": "university repository abstract and conference bibliographic record only; full original text not accessible in retrieved results",
+        "method": "retrieved university scholarly abstract, checked conference proceedings dates against public bibliographic records",
+        "title": "Nonlinear filtering using linear combinations of order statistics (Bovik–Huang–Munson, 1982)",
+        "trigger": "Original early order-statistic-filter introduction and earliest day-resolved source"
+      },
+      {
+        "assessment": "The published description focuses on minimum mean square error of rank weights; there is residual risk of an uninspected stability lemma",
+        "evidence": [
+          "University of Illinois publication abstract discusses MSE-optimal rank combinations and noise distributions, rather than the present pairwise total-variation seminorm."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TASSP.1983.1164247",
+        "material_read": "scholarly repository abstract, bibliographic metadata and accessible references; not full original PDF",
+        "method": "searched for lawful open full text and read the accessible article abstract",
+        "title": "A Generalization of Median Filtering Using Linear Combinations of Order Statistics (Bovik–Huang–Munson, 1983)",
+        "trigger": "Closest original extended journal treatment of order-statistic-filter family"
+      },
+      {
+        "assessment": "Deals with conditions for OS/FIR equivalence; exact nonlinear cyclic BV sensitivity cannot be inferred from the available description; some residual full-text risk",
+        "evidence": [
+          "Accessible abstract concerns equivalence of OS and linear FIR filters on particular input signal classes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/29.21690",
+        "material_read": "university abstract and publication metadata, not complete original text",
+        "method": "searched scholarly sources and read accessible abstract",
+        "title": "Theory of Order Statistic Filters and Their Relationship to Linear FIR Filters (Longbotham–Bovik, 1989)",
+        "trigger": "Potential structural result stronger than rank-chamber reduction"
+      },
+      {
+        "assessment": "LUM center-clipping filters are distinct from the trimmed middle-three mean; no direct coverage shown; full text unavailable",
+        "evidence": [
+          "Repository abstract describes clipping a middle sample between lower and upper ranks rather than averaging the three middle values."
+        ],
+        "identifier_or_url": "https://ecommons.udayton.edu/ece_fac_pub/86/",
+        "material_read": "complete available repository abstract and bibliographic page, no full paper",
+        "method": "opened university-hosted article listing",
+        "title": "LUM Filters: A Class of Rank-order-based Filters for Smoothing and Sharpening (Hardie–Boncelet, 1993)",
+        "trigger": "Potentially adjacent robust rank-filter stability theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "902f14da-94aa-434b-a485-964334936305",
+  "value": {
+    "rationale": "A natural robust filter has a sharp complete dimension-by-dimension nonexpansivity and amplification classification, including the first instability at 8 sites and exact saturation at 10. The result answers a precise practical stability question for a standard rank-trimmed smoother and supplies a reusable local overlap mechanism; it is neither a routine substitution nor a naked computational table.",
+    "status": "PASS"
+  }
+}
