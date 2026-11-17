@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each length-\(kn\) factor is an offset less than \(k\) from \(\varphi_k(u)\), and zero prefixes of image blocks make that factor an exact cyclic rotation. An input factor with a zero creates one-symbol markers only at residue \(k-1\) modulo \(k\), prohibiting collisions across non-block-aligned rotations. The fixed point contains no \(11\), so all factors of length at least two have the marker. This proves surjectivity, injectivity, exactly \(k\) representatives per original factor representative, and the exceptional image of single-letter \(1\). The Parikh and iterated formulas follow by direct recurrences. Finite independent checks confirm representative cases, not the infinity argument.
+## correctness
 
-**Originality — PASS, with historical risk.** Proposition 17 of Cassaigne–Fici–Sciortino–Zamboni (arXiv:1402.5843, Section 5.1) gives only two cyclic classes at lengths \(k^j\), using a surjection under one-discrepancy morphisms. It does not supply class injectivity for arbitrary \(n\), exact per-class representative multipliers, or the complete class-size inflation profile. The later Stewart-word work of Fici–Shallit (arXiv:2112.12125) addresses subword complexity, palindromes and repetitions of a different Toeplitz family. Neither investigated statement implies the one here. An unindexed independently discovered necklace-inflation statement remains possible; the result is not asserted to be certified historically unique.
+PASS
 
-**Value — PASS.** The source treats sparse cyclic complexity at powers of the substitution length. The present theorem converts that observation into a uniform all-length renormalization of the entire cyclic-factor orbit inventory, including exact individual orbit cardinalities and weight information. This makes all \(k\)-divisible cases reducible to smaller lengths and provides the complete class-size split at all \(k^j\), not just the number of classes. The marker-injectivity result is a structural combinatorial strengthening rather than another finite table.
+For every k>=2, each factor of length kn in the fixed point of 0 -> 0^(k-1)1, 1 -> 0^k is a rotation by r<k of phi_k(u) for a length-n factor u, because each image block has k-1 leading zeros. All nonempty one markers in phi_k(u) have indices congruent k-1 mod k. Every input factor n>=2 contains zero since the fixed point avoids 11, so rotating images of two such factors to coincide forces a multiple-of-k shift, hence conjugacy of source factors. Different residues give k|C| target members and Parikh complement t -> n-t; handle two singleton classes at n=1 separately. Independent direct factor-set/class enumeration matched k=2..4, n=1..7 including class sizes.
 
-**Scope and priority limits.** No explicit formula is claimed at lengths prime to \(k\); abstract-level access to older Toeplitz-structure literature cannot exclude undocumented statements on cyclic classes. Source novelty is a best-knowledge comparison, not an independent priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2014 general cyclic-complexity paper establishes the number of length-k^j classes, not the all-length bijection and exact class-size lift. However a published November 2, 2026 theorem already proves the k=2 all-length factor-class bijection for the binary period-doubling word; credit this precisely. The new surviving all k>=3 sparse-marker generality, uniform k-fold class-size spectrum, exceptional n=1 lift, and Parikh iterates are absent from the read prior k=2 paper.
+
+## value
+
+PASS
+
+Beyond the already-known dyadic class-count invariant, the exact factor-representative multiplicities and weight transport give a natural fine cyclic-complexity classification of a uniform substitution family. The marker-residue proof provides a reusable recognizability mechanism rather than a few isolated counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
