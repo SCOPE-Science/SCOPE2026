@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory with Python 3. No third-party libraries or external data are required. The checker enumerates **every** size-\(k\) survivor subset for all \(2\le n\le9\), all legal partner-set sizes, overlaps and quorums. For each adjacent overlap comparison it computes the two empirical joint-count distributions by direct set enumeration and compares their joint quorum-survival count difference with the algebraic binomial formula. Its reported output is:
+## correctness
 
-```
-parameters 2838 threshold identities 45078 strict identities 6270
-OR covariance c 0 : -16 / 1225
-OR covariance c 1 : -16 / 1225
-OR covariance c 2 : 19 / 1225
-OR covariance c 3 : 124 / 1225
-```
+PASS
 
-The code asserts equality of the direct-enumeration difference and the symbolic increment for all 45,078 instances; no probabilities are approximated or simulated. The checker also asserts the seven-species covariance numerators exactly. The machine computation is finite and does **not** certify the all-parameter theorem. That conclusion follows from the exchange-of-one-exclusive-partner proof and the nonnegative four-cell mixed differences in `RESULT.md`. The analysis relies on uniform fixed-size survival; no claim is made for other sampling designs or observed ecosystems.
+The theorem specifies a uniform k-subset of n primary species, partner sizes a,b and overlap c. One-step change c->c+1 replaces one B-exclusive species y by one A-exclusive x. Pairing samples in which exactly one of x,y survives yields exactly one four-point mixed difference of phi, with binomial coefficients for the c common, a-c-1 A-only, b-c-1 B-only and n-a-b+c outside regions. Each weight is nonnegative, proving full supermodular order over all feasible c and 0<=k<=n; each marginal is independently hypergeometric. Applying phi=1_{i>=r}1_{j>=s} gives the exact quorum increment and strictness condition. Inclusion-exclusion yields covariance [C(n-a-b+c,k)C(n,k)-C(n-a,k)C(n-b,k)]/C(n,k)^2 and Pascal monotonic increments. At (n,k,a,b)=(7,3,3,3), numerators -16,-16,19,124 over 1225 confirm sign transition. Independent direct enumeration checked 8,682 n<=7 threshold identities including boundaries, source verifier covers parameters n<=9. General proof, not finite testing, establishes all n.
+
+## originality
+
+PASS
+
+The one-partner covariance subformula is explicitly PRIOR-COVERED by the October 26 fixed-quota paired-persistence theorem. The surviving original contribution is the full arbitrary-quorum, arbitrary-supermodular-test overlap ordering and exact binomial transfer/strictness coefficients at fixed budget; earlier related covariance theorem varies quota k at fixed overlap and cannot supply these.
+
+## value
+
+PASS
+
+A natural reliability/ecology question under fixed survival quotas: changing shared partners while preserving each function’s marginals. The all-supermodular-order theorem rigorously controls all increasing quorum pairs and other complementary utilities, gives explicit sharp positive increments and can support analysis beyond covariance. Existing single-threshold covariance alone cannot replace the joint order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

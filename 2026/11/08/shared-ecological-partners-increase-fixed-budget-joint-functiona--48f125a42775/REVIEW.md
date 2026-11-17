@@ -1,24 +1,21 @@
-# Scientific review: fixed-budget overlap order for linked ecological functions
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim fixes the random experiment precisely: each size-\(k\) survivor subset of an \(n\)-species population is equiprobable, and partner-set sizes \(a,b\) stay fixed as intersection size \(c\) increases. A legal one-step overlap change swaps one partner exclusive to the second function for one exclusive to the first function. Pairing the two possible one-survivor configurations of those marked species produces exactly the nonnegative adjacent mixed difference of any supermodular test function, with combinatorial weight \(\binom ch\binom{a-c-1}{u}\binom{b-c-1}{v}\binom{n-a-b+c}{w}/\binom nk\). Thus the proof covers **all** feasible integer parameters without appealing to finite computations for an infinite claim. Threshold indicators have mixed difference supported at exactly one pair of quorum boundaries, yielding the explicit strictness identity. Inclusion–exclusion establishes the activity covariance, and Pascal's identity establishes its monotonicity. The numerical covariance example was independently recomputed. The self-contained standard-library checker exhausts all 45,078 quorum comparisons across 2,838 legal adjacent overlap comparisons through nine primary species; each agrees with the transfer formula, including 6,270 strictly positive cases.
+PASS
 
-## Originality (PASS within inspected sources; historical priority provisional)
+The theorem specifies a uniform k-subset of n primary species, partner sizes a,b and overlap c. One-step change c->c+1 replaces one B-exclusive species y by one A-exclusive x. Pairing samples in which exactly one of x,y survives yields exactly one four-point mixed difference of phi, with binomial coefficients for the c common, a-c-1 A-only, b-c-1 B-only and n-a-b+c outside regions. Each weight is nonnegative, proving full supermodular order over all feasible c and 0<=k<=n; each marginal is independently hypergeometric. Applying phi=1_{i>=r}1_{j>=s} gives the exact quorum increment and strictness condition. Inclusion-exclusion yields covariance [C(n-a-b+c,k)C(n,k)-C(n-a,k)C(n-b,k)]/C(n,k)^2 and Pascal monotonic increments. At (n,k,a,b)=(7,3,3,3), numerators -16,-16,19,124 over 1225 confirm sign transition. Independent direct enumeration checked 8,682 n<=7 threshold identities including boundaries, source verifier covers parameters n<=9. General proof, not finite testing, establishes all n.
 
-The 2012 linked-network ecological study of Pocock, Evans and Memmott (first online 2012-02-23; accepted full-text manuscript inspected) is the primary motivation. It discusses correlations across actual ecological networks under removal experiments but neither formulates nor implies the explicit supermodular order for all uniformly sampled fixed-size survivor sets and arbitrary guild quorums. Evans, Pocock and Memmott (2013, accessible full text inspected) study multiple habitat-removal orders and genetic optimization, again not this two-function exact law. Joag-Dev and Proschan's (1983) negative association theory addresses dependence in without-replacement sampling, particularly disjoint sets; the abstract and identifying primary publication were accessible, and a full-text priority gap is disclosed. Meyer and Strulovici's (2015) full manuscript explicitly characterizes supermodular stochastic order in terms of four-point transfers (Theorem 1); this is the closest general mathematical antecedent. It furnishes a language and general criterion, but the inspected text does not specialize that criterion to the hypergeometric partner-set overlap family or state the weights, all-quorum transfer, strictness test or ecological sign transition. The proof does not claim the general order or the four-point technique itself is new. Older multivariate-hypergeometric and coherent-system reliability results may contain an equivalent proposition, and source coverage is not exhaustive.
+## originality
 
-## Value (PASS)
+PASS
 
-Linked ecological interaction networks deliberately share species. When exactly a chosen number of species survive, that fixed total generates negative association, whereas shared partners generate positive dependence. The result gives a complete structural resolution for **every** pair of functional quorum thresholds and population size, with equality/strictness conditions and a sharp, computable overlap threshold for changes from negative to positive activity covariance. It therefore separates individual functional robustness from simultaneous cross-function robustness under a natural ecological extinction protocol; this is not a routine numeric example or a renaming of generic covariance formulas. The seven-species example exhibits an explicitly non-monotone-in-sign dependence phenomenon that is absent under independent species survival. The value is a theoretical design and interpretation benchmark, not a prediction about actual ecological communities.
+The one-partner covariance subformula is explicitly PRIOR-COVERED by the October 26 fixed-quota paired-persistence theorem. The surviving original contribution is the full arbitrary-quorum, arbitrary-supermodular-test overlap ordering and exact binomial transfer/strictness coefficients at fixed budget; earlier related covariance theorem varies quota k at fixed overlap and cannot supply these.
 
-## Closest literature and remaining limitations
+## value
 
-- Pocock et al. (2012), DOI 10.1126/science.1214915: related ecological questions and simulated correlated robustness; not an exact hypergeometric transfer law.
-- Evans et al. (2013), DOI 10.1111/ele.12117: multiple habitat-loss sequences and robustness optimization; not a full two-function order.
-- Joag-Dev and Proschan (1983), DOI 10.1214/aos/1176346079: negative association framework; full article not established as inspected.
-- Meyer and Strulovici (2015), https://www.nuff.ox.ac.uk/Users/Meyer/ms17apr2015.pdf : a general supermodular-order characterization and marginal-preserving transformations; does not explicitly handle this ecological partner-overlap family.
+PASS
 
-The model excludes heterogeneous and correlated species loss, nonlinear ecological feedbacks and time-resolved cascades. Older unindexed overlapping-hypergeometric or reliability literature could reduce historical novelty. Computational enumeration checks only finitely many instances; the general claim rests on the combinatorial proof.
+A natural reliability/ecology question under fixed survival quotas: changing shared partners while preserving each function’s marginals. The all-supermodular-order theorem rigorously controls all increasing quorum pairs and other complementary utilities, gives explicit sharp positive increments and can support analysis beyond covariance. Existing single-threshold covariance alone cannot replace the joint order.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
