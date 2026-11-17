@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The D4 Voronoi region is proved to be the convex hull of exactly 24 unit vertices, of four-volume 2. A dot-product extremality argument places every squared-radius superlevel above 3/4 in a disjoint union of 24 congruent vertex caps. In each cap x=(1-t,tu), the exact squared-radius deficit is 2t-(1+sum u_i^2)t^2, monotone up to t=1/4; an exact Jacobian integral gives the full asserted CDF on 0<epsilon<1/4. Lagrange inversion and uniform convergence yield the full coefficient formula. The compiled local verifier checked exact rational coefficients, discrete symmetry and geometric bounds, and numerical quadrature versus 1.2 million exact-law volume-uniform samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Global optimal normalized second moment addresses the integral of the radial distribution, not its endpoint germ.",
+        "The regular-simplex nearest-vertex tail concerns distance to a finite vertex codebook inside a simplex; D4 uses distance to an infinite lattice with a distinct 24-cell Voronoi region."
+      ],
+      "reasoning": "No broader inspected second-moment, average CDF bound, or regular-simplex result logically determines the D4 endpoint germ. The cited older radial plots are a priority risk but are not known to include analytic endpoint coefficients.",
+      "searches": [
+        "arXiv:2611.00100 Theorem A/Theorem B; arXiv:2506.19791 Section II and Appendix D; IEEE IT 28 (1982) 211–226, Sections II–III; public record 2026/10/25/SCOPE-exact-deep-hole-tail-law-for-nearest-vertex-quantization-on-regu--018b3d54290b"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.00100v1 (Tianle Liu, first public 2026-10-26)",
+      "arXiv:2506.19791v1 (Or Ordentlich, first public 2025-06-24)",
+      "Conway and Sloane, IEEE Transactions on Information Theory 28 (1982), 211-226, author-hosted PDF",
+      "Public record 2026/11/1/SCOPE-an-exact-two-cap-width-law-and-quadratic-transition-for-the-regu--3b5e3e03403a",
+      "Public record 2026/10/25/SCOPE-exact-deep-hole-tail-law-for-nearest-vertex-quantization-on-regu--018b3d54290b",
+      "Public record 2026/11/8/SCOPE-the-sharp-kuhn-packet-gap-for-the-four-dimensional-root-lattice--e3deda8b77bb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim uses exact disjoint D4 vertex caps above squared radius 3/4 and a cubic-parameter Jacobian; this geometry is not a consequence of optimizing average squared norm.",
+        "The D4 Kuhn packet result is a lattice basis covering statement and does not imply a distribution of squared distances."
+      ],
+      "reasoning": "The result is not a corollary of the cited nearest-vertex, width, packet, or second-moment statements. The cap analysis is independently proved. A complete search of all past literature is impossible, hence historical priority is provisional.",
+      "searches": [
+        "arXiv:2611.00100, Sections 1–3; arXiv:2506.19791 Sections I-A/I-B, II, references; IEEE IT 1982 Sections II–III; public published-finding corpus record 2026/11/8/SCOPE-the-sharp-kuhn-packet-gap-for-the-four-dimensional-root-lattice--e3deda8b77bb"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Voronoi spherical CDF g_L(r) is 1 minus the radial tail; the present result gives 1-g_D4(sqrt(1-epsilon)) for epsilon in (0,1/4).",
+        "The nearest-lattice squared error in the unscaled D4 cell equals the squared radius of its uniform cell point."
+      ],
+      "reasoning": "The equivalent CDF/void-exclusion/quantization-error formulations were explicitly compared. Prior CDF papers treat general random lattices or bounds; the inspected text gives no exact endpoint D4 integral or coefficients.",
+      "searches": [
+        "arXiv:2506.19791, Sections I-B/II; arXiv:2611.00100, Sections 1/2; 2009 Haviv–Lyubashevsky–Regev reference in arXiv:2506.19791"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical 24-cell table gives volume and second moment, not the radial tail.",
+        "The public 24-cell width law concerns random directions and projection widths, not volume-uniform radii."
+      ],
+      "reasoning": "An exact tabulated moment does not determine a radial CDF without additional geometric information. No table giving the all-order coefficients or the stated integral was found.",
+      "searches": [
+        "arXiv:2611.00100, Section 1 and root-lattice calculations; Conway–Sloane IEEE IT 1982, Table II and Section III; public published-finding corpus record 2026/11/1/SCOPE-an-exact-two-cap-width-law-and-quadratic-transition-for-the-regu--3b5e3e03403a"
+      ]
+    },
+    "rationale": "The claim determines the exact endpoint radial CDF, on an entire interval, for the unscaled D4 24-cell. Liu establishes second-moment global optimality, Conway–Sloane computes mean-square moments, and Ordentlich provides random-lattice CDF bounds and points to earlier plotted D4 radial functions. None of these inspected statements establishes the exact 3-cube cap formula with the full positive rational endpoint series. Public geometry-index results on a regular 24-cell width distribution and regular-simplex nearest-vertex tail are different statistics/objects. Historical priority remains provisional.",
+    "residual_risks": [
+      "An older paper is cited as having evaluated/plotted the D4 radial function; its full technical content was not accessible here. Exact endpoint expressions could have been overlooked under different terminology.",
+      "The full text of the listed public regular-simplex tail record was inaccessible; its summary covers a distinct geometric domain. This alone does not establish unconditional historical priority.",
+      "The proof is analytic, but no independent audit or archival literature exhaustion has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves global second-moment optimality, not pointwise D4 radial endpoint distribution",
+        "evidence": [
+          "2026-10-26 first public arXiv submission",
+          "Theorem A concerns normalized second moment; Theorem B counts facets",
+          "Section 2 computes second-moment polynomials"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.00100",
+        "material_read": "Full arXiv text display, introduction, main theorems, second-moment derivation and comparison; original submission date on abstract page",
+        "method": "Publicly accessible arXiv textual full article",
+        "title": "The optimal four-dimensional lattice quantizer and bounds from Voronoi facets",
+        "trigger": "Recent D4 optimality source with exact Voronoi second moments"
+      },
+      {
+        "assessment": "General bounds and random-lattice statistics, with D4 historical radial plots explicitly cited; no displayed D4 exact endpoint coefficients",
+        "evidence": [
+          "First public date 2025-06-24, versus later revisions",
+          "Section I-B says D4 radial function has previously been evaluated and plotted",
+          "Section II studies random-lattice bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.19791",
+        "material_read": "Accessible HTML introduction, Section I-B related work, Section II lattice CDF bounds, references and description of appendix",
+        "method": "Lawful open-access primary HTML",
+        "title": "The Voronoi Spherical CDF for Lattices and Linear Codes: New Bounds for Quantization and Coding",
+        "trigger": "Equivalent radial-CDF formulation and nearest prior distributional literature"
+      },
+      {
+        "assessment": "Tables and sections concern Voronoi geometry and second moments, not exact near-covering-radius radial CDF",
+        "evidence": [
+          "1982 IEEE Transactions on Information Theory 28:211–226",
+          "Page 215 computes the 24-cell normalized second moment"
+        ],
+        "identifier_or_url": "https://neilsloane.com/doc/Me82.pdf",
+        "material_read": "Public PDF title/abstract, visually inspected page 211 and 215, extracted root-lattice sections and D4 second-moment passages",
+        "method": "Lawful author-hosted PDF and visual page inspections",
+        "title": "Voronoi Regions of Lattices, Second Moments of Polytopes, and Quantization",
+        "trigger": "Classical possible dominating exact formula for 24-cell quantization"
+      },
+      {
+        "assessment": "Nearest-vertex quantization for regular simplices; different object and nearest-point operation; residual risk limited to uninspected details",
+        "evidence": [
+          "Public summary specifies regular-simplex vertex quantization and Dirichlet-integral law"
+        ],
+        "identifier_or_url": "2026/10/25/SCOPE-exact-deep-hole-tail-law-for-nearest-vertex-quantization-on-regu--018b3d54290b",
+        "material_read": "Published summary and claim in indexed search result; full text not accessible",
+        "method": "Read public semantic index summary",
+        "title": "Publicly indexed exact deep-hole tail law for regular simplices",
+        "trigger": "Nearest title and mathematically analogous tail expansion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0c95835f-8670-4335-808a-bcdda3b5ab5b",
+  "value": {
+    "rationale": "The full tail near covering radius for the canonical 24-cell Voronoi region quantifies near-worst lattice-quantization error, independent information from mean-square distortion. It determines a natural interval-exact probability law, the fourth-order critical tail, and all higher strictly positive rational coefficients via an explicit nontrivial cap decomposition. It is neither an arbitrary finite enumeration nor only a normalization check.",
+    "status": "PASS"
+  }
+}
