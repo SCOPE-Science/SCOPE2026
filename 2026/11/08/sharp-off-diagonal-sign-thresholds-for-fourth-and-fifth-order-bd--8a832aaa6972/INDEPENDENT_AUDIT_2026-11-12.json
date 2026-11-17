@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T20:21:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalizing δ_k(z)=Σ_{j=1}^k(1-z)^j/j gives p4 and p5 exact rational polynomials and [z²]p4^α=α(1152α-252)/625, [z²]p5^α=300α(150α-13)/18769. BDF6 has [z²]p6^α=α(150+7200α)/2401>0. At each threshold, the derivative recurrence nW_n=Σ_{j=1}^{min(k,n)}(((1+α)j-n)p_j W_{n-j}) gives rational signs W1<0, W2=0, W3..W999<0 (independently recomputed exactly). Schur reductions certify all zeros of q4 lie outside 7/5, q5 outside 4/3, which allows Cauchy eta-coefficient bounds; the explicit half-tail bounds for n>=1000 have C1/1000=.34125 or .3912, plus <.01 remainder, below q(1)^α. Thus W_n<0 for all n>=1000 analytically, not by finite exhaustion. Positive-series fractional composition transfers strict negativity for smaller α. Independent numeric root moduli and rational tail-bound checks corroborated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-all-index-sign-and-tail-monotonicity-theorem-for-fractional-b--17c52459e9de/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-signs-of-the-fractional-bdf3-convolution-quadrature-weight--5cb4ee0678f8",
+          "https://arxiv.org/abs/math/0504461"
+        ],
+        "reasoning": "Lower BDF order classifications cannot be substituted for k=4,5 because the characteristic factors, root disks and endpoint coefficients change. Fast CQ algorithms cover numerical computation, not these coefficients’ signs.",
+        "searches": [
+          "Resultary fractional BDF2 all-index sign tail monotonicity",
+          "Resultary BDF3 fractional weights sharp signs",
+          "Schädle López-Fernández Lubich fast convolution quadrature 2005"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE assigned RESULT.md tree 1298063ae05331fb4d157c8dae82a21454312317",
+        "Lubich (1986) https://doi.org/10.1137/0517050",
+        "https://arxiv.org/abs/math/0504461",
+        "https://arxiv.org/abs/2311.00081",
+        "Resultary BDF2 and BDF3 previous classifications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2311.00081 studies negative history weights for quasilinear fractional equations, focusing lower BDF schemes",
+          "DOI:10.1137/17M1118816 addresses high-order starting corrections and convergence, different logical target"
+        ],
+        "reasoning": "Sign assumptions in solver analyses motivate this theorem but do not imply the exact k4/k5 thresholds; convergence/starting-correction theorems cannot directly yield the uncorrected scalar weight signs.",
+        "searches": [
+          "López-Fernández Płociniczak 2023 negative history weight admissibility",
+          "Jin Li Zhou 2017 high-order BDF correction convergence",
+          "Lubich 1986 fractional BDF symbol"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lubich, Discretized Fractional Calculus (1986), defining fractional multistep CQ symbols",
+          "Candidate exact endpoint coefficient recurrence and zero-free tail argument"
+        ],
+        "reasoning": "A known generating symbol is shared foundational machinery, but the sharp all-index signed-coefficient property of orders four and five does not follow as a previously stated special case of the inspected Lubich results.",
+        "searches": [
+          "Lubich discretized fractional calculus BDF higher order weights",
+          "fractional BDF4 BDF5 coefficient signs 7/32 13/150"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary index returned sharp BDF2 and BDF3 results, no BDF4/BDF5 exact all-index theorem other than the candidate.",
+          "Exact rational W3..W999 and separate analytic tail certificate establish the infinite quantifier."
+        ],
+        "reasoning": "A numerical sign table or individual coefficient threshold cannot replace the all-index classification; the relevant infinite-tail certificate is substantive.",
+        "searches": [
+          "fractional BDF 4 5 all lag sign thresholds negative history convolution weights",
+          "higher order BDF numerical sign table"
+        ]
+      },
+      "rationale": "The inspected BDF2 and BDF3 sign theorems are for different multistep polynomials and thresholds. Lubich’s 1986 foundational CQ treatment and Schädle et al 2005 fast CQ algorithm give generating symbols, not a sharp BDF4/5 every-index sign classification or BDF6 obstruction. No dominating theorem or exact table was located in bounded specialist search. Best-of-knowledge priority remains provisional.",
+      "residual_risks": [
+        "Specialist convolution-quadrature literature may contain equivalent unindexed sign results; inaccessible source material is not considered proof of novelty.",
+        "Root-radius and rational tail bounds must be read jointly with finite exact recurrence; numerical scans alone would not prove the all-index theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING higher BDF orders",
+          "evidence": "Explicitly BDF2 δ2, thresholds 5/8, 7/8; not BDF4/5/6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-all-index-sign-and-tail-monotonicity-theorem-for-fractional-b--17c52459e9de/RESULT.md",
+          "material_read": "Complete RESULT.md including Finding, proof recurrence and all-index BDF2 signs",
+          "method": "full repository text",
+          "title": "An all-index sign and tail-monotonicity theorem for fractional BDF2 convolution weights",
+          "trigger": "Closest exact indexed coefficient theorem"
+        },
+        {
+          "assessment": "FOUNDATIONAL, no located identical all-index higher-order sign theorem",
+          "evidence": "Defines δ_k^α and consistency methods; distinct from all-index sign classification.",
+          "identifier_or_url": "https://people.math.ethz.ch/~hiptmair/Seminars/CONVQUAD/Articles/LUB86.pdf",
+          "material_read": "Public indexed paper on multistep fractional symbol/convergence; relevant mathematical definitions and bibliographic result, no claim that every section was exhaustively searched",
+          "method": "lawful public PDF/available indexed text",
+          "title": "Discretized Fractional Calculus",
+          "trigger": "Foundational high-order CQ symbols"
+        },
+        {
+          "assessment": "LIMITED_ACCESS, no assertion whole document noncovering",
+          "evidence": "Highlights negative history weights, focus on quasilinear subdiffusion; a possible specialist-priority residual risk remains.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.00081",
+          "material_read": "Abstract and accessible contextual discussion, not complete full text",
+          "method": "public abstract and related source citation",
+          "title": "Convolution Quadrature for the quasilinear subdiffusion equation",
+          "trigger": "Sign admissibility as structural hypothesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sign definiteness of every off-diagonal fractional history weight matters to comparison and discrete-energy arguments. Exact admissibility thresholds for two higher BDF orders and the sharp sixth-order obstruction, backed by an infinite-tail proof, address a structural property a small numerical coefficient scan cannot establish. No solver-level maximum principle is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uncorrected uniform-step scalar fractional BDF weights; no assertion about positivity or stability of a full evolution scheme.",
+    "No variable steps, starting corrections, α outside (0,1).",
+    "Specialist convolution-quadrature literature may contain equivalent unindexed sign results; inaccessible source material is not considered proof of novelty.",
+    "Root-radius and rational tail bounds must be read jointly with finite exact recurrence; numerical scans alone would not prove the all-index theorem."
+  ],
+  "schema_version": 1
+}
