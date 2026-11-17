@@ -1,15 +1,21 @@
-# Scientific review: physical-time statistics of an algebraic limit cycle
+# Independent mathematical audit
 
-## Correctness
-PASS. The specified polynomial coefficients reproduce the primary source's vector field. Direct symbolic differentiation establishes the exact radial equation; substitution of the oval parametrization into both polynomial ODEs establishes the original-time angular drift. The period is a complete elementary angular integral. Conditional tangent changes of variables yield an exactly normalized Cauchy density; the two-to-one coordinate pushforward yields the displayed physical-position density. Poisson-kernel coefficients, rather than numerical fits, establish the exact squared-position moment and weak limit. The symbolic and quadrature checker executed successfully, but the infinite-parametric conclusions follow from the proof.
+## correctness
 
-## Originality
-PASS under inspected best-knowledge evidence, with a clearly described reduction caveat. Belattar et al. (2023) give the oval, classification, invariant, and stability, but no explicit period, time-sampled position density, exact conditional Cauchy phase law, or squared-position concentration constant. Adler's classical phase equation is acknowledged: its universal angular integration is a prior tool, not itself the new contribution. Searches of the mathematical research record and primary-source literature did not yield the complete object-specific metric-statistical claim. General Cauchy gate laws on other systems, including nonlinear global centers and star-node oscillators, do not imply the identified Belattar oscillator's Euclidean coordinate law. Risk: independent unindexed equivalent calculations or a judgment that the object-specific deductions are routine.
+PASS
 
-## Value
-PASS. This natural hyperbolic limit cycle degenerates at the precise qualitative bifurcation boundary already identified in the original study. The exact original-time period, Cauchy gate sampling, non-arcsine coordinate distribution, concentration rate for the concrete measured coordinate and transverse Floquet multiplier jointly describe an arrest mechanism not specified by the phase portrait. This is a motivated finite-parameter metric classification, not an arbitrary numerical example or a change of notation.
+The exact polynomial vector field and oval R=x^2+(y+w(x^2-h)x/(2h))^2 give dR/dt=-wR(R-h)/h by differentiation. Along R=h, x=sqrt(h)cos(theta), the original physical-time xdot=y yields dot(theta)=-(1+(w/4)sin2theta), everywhere negative when 0<w<4. Thus minimal physical period T=integral dtheta/(1+alpha sin2theta)=2pi/sqrt(1-alpha^2) with alpha=w/4, and transverse multiplier exp(-wT). The normalized physical-time angle density is delta/[2pi(1+alpha sin2theta)]; two gate-centered tangent substitutions yield conditional standard Cauchy laws. Pushing the angle distribution through x=sqrt(h)cos(theta) gives the displayed non-arcsine coordinate density. Fourier/Poisson kernel of the gate law yields E(X^2)=h/2 and E[(X^2-h/2)^2]=h^2 delta/[4(1+delta)]; Cauchy gate scaling yields the two-atom weak limit and sharp (4-w)^1/2 moment concentration. The boundary w=4 is nonperiodic. Independently re-integrated period and squared-position moment for four alpha values, with finite verification only as corroboration.
 
-## Closest literature and limitations
-The 2023 full article was inspected through its model, main theorem, proof, phase portraits, and references. Its invariant curve and stability are credited. Adler (1946) is a broad normal-form precursor, consulted through bibliographic record and abstract only; it is not asserted to be an unexamined proof of a system-specific identity. Related mathematical research records treat different equations, so no conclusion about uniqueness is based on partition labels. The theorem is confined to \(h>0\), \(0<w<4\) and uniform *physical time* on the orbit. At \(w=4\) the orbit ceases to be periodic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS to best knowledge. Belattar et al (2023) prove existence, invariant oval, hyperbolicity and phase portrait for the exact polynomial oscillator; those are explicitly NOT claimed new. Its inspected main theorem/proof does not state the original-physical-time phase distribution, full Euclidean position density, exact period and transverse multiplier, or the sharp w→4 coordinate concentration. The classical Adler phase drift integral/Cauchy substitution is generic prior knowledge, but applying the original unmodified polynomial dynamics to identify a complete measurable coordinate distribution and limit is a distinct natural system-specific quantitative result. No inspected stronger published theorem implies the full package, with risk of unindexed equivalent integration.
+
+## value
+
+PASS
+
+For a concrete experimentally interpretable algebraic limit cycle undergoing arrest at w=4, exact physical-time occupation, period, transverse stability and concentration of the measured x coordinate are natural dynamical invariants not determined by knowing just the geometric oval. The boundary two-atom trapping law with rate quantitatively distinguishes time occupancy from uniform angle or arclength and resolves a motivated gap in the source phase portrait. It is a nontrivial complete metric-temporal classification of this family, albeit reducible by elementary integration once the physical angular drift is found.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
