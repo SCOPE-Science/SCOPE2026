@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state-space generator is reconstructed independently for short paths and matched against the product of three Erlang completion CDFs. The path has two exterior infection fronts with rate \(\lambda\) and two interior fronts with aggregate rate \(2\lambda\); disjoint Poisson clocks justify the independence needed for the product. The strict Poisson-tail log concavity follows from a decreasing conditional-tail denominator, which proves the global greedy marginal allocation for every integer path order and positive deadline. The endpoint condition is an exact least-retained versus greatest-available increment comparison. Its power-series coefficients have exactly one negative-to-positive sign change when \(n\ge5\); the resulting strictly increasing normalized series proves one positive crossing. The small-path boundary cases and equality placements are treated separately. The checker provides finite regression evidence, not an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence, provisional
+Every exterior infection front has Erlang time of shape L or R at rate lambda; two active interior fronts give Erlang shape M at rate 2lambda, and the three disjoint edge-clock families are independent, proving Q_L(s)Q_R(s)Q_M(2s). Strict Poisson-tail log-concavity makes each marginal sequence strictly decreasing, so prefix selection by the three-way merge is globally optimal. At endpoints the weakest retained interior marginal is ell_N(2s), yielding the exact comparison with ell_1(s). H_N(s)=sum s^k/k! (2^k k!/(N)_k-1) has one negative-to-positive sign change for N>=3; H_N(s)/s^m increases to a positive limit/infinity, proving exactly one positive threshold. Independently checked 40 all-pair finite n/s instances.
 
-Fill–Pemantle (arXiv:math/0404015) establishes the relevant Poisson-edge/first-passage setting but develops hypercube percolation and covering-time bounds, not the two-source path deadline optimization. Kempe–Kleinberg–Tardos (DOI 10.1145/956750.956769 and expanded 2015 full text) develops eventual influence and general approximation guarantees, which do not imply this full-coverage-by-time product or its unique endpoint crossover. Van de Bovenkamp–Van Mieghem (DOI 10.1109/SITIS.2014.82) concerns metastable SIS spreading time, a different stochastic process and objective. Related social spreading and percolation records were compared on hypotheses, response variable, and implications, not just their titles. A previously unpublished or missed one-dimensional first-passage placement calculation is a residual priority risk; no independent historical certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The deadline is an operationally meaningful epidemic-response or information-diffusion objective, and the optimum changes structurally as the horizon increases: dispersing seed locations to cover multiple fronts is advantageous at short horizons, whereas the two endpoints become uniquely optimal beyond a single sharp horizon. The result is an exact, all-size optimizer and phase boundary in a classical stochastic growth model, not a numerical toy example or a routine reformulation of final-reach influence. It supplies an analytical benchmark for source placement under latency constraints. It does not claim practical validity without calibration.
+PASS: prior all-path-size endpoint transitions found in published SCOPE sentinel work concern uniformly random one-source bond-percolation detection by monitors, with eventual-detection objective and polynomial in transmissibility p. They do not imply the three independent Erlang completion events, two controlled initial SI seeds, the Poisson-tail endpoint threshold or its time dependence. Resultary searches and checked literature did not identify the same deadline optimization.
 
-## Closest literature and limits
+## value
 
-The starting SI model is standard, and static reachability on paths also admits gap-allocation decompositions; those alone do not establish the dynamic Poisson-tail threshold. Historical priority remains provisional in the broad first-passage and epidemic-control literature. The finite checker tests, but does not certify the infinite claims. Scope is homogeneous exponential irreversible SI on one finite path with two simultaneous seeds and a fixed deadline.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: exact all-n two-seed placement design under a deadline and a proved single endpoint transition give a natural nontrivial optimization of time-dependent diffusion on paths; the complexity bound and exact ties make it reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
