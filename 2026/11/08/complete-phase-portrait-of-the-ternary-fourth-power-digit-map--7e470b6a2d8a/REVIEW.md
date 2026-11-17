@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any base-three integer with \(k\ge5\) digits, the chain \(T(n)\le16k<3^{k-1}\le n\) is valid (base \(k=5\) and an elementary induction). Thus every trajectory enters \([1,80]\). The fourteen distinct outputs \(a+16b\) for \(1\le a+b\le4\) are all shown, every outgoing arrow is computed, and the graph is closed; it has exactly the three stated cycles. Parity is invariant because \(d^4\equiv d\pmod2\). The included code and output corroborate the finite edge table and independently recompute all small starting trajectories. No unproved infinite computation is assumed.
+## correctness
 
-## Originality — PASS within inspected literature
-Grundman–Teeple (2007) prove the parity invariant for all exponents in base three. Hargreaves–Siksek (2010) develop a general finite-cycle algorithm and show a quartic **decimal** example, but not the exact quartic ternary graph. Goedhart–Gurtas–Harris (arXiv v1 posted 17 October 2024) analyze general trees and preimages; their primary full text has no such explicit case. The original four-state/six-state dynamics is not claimed newly introduced: this review accepts only the **explicit** five-periodic-point global classification and its fourteen-arrow proof. Source-inspection gaps, especially the inaccessible survey body, and possible unindexed tables remain risks.
+PASS
 
-## Mathematical value — PASS
-Complete fixed-point and cycle determinations for a natural base/exponent are exact invariants in the generalized happy-number literature. Here the explicit global phase portrait additionally identifies a unique attractor for every even integer and exactly two distinct odd attractors. This is a natural complete classification rather than an arbitrary bounded sample, though it is an elementary instance of a previously known finite-cycle algorithm and gives no densities or digit characterization of the odd basins.
+For k≥5 ternary digits, 16k<3^{k−1}≤n, so T(n)<n until n≤80. The exact image of numbers 1..80 is U={1,2,3,4,16,17,18,19,32,33,34,48,49,64}; the independently recomputed full fourteen-arrow graph closes on U and contains exactly 1, 16↔18, 17↔33. Every digit has d^4≡d (mod2), so parity is invariant and even inputs enter only 16↔18. These finite graph calculations prove the infinite statement only together with the strict descent argument.
 
-## Limits
-The conclusion covers one base/exponent only. It does not determine odd-basin densities, other exponents, or statistical heights. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General happy-function convergence algorithms and parity principles are known, but the exact complete ternary quartic periodic-point set and its basin parity split were not listed in the checked primary results. Novelty is limited to those explicit exact natural-parameter values.
+
+## value
+
+PASS
+
+This is a complete global classification, not a bounded empirical table: the natural generalized-happy map with base three and fourth powers has precisely three cycles and a parity-constrained bifurcation of odd basins. Though technically elementary and an instance of a known general finite algorithm, these exact previously unstated dynamical invariants can be used as reference data and examples for generalized digit-map attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

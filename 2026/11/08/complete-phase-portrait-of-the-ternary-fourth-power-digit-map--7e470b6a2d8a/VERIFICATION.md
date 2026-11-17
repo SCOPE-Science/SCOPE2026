@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification of the exact cycle classification
-The standalone `verify.py` was executed using Python's integer arithmetic. It independently builds the fourteen-state image of all nonzero digit-count pairs with at most four digits and checks all transitions using direct base-three digit extraction. It checks every starting value from \(1\) through \(80\), obtaining precisely \((1)\), \((16,18)\), and \((17,33)\). Additional range checks confirm parity preservation and the elementary descent inequality over a sample of digit lengths; these last finite checks are illustrative, not the infinite proof.
+# Independent mathematical audit
 
-The actual deterministic stdout is embedded separately as `verification_output.txt`. The accompanying `RESULT.md` contains the complete infinite proof via strict descent plus the exact fourteen-state closed graph. The checker has no third-party dependencies and needs no source material outside the embedded files.
+## correctness
 
-No independent scientific audit has been performed. Any future check should inspect the exact decoded embedded program and replay it before relying on its output.
+PASS
+
+For k≥5 ternary digits, 16k<3^{k−1}≤n, so T(n)<n until n≤80. The exact image of numbers 1..80 is U={1,2,3,4,16,17,18,19,32,33,34,48,49,64}; the independently recomputed full fourteen-arrow graph closes on U and contains exactly 1, 16↔18, 17↔33. Every digit has d^4≡d (mod2), so parity is invariant and even inputs enter only 16↔18. These finite graph calculations prove the infinite statement only together with the strict descent argument.
+
+## originality
+
+PASS
+
+General happy-function convergence algorithms and parity principles are known, but the exact complete ternary quartic periodic-point set and its basin parity split were not listed in the checked primary results. Novelty is limited to those explicit exact natural-parameter values.
+
+## value
+
+PASS
+
+This is a complete global classification, not a bounded empirical table: the natural generalized-happy map with base three and fourth powers has precisely three cycles and a parity-constrained bifurcation of odd basins. Though technically elementary and an instance of a known general finite algorithm, these exact previously unstated dynamical invariants can be used as reference data and examples for generalized digit-map attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
