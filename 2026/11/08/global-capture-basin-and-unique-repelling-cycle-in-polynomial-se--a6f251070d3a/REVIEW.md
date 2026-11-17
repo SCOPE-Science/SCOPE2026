@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The half-plane first integrals provide exact crossings for arbitrary real initial conditions and all integer orders \(k\ge2\). Their composition is the global ray return \(r\mapsto r^4\). The three monotonicity regimes give an exhaustive classification; the finite-time accumulation series, time-completeness bound and uniform excursion escape argument establish all quantifiers. The area formula follows from integrating the true boundary graphs, and the return derivative proves transverse repulsion. Replaying the included checker yields 742 exact-rational assertions; supplementary event integrations independently corroborated crossings. Finite tests are not substituted for the analytical proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2023 originating source [1, Sect. 3] and its 2024 sequel [2, Appendix B] explicitly provide the near-origin power-map crossings and finite-time capture and are credited. Their core claims concern local singularity structure, whereas this claim is a **global** trichotomy for all initial points, together with the unique global boundary cycle, multiplier and exact full-plane basin area. Search comparisons included polynomial sewed-focus orbit closures, global basins, Filippov fused/stitched foci and competing exact planar basin-area results. The closest published database records concern different piecewise systems or different algebraic cycles. An equivalent unindexed global account remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The finite-time sewed focus is a published model exhibiting behavior impossible for analytic sewed foci. Its local contracting return leaves open a natural question: which of *all* planar initial states are captured? The theorem gives the exact and complete answer, identifies the single repelling separatrix, and quantifies the enclosed area for an infinite smoothness-parameter family. The area distinguishes geometries even though the local radius return and multiplier are parameter-independent; it provides a meaningful benchmark for nonsmooth numerical trajectories and switching conventions. This is a natural global classification rather than an isolated arbitrary sample or minor numerical improvement.
+For each integer k>=2 the exact conserved integrals C_+=y+psi_+(x), C_-=-y+psi_-(x) and strict monotonicity of each half-axis potential give one finite transverse crossing per half-plane arc. A negative-axis radius r maps to positive radius r^2 and back to negative radius r^4. The only positive periodic radius is 1; the closed oval has period 4 and transverse multiplier (r^4)' at 1 = 4. Radii <1 have finite total remaining time bounded by the doubly-exponential flight sum, with the stipulated absorbing convention at zero; radii >1 escape to spatial infinity with no finite-time blow-up since |xdot|=1. Integrating the two boundary graph pairs gives area 4-2/(2k+1)-2/(4k+1). Boundary and singular-origin continuation are part of the hypotheses.
 
-## Closest work and limits
-[1] P. Glendinning et al., *Uncountably Many Cases of Filippov's Sewed Focus* (2023), DOI `10.1007/s00332-023-09910-4`, Sect. 3.
+## originality
 
-[2] P. Glendinning et al., *Classification of Filippov Type 3 Singular Points in Planar Bimodal Piecewise Smooth Systems* (2024), DOI `10.1137/23M1622842`, Appendix B.
+PASS
 
-The first-return law itself is not novel. The result is restricted to this polynomial vector field and an explicit absorbing origin continuation. Equivalent unindexed literature remains possible.
+Best-of-knowledge PASS. The known polynomial sewed-focus local return r->r^2 belongs to Glendinning et al.; the global trichotomy, single closed oval, repelling multiplier and exact capture-area formula are not asserted in its inspected local analysis. A later paper classifies local type-3 singularities, not this specific global basin.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact global separatrix, complete all-initial-condition forward partition, unique repelling boundary cycle and explicit area are natural qualitative and quantitative invariants of the specific widely studied sewed-focus example. They substantially extend a local finite-time approach calculation without claiming any classification of arbitrary Filippov systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

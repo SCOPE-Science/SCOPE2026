@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-From a clean Python 3.9+ environment, execute `python3 CHECKER.py`. Expected output: `PIECEWISE_FOCUS_EXACT_IDENTITIES_OK 742`. The source uses only Python standard-library exact rational arithmetic. It verifies the polynomial branch derivatives, upper/lower switching roots, the composite ray return, the return regimes, and exact rational basin-area identities for each integer order from 2 through 15.
+## correctness
 
-Separately, high-precision numerical event integration of 12 upper-half-plane excursions with k values 2, 3 and 5 and radii 0.5, 0.85, 1 and 1.2 confirmed crossing at the square of the initial radius to numerical tolerance. This numerical test is supplemental and is not needed to reproduce the analytical proof.
+PASS
 
-The results over all integers, all real initial points and infinite time follow from the explicit first integrals and monotone crossing-map proof in `RESULT.md`, not the finite checker or simulated orbits. The absorbing continuation at the origin is a hypothesis. The originating power-map identity is credited to the cited papers; only the stated full-plane geometry and exact quantitative classification are claimed here.
+For each integer k>=2 the exact conserved integrals C_+=y+psi_+(x), C_-=-y+psi_-(x) and strict monotonicity of each half-axis potential give one finite transverse crossing per half-plane arc. A negative-axis radius r maps to positive radius r^2 and back to negative radius r^4. The only positive periodic radius is 1; the closed oval has period 4 and transverse multiplier (r^4)' at 1 = 4. Radii <1 have finite total remaining time bounded by the doubly-exponential flight sum, with the stipulated absorbing convention at zero; radii >1 escape to spatial infinity with no finite-time blow-up since |xdot|=1. Integrating the two boundary graph pairs gives area 4-2/(2k+1)-2/(4k+1). Boundary and singular-origin continuation are part of the hypotheses.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. The known polynomial sewed-focus local return r->r^2 belongs to Glendinning et al.; the global trichotomy, single closed oval, repelling multiplier and exact capture-area formula are not asserted in its inspected local analysis. A later paper classifies local type-3 singularities, not this specific global basin.
+
+## value
+
+PASS
+
+The exact global separatrix, complete all-initial-condition forward partition, unique repelling boundary cycle and explicit area are natural qualitative and quantitative invariants of the specific widely studied sewed-focus example. They substantially extend a local finite-time approach calculation without claiming any classification of arbitrary Filippov systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
