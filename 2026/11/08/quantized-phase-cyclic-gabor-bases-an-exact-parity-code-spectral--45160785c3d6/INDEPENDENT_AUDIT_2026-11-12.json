@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:54:01.042334Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=2p,p>=2 and q-th roots window with time shifts {0,1} and even frequency modulations, the frame operator splits exactly into p two-dimensional Fourier fibers. With c_r=x_r-x_(r+p), the fiber spectrum is 1±|cos(pi k_r/q)| where k_0=c_0+c_(p-1) and k_r=c_r-c_(r-1). This integer transformation has determinant two: mod odd q its image is all (Z/q)^p, mod even q exactly the even-sum parity code, each with kernel size two. Thus for any threshold a, the exact survival count is h(a)^p for q odd or h(a)^p+d(a)^p for q even, divided by q^p, where h counts allowed fiber residues and d is even minus odd allowed counts. The basis probability, optimal lower bound and exact numbers of optimizers follow by optimizing min distance of k_r from {0,q}, with the q mod 4, p parity branches. Independent exhaustive enumeration of all ratio vectors q=2..7,p=2..5 (bounded total <=200000), 16 survival-threshold comparisons and four full complex Gabor matrix eigenvalue checks verify the formulas, without extrapolating finite evidence to arbitrary p,q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asipchuk–De Carli–Rodriguez Theorem 1.1 treats arbitrary subgroup Gabor blocks; it does not tabulate discrete q-phase parity-code probabilities.",
+          "Earlier trichotomy treats all translation steps but only tight bases, not positive non-tight bounds or probabilities.",
+          "Steinhaus continuous Haar law yields independent uniform torus fibers; reduction modulo even q instead produces a single parity constraint."
+        ],
+        "reasoning": "Structural broader results cover the matrix mechanism and one special event, but the full distribution under a finite phase alphabet and exact nonorthogonal optimum are not logical outputs without discrete counting.",
+        "searches": [
+          "https://arxiv.org/abs/2605.16139",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-phase-alphabet-trichotomy-for-critical-two-translation-cyclic--740628e0639c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.16139",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-phase-alphabet-trichotomy-for-critical-two-translation-cyclic--740628e0639c",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+        "https://arxiv.org/abs/2509.01325"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting translation step k=1 in the earlier phase alphabet trichotomy reproduces orthonormal iff q is even and (p is even or 4 divides q), with exactly 2 q^p windows in admissible cases. This part is a corollary and is NOT novel.",
+          "Earlier independent continuous uniform spectral fibers exploit an invertible torus homomorphism determinant two; reduction to Z/q has nontrivial kernel exactly when q is even, creating parity-code correlations.",
+          "The earlier continuous survival law P(A>x)=[2 arcsin(1-x)/pi]^p is not equal to the discrete survival count h^p+d^p/q^p for even q."
+        ],
+        "reasoning": "The submitted full finite-alphabet distribution is a discrete arithmetic law and requires the non-invertible mod-even-q kernel and parity character sum. It survives the known tight and continuous cases, but some formulas are elementary consequences once the fiber matrix is available.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-phase-alphabet-trichotomy-for-critical-two-translation-cyclic--740628e0639c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+          "https://arxiv.org/abs/2605.16139"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General subgroup modulation block theorem makes the 2x2 decomposition a known approach.",
+          "The exact phase-alphabet trichotomy for critical two-translation bases at arbitrary step k, specialized to k=1, already gives orthonormal existence q divisible by four and count 2 q^p when applicable.",
+          "The continuous Haar-phase result gives the same frame-fiber formula and cyclic seam but its iid continuous torus law is not the finite q parity-code distribution."
+        ],
+        "reasoning": "Novelty must be restricted to the full finite-q survival and optimal lower-bound distribution, not block diagonalization or the already classified exact orthonormal basis count.",
+        "searches": [
+          "Resultary: finite cyclic Gabor frames two translations even modulations quantized phase parity code exact spectral distribution",
+          "https://arxiv.org/abs/2605.16139",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-phase-alphabet-trichotomy-for-critical-two-translation-cyclic--740628e0639c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Located exact tight-window counts and continuous-random singular-value distribution, both for the same geometry.",
+          "The full vector probability polynomial h^p+d^p and all lower-bound threshold counts for each finite q were not stated in the inspected near-priors."
+        ],
+        "reasoning": "This exact database/table check shows significant partial prior coverage; the residual finite-q non-tight spectrum/optimization law is distinguishable.",
+        "searches": [
+          "Resultary: quantized phase cyclic Gabor parity law",
+          "Resultary: a phase-alphabet trichotomy for critical two translation cyclic Gabor bases",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-phase-alphabet-trichotomy-for-critical-two-translation-cyclic--740628e0639c",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729"
+        ]
+      },
+      "rationale": "Qualified nonredundant finite-phase lower-frame-bound survival law and exact nonorthogonal optimum-count classification. The general fiber decomposition, continuous Steinhaus spectrum, and orthonormal existence/count are already known and specifically not credited as new.",
+      "residual_risks": [
+        "The tight-basis existence/count is fully covered by the earlier generalized translation-step theorem, and is not a new part of the accepted contribution.",
+        "The full finite-q law may be a routine application of existing polyphase filter-bank code enumeration not located in these bounded searches.",
+        "The q-phase distribution is exact for uniform independent phases only; other phase distributions can break parity counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general block equivalence but not finite q parity-code laws",
+          "evidence": "Any cyclic subgroup gives small frame blocks; phase-alphabet survival polynomial is not in the inspected general statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.16139",
+          "material_read": "ArXiv full primary HTML Introduction, block definitions and Theorem 1.1/1.3 context",
+          "method": "Primary full HTML theorem passages and definitions",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Same index-two modulation subgroup, possible dominating block theorem"
+        },
+        {
+          "assessment": "Covers exact orthonormal condition and count in a broader k parameter; does not cover all nonzero lower bounds",
+          "evidence": "At k=1, t=N=2p, orthonormal requires q even when p is even and requires 4|q when p is odd; the total is 2 q^p windows in each allowed case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-phase-alphabet-trichotomy-for-critical-two-translation-cyclic--740628e0639c",
+          "material_read": "Full RESULT, recurrence H(j-k)=-H(j), solution count and topology",
+          "method": "Complete mathematical prior RESULT",
+          "title": "A phase-alphabet trichotomy for critical two-translation cyclic Gabor bases",
+          "trigger": "Exact phase alphabet and same k=1 geometry, priority decisive for tight case"
+        },
+        {
+          "assessment": "Covers continuous iid Haar spectral law, not finite-q parity-code counting",
+          "evidence": "The 2x2 eigenvalues 1±|cos(U/2)| are common; q-phase exponent parity creates a different finite distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+          "material_read": "Full RESULT: 2x2 Fourier blocks, plus-sign seam and torus determinant two, extreme-value theorem",
+          "method": "Complete mathematical prior RESULT",
+          "title": "Independent spectral fibers and a Weibull hard edge for phase-only cyclic Gabor bases",
+          "trigger": "Same two adjacent translations and even modulations but random phase law"
+        },
+        {
+          "assessment": "No decisive covering statement established; specifically carried as remaining priority risk",
+          "evidence": "Noise and erasure bounds need not imply this exact finite-phase lower-tail law.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.01325",
+          "material_read": "Bibliographic identifier and source context from primary citations, no complete full-text examination",
+          "method": "Bibliographic abstract/context only",
+          "title": "Robustness to noise and erasures of Gabor frames in finite dimensions",
+          "trigger": "Potential broader Gabor random lower bound theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-translation even-modulation cyclic Gabor systems form a natural minimal critical measurement design. Quantizing the phase alphabet makes determinant-two fibers dependent by an explicit parity code; the exact finite-dimensional probability of each lower bound, sharp nonorthogonal attainable optimum and counts have direct meaning for discrete phase design and conditioning. The known orthonormal and continuous-phase pieces are excluded from claimed value, leaving a motivated exact discrete invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The orthonormal q-phase existence/count is already covered by the prior arbitrary-step theorem; acceptance is confined to non-tight probability and sharp nonorthonormal design.",
+    "No universal over noise, arbitrary modulation/translation sets, or nonuniform phase distributions.",
+    "Original package and full historical evidence preserved byte-for-byte. All publication modifications withheld because public operational provenance is not neutralized."
+  ],
+  "schema_version": 1
+}
