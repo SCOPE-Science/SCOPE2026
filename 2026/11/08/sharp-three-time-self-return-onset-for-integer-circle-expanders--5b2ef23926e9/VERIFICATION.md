@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete mathematical statement and its unrestricted proof are in `RESULT.md`. The standalone Python 3 program `check_triple.py` is a reproducible arithmetic checker, requiring only the Python standard library. It uses `fractions.Fraction` throughout; no floating-point tolerances or external data are used.
+## correctness
 
-Reproduction command:
+PASS
 
-```sh
-python3 check_triple.py
-```
+For a=b^t>=2 and N=a^2+a+1, Y=(a-1)X modulo 1 is Haar. The triple return event is ||Y||<r,||(a+1)Y||<r,||NY||<r. Window endpoint order excludes all noncentral integer-frequency combinations for r<=a/(N+1), giving J=2r/N; just above, two reflected new intervals of combined length 2(N+1)(r-rho)/N appear. The strict two-event first off-diagonal threshold is 1/(a+2). For a=2 the complete six-piece law is a finite exact affine interval arrangement, certified by all endpoint crossings. Independently computed exact rational interval measures at a=2..8 for r=rho/2,rho,rho+eta/4,rho+eta and all doubling-piece boundary values. All-a proof uses integer case analysis, not tests.
 
-Observed output from the actual packaged source before embedding:
+## originality
 
-```text
-exact base-two breakpoint certificate: 11 candidate breakpoints
-exact rational universal-regime spot checks: 174
-PASS: exact rational checks completed
-```
+PASS
 
-The eleven breakpoint values result from all possible crossings of endpoint lines for the three integer frequencies \(1,3,7\). Between successive breakpoints, the intersection measure is affine, so equality at all of them establishes the entire base-two piecewise law. The finite checks for \(2\le a\le30\) are diagnostic only and do not replace the unrestricted signed-coordinate proof. Neither formal proof-assistant verification nor independent review has been performed. The result does not imply an infinite-time distribution law.
+Best-of-knowledge: core original contribution is not established as a corollary or stronger prior result by the materially inspected sources and searches. The pairwise first overlap at 1/(a+2) is insufficient to infer the triple threshold rho=a/(a²+a+2), which is strictly greater for a>2. Pairwise Fourier formulas alone do not specify which third-window components survive. Residual priority risks remain; a failed search is not an originality proof.
+
+## value
+
+PASS
+
+The precise first genuine three-event resonance versus pairwise overlaps and the complete doubling-map probability phase diagram are motivated finite-time recurrence-clustering facts; they quantify dependence beyond pairwise statistics and give a sharp arithmetic threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
