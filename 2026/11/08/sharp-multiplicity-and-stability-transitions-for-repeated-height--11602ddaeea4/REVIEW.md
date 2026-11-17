@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and quantifiers are explicit: real degree-\(d\) polynomials normalized by \(P(0)=0\), and only period-three cycles with two coincident \(Z\)-heights in the stated polynomial normal form. The map has pointwise nilpotent Jacobian, verified by its characteristic polynomial and a direct conjugacy calculation. Repeated heights force the third height to be zero; the remaining scalar equation is \(P(s)^2=s\) with \(s>0\), and the three orbit points are explicit. The polynomial degree proves the upper bound. The interval sign argument gives the matching \(2d-1\) simple positive roots, so the bound is sharp on an open coefficient set. The three-step derivative product yields two zero eigenvalues and an explicit nonzero Floquet multiplier; a large-parameter limit proves all attaining cycles can be saddles. For the quadratic family, derivative signs and exact algebraic thresholds give the count and stability regimes. The standalone symbolic checker confirms key identities and sample exact sign witnesses but is not used to prove the all-degree assertions.
+## correctness
 
-## Originality — PASS within checked evidence
-The closest and most important antecedent is Castañeda and Rebollo–Perdomo's arXiv:2209.06986v1, especially their equations (10)–(12) and proof of Theorem 1.1. They already establish the recurrence, a single three-cycle's existence, and the local multiplier. Neither their theorem nor their concluding question about uniqueness gives the complete repeated-height orbit classification, the sharp growing \(2d-1\) multiplicity, open simultaneous saddle examples in every degree, or the exact two-threshold quadratic phase diagram. Chamberland's 2005 manuscript likewise gives a sufficient three-cycle criterion and stability possibilities but no such multiplicity theorem. Separate constructions with all three heights distinct do not imply the repeated-height result. A publicly indexed four-cycle degree-threshold result concerns a different period and supplies no covering implication. Searches by source, degree, coordinates, orbit alias and bifurcation thresholds identified no dominating claim. The full journal version of the originating preprint, beyond its matching abstract, and unpublished equivalents remain residual overlap risks.
+PASS
 
-## Mathematical value — PASS
-The source asks whether its discovered three-cycle can be unique. This theorem moves beyond an isolated counterexample: it determines a natural dynamically defined repeated-height stratum completely, proves that the maximal cycle count grows sharply with polynomial degree, and exhibits robust coexistence of arbitrarily many saddle three-cycles even though all pointwise Jacobian eigenvalues vanish. The quadratic stability window quantifies when such a three-cycle is a sink instead, including an exact superattracting parameter. These results are structural features of the source's nilpotent-Jacobian dynamics, not arbitrary finite numerical samples.
+For F_P pointwise nilpotent, the stated polynomial conjugacy yields G_P=(P(Y)-P(Z),Z,(P(Y)-P(Z))^2). Period-three repeated-height recurrence forces heights (s,s,0) with s>0 and P(s)^2=s. Factoring P=sQ produces sQ(s)^2=1 of degree 2d-1; the explicit high-kappa product polynomial crosses twice in each (j-1,j) and once beyond d-1, giving all roots simple and persistent. Return multiplier is 4sP prime(s)^2, and for large-kappa attaining family each root has multiplier>1 while other two are zero. Quadratic P=kappa*s(s-1) has collision at K=27/4, attraction of the middle branch on (27/4,125/12), and superattraction K=8. Independent exact substitution verifies each threshold, not all-degree existence.
 
-## Remaining limitations
-The sharp count is not a count of all three-cycles; distinct-height cycles may coexist. Unit-multiplier endpoints are not assigned a nonlinear stability type. The full-text comparison was made to the accessible preprint and Chamberland's author manuscript, while the later journal paper and some independently indexed material were available at abstract level only. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Castañeda–Rebollo-Perdomo paper already gives the scalar repeated-coordinate cycle equation and 3-step multiplier, and an earlier published SCOPE theorem already explicitly counts the quadratic 1/2/3 repeated-height cycles. Neither is treated as new. The surviving all-degree sharp 2d-1 multiplicity, open hyperbolic saddle-coexistence regime and exact quadratic stability phase interval are not established in the inspected comparator statements. Separate existing Hermite construction gives unbounded superattracting cycles but no sharp repeated-height degree maximum.
+
+## value
+
+PASS
+
+Sharp polynomial degree versus cycle multiplicity for an explicitly defined recurrent orbit stratum is a natural classification responding to nilpotent-Jacobian dynamical rigidity questions; the simultaneous saddle regime and local stability transition distinguish it from mere cycle existence or elementary root renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
