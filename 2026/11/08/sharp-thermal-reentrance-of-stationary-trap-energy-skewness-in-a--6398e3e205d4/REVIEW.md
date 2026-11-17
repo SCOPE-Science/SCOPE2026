@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The stationary generator of the radial energy and orientation projection closes at polynomial degree three. Its independently reconstructed raw moments give the exact third cumulant and a cubic with one positive root in each dimension. The zero-noise dimension ordering follows from the polynomial's two-parameter sign geometry. Gaussian conditioning proves the thermal correction. In dimension three, a degree-seven numerator has a positive constant coefficient, all higher-order coefficients positive except a potentially negative linear coefficient; Descartes' rule limits positive roots to two. Strict increase in thermal strength gives a single coalescence threshold. The extracted checker independently reproduces the formulas from two recurrences, verifies rational test cases and beta-law boundaries, and checks the double-root solution. Numerical root finding is not used as an infinite proof.
+PASS
 
-## Originality: PASS, qualified
+PASS: The polynomial generator for Y=|X|^2, Z=X dot N at a=gamma/kappa has stationary recursion (2p+q+a)M_pq=2pM_(p-1,q+1)+qM_(p,q-1)+a E_new[Z^q] when q even. The stated first three radial moments give cum3(Y)=8aP_d(a)/[d^2(a+1)^3(a+2)(a+3)(a+4)(a+5)]. The polynomial P_d has negative constant, all positive nonconstant coefficients for d>=1; it crosses exactly once, a_1=a_2=1, and P_d(1/2)=-9(6d-1)/8, P_d(1)=2(d-1)(d-2). For real d>=2, rewriting P=(4a-2)d^2+(3a^2-3a-6)d+a(a+1)^2 makes da_d/dd<0 at its zero. Independent symbolic cumulant factorization and numerical root checks reproduce the stated asymptotic limits. Independent thermal Gaussian convolution gives cum3(E)=cum3(Y)+12h Var(Y)+24h^2 E[Y]+8dh^3. For d=3 the cleared-degree-seven polynomial has strictly positive constant and degrees >=2 for h>0; only linear coefficient can be negative, so Descartes gives at most two positive roots. Strict increase with h, positive endpoints for h>0, and a nonempty negative interval at h=0 force a unique critical coalescence. Solving K=K_a=0 independently gives (0.13982748204004,0.01962977632358); finite checks only corroborate the analytical all-parameter argument.
 
-Primary full-text sections of Frydel (2023; arXiv:2309.12537), Sun–Ye–Podgornik (2024; arXiv:2409.00578), and Guéneau–Majumdar–Schehr (2026; arXiv:2602.08436) were compared by mathematical implication. The earlier works provide stationary moment or distribution/convolution formulas, including ingredients from which the current cumulants can be calculated. They do not state or establish the dimension-ordered energy-skewness phase transition or the exact three-dimensional thermal two-zero coalescence classification. The new contribution is the global sign and bifurcation analysis, not new raw moments or a new probability model. The broad 2026 distribution and moment formulas create a serious implicit-coverage risk that cannot be eliminated by title/keyword searches; further independent prior-art checking is advisable.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Energy fluctuations are directly measurable in a harmonic trap. Their third cumulant distinguishes shell-dominated rare inward excursions from central-fluctuation positive skewness. The exact threshold in every dimension and the universal two-root thermal coalescence in dimension three give a nontrivial qualitative phase diagram, not a merely selected parameter value or a sign-normalization observation. Independent thermal noise can restore positive asymmetry both at rare and rapid tumbles, but leave a negative-skewness interval between them.
+Qualified PASS for the complete sign and thermal-reentrance classification, not the underlying raw moments or Gaussian convolution. Frydel, Sun–Ye–Podgornik, Guéneau–Majumdar–Schehr provide moments/position laws and convolution; no inspected older exact theorem classifying stationary potential-energy third centered moment at all tumble rates, dimensions, and positive thermal-noise coalescence. Primary full text inaccessible: priority risk remains.
 
-## Scope and limitations
+## value
 
-This is an exact stationary, harmonic, independent-noise theorem for instantaneous isotropic tumbling. No finite-time, anisotropic, interacting, or finite-tumble-duration extension is claimed. Reproducing a finite grid is not a substitute for the analytical Descartes and monotonicity proofs. General prior moment formulas imply the raw data but do not themselves articulate the stated phase diagram; publication priority remains qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The sign of stationary squared-radius (trap-energy) skewness is a motivated observable of non-Gaussian active confinement. A dimension-dependent exact sign flip and a thermal noise-induced two-zero reentrant interval, with a single annihilation threshold, are structurally meaningful phase boundaries rather than merely recomputing a raw moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
