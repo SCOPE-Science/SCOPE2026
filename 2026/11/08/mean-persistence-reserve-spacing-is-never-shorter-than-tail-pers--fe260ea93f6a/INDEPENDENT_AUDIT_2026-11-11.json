@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:07:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the two-state transient generator Q=[[-(2e+z),2e],[c,-(e+c+z)]], solve backward equations to obtain mean M=(c+3e+z)/(2e²+z(c+3e+z)) and principal extinction-decay eigenvalue Lambda=z+ell(c), ell=(U-sqrt(U²-8e²))/2, U=c+3e. With c=c0 exp(-ad), z=z0 exp(-bd), b>a>0, direct differentiation gives M-prime numerator bz(N²−2e²)−2ae²c and Lambda-prime=−bz+ac ell/Delta. The first sign is strictly decreasing after division by c, the second sign strictly increasing after factoring z, so each optimum exists and is unique, interior or d=0. Comparing the thresholds ell/Delta >2e²/(N²−2e²), verified algebraically from Delta²=U²−8e², establishes 0<=d_T<=d_M with strict inequality when d_M>0. Thresholds z_M and z_T are the unique positive derivative-zero amplitudes; comparison gives 0<z_M<z_T and all three regimes. Independently checked derivatives by SymPy and numerical roots at e=c0=a=1,b=2 for z0=.03,.08,.3: (d_T,d_M)=(0,0),(0,0.0976825677),(0.6025942056,1.0454816873). Boundaries and domain 0<a<b are explicit. Neither finite grids nor solver logs substitute for proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Wagner model uses different transitions and does not supply an all-parameter mean>=tail optimizer order.",
+          "The exact previously published fixed-rescue optimum neither varies a spatial catastrophe hazard nor compares mean and tail argmax."
+        ],
+        "reasoning": "No inspected stronger primary theorem covers the specified three regimes; accessible McCarthy material is incomplete and therefore cannot justify asserting whole-document noncoverage.",
+        "searches": [
+          "two reserve spacing mean time to extinction versus quasi stationary eigenvalue tail optimum catastrophe recolonization rates",
+          "https://arxiv.org/abs/math/0309255",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md",
+          "https://doi.org/10.1086/427297"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0309255",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md",
+        "https://doi.org/10.1086/427297",
+        "https://doi.org/10.1890/11-0952.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean lifetime from state 2 equals an entry of (-Q)^(-1)1; tail rate is smallest positive eigenvalue of -Q. These objectives are mathematically distinct even in the same CTMC.",
+          "An optimizer for the tail rate alone cannot imply an order for the mean maximizer, and the published directional-budget theorem does not introduce z0,b or spacing."
+        ],
+        "reasoning": "The strict derivative-threshold inequality is the new nonstandard bridge, not a trivial reparameterization of the prior eigenvalue optimization.",
+        "searches": [
+          "two reserve spacing mean time to extinction versus quasi stationary eigenvalue tail optimum catastrophe recolonization rates",
+          "https://arxiv.org/abs/math/0309255",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both old and new reserve-spacing models optimize a persistence eigenvalue, but one is discrete-time with partial catastrophes and one is continuous-time with systemwide fatal shock.",
+          "A two-patch fixed directional colonization-budget theorem is not a distance-dependent common-catastrophe optimization."
+        ],
+        "reasoning": "Vocabulary equivalence is separated from exact Markov generator, initial state, competing objectives and parameter quantifiers.",
+        "searches": [
+          "two reserve spacing mean time to extinction versus quasi stationary eigenvalue tail optimum catastrophe recolonization rates",
+          "https://arxiv.org/abs/math/0309255",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The present inequalities compare analytic root thresholds z_M and z_T for all positive parameter triples with 0<a<b; finite examples alone cannot be the source of the theorem."
+        ],
+        "reasoning": "Searches found no exact prior closed threshold table for this precise CTMC; older numerical reserve policy grids may contain suggestive special cases but are not a proven all-parameter comparison.",
+        "searches": [
+          "two reserve spacing mean time to extinction versus quasi stationary eigenvalue tail optimum catastrophe recolonization rates",
+          "https://doi.org/10.1890/11-0952.1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md"
+        ]
+      },
+      "rationale": "Wagner--Ross--Possingham introduce the reserve-spacing trade-off and eigenvalue criterion in a different *discrete-time* model allowing one-reserve catastrophe outcomes, rather than a continuous-time state-independent systemwide-fatal shock. Their objective is late-survival eigenvalue, not a universal cross-objective ordering between initial-full-state mean lifetime and tail decay. Published two-patch extinction work studies fixed directional-rescue allocation and symmetry with no spacing-dependent common catastrophe. The new claim is a nontrivial exact comparison of two optimizers with three sharp amplitude regimes, not the Markov model concept or standard spectral formula. McCarthy and Blowes papers are plausible historical competitors but their complete primary text could not be inspected; novelty is best-of-knowledge with prominent risk, not an unqualified NOT_COVERING assertion.",
+      "residual_risks": [
+        "Full McCarthy--Thompson--Possingham (2005) article inaccessible, authorized institutional VPN disconnected; decisive mathematical overlap in methods/appendices cannot be fully excluded.",
+        "Full Blowes--Connolly (2012) optimal-spacing primary methods inaccessible; only abstract comparison possible.",
+        "Conclusion depends on exponential kernels, all-killing common catastrophe, symmetric reserves, fully occupied start, and b>a; it is not a field-calibrated policy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source model is discrete time and includes catastrophes affecting just one reserve; it does not establish the specified two-objective ordering/three amplitude regimes in the inspected material.",
+          "evidence": [
+            "Current Q has a state-independent all-killing z(d) at both 2 and 1 occupied; the prior discrete transition includes partial catastrophes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0309255",
+          "material_read": "Full 12-page primary preprint PDF downloaded/accessed; read transition matrix definitions, optimization/eigenvalue discussion and relevant result/interpretation sections including page images.",
+          "method": "Read primary arXiv full-text and actual PDF screenshots for model-level comparison.",
+          "title": "Catastrophe Management and Inter-Reserve Distance for Marine Reserve Networks",
+          "trigger": "Closest originating reserve-spacing catastrophe/colonization trade-off and quasi-stationary eigenvalue."
+        },
+        {
+          "assessment": "Objective varies directional colonization allocations c,d at fixed c+d, not spatial separation simultaneously changing rescue and fatal common-shock intensity; no cross mean/tail optimum claim.",
+          "evidence": [
+            "Earlier mean optimum is at symmetric directional budget c=d; current scalar distance changes c(d), z(d) and compares mean and principal eigenvalue."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md",
+          "material_read": "Complete published RESULT.md including 3-transient-state generator, Laplace transform, and fixed-sum directional rescue optimum.",
+          "method": "Read full mathematical proof and assumptions.",
+          "title": "A distributional symmetry and sharp balanced-rescue optimum in two-patch extinction",
+          "trigger": "Same 2-patch Markov extinction framework could dominate simple optimization law."
+        },
+        {
+          "assessment": "No whole-document noncoverage conclusion; original methods and mathematical appendices remain a concrete originality risk.",
+          "evidence": [
+            "DOI:10.1086/427297; institutional retrieval cannot proceed until human VPN connection."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/427297",
+          "material_read": "Abstract and bibliographic material only; full text inaccessible by open routes and authorized institutional retrieval reported VPN disconnected.",
+          "method": "Primary abstract reading and authorized full-text access attempt without authentication bypass.",
+          "title": "Theory for Designing Nature Reserves for Single Species",
+          "trigger": "Highly plausible direct historical source comparing alternative reserve design persistence criteria."
+        },
+        {
+          "assessment": "Assessed high-level random growth/quasi-extinction versus a two-state Markov generator; exact overlap unresolved in inaccessible source.",
+          "evidence": [
+            "DOI:10.1890/11-0952.1; full proof unread and retained as residual priority risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1890/11-0952.1",
+          "material_read": "Abstract/available summary only; full methods unavailable.",
+          "method": "Abstract comparison, no unsupported whole-document assertion.",
+          "title": "Risk spreading, connectivity, and optimal reserve spacing",
+          "trigger": "Title and reserve-spacing comparison are close enough to warrant direct comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choice of reserve spacing is a natural conservation optimization problem and the mean initial-extinction time and asymptotic survival time are two genuinely different persistence metrics. The all-parameter inequality d_T<=d_M and exact phase boundaries show when the objectives make different spatial decisions. The result is a meaningful model-specific decision boundary, not an assertion that these rates are empirically calibrated or that the conclusion holds for arbitrary catastrophe models.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0309255",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md",
+    "https://doi.org/10.1086/427297",
+    "https://doi.org/10.1890/11-0952.1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Completed C/O/V are best-of-knowledge scientific evaluations, not publication or worldwide priority certification.",
+    "Finite test cases are only corroborating evidence for the universal proof.",
+    "Existing confidential operational metadata is not publication-sanitized."
+  ],
+  "residual_risks": [
+    "Full McCarthy--Thompson--Possingham (2005) article inaccessible, authorized institutional VPN disconnected; decisive mathematical overlap in methods/appendices cannot be fully excluded.",
+    "Full Blowes--Connolly (2012) optimal-spacing primary methods inaccessible; only abstract comparison possible.",
+    "Conclusion depends on exponential kernels, all-killing common catastrophe, symmetric reserves, fully occupied start, and b>a; it is not a field-calibrated policy."
+  ],
+  "schema_version": 1
+}

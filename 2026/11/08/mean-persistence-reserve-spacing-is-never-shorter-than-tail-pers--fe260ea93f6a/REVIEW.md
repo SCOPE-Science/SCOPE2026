@@ -1,21 +1,21 @@
-# Review of optimal separation under two persistence criteria
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state-space definition fixes all three transitions, and the absorbing generator gives exact expressions for both expected extinction time from two occupied reserves and the logarithmic survival-decay rate. The proof checks all parameter quantifiers, the strict regime \(0<a<b\), boundary optima, and positivity of required denominators. The critical inequality between marginal thresholds is proved by \(U(U-\Delta)+4e^2>0\), not inferred from sampling. `verify.py` replayed 2,518 assertions involving exact backward equations, symbolic identities and bounded parameter sweeps. Finite tests support the derivation; the paper proof, not the sweeps, establishes universality.
+PASS
 
-## Originality — PASS, with limits
+For the two-state transient generator Q=[[-(2e+z),2e],[c,-(e+c+z)]], solve backward equations to obtain mean M=(c+3e+z)/(2e²+z(c+3e+z)) and principal extinction-decay eigenvalue Lambda=z+ell(c), ell=(U-sqrt(U²-8e²))/2, U=c+3e. With c=c0 exp(-ad), z=z0 exp(-bd), b>a>0, direct differentiation gives M-prime numerator bz(N²−2e²)−2ae²c and Lambda-prime=−bz+ac ell/Delta. The first sign is strictly decreasing after division by c, the second sign strictly increasing after factoring z, so each optimum exists and is unique, interior or d=0. Comparing the thresholds ell/Delta >2e²/(N²−2e²), verified algebraically from Delta²=U²−8e², establishes 0<=d_T<=d_M with strict inequality when d_M>0. Thresholds z_M and z_T are the unique positive derivative-zero amplitudes; comparison gives 0<z_M<z_T and all three regimes. Independently checked derivatives by SymPy and numerical roots at e=c0=a=1,b=2 for z0=.03,.08,.3: (d_T,d_M)=(0,0),(0,0.0976825677),(0.6025942056,1.0454816873). Boundaries and domain 0<a<b are explicit. Neither finite grids nor solver logs substitute for proof.
 
-Wagner–Ross–Possingham (arXiv:math/0309255, publicly available in 2003) establish the competing marine-reserve colonization/catastrophe processes and optimize a *discrete-time* quasi-stationary eigenvalue. Their full accessible preprint specifies transitions allowing a single reserve to be removed by a catastrophe, rather than an independent fatal systemwide shock. This finding neither claims the source model nor spectral optimization as new. Its distinctive statement is the exact continuous-time **ordering between the two optimizer locations** and the three sharp amplitude regimes.
+## originality
 
-McCarthy–Thompson–Possingham (2004 online), Grimm–Wissel (2004) and Blowes–Connolly (2012) are related to persistence criteria or spatial risk spreading, but accessible claims do not imply this two-state generator's strict ordering. Their full text was not all available; no whole-document absence is asserted and historical priority remains a risk. Public bibliographic comparisons and semantic mathematical searches, including broader equivalences, found no directly dominating assertion; a failed query is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
+Wagner--Ross--Possingham introduce the reserve-spacing trade-off and eigenvalue criterion in a different *discrete-time* model allowing one-reserve catastrophe outcomes, rather than a continuous-time state-independent systemwide-fatal shock. Their objective is late-survival eigenvalue, not a universal cross-objective ordering between initial-full-state mean lifetime and tail decay. Published two-patch extinction work studies fixed directional-rescue allocation and symmetry with no spacing-dependent common catastrophe. The new claim is a nontrivial exact comparison of two optimizers with three sharp amplitude regimes, not the Markov model concept or standard spectral formula. McCarthy and Blowes papers are plausible historical competitors but their complete primary text could not be inspected; novelty is best-of-knowledge with prominent risk, not an unqualified NOT_COVERING assertion.
 
-An initial-state mean lifetime and a late-horizon decay rate are non-equivalent objectives. Under a biologically interpretable ordering of spatial decay scales, the result determines which optimum is farther apart *for every parameter choice*, and gives exact, nonempty thresholds for boundary versus interior recommendations. The intermediate interval, in which only the mean criterion favors positive separation, is meaningful as an objective-selection effect. It is not a routine exercise about optimizing a single rational function because the universal strict order requires comparing independent resolvent and principal-eigenvalue sensitivities.
+## value
 
-## Scope and verification limits
+PASS
 
-The model is an idealized continuous-time absorbing occupancy chain with exactly two symmetric patches; it assumes exponential kernels, individual local extinctions and systemwide common-catastrophe killing. No assertion covers models with only partially destructive catastrophes, other distance-decay exponent orders, external recruitment, arbitrary finite horizons, or empirical reserve decisions. The scientific review is internal and does not establish independent validation or historical priority.
+Choice of reserve spacing is a natural conservation optimization problem and the mean initial-extinction time and asymptotic survival time are two genuinely different persistence metrics. The all-parameter inequality d_T<=d_M and exact phase boundaries show when the objectives make different spatial decisions. The result is a meaningful model-specific decision boundary, not an assertion that these rates are empirically calibrated or that the conclusion holds for arbitrary catastrophe models.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
