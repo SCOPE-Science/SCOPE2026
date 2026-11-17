@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem applies to a specified positive polynomial vector field and compactly supported invariant probability measures in the positive octant. Stationarity of all three logarithmic coordinates fixes the relative means and reciprocal-height balance. The nonnegative exact weighted-square identity gives \(r\ge1\) and its zero set. The polynomial derivative identity for \(x-y+z\), plus the stationary \(x\) and \(y\) equations, fixes all three product fluxes. Covariances follow by subtracting products of means; equality rigidity uses the invariant \(z=z_*\) support, the resulting affine \((x,y)\) line, and zero covariance. The supplied symbolic checker independently verifies algebraic identities. The compact support hypothesis licenses integration of generator derivatives, and the use of physical-time invariant probability measures is explicit.
+
+## Originality — PASS within inspected evidence
+The originating full text [1], especially Equation (2), Section 3 and Theorem 1, gives the vector field, the equilibrium and the periodic center manifold, but does not give the invariant probability measure theorem on all rate parameters or the three locked moment fluxes and anticorrelations. The related full classification [2] addresses which networks admit Hopf bifurcations and only briefly discusses the exceptional class; its result does not imply these moment equations. Searches for aliases (stationary moments, pairwise covariance, mean concentrations, reaction flux balance, equilibrium averages) found related models, including Schnakenberg and other chemical oscillators, but not an equivalent theorem for the present vector field. Unindexed derivations, later revisions, and unexamined cited articles are remaining priority risks.
+
+## Value — PASS
+This oscillator has a distinguished infinite family of periodic states at the critical rate relation. A natural observable question—whether oscillations change average concentrations and reaction throughputs—gets an exact rate-independent answer. All three concentrations are enhanced, despite the three pair reaction fluxes being locked, so negative covariances necessarily compensate for increased means. The single measurable height defect synchronizes all three pair anticovariances. This is a nontrivial multi-species quantitative characterization of an invariant family, not an isolated formal normalization check.
+
+## Limits and sources
+[1] Banaji–Boros–Hofbauer, arXiv:2210.06119v1, Equation (2) and Theorem 1 (full 9-page paper inspected). [2] Banaji–Boros, arXiv:2207.04971, Section 8 and surrounding classification results (full 37-page paper's relevant sections inspected). Closest indexed comparators discuss stationary moment laws in the distinct Schnakenberg and Wilhelm–Heinrich systems; their conclusions do not entail the present model's triple-flux and covariance formula. Only compact positive invariant measures are covered; neither global existence of cycles at arbitrary parameters nor formal independence is established.
+
+Self-review: passed. Independent audit: not yet performed.
