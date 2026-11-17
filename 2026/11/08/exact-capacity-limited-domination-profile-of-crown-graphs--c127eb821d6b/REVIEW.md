@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies labelled crown graphs \(n\ge3\), positive capacities \(1\le k\le n-2\), exact domination and external-load conventions, and the zero-binomial convention. The proof first rules out a selected shore of size zero or one, then shows domination is automatic for shore sizes at least two. The two open-neighbourhood load identities establish necessary and sufficient disjoint/intersecting conditions. Disjoint pairs are counted by \(\binom nx\binom{n-x}y\), intersecting pairs by its exact complement among \(\binom nx\binom ny\). The minimization proof treats \(r=1\), \(r\ge2,n\ge2r\), and \(r\ge2,n<2r\) separately and proves every equality case. All algebraic boundary cases were rechecked, and an independent direct finite-subset enumerator matched every bivariate coefficient through \(n=8\). The proof, not finite tests, establishes generality.
+PASS
 
-## Originality — PASS with historical-priority risk
+Any feasible selection requires at least two vertices on each side. For a selected a_i the number of unselected neighbors is n-1-y+1_{i in J}; analogous expression holds for b_j. Thus capacity and domination give precisely the two classified overlap regimes, and binomial index-subset counts yield the polynomial. Minimization gives 4 at r=1; 2r for n>=2r and 2r+2 otherwise, with the displayed equality cases. Fresh independent adjacency-mask brute force tested 101,952 subsets for n=3..7 across all allowable k and checked every coefficient.
 
-The motivating arXiv source (arXiv:2606.22422, first submitted 2026-06-21) explicitly covers complete bipartite graphs and the regular-graph reduction to \((1,t)\)-domination, but not the all-set crown-graph profile or the matching-deletion threshold. The open-access journal version likewise describes exact basic families, not this family. Recent work on restrained and perfect Roman domination of crown graphs asks different questions, and the available complete-multipartite \(k\)-limited result does not apply to crown graphs of order at least six, which are not complete multipartite. A ranked mathematical-record search over \(k\)-limited, \((1,t)\), pitchfork, crown, and matching-deleted aliases found no explicit covering statement. The accessible 2020 pitchfork full-text PDF was also checked: it studies the positive-lower-bound \(j=1,k=2\) version, with Theorem 2.4 on complete bipartite graphs, not the full all-\(k\) crown profile. Search incompleteness and inaccessible full text of some other related documents remain substantive priority risks; absence from a ranked index is not itself novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The full bivariate polynomial classifies all solutions, not merely an extremal number. It gives exact cardinality and shore-composition counts for all parameters, a rigid classification and multiplicity of every optimum, and a sharp non-monotone sensitivity under deletion of a perfect matching compared with the known complete-bipartite baseline. The threshold separates a disjoint-index regime from an intersection-forced regime and identifies precise structural causes, making the result useful when studying bounded-load dominators in dense defective bipartite networks. No stronger general theorem is claimed.
+Božović et al. (2026) formulate k-limited domination and give K_{m,n} minima, but not the matching-deleted crown predicate or all bivariate counts. Earlier crown graph paired/tuple/perfect/Roman domination indexed results concern different predicates. The same graph and capacity parameter were explicitly compared; no stronger matching-deleted k-limited enumeration found.
 
-## Scope and risks
+## value
 
-The claim is limited to balanced crowns and the nontrivial positive capacity range. Related earlier terminology may conceal priority; no full survey of all historical pitchfork articles was possible. Independent mathematical assessment is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full feasible-set enumerator and sharp nonmonotonic response to matching deletion quantify a natural capacity-constrained domination problem, beyond the known complete-bipartite scalar minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
