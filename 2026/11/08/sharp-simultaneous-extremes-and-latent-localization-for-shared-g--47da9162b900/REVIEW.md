@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A conditional-on-the-shared-factor integral is exact for all strictly positive real shapes. On the concentration region the incomplete-gamma survival expansion has uniform relative error at most a constant times \(t^{-1/4}\). The excluded regions have exponentially smaller probability. The resulting integral is an exact Bessel-\(K\) integral; its standard leading asymptotic establishes the full coefficient and power. The same comparison supplies total-variation approximation to a generalized-inverse-Gaussian law and its conditional central limit, while quantile sandwiching proves the log-residual dependence exponent. Independent exact finite-sum calculations support the coefficient, but are not used as a substitute for proof.
+## correctness
 
-**Originality — PASS, provisional historical assessment.** The motivating 2026 source contains the univariate gamma–gamma survival asymptotic, which is explicitly credited and not claimed. The 2019 random-scale work already gives the bivariate residual-dependence exponent as an implication of its Proposition 8 and Example 10. The 2015/2016 multivariate gamma–gamma distribution instead has a correlated (rather than literally shared rank-one) gamma vector and independent per-coordinate multipliers; the 2021 gamma copula construction uses ratios, not products. Their materially inspected models do not supply the exact directional high-orthant prefactor and conditional shared-factor total-variation approximation of the present fixed-dimensional model. No equivalent accepted finding appeared in the accessible matching research ledgers or targeted mathematical-record searches. Historical literature may still contain a broader formula; no independent priority verification has occurred.
+PASS
 
-**Mathematical value — PASS.** The motivating gamma–gamma distribution models optical fading and reliability. Replacing separate scalar survivals with a common-environment simultaneous exceedance changes the principal exponential cost from the independent-product cost to \(2\sqrt{Wt}\), with a completely explicit heterogeneous-shape prefactor. The conditional mixing-factor localization identifies *how* the shared environment realizes the rare event and is a natural structural statistic for sampling and calibration. The result treats every positive directional ray and shape vector in each fixed dimension, not an arbitrarily chosen parameter slice.
+Conditioning on the common gamma A=x gives an exact product of upper incomplete-gamma survival functions. Uniformly for t^(1/4)<=x<=t^(3/4), each survival has x-dependent leading power times exp(-w_i t/x) with relative O(t^-1/4); exterior integrals are negligible at saddle x=sqrt(Wt). The remaining x^(nu-1)exp(-x-Wt/x) integral is exactly 2(Wt)^(nu/2)K_nu(2sqrt(Wt)), yielding the stated power beta and prefactor. Relative-density comparison gives conditional TV O(t^-1/4) to GIG and a centered Gaussian limit scaled (Wt)^(1/4) with variance1/2. One-dimensional marginal log tail -2sqrt t and quantile sandwich give exponent sqrt(m). Independent check in a=b1=b2=1 and weights 1,2 at t=100 recovered exact 2sqrt(3t)K1(2sqrt(3t)) vs asymptotic ratio 1.010730033.
 
-Closest sources and limitations: Baricz et al. 2026, arXiv:2610.37725v1, Section 3; Engelke et al. 2019, DOI 10.1007/s10687-019-00353-3, especially Proposition 8/Example 10; Zhang et al. 2016, arXiv:1505.06685, Section II-C; Arnold and Arvanitis 2021, DOI 10.1515/demo-2021-0117. No growing-dimensional or vanishing-direction uniformity and no conclusive claim to historical precedence. Relevant literature outside the inspected primary papers remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The multivariate sharp joint tail *coefficient alone* is implied by older general product-of-Weibull tail theory by reducing simultaneous exceedance to the product A times Z=min_i(B_i/w_i), where Z is gamma-tailed with rate W; it is not independently novel as a generic probability equivalent. Engelke–Opitz–Wadsworth (2019) also implies the bivariate residual exponent 1/sqrt2. The substantive surviving claim is a fixed-m arbitrary-shape/weight *conditional common-factor total-variation approximation with O(t^-1/4) rate* to a specific GIG law and its Gaussian latent-scale localization, not supplied by the inspected general tail-exponent statements; originality is best-of-knowledge, with a clear risk of an earlier conditioned saddle theorem.
+
+## value
+
+PASS
+
+Conditional common-factor localization determines which latent environmental factor values actually generate simultaneous rare extremes; a quantitative total-variation approximation is useful for rare-event simulation, conditional inference, and extreme-risk mechanisms. The exact fixed-direction sharp normalization and Gaussian fluctuation scale make the statement mathematically testable, while correctly crediting the generic product-tail calculation and the bivariate exponent. This natural latent-factor problem is substantive even when ordinary joint survival asymptotics are an application of broader known product theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

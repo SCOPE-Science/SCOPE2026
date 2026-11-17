@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:57:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the common gamma A=x gives an exact product of upper incomplete-gamma survival functions. Uniformly for t^(1/4)<=x<=t^(3/4), each survival has x-dependent leading power times exp(-w_i t/x) with relative O(t^-1/4); exterior integrals are negligible at saddle x=sqrt(Wt). The remaining x^(nu-1)exp(-x-Wt/x) integral is exactly 2(Wt)^(nu/2)K_nu(2sqrt(Wt)), yielding the stated power beta and prefactor. Relative-density comparison gives conditional TV O(t^-1/4) to GIG and a centered Gaussian limit scaled (Wt)^(1/4) with variance1/2. One-dimensional marginal log tail -2sqrt t and quantile sandwich give exponent sqrt(m). Independent check in a=b1=b2=1 and weights 1,2 at t=100 recovered exact 2sqrt(3t)K1(2sqrt(3t)) vs asymptotic ratio 1.010730033.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engelke et al. 2019 Proposition 8 and Example 10 imply bivariate eta=2^-1/2 for independent unit-exponential-rate factors.",
+          "Their Lemma 7 cites Dębicki et al. product-tail theorem yielding precise scalar product asymptotics."
+        ],
+        "reasoning": "General product-tail theorems cover the marginal and the multivariate tail via Z; no inspected result gives the O(t^-1/4) conditional TV of the original shared Gamma factor at fixed unequal directions, which is the surviving part.",
+        "searches": [
+          "https://eprints.lancs.ac.uk/133229/1/RandomScaleConstructions.pdf",
+          "https://arxiv.org/abs/1312.7132",
+          "Asymptotic Expansions for Products of Weibull Random Variables 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://eprints.lancs.ac.uk/133229/1/RandomScaleConstructions.pdf",
+        "https://arxiv.org/abs/1312.7132",
+        "https://arxiv.org/abs/2610.37725",
+        "https://arxiv.org/abs/1505.06685"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2019 Proposition 8(3) and Example 10 address scalar residual exponent, not latent conditional distribution.",
+          "Baricz et al. 2026 provides univariate gamma-product tails.",
+          "Z-reduction and generic 2018 product theorem cover precise joint survival coefficient even for heterogeneous weights.",
+          "The target gives a conditional TV error and centered Gaussian latent factor, with a GIG shape parameter nu=a+m-sum b_i."
+        ],
+        "reasoning": "A precise survival equivalent does not automatically give total variation of A|E_t or identify the O(t^-1/4) error. The remaining conditional theorem is meaningful original content, although the underlying local saddle method is classical.",
+        "searches": [
+          "https://eprints.lancs.ac.uk/133229/1/RandomScaleConstructions.pdf",
+          "https://arxiv.org/abs/1505.06685",
+          "https://arxiv.org/abs/2610.37725",
+          "https://arxiv.org/abs/1312.7132"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let Z=min_i(B_i/w_i), independent of A; event all A B_i>w_i t is exactly A Z>t.",
+          "Z upper tail behaves [prod(w_i^(b_i-1)/Gamma(b_i))] z^(sum b_i-m)e^(-Wz)."
+        ],
+        "reasoning": "This reduction puts the sharp leading survival constant within general independent Weibull-type product asymptotics, so the tail equivalent itself is prior as a corollary. Conditioning on A retains a distinct law not determined by a scalar survival equivalent.",
+        "searches": [
+          "Resultary: shared gamma factor gamma product joint tail asymptotic extreme dependence latent localization",
+          "https://arxiv.org/abs/1312.7132"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General Bessel-K product identities and integer-shape finite sums are classical and were not credited as independently new.",
+          "Index had no separate exact TV-to-GIG conditional localization theorem for arbitrary gamma-shape vectors."
+        ],
+        "reasoning": "Exact gamma and Bessel tables fix many special cases, but a uniform conditional law with explicit error for arbitrary fixed shapes and directional weights is a different target; absence from searches is not proof of priority.",
+        "searches": [
+          "Resultary: shared gamma latent localization joint gamma-gamma products",
+          "gamma product survival modified Bessel exact finite shapes"
+        ]
+      },
+      "rationale": "The multivariate sharp joint tail *coefficient alone* is implied by older general product-of-Weibull tail theory by reducing simultaneous exceedance to the product A times Z=min_i(B_i/w_i), where Z is gamma-tailed with rate W; it is not independently novel as a generic probability equivalent. Engelke–Opitz–Wadsworth (2019) also implies the bivariate residual exponent 1/sqrt2. The substantive surviving claim is a fixed-m arbitrary-shape/weight *conditional common-factor total-variation approximation with O(t^-1/4) rate* to a specific GIG law and its Gaussian latent-scale localization, not supplied by the inspected general tail-exponent statements; originality is best-of-knowledge, with a clear risk of an earlier conditioned saddle theorem.",
+      "residual_risks": [
+        "Generic product-Weibull theorem covers the sharp joint tail coefficient via min-factor reduction; no independent novelty credited to this component.",
+        "A historic saddlepoint or generalized-inverse-Gaussian conditional limit theorem may already imply the TV comparison and Gaussian scale; searches were not exhaustive.",
+        "PDF screenshot unavailable despite full indexed text and section-level evidence; bibliographic confidence limited.",
+        "All rates assume fixed m, shapes and positive directions, not growing dimension or vanishing weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BIVARIATE_EXPONENT_AND_GENERAL_PRODUCT_PRIOR",
+          "evidence": [
+            "Proposition 8(3) eta_X=eta_W^(beta_R/(beta_R+beta_W)); Example 10 gives 2^(-1/2) for beta_R=beta_W=1; Lemma 7 cites prior sharp product-tail theorem."
+          ],
+          "identifier_or_url": "https://eprints.lancs.ac.uk/133229/1/RandomScaleConstructions.pdf",
+          "material_read": "Actual public PDF indexed text: introduction, Section 3.4 Proposition 8, Example 10 and its proof-section Lemma 7; page-0 screenshot request failed access",
+          "method": "Read extracted primary full-section scientific text, not merely title/snippet; PDF screenshot unavailable",
+          "title": "Extremal dependence of random scale constructions",
+          "trigger": "General common random factor and residual exponent"
+        },
+        {
+          "assessment": "GENERIC_TWO_PRODUCT_TAIL_FORMULA_PREVIOUSLY_KNOWN",
+          "evidence": [
+            "2013/2018 Dębicki–Farkas–Hashorva theory gives sharp product of two independent Weibull-type tails; shared Gamma high orthant reduces to A*min_i(B_i/w_i)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.7132",
+          "material_read": "Primary arXiv abstract plus precise theorem context referenced by Engelke et al Lemma 7; full original not accessed",
+          "method": "Original indexed abstract and named theorem as quoted in 2019 full-section source",
+          "title": "Random Scaling of Gumbel Risks",
+          "trigger": "Dominating product-of-two-Weibull asymptotic"
+        },
+        {
+          "assessment": "UNIVARIATE_GAMMA_PRODUCT_PRIOR",
+          "evidence": [
+            "2026 source studies univariate Gamma*Gamma and its Bessel tail."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.37725",
+          "material_read": "Public arXiv indexed abstract and detailed equation citations in frozen metadata; full independent paper unavailable",
+          "method": "Abstract and source-quoted Section 3 descriptions, not claimed full-text reading",
+          "title": "The NWU ageing property of the gamma-gamma distribution",
+          "trigger": "Exact gamma gamma univariate marginal"
+        },
+        {
+          "assessment": "DISTINCT_DEPENDENCE_MODEL_PRIORITY_RISK",
+          "evidence": [
+            "Prior model uses correlated multivariate gamma coordinates, which might admit a degenerate identical-factor specialization; not ruled out by abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.06685",
+          "material_read": "Abstract/Section II-C model description available in frozen record; direct full text not read",
+          "method": "Comparison of distributional assumptions without asserting full noncoverage",
+          "title": "On the Multivariate Gamma-Gamma Distribution With Arbitrary Correlation and Applications in Wireless Communications",
+          "trigger": "Multivariate gamma-gamma distributions could imply same law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conditional common-factor localization determines which latent environmental factor values actually generate simultaneous rare extremes; a quantitative total-variation approximation is useful for rare-event simulation, conditional inference, and extreme-risk mechanisms. The exact fixed-direction sharp normalization and Gaussian fluctuation scale make the statement mathematically testable, while correctly crediting the generic product-tail calculation and the bivariate exponent. This natural latent-factor problem is substantive even when ordinary joint survival asymptotics are an application of broader known product theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://eprints.lancs.ac.uk/133229/1/RandomScaleConstructions.pdf",
+    "https://arxiv.org/abs/1312.7132",
+    "https://arxiv.org/abs/2610.37725",
+    "https://arxiv.org/abs/1505.06685"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full mathematical evidence is summarized by the separate C/O/V reasons and scope in the pinned RESULT.md; the programmatic checks are finite corroboration, not proof of unrestricted claims.",
+    "External historical-priority coverage is best-of-knowledge as qualified in originality; no guarantee of independent scientific certification.",
+    "Publication is withheld pending authorized privacy remediation of potentially public metadata."
+  ],
+  "residual_risks": [
+    "Generic product-Weibull theorem covers the sharp joint tail coefficient via min-factor reduction; no independent novelty credited to this component.",
+    "A historic saddlepoint or generalized-inverse-Gaussian conditional limit theorem may already imply the TV comparison and Gaussian scale; searches were not exhaustive.",
+    "PDF screenshot unavailable despite full indexed text and section-level evidence; bibliographic confidence limited.",
+    "All rates assume fixed m, shapes and positive directions, not growing dimension or vanishing weights."
+  ],
+  "schema_version": 1
+}
