@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T19:55:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact centered one-dimensional Gaussian Wasserstein cost is (sqrt(1+εuBu)-sqrt(1+εuCu))². Uniform Taylor expansion on S¹ gives ε²(uDu)²/4+O(ε³). Rotate D to write uDu=m+r cosφ and use E cos²φ=1/2 and E cos⁴φ=3/8. The checked variances are ε⁴r⁴/128+O(ε⁵) for perpendicular pairing and ε⁴r²(r²+16m²)/256+O(ε⁵) for iid pairing; their ratio tends to 2r²/(r²+16m²) for r>0. At r>4|m| orthogonal sampling is worse, at 0<r<4|m| better, while r=4|m| and r=0 have no claimed strict conclusion. Swapped unequal diagonal covariances make costs pointwise quarter-turn invariant, exactly attaining factor 2. Independent rational moment algebra and selected Gaussian quadrature support but do not replace the uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen–Ho 2023 uses Gaussian 1D cost for control variates; Markov-dependent directions treated by Nguyen–Ren–Ho 2023."
+        ],
+        "reasoning": "The cited estimator and dependent-projection results do not give the exact limiting covariance sign for orthogonal 2D Gaussian directions.",
+        "searches": [
+          "orthogonal Gaussian sliced Wasserstein covariance trace anisotropy variance phase law; Gaussian sliced Wasserstein orthogonal variance two dimensional Gaussian trace",
+          "arXiv:2305.00402",
+          "arXiv:2301.03749"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-phase-law-for-orthogonal-gaussian-slice--973a05f893cc/RESULT.md",
+        "https://arxiv.org/abs/1903.03784",
+        "https://arxiv.org/abs/2305.00402",
+        "https://arxiv.org/abs/2301.03749"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rowland et al establishes no uniform stochastic variance dominance over generic populations; submitted proof derives strict regions and factor-two attainment specifically in Gaussian covariance family."
+        ],
+        "reasoning": "Neither generic non-dominance nor standard variance upper bound alone implies the sharp Gaussian trace threshold or a nonconstant family attaining it.",
+        "searches": [
+          "orthogonal Gaussian sliced Wasserstein covariance trace anisotropy variance phase law; Gaussian sliced Wasserstein orthogonal variance two dimensional Gaussian trace",
+          "https://arxiv.org/abs/1903.03784"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1903.03784: Rowland et al, orthogonal projected Wasserstein estimator and qualitative failures of dominance",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-phase-law-for-orthogonal-gaussian-slice--973a05f893cc/RESULT.md"
+        ],
+        "reasoning": "Planar Gaussian projected costs equal squared standard-deviation gaps; the earlier finite-support nondominance example is not a Gaussian moment-based trace/anisotropy phase law.",
+        "searches": [
+          "orthogonal Gaussian sliced Wasserstein covariance trace anisotropy variance phase law; Gaussian sliced Wasserstein orthogonal variance two dimensional Gaussian trace",
+          "https://arxiv.org/abs/1903.03784"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-phase-law-for-orthogonal-gaussian-slice--973a05f893cc/RESULT.md full result versus Resultary semantic search (self hit, other Gaussian/transport topics)"
+        ],
+        "reasoning": "A numeric database/table is not the mathematical vehicle: exact continuous matrix-parameter moment identities are sought; no covering table was located, and unsuccessful search alone is not proof of originality.",
+        "searches": [
+          "orthogonal Gaussian sliced Wasserstein covariance trace anisotropy variance phase law; Gaussian sliced Wasserstein orthogonal variance two dimensional Gaussian trace"
+        ]
+      },
+      "rationale": "Prior orthogonal sliced-Wasserstein work establishes qualitative counterexamples, not this near-isotropic 2D Gaussian trace–anisotropy classification or its exact Gaussian maximizers. Self/related index hits were excluded as novelty evidence. Qualified best of knowledge, not historical certification.",
+      "residual_risks": [
+        "Scalar leading D and equality boundary are deliberately not classified by leading-order result.",
+        "Unlocated specialist covariance/orthogonal quadrature theorem cannot be ruled out universally."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING these explicit Gaussian formulas",
+          "evidence": "Sections discuss orthogonal-vs-iid advantages and finite-support counterexamples, not near-isotropic Gaussian trace threshold",
+          "identifier_or_url": "Rowland et al., Orthogonal Estimation of Wasserstein Distances",
+          "material_read": "Full accessible article Sections 4.2, Proposition 4.5 and relevant appendix on orthogonal versus iid projection sampling",
+          "method": "full-text rendering at https://ar5iv.labs.arxiv.org/html/1903.03784",
+          "title": "Rowland et al., Orthogonal Estimation of Wasserstein Distances",
+          "trigger": "Same sampling design and known counterexample"
+        },
+        {
+          "assessment": "RECONSTRUCTED",
+          "evidence": "Uniform Gaussian Taylor expansion and harmonic angular moments give displayed coefficients",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-phase-law-for-orthogonal-gaussian-slice--973a05f893cc/RESULT.md",
+          "material_read": "Entire RESULT.md proof, scope, endpoints, references and limitations",
+          "method": "GitHub frozen blob 581b1317b464613b10200f72531ffa1ad98bdb7c",
+          "title": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-phase-law-for-orthogonal-gaussian-slice--973a05f893cc/RESULT.md",
+          "trigger": "Assigned proof under audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp variance-order boundary and the extremal Gaussian family are directly useful in deciding whether orthogonal projection coupling reduces or increases Monte Carlo error for a natural Gaussian transport estimator; the known generic counterexample itself is not counted as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar leading D and equality boundary are deliberately not classified by leading-order result.",
+    "Unlocated specialist covariance/orthogonal quadrature theorem cannot be ruled out universally.",
+    "The submitted numerical verification script was inspected but not independently executed; independent small exact/symbolic checks and reconstruction of the analytical proof are distinct from formal verification.",
+    "No external independent expert attestation is claimed.",
+    "Public publication must be withheld pending semantically verified privacy-safe metadata changes."
+  ],
+  "schema_version": 1
+}
