@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "On \\(\\ell^1\\) the column-sum norm formula is exact, including boundary columns and coefficient cancellation within the difference before taking absolute values. The binomial adjacent-mass ratio yields \\(\\sigma_n^2d_{n,k}\\to |u|\\varphi(u)\\) locally, and a global Gaussian envelope plus total variation \\(O(1/\\sigma_n)\\). For \\(\\alpha>1\\) the singular lattice kernel is summable, yielding \\(\\zeta(\\alpha)\\); at \\(\\alpha=1\\) the near-diagonal harmonic mass contributes precisely \\(\\log\\sigma_n/\\\\(\\log n\\)\\to1/2\\), with far terms negligible. Outer columns are exponentially small or O(n^-1/2), and off-center columns vanish by the Gaussian envelope. The maximizing Gaussian derivative \\(|u|\\varphi(u)\\) has value \\(1/\\sqrt{2\\pi e}\\) at exactly ±1. A standalone exact-rational finite-matrix test plus supplementary diagnostics passed 87 assertions. Numerical evidence is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abbar–Arnold–Coine arXiv:2609.24601v1 Section 3 characterizes Cesaro boundedness and weighted shift growth, not the claimed lazy power-difference constants.",
+        "Arnold arXiv:2610.00271v1, Sections 3 and 7, concerns ACB ranges and a different, rotated nonpositive obstruction.",
+        "Katznelson–Tzafriri (1986) assumes power boundedness, which fails for these \\(\\alpha\\ge1\\) operators."
+      ],
+      "reasoning": "Existing general operator-growth and ACB conclusions neither cover nor imply the specified exact non-power-bounded consecutive-power asymptotics. Limit arguments from the subcritical alpha range are nonuniform because \\(\\zeta(\\alpha)\\) and the fractional integral diverge as alpha approaches 1.",
+      "searches": [
+        "Critical alpha=1 and supercritical alpha>1 powers of lazy weighted backward shift (1-delta)I+delta W, norm power differences logarithmic n or n^{alpha-1}, exact constants, Katznelson Tzafriri",
+        "Sharp asymptotic norm of Sδ^n(I-Sδ) for binomially averaged polynomially weighted backward shift W e_j=(j/(j−1))^α e_{j−1}; Gaussian derivative fractional integral; Katznelson Tzafriri rates"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00271v1",
+      "arXiv:2609.24601v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-gaussian-sharp-constants-for-lazy-positive-weighted-shifts--57373dad5d93",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-power-growth-and-power-difference-decay-for-positive-lazy--c5f2f187c821",
+      "Katznelson–Tzafriri, On power bounded operators, JFA 68 (1986) 313–328 (hypothesis and theorem scope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2026-10-18 published-finding corpus Gaussian sharp constants theorem: \\(0<\\alpha<1\\), with difference order \\(n^{(\\alpha-1)/2}\\) and fractional Gaussian constant; it explicitly excludes \\(\\alpha=1\\) and notes loss of integrability.",
+        "Published 2026-10-18 published-finding corpus reflexive theorem: \\(1<p<\\infty\\) and \\(0<\\alpha<1/p\\); two-sided powers only.",
+        "Current proof gives different leading growth: \\(\\log n\\) at \\(\\alpha=1\\) and \\(\\zeta(\\alpha)\\)\\(n^{\\alpha-1}\\) above it."
+      ],
+      "reasoning": "The exact same model and binomial column identity are already known, so these are credited. Neither prior theorem has quantifiers including \\(\\alpha\\ge1\\); no implication of new sharp constants follows merely by continuity, since their proof uses an integrable singular kernel and its constants blow up at the boundary.",
+      "searches": [
+        "positive absolutely Cesàro bounded shifts, exact quantitative Katznelson–Tzafriri convergence rates n^{-(1−α)/2}",
+        "operator norm consecutive powers of lazy weighted backward shift W_a e_j=(j/(j-1))^a e_(j-1) on l1 critical a=1 logarithmic and a>1 zeta(a) n^(a-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full RESULT.md for Gaussian sharp constants for lazy positive weighted shifts, 2026-10-18: Eq. (2) is the same column identity; the stated domain is precisely \\(0<\\alpha<1\\).",
+        "Arnold arXiv:2610.00271v1 Section 7: binomial convex averaging, but without a critical logarithmic or zeta-factor asymptotic.",
+        "Relevant published-finding corpus queries returned the \\(0<\\alpha<1\\) result as the closest match, not a covering \\(\\alpha\\ge1\\) result."
+      ],
+      "reasoning": "An \\(\\ell^1\\) weighted-binomial convolution and a consecutive-power-difference weighted-shift norm are equivalent via the exact column formula. This equivalence was used to detect the closest prior result, whose alpha<1 restriction does not include the new \\(\\alpha=1\\) or \\(\\alpha>1\\) domain. No alternative exact endpoint formula was identified.",
+      "searches": [
+        "operator norm consecutive powers of lazy weighted backward shift W_a e_j=(j/(j-1))^a e_(j-1) on l1 critical a=1 logarithmic and a>1 zeta(a) n^(a-1)",
+        "binomial first difference harmonic singular kernel zeta phase transition at order 1 operator powers",
+        "weighted binomial convolution operator norm zeta(alpha) n^{alpha-1} shift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search of published-finding corpus mathematical records for \\(\\alpha=1\\) logarithmic endpoint and supercritical zeta constants returned earlier subcritical asymptotics, but not any endpoint coefficient or supercritical table.",
+        "The object is a continuous two-parameter operator norm, rather than a named finite census or known invariant table."
+      ],
+      "reasoning": "No known exact database entry or table directly records the two critical asymptotic constants. Absence from a search index alone is not asserted to prove novelty.",
+      "searches": [
+        "exact alpha=1 logarithmic boundary of Gaussian sharp constants lazy positive weighted shifts",
+        "Gaussian sharp constants for lazy positive weighted shifts beyond alpha 1, logarithmic growth"
+      ]
+    },
+    "rationale": "Arnold (arXiv:2610.00271v1, Example 3.2 and Section 7) provides the original weighted-shift model and general binomial lazy-averaging setting, but not the critical/supercritical sharp difference limits. The directly comparable full published-finding corpus research text explicitly assumes \\(0<\\alpha<1\\) and uses a locally integrable fractional Gaussian kernel; its theorem and all quantified conclusions exclude \\(\\alpha\\ge1\\). The independent reflexive-space result assumes \\(0<\\alpha<1/p\\), also excluding the claimed domain. The binomial-gradient/harmonic/zeta endpoint formulas are not logical consequences of those theorems without an additional singular-kernel boundary analysis, provided here. Targeted equivalent, broader and exact-formula queries found no other covering result; incomplete indexing and independent priority verification remain risks.",
+    "residual_risks": [
+      "A classical theorem in weighted binomial convolutions may encode the same singular-kernel asymptotics under different terminology.",
+      "Published search and accessible full-text comparison are not exhaustive; independent priority review is not performed.",
+      "Near-critical two-parameter limits are not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identifies the same model, but its quantitative operator-power differences are about a different, rotated direct-sum construction rather than the present \\(\\alpha\\ge1\\) \\(\\ell^1\\) asymptotics.",
+        "evidence": [
+          "arXiv:2610.00271v1, first posted 2026-09-24; Example 3.2 weights, Section 7 lazy averaging; primary MSC 47A35."
+        ],
+        "identifier_or_url": "https://borowiecki.dev/pdf/2610.00271",
+        "material_read": "Full relevant Example 3.2, Lemma 7.3, Proposition 7.1, introduction and paper outline; original preprint PDF pages 0,5-6,16-19.",
+        "method": "Original preprint PDF text and rendered pages; cross-checked arXiv submission metadata and MSC line.",
+        "title": "Self-improvement for absolutely Cesàro bounded operators",
+        "trigger": "Original positive weighted-shift model and lazy binomial smoothing, potentially dominating the claim."
+      },
+      {
+        "assessment": "Same object, alpha strictly below 1; no \\(\\alpha\\ge1\\) theorem. Establishes prior coverage of all subcritical claims, which are excluded here.",
+        "evidence": [
+          "Theorem fixes \\(0<\\alpha<1\\) and its singular Riemann sum explicitly relies on alpha<1; its Limitations excludes \\(\\alpha=1\\)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-gaussian-sharp-constants-for-lazy-positive-weighted-shifts--57373dad5d93",
+        "material_read": "Complete RESULT.md, including exact column identity, local Gaussian lemma, proof and stated restrictions.",
+        "method": "Direct retrieval and reading of published repository file.",
+        "title": "Gaussian sharp constants for lazy positive weighted shifts",
+        "trigger": "Exactly the same lazy weighted shift and consecutive-power norm with a possibly stronger theorem."
+      },
+      {
+        "assessment": "Assumes \\(1<p<\\infty\\) and \\(0<\\alpha<1/p\\), so its range and its conclusion do not subsume either critical \\(\\ell^1\\) identity.",
+        "evidence": [
+          "Theorem fixes \\(\\alpha p<1\\) and supplies two-sided order, not endpoint zeta coefficient."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-power-growth-and-power-difference-decay-for-positive-lazy--c5f2f187c821",
+        "material_read": "Complete RESULT.md, including assumptions, main proof and comparison.",
+        "method": "Direct retrieval and reading of published repository file.",
+        "title": "Sharp power growth and power-difference decay for positive lazy backward shifts on reflexive sequence spaces",
+        "trigger": "Potential broader power regularity theorem for the same operator family."
+      },
+      {
+        "assessment": "Weighted-shift ACB classification and growth constraints but no matching exact binomial first-difference norm asymptotic in the material read.",
+        "evidence": [
+          "arXiv:2609.24601v1 (2026-09-21), Section 3 and original primary MSC47A35; may warrant broader independent search of earlier convolution literature."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.24601",
+        "material_read": "Abstract, introduction, theorem and example locations in Section 3; relevant full-text HTML portions.",
+        "method": "Open-access HTML preprint reading.",
+        "title": "On absolutely Cesàro bounded operators",
+        "trigger": "Broader weighted-shift growth and Cesàro classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0a57507e-3dd8-4da4-9cf7-712a4d12d5c0",
+  "value": {
+    "rationale": "The formerly unresolved boundary \\(\\alpha=1\\) is the natural singular-integrability cutoff in the exact subcritical Gaussian asymptotic for the same operator. The theorem identifies a new logarithmic-to-polynomial power-regularity transition, sharp delta-dependent constants, the zeta function appearing from a discrete boundary layer, and the location of extremizing columns. This is a complete endpoint/supercritical classification of a motivated operator norm invariant, not an arbitrary parameter substitution. It does not claim a general Katznelson–Tzafriri failure within the ACB class.",
+    "status": "PASS"
+  }
+}
