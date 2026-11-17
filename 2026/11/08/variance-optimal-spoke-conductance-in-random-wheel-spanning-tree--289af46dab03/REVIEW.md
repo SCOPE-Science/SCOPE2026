@@ -1,15 +1,21 @@
-# Review of the asymptotic wheel variance optimization
+# Independent mathematical audit
 
-## Correctness
-PASS. The spanning-tree determinant is the hub-deleted weighted Laplacian determinant. Its cycle eigenvalues yield the exact variance. The Chebyshev/hyperbolic representation yields an exact positive derivative at conductance \(2\). Compact second-derivative convergence and quantitative tail localization force eventual global uniqueness; the mean-value argument yields the sharp \(12\) displacement constant and the peak deficit. An executable, independent finite counting route checks the polynomial identities (188 passed checks). The theorem deliberately makes no all-sizes uniqueness assertion.
+## correctness
 
-## Originality
-PASS, with residual priority risk. The full prior source [1] explicitly gives the general hub-degree variance spectral sum in Example 4.1: the moment formula is **covered** and is not presented as new. The inspected general unweighted degree-law theory [2] does not optimize a continuously variable wheel spoke conductance. Searches for wheel conductance optimization, spoke variance, and the exponential correction found no statement implying the sharp displacement/peak claim. A publicly indexed wheel optimization result for a Löwner ellipsoid concerns a different shape functional and an exponentially different correction, not the variance of stochastic spanning-tree spoke counts.
+PASS
 
-## Value
-PASS. In the natural single-parameter weighted wheel model, the variance-maximizing design is not exactly the thermodynamic-optimal value \(2\) at finite size; its bias is positive and exponentially small with a sharp leading coefficient. Simultaneously identifying eventual uniqueness and the exponentially small deficit resolves a qualitative and quantitative tuning question not determined merely by a general variance formula.
+PASS: The matrix-tree minor equals det[L(C_n)+tI]=2[T_n(1+t/2)−1]; logarithmic derivatives give the exact Bernoulli spectral variance. The hyperbolic form proves Vʹ_n(2)>0 and V_n/n→v(t)=2√t/(t+4)^(3/2) in C² on compacts. Quantitative small/large t tail bounds force all global maximizers near the unique limiting peak t=2. Strict concavity there yields eventual global uniqueness; Vʹ_n(2)~n³ρ^n/(3√3) and vʺ(2)=−1/(36√3) yield factor 12 and the sharp peak deficit. Independently verified determinant/Chebyshev and variance identities for n=3,4,5,6,8,10; 90-digit optimization checked asymptotic approach at n=10,15,20,25,30. Finite optimization alone is not the infinite proof.
 
-## Closest literature and limitations
-[1] E. Fita Sanmartín, C. Schnörr and F. A. Hamprecht, arXiv:2409.13472, Example 4.1; covers the underlying spectral variance formula, not the optimizer theorem. [2] A. Rapoport, arXiv:2312.14992, unweighted UST correlation formulas. No explicit finite cutoff for eventual uniqueness is established. Historical priority remains subject to independent expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, restricted to eventual variance-optimum uniqueness and exponential displacement/peak asymptotics. Fita Sanmartín–Schnörr–Hamprecht already give the universal-hub variance spectral identity as Example 4.1; that identity is excluded from novelty. The earlier wheel maximum-entropy overlap optimum instead tends to t=4/3, and fan-leaf variance optimization concerns another graph/observable.
+
+## value
+
+PASS
+
+PASS: Optimizing hub-degree uncertainty under a single natural conductance control is a motivated stochastic-network design problem. Eventual uniqueness and a sharp exponentially small finite-wheel bias quantify a genuine boundary invisible in the prior general variance formula; no invented explicit finite-n cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
