@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of characteristic-two Rota–Baxter index and finite-field counts
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3's standard library. The program directly constructs all \(q^{(d+1)^2}\) candidate matrices for the tested small prime-field instances, applies each matrix to all elements, evaluates the original weight-zero Rota–Baxter identity on all ordered element pairs, and computes \(P^2\), \(P^3\), and rank pairs independently of the structural parametrization. It separately computes square-zero rank multiplicities with Gaussian coefficients and compares all observed counts and rank pairs. The sampled test cases are \((q,d)=(2,1),(2,2),(3,1),(3,2),(5,1)\). It also evaluates the finite-field formulas for \(q=2\) and \(1\le d\le6\).
+## correctness
 
-Expected representative output includes `DIRECT_RB q 2 d 2 count 16 P2zero 10 P2nonzero 6`, `JORDAN_RANK_PROFILE_OK 2 2 [((0, 0), 1), ((1, 0), 9), ((2, 1), 6)]`, `DIRECT_RB q 3 d 2 count 33 P2zero 33 P2nonzero 0`, and a final `VERIFY_OK`.
+PASS
 
-The infinite-field classification, all finite extension fields, and the asymptotic probability formula follow from the proof in `RESULT.md`, not from these finite enumerations. Finite computational experiments neither establish the infinite assertion nor rule out a stronger published theorem. No independent mathematical audit has been performed.
+Reconstructed field-linear weight-zero RB equation on split k⊕V: scalar blocks forced zero, L²=0 and 2Lu=0 are necessary and sufficient. P²(1)=Lu and P³=0. Rank r square-zero matrix count chooses im L, ker L⊃im L and induced isomorphism V/ker→im. In d=2m+ε, r=m−j, Gaussian Q product gives summable q^{-2j(j+ε)} and q^j-weighted majorants; dominated convergence proves the SHARP parity constant. Independent exact F2 d=1..3 totals 2,16,176, index3 totals 0,6,84; independently calculated scaled square-zero probabilities for q=2 and 4 approach separate parity constants. Finite checks do not prove asymptotic.
+
+## originality
+
+PASS
+
+The weight-zero square-zero-local algebra normal form, rank counts and existence of cubic nilpotence are previously published and receive NO originality credit. The surviving final assertion is the sharp parity-dependent leading constant in Pr(P²=0)=q^{-floor(d/2)}(T_epsilon/S_epsilon+o(1)) for fixed even q. The inspected October 12 and November 2 full proofs establish only exact counts and the qualitative limit to zero, with no such parity-resolved local asymptotic. The new summable centered-rank saddle computation is a genuine nontrivial quantified refinement.
+
+## value
+
+PASS
+
+The surviving explicit parity-dependent leading constants quantify the rate of near-universal index-three behavior among naturally sampled operator families. Discrete rank-nullity tails in an algebraically natural finite-field family are useful exact invariants; proving a sharp weighted Gaussian saddle limit is more than repackaging a known total count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
