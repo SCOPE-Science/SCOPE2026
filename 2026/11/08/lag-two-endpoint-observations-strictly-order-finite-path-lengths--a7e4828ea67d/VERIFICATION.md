@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` beside the result. This standard-library checker constructs exact rational first-exit transforms on the planar squares, first-coalescence transforms of two independent reflected walkers, and stationary pair-covariance equations. It independently builds the entire noisy-voter binary-state transition matrix on small paths and compares stationary root time-two repetition probabilities.
+## correctness
 
-The actual execution completed with the message `VERIFY_OK; exact independent stationary, pair-coalescence, square-exit checks: 38`. The grouped exact comparisons cover path sizes from two through seven and copy-survival parameters \(c=1/2\) and \(c=2/3\); direct binary-configuration tests cover the computationally tractable smaller sizes. The computed gaps were positive and met the claimed quantitative bound. Checks use `fractions.Fraction` for exact rational arithmetic, without Monte Carlo inference or a numerical tolerance.
+PASS
 
-The all-size, all-parameter theorem does **not** follow from this finite test suite. The general proof relies on a coalescing-genealogy identity, explicit pathwise folding of independent simple random walks into a two-dimensional walk, and nested planar domains with a positive-probability separating event. The two-vertex boundary case is handled separately. The hypotheses require fixed shared noise strictly inside the unit interval and unweighted finite paths observed at an endpoint. No sample-complexity or independent external mathematical validation is asserted.
+Synchronous noisy-voter transition matrices on finite P_n are strictly positive because any configuration can be obtained by all-site refresh, giving a unique stationary law and almost-sure time-frequency ergodic convergence. Backward copying genealogy gives agreement 1/2 plus half the coalescence probability. Two-step return is c²/2 and a second term c²/2 E[c^{2σ_n}] from two walks starting at 0,2. Folding independent Z-walks to reflecting path produces an exact walk Z=((A+B)/2,(A−B)/2) from (1,−1), with four compass moves; the first simultaneous meeting is first exit from (0,n−1)×(−(n−1),0). Nested rectangles give τ_{n−1}≤τ_{m−1} pathwise and the all-east event provides a positive quantitative difference for every c∈(0,1). n=2 is handled separately. I independently solved exact rational square-exit resolvents at c=3/5 for n=3..7 and obtained strict decreasing h_n; read verify.py finite-state, pair-walk and square-resolvent checkers.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for strict all-noise all-finite-path endpoint ordering and explicit nested-square exit representation. The Benjamini–Helman Tov–Zhukovskii work establishes lag-two genealogy framework and distinguishes other graph families, but the accessible statements do not establish the reflected finite path monotonicity; its full body was unavailable and is a material priority risk. No Resultary wheel or bipartite noisy-voter theorem has this path implication.
+
+## value
+
+PASS
+
+Endpoint-rooted paths form the natural first unresolved branching-one boundary of existing noisy-voter reconstruction. Strict ordering at every positive noise, with an explicit quantitative separation and exact random-walk representation, is a useful structural identification theorem; not a routine consequence of ergodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

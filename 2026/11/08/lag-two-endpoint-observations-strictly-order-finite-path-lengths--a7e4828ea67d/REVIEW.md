@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assumptions specify synchronous independent vertex updates, fair refresh, finite unweighted paths rooted at an endpoint, and common \(0<\varepsilon<1\). All configuration-chain transition probabilities are positive, ensuring a unique stationary law and almost-sure time averages. Backward coalescence gives the exact two-time repetition probability. Folding two independent reflected walks and applying the sum/difference integer-coordinate change yields standard planar nearest-neighbor walk, whose first exit from nested open squares equals the simultaneous coalescence time. A common pathwise coupling proves strict ordering; the monotone gap bound follows on an explicit east-only event. The special two-vertex endpoint case is computed separately. The finite exact-rational checker passed 38 grouped assertions, including independent configuration-chain and two-walker computations; no finite test is used as an infinite proof.
+## correctness
 
-## Originality — PASS (with residual historical-priority risk)
-Benjamini, Helman Tov and Zhukovskii, arXiv:2207.01224, introduce one-site lagged observations and coalescing genealogy in the synchronous noisy voter model, and prove results for other graph families. Their explicitly stated arity-at-least-two perfect-tree theorem does not imply the endpoint-path (arity-one) result. Their general observation/coalescence criterion is retained as prior art. The result here is the strict **all-noise, all-length** path order, planar square-exit identity and quantitative separation. Mohylevskyy, Newman and Ravishankar, arXiv:1112.1893, address infinite-line voter dynamics rather than finite reflected paths; Pymar and Rivera, arXiv:2112.01478, study asynchronous global density rather than synchronous endpoint observation. Targeted search of relevant literature and mathematical-result records, plus comparison to accessible own claims, did not locate an implication-equivalent earlier result. Searches cannot prove uniqueness; an unpublished argument or unstated corollary remains a residual priority risk.
+PASS
 
-## Value — PASS
-The known local-observation program asks what global graph information can be recovered from one observed vertex. Even with one binary data stream and no spatial samples, this theorem completely identifies the size of every finite endpoint-rooted path from a single lag-two statistic for all nondegenerate noise levels. The exact square-exit reduction is a structural coupling and yields a positive quantitative comparison, not just a computed table or routine special case. The result does not claim finite-time statistical guarantees.
+Synchronous noisy-voter transition matrices on finite P_n are strictly positive because any configuration can be obtained by all-site refresh, giving a unique stationary law and almost-sure time-frequency ergodic convergence. Backward copying genealogy gives agreement 1/2 plus half the coalescence probability. Two-step return is c²/2 and a second term c²/2 E[c^{2σ_n}] from two walks starting at 0,2. Folding independent Z-walks to reflecting path produces an exact walk Z=((A+B)/2,(A−B)/2) from (1,−1), with four compass moves; the first simultaneous meeting is first exit from (0,n−1)×(−(n−1),0). Nested rectangles give τ_{n−1}≤τ_{m−1} pathwise and the all-east event provides a positive quantitative difference for every c∈(0,1). n=2 is handled separately. I independently solved exact rational square-exit resolvents at c=3/5 for n=3..7 and obtained strict decreasing h_n; read verify.py finite-state, pair-walk and square-resolvent checkers.
 
-## Literature and scope boundaries
-Primary comparisons: arXiv:2207.01224 (synchronous local observation); arXiv:1112.1893 (infinite one-dimensional voter dynamics); arXiv:2112.01478 (asynchronous global noisy-voter density). The proof and reproducibility files distinguish known genealogical ideas from the finite-path square-exit finding. Independent mathematical auditing has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for strict all-noise all-finite-path endpoint ordering and explicit nested-square exit representation. The Benjamini–Helman Tov–Zhukovskii work establishes lag-two genealogy framework and distinguishes other graph families, but the accessible statements do not establish the reflected finite path monotonicity; its full body was unavailable and is a material priority risk. No Resultary wheel or bipartite noisy-voter theorem has this path implication.
+
+## value
+
+PASS
+
+Endpoint-rooted paths form the natural first unresolved branching-one boundary of existing noisy-voter reconstruction. Strict ordering at every positive noise, with an explicit quantitative separation and exact random-walk representation, is a useful structural identification theorem; not a routine consequence of ergodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
