@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem reduces exactly to the diagonal formula \(\Delta_2(T)=\max_j x_j|x_j-x_{j+1}|\), derives a strictly increasing quadratic backward envelope, and proves the unique norm-one equality profile by strict propagation of any slack. The asymptotic follows from the exact squared-recurrence increment and a convergent error series. The extracted checker was run successfully and evaluated 29,038 finite assertions. Finite diagnostics do not prove universal or asymptotic statements; the stated proof does.
+## correctness
 
-## Originality — PASS (qualified)
-The recent primary reduced-Embry paper's material on the two-exponent characterization and individual-power counterexamples was read, including its operator inequalities, theorem statements and references. Full results from three adjacent published records were compared by mathematical implication: their fourth Schatten radius, power-quasinormality index sets and first-order Schatten self-commutator do not deliver this operator-norm minimax for the single second Embry residual. Searches for exact defects, stability, nilpotent weighted shifts and equivalent recurrences found no direct coverage. The closely titled Adnan–Jibril (2010) paper was identified bibliographically but could not be read in full despite publisher and open-access searches; it and classical weighted-shift extremal-sequence literature remain publication-priority risks. This is a best-knowledge assessment, not a statement of independent priority certification.
+PASS
 
-## Mathematical value — PASS
-The recent exact-moment characterization motivates asking whether near equality has a uniform obstruction on finite nilpotent models. This theorem completely solves a natural normalized operator-norm residual for all dimensions, with a unique extremal taper and a logarithmic correction; the vanishing optimal defect exposes the precise limitation of a dimension-independent quantitative version for this one-moment model. It does not purport to solve the full approximate-quasinormality problem.
+Direct one-step matrix diagonalization gives delta=max_j x_j|x_j-x_{j+1}| with x_{N+1}=0. For any δ bound the quadratic yields x_j≤(x_{j+1}+sqrt(x_{j+1}²+4δ))/2 and strict monotonic propagation forces x_j≤sqrtδ R_{N+1-j}. Norm-one gives δ≥R_N^-2, and equality recursively forces x_1=1 and every x_j=R_{N+1-j}/R_N, phases arbitrary. Identity R_k(R_k-R_{k-1})=1 proves attainment, and R_N²=2N-ΣR_k^-2 with k≤R_k²≤2k gives convergent harmonic error, R_N²=2N-(1/2)logN+O(1) and reciprocal expansion. N=1 included. The independent finite checker validated 3605 exact/near-exact cases and is not the all-N proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Recent reduced-Embry results characterize exact quasinormality from multiple moments, rather than quantifying the sharp single-moment residual at norm one on finite nilpotent shifts. The closest prior sharp Schatten-fourth shift theorem optimizes a different nearest-neighbor quadratic norm. No inspected exact prior theorem implies this nonlinear backward-envelope recurrence or its unique extremizers. The plausible 2010 paper on exact equality could not be read in full and remains a real priority risk, not an automatic failure.
+
+## value
+
+PASS
+
+A single approximate Embry moment on a norm-one nilpotent shift is a natural finite-dimensional quantitative quasinormality model. This theorem solves the complete all-dim minimax, proves a unique taper, and finds an asymptotic vanishing defect with nontrivial (log N)/N² correction, precisely measuring the absence of a dimension-free gap. Not a textbook evaluation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
