@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The included `verify.py` uses only the Python standard library. Execute `python3 verify.py` in the directory containing it; the observed output is `VERIFIED 3955 exact assertions, 1286 weight multisets`.
+# Independent mathematical audit
 
-The script independently computes lattice-point counts by a signed-coordinate recurrence, compares small cases with direct coordinate enumeration, examines root-of-unity pole orders, and tests minimum quasiperiods by finite differences on all integer residue classes for a finite set of parameters. It verifies the unique sharp weight multisets through the denominator \(32\) and their exact binomial counts for dilations through \(70\). All numerical assertions use exact integer arithmetic. The analytic proof in RESULT.md, not these finite checks, establishes the unrestricted theorem.
+## correctness
 
-The code is a finite reproducibility check, not an independent audit or a formal proof of the infinite-dimensional assertions. General historical priority also remains provisional.
+PASS
+
+Reconstructed weighted l1 enumeration F(z)=(1-z)^-1 product_i (1+z^a_i)/(1-z^a_i) directly from signed-coordinate generating functions. At primitive mth roots denominator zeros count m|a_i and numerator zeros count (m even,a_i=m/2 mod m); exact uncancelled pole orders imply the minimum Ehrhart quasiperiod, both directions, not just a divisor. Odd factors force noncollapse; dyadic powers give inequalities c_(j-1)>=sum_(k>=j)c_k. Their tail-count iteration yields d>=2^r and unique equality multiplicities; resulting (1+z^d)/(1-z)^(d+1) violates lattice-polytope h*-degree-one/interior-point counts in dimension d. Applies all d>=1 and positive integer a_i; rigidity only max weight>1. Independent exact counts, criterion and polynomial comparison on 209 weight multisets; finite tests not proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Broader formalisms are more general in object but their inspected claims do not supply this all-weights numerical minimal period and unique equality shape by mere substitution; generic rational series still requires cancellation and dyadic multiplicity analysis. No demonstrated prior theorem implies the sharp all-weight classification and dimension rigidity. However Uchiumi 2026 full text could not be accessed, so this remains qualified best-of-knowledge, not a NOT_COVERING verdict about the unread paper.
+
+## value
+
+PASS
+
+The rational axis cross-polytope is a natural exactly enumerable class. A complete minimal-period classification, combinatorial rigidity threshold d>=2^r and unique extremal non-lattice Ehrhart polynomial are structurally motivated, nontrivial beyond its known generating series; potential applications to Ehrhart period collapse and lattice-realization obstructions. Correctness and reproductions alone did not decide value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

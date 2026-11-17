@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Equation (1) follows from the weighted absolute-coordinate generating series and a nonnegative slack variable. For every primitive root of unity, the denominator and numerator vanishing orders are calculated exactly, including the even-order sign condition. The standard poles-of-quasipolynomials characterization gives the minimum period rather than a period bound. If there are no non-unit poles, properness of the rational function ensures an honest polynomial from the very first dilation. The dyadic inequalities imply a sharp doubling chain; the equality case telescopes, and lattice nonrealizability follows from the contradiction between the first and top Ehrhart numerator coefficients. The included standard-library verifier passed 3,955 exact assertions. Computations are corroborative and do not assert infinite coverage.
+## correctness
 
-## Originality
-**PASS, provisional pending independent literature examination.** Uchiumi's arXiv:2610.41529 (§4.2, Proposition 4.1) already gives the rational generating function for every weight vector. Therefore that formula is not new. The analyzed source does not state the complete exact-minimum-quasiperiod rule, the necessary and sufficient dyadic multiplicity classification, or the sharp unique dimension-minimizing family. The latter is not obtained simply by substituting a fixed weight vector into a known expression; it requires a simultaneous pole-cancellation and extremal multiplicity argument. Clarke–Higashitani–Kölbl (arXiv:2209.00755, §4) already cover the one-weight-two subfamily. Woods (2005), McAllister–Woods (2003/2005), and Haase–McAllister (2007) cover broader period-collapse phenomena, not this asserted all-weight rigidity. Search cannot prove priority, and the published generating function presents a real risk that the structural corollaries were derived elsewhere.
+PASS
 
-## Mathematical value
-**PASS.** The minimum period, especially period one, is a natural invariant not recoverable merely from the denominator of a rational polytope. A complete all-parameter criterion is more informative than separate examples: it shows that only dyadic vertex denominators permit period one, that the maximum denominator is at most dimension, and that equality has a unique multiplicity profile with numerator \(1+z^d\). The non-lattice-realizability consequence makes the sharp family a nontrivial set of pseudo-integral polytopes. This is a structural classification and optimality theorem, not an arbitrary finite parameter slice.
+Reconstructed weighted l1 enumeration F(z)=(1-z)^-1 product_i (1+z^a_i)/(1-z^a_i) directly from signed-coordinate generating functions. At primitive mth roots denominator zeros count m|a_i and numerator zeros count (m even,a_i=m/2 mod m); exact uncancelled pole orders imply the minimum Ehrhart quasiperiod, both directions, not just a divisor. Odd factors force noncollapse; dyadic powers give inequalities c_(j-1)>=sum_(k>=j)c_k. Their tail-count iteration yields d>=2^r and unique equality multiplicities; resulting (1+z^d)/(1-z)^(d+1) violates lattice-polytope h*-degree-one/interior-point counts in dimension d. Applies all d>=1 and positive integer a_i; rigidity only max weight>1. Independent exact counts, criterion and polynomial comparison on 209 weight multisets; finite tests not proof.
 
-## Limitations and nearest literature
-The asserted novelty is **not** the known rational-cross-polytope generating function, the smallest two-dimensional case, generic period-collapse existence, or the known possibility that an ordinary Ehrhart polynomial is not lattice-realizable. The distinct proposed contribution is the global dyadic classification, minimum-period formula, and sharp extremal dimension theorem for that family. The 2026 source has a revised version; the examined material is its retained §4.2. Independent historical and mathematical audits remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Broader formalisms are more general in object but their inspected claims do not supply this all-weights numerical minimal period and unique equality shape by mere substitution; generic rational series still requires cancellation and dyadic multiplicity analysis. No demonstrated prior theorem implies the sharp all-weight classification and dimension rigidity. However Uchiumi 2026 full text could not be accessed, so this remains qualified best-of-knowledge, not a NOT_COVERING verdict about the unread paper.
+
+## value
+
+PASS
+
+The rational axis cross-polytope is a natural exactly enumerable class. A complete minimal-period classification, combinatorial rigidity threshold d>=2^r and unique extremal non-lattice Ehrhart polynomial are structurally motivated, nontrivial beyond its known generating series; potential applications to Ehrhart period collapse and lattice-realization obstructions. Correctness and reproductions alone did not decide value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
