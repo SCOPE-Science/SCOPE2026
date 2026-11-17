@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the fixed-step anti-Niven construction
+# Independent mathematical audit
 
-Run `python3 verification/check_anti_niven.py` with standard Python 3; there are no external dependencies. The script checks ten odd bases, including composite \(9,15,21,25,27,33\), and checks CRT local admissibility for every prime up to the chosen finite cutoff, the two-level low-digit identity, and the modular conditions for every term. For bases \(3\) and \(5\), it builds the actual separated-digit integer, computes the full digit sums of the enormous progression members and verifies all gcds. Expected terminal message: `VERIFY_OK bases=10 complete_literal_bases=2 modular_checks=10`.
+## correctness
 
-The infinite proof depends on the following elementary facts, each proved in `RESULT.md`: (i) for every odd base and each prime \(q\le U\) there is a residue for \(P\) making both \(P\) and \(P-(b-1)\) nonzero modulo \(q\) and compatible with the base constraints; (ii) CRT yields arbitrarily large such \(P\); (iii) the multiplicative order of \(b\) modulo \(PQ\) exists; and (iv) the explicit sums of powers have disjoint digit positions. Finite tests alone do not prove these universal steps.
+PASS
 
-The theorem does not determine the odd-base maximum length, the smallest possible start, or existence for general differences.
+For every odd b≥3, the 2b+1 low parts L_j=1+j(b−1) have digit sum 1 only at j=0,1,b+1 and digit sum b elsewhere; checked this independently for b=3,5,9,15. CRT avoidance is feasible even at q=2 because 2 divides b−1 and both P,Q≡−1 mod q, while q|b gives P≡1,Q≡2 mod q. Choosing P,Q rough to U, H=ord_{PQ}(b), and a=(P+b)/(b−1), R=P−b−a≥0 yields high block C with s_b(C)=P−b and C≡2P mod PQ. With N=C b^m+1, m a multiple of H and ≥3, the desired s_b(N+jd) equals P or Q and is coprime to its term. Varying m yields infinitely many distinct starts. No finite search is needed to establish existence in all odd bases.
+
+## originality
+
+PASS
+
+Best-of-knowledge original composite-odd-base completion of the fixed-step (b−1), length (2b+1) anti-Niven progression construction. The inspected published theorem proves odd prime bases only, while even-base sharpness applies only to even b; conditional short-even-stride results cannot cover d=b−1 because every prime dividing b−1 also divides d.
+
+## value
+
+PASS
+
+The fixed difference b−1 and target length 2b+1 are natural parameters in the existing anti-Niven progression problem; extending the known odd-prime construction to all odd composite bases resolves a substantive missing family without claiming sharpness for odd bases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

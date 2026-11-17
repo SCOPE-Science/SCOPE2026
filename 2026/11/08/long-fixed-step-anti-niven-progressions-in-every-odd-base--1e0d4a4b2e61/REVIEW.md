@@ -1,11 +1,21 @@
-# Scientific review — long fixed-step anti-Niven progressions
+# Independent mathematical audit
 
-**Correctness (PASS).** The base-\(b\) representations of \(1+j(b-1)\) have exactly two digit-sum levels on the prescribed interval. CRT local compatibility is checked prime by prime, including the small primes dividing \(b\) or \(b-1\); the oddness of \(b\) is essential for the prime \(2\) and the residue \(2\pmod q\) at primes dividing \(b\). The digit-separated prefix has the specified digit sum and residue modulo \(PQ\). Multiplicative-order shifts then supply infinitely many starts. Exact computations of representative finite cases, including literal giant integer checks, corroborate but do not replace the proof.
+## correctness
 
-**Originality (PASS within inspected evidence).** The closest full text, Blau et al., arXiv:2308.05228, Theorems 3.5 and 4.2, covers even bases exactly and odd prime bases by a lower bound, respectively. Its arbitrary-length theorem varies the difference; neither statement implies fixed difference \(b-1\) for odd composite \(b\). Targeted searches of the mathematical literature and published mathematical-result index did not identify an all-odd-base covering theorem. The journal revision's full text was not separately read, and unindexed equivalences remain a residual priority risk.
+PASS
 
-**Mathematical value (PASS).** The fixed difference is the natural counterpart to the published even-base exact theorem. Primality had been essential in the prior small-start construction; composite bases are not a cosmetic substitution. The new simultaneous CRT and sparse-digit construction closes the natural parameter gap for existence at length \(2b+1\). It neither establishes an exact odd-base maximum nor claims to resolve stronger fixed-step questions.
+For every odd b≥3, the 2b+1 low parts L_j=1+j(b−1) have digit sum 1 only at j=0,1,b+1 and digit sum b elsewhere; checked this independently for b=3,5,9,15. CRT avoidance is feasible even at q=2 because 2 divides b−1 and both P,Q≡−1 mod q, while q|b gives P≡1,Q≡2 mod q. Choosing P,Q rough to U, H=ord_{PQ}(b), and a=(P+b)/(b−1), R=P−b−a≥0 yields high block C with s_b(C)=P−b and C≡2P mod PQ. With N=C b^m+1, m a multiple of H and ≥3, the desired s_b(N+jd) equals P or Q and is coprime to its term. Varying m yields infinitely many distinct starts. No finite search is needed to establish existence in all odd bases.
 
-**Selected comparison.** R. Blau, J. Harrington, S. Lohrey, E. Sosis, T. W. H. Wong, *Arithmetic Progressions of Integers that are Relatively Prime to their Digital Sums*, arXiv:2308.05228 (2023), sections 2–4, especially Theorems 2.4, 2.5, 3.5 and 4.2. A later journal publication is noted but was not independently inspected in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original composite-odd-base completion of the fixed-step (b−1), length (2b+1) anti-Niven progression construction. The inspected published theorem proves odd prime bases only, while even-base sharpness applies only to even b; conditional short-even-stride results cannot cover d=b−1 because every prime dividing b−1 also divides d.
+
+## value
+
+PASS
+
+The fixed difference b−1 and target length 2b+1 are natural parameters in the existing anti-Niven progression problem; extending the known odd-prime construction to all odd composite bases resolves a substantive missing family without claiming sharpness for odd bases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

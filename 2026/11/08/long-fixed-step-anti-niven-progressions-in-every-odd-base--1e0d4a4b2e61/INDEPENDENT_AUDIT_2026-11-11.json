@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:09:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every odd b≥3, the 2b+1 low parts L_j=1+j(b−1) have digit sum 1 only at j=0,1,b+1 and digit sum b elsewhere; checked this independently for b=3,5,9,15. CRT avoidance is feasible even at q=2 because 2 divides b−1 and both P,Q≡−1 mod q, while q|b gives P≡1,Q≡2 mod q. Choosing P,Q rough to U, H=ord_{PQ}(b), and a=(P+b)/(b−1), R=P−b−a≥0 yields high block C with s_b(C)=P−b and C≡2P mod PQ. With N=C b^m+1, m a multiple of H and ≥3, the desired s_b(N+jd) equals P or Q and is coprime to its term. Varying m yields infinitely many distinct starts. No finite search is needed to establish existence in all odd bases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blau et al. Theorem 3.5 even bases, Theorem 4.2 odd prime bases; Theorem 2.4 allows variable difference."
+        ],
+        "reasoning": "The tested theorem for every odd composite b does not follow from those distinct parameter hypotheses. The short-even-stride criterion requires an obstruction prime p∣b−1 but p∤d, impossible for d=b−1.",
+        "searches": [
+          "anti-Niven arithmetic progressions fixed difference b-1 odd composite bases 2b+1",
+          "https://arxiv.org/pdf/2308.05228",
+          "Resultary: Sharp anti-Niven progressions for short even strides in odd bases"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/long-fixed-step-anti-niven-progressions-in-every-odd-base--1e0d4a4b2e61/RESULT.md",
+        "https://api.github.com/repos/SCOPE-Science/SCOPE2026/git/trees/bef44b7d7118af21b1bd4b063158c943d234d906",
+        "https://arxiv.org/pdf/2308.05228",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-anti-niven-progressions-for-short-even-strides-in-odd-base--f890edbf6d9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.2 only requires odd prime base. CRT congruences P,Q and high sparse block remove primality."
+        ],
+        "reasoning": "Proof of the composite extension requires a new simultaneous roughness condition for P and P−(b−1), not a direct substitution into the earlier prime-base argument.",
+        "searches": [
+          "https://arxiv.org/pdf/2308.05228",
+          "anti-Niven arithmetic progressions fixed difference b-1 odd composite bases 2b+1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anti-Niven means gcd(n,s_b(n))=1; fixed step d=b−1 is distinguished from an existentially varying step."
+        ],
+        "reasoning": "The theorem is genuinely fixed-step. Theorems about some choice of step or conditional short stride do not make the same assertion.",
+        "searches": [
+          "anti-Niven arithmetic progressions fixed difference b-1 odd composite bases 2b+1",
+          "https://arxiv.org/pdf/2308.05228",
+          "Resultary: Sharp anti-Niven progressions for short even strides in odd bases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ternary base is already odd prime and its sharp length 38 is stronger only for b=3; other exact progressions cover separate fixed strides."
+        ],
+        "reasoning": "Individual b=3 exact tables do not imply any odd composite base, and the presented infinite CRT certificate is not a known finite-table recomputation.",
+        "searches": [
+          "anti-Niven arithmetic progressions fixed difference b-1 odd composite bases 2b+1",
+          "Resultary: Sharp length 38 for difference-two ternary anti-Niven progressions",
+          "https://arxiv.org/pdf/2308.05228"
+        ]
+      },
+      "rationale": "Best-of-knowledge original composite-odd-base completion of the fixed-step (b−1), length (2b+1) anti-Niven progression construction. The inspected published theorem proves odd prime bases only, while even-base sharpness applies only to even b; conditional short-even-stride results cannot cover d=b−1 because every prime dividing b−1 also divides d.",
+      "residual_risks": [
+        "Unindexed simultaneous CRT progression construction could predate the inspected literature.",
+        "No maximum-length determination for odd bases or non-b−1 steps is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING composite odd bases in the inspected theorems",
+          "evidence": "Theorem 3.5 is for even b, Theorem 4.2 for odd prime b; Theorem 2.4 varies step and the obstruction criterion in Theorem 2.5 does not apply when d=b−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.05228",
+          "material_read": "Nine-page accessible arXiv PDF; Theorems 2.4, 2.5, 3.5, 4.2 and relevant proof sections inspected",
+          "method": "Primary arXiv PDF text plus rendered page",
+          "title": "Arithmetic Progressions of Integers that are Relatively Prime to their Digital Sums",
+          "trigger": "Exact same anti-Niven invariant and fixed-step b−1 extremal length"
+        },
+        {
+          "assessment": "PARAMETER CRITERION INAPPLICABLE; full paper not read",
+          "evidence": "Indexed theorem assumes a prime p divides b−1 but does not divide even stride d; d=b−1 fails this immediately.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-anti-niven-progressions-for-short-even-strides-in-odd-base--f890edbf6d9b",
+          "material_read": "Indexed mathematical summary only",
+          "method": "Resultary semantic search",
+          "title": "Sharp anti-Niven progressions for short even strides in odd bases",
+          "trigger": "Potential dominating later result about odd b"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed difference b−1 and target length 2b+1 are natural parameters in the existing anti-Niven progression problem; extending the known odd-prime construction to all odd composite bases resolves a substantive missing family without claiming sharpness for odd bases.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/long-fixed-step-anti-niven-progressions-in-every-odd-base--1e0d4a4b2e61/RESULT.md",
+    "https://api.github.com/repos/SCOPE-Science/SCOPE2026/git/trees/bef44b7d7118af21b1bd4b063158c943d234d906",
+    "https://arxiv.org/pdf/2308.05228",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-anti-niven-progressions-for-short-even-strides-in-odd-base--f890edbf6d9b"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Odd b≥3 only, fixed d=b−1; no odd-base upper bound; explicit construction may be enormous."
+  ],
+  "residual_risks": [
+    "Unindexed simultaneous CRT progression construction could predate the inspected literature.",
+    "No maximum-length determination for odd bases or non-b−1 steps is asserted."
+  ],
+  "schema_version": 1
+}
