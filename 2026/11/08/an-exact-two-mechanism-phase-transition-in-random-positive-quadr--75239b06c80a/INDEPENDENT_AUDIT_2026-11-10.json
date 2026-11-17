@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T01:55:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/an-exact-two-mechanism-phase-transition-in-random-positive-quadr--75239b06c80a/RESULT.md@ff8e7fc4623c9dff611c3946af1778986fb1b862",
+        "2026/11/08/an-exact-two-mechanism-phase-transition-in-random-positive-quadr--75239b06c80a/verify.py@cb50de868a900aa966609981dc9f76c2a8351f61"
+      ],
+      "rationale": "Convex parabola chord geometry gives success iff nearest opposite-sign magnitudes st<=c<=uv for extreme magnitudes u,v. Failure decomposes into insufficient extreme product and central gap st>c. Integrating joint order statistic densities yields the displayed A_m/B_m and P_m=1-A_m-B_m. Independent SymPy integral evaluation produces P3=(3c/2)(log(1/c)-1+c) and P4=2P3. Boundary Laplace for f(v)=(v+c/v)/2 yields A_m~[2/(1-c)]((1+c)/2)^m, while unique interior saddle of g(s)=1-(s+c/s)/2 yields B_m~sqrt(pi*m*sqrt(c)/(2(1-sqrt(c))))*(1-sqrt(c))^m. At c*=3-2sqrt(2), bases tie but sqrt(m) dominates. Verified symbolic low-m formulas and inspected verifier; not a uniform near-endpoint theorem.",
+      "residual_risks": [
+        "Exact tests cover finite instances only; full quantifiers rely on audited analytic proof; no formal checker or external expert attestation inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov1 prior gives all-c probability and exponential root but not constants; Nov8 Jacobi theorem covers all c and complete sharp constants."
+        ],
+        "reasoning": "The Jacobi target parameter is a reparameterization, not a genuinely distinct broader law for quadratic moments; it is exactly dominating. Observed later source import supports provisional original sharp-prefactor derivation only, no definite credit.",
+        "searches": [
+          "iid uniform random nodes positive quadratic quadrature mean zero second moment c convex hull parabola exact probability phase transition",
+          "Resultary 2026/11/1/SCOPE-exact-random-node-feasibility-and-a-two-mechanism-phase-transiti--03159ea86990",
+          "Resultary 2026/11/8/SCOPE-a-sharp-sample-size-phase-transition-for-positive-jacobi-moment--7f5ef13a22f2"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md blob ff8e7fc4623c9dff611c3946af1778986fb1b862",
+        "assigned verify.py blob cb50de868a900aa966609981dc9f76c2a8351f61",
+        "Resultary 2026/11/1/SCOPE-exact-random-node-feasibility-and-a-two-mechanism-phase-transiti--03159ea86990",
+        "Resultary 2026/11/2/SCOPE-exact-all-sample-positivity-probabilities-for-random-quadratic-q--c46807d7872b",
+        "Resultary 2026/11/8/SCOPE-a-sharp-sample-size-phase-transition-for-positive-jacobi-moment--7f5ef13a22f2",
+        "Hayakawa Lyons Oberhauser arXiv:2101.04250"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Nov1 and Nov2 theorems imply submitted P3/P4 and exponential phase transition; later Jacobi theorem implies submitted entire result by alpha=(1/c-3)/2."
+        ],
+        "reasoning": "Only generic-c sharp coefficients remain beyond the two earlier publications; Jacobi result covers them but appears 177 seconds later in observed original research Git commits. Independent historical priority cannot be certified.",
+        "searches": [
+          "iid uniform random nodes positive quadratic quadrature mean zero second moment c convex hull parabola exact probability phase transition",
+          "Resultary 2026/11/1/SCOPE-exact-random-node-feasibility-and-a-two-mechanism-phase-transiti--03159ea86990",
+          "Resultary 2026/11/2/SCOPE-exact-all-sample-positivity-probabilities-for-random-quadratic-q--c46807d7872b",
+          "Resultary 2026/11/8/SCOPE-a-sharp-sample-size-phase-transition-for-positive-jacobi-moment--7f5ef13a22f2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacobi theorem assumes alpha>-1, tau=1/(2alpha+3) bijectively maps onto c∈(0,1); formula (3) has exactly both asymptotic leading constants and the same critical c after substitution."
+        ],
+        "reasoning": "Equivalent present-day published theorem found; assess chronology and source-level additional content before making historical originality inference. Mathematical coverage is total but Jacobi source commit follows assigned source by ~177 seconds.",
+        "searches": [
+          "iid uniform random nodes positive quadratic quadrature mean zero second moment c convex hull parabola exact probability phase transition",
+          "Resultary 2026/11/8/SCOPE-a-sharp-sample-size-phase-transition-for-positive-jacobi-moment--7f5ef13a22f2",
+          "Jacobi alpha to variance tau substitution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nov2 c=1/3 work states exact p_m and 3(2/3)^m, with a cutoff of m=11."
+        ],
+        "reasoning": "The c=1/3 case is already known, but full generic-c saddle prefactors were absent there; a known table point does not cover that analytic continuum.",
+        "searches": [
+          "iid uniform random nodes positive quadratic quadrature mean zero second moment c convex hull parabola exact probability phase transition",
+          "Resultary 2026/11/2/SCOPE-exact-all-sample-positivity-probabilities-for-random-quadratic-q--c46807d7872b",
+          "random quadratic quadrature exact all sample table"
+        ]
+      },
+      "rationale": "PASS with strong chronological qualification: November 1 general-c exact feasibility/exponential rate and November 2 c=1/3 exact prefactor cover large portions, but not the generic-c sharp prefactors. A fully equivalent Jacobi-family theorem is currently published, and its parameter tau=1/(2alpha+3) ranges all c; Git source import of assigned result at 2026-11-08T22:51:25Z PRECEDES Jacobi source import at 2026-11-08T22:54:22Z and that publication 2026-11-09T01:09:49Z. Timestamp order is only observed repository chronology, not independently established scientific priority; no claim of independent discovery. Judgment passes distinct all-c asymptotic refinements at the earlier evidenced source snapshot, with this significant residual originality risk.",
+      "residual_risks": [
+        "An exactly equivalent published Jacobi law exists; the 2-minute-57-second source commit ordering is not proof of priority or independence.",
+        "Earlier November 1 work already covers full finite-sample law and exponential transition; novel remainder depends on sharp all-c prefactors.",
+        "Research source and later Jacobi theorem may share lineage not established by Git metadata; no independent attribution asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior full-c finite success law, P3/P4 and exponential crossover, but no explicit all-c sharp asymptotic prefactors",
+          "evidence": "Complete published RESULT.md gives double integral probability and nth-root of failure max{(1+c)/2,1-sqrt(c)}; does not evaluate sqrt(m) and constant leading coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-random-node-feasibility-and-a-two-mechanism-phase-transiti--03159ea86990",
+          "material_read": "Full published RESULT.md, including theorem, assumptions, proof, limitations and references",
+          "method": "Read GitHub source blob at exact recorded SHA",
+          "title": "Exact random-node feasibility and a two-mechanism phase transition for positive quadratic quadrature",
+          "trigger": "Exactly same uniform iid nodes and moment target arbitrary c"
+        },
+        {
+          "assessment": "Prior finite all-m law and sharp 3(2/3)^m failure for c=1/3, but not arbitrary-c sharp prefactors",
+          "evidence": "Full RESULT.md establishes uniform integration case c=1/3 and 95% cutoff n=11.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-all-sample-positivity-probabilities-for-random-quadratic-q--c46807d7872b",
+          "material_read": "Full published RESULT.md, including theorem, assumptions, proof, limitations and references",
+          "method": "Read GitHub source blob at exact recorded SHA",
+          "title": "Exact all-sample positivity probabilities for random quadratic quadrature",
+          "trigger": "Same sampler, target c=1/3 special case"
+        },
+        {
+          "assessment": "Mathematically EXACT same law and both sharp prefactors for every c in (0,1) after alpha=(1/c-3)/2; its source was imported ~3 minutes after assigned source and published ~2h18m after, so priority cannot be declared from equivalence alone",
+          "evidence": "Complete RESULT.md formula (1) and asymptotic (3), alpha>-1 bijective to 0<tau<1; first source import 2026-11-08T22:54:22Z vs assigned import 2026-11-08T22:51:25Z; Resultary reconciliation 2026-11-09T01:09:49Z.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-sample-size-phase-transition-for-positive-jacobi-moment--7f5ef13a22f2",
+          "material_read": "Full published RESULT.md, including theorem, assumptions, proof, limitations and references",
+          "method": "Read GitHub source blob at exact recorded SHA",
+          "title": "A sharp sample-size phase transition for positive Jacobi moment quadrature",
+          "trigger": "Broader Jacobi targets with second moment tau=1/(2alpha+3)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md blob ff8e7fc4623c9dff611c3946af1778986fb1b862",
+        "assigned verify.py blob cb50de868a900aa966609981dc9f76c2a8351f61",
+        "Resultary 2026/11/1/SCOPE-exact-random-node-feasibility-and-a-two-mechanism-phase-transiti--03159ea86990",
+        "Resultary 2026/11/2/SCOPE-exact-all-sample-positivity-probabilities-for-random-quadratic-q--c46807d7872b",
+        "Resultary 2026/11/8/SCOPE-a-sharp-sample-size-phase-transition-for-positive-jacobi-moment--7f5ef13a22f2",
+        "Hayakawa Lyons Oberhauser arXiv:2101.04250"
+      ],
+      "rationale": "The sharp coefficient and sqrt(m) critical amplification improve mere exponential-root bounds in an iid positive cubature feasibility problem; all c∈(0,1) is a motivated target moment continuum and the mechanism crossover is mathematically structural. Independent of novelty chronology, exact finite-m probabilities and leading-order failure costs are reusable sample-complexity benchmarks.",
+      "residual_risks": [
+        "An exactly equivalent published Jacobi law exists; the 2-minute-57-second source commit ordering is not proof of priority or independence.",
+        "Earlier November 1 work already covers full finite-sample law and exponential transition; novel remainder depends on sharp all-c prefactors.",
+        "Research source and later Jacobi theorem may share lineage not established by Git metadata; no independent attribution asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An exactly equivalent published Jacobi law exists; the 2-minute-57-second source commit ordering is not proof of priority or independence.",
+    "Earlier November 1 work already covers full finite-sample law and exponential transition; novel remainder depends on sharp all-c prefactors.",
+    "Research source and later Jacobi theorem may share lineage not established by Git metadata; no independent attribution asserted."
+  ],
+  "schema_version": 1
+}

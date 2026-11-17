@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim's quantifiers cover all integers \(m\ge2\), all fixed target moments \(0<c<1\), and independent uniform nodes. The moment-equation/convex-hull equivalence reduces feasibility to \(st\le c\le uv\). The two disjoint failure events are integrated using explicit extreme and nearest-opposite-sign order-statistic distributions. The \(m=3\) probability is evaluated directly, and the \(m=4\) identity follows by exact integration. Separate endpoint and interior Laplace expansions provide both sharp constants and the square-root prefactor at the crossover. An independent exact-rational hull test examined 46,440 configurations; numerical integrations and seeded simulations checked selected instances. The rigorous infinite-dimensional-in-sample-size claim is analytic, not inferred from these tests.
+## correctness
 
-**Originality — PASS, qualified.** Neumayer–Schäfer–Ullrich's 2026 random Richter–Tchakaloff theorem controls generic sample sizes and near-reference positive weights, but does not provide this exact quadratic-moment support probability or its asymptotic mechanism switch. Hayakawa–Lyons–Oberhauser (2023) treats convex-hull containment probability in generality; its depth and sample-size bounds do not state the present all-\(m\) probability integrals or polynomial prefactors. Bělík–Narayan–Turnage's least-squares construction is a different constrained rule. Relevant published-result comparisons concerned deterministic positive Fourier sampling, negative weights of fixed Newton–Cotes formulas, and minimal cubature support; those do not logically imply this random-moment law. Residual priority risk remains for earlier geometric probability calculations of parabola-supported random polytopes, and for literature not indexed by the searched sources. The result is a special-case refinement of a known general problem, not a claim to invent random-convex-hull methods.
+PASS
 
-**Value — PASS.** The moment triple \(\{1,x,x^2\}\) is the first nontrivial polynomial space beyond affine exactness. The parameter \(c\) is the target's intrinsic second moment and the failure splits into two mathematically distinct, directly interpretable sampling obstructions. Exact small-sample probabilities and the all-sample-size law quantify reliability of unconstrained positive reweighting, while the sharp crossover \(3-2\sqrt2\) and contrasting \(\sqrt m\)/constant prefactors give a genuine phase classification rather than a loose sample-complexity bound. For uniform target and uniform sampling, the benchmark specializes to \(P_3=(\log3-2/3)/2\) and \(F_m\sim3(2/3)^m\), useful for benchmarking positive exact-quadrature algorithms.
+Convex parabola chord geometry gives success iff nearest opposite-sign magnitudes st<=c<=uv for extreme magnitudes u,v. Failure decomposes into insufficient extreme product and central gap st>c. Integrating joint order statistic densities yields the displayed A_m/B_m and P_m=1-A_m-B_m. Independent SymPy integral evaluation produces P3=(3c/2)(log(1/c)-1+c) and P4=2P3. Boundary Laplace for f(v)=(v+c/v)/2 yields A_m~[2/(1-c)]((1+c)/2)^m, while unique interior saddle of g(s)=1-(s+c/s)/2 yields B_m~sqrt(pi*m*sqrt(c)/(2(1-sqrt(c))))*(1-sqrt(c))^m. At c*=3-2sqrt(2), bases tie but sqrt(m) dominates. Verified symbolic low-m formulas and inspected verifier; not a uniform near-endpoint theorem.
 
-**Limits and priority.** The theorem establishes feasibility only, not a stable, near-equal or computationally robust weight algorithm. Its large-\(m\) equivalents fix \(c\) first. General halfspace-depth theory explains part of the exponential-rate structure, but not the exact finite laws and sharp prefactors. Historical originality is qualified by search coverage; no independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with strong chronological qualification: November 1 general-c exact feasibility/exponential rate and November 2 c=1/3 exact prefactor cover large portions, but not the generic-c sharp prefactors. A fully equivalent Jacobi-family theorem is currently published, and its parameter tau=1/(2alpha+3) ranges all c; Git source import of assigned result at 2026-11-08T22:51:25Z PRECEDES Jacobi source import at 2026-11-08T22:54:22Z and that publication 2026-11-09T01:09:49Z. Timestamp order is only observed repository chronology, not independently established scientific priority; no claim of independent discovery. Judgment passes distinct all-c asymptotic refinements at the earlier evidenced source snapshot, with this significant residual originality risk.
+
+## value
+
+PASS
+
+The sharp coefficient and sqrt(m) critical amplification improve mere exponential-root bounds in an iid positive cubature feasibility problem; all c∈(0,1) is a motivated target moment continuum and the mechanism crossover is mathematically structural. Independent of novelty chronology, exact finite-m probabilities and leading-order failure costs are reusable sample-complexity benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
