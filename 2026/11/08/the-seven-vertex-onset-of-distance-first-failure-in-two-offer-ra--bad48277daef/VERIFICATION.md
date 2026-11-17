@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this package. The only dependency is Python 3's standard library. The script implements rational Gaussian elimination and exact policy iteration, checks that each computed value vector satisfies every Bellman equality, and inspects **all** offered-neighbor pairs with unequal graph distances. Each connected labeled undirected graph with 2–6 vertices appears as an edge bitmask and an arbitrary target may be relabeled to vertex 0. The counts by graph order are 1, 4, 38, 728, and 26,704; the total is 27,475.
+## correctness
 
-Actual local execution returned:
+PASS
 
-```
-EXACT_FAMILY_IDENTITIES_OK K=0,1 AND K=2..17 SEVEN_VERTEX_GAP 4/415
-EXHAUSTIVE_CONNECTED_LABELLED_ROOTED {2: 1, 3: 4, 4: 38, 5: 728, 6: 26704} TOTAL 27475
-VERIFY_OK
-```
+Reconstructed finite-state Bellman equation V(v)=1+d(v)^-2 sum_{u,w in N(v)} min(V(u),V(w)), with uniform finite expected hitting under forced same-neighbor shortest-path offers. Solved decorated C5+leaves linear Bellman system and checked all order comparisons; k>=2 gap is positive quadratic and k=2 is 4/415, while k=0,1 have distance-first solutions. Independently checked all connected unlabeled graphs n<=6 from the full graph atlas, all marked targets (809 rooted cases), with exact rational solutions satisfying Bellman equality and no distance inversion. Inspected separate submitted exact policy-iteration code which exhausts all 27475 rooted labeled cases, with no pruning of graph masks. Infinite pendant k family rests on algebra, not these finite checks.
 
-The family test checks additional integers for independent reproduction of the rational formulas. The proof of **all** integer parameters \(k\ge2\), however, is the symbolic elimination and positivity argument in `RESULT.md`; no finite list of tested values establishes an infinite statement. Likewise, the small-graph minimality is finite but exhaustively covered by construction of every labeled edge mask, not inferred from a sample. The script has been locally replayed, but its correctness has not been assessed through an independent external audit or proof assistant.
+## originality
+
+PASS
+
+Known two-choice walk papers optimize by continuation values and discuss non-greedy behavior, but the first failing graph order 7 and explicit infinite decorated-C5 obstruction in the precise two-offer target model are distinct from covered target-hitting bounds and cover-time results.
+
+## value
+
+PASS
+
+Sharp first-order counterexample and exact robust pendant-load gap settle the natural question whether a shortest-path greedy heuristic is always optimal in a well-defined stochastic control process. An all-graph cutoff at 6 is a mathematically meaningful boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

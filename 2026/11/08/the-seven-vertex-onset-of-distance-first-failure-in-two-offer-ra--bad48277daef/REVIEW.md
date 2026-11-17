@@ -1,22 +1,21 @@
-# Scientific review — distance-first two-offer target hitting
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has a precise proposal-with-replacement model, a mean-first-hitting objective and explicitly unrestricted tie handling. Equation (1) follows from forced-path properness and exact Bellman optimization. The decorated-cycle rational solution satisfies the complete Bellman system, and the signs of the comparison polynomials establish the reversal for **every** integer pendant load at least two, not merely finitely many tests. The lower-order statement is a complete labeled-graph census: every edge mask at orders two through six is visited, disconnected graphs are excluded, and relabeling fixes the target without loss. The checker replays exact policy evaluation, Bellman residuals, and all pairwise offered-neighbor distance comparisons, yielding 27,475 rooted connected masks. There are no numerical tolerances in the certificate. The exhaustive lower-bound argument does depend on inspecting the standalone enumerator and trusting its exact execution, and no independent formal verification is claimed.
+PASS
 
-## Originality
+Reconstructed finite-state Bellman equation V(v)=1+d(v)^-2 sum_{u,w in N(v)} min(V(u),V(w)), with uniform finite expected hitting under forced same-neighbor shortest-path offers. Solved decorated C5+leaves linear Bellman system and checked all order comparisons; k>=2 gap is positive quadratic and k=2 is 4/415, while k=0,1 have distance-first solutions. Independently checked all connected unlabeled graphs n<=6 from the full graph atlas, all marked targets (809 rooted cases), with exact rational solutions satisfying Bellman equality and no distance inversion. Inspected separate submitted exact policy-iteration code which exhausts all 27475 rooted labeled cases, with no pruning of graph masks. Infinite pendant k family rests on algebra, not these finite checks.
 
-**PASS, with priority limitations.** The main source, Georgakopoulos–Haslegrave–Sauerwald–Sylvester (arXiv:1911.05170, Sections 2 and 7), already establishes the general optimal-hitting-value ordering. The 1996 biased-walk paper by Azar et al. already explicitly says that going closer need not be the best bias action. Neither proposition is claimed as novel. The present result instead fixes the distinct two-offer random-neighbor mechanism and obtains the **minimum graph order seven** by an exhaustive finite classification, as well as a natural exact unicyclic pendant-load family with the threshold two and a nonzero rational gap for all loads beyond it. The inspected primary material does not state or directly imply that exact cutoff. Targeted searches and accessible prior-claim comparisons found no matching enumerative theorem. Broader literature could conceivably contain an unnoticed exact small-graph example; a search cannot establish absolute priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** A common graph-distance routing heuristic is perfectly reliable for optimal two-choice mean target-hitting on all graphs through six vertices, yet fails as soon as two pendant leaves perturb a five-cycle. The exact seven-vertex cutoff and all-load preference sign give a mathematically interpretable obstruction, not just an arbitrarily chosen small numerical anomaly. The effect is small at the first instance (\(4/415\)), but the strict qualitative failure is sharp and the signed gap grows along a structural infinite family. This is useful for understanding when distance-based local choice is an optimal or unsafe surrogate for global hitting-value routing.
+Known two-choice walk papers optimize by continuation values and discuss non-greedy behavior, but the first failing graph order 7 and explicit infinite decorated-C5 obstruction in the precise two-offer target model are distinct from covered target-hitting bounds and cover-time results.
 
-## Closest literature and limitations
+## value
 
-1. Georgakopoulos et al., *The Power of Two Choices for Random Walks*, arXiv:1911.05170, original 2019-11-12. Section 7 proves value-ranking optimality and polynomial-time strategy calculation, not a seven-vertex graph-order cutoff.
-2. Azar et al., *Biased Random Walks*, Combinatorica 16 (1996), DOI:10.1007/BF01300124. It supplies the qualitative warning about moving closer under a **different** biased-walk mechanism, not the exact two-neighbor model or the pendant-load classification.
+PASS
 
-The result does not establish finite-deadline stochastic optimality, a unique seven-vertex obstruction, or weighted/directed extensions. The computer-assisted part is limited to the completely enumerated finite graph-order range; the infinite-family assertion has its own exact algebraic proof.
+Sharp first-order counterexample and exact robust pendant-load gap settle the natural question whether a shortest-path greedy heuristic is always optimal in a well-defined stochastic control process. An all-graph cutoff at 6 is a mathematically meaningful boundary.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

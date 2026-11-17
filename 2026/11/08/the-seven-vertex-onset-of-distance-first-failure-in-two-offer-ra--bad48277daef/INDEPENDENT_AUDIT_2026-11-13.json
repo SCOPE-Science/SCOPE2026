@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:17:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify.py"
+      ],
+      "rationale": "Reconstructed finite-state Bellman equation V(v)=1+d(v)^-2 sum_{u,w in N(v)} min(V(u),V(w)), with uniform finite expected hitting under forced same-neighbor shortest-path offers. Solved decorated C5+leaves linear Bellman system and checked all order comparisons; k>=2 gap is positive quadratic and k=2 is 4/415, while k=0,1 have distance-first solutions. Independently checked all connected unlabeled graphs n<=6 from the full graph atlas, all marked targets (809 rooted cases), with exact rational solutions satisfying Bellman equality and no distance inversion. Inspected separate submitted exact policy-iteration code which exhausts all 27475 rooted labeled cases, with no pruning of graph masks. Infinite pendant k family rests on algebra, not these finite checks.",
+      "residual_risks": [
+        "Independent small-order graph-atlas enumeration uses known complete atlas plus exact policy equations; submitted all-labeled verifier was inspected but not executed.",
+        "Only expected first-hitting time and two independent offers with replacement."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Independently reconstructed exact analytic/combinatorial argument from the frozen RESULT.md",
+        "Inspected frozen verifier source blob and reran bounded independent checks in /mnt/data/audit1104_checks.py and /mnt/data/check_twochoice_independent.py",
+        "Fetched actual source Git tree object and checked returned tree SHA and file blob identities"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Azar et al. report distance-heuristic failure in a biased-walk model with a different coin-controlled move rule."
+        ],
+        "reasoning": "General nonmyopic behavior under a different control primitive neither proves nor implies the seven-vertex minimum for iid two-offer sampling.",
+        "searches": [
+          "two choice random walk shortest path distance first optimum two offers seven vertices decorated cycle leaves",
+          "https://www.cs.tau.ac.il/~azar/walk.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1911.05170",
+        "https://www.cs.tau.ac.il/~azar/walk.pdf",
+        "RESULT.md",
+        "verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Optimal ordering by V is prior, but an exact finite graph exhaustion and decorated-cycle algebra are additionally necessary to infer first failure at seven."
+        ],
+        "reasoning": "No general monotone-distance theorem in previous paper implies the claimed cutoff or obstruction family.",
+        "searches": [
+          "two choice random walk shortest path distance first optimum two offers seven vertices decorated cycle leaves",
+          "https://arxiv.org/abs/1911.05170"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Georgakopoulos–Haslegrave–Sauerwald–Sylvester prove optimal value-based offer choice in the same two-offer model, while shortest-path-distance-based choice is a different policy."
+        ],
+        "reasoning": "The earlier Bellman order criterion does not assert that distance-first remains optimal through 6 or the minimal 7 counterexample.",
+        "searches": [
+          "two choice random walk shortest path distance first optimum two offers seven vertices decorated cycle leaves",
+          "https://arxiv.org/abs/1911.05170"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source full text Section 7 supplies optimal order rule and general expected hitting bounds but no 27475-rooted-graph cutoff table; Resultary returned cover-time and cycle-hitting records for different invariants."
+        ],
+        "reasoning": "The exact seven-vertex first-failure census is not located in inspected source; database absence is not a novelty certificate.",
+        "searches": [
+          "two choice random walk shortest path distance first optimum two offers seven vertices decorated cycle leaves",
+          "https://arxiv.org/abs/1911.05170"
+        ]
+      },
+      "rationale": "Known two-choice walk papers optimize by continuation values and discuss non-greedy behavior, but the first failing graph order 7 and explicit infinite decorated-C5 obstruction in the precise two-offer target model are distinct from covered target-hitting bounds and cover-time results.",
+      "residual_risks": [
+        "Prior two-choice walk article appendices or unindexed example collections may contain equivalent minimal graphs; full relevant section inspected but no exhaustive priority guarantee.",
+        "The externally cited biased-walk source was not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PARTIAL",
+          "evidence": "Expected hitting time optimal-neighbor ranking by continuation value; no exact first graph-order failure n=7.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.05170",
+          "material_read": "Full-text PDF relevant target-hitting analysis, particularly Section 7.1 and Bellman decision principle",
+          "method": "Read primary full-text PDF and examined section text",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Same two-offer random-walk objective and value-order theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Earlier model different; do not claim source-wide noncoverage from abstract or citations.",
+          "identifier_or_url": "https://www.cs.tau.ac.il/~azar/walk.pdf",
+          "material_read": "Description and model distinction from inspected package references; PDF not materially read in this audit",
+          "method": "Compared explicitly stated bias-coin control with two independent offers",
+          "title": "Biased Random Walks",
+          "trigger": "Prior qualitative shorter-path preference failure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp first-order counterexample and exact robust pendant-load gap settle the natural question whether a shortest-path greedy heuristic is always optimal in a well-defined stochastic control process. An all-graph cutoff at 6 is a mathematically meaningful boundary.",
+      "residual_risks": [
+        "No classification of all seven-vertex obstructions or deadline-optimal policies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent small-order graph-atlas enumeration uses known complete atlas plus exact policy equations; submitted all-labeled verifier was inspected but not executed.",
+    "Only expected first-hitting time and two independent offers with replacement.",
+    "Prior two-choice walk article appendices or unindexed example collections may contain equivalent minimal graphs; full relevant section inspected but no exhaustive priority guarantee.",
+    "The externally cited biased-walk source was not inspected in full.",
+    "No classification of all seven-vertex obstructions or deadline-optimal policies."
+  ],
+  "schema_version": 1
+}
