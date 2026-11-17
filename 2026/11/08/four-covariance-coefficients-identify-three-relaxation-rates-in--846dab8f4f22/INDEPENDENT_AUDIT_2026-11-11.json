@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:17:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For joint position-orientation Poisson reset at r, harmonic beta, angular diffusion d, fixed known v,D>0, generator moment identities give q=2d/(r+4d), h=vq/(beta+d+r), V=(2D+2vh)/(2beta+r). Stationary transverse lag covariance solves C' =-(r+beta)C+vH and H'=-(r+d)H. Universal stationary right slope c1=-D-rV/2 determines r. If Delta=c0c2-c1^2!=0, a two-exponential/degenerate-Prony ODE and c0..c3 recover the two unordered rates r+beta and r+d, while strict inequality in the calibrated variance under swapping beta and d resolves their assignment. Repeated rates beta=d give a t exp term and Delta=-(vh)^2<0. If Delta=0 the nonzero h forces cancellation of the beta pole, yielding visible r+d; beta is the unique root >d of (beta-d)(beta+d+r)=2v^2d/[V(r+4d)]. All rates positive, all degenerate cases handled. Rational cancellation (r,beta,d,v,D)=(1,3,1,5,3/2) yields C(t)=exp(-2t), recovered uniquely. This is exact structural identifiability, not numerically stable estimation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Switched traps show covariance nonidentifiability in a distinct switching model.",
+          "Reset anisotropic passive Brownian tomography uses a different diffusion generator and stationary moments.",
+          "Unreset trapped active particle autocorrelation treats r=0, not joint-reset three-rate recovery."
+        ],
+        "reasoning": "These are nearby inverse and forward formulations, not dominating claims for the specified reset-plus-trap ABP transverse autocovariance.",
+        "searches": [
+          "Resultary: covariance twins and fourth cumulant identification randomly switched harmonic trap",
+          "Resultary: Exact angular moment hierarchy and stationary position tomography for reset anisotropic Brownian particles, 2026/11/2",
+          "arXiv:2210.04205"
+        ]
+      },
+      "checked_sources": [
+        "Shee arXiv:2409.06920 accessible primary article",
+        "Resultary searches for stationary transverse covariance and identification",
+        "Resultary nearby switched-trap and reset-anisotropic tomography records",
+        "Pinned RESULT.md and check.py for assigned record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same reset-plus-harmonic model supplies moment framework but does not prove injectivity from four covariance jets.",
+          "No-reset harmonic covariance and reset-without-trap forward results separately omit one essential mechanism."
+        ],
+        "reasoning": "Combining standard moment and Prony tools requires new positivity/variance ordering and hidden-pole resolution to prove full parameter identification; those steps were reconstructed from pinned package.",
+        "searches": [
+          "Shee arXiv:2409.06920",
+          "Caraglio–Franosch arXiv:2210.04205",
+          "Kumar–Sadekar–Basu arXiv:2008.03294"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shee analyzes the identical reset-trap model but reports forward moment and orientation statistics, not an inverse stationary transverse autocovariance jet classification."
+        ],
+        "reasoning": "A generic Prony transform alone identifies at best unordered visible poles; calibrated variance discriminates ordering and hidden cancellations. No examined exact parameter-identification alias matches.",
+        "searches": [
+          "Resultary: active Brownian particle harmonic trap simultaneous position orientation resetting stationary transverse autocovariance four-jet three rate identification cancellation",
+          "arXiv:2409.06920"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact three-rate global parameter recovery table, repeated pole and cancellation branch found in examined sources."
+        ],
+        "reasoning": "The theorem is an all-positive-parameter analytic identifiability classification, not a database lookup; lack of matching records is not proof of global priority.",
+        "searches": [
+          "Resultary semantic search: transverse active Brownian stationary covariance reconstruction rates",
+          "arXiv:2409.06920"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality follows from statement-level and implication-level comparisons; no identified complete earlier theorem covers the stated surviving exact result. See structured checks, inspected source material and risks.",
+      "residual_risks": [
+        "No stable finite-sample recovery claim; near repeated/cancelled poles numerical conditioning may be poor",
+        "Generic system-identification/Prony or model-specific earlier results could contain an unindexed equivalent theorem"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers source model and forward moments, but no located stationary transverse 4-jet inverse theorem",
+          "evidence": "Moment definitions, joint resetting and derived forward properties",
+          "identifier_or_url": "https://arxiv.org/abs/2409.06920",
+          "material_read": "Accessible arXiv primary article HTML: reset construction, stationary/fixed-time moments, orientation dependence, kurtosis and conclusions examined",
+          "method": "Primary source material inspected",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "Same active Brownian particle with joint reset in harmonic trap"
+        },
+        {
+          "assessment": "The stated physical model omits resetting; cannot claim whole manuscript noncoverage from abstract",
+          "evidence": "No Poisson reset term in described model",
+          "identifier_or_url": "https://arxiv.org/abs/2210.04205",
+          "material_read": "Abstract and source metadata; complete text not examined in this run",
+          "method": "abstract-level inspection",
+          "title": "Analytic Solution of an Active Brownian Particle in a Harmonic Well",
+          "trigger": "Related trapped ABP autocovariance"
+        },
+        {
+          "assessment": "No harmonic trap in described model; residual historical search risk",
+          "evidence": "Model stated as resetting but not harmonically confined",
+          "identifier_or_url": "https://arxiv.org/abs/2008.03294",
+          "material_read": "Abstract and title-level scope checked; complete text not inspected",
+          "method": "abstract-level inspection",
+          "title": "Active Brownian Motion in two-dimensions under Stochastic Resetting",
+          "trigger": "Related full position resetting without confinement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete parameter-identifiability theorem from only the first four right derivatives of a single stationary positional observable, especially the otherwise-hidden exponential cancellation case, fills a meaningful inverse problem in active-reset stochastic dynamics. Explicit identifiability domains and exceptional algebraic cases are useful to future inference theory; instability in finite/noisy samples is explicitly outside scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No stable finite-sample recovery claim; near repeated/cancelled poles numerical conditioning may be poor",
+    "Generic system-identification/Prony or model-specific earlier results could contain an unindexed equivalent theorem"
+  ],
+  "schema_version": 1
+}

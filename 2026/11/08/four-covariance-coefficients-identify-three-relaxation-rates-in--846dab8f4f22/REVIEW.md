@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The specified two-dimensional Markov process regenerates at complete Poisson resets and has finite stationary moments. Its generator gives exactly three stationary moment identities, and the closed two-component lag semigroup gives an exact two-exponential/confluent covariance. The right derivative identity recovers the reset rate. If the covariance Prony determinant is nonzero, the characteristic polynomial and the strictly ordered stationary-variance comparison identify the remaining rates. If the determinant is zero, the nonvanishing orientation coefficient forces an exact cancellation of the trap pole, which is recovered by a strictly monotone quadratic. All cases have been examined, and the rational cancellation witness verifies the exceptional branch. The embedded checker passed 1,409 exact-rational and numerical consistency checks, including separately formulated finite-matrix semigroup calculations; the infinite-parameter proof is analytic rather than inferred from those computations.
+PASS
 
-## Originality
+For joint position-orientation Poisson reset at r, harmonic beta, angular diffusion d, fixed known v,D>0, generator moment identities give q=2d/(r+4d), h=vq/(beta+d+r), V=(2D+2vh)/(2beta+r). Stationary transverse lag covariance solves C' =-(r+beta)C+vH and H'=-(r+d)H. Universal stationary right slope c1=-D-rV/2 determines r. If Delta=c0c2-c1^2!=0, a two-exponential/degenerate-Prony ODE and c0..c3 recover the two unordered rates r+beta and r+d, while strict inequality in the calibrated variance under swapping beta and d resolves their assignment. Repeated rates beta=d give a t exp term and Delta=-(vh)^2<0. If Delta=0 the nonzero h forces cancellation of the beta pole, yielding visible r+d; beta is the unique root >d of (beta-d)(beta+d+r)=2v^2d/[V(r+4d)]. All rates positive, all degenerate cases handled. Rational cancellation (r,beta,d,v,D)=(1,3,1,5,3/2) yields C(t)=exp(-2t), recovered uniquely. This is exact structural identifiability, not numerically stable estimation.
 
-**PASS, with publication-priority uncertainty.** Shee, *Active Brownian particle under stochastic position and orientation resetting in a harmonic trap* (arXiv:2409.06920), provides the relevant reset-and-trap model, one-time moments, and orientation correlations, but the inspected text does not report stationary transverse *two-time positional* covariance or prove recovery of all three unknown rates from its first four right derivatives. Caraglio and Franosch (arXiv:2210.04205) calculate position autocorrelations without resetting; Kumar, Sadekar and Basu (arXiv:2008.03294) study complete resetting without a trap. Classical Prony reconstruction of two exponential rates is well known and is not counted as a novel contribution. The distinct contribution under review is model-specific injectivity, exploiting a reset-only cusp slope and strict mode-assignment inequality, including hidden-pole recovery. The forward formulas in the cited literature could facilitate an independent derivation, so a broader unpublished or unindexed inverse-identification theorem remains a residual priority risk. No searched covering statement was found; absence from search is not a novelty proof.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result answers an experimentally motivated structural-identifiability question: whether a single time series transverse to a known reset heading, without orientation measurements, is theoretically sufficient to determine all three unknown relaxation mechanisms. It gives an explicit algebraic reconstruction rather than a numerical least-squares fit, and it treats the exceptional cancellation at which naive two-pole inference breaks. The exact cancellation example demonstrates why the boundary case is substantive rather than a generic restatement of two-exponential fitting. Structural identifiability does not guarantee stable estimation from sampled data, and the result is limited to a fully resetting harmonic model with calibrated propulsion and thermal diffusivity.
+Best-of-knowledge originality follows from statement-level and implication-level comparisons; no identified complete earlier theorem covers the stated surviving exact result. See structured checks, inspected source material and risks.
 
-## Checked literature and limitations
+## value
 
-Relevant inspected primary sources: Shee (https://arxiv.org/abs/2409.06920), including the physical model and sections on moments and orientation correlations; Caraglio and Franosch (https://arxiv.org/abs/2210.04205), especially the unreset positional autocorrelation Eq. (26); and Kumar, Sadekar and Basu (https://arxiv.org/abs/2008.03294), for complete resetting without confinement. Also compared against semantic research-record results for stationary autocorrelation identification, reset dynamics and spectral pole recovery. No independent expert or publication-priority audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete parameter-identifiability theorem from only the first four right derivatives of a single stationary positional observable, especially the otherwise-hidden exponential cancellation case, fills a meaningful inverse problem in active-reset stochastic dynamics. Explicit identifiability domains and exceptional algebraic cases are useful to future inference theory; instability in finite/noisy samples is explicitly outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
