@@ -1,19 +1,21 @@
-# Scientific review of the quorum-resilience allocation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The event is specified by disjoint Bernoulli survivors, two surviving species per guild, and at least two successful guilds. The exact three-indicator probability polynomial follows from independence. Every allocation through six species is enumerated; all four seven-species integer partitions are compared with exact factorizations, including boundary ties. For every larger budget the low-survival sign follows from six strictly positive residue-class polynomial expressions, while the high-survival sign follows from the explicit powers of the failure probability. A standalone exact survivor-set calculation checks the finite identities independently. The larger-budget assertion only concerns two specified allocations, not global optimality.
+PASS
 
-## Originality
+The exact event and quantifiers are three disjoint nonempty guilds, iid species survival p in (0,1), a two-survivor quorum within each guild and at least two successful guilds. Inclusion–exclusion gives R=r_ar_b+r_ar_c+r_br_c−2r_ar_br_c. Exact factorized differences classify all unordered S<=7 allocations, with the unique crossover at p=1/2. For S>=7 low-p leading coefficient is positive in six S modulo 6 classes; high-p failure-exponent comparison reverses the ranking of A_S and B_S (S=7 coefficients 6 vs 4). The claim correctly does not classify all global S>7 optimizers. Independently enumerated all survivor masks/all S<=7 partitions and checked symbolic factors and positive leading coefficients through S=500, which corroborate rather than prove the unbounded six-class algebra.
 
-PASS within inspected evidence, provisional. The full-text quorum discussion of Nijs and Impens derives single-function binomial survival, not three-guild allocation thresholds. Fonseca and Ganade's full-text functional richness model uses at-least-one survivor service and fixed-count loss. Hwang's abstract concerns assignment of unequal component reliabilities to fixed subsystem sizes; the present theorem varies the sizes under a common survival probability. Ding, Fang and Zhao's grouped-reliability paper is the strongest unresolved historical-priority source: its abstract concerns two-stage grouping and selecting strategies, and the full text could not be inspected. It has not been declared non-covering from the abstract. No matching published-finding corpus record or overlapping accessible local claim was found, but this is not a proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. Requiring two species per ecological function is an explicit ecological reliability mechanism in primary literature. Requiring preservation of two functions rather than every function describes a partial-service resilience objective. The theorem identifies the smallest total species budget at which survival probability changes the optimal guild allocation, with an exact crossover, and proves that the policy tension between focused and balanced arrangements persists at every larger budget. Its conclusion addresses a natural structural budget decision, not an arbitrary isolated numerical coefficient.
+Best-of-knowledge novelty of the complete seven-species allocation switch and all-budget pairwise reversal, not the elementary inclusion–exclusion probability identity; hierarchical reliability literature remains a stated priority risk.
 
-## Limitations and closest literature
+## value
 
-The result is conditional on identical independent species survival, disjoint nonempty guilds, two-survivor quorums and a two-of-three functional target. Broad hierarchical reliability literature remains a possible source of stronger coverage. The full Ding–Fang–Zhao article could not be inspected; Hwang's full text was also unavailable. The research establishes neither empirical predictive validity nor global optimal allocations above seven species.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first probability-dependent optimal ecological functional-service allocation is a motivated, sharp natural finite boundary, and the pairwise reversal mechanism holds at every larger budget. This is more than relabeling a generic reliability identity, while its simple stylized assumptions and incomplete historical grouped-systems comparison are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

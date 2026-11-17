@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact verification instructions
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.8 or newer. The script uses only the standard library and reconstructs both the guild reliability polynomials and the independent survivor-subset distributions through seven species. It verifies the three factorizations needed for the sharp lower-bound and crossover proof and checks the sign/exponent inequalities for 294 larger integer budgets.
+## correctness
 
-The bounded numerical checks do not certify the infinite-budget statement. The proof there uses six explicit polynomial identities in the residue of the species count modulo six and an asymptotic exponent comparison. All assumptions require independent equal-probability survival and disjoint guilds; no statement about heterogeneous risks or correlated losses has been checked.
+PASS
+
+The exact event and quantifiers are three disjoint nonempty guilds, iid species survival p in (0,1), a two-survivor quorum within each guild and at least two successful guilds. Inclusion–exclusion gives R=r_ar_b+r_ar_c+r_br_c−2r_ar_br_c. Exact factorized differences classify all unordered S<=7 allocations, with the unique crossover at p=1/2. For S>=7 low-p leading coefficient is positive in six S modulo 6 classes; high-p failure-exponent comparison reverses the ranking of A_S and B_S (S=7 coefficients 6 vs 4). The claim correctly does not classify all global S>7 optimizers. Independently enumerated all survivor masks/all S<=7 partitions and checked symbolic factors and positive leading coefficients through S=500, which corroborate rather than prove the unbounded six-class algebra.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the complete seven-species allocation switch and all-budget pairwise reversal, not the elementary inclusion–exclusion probability identity; hierarchical reliability literature remains a stated priority risk.
+
+## value
+
+PASS
+
+The first probability-dependent optimal ecological functional-service allocation is a motivated, sharp natural finite boundary, and the pairwise reversal mechanism holds at every larger budget. This is more than relabeling a generic reliability identity, while its simple stylized assumptions and incomplete historical grouped-systems comparison are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
