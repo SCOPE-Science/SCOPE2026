@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has a complete intrinsic-Euclidean proof: the connected bipartite incidence rank gives the affine dimension; edge transitivity forces the cycle-space projection to have constant diagonal \(D/m\); the coordinate halfspaces yield the unique inball; the contact-vector tight-frame identities satisfy the nonsymmetric John criterion; and edge-disjoint perfect matchings force the unique circumball. The deleted-diagonal graph is a direct specialization. The standard-library verifier independently checks 15 graph instances with exact rational incidence projectors, and all checks pass. No finite test is used as the proof of an infinite statement.
+## correctness
 
-## Originality — PASS, subject to external priority checks
-The motivating 2026 study of Birkhoff and forbidden-diagonal World Cup polytopes reports Ehrhart series, not Euclidean ball profiles. The closest positive-margin transportation-polytope inradius result assumes unrestricted full support, so it does not imply the deleted-diagonal case. The closest edge-transitive matching-polytope John result addresses degree inequalities rather than the degree-equality affine section; its John ellipsoid does not determine the John ellipsoid of that section. Published full text of Gruber–Schuster provides only the general John criterion and not the graph-specific projector and radius identities. Searches for aliases involving matching/assignment polytopes, diagonal-zero bistochastic matrices, cycle-space leverage, John balls and the exact formulas did not identify a covering theorem. Some close mathematical records were accessible only as abstracts, so independent historical priority is unresolved.
+PASS
 
-## Mathematical value — PASS
-The World Cup/derangement polytope is the current subject of exact Ehrhart studies, while its intrinsic Euclidean roundness data are a distinct natural metric invariant. The theorem gives simultaneously a universal all-dimensional inball, a maximal-volume ellipsoid certificate, a universal enclosing sphere, unique centers and complete outer contact vertices. Its graph-wide universality is stronger than a single special-case radius: identical degree and bipartition parameters force the same Euclidean aspect ratio regardless of the particular edge-transitive graph. The tight-frame explanation is structurally reusable in the broader equal-leverage class.
+The unsigned vertex-edge incidence rank is 2n−1, and Hall 1-factorization yields the exact nonnegative degree-equality H-description and uniform barycenter. Edge transitivity makes diagonal of the orthogonal cycle-space projector D/m. Projecting each x_e>=0 facet gives inball radius 1/(d sqrt(D/m)); summing all coordinate slacks proves the unique incenter. Its normalized contacts −a_e/s have zero weighted mean and identity second moment with c_e=D/m, satisfying the nonsymmetric John characterization, not merely ball maximality. A 1-factorization yields the exact enclosing radius and unique center via mean-squared distances; convexity excludes nonvertices on the sphere. Recomputed exact ranks/projection diagonals/radii for two complete bipartite and two crown examples; these finite cases are corroborative only.
 
-## Closest work and limitations
-The closest sources are Jiang et al., arXiv:2609.25863; Gruber and Schuster, arXiv:1207.7246; the published mathematical abstracts *Exact intrinsic Euclidean inradius and centers of transportation polytopes* and *Spectral John ellipsoids of vertex-and-edge-transitive fractional matching polytopes*. The latter two full texts were unavailable in the present source access, and their stated hypotheses are different. The result concerns intrinsic Frobenius metric, connected bipartite graphs, and the perfect-matching affine section; the general Löwner ellipsoid and nonuniform-leverage inball remain unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearby biregular k-matching inball theorem assumes p<q and therefore does not include the balanced degree-equality perfect matching section or its John-contact certificate; other transitive fractional matching results use row/column cap inequalities instead. First public World Cup Ehrhart study asks integer-point rather than Euclidean ellipsoid questions. The projected-equal-leverage universal John contact classification is an independently substantive claim, subject to unindexed transportation-geometry priority.
+
+## value
+
+PASS
+
+Exact intrinsic inradius, circumradius, unique John ellipsoid and tangency classification of a natural lattice/transportation polytope are nontrivial, reusable convex-geometric invariants. The formulas cover infinitely many edge-transitive support graphs and a concrete derangement polytope; unlike classical Hall or John theorems, the equal leverage and sharp metric normalization require real reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
