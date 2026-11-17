@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:08:08.783557Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Complete RESULT.md positive-polynomial proof, Hessian and boundary-to-interior continuity argument",
+        "Independent symbolic checker verified factorization and rational strict witness and exact normalization",
+        "Frozen source tree 0acc135bc587b85f30e8b5afb5a03c40a3b3ceac and script verify.py inspected"
+      ],
+      "rationale": "The mgf (1-p)/[(1-a1 z)(1-a2 z)(1-a3 z)-p] follows from geometric complete circuits. For t=(1-p)^-1 and normalized elementary symmetrics x=e2/e1^2, y=e3/e1^3, R=(4/3)(t-x)[t^3-3t^2x+t(x^2+2y)]/[t^2-2tx+y]^2. The inequality R>=6/5 reduces to P0+q P1+q^2 P2+q^3 P3+q^4>=0, q=p/(1-p), with all Pi positive except P0>=0 proved from Schur y>=(4x-1)/9 and positivity at x<=1/4. Equality only at q=0, x=1/3. Independent SymPy verified the polynomial, exact local second-variation coefficient 4(1-p)^3(50-10p-13p^2)/(p^2+16p+10)^3>0, quartic benchmark crossing p* between .5425 and .5426, and exact strictly positive witness R(1,1,1;5/8)-R(1,1,1/16;5/8)=8340/345550921. Boundary a3=0 is used only as a limiting comparison, with actual a3=1/16 positive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Aldous–Shepp bound is on second raw-moment ratio, distinct from R=mu2 mu4/mu3^2",
+          "General dominant-eigenvalue bounds do not supply the stated sharp nonlinear fourth-moment ratio and symmetry-breaking benchmark"
+        ],
+        "reasoning": "Broader moment theorems with different hypotheses or observables do not logically imply the rate comparison for the closed feedback loop.",
+        "searches": [
+          "three-state cyclic phase-type distribution moment ratio mu2 mu4 mu3 local minimum heterogeneous rates",
+          "https://arxiv.org/abs/2610.37425",
+          "Aldous Shepp least variable phase type Erlang 1987",
+          "He Horváth Horváth Telek phase-type moment bounds 2019"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.37425",
+        "https://www.themoonlight.io/en/review/phase-type-representations-for-strong-stability-preserving-runge-kutta-methods"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parent higher-moment theorem has an acyclic assumption not satisfied when p>0",
+          "The submitted proof uses Schur and a distinct quartic/Hessian factorization to deduce nonlocal rate reversal"
+        ],
+        "reasoning": "A theorem on acyclic PH or ordinary Erlang variance cannot be instantiated at cyclic p>0 to obtain these conclusions; exact scope and historical risk recorded.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37425",
+          "https://www.themoonlight.io/en/review/phase-type-representations-for-strong-stability-preserving-runge-kutta-methods",
+          "three-state cyclic phase-type distribution moment ratio mu2 mu4 mu3 local minimum heterogeneous rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parent paper introduces PH representation of RK, studies higher moment bounds for acyclic representation classes",
+          "Its accessible summary describes cyclic higher-order extension as a difficult unproved direction"
+        ],
+        "reasoning": "The submitted 3-step directed-feedback generator has a cyclic transition, so an acyclic PH ratio theorem is not literally equivalent. No other exact parameter equivalence was found.",
+        "searches": [
+          "three-state cyclic phase-type distribution moment ratio mu2 mu4 mu3 local minimum heterogeneous rates",
+          "https://arxiv.org/abs/2610.37425",
+          "https://www.themoonlight.io/en/review/phase-type-representations-for-strong-stability-preserving-runge-kutta-methods"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact p* quartic crossing and finite rational witness are not simply tabulated in accessible parent summaries",
+          "A phase-type table of moment values for fixed rates would not establish the all-rates strict floor or local Hessian"
+        ],
+        "reasoning": "This is a continuous sharp inequality/classification, not a known finite numerical table; an exhaustive broad-literature priority guarantee is not claimed.",
+        "searches": [
+          "three-state cyclic phase-type distribution moment ratio mu2 mu4 mu3 local minimum heterogeneous rates",
+          "https://arxiv.org/abs/2610.37425"
+        ]
+      },
+      "rationale": "Best-knowledge original only for the exact directed three-phase cyclic PH family, its fourth-moment ratio uniform floor and rate-design local/global reversal. Original Weng–Yu–Zhu work concerns PH representations for SSP Runge–Kutta and an acyclic higher-moment inequality, not this cyclical feedback comparison. Primary full-text institutional access was blocked, so broader implied results from uninspected sections remain a named residual risk. The inability alone is not scientific failure.",
+      "residual_risks": [
+        "Full primary Weng–Yu–Zhu manuscript not read because arXiv HTML and lawful full-text path unavailable, authorized Oxford returned vpn_disconnected (job 10cb57c605a2e5370ad483ed1e5b9542); no claim of whole-paper NOT_COVERING",
+        "Other general cyclic PH moment inequalities may cover a portion of the result",
+        "Crossing p* concerns only two benchmark profiles, not global rate optimization"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY FULL TEXT INACCESSIBLE; plausible comparison retained as risk",
+          "evidence": [
+            "Accessible technical scope distinguishes acyclic higher-moment theorem from cyclic extension, but no whole-document noncoverage claim is made"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.37425",
+          "material_read": "Primary bibliographic metadata and abstract-level material; accessible secondary technical summary of theorem scope; arXiv full HTML disabled and Oxford returned vpn_disconnected. Primary full PDF not read",
+          "method": "arXiv and lawful OA attempts, technical summary consulted, authorized Oxford request blocked by VPN",
+          "title": "Phase-type representations for Strong Stability Preserving Runge-Kutta methods",
+          "trigger": "Identical PH/RK motivation and possible dominating moment inequalities"
+        },
+        {
+          "assessment": "Context only, cannot establish primary whole-paper absence",
+          "evidence": [
+            "Reports acyclic inequality under Theorem 4.4 and cyclic higher-order difficulty"
+          ],
+          "identifier_or_url": "https://www.themoonlight.io/en/review/phase-type-representations-for-strong-stability-preserving-runge-kutta-methods",
+          "material_read": "Accessible technical secondary discussion of PH and cyclic/acyclic theorem assumptions, not independent primary proof",
+          "method": "Full relevant secondary review text",
+          "title": "Phase-type representations for Strong Stability Preserving Runge-Kutta methods — review",
+          "trigger": "Secondary discussion of same exact primary paper and Theorem 4.4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All-return-probability sharp fourth-moment inequality",
+        "Strict local Hessian positivity with global heterogeneous counterexample at p=5/8",
+        "Precise benchmark root without claiming global onset"
+      ],
+      "rationale": "A fourth-moment analogue of the Erlang floor in a genuinely cyclic PH model addresses a natural probability/numerical-stability gap. The locally optimal yet globally suboptimal equal-rate design, with exact rational witness and benchmark crossing, is a motivated optimization phenomenon that cannot be inferred from ordinary variance or equal-rate computations; narrow family scope is explicit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026 frozen b0e95ae124c6a0e1a43dab35f490b119e0fbbb37, full RESULT.md/REVIEW.md/SLOGAN.txt/VERIFICATION.md/AUDIT.json/METADATA.json, verification code, full record tree 0acc135bc587b85f30e8b5afb5a03c40a3b3ceac",
+    "Independent exact computational checks: /mnt/data/scope05_run_20261113T2056/independent_checks.py and log, 586 cumulative exact assertions; no inference of infinite proof from samples",
+    "Independent source-tree Git-object reconstruction: /mnt/data/scope05_run_20261113T2056/verify_git_trees.py and log, five trees matched",
+    "https://arxiv.org/abs/2610.37425",
+    "https://www.themoonlight.io/en/review/phase-type-representations-for-strong-stability-preserving-runge-kutta-methods"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full primary Weng–Yu–Zhu manuscript not read because arXiv HTML and lawful full-text path unavailable, authorized Oxford returned vpn_disconnected (job 10cb57c605a2e5370ad483ed1e5b9542); no claim of whole-paper NOT_COVERING",
+    "Other general cyclic PH moment inequalities may cover a portion of the result",
+    "Crossing p* concerns only two benchmark profiles, not global rate optimization"
+  ],
+  "residual_risks": [
+    "Full primary Weng–Yu–Zhu manuscript not read because arXiv HTML and lawful full-text path unavailable, authorized Oxford returned vpn_disconnected (job 10cb57c605a2e5370ad483ed1e5b9542); no claim of whole-paper NOT_COVERING",
+    "Other general cyclic PH moment inequalities may cover a portion of the result",
+    "Crossing p* concerns only two benchmark profiles, not global rate optimization"
+  ],
+  "schema_version": 1
+}

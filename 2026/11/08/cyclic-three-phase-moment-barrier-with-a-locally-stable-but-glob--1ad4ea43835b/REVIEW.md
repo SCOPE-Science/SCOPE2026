@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The absorption-time moment generating function is obtained from geometric feedback through three independent exponential holding phases. Coefficient extraction gives the four-moment ratio. The factorization \(10AC-9B^2=P_0+qP_1+q^2P_2+q^3P_3+q^4\), together with Schur's three-variable inequality, yields the strict \(6/5\) floor and its only equality case. The equal-rate perturbation has a strictly positive quadratic coefficient for every return probability below one. An exact rational comparison of the equal design with the vanishing-third-time profile gives a unique crossing and a strictly positive finite-rate competitor beyond it. The bundled SymPy checker reproduces essential algebraic identities and the rational finite witness.
+## correctness
 
-## Originality — PASS (qualified)
-Weng, Yu, and Zhu's 2026 phase-type Runge--Kutta treatment gives the numerical-analysis motivation, proves related bounds for acyclic representations, and identifies general cyclic higher-order questions as open. The 2019 He--Horváth--Horváth--Telek study supplies eigenvalue-controlled moment bounds rather than this cross-moment quotient and heterogeneous rate-design separation. The 1987 Aldous--Shepp result concerns least variance (second moment). A prior equal-stage feedback calculation determines only the symmetric benchmark, not the fact that equal rates can be locally minimizing and globally dominated. Searches did not identify direct coverage of the joint statement. Residual risk: historical extremal phase-type moment inequalities or symmetric-function inequalities may imply parts of the floor; priority is not independently established.
+PASS
 
-## Mathematical value — PASS
-This establishes a sharp three-phase Erlang moment floor for an explicit cyclic feedback class motivated by positivity-preserving integration and exposes an analytically exact local-versus-global failure in rate selection, with finite rational parameters. The result discriminates one-sided local optimization guarantees from global designs without claiming a global phase diagram; it does not itself yield improved SSP coefficients.
+The mgf (1-p)/[(1-a1 z)(1-a2 z)(1-a3 z)-p] follows from geometric complete circuits. For t=(1-p)^-1 and normalized elementary symmetrics x=e2/e1^2, y=e3/e1^3, R=(4/3)(t-x)[t^3-3t^2x+t(x^2+2y)]/[t^2-2tx+y]^2. The inequality R>=6/5 reduces to P0+q P1+q^2 P2+q^3 P3+q^4>=0, q=p/(1-p), with all Pi positive except P0>=0 proved from Schur y>=(4x-1)/9 and positivity at x<=1/4. Equality only at q=0, x=1/3. Independent SymPy verified the polynomial, exact local second-variation coefficient 4(1-p)^3(50-10p-13p^2)/(p^2+16p+10)^3>0, quartic benchmark crossing p* between .5425 and .5426, and exact strictly positive witness R(1,1,1;5/8)-R(1,1,1/16;5/8)=8340/345550921. Boundary a3=0 is used only as a limiting comparison, with actual a3=1/16 positive.
 
-## Scope and verification limits
-The polynomial crossover applies only to the two specified comparator profiles. The zero-stage-time comparator is limiting only; strictly positive near-boundary designs and a rational finite witness are established. The computer program tests algebraic identities and rational samples but the infinite-dimensional quantifiers over parameters rest on the written proof. Independent external validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original only for the exact directed three-phase cyclic PH family, its fourth-moment ratio uniform floor and rate-design local/global reversal. Original Weng–Yu–Zhu work concerns PH representations for SSP Runge–Kutta and an acyclic higher-moment inequality, not this cyclical feedback comparison. Primary full-text institutional access was blocked, so broader implied results from uninspected sections remain a named residual risk. The inability alone is not scientific failure.
+
+## value
+
+PASS
+
+A fourth-moment analogue of the Erlang floor in a genuinely cyclic PH model addresses a natural probability/numerical-stability gap. The locally optimal yet globally suboptimal equal-rate design, with exact rational witness and benchmark crossing, is a motivated optimization phenomenon that cannot be inferred from ordinary variance or equal-rate computations; narrow family scope is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
