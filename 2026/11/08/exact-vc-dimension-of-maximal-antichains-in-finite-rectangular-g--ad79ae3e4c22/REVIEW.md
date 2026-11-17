@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof establishes that a shattered support must be an antichain; removing one marked point while keeping the others requires at least one adjacent unused row or column level. Each unused level can serve at most two marked points, proving the sharp resource inequality. A \(2\times3\) four-label gadget, its transpose, and a \(1\times2\) one-label gadget supply all labels, and the anti-diagonal disjoint-block embedding extends their union to a global maximal antichain without changing the marked trace. The edge cases \(1\times1\) and single-row/single-column grids are explicit. Independent brute-force code corroborates the formula for all \(28\) rectangles through \(7\times7\), but the mathematical argument is valid without computation.
+## correctness
 
-**Originality: PASS within examined sources.** Bouyssou–Marchant–Pirlot study exactly these maximal antichains and enumerate/biject them, but do not state the VC dimension of their incidence concept family. Tsai's result involves strict-coordinate comparability, not the present weak-coordinate order. Cambie–Chornomaz–Dvir–Filmus–Moran concern lattice-theoretic shattering, not membership shattering by maximal-antichain supports. Other inspected indexed records concern counts of antichains in different posets; their descriptions do not yield this dimension. The known antichain census is not reasserted as a new result. Historical priority via alternative language remains a limitation.
+PASS
 
-**Mathematical value: PASS.** The precise complexity of the full family of maximal antichains, rather than its cardinality, is a natural learning-theoretic complement to enumerative work. The theorem is uniform in both grid lengths and gives a sharp, nontrivial transition: square grids support only about \(80\%\) of their antichain width as independent binary queries, while aspect ratio at least \(3/2\) recovers full width. The gap is explained by a reusable local packing obstruction and matching gadgets, not an arbitrary finite calculation.
+For coordinatewise weak order [m]×[n], every shattered membership support must be an antichain, size k<=min(m,n). Omitting a marked point while retaining others requires a comparable blocking point and hence at least one adjacent slack row/column coordinate; with at most two marked positions served by each spare coordinate level, m+n-2k>=ceil(k/2), hence k<=floor(2(m+n)/5). All labels are realized by explicit maximal-antichain gadgets in 2×3 and 1×2 rectangles and transposes, arranged anti-diagonally; an extension to a global maximal antichain cannot reinsert a negatively tested point already blocked by its local witness. The proof handles 1×1 and all rectangular boundaries. Independent brute-force membership-shattering for 25 rectangles with 1<=m,n<=5 gives the exact formula, including the 5×5 case with 83 maximal antichains and VC=4.
 
-**Scope and remaining risks.** The result concerns ordinary binary membership VC dimension of inclusion-maximal antichains under weak coordinatewise order. No Littlestone or full support-enumerator result is asserted. The closest primary source was read in its main mathematical sections and appendices, but the source search is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Bouyssou–Marchant–Pirlot 2024 systematically enumerates maximal antichains of products of two chains, gives bijections and e.g. count 817 on 7×7, but the inspected full relevant sections do not determine VC membership-shattering of the maximal-antichain FAMILY. Tsai studies the strict-coordinate product order (different comparability) and Cambie et al. lattice-valued shattering differs from binary membership. No stronger theorem implying min(m,n,floor(2(m+n)/5)) was found in actual comparisons; the inability to exclude obscure equivalent combinatorics remains a residual risk.
+
+## value
+
+PASS
+
+A natural poset-class learning invariant is sharply smaller than its width for square grids, with a nontrivial resource-obstruction bound and explicit rectangular gadgets. Full-width shattering exactly when n>=ceil(3m/2) for m<=n is a meaningful structural threshold; it is not simply counting maximal antichains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
