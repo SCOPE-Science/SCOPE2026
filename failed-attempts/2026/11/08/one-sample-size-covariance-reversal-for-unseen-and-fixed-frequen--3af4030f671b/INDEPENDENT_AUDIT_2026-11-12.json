@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Direct Dirichlet-multinomial one- and two-category masses yield Cov(U0,Ur)=m p0 pr [(m-1)Q_N-m]. The exact Q_N ratio has successive factor 1-alpha(alpha+r)/((N-r+(m-1)alpha)(N+(m-1)alpha)), strictly between 0 and 1. At N=r the factor gives positive aggregate covariance for r>=2, and the limiting Q is strictly <1; hence the unique real sign change by gamma/digamma monotonicity. For alpha=1 the factor simplifies exactly to [m(r-1)+2-2N]/(N-r+m-2), giving critical N=[m(r-1)+2]/2. Independent complete weak-composition enumeration for m=3..5,r=2..4,N up to 11 reproduced every sign and direct covariance; infinite proof is analytic, not merely finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-label intersection U0_i*Ur_i=0, distinct-label expectations p0r; therefore aggregate Cov=m(m-1)p0r-m^2p0pr."
+        ],
+        "reasoning": "The 2026/10/26 earlier labeled-event theorem covers arbitrary positive, unequal Dirichlet concentrations and all r>=1, with exact Q and monotone gamma interpolation. Although not literally an aggregate theorem, its broader event-moment information together with exchangeability implies the submitted symmetric aggregate claim. The r=2 aggregate is explicitly prior.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-sign-transition-and-its-finite-size-shift-for-unseen-doublet--7a16c6665669/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-sign-transition-and-its-finite-size-shift-for-unseen-doublet--7a16c6665669/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa/RESULT.md",
+        "https://www.stat.uchicago.edu/~wbwu/papers/keener.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit algebra: (m-1)(1+[r(m-1)-N]/[(m-1)(m+N-r-2)])-m=[m(r-1)+2-2N]/(m+N-r-2)."
+        ],
+        "reasoning": "From 2026/10/26, in symmetric case set T=m alpha, a=b=alpha, c=(m-2)alpha. Then Q_N matches exactly; exchangeable pair sums give (m-1)Q_N-m. The earlier alpha=1 formula implies (m-1)Q_N-m=[m(r-1)+2-2N]/(m+N-r-2), precisely the submitted covariance and crossing. Strict Q_N monotonicity and endpoint bounds prove unique aggregate root. This is decisive coverage by straightforward implication, despite earlier papers not sharing the aggregate title.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-sign-transition-and-its-finite-size-shift-for-unseen-doublet--7a16c6665669/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier r=2 exactly states unique gamma root and alpha=1 (m+2)/2. Earlier arbitrary-positive-alpha labeled-pair theorem states Q_n=[(c)_(n-r)(T)_n]/[(T-b)_(n-r)(T-a)_n], monotone ratio and alpha=1 Q_n-1=[r(m-1)-n]/[(m-1)(m+n-r-2)]."
+        ],
+        "reasoning": "For r=2 the same aggregate covariance C0,C2 theorem appears verbatim in 2026/10/13 (with more critical-window detail). For arbitrary r the identity Cov(U0,Ur)=m p0 pr[(m-1)Q_N-m] converts the known labeled indicator Q-ratio into the aggregate condition. Thus alternate formulation via indicator-pair joint moments gives a direct algebraic implication.",
+        "searches": [
+          "Resultary semantic: Dirichlet multinomial symmetric Polya urn covariance unseen species fixed frequency sample size sign reversal",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-sign-transition-and-its-finite-size-shift-for-unseen-doublet--7a16c6665669/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Older r2 source includes full gamma-continuation crossing and exact unit-shape formula; source code checks finite rational instances."
+        ],
+        "reasoning": "This is not a finite table discovery. The complete symbolic Q recurrence and r=2 exact aggregate formula are in published RESULTS, so finite weak-composition or checker outputs merely reproduce known algebra and cannot rescue originality.",
+        "searches": [
+          "Resultary semantic: Dirichlet multinomial symmetric Polya urn covariance unseen species fixed frequency sample size sign reversal",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-sign-transition-and-its-finite-size-shift-for-unseen-doublet--7a16c6665669/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa/RESULT.md",
+          "SCOPE2026 verify_polya.py"
+        ]
+      },
+      "rationale": "FAIL: The 2026-10-13 published symmetric Dirichlet-multinomial theorem already proves the identical aggregate unseen/doubleton r=2 sign crossing and alpha=1 threshold. A stronger 2026-10-26 theorem for arbitrary concentrations and every r>=1 gives the exact labeled missing-versus-r joint probability ratio Q_N, its strict monotone recurrence, real crossing and unit-shape identity. Summing exchangeable pair indicators and subtracting same-category exclusion mechanically changes their criterion Q=1 to (m-1)Q=m, reproducing the entire submitted aggregate arbitrary-r theorem and alpha=1 formula. The new variation is a routine algebraic corollary of disclosed general formulas, not an independent mathematical discovery.",
+      "residual_risks": [
+        "This rejection is mathematical implication/degree of originality rather than an assertion the arbitrary-r aggregate wording appears verbatim in prior paper.",
+        "Earlier general indicator theorem and aggregate doubleton theorem dates (October 26 and October 13) precede the submission dated November 8."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for r=2; stronger finite-size asymptotic detail too.",
+          "evidence": [
+            "Exactly symmetric C0/C2 aggregate with alpha>0, m>=3, unique crossing, alpha=1 (m+2)/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-sign-transition-and-its-finite-size-shift-for-unseen-doublet--7a16c6665669/RESULT.md",
+          "material_read": "Read entire theorem, probabilities, recurrence, real crossing, critical-window asymptotics and proof.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "One sign transition and its finite-size shift for unseen–doubleton covariance",
+          "trigger": "Exact r=2 same aggregate object and model in Resultary search"
+        },
+        {
+          "assessment": "COVERING by elementary exchangeable pair-summation implication for arbitrary-r aggregate criterion.",
+          "evidence": [
+            "General labeled pair Q_n and Q_(n+1)/Q_n plus alpha=1 rational expression determine all submitted aggregate signs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-universal-one-crossing-law-for-missing-and-rare-categories-in--70169af507aa/RESULT.md",
+          "material_read": "Read complete theorem, assumptions, joint mass, strictly decreasing Q ratio, gamma proof, and alpha=1 closed form.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "A universal one-crossing law for missing and rare categories in Dirichlet-multinomial sampling",
+          "trigger": "Arbitrary-r broader concentration theorem; named missing/r indicator covariance"
+        },
+        {
+          "assessment": "No reliance on inaccessible classic source for rejection; two fully read relevant earlier published mathematical proofs are decisive.",
+          "evidence": [
+            "Classical Dirichlet-multinomial joint mass and occupancy sums predate all compared findings."
+          ],
+          "identifier_or_url": "https://www.stat.uchicago.edu/~wbwu/papers/keener.pdf",
+          "material_read": "Title, DOI and summary in inspected mathematical reviews; primary author-hosted PDF not opened/read in this run.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "On Dirichlet Multinomial Distributions",
+          "trigger": "Classical primary occupancy-frequency model and moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL for a separately valuable contribution beyond these priors: missing and fixed-frequency aggregate counts are natural observables, but r=2 had already been solved exactly and the all-r Q ratio, monotonicity and unit-shape algebra were already explicit in a broader labeled-category theorem. Exchangeable summation with a single same-label exclusion yields the submitted threshold by a one-line calculation; the remaining multinomial limit is a direct limit of that formula. Reproducibility/novel presentation alone does not make this mechanical consequence an independently needed result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": "Correct for fixed m>=3, alpha>0 and r>=2; r=1, m=2 boundaries separately treated in source. Prior implications are decisive for novelty assessment; no scientific falsehood found.",
+  "schema_version": 1
+}
