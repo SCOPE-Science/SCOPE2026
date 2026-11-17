@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T04:15:59.869091Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD S=[[K,t sqrt(K)],[t sqrt(K),1]] and Z=diag(K,1), the exact frozen L_Z^{-1}(A-X^2) updates give X1=S+diag(t^2/2,Kt^2/2) and X2 diagonals K-t^4/(8K),1-K^2t^4/8 and offdiagonal t sqrt(K)(1-t^2/2). The second diagonal is negative for K>2 sqrt(2)/t^2 while first stays positive; X2 indefinite. Direct differentiation yields eigenvalues ±t,0,0 and Frobenius operator norm t sqrt((K+K^-1)/2); X1 error ratio t sqrt(K+K^-1)/(2sqrt(2)). Hence relative initial error tends zero but absolute error amplification unbounded. Checked exact rational K=16,t=1/2 witness and noncommuting conditions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–Kressner–Shao prove conditional sufficient convergence under a normwise absolute initial error and L_Z^{-1} smallness. Submitted family has growing absolute error for fixed t."
+        ],
+        "reasoning": "A sufficient contraction theorem with stronger hypotheses cannot rule out or mechanically imply the stated failure under weaker relative closeness.",
+        "searches": [
+          "Resultary: frozen Sylvester matrix square root refinement indefinite iterates nonnormal transient amplification SPD",
+          "arxiv:2607.12430 Section 3.1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.12430",
+        "https://doi.org/10.2307/2007992",
+        "https://arxiv.org/abs/1507.08366"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The contrast is spectral radius ±t versus Frobenius Jacobian norm growing with sqrt(K), together with exact negative X2 entry."
+        ],
+        "reasoning": "Classical nonnormality warns of transient amplification qualitatively but does not derive this fixed-Sylvester two-step cone exit in a relatively-close 2x2 SPD family.",
+        "searches": [
+          "arxiv:2607.12430",
+          "doi:10.2307/2007992",
+          "arxiv:1507.08366"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shared frozen-Jacobian Sylvester update with the mixed-precision matrix square-root algorithm, but different claim: ill-conditioned nonnormal transient and SPD loss."
+        ],
+        "reasoning": "The comparison is with precisely F(X)=X+L_Z^{-1}(A-X^2), not a different Newton iteration; fixed-point spectral radius t<1 does not control operator norm or positivity.",
+        "searches": [
+          "Resultary: frozen Sylvester matrix square root refinement indefinite iterates nonnormal transient amplification SPD",
+          "arxiv:2607.12430",
+          "Higham Newton matrix square root 1986"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hit is exact assigned claim; other results involve Newton–Schulz inversion, sign iterations and generic nonnormal amplification."
+        ],
+        "reasoning": "No exact matching SPD input/Jacobian/X2 coefficient table located independently in bounded searches; absence of a hit is not a novelty certificate.",
+        "searches": [
+          "Resultary: frozen Sylvester matrix square root refinement indefinite iterates nonnormal transient amplification SPD",
+          "matrix square root fixed Sylvester positivity counterexample explicit 2 by 2"
+        ]
+      },
+      "rationale": "Gao–Kressner–Shao 2026 use the same fixed-Jacobian Sylvester update but impose a small absolute error for their sufficient local convergence estimates, which the exhibited ill-conditioned family violates uniformly. The computed nonnormal transient and positive-definite-cone exit do not contradict or follow from that sufficient result. Higham and Sra methods differ. No covering exact published family was found in Resultary. Full initiating primary text not completely available; priority remains qualified.",
+      "residual_risks": [
+        "Full text of Gao–Kressner–Shao preprint could not be completely inspected; an implicit safety counterexample may appear in its uninspected sections.",
+        "Counterexample uses unbounded K, not uniformly well-conditioned matrices or actual mixed-precision Schur starting guesses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential overlap carefully limited; full source comparison remains incomplete",
+          "evidence": [
+            "Conditional local error convergence depends on absolute error; not a universal relative-error SPD-positivity theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.12430",
+          "material_read": "Accessible article/abstract and excerpts of §§2–3 on frozen Jacobian and small absolute error; arXiv complete PDF was not available in this run",
+          "method": "Available article text and arXiv preprint record",
+          "title": "A mixed precision algorithm for the matrix square root",
+          "trigger": "Exact frozen-Sylvester update and initiating paper"
+        },
+        {
+          "assessment": "Different update: true Newton/inverse-based rather than frozen L_Z^{-1}",
+          "evidence": [
+            "Separate algorithm and finite-precision setting."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/2007992",
+          "material_read": "Bibliographic/abstract and cited description of Newton-based matrix square-root methods, not full original",
+          "method": "Bibliographic and secondary comparison",
+          "title": "Newton's method for the matrix square root",
+          "trigger": "Related square-root iteration failures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Concrete counterexample to a tempting but false inference that spectral local stability, arbitrarily small relative Frobenius error and uniform Loewner-equivalence guarantee transient norm safety or positivity of exact frozen-Sylvester refinement. Exact K,t cone-exit threshold and Jacobian norm make the limitation useful for stability/safeguard analyses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic 2x2 family, fixed Sylvester operator; no claim all SPD inputs fail, or Schur implementations with rounding fail."
+  ],
+  "schema_version": 1
+}
