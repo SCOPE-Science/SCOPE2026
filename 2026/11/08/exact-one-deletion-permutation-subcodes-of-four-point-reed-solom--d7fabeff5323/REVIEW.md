@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every degree-less-than-two polynomial gives one distinct word. Constant outputs are disjoint from the three-distinct-symbol outputs of nonconstant words; equality of nonconstant deletion output sets is equivalent to three-symbol support overlap. The affine orbit decomposition is exact, and a fully exhaustive pair-incidence-mask proof checks all \(2^{21}+2^{14}\) triple families. The independent Python checker tests all codewords and the resulting disjoint-output witnesses. The counts of maximal subcodes multiply disjoint support choices by their exact affine-fiber multiplicities, with no independence assumption.
+## correctness
 
-**Originality — PASS against the accessible evidence.** Searches of published mathematical records and web literature for affine-orbit deletion packings, small-field Reed–Solomon permutation-plus-deletion subcodes, and the exact extremal counts did not identify equivalent results. Con (2024) and Zhang et al. (2026) address robust permutation-insdel constructions, while Camps-Moreno et al. (2025) and Martínez-Peñas–Rodríguez-Ballesteros (2026) address code automorphism groups. The affine orbit computation alone is covered by familiar group theory, but those results do not imply the restricted maximum six-versus-seven pair-packing classification without the additional finite extremal problem. The full arXiv HTML of the closest permutation-insdel manuscripts was inspected at the channel definitions, algebraic conditions, main results, and dimension-two constructions. The 2026 histogram sphere bound is more closely related to the channel reduction but does not yield these restricted F7 packing maxima; unindexed or implicit historical coverage remains possible.
+PASS
 
-**Value — PASS.** This completes the smallest prime-field, four-evaluation-point example in which the evaluation-set orbit changes the optimum of a permutation-plus-deletion Reed–Solomon subcode. It shows that the precise choice of evaluation points can change exact anonymous recovery capacity, gives the complete support geometry of every maximizing family, and quantifies all maximizing subcodes. It is a motivated exact small-field boundary, not a claim of asymptotic improvement or general decoding rate.
+For S any four-element F7 set, degree<2 polynomial evaluation gives 49 codewords. Seven constants are conflict-free against nonconstant distinct-symbol supports, so always included. Permute then delete causes two nonconstant codewords to conflict iff their four-symbol value supports share at least 3 symbols (including identical supports); complements are affine images of T=F7\S. AGL(1,7) gives progression/nonprogression 3-subset orbits sizes21 and14 with stabilizers 2 and3. Pairwise-compatible triples must have disjoint 21-bit unordered-pair masks. The finite C++ certificate independently examined all 2^21+2^14 orbit-family subsets and Python independent conflict search reproduced maximum packings of 6 (14 equality families) and 7 (2 equality families). Consequently M(S)=13 or14 and optimal labeled codebook counts 14*2^6=896 or 2*3^7=4374 respectively; exactly 21/14 evaluation sets have these types. All finite candidates are covered, not sampled.
 
-**Limitations.** Only \(\mathbb F_7\), dimension two, four positions, one deletion, arbitrary permutation and arbitrary (possibly nonlinear) subcodes are covered. Full relevant arXiv HTML was inspected, but exhaustive historical-priority certification and independent proof review have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on current source record and primary-literature comparison for exact orbit-dependent F7 subcode capacity, 896/4374 equality counts and complete complement-triple packing types; affine symmetry and general permute/insdel machinery are known.
+
+## value
+
+PASS
+
+An exact natural four-point first-nontrivial prime-field subcode invariant of a difficult permutation/deletion channel, with structural AP/nonAP dichotomy and complete optimal packings; mathematically more than a known general RS bound or arbitrary choice of a small subset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
