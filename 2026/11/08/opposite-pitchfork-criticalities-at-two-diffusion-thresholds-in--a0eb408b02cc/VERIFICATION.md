@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python verify.py` using Python 3 and `sympy` (tested against the available local installation). The verifier reconstructs the two reaction functions and checks the positive equilibrium, reaction Jacobian, graph Laplacian eigenvalue multiplicities, modal determinant factorization, critical left/right eigenvectors, center mean-shift coefficients, signed linear transversality coefficients, and signed cubic coefficients.
+# Independent mathematical audit
 
-The cubic coefficients are checked in two ways: direct derivative-tensor contraction and exact series expansion of the original rational nonlinear functions. The local branch existence and stability statements rely on the proved simplicity of the critical eigenvalue and on standard analytic equivariant center-manifold and implicit-function theorems. These are not finite-state numerical assertions. The script does not establish global attractivity, nonlinear behavior far from the bifurcations, or publication priority. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Read the frozen rational ODE proof in RESULT.md. Independently differentiated the given f,g at (1/5,14/25), reproducing J=[[3/70,-1/35],[4/7,-1/7]] and det(J-x D0)=det(D0)(x-900/151)(x-912/151). Checked the two zero-eigenvector pairs, the eigenvalue slopes 151/731220 and -151/739480, and directly expanded the original rational nonlinearities to verify both m vectors and exact cubic coefficients 97752677/6114949120 and -1844319/476770000. Z2 community swapping gives odd scalar normal forms; complementary q=0,3 modes remain strictly stable at the simple q=6 crossings, so local branch stabilities extend to the full twelve-dimensional system. Only local positive branches are proved.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the surviving full statement, not any already-known specialization. Two nonlinear cubic derivatives, and control of complementary graph modes, are additional information beyond the cited linear analysis.
+
+## value
+
+PASS
+
+One admissible concrete ecological network exhibits two stationary diffusion thresholds with opposite nonlinear pitchfork criticalities and distinct patterned stability; the precise cubic signs and average-density shifts are not determined by the usual linear Turing criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

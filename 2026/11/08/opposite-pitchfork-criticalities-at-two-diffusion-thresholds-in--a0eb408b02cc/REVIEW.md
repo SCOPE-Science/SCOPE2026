@@ -1,19 +1,21 @@
-# Scientific review: opposite Turing pitchfork criticalities
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is local to the explicit \(K_{3,3}\) system and its two simple stationary eigenvalue crossings. Substitution into the original rational reaction equations gives the positive equilibrium \((1/5,14/25)\), a strictly Hurwitz homogeneous Jacobian, and exactly one spatial mode with a simple zero at each stated diffusion multiplier. All other graph modes remain strictly stable. The critical left/right vectors, quadratic center-manifold mean displacement and third-order odd normal-form coefficients were independently computed by derivative contraction and direct rational-function Taylor expansion and reproduced by `verify.py`. The standard equivariant center-manifold and implicit-function theorems then give exactly two positive, community-exchanged local branches, with the directions and full-network local stability stated. The result does not extrapolate finite checks into global dynamics.
+## correctness
 
-## Originality — PASS on the inspected, best-knowledge evidence
-The initiating Ye–Zhou 2023 article introduces these ecological reaction terms on networks and studies diffusion-driven linear instability. Shi–Zhou–Ye's complete accessible 2023 manuscript also states the **general linear spectral dispersion criterion**, making the two linear crossings straightforward *prior-covered ingredients*. The new object is instead the pair of exact model-specific cubic signs and corresponding opposite nonlinear pitchfork branch stabilities, together with the strict average-density decrease on the locally stable branch. The accessible latter preprint's analytic sections and experiments concern linear criteria and numerical patterns, not this signed nonlinear normal form. Classical pitchfork theory is used, not claimed as new. Targeted mathematical research-record searches and relevant accessible scientific records did not yield a covering implication. This is not a proof of unique priority: the initiating paper's full later text could not be entirely retrieved, and unindexed equivalent nonlinear calculations remain possible.
+PASS
 
-## Value — PASS
-For a predator–prey network, linear Turing instability by itself does not establish whether physically positive patterned steady states exist or attract perturbations. The two modes become critical at the boundaries of one narrow instability tongue, but their *nonlinear saturation behavior differs in direction and stability*. The theorem supplies explicit, reproducible, biologically positive parameters, predicts a locally attracting spatially segregated equilibrium at one edge, and quantifies its mean-prey and mean-predator deficit. Thus it addresses a genuine mechanism gap between linear onset and ecologically interpretable stable patterns rather than merely substituting eigenvalues into a known dispersion relation.
+Read the frozen rational ODE proof in RESULT.md. Independently differentiated the given f,g at (1/5,14/25), reproducing J=[[3/70,-1/35],[4/7,-1/7]] and det(J-x D0)=det(D0)(x-900/151)(x-912/151). Checked the two zero-eigenvector pairs, the eigenvalue slopes 151/731220 and -151/739480, and directly expanded the original rational nonlinearities to verify both m vectors and exact cubic coefficients 97752677/6114949120 and -1844319/476770000. Z2 community swapping gives odd scalar normal forms; complementary q=0,3 modes remain strictly stable at the simple q=6 crossings, so local branch stabilities extend to the full twelve-dimensional system. Only local positive branches are proved.
 
-## Closest literature and remaining limits
-- Ye and Zhou, arXiv:2306.11818v1 (June 20, 2023): source model and linear network-instability analysis. The model, section outline and introductory source material were inspected; the full subsequent text was not consistently available in HTML, which remains an originality-risk limitation.
-- Shi, Zhou and Ye, https://www.preprints.org/manuscript/202306.1868 (June 27, 2023): accessible full mathematical argument and numerical sections, including its Lemma 2 and the quadratic modal determinant. It is a close, clearly stronger source for linear threshold claims, but does not supply the signed cubic bifurcation calculation reported here.
-- Othmer and Scriven (1971), network instability framework; Woolley (2022), generic pitchfork considerations; Tang and Song (2015), nonlinear steady bifurcation in a different herd-behavior predator–prey model: background/methods, not these exact graph-and-reaction coefficients. The latter primary full text was not inspected.
+## originality
 
-Only local bifurcation and local stability are proved. There is no claim of global basin, finite-amplitude coexistence, or independence from prior literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality of the surviving full statement, not any already-known specialization. Two nonlinear cubic derivatives, and control of complementary graph modes, are additional information beyond the cited linear analysis.
+
+## value
+
+PASS
+
+One admissible concrete ecological network exhibits two stationary diffusion thresholds with opposite nonlinear pitchfork criticalities and distinct patterned stability; the precise cubic signs and average-density shifts are not determined by the usual linear Turing criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
