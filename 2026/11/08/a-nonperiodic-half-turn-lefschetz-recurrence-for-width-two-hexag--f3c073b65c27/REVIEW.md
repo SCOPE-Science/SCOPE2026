@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the precise graph and half-turn given in RESULT.md. The quotient-orbit fixed-point triangulation follows from barycentric weights; all quotient edges are enumerated explicitly. The eight-state transfer includes the alternating independence-set signs and all seam constraints. Recomputing the integer matrix polynomial and eight initial numerator coefficients proves the rational generating function for every length. Its conversion to reduced Euler characteristic and the reduced Lefschetz trace follows from the augmented simplicial Hopf trace. Exact graph/orbit enumeration for fifteen lengths and direct original-face enumeration for five lengths independently test the setup. The denominator/root argument justifies exponential unboundedness. The explicit finite integer multiplication is necessary, and is included with reproducible source and output.
+## correctness
 
-## Originality — PASS, qualified
-The source on width-two hexagonal grid independence complexes [1] computes nonequivariant homotopy, not the half-turn's action or fixed-space reduced Euler characteristic. The most closely matching published record [2] computes reflection characters for narrower *two-row* linear chains, not this three-row strip. The 56-periodic result [3] is for square-grid independence complexes, and the half-turn record [5] uses grid **matching** complexes. Searches of mathematical literature and published records for equivalences and stronger coverage did not identify the displayed generating function or its half-turn invariant. This is a best-knowledge, not a certified exhaustive, novelty assessment. Risks include unindexed equivalent transfer computations and results under differing polyhex terminology.
+PASS
 
-## Value — PASS
-The motivating work leaves symmetry-sensitive homological invariants of the natural width-two hexagonal strip unidentified. This result supplies an exact all-length equivariant Lefschetz invariant and an explicit, unexpectedly nonperiodic order-four recurrence; in contrast, several related small-width grid reflection traces are periodic. The statement distinguishes fixed-point topology from ordinary homotopy information, and its transfer may be reused for other symmetry actions. No claim of a complete equivariant homotopy type is made.
+For the literal half-turn involution, invariant independent sets correspond to independent orbit vertices after deleting any orbit containing an edge. Equal barycentric weights on each orbit give a PL homeomorphism of geometric fixed space to the quotient conflict graph independence complex; augmented signed trace is -I(Q_n;-1). Graph folding yields upper and lower A paths of combined length 2n+1, M path length n, and specified alternating cross edges. Exact eight-state layer transfer with odd A, even B and cap t yields I_n; an independently reconstructed integer matrix T=BA satisfied T^8−T^7+2T^6+T^4=0 entrywise, and the eight initial coefficients yielded the exact odd/even rational numerators. Therefore the all-n generating function follows algebraically, not from 15 samples; independent first fifteen terms matched. Denominator 1+z+z^4 has no unit-circle zero, product of root moduli one and no numerator cancellation, ensuring a root inside the unit disk and exponential coefficient limsup; recurrence and nonperiodicity follow.
 
-## Limits
-Individual Betti numbers and the homotopy type of the geometric fixed spaces are not determined; the finite matrix check and the detailed proof are both required for the all-parameter conclusion. Independent mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full primary width-two hexagonal strip source is nonequivariant; the published Resultary two-rail hexagonal-chain reflections, six-rail square-grid independence Lefschetz and three-rail square-grid matching-complex half-turn calculations concern different graph/complex families. Same object symmetry trace and exact denominator are not implied by nonequivariant wedge data. Distinct topological orbit restrictions and nonperiodic sequence give a qualified novel character.
+
+## value
+
+PASS
+
+Natural rotational symmetry of an already-studied width-two hexagonal independence-complex family produces an exact all-length alternating homology trace with surprising nonperiodic exponential growth; a reusable 8-state transfer provides a meaningful equivariant invariant neither fixed-space Betti ranks nor ordinary homotopy determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

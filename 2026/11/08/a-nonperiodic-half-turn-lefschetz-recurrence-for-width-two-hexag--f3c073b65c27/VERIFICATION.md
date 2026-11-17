@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 verify_halfturn.py` using Python 3.8 or later; no external libraries or downloaded datasets are required. Exact integer arithmetic checks an explicit eight-state polynomial identity \(T^8-T^7+2T^6+T^4=0\), as well as the first eight coefficients of each parity-specific series. Because the identity annihilates all later coefficients of the claimed denominator, this is a finite exact verification of the matrix-generating-function step rather than extrapolation from numerical examples.
+## correctness
 
-The script additionally derives the graph involution from the original three-row hexagonal-strip edges, tests fifteen quotient orbit graphs against a separately constructed canonical graph, enumerates invariant faces directly for five strip lengths, and verifies 239 transfer terms. These corroborate the combinatorial reduction; their bounded ranges do not prove the unrestricted graph model, whose proof is written in RESULT.md.
+PASS
 
-The expected complete stdout is stored in `verification_output.txt`. The exact script shipped with the result produced that output. No independence, external validation, or formal proof certification is claimed.
+For the literal half-turn involution, invariant independent sets correspond to independent orbit vertices after deleting any orbit containing an edge. Equal barycentric weights on each orbit give a PL homeomorphism of geometric fixed space to the quotient conflict graph independence complex; augmented signed trace is -I(Q_n;-1). Graph folding yields upper and lower A paths of combined length 2n+1, M path length n, and specified alternating cross edges. Exact eight-state layer transfer with odd A, even B and cap t yields I_n; an independently reconstructed integer matrix T=BA satisfied T^8−T^7+2T^6+T^4=0 entrywise, and the eight initial coefficients yielded the exact odd/even rational numerators. Therefore the all-n generating function follows algebraically, not from 15 samples; independent first fifteen terms matched. Denominator 1+z+z^4 has no unit-circle zero, product of root moduli one and no numerator cancellation, ensuring a root inside the unit disk and exponential coefficient limsup; recurrence and nonperiodicity follow.
+
+## originality
+
+PASS
+
+The full primary width-two hexagonal strip source is nonequivariant; the published Resultary two-rail hexagonal-chain reflections, six-rail square-grid independence Lefschetz and three-rail square-grid matching-complex half-turn calculations concern different graph/complex families. Same object symmetry trace and exact denominator are not implied by nonequivariant wedge data. Distinct topological orbit restrictions and nonperiodic sequence give a qualified novel character.
+
+## value
+
+PASS
+
+Natural rotational symmetry of an already-studied width-two hexagonal independence-complex family produces an exact all-length alternating homology trace with surprising nonperiodic exponential growth; a reusable 8-state transfer provides a meaningful equivariant invariant neither fixed-space Betti ranks nor ordinary homotopy determine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
