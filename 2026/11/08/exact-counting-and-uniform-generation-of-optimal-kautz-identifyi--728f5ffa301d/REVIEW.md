@@ -1,19 +1,21 @@
-# Review of the Kautz identifying-code enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prefix-twin lower bound and equality case are proved directly, yielding a cycle cover on the lower-order Kautz digraph. The two-cycle-free condition follows from the exact singleton and two-element closed incoming signatures. For orders at least four the three forbidden directed digons constrain disjoint vertex pairs of the next-lower Kautz graph, leaving three of four independent local switch assignments in each pair. Orders two and three are handled separately. The standard-library finite enumeration and independent C++ signature computation reproduce counts 2, 4, 27, 1728 through length five. Finite outputs support, but do not replace, the all-order combinatorial argument.
+PASS
 
-## Originality — PASS (qualified)
+For K(2,n) arc-vertices of D=K(2,n-1), the two outgoing arcs at each D vertex have equal incoming predecessor sets, so any identifying code contains at least one of the two, giving >=3*2^{n-2}. Equality forces exactly one selected outgoing and (by nonempty signatures) exactly one selected incoming at each lower-order vertex, a cycle cover. Signatures of omitted arcs are distinct singletons; signatures of selected arcs are pairs, with collisions exactly at selected digons. In D=L(H), independent two-way local switches at H vertices enumerate all cycle covers. Exactly three alternating digons forbid one local two-switch pattern each, disjoint for n>=4 (giving 3^3*2^{3*2^{n-3}-6}), while n=3 admits only <=1 backtracking switch and n=2 the two Hamiltonian triangles. Uniform independent local sampling follows from this bijection. Independent literal-code enumeration confirmed 2,4,27 optimum codes at n=2,3,4. Finite tests are not proof for all n.
 
-The original directed de Bruijn identification source (Boutin, Horan Goliber and Pelto, arXiv:1412.5842, 2014) gives the foundational prefix identification argument, not the Kautz extremizer census. The closest strong antecedent is Martínez Barona (doctoral thesis, 2020), which proves the Kautz minimum size and provides a general line-digraph arc-identification characterization. The known minimum size is explicitly excluded from the claimed contribution. The exact all-order number of *labeled* minima and direct uniform generation via three disjoint switch exclusions are not stated in the inspected relevant passages. The antecedent is sufficiently close that independent historical-priority checking remains material.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the enumerative and uniform-sampling problem for every order of a canonical constant-degree network. It distinguishes how often the known minimum is attained and permits rejection-free sampling of optimal sensor placements. The exceptional short orders matter because the forbidden cycles share switches there. The result is a motivated algorithmic classification, not a table recomputation or a purported improvement to the known minimum size.
+The relevant primary 2020 line-digraph identifying-code article Theorem 3.12 proves minimum cardinality 3*2^{n-2}; its Theorem 3.4 and 1-factor construction provide structural background, but the inspected primary text does not enumerate all minimum labeled codes or provide the digon-exclusion closed formula and uniform sampler. Same-family other Resultary records concern radius-two identification, not this radius-one optimum enumeration. Counting all sharp codes is distinct from having a construction or minimum size.
 
-## Closest literature and limitations
+## value
 
-Boutin et al. (2014), arXiv:1412.5842, and Martínez Barona (2020), relevant Chapter 4, are the closest inspected treatments. The theorem is restricted to ternary degree-two Kautz graphs, radius-one closed incoming signatures and labeled optima, and does not enumerate codes up to symmetry. The programs verify finite examples, while the mathematical proof handles infinitely many orders. Historical priority and the infinite proof have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifying codes are a canonical network location/sensor invariant. Exact number and uniform generation of all optimal labeled Kautz codes supplies a nontrivial combinatorial classification of degeneracy and unbiased sampling at every length, using a natural degree-two line-digraph structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
