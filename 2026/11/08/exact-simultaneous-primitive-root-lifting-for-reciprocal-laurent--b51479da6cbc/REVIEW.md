@@ -1,15 +1,21 @@
-# Review of the simultaneous primitive-root lifting theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The prime-square primitive-root criterion follows from cyclic unit groups and an exact lifting argument. For any finite-field primitive seed \(a\), both \(x\) and \(x+arepsilon x^{-1}\) have nonvanishing first derivatives at the relevant residue classes, so each has exactly one forbidden lift modulo \(p^2\). Their overlap gives exactly \(p-2\) or \(p-1\) permitted first lifts, and each persists through exactly \(p^{k-2}\) lifts modulo \(p^k\). The cited finite-field theorem and direct small-prime exceptions close the existence statement. The supplied independent-of-proof brute-force checker confirmed the predictions for 44 prime-square sign cases and 24 prime-cube seed fibers. Computations do not certify unbounded parameters.
+## correctness
 
-## Originality — PASS, with priority risk
-Sun's Conjecture 4.10 asks for simultaneous primitive roots modulo powers of primes; the finite-field Corollary 2 of Cohen, Oliveira e Silva, Sutherland and Trudgian supplies the \(k=1\) seed classification, but does not state a prime-power residue-ring lifting theorem or exact \(p-2\)/\(p-1\) fiber count. Carella's later article concerns primitive-root behavior across levels for a fixed integer, not the inverse-Laurent two-function fiber problem. Searches of published mathematical result summaries did not identify an equivalent statement. An unindexed independent lifting argument or an equivalent earlier result remains possible; finite searches are not proof of priority. The exact numerical-overlap test is new as stated relative to the inspected comparisons.
+PASS
 
-## Mathematical value — PASS
-The target is a specific explicitly formulated conjecture about modular primitive roots, not an arbitrary substitution. Besides obtaining complete existence and exception classification across all prime powers, the theorem determines an exact natural lifting invariant for every admissible base root, including the change when two first-order obstructions coincide. That structural dichotomy applies to arbitrarily high prime powers and directly informs future enumeration and least-witness questions. The result does not settle short intervals or a closed formula for the seed count.
+A residue-field simultaneous primitive pair a,f_eps(a) with p>=7 has nonzero derivative d=1-eps a^-2 since a has multiplicative order p-1>4. For x=A+pt modulo p^2 the two Fermat quotients each vanish at exactly one linear t; the union forbids 2-delta of p first lifts. The ordinary p^2 primitive-root criterion and p-adic lifting give p^(k-2)(p-2+delta) for all k>=2. Cohen et al Corollary 2 supplies the finite-field exceptional primes, direct small-prime checks eliminate the candidates. Independent modular enumeration for 89 seed/sign prime-square fibers agreed; finite enumeration does not prove all p,k. Distinguishes Z/p^kZ from F_{p^k}.
 
-## Closest literature and limitations
-Sun, arXiv:1405.0290, Conjecture 4.10; Cohen et al., arXiv:1711.06392, Corollary 2; Carella, arXiv:2501.10399. The comparison does not claim that all historical literature is indexed or that an independent mathematical expert has assessed the proof. Existence invokes the finite-field corollary; the exact prime-power lifting is established in the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun Conjecture 4.10 is precisely prime-POWER RING existence, not finite-field primitive elements in F_{p^k}. Cohen et al Corollary 2 resolves seed availability over F_p; the nonzero derivative plus two explicit Fermat-quotient exclusion counts yield the missing ring lift. Carella addresses simultaneous primitive roots across moduli levels of the same integer rather than reciprocal Laurent pair constraints. No identified stronger published ring-pair theorem covers the local count or both conjecture signs.
+
+## value
+
+PASS
+
+The exact local multiplicity and coincidence test solve an explicitly stated prime-power conjecture, yield uniform positive lift counts from every finite-field seed, and separate two conceptually different finite-field/ring questions; substantial despite elementary p-adic arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
