@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python verify.py` using Python 3. The verifier constructs the multiplication pairing on nonadjacent path coordinates directly, checks that all images of squared generators and edge products vanish, tests matrix invertibility by elimination, and counts every valid ordered image tuple. Independent finite-field models are used for primes \(2,3\) and for the extension field \(\mathbb F_4\). The covered instances are path lengths \(4,5,6\) over \(\mathbb F_2\), lengths \(4,5\) over \(\mathbb F_3\), and length \(4\) over \(\mathbb F_4\).
+# Independent mathematical audit
 
-The expected verification report is `VERIFY_OK` after matching \(32,32,32,288,576,41472\) graded automorphisms, respectively. These tests do not exhaust all finite fields or all path lengths. The universal theorem rests on the annihilator-dimension characterization in `RESULT.md`, followed by the direct classification of endpoint images. No external certification or independent audit is asserted.
+## correctness
+
+PASS
+
+In the quotient, nonadjacent monomials x_i x_j form a degree-two basis. Annihilator of an interior generator has degree-one dimension three; any non-coordinate line has at most dimension two, forcing permutation of interior coordinate lines and hence identity or reversal. Endpoint columns have three allowed support indices each; char2 makes all squares zero, adding c_1,c_n freedoms. Every such invertible matrix respects the presentation, giving 2q^4(q−1)^n. Independently enumerated all 4x4 binary invertible matrices preserving adjacent zero products: exactly 32. The statement concerns graded, not full automorphisms.
+
+## originality
+
+PASS
+
+The closest primary monomial-automorphism papers restrict to characteristic zero; their mechanisms cannot simply force the characteristic-two squares-zero shear parameters. Resultary returned only different coordinate-cross and path-related structures, not this exact graded group count. Best-of-knowledge PASS for positive-characteristic path classification, with uninspected full primary positive-characteristic literature as a risk.
+
+## value
+
+PASS
+
+Positive-characteristic graded symmetry of the canonical path Artinian algebra has a sharp group-order and endpoint-shear jump for all n and all even finite fields. The full group is a natural invariant and the extra square-zero directions make a structural distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

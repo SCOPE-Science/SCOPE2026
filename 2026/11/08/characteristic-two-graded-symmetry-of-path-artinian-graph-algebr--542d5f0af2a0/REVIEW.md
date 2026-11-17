@@ -1,15 +1,21 @@
-# Scientific review: characteristic-two graded symmetry of path Artinian graph algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives the precise domain (all integer \(n\ge4\), finite fields \(\mathbb F_q\) of characteristic two) and distinguishes graded from ungraded automorphisms. Its central nonstandard lemma follows by analyzing the complement graph on the support of a linear form and common path neighbors: a multi-supported form has degree-one annihilator dimension at most two, whereas interior coordinate lines have dimension three. This identifies invariant lines, forces the path reflection, and proves all normal forms and exact counts. The standalone verifier independently tests all relation-preserving invertible images in six finite-field instances, including a genuine extension field. These finite computations support but do not replace the universal proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Nguyen–Tran (arXiv:2310.14368) studies the same Artinian path algebra for weak Lefschetz properties in characteristic zero, not graded automorphism counts. Díaz–Liendo–Manzano-Flores–Regeta (arXiv:2408.02197) supplies a broad monomial-automorphism theory but explicitly assumes characteristic zero. Their general framework is acknowledged, as is the later characteristic-zero study arXiv:2609.13741. The closest indexed coordinate-cross algebra concerns different relations. The current statement addresses the otherwise unaccounted-for characteristic-two endpoint shears; odd-characteristic enumeration is merely comparative. Searches do not establish absolute novelty. Full text was unavailable for some secondary plausible sources, so publication priority remains provisional.
+PASS
 
-## Value — PASS
-Path Artinian graph algebras have an established role in commutative algebra and Lefschetz questions. Their graded automorphisms form a natural structural invariant. The theorem gives complete normal forms and a closed group-order formula in every dimension and every characteristic-two finite field. The extra two unipotent parameters are a meaningful Frobenius boundary that does not arise from a numerical coincidence or an arbitrary finite census.
+In the quotient, nonadjacent monomials x_i x_j form a degree-two basis. Annihilator of an interior generator has degree-one dimension three; any non-coordinate line has at most dimension two, forcing permutation of interior coordinate lines and hence identity or reversal. Endpoint columns have three allowed support indices each; char2 makes all squares zero, adding c_1,c_n freedoms. Every such invertible matrix respects the presentation, giving 2q^4(q−1)^n. Independently enumerated all 4x4 binary invertible matrices preserving adjacent zero products: exactly 32. The statement concerns graded, not full automorphisms.
 
-## Limitations
-No claim about ungraded automorphism groups, automorphism-group schemes, or arbitrary graphs. The finite-field checks cover only selected small dimensions, whereas the proof handles all stated parameters. Later and potentially more general positive-characteristic literature remains a priority risk. The review here is internal mathematical checking, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary monomial-automorphism papers restrict to characteristic zero; their mechanisms cannot simply force the characteristic-two squares-zero shear parameters. Resultary returned only different coordinate-cross and path-related structures, not this exact graded group count. Best-of-knowledge PASS for positive-characteristic path classification, with uninspected full primary positive-characteristic literature as a risk.
+
+## value
+
+PASS
+
+Positive-characteristic graded symmetry of the canonical path Artinian algebra has a sharp group-order and endpoint-shear jump for all n and all even finite fields. The full group is a natural invariant and the extra square-zero directions make a structural distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
