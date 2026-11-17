@@ -1,15 +1,21 @@
-# Scientific review: interlacing geometric factors and sharp loss budgets
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes all quantifiers: integer \(m\ge2\), independent uniformly selected coupon types, independent type-specific erasure probabilities \(0\le p_i<1\), first simultaneous occupancy, and probability-generating-function arguments \(0<z<1\). The Poissonized product-chain semigroups from empty and full initial conditions yield the renewal-transform ratio; the rate-one Poisson embedding relates it exactly to the discrete waiting-time generating function. Strict convexity of \(\log(1+up/(1-p))\) proves all-argument majorization, while an explicit positive two-coordinate balancing difference proves strict ordering of means. The finite-budget endpoints follow from the majorization lattice; a geometric waiting-time lower bound proves the unbounded regime at total budget at least one. A nontrivial pole-polynomial sign computation proves every root real, simple, and interlaced with consecutive integers; it gives a universal independent-geometric-sum law, with the one-defect law as a specialization. The independent absorbing-chain checker passes 405 exact rational assertions; no asymptotic or infinite conclusion is inferred from finite enumeration.
+## correctness
 
-## Originality — PASS, with priority qualifications
-Attrill–Garoni (arXiv:2605.14206v1), inspected in its mathematical sections, assumes one common erasure rate rather than a vector subject to a fixed sum. Long (arXiv:2605.14511v1), inspected in the relevant clumsy-collector section, also fixes a common rate and proves stationary-entry limits, not a finite strict fixed-budget optimization theorem. Kleiner (doi:10.3390/math14203729) studies permanently safe discovered types subject to pre-discovery deadlines and optimizes sampling probabilities, so its Schur order is about a distinct stochastic model. A previously established exact transform for type-specific erasure probabilities is **not** claimed as original; the new claim is the universal real-rooted interlacing and independent-geometric factorization, the strict all-transform fixed-budget majorization order, the complete finite extrema and threshold, and the positive balancing-cost formula. Published mathematical-record comparisons did not reveal an equivalent or stronger covering statement. Residual risk: an unindexed classical random-scan product-chain theorem might entail some order comparisons; the external fragile-paper text was indexed and checked by section, but direct complete HTML fetching was rate-limited.
+PASS
 
-## Mathematical value — PASS
-Equalizing or concentrating a fixed total loss probability is a natural design and robustness question. The result does not merely recalculate a previously tabulated moment: it decomposes the entire nonmonotone hitting-time law into independent geometric waiting stages with an exact interlacing certificate, orders the full Laplace/PGF family, identifies unique optimizers, gives exact endpoints, proves a sharp loss-budget boundary at one, and describes the worst-case distribution as a familiar independent geometric sum with one altered bottleneck stage. The positive balancing formula quantifies heterogeneity cost for any remaining configuration. No paper-sized extension or downstream theorem is assumed.
+The continuous Poissonized independent coordinate refresh semigroup gives A(t)=∏q_i(1-e^-t/m) from empty, B(t)=∏(q_i+p_i e^-t/m) from full; strong Markov renewal implies Laplace transform m!/Q(v), v=ms, with Q(v)=∑e_k∏_{l≠k}(v+l), e_k elementary symmetric of r_i=p_i/(1-p_i). At -j, Q(-j)=(-1)^j j!(m-j)! e_j. For exactly d>0 losses this establishes strict alternating signs and unique roots in (-(j),-(j-1)) for j<=d, and untouched -j roots for j>d, hence a genuine independent geometric factorization. Strict convex log[1+up/(1-p)] proves Schur PGF order; direct positive pair-balancing cost proves strict mean order; fixed-budget extremizers and P>=1 unbounded supremum follow. Independently for m=3 p=(1/10,1/5,3/10), Q=(250v³+1350v²+2055v+756)/126 has roots approximately -0.54073,-1.87225,-2.98702 and exact Markov-state PGF E[2^-T]=84/2869 agrees with m!/Q(3).
 
-## Limitations and verification status
-The order is in generating functions, not ordinary stochastic tails. The model fixes uniform type sampling and single-bit occupancy; arbitrary selection rates, multiplicities, and nongeometric refresh decisions are unproved. The theorem is analytically proved but not independently validated. Historical priority remains provisional, particularly for older product-chain comparison theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Attrill–Garoni and Long 2026 analyze common homogeneous erasure probabilities or stationary-entry asymptotics; those do not yield the arbitrary heterogeneous-profile geometric roots and majorization budget laws. Classical independent-geometric first-hit results for skip-free birth-death chains require one-dimensional skip-free dynamics; the heterogeneous number-present process is not Markov, so direct theorem implication fails. This proof provides a polynomial-root reduction for the heterogeneous model; full primary articles inaccessible, retained as priority risks.
+
+## value
+
+PASS
+
+An exact full first-completion law and fixed total erasure-budget extremizers are natural quantitative invariants of the nonmonotone coupon system. The sharp threshold P=1 between attained finite worst profiles and infinite supremum, strict allocation ordering and exact geometric-factor interlacing are useful structural facts beyond a restatement of the classical coupon collector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
