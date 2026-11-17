@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:01:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact O(n)-invariant covariance on the (n-1)(n+2)/2-dimensional traceless symmetric module gives K(P,Q)=nD_n/[k(n-k)](tr(PQ)-k^2/n). Averaging arbitrary bounded projections and using the O(k)xO(n-k) stabilizer-fixed one-dimensional line proves least norm. Haar corner block squared norm converges by Jiang Theorem 1 to chi-square(k^2); exact second moments establish uniform integrability. Gamma integration gives c_k; the digamma-coth integral is positive for s>0, showing strict hierarchy, and Stirling supplies the 1/sqrt(pi) limit. Reconstructed the key n=2,k=1 beta boundary and independent mpmath gamma values k=1..20 confirmed strict sampled order (not an infinite proof). The normal block TV approximation truly requires k=o(sqrt n), matching hypotheses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang Theorem 1 proves Haar kxk block TV Gaussian approximation for k=o(sqrt n), not sharp projection constants. Defant et al. treat minimal projections of polynomial spaces on real spheres."
+        ],
+        "reasoning": "Neither inspected source is a dominating minimum-projection theorem for all real Grassmannian ranks; Jiang supplies a limiting tool.",
+        "searches": [
+          "https://arxiv.org/pdf/math/0601457",
+          "https://repositorio.utdt.edu/bitstreams/a517fb69-c8e3-422b-b1fa-e181cdb9091f/download",
+          "Resultary query: first harmonic Grassmannian minimal projection constants projector rank"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0601457",
+        "https://repositorio.utdt.edu/bitstreams/a517fb69-c8e3-422b-b1fa-e181cdb9091f/download",
+        "Resultary semantic queries on real Grassmannian first-harmonic projection constants"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Haar block law supplies weak limits for n tr(P0Q), but minimum projection norm additionally requires exact kernel, full projection-minimality via averaging, gamma absolute deviation and monotone constants.",
+          "The invariant rank-one projection constant overlaps with real-projective/spherical even-quadratic functions, but higher rank constants are outside the sphere claims read."
+        ],
+        "reasoning": "Identified prior inputs do not logically imply full rank-profile without the submitted additional covariance and optimization work.",
+        "searches": [
+          "https://arxiv.org/pdf/math/0601457",
+          "https://repositorio.utdt.edu/bitstreams/a517fb69-c8e3-422b-b1fa-e181cdb9091f/download"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the O(n)-irreducible traceless-symmetric matrix-coordinate space on rank-k projectors, not the degree-one sphere coordinate space; k=1 corresponds to even quadratic sphere observables."
+        ],
+        "reasoning": "Investigated spherical-polynomial quotient under projectivization and group averaging. This identifies a rank-one overlap only; the k>=2 Grassmannian stabilizer and rank hierarchy do not follow from inspected sphere statements.",
+        "searches": [
+          "Resultary query: minimum norm projections first harmonic real Grassmannian Haar orthogonal Gaussian asymptotic",
+          "Resultary query: first harmonic Grassmannian minimal projection constants projector rank",
+          "https://repositorio.utdt.edu/bitstreams/a517fb69-c8e3-422b-b1fa-e181cdb9091f/download"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact rank-indexed minimal-projection constant table or c_k strict hierarchy identified."
+        ],
+        "reasoning": "No direct exact database located; this limited search does not rule out unindexed formulas.",
+        "searches": [
+          "Resultary query: minimum norm projections first harmonic real Grassmannian Haar orthogonal Gaussian asymptotic",
+          "web search: first harmonics Grassmannian minimal projections onto functions tr AP projection constant"
+        ]
+      },
+      "rationale": "Best-of-knowledge rank-k real Grassmannian sharp minimum-projection constant, strict fixed-rank hierarchy and k=o(sqrt(n)) Gaussian regime; Jiang proves the probabilistic block approximation used as an ingredient, and Defant et al. establish sphere polynomial projections, not the all-rank Grassmannian theorem. The rank-one beta special case is not asserted novel.",
+      "residual_risks": [
+        "Other Grassmannian spherical-function/projection-constant literature could express the same invariant via Jacobi ensembles or symmetric-space harmonics.",
+        "Dense ranks and the critical k~sqrt(n) regime are outside submitted scope; no claim of extension there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVES_USED_GAUSSIAN_BLOCK_LEMMA",
+          "evidence": "Theorem 1 explicitly gives TV convergence when p_n,q_n=o(sqrt(n)); paper contains no Grassmannian projection norm result.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601457",
+          "material_read": "Full PDF opened; abstract, Sections 1-2 and Theorem 1 (p.3) read; page 2 screenshot checked",
+          "method": "arXiv PDF turn503832view0, screenshot turn996078view0",
+          "title": "How many entries of a typical orthogonal matrix can be approximated by independent normals?",
+          "trigger": "direct total-variation approximation hypothesis for growing k"
+        },
+        {
+          "assessment": "SPHERE_ONLY_INSPECTED_RESULTS",
+          "evidence": "Group averaging technique and sphere polynomial projections cover relevant rank-one precursor, not identified all-k Grassmannian hierarchy. Incomplete reading leaves residual risk.",
+          "identifier_or_url": "https://repositorio.utdt.edu/bitstreams/a517fb69-c8e3-422b-b1fa-e181cdb9091f/download",
+          "material_read": "Lawful OA PDF opened; abstract, main projection theorems and Section 3 averaging read, searched Grassmann/rank terms; other pages not systematically read",
+          "method": "OA PDF text and screenshot, 37 pages",
+          "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+          "trigger": "could cover rank-one harmonic projection and/or broader group averaging"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp least complementability/projection constants on a natural homogeneous function space, together with strict finite-rank hierarchy and universal sparse-rank crossover, are structurally motivated quantitative approximation results; they are not mere substitution of Jiang’s probabilistic theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact real rank-k Grassmannian first-harmonic least-projection constant as a Haar absolute deviation; its fixed-k constants c_k increase strictly to 1/sqrt(pi) and for k→∞ with k=o(sqrt(n)) Lambda/n→1/sqrt(pi).",
+  "limitations": [
+    "The exact finite constant is a Haar expectation; no elementary finite-k expression asserted for k>=2.",
+    "One possibly broader symmetric-space projection theory was not exhaustively searched; residual novelty risk retained.",
+    "No claim for k~sqrt(n) or k/n tending to a positive constant."
+  ],
+  "schema_version": 1
+}
