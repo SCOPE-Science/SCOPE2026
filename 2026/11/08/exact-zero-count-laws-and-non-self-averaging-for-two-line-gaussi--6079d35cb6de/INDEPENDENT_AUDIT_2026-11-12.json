@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T10:16:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian STFT of two nonzero Gaussian spectral amplitudes is an exact sum of two shifted Gaussian frequency factors times phases. Modulus equality fixes one Ω; phase cancellation produces a uniform translated time lattice with spacing 1/Δ. Log ratio of iid exponential squared moduli gives Ω logistic of location μ and scale 1/(4πΔ), independent of the uniform relative phase U. Counting one translated lattice in [a,a+T) gives floor(ΔT)+Bernoulli(frac ΔT); retaining all points iff Ω belongs to J gives N=H(floor ΔT+B), independent H. Thus variance p u(1−u)+p(1−p)(ΔT)^2 and almost sure N/T→ΔH. Fresh deterministic exact STFT cancellation residual <8e−16 and high-precision logistic density integral 1 confirm normalization; the proof, not numerics, proves all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Escudero--Koliander--Romero Theorem1.1 hypothesis is nonzero PSD function, whereas this signal has two Dirac spectral atoms. Feldheim et al twisted-stationary planar zero fluctuations assume different invariances; Hermite white-noise models use broadband spectra."
+        ],
+        "reasoning": "None of the inspected general contexts includes this singular atomic two-line input with the exact zero-count law; the first-intensity identity alone does not control quadratic variance.",
+        "searches": [
+          "Resultary search: two spectral line Gaussian spectrogram zeros logistic distribution random horizontal line counting variance",
+          "https://arxiv.org/abs/2609.18689",
+          "arXiv:2406.20003",
+          "arXiv:2610.13531"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: two spectral line Gaussian spectrogram zeros logistic distribution random horizontal line counting variance",
+        "2026/11/08/exact-zero-count-laws-and-non-self-averaging-for-two-line-gaussi--6079d35cb6de/RESULT.md at frozen commit",
+        "2026/11/08/exact-zero-count-laws-and-non-self-averaging-for-two-line-gaussi--6079d35cb6de/AUDIT.json at frozen commit",
+        "https://arxiv.org/abs/2609.18689",
+        "https://arxiv.org/abs/2406.20003",
+        "https://arxiv.org/abs/2610.13531"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matching first-intensity formula πΔ²sech² of the atomic smoothed spectrum can be derived by differentiation, but variance depends on the indicator H shared by every time-lattice point.",
+          "The exact Gaussian ratio/phase factorization gives N=H(n+B), which is not a consequence of first intensity by itself."
+        ],
+        "reasoning": "Earlier generalized Rice/intensity formulas cannot imply the Bernoulli lattice mixture nor non-self-averaging without a new explicit geometry of the atomic two-line STFT.",
+        "searches": [
+          "Resultary search: two spectral line Gaussian spectrogram zeros logistic distribution random horizontal line counting variance",
+          "https://arxiv.org/abs/2609.18689",
+          "arXiv:2406.20003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For two terms the zero lattice is an elementary exponential-polynomial identity, acknowledged as known. The 2026 colored-noise paper reports intensity for PSD-function Gaussian noise but no all-band Bernoulli product count distribution on an atomic line."
+        ],
+        "reasoning": "The elementary deterministic lattice result lacks the Gaussian amplitude-ratio logistic frequency, independent uniform phase law and stochastic variance phase transition.",
+        "searches": [
+          "Resultary search: two spectral line Gaussian spectrogram zeros logistic distribution random horizontal line counting variance",
+          "Resultary search: pure spectral two-line stationary Gaussian process spectrogram zeros line lattice nonergodicity count distribution",
+          "https://arxiv.org/abs/2609.18689"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-interval two-atom finite-count probability table found. The source gives exact formulas at arbitrary continuous T and every Borel J, not a finite tabulation."
+        ],
+        "reasoning": "A prior exact one-point density is not an exact distribution database for all zero counts; higher-point dependence is essential.",
+        "searches": [
+          "Resultary search: two spectral line Gaussian spectrogram zeros logistic distribution random horizontal line counting variance",
+          "Gaussian spectrogram zeros two spectral lines logistic lattice exact count variance"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: colored noise spectrogram first-intensity theorem assumes PSD function rather than pure atomic two-line spectral measure; its expectation does not imply joint counting distribution/variance. Classical two-term exponential zeros are periodic but the precise logistic random line, independent phase and non-self-averaging fluctuation contrast are not located in same-model published results.",
+      "residual_risks": [
+        "Full original colored-noise 2026 manuscript and Weyl-Heisenberg paper were not obtained for independent page-by-page comparison; accessible hypotheses differ and priority remains best-of-knowledge.",
+        "Elementary random exponential-polynomial literature might record the same logistic point process under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOMAIN_EXCLUSION",
+          "evidence": "Purely atomic two-Dirac spectral measure not a PSD function; no directly verified exact joint count in accessible material.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18689",
+          "material_read": "Accessible public abstract and statement of PSD-function hypothesis; full text not retrieved in this run",
+          "method": "arXiv abstract/search",
+          "title": "Zeros of the Spectrogram of Colored Noise",
+          "trigger": "Same spectrogram zero intensity and Gaussian window"
+        },
+        {
+          "assessment": "DIFFERENT_PROCESS",
+          "evidence": "Planar twisted-stationary zero process rather than one random horizontal line with nonergodic atomic input.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.20003",
+          "material_read": "Accessible abstract and publication metadata, not complete primary text this run",
+          "method": "arXiv abstract",
+          "title": "Hyperuniformity and non-hyperuniformity of zeros of Gaussian Weyl-Heisenberg Functions",
+          "trigger": "Zero-count fluctuations of stationary Gaussian analytic/Gabor zeros"
+        },
+        {
+          "assessment": "DIFFERENT_SPECTRUM",
+          "evidence": "White noise with Hermite window does not give this two-atom Gaussian-window limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13531",
+          "material_read": "Abstract only",
+          "method": "arXiv search",
+          "title": "Zeros of the Spectrogram of White Noise with Hermite Windows",
+          "trigger": "Alternative spectrogram zero statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp natural atomic-spectrum boundary case for Gaussian spectrogram zero statistics, giving full nonergodic random geometry and exact finite-window zero counts, and separating bounded full-band zero fluctuations from quadratic band-filtered variance. Offers a principled counterexample to extrapolating PSD-function mixing behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two independent Gaussian spectral atoms, standard Gaussian STFT window and Borel frequency masks; no broadband stability or mixing claim.",
+    "Full original colored-noise 2026 manuscript and Weyl-Heisenberg paper were not obtained for independent page-by-page comparison; accessible hypotheses differ and priority remains best-of-knowledge.",
+    "Elementary random exponential-polynomial literature might record the same logistic point process under different terminology."
+  ],
+  "schema_version": 1
+}

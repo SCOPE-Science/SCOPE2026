@@ -1,9 +1,21 @@
-# Review of two-line Gaussian spectrogram zero-count laws
+# Independent mathematical audit
 
-**Correctness — PASS.** The Gaussian STFT integral gives the zero line and exact lattice directly. The ratio of two independent exponential magnitudes has a logistic logarithm, while the relative complex Gaussian phase is uniform and independent. Exact enumeration of a translated lattice in any half-open interval proves the Bernoulli count, the stated mean/variance, and the almost-sure random time average. Degenerate frequency events and integral time lengths are included. `CHECK.py` reproduces exact and numerical identities independently of the derivation; finite tests do not prove the all-parameter assertion.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Escudero, Koliander, and Romero (arXiv:2609.18689, 2026) establish expected spectrogram zero density for an ordinary colored PSD function, not the purely atomic two-line process, and do not give its complete count law or quadratic variance. The first-intensity formula matches its formal smoothed-PSD derivative, but this coincidence does not imply any second-moment or ergodic conclusion. Feldheim and collaborators (arXiv:2406.20003) address fully twisted-stationary planar Gaussian zero fields; their planar hyperuniformity conclusions do not apply to a random horizontal line. Bellourak and collaborators (arXiv:2610.13531) investigate white-noise Hermite spectrogram zeros, not this signal class. Targeted published-finding corpus and historical-claim comparisons found no identical law. Elementary two-exponential deterministic zero lattices are prior mathematical background, not claimed as new. Residual risk: equivalent distributions may have appeared elsewhere in random exponential-polynomial literature; independent priority review remains unperformed.
+PASS
 
-**Value — PASS.** First-intensity inversion is an explicit motivation in the colored-noise literature. This exact two-line model shows why a smooth mean density does not make one long realization a consistent frequency-density estimator: a frequency restriction yields quadratic variance and a nonconstant almost-sure limit, unlike the bounded full-band count fluctuations. It provides a sharp, solvable boundary and illustrates the role of spectral ergodicity; it is not presented as a broadband theorem.
+Gaussian STFT of two nonzero Gaussian spectral amplitudes is an exact sum of two shifted Gaussian frequency factors times phases. Modulus equality fixes one Ω; phase cancellation produces a uniform translated time lattice with spacing 1/Δ. Log ratio of iid exponential squared moduli gives Ω logistic of location μ and scale 1/(4πΔ), independent of the uniform relative phase U. Counting one translated lattice in [a,a+T) gives floor(ΔT)+Bernoulli(frac ΔT); retaining all points iff Ω belongs to J gives N=H(floor ΔT+B), independent H. Thus variance p u(1−u)+p(1−p)(ΔT)^2 and almost sure N/T→ΔH. Fresh deterministic exact STFT cancellation residual <8e−16 and high-precision logistic density integral 1 confirm normalization; the proof, not numerics, proves all parameters.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: colored noise spectrogram first-intensity theorem assumes PSD function rather than pure atomic two-line spectral measure; its expectation does not imply joint counting distribution/variance. Classical two-term exponential zeros are periodic but the precise logistic random line, independent phase and non-self-averaging fluctuation contrast are not located in same-model published results.
+
+## value
+
+PASS
+
+A sharp natural atomic-spectrum boundary case for Gaussian spectrogram zero statistics, giving full nonergodic random geometry and exact finite-window zero counts, and separating bounded full-band zero fluctuations from quadratic band-filtered variance. Offers a principled counterexample to extrapolating PSD-function mixing behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
