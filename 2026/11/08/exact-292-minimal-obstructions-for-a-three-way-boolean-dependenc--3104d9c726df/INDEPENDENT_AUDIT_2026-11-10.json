@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T17:17:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed lax team semantics as an edge-to-slot capacitated matching problem with two row slots and one column slot. Hall theorem is equivalent for every rectangle to |T∩(U×V)|≤2|U|+|V|. Inclusion-minimal failure forces 2a+b+1=|T|≤ab; within a,b≤4 only (a,b)=(3,4),(4,3),(4,4) are possible. The complete 13-cell omission condition is three distinct missing rows and not all one missing column; 11-cell and 12-cell cases are specified exact rectangles. Combinatorial enumeration gives 48+4+240=292. Independent complete enumeration of all 65,536 teams via rectangle criterion yielded 64,591 satisfying and 945 unsatisfying; minimal false histogram {11:48,12:4,13:240}. Enumeration confirms but Hall plus support proof establishes classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Hall marriage/slot-coloring theorem supports existence and proof, but does not enumerate 4x4 minimal circuits.",
+          "CSL 2026 investigates model-checking and coherence bounds of two-atom disjunctions rather than the duplicate forward-atom triple formula."
+        ],
+        "reasoning": "Generic transversal matroid frameworks may encode the instance, but no read theorem supplies its exact 48/4/240 circuit population.",
+        "searches": [
+          "Resultary: team semantics dependence logic lax disjunction dep(X,Y) two times dep(Y,X) 4 by 4 minimal forbidden teams Hall",
+          "Resultary: three copies split disjunction functional dependence two forward one inverse matroid union circuit classification exact 4x4 292",
+          "Fröhlich–Kolaitis–Meier CSL 2026 Secs 3–5"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and REVIEW.md",
+        "Fröhlich–Kolaitis–Meier CSL2026 DOI 10.4230/LIPIcs.CSL.2026.10",
+        "Resultary results for two-atom minimal obstructions and other dependence disjunctions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-atom research supplies a cover test at capacity (1,1), but adding an independent forward atom raises row capacity and qualitatively changes minimal counterexamples.",
+          "Hall proves the rectangle inequality yet the 292 types require explicit support and subrectangle classification."
+        ],
+        "reasoning": "Previous (1,1) results neither imply the three classes nor their multiplicities; distinct scoped new mathematical conclusion survives.",
+        "searches": [
+          "Resultary: team semantics dependence logic lax disjunction dep(X,Y) two times dep(Y,X) 4 by 4 minimal forbidden teams Hall",
+          "Resultary: three copies split disjunction functional dependence two forward one inverse matroid union circuit classification exact 4x4 292"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triple lax splitting is 2 row matching slots plus 1 column matching slot, equivalently capacitated Hall with threshold 2|U|+|V|.",
+          "Fröhlich et al. consider two atoms, opposite-pair 1|U|+1|V| and pseudoforest-type tests."
+        ],
+        "reasoning": "The two-atom pseudoforest equivalence does not yield the triple (2,1) obstruction count by relabeling.",
+        "searches": [
+          "Resultary: team semantics dependence logic lax disjunction dep(X,Y) two times dep(Y,X) 4 by 4 minimal forbidden teams Hall",
+          "Resultary: three copies split disjunction functional dependence two forward one inverse matroid union circuit classification exact 4x4 292",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related SCOPE Resultary table for a different two-atom formula gives 132 minimal falsifiers with polynomial 12z^4+16z^5+96z^6+8z^8, not 292."
+        ],
+        "reasoning": "No inspected published table describes 4x4 (2,1) matroid-union circuits. Numbers 292 and 64591 were independently computed against all teams.",
+        "searches": [
+          "Resultary: team semantics dependence logic lax disjunction dep(X,Y) two times dep(Y,X) 4 by 4 minimal forbidden teams Hall",
+          "Resultary: three copies split disjunction functional dependence two forward one inverse matroid union circuit classification exact 4x4 292",
+          "Resultary: exact minimal-obstruction spectrum for two disjoint Boolean dependence atoms",
+          "Resultary: sharp minimal-falsifier spectra for inverse functional dependence"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Fröhlich–Kolaitis–Meier CSL 2026 treats splitting disjunctions of TWO dependence atoms and the (1,1) pseudoforest case; here three independent cover slots have asymmetric capacities (2,1). Resultary contains related two-dependence and disjoint-atom forbidden-team counts but not this 292 triple-capacity classification. General Hall/matroid machinery is classical; new exact instance and complete obstruction geometry are not mechanically stated in these sources.",
+      "residual_risks": [
+        "An unindexed enumeration of circuits of the same 4x4 capacitated matching matroid could have identical coefficients.",
+        "General coherence literature beyond the inspected full CSL article may derive this count implicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SCOPE",
+          "evidence": "All central formulas split exactly two dependence atoms; no enumerator of the three-way two-row/one-column capacity 4x4 teams.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+          "material_read": "Full accessible HTML article, abstract, Sections 3–5 including opposite-pair graph characterization, model-checking and coherence material.",
+          "method": "Read publisher HTML",
+          "title": "Disjunctions of Two Dependence Atoms (Fröhlich, Kolaitis, Meier, 2026)",
+          "trigger": "Same dependence-logic signature and disjunction mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full classification of minimal counterteams for a natural three-atom dependence-logic formula provides the sharp 13-assignment forbidden-subteam cutoff and exact size polynomial. Four Boolean attributes form a motivated small first domain where asymmetric row/column capacity can fail; the exact obstruction types are useful for finite-domain satisfiability/coherence testing, not a random count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed enumeration of circuits of the same 4x4 capacitated matching matroid could have identical coefficients.",
+    "General coherence literature beyond the inspected full CSL article may derive this count implicitly."
+  ],
+  "schema_version": 1
+}
