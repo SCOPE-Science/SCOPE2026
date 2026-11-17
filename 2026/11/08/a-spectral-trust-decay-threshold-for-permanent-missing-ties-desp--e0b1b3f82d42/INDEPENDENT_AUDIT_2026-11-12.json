@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:46:27.021415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked path eigenmode construction for all n>=3: difference update under self-inclusive averaging is the symmetric irreducible tridiagonal B_n with endpoint diagonal 1/6, interior 1/3 and neighbor 1/3. Its strictly positive Perron eigenvector normalized to span one evolves exactly as lambda_n^t. Symmetric two-block reflection yields common limit 1/2 while the central gap is lambda_n^t. Bridge confidence equals c0 delta^t until first activation, and the strict test, c0<1, gives inactivity iff delta<=lambda_n; for delta>lambda_n first activation time is floor(log(1/c0)/log(delta/lambda_n))+1. Peripheral confidence is nondecreasing while gaps shrink. Rayleigh bound lambda_n>=(n-2)/(n-1) and upper <1 prove every delta<1 is covered at some n. Independently recomputed B_n eigenpairs n=3..8 and one-step averaging; all residuals <2e-14. Finite checks corroborate, do not prove the universal statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Luo–Porter Theorem 3: effective graph eventually constant; possible equal-limit nonedges explicitly noted.",
+          "A prior 5-vertex threshold lambda~0.729: https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-five-vertex-hidden-consensus-bridge-and-its-spectral-rec--20ff908add01"
+        ],
+        "reasoning": "Stabilization theorems and a special fixed-graph witness do not cover this all-delta<1 existence construction. No inspected general spectral theorem derived it.",
+        "searches": [
+          "Resultary_Search: adaptive confidence HK repeated Perron path threshold any delta missing central link",
+          "arxiv:2303.07563v3 sections 3.1 and 6"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2303.07563v3",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-five-vertex-hidden-consensus-bridge-and-its-spectral-rec--20ff908add01",
+        "Resultary entries 2026/10/26 3-agent threshold 1/2 and 2026/11/2 complete-graph edge repair",
+        "Pinned RESULT.md 09815a1b03db3f9fde303233df5a732f2a3853f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 has necessity: an effective edge connects same-limit opinions, not its converse.",
+          "The prior fixed five-node eigenvalue cannot guarantee missing bridges for delta>0.73.",
+          "Here normalized nonnegative path-difference Perron eigenvalue lambda_n>=(n-2)/(n-1)→1."
+        ],
+        "reasoning": "The new claim supplies a family of exact dynamical counterexamples for any delta<1, requiring an additional spectral construction beyond the earlier implications.",
+        "searches": [
+          "arxiv:2303.07563v3 Theorem 3",
+          "Resultary/2026 2026/11/2 SCOPE-a-sharp-five-vertex-hidden-consensus-bridge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural equivalent form is an inactive cut edge linking two components with identical limiting opinion and confidence c0 delta^t, with a within-component difference mode lambda_n^t.",
+          "Li–Luo–Porter Theorem 3 (full text), URL https://arxiv.org/html/2303.07563v3"
+        ],
+        "reasoning": "In this model the bridge remains inactive exactly when its strict gap/lower confidence ratio never crosses 1. Prior qualitative hidden ties and fixed decay examples are not equivalent to the variable n eigenmode threshold.",
+        "searches": [
+          "Resultary_Search: adaptive confidence Hegselmann Krause permanent missing edge consensus spectral threshold path",
+          "Web: arxiv:2303.07563v3 Theorem 3 and Section 5.1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published entries include the five-node bridge result and the three-node lambda=1/2 threshold, rather than an all-orders Perron table."
+        ],
+        "reasoning": "Search compared full nearest relevant published RESULT, not merely parameter matching; no exact family table found. This negative search is not a certificate of priority.",
+        "searches": [
+          "Resultary_Search: adaptive confidence Hegselmann Krause permanent missing edge consensus spectral threshold path",
+          "Resultary_Search: adaptive confidence HK repeated Perron path threshold any delta missing central link"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp Perron-eigenvalue threshold for a repeated-path hidden-bridge family, with lambda_n tending to one and thus constructions for every delta<1; neither previously published fixed five-vertex threshold nor general eventual graph-stabilization results logically imply this variable-order spectral family. No absolute priority guarantee.",
+      "residual_risks": [
+        "Unknown unindexed equivalent construction or alternative prior proof.",
+        "The full result is not a generic robustness theorem for perturbations of equal-limit initial profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_GENERAL_NOT_COVERING_THRESHOLD",
+          "evidence": "Theorem 3 guarantees eventual graph stability and only that surviving edges connect equal-limit nodes; passage following it explicitly acknowledges absent edges with equal limiting opinions, but does not calculate a Perron family threshold or the all-decay-parameter existence theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2303.07563v3",
+          "material_read": "Accessible arXiv HTML; inspected original update model, Theorems 2–3 and proof, relevant simulation passage and discussion of equal-limit missing ties",
+          "method": "Targeted primary full-text theorem statements, proofs and simulation discussion",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds (Li, Luo, Porter, 2024)",
+          "trigger": "Original model and strongest plausible general effective-graph theorem"
+        },
+        {
+          "assessment": "RELATED_STRICTLY_NARROWER_CONSTRUCTION",
+          "evidence": "Five-vertex path has fixed threshold (3+sqrt(33))/12~0.729 and a five-vertex minimality statement in a specified component class; does not imply thresholds approaching 1 or examples for every delta<1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-five-vertex-hidden-consensus-bridge-and-its-spectral-rec--20ff908add01",
+          "material_read": "Complete Resultary RESULT.md including hypotheses, spectral recurrence, minimality and limitations",
+          "method": "Full published GitHub source blob, not just title/abstract",
+          "title": "A sharp five-vertex hidden-consensus bridge and its spectral receptivity threshold",
+          "trigger": "Earlier closely related exact hidden-bridge spectral threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-decay-parameter constructive boundary answers the natural question whether unanimous opinions force contact recovery in adaptive bounded-confidence dynamics. The Perron formula and parameter-to-graph-order mechanism are structurally motivated, not a routine fixed-size example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2303.07563v3",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-five-vertex-hidden-consensus-bridge-and-its-spectral-rec--20ff908add01",
+    "Resultary entries 2026/10/26 3-agent threshold 1/2 and 2026/11/2 complete-graph edge repair",
+    "Pinned RESULT.md 09815a1b03db3f9fde303233df5a732f2a3853f2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only this repeated eigenprofile is classified; above threshold only first bridge activation known, later rewiring not classified.",
+    "Li–Luo–Porter already establish equal-limit missing-edge possibility qualitatively."
+  ],
+  "residual_risks": [
+    "Unknown unindexed equivalent construction or alternative prior proof.",
+    "The full result is not a generic robustness theorem for perturbations of equal-limit initial profiles."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SAME_MODEL_GENERAL_NOT_COVERING_THRESHOLD",
+      "evidence": "Theorem 3 guarantees eventual graph stability and only that surviving edges connect equal-limit nodes; passage following it explicitly acknowledges absent edges with equal limiting opinions, but does not calculate a Perron family threshold or the all-decay-parameter existence theorem.",
+      "identifier_or_url": "https://arxiv.org/html/2303.07563v3",
+      "material_read": "Accessible arXiv HTML; inspected original update model, Theorems 2–3 and proof, relevant simulation passage and discussion of equal-limit missing ties",
+      "method": "Targeted primary full-text theorem statements, proofs and simulation discussion",
+      "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds (Li, Luo, Porter, 2024)",
+      "trigger": "Original model and strongest plausible general effective-graph theorem"
+    },
+    {
+      "assessment": "RELATED_STRICTLY_NARROWER_CONSTRUCTION",
+      "evidence": "Five-vertex path has fixed threshold (3+sqrt(33))/12~0.729 and a five-vertex minimality statement in a specified component class; does not imply thresholds approaching 1 or examples for every delta<1.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-five-vertex-hidden-consensus-bridge-and-its-spectral-rec--20ff908add01",
+      "material_read": "Complete Resultary RESULT.md including hypotheses, spectral recurrence, minimality and limitations",
+      "method": "Full published GitHub source blob, not just title/abstract",
+      "title": "A sharp five-vertex hidden-consensus bridge and its spectral receptivity threshold",
+      "trigger": "Earlier closely related exact hidden-bridge spectral threshold"
+    }
+  ]
+}
