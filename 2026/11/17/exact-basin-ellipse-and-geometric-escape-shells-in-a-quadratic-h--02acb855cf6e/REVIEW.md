@@ -1,0 +1,19 @@
+# Scientific review: exact basin and escape shells of a quadratic benchmark
+
+## Correctness — PASS
+
+The two coordinate formulas in Equation (16) are identical, so one step reduces the full planar iteration to the scalar quadratic \(g(s)=s/5+3s^2\). Completing the positive-definite quadratic form shows that the first-step scalar is never below \(-1/300\). Exact fixed-point and monotonicity arguments classify every initial condition, including both boundary cases. An ellipse-area calculation produces the exact area and shows that its sublevel-area function is linear in the level. Inverting the scalar quadratic gives the full finite-time shell distribution. The tail-product identity and a summable bound establish both the sharp exponential factor \(5/9\) and the stated total-variation bound. These arguments are reproduced in the proof, with critical algebraic steps checked by an executable symbolic script; finite diagnostics are explicitly not used to justify universal quantifiers.
+
+## Originality — PASS within inspected evidence
+
+Cui, Zhang, Jardón-Kojakhmetov and Cao, *On discrete-time polynomial dynamical systems on hypergraphs* (arXiv:2403.03416), Section VII, Equation (16) and Figure 2, give exactly the same vector field and show a **conservative** origin-centered square \(\max(|x|,|y|)<4/15\), but their inspected Sections V–VIII provide neither the exact global basin and its sharp ellipse boundary, nor the invariant-probability classification, nor the area-sampled escape-time distribution. Chen, *On the Stability of Multilinear Dynamical Systems* (arXiv:2105.01041), Sections III–VI, treats homogeneous tensor maps through eigenvalue/norm bounds and different examples. Searches for the exact displayed coefficients, equivalent scalar quadratic, inverse-iterate escape law and ellipse/separatrix terminology did not identify dominating coverage in the accessible indexed results. Related global-separatrix studies concern different positive homogeneous population maps, not this mixed-degree rank-one planar map. Such searches cannot prove global priority; unindexed independent derivations remain a risk.
+
+## Value — PASS
+
+The originating paper explicitly uses this concrete system as its numerical benchmark for the practical strength of tensor-based conservative attraction certificates. The exact result completes its origin-versus-escape classification, proves that the published radius is **optimal among centered squares** while the actual attraction region has approximately \(3.443\) times the area, and gives a fully quantitative transient-failure law for uniformly sampled uncertainty shells. The geometric limiting law is parameter-free for these specified shells, with explicit nonasymptotic error and full exact finite-time probabilities. These are natural basin geometry and transient-time statistics of a benchmark already studied in the literature, rather than a renamed parameter slice or an arbitrary numerical statistic. The restriction to a rank-one example limits breadth, not the precision or usefulness of its benchmark characterization.
+
+## Closest literature and limitations
+
+The closest full-text source is Cui et al. (2024), arXiv:2403.03416, Eq. (16) and Fig. 2. The nearest earlier tensor-method source is Chen (2021), arXiv:2105.01041. The proof exploits the special identical-component structure and does not assert analogous conclusions for arbitrary directed hypergraphs. The shell law depends on Euclidean area sampling across levels and must not be confused with a stationary measure. The stated total-variation coefficient is an upper bound, not an optimality assertion. Publication-priority risk remains from unindexed, unpublished or inaccessible equivalent calculations. Independent mathematical validation has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.

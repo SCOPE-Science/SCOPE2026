@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For the exact displayed quadratic, both outputs are the same scalar q, so after one step the dynamics is \\(g(s)=s/5+3s^2\\) with \\(s\\ge-1/300\\). The scalar fixed points \\(0\\) and \\(4/15\\) and monotonicity give the full trichotomy, including ellipsoidal boundary and escape; recurrence then identifies all invariant probabilities. Completing squares gives the sharp elliptical area and square comparison. The precise inverse \\(h(t)=(\\sqrt{1+300t}-1)/30\\) and the fact that planar area of \\(q\\)-sublevels is affine in \\(q\\) give the exact exit-time survival law. Expanding g at the repelling fixed point yields a recurrence for \\(\\delta_n\\), a convergent product and the explicit \\(125/48\\) total-variation bound. An actual runnable symbolic checker establishes critical algebraic identities; finite numerical iterations are diagnostics only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cui et al., arXiv:2403.03416, Theorem 3 and Corollary 1 in Section V give conservative sufficient conditions; Section VII reports the benchmark square and simulation. These do not specify exact global attraction or escape shells.",
+        "Chen, arXiv:2105.01041, Sections III–VI supplies tensor eigenvalue/norm criteria for homogeneous multilinear systems and different examples. The mixed linear-plus-quadratic benchmark is outside its stated homogeneous form.",
+        "The nearest published indexed analogous global separatrix statements address positive homogeneous quadratic maps, not this explicit affine-plus-quadratic rank-one example or its area-sampled escape distribution."
+      ],
+      "reasoning": "An implication comparison was made, not title matching: sufficient inclusion of a square does not determine the entire basin or the distribution of exit times. A homogeneous higher-order tensor criterion does not specialize to the inhomogeneous example without an extra representation and does not provide these exact global or measure-theoretic outcomes. The separate positive-map separatrix results concern other dynamics.",
+      "searches": [
+        "Cui hypergraph quadratic example super-exponential escape iterated inverse 5/9 exit-time shell law",
+        "Cui Zhang Jardon exact domain attraction origin quadratic polynomial example 2024",
+        "rank-one polynomial maps complete basin ellipse scalar quadratic escape global attractor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.03416, source full text, Section V–VII, Eq. (16), Fig. 2, first submitted 2024-03-06",
+      "IEEE Control Systems Letters 8 (2024), 1078–1083, DOI 10.1109/LCSYS.2024.3406597",
+      "arXiv:2105.01041, relevant full text, 2021-05-03 first submitted",
+      "Indexed closest: An exact global separatrix and water-filling convergence for a positive quadratic map (different homogeneous object)",
+      "Indexed closest: A computable global extinction–escape separatrix for a homogeneous quadratic population map (different homogeneous object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cui et al., Section VII Eq. (16), exact published map and explicit sufficient radius 4/15; Fig. 2 shows numerical classifications and the certified square.",
+        "The new claim distinguishes the basin ellipse from the optimal centered square, classifies every real orbit, and evaluates inverse-branch shell statistics; none follows from a mere numerical basin picture or an upper norm bound.",
+        "Chen (2021) addresses homogeneous tensor systems with spectral estimates, not this exact figure or its Lebesgue-distributed exit law."
+      ],
+      "reasoning": "The original square is not disputed; its sufficiency is strictly weaker than the full if-and-only-if classification. The new area ratio and all-n shell probabilities require the additional rank-one dynamical reduction and quadratic level-set area calculation. No dominating prior implication was identified in the inspected texts.",
+      "searches": [
+        "\"On Discrete-Time Polynomial Dynamical Systems on Hypergraphs\" ellipse basin",
+        "two dimensional quadratic rank one polynomial maps basin area exact ellipse residence-time exponential tail"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The actual source formula in Cui et al., arXiv:2403.03416, Section VII Eq. (16), has both coordinates equal to q, thereby equivalently defining \\(g(s)=s/5+3s^2\\) after one step. The inspected source does not make that reduction to give an exact ellipse or exit-time distribution.",
+        "Nearby indexed work on a positive quadratic population map concerns a different homogeneous dynamical system, not this mixed-degree rank-one map with coefficient 1/10."
+      ],
+      "reasoning": "The equivalent one-dimensional quadratic form and its shift-conjugate u -> u^2+9/100 were considered. Generic scalar quadratic dynamics explains the method but does not itself state the exact planar basin boundary, exact area and Lebesgue shell distribution for the named system. Similar thematic titles are not claimed to be disjoint solely on wording.",
+      "searches": [
+        "On discrete-time polynomial dynamical systems on hypergraphs Cui Zhang Jardon-Kojakhmetov Cao equation 16 exact basin ellipse 4/15",
+        "rank one quadratic map F(x,y)=(q,q) q=x squared+xy+y squared+(x+y)/10 invariant measures global basin",
+        "\"x_1^2+x_1x_2+x_2^2\" \"4/15\" basin"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible original primary Figure 2 is a scatterplot with a conservative square, not an exact area-valued basin table.",
+        "The exact coefficients and inverse multiplier 5/9 did not retrieve an indexed record asserting the same complete ellipse and exact shell statistics. The nearest hits were for inequivalent maps and different transient observables."
+      ],
+      "reasoning": "No existing exact database/table entry covering this benchmark claim was located, but that negative result is limited to actual queries and accessible indexing. A database absence is not evidence of mathematical uniqueness.",
+      "searches": [
+        "On discrete-time polynomial dynamical systems on hypergraphs Cui Zhang Jardon-Kojakhmetov Cao equation 16 exact basin ellipse 4/15",
+        "Cui hypergraph quadratic example super-exponential escape iterated inverse 5/9 exit-time shell law",
+        "\"On Discrete-Time Polynomial Dynamical Systems on Hypergraphs\" \"ellipse\" \"basin\""
+      ]
+    },
+    "rationale": "A full-text comparison with the originating example, its preceding stability corollary, its graphical domain, and the distinct predecessor homogeneous tensor work isolates an exact global basin/exit-law statement absent from the cited text. Indexed analogous separatrix results concern different polynomial maps and do not imply the present result. No global novelty is inferred merely from failed retrieval.",
+    "residual_risks": [
+      "An equivalent computation could appear in unindexed notes or independent uses of the same simple scalar reduction.",
+      "The original example is very special: both polynomial components coincide; no statement is made about generic hypergraph tensor maps.",
+      "The accessible arXiv text and figures were inspected, but priority against all versions of all literature cannot be certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents a conservative radius and numerical scatterplot; no exact full basin or annulus first-exit distribution found.",
+        "evidence": [
+          "Section VII Eq. (16) has identical coordinate formulas; paragraph following derives max absolute coordinate <4/15; Fig. 2 captions the displayed square as conservative."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.03416",
+        "material_read": "Full online text, Sections III–VIII, focusing on Theorem 3, Corollary 1, Section VII Eq. (16), and Figure 2 on PDF pages 5–6.",
+        "method": "Accessible arXiv HTML/full-text plus PDF text and visual examination of pp. 4 and 6.",
+        "title": "On discrete-time polynomial dynamical systems on hypergraphs",
+        "trigger": "The exact benchmark map is Eq. (16), with a previously reported attraction square."
+      },
+      {
+        "assessment": "Homogeneous multilinear tensor model with conservative/eigenvalue bounds and different examples; no implication of the mixed-degree rank-one benchmark complete classification.",
+        "evidence": [
+          "Section IV tensor norm criteria are for homogeneous maps; Section V numerical examples are different tensors; Section VI discusses reachability."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.01041",
+        "material_read": "Abstract, introduction, propositions on tensor spectral/norm stability, numerical examples and discussion in Sections III–VI, PDF pp. 1–5.",
+        "method": "Accessible arXiv abstract and PDF page text, with visual inspection of PDF page 4.",
+        "title": "On the Stability of Multilinear Dynamical Systems",
+        "trigger": "Named foundational tensor spectral predecessor cited by the originating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "02acb855-cf6e-456e-909b-9c426bbfdfc6",
+  "value": {
+    "rationale": "The exact attraction basin is a natural, complete invariant of the specific published numerical benchmark, whose primary application is precisely attraction-domain certification. It quantifies a substantial gap (area factor \\(81\\sqrt3\\pi/128\\), approximately 3.443) between the actual basin and its certified square while showing that square to be radius-optimal within its shape. The additional exact finite-time area shells and quantitative geometric thin-shell escape law describe the uncertainty-sensitive transient near a sharp stability boundary; they are not a merely arbitrary invariant or finite computation. Elementary reducibility limits breadth but does not eliminate the value of a complete and independently useful benchmark.",
+    "status": "PASS"
+  }
+}
