@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify_family.py` and `python3 verify_acyclohedron.py` using Python 3 and its standard library, from the extracted package directory. The first script exhausts 1024 edge-cube sign assignments at order five and 32768 at order six and checks the exterior-Gram projection identity, tournament imbalance and outer contact counts. It prints `n=5` with facet shell total 74, inradius squared 3.75, circumsphere squared 12.5 and 24 contacts; `n=6` with facets 394, inradius squared 4.5, circumsphere squared 21 and 2640 contacts. The second independently enumerates all candidate facet normals and exact squared facet distances in the order-five original simplicial-boundary realization, recovering the three shell multiplicities 20, 30, 24. All computations use integer or exact rational arithmetic.
+## correctness
 
-The arbitrary-order theorem requires the exterior-Hodge Gram calculation, minimal circulation supports, tournament imbalance parity and symmetric-group irreducibility proved in RESULT.md. Neither finite enumeration nor a successful run is an infinite proof. Completeness of mathematical-historical priority is not machine certifiable. No independent mathematical audit has been performed.
+PASS
+
+The Hodge star maps each simplicial-boundary (n-2)-subset generator to a signed u∧e_i∧e_j. Its Gram matrix is nI-D^T D, equal to n times the orthogonal projection onto the K_n cycle space since DD^T=nI-11^T. Hence the centered zonotope is isometric to sqrt(n)Pi[-1/2,1/2]^m in dimension C(n-1,2). A nonzero facet normal is a minimal-support circulation, necessarily an oriented simple cycle, yielding distance sqrt(n ell)/2 and count C(n,ell)(ell-1)!. Triangle circulations span, enforcing unique origin incenter. At cube corners squared norm is (nm-||D sigma||²)/4; parity and existence of (almost-)regular tournaments give extremal imbalance 0 (odd n) or n (even), and expose the contacts. Invariance under the irreducible S_n cycle-space representation plus uniqueness of John/Loewner ellipsoids makes them the computed centered Euclidean balls. Independent parity enumeration confirms 24 and 2640 contact signed corners at n=5,6 and facet counts 74,394.
+
+## originality
+
+PASS
+
+The primary acyclohedron paper introduces these objects and their combinatorial/volume framework, not the inspected full metric facet-shell, tournament outer-contact and ellipsoid classification. Prior cographic convex-hull polytopes use projected edges with conv(±), not the Minkowski sum/projection of a cube, and vertex-transitive zonotope theorems require a symmetry not satisfied here. Originality is qualified against potentially unindexed cycle-zonotope formulas.
+
+## value
+
+PASS
+
+The near-top acyclohedron is a natural infinite parameter family already studied combinatorially. The theorem gives its canonical Euclidean realization, exact facets by cycle length, sharp two radii, uniqueness and symmetry of extremal ellipsoids, and a parity-sensitive combinatorial characterization of outer contacts. These are coherent structural invariants, with applications to geometric comparisons of cographic zonotopes, not arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
