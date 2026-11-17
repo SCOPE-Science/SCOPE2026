@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise graph-prefixed definition is fixed in the theorem. Every prefix of length two or more in a complete bipartite graph is connected if and only if it contains both shores; this proves that only the top two ranking positions matter. The first opposing-shore candidate must cross at least the length of the initial same-shore run minus one, and that many adjacent swaps suffice. Exact without-replacement counting yields the probability mass and tail formulas; first-opposition symmetry gives the expectation and the outer-diversity normalization. The three scaling limits follow from fixed-position sampling, the product-tail logarithm, and fixed-length color convergence. The exhaustive independently computed adjacent-swap graph distances validate all parameters through eight candidates. Infinite assertions do not depend on finite enumeration.
+PASS
 
-## Originality — PASS (qualified)
+The top-two connectivity characterization is exact because any induced bipartite subgraph with representatives from both shores is connected. Earliest opposite-shore candidate at position L+1 requires at least L-1 adjacent swaps to reach position 2; moving it directly achieves the bound. Without-replacement falling-factorial counts yield P(X>=d)=((a)_{d+1}+(b)_{d+1})/(m)_{d+1}; the given mass and mean formulas follow. Mean simplifies to (m²-3ab-1)/(ab+m+1), monotone in ab, giving star/balanced extrema and known star specialization. Asymptotic limits follow respectively from uniform order statistics, logarithms of survival products, and finite-position color convergence. Independent exhaustive shortest-path BFS on all permutations through m=7 checks finite cases. The stated result is only for complete bipartite graphs and uniform rankings.
 
-The inspected primary text of *Outer Diversity of Structured Domains* (arXiv:2602.15708v1) includes definitions, efficient special cases and the general single-peaked graph hardness theorem, but no complete-bipartite distribution. The inspected primary text of *Outer Diversity of Condorcet Domains* (arXiv:2610.00720v1) includes the star graph formula, which is correctly identified as a previously known specialization. Its arguments do not imply the exact nonstar law or the regime transition. Targeted indexed-record and literature comparisons did not reveal a claim covering the full theorem. Unindexed work, unpublished notes or unpublished biclique-specific deductions remain a priority risk; this is not independently certified novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Outer diversity quantifies how much a voter must change a ranking to enter a structured preference domain. Although star-based graph domains are known to have nearly maximal outer diversity, the effect of increasing the smaller shore and introducing four-cycles was not quantified by the inspected results. A complete finite-size formula and full distance law classify the simplest cyclic extension of the star, identify unique extremal shore balances and rigorously separate linear, intermediate and constant nearest-swap scales. The transition explains whether the normalized diversity deficit is of order the reciprocal of candidate count or its square. This is a motivated exact structural classification, not an arbitrary numerical slice or mere reparameterization of the star.
+PASS best-of-knowledge for exact nonstar complete bipartite nearest-Kendall distribution and all three imbalance limits; star specialization already published. Inaccessible plausible paper is carried as priority risk rather than used as an automatic FAIL.
 
-## Limitations and closest literature
+## value
 
-This theorem assumes complete bipartite adjacency and uniform rankings. It does not generalize to arbitrary bipartite graphs or establish Condorcet properties of cyclic graph domains. The star specialization is covered by arXiv:2610.00720v1; the general connected-prefix setup and hardness context appear in arXiv:2602.15708v1. Originality remains a best-knowledge conclusion; no independent scientific audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Graph-based single-peakedness has a natural connected-prefix criterion; K_{a,b} is the first non-tree highly symmetric family beyond stars with a nontrivial exact diversity profile. The full distribution, shore balance extremum and crossover from macroscopic to O(1) swaps are useful rather than arbitrary finite arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
