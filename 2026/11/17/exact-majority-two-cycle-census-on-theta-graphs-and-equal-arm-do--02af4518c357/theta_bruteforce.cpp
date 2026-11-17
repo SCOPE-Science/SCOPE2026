@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+using U=uint64_t;
+U apply(const vector<U>& adj,const vector<int>& deg,U x){U y=0;for(int i=0;i<(int)adj.size();i++){int s=__builtin_popcountll(adj[i]&x); if(2*s>deg[i]||(2*s==deg[i] && ((x>>i)&1ULL))) y|=1ULL<<i;}return y;}
+vector<U> build(int a,int b,int c){vector<U> g(2,0);for(int L: {a,b,c}){int prev=0;for(int k=1;k<L;k++){int j=g.size();g.push_back(0);g[prev]|=1ULL<<j;g[j]|=1ULL<<prev;prev=j;}g[prev]|=2;g[1]|=1ULL<<prev;}return g;}
+long long e_comp(int m),o_comp(int m);
+pair<long long,long long> EO(int L,int p){if(L==2){return p?make_pair(1LL,0LL):make_pair(0LL,0LL);}int m=L-1;vector<long long>E(m+1),O(m+1);O[0]=1;for(int k=2;k<=m;k++){for(int j=2;j<=k;j++){E[k]+=O[k-j];O[k]+=E[k-j];}}return {E[m],O[m]};}
+long long formula(array<int,3> ls){long long total=0;for(int s=1;s<8;s++){vector<int>act,inact;for(int k=0;k<3;k++)(((s>>k)&1)?act:inact).push_back(k);int parity=ls[act[0]]%2;bool same=true;for(int i:act)if(ls[i]%2!=parity)same=false;if(!same)continue;if(act.size()==3)total++;else if(act.size()==2){auto [e,o]=EO(ls[inact[0]],parity);total+=2*(e+o);}else{auto[e1,o1]=EO(ls[inact[0]],parity);auto[e2,o2]=EO(ls[inact[1]],parity);total+=2*(e1*e2+o1*o2);}}return total;}
+int main(){int tests=0;U states=0;for(int a=2;a<=8;a++)for(int b=a;b<=8;b++)for(int c=b;c<=8;c++){int n=a+b+c-1;if(n>19)continue;auto adj=build(a,b,c);vector<int>d;for(auto x:adj)d.push_back(__builtin_popcountll(x));U obs=0;for(U x=0;x<(1ULL<<n);x++){U y=apply(adj,d,x);if(y!=x && apply(adj,d,y)==x)obs++;}long long exp=formula({a,b,c});if(obs%2 || obs/2!=exp){cerr<<"FAIL ("<<a<<","<<b<<","<<c<<") obs="<<obs/2<<" exp="<<exp<<"\n";return 1;}tests++;states+=(1ULL<<n);}
+for(auto x: vector<array<int,3>>{{2,2,3},{3,3,3},{3,4,5},{4,4,5},{5,5,5},{5,7,9}}){auto g=build(x[0],x[1],x[2]);vector<int>d;for(auto p:g)d.push_back(__builtin_popcountll(p));U ct=0;int n=g.size();for(U mask=0;mask<(1ULL<<n);mask++){U y=apply(g,d,mask);if(y!=mask && apply(g,d,y)==mask)ct++;}assert(ct%2==0 && ct/2==formula(x));cout<<x[0]<<","<<x[1]<<","<<x[2]<<": "<<ct/2<<" primitive two-cycles\n";}
+cout<<"PASS: "<<tests<<" nondecreasing triples, "<<states<<" states checked, full-state method.\n";}
