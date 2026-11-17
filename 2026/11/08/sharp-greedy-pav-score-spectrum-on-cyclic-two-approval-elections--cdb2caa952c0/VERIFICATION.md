@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The general theorem is proved in `RESULT.md`; the finite program is an independent-in-method consistency check, **not** an infinite proof or an external certification. Run with Python 3.8 or later:
+## correctness
 
-```sh
-python verify_cycle_pav.py
-```
+PASS
 
-The script enumerates **every** greedy tie branch at each size for each \(3\le n\le15\), independently evaluates original voter-level harmonic PAV scores, computes the theoretical adjacency formula, compares with the optimum over all size-matched committees, compares exact claimed spectrum, and tests the possible maximal-independent-set sizes. The execution completed successfully with **9766** reachable-state assessments and no failed assertions. Rational utilities are represented as integer doubled scores, eliminating floating-point uncertainty.
+For n>=3, each voter approves adjacent candidates and F(W)=2k-A(W)/2, with A the number of adjacent selected pairs. The optimum has A*=max(0,2k-n) and is realizable. Marginal 2-d_W(i)/2 forces greedy to a maximal independent set M of size m between ceil(n/3) and floor(n/2); all such m occur as cycle gap patterns of lengths one/two. Subsequently n-2m selected steps have one new adjacency and m have two, yielding A_g-A*=max(0,min(k,n-k)-m) and full half-step loss spectrum. Ratio F_g/F*>=11/12, equality precisely n multiple six and k=n/2. Independent full-tie direct voter enumeration corroborates n=3..11 but the all-n proof is the gap argument.
 
-Limits: the program checks only finite cycle sizes; symbolic gap and marginal analysis in the proof establishes every positive order. No independent external audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original under actual inspected statements; significant access or historical-priority risks are explicitly retained.
+
+## value
+
+PASS
+
+A complete exact greedy tie-breaking welfare spectrum and sharp worst-case ratio on the natural degree-two cycle-incidence election model is a nontrivial structural invariant distinct from computing optimum PAV, with concrete relevance to welfare guarantees and tie sensitivity. Independent domination size alone does not specify the score sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
