@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The code uses no third-party imports. It compares the closed rational polar-volume expression to a separately evaluated signed-facet determinant construction for all \(n\in\{2,\dots,7\}\) and \(1\le k<n\), with three distinct rational interior translations for each rank. It also checks exact equivalence of the derivative of the one-corner rational function and its claimed polynomial equation for \(3\le n\le15\), at four rational test values, plus endpoint signs. The result was `EXACT_CHECKS_OK 141`. A non-package exploratory check independently used convex hulls for dimensions two through six; all agreed with the formula.
+# Independent mathematical audit
 
-The determinant checks are finite corroboration, not a proof for all parameters. The proof in RESULT.md supplies unrestricted formulas, uniqueness and asymptotics. Verification does not establish historical priority, nor does it constitute an independent mathematical audit.
+## correctness
+
+PASS
+
+For every n>=2 and 1<=k<n, translating the capped cube P_{n,k} by s1 (0<s<k/n) yields the polar of the signed-axis crosspolytope augmented by v=1/(k-ns)1. Each signed-coordinate simplex facet indexed by j positive coordinates has visible height ratio (j-k)/(k-ns), so disjoint exterior pyramids sum to the exact binomial-tail volume W. Strict convexity of the polar-volume integral and symmetric uniqueness give a unique center along the diagonal and the displayed stationary polynomial. For k=n-1, differentiation reduces to the root equation and an O(2^{-n}/n) bound yields the normalized shift. Independent exact rational signed-facet summation matched the rational function for 20 parameter/center choices with n=2..5, k=1..n-1. These finite checks do not prove the general formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge family-specific closed dual volume and exponential near-cube Santalo shift extend beyond the inspected general existence/algorithmic geometry, with no matched stronger source found.
+
+## value
+
+PASS
+
+Uniform matroids and their 0–1 independence polytopes are a canonical infinite family, and their Santalo points and exact volume products are natural affine invariants. The formula yields every rank/dimension and the exponentially small but sharply normalized displacement from removing one cube corner, a motivated geometric stability effect rather than an isolated fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
