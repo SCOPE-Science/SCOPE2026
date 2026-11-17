@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the actual two-row Gaussian sketch of the symmetric three-dimensional input, derives the bivariate Cauchy law for the oblique coefficient vector, and transforms the two-by-two characteristic discriminant into a three-variable Gaussian quadratic form. Every principal two-minor of its symmetric coefficient matrix vanishes, forcing the two positive and one negative eigenvalues to obey the identity \(u+v=1\). A sharp Gaussian ellipse-to-disk rearrangement then proves \(1-\sqrt{2/3}\), with equality only for coincident positive quadratic-form eigenvalues. A determinant comparison and exact AM–GM equality characterize the residual couplings; the displayed SPD example attains the maximum. All degeneracies and quantifiers are treated. The source-code checker reproduces exact rational identities and numerical consistency checks, but those are not substitutes for the proof.
+PASS
 
-## Originality — PASS, qualified
+Orthogonal Gaussian invariance puts the 3x3 symmetric A in a Ritz diagonal 2+1 block and the sketched 2x2 M in diagonal + q(t1,t2) form. The discriminant D<0 is an indefinite homogeneous quadratic in three independent standard normals because F^-1g has bivariate Cauchy density (2pi)^-1(1+||q||^2)^-3/2. The K quadratic has three vanishing principal 2x2 minors, negative determinant for dt1t2 !=0 and two positive/one negative eigenvalues; u+v=1. Conditioning on normal Z3, the Gaussian measure of the ellipse is dominated by a disk of area pi Z3^2 sqrt(uv)<=pi Z3^2/2, giving 1-sqrt(2/3). Strict rearrangement and the product determinant imply equality precisely |t1|=|t2|=beta-alpha with alpha<beta. Degenerate d=0 or t1t2=0 gives zero risk. The displayed SPD example has positive Schur complement 14/3; the result is only for fixed U, ambient 3 and two Gaussian rows.
 
-The sharp universal nonreal-pair probability, its equality configurations, and the entire finite-case probability integral for the minimally sketched symmetric Rayleigh–Ritz matrix were compared with the inspected relevant primary literature, published research search records and accessible historical claim summaries. Nakatsukasa–Tropp (2024, §6.8) and Liu–Liu (2026, method and introduction) identify complex-valued sRR Ritz estimates but do not establish the sharp three-dimensional Gaussian probability within the material inspected. Relevant historical claims instead concern one-dimensional ratios or a different higher-dimensional repeated-Ritz-value limit. Kozhan's non-Hermitian perturbation distribution is not an sRR Gaussian pencil. Remaining risks include an inaccessible portion of the Liu–Liu article and earlier specialized small-matrix probability identities. No failed search is considered proof of unique priority.
+## originality
 
-## Value — PASS
+PASS
 
-Unexpected nonreal Ritz eigenvalues from symmetric data are an explicitly identified algorithmic difficulty in real-arithmetic sketched eigensolvers. The exact \(18.35\%\) worst-case benchmark, its conditions for attainability even by SPD matrices, and its explicit smaller-case probability integral give a calibrated failure-mode benchmark for a minimally oversampled sketch. The quantified event concerns nonreal pairs, not eigenvalue-accuracy or stability of a full solver; that distinction is essential.
+Liu and Liu (2026) directly motivate the appearance of nonreal sketched symmetric Ritz pairs and real-Schur remedies; the inspected abstract/secondary detailed exposition does not state this special sharp probability or its equality cases. Resultary returned a sharp one-quarter theorem, but that has a fixed-length uniformly oriented cross-coupling model, whereas this is the exact inverse-Gaussian 2x2 ratio and is not a corollary of the one-quarter number. PASS with explicit inaccessible full-text risk.
 
-## Limitations and closest literature
+## value
 
-Only fixed independent search planes, three-dimensional symmetric matrices and exactly two Gaussian sketch rows are covered. Repeated ordinary Ritz values and either zero off-plane coupling yield zero probability. Relevant comparisons are Liu and Liu (arXiv:2610.22261v1, 2026), Nakatsukasa and Tropp (DOI 10.1137/23M1565413, §6.8, 2024), and Kozhan (DOI 10.1007/s10955-017-1792-0, 2017). The relevant main methodological portions of Liu–Liu were read in accessible HTML, but some other sections were inaccessible, leaving a qualified residual literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp worst-case probability with equality classification quantifies a concrete failure mechanism of minimally sketched symmetric Rayleigh–Ritz. It is a natural exact small-dimensional quantitative bound, not merely a nonreal counterexample; it supplies a benchmark for real-Schur safeguards while making no large-dimensional promises.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
