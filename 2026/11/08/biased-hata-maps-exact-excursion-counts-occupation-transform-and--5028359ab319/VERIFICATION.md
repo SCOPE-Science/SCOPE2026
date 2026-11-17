@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The reproducible source is `verify.py`, executed with Python 3 and SymPy using the command `python verify.py`. It exited successfully with the message `PASS: 95 exact/symbolic/finite-sample checks`.
+## correctness
 
-The checker uses exact rational numbers for the images of 48 dyadic cells under the two affine maps and for four rational-bias versions of the return and mean formulas. Symbolic power-series computations test the first seven coefficients of the occupation pgf at \(p=3/4\), its normalization, and its mean. Direct evaluations at four small positive bias values and three Laplace parameters check compatibility with the crossover law. Seeded Monte Carlo draws for two offcritical biases test four return-count frequencies and the occupation mean against explicitly declared tolerances. An independent sample directly iterates the two interval maps (rather than the cell chain) and checks occupation means and first-return probabilities.
+PASS
 
-The full proof is mathematical: exact conditional cell uniformity, Markov-chain first-passage, resolvent identities, and limiting Laplace transforms. Finite checks do not establish the infinite-horizon laws. The right/left reflection and endpoint exponent use the analytic argument in `RESULT.md`. The experiment does not test or claim uniform numerical precision in the singular limit or provide a quenched trajectory theorem.
+For p in (0,1)\{1/2}, reflection reduces to P=(1+delta)/2>Q. Inspected exact images of dyadic cells L_j,R_j; each opposite-half jump renews a geometric depth J with Pr(J=j)=2^(-j-1). Left depth hitting from j is (Q/P)^(j+1), hence theta=(1-delta)/(1+3delta) and geometric N with mean (1-delta)/(4delta). First-step right downward-passage equation g=z(P+Qg^2), right exit b=Pz/(1-Qzg), and fresh depth average F=b/(2-g) imply E[z^S]=(1-theta)F/(1-theta F). Differentiation gives E S=(1+3delta)/(2delta^2). Expanding g at z=exp(-s delta^2) yields the continuous-at-zero Laplace limit 2/(1+sqrt(1+2s)); geometric transform yields delta N=>Exp(rate 4). Right excursions terminate, return count is almost surely finite, left depth thereafter has SLLN drift delta, so log2 distance-to-favored-endpoint rate delta. Validity of exact counts explicitly requires uniform initial point in disfavored half, while a.c. initial data suffice only for almost-sure endpoint statement. This is analytic infinite-time proof; no finite experiments are used as its substitute.
 
-No independent audit or external validation has been performed.
+## originality
+
+PASS
+
+Prior Hata–Yano work proves symmetric p=1/2 arcsine/Darling–Kac limits; the inspected primary sections do not establish the off-critical geometric count, exact residence pgf or two bias crossovers. The nearby published generalized Hata–Yano and Pelikan findings address different maps/parameters and statistics. No dominating implication was identified, subject to literature coverage limits.
+
+## value
+
+PASS
+
+The exact renewal law and two mathematically different critical scales distinguish recurrence number from occupation duration in a canonical random interval map, directly extending the critical case. The computable p-dependent finite-time invariant and endpoint escape rate address natural dynamical questions beyond a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
