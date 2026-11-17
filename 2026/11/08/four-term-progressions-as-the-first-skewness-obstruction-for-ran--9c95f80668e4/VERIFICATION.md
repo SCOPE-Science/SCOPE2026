@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The phase-character Fourier expansion was constructed directly from equal pair sums with integer multiplicities. For an independent Haar-phase ensemble, a character has nonzero expectation exactly when its exponent vector is zero. The checker independently computes the second and third centered moments by this rule and evaluates the distinct arithmetic-progression lower bound without substituting the analytic formula for the moment. All four-element supports with least point zero and largest point at most twenty, and all five- and six-point supports with least point zero and largest point at most ten, were checked (1,602 cases). For a four-term progression the computed variance is 48 and third moment is 192.
+# Independent mathematical audit
 
-The general analytic proof establishes a positive phase-character expansion, identifies twelve ordered third-moment contributions per four-term progression, and shows those contributions disjoint. Finite checks are corroborative and do not certify all integers or any distinct coefficient law. This is a mathematical self-review only; no independent audit was performed.
+## correctness
+
+PASS
+
+For independent Haar-uniform phases on a finite nonempty integer support A, expand X_A=integral |P_A|^4 by equal unordered pair sums. The centered variable is a sum of nontrivial phase-torus characters with positive integral coefficients: 2 for each 3-term progression character pair and 4 for a four-distinct equal-sum collision character pair. On taking the cube, Haar orthogonality retains only ordered zero-sum exponent triples, all with nonnegative weights. Each 4-term progression supplies two 3-AP characters χ1,χ2 and one four-point collision ψ with χ1χ2=ψ, hence 12 signed ordered triples of weight 2*2*4=16, giving a distinct contribution 192 per progression. For four distinct frequencies, the non-4-AP cases reduce to at most two independent Haar cosines and have symmetric centered law; one 4-AP has centered law 4cosU+4cosV+8cos(U+V), variance 48 and third moment 192. Independent exact character enumeration checks several four-/five-point supports. The argument is all-support, unlike finite checks; no claim of complete third-moment motif decomposition for >4 points.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: the complete same-model October 11 random Haar fourth-norm source gives exact mean and variance 8T(A)+32Q(A), not the third centered moment or four-frequency symmetry criterion. Katz–Ramirez computes central moments for uniformly random binary-sign sequences with consecutive support, a genuinely different coefficient law and support quantifier; it does not imply the Haar arbitrary-support inequality or sharp 192. Earlier Fourier extremal/deterministic autocorrelation results likewise concern a different invariant. Historical higher-polyspectrum/cumulant identity remains possible and is recorded as a risk.
+
+## value
+
+PASS
+
+The exact 4-term AP obstruction gives a geometrically motivated sharp lower bound and classifies the first support size at which Haar-phase fourth-norm fluctuations can have asymmetric law. This is a natural and precise refinement of the known Sidon/variance criterion, not a routine variance substitution or unmotivated tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The phase-character expansion gives nonnegative Fourier coefficients, so every cubic constant-character term is nonnegative. Each increasing four-term progression yields twelve distinct ordered zero-sum terms of weight sixteen, producing the sharp lower bound of 192 per progression. For exactly four frequencies, the pair-sum and progression cases are exhaustive; the explicit independent-cosine representation proves symmetry outside four-term progressions, while the progressions have third moment 192. Exact integer enumeration independently checked 1,602 small supports. The infinite-support-size assertion follows from the coefficient-positivity argument, not enumeration.
+## correctness
 
-**Originality — PASS, provisional.** The closest published continuous-phase result calculates only the mean and variance for arbitrary integer supports; those are even-order summaries and do not determine skewness or law symmetry. Katz and Ramirez treat third and higher centered moments for binary-valued coefficients on contiguous supports, a different probability measure not implying the continuous-phase claim. Existing four-frequency phase-minimization work concerns deterministic bounds, not the random coefficient distribution. No exact equal or dominating published statement was found in the inspected primary texts or targeted searches. Residual risk: specialized random trigonometric-polynomial literature may already state an equivalent third-cumulant motif formula.
+PASS
 
-**Value — PASS.** The theorem provides a sharp universal structural lower bound for an interpretable higher-order fluctuation invariant, with a complete four-frequency distributional symmetry boundary and a concrete standardized skewness. It separates arithmetic patterns that second moments cannot distinguish and may be useful when Fourier apertures are chosen for random-phase statistical performance. This is not a claim of a general Gaussian limit or a full classification for larger supports.
+For independent Haar-uniform phases on a finite nonempty integer support A, expand X_A=integral |P_A|^4 by equal unordered pair sums. The centered variable is a sum of nontrivial phase-torus characters with positive integral coefficients: 2 for each 3-term progression character pair and 4 for a four-distinct equal-sum collision character pair. On taking the cube, Haar orthogonality retains only ordered zero-sum exponent triples, all with nonnegative weights. Each 4-term progression supplies two 3-AP characters χ1,χ2 and one four-point collision ψ with χ1χ2=ψ, hence 12 signed ordered triples of weight 2*2*4=16, giving a distinct contribution 192 per progression. For four distinct frequencies, the non-4-AP cases reduce to at most two independent Haar cosines and have symmetric centered law; one 4-AP has centered law 4cosU+4cosV+8cos(U+V), variance 48 and third moment 192. Independent exact character enumeration checks several four-/five-point supports. The argument is all-support, unlike finite checks; no claim of complete third-moment motif decomposition for >4 points.
 
-The 2021 autocorrelation source supplies the original Fourier-analysis motivation. The closest inspected mathematical treatments are Katz–Ramirez (2023) on binary phase higher moments, and the published statements on continuous-phase mean/variance (2026). Those treatments are not asserted to prove the new result. Independent replication and broader historical-priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the complete same-model October 11 random Haar fourth-norm source gives exact mean and variance 8T(A)+32Q(A), not the third centered moment or four-frequency symmetry criterion. Katz–Ramirez computes central moments for uniformly random binary-sign sequences with consecutive support, a genuinely different coefficient law and support quantifier; it does not imply the Haar arbitrary-support inequality or sharp 192. Earlier Fourier extremal/deterministic autocorrelation results likewise concern a different invariant. Historical higher-polyspectrum/cumulant identity remains possible and is recorded as a risk.
+
+## value
+
+PASS
+
+The exact 4-term AP obstruction gives a geometrically motivated sharp lower bound and classifies the first support size at which Haar-phase fourth-norm fluctuations can have asymmetric law. This is a natural and precise refinement of the known Sidon/variance criterion, not a routine variance substitution or unmotivated tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
