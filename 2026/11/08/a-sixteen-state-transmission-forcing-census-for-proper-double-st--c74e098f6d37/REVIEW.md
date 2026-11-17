@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two unfilled leaves of one hub can never be forced, proving the complete four-bit reduction. Ordinary seeded leaves each contribute exactly once, in the first round, giving the stated weighted injections. The remaining graph has two hubs and at most two unfilled leaves; a newly filled hub occurs by round two and a missing leaf by round three. This proves that the sixteen-state formula and the original process agree for arbitrary \(a,b\ge2\) and positive \(\alpha,\beta\le1\). A direct labelled-graph implementation exhaustively agrees with an independent quotient computation across 576 graph/parameter combinations. Finite tests are supplementary, not a proof for infinite parameter ranges.
+PASS
 
-## Originality — PASS, provisional
+The proof reduces every successful initial set on proper double star D_(a,b), a,b≥2, to at most one initially unfilled leaf on either side: with two white leaves at the same hub that hub has at least two white neighbors indefinitely and cannot force. Each initially filled ordinary leaf of a white hub contributes exactly alpha in round 1. The weighted synchronous kernel on two hubs and ≤2 omitted leaves preserves weights, simultaneous thresholding, and one-use directed forces. A white hub fills by round ≤2 or never; an omitted leaf fills by ≤3 or never. Counting (p,q,h,g)∈{0,1}^4 gives coefficient binom(a,p)binom(b,q)E and exponent a+b-p-q+h+g; beta≤alpha gives z^(a+b-2)(z+a)(z+b)(1+z)^2. Independent labeled exhaustive checks on D_(2,2), D_(3,3), D_(2,4) over multiple exact-rational parameters corroborated all-seed enumeration. In D_(2,2), alpha=4/5,beta=1, the specified three-leaf seed succeeds and adding hub y fails, because the required final force is only 4/5. The proof, not finite tests, supports all alpha,beta∈(0,1].
 
-The original transmission paper [1] gives a general framework and several families but not a double-star all-seed enumerator or the three-round exact reduction. The closest indexed double-star results concern fractional zero forcing and power domination rather than this weighted process. The ordinary regime \(\beta\le\alpha\) is already determined by unweighted forcing, and is credited; the new content is the parameter-dependent sixteen-state polynomial and the sharp three-round cutoff with a concrete tree nonmonotonicity example. Historical priority remains provisional, particularly because relevant public records were inspected only as summaries.
+## originality
 
-## Value — PASS
+PASS
 
-A complete exact all-seed census on a natural family of diameter-three trees is a meaningful foundational example for a recently proposed weighted forcing model. The constant-size quotient removes the unbounded leaf multiplicities without losing simultaneous weight accumulation; it supplies exact coefficients and a fixed propagation cutoff and displays the failure of seed-set monotonicity on a small tree. The theorem applies to all positive real parameters and all proper double stars, not an isolated computational example.
+No examined earlier source determines this positive-parameter all-seed transmission forcing polynomial for proper double stars. Ordinary zero forcing fort and power-domination results study different propagation rules; the original transmission framework provides definitions and some solved graph families, not this quotient census. Priority is best-of-knowledge; full original arXiv text was inaccessible.
 
-## Limitations
+## value
 
-The formula uses sixteen explicit finite-state indicators rather than fully expanded threshold conditions; all indicators are computed by at most three exact rounds. Original mathematical literature was inspected directly; two other public mathematical-record matches were available as summaries only. There has been no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-seed generating polynomial is an exact natural invariant for a standard diameter-three tree family; the constant-size kernel works uniformly in arbitrary leaf multiplicities and transmission parameters, identifies a three-step cutoff and a genuine nonmonotone seed-augmentation witness. These are mathematically motivated structural and classification results rather than a mere renaming of ordinary zero forcing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
