@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The two standalone programs embedded with this result require Python 3 (standard library only) and a C++17 compiler, respectively.
+## correctness
 
-Run `python3 verify_prism_python.py` and `g++ -O2 -std=c++17 verify_prism_cpp.cpp -o verify_prism_cpp && ./verify_prism_cpp` from a directory containing the extracted source files.
+PASS
 
-The Python script constructs the cyclic-prism adjacency lists directly, tries every four-vertex subset for each \(5\le n\le18\), tests the exact dihedral-plus-ring-swap orbits, and verifies the complete time distribution. It prints `PYTHON_EXHAUSTIVE_PASS` on success. The C++17 program independently constructs adjacency bit masks and enumerates every four-vertex subset for \(5\le n\le25\), then checks the explicit arrival-time vectors up through \(n=300\) via a separate vertex-array implementation. It prints `CPP_EXHAUSTIVE_AND_ARRIVAL_PASS` on success.
+For every n>=5, degree-three first-force wedges give a four-vertex lower bound and force any successful four-set into the five local orbit types. Saturated two-rung growth proves sufficiency. The explicit arrival-time schedules satisfy the simultaneous neighbor-closure recurrence and yield time polynomial n z^(m-1)+8n z^m+4n z^(m+1) for n=2m, or 3n z^m+6n z^(m+1)+4n z^(m+2) for n=2m+1. Independent brute-force all C(2n,4) starting sets at n=5..13 reproduces complete three-term distributions, corroboration not proof for infinite n. Boundary n=5 verified; n<=4 excluded.
 
-These checks were run from the complete extracted delivered package files. All bounded-range checks passed, and both expected markers were observed. Exhaustion of finitely many small orders does not establish a theorem for every integer order; the RESULT proof supplies the symbolic classification. No independent external audit was performed.
+## originality
+
+PASS
+
+The five minimum-set symmetry orbits and 13n count are ALREADY published, explicitly excluded from the novel remainder. The new surviving claim is the parity-sensitive synchronous TIME distribution over those orbits for every n>=5, which the inspected earlier prism census does not state or dominate. General propagation frameworks and Möbius-ladder results do not supply this prism-specific time enumeration.
+
+## value
+
+PASS
+
+Propagation time is a natural second invariant after the known minimum seed size and five orbit types; exact fastest/slowest multiplicities and parity effects across every prism size are mathematically useful rather than cosmetic renaming of 13n. It is an infinite-family weighted classification, though not a new minimum-set census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

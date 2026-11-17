@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument proves the lower bound of four initial vertices by classifying every three-vertex first-force wedge and showing that it stalls after the first round. A complete table of the only successful fourth-vertex completions reduces all possibilities to five symmetry orbits. Explicit all-order arrival-time formulas, verified against the local color-change recurrence, give the precise time of every vertex; orbit stabilizer counts yield the \(13n\) total and parity-dependent generating polynomial. Independent Python and C++17 implementations enumerate complete finite state spaces, corroborating the formula without substituting finite testing for its general proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2007-online AIM article already proves that \(Z(C_n\square K_2)=4\), so that is excluded from novelty. The inspected 2011 iteration-index paper and 2014 propagation-time paper supply the time-parameter framework, but not the present 5-orbit, labelled-set and complete time-distribution result. The inspected 2018 polynomial paper counts different families, not this time-weighted prism subclass. Search and inspection do not establish absolute historical novelty: equivalent unindexed work remains possible.
+PASS
 
-## Value — PASS
-Cyclic prisms are a basic two-layer graph product, and the classical \(Z=4\) result leaves the practical questions of which optimal starting sets work and how quickly they spread unanswered. The exact orbit classification answers those questions for every order; the parity-dependent multiplicities distinguish fastest configurations from generic ones. The five local types and explicitly verified arrival-time patterns are reusable tests for more general cyclic graph products and for analyzing time-sensitive graph forcing. The result is an infinite-family structural classification, not a small arbitrary numerical case.
+For every n>=5, degree-three first-force wedges give a four-vertex lower bound and force any successful four-set into the five local orbit types. Saturated two-rung growth proves sufficiency. The explicit arrival-time schedules satisfy the simultaneous neighbor-closure recurrence and yield time polynomial n z^(m-1)+8n z^m+4n z^(m+1) for n=2m, or 3n z^m+6n z^(m+1)+4n z^(m+2) for n=2m+1. Independent brute-force all C(2n,4) starting sets at n=5..13 reproduces complete three-term distributions, corroboration not proof for infinite n. Boundary n=5 verified; n<=4 excluded.
 
-## Closest sources, reservations and limits
-AIM Minimum Rank–Special Graphs Work Group (online 2007-11-26), Theorem 3.8; Chilakamarri–Dean–Kang–Yi (arXiv 2011); Hogben–Huynh–Kingsley–Meyer–Walker–Young (arXiv 2014); Boyer et al. (arXiv 2018). Unindexed equivalent calculations are a residual priority risk. All proofs and experiments in this package are self-review, not independent scholarly certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The five minimum-set symmetry orbits and 13n count are ALREADY published, explicitly excluded from the novel remainder. The new surviving claim is the parity-sensitive synchronous TIME distribution over those orbits for every n>=5, which the inspected earlier prism census does not state or dominate. General propagation frameworks and Möbius-ladder results do not supply this prism-specific time enumeration.
+
+## value
+
+PASS
+
+Propagation time is a natural second invariant after the known minimum seed size and five orbit types; exact fastest/slowest multiplicities and parity effects across every prism size are mathematically useful rather than cosmetic renaming of 13n. It is an infinite-family weighted classification, though not a new minimum-set census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
