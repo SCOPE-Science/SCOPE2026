@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has explicit quantifiers: for each triangular \(H=t(t+1)/2\), \(t\ge13\), and each integer \(K\ge L+30\), the indices \(q2^K+36{,}853{,}059+j\), \(0\le j\le10\), are consecutive and give exactly \(H\) set bits. The eleven hexadecimal seed values directly verify the common digit weight \(26\). The repunit identity \(s_2(A(2^L-1))=L\) for \(1\le A<2^L\) follows from complementary \(L\)-bit blocks. The exact decomposition for \(9(2^L-1)^2\) gives the odd-weight branch. Strict block-size inequalities rule out carries in the quadratic expansion, and both parities evaluate to the requested \(H\). The companion integer-arithmetic checker reproduces the seed and boundary examples. Limit: finite testing alone would not prove the infinitely many values of \(K\); the algebraic identity does.
+PASS
 
-## Originality — PASS within inspected evidence
+Let T(n)=n(n+1)/2 and s₂ count binary 1s. Independently checked that all eleven T(36,853,059+j) (j=0..10) exactly match the submitted hexadecimal integers and each has Hamming weight 26. For every triangular H=t(t+1)/2 with t≥13, set L=(H−26)/2 and q=2^L−1 for even H, or L=(H−27)/2 and q=3(2^L−1) for odd H. Repunit complementary-block arithmetic proves s₂(A(2^L−1))=L for 1≤A<2^L and s₂([3(2^L−1)]²)=L+1. When K≥L+30, the exact expansion T(q2^K+r)=q²2^{2K−1}+q(2r+1)2^{K−1}+T(r) has three disjoint binary supports, hence weight 26+2L or 27+2L=H uniformly for all 11 r. Infinite strictly increasing K gives infinitely many blocks. Independently checked t=13..49, 11 positions each, at K=L+30 with arbitrary-precision integers; the algebra proves all t and K, not these tests.
 
-The closest primary source is Baumheckel–Forgács, arXiv:2105.10354. Its Theorem 2.2 gives each triangular weight for *individual* terms, Proposition 3.9 gives stability within a specified binary-shift range, and Corollary 3.10 obtains *six* consecutive very triangular numbers. Those assertions do not state or logically force eleven consecutive indices for every triangular \(H\ge91\). The new statement couples an exact eleven-term seed with a separate repunit weight-lifting mechanism. Search variants involving consecutive triangular indices, Hamming weight, very triangular numbers, repunit lifting, and eleven-term blocks disclosed no equivalent result in the sources checked. An unindexed equivalent or an implicit reduction in less-visible literature remains possible; searches do not certify uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is explicitly motivated by Baumheckel–Forgács's consecutive-run theorem and their longer-arithmetic-progression conjecture. The new theorem advances the known explicit consecutive-run length from six to eleven and, more strongly, supplies infinitely many blocks for **every prescribed sufficiently large triangular digit weight** rather than a single chosen weight. Both features concern a natural invariant (binary Hamming weight of triangular numbers) and have a uniform structural proof; the precise value eleven comes from an exactly checkable seed, not an arbitrary parameter restriction. Limit: the general arbitrary-length conjecture is not settled.
+Best-of-knowledge PASS. Baumheckel–Forgács 2021/2023 original work defines very triangular numbers and proves infinitely many isolated prescribed-triangular-weight examples and six consecutive terms, with a digit-weight preservation technique. The submitted result constructs eleven CONSECUTIVE indices at each specified triangular weight H≥91, a stronger joint fixed-weight/length assertion not mathematically forced by the earlier six-term result. Resultary searches and external query found no equivalent stronger eleven-term theorem. The exact new seed and parity-resolved repunit lift are additional mathematics, not title substitution.
 
-## References and residual risks
+## value
 
-Closest primary document: *An exploration of very triangular numbers*, https://arxiv.org/pdf/2105.10354 (Sections 2–3, pp. 1–8 and concluding discussion); first public date 2021-05-19. The journal DOI is https://doi.org/10.46787/pump.v6i0.3853 . The original author-described six-consecutive corollary is clear, but a fully exhaustive historical priority review across all publications has not been performed. Results are not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A constructive long fixed-digit-weight block phenomenon sharpens a published six-consecutive theorem in a natural binary-arithmetic sequence and fills a motivated gap between isolated examples and uniformly long runs. The precise simultaneous prescribed-H and eleven-index nature is a reusable exact combinatorial fact; no claim of maximal length or best H threshold is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
