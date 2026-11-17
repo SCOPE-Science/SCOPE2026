@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposed exact distribution follows from a canonical split of an automorphism into commuting parts of coprime orders, averaging conjugacy for its tame finite-order part, and a leading-term kernel calculation in a uniformly sampled centralizer. Crucially, the leading coefficient \((kd)b_j\) cannot vanish in characteristic \(p>n\). The nilpotent subgroup has exponent dividing \(p\), so the decomposition and finite-order reduction apply to every finite field with characteristic \(p>n\). The two count families sum to the correct number of automorphisms for each multiplier, even when dimension labels coincide. Literal composition-matrix computations reproduce all nine checked finite cases. They are corroboration only, not the infinite proof.
+## correctness
 
-## Originality — PASS relative to examined material
-The 2024 monomial-algebra automorphism-group papers establish underlying group descriptions in characteristic zero but not the finite-field conditional fixed-ring dimension spectrum. A 2012 univariate right-equivalence classification may yield orbit classifications, so the Burnside formula alone is not treated as an independent novelty guarantee. The **joint fixed-subalgebra distribution, ring shapes, and tamely uniform multiplicities**, rather than known group order or linearization, form the assessed claim. Semantic research-record queries covered fixed rings, Nottingham substitutions, formal-power-series conjugacy, and arithmetic automorphism distributions; closest indexed records concerned different objects or invariants. A negative search cannot prove priority. The most material residual risk is an unlocated general formal-series conjugacy/stabilizer theorem implying the same distribution.
+PASS
 
-## Mathematical value — PASS
-For an automorphism of a finite local algebra, the fixed subalgebra is a canonical invariant; its dimension and multiplicative structure measure how much of the ring is preserved. An exact law under uniformly sampled automorphisms, resolved by a natural arithmetic datum (the multiplier order), supplies structural information not obtained from merely knowing the automorphism-group order. The orbit consequence is a useful independent consistency check and describes the action on every ring element. The theorem covers infinitely many finite fields and truncation lengths in its tame regime, not an arbitrary small numerical slice.
+For A=F_q[t]/(t^n), p>n, the multiplier subgroup U has exponent p because its substitution matrices are unitriangular of nilpotency length at most n<p. The canonical commuting p-part and prime-to-p part of each automorphism permits a conjugate scalar multiplier σ_a (order d) and a unique centralizer parameter tuple (b_1,...,b_h), where h=floor((n−2)/d). The first nonzero b_j gives independent rows with leading coefficients kd*b_j, nonzero since 1≤kd<n<p; the resulting fixed ring is the scalar plus the upper truncated monomial ideal of dimension 1+j, and the trivial tuple gives 1+floor((n−1)/d). Counting first nonzero indices and Burnside yields exactly the stated conditional multiplicities and action-orbit sum. Boundary h=0, d=1 and coalescing dimensions are handled by adding multiplicities. Independently enumerated actual substitution matrices and fixed-space nullities at (5,3),(5,4),(7,4), recovering {1:10,2:9,3:1}, {1:50,2:45,3:4,4:1}, and {1:98,2:189,3:6,4:1}. The finite instances are checks, not proof for unbounded n/extension fields.
 
-## Closest sources and limitations
-Díaz–Liendo–Manzano-Flores–Regeta, arXiv:2408.02197 (automorphism group of zero-dimensional monomial algebras, characteristic zero); Díaz–Lucchini Arteche, arXiv:2409.15081 (automorphism-group rigidity, characteristic zero); Nguyen, arXiv:1210.2868 (related univariate power-series right equivalence; full source not recovered); and indexed research records on truncated coordinate-cross algebras and Nottingham braces (different objects or invariants). The proof requires \(p>n\), and the direct verifier is over prime fields. Complete literature priority and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact conditional distribution and fixed-ring normal forms. Classical tame finite-order linearization and group structure are established, but neither the inspected characteristic-zero monomial-algebra automorphism work nor the same-algebra subalgebra-orbit census supplies the counts of fixed elements of an arbitrary individual substitution. Broader literature on formal power-series conjugacy may imply some cases, so priority remains provisional.
+
+## value
+
+PASS
+
+An exact probability law for fixed-subring dimensions, the embedded fixed-ring isomorphism profiles, and the Burnside orbit count for the natural full substitution automorphism group offer useful structural information beyond group order or reparametrization equivalence. The dimension law is uniform in n and q under a sharp tame hypothesis, not a tiny empirical enumeration or merely a renamed standard formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
