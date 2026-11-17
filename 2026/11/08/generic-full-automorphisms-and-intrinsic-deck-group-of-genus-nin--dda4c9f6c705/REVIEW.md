@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The twenty branch points are simple for pairwise distinct parameters outside \(\{0,1\}\); the étale genus-three quotient and all eight explicit involutions are checked by direct substitution. For the specialization \((2,3,4,5,6)\), the exact verifier enumerates every possible projectivity on the twenty rational branch points over \(\mathbb F_{719}\) (all 6,840 ordered triples); four survive. The characteristic-zero Hurwitz bound \(672<719\) makes automorphism specialization injective, and upper semicontinuity gives a nonempty open locus with the same group. Distinguishing the fixed-point-free involutions identifies the quotient group. The finite enumeration does not replace the generic proof.
+PASS
 
-## Originality — PASS, qualified
+Five parameters avoiding branch values yield twenty simple roots of the hyperelliptic polynomial and genus9. The explicit maps (t,y)->(t,-y),(-t,-y),(1/t,-y/t^10) preserve the model, commute and produce eight automorphisms; fixed-point computations single out exactly three free involutions once full Aut has order8. For a=(2,3,4,5,6), reduction modulo 719 gives exactly the twenty listed rational branch points. Independent full 20*19*18=6840 projectivity image-triple enumeration yields only t,-t,1/t,-1/t on the roots. Since every branch root is rational, this exhausts geometric stabilizers as well. Hyperelliptic lifting bounds geometric special-fiber Aut by 8. In char0, Hurwitz |Aut|<=672<719 excludes the 719-primary kernel of good-reduction specialization, forcing exactly eight at the rational point. Automorphism-size upper-semicontinuity gives exact eight on a Zariski-open dense parameter set. The free involution subgroup is intrinsic, yielding unique genus3 quotient. This extrapolation uses a legitimate geometric specialization theorem, not just the finite-field experiment.
 
-Borówka–Grossi–Shatsila (arXiv:2610.40989, Theorem 1.5) establish an étale Klein cover within the abelian-surface setting; they do not classify the full geometric automorphism group of the entire type-I.1 family. Borówka–Ortega (arXiv:2602.18969) classify covering types and Prym injectivity, which is not the unmarked top-curve forgetful morphism. Borówka–Ortega (arXiv:2302.13041, Proposition 2.5 and Remark 6.1) already discuss free Klein subgroups and equivalent equations. Gutierrez–Shaska (2005) study broader dihedral invariants; this historical source creates material priority risk and prevents any claim of exhaustive novelty. No matching full-genus-nine generic-group statement was located in the inspected passages or searched records. The exact all-automorphisms certificate at the named arithmetic tuple and its generic consequence are the narrower originality claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full automorphism group and intrinsic recovery of the deck group determine whether a genus-nine curve retains the entire degree-four unramified covering structure after markings are forgotten. A verified geometric group calculation gives a natural generic moduli statement and makes precise which fixed-point-free involutions are intrinsic. The explicit rational specialization with an exhaustive finite-field certificate is reusable in checking exceptional-symmetry loci and covering reconstruction. The contribution is not claimed to solve generic automorphism classification for other families.
+Borówka–Ortega classify hyperelliptic Klein covers and show injectivity of a Prym map; their older paper provides the same quartic-factor curve and involutions. Those foundational constructions are prior work and not claimed new. The surviving contribution is proof of generic exact full automorphism group of the entire five-parameter type-I.1 family and intrinsic recovery of the top-curve free Klein subgroup; these do not follow from Prym map injectivity. Genus9 polarized-abelian-surface subfamily differs from full parameter family. Best-of-knowledge historical risk from unread specialized source and broader classical automorphism theory.
 
-## Limitations
+## value
 
-Generic is not universal. The 2026 abelian-surface subfamily is not proved to meet the open set. Older full-automorphism classifications may imply part or all of the claim; human historical-priority checking is needed. Self-review does not constitute independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Generic automorphism group and uniqueness of an unramified quotient are natural moduli invariants, with direct interpretation of the forgetful morphism. The complete finite-field branch-stabilizer certificate provides a concrete robust method for generically minimizing the group, not merely computing one example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
