@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T10:14:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In the Laurent basis, multiplication by z^k is a bilateral k-step weighted shift with weights squared (1+r^(2(n+k)))/(1+r^(2n)). Subtracting backward squared weights gives (1-r^(2k))²/((1+r^(2n))(1+r^(2(k-n)))), equal to L_a/(cosh a+cosh(b(2n-k))). The count is precisely the number of integers in an open interval of length A_a(t)/b, with discrepancy <=1. Layer cake gives the uniform |Tr(D^p)-kW_p(a)|<=c_a^p, including p<1, and direct integration/telescoping gives W1,W2 and all stated limits. Even/odd peaks follow by minimizing |2n-k|. Independent rational diagonal identities and bounded real counting checks passed; analytic bounds prove all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-spectral-multiplicities-and-sharp-norm-envelope-for--d2e9668f3bc0/RESULT.md complete coordinate spectrum and sharp all-mass envelope; arXiv:0902.1794 abstract on n-fold reducing subspaces"
+        ],
+        "reasoning": "The earlier two ingredients jointly dominate the k-th-power spectrum: unitary decomposition and all-mass coordinate formula. They imply the complete multiset, including peak parity.",
+        "searches": [
+          "Douglas and Kim reducing subspaces M_z^n Hardy annulus; Resultary weighted beta all masses"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-spectral-multiplicities-and-sharp-norm-envelope-for--d2e9668f3bc0/RESULT.md",
+        "arXiv:0902.1794",
+        "arXiv:2610.40118v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-spectral-multiplicities-and-sharp-norm-envelope-for--d2e9668f3bc0/RESULT.md F_Q(t)=(1-Q)^2 t/[(1+t)(Q+t)] in equivalent notation"
+        ],
+        "reasoning": "With x=r^(2n), the prior expression becomes (1-Q)^2 x/[(1+x)(Q+x)], precisely the submitted lambda_{n,k}. Solving its threshold inequality and integrating N(t) are elementary consequences, so changed wording does not create a new spectral theorem.",
+        "searches": [
+          "Substitute n=j+k ell, Q=(r^k)^2, beta=r^(2j) in prior F_Q"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-spectral-multiplicities-and-sharp-norm-envelope-for--d2e9668f3bc0/RESULT.md general beta>0 coordinate shift eigenvalue F_Q(beta Q^(ell-1))"
+        ],
+        "reasoning": "Each k-residue space of M_{z^k} is a coordinate multiplier in the prior weighted annulus model with inner radius r^k and mass beta=r^(2j).",
+        "searches": [
+          "Resultary: parity-split spectral multiplicities annular Hardy selfcommutator boundary mass"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-spectral-multiplicities-and-sharp-norm-envelope-for--d2e9668f3bc0/RESULT.md full exact spectrum F_Q(t) for arbitrary beta, trace=1-Q and full Schatten membership"
+        ],
+        "reasoning": "A closed exact all-mass formula is stronger evidence of prior coverage than a finite table; no matching numerical k table is required.",
+        "searches": [
+          "Resultary weighted annulus eigenvalues and trace"
+        ]
+      },
+      "rationale": "FAIL: the 2 Nov 2026 all-mass annular Hardy selfcommutator theorem gives the complete spectrum for coordinate multiplication z on every weighted annulus. Decompose the k-th power multiplier into k reducing residue spaces n=j+kℓ, j=0,...,k-1; each is exactly its model at inner radius r^k and boundary mass beta=r^(2j). The prior eigenvalue formula thus yields the submitted complete k-power eigenvalues without new spectral analysis. The counting ±1, layer-cake moments, and scaling are direct one-dimensional lattice-count/Riemann-sum consequences of that known full spectrum.",
+      "residual_risks": [
+        "The decisive coverage is a mathematical reduction from an earlier all-mass theorem, rather than an identical printed k-power statement.",
+        "The full text of the older reducing-subspaces paper was unavailable; the residue decomposition used here is checked directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the all-power spectral statement after standard k-residue decomposition",
+          "evidence": "Explicit F_Q(beta Q^(ell-1)), full multiplicities, norm and trace",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-split-spectral-multiplicities-and-sharp-norm-envelope-for--d2e9668f3bc0/RESULT.md",
+          "material_read": "Complete Finding, assumptions, Proof §§1–4 and references",
+          "method": "GitHub full RESULT.md",
+          "title": "Parity-split spectral multiplicities and sharp norm envelope for annular Hardy selfcommutators",
+          "trigger": "Same annular Hardy space, arbitrary beta and complete coordinate commutator"
+        },
+        {
+          "assessment": "Supports relevant decomposition topic but exact reduction is independently reconstructed algebraically, not assumed from unseen full text",
+          "evidence": "M_{z^n} Hardy-annulus reducing-subspace classification",
+          "identifier_or_url": "https://arxiv.org/abs/0902.1794",
+          "material_read": "Abstract stating 2^n reducing subspaces for monomial powers on Hardy annuli; full text not obtained",
+          "method": "arXiv public abstract via web",
+          "title": "Reducing Subspaces on the Annulus",
+          "trigger": "Supports power-multiplier residue-class reduction"
+        },
+        {
+          "assessment": "Toeplitz characterization does not assert a multiplier commutator counting law in the abstract; no whole-document NOT_COVERING claim",
+          "evidence": "Brown–Halmos type Toeplitz characterization",
+          "identifier_or_url": "https://arxiv.org/abs/2610.40118",
+          "material_read": "Abstract only; arXiv HTML and PDF retrieval failed",
+          "method": "arXiv public abstract via web",
+          "title": "Characterizations of Toeplitz operators on the annulus",
+          "trigger": "Claim cites it as nearest primary setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: although annulus scaling is a natural parameter question, the particular full result is a routine aggregation of the earlier all-boundary-mass exact diagonal spectra under a standard residue-class decomposition plus interval counting and layer cake. No separately motivated new invariant survives the mathematical reduction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The decisive coverage is a mathematical reduction from an earlier all-mass theorem, rather than an identical printed k-power statement.",
+    "The full text of the older reducing-subspaces paper was unavailable; the residue decomposition used here is checked directly."
+  ],
+  "schema_version": 1
+}
