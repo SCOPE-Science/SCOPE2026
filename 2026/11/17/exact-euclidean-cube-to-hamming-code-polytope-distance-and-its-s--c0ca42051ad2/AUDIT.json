@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "All statements follow from a direct explicit point in the Hamming codeword hull, the global supporting functional \\((n+3)\\langle e_i-y,z\\rangle=6z_i-2\\operatorname{wt}(z)\\le0\\) using minimum code weight three, strict convexity of metric projection, the unique syndrome-correcting coordinate for every cube vertex, and a finite-mixture residual-variance inequality excluding nonvertex farthest points. The exposed equality face is an \\((n-1)/2\\)-dimensional simplex because the Fano-style column pairs are disjoint. These are exact general-m steps; independently designed small-instance QPs and exact rational finite checks agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Navin Kashyap, On the Convex Geometry of Binary Linear Codes (2006), https://ece.iisc.ac.in/~nkashyap/Papers/code_geometry.pdf, discusses general faces and translations of codeword polytopes.",
+        "Gensheimer et al., arXiv:1901.03240 (2019), Sections IV–VII: projection onto a single even/odd parity polytope for LP decoding.",
+        "Coregliano, Jeronimo and Jones, arXiv:2112.09221 (2021): LP hierarchy and optimal code-size bounds."
+      ],
+      "reasoning": "Kashyap establishes structural tools but the inspected theorems do not compute the requested Hamming-code cube-to-hull Hausdorff distance or the exposed nearest-point simplices. The projection algorithm of Gensheimer et al. applies to one parity-check polytope, not the intersection-tight true codeword hull, and so does not dominate the new statement. The searched LP code-size hierarchy optimizes different quantities. Other generic projection theorems may exist and are noted as residual risk.",
+      "searches": [
+        "binary linear code 7 4 polytope covering radius Euclidean projection syndrome",
+        "Hamming parity check polytope fractional nearest point to one-hot vector",
+        "Hamming code polytope convex hull cube Hausdorff distance Euclidean",
+        "Euclidean distances of vertices to binary linear code polytopes Hamming codes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1901.03240",
+      "Kashyap (2006) PDF https://ece.iisc.ac.in/~nkashyap/Papers/code_geometry.pdf",
+      "arxiv:2112.09221",
+      "published-finding corpus codeword geometry, Hamming and convex-distance searches (8 actual target queries); closest ids fa451ec084a1 and 395253d8cd05"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kashyap (2006) Lemma 4.2: translation of the binary linear code acts on its codeword polytope; this supports, but does not calculate, the required projections.",
+        "Gensheimer et al. (2019), Section IV: parity polytopes have a much larger feasible set than the full Hamming codeword hull and their recursive projections differ.",
+        "Coregliano et al. (2021) optimize code-size bounds via a separate LP hierarchy.",
+        "published-finding corpus matched 2026/11/8/SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05 (ordered symbol-pair spectra, not convex geometry)."
+      ],
+      "reasoning": "The proposed theorem requires pairing columns with a prescribed syndrome, proving a precise Euclidean supporting functional, deriving all exposed equalities, and excluding all nonvertex maximizers via distinct residuals. None of the inspected closest statements directly implies this quantitative formula or the complete equality cases. Conceptual tools are acknowledged. Unread portions of other potentially relevant works are not certified noncovering.",
+      "searches": [
+        "seven bit Hamming codeword polytope Euclidean Hausdorff distance cube perfect code nearest fractional codeword",
+        "Hamming perfect code polytope deep holes cube vertices all noncodewords",
+        "Talagrand convex distance of perfect binary Hamming code all noncodewords 2/sqrt(n+3)",
+        "On the Convex Geometry of Binary Linear Codes Kashyap 2006",
+        "A Reduced-Complexity Projection Algorithm for ADMM-based LP Decoding arxiv 1901.03240"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For binary input v, Talagrand-style convex distance to a set of codewords equals Euclidean distance from v to their ordinary real convex hull (as an equivalent convexification statement).",
+        "Hamming codes have ordinary discrete covering radius one, while their convex-hull distance need not equal one.",
+        "Relevant result: published-finding corpus 2026/11/8/SCOPE-a-linear-time-nearest-vertex-covering-certificate-for-every-demi--fa451ec084a1 concerns the even-parity demihypercube (a distinct code)."
+      ],
+      "reasoning": "The binary vertex formulation is mathematically equivalent, not automatically new through a change of names. We searched this route explicitly. The demihypercube has a single parity relation and a different minimum distance and code size; its projection rule cannot imply the Hamming code exact value without further argument. Neither search nor the inspected convex-distance material established a dominating formula. The possibility of an unindexed equivalent theorem remains a residual priority risk.",
+      "searches": [
+        "Talagrand convex distance of perfect binary Hamming code all noncodewords 2/sqrt(n+3)",
+        "Euclidean convexification covering radius of Hamming code hull as subset of Boolean cube",
+        "seven bit Hamming codeword polytope Euclidean Hausdorff distance cube perfect code nearest fractional codeword",
+        "Talagrand convex distance binary code Hamming nearest convex hull codewords"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact-distance table, finite-radius value or projection point was identified in the queried literature indexes and published-finding corpus records.",
+        "Exact own rational finite comparisons for n=3,7,15 were performed as current-work verification, not as an existing published database."
+      ],
+      "reasoning": "A possible table that records only a single small-order value would not imply all lengths and the complete projection-face classification, but a table or general formula covering the same invariant would matter. None was located; this is not an exhaustive census of specialist tables.",
+      "searches": [
+        "Hamming [7,4,3] convex hull codewords projection cube vertices Euclidean distance 2/5",
+        "seven bit Hamming codeword polytope Euclidean Hausdorff distance cube perfect code nearest fractional codeword",
+        "polymake Hamming [7,4,3] codeword polytope Euclidean nearest distances",
+        "Hamming code polytope nearest Euclidean vertex distances table"
+      ]
+    },
+    "rationale": "Focused searches of same-object codeword hull geometry and its equivalent binary-vertex convex-distance formulation found no exact all-length Hamming formula or the classified exposed projection simplices. The full inspected Kashyap (2006) codeword-polytope framework gives face symmetries but not this assertion; Gensheimer et al. (2019) project onto single parity-check polytopes, rather than the simultaneous Hamming codeword hull. The LP hierarchy of Coregliano et al. (2021) concerns code size, not this distance. A negative search is not an independence or priority proof; alternative terminology remains a risk.",
+    "residual_risks": [
+      "Historical priority remains provisional: exact convex distance could be proved in specialist coding, probability, or error-bound literature under different names.",
+      "published-finding corpus and web searches are not exhaustive of every table, thesis or preprint.",
+      "The Coregliano et al. manuscript was materially inspected only in selected sections; it is not certified globally noncovering.",
+      "No independent mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General facial geometry, codeword-polytope description and code-translation symmetries. The inspected paper does not state the all-length Hamming Euclidean Hausdorff radius, projection coordinates or classified nearest-point simplices.",
+        "evidence": [
+          "Codeword polytope defined as the real convex hull of binary codewords; codewords are vertices.",
+          "Lemma 4.2 supplies affine coordinate reflection symmetry of a binary linear codeword polytope; Section IV focuses substantially on the even-weight code and general small-dimensional faces."
+        ],
+        "identifier_or_url": "https://ece.iisc.ac.in/~nkashyap/Papers/code_geometry.pdf",
+        "material_read": "Full PDF text including abstract, Sections II–V, facial results Theorem 4.1, Lemma 4.2 and Theorem 4.7; visually inspected first PDF page.",
+        "method": "Full-text PDF reading and page-image confirmation.",
+        "title": "On the Convex Geometry of Binary Linear Codes",
+        "trigger": "Same polytope model and plausible general face theorems."
+      },
+      {
+        "assessment": "Exact projection of one parity-check even/odd polytope; not the real convex hull of all words satisfying every Hamming check simultaneously. Its result does not entail the proposed codeword-hull distance formula.",
+        "evidence": [
+          "Submission date 2019-01-10.",
+          "Section IV introduces even/odd parity polytopes; Sections VI–VII concern recursive projections onto these single-check objects."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.03240",
+        "material_read": "Full accessible arXiv HTML conversion including abstract, introduction, related work, the parity-polytope definition (Section IV), the main projection theorem and recursive algorithm in Sections VI–VIII.",
+        "method": "Primary preprint full-text HTML reading and section-by-section comparison.",
+        "title": "A Reduced-Complexity Projection Algorithm for ADMM-based LP Decoding",
+        "trigger": "Lead middle-period primary literature explicitly about Euclidean projection and parity/code polytopes."
+      },
+      {
+        "assessment": "The inspected results concern LP hierarchies for bounds on possible code cardinalities, not Euclidean projection to one fixed codeword hull. Uninspected sections are not claimed independently cleared.",
+        "evidence": [
+          "Code-size LP hierarchy as stated in its abstract/introduction, rather than a Euclidean Hamming-polytope Hausdorff problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.09221",
+        "material_read": "Accessible full-text HTML: abstract, introduction, contents and central LP hierarchy formulations; remaining long sections were not inspected in their entirety.",
+        "method": "Primary preprint HTML and targeted theorem/terminology comparison.",
+        "title": "A Complete Linear Programming Hierarchy for Linear Codes",
+        "trigger": "Potential broader LP formulation for linear codes, possibly dominating Euclidean geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c0ca4205-1ad2-4c73-9036-1deed9c65684",
+  "value": {
+    "rationale": "The result finds a canonical and previously unlocated Euclidean geometric approximation invariant for every length \\(2^m-1\\) binary Hamming codeword polytope. It classifies every farthest point and all unique nearest projections on explicit growing-dimension simplex faces; and it quantifies the sharp collapse from discrete covering radius one to convexification radius \\(2/\\sqrt{n+3}\\), tending to zero. This is structural information about a motivated coding/geometric relaxation, not a generic coordinate slice or numerical table.",
+    "status": "PASS"
+  }
+}
