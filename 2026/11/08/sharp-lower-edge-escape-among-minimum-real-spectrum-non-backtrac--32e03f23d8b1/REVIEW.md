@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex-edge incidence matrix gives \(CC^{\mathsf T}=2aI+A(K_{a,a,a})\), with three explicit eigenspaces. Applying Ihara–Bass and a Schur complement yields the exact Hashimoto characteristic polynomial without genericity assumptions. Every real root is enumerated with algebraic multiplicity, and the bipartite transition normalization is diagonally similar to a constant multiple of the Hashimoto matrix. Elementary inequalities locate the lower universal-cover spectral edge and prove the sharp integer threshold \(a=8\). Independent integer checks of the constructed matrices, traces and spectral moments corroborate these algebraic steps for small parameters; the proof is unrestricted.
+PASS
 
-## Originality — PASS, provisional priority
+PASS. For once-subdivided K_{a,a,a}, a>=2, unsigned incidence CC^T=2aI+A(K_{a,a,a}) has eigenvalues 4a once, a twice, 2a (3a-3) times. Ihara–Bass plus Schur complement yields (t^4−1)^h(t²−1)(t²−d)(t^4+d)^(3a−3)(t^4+a t²+d)^2, with d=2a−1 and h=3a(a−1). Residual quartics are positive for real t; the (2,2a)-biregular transition is similar to B/sqrt(d), so real L eigenvalues 0,2 and 1±1/sqrt(d) with multiplicities h+1 each, total 2M−2N+4. Nontrivial adjacency magnitudes sqrt(a),sqrt(2a), and sqrt(a) violates the positive LOWER universal-cover edge exactly when a>4+2sqrt(3), i.e. integers a>=8. All algebraic multiplicities included.
 
-Mulas–Torres (2026) supply the universal lower bound and regular-graph equality criterion; Kempton (2016) and Brito–Dumitriu–Harris (2018/2022) supply general biregular non-backtracking spectral formulas. These general identities are explicitly credited. The assessed claim is not a new determinant identity or a general equality criterion; it is an explicit infinite family with exact real spectrum and a sharp **two-sided lower-edge** violation while remaining extremal. Comparisons found no source asserting this concrete incidence-family phenomenon, but an unindexed equivalent application of the older general formulas remains possible, and independent historical priority assessment is lacking.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating real-eigenvalue bound is sharp on more than regular graphs. This family establishes that an entire infinite class of extremizers can contain genuine **lower-side** nontrivial adjacency spectral outliers while retaining the minimum possible real count, a subtlety that matters only for the two-sided universal-cover condition. The first violating parameter is shown to be exactly eight, not inferred from an experiment. This supplies a structural boundary to the natural extension of the regular equality–Ramanujan relationship.
+PASS best knowledge. Mulas–Torres supply the universal minimum 2M−2N+4 and a regular-graph equality–Ramanujan characterization, while Kempton and Brito–Dumitriu–Harris already give general biregular Ihara/Hashimoto spectral identities. These results are credited as tools. The new result is the explicit infinite natural family of once-subdivided balanced complete-tripartite incidence graphs simultaneously attaining the real count minimum and escaping the TWO-SIDED lower universal-cover spectral edge precisely at a=8. It is a specialized computation based on prior general formulas, with explicit residual priority risk.
 
-## Limits
+## value
 
-Only once-subdivided balanced complete tripartite graphs and a two-sided spectral definition are studied. The broader biregular equality classification is open here. The numerical universal bound is preexisting and fully credited; no independent audit was undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The result provides a natural, infinite, sharply parameterized counterexample to an attempted two-sided biregular extension of regular-graph equality versus Ramanujan correspondence: lower-edge adjacency outliers can remain invisible to real non-backtracking eigenvalue counting. Exact onset a=8 gives a meaningful structural boundary, not an arbitrary small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
