@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:45:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A proper common prefix/suffix cannot contain both ones because identical two-marker alignment would force the suffix offset to zero. Zero-only borders contribute at most min(a,c); one-marker border uniquely has length a+c+1 and occurs precisely for b>=max(a,c), with full endpoint cases including n=2. Counting disjoint gap regions yields explicit integer interval A_n(t) and asymmetric/diagonal D_n(t); the enumerator splits into geometric sums H1+H2. Piecewise counts N_n(t)=n f(t/n)/2+O(1) uniformly in t and normalization C(n,2) establish uniform O(1/n) local limit and integrated moments. Inspect original verifier KMP prefix-function test on every two-one word 2<=n<=90, GF coefficients to m<=35, selected n<=2000 checks, but do not replace proof by finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harju–Nowotka examines cyclic-conjugate border-indicators; not exact longest border by two-one position",
+          "Abelian-border equal Parikh vectors is weaker than literal prefix-suffix equality"
+        ],
+        "reasoning": "Neither formulation is a stronger statement implying the all-length fixed-weight-two border census and scaling density.",
+        "searches": [
+          "longest proper border binary words exactly two 1s fixed Hamming weight two exact distribution generating function limit law",
+          "Harju Nowotka Border Correlation of Binary Words",
+          "Abelian borders in binary words Christodoulakis 2014"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and verify.py",
+        "Holub-Shallit arXiv:1509.05240v1 full PDF with sections 2–6",
+        "Harju–Nowotka report abstract",
+        "Christodoulakis et al Abelian-borders bibliographic entry",
+        "Resultary q5 with weight-two forbidden overlap and sparse word comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Holub-Shallit typical unrestricted binary word has limiting mean ~1.64116 unscaled, contrasting E[L_n]~(7/27)n under rare-weight-two conditional sampling",
+          "The rational H(z,u) and all-t local uniform error are not contained in that unrestricted statistic"
+        ],
+        "reasoning": "A bounded mean for unrestricted word sampling cannot imply nondegenerate L_n/n conditioned on exactly two ones; current gap classification is a distinct special-probability regime.",
+        "searches": [
+          "longest proper border binary words exactly two 1s fixed Hamming weight two exact distribution generating function limit law",
+          "Holub Shallit 2015 periods borders random words Theorem 3 5",
+          "weight two fixed content longest border local limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed n, period p=n−L makes longest border equivalently n−least period",
+          "Holub-Shallit unrestricted binary probabilities and recurrences do not condition on Hamming weight two"
+        ],
+        "reasoning": "Period/border duality is classical, but its unrestricted distribution does not mechanically give the exact weight-two spectrum without new content-conditioned enumeration.",
+        "searches": [
+          "longest proper border binary words exactly two 1s fixed Hamming weight two exact distribution generating function limit law",
+          "Holub Shallit periods and borders of random words arXiv:1509.05240",
+          "fixed-content binary word periods borders fixed weight two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current N_n(t)=A_n(t)+D_n(t) and generating function H(z,u) explicitly specify counts",
+          "Resultary similar exact weight-two capacity under two forbidden overlaps addresses code size, not border distribution"
+        ],
+        "reasoning": "No independent known exact table of longest proper border by n,t under weight two; a table of overlap-free code capacities does not imply each border-length count.",
+        "searches": [
+          "longest proper border binary words exactly two 1s fixed Hamming weight two exact distribution generating function limit law",
+          "binary words exactly two ones longest border number each length distribution",
+          "Holub Shallit fixed-weight border exact data"
+        ]
+      },
+      "rationale": "Holub-Shallit random-word paper measures unrestricted fixed-alphabet typical longest borders O(1), not exactly two 1s with linear scaling. Harju-Nowotka treats conjugate border-correlation, Abelian-border work changes equality notion. No inspected specialized source supplied the exact A_n+D_n distribution or f(x) limit; still possible an obscure fixed-weight period paper contains equivalent data.",
+      "residual_risks": [
+        "Possible unindexed fixed-Hamming-weight period enumerator algebraically equivalent to N_n(t) not retrieved.",
+        "Harju–Nowotka full technical report not independently inspected; absence of exact result there is not proven."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESTRICTED sampling; no complete weight-two spectrum or linear-scale density found in inspected sections",
+          "evidence": "Unrestricted alphabet random-word longest-border mean approx 1.64116 for binary words; its probability space permits all 2^n words unlike uniform C(n,2) sparse words.",
+          "identifier_or_url": "arXiv:1509.05240v1",
+          "material_read": "Accessible full 2015 arXiv paper, including Section 2-6 recurrences, random-word mean and discussion",
+          "method": "Full PDF text and page screenshots, mathematical comparison to fixed-composition law",
+          "title": "Periods and borders of random words",
+          "trigger": "Most relevant primary work on random longest borders and least periods"
+        },
+        {
+          "assessment": "Different invariant, full-text priority risk retained",
+          "evidence": "Counts which cyclic rotations have borders, not exact value of longest proper border of fixed-weight-two linear words.",
+          "identifier_or_url": "Harju–Nowotka, TUCS Technical Report 546 (2003)",
+          "material_read": "Abstract/description of border correlation, not full paper",
+          "method": "Published abstract/metadata search",
+          "title": "Border Correlation of Binary Words",
+          "trigger": "Borderedness under cyclic conjugacy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact longest-border census in the canonical sparse nontrivial binary composition class; it exhibits linear-length borders unlike bounded-length typical unrestricted words. The complete finite spectrum, rational generating function and nondegenerate scaling law provide reusable baselines for fixed-content word combinatorics and string overlap algorithms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md and verify.py",
+    "Holub-Shallit arXiv:1509.05240v1 full PDF with sections 2–6",
+    "Harju–Nowotka report abstract",
+    "Christodoulakis et al Abelian-borders bibliographic entry",
+    "Resultary q5 with weight-two forbidden overlap and sparse word comparisons"
+  ],
+  "disposition": "passed",
+  "final_claim": "All binary length-n words with exactly two ones have longest proper border a+c+1 if b>=max(a,c), else min(a,c) for gap form 0^a1 0^b1 0^c. This yields the complete explicit finite spectrum, rational bivariate generating function, maximum floor((2n−1)/3), and uniform local limit under fixed-weight sampling with piecewise density 2 on [0,1/3], 4−6x on (1/3,2/3], moments E=7/27 and Var=37/1458.",
+  "limitations": [
+    "Exactly two ones, uniform fixed-weight linear words; no positive marker density, arbitrary alphabets, or necklace/cyclic sampling."
+  ],
+  "residual_risks": [
+    "Possible unindexed fixed-Hamming-weight period enumerator algebraically equivalent to N_n(t) not retrieved.",
+    "Harju–Nowotka full technical report not independently inspected; absence of exact result there is not proven."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "UNRESTRICTED sampling; no complete weight-two spectrum or linear-scale density found in inspected sections",
+      "evidence": "Unrestricted alphabet random-word longest-border mean approx 1.64116 for binary words; its probability space permits all 2^n words unlike uniform C(n,2) sparse words.",
+      "identifier_or_url": "arXiv:1509.05240v1",
+      "material_read": "Accessible full 2015 arXiv paper, including Section 2-6 recurrences, random-word mean and discussion",
+      "method": "Full PDF text and page screenshots, mathematical comparison to fixed-composition law",
+      "title": "Periods and borders of random words",
+      "trigger": "Most relevant primary work on random longest borders and least periods"
+    },
+    {
+      "assessment": "Different invariant, full-text priority risk retained",
+      "evidence": "Counts which cyclic rotations have borders, not exact value of longest proper border of fixed-weight-two linear words.",
+      "identifier_or_url": "Harju–Nowotka, TUCS Technical Report 546 (2003)",
+      "material_read": "Abstract/description of border correlation, not full paper",
+      "method": "Published abstract/metadata search",
+      "title": "Border Correlation of Binary Words",
+      "trigger": "Borderedness under cyclic conjugacy"
+    }
+  ]
+}

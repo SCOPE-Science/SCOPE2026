@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` using Python 3 and only its standard library. The observed output was:
+# Independent mathematical audit
 
-```
-VERIFY_OK
-Direct independent KMP words: 121485 (every binary word with two ones, lengths 2..90)
-Bivariate rational-series coefficients: all degrees <=35, all possible borders
-Exact count normalization and sharp maximum: lengths 101,202,500,1000,2000
-Rational moment identities: mean 7/27, second moment 5/54, variance 37/1458
-Uniform local-limit count discrepancy at selected large lengths: <=6
-```
+## correctness
 
-The KMP prefix function calculates border lengths by a method independent of the zero-gap classification. The rational-series expansion uses multivariate formal power-series arithmetic. Selected large sizes verify count normalization, the sharp maximum, and an explicit constant discrepancy from the predicted local limit. Exact rational arithmetic checks the limiting moments. These finite checks cannot prove the asserted formulas for arbitrary length; the general proof is in `RESULT.md`. Independent mathematical audit has not been performed.
+PASS
+
+A proper common prefix/suffix cannot contain both ones because identical two-marker alignment would force the suffix offset to zero. Zero-only borders contribute at most min(a,c); one-marker border uniquely has length a+c+1 and occurs precisely for b>=max(a,c), with full endpoint cases including n=2. Counting disjoint gap regions yields explicit integer interval A_n(t) and asymmetric/diagonal D_n(t); the enumerator splits into geometric sums H1+H2. Piecewise counts N_n(t)=n f(t/n)/2+O(1) uniformly in t and normalization C(n,2) establish uniform O(1/n) local limit and integrated moments. Inspect original verifier KMP prefix-function test on every two-one word 2<=n<=90, GF coefficients to m<=35, selected n<=2000 checks, but do not replace proof by finite tests.
+
+## originality
+
+PASS
+
+Holub-Shallit random-word paper measures unrestricted fixed-alphabet typical longest borders O(1), not exactly two 1s with linear scaling. Harju-Nowotka treats conjugate border-correlation, Abelian-border work changes equality notion. No inspected specialized source supplied the exact A_n+D_n distribution or f(x) limit; still possible an obscure fixed-weight period paper contains equivalent data.
+
+## value
+
+PASS
+
+Exact longest-border census in the canonical sparse nontrivial binary composition class; it exhibits linear-length borders unlike bounded-length typical unrestricted words. The complete finite spectrum, rational generating function and nondegenerate scaling law provide reusable baselines for fixed-content word combinatorics and string overlap algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
