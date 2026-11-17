@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:05:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C_n plus non-cycle chord 0–a, 2≤a≤n−2, a singleton or non-cycle-adjacent blue pair cannot force initially; each of n cycle-edge pairs can. For a cycle pair at positions i,i+1 on the a-edge chord arc, two propagation fronts fill that arc; chord endpoint 0 turns blue after i rounds and endpoint a after a−1−i rounds, and neither can force into the second arc until both are blue because each earlier endpoint has two uncolored neighbors (chord endpoint and cross-arc neighbor). At T=max(i,a−1−i) both are blue, then the b−1 internal vertices fill simultaneously from endpoints in floor(b/2) rounds, giving t_a(i)=T+floor(b/2). Reverse arc likewise. The max-distance histograms B_a,B_b immediately give H_{a,b}, endpoints, no gaps and fastest count 2+1_(2|a)+1_(2|b). Independent direct synchronous graph simulation tested every chord and each two-vertex initial set for n=4..14, confirming time arrays; the full all-n proof is the symbolic front argument. Both packaged Python and C++ graph simulators were read.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferrero et al. arXiv:2511.16335 studies propagation-time intervals and fixed-propagation-time graphs; Hogben et al. arXiv:1410.4191 develops general definitions.",
+          "The known general interval property does not determine the exact H_{a,b}(z), minimum-reaching multiplicity or chord parity comparison."
+        ],
+        "reasoning": "A universal existence property for a range of times is weaker than a complete formula counting every minimum forcing pair by exact duration.",
+        "searches": [
+          "propagation times singly chorded cycle zero forcing minimum sets interval enumerator efficient sets",
+          "propagation time interval graph fixed propagation time chorded cycles Ferrero"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: propagation times singly chorded cycle zero forcing minimum sets interval enumerator efficient sets",
+        "Boyer et al. arXiv:1801.08910",
+        "Chilakamarri et al. arXiv:1105.1492",
+        "Hogben et al. arXiv:1410.4191",
+        "Ferrero et al. arXiv:2511.16335"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyer et al. arXiv:1801.08910 Thm22 Claim1: adding one chord preserves every zero forcing set of C_n.",
+          "Chilakamarri et al. cycle propagation minimum is ceil((n−2)/2); the submitted exact time t_a(i) adds max(i,a−1−i)+floor(b/2) and an all-seed histogram."
+        ],
+        "reasoning": "Boyer’s static set theorem and the cycle minimum alone cannot imply the chord’s time distribution or exact fastest seed multiplicity. The submitted proof tracks the blocked chord-front interaction and obtains a genuinely new formula.",
+        "searches": [
+          "propagation times singly chorded cycle zero forcing minimum sets interval enumerator efficient sets",
+          "Boyer zero forcing polynomial chord cycle Theorem 22 Claim 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The iteration index/propagation time of a minimum two-vertex zero-forcing set is a synchronous process statistic; the zero-forcing polynomial enumerates starting sets without recording time.",
+          "Boyer et al. Claim 1 proves set membership invariance under one chord, not the time series."
+        ],
+        "reasoning": "No transformation of a set-count identity alone determines the duration of the forcing process. The submitted enumerator is an additional distribution over the same starting pairs.",
+        "searches": [
+          "propagation times singly chorded cycle zero forcing minimum sets interval enumerator efficient sets",
+          "iteration index chorded cycle zero forcing efficient forcing sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query found the audited Nov8 time-spectrum record, plus other graph families (cyclic prisms, Möbius ladders, antiprisms) with different edge sets.",
+          "Independent n=4..14 direct simulation found the exact theoretical time multiset for each allowable chord."
+        ],
+        "reasoning": "Other graphs’ time tables do not imply this particular chorded-cycle formula. The finite simulation is a consistency check, not a novelty proof or exhaustive verification for all n.",
+        "searches": [
+          "propagation times singly chorded cycle zero forcing minimum sets interval enumerator efficient sets",
+          "singly chorded cycles propagation time distribution polynomial B_a B_b table"
+        ]
+      },
+      "rationale": "Boyer et al. arXiv:1801.08910 Claim 1 prove adding a chord preserves all zero-forcing sets (hence the polynomial), but do not provide propagation times. Chilakamarri et al. arXiv:1105.1492 give the unchorded cycle iteration index. Hogben et al. arXiv:1410.4191 and Ferrero et al. arXiv:2511.16335 address general propagation-time notions/intervals and other families. A fresh Resultary semantic query found no earlier exact all-a,b chord-resolved time histogram apart from the audited Nov8 entry. The new full distribution is not a corollary of preserving forcing-set membership, since first-passage times depend on propagation geometry. Best-of-knowledge PASS with remaining literature risk.",
+      "residual_risks": [
+        "A general propagation-time paper may encode the chorded-cycle histogram without naming chorded cycles; the most recent relevant full text was not exhaustively inspected.",
+        "No claim extends to multiple chords, nonsimultaneous forcing or larger inclusion-minimal seed families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_STATIC_COVERAGE_ONLY",
+          "evidence": "Preserving all forcing sets does not determine the synchronous propagation-time histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "Theorem 22, Claim 1 and surrounding proof in accessible arXiv PDF",
+          "method": "Read exact theorem and inspected page image; compared static set equivalence with dynamic times",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Direct same singly-chorded cycle zero-forcing-set classification"
+        },
+        {
+          "assessment": "KNOWN_CYCLE_BOUNDARY",
+          "evidence": "Unchorded cycle time formula is prior; no full chorded family spectrum established by the inspected portion.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.1492",
+          "material_read": "Abstract and cited cycle iteration-index statement in publicly accessible source",
+          "method": "Compared cycle formula and its use as prior numerical benchmark",
+          "title": "Iteration Index of a Zero Forcing Set in a Graph",
+          "trigger": "Classical propagation-time result for cycles"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE",
+          "evidence": "Full text could contain the singly-chorded cycle family under alternative terminology; retained as priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.16335",
+          "material_read": "Accessible abstract and relevant reported problem description; complete text not verified",
+          "method": "Assessed scope conservatively; no whole-document noncoverage asserted",
+          "title": "Zero forcing propagation time intervals and graphs with fixed propagation time",
+          "trigger": "Recent potential broader propagation-time classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single chord is the minimal structural perturbation of a cycle and preserves its zero-forcing polynomial, making the change in propagation times a sharp natural example of a dynamic invariant invisible to static forcing-set counts. The complete seed-resolved enumerator, parity jump and efficient-seed count distinguish chord geometry. This exact graph-family classification is mathematical content beyond substituting into a standard formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic search: propagation times singly chorded cycle zero forcing minimum sets interval enumerator efficient sets",
+    "Boyer et al. arXiv:1801.08910",
+    "Chilakamarri et al. arXiv:1105.1492",
+    "Hogben et al. arXiv:1410.4191",
+    "Ferrero et al. arXiv:2511.16335"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Science is assessed independently from the complete frozen mathematical RESULT.md and relevant verification source; finite checks do not prove universality.",
+    "Scientific originality is best-of-knowledge and distinct from publication readiness; cited source access limits remain explicit.",
+    "Public metadata sanitization is incomplete, so no publication is authorized."
+  ],
+  "residual_risks": [
+    "A general propagation-time paper may encode the chorded-cycle histogram without naming chorded cycles; the most recent relevant full text was not exhaustively inspected.",
+    "No claim extends to multiple chords, nonsimultaneous forcing or larger inclusion-minimal seed families."
+  ],
+  "schema_version": 1
+}

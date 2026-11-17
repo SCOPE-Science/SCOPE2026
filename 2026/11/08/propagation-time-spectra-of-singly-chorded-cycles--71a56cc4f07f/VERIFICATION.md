@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proven for every integer \(n\ge4\) with chord-defined arc lengths \(a,b\ge2\). The proof's critical step is the two-front evolution on one chord arc, the blocking of the opposite arc until both endpoints are colored, and two-front completion of the other arc. The exact multiplicity list \(B_\ell(z)\) is a finite counting identity valid for every integer arc length. Nothing beyond this domain, such as multiple chords or different forcing rules, is claimed.
+# Independent mathematical audit
 
-Run `python3 verification/check_python.py` from the directory containing the files. It builds the cyclic adjacency sets and applies all available legal forces at each round, independently of the theorem. It compares the resulting round counts to the formula for every chord placement on orders 4 through 50, and tests all nonconsecutive pairs at orders up to 12. This produced the message `PASS: all lengths n=4..50 ...`.
+## correctness
 
-Run `g++ -std=c++17 -O2 verification/check_cpp.cpp -o propagation_check` followed by `./propagation_check`. Its independent unsigned-bit-mask representation checks all two-seed pairs for every chord placement on orders 4 through 22 and verifies the stated extrema, gapless spectrum, efficient-set counts, and cycle parity comparison. It produced `INDEPENDENT_CPP_PASS graphs=190 pairs=24795 n=4..22 all chord positions and all two-seed sets`.
+PASS
 
-The two finite checks are deliberately corroborative; neither is presented as proof of an infinite statement. Only the code sources are required, no unavailable binary or hidden data are dependencies. Independent scholarly audit has not been performed.
+For C_n plus non-cycle chord 0–a, 2≤a≤n−2, a singleton or non-cycle-adjacent blue pair cannot force initially; each of n cycle-edge pairs can. For a cycle pair at positions i,i+1 on the a-edge chord arc, two propagation fronts fill that arc; chord endpoint 0 turns blue after i rounds and endpoint a after a−1−i rounds, and neither can force into the second arc until both are blue because each earlier endpoint has two uncolored neighbors (chord endpoint and cross-arc neighbor). At T=max(i,a−1−i) both are blue, then the b−1 internal vertices fill simultaneously from endpoints in floor(b/2) rounds, giving t_a(i)=T+floor(b/2). Reverse arc likewise. The max-distance histograms B_a,B_b immediately give H_{a,b}, endpoints, no gaps and fastest count 2+1_(2|a)+1_(2|b). Independent direct synchronous graph simulation tested every chord and each two-vertex initial set for n=4..14, confirming time arrays; the full all-n proof is the symbolic front argument. Both packaged Python and C++ graph simulators were read.
+
+## originality
+
+PASS
+
+Boyer et al. arXiv:1801.08910 Claim 1 prove adding a chord preserves all zero-forcing sets (hence the polynomial), but do not provide propagation times. Chilakamarri et al. arXiv:1105.1492 give the unchorded cycle iteration index. Hogben et al. arXiv:1410.4191 and Ferrero et al. arXiv:2511.16335 address general propagation-time notions/intervals and other families. A fresh Resultary semantic query found no earlier exact all-a,b chord-resolved time histogram apart from the audited Nov8 entry. The new full distribution is not a corollary of preserving forcing-set membership, since first-passage times depend on propagation geometry. Best-of-knowledge PASS with remaining literature risk.
+
+## value
+
+PASS
+
+A single chord is the minimal structural perturbation of a cycle and preserves its zero-forcing polynomial, making the change in propagation times a sharp natural example of a dynamic invariant invisible to static forcing-set counts. The complete seed-resolved enumerator, parity jump and efficient-seed count distinguish chord geometry. This exact graph-family classification is mathematical content beyond substituting into a standard formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: propagation-time spectra of singly chorded cycles
+# Independent mathematical audit
 
-## Correctness: PASS
-The proposed theorem fixes standard *parallel* zero forcing, all integers \(n\ge4\), and exactly one chord whose two cyclic arc lengths are \(a,b\ge2\). From any initially blue consecutive pair on the first arc, the two outward fronts arrive at the chord endpoints after \(i\) and \(a-1-i\) rounds; before both are blue, an endpoint cannot force into the other arc because its chord neighbor and next opposite-arc neighbor are both white. Completion therefore takes \(\max\{i,a-1-i\}+\lfloor b/2\rfloor\), and symmetrically for the other arc. The two exact per-arc lists give the stated closed enumerator and all corollaries by elementary multiplicity counting. The proof treats the smallest chord lengths and all boundary seeds. Independent standard-rule Python and C++ simulations, executed from their supplied standalone paths, agree on all checked graph instances and all two-vertex seeds in the smaller range; the proof, not these finite checks, establishes universal validity.
+## correctness
 
-## Originality: PASS, qualified historical priority
-Boyer et al., *The zero forcing polynomial of a graph* (arXiv:1801.08910, Theorem 22, Claim 1) already establish that \(C_n\) and its singly chorded version have exactly the same zero forcing sets. This crucial prior theorem is credited; it is not the claimed discovery. Chilakamarri et al. (arXiv:1105.1492, Observation 2.6(iii)) give the ordinary cycle's iteration index. Hogben et al. (arXiv:1410.4191) define the minimum/maximum propagation times and efficient sets; Ferrero et al. (arXiv:2511.16335) study full time intervals for general graph families. The present exact seed-level time enumerator, its sharp parity switch, gapless time spectrum and 2/3/4 efficient seeds are not given by those results. Direct literature and semantic research-record searches for chorded cycles and propagation-time enumerators returned no implication-equivalent result. A failure to locate a pre-existing formula is not an independent novelty guarantee; alternate terminology and unpublished computations remain risks.
+PASS
 
-## Value: PASS
-The zero forcing polynomial fails to distinguish ordinary cycles from cycles with one chord, so a natural mathematical gap is whether more refined dynamics do. The theorem gives a complete, infinite-family answer: it shows exactly how a chord changes the time spectrum even when it does not change the forcing-set family. This is not a cardinality-table recomputation. The exact minimum and maximum, realized intermediate times, and efficient seed count are meaningful deployment statistics for synchronous graph propagation. No larger graph family or other color-change rule is asserted.
+For C_n plus non-cycle chord 0–a, 2≤a≤n−2, a singleton or non-cycle-adjacent blue pair cannot force initially; each of n cycle-edge pairs can. For a cycle pair at positions i,i+1 on the a-edge chord arc, two propagation fronts fill that arc; chord endpoint 0 turns blue after i rounds and endpoint a after a−1−i rounds, and neither can force into the second arc until both are blue because each earlier endpoint has two uncolored neighbors (chord endpoint and cross-arc neighbor). At T=max(i,a−1−i) both are blue, then the b−1 internal vertices fill simultaneously from endpoints in floor(b/2) rounds, giving t_a(i)=T+floor(b/2). Reverse arc likewise. The max-distance histograms B_a,B_b immediately give H_{a,b}, endpoints, no gaps and fastest count 2+1_(2|a)+1_(2|b). Independent direct synchronous graph simulation tested every chord and each two-vertex initial set for n=4..14, confirming time arrays; the full all-n proof is the symbolic front argument. Both packaged Python and C++ graph simulators were read.
 
-## Literature and limits
-The nearest covering result is the known *static* set-family identity in Boyer et al. (2018); no claimed novelty attaches to that fact. The standard timing model and fixed-cycle baseline are as cited above. Boundary assumptions, non-asynchronous forcing, absence of multiple chords and the lack of independent historical audit remain explicit restrictions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Boyer et al. arXiv:1801.08910 Claim 1 prove adding a chord preserves all zero-forcing sets (hence the polynomial), but do not provide propagation times. Chilakamarri et al. arXiv:1105.1492 give the unchorded cycle iteration index. Hogben et al. arXiv:1410.4191 and Ferrero et al. arXiv:2511.16335 address general propagation-time notions/intervals and other families. A fresh Resultary semantic query found no earlier exact all-a,b chord-resolved time histogram apart from the audited Nov8 entry. The new full distribution is not a corollary of preserving forcing-set membership, since first-passage times depend on propagation geometry. Best-of-knowledge PASS with remaining literature risk.
+
+## value
+
+PASS
+
+A single chord is the minimal structural perturbation of a cycle and preserves its zero-forcing polynomial, making the change in propagation times a sharp natural example of a dynamic invariant invisible to static forcing-set counts. The complete seed-resolved enumerator, parity jump and efficient-seed count distinguish chord geometry. This exact graph-family classification is mathematical content beyond substituting into a standard formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
