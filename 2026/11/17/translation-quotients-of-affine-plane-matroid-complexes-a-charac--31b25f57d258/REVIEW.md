@@ -1,0 +1,19 @@
+# Scientific review: affine-plane translation quotients
+
+## Correctness — PASS
+
+The rank-three independence complex of a matroid is shellable and has a wedge-of-two-spheres homotopy type; this premise is supported by the full-text account of Ardila, Castillo and Samper, arXiv:1410.3870, Sections 1–2. Nonzero translations of \(\mathbb F_q^2\) have prime order \(p\) and no fixed vertices. The only invariant faces possible have size \(p\le3\); in characteristic three a whole translation orbit of size three is collinear and hence is *not* a face. In characteristic two, the only invariant faces are edges; every nonzero translation fixes \(q^2/2\) isolated edge midpoints. The orbit fundamental-group theorem therefore yields trivial \(\pi_1\) for \(p=2\) and the additive group \((\mathbb Z/p)^{2e}\) otherwise. The face count and fixed-point Euler calculation give the stated second Betti rank. Two-dimensionality and finite first homology eliminate higher and hidden torsion; simple connectivity in characteristic two gives a wedge of spheres via Hurewicz and Whitehead. Exact integral orbit-chain computations independently verify \(q=2,3,4\), including the nonprime field of order four. No infinite conclusion is inferred from these computations.
+
+## Originality — PASS relative to inspected evidence
+
+The full primary text arXiv:1410.3870 proves matroid shellability, but does not analyze finite-affine-translation orbit spaces. The full primary text arXiv:2001.03760 treats representations on homology of the cover and its dual rather than integral homology of an actual geometric quotient; no affine-plane quotient classification appears in its inspected introduction, general-theorem and applications sections. Armstrong's original 1965 theorem is an important methodological precursor but gives no affine-plane stabilizer classification or Euler counts. The closest indexed mathematical records concern affine-plane *incidence Rips* complexes, affine-plane cap/noncover complexes, Shrikhande graph independence quotients, and Singer quotients of *projective* matroid complexes. These are not the rank-three affine-geometry independence complexes under all additive translations, nor are their stated conclusions strong enough to imply the new characteristic-two wedge classification and odd-characteristic torsion formula. Exact statement/implication comparisons and the remaining priority risks appear in `AUDIT.json`.
+
+## Value — PASS
+
+This is a uniform classification of a natural infinite family of symmetry quotients of finite-geometry matroid independence complexes. The parity change is structural: all nonzero translations acquire edge-barycenter fixed points exactly in characteristic two, destroying the entire fundamental group. Consequently one obtains an explicit wedge-of-spheres homotopy type for every even-characteristic order, whereas every odd-characteristic quotient has nontrivial finite first homology of arbitrarily large prime exponent. Explicit second-homology ranks also refine information obtainable from rational cover homology alone. The natural object, precise group action, motivic mechanism and nonroutine arithmetic boundary support value beyond an arbitrary finite calculation.
+
+## Closest literature and scientific limits
+
+The matroid shellability and representation theorems are pre-existing, and the group-action fundamental-group theorem is classical. The new contribution is their application with a complete affine translation stabilizer analysis and integer quotient classification. Equivalent results in unindexed sources, or generic equivariant matroid methods specialized elsewhere, remain possible publication-priority risks. The odd-characteristic quotient's full homotopy type and cohomology ring are not determined; the standalone computation covers \(q=2,3,4\) only.
+
+Self-review: passed. Independent audit: not yet performed.
