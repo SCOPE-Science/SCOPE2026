@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: for a,b,c>0 three dihedrals are right and the other three are arctan(a/b), arctan(c/b), arccos(ac/(sqrt(a²+b²)sqrt(b²+c²))). Reconstructed face-normal sign convention (interior angle = arccos(-n_i·n_j)), so δ is minimum of those three acute angles. With t<=δ, sin²t<=cos t; equality yields t=acos(1/φ) with a/b=c/b=sqrt(φ), and these values are attainable. For π/4<t<=θ*, sin α sin γ<=cos t yields individual bounds tan t<=a/b,c/b<=cos t/sqrt(sin²t-cos²t), attained with the opposite angle exactly t. For t<=π/4, one ratio diverges with the other angle equal t. This exactly proves open/closed/empty boundary cases, not a numerical optimization. Independent outward-face-normal and trigonometric computations on 2000 random triples plus equality and superlevel samples corroborated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korotov–Křížek Theorem 2 yields 2π<Σ<5π/2 for the same family.",
+          "Other same-family orthoscheme theorem maximizes minimum vertex solid angle and has optimizer 1:sqrt2:1, while here dihedral optimizer has sqrtφ:1:sqrtφ."
+        ],
+        "reasoning": "Neither the broad dihedral sum bounds nor the distinct solid-angle quality imply the sharp min-dihedral feasibility inequalities, despite sharing elementary triangle geometry.",
+        "searches": [
+          "Korotov Krizek Two-sided bounds for dihedral angle sums path tetrahedra Section2",
+          "mesh tetrahedra sharp minimum dihedral angle orthoscheme golden ratio",
+          "Resultary minimum solid angle optimizer orthoschemes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2601.08304v1 (Korotov–Křížek 2026, full Section 2)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-solid-angle-optimizer-among-three-dimensional-orth--819f8a162869",
+        "https://doi.org/10.1007/978-3-030-55677-8 (book metadata; full text unread)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older Σ bound is attained only degenerately along a=c families and supplies no positive lower bound on min dihedral; hence it cannot yield θ* or U(t).",
+          "Even knowing the distinct minimum solid-angle optimizer does not yield the dihedral-angle maximin formula."
+        ],
+        "reasoning": "Credited new consequences are θ*=acos(φ^-1), rigid optimal similarity class, and phase transition of δ-superlevel sets. Standard six-angle formulas are explicitly prior ingredients.",
+        "searches": [
+          "arxiv:2601.08304 Theorem 2 and Section 2 formulas",
+          "orthoscheme minimum solid angle optimizer 2026/11/8",
+          "mesh quality minimum dihedral vs dihedral sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angle-normalized shape domain can be described by (α,γ)=(atan(a/b),atan(c/b)) and β=acos(sinα sinγ); δ=min(α,β,γ).",
+          "The earlier path paper writes these angles but optimizes Σ=3π/2+α+β+γ, not min(α,β,γ)."
+        ],
+        "reasoning": "A sum bound is not equivalent to maximin: shapes with the same sum can have very different minima, and the sharp π/4 noncompactness concerns superlevel sets of the min.",
+        "searches": [
+          "path orthoscheme tetrahedron sharp smallest dihedral angle golden ratio maximin",
+          "Korotov Křížek arxiv:2601.08304 Section 2",
+          "Resultary: path tetrahedron min dihedral versus solid angle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact-matching item reproduces the assigned package itself, not independent earlier research; indexed other path-solid-angle and angle-sum records optimize different functionals."
+        ],
+        "reasoning": "No independently checked lookup table or known constant implies the all-t compactness transition; evidence is actual proof of the complete feasible region.",
+        "searches": [
+          "Resultary path tetrahedra dihedral golden ratio compactness",
+          "tetrahedral mesh quality minimal dihedral angle path tetrahedron optimizer",
+          "Korotov Krizek 2601.08304 equations"
+        ]
+      },
+      "rationale": "PASS, qualified: the 2026 same-object Korotov–Křížek primary text supplies dihedral formulas but establishes sharp bounds on their SUM, not the maximum of the MINIMUM or compactness transition. A separate same-family sharp minimum *solid* angle optimizer gives a different constant, so it does not imply this dihedral quality result. No dominating theorem was found among inspected sources, with specialist FEM priority risk explicit.",
+      "residual_risks": [
+        "Older specialist mesh-quality books or orthoscheme tables could imply this maximin; the complete monograph was not inspected.",
+        "Finite face-normal tests corroborate formulas, not the all-t bounds; analytic trig inequalities supply universality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING min-angle maximin or π/4 superlevel classification",
+          "evidence": "Theorem 2 proves (2π,5π/2) for the sum of six dihedral angles; its Section 2 provides arctangent/arccosine formulas adopted as classical ingredients.",
+          "identifier_or_url": "https://arxiv.org/html/2601.08304v1",
+          "material_read": "Full accessible primary HTML, introduction, Section 2 coordinate formulas and Theorem 2 with proof, remaining section headings and references checked",
+          "method": "Primary arXiv full HTML; direct comparison of hypotheses, three non-right angles, and optimization functional",
+          "title": "Two-sided bounds for dihedral angle sums of path and 4-ball tetrahedra",
+          "trigger": "Identical geometric family; possible same-bound coverage"
+        },
+        {
+          "assessment": "DISTINCT_INVARIANT",
+          "evidence": "The maximum minimum *vertex solid angle* occurs for arms 1:sqrt2:1, not the claimed dihedral min optimizer sqrtφ:1:sqrtφ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-solid-angle-optimizer-among-three-dimensional-orth--819f8a162869",
+          "material_read": "Read complete actual package RESULT.md, including full proof, optimizer and scope",
+          "method": "Read-only original Git blob at frozen commit and exact theorem comparison",
+          "title": "Sharp minimum-solid-angle optimizer among three-dimensional orthoschemes",
+          "trigger": "Same orthoscheme with potentially stronger quality theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "No whole-book noncoverage inference is made; priority remains qualified.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-55677-8",
+          "material_read": "Bibliographic metadata and cited role only; complete Springer monograph not read",
+          "method": "Reference identification only, NOT full-text negative comparison",
+          "title": "Simplicial Partitions with Applications to the Finite Element Method",
+          "trigger": "Classic orthoscheme mesh geometry could contain an unstated optimizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: smallest interior dihedral angle is a natural finite-element tetrahedral quality functional. This result gives its exact unique optimizer on all two-parameter path orthoschemes together with a complete sharp shape-feasibility profile; the previously unknown π/4 compactness threshold is an independently useful geometric boundary, not just a numerical golden-ratio evaluation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2601.08304v1 (Korotov–Křížek 2026, full Section 2)",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-solid-angle-optimizer-among-three-dimensional-orth--819f8a162869",
+    "https://doi.org/10.1007/978-3-030-55677-8 (book metadata; full text unread)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Only nondegenerate path orthoschemes, not arbitrary tetrahedra or finite-element mesh convergence.",
+    "Dihedral angles are internal; the vertex solid-angle optimizer is a different result.",
+    "Historical priority beyond inspected texts remains provisional.",
+    "Older specialist mesh-quality books or orthoscheme tables could imply this maximin; the complete monograph was not inspected.",
+    "Finite face-normal tests corroborate formulas, not the all-t bounds; analytic trig inequalities supply universality."
+  ],
+  "schema_version": 1
+}

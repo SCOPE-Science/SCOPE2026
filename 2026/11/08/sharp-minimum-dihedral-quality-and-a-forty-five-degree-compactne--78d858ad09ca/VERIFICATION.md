@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check_path_tetra.py` with Python 3 using only its standard library. Expected deterministic output: `PATH_TETRA_DIHEDRAL_CHECKS_OK 9506`.
+## correctness
 
-The program calculates all six dihedral angles directly from outward oriented face normals and compares them to the stated three-angle formula over 2500 positive triples; it separately checks the exact quality-feasibility predicate, the golden-ratio maximizing shape, and the coordinate bounds and sharpness constructions. The numerical tests use deterministic seeds and tolerances, and are finite corroboration only. All-parameter correctness follows from the independent analytic argument in `RESULT.md`.
+PASS
 
-The source was first posted 2026-01-13 (arXiv:2601.08304v1). Earlier specialist priority remains provisional. No external validation is claimed.
+PASS: for a,b,c>0 three dihedrals are right and the other three are arctan(a/b), arctan(c/b), arccos(ac/(sqrt(a²+b²)sqrt(b²+c²))). Reconstructed face-normal sign convention (interior angle = arccos(-n_i·n_j)), so δ is minimum of those three acute angles. With t<=δ, sin²t<=cos t; equality yields t=acos(1/φ) with a/b=c/b=sqrt(φ), and these values are attainable. For π/4<t<=θ*, sin α sin γ<=cos t yields individual bounds tan t<=a/b,c/b<=cos t/sqrt(sin²t-cos²t), attained with the opposite angle exactly t. For t<=π/4, one ratio diverges with the other angle equal t. This exactly proves open/closed/empty boundary cases, not a numerical optimization. Independent outward-face-normal and trigonometric computations on 2000 random triples plus equality and superlevel samples corroborated.
+
+## originality
+
+PASS
+
+PASS, qualified: the 2026 same-object Korotov–Křížek primary text supplies dihedral formulas but establishes sharp bounds on their SUM, not the maximum of the MINIMUM or compactness transition. A separate same-family sharp minimum *solid* angle optimizer gives a different constant, so it does not imply this dihedral quality result. No dominating theorem was found among inspected sources, with specialist FEM priority risk explicit.
+
+## value
+
+PASS
+
+PASS: smallest interior dihedral angle is a natural finite-element tetrahedral quality functional. This result gives its exact unique optimizer on all two-parameter path orthoschemes together with a complete sharp shape-feasibility profile; the previously unknown π/4 compactness threshold is an independently useful geometric boundary, not just a numerical golden-ratio evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

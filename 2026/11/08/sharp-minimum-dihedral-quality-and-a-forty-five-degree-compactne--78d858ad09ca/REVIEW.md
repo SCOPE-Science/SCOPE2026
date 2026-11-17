@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The interior dihedral-angle calculation yields three right angles and the three acute angles stated in the result. The exact quality-feasibility condition implies \(\sin^2t\le\cos t\), with equality uniquely forcing both non-right path-end dihedrals to the golden-ratio angle. The full condition also gives the sharp shape bounds for \(t>\pi/4\), with explicit boundary-attaining constructions, while one arm may diverge for \(t\le\pi/4\). An independent outward-normal geometry script passed 9506 numerical assertions; the analytic proof—not these samples—establishes universality.
+PASS
 
-## Originality
+PASS: for a,b,c>0 three dihedrals are right and the other three are arctan(a/b), arctan(c/b), arccos(ac/(sqrt(a²+b²)sqrt(b²+c²))). Reconstructed face-normal sign convention (interior angle = arccos(-n_i·n_j)), so δ is minimum of those three acute angles. With t<=δ, sin²t<=cos t; equality yields t=acos(1/φ) with a/b=c/b=sqrt(φ), and these values are attainable. For π/4<t<=θ*, sin α sin γ<=cos t yields individual bounds tan t<=a/b,c/b<=cos t/sqrt(sin²t-cos²t), attained with the opposite angle exactly t. For t<=π/4, one ratio diverges with the other angle equal t. This exactly proves open/closed/empty boundary cases, not a numerical optimization. Independent outward-face-normal and trigonometric computations on 2000 random triples plus equality and superlevel samples corroborated.
 
-**PASS, with priority uncertainty.** Korotov and Křížek (2026, arXiv:2601.08304v1, Section 2) study exactly the same path tetrahedra and provide the key dihedral-angle identities, but prove a statement about their **sum**, not the maximum of their **minimum** or the entire family of quality superlevel sets. The related earlier minimum-*solid*-angle optimization on path tetrahedra concerns a distinct invariant and has a different optimizing shape. Exact minimax, orthoscheme, golden-ratio, and mesh-quality searches found no equivalent coverage; the inaccessible full text of older specialist books is a residual priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Minimum dihedral angle is a natural shape-quality criterion for tetrahedral meshes. The theorem determines the best possible value and unique shape across an entire two-parameter family, and gives an explicit complete classification of all quality levels, including a sharp compactness transition at 45 degrees. It does not assert global best quality among arbitrary tetrahedra or finite-element convergence.
+PASS, qualified: the 2026 same-object Korotov–Křížek primary text supplies dihedral formulas but establishes sharp bounds on their SUM, not the maximum of the MINIMUM or compactness transition. A separate same-family sharp minimum *solid* angle optimizer gives a different constant, so it does not imply this dihedral quality result. No dominating theorem was found among inspected sources, with specialist FEM priority risk explicit.
 
-## Closest literature and limits
+## value
 
-The closest primary work is S. Korotov and M. Křížek, *Two-sided bounds for dihedral angle sums of path and 4-ball tetrahedra* (2026, arXiv:2601.08304v1). The 2020 book by Brandts, Korotov, and Křížek provides relevant nonobtuse-partition context, but complete specialist historical coverage was not available. The theorem and supplementary checks are self-contained in the package.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: smallest interior dihedral angle is a natural finite-element tetrahedral quality functional. This result gives its exact unique optimizer on all two-parameter path orthoschemes together with a complete sharp shape-feasibility profile; the previously unknown π/4 compactness threshold is an independently useful geometric boundary, not just a numerical golden-ratio evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
