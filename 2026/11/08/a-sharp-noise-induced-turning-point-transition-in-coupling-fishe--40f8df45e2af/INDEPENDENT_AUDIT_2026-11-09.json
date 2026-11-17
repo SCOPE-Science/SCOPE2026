@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T17:50:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stationary covariance solves K_b Sigma+Sigma K_b=2 diag(1,1+d) uniquely for |b|<1, giving the specified Gaussian snapshot FI F(z,d), z=b². Independently checked symbolic Lyapunov solution, Gaussian Fisher trace identity, and exact derivative factorization ∂zF proportional to cubic P(z,d) with negative denominator. P(0,d)<0, P(1,d)<0, and P_zz<0 on 0<=z<=1; hence only zero or two interior simple roots or one double root. P/d^4=A(z)-sum_{j=1}^4 B_j(z)/d^j with all B_j>0; the maximum is continuous and strictly increasing from negative to positive, so there is exactly one transition at d*=33.219537333... z*=0.1389386404..., which independently solves P=P_z=0. Nondegenerate double root gives square-root split; large d root scaling z_-~4/(3d), z_+→(9-sqrt57)/4. Formula is for known d, not the marginalized nuisance Fisher information. Critical numerical digits are uncertified approximations; uniqueness is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nascimento–Morgado qualitative statement that large added noise makes FI nonmonotone precedes this result; Matsumoto et al. study a spatial-current learning-rate matrix rather than parameter Fisher information."
+        ],
+        "reasoning": "General Gaussian Fisher identities reduce the calculation but do not imply the global count and threshold without the nontrivial cubic concavity/normalization argument. The primary full source was not inspectable, so presence of an unobserved critical value remains a risk.",
+        "searches": [
+          "Gaussian Fisher coupling noise induced double turning points Brownian gyrator critical ratio 33.2195",
+          "Nascimento Morgado turning points critical noise Fisher Brownian gyrator",
+          "arxiv:2504.09981 learning rate matrix"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.20963",
+        "https://arxiv.org/abs/2504.09981"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "FI Eq.(26) and observation of noise-induced loss of monotonicity known in earlier article; current polynomial yields precise d*=33.2195 and branches."
+        ],
+        "reasoning": "The earlier formula mathematically contains this as a consequence, but it is not a trivial substitution: isolating one transition requires a global concave cubic sign argument, not merely differentiating or plotting. Full primary contents were not authenticated beyond available accessible material; priority risk explicit.",
+        "searches": [
+          "Gaussian Fisher coupling noise induced double turning points Brownian gyrator critical ratio 33.2195",
+          "arxiv:2610.20963",
+          "arxiv:2504.09981"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nascimento–Morgado stationary Gaussian FI formula Eq.(26) equals the F(z,d) used here after normalizing baseline noise and writing z=b²."
+        ],
+        "reasoning": "The covariance/Fisher formula is old. The new claim is the exact bifurcation of its derivative and classification of extrema, not a newly discovered noise process or static FI expression.",
+        "searches": [
+          "Gaussian Fisher coupling noise induced double turning points Brownian gyrator critical ratio 33.2195",
+          "arxiv:2610.20963 Fisher information Langevin thermal athermal coupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest substantive hit is the same submitted result, plus distinct Brownian-gyrator information or estimation problems; no exact matching threshold table identified."
+        ],
+        "reasoning": "A numerical plot or threshold guess alone cannot provide global uniqueness across d>0; the exact cubic supplies the proof. Negative search not itself novelty proof.",
+        "searches": [
+          "Gaussian Fisher coupling noise induced double turning points Brownian gyrator critical ratio 33.2195",
+          "Langevin two degree freedom Fisher information noise threshold 33.2195"
+        ]
+      },
+      "rationale": "Best-of-knowledge targeted statement comparison against actual published same-object sources. The existing general principles and any known same-size phenomena are explicitly credited; the surviving contribution is the precise additional scoped statement (see four checks and residual risks).",
+      "residual_risks": [
+        "The full primary Nascimento–Morgado article could contain uninspected threshold derivations; best-knowledge originality limited.",
+        "Near-critical numerical values are high precision approximations, not interval enclosures.",
+        "Only stationary single-snapshot FI with known d, not nuisance-adjusted/pathwise information."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formula and qualitative nonmonotonicity prior; full-text threshold exclusion impossible",
+          "evidence": "Prior article gives stationary covariance / Fisher information and qualitatively observes nonmonotonicity at large d; new sharp global d threshold assessed separately.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.20963",
+          "material_read": "Public abstract and source equations (stationary covariance and Eq.26) as reproduced and algebraically checked; full paper was not retrieved in this run",
+          "method": "ArXiv index and actual equations from frozen research record, independent symbolic derivation",
+          "title": "Fisher information analysis of a Langevin System with Thermal and Athermal Noise",
+          "trigger": "Identical model and Fisher matrix"
+        },
+        {
+          "assessment": "Different learning-rate matrix based on currents rather than Fisher score for coupling",
+          "evidence": "Parameter FI trace(Σ^-1∂bΣΣ^-1∂bΣ)/2 not same as entropy-flow or learning-rate matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.09981",
+          "material_read": "Public abstract and cited definition, not a complete close-reading of entire article",
+          "method": "Compare observables and dimensions",
+          "title": "Learning rate matrix and information-thermodynamic trade-off relation",
+          "trigger": "Similar Brownian gyrator information object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp global qualitative-to-quantitative transition in a physically motivated, exactly solvable two-coordinate nonequilibrium stochastic model: precise noise threshold, two-turning-point count, bifurcation singularity and asymptotic branch scales. The source paper already notes qualitative nonmonotonicity and gives the FI formula; the complete one-threshold classification is additional and potentially useful for coupling identifiability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent exact symbolic formula checks and numerical double-root solve performed; global uniqueness follows analytic P/d^4 argument, not grid search. No full primary text material read here.",
+    "Scientific sources are evidence; this audit is not external certification. No GitHub writes, queue closeout or publication made.",
+    "The full primary Nascimento–Morgado article could contain uninspected threshold derivations; best-knowledge originality limited.",
+    "Near-critical numerical values are high precision approximations, not interval enclosures.",
+    "Only stationary single-snapshot FI with known d, not nuisance-adjusted/pathwise information."
+  ],
+  "schema_version": 1
+}
