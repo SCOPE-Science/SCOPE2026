@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T13:14:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stationary simultaneous Poisson resetting, the common last-reset age T is Exp(1) after normalization, and counts conditional on T are multinomial with disjoint tails q_b(T). Therefore Cov(C+,C-)=N[(N-1)J(b)-Np_b²], J=E[q_b(T)²], p_b=e^{-b}/2. Strict variance J-p_b²>0 gives exact population sign threshold. Split at T=b² and 1 to obtain Var(q_b(T))=b² log(1/b)/(2π)+O(b²), hence Ncrit~π/(2b² log(1/b)); the K0 joint density has corner asymptotic J~2^{-3/4}b^{-1/2}e^{-sqrt(2)b}/sqrt(π), establishing large-b threshold. With b_N²=c/(N log N), Cov/N→(c-π)/(4π). All claims are for N>=2, b>0; no uniqueness in b or claim of sign at c=π. Independently evaluated the age integral and K0 polar integral for b=0.1,1,4, agreeing numerically. Source code check.py was inspected, not treated as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al. 2023 conditional-i.i.d. framework gives mixture expectations and order/sum statistics."
+        ],
+        "reasoning": "The general mixture formalism encompasses these observables abstractly but its inspected Brownian applications do not give the exact opposing-tail sign competition or critical logarithmic N dependence. Broader representability is disclosed, not mistaken for proved noncoverage of every possible corollary.",
+        "searches": [
+          "Brownian particles synchronously common reset clock covariance counts left right opposite tails sign change critical particle number mesoscopic threshold",
+          "arXiv:2307.15351"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.00563 main Eq.(4) and supplement Section IV",
+        "arXiv:2307.15351 conditional-i.i.d. mixture theory",
+        "Resultary semantic query: Brownian particles synchronously common reset clock covariance counts left right opposite tails sign change critical particle number mesoscopic threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional multinomial law gives N[(N−1)J−Np²].",
+          "Small-b variance coefficient b² log(1/b)/(2π) and large-b corner constant are needed for the theorem."
+        ],
+        "reasoning": "Prior mixture results imply the covariance after further integration, but not the quantified threshold and critical scaling without the nontrivial singular-integration steps; O accepted on those limits, not the base representation. A hidden published full-count analysis could overturn priority.",
+        "searches": [
+          "Brownian particles synchronously common reset clock covariance counts left right opposite tails sign change critical particle number mesoscopic threshold",
+          "arXiv:2211.00563 Eq.(4)",
+          "arXiv:2307.15351"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli et al. 2022 main Eq.(4): stationary Brownian-gas density is a shared-exponential-age Gaussian mixture.",
+          "arXiv:2211.00563 supplementary Section IV: single symmetric-interval count statistics rather than opposing disjoint tails."
+        ],
+        "reasoning": "The exact opposite-tail covariance can be calculated from the known density; the density and conditional-i.i.d. representation are NOT original. The original-looking claim is the two-tail sign threshold, b→0 logarithmic law and b_N critical constant, which are additional nontrivial asymptotics, not simply a relabeling of the full mixture formula.",
+        "searches": [
+          "Brownian particles synchronously common reset clock covariance counts left right opposite tails sign change critical particle number mesoscopic threshold",
+          "arXiv:2211.00563",
+          "arXiv:2307.15351"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Single-interval full-counting moments are not a two-disjoint-tail covariance table; no exact Ncrit(b) or π mesoscopic threshold identified."
+        ],
+        "reasoning": "There is no finite database or canonical tabulation of this all-b continuous parameter asymptotic in the inspected materials; an FCS generating function for a distinct region is not a matching exact table.",
+        "searches": [
+          "Brownian particles synchronously common reset clock covariance counts left right opposite tails sign change critical particle number mesoscopic threshold",
+          "arXiv:2211.00563 supplementary Section IV"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.",
+      "residual_risks": [
+        "General FCS under common resetting might contain an equivalent two-tail result in uninspected supplementary sources.",
+        "Proved only the limiting sign for c<π and c>π, not c=π or uniqueness of finite-N distance crossing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS stationary distribution and some FCS, not the inspected exact opposite-tail sign/asymptotic statement",
+          "evidence": "main Eq.(4); supplementary Section IV",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Main stationary distribution Eq.(4), supplementary symmetric-interval counting Section IV, main methods",
+          "method": "arXiv PDF textual reading and rendered pages",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Same simultaneous reset Brownian gas; possible complete count formula"
+        },
+        {
+          "assessment": "COVERS probabilistic structure; no target critical two-tail constant identified",
+          "evidence": "introductory c.i.i.d. framework; Brownian statistics sections",
+          "identifier_or_url": "https://arxiv.org/abs/2307.15351",
+          "material_read": "General conditional-i.i.d. equations, Brownian application and overview",
+          "method": "arXiv PDF full-text search/section reading",
+          "title": "Exact extreme, order and sum statistics in a class of strongly correlated system",
+          "trigger": "General conditional-independent mixture might dominate proposed law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A stationary common resetting environment makes opposite-tail indicators exclusive within a particle yet positively dependent across distinct particles. The exact, sign-changing finite-population threshold and logarithmically corrected N log N critical window describe a genuine collective fluctuation transition not quantified by the previously known one-particle Laplace law. The sharp asymptotic constant π is a usable boundary for later counting-limit work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General FCS under common resetting might contain an equivalent two-tail result in uninspected supplementary sources.",
+    "Proved only the limiting sign for c<π and c>π, not c=π or uniqueness of finite-N distance crossing."
+  ],
+  "schema_version": 1
+}
