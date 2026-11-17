@@ -1,15 +1,21 @@
-# Scientific review: diamond preconditional isomorphism spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the five explicit preconditional axioms, derives the forced bottom/top/atom-row forms, and checks the only surviving (P5) restrictions. It separates the three possible bottom values without double counting. For the top-bottom-row case, the four marked terminal forms and arrows to a *different* atom provide a bijective functional-digraph encoding. A permutation cycle of length \(d\) has exactly \(3+\sum_{e\mid d}e c_e\) equivariant choices, yielding the stated Burnside formula. The unlabelled multiset decomposition and the classical Otter-root singularity produce the given generating function and square-root-pole asymptotic. Both packaged checkers executed successfully and agree on the first nine reported sizes. The infinite statements rest on proofs, not finite checks.
+## correctness
 
-## Originality — PASS within inspected literature
-The labeled row normal form, including the exact labeled count \((m+3)^m+2^m+2m3^{m-1}\), is a prior ingredient and is excluded from the novelty claim. Holliday's preconditional axiomatization and Chen's recent logical extensions are also prior work. The new object is the **isomorphism quotient** under all atom permutations: the orbit formula, the four-colored functional-graph correspondence, the component generating function, and the exact \(\rho^{-m}m^{-1/2}\) growth exponent and coefficient. Comparisons against relevant algebraic-logical literature and exact-index searches did not uncover this quotient classification. Routine uses of Burnside, Pólya and Otter are acknowledged, not relabeled as original lemmas. An unindexed or not-yet-accessible equivalent classification remains a priority risk.
+PASS
 
-## Value — PASS
-Isomorphism classification is the natural structural refinement of a labeled model count: it measures genuinely distinct algebraic semantics, not presentations obtained merely by naming atoms differently. The theorem gives an all-sizes exact spectrum and a canonical decomposition into four-colored termination trees and directed-cycle components; the asymptotic exponent further describes the distribution of the entire family, not an arbitrary small-case numerical improvement. The result provides natural combinatorial infrastructure for studying subclasses of these preconditionals. No assertion is made about other lattices or stronger axioms.
+The P3/P4 meet-row reduction and P1/P2 constrain top, bottom, and each atom row. P5 gives exactly a_i->u_i<=u_i and a_i->w<=w. The disjoint bottom cases w=0, w=atom, w=1 yield respectively m+1, m(m+1), and four-colored terminal-or-arrow functional digraph types; the first two sum (m+1)^2. For permutation cycle length d the equivariant choice is four terminal colors plus Fix(sigma^d)-1 other vertex targets, hence 3+sum_{e|d}e c_e; Burnside gives the stated partition sum. Rooted-tree decoration of sinks and directed cycles gives A(z) and C(z). Splitting out d=1 gives a (1-T(z))^{-1} factor; Otter T(z)=1-b sqrt(1-z/rho)+... yields coefficient K rho^{-m}m^{-1/2}. Independent exact Burnside evaluation gives U_2..U_10=(24,66,186,533,1562,4592,13532,39778,116724). These finite values do not prove asymptotics.
 
-## Limits and closest sources
-Holliday (2024), *Preconditionals*, defines the five axioms. Chen (2026), *Fundamental Propositional Logic with Preconditional*, connects the class to \(\mathsf K\), \(\mathsf T\) and \(\mathsf F\) logics. The labeled finite-diamond normal form and classical rooted-tree singularity are explicitly treated as known inputs. External independent checking of the claimed novelty and of the proof has not been performed. The finite checkers cover only their stated ranges.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge. The Oct 18 and Oct 26 height-two preconditional classifications already give labeled operation counts. They do not count orbits under atom permutations, identify the four-terminal functional-map isomorphism structure, or derive the Otter-type square-root pole. The entire Oct 26 earlier proof was compared. Standard Pólya/Otter and generic unlabelled functional-digraph theory are credited as methods, not novelty. No stronger published original calculation of this lattice-specific quotient was found; priority risk from unindexed equivalence remains.
+
+## value
+
+PASS
+
+PASS. Isomorphism classes are the natural intrinsic objects for finite algebra classifications, unlike raw labeled operation counts. The complete Burnside spectrum, canonical functional-digraph model and sharp asymptotic characterize how many inequivalent logical algebra structures occur as the atom count grows. The change from ordinary rooted-tree m^{-3/2} to a square-root pole m^{-1/2} is mathematically structural, independently useful for enumeration and comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
