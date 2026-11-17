@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single final claim is the exact endpoint convolution norm of the full odd-characteristic symmetric Veronese cone, together with its fixed-field two-term asymptotic and positive parity coefficients. The trace pairing is nondegenerate for odd characteristic. The two-to-one parametrization of nonzero cone points proves the Gaussian-kernel identity. Rank-type orbit sizes, including the nonzero even-rank discriminant imbalance, yield the stated sum exactly. The source of the rank formula is identified. The finite-dimensional law is reorganized through symmetric-matrix nullities. Its first-order Euler-product expansion is justified by a superexponentially summable nullity majorant; the remainder is \(O_q(q^{-2m})\). Stationary probability ratios simplify the coefficients, and elementary parity inequalities prove their positivity. Direct full Fourier enumeration for the tested prime fields agrees with the formula. The key caution is that empirical asymptotic checks are not a substitute for the product-tail proof.
+PASS
 
-## Originality — PASS under bounded source comparisons
+The actual RESULT.md derives the full-cone multiplier kernel (1+G(A))/(2q^{m(m+1)/2}), diagonalizes symmetric quadratic forms by rank/type and uses orthogonal-orbit counts for even-rank discriminant imbalance q^{-r/2}; the displayed rank counts sum to q^{m(m+1)/2}. Reconstructed Gaussian sums and all symmetric matrices for q=3,5,7,m=2 gave L=2.080222610686, 3.257312629200, 4.431876640769, agreeing with the formula. Independent high-precision rank-sum calculations at m=8..17 gave q^m(H_m-S_q) approaching the two claimed C_q,parity constants for q=3 and 5; the proof's Euler-product expansion and super-exponential nullity tail, rather than finite tests, justify fixed-q asymptotics. Boundary rank zero and q mod 4 imaginary phase are included. Only odd q and fixed q in asymptotics are claimed.
 
-The nearest inspected full text is Fulman–Goldstein, Section 4: it provides nullity distributions and total-variation estimates, not the Veronese Fourier projection or the explicit signed type-resolved kernel norm. Iosevich–Koh establishes quadratic-character sum methods for nondegenerate quadratic hypersurfaces rather than the full symmetric rank-one cone projector. General quantitative idempotent theorems address structural representation, not this sharp endpoint norm. The closely related published first-coordinate Veronese-frame result concerns a restricted Riesz/Gram matrix, not the full-cone convolution norm; accessible descriptive material did not establish a stronger implication, but its complete text was not read. Hodges' symmetric exponential-sum article is a particularly plausible source of implicit coverage; its original full text could not be obtained, so priority has an explicit residual risk. No assertion of absolute novelty is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full rank-one symmetric cone is a canonical frequency set in a finite matrix group; the \(\ell^1\) norm of its projection kernel is the exact worst-case amplification constant for sharp Fourier filtering. The exact result resolves every odd field and every dimension, including the essential even-rank discriminant imbalance. Its positive \(q^{-m}\) correction distinguishes the finite-dimensional two-parity approach from the universal leading limit and detects the arithmetic Gaussian-phase branch. This is a natural all-parameter harmonic invariant with a nontrivial finite-size law, not a selected small numerical instance.
+Exact rank-one-cone endpoint operator norm and two positive parity corrections are assembled from classical Gauss sums, orthogonal type counts and Fulman–Goldstein nullity law; none of the checked source statements explicitly gives this complete L1 convolution norm or the two-term coefficient. Historical priority is qualified because Hodges's symmetric-matrix exponential-sum full article could not be accessed with lawful routes.
 
-## Scope and residual risk
+## value
 
-Classical Gauss sums and symmetric rank counts are prior work. No claim of full field characteristic independence or exact monotonicity is included. Originality assessment is bounded by available primary text, particularly the inaccessible 1955 source. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact sharp L1 and Linfinity projection norm on a canonical finite-field Veronese cone controls endpoint amplification, and the positive two-parity finite-size bias gives usable precise asymptotics. This is a natural spectral quantity, not a decorative rank-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
