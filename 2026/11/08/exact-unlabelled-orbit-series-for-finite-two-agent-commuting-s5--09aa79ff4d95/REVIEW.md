@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The formal proof identifies commuting components with positive-integer matrices up to independent row and column permutations; counts fixed matrices cycle-by-cycle with their correct positive weights; then applies the multiset Euler transform. The transitive count follows from the invariant cell sizes and the characterization of constant matrices. An independently constructed exact-arithmetic checker calculated twelve degrees of the series and cross-checked all \(44{,}168\) ordered pairs of partitions through size six, including their canonical isomorphism classes. Risks: finite computation does not establish the general formula, which relies on the proved Burnside and decomposition arguments. The distinction between labelled and unlabelled structures and between named and unnamed agents is essential.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2022 Rumenova–Tinchev slides already prove the matrix-component representation and the 2024/2025 Anagnostopoulou-Merkouri–Bailey–Cameron paper studies commuting partitions in transitive group settings; neither inspected full text gives the weighted all-shapes Burnside isomorphism series, the coefficient table, or the \(d_4(n)\) classification for arbitrary named two-agent commuting S5 frames. OEIS A354458 lists the distinct *labelled* enumeration and does not imply the unlabelled coefficients by a division by a factorial. Relevant published record searches yielded nearby but non-dominating results on different frame invariants. Risks: the generic Burnside and multiset machinery is classical, so this is a specific enumeration rather than a new orbit-counting methodology; an unindexed or inaccessible finite-model census could cover it.
+PASS
 
-**Mathematical value — PASS.** An exact unlabelled classification is natural because isomorphism, not world labelling, is the intrinsic equivalence for finite Kripke frames. The orbit series determines every size's complete number of frame types, while the vertex-transitive subfamily has a surprisingly simple arithmetic classification and provides an internal structural boundary. It distinguishes the many arbitrary multiplicity matrices from the uniform transitive regime and gives an exact reusable test census for finite modal-frame work. It does not assert a broader theorem about more than two agents.
+If two named equivalence relations E,F commute, EF is equivalence and equals their join. In each join component every E-class meets every F-class; the cardinalities are a positive r-by-s integer matrix. Isomorphism acts by independent row and column permutations, plus within-cell permutations. For row and column cycle lengths i,j there are gcd(i,j) induced cell cycles of length lcm(i,j), with positive weight z^lcm/(1-z^lcm), giving the submitted finite-degree Burnside cycle-type sum C(z). All frames are unordered multisets of connected types, so U(z)=exp(sum_{h>=1} C(z^h)/h). Transitivity forces all cell sizes equal and all components isomorphic, yielding exactly d4(n) ordered quadruples (components, rows, columns, cell size) of product n; converse via row/column/cell permutations. Named-agent orientation prevents swapping dimensions. Independent n<=6 canonical enumeration agrees with labelled and unlabelled counts; the formal proofs apply to all n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The matrix representation itself is published in Rumenova/Tinchev (2022) and not new; labelled pair counts OEIS A354458 are also known. The previously inspected sources do not give the positive-integer weighted Burnside orbit generating series for unlabelled named commuting S5 frames with arbitrary cell sizes, its Euler multiset transform, or the explicit transitive d4(n) classification. This is a legitimate exact structural enumeration, though general Burnside methods are classical and specialized priority is not fully resolved.
+
+## value
+
+PASS
+
+Two-agent commuting S5 structures are a canonical finite-epistemic frame family. The full isomorphism-class enumeration, rather than just labelled pairs or a structural decomposition, is a natural missing census; exact orbit series and transitive-refinement counts can support classification and computational modal-logic model search. Although the technique is Burnside, its concrete complete specialization is not a textbook substitution of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
