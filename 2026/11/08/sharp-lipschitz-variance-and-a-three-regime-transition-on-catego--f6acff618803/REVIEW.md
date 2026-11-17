@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The compact anchored Lipschitz polytope and strict variance convexity make all maximizers vertices. A tight-edge-component perturbation supplies integrality; diameter two reduces the search to integer potentials with at most three values. The row/column compatibility lemma exhausts every separated extreme-set configuration, including singleton-cross and 2-by-2 checkerboard cases. The three sharp envelopes, equality types and all phase boundaries follow by explicit arithmetic. The standalone checker independently enumerates small feasible assignments and exact phase inequalities; the all-parameter theorem rests on the proof, not on finite experiments.
+## correctness
 
-**Originality — PASS, with risk.** The closest primary literature is Alon--Boppana--Spencer (1998), Theorems 2.1 (general integral maximizers) and 3.6 (sum-metric product tensorization); Addario-Berry--Janson--McDiarmid (first arXiv version 2009, random-graph spread); and Yancey (2017, Cartesian graph-product variance and concentration). The known 3-by-3 numerical value is implied by Cartesian-product tensorization after a special graph isomorphism; it is not claimed separately. Searches for complement-rook, categorical product and bipartite-edge disjointness aliases did not locate a general exact categorical formula. Indexed published rook-graph results consulted concern topology, not sharp spread; their abstracts are not complete-text evidence. Unindexed or inaccessible equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** Categorical products are natural alternatives to Cartesian products. The exact norm undergoes cross-star, polarized-line and balanced-binary phases, with rigorous ties and a complete norming-location classification. This quantifies a structural variance transition for an infinite two-parameter family rather than recomputing a known complete-graph norm.
+The actual RESULT.md specifies categorical (not Cartesian) K_a×K_b, a,b≥3, N=ab, unit edges and probability-normalized variance. Strict convexity/tight-edge connectivity forces integer potentials, diameter two gives levels 0,1,2, and row/column compatibility exhausts binary, full-line, singleton cross-star and 2×2 checkerboard types. Exact variance N(s+t)−(s−t)^2 and monotonicity of singleton-cross score yield the three stated envelopes; checkerboard ties only a=b=3. Independent enumeration of all three-level assignments on 3×3 and 3×4 verifies optimal numerators 36 and 56, not the infinite proof. The phase inequalities are algebraic and optimizer equality follows from strictly convex perturbation.
 
-**Limitations.** Uniform masses, real functions and two factors with both orders at least three are necessary as stated; no other graph products, weighted measures or target norms are covered. Only the specified finite cases were computationally enumerated. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact categorical-product three-envelope and equality transition survives targeted comparison; foundational integrality and the special 3×3 case are credited.
+
+## value
+
+PASS
+
+Categorical products are a natural graph-product construction; obtaining the exact Lipschitz-to-centered-L² norm, all optimizer geometries, and the rigid cross-star/full-line/binary transition is a motivated structural phase classification. This is not just the known integrality reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

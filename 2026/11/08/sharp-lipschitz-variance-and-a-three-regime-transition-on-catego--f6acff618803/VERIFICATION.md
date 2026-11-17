@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-This document describes finite corroboration and the independent scientific verification status. Execute `python3 checker.py` from the package directory. The checker needs only the Python standard library and performs no network actions.
+## correctness
 
-The checker independently enumerates all three-valued integer one-Lipschitz assignments on grids of sizes \(3\)-by-\(3\) and \(3\)-by-\(4\), checking the exact maximum numerator; enumerates every pair of cross-separated extreme sets on grids \((3,3),(3,4),(3,5),(3,6),(4,4),(4,5)\), recording all winning geometric types; then checks the closed-form phase/tie identities for all integer \(3\le a\le b<300\). Integer arithmetic is exact.
+PASS
 
-Expected final marker:
+The actual RESULT.md specifies categorical (not Cartesian) K_a×K_b, a,b≥3, N=ab, unit edges and probability-normalized variance. Strict convexity/tight-edge connectivity forces integer potentials, diameter two gives levels 0,1,2, and row/column compatibility exhausts binary, full-line, singleton cross-star and 2×2 checkerboard types. Exact variance N(s+t)−(s−t)^2 and monotonicity of singleton-cross score yield the three stated envelopes; checkerboard ties only a=b=3. Independent enumeration of all three-level assignments on 3×3 and 3×4 verifies optimal numerators 36 and 56, not the infinite proof. The phase inequalities are algebraic and optimizer equality follows from strictly convex perturbation.
 
-`ALL_RECTANGULAR_DISJOINTNESS_SPREAD_CHECKS_OK`
+## originality
 
-The universal proof is in `RESULT.md`: connected tight-edge graph gives integrality, direct-product diameter two limits the range, the row/column cross-separation lemma classifies feasible extreme levels, and strict envelope inequalities yield the phase diagram. Finite experiments do not establish universal completeness; they only test the derived assertions at specified sizes. No independent mathematical audit has been performed.
+PASS
+
+The exact categorical-product three-envelope and equality transition survives targeted comparison; foundational integrality and the special 3×3 case are credited.
+
+## value
+
+PASS
+
+Categorical products are a natural graph-product construction; obtaining the exact Lipschitz-to-centered-L² norm, all optimizer geometries, and the rigid cross-star/full-line/binary transition is a motivated structural phase classification. This is not just the known integrality reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
