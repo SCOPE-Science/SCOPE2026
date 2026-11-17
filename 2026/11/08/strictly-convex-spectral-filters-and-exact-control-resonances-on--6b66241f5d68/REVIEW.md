@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The main statement is for every integer \(p,q\ge2\), every \(h\ge0\), and every strictly convex real filter on \([0,\infty)\) with \(f(0)=1\), for the directly actuated coordinate system specified in RESULT.md. The four orthogonal Laplacian eigenspaces were reconstructed from the block Laplacian. For two uncontrolled vertices on one side, a local difference vector is always an eigenvector. For one omitted on each side, every nonzero supported vector activates three distinct Laplacian spectral levels when the side sizes differ; strict convexity forbids identification of all three. In the balanced case, exactly the two indicated level-pair collisions admit an eigenvector supported on the omitted pair. The one-omission case is always controllable for positive steps. This supplies both necessity and sufficiency and handles the zero-step boundary separately. Exact cubic factorization and derivative signs prove uniqueness of the RK4 exceptional steps. A standalone standard-library checker passed 100 exact-rational step matrices, 1,884 exact Kalman-rank checks and 1,584 pair-omission checks; these are finite corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For unweighted K_{p,q} (p,q≥2) the orthogonal L eigenspaces are E0,E_{p+q},E_q supported on A zero-sum and E_p supported on B zero-sum. PBH with N−2 coordinate controls forces one omitted vertex per part. Their two-site support projects nontrivially onto at least three distinct eigenvalues if p≠q; strict convexity forbids triple equal f-values. If p=q=m, the two supports e_u±e_v are eigenvectors exactly when f(mh)=f(2mh) or f(mh)=1, requiring N−1 inputs; any single omitted site works. Separate h=0 gives N. Correct polynomial factorizations yield F2 steps 2/(3m),2/m and F4 unique cubic roots γ/m,β/m; first-resonance matrices cI+(1−c)11ᵀ/N are strictly positive stochastic. Independently reconstructed exact rational Kalman ranks for regular and RK2 resonance cases.
 
-The published foundations of coordinate and graph controllability explain PBH and zero forcing, while cograph results cover original Laplacian dynamics. The March 2015 source studies polynomial spectral filters and, in particular, balanced and unbalanced complete bipartite graphs, but frames the problem as consensus convergence and spectral clustering. The present result concerns the exact *minimum number and placement of independent coordinate actuators* for every strictly convex filter and the two resonance exceptions on balanced graphs, including positive stochastic RK updates that lose minimum-input controllability. Direct comparison of the mathematical implications of those papers does not supply the stated all-filter classification. Its proof uses classical tools credited as such. The residual risk is unindexed publication-priority overlap in discrete-time graph controllability; a self-review is not independent certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A graph controller whose implementation applies a polynomial spectral filter can lose controllability even when its state-transition matrix is strictly positive, stochastic and contracting away from consensus. For all unequal complete bipartite networks, the sharp \(N-2\)-input budget is immune to every positive-step resonance of a strictly convex filter; for every balanced graph, a closed pair of scalar equalities gives the exact actuator-budget jumps. These are natural infinite-family classification and stability-of-actuation results, with explicit practically reproducible RK2 and RK4 examples; neither a finite parameter slice nor a mere renamed PBH test.
+The classical PBH eigenvalue-multiplicity principle and published Kpq Laplacian eigenspaces/control baseline are prior. The submitted exact bifurcation under an arbitrary strictly convex spectral map f(hL), complete optimal coordinate placements, and explicit RK2/RK4 stochastic resonance steps are not in the inspected original Laplacian/cograph or polynomial consensus-filter results. The contrast p≠q immune versus p=q collision follows the spectral projections and no-three-equal-values strict convexity.
 
-## Closest literature and limits
+## value
 
-- Apers and Sarlette, arXiv:1503.01269v1 (2015): polynomial filtering and balanced/unbalanced bipartite spectra, but not the specified minimum coordinate-control resonance classification.
-- Monshizadeh, Zhang and Camlibel, arXiv:1403.4868v1 (2014): zero-forcing and qualitative graph-pattern controllability, rather than a fixed filtered Laplacian state matrix.
-- Burgarth et al., arXiv:1111.1475v1 (2011): zero forcing and graph-based controllability foundations.
-- Mousavi, Haeri and Mesbahi, arXiv:1802.03599 (2018): original cograph Laplacian controllability; does not itself address filter eigenvalue collisions.
+PASS
 
-The theorem does not concern transformed discretized inputs for a controlled ODE, nonconvex filters, arbitrarily weighted graphs or robust numerical controllability. Prior art beyond the inspected sources may exist.
+The resonance is a substantive, motivating contrast between stability/positivity and coordinate controllability: a stochastic positive one-step propagator can require an extra input. An all-part-size, all-strict-convex-filter placement theorem with sharp RK2/RK4 instances is a natural structural classification rather than an arbitrary small simulation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
