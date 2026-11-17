@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification scope
+# Independent mathematical audit
 
-Run `python3 checker.py` using Python 3.9 or newer. It enumerates every nonempty family of nonempty outcome subsets for one, two and three labelled outcomes, filters exact common full union, independent cross intersections, and opposite-action capacities. For each surviving pair it tests all pointwise admissible deterministic matrix fillings and compares row and column outcome supports.
+## correctness
 
-The expected lines are `outcomes 1 admissible 1 nonrealizable 0`, `outcomes 2 admissible 4 nonrealizable 0`, `outcomes 3 admissible 282 nonrealizable 54`, and `CLONE_FREE_FIRST_OBSTRUCTION_OK`.
+PASS
 
-The proof in RESULT.md supplies the mathematical equivalence of these finite tests with the theorem's definitions, explicit realizations for every smaller candidate, and a symbolic impossibility proof for one three-outcome instance. This verifies only the small finite domains; it does not certify general higher-outcome claims. Independent audit has not been performed.
+The forced 2-by-2 intersection matrix has entries ((t,1),(0,2)) with t forced to 0 by the first row and 1 by the first column. Independent exhaustive program enumerated all 127 nonempty families on three outcomes per side and all allowed cell choices: admissible/nonrealizable (1,0),(4,0),(282,54). Every loop ranges over the complete finite domain; capacity and row/column exact union predicates match the claim. Nothing above three outcomes proved.
+
+## originality
+
+PASS
+
+An exact first obstruction to no-action-duplication with a complete smallest failing domain is absent from the inspected broader representation results; originality is best of knowledge, not certified priority.
+
+## value
+
+PASS
+
+Distinct neighborhoods and minimum number of actions are natural representation resources; the 54/282 complete first failing census and explicit coupling obstruction distinguish capacity sufficiency from interaction feasibility, an independently useful exact small boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
