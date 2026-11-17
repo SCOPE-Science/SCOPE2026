@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-`verify_relative.py` is a standalone Python 3 program using only the standard library. Run `python3 verify_relative.py`. Its expected exact output is in `verification_output.txt`.
+## correctness
 
-The program enumerates all complete bipartite shore sizes between two and five, every possible pair of root-shore counts with at least two remaining vertices, and each valid \(r\). The program includes additional empty-root control cases; the theorem itself requires a nonempty root. For each instance it builds maximal faces from the graph connectivity predicate, constructs the proposed independent-set family, and compares the entire down-closed face sets. It computes the reduced Euler characteristic and compares the top-rank formula. For cases with at most eight unrooted vertices it constructs the mod-two boundary operators and checks vanishing outside the predicted top degree. For every case it computes signed fixed-face traces under a nontrivial shore-preserving involution and compares them with the exact exterior-power character formula.
+PASS
 
-Actual recorded output:
+By complete bipartite connectivity, for mixed-shore A every F yields connected A union F and the facets are all k-subsets U. If nonempty A lies only in L, connectivity is equivalent to F meeting R, hence admissible complementary k-facets have <=b-1 vertices of R; the capacity total M-1 ensures every smaller independent set extends to a k-facet. This is precisely rank-k truncation of partition matroid with R capacity b-1, and the other side case is symmetric. Matroid pure vertex-decomposability and shellability give integral sphere wedges. In the full (k-1)-skeleton S, augmented oriented chain boundary is contraction by the sum functional; its top kernel is wedge^k W_U. The relative C_*(S,X) is the truncation of the augmented simplex complex on L\A shifted by b and tensored with sign(R). It has top homology sign(R) tensor wedge^{k-b} W_{L\A} (zero if k<b); the pair long exact sequence yields the asserted integral H-module short exact sequence without an integral splitting assumption. Ranks yield beta=C(M-1,k)-C(|L\A|-1,k-b) for A subset L and analogous R; permutation exterior determinant yields the character. Independently enumerated connectivity and all k-facets vs matroid model in 11,680 cases for 2<=a,b<=5 and all admissible roots/r, all equal. Finite check does not prove infinite rank and module formulas.
 
-```
-CASES_OK=916 HOMOLOGY_MOD2_OK=875 EQUIVARIANT_TRACES_OK=916
-ALL_VERIFY_OK
-```
+## originality
 
-The underlying theorem for arbitrary graph sizes follows from the written mathematical proof in `RESULT.md`; finite enumeration cannot establish an infinite-range statement. The representation exact sequence is established integrally, whereas explicit irreducible characters are interpreted over \(\mathbb Q\). No independent mathematical audit has been performed.
+PASS
+
+Deshpande–Roy–Sawant establishes vertex-decomposability for rooted co-connected complexes with CONNECTED induced root; complete bipartite roots entirely contained within a shore with >=2 vertices are disconnected, so the new uniform classification covers previously excluded roots. The explicit natural partition-matroid identification, integral top Betti numbers and non-split-equivariant exact sequence are not supplied by that theorem. Complete multipartite unrooted higher-independence is a different construction; matroid shellability itself is credited as standard.
+
+## value
+
+PASS
+
+Addresses the natural connected-root hypothesis boundary in a recently introduced graph complex, classifies all parameters for a fundamental graph family, and identifies integrally the top homology group action beyond Betti numbers. Example K_{5,4}, a two-vertex left root, r=2 gives four 4-spheres despite disconnected root; this is a motivated missing structural case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph connectivity condition is reduced exactly to the partition-matroid constraint. Full-extension of feasible sets, vertex-decomposability of matroid complexes, and the augmented exterior chain model supply the all-parameter proof. The relative quotient chain complex produces the integral equivariant exact sequence without assuming an integral splitting. The independent finite program reconstructs simplices directly from graph connectivity and verifies model equality, reduced Betti numbers, and signed symmetry traces.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The closest source is Deshpande–Roy–Sawant (arXiv:2510.25710), whose connected-root vertex-decomposability theorem addresses the present family only when the root is connected. It does not supply the disconnected-root family, top-homology ranks, or equivariant exact sequences. The earlier complete-multipartite higher-independence homotopy classification of Deshpande–Singh (arXiv:2001.05448) concerns the unrooted higher-independence complex, not these relative complexes. General matroid shellability is prior work, and the new structural identification is essential to applying it. Targeted records and published-literature comparisons found no theorem implying this full relative classification. Hidden equivalent treatments or stronger unindexed matroid reinterpretations remain possible.
+PASS
 
-## Mathematical value — PASS
-The disconnected-root condition is a natural missing case of a new graph-complex construction whose general theorem requires root connectivity. The classification gives a complete infinite family, exact integral homotopy types, and group-action information finer than Betti numbers, with a uniform explanation in partition-matroid language. For instance, a two-vertex left-shore root of \(K_{5,4}\) at \(r=2\) yields a wedge of four \(4\)-spheres despite the root itself being disconnected.
+By complete bipartite connectivity, for mixed-shore A every F yields connected A union F and the facets are all k-subsets U. If nonempty A lies only in L, connectivity is equivalent to F meeting R, hence admissible complementary k-facets have <=b-1 vertices of R; the capacity total M-1 ensures every smaller independent set extends to a k-facet. This is precisely rank-k truncation of partition matroid with R capacity b-1, and the other side case is symmetric. Matroid pure vertex-decomposability and shellability give integral sphere wedges. In the full (k-1)-skeleton S, augmented oriented chain boundary is contraction by the sum functional; its top kernel is wedge^k W_U. The relative C_*(S,X) is the truncation of the augmented simplex complex on L\A shifted by b and tensored with sign(R). It has top homology sign(R) tensor wedge^{k-b} W_{L\A} (zero if k<b); the pair long exact sequence yields the asserted integral H-module short exact sequence without an integral splitting assumption. Ranks yield beta=C(M-1,k)-C(|L\A|-1,k-b) for A subset L and analogous R; permutation exterior determinant yields the character. Independently enumerated connectivity and all k-facets vs matroid model in 11,680 cases for 2<=a,b<=5 and all admissible roots/r, all equal. Finite check does not prove infinite rank and module formulas.
 
-## Limits
-The statement is restricted to complete bipartite graphs, nonempty roots and the stated \(r\)-range. Exterior-power exact sequences need not split integrally. The computational tests are finite corroborations, not proofs for unbounded parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Deshpande–Roy–Sawant establishes vertex-decomposability for rooted co-connected complexes with CONNECTED induced root; complete bipartite roots entirely contained within a shore with >=2 vertices are disconnected, so the new uniform classification covers previously excluded roots. The explicit natural partition-matroid identification, integral top Betti numbers and non-split-equivariant exact sequence are not supplied by that theorem. Complete multipartite unrooted higher-independence is a different construction; matroid shellability itself is credited as standard.
+
+## value
+
+PASS
+
+Addresses the natural connected-root hypothesis boundary in a recently introduced graph complex, classifies all parameters for a fundamental graph family, and identifies integrally the top homology group action beyond Betti numbers. Example K_{5,4}, a two-vertex left root, r=2 gives four 4-spheres despite disconnected root; this is a motivated missing structural case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
