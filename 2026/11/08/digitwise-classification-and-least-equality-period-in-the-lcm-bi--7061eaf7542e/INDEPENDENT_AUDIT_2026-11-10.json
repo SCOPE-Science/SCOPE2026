@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T11:58:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Prime-adic quotient excess equals ∑_{1≤r≤h_p}1[n mod p^r < k mod p^r]. All terms nonnegative, so equality iff lower base-p digits dominate. CRT gives the product density; changing the highest constrained nonzero digit establishes sharp local period p^e_p, hence least global period. Prime number theorem gives density upper bound. Independent exact lcm-vs-binomial checks covered 3726 integer pairs. Farhi’s complete primary Theorem3 speaks to quotient, not support indicator.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farhi 2010 Theorem 3 provides period of full quotient, not its zero-indicator; example k=10 quotient period 504 vs equality indicator 84",
+          "Hong–Qian 2014 plausible stronger paper unavailable in full"
+        ],
+        "reasoning": "A theorem about periodic quotient values is not equivalent to the minimal period of the Boolean equality support; no decisive covering primary theorem located, but Hong–Qian uninspected.",
+        "searches": [
+          "Resultary: Farhi lcm binomial triangle equality to binomial digit criterion least period indicator valuation prime powers",
+          "Primary Farhi 2010 arXiv 1002.1383 equality cases Question 2 quotient versus period",
+          "Hong Qian On the lcm-analog of binomial coefficient DOI 10.1142/S1793557114500569",
+          "OEIS A093430 lcm binomial triangle"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/45899722_An_analog_of_the_arithmetic_triangle_obtained_by_replacing_the_products_by_the_least_common_multiples",
+        "https://doi.org/10.1142/S1793557114500569",
+        "https://arxiv.org/abs/1002.1383",
+        "https://oeis.org/A093430"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farhi 2010 Section3 Question2 explicitly asks to classify equality pairs",
+          "For k=10 density 4/21, least equality indicator period 84; full quotient period distinct"
+        ],
+        "reasoning": "Earlier divisibility and full quotient period are inputs, not stated consequence without the new indicator support proof.",
+        "searches": [
+          "Resultary: Farhi lcm binomial triangle equality to binomial digit criterion least period indicator valuation prime powers",
+          "Primary Farhi 2010 arXiv 1002.1383 equality cases Question 2 quotient versus period",
+          "Hong Qian On the lcm-analog of binomial coefficient DOI 10.1142/S1793557114500569",
+          "OEIS A093430 lcm binomial triangle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prime excess sum ∑_{r≤h_p}1[n mod p^r < k mod p^r] is exactly the failure count for digit dominance"
+        ],
+        "reasoning": "Farhi’s p-adic valuation decomposition does not state the simultaneous digit criterion and least indicator period; constructive CRT and digit support argument required.",
+        "searches": [
+          "Resultary: Farhi lcm binomial triangle equality to binomial digit criterion least period indicator valuation prime powers",
+          "Primary Farhi 2010 arXiv 1002.1383 equality cases Question 2 quotient versus period",
+          "Hong Qian On the lcm-analog of binomial coefficient DOI 10.1142/S1793557114500569",
+          "OEIS A093430 lcm binomial triangle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A093430 tabulates lcm binomial coefficients; not a general exact equality period",
+          "Independent exact checks n≤120, k≤35 total 3726 pairs"
+        ],
+        "reasoning": "Finite table values are not a global digitwise decision procedure, nor do they establish least period across all k.",
+        "searches": [
+          "Resultary: Farhi lcm binomial triangle equality to binomial digit criterion least period indicator valuation prime powers",
+          "Primary Farhi 2010 arXiv 1002.1383 equality cases Question 2 quotient versus period",
+          "Hong Qian On the lcm-analog of binomial coefficient DOI 10.1142/S1793557114500569",
+          "OEIS A093430 lcm binomial triangle"
+        ]
+      },
+      "rationale": "PASS best of knowledge: precise all-prime truncated digit criterion and sharp least period of the equality indicator answer Farhi’s explicitly posed equality-locus problem; earlier quotient periods are different functions.",
+      "residual_risks": [
+        "Hong–Qian 2014 full text inaccessible after arXiv/OA search and institutional VPN-disconnected response; could contain an equivalent complete characterization.",
+        "Digit dominance is a short consequence of Farhi’s valuation identity; originality of exact least period remains best-of-knowledge, not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All prime-adic excess terms are nonnegative; digit conditions arise from interval multiples; sharp local periods proved by single-digit perturbations",
+          "evidence": "RESULT.md proof four stages",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/digitwise-classification-and-least-equality-period-in-the-lcm-bi--7061eaf7542e/RESULT.md",
+          "material_read": "full valuation and CRT proof, example and scarcity bound",
+          "method": "frozen Git blob 42d669d65908f00968b850c7259ee8b63a86face",
+          "title": "Digitwise classification and least equality period in lcm-binomial triangle",
+          "trigger": "assignment"
+        },
+        {
+          "assessment": "Theorem 3 concerns full quotient period, not least period of equality indicator; Section 3 Question 2 asks for all equality pairs",
+          "evidence": "Theorem 3, Section 3 Question 2, 2010",
+          "identifier_or_url": "https://www.researchgate.net/publication/45899722_An_analog_of_the_arithmetic_triangle_obtained_by_replacing_the_products_by_the_least_common_multiples",
+          "material_read": "complete openly available article text, Theorem 3 and Section 3 Question 2, including valuations and quotient-period statements",
+          "method": "full-text HTML/RG manuscript reading",
+          "title": "An analog of the arithmetic triangle obtained by replacing the products by the least common multiples",
+          "trigger": "Farhi original equality question and general quotient periodicity"
+        },
+        {
+          "assessment": "Abstract promises many equality pairs, not an inspected full necessary and sufficient test. This is a residual priority risk, not evidence of noncoverage",
+          "evidence": "Asian-European J. Math. 7 (2014), 1450056",
+          "identifier_or_url": "https://doi.org/10.1142/S1793557114500569",
+          "material_read": "publisher/OA abstract only, complete article not accessible through OA or arXiv search; authorized Oxford download blocked by disconnected VPN",
+          "method": "abstract/bibliography, attempted OA and authorized institutional access",
+          "title": "On the lcm-analog of binomial coefficient",
+          "trigger": "plausible direct equality classification"
+        },
+        {
+          "assessment": "Enumerates coefficients of lcm binomial triangle, not sharp equality-indicator period for all k",
+          "evidence": "A093430",
+          "identifier_or_url": "https://oeis.org/A093430",
+          "material_read": "sequence metadata and small values only",
+          "method": "OEIS search",
+          "title": "OEIS A093430",
+          "trigger": "possible exact database table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Answers Farhi’s natural integer equality-locus classification and determines the sharp least Boolean-support period and exact density for each column; the latter is not synonymous with the known full quotient’s periodicity. A natural arithmetic invariant with a global exact test and quantified rarity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n≥k≥0, Farhi B(n,k)=binom(n,k) iff for each prime p≤k, all digits below h_p=floor(log_p k) satisfy n_{p,i}≥k_{p,i}; the equality indicator has sharp period T_k=∏p^e_p and density ∏(p−k_{p,i})/p, with a quantified density-decay upper bound.",
+  "limitations": [
+    "The indicator period is not the period of the full integer-valued binomial/lcm quotient.",
+    "Hong–Qian 2014 full text inaccessible due to VPN-disconnected institutional access; residual historical-priority risk.",
+    "The finite exact checker is not proof."
+  ],
+  "schema_version": 1
+}

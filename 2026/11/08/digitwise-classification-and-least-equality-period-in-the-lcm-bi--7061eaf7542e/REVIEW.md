@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Prime-power counts in a length-\(k\) interval give an exact nonnegative valuation identity, including the boundary case \(p^h\le k<p^{h+1}\). The digit comparison is equivalent to vanishing of every term. The period proof uses a witness at the highest constrained nonzero digit and CRT projections; the density uses exact accepted-residue counts. The finite verifier independently calculates lcms and binomial coefficients. The decay bound invokes the prime number theorem only after obtaining the exact density.
+## correctness
 
-**Originality — PASS, with material residual priority risk.** Farhi (arXiv:1002.1383) asks for the complete equality pairs but does not state this digit classification or equality-indicator least period. Farhi–Kane (arXiv:0808.1507) and the earlier generalized product-over-lcm value-distribution theorem handle a stronger numerical quotient and its distribution/period but not the spatial support of the equality set or its least indicator period as a statement. The density itself follows from the earlier joint distribution and is not claimed to be independently novel. Hong–Qian (2014) specifically study equality pairs; only their abstract could be inspected. Their abstract describes examples, not a classification; inaccessible complete text is a priority risk. Known pointwise valuation formulas make a short derivation possible and this proximity is acknowledged, not hidden.
+PASS
 
-**Value — PASS.** The finite digit conditions directly answer the explicit general equality-characterization question, not an arbitrary parameter slice. Exact minimal indicator period and positive rational density describe the entire fixed-column arithmetic structure, while the uniform decay theorem shows rarity as the column grows. These are natural invariants of the published lcm-binomial triangle, even though proof uses elementary p-adic counting.
+PASS: Prime-adic quotient excess equals ∑_{1≤r≤h_p}1[n mod p^r < k mod p^r]. All terms nonnegative, so equality iff lower base-p digits dominate. CRT gives the product density; changing the highest constrained nonzero digit establishes sharp local period p^e_p, hence least global period. Prime number theorem gives density upper bound. Independent exact lcm-vs-binomial checks covered 3726 integer pairs. Farhi’s complete primary Theorem3 speaks to quotient, not support indicator.
 
-**Residual limitations.** The 2014 Hong–Qian article was inaccessible in full text. No claim is made about the distribution of the full quotient beyond its equality set, or optimal density decay. This is not an independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: precise all-prime truncated digit criterion and sharp least period of the equality indicator answer Farhi’s explicitly posed equality-locus problem; earlier quotient periods are different functions.
+
+## value
+
+PASS
+
+PASS: Answers Farhi’s natural integer equality-locus classification and determines the sharp least Boolean-support period and exact density for each column; the latter is not synonymous with the known full quotient’s periodicity. A natural arithmetic invariant with a global exact test and quantified rarity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
