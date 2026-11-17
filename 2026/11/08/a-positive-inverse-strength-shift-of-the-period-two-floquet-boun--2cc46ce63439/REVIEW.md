@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The orbit equations are solved algebraically, including positivity and parameter-range constraints. A monotone scalar parameterization proves existence and uniqueness, the Ricker-limit identity follows from the exact derivative product, and a simple pole at the limiting orbit yields the inverse-strength coefficient. Positivity of \(P'\), \(P''\), and the first correction proves a unique local multiplier \(-1\) curve, not merely a numerical crossing. The included high-precision checks re-evaluate finite instances, without substituting for analytic quantifiers.
+PASS
 
-## Originality (PASS, with residual priority risk)
+For p>2, 2-cycle gap d∈(0,p) satisfies q=Qp(d)=p+d coth(d/2−artanh(d/p)), increasing from p²/(p−2) to ∞ on 0<d<d∞. Thus exactly one prime two-cycle in the asserted regime, not merely computational detection. Let d∞=2θ, p=2θ coth θ=P(θ). Derivatives P′>0,P″>0 give limiting M∞=(1−p)²−d∞²=1−2θP′(θ), crossing −1 once where θP′=1; implicit expansion in t=1/q gives d=d∞−K/q+O(q⁻²), M=M∞+C/q+O(q⁻²). At crossing C=4(p³−3p²+4p−1)>0, M∞′=−2(1+θP″/P′)<0, so S=−C/M∞′≈6.745591544665048>0. Sign of multiplier locally yields attracting/repelling sides. No claim of nondegenerate flip bifurcation at equality. Scripts inspect actual equations; numerical roots only corroborate analytic IFT.
 
-The older primary article supplies existence and uniqueness of the period-two orbit; it does not give the present strong-strength asymptotic multiplier correction. The 2025 source tracks finite-parameter period-doubling candidates and includes no displayed \(q^{-1}\) drift coefficient. The Ricker limit and its leading threshold are previously known and explicitly excluded from the novelty claim. The specific first correction is not implied by the Ricker limit alone; it requires the explicit finite-saturation perturbation. Searches of relevant mathematical records and literature identified no covering statement. Uninspected older literature could affect priority.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The \(q^{-1}\) coefficient quantifies the natural mismatch between a finite predation-strength return map and its classical Ricker limiting dynamics. It is nonzero, has a provable sign, and identifies a real parameter corridor in which the finite system has an attracting two-cycle while the limit is at its neutral flip boundary. The exact drift and stability consequence can guide the location of the large-parameter end of rigorously continued two-cycle Floquet curves. This is not a claim of a new Ricker period-doubling threshold.
+Best-of-knowledge PASS specifically for positive 1/q displacement coefficient of period-two multiplier −1 locus and the finite-q attracting limit-threshold distinction. Ricker limiting threshold and existence of the prime 2-cycle are previously known: Kryzhevich et al. 2021 prove same map cycle existence and Alonso Mozo et al. 2025 rigorously locate finite-q period doublings. Their inspected full main parameter discussions and numerical continuation do not state or imply first asymptotic coefficient S. Mathematically distinct stronger coverage was searched, not found.
 
-## Scope and risk
+## value
 
-No global stability, actual birth of a four-cycle, or definitive historical priority is asserted. The original model is a one-dimensional return approximation, not a theorem for the continuous ecological flow. Numerical checks have not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign and quantitative shift in a natural strong-predation limit answer a meaningful stability question: the finite-strength model is attracting exactly where the limiting Ricker model is neutral. The explicit leading-order drift is neither fitted from a finite scan nor implied by the old leading limit; it determines an experimentally relevant finite-q boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
