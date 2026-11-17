@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The structural proof reduces a moving pebble's positive \((n+1)\)-ary relation constraints to at most two distinct unique-completion requests when no more than \(n+1\) other pebbles are stationary. The cases of zero, one and two requests have their equality and generic-element availability checked for equal orders and the regime in which both orders are at least the available variable count. This gives a permanent back-and-forth strategy, not merely a fixed-round argument. Distinct-element formulas establish the lower-order separation. At width \(n+3\), the displayed well-sorted intercalate sentence is an ordinary formula using exactly \(n+3\) variable names; cyclic addition satisfies it if and only if the order is even. Full local-type catalogues and intercalate counts were replayed independently as computational sanity checks. The finite enumerations are not offered as a proof over all quasigroups.
+PASS
 
-## Originality — PASS, qualified
+For an n-ary quasigroup the (n+1)-sorted incidence R has unique completion for each other n coordinates. With k<=n+2 pebbles, moving one leaves at most n+1 fixed elements, so in a chosen sort at most two distinct forced completions arise. Cases 0/1/2 have equivalent equality and relation types; for both orders >=k, the finite excluded set has at most k-1 points, hence a generic completion exists. This establishes a permanent k-pebble strategy (unrestricted quantifier depth). Distinctness formulas separate truncated orders. At width n+3 the existential intercalate formula uses four row/column values, n-2 other input coordinates, and one reused output variable, and holds for cyclic addition exactly at even orders. Independently recomputed intercalate counts C4=4, Klein4=12, C5=0, C6=9. Finite table checks supplement, not prove, the all-n pebble lemma.
 
-The available prior record on order-four \(n\)-ary quasigroups (Krotov–Potapov, arXiv:math/0701519) proves an algebraic classification by reducibility and semilinearity, not an exact bound on variable-width logical theories. Grohe–Otto (DOI:10.4230/LIPIcs.CSL.2012.289) supplies pebble-game methods without computing the present Latin-hypercube classes. Vagnozzi's 2021 thesis, Section 4.5, studies interpretations for groups and their Latin-square graphs, not the stated sorted quasigroup signature. Searched published research records on Latin-hypercube structures emphasized topological inflations and coding invariants rather than this logical saturation. The explicit novelty claim is qualified: a stronger general partial-isomorphism theorem, perhaps formulated in terms of MDS codes, may imply the classification and could remain unidentified.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete classification simultaneously for every quasigroup arity at the largest universally saturated variable width, with a sharp, explicit failure one variable later. It demonstrates uniform logical blindness to isotopy type at fixed arity and quantifies exactly when local rectangular relations first become visible. The full theorem goes beyond a small tabulation: it applies to all finite Latin hypercubes of all orders and all arities \(n\ge2\), and its cutoff is exact for each arity.
+An October 26 SCOPE theorem already gives the 4-round classification for binary Latin squares, and its one-point-extension lemma for three stationary pebbles in fact implies the entire binary FO^4 plateau by reusing the same 4-pebble strategy; do not credit the binary n=2 corollary as independent priority. The surviving general uniform every-arity FO^(n+2) classification with matching sharp n+3 failure is not logically supplied by a binary-only lemma or by n-ary algebraic reducibility. The higher-arity extension is mathematically parallel but substantial as a stated universal bound; exact historical priority qualified.
 
-## Limits
+## value
 
-The result does not classify \((n+3)\)-variable theories or counting logics, and it is sensitive to keeping coordinate sorts distinct. The computational evidence covers small additive examples; priority searches cannot prove uniqueness against unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact bounded-variable expressive-power frontier over all quasigroup arities and orders gives a natural structural invariant for finite-model theory and database relation signatures, with an explicit first formula detecting algebraic intercalates. Its all-n breadth distinguishes it from a routine isolated four-square calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

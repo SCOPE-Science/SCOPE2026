@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 hypercube_check.py` from the directory containing the embedded files. The program uses only the Python standard library; its stdout is recorded in `hypercube_check_output.txt`.
+## correctness
 
-For arity two, each input is a sorted universe of three disjoint copies of a set of size \(q\). The program enumerates all ordered triples of occupied stationary positions and all possible replacements for a fourth pebble. For arity three, the analogous enumeration uses four stationary pebbles and a fifth moving pebble. Every resulting atomic type includes sort labels, equality among all occupied variables, and all admissible ordered relations.
+PASS
 
-The complete tested extension catalogues agree for the named binary examples of orders four, five and six, including the cyclic and Klein order-four tables. They also agree between the cyclic and Klein ternary additive cubes of order four. These finite tests verify sample instances of the local-completion lemma and catch missing atomic configurations. The general \(n\)-ary completion case analysis, including arbitrary orders and unbounded game length, is supplied in `RESULT.md` and is not inferred from these tests.
+For an n-ary quasigroup the (n+1)-sorted incidence R has unique completion for each other n coordinates. With k<=n+2 pebbles, moving one leaves at most n+1 fixed elements, so in a chosen sort at most two distinct forced completions arise. Cases 0/1/2 have equivalent equality and relation types; for both orders >=k, the finite excluded set has at most k-1 points, hence a generic completion exists. This establishes a permanent k-pebble strategy (unrestricted quantifier depth). Distinctness formulas separate truncated orders. At width n+3 the existential intercalate formula uses four row/column values, n-2 other input coordinates, and one reused output variable, and holds for cyclic addition exactly at even orders. Independently recomputed intercalate counts C4=4, Klein4=12, C5=0, C6=9. Finite table checks supplement, not prove, the all-n pebble lemma.
 
-The explicit intercalate counts provide finite witnesses for the sharpness discussion in arity two. The proof for arbitrary arity uses the algebraic involution argument and does not rely on these counts.
+## originality
 
-The results are a mathematical proof together with limited computational cross-checks. No independent audit or external formal certification has been performed.
+PASS
+
+An October 26 SCOPE theorem already gives the 4-round classification for binary Latin squares, and its one-point-extension lemma for three stationary pebbles in fact implies the entire binary FO^4 plateau by reusing the same 4-pebble strategy; do not credit the binary n=2 corollary as independent priority. The surviving general uniform every-arity FO^(n+2) classification with matching sharp n+3 failure is not logically supplied by a binary-only lemma or by n-ary algebraic reducibility. The higher-arity extension is mathematically parallel but substantial as a stated universal bound; exact historical priority qualified.
+
+## value
+
+PASS
+
+An exact bounded-variable expressive-power frontier over all quasigroup arities and orders gives a natural structural invariant for finite-model theory and database relation signatures, with an explicit first formula detecting algebraic intercalates. Its all-n breadth distinguishes it from a routine isolated four-square calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
