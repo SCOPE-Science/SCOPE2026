@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r>=2 and t>=1 set Q=2^(2r), b=Q-3*2^(r-1), c=b-Q/2+1, x=c-1, y=b+1. Direct blockwise reverse-complement identities show both explicit B=[b,x^t,c,y^t,b]_Q and A=[b-1,Q/2,0^(t-1),1,Q/2-1,(Q-1)^(t-1),Q-2,Q-b]_Q are canonical binary antipalindromes. Base-Q borrowing establishes A=(Q-1)B, with denominator length exactly 2r(2t+3), strictly increasing in t. The base cases t=1 and r=2 have no empty-block ambiguity. Independently evaluated 56 cases with a separate exact-integer construction. The unbounded claim rests on symbolic identities, not finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 13 is an even-quotient infinite family; Theorem 14 establishes exactly 2^(i-1) representations of 4^i+1."
+        ],
+        "reasoning": "Neither parameter family contains odd numbers 4^r-1. A per-integer algorithm cannot without a family-level proof imply all r>=2.",
+        "searches": [
+          "Bai Meleshko Riasat Shallit antipalindromes theorem 13 14 and algorithms",
+          "binary antipalindromes infinitely many numerator denominator quotient 4^r minus one odd Mersenne representation"
+        ]
+      },
+      "checked_sources": [
+        "https://math.colgate.edu/~integers/w96/w96.pdf",
+        "https://arxiv.org/abs/2202.13694",
+        "https://oeis.org/A351175"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2022 theorem: infinitely many representations for 2^(2n+1)-2^n and finitely many for 4^i+1; new claim all r>=2 for 4^r-1."
+        ],
+        "reasoning": "No displayed stronger theorem implies the stated odd-minus family. The generic quotient decision procedure is not a uniform proof.",
+        "searches": [
+          "INTEGERS 22 (2022) A96 Theorems 13–14",
+          "binary antipalindromes infinitely many numerator denominator quotient 4^r minus one odd Mersenne representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quotient N=4^r-1 is the odd Mersenne case; multiplication transducer paths correspond to antipalindromic numerator/denominator words.",
+          "Theorem 13 in the 2022 article treats even N=2^(2n+1)-2^n."
+        ],
+        "reasoning": "Checked integer quotient versus automaton language and reverse-complement aliases. No uniform all-r odd-minus theorem appears in the inspected relevant primary results.",
+        "searches": [
+          "binary antipalindromes infinitely many numerator denominator quotient 4^r minus one odd Mersenne representation",
+          "arXiv:2202.13694; Section 3.5",
+          "OEIS A351175"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published sequence and Section 3.5 include individual values 15 and 63."
+        ],
+        "reasoning": "A table of finitely many examples cannot establish infinite multiplicity for every r; the explicit unbounded block family supplies the missing quantifier.",
+        "searches": [
+          "OEIS A351175",
+          "Bai et al. 2022 Section 3.5"
+        ]
+      },
+      "rationale": "Bai–Meleshko–Riasat–Shallit prove infinite quotient multiplicity for a different even integer family and exact finite multiplicity for the neighboring odd plus family 4^i+1. Their numerical table includes 15 and 63 but no all-r minus-family theorem. Their algorithm for individual quotients does not itself supply uniform infinite multiplicity for every 4^r-1. Current indexed searches did not find stronger coverage; residual priority uncertainty retained.",
+      "residual_risks": [
+        "Unindexed equivalent parametric antipalindromic construction could predate this theorem.",
+        "Numerical sequence search and accessible primary sources cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not supply all-r 4^r-1 theorem; gives different even and odd-plus families",
+          "evidence": [
+            "Theorem 13: even family; Theorem 14: 4^i+1 with 2^(i-1) representations; examples 15 and 63."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/w96/w96.pdf",
+          "material_read": "Published article, relevant introduction, section 3.5 and Theorems 11–15, including detailed arguments of 13–14",
+          "method": "Read indexed PDF text and visually inspected relevant page 28",
+          "title": "Quotients of Palindromic and Antipalindromic Numbers",
+          "trigger": "Same quotient notion, multiplicity and adjacent 4^i+1 family"
+        },
+        {
+          "assessment": "Numerical membership does not imply the proposed all-parameter statement",
+          "evidence": [
+            "15 and 63 listed as examples."
+          ],
+          "identifier_or_url": "https://oeis.org/A351175",
+          "material_read": "Sequence definition and initial member examples",
+          "method": "Reviewed public sequence listing and cross-reference",
+          "title": "OEIS A351175",
+          "trigger": "Existing exact table of infinite antipalindrome quotients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Infinite representation multiplicity is a primary mathematical question for binary-antipalindromic quotients. The natural odd Mersenne family is separated by a genuine multiplicity transition from the neighboring 4^r+1 family. A single infinite construction uniform in r, not a table lookup or trivial arithmetic substitution, has independent mathematical use.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not classify all antipalindromic quotient integers or enumerate every representation of 4^r-1.",
+    "Best-of-knowledge priority; unpublished all-parameter constructions remain possible."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof gives exact definitions, a complete base-\(Q\) borrow calculation, seven reverse-complement block identities and an unbounded parameter \(t\) with strictly increasing denominator lengths. The standalone program confirms 580 bounded parameter pairs by independent direct integer multiplication and digit checks; these computations supplement but do not replace the universal proof.
+## correctness
 
-**Originality: PASS within searched evidence.** Bai et al. (2022), Theorem 13, prove infinite multiplicity for a different even family, while Theorem 14 proves a finite exact representation count for the neighboring \(4^i+1\). Their Section 3.5/ OEIS A351175 includes the individual values 15 and 63 but no all-\(r\) parametric theorem. Accessible earlier research on antipalindrome quotient density concerns exclusion intervals, not infinite multiplicity for this family. Relevant indexed and full-text comparisons are recorded in `AUDIT.json`. An unindexed equivalent construction remains a genuine residual priority risk.
+PASS
 
-**Mathematical value: PASS.** Multiplicity, not merely membership, is a core question in the cited primary study. The theorem settles infinitely many cases in a natural structured odd family and contrasts with the exactly finite number of representations of adjacent plus-family integers. The explicit block construction is reusable and genuinely uniform.
+For r>=2 and t>=1 set Q=2^(2r), b=Q-3*2^(r-1), c=b-Q/2+1, x=c-1, y=b+1. Direct blockwise reverse-complement identities show both explicit B=[b,x^t,c,y^t,b]_Q and A=[b-1,Q/2,0^(t-1),1,Q/2-1,(Q-1)^(t-1),Q-2,Q-b]_Q are canonical binary antipalindromes. Base-Q borrowing establishes A=(Q-1)B, with denominator length exactly 2r(2t+3), strictly increasing in t. The base cases t=1 and r=2 have no empty-block ambiguity. Independently evaluated 56 cases with a separate exact-integer construction. The unbounded claim rests on symbolic identities, not finite experiments.
 
-**Scientific limitations.** No classification of all antipalindrome quotients, exhaustion of representations, or independent audit is claimed. The full published Section 3.5 and the preprint's corresponding material were inspected; exhaustive literature coverage cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bai–Meleshko–Riasat–Shallit prove infinite quotient multiplicity for a different even integer family and exact finite multiplicity for the neighboring odd plus family 4^i+1. Their numerical table includes 15 and 63 but no all-r minus-family theorem. Their algorithm for individual quotients does not itself supply uniform infinite multiplicity for every 4^r-1. Current indexed searches did not find stronger coverage; residual priority uncertainty retained.
+
+## value
+
+PASS
+
+Infinite representation multiplicity is a primary mathematical question for binary-antipalindromic quotients. The natural odd Mersenne family is separated by a genuine multiplicity transition from the neighboring 4^r+1 family. A single infinite construction uniform in r, not a table lookup or trivial arithmetic substitution, has independent mathematical use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
