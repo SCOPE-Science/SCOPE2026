@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:42:40.144746Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coprime multiplication preserves Zumkeller divisor partitions; seeds 2^a p are Zumkeller when p<=2^(a+1)-1, and 70 has sigma(70)=144 with divisor subset {70,2} of sum 72. For each odd p the exact valuation-one square-lift event G_p mod p^2 has size (p-1)(p+2)/2: either nonzero quadratic-residue r mod p or p|r with p^2∤r. CRT and nested binary square-residue strata give ten-prime density 63520442937841228526/83108492151210387225. Mixed 70 event N mod4∈{2,3}, N mod25∈G_5, N mod49∈G_7 has event density (1/2)*(14/25)*(27/49); its intersection with old C is only p=3 event of probability 5/9, so incremental density is 12/175. Independent exact Fraction recomputation confirmed final 2768772438842683346/3324339686048415489=0.8328789174170931; inspect verify.py counts 6804−3780=3024 classes modulo 44100. CRT chooses positive square root x<=15376 and N>15376^2 ensures z=N−x^2>0; coprime Zumkeller seeds handle both constructions. Thus every large certified residue is representable; finite prefix irrelevant to liminf. No density-one assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Somu et al Theorem 4.17 proves infinitely many missing representations and Conjecture 4.21 discusses possible zero-density failures, but no proved lower bound >=0.8329 identified. Other Resultary zero-density theorems concern PRIME summands, not square summands."
+        ],
+        "reasoning": "Conjectural density one is not established and cannot cover a theorem. Prime-summand results apply to different additive sets, so they cannot dominate this result.",
+        "searches": [
+          "Zumkeller number plus positive square representation density bound congruence 70 primes 83 percent",
+          "https://arxiv.org/html/2310.14149v2",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-83-2878-lower-density-certificate-for-zumkeller-plus-square-s--14c046035f33",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662",
+        "https://arxiv.org/html/2310.14149v2",
+        "https://arxiv.org/abs/2008.11096",
+        "Zumkeller number plus positive square representation density bound congruence 70 primes 83 percent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 0.764307488845... plus disjoint new 12/175 classes is the exact new 0.832878917417... certified bound."
+        ],
+        "reasoning": "The earlier sieve cannot imply the new classes because it requires mod4 square except the p=3 arm, while new 70 support works on N≡2,3 mod4. A material new positive density is proved, not a weaker corollary.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662",
+          "https://arxiv.org/html/2310.14149v2",
+          "Zumkeller number plus positive square representation density bound congruence 70 primes 83 percent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Somu–Kukla–Tran Proposition 4.11 covers 10/18 residue classes; prior ten-prime certificate density 0.764307...; assigned claim uses additional 70-support classes."
+        ],
+        "reasoning": "Neither 5/9 nor 0.7643 baseline is equivalent to the 0.8328789 certified periodic union; the added residue classes were independently counted.",
+        "searches": [
+          "Zumkeller number plus positive square representation density bound congruence 70 primes 83 percent",
+          "https://arxiv.org/html/2310.14149v2",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact CRT classes and G_p counts are a new finite local certificate, not a restatement of an OEIS table; verified extra 3024 residue classes modulo 44100 yield 12/175 beyond prior sieve."
+        ],
+        "reasoning": "Finite tables alone would not prove the asymptotic inclusion; the assigned CRT construction and positive-square threshold promote them into a rigorous infinite density bound.",
+        "searches": [
+          "Zumkeller number plus positive square representation density bound congruence 70 primes 83 percent",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662",
+          "https://arxiv.org/html/2310.14149v2"
+        ]
+      },
+      "rationale": "Published Somu–Kukla–Tran Proposition 4.11 supplies only ten of eighteen mod18 residue classes, lower density 5/9; its further results do not give this 70-support 83.2878% bound. Prior October 18 Resultary ten-prime sieve gives exactly the base 0.764307..., and its construction mostly requires a mod4 square. The new seed 70 exploits complementary nonsquare mod4 2,3, producing an independent provably additional 12/175. No dominating square-summand coverage arose in Resultary searches; results about Zumkeller + prime or cube are mathematically different.",
+      "residual_risks": [
+        "No independent global-priority certificate; another unindexed sieve may yield stronger square-summand density.",
+        "0.8328789 is exactly certificate-set density and only a lower density bound for all representable integers; no assertion that natural density of full set exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_NOT_COVERING",
+          "evidence": [
+            "Proposition 4.11 gives mod18 classes; discussion establishes infinitely many exceptions and leaves density question open."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+          "material_read": "Lawful full arxiv HTML version 2: Lemma 2.1 coprime property, section 4, Proposition 4.11 and proof, later exceptional-set theorems and limitations",
+          "method": "Read the relevant complete paper sections and bibliography in arxiv HTML",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Same Zumkeller plus square additive question"
+        },
+        {
+          "assessment": "STRICTLY_WEAKER_PRIOR_CERTIFICATE",
+          "evidence": [
+            "Prior exact base density equals the assigned intermediate fraction; newly constructed 70 classes contribute disjoint 12/175."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662",
+          "material_read": "Published Resultary title and detailed theorem summary, exact rational density/base sieve and threshold; full RESULT.md not read",
+          "method": "Resultary semantic search and implication comparison with independently reconstructed baseline",
+          "title": "A 76.43 percent lower-density certificate for Zumkeller-plus-square sums",
+          "trigger": "Closest same-object earlier stronger-than-primary bound"
+        },
+        {
+          "assessment": "CORRECT_STRICT_IMPROVEMENT",
+          "evidence": [
+            "CRT counts, Zumkeller seed 70 and positivity cutoff reconstruct an infinite lower-bound proof."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-83-2878-lower-density-certificate-for-zumkeller-plus-square-s--14c046035f33",
+          "material_read": "Complete RESULT.md, every step of density calculation, verify.py, SLOGAN, METADATA; source-tree Git object",
+          "method": "Read frozen GitHub blob; independent Fraction arithmetic and root-cardinality reasoning",
+          "title": "An 83.2878% lower-density certificate for Zumkeller-plus-square sums",
+          "trigger": "Assigned certificate and exact CRT arithmetic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivation is the genuine open density of integers expressible as Zumkeller plus square. A constructive, fully rigorous periodic residue certificate raises the known lower bound by 12/175 (~6.86 percentage points) using a new natural mixed-prime Zumkeller seed 70, rather than merely recomputing the earlier ten-prime table; every certified class has a uniform constructive threshold. This is meaningful quantitative additive-number-theoretic progress short of density one.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-83-2878-lower-density-certificate-for-zumkeller-plus-square-s--14c046035f33",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662",
+    "https://arxiv.org/html/2310.14149v2",
+    "https://arxiv.org/abs/2008.11096",
+    "Zumkeller number plus positive square representation density bound congruence 70 primes 83 percent"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only numbers >236421376 in explicitly certified periodic classes guaranteed to represent; no density-one theorem."
+  ],
+  "residual_risks": [
+    "No independent global-priority certificate; another unindexed sieve may yield stronger square-summand density.",
+    "0.8328789 is exactly certificate-set density and only a lower density bound for all representable integers; no assertion that natural density of full set exists."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "RELATED_BUT_NOT_COVERING",
+      "evidence": [
+        "Proposition 4.11 gives mod18 classes; discussion establishes infinitely many exceptions and leaves density question open."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+      "material_read": "Lawful full arxiv HTML version 2: Lemma 2.1 coprime property, section 4, Proposition 4.11 and proof, later exceptional-set theorems and limitations",
+      "method": "Read the relevant complete paper sections and bibliography in arxiv HTML",
+      "title": "Some Results on Zumkeller Numbers",
+      "trigger": "Same Zumkeller plus square additive question"
+    },
+    {
+      "assessment": "STRICTLY_WEAKER_PRIOR_CERTIFICATE",
+      "evidence": [
+        "Prior exact base density equals the assigned intermediate fraction; newly constructed 70 classes contribute disjoint 12/175."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-76-43-percent-lower-density-certificate-for-zumkeller-plus-squ--67a4c34e8662",
+      "material_read": "Published Resultary title and detailed theorem summary, exact rational density/base sieve and threshold; full RESULT.md not read",
+      "method": "Resultary semantic search and implication comparison with independently reconstructed baseline",
+      "title": "A 76.43 percent lower-density certificate for Zumkeller-plus-square sums",
+      "trigger": "Closest same-object earlier stronger-than-primary bound"
+    },
+    {
+      "assessment": "CORRECT_STRICT_IMPROVEMENT",
+      "evidence": [
+        "CRT counts, Zumkeller seed 70 and positivity cutoff reconstruct an infinite lower-bound proof."
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-83-2878-lower-density-certificate-for-zumkeller-plus-square-s--14c046035f33",
+      "material_read": "Complete RESULT.md, every step of density calculation, verify.py, SLOGAN, METADATA; source-tree Git object",
+      "method": "Read frozen GitHub blob; independent Fraction arithmetic and root-cardinality reasoning",
+      "title": "An 83.2878% lower-density certificate for Zumkeller-plus-square sums",
+      "trigger": "Assigned certificate and exact CRT arithmetic"
+    }
+  ]
+}
