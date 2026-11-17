@@ -1,0 +1,15 @@
+# Scientific review: four torus components of a pentagon graph-Hom complex
+
+## Correctness — PASS
+The claim is a fully finite integral homotopy classification. Two distinct exhaustive algorithms generate the identical 4680 polyhedral cells; every cell has dimensions at most three. The exact incidence checker validates the codimension-one face relations, the cellular squared-boundary identities, and every one of 360 elementary free-face removals. The resulting four components each have 225 vertices, 495 edges and 270 faces. Every edge belongs to two faces, each vertex has a connected cycle link, all faces admit coherent orientations, and the per-component Euler characteristic is zero. The classification of surfaces therefore gives four tori. The bundled standard-library verifier reconstructs and checks all stated steps. Risks: a software error in both enumerations or in the incidence model could escape the self-review; the combinatorial model is explicit and the independent enumeration reduces this risk.
+
+## Originality — PASS (best-knowledge, priority caveat)
+Source and alias searches included the Paley nine graph, the three-by-three rook graph, the Hamming graph \(H(2,3)\), and the Cartesian product \(K_3\square K_3\), together with pentagon graph-Hom topology. published-finding corpus's nearest records concern different target graphs and complexes (see structured review). The two primary square-free-target classifications were checked at the level of their hypotheses, statements and relevant definitions; their theorems do not imply the target case because the rook graph has four-cycles. The early graph-coloring-manifold paper concerns complete targets and likewise does not give this classification. No exact equivalent source was located. Risks: an uncatalogued graph-Hom product theorem or an unpublished computation could make the result already known. Negative searches are not proof of novelty.
+
+## Mathematical value — PASS
+The Paley nine graph is a canonical primitive, self-complementary strongly regular graph of parameters \((9,4,1,2)\). A full integral homotopy classification of its pentagon graph-Hom complex is a natural non-square-free benchmark for newer graph-Hom results, and the appearance of *four genus-one surfaces* is structural information not supplied by simple face counts or rational Betti numbers. The explicit sequence of elementary collapses gives reusable reproducibility for topological calculations with small strongly regular target graphs. This is a precise finite example, not an unsupported claim about a larger family.
+
+## Limitations and literature
+A 2006 coloring-manifold paper and the December 2024 square-free classification papers were examined; general conclusions for square-free or complete targets cannot simply be transferred to the Cartesian rook product. Exact alternative references may be unindexed. There is no assertion about automorphism representations, higher Hamming graphs or other source cycles.
+
+Self-review: passed. Independent audit: not yet performed.
