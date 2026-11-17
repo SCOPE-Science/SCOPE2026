@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The finite common-set circumcenter has active contact barycentric weights. The weighted squared-distance identity constrains centers of both minimum covering balls; the optimal two-ball cover and Jensen concavity prove \\(R(A\\cup B)\\le s+\\sqrt{s^2-r^2}\\). Cauchy--Schwarz gives the universal sharp \\((1+\\sqrt2)/2\\) factor. Four planar points give equality exactly for \\(s=\\sqrt2,r=1\\); other planar four/three point sets attain the full two-parameter envelope. Degenerate and one-dimensional cases were handled. The standard-library verifier checked 1,752 random finite-set samples plus two witnesses; no infinite inference rests on those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bryant et al. (2023), Theorem 2.1 concerns all convex kernels but proves only \\(R(A\\cup B)\\le R(A)+R(B)\\), no common-radius term",
+        "Bryant--Tupper (2026) develops embedding and submodular diversity representations, not a universal Euclidean quantitative relaxation"
+      ],
+      "reasoning": "A statement for all convex kernels with a sharp factor and overlap-radius correction could dominate this Euclidean claim, but the checked broad diversity/embedding theorems do not contain such a term. Results on minimum enclosing balls in algorithms have a different optimization object and do not imply this intersecting-set inequality.",
+      "searches": [
+        "\"circumradius diversity relaxed submodularity multiplicative factor sharp sqrt 2 Euclidean\"",
+        "\"minimum enclosing ball circumradius weak submodularity approximate submodularity constant Euclidean sets intersecting\"",
+        "Sharp relaxed intersecting submodularity of minimum enclosing ball radius, generalized circumradius, quadratic center support and four point equality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.11468v1, full accessible HTML, first posted 2026-08-11",
+      "DOI:10.1007/s00454-023-00493-1, accessible full article HTML",
+      "Published semantic mathematical-record searches by sharp inequality, circumball radius, intersecting submodularity, and four-point witness",
+      "Accessible previous scientific claims in the private existing ledger, checked for overlapping mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Example 15: \\(R(A\\cup B)=2, R(A\\cap B)=1, R(A)=R(B)=5/4\\), ratio 6/5",
+        "2023 Theorem 2.1: union circumradius bounded by sum of separate radii without intersection correction"
+      ],
+      "reasoning": "The 2026 counterexample proves failure of factor 1 only and is not an upper bound on all configurations. The 2023 inequality permits \\(R(A\\cup B)+R(A\\cap B)\\) as large as \\(R(A)+R(B)+R(A\\cap B)\\), so does not imply a constant below \\(3/2\\). The sharp new constant is \\((1+\\sqrt2)/2\\), and a constructed family attains every value in the sharper envelope.",
+      "searches": [
+        "arXiv:2608.11468v1 Section 4 Example 15 and Theorem 13",
+        "DOI:10.1007/s00454-023-00493-1 Theorems 2.1, 2.4, 3.2",
+        "Euclidean circumradius set function is not submodular; best multiplicative submodularity constant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.11468v1 Section 4 Example 15: Euclidean circumradius is not intersecting submodular and gives a single ratio 6/5",
+        "DOI:10.1007/s00454-023-00493-1 Theorem 2.1: the intersecting subadditivity diversity inequality"
+      ],
+      "reasoning": "The sharp inequality may be called approximate intersecting submodularity or a union-intersection circumradius inequality. The named primary results lack both the optimal coefficient \\((1+\\sqrt2)/2\\) and the stronger envelope parameterized by radius of the common set; record results under aliases did not show coverage.",
+      "searches": [
+        "\"circumradius diversity\" intersecting submodular relaxation constant",
+        "\"minimum enclosing ball\" \"union\" \"intersection\" radius inequality",
+        "For finite nonempty intersecting subsets A B of Euclidean space, R(A union B)+R(A intersection B) at most (1+sqrt 2)/2 times R(A)+R(B), equality orthogonal four points at ratio 1+sqrt2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 primary paper gives explicit four-point coordinates and ratio \\(6/5\\), not an exhaustive best-possible-constant table",
+        "Search hits on enclosing balls, radial bodies, and geometric radii concern separate objects and do not list this global set-function constant"
+      ],
+      "reasoning": "The sharp value is an invariant of all intersecting Euclidean finite-set pairs rather than a finite table entry. Neither the checked 2026 example nor retrieved records list the exact global ratio or the common-radius envelope.",
+      "searches": [
+        "sharp multiplicative submodularity defect Euclidean circumradius smallest enclosing ball four points 1+sqrt2 diamond orthogonal rhombus",
+        "circumradius diversity fails intersecting submodularity minimum enclosing disk quadrilateral two triangles sharp ratio",
+        "Euclidean minimal enclosing circle submodularity deficiency maximum four planar points",
+        "\"Euclidean minimal enclosing circle submodularity deficiency maximum four planar points\""
+      ]
+    },
+    "rationale": "Compared the exact Euclidean union/intersection inequality and its sharp two-parameter bound with accessible primary full mathematical texts. Bryant--Tupper 2026 Example 15 gives ratio \\(6/5\\) without global bound; Bryant et al. 2023 gives only R(A union B)<=R(A)+R(B). Record searches revealed no theorem implying the full sharp bound. The result remains provisionally new, subject to historical search limitations.",
+    "residual_risks": [
+      "Historical priority is provisional; an older unindexed inequality concerning Euclidean ball centers or metric diversity deviations could be equivalent.",
+      "No independent mathematical audit has been performed.",
+      "The theorem does not extend to arbitrary Minkowski kernels or nonintersecting point sets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes qualitative non-submodularity and a 6/5 example; no sharp all-set constant or common-radius envelope identified",
+        "evidence": "Section 4 Example 15, arXiv:2608.11468v1, first publicly posted 2026-08-11.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.11468",
+        "material_read": "Accessible full HTML: definitions, Sections 1--6, especially Section 4 Theorem 13 and Example 15 with figure caption and explicit radii",
+        "method": "Full-text examination of theorem statements and examples, with targeted search for quantitative circumradius factors and comparison of implication",
+        "title": "Submodular and strongly submodular functions and diversities",
+        "trigger": "Exact object and counterexample for Euclidean circumradius; 2026 literature-led motivation"
+      },
+      {
+        "assessment": "Intersecting subadditivity is shown for any convex kernel; the result is strictly weaker and does not imply quantitative sharp Euclidean set-function submodularity",
+        "evidence": "Theorem 2.1 proves \\(R(A\\cup B)\\le R(A)+R(B)\\); DOI:10.1007/s00454-023-00493-1.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-023-00493-1",
+        "material_read": "Accessible full HTML sections and theorem statements, especially Theorem 2.1 proof, Theorems 2.4 and 3.2, Sections 4--5 and discussion on distortion",
+        "method": "Full-text article examination and searches for submodularity and equivalent intersection-correction inequalities",
+        "title": "Diversities and the Generalized Circumradius",
+        "trigger": "Most relevant earlier characterization of circumradius as a diversity, cited by the motivating paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b5d06ac-8beb-476a-afd4-9a0356248a3f",
+  "value": {
+    "rationale": "Addresses a natural quantitative gap raised by the explicit 2026 failure of intersecting submodularity for a fundamental Euclidean geometric diversity. Provides dimension-free sharp deviation factor, exact continuous overlap-radius envelope, tight planar four-point witness, and the line/higher-dimension distinction. The result refines a structural inequality rather than recomputing the motivating example.",
+    "status": "PASS"
+  }
+}
