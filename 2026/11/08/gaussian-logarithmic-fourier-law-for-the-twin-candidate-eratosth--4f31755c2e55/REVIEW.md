@@ -1,15 +1,21 @@
-# Review of the twin-candidate Fourier law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The CRT gives independent uniformly distributed local frequencies and explicitly evaluates their nonzero local Fourier factors. The cyclotomic product at \(-1\) gives every local mean without asymptotic inference. The logarithmic cosine square-integral is \(\pi^2/12\); bounded-variation Riemann sums away from the sole logarithmic singularity control the discrete error, and uniformly bounded local third moments permit Berry--Esseen. The determinant formula follows from the exact log-product and the single negative real eigenvalue at half frequency. The provided independent finite checker tests direct Fourier sums and an exact integer determinant. Risks: proof uses classical Mertens and Berry--Esseen as established theorems; finite tests are corroboration, not substitutes.
+PASS
 
-## Originality — PASS, qualified by historical priority
+For the finite primorial wheel N=product_{p<=P}p (P prime >=5), CRT factorizes each additive character into local residues. At p=2 its factor has modulus one, at odd p the factors are p-2 for local frequency 0 and -1-e^{4pi ib/p} otherwise; none vanishes since p is odd. The independent local log magnitudes have exact mean log(p-2)/p and variance as displayed. Product identity at -1 makes the sum of nonzero logarithms zero, while the L2 Fourier series of log(2|cos pi u|) gives asymptotic per-prime variance pi²/12 and bounded third absolute moments. Aperiodic CRT and Berry-Esseen then give the uniform O(pi(P)^(-1/2)) CLT, and conjugate eigenvalue pairing with two real eigenvalues of opposite sign yields the negative circulant determinant. Independent direct DFT calculations at N=30,210 and an exact 30x30 integer determinant -729 match.
 
-Holt (arXiv:2608.26384) counts admissible sieve configurations and diagonalizes a recurrence of their populations; its inspected full text does not derive the additive Fourier coefficients' distribution, Gaussian variance, or circulant determinant. Petersen et al. (arXiv:1812.04203) use prime-detecting wave superpositions but not this arithmetic circulant. Searches for the exact wheel mask, its Fourier aliases, and existing spectral products revealed no direct covering statement. Related finite Fourier results are for other groups, masks, or optimization problems. The specialized exact product and full frequency asymptotic are distinguishable from the generic CRT/Berry--Esseen techniques. Risk: an unindexed earlier wheel-spectra treatment may imply the result and would change priority; accessible search is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The work addresses a natural statistic of an arithmetic object studied via primorial cycles: not merely its population, but all translation-character responses of the finite twin-candidate sieve. The exact spectrum never vanishes (invertibility), its geometric mean and signed product are explicit, and its logarithm has a universal quantitative Gaussian law. These are structural properties of the complete sieve mask, potentially useful for spectral comparisons of prime-constellation wheels. It does not purport to be a theorem on genuine twin primes, a stronger general central-limit theorem, or a new universal probability principle.
+Holt studies exact sieving cycles and admissible constellation population recurrences, which are the same combinatorial setting but different observables. Standard CRT supplies each Fourier factor and Berry-Esseen supplies a generic Gaussian method, but neither establishes this joint exact spectral product, mean/variance constants, all-frequency quantitative CLT and signed determinant. Resultary search found no stronger matching mask-Fourier theorem. Priority is qualified because the full Holt article could not be inspected through arXiv/OA or institutional VPN.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The full arithmetic spectrum of a natural finite Eratosthenes twin-candidate mask, including invertibility of the convolution operator, exact determinant and universal logarithmic fluctuation constant, is a motivated structural-and-limit calculation. It is not offered as a prime-gap theorem or merely a restatement of CRT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

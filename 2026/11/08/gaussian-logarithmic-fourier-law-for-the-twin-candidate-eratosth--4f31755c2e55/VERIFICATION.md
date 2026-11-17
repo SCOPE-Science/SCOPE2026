@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` (no external dependencies). It builds the actual finite sieve masks and compares direct Fourier magnitudes with the Chinese-remainder local formula for every frequency modulo 30 and 210 and thirteen frequencies modulo 2310, plus full numerical first- and second-moment checks over all spectra for those three moduli. It checks the local cyclotomic log products, then constructs the 30-by-30 integer circulant and determines its determinant exactly by fraction-free Bareiss elimination. The expected output is:
+## correctness
 
-```
-FOURIER_CHECK P 5 N 30 survivors 3 tested_freq 30 full_spectral_moments=yes
-FOURIER_CHECK P 7 N 210 survivors 15 tested_freq 210 full_spectral_moments=yes
-FOURIER_CHECK P 11 N 2310 survivors 135 tested_freq 13 full_spectral_moments=yes
-DET_CHECK N 30 determinant -729 exact_integer=yes
-VERIFY_OK frequencies 253 local_nonzeros=yes local_log_product=yes exact_determinant=yes
-```
+PASS
 
-The direct trigonometric comparison uses a relative tolerance of 1e-8 and is numerical, whereas the determinant uses integer arithmetic. In particular the checker is neither a full infinite computation nor a test of the Berry--Esseen limit; those follow from the analytical proof in `RESULT.md`.
+For the finite primorial wheel N=product_{p<=P}p (P prime >=5), CRT factorizes each additive character into local residues. At p=2 its factor has modulus one, at odd p the factors are p-2 for local frequency 0 and -1-e^{4pi ib/p} otherwise; none vanishes since p is odd. The independent local log magnitudes have exact mean log(p-2)/p and variance as displayed. Product identity at -1 makes the sum of nonzero logarithms zero, while the L2 Fourier series of log(2|cos pi u|) gives asymptotic per-prime variance pi²/12 and bounded third absolute moments. Aperiodic CRT and Berry-Esseen then give the uniform O(pi(P)^(-1/2)) CLT, and conjugate eigenvalue pairing with two real eigenvalues of opposite sign yields the negative circulant determinant. Independent direct DFT calculations at N=30,210 and an exact 30x30 integer determinant -729 match.
+
+## originality
+
+PASS
+
+Holt studies exact sieving cycles and admissible constellation population recurrences, which are the same combinatorial setting but different observables. Standard CRT supplies each Fourier factor and Berry-Esseen supplies a generic Gaussian method, but neither establishes this joint exact spectral product, mean/variance constants, all-frequency quantitative CLT and signed determinant. Resultary search found no stronger matching mask-Fourier theorem. Priority is qualified because the full Holt article could not be inspected through arXiv/OA or institutional VPN.
+
+## value
+
+PASS
+
+The full arithmetic spectrum of a natural finite Eratosthenes twin-candidate mask, including invertibility of the convolution operator, exact determinant and universal logarithmic fluctuation constant, is a motivated structural-and-limit calculation. It is not offered as a prime-gap theorem or merely a restatement of CRT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
