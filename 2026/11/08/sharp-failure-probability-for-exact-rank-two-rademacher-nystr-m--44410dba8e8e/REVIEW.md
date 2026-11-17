@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Factoring the rank-two matrix as \(B^{\mathsf T}B\) reduces Nyström exact recovery to the planar rank of \(B\Omega\). Conditional counting bounds the zero atom by \(1/4\) and the mass of any line including zero by \(1/2\). Convex majorization under these simultaneous restrictions gives the global failure bound, and a fully enumerated three-coordinate witness realizes equality. The separate \(n=2\) computation is exact. Integer-exact verification covers 48, 624, and 6240 rank-two small-coefficient matrices in dimensions two through four plus additional tests; it supports, rather than replaces, the proof.
+## correctness
 
-## Originality
-**PASS, qualified by specialist publication precedence.** The closest primary theorem inspected is Saibaba--Międlar (2023), Appendix D, which offers general non-Gaussian Nyström guarantees without a sharp constant for the low-rank Rademacher exact-recovery event. Dereziński et al. (2022) give high-stable-rank approximate expected projector formulas, whose regime is inapplicable when exact rank and sketch width are both at least two. Balabanov et al. (2023) address a distinct randomized Hadamard embedding, not independent sign-column rank failure. Existing elementary anti-concentration principles are explicitly treated as prior tools. Relevant mathematical searches uncovered no matching sharp all-\(m\) rank-two formula, but specialist literature may still contain an equivalent formulation.
+PASS
 
-## Value
-**PASS.** Exact recovery is a natural success event for low-rank randomized Nyström approximations, and independent Rademacher sketches can fail on exact low-rank data even though continuous Gaussian sketches do not. The sharp all-budget, all-ambient-dimension law and its explicit three-dimensional extremizer expose how a zero-projection atom worsens discrete sketching: at two probes the worst-case failure is \(5/8\), instead of \(1/2\) in ambient dimension two. It yields an exact baseline for selecting a budget against rank-loss probability, without overstating finite-precision accuracy.
+For A=B^T B rank-two PSD, exact untruncated Nyström recovery iff the m projected independent sign columns B eps span R², using W(W^TW)^dag W^T projector identity. A single-sign image has zero mass z<=1/4 by two independent columns; each projective line L has total mass z+p_L<=1/2 by nontrivial linear-form anti-concentration. Set c=1/2-z, total nonzero masses=2c+z and each <=c, z<=c. Convex projective occupancy is bounded by masses (c,c,z), giving F_m<=2^(1-m)+(2^m-2)z^m<=3*2^(-m)-2*4^(-m). n=3 witness B=[[1,1,0],[1,0,1]] has z=p_1=p_2=p_3=1/4 and saturates, with zero padding for n>3; n=2 every invertible B sends four signs into two equiprobable projective lines, yielding 2^(1-m). Independent exact m=2,3,4 values 5/8,11/32,23/128 corroborate.
 
-## Closest literature and limitations
-The result is restricted to dense independent signs, exact arithmetic, and rank two. Sharpness is only for exact rank loss; general approximation errors, conditioning and higher target ranks are not addressed. General sub-Gaussian and Hadamard embedding bounds neither state nor contradict the exact extremal probability. An independently conducted scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The November 2 published 2x3 Rademacher rangefinder orientation law explicitly attains precisely the same maximum 3*2^-m-2*4^-m for n=3. This is strongly credited, so the THREE-COORDINATE witness and sharp numeric sequence are NOT novel. The evaluated current theorem additionally proves the global upper bound for every higher ambient dimension n>=3 and every rank-two B by projective convex majorization; the published 2x3 classification has no statement or implication controlling arbitrary n>3. General random sketch/Nyström literature gives subGaussian sample complexity but not this sharp dimension-free exact constant. O PASS best of knowledge for the all-n extension, not the n3 case; residual possibility of known general anti-concentration implication.
+
+## value
+
+PASS
+
+Natural exact-recovery failure law for randomized linear algebra: rigorously shows a universal ambient-dimension plateau in rank-two discrete sketches, with n2 versus all n>=3 distinction. Establishing that no higher ambient dimension worsens failure is an independently useful sharp minimax fact, not merely restating a small-n witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
