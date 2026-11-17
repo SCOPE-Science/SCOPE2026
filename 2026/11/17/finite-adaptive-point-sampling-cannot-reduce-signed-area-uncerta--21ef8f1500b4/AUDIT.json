@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every W1,1 driver, the terminal output equals signed area. Doubling the open curve by reflected reversed traversal gives signed area 2F and length at most 2B; the signed isoperimetric inequality proves the bound. A deterministic adversary leaves one nonempty unqueried transition gap for any finite query sequence, even when times are not ordered. The two length-B semicircle completions produce identical transcript and outputs of opposite magnitude B^2/(2pi). Sympy integration was checked for the exact arc identity, not substituted for the infinite-policy proof. All quantifiers and boundary N=1 are covered.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gusev et al. Theorem 5.1 assumes \\(\\|\\dot X\\|_\\infty\\le L\\) and yields a decaying rate; Theorem 5.2 also bounds acceleration.",
+        "published-finding corpus closest published-finding corpus published record ID suffix 7dfc7d4760ff concerns convex-curve geometric sampling, not controlled area from unrestricted-speed variation-bounded drivers."
+      ],
+      "reasoning": "A uniform speed bound implies a total-length bound but does not permit speed concentration. Bounds for this smaller class imply no positive universal lower bound on the larger class independent of sample count. The all-N obstruction requires an additional adversarial gap argument.",
+      "searches": [
+        "total-variation bounded planar paths finitely many adaptive point samples cannot identify signed area; minimax radius L squared over two pi",
+        "bounded length planar curve unknown signed area arbitrary finite observations adaptive minimax no convergence",
+        "point sample reconstruction rough path area W1,1 versus Lipschitz optimal recovery",
+        "arXiv:2611.03887v1 Section 5 Theorems 5.1 and 5.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.03887v1 full accessible text, Sections 3,5, Appendices A and D",
+      "published-finding corpus semantic search for Heisenberg area / Levy area / W1,1 / total variation / finite adaptive sampling with closest result IDs retained in comparison checks",
+      "Web searches for total-variation signed-area optimal recovery and IBC alias formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Proposition 5.3 obtains \\(L^2T^2/(2\\pi N)\\) for pointwise speed-bounded drivers, with the same signed-area output.",
+        "Source Lemma A.4 supplies the semicircle bound but does not treat the total-variation-only adaptive point sampling class.",
+        "The present proof supplies a transcript-adaptive undecided gap, in which the whole allowed length can concentrate."
+      ],
+      "reasoning": "The old result neither states nor implies equality of the larger-class minimax radius for all finite N. Geometric semicircle sharpness is prior, while combining it with an all-policy concentration argument under only an L1 derivative budget yields the new claim. A classical general IBC theorem might still imply it; searched evidence did not resolve all possible priority.",
+      "searches": [
+        "arXiv:2611.03887v1 Proposition 5.3 and Appendices A.2, D.1-D.3",
+        "sharp minimax worst case Levy area bounded length bounded variation driver finitely many adaptive point evaluations",
+        "web: total variation bounded planar paths optimal recovery Levy area from finite point samples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The canonical Heisenberg area CDE is exactly the open-path signed-area functional; source arXiv:2611.03887v1 Appendix D Lemma D.1.",
+        "published-finding corpus returned published-finding corpus published record (short ID 067) (fractional Brownian cubature), which concerns a stochastic cubature atom lower bound rather than deterministic adaptive area information."
+      ],
+      "reasoning": "Comparison was made after identifying the exact signed-area, Levy-area, Heisenberg central-coordinate, and step-two-signature aliases. None of the inspected published-finding corpus summaries has the same total-length admissible class and finite adaptive point-value minimax claim.",
+      "searches": [
+        "controlled differential equations Heisenberg area CDE bounded variation inputs point observations information radius exact",
+        "arbitrary finite adaptive samples cannot recover Heisenberg signed area from unit variation paths",
+        "web: point evaluations signed area of bounded variation curve recovery minimax adaptive observations",
+        "arXiv:2611.03887v1 Appendix D Lemma D.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published-finding corpus published record ID suffix e46b1bb3e0ce concerns finite ordered polygons in a convex set, a different optimization.",
+        "No exact total-variation CDE point-information table or result was found by these queries."
+      ],
+      "reasoning": "The invariant is a continuum input/output information radius, not an integer census or known numerical database entry. The failed search itself does not establish priority.",
+      "searches": [
+        "nonadaptive adaptive point observation total variation signature Lévy area obstruction semicircle",
+        "global total variation budget signed area CDE radius of information adaptive sampling",
+        "web: adaptive information complexity Stieltjes integral bounded variation path arbitrary finite samples signed area"
+      ]
+    },
+    "rationale": "The principal full-text comparison, Gusev--Romanenkova--Zaytsev arxiv:2611.03887v1 Sections 3/5 and Appendices A/D, analyzes the same area CDE under an L-infinity speed bound, obtaining L^2T^2/(2pi N), not the L1 total-length class. Its known Dido geometry is explicitly attributed. The new all-finite-N result uses an adversarial unqueried time gap to concentrate the full variation. Actual published-finding corpus queries found no equivalent or stronger covering statement. General information-based complexity history is the remaining risk.",
+    "residual_risks": [
+      "A general classical information-based complexity theorem for total-variation constrained paths and bilinear Stieltjes functionals may imply the same constant; exact all-policy specialization was not located.",
+      "Only summary/abstract information was available for some peripheral optimal-recovery and rough-path literature, so absence of overlapping results cannot be guaranteed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for only-global-total-length admissible paths; strong closest prior",
+        "evidence": [
+          "arXiv:2611.03887v1 Section 3 specifies W^{1,infty} bounded speed and W^{2,infty} acceleration subclasses.",
+          "Proposition 5.3 proves L^2 T^2/(2pi N) only when maximum instantaneous speed L is fixed.",
+          "Appendix A Lemma A.4 proves classical geometric bound B^2/(2pi), which is used and credited.",
+          "Appendix D describes the area CDE and different bounded-speed adversarial construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.03887",
+        "material_read": "Accessible full arXiv text: problem formulation Section 3, minimax Section 5, Proposition 5.3, Appendices A.2 (Dido fiber and maximum) and D.1-D.3 (area representation, exact interval, all-policy proof).",
+        "method": "Full accessible HTML text inspected, including hypotheses, proofs and appendices",
+        "title": "The Information Limits of Neural Controlled Differential Equations Under Sparse Observations",
+        "trigger": "Same canonical area CDE, exact information radius for deterministic adaptive point observations"
+      },
+      {
+        "assessment": "CONTEXT_ONLY; cannot establish noncoverage from abstract",
+        "evidence": [
+          "Concerns adapting numerical integration of a specified RDE input, versus worst-case recovery of an unknown area functional from finitely many input point samples. Full text not inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.12514",
+        "material_read": "Abstract and contextual citation in Gusev et al. Section 2, not a complete full-text examination",
+        "method": "Abstract/contextual literature comparison",
+        "title": "An Adaptive Algorithm for Rough Differential Equations",
+        "trigger": "Adaptive numerical methods could potentially imply stronger observational result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "21ef8f15-00b4-48dd-92de-e9525fd75923",
+  "value": {
+    "rationale": "A global path-length budget is a natural alternative regularity model in controlled ODE and rough-path analysis. The sharp constant B^2/(2pi) for every finite observation budget exhibits an exact non-decaying information regime, unlike the source paper’s N^{-1} pointwise-speed regime. The explicit adversarial strategy explains why adaptive point sampling fails; this answers a substantive sampling-regularity boundary question rather than an arbitrary specialization or merely numerical computation.",
+    "status": "PASS"
+  }
+}
