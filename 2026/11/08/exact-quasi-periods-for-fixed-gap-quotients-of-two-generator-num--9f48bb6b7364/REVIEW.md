@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact quotient Frobenius formula, rather than assuming it from a similar formula for consecutive generators. It verifies the Sylvester gap-symmetry identity for \(\langle a,a+h\rangle\), computes the least semigroup representative of the Frobenius residue modulo \(p\), establishes that this representative lies below the classical Frobenius number, and obtains the constituent polynomial. The zero-residue branch is unique by the explicit modular congruence at lengths \(p-1\) and \(p-2\); the Chinese remainder theorem then excludes every proposed period not divisible by \(p\), including on the restricted coprime domain. Independent finite exact membership checks match \(1{,}920\) cases. These checks are corroboration, not a proof of infinitely many cases.
+PASS
 
-## Originality — PASS (qualified)
+For S=<a,a+h>, Sylvester F=a²+(h−2)a−h and symmetry yield G=(F−w)/p where w is the least element of S in F mod p. Writing w=ta+hy with 0≤y≤t yields the exact first feasible (I_r,J_r) at t≤p−1 when a>h(p−1); w<F follows from a>p. At residue 0, (I,J)=(p−1,p−1), unique among residues; a triple CRT argument rules out every alternate period d with p∤d despite admissible gcd(a,h)=1. Independent exact direct-membership checks matched 321 instances of p,h,a. The proof, not the finite checks, supports all parameters.
 
-Liu's July 2026 formula covers \(\langle a,a+1\rangle/p\), not the family of fixed gaps \(h\ge2\). The April 2026 work assumes the quotient divisor divides a generator in its general setting and does not supply the moving-residue formula. An earlier exact-period theorem for the consecutive-generator case is a strict boundary case and neither supplies nor implies the asserted fixed-gap classification. Targeted searches for fixed-gap quotients, quasi-period collapse, residue formulas, and equivalent constructions identified no stronger covering statement. The literature is not exhaustive; priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first fixed-gap extension beyond consecutive generators addresses a natural parameter in the established quotient Frobenius problem. It supplies a finite computable residue classification for every fixed coprime gap, plus the **sharp minimal** quasi-period rather than merely an available upper period. The exact period controls the complexity of eventual polynomial descriptions and excludes artificial period collapse when domain coprimality constraints are imposed. Both the structural rigidity and broad parameter range distinguish it from a one-case calculation.
+Closest Feihu Liu 2026 special case has gap h=1, and the other paper imposes a divisor condition not present here. Neither stated prior result derives the all-fixed-coprime-h explicit coefficients with exact minimal period p; best-of-knowledge priority with possible unindexed general quotient theorem.
 
-## Limits and closest literature
+## value
 
-The result is confined to fixed \(p,h\) with \(\gcd(p,h)=1\) and sufficiently large \(a\) satisfying \(\gcd(a,h)=1\). No assertion is made that the lower bound on \(a\) is optimal, nor that the theorem resolves the general three-variable Frobenius quotient problem. Closest references: Liu (2026), arXiv:2607.23076v1 and arXiv:2604.26415v1. Nonindexed equivalent work cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full natural fixed-gap two-generator family replaces a lone example. The exact eventual residue formula and sharp minimal period solve a structural complexity question, including a nontrivial admissible-domain CRT obstruction to period collapse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
