@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproducible checks
-Run `python verify_sextic_energy.py` from this directory. It directly computes the ordered sextic-graph pair-sum histogram and its exact squared energy, evaluates the two character sums and the intersection-root count separately, and tests the independent quartic-curve point count for seventeen prime fields and three quadratic extension fields. The exact integer/rational checks pass with `SEXTIC_GRAPH_EXACT_ENERGY_CHECKS_PASS`.
+# Independent mathematical audit
 
-## Analytic checks and limits
-The proof is by polynomial factorization, quadratic-character point counts, and inclusion–exclusion for all finite fields of characteristic greater than five. The squarefree-cubic assertions are restricted to characteristics other than eleven; characteristic eleven is computed separately. Exhaustive small-field computations do not prove an infinite-family claim, and the exact energy does not establish an unrestricted sharp extension norm. Independent mathematical validation has not been performed.
+## correctness
+
+PASS
+
+For fixed s≠0, substitutions a=s(1+r)/2, b=s(1-r)/2 reduce sixth-power collisions to (r²-t²)P(r,t)=0. The conic D(u,v) has q-χ(-3) points, weighted sums 2T1+T2-(1+χ(-3)), and overlap I, giving exact energy equation (1). Characteristic 11 gives T1=-1,T2=q-1,I=8 and limit coefficient 4 instead of 3. Independent pair-histogram calculations agree at primes 7,11,13,17,19,23,29. The normalized Fourier fourth moment follows orthogonality with factor q^-2.
+
+## originality
+
+PASS
+
+The general Mockenhaupt–Tao restriction moment identity, lower-degree quartic graph energy, and higher algebraic-curve extension bounds are prior. None yields the explicit sixth-degree two-elliptic-trace decomposition and characteristic-11 degeneration as a stated special case in checked sources. Bounded best-of-knowledge originality, with possible unsearched character-sum formula risk.
+
+## value
+
+PASS
+
+The exceptional characteristic jump from leading constant 3 to 4 is a sharp structural phenomenon in a natural polynomial graph; the two trace terms determine exact fourth moments over prime powers and are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
