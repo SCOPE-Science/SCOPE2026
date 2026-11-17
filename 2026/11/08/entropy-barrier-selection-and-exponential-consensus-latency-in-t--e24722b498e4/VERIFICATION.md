@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact pairwise-payoff transition rule was independently enumerated over all labeled configurations for \(3\le N\le8\), across 249 rational parameter cases. The supplied `verify.py` checked 33,270 Bellman equations for the probability of unanimous \(A\) and the expected number of updates until unanimity. All passed using Python standard-library rational arithmetic.
+# Independent mathematical audit
 
-Reproduce from this directory with `python verify.py`. The exact example \((N,a,b,p,i)=(10,2,7,1/2,5)\) yields \(P_i=1/2\), \(E_i=151/3\). General results follow from the analytic reversible-chain Dirichlet solution and Stirling/entropy argument in RESULT.md; finite enumeration is not a proof for arbitrary size. The entropy limit is not certified by these finite cases.
+## correctness
 
-Scientific scope: full layer overlap, complete graphs, independent layer and focal-agent sampling, tie retention, and integer payoff thresholds. The supplementary material to the initiating study was not read. Independent external audit has not been performed.
+PASS
+
+Payoff difference for focal agent against j A-neighbors is exactly j-t for threshold t=a or b; tie retention implies inside a+1..b the count chain has up probability p(N-i)/N and down (1-p)i/N, while outside it moves monotonically to consensus. Reversible binomial conductances c_j=pi_j p(N-j)/N yield P_i=L_i/R via the harmonic equation and a Dirichlet Green kernel pi_k L_min(i,k)(R-L_max(i,k))/R for exit time, followed by coupon-collector cleanup NH_a or NH_(N-b-1). Stirling estimates on resistors and upper/lower positive Green bounds give min of two binary-KL entropy barriers and the winner exponents; strictly decreasing barrier difference yields unique p*. Direct independent rational Bellman checks in three finite models passed. This is not a statement for sparse layers.
+
+## originality
+
+PASS
+
+Standard Ehrenfest heat-bath resistance methods already exist and Raducha–San Miguel introduced two-layer coordination; novelty rests on the specific payoff/complete-overlap reduction together with exact winner and mean-time formulas and sharp two-barrier, p*-selected exponential latency in this game. Relevant Resultary items on other games have different graph/topology or update rules. Main primary main text inspected; original supplementary not read.
+
+## value
+
+PASS
+
+Random switching can greatly slow otherwise O(N log N) consensus dynamics; sharp formulas for the absorption probabilities, lifetime and layer-bias transition quantify a natural metastability mechanism for the canonical fully shared network game. The KL barrier crossover is not a routine restatement of generic chain reversibility, though proof uses standard methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

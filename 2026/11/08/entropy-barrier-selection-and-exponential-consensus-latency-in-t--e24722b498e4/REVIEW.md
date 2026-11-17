@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Finding:** Entropy-barrier selection and exponential consensus latency in two-layer coordination games.
+## correctness
 
-## Correctness — PASS
+PASS
 
-For \(1\le a<b\le N-2\), a focal person's payoff difference under the two coordination games is the number \(j\) of \(A\)-neighbors minus \(a\) or \(b\). Inside \(a+1\le i\le b\), environment selection exactly resamples a random player as a Bernoulli-\(p\) action, and outside the interval the population moves monotonically to unanimity. The harmonic resistance formula, Green kernel, and coupon-collector cleanup means solve the finite problem without omitted boundary cases. Stirling's formula and bounds on the positive Green sum prove the logarithmic consensus-time and rare-winner exponents. The activity crossover has exactly one root because the difference of the two binary relative entropies is strictly decreasing. An independent labeled-state transition enumerator established 33,270 Bellman equalities over 249 rational parameter cases. Finite enumeration does not establish the theorem; the written proof does.
+Payoff difference for focal agent against j A-neighbors is exactly j-t for threshold t=a or b; tie retention implies inside a+1..b the count chain has up probability p(N-i)/N and down (1-p)i/N, while outside it moves monotonically to consensus. Reversible binomial conductances c_j=pi_j p(N-j)/N yield P_i=L_i/R via the harmonic equation and a Dirichlet Green kernel pi_k L_min(i,k)(R-L_max(i,k))/R for exit time, followed by coupon-collector cleanup NH_a or NH_(N-b-1). Stirling estimates on resistors and upper/lower positive Green bounds give min of two binary-KL entropy barriers and the winner exponents; strictly decreasing barrier difference yields unique p*. Direct independent rational Bellman checks in three finite models passed. This is not a statement for sparse layers.
 
-## Originality — PASS, with residual priority risks
+## originality
 
-The initiating two-layer game [1] defines the asynchronous update and discusses its fully overlapping configuration, but its inspected main article reports numerical BR outcomes rather than these finite probability formulas and large-deviation selection law. General robust-consensus results [2] imply qualitative agreement in appropriate regimes but do not supply the winner probabilities, exponential consensus-time law, or sharp relative-activity threshold. Classical urn theory [3] supplies known reversible-chain methods; these generic techniques are expressly not claimed as novel. Search comparisons for aliases (heat bath, Ehrenfest, switching thresholds, metastability, coordination games) and indexed public scientific records found no equivalent or stronger covering statement. The separate supplementary material to [1] could not be read, and a matching unindexed result cannot be ruled out.
+PASS
 
-## Value — PASS
+Standard Ehrenfest heat-bath resistance methods already exist and Raducha–San Miguel introduced two-layer coordination; novelty rests on the specific payoff/complete-overlap reduction together with exact winner and mean-time formulas and sharp two-barrier, p*-selected exponential latency in this game. Relevant Resultary items on other games have different graph/topology or update rules. Main primary main text inspected; original supplementary not read.
 
-The precise question is motivated by the literature's long-lived mixed outcomes when contexts favor opposite conventions. Although either fixed environment alone reaches unanimity in at most a harmonic coupon-collector mean \(NH_N\), their random switching creates exponential expected latency. The result determines how long this effect persists as population grows, supplies exact finite-N benchmark probabilities, and identifies when a small change in the frequency of one context causes asymptotically almost-sure selection of the opposite convention. Complete layer overlap and complete connectivity are explicit structural assumptions; the result is not extrapolated to arbitrary graphs. The unique activity threshold is mathematically and substantively meaningful for the source model.
+## value
 
-## Closest literature and limits
+PASS
 
-[1] Raducha–San Miguel, arXiv:2212.08877v1 (2022), full readable main article arXiv:2212.08877v2.
+Random switching can greatly slow otherwise O(N log N) consensus dynamics; sharp formulas for the absorption probabilities, lifetime and layer-bias transition quantify a natural metastability mechanism for the canonical fully shared network game. The KL barrier crossover is not a routine restatement of generic chain reversibility, though proof uses standard methods.
 
-[2] Arditti–Como–Fagnani–Vanelli, arXiv:2109.12685 (2021), qualitative robust consensus.
-
-[3] Xin–Cui–Zhao–Yao, arXiv:1810.04219 (2018), generic Ehrenfest hitting times.
-
-[4] Raducha–San Miguel, arXiv:2110.10036 (2021), related single-layer coordination.
-
-The theorem excludes partial overlap, sparse layers, nonlinear imitative rules, non-independent context switching, and general time-varying clocks. The supplemental PDF of [1] was inaccessible and has not been used to assert noncoverage. The case where the two entropy barriers coincide is not assigned a universal limiting winner probability; subexponential details matter.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
