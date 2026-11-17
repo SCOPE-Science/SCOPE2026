@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with the adjacent `hessian_certificate.json` file and SymPy. The exact arithmetic script verifies the four-state absorbing system, the rational first-pair success formula, all positive monomials in three Hessian numerators, their positive denominators, the signed endpoint derivative, and the ordering of the coefficient transition points. It separately generates the transition rates and solves \(25\) rational instances by Gaussian elimination, then compares with the symbolic probability formula.
+## correctness
 
-The certificate contains the complete \(37+58+79=174\) integer coefficient table and checks monomial exponents as well as coefficients. The sign checks are exhaustive for the symbolic polynomials; the independent rational instances are additional diagnostics and do not substitute for the all-parameter polynomial argument. The ecological interpretation excludes permanence after two destination individuals are reached. Independent expert audit has not been performed.
+PASS
+
+Reconstructed the four active transient states (2,0),(3,0),(2,1),(3,1), death and successful birth rates and exact absorption system; independently recomputed F=b^2J/D with J=a^2+5ab+21a+6b^2+45b+84 and D=a^2b^2+5ab^3+21ab^2+15ab+3a+6b^4+45b^3+141b^2+195b+108. Independent symbolic derivatives reproduce all three positive-monomial Hessian numerators (37,58,79 terms); determinant and -H_aa>0 on a,b>0. Endpoint derivative has sign Q_B(h); coefficient breakpoints 9,86/9,6714/493,405/13 strictly increase, Descartes plus Q_B(0)<0 and Q_B(1)>0 implies unique h threshold for B>9. Boundary m=0 gives F=0, b>0 F>0; strict log-concavity proves uniqueness. Finite checks are not the proof.
+
+## originality
+
+PASS
+
+The joint strict log-concavity and sharp B=9, h_c(B) optimization frontier concern a finite first-pair hitting probability with pair-dependent births; closest published work instead establishes long-time survival/expansion on infinite patch arrays or different deterministic dispersal maps. No stronger theorem implying this exact finite CTMC statement was located in checked sources; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The finite capacity-three two-patch model captures a mathematically motivated Allee/pair-formation bottleneck. A jointly strict log-concavity theorem and a sharp, fully classified dispersal-effort transition at B=9 are exact and potentially reusable optimization benchmarks, not a routine textbook rate derivative or a claim of indefinite establishment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

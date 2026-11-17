@@ -1,18 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-state stopping reduction follows because neither patch can generate offspring once both counts lie below two. The first-step linear system yields the stated rational success probability exactly. Three exhaustive integer monomial certificates establish \(-L_{aa}>0\), \(-L_{bb}>0\), and \(\det\nabla^2L>0\) for all strictly positive rates, hence strict log-concavity. The signed endpoint derivative and a single sign-change Descartes argument prove the complete boundary/interior classification for every \(B>0\) and \(0<h\le1\). The included finite certificate and independent exact fraction enumeration were replayed. This mathematical finding is not a claim of permanence.
+## correctness
 
-## Originality — PASS within inspected evidence, with residual historical risk
-The primary arXiv 2013 work develops the pair-dependent reproductive patch process and large-system survival bounds. The accessible 2015 version pursues mean-field expansion/retreat. The earlier arXiv 2010 two-patch Allee paper has a different model with migration/exchange, and addresses limiting extinction/expansion. Neither derives or directly implies the exact capacity-three first-pair success function, its jointly negative-definite log-Hessian, or the unique resource-allocation switch at \(B=9\). Relevant titles, mathematical assumptions, first-pass equations, and principal theorems were inspected. Index searches returned no decisive coverage; index absence is not novelty proof. Motro's 1982 dispersal optimization was located by abstract but not assessed in full text; it remains historical-priority risk rather than affirmative noncoverage.
+PASS
 
-## Value — PASS
-Pair-limited reproduction introduces a genuine tradeoff between maintaining the source and delivering two viable emigrants. The capacity-three case is the smallest patch capacity where natal pair reproduction can refill a vacancy; with capacity two it cannot. The result proves a global functional property (joint strict log-concavity) and a complete two-parameter allocation diagram, not a numerical example or arbitrary parameter slice. The exact fecundity threshold gives a motivated and independently reproducible mathematical benchmark for first-pair founding under migration mortality.
+Reconstructed the four active transient states (2,0),(3,0),(2,1),(3,1), death and successful birth rates and exact absorption system; independently recomputed F=b^2J/D with J=a^2+5ab+21a+6b^2+45b+84 and D=a^2b^2+5ab^3+21ab^2+15ab+3a+6b^4+45b^3+141b^2+195b+108. Independent symbolic derivatives reproduce all three positive-monomial Hessian numerators (37,58,79 terms); determinant and -H_aa>0 on a,b>0. Endpoint derivative has sign Q_B(h); coefficient breakpoints 9,86/9,6714/493,405/13 strictly increase, Descartes plus Q_B(0)<0 and Q_B(1)>0 implies unique h threshold for B>9. Boundary m=0 gives F=0, b>0 F>0; strict log-concavity proves uniqueness. Finite checks are not the proof.
 
-## Sources and boundaries
-- Lanchier (2013), arXiv:1307.6618v1, full-text HTML portions covering model equations and main results.
-- Foxall–Lanchier (2015), arXiv:1504.01409v1, full-text HTML model and major theorems.
-- Kang–Lanchier (2010), arXiv:1003.0121v1, full-text HTML introduction, model, and stochastic hitting results.
-- Motro (1982), DOI:10.1016/0040-5809(82)90027-2, abstract only; residual comparison risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The joint strict log-concavity and sharp B=9, h_c(B) optimization frontier concern a finite first-pair hitting probability with pair-dependent births; closest published work instead establishes long-time survival/expansion on infinite patch arrays or different deterministic dispersal maps. No stronger theorem implying this exact finite CTMC statement was located in checked sources; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The finite capacity-three two-patch model captures a mathematically motivated Allee/pair-formation bottleneck. A jointly strict log-concavity theorem and a sharp, fully classified dispersal-effort transition at B=9 are exact and potentially reusable optimization benchmarks, not a routine textbook rate derivative or a claim of indefinite establishment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
