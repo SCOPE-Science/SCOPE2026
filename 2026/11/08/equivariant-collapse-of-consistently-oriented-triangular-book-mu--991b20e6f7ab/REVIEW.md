@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(m\ge1\), at most one incoming and outgoing hub-page arrow is admissible. The only forbidden three-arrow hub configuration is a full directed triangle on one page, so the complete simplex list in `RESULT.md` is exact. For \(i\ne j\), the edge \(\{u_i,v_j\}\) has a unique triangle coface \(\{c,u_i,v_j\}\), and simultaneous removal of the full permutation-invariant family leaves exactly the stated wedge graph. The equivariant deformation is compatible across the triangles because their intersections are fixed surviving faces. Fixed-point and quotient calculations follow from permutation of the remaining circles. The standalone checks reconstruct the original path condition through seven pages, together with subgroup orbit checks. No finite extrapolation is required.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary literature gives the general directed-linear-forest framework and an explicit homotopy-classification problem for directed cycles (Deshpande–Sawant, arXiv:2602.14936v1), multipath computations on directed paths, polygons, grids and tournaments (Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1), and bidirected polygon results (Caputi–Collari–Smith, arXiv:2601.05670v1). Relevant sections and exact terms were inspected. Nearby published mathematical-result summaries concern fully bidirected books, other Morse complexes, or other graph families, not the specified consistently oriented shared-edge book. No verified stronger theorem was found implying the full equivariant collapse and all-subgroup fixed/quotient classification. The residual risk is unindexed or unrecognized general coverage; absence in search results alone would not establish originality.
+PASS
 
-## Value — PASS
-The object is the natural oriented counterpart of the triangular book and an infinite family of strongly connected digraphs containing many overlapping cycles. The result determines the entire equivariant simple-homotopy reduction, canonical integral homology lattice and fundamental-group action, and fixed and quotient homotopy types for every subgroup—not just a Betti number or isolated finite instance. The discrepancy between fixed-page and orbit-page counts is information not available from the nonequivariant wedge count. This directly addresses the motivated problem of finer homotopy structure for directed-cycle forest complexes, with a reusable orbitwise free-face argument.
+The directed-path criterion forces at most one u_i, one v_j and the common c in a face. Every pair (u_i,v_j) is admissible, whereas the triple (c,u_i,v_j) is admissible precisely for i!=j; i=j forms a directed 3-cycle. These are all possible faces. Each off-diagonal edge has exactly one triangle coface and can be removed with it; the S_m-invariant disjoint pair family leaves edges c-u_i,c-v_i,u_i-v_i. The orbitwise elementary collapses preserve the retained intersection faces, hence give an equivariant strong deformation retraction. Each circle is permuted without reversing orientation: π1=F_m, H1=Z^{m} as permutation lattice, fixed circles equal individually fixed page indices, quotient circles equal page orbits. For m=1 there are no free pairs and already exactly one circle. The all-m argument is combinatorial; independent enumeration verified exact faces/count 2m^2+3m+2 for m=1,2,3,4.
 
-## Scientific limitations
-Only the specified coherent orientation and shared directed edge are covered. General graph orientations and different complexes require separate analysis. Comparison searches cannot rule out all unpublished or unindexed coverage. Executable checks are finite and have no external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact directed shared-arrow book family and its S_m-equivariant collapse/fixed-space representation are not covered by the inspected directed-forest general framework or indexed polygon, grid and bidirected computations; the shared-arrow family has a different simplex classification. The general technique of elementary collapse is not claimed novel. Best-of-knowledge PASS subject to unindexed-equivalence risk.
+
+## value
+
+PASS
+
+A uniform all-page answer for directed-cycle multipath complexes, including integral symmetry action and every subgroup fixed space, addresses a motivated family within an explicit prior homotopy-classification problem; it is not a one-off tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
