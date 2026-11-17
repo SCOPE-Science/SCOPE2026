@@ -1,17 +1,21 @@
-# Review of the characteristic-seven genus-five Howe pencil
+# Independent mathematical audit
 
-## Correctness (PASS)
-Let \(k=\overline{\mathbb F}_7\) and restrict the parameter to \(a\ne0,1\). The two quartics have disjoint simple branch loci; the degree-four cover has eight branch points with two simple ramified preimages each, yielding genus five by Riemann--Hurwitz. The Klein-four quotient maps the Jacobian by an isogeny of degree a power of two to the two genus-one Jacobians and the genus-three hyperelliptic quotient. Thus the prime-to-seven isogeny preserves the relevant \(7\)-torsion group scheme. Both elliptic factors are supersingular with \(a\)-number one.
+## correctness
 
-The Cartier coefficient extraction uses exponent \((7-1)/2=3\). The exact matrix of cubic coefficients has off-diagonal factors \(-3a^2(a+1)\), \(-3(a+1)\) and central factor \(-(a-2)(a+1)(a+3)\). For admissible parameters, their nonzero semilinear cycles give stable rank three, two or zero precisely as claimed, and kernel dimensions give the \(a\)-numbers. The actual symbolic verifier reconstructs these coefficients from polynomial arithmetic. The exhaustive finite-field verifier checks two distinct irreducible polynomial presentations when counting over \(\mathbb F_7,\mathbb F_{49},\mathbb F_{343}\); genus-three Newton identities and its reciprocal functional equation prove the complete enumerated degree-six factors. Adding the two trace-zero elliptic factors gives the stated genus-five zeta numerators. There is no inference from finite samples to the general geometric theorem.
+PASS
 
-## Originality (PASS, residual risks)
-Kudo, arXiv:2401.00760v1 (2024-01-01), treats the degree-six plane model and its singularities, not a characteristic-seven arithmetic stratification for the parameterized two-elliptic-branch pencil. Katsura--Takashima, arXiv:2108.06936, supply the general quotient-isogeny structure, which by itself does not calculate the three Cartier factors or five zeta polynomials. Moriya--Kudo, arXiv:2310.15993, concerns the different shared-branch genus-two quotient model; their earlier genus-three arithmetic work supplies background methods. Ohashi, arXiv:2604.18074, establishes superspecial genus-five examples in a different Howe configuration, so the existence of superspecial genus-five curves is specifically not new. Related genus-three reciprocal-quartic Cartier-rank strata may specialize to the rank calculation after an unverified change of coordinates, so novelty is not claimed for the rank substatement in isolation. Their rank formulae do not determine the five genus-five Hasse--Weil numerator polynomials or the quadratic-extension maximality. Exact and alias-oriented comparisons did not find a prior result implying this complete zeta spectrum. An older unindexed equivalent arithmetic computation remains possible and no uniqueness-of-discovery assertion is made.
+For a≠0,1 in characteristic 7 the branch sets of quartic elliptic covers are disjoint, yielding genus 5 Riemann-Hurwitz and prime-to-7 Klein-four isogeny J(Ca)~E1×E2×J(Da) with D:y²=(x⁴-1)(x⁴-a). Both j=1728 elliptic quotients are supersingular in characteristic 7. Direct expansion of F_a(x)^3 over F7[a] gives the Cartier matrix anti-diagonal entries -3a²(a+1), -(a-2)(a+1)(a+3), -3(a+1). The 2-cycle off-diagonal entries vanish simultaneously at a=-1, so stable semilinear ranks are 0 at -1, 2 at 2,4 and 3 otherwise; add elliptic a-number 2 to obtain (7-rank,a-number) (0,5),(2,3),(3,2). For rational a=2,3,4,5,6, exact finite-field character sums for genus-three D at degrees 1,2,3 and genus-3 functional equation determine its full L-polynomial and multiply by U²: U³V-V+ at 2,4, U²V-B at 3, U²V+B at 5, U^5 at 6, with #C6(F49)=120. Independently expanded polynomial coefficients in F7[a] and checked full rank pattern; source finite-field zeta checker inspected and equations replayable but no independent exhaustive F343 execution claimed.
 
-## Value (PASS)
-The natural pencil is a one-parameter family of genus-five generalized Howe curves with fixed supersingular genus-one quotient factors and a variable genus-three factor. The exact rank strata determine which members are superspecial and how the nonordinary locus degenerates; the complete five rational-parameter zeta numerators distinguish arithmetic isogeny behavior and exhibit a maximal genus-five member over the quadratic extension. These are structural arithmetic invariants of a motivated algebraic-geometry family, not an arbitrary slice or an unmotivated finite census.
+## originality
 
-## Limitations
-The coefficient parameters need not give distinct geometric isomorphism classes. No Newton polygon classification of all Howe families, all genus-five superspecial curves or higher-degree extension parameters is asserted. Complete historical priority is not independently certified. The genus and rank proofs assume \(a\ne0,1\), and the zeta table assumes \(a\in\mathbb F_7\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 2024 Kudo Howe paper studies the same general genus-five generalized Howe geometry and plane-sextic construction; its inspected full text does not classify the specific characteristic-seven a-parametric stable Cartier ranks or all five zeta numerators. Katsura–Takashima prime-to-characteristic Richelot decomposition is acknowledged as an ingredient. Resultary family searches returned other genus-four/five arithmetic curves with different equations/parameters, not the precise pencil. Qualified best-of-knowledge originality of the exact rank stratification and closed five-parameter zeta table is supported, subject to finite-field-table priority risk.
+
+## value
+
+PASS
+
+An exact stable-Cartier rank and a-number stratification of a naturally defined one-parameter genus-five Howe family, with a single superspecial member, is a meaningful geometric classification. The complete five rational-parameter zeta polynomials and F49 Weil-maximality locate natural arithmetic extremality; these facts are not only a random small table because the geometric rank argument covers every a over the algebraic closure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
