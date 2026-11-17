@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: RESULT.md defines positive fixed offsets independent of n and a lexicographic two-stage optimum for t_m(n)=s_2(n) mod m, all integers m>=2. At n=0, the unique admissible d<=2^m-1 is B=2^m-1, so the least horizon is B. Binary-carry case separation proves the explicit 2m-1 offsets all work for every n: if no low power-of-two works, the low bits have 0^a1^(m-a) with upper trailing-one run T; choosing the complementary offset 2^m-2^(a-r), r=T mod m in {1,...,a}, changes popcount by a-(a-r)-T= r-T divisible by m. The proof provides exact disjoint admissible shift sets E(0)={B}, E(N_j)={2^j} for j<m, and m-2 upper-half weight classes, forcing 2m-1 distinct offsets. Checked the carry/weight algebra, boundaries m=2, low-zeros case, and that necessary class membership is not claimed sufficient. Independently enumerated E(n) and all offsets for m=2..8, tested n<3000; this finite check corroborates, but does not establish the infinite claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known pseudoperiod examples concern the binary Thue–Morse alphabet m=2. Zhao–Zhang give the least common consecutive-window length to cover residues (q=2), without a fixed sparse offset support minimum.",
+          "Related Resultary shifted digit-sum automaton-state counts and Rudin–Shapiro sparse returns concern different invariants or words."
+        ],
+        "reasoning": "The m=2 consequence and dense interval coverage are encompassed by existing literature, but they do not dominate the all-m exact minimum *number of common shifts* at minimum horizon.",
+        "searches": [
+          "Resultary: generalized binary Thue Morse pseudoperiod sparse return support",
+          "Meleshko Ochem Shallit Shan Pseudoperiodic Words and a Question of Shevelev arxiv:2207.10171 Sections 1,3,6",
+          "Zhao Zhang Sums of Digits and Distribution of Generalized Thue-Morse Sequences JIS 20 17.3.3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.10171 (Meleshko–Ochem–Shallit–Shan 2022, full primary paper)",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf (Zhao–Zhang 2017, full primary paper)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sparse-return-thresholds-for-the-four-letter-rudin-shapiro--c77f2aacf49d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dense-window theorem yields a bound on occurrence of some residue in each sliding interval; the witnesses E(N_j)={2^j} show the new theorem requires all m powers even when the dense-window bound is known.",
+          "The exact 2m-1 lower bound is a disjoint hitting-set certificate not present in the cited pseudoperiod prototype."
+        ],
+        "reasoning": "Special case m=2 is known and not credited. The unconditional minimum horizon is elementary. Credited original claim is the full sharp sparse support bound at that horizon for all m.",
+        "searches": [
+          "arxiv:2207.10171 Proposition 12 and Sections 3–6",
+          "Zhao–Zhang Theorems 4-5, Corollary 12",
+          "Resultary generalized Thue-Morse shift automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent assertion is the minimum hitting-set cardinality of E(n)={d in [1,B]:s_2(n+d)=s_2(n) mod m}, over all n>=0, at B=2^m-1. The self-contained proof gives 2m-1 disjoint exact E(n), and a hitting family of the same size.",
+          "Meleshko et al. treat the m=2 Thue–Morse pseudoperiod triple and general word formalism, but not this all-m hitting-set cardinality."
+        ],
+        "reasoning": "Fixed-offset return hitting is stronger than existence of a same-letter occurrence somewhere in each variable consecutive window. Neither a relabeling nor dense-window equivalence supplies the disjoint-class support optimum.",
+        "searches": [
+          "Resultary: pseudoperiodicity generalized Thue Morse digit sum modulo m minimal maximum shift horizon and number of offsets",
+          "arxiv:2207.10171, Definition 1 and Proposition 12",
+          "JIS 20 (2017) 17.3.3, Definitions 3 and Theorems 4-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate checked table supplies the all-m hitting-set minimum K_m=2m-1; the Resultary exact matching entry is the same submitted research package, not independent prior coverage.",
+          "Prior Rudin–Shapiro shift-horizon tables enumerate a different automatic word."
+        ],
+        "reasoning": "Exact tabulation for small m cannot establish the uniform formula; we checked the actual infinite proof and finite witnesses rather than inferring a theorem from a database search.",
+        "searches": [
+          "Resultary: 2m-1 pseudoperiod shift digit sum word",
+          "SCOPE 2026/11/08 sparse-return Rudin–Shapiro 4-letter record",
+          "JIS 2017 Article 17.3.3 tables"
+        ]
+      },
+      "rationale": "PASS, qualified: the sharp minimum horizon follows trivially from n=0 and resembles the known dense coverage window, but the nontrivial uniformly sparse fixed-offset upper bound and matching 2m-1 lower bound for all moduli are not implied by the inspected interval-distribution or classical two-symbol pseudoperiodicity theorems. The exact lexicographic support optimum, not generic digit-sum recurrences, is credited. Search coverage is not historical-priority certification.",
+      "residual_risks": [
+        "An unindexed all-modulus pseudoperiod hitting-set classification or an unstated corollary of older automatic-word covering results may exist.",
+        "Finite enumeration only covers m<=8 and n<3000; the infinite result depends on the carry dichotomy and explicit witness formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in inspected material for m>=3 with exact lexicographic sparse support",
+          "evidence": "Proposition 12 deals with a three-shift example for the ordinary two-letter Thue–Morse word and excludes two-shift solutions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.10171",
+          "material_read": "Original 25-page primary PDF: abstract, Definitions and Propositions in Sections 1–4 and section on general alphabet, including Proposition 12 and proof context; relevant pages visually inspected",
+          "method": "Primary PDF parsed and sampled page images",
+          "title": "Pseudoperiodic Words and a Question of Shevelev",
+          "trigger": "Same recurrence notion, potential m-alphabet dominance"
+        },
+        {
+          "assessment": "NOT_COVERING for fixed sparse shift-set cardinality",
+          "evidence": "M_{q,n} is the minimum length of a consecutive block containing every residue; no common fixed sparse return-hitting-set optimum follows.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf",
+          "material_read": "Full 11-page primary PDF read around Definitions 3, Theorems 4–5, Corollary 12 and their proofs; actual page 6 screenshot",
+          "method": "Primary PDF text, theorem/hypothesis inspection and page image",
+          "title": "Sums of Digits and the Distribution of Generalized Thue-Morse Sequences",
+          "trigger": "Exact same digit-sum residue word; possible coverage via bounded gaps"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "The analyzed word is four-letter Rudin–Shapiro and has sharp horizons 10 and 66; neither implies modular binary digit-sum all-m support.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sparse-return-thresholds-for-the-four-letter-rudin-shapiro--c77f2aacf49d",
+          "material_read": "Indexed published theorem summary and explicit invariant compared",
+          "method": "Resultary semantic result and claim implication comparison",
+          "title": "Sharp sparse-return thresholds for the four-letter Rudin–Shapiro word",
+          "trigger": "Nearby exact pseudoperiod table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: minimizing a position-independent set of probes under the earliest possible return horizon is an intrinsically motivated sparse recurrence/automatic-word invariant, useful for periodicity tests and combinatorics on words. The exact linear-in-m cardinality despite exponential horizon and the disjoint Hamming-witness lower bound are a nonmechanical complete infinite-family tradeoff. The unrestricted minimum cardinality when the horizon grows remains unsolved.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2207.10171 (Meleshko–Ochem–Shallit–Shan 2022, full primary paper)",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf (Zhao–Zhang 2017, full primary paper)",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-sparse-return-thresholds-for-the-four-letter-rudin-shapiro--c77f2aacf49d"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Minimum cardinality only conditional on minimal possible maximum offset 2^m-1; no unrestricted K(m).",
+    "No complete classification of every optimal shift-set selection; necessary class intersections only.",
+    "Self-contained infinite proof and finite corroboration are separate.",
+    "An unindexed all-modulus pseudoperiod hitting-set classification or an unstated corollary of older automatic-word covering results may exist.",
+    "Finite enumeration only covers m<=8 and n<3000; the infinite result depends on the carry dichotomy and explicit witness formula."
+  ],
+  "schema_version": 1
+}

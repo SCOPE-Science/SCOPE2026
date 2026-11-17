@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The horizon lower bound is forced at the zero starting position: the only admissible positive shift up to \(2^m-1\) is the all-ones \(m\)-bit integer. The proposed family of \(2m-1\) shifts passes the infinite return test by an exhaustive binary-carry dichotomy. When no power-of-two shift works, the low bits must have form \(0^a1^{m-a}\), the high trailing-one run has residue \(r\in\{1,\ldots,a\}\), and the complement shift indexed by \(a-r\) has weight change divisible by \(m\). The exact admissible-offset sets at the \(m+1\) compulsory witnesses and the \(m-2\) Hamming-layer witnesses are pairwise disjoint; this gives a matching lower bound without using finite enumeration. The packaged stdlib verifier reports `VERIFY_OK moduli=9 assertions=79047`. Its finite scope is supplemental.
+PASS
 
-## Originality — PASS, qualified
+PASS: RESULT.md defines positive fixed offsets independent of n and a lexicographic two-stage optimum for t_m(n)=s_2(n) mod m, all integers m>=2. At n=0, the unique admissible d<=2^m-1 is B=2^m-1, so the least horizon is B. Binary-carry case separation proves the explicit 2m-1 offsets all work for every n: if no low power-of-two works, the low bits have 0^a1^(m-a) with upper trailing-one run T; choosing the complementary offset 2^m-2^(a-r), r=T mod m in {1,...,a}, changes popcount by a-(a-r)-T= r-T divisible by m. The proof provides exact disjoint admissible shift sets E(0)={B}, E(N_j)={2^j} for j<m, and m-2 upper-half weight classes, forcing 2m-1 distinct offsets. Checked the carry/weight algebra, boundaries m=2, low-zeros case, and that necessary class membership is not claimed sufficient. Independently enumerated E(n) and all offsets for m=2..8, tested n<3000; this finite check corroborates, but does not establish the infinite claims.
 
-Meleshko–Ochem–Shallit–Shan (arXiv:2207.10171, 2022) introduce pseudoperiods and treat the classical two-letter Thue–Morse case; this does not provide the arbitrary-modulus support optimum. Zhao–Zhang (Journal of Integer Sequences 20 (2017), Article 17.3.3) establish a sharp consecutive-window alphabet-coverage theorem, yielding a dense-window benchmark, not a uniform sparse shift set with optimality proof. Searches for modular digit-sum pseudoperiods, equivalent fixed self-return offset formulations, and tabulated covering supports identified no covering implication. Remaining risk is an unindexed or differently expressed prior result, or a non-obvious equivalent corollary; originality is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding is a complete infinite-family tradeoff theorem for a natural invariant linked to two published directions. It proves that the least possible maximum shift is exponential while the least support size at that horizon is exactly linear, and identifies mandatory shifts and Hamming-weight classes. These are structural bounds rather than a small numerical gain or an arbitrary finite computation.
+PASS, qualified: the sharp minimum horizon follows trivially from n=0 and resembles the known dense coverage window, but the nontrivial uniformly sparse fixed-offset upper bound and matching 2m-1 lower bound for all moduli are not implied by the inspected interval-distribution or classical two-symbol pseudoperiodicity theorems. The exact lexicographic support optimum, not generic digit-sum recurrences, is credited. Search coverage is not historical-priority certification.
 
-## Limits and primary evidence
+## value
 
-The theorem **does not** prove that \(2m-1\) is the minimum support when arbitrarily large maximum shifts are permitted, nor does it classify all possible optimal shift sets. The verifier covers only moduli \(2\) through \(10\), while the general proof covers every integer \(m\ge2\). Primary sources checked: [Zhao–Zhang, 2017](https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf), especially Theorems 4–5 and Corollary 12; [Meleshko–Ochem–Shallit–Shan, 2022](https://arxiv.org/html/2207.10171v3), especially Definition 1, Proposition 2, and Sections 3–4. The scientific comparisons and search scopes appear in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: minimizing a position-independent set of probes under the earliest possible return horizon is an intrinsically motivated sparse recurrence/automatic-word invariant, useful for periodicity tests and combinatorics on words. The exact linear-in-m cardinality despite exponential horizon and the disjoint Hamming-witness lower bound are a nonmechanical complete infinite-family tradeoff. The unrestricted minimum cardinality when the horizon grows remains unsolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
