@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each rank \(q\), a middle-point Ehrenfeucht–Fraïssé strategy separates *every* distinct pair of words of length at most \(2^q-1\), because every response exposes a different subword inside a half-length interval. Conversely, the classical long-order interval strategy makes monochromatic lengths \(2^q-1\) and \(2^q\) indistinguishable at rank \(q\). The two facts prove the exact universal finite-horizon envelope and the simultaneous even-length extremizer. The standalone checker independently reproduces game outcomes, recursive character types, and the parity horizon profile in stated finite ranges. The proof, not the finite check, supports universal quantification over all alphabets and horizons.
+## correctness
 
-**Originality — PASS within inspected evidence.** Bazarova–Alpay's 2026 preprint proves a general \(\lceil\log_2N\rceil+4\) upper bound and a regular-language asymptotic dichotomy, not the sharp exact envelope. Mwesigye–Truss's earlier coloured-order classification gives the character technique and the known *monochromatic* threshold, without the present all-colour short-word injectivity and all-language worst-case identity. The 2017 representative analysis and the inspected published restricted one-red classification do not provide the general theorem. A possible implicit derivation from older EF folklore and an earlier uninspected thesis remain residual risks; search absence is not a proof of priority.
+PASS
 
-**Mathematical value — PASS.** The invariant was specifically introduced to quantify finite-horizon descriptive complexity. Replacing a coarse logarithmic upper bound with its exact optimal value at **every** finite horizon, proving a sharp indistinguishability radius over **all** finite alphabets and finding a single two-state regular extremizer yield a natural complete cutoff and an interpretable structural boundary, not a numerical example or arbitrary parameter slice.
+Midpoint Spoiler strategy with t=2^(q-1)-1 splits a shorter/equal pair into differing subwords each of size <=t, so induction separates all different coloured words <=2^q-1, including empty and q=1. Finite Boolean combinations of separating formulas preserve rank and decide any restriction of a language. Duplicator responds in monochromatic lengths >=2^q-1 by maintaining short-equal or long-long gaps; that yields adjacent opposite-parity unary witnesses inside every horizon and lower bound. Independently recreated recursive colored rank types and confirmed short-word injectivity for q=1,2,3 on all binary words; this finite check is not a general proof.
 
-This self-review is not independent mathematical or historical-priority validation. The result uses full first-order order logic and unrestricted sentence size.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: No inspected theorem combines all-colour injectivity at radius 2^q-1 with parity witness to deduce the sharp universal envelope; the induction is the needed derivation. The result does follow from proving that lemma, not from a title comparison.
+
+## value
+
+PASS
+
+Sharp exact all-alphabet all-language finite-horizon complexity envelope in a recently defined natural FO rank metric, plus one regular extremizer simultaneously for every N; complete meaningful cutoff rather than a small sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

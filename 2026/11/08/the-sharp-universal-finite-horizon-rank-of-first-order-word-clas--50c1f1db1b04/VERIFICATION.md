@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-A portable Python 3 standard-library-only checker accompanies the theorem. Execute `python3 checker.py` after extracting both this document and the checker into the same directory. It derives coloured-word rank types recursively and compares their small cases with a separately implemented two-sided Ehrenfeucht–Fraïssé game, including equality, order and unary letter preservation. It checks 2,883 pairwise game cases, all binary word types up to length eight at ranks one to three, the sharp monochromatic thresholds at ranks one to six through length 64, and the even-length language's sharp finite horizon formula through \(N=63\).
+## correctness
 
-Successful output: `SHARP_FO_WORD_HORIZON_CHECKS_OK direct_game_comparisons= 2883 binary_word_lengths_through= 8 unary_lengths_through= 64 verified_ranks=1..6`.
+PASS
 
-Finite enumeration cannot establish an infinite theorem. The proof is the middle-point induction and the long-order interval game in `RESULT.md`. Independent audit has not been performed; no external proof certification is claimed.
+Midpoint Spoiler strategy with t=2^(q-1)-1 splits a shorter/equal pair into differing subwords each of size <=t, so induction separates all different coloured words <=2^q-1, including empty and q=1. Finite Boolean combinations of separating formulas preserve rank and decide any restriction of a language. Duplicator responds in monochromatic lengths >=2^q-1 by maintaining short-equal or long-long gaps; that yields adjacent opposite-parity unary witnesses inside every horizon and lower bound. Independently recreated recursive colored rank types and confirmed short-word injectivity for q=1,2,3 on all binary words; this finite check is not a general proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: No inspected theorem combines all-colour injectivity at radius 2^q-1 with parity witness to deduce the sharp universal envelope; the induction is the needed derivation. The result does follow from proving that lemma, not from a title comparison.
+
+## value
+
+PASS
+
+Sharp exact all-alphabet all-language finite-horizon complexity envelope in a recently defined natural FO rank metric, plus one regular extremizer simultaneously for every N; complete meaningful cutoff rather than a small sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
