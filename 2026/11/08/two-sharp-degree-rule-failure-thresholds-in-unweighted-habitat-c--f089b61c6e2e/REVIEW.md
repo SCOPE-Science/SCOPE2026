@@ -1,19 +1,21 @@
-# Scientific review: two sharp degree-rule failure thresholds
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim concerns only finite, simple, connected, undirected equal-weight graphs of orders two through six. The exhaustive checker iterates all labelled edge masks, determines connectivity exactly, forms every vertex-deleted adjacency matrix, computes its characteristic polynomial with exact integers and compares Perron roots by certified rational isolation or shared polynomial factors. Canonical labeling uses all vertex permutations. The 150 five-node tie failures and 540 six-node complete failures are exhaustively partitioned into three and two isomorphism classes, respectively; explicit witnesses are additionally checked. The two six-node residual polynomial factorizations agree with direct symbolic calculations. The checker is a finite proof of this finite claim, not a claim about infinite networks.
+PASS
 
-## Originality
+The claim is finite and algorithmically exhaustive: for each n<=6 encode all 2^binom(n,2) labelled graphs, test connectivity with BFS, compute each G-v exact integer characteristic polynomial and rational greatest-root isolation, compare roots using disjoint rational intervals or gcd-common-root certification, then quotient exceptions by all n! relabelings. Inspected actual checker.py has explicit loops and aborts on unresolved overlapping intervals; witnesses have characteristic polynomials giving spectral radii 2 versus sqrt(2+sqrt2), and a cubic maximum-degree root versus sqrt((5+sqrt17)/2). An independently written separate enumerator examined all 26,704 connected n=6 graphs and recovered connected totals 1,4,38,728,26704; arbitrary-degree failures 0,0,0,150,7740; all-max-degree failures 0,0,0,0,540; n=6 class sizes {180,360}. Independent second check used floating point and therefore corroborates but does not replace the repository exact root-isolation certificate. The smallest opposing eigenvalue gap was >0.031 in independent numerics.
 
-PASS relative to accessible evidence, with recorded historical-priority uncertainty. The source of the metapopulation-capacity objective is Hanski–Ovaskainen (2000), the general patch-removal eigenvalue framework is Ovaskainen (2003), and the closest accessible whole-document network intervention treatment is Saha et al. (2015), whose Sections 6–7 and appendices address spectral-node removal and poor general degree heuristics rather than the exact smallest failure orders and complete 5/6-vertex classes. Semantic searches for smallest spectral node-deletion failures, habitat capacity and degree tie-breaking, and closely related archival findings found no explicit same classification. This is not a claim that earlier work lacks all counterexamples or general algorithms. The full 2000 and 2003 papers were not accessible, so there remains a plausible priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The minimal-order boundaries clarify what a degree-only habitat protection proxy can and cannot guarantee even in small landscapes: tie-breaking first matters at five patches, and the best possible maximum-degree tie-breaking first fails at six. The complete exceptional structures and exact gaps form usable deterministic benchmarks for conservation-network intervention algorithms. It does not infer actual extinction probabilities or a universal real-world conservation strategy.
+Hanski–Ovaskainen define leading-eigenvalue metapopulation capacity; Ovaskainen gives perturbation formulas; Saha and colleagues analyze general node deletions and spectral-radius minimization. Their inspected claims do not directly state these minimum graph orders or complete five/six-vertex orbit censuses. Resultary semantic searches identified no earlier precise exception census. Best-of-knowledge acceptance carries risk from uninspected complete 2000/2003 original sources and other graph spectra tables.
 
-## Verification and remaining limits
+## value
 
-The executable `checker.py` was replayed against `COUNTS.json` using exact symbolic calculations. Model simplifications (uniform symmetric exchange and zero self-exchange), the finite-order restriction and the lack of independent historical review are explicit. The 2000 and 2003 relevant manuscripts were inaccessible beyond public material, but the nearest 2015 whole-paper result was read.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A completely classified small-order counterexample boundary for a common degree-based intervention heuristic has clear mathematical motivation and exact combinatorial structure. The strict distinction between arbitrary max-degree tie failure and every-max-degree failure is nontrivial; limited equal-patch adjacency proxy scope is explicitly stated, without extrapolating to real-species extinctions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
