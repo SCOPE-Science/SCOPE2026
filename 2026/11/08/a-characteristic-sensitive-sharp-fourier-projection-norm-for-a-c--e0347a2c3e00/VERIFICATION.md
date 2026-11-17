@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with a standard Python 3 installation. It checks every coefficient by the original double character sum and independently evaluates the quadratic-fiber expression for prime fields of order 3, 5, 7 and 11 and quadratic extension fields of order 9 and 25. It checks the predicted norm and fiber cardinality histogram with floating-point tolerance \(2\cdot10^{-8}\). The checker prints `CHECK_OK cubic_fold_prime_and_quadratic_extension_fields` on success.
+## correctness
 
-The complete proof uses finite-field character orthogonality, square-root multiplicity, trace-fiber counts, a geometric cosine sum and the sharp convolution sign choice. The tests do not establish the theorem for arbitrarily large fields; numerical cancellation is not exact symbolic arithmetic. No independent audit has been performed.
+PASS
+
+The formula follows directly from additive character orthogonality: K(a,b,c)=q sum_{a+cy²=0} ψ(by); in odd characteristic root fibers are q, 1, 0, or 2 and a two-root fiber gives 2q cos(2πTr(br)/p). Nontrivial trace linear functionals have q/p fibers, so sum|K|=q³+q²(q-1)²/p sum_{j=0}^{p-1}|cos(2πj/p)|; the last sum is exactly csc(π/(2p)). Unweighted counting-measure convolution l-infinity norm is exactly its kernel l1 sum, attained by matching phases. The q(q-1), q(q-1)²/2 and origin strata give support 1+(q³-q)/2. Quadratic xy comparison equals q-1+q^-1 and limits follow. Independently direct original double-character sums for p=3,5,7 returned exact support counts 13,61,169 and norms 1.888888888889,3.0710835056,4.301684315666 agreeing with formula. Finite tests only corroborate unrestricted finite-field proof.
+
+## originality
+
+PASS
+
+No inspected equivalent or dominating exact cubic-fold projection result. Resultary search found the candidate and unrelated cubic-curve L2→L4 theorems; Iosevich–Li–Yu establishes broader Fourier-algebra terminology and quadratic examples, not a demonstrated implication of this csc formula in accessible material. Best-knowledge positive with transparent incomplete-primary risk.
+
+## value
+
+PASS
+
+A motivated exact endpoint invariant distinguishes degenerate cubic-fold frequency geometry from the equal-cardinality nondegenerate quadratic saddle. Sharp constant for all odd field extensions, exact support and characteristic-dependent limiting ratio constitute a nontrivial natural finite-field harmonic-analysis calculation, rather than a restatement of an abstract convolution norm identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

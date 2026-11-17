@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The character sum is evaluated directly through exact orthogonality, not numerical interpolation. The complete root trichotomy includes \(c=0\), \(a=0\), and both square classes; the absolute coefficient sum is explicitly counted. The trigonometric identity is proved by a consecutive cosine sum, and the sharp operator norm follows from the finite convolution sign test. Prime and extension-field numerical experiments independently check the formula; they do not carry the infinite-family proof.
+## correctness
 
-## Originality — PASS relative to the checked evidence
-The closest accessible primary manuscript is Iosevich--Li--Yu (arXiv:2609.25404, Sections 2, 5, 6, 8), which defines the Fourier algebra norm and computes related paraboloid quantities but does not state the cubic-fold endpoint norm. The complete published cubic-curve result concerns the different \(\ell^2\to L^4\) extension invariant on \(\{(t,t^3)\}\); the complete cubic-residue result concerns the same endpoint norm on a one-dimensional multiplicative subgroup, not this surface. Both primary results were read and their claims compared. Searches for this cubic graph, polynomial-graph Fourier algebra norm, exact cosine profile, and equivalent fold description returned no stronger covering claim. The generic relation between projection norm and kernel \(\ell^1\)-norm is not new. An earlier unindexed equivalent calculation remains possible.
+PASS
 
-## Value — PASS
-The graph \(z=xy^2\) is the simplest odd-characteristic ruled cubic degeneration of a quadratic saddle \(z=xy\). Their spectra have the same cardinality and different Fourier cancellation structures. The exact norm, complete nonzero-kernel count, and characteristic-sensitive ratio quantify a natural spectral-projection invariant on an infinite family of fields; the contrast is not just a normalization change or finite numerical census.
+The formula follows directly from additive character orthogonality: K(a,b,c)=q sum_{a+cy²=0} ψ(by); in odd characteristic root fibers are q, 1, 0, or 2 and a two-root fiber gives 2q cos(2πTr(br)/p). Nontrivial trace linear functionals have q/p fibers, so sum|K|=q³+q²(q-1)²/p sum_{j=0}^{p-1}|cos(2πj/p)|; the last sum is exactly csc(π/(2p)). Unweighted counting-measure convolution l-infinity norm is exactly its kernel l1 sum, attained by matching phases. The q(q-1), q(q-1)²/2 and origin strata give support 1+(q³-q)/2. Quadratic xy comparison equals q-1+q^-1 and limits follow. Independently direct original double-character sums for p=3,5,7 returned exact support counts 13,61,169 and norms 1.888888888889,3.0710835056,4.301684315666 agreeing with formula. Finite tests only corroborate unrestricted finite-field proof.
 
-## Limits and comparison
-The result is restricted to odd-characteristic cubic folds. No independent validation, general cubic classification, or extension-operator extremizer theorem is asserted. Potential equivalent work in polynomial exponential-sum literature is an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected equivalent or dominating exact cubic-fold projection result. Resultary search found the candidate and unrelated cubic-curve L2→L4 theorems; Iosevich–Li–Yu establishes broader Fourier-algebra terminology and quadratic examples, not a demonstrated implication of this csc formula in accessible material. Best-knowledge positive with transparent incomplete-primary risk.
+
+## value
+
+PASS
+
+A motivated exact endpoint invariant distinguishes degenerate cubic-fold frequency geometry from the equal-cardinality nondegenerate quadratic saddle. Sharp constant for all odd field extensions, exact support and characteristic-dependent limiting ratio constitute a nontrivial natural finite-field harmonic-analysis calculation, rather than a restatement of an abstract convolution norm identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
