@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The proof gives an exact formula for every finite connected positive-length metric graph, independent of numerical sampling. Run `python3 verify.py` using Python 3 standard library. The program uses `fractions.Fraction` for every length, resistance, linear solve, and comparison. Its checking route inserts the evaluation point as a graph vertex and independently solves the ground-fixed Kirchhoff Poisson equation for a delta source minus uniform arclength; the exact quadratic interior correction then recovers the centered pointwise Green diagonal. For ten explicitly specified networks and six rational sample positions per edge it performs 294 exact comparisons against the stated resistance envelope and verifies ten Foster/curvature sums and the envelope's dominance. The program printed `ALL_UNIVERSAL_GRAPH_ENVELOPE_CHECKS_PASSED` in the actual replay. Random values, finite grid checks and timeouts are not asserted to establish a theorem. All-dimensional conclusions rely on the proof in `RESULT.md`. Independent mathematical audit: not performed.
+## correctness
+
+PASS
+
+In the real mean-zero arclength energy Hilbert space, resistance R(x,y) is squared distance of evaluation vectors. Centering yields Q(x)=F(x)/T−J/(2T²) with F=∫R and J=∫F. The edge Dirichlet-bridge covariance correction −2ell(min(s,t)−st) for points on the same edge contributes −ell²t(1−t) after arclength integration; the resulting Q(x_e(t))=(1−t)Q_a+tQ_b+(ell−r_ab−ell²/T)t(1−t) and the formulas for F_v,J are consistent. Checking positive, negative and zero curvatures exhausts interior/vertex/flat norming loci, while Riesz equality gives multiples of the centered Green representer. Foster ∑r_ab/ell=|V|−1 proves ∑c_e/ell=β1−1; bridge r_ab=ell forces c_e<0. Independently computed line length 7/3 endpoint 7/9, midpoint 7/36, and subdivided circle with zero curvatures; read independent 294-sample Poisson check, not treated as general proof.
+
+## originality
+
+PASS
+
+Baker--Faber resistance edge identities and Foster sum, Baker--Rumely centered Green kernels, and Solomyak Sobolev bounds are prior ingredients. The inspected primary theorem statements do not give the new explicit arclength-centered per-edge Q polynomial, vertex normalization, exhaustive finite maximum and flat-edge equality classification for every metric multigraph together with ∑c/ell=β1−1. Related published exact cactus and vertex-transitive evaluations concern narrower families. Best-of-knowledge PASS with a substantial implicit-corroboration risk: older general Green formulas may make this a short derived corollary.
+
+## value
+
+PASS
+
+The best pointwise Sobolev evaluation constant and extremizers on arbitrary metric networks are natural functional-analysis/geometric invariants. An exact finite network-resistance algorithm gives all norming points, including nonsymmetric and flat-edge cases, and the curvature conservation relates optimizer geometry to topology. This is a meaningful structural classification, not a fixed tiny graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

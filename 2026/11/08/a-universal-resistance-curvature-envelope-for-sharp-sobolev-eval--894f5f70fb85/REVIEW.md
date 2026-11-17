@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The resistance metric is the squared distance between anchored energy evaluations. Centering turns its integrated distance into the squared evaluation norm. The independent within-edge Dirichlet bridge produces the negative same-edge integral correction, crucial for the curvature term. Integration yields each displayed vertex and global normalization formula. Elementary quadratic maximization gives exhaustive interior/vertex/flat equality cases, and Foster's network identity proves the topological sum. The packaged exact-rational Poisson solver solves a *different* linear system for point evaluation on ten test graphs, with 294 exact matches; these tests corroborate rather than prove the all-graph statement. Positive lengths, real functions, no vertex atoms, and means with respect to unweighted arclength are essential assumptions.
+## correctness
 
-**Originality: PASS, qualified.** The explicit electrical-resistance quadratic and Foster identities are already in Baker–Faber; general Green kernels are already in Baker–Rumely. The verified difference is the *arclength-mean-zero* graph-universal **finite exact sharp embedding algorithm**, full optimizing-locus classification including flat edges, and topology-indexed curvature identity. Solomyak's estimates are graph-uniform approximation results rather than exact optimizer loci. Previously recorded graph-specific sharp norms, including trees, cactus graphs, parallel-path graphs, complete multipartite graphs, and vertex-transitive graphs, are strictly less general in hypotheses and do not state this arbitrary-graph claim. Residual risk: a classical general Green-kernel computation might imply the claim as an implicit corollary; lack of an indexed identical statement cannot establish formal priority.
+PASS
 
-**Mathematical value: PASS.** A natural sharp norm problem across *all* finite metric graphs reduces to finitely many vertex-resistance computations, with a complete global equality classification. The curvature identity relates local optimizer geometry to the first Betti number and forces qualitatively new interior-concavity options on graphs with multiple cycles. This is a structural algorithm and topology principle, not an isolated numerical constant or narrow example.
+In the real mean-zero arclength energy Hilbert space, resistance R(x,y) is squared distance of evaluation vectors. Centering yields Q(x)=F(x)/T−J/(2T²) with F=∫R and J=∫F. The edge Dirichlet-bridge covariance correction −2ell(min(s,t)−st) for points on the same edge contributes −ell²t(1−t) after arclength integration; the resulting Q(x_e(t))=(1−t)Q_a+tQ_b+(ell−r_ab−ell²/T)t(1−t) and the formulas for F_v,J are consistent. Checking positive, negative and zero curvatures exhausts interior/vertex/flat norming loci, while Riesz equality gives multiples of the centered Green representer. Foster ∑r_ab/ell=|V|−1 proves ∑c_e/ell=β1−1; bridge r_ab=ell forces c_e<0. Independently computed line length 7/3 endpoint 7/9, midpoint 7/36, and subdivided circle with zero curvatures; read independent 294-sample Poisson check, not treated as general proof.
 
-**Limits:** Real, compact, finite, positive edge-length metric networks with uniform arclength and first derivative energy only. The comparative literature is not an exhaustive historical catalogue. Reproducible finite tests cannot certify infinite-parameter claims, and no external audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Baker--Faber resistance edge identities and Foster sum, Baker--Rumely centered Green kernels, and Solomyak Sobolev bounds are prior ingredients. The inspected primary theorem statements do not give the new explicit arclength-centered per-edge Q polynomial, vertex normalization, exhaustive finite maximum and flat-edge equality classification for every metric multigraph together with ∑c/ell=β1−1. Related published exact cactus and vertex-transitive evaluations concern narrower families. Best-of-knowledge PASS with a substantial implicit-corroboration risk: older general Green formulas may make this a short derived corollary.
+
+## value
+
+PASS
+
+The best pointwise Sobolev evaluation constant and extremizers on arbitrary metric networks are natural functional-analysis/geometric invariants. An exact finite network-resistance algorithm gives all norming points, including nonsymmetric and flat-edge cases, and the curvature conservation relates optimizer geometry to topology. This is a meaningful structural classification, not a fixed tiny graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
