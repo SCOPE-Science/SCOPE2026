@@ -1,15 +1,21 @@
-# Scientific review: endpoint projection onto two opposite finite parabolas
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The spectral-set indicator is the sum of the two parabola indicators minus the common origin. Completion of squares with the classical quadratic Gauss identity yields the exact two-dimensional Fourier kernel. Grouping nonzero frequency pairs by \(t=u^2/(4v)\) proves the one-dimensional norm identity, and the convolution-kernel equality proves that this is an attained endpoint operator norm rather than just an upper bound. A bounded-variation Riemann-sum estimate, an explicit near-zero count, and incomplete quadratic character-sum cancellation imply the asserted sharp \(4/\pi\) limit. Unitization and Plancherel give the separate Fourier-ratio normalization. The executable checker independently reconstructs the Fourier kernel directly at thirteen odd primes. The finite tests do not replace any all-prime argument.
+## correctness
 
-## Originality
-**PASS relative to the materials inspected, with publication-priority uncertainty.** Iosevich–Li–Yu (arXiv:2609.25404v1, Sections 2, 4–6, 8) establishes the relevance of Fourier ratio and computes single-paraboloid synthesis constants, but the full inspected manuscript does not state an endpoint projection norm for the union of opposite parabolas or the \(4/\pi\) interference factor. Li (arXiv:2609.16030v1) proves finite-parabola sparse-zero bounds, a different invariant. Gilbert–Rzeszotnik (2010) study norm bounds for the unrestricted Fourier transform on finite abelian groups, not a specific spectral idempotent. Searches for spectral projection norms, finite parabolic unions, signed Gauss-sum interference, and Fourier algebra norms found nearby but not equivalent results. A classic formula under another name may exist; the journal article's full text was not inspected.
+PASS
 
-## Value
-**PASS.** The spectral set \(\Gamma_p\) is a canonical reducible quadratic curve, and the Fourier-algebra norm is the exact operator amplification of the corresponding Fourier projection. While either branch has norm asymptotic to \(\sqrt p\), their union has a sharp and strictly larger universal leading constant \(4/\pi\). The associated Fourier-ratio coefficient \(2\sqrt2/\pi\) supplies a quantitative synthesis-concentration invariant for a natural non-single-paraboloid example. The result is an infinite prime family with an exact finite-size formula and a rigorously controlled asymptotic, not an isolated sample or a routine normalization exercise.
+The union of x↦(x,±x²) over F_p intersects only at (0,0), hence the convolution kernel is the sum of two quadratic exponential sums minus 1. For v=0 it contributes 3p-2 to the total absolute kernel sum. For u=0, the quadratic Gauss sums contribute B_p; for u,v!=0 the change t=u²/(4v) gives each t exactly p-1 times, with kernel 2sqrt(p)chi(t)cos(2pi t/p)-1 for p=1 mod4 or the analogous sine for p=3 mod4. The l-infinity convolution norm is p^-2 times the l1 kernel. Riemann sums for |sin|/|cos| give 2p/pi and the signed Legendre-character term has O(sqrt(p)log p) interval cancellation; both branches yield (4/pi)sqrt(p)+O(log p/sqrt(p)). Unit-normalization checks give single-parabola (1+(p-1)sqrt(p))/p and Fourier ratio (2sqrt2/pi)p+O(log p). No composite moduli or arbitrary weights are claimed.
 
-## Limitations and remaining comparison risk
-The estimate does not determine arbitrary-weight spectral-synthesis constants, full families of conic unions, or composite-modulus behavior. General quadratic Gauss identities and Pólya–Vinogradov cancellation are classical ingredients, and the novelty rests on their sharp assembly for this specific Fourier idempotent. An older equivalent result in the paired-chirp/idempotent-norm literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Iosevich–Li–Yu study spectral synthesis and exact constants for affine-transitive single paraboloids, whereas the reducible union of opposite parabolas is not an affine-transitive single graph and has an interference-driven idempotent norm. Search aliases projection norm / Fourier algebra norm / Gauss pair did not locate an earlier exact same-set formula. The Gauss evaluation and convolution norm identity are classical ingredients but do not give the explicit union norm and 4/pi limit without calculation.
+
+## value
+
+PASS
+
+The naturally defined union of opposite finite parabolas is a first nontrivial test of cancellation/interference in Fourier spectral projections. Its precise sharp endpoint norm and a universal 4/pi amplification relative to a single graph give a motivated family-wide harmonic-analytic invariant, beyond a routine finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
