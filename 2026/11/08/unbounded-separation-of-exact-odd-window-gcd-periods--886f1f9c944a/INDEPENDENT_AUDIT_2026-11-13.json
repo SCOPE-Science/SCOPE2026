@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:01:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md complete Cassini/local-period proof and verify.py",
+        "Independent finite exact gcd windows for six primes"
+      ],
+      "rationale": "Cassini gives primitive seeds and norm µ=b²-ab-a²=L_h, and the recurrence companion matrix sends the state to its negative mod L_h after h steps. For odd k the reversible linear and square recurrences, telescoping identities and alternating norm force both window gcds to divide 2L_h. At every odd prime power of L_h, the original state has exact period 2h while its square sequence has exact period h: h primality, invertibility T²-I and q!=3 exclude smaller periods. Mod 2 gives period 3, with one allowed factor 2. Assembly yields the exact formulas, and maximum B=2L_h occurs in a unique residue mod 3h on odd lengths, proving leastness. Checked h=5,7,11,13,17,19 and odd k<=6h by independent integer recurrence.",
+      "residual_risks": [
+        "Signed seeds and positive odd windows only; gcd of finitely many translates is justified by order-two/order-three reversible recurrences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published universal result gives a computable common period for all integer seeds, but expressly need not be minimal; original squared-window paper gives local gcd formula and a ratio-5 case."
+        ],
+        "reasoning": "These broader results do not imply an unbounded discrepancy between exact minimal periods without the prime-indexed modular-order construction.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-universal-odd-window-periodicity-for-gibonacci-gcd-sums--0285eda7de6f",
+          "arxiv:2204.12626",
+          "Gibonacci Fibonacci Lucas consecutive window sums squared gcd least period separation unbounded"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2204.12626 Section 6.2 Example 6.3",
+        "arxiv:2104.12262",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-universal-odd-window-periodicity-for-gibonacci-gcd-sums--0285eda7de6f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General GCD formulas determine values from the chosen seeds, but the new antipodal state order and prime-order leastness are substantive; universal common periodicity gives no lower bound for minimal periods."
+        ],
+        "reasoning": "The prior identities are prerequisites rather than statement-level domination. The proof adds the explicit infinite family and sharp unbounded ratio.",
+        "searches": [
+          "arxiv:2104.12262",
+          "arxiv:2204.12626 Section 6.2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-universal-odd-window-periodicity-for-gibonacci-gcd-sums--0285eda7de6f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The h=5 ratio-five case is equivalent up to recurrence shift and global sign to seeds (-1,3) in Example 6.3 and not novel."
+        ],
+        "reasoning": "Prior single-instance phenomenon is explicitly excluded; the claim is a prime-indexed infinite family whose least-period ratios diverge.",
+        "searches": [
+          "Gibonacci Fibonacci Lucas consecutive window sums squared gcd least period separation unbounded",
+          "arxiv:2204.12626 Example 6.3",
+          "arxiv:2104.12262"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table establishes unbounded h; each prime gives a proven full exact closed form."
+        ],
+        "reasoning": "The structural proof supplies all primes; finite checks are corroboration and do not manufacture an infinite conclusion.",
+        "searches": [
+          "Gibonacci Fibonacci Lucas consecutive window sums squared gcd least period separation unbounded",
+          "Lucas prime index gcd exact period ratios"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS restricted to infinite prime-indexed unbounded least-period ratio; prior h=5 example, universal odd-window periodicity and general formulae are expressly excluded.",
+      "residual_risks": [
+        "The new family could be implicit in a more comprehensive prime-order classification not located; no claim of proof of global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known ratio-five example is exactly covered; no unbounded prime-indexed theorem found in inspected sections",
+          "evidence": "Example 6.3, Question 6.4, gcd square formulas",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Original full PDF including Section 6.2, Example 6.3 and general gcd theorem; rendered relevant page inspected",
+          "method": "Original PDF and screenshot of Example 6.3",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Same squared-window gcd and period-ratio question"
+        },
+        {
+          "assessment": "Provides common possibly nonminimal shift, no diverging minimal-period ratio",
+          "evidence": "Theorem period T=lcm(2,pi) explicitly not minimal",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-universal-odd-window-periodicity-for-gibonacci-gcd-sums--0285eda7de6f",
+          "material_read": "Entire RESULT.md and proof",
+          "method": "GitHub frozen full file",
+          "title": "Universal odd-window periodicity for Gibonacci gcd sums",
+          "trigger": "Potential stronger all-seed periodicity theorem"
+        },
+        {
+          "assessment": "First-power identity is prior, not credited as new",
+          "evidence": "General first-power window formula",
+          "identifier_or_url": "https://arxiv.org/abs/2104.12262",
+          "material_read": "Accessible theorem-level account and citations; complete original PDF not obtained this run",
+          "method": "Primary abstract/secondary theorem comparison",
+          "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+          "trigger": "Foundational first-power gcd formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2204.12626 Example 6.3 and period question",
+        "All-prime local-period argument and exact identity"
+      ],
+      "rationale": "This converts a published isolated unequal-minimal-period case into a complete infinite structural family with unbounded ratio, resolving a natural severity question about divergence of first- and second-power window gcd periodicities.",
+      "residual_risks": [
+        "The result does not classify every possible pair of seed periods or nonprime parameter."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all prime h>=5 the signed Fibonacci seeds (F_h,-F_(h-1)-1) have odd-window gcds A_h(k)=2^[3|k] and B_h(k)=A_h(k)L_h^[h|k], with least odd-index periods 3 and 3h, hence unbounded period-ratio h.",
+  "limitations": [
+    "Only prime h>=5 and odd positive k",
+    "No higher-power or general-seed classification"
+  ],
+  "schema_version": 1
+}

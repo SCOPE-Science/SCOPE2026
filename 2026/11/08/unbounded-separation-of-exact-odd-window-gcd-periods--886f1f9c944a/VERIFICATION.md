@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` uses the Python standard library and requires no external files. Running `python3 verify.py` produces:
+# Independent mathematical audit
 
-```
-VERIFY_OK primes=12 tested_odd_window_lengths=852 largest_k=261
-```
+## correctness
 
-For each prime between 5 and 43 it checks the Lucas norm, coprimality, modulo-Lucas antipodal identity, and the stated first-power and squared-window GCDs for every odd window length through \(6h+3\). The GCD computation uses eight exact integer windows and is exhaustive over shifts because window sums obey reversible recurrences of order two and three, respectively. The calculations are finite confirmations; the proof in `RESULT.md` supplies the arbitrary-prime and arbitrary-odd-length quantifiers.
+PASS
 
-No independent audit has been performed. No claim of formal verification or universal computer enumeration is made.
+Cassini gives primitive seeds and norm µ=b²-ab-a²=L_h, and the recurrence companion matrix sends the state to its negative mod L_h after h steps. For odd k the reversible linear and square recurrences, telescoping identities and alternating norm force both window gcds to divide 2L_h. At every odd prime power of L_h, the original state has exact period 2h while its square sequence has exact period h: h primality, invertibility T²-I and q!=3 exclude smaller periods. Mod 2 gives period 3, with one allowed factor 2. Assembly yields the exact formulas, and maximum B=2L_h occurs in a unique residue mod 3h on odd lengths, proving leastness. Checked h=5,7,11,13,17,19 and odd k<=6h by independent integer recurrence.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS restricted to infinite prime-indexed unbounded least-period ratio; prior h=5 example, universal odd-window periodicity and general formulae are expressly excluded.
+
+## value
+
+PASS
+
+This converts a published isolated unequal-minimal-period case into a complete infinite structural family with unbounded ratio, resolving a natural severity question about divergence of first- and second-power window gcd periodicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

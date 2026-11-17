@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Cassini's identity gives the exact Lucas norm; a direct matrix calculation gives antipodal return at the prime index. The reversible recurrence of squares and telescoping yield the divisor bound. Prime-power periods are proved exactly, not inferred from finite tests, and the two GCD expressions follow. The final least-period argument identifies the unique maximum residue class.
+## correctness
 
-**Originality — PASS, subject to external verification.** Guyer–Mbirika (2021) already supply a general first-power GCD formula. Mbirika–Spilker (2022) already supply the squared-window GCD formula, odd-window norm bound, and the ratio-five instance (Example 6.3); none of these facts alone is a new contribution. The present all-odd-prime Lucas-index construction, simultaneous exact formulas and unbounded ratio are the new claim. No covering statement was located in the inspected primary sources and targeted searches. Unindexed equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** The result converts a previously isolated unequal-period example into an infinite structural classification and proves the exact period ratios are unbounded. It provides a sharp quantitative boundary for the natural question of how first- and second-power window GCD periodicity can diverge.
+Cassini gives primitive seeds and norm µ=b²-ab-a²=L_h, and the recurrence companion matrix sends the state to its negative mod L_h after h steps. For odd k the reversible linear and square recurrences, telescoping identities and alternating norm force both window gcds to divide 2L_h. At every odd prime power of L_h, the original state has exact period 2h while its square sequence has exact period h: h primality, invertibility T²-I and q!=3 exclude smaller periods. Mod 2 gives period 3, with one allowed factor 2. Assembly yields the exact formulas, and maximum B=2L_h occurs in a unique residue mod 3h on odd lengths, proving leastness. Checked h=5,7,11,13,17,19 and odd k<=6h by independent integer recurrence.
 
-**Scope and limitations.** Only the stated signed prime-indexed family, positive odd lengths, and powers one and two are covered. Computations corroborate the infinite proof but are not its basis; independent scientific review is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS restricted to infinite prime-indexed unbounded least-period ratio; prior h=5 example, universal odd-window periodicity and general formulae are expressly excluded.
+
+## value
+
+PASS
+
+This converts a published isolated unequal-minimal-period case into a complete infinite structural family with unbounded ratio, resolving a natural severity question about divergence of first- and second-power window gcd periodicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
