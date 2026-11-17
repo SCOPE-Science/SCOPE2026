@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof solves a one-dimensional backward boundary-value problem on every arm, enforces the Kirchhoff junction condition, applies the Poisson renewal identity, and derives the strict degree monotonicity from a positive exact decomposition. Existence and uniqueness of the limiting minimizer are proved by the sign pattern of an explicitly written convergent power series; the result does not rely on finite tests.
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the supplied standalone script. It checks a 3,200-step independent finite-difference approximation for five star degrees and four transform parameters, the renewal reconstruction, optimality-onset tests, degree monotonicity, and the limiting normalized minimum. The run performed for this package returned 52 passed diagnostics and a limit \(0.144736344832\ldots\). Finite discretization is not an infinite proof; numerical agreement is supplementary evidence only.
+## correctness
 
-All assumptions, parameter ranges, boundary conditions, and prior-literature limitations are stated in `RESULT.md`. No external scientific audit or independent validation is asserted.
+PASS
+
+Read backward-Kirchhoff boundary-value proof and verify.py finite-difference script. The hub Laplace transform phi_m(r)=cosh z/(1+m sinh² z) follows from reflecting arm derivative -k a tanh z and target boundary. Poisson renewal gives exact T_m. Small z series yields coefficient (5-4m)/24, and m=1 no benefit from positive exponential coefficients; for m>=2 small positive rate improves the mean. Exact H_m=F+G/(m-1/2), G>0 proves strict R_m increase. F derivative Q(z)/z^3 has strictly decreasing positive-power-series coefficients and a unique root. Independently verified symbolic expansion and z*=1.6061153018, gain=0.144736344832.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: classical Poisson reset renewal identity and Brownian first passage are prior; inspected primary Evans–Majumdar and related metric-graph models do not state the exact equilateral m-star one-target mean, strictly increasing optimal fractional benefit and unique asymptotic degree-independent bound.
+
+## value
+
+PASS
+
+The exact topology threshold and universal sharp limit for the optimally achievable benefit of resetting in a natural quantum/metric-graph-free Brownian search geometry quantify a meaningful branching tradeoff; an exact constant and monotone all-degree result go beyond routine one-case Laplace evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

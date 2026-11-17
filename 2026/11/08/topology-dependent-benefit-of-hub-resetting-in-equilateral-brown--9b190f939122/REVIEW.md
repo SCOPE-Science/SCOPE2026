@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The center-to-target Laplace transform follows by solving the backward equation separately on the absorbing arm and reflecting arms and enforcing Kirchhoff derivative balance. Substitution in the standard Poisson restart renewal identity gives the exact absorption mean. The small-rate coefficient shows why one arm cannot benefit while every added reflecting dead end makes a positive rate beneficial. The identity \(H_m=F+G/(m-1/2)\), with \(G>0\), proves strict monotonicity of optimal fractional saving. A power series for the derivative of \(F\) gives one positive zero and therefore a unique limiting optimum. The script separately checks the boundary problem numerically at 52 diagnostic points; the proof does not depend on these approximate tests.
+PASS
 
-## Originality (PASS; residual historical-priority risk)
+Read backward-Kirchhoff boundary-value proof and verify.py finite-difference script. The hub Laplace transform phi_m(r)=cosh z/(1+m sinh² z) follows from reflecting arm derivative -k a tanh z and target boundary. Poisson renewal gives exact T_m. Small z series yields coefficient (5-4m)/24, and m=1 no benefit from positive exponential coefficients; for m>=2 small positive rate improves the mean. Exact H_m=F+G/(m-1/2), G>0 proves strict R_m increase. F derivative Q(z)/z^3 has strictly decreasing positive-power-series coefficients and a unique root. Independently verified symbolic expansion and z*=1.6061153018, gain=0.144736344832.
 
-The earliest underlying resetting paper by Evans and Majumdar (2011, arXiv:1102.2704) supplies the general renewal idea and a half-line calculation. Their broader 2011 study covers reset and target distributions. Riascos et al. (arXiv:1910.13568) derive spectral reset formulas on discrete graphs and analyze Cayley trees, but not this continuum Kirchhoff-star all-degree fractional-gain bound. The accessible primary Dassios–Zhang work (2021, DOI 10.1007/s11009-021-09884-4) calculates *unreset* Brownian first-hitting times with every outer tip a stopping boundary, which differs from the single absorbing tip and reflecting blind arms here. The examined primary literature and searches of published mathematical research records gave no identical statement; this does not rule out unpublished or unindexed precedents. The renewal identity and the generic observation that branching sometimes helps restarting are expressly not claimed as new.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The result turns the branch count into a quantified search-design parameter. It proves a sharp first beneficial topology at two arms, strict improvement in the relative optimum with every added arm, and a sharp limiting bound of approximately \(14.474\%\) for an entire metric-star family. This structurally motivated threshold and asymptotic benchmark are more informative than an arbitrary numerical finite-graph example. The value is limited to the precisely specified Brownian/star reset model.
+PASS best-of-knowledge: classical Poisson reset renewal identity and Brownian first passage are prior; inspected primary Evans–Majumdar and related metric-graph models do not state the exact equilateral m-star one-target mean, strictly increasing optimal fractional benefit and unique asymptotic degree-independent bound.
 
-## Scientific limitations and literature risk
+## value
 
-The model requires equal arm lengths, uniform diffusion, Kirchhoff junction matching, exactly one absorbing tip, all other tips reflecting, and instantaneous Poisson resets to the hub. Neither finite-degree optimizer uniqueness nor universality beyond this family is claimed. An unindexed exact calculation may already contain a special case; source comparison cannot establish absolute priority. Numerical diagnostics supplement rather than replace the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact topology threshold and universal sharp limit for the optimally achievable benefit of resetting in a natural quantum/metric-graph-free Brownian search geometry quantify a meaningful branching tradeoff; an exact constant and monotone all-degree result go beyond routine one-case Laplace evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
