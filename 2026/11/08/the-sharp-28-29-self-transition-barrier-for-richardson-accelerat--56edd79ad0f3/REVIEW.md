@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem follows from the exact scalar derivative, a strict polynomial sum-of-squares lower bound, orthonormal spectral expansion for the diagonal of a symmetric Laplacian function, and an equality analysis that forces identical weights from a specified vertex to all others. The 29-vertex rational witness and two-positive-roots argument use exact arithmetic and Descartes' sign rule. The packaged `verify.py` was executed successfully: 51 algebraic, exact rational matrix, and cutoff checks. The proof does not treat finite tests as proof of the universal quantifier.
+## correctness
 
-**Originality — PASS on inspected evidence, qualified.** The closest method-level sources are Mona–Lagzi–Havasi (2015), Zlatev–Faragó–Havasi (2010), and Faragó–Havasi–Zlatev (2010). The accessible 2015 full text develops Richardson extrapolation for reaction–diffusion and uses forward Euler; the 2010 accessible abstracts address stability and implementation of backward-Euler extrapolation. A public mathematical research record already establishes the scalar sign-loss threshold, which is not claimed as original. None of the inspected source statements covers the extremal all-graph diagonal value, its rigid universal-vertex equality classification, or the sharp 28/29 crossover with exactly one negative hub timestep interval. Relevant abstracts alone cannot exclude all coverage, and unindexed specialist sources remain possible.
+PASS
 
-**Mathematical value — PASS.** Positivity of the approximate self-transition is a natural diagnostic in mass-preserving diffusion and Markov-network time discretization. The finding supplies an all-topology guarantee, a sharp smallest possible failure dimension, a sparse failure example and a complete description of extremal vertices. In particular, the same worst-case diagonal occurs for stars and complete graphs, and positivity can disappear and reappear as the timestep increases. This is a motivated classification beyond repeating the scalar negativity observation.
+Reconstructed scalar R(z)=(4+4z-z^2)/[(z+1)(z+2)^2]; independent Sympy derivative gives (z^3−10z^2−20z−8)/[(z+1)^2(z+2)^3], one positive minimizer. Exact SOS R+1/27=[z(z−12)^2+2(z−7)^2+14]/[27(z+1)(z+2)^2]>0 and R(12)=−23/637 <−1/28 establish dimension cutoff via spectral weights |v_j(i)|² summing to (n−1)/n. Equality forces Le_i=λ(e_i−1/n), thus all hub edges equal, and conversely; other edges irrelevant. Universal hub diagonal polynomial P_n(z) has exactly two positive roots for n>=29 by sign changes and z=12 negative. Independently checked symbolic derivatives, exact rational bound, n=28 positive 4/4459 and n=29 negative −1/2639=−7/18473. Source matrix verifier inspected; finite checks are not global proof.
 
-**Scientific limitations.** Diagonal positivity is strictly weaker than entrywise positivity. The graph must be undirected, connected and use the symmetric unnormalized weighted Laplacian. Some related full texts could not be inspected through available lawful access and remain a priority-risk qualifier. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier work gives Richardson formula and scalar positivity loss for backward Euler; neither entails the worst-case diagonal bound across all weighted graphs, 28/29 sharp size threshold or equality network rigidity. The prior 2010 stability papers were not read in full; substantive priority risk retained.
+
+## value
+
+PASS
+
+Sharp universal sign boundary for a standard higher-order accelerated diffusion operator, identifying first graph size with negative self-transition and all equality networks; useful to numerical positivity and graph heat discretization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

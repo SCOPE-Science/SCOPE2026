@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:17:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify.py"
+      ],
+      "rationale": "Reconstructed scalar R(z)=(4+4z-z^2)/[(z+1)(z+2)^2]; independent Sympy derivative gives (z^3−10z^2−20z−8)/[(z+1)^2(z+2)^3], one positive minimizer. Exact SOS R+1/27=[z(z−12)^2+2(z−7)^2+14]/[27(z+1)(z+2)^2]>0 and R(12)=−23/637 <−1/28 establish dimension cutoff via spectral weights |v_j(i)|² summing to (n−1)/n. Equality forces Le_i=λ(e_i−1/n), thus all hub edges equal, and conversely; other edges irrelevant. Universal hub diagonal polynomial P_n(z) has exactly two positive roots for n>=29 by sign changes and z=12 negative. Independently checked symbolic derivatives, exact rational bound, n=28 positive 4/4459 and n=29 negative −1/2639=−7/18473. Source matrix verifier inspected; finite checks are not global proof.",
+      "residual_risks": [
+        "No statement about off-diagonal positivity, repeated stepwise positivity, or normalized/directed Laplacians."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Independently reconstructed exact analytic/combinatorial argument from the frozen RESULT.md",
+        "Inspected frozen verifier source blob and reran bounded independent checks in /mnt/data/audit1104_checks.py",
+        "Fetched actual source Git tree object and checked returned tree SHA and file blob identities"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mona–Lagzi–Havasi 2015 apply Richardson extrapolation to one-dimensional PDE diffusion with forward Euler, not graph-Laplacian backward-Euler diagonal extremal classification."
+        ],
+        "reasoning": "Broader numerical contexts do not imply the sharp all-graph spectral inequality and rigidity.",
+        "searches": [
+          "Richardson extrapolated backward Euler graph Laplacian universal diagonal positivity 28 29",
+          "https://doi.org/10.1155/2015/350362"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2015/350362",
+        "https://doi.org/10.1016/j.cam.2010.05.052",
+        "https://doi.org/10.1016/j.camwa.2010.08.025",
+        "RESULT.md",
+        "verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar R minimum plus spectral decomposition yields lower bound, but equality characterization and sharp n-transition require separate nontrivial spectral-weight and graph-rigidity analysis."
+        ],
+        "reasoning": "Earlier scalar threshold is strictly weaker than network-wide diagonal extremality; it does not cover claimed classification.",
+        "searches": [
+          "Richardson extrapolated backward Euler graph Laplacian universal diagonal positivity 28 29",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published scalar backward-Euler Richardson negativity beyond 2+2√2 does not compute graph diagonal spectral average or dimension cutoff."
+        ],
+        "reasoning": "Scalar R negativity is necessary for construction but not equivalent to sharp universal n-dependent self-transition theorem.",
+        "searches": [
+          "Richardson extrapolated backward Euler graph Laplacian universal diagonal positivity 28 29",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2010 theta-method stability source was available in abstract, not as a complete diagonal-sign graph threshold table."
+        ],
+        "reasoning": "No exact dimension-28/29 graph-Laplacian data table located; unpublished or full inaccessible stability results remain a priority risk.",
+        "searches": [
+          "Richardson extrapolated backward Euler graph Laplacian universal diagonal positivity 28 29",
+          "https://doi.org/10.1016/j.cam.2010.05.052"
+        ]
+      },
+      "rationale": "Earlier work gives Richardson formula and scalar positivity loss for backward Euler; neither entails the worst-case diagonal bound across all weighted graphs, 28/29 sharp size threshold or equality network rigidity. The prior 2010 stability papers were not read in full; substantive priority risk retained.",
+      "residual_risks": [
+        "Potential stronger 2010 θ-method result inaccessible beyond abstract; no whole-document novelty assertion about it.",
+        "Finite exact network matrix tests supplement the spectral proof only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_METHOD_ONLY",
+          "evidence": "Formula 2^p w−z normalized by 2^p−1 and forward-Euler diffusion simulations; no graph universal-hub positivity extremum.",
+          "identifier_or_url": "https://real.mtak.hu/32451/1/Mona_Lagzi_Havasi_jchem_published.pdf",
+          "material_read": "Full 10-page primary PDF, Section 2 method and Sections 3–4 numerical one-dimensional diffusion application",
+          "method": "Read accessible full PDF text, inspected page 2 layout",
+          "title": "Solving Reaction-Diffusion and Advection Problems with Richardson Extrapolation",
+          "trigger": "Same extrapolation formula and diffusion context"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Possible graph-matrix diagonal bound in inaccessible body cannot be excluded.",
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2010.05.052",
+          "material_read": "Accessible abstract/citation context only; full paper not obtained",
+          "method": "Inspected bibliographic record and target discussion; no full-text negative finding claimed",
+          "title": "Stability of the Richardson Extrapolation applied together with the theta-method",
+          "trigger": "Potential stronger backward-Euler/θ method stability result"
+        },
+        {
+          "assessment": "PRIOR_SCALAR",
+          "evidence": "The earlier sharp scalar nonnegativity horizon is not a theorem for graph self-transition minima or n=28/29.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+          "material_read": "Published theorem and summary as returned by Resultary semantic search",
+          "method": "Search result theorem statement, not full source body",
+          "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+          "trigger": "Same scalar extrapolation R and positivity question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp universal sign boundary for a standard higher-order accelerated diffusion operator, identifying first graph size with negative self-transition and all equality networks; useful to numerical positivity and graph heat discretization.",
+      "residual_risks": [
+        "Not an entrywise stochasticity or full-step nonnegativity theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement about off-diagonal positivity, repeated stepwise positivity, or normalized/directed Laplacians.",
+    "Potential stronger 2010 θ-method result inaccessible beyond abstract; no whole-document novelty assertion about it.",
+    "Finite exact network matrix tests supplement the spectral proof only.",
+    "Not an entrywise stochasticity or full-step nonnegativity theorem."
+  ],
+  "schema_version": 1
+}
