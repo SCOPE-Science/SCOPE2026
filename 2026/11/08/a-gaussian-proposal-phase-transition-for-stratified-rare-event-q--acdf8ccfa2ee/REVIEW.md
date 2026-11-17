@@ -1,19 +1,21 @@
-# Scientific review — A Gaussian-proposal phase transition for stratified rare-event quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
-The likelihood-ratio change of measure is exact. The normal Mills ratio gives the precise endpoint power and logarithmic correction. Independent strata and a dominated truncation/oscillation argument reduce the entire rescaled underdispersed error to a convergent centered unit-interval series. The first unit interval alone controls the sharp right Pareto tail; a convergent deterministic oscillation envelope bounds the remainder. Potter bounds justify convergence in first mean and, when the proposal variance exceeds one half, in second mean, yielding the explicit series variance. Local power-log integrability gives the exact finite-grid moment boundary, including logarithmic divergence at equality. For proposal variance at least one, bounded variation and continuity off the single indicator jump make all other cells negligible under the natural linear scaling, while the jump cell yields exactly the Bernoulli phase. The finite-grid Gaussian moment formulas were checked in the standalone package checker (634 tests); these finite tests are not used as an infinite proof.
+## correctness
 
-The proof covers every fixed positive threshold and every positive proposal variance; it distinguishes finite moments from the asymptotic distribution, requires independent draws across probability strata, and does not extrapolate computations to infinite limits. The package verifier passed 634 finite-grid tests. Mathematical limits are supported by the given exact change of measure, Mills/Potter estimates, centered series, independence and jump-cell decomposition.
+PASS
 
-## Originality — PASS (qualified)
-Multiple direct searches compared candidate statements/parameter reductions with indexed published research records, available mathematical claims and full relevant primary papers. The nearest prior sources establish broad scrambled-net importance-sampling/error-rate results, singular/discontinuous integrand bounds or spectral rate bounds, but do not state this independent one-per-stratum Gaussian tail indicator result with its exact Pareto-series limit and threshold-phase Bernoulli classification. A Gaussian quadratic-moment record supplies the same general 1/2 likelihood-ratio moment obstruction but does not imply the discontinuity or exact distributional transition. Unindexed specialist stratified Monte Carlo results and old classical derivations remain meaningful precedence risks; this self-review is not independent certification.
+Gaussian change of measure gives h_s(u)=sqrt(s)exp((1-s)Phi^-1(u)^2/2)1_{u>=Phi(z/sqrt s)}. Mills ratio gives near-endpoint v^{-beta}(log(1/v))^{-beta/2} with beta=1-s, and interval-by-interval centering yields an L1-convergent endpoint sum; for beta<1/2 the proof extends L2 for the variance series. The first interval has the stated Pareto tail while the other centered intervals are uniformly bounded by a summable oscillation bound. At p beta=1 the remaining (log)^{-1/2} singularity causes divergence. For s>=1, only the indicator jump cell has nonvanishing n-scaled variance, and its Bernoulli phase follows exactly; smooth-cell oscillations vanish. Independent exact Gaussian cell moment computation verified all tested s=1 Bernoulli phases and s>1 asymptotic phases, not the limit distribution itself.
 
-Inspected open sources: He, Zheng and Wang (arXiv:2203.03220); He (arXiv:1702.03361); Liu (arXiv:2405.05181). Owen (1997) was accessible only as bibliographic/abstract evidence. Broader coverage, aliases, existing database results and implications are compared separately in AUDIT.json. The closest accessible earlier finding, a Gaussian quadratic-moment integrand, is distinct: the present event introduces an interior jump that produces threshold-dependent Bernoulli phases, and has a different endpoint error scaling.
+## originality
 
-## Value — PASS
-A fixed Gaussian upper-tail probability is a canonical rare-event numerical integral and one-evaluation-per-proposal-stratum is a natural unbiased variance-reduction design. The theorem identifies a qualitatively important proposal variance phase change: underdispersion produces a universal, threshold-independent heavy-tailed error law and possible infinite RMSE; at or above unit variance the jump cell forces an arithmetic, not Gaussian, asymptotic law. It supplies exact constants and a moment-existence threshold useful for assessing error bars and choosing safe proposals. This is a motivated complete 1D classification, not a slight coefficient tweak or a claim of unrestricted optimality.
+PASS
 
-## Residual scientific limitations
-The findings apply only to this exact independent one-dimensional stratified design with fixed threshold/proposal; they do not establish general numerical optimality or high-dimensional rare-event performance. The sharp moment boundary overlaps general likelihood-ratio integrability, whereas the distributional law and arithmetic phase are the distinguishing conclusions. Expert validation and exhaustive literature precedence checking remain outstanding.
+Published general randomized quasi-Monte Carlo importance-sampling and singularity papers provide broad rate and boundary-growth bounds. They do not, in inspected material, determine the exact heavy-tail limiting series and Pareto coefficient for the one-point-per-quantile-stratum Gaussian tail indicator, nor the s>=1 arithmetic jump-cell Bernoulli law. The nearby published Gaussian quadratic-moment result has a smooth integrand and a distinct critical proposal regime. Best-knowledge novelty passes with a genuine specialist-literature priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Gaussian one-sided rare-event integration with equal-probability proposal strata is a canonical numerical-estimation problem. The exact transition between infinite variance/heavy-tailed endpoint errors and threshold-driven arithmetic Bernoulli errors guides meaningful proposal-risk interpretation, with sharp constants, not a routine renaming or tiny computational observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

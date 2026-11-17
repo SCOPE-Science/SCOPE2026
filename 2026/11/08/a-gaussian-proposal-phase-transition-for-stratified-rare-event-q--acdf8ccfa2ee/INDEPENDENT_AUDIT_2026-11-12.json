@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:13:22.845723Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob 8c12583d9c968da1b8659e802a7da3e033e4e45c",
+        "independent_checks.py independent s=1 and s>1 Gaussian moment cells"
+      ],
+      "rationale": "Gaussian change of measure gives h_s(u)=sqrt(s)exp((1-s)Phi^-1(u)^2/2)1_{u>=Phi(z/sqrt s)}. Mills ratio gives near-endpoint v^{-beta}(log(1/v))^{-beta/2} with beta=1-s, and interval-by-interval centering yields an L1-convergent endpoint sum; for beta<1/2 the proof extends L2 for the variance series. The first interval has the stated Pareto tail while the other centered intervals are uniformly bounded by a summable oscillation bound. At p beta=1 the remaining (log)^{-1/2} singularity causes divergence. For s>=1, only the indicator jump cell has nonvanishing n-scaled variance, and its Bernoulli phase follows exactly; smooth-cell oscillations vanish. Independent exact Gaussian cell moment computation verified all tested s=1 Bernoulli phases and s>1 asymptotic phases, not the limit distribution itself.",
+      "residual_risks": [
+        "Threshold and variance fixed as n grows, no adaptive proposals or multivariate events.",
+        "The infinite series and tail asymptotics rest on analytic oscillation/Potter bounds, not numerical tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader randomized quasi-Monte Carlo spectral error-rate results and known boundary-growth conditions."
+        ],
+        "reasoning": "Such results could dominate rates under technical hypotheses but do not visibly imply this exact Pareto-series limit, threshold-independent constant and Bernoulli phase. A future complete primary-text review could alter historical priority.",
+        "searches": [
+          "independently stratified Gaussian rare event importance sampling variance transition proposal variance stable law",
+          "https://arxiv.org/abs/2405.05181"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.03220",
+        "https://arxiv.org/abs/1702.03361",
+        "https://arxiv.org/abs/2405.05181",
+        "https://doi.org/10.1137/S0036142994277468",
+        "Resultary Q4 semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source provides exact one-dimensional p-integrability condition p(1-s)<1 and threshold cell indicator law, not merely convergence rate bounds."
+        ],
+        "reasoning": "Even a generic O(n^-alpha) result lacks the constants and distributional shapes, so the full claim is not an immediate corollary of the inspected general bounds.",
+        "searches": [
+          "independently stratified Gaussian rare event importance sampling variance transition proposal variance stable law",
+          "https://arxiv.org/abs/2203.03220",
+          "https://arxiv.org/abs/2405.05181"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General scrambled-net importance sampling and singular integrand boundary growth; distinct independently stratified estimator under quantile transform."
+        ],
+        "reasoning": "The same Gaussian likelihood ratio can appear in all approaches, but an error bound for scrambled nets is not the same distributional law for independent uniform samples in each quantile stratum.",
+        "searches": [
+          "independently stratified Gaussian rare event importance sampling variance transition proposal variance stable law",
+          "https://arxiv.org/abs/2203.03220",
+          "https://arxiv.org/abs/1702.03361"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Gaussian quadratic-integrand record treats moment estimation and an s>3/2 finite N³ variance; present integrand is an indicator plus endpoint singular weight and has different laws."
+        ],
+        "reasoning": "A shared Gaussian proposal does not equate the integrands or critical thresholds. No exact table for the present s<1 non-Gaussian series or s>=1 Bernoulli phase was found.",
+        "searches": [
+          "independently stratified Gaussian rare event importance sampling variance transition proposal variance stable law",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-importance-scales-for-independently-stratified-qu--8b50e4ca15cd"
+        ]
+      },
+      "rationale": "Published general randomized quasi-Monte Carlo importance-sampling and singularity papers provide broad rate and boundary-growth bounds. They do not, in inspected material, determine the exact heavy-tail limiting series and Pareto coefficient for the one-point-per-quantile-stratum Gaussian tail indicator, nor the s>=1 arithmetic jump-cell Bernoulli law. The nearby published Gaussian quadratic-moment result has a smooth integrand and a distinct critical proposal regime. Best-knowledge novelty passes with a genuine specialist-literature priority risk.",
+      "residual_risks": [
+        "Unindexed literature on independently stratified importance sampling with singular endpoints might contain the same limit or series; no definitive priority claim is made.",
+        "Some relevant primary papers were inspected in excerpts rather than complete appendices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_CONTEXT",
+          "evidence": "Scrambled-net error-rate framework, not explicit independently stratified rare-event non-Gaussian series or phase law.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.03220",
+          "material_read": "Relevant abstract, introduction and Theorem 3.1/3.4 passages; no claim that every appendix was read",
+          "method": "ArXiv PDF opened and relevant sections/screenshots inspected",
+          "title": "On the error rate of importance sampling with randomized quasi-Monte Carlo",
+          "trigger": "Same Gaussian importance sampling and boundary singularity setting"
+        },
+        {
+          "assessment": "GENERAL_CONTEXT",
+          "evidence": "General error-rate hypotheses do not explicitly give this exact quantile-stratified distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.03361",
+          "material_read": "Source bibliographic and main theorem descriptions; not complete full-text reading",
+          "method": "ArXiv metadata/available excerpts and comparison",
+          "title": "Quasi-Monte Carlo for discontinuous integrands with singularities along the boundary of the unit cube",
+          "trigger": "Jump discontinuity and boundary singularity under quadrature"
+        },
+        {
+          "assessment": "DIFFERENT_INTEGRAND",
+          "evidence": "The quadratic moment setting has smoothness and s>3/2 moment threshold instead of a discontinuous tail indicator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-importance-scales-for-independently-stratified-qu--8b50e4ca15cd",
+          "material_read": "Resultary scientific summary, not full article text",
+          "method": "Resultary Search",
+          "title": "Sharp Gaussian importance scales for independently stratified quadratic integration",
+          "trigger": "Similar Gaussian proposal and independent quantile strata, but quadratic target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "independently stratified Gaussian rare event importance sampling variance transition proposal variance stable law",
+        "frozen RESULT.md"
+      ],
+      "rationale": "Gaussian one-sided rare-event integration with equal-probability proposal strata is a canonical numerical-estimation problem. The exact transition between infinite variance/heavy-tailed endpoint errors and threshold-driven arithmetic Bernoulli errors guides meaningful proposal-risk interpretation, with sharp constants, not a routine renaming or tiny computational observation.",
+      "residual_risks": [
+        "The result is one-dimensional, fixed threshold, fixed proposal variance and independent strata; it does not establish optimal proposal selection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent one-dimensional proposal quantile jitter only.",
+    "Specialist literature completeness remains residual priority risk."
+  ],
+  "schema_version": 1
+}
