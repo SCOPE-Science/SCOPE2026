@@ -1,15 +1,21 @@
-# Review: commutative divisors and Rees sandwich matrices
+# Independent mathematical audit
 
-## Correctness — PASS
-Every nonzero Rees element is either in a finite subgroup or square-zero. The source-square-zero case is handled separately for the three possibilities for its product with an arbitrary source element. For two subgroup elements, the existence of both nonzero cross sandwich entries makes their triple products group elements, forcing quotient idempotent identities to coincide; otherwise their product dies in the commutative quotient. Both source-zero and source-zero-free subsemigroups are treated. An explicit diagonal/off-diagonal Brandt embedding proves the reverse implication. A program checked 3616 commutative quotient instances from 1483 Rees subsemigroups over the trivial group. Symbolic reasoning, not these tests, proves the theorem for all finite structure groups.
+## correctness
 
-## Originality — PASS, historically qualified
-Bershadsky--Kublanovsky--Mashevitzky (2026) ask separately for divisors of Brandt and zero-one Rees semigroups. A known Brandt-only commutative classification does not imply the new general-Rees source inclusion. Hall et al. (1997) work on Rees embeddability and HSP pseudovariety identities; HSP includes finite direct products and is a different closure operation from single-factor HS. Kublanovsky's (1998) cited positive-universal description of all completely zero-simple divisors is potentially broader; the full chapter was not accessible, and implicit historical coverage remains a real risk. The finding claims an explicit equality of HS spectra and constructive normal form, not priority over general abstract divisor membership formulas.
+PASS
 
-## Value — PASS
-The collapse of every finite commutative quotient from arbitrary zero-simple Rees matrices to a Brandt embedding addresses a natural complete subclass of both branches of the 2026 divisor problem. It identifies an exact structural boundary between group components and null annihilators, is independent of sandwich group parameters, and gives constructive realizations for all admissible targets. It does not purport to settle the noncommutative case.
+Every nonzero element of finite Rees M^0 lies in an ambient finite group if its diagonal sandwich entry is nonzero, otherwise its square is zero. A square-zero element in a commutative quotient annihilates every image: the reversed product vanishes when the forward product remains nonregular, and a regular image with absorbing-zero square is itself zero. For two regular images, if a cross sandwich entry vanishes their product dies; if both exist, triple sandwich products lie in both source maximal subgroups and force equal quotient identities. Thus distinct nonzero quotient groups are orthogonal and all remaining elements are annihilators. With no source zero the quotient is one abelian group. Direct diagonal injections plus two offdiagonal Brandt indices realize every listed structure. All group sizes and regular sandwich matrices are covered by this algebra; the 3616 finite quotient checker instances are corroboration, not completeness.
 
-## Closest literature and limits
-Primary references: arXiv:2604.04763 (2026), Problem 1.2; Hall et al., Journal of Pure and Applied Algebra 119 (1997); Kublanovsky, *Semigroups with Applications, Including Semigroup Rings* (1998), bibliographic citation only. Finite computations are corroboration. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The older November 2 theorem proves exactly the Brandt-source normal form and minimal index, so that component is NOT new. The genuine extra implication is from an arbitrary finite Rees 0-matrix semigroup with unrestricted nonzero sandwich entries to a Brandt embedding after an arbitrary commutative subsemigroup quotient. The full argument uses a nontrivial square-zero/image-annihilation step and triple Rees products to force quotient group idempotents equal or zero-orthogonal, not merely the Brandt classification. The 1998 generic divisor theory is inaccessible and is recorded as a real priority risk, not an automatic fail.
+
+## value
+
+PASS
+
+Equality of the commutative single-factor HS divisor classes is a natural nontrivial slice of the explicit Brandt and Rees divisor problems. It identifies a complete structural and constructive classification when arbitrary sandwich matrices could in principle enlarge divisor classes, and its key triple-product lemma is not a routine renaming of Brandt multiplication. The Brandt-only normal form/minimal-index theorem is correctly credited as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
