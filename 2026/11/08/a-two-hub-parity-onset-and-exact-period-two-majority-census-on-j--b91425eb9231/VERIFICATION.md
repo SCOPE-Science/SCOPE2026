@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The following commands are reproducible with Python 3 and require no external dependencies:
+## correctness
 
-```bash
-python verify_formula.py
-python verify_direct.py
-```
+PASS
 
-`verify_formula.py` compares the exact binomial expressions with independently evaluated cyclic-word erosion, dilation and radius-one majority criteria for every \(3\le n\le16\). It checks the two claimed mechanism populations separately and tests the explicit length-five binary-block subfamily for \(2\le m\le6\). Its observed terminal assertion is `FORMULA_AND_RUN_CLASSIFICATION_PASS`.
+The two agreeing hub states produce the Boolean radius-1 erosion E and dilation D; E^2(x)=x forces E(x)=x and only unanimous fixed points survive. Opposite equal-hub switching requires D(E(x))=x, equivalent to all one-runs length >=3, plus two exact global hub-vote inequalities; compositions with r marked runs give S_n. Disagreeing hubs can switch only for even n with balanced rim; the ternary cyclic majority map G admits periodic words only with all runs >=2 or perfect alternation. Those contribute B_n+2 for each hub orientation. Explicit run constructions prove even/odd existence boundaries and the independent 5-bit blocks prove the exponential subsequence. Read the complete RESULT.md proof and both source verification scripts. Independently simulated all 2^{n+2} labelled configurations for each n=3..11; fixed=2 and primitive counts 0,20,0,28,0,52,36,184,132. Small enumeration is supplementary.
 
-`verify_direct.py` builds the complete graph \(K_2\vee C_n\), enumerates all \(2^{n+2}\) binary initial states for each \(3\le n\le16\), evaluates simultaneous open-neighbor strict majority twice with tie retention, and independently counts fixed states, least-period-two states and hub-phase transitions. This totals 524,256 simulated initial configurations. Its observed terminal assertion is `INDEPENDENT_EXHAUSTIVE_DYNAMICS_PASS`.
+## originality
 
-Both programs were run successfully from their embedded source files, and their captured outputs are `formula_output.txt` and `direct_output.txt`. Direct enumeration for finite lengths is not an exhaustive test over the infinite graph family; that extension rests on the self-contained proof in `RESULT.md`. No independent external scientific audit has been performed.
+PASS
+
+No same-graph census was identified. Read the full published wheel transfer census and fan opening census: both use one universal hub, with rim-neighbor maps and hub degrees differing from K2 join Cn. The present three-neighbor erosion and coexistence of equal-hub and opposite-hub switching types cannot be obtained by substituting their rim count. The general period-at-most-two theorem constrains periods but not numbers or odd-length onset. Best-of-knowledge PASS, with older Goles–Olivos full text and unindexed graph-specific counts as risks.
+
+## value
+
+PASS
+
+A natural, explicitly specified family of dense graph joins exhibits nontrivial hub parity and labelled two-cycle counts despite only two fixed points; the exact combinatorial classification and sharp parity threshold are useful structural dynamics facts, and the growing family is not a routine normalization of wheel dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
