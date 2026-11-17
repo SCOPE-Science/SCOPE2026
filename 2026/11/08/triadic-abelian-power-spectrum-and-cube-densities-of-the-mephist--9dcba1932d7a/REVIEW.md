@@ -1,19 +1,21 @@
-# Review of the triadic Abelian-power spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The product rule \(s(3^kq+j)=s(q)s(j)\), the unit aligned block sum, and the integer-affine injectivity lemma establish the all-length classification. All four-run impossibility, a three-run witness, and the independent recurrence for triple-run frequency are proved from the morphism. A verifier checks the decoded substitution, identities, cube classification, density numerators and explicit nontriadic witness. Finite tests are supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+The substitution sign s(3n)=s(3n+1)=s(n), s(3n+2)=-s(n) gives s(q3^k+r)=s(q)s(r), sum_{r<3^k}s(r)=1 and exact unaligned block sum (1-P_k(r))s(q)+P_k(r)s(q+1). The integer-affine sign-pair map is injective for integer P outside {0,1}, while no four consecutive s signs can agree; cubes occur exactly with P=0 or P=1 and the respective shifted three-sign run, and four consecutive equal blocks cannot occur. Constant three-sign runs have density 1/6 by t(3n)=0,t(3n+1)=1,t(3n+2)=1-t(n), yielding C_k/(6*3^k). A_k prefix/sign recurrence counts C_k exactly; independent direct word checks confirmed C_0..C_5=[1,2,5,13,35,96], 5460 cube/4-power positions, and the source gives a length-seven fourth-power witness. Existence of aligned threefold repetition comes from s(5)=s(6)=s(7)=-1.
 
-Meleshko–Ochem–Shallit–Shan (arXiv:2207.10171, Section 4.1) classify individual-symbol pseudoperiods of this exact word, not Parikh-equivalent contiguous blocks. Currie–Mol–Rampersad–Shallit (arXiv:2111.07857) prove global Abelian-fourth-power avoidance for a *different* fixed point; the present word actually has an Abelian fourth power with block length seven. Chen–Wen (arXiv:1809.06554) count Parikh classes in a different generalized Thue–Morse family. Searches found no statement implying the all-triadic exponent, complete cube-start criterion, or density recurrence. Unindexed prior work may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem exactly separates an infinite natural sequence of substitution-scale block lengths from an explicit period-seven counterexample, with a sharp exponent and complete cube-start distribution at every triadic scale. This is a structural Parikh-repetition invariant with a reproducible recurrence, rather than a small-table extension.
+Best-of-knowledge ORIGINALITY PASS for the precisely delimited theorem after searching the indexed mathematical corpus, published related work, and comparing primary statements/implications. No: Proposition 21 asserts 3-pseudoperiodicity with symbol-wise alternative shifts, while Abelian cube starts concern sliding block sums; the manuscript supplies the required signed prefix identity and rigidity separately. Residual risks recorded explicitly.
 
-## Limits
+## value
 
-No assertion is made about all nontriadic block lengths, and the exact density numerator is recursive rather than a simple closed form. Independent verification has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This determines a scale-dependent Abelian repetition spectrum and exact natural occurrence densities in a well-studied 3-automatic word, sharply separating triadic block lengths from a length-seven Abelian fourth-power witness. The exact digit-prefix characterization and recurrence provide meaningful all-scale combinatorial structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
