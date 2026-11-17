@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with Python 3 standard library. It computes exact integer Narayana entries, checks the bit formulas for all rows through 128, and checks the complete multiset and cumulative count for dyadic blocks through exponent seven. It prints `VERIFY_OK` on completion.
+# Independent mathematical audit
 
-Finite tests do not establish the all-row claims. Those are proved using Lucas's theorem, parity-preserving symmetry, a finite block decomposition of binary subset indices, and the binomial theorem. The independent audit channel has not been performed.
+## correctness
+
+PASS
+
+For n even, Lucas submask restrictions and Narayana symmetry yield 2^{s2(n)} odd entries. For n odd, adjacent binary submask pairs sit in blocks of 2^t consecutive indices (t=ν2(n+1)), yielding 2^{s2(n)-t}(2^t−1). Counting free higher bits gives exact multiset over every dyadic range; the even-row and odd-row contributions sum to (5·3^(L−1)−3)/2. Independent exact integer computations checked all rows 1..256 and complete dyadic spectra L1..9. This is an infinite combinatorial proof, not finite extrapolation.
+
+## originality
+
+PASS
+
+An earlier October 18 Narayana valuation-layer theorem explicitly proves the SAME DYADIC TOTAL, and its proof reveals even-row parity counts and odd-row binary submask structure. Those statements and the classical Lucas test are PRIOR and not credited as original. The surviving distinguishable contribution is a complete explicit multiset of the rowwise odd counts A(n) over every dyadic interval, with separate binomial multiplicities; the published aggregate A0(L) does not determine this full histogram by itself. That extension is a short binary-block argument and its limited incremental priority/value must be represented precisely.
+
+## value
+
+PASS
+
+A natural OEIS Narayana-row statistic has a closed all-index binary description and, additionally, a complete value distribution at every dyadic scale rather than only its aggregate first moment. The distribution can compute other counts and functions of row parity directly. Value is the exact natural invariant/histogram, not re-proving Lucas or previously published dyadic total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

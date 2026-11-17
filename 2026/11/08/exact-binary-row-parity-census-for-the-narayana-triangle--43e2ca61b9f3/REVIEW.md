@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The even-row case uses the identity \(N(n,k)=k^{-1}\binom{n-1}{k-1}\binom n{k-1}\) for odd \(k\), Lucas's theorem, and the symmetry \(k\mapsto n+1-k\). The odd-row case reduces parity to two adjacent subset indices and counts the consecutive blocks determined by the terminal binary run. Every dyadic-block multiplicity is then a direct count of independent higher bits. The exact total follows from finite geometric sums. Reproducible finite checks supplement this unrestricted proof.
+## correctness
 
-**Originality — PASS with priority risk.** The publicly accessible OEIS A335965 entry provides a finite list, direct computational definitions, and one special equality statement but not the exact all-row formula or full dyadic-block spectrum. The Eu–Liu–Yeh 2005/2006 article on combinatorial congruences is relevant and is cited by that entry; its abstract names different objects, but its full body was not accessible. Independent searches and available prior research statements did not show coverage of the combined theorem. The unavailable primary full text is a real outstanding priority risk; the absence of a search hit is not a proof of priority.
+PASS
 
-**Mathematical value — PASS, with narrow scope.** This provides a natural complete classification of the exact odd-entry statistic previously tabulated for a classical Catalan refinement, including the entire spectrum across all dyadic row ranges and an exact cumulative law. The exceptional odd-index dependence on the terminal run of binary ones is structural, not a numerical fit. This is an elementary but unrestricted classification, not a higher-modulus result.
+For n even, Lucas submask restrictions and Narayana symmetry yield 2^{s2(n)} odd entries. For n odd, adjacent binary submask pairs sit in blocks of 2^t consecutive indices (t=ν2(n+1)), yielding 2^{s2(n)-t}(2^t−1). Counting free higher bits gives exact multiset over every dyadic range; the even-row and odd-row contributions sum to (5·3^(L−1)−3)/2. Independent exact integer computations checked all rows 1..256 and complete dyadic spectra L1..9. This is an infinite combinatorial proof, not finite extrapolation.
 
-**Closest work and limits.** Eu–Liu–Yeh, doi:10.1111/j.1467-9590.2006.00337.x, and OEIS A335965. No complete claim is made for divisibility by higher powers of two, and historical priority remains qualified by the unavailable article.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier October 18 Narayana valuation-layer theorem explicitly proves the SAME DYADIC TOTAL, and its proof reveals even-row parity counts and odd-row binary submask structure. Those statements and the classical Lucas test are PRIOR and not credited as original. The surviving distinguishable contribution is a complete explicit multiset of the rowwise odd counts A(n) over every dyadic interval, with separate binomial multiplicities; the published aggregate A0(L) does not determine this full histogram by itself. That extension is a short binary-block argument and its limited incremental priority/value must be represented precisely.
+
+## value
+
+PASS
+
+A natural OEIS Narayana-row statistic has a closed all-index binary description and, additionally, a complete value distribution at every dyadic scale rather than only its aggregate first moment. The distribution can compute other counts and functions of row parity directly. Value is the exact natural invariant/histogram, not re-proving Lucas or previously published dyadic total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
