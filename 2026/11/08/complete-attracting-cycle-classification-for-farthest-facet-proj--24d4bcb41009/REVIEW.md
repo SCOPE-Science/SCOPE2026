@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact centered-simplex projection formula sends the selected largest barycentric coordinate to zero and distributes its value equally to the remaining coordinates; the projected point stays strictly inside the selected facet. Consequently the coordinate rank list rotates, with ties remaining tied. For strict ranks, the sorted-gap process is the primitive row-stochastic companion matrix with first row uniform and subdiagonal ones. Its unique normalized Perron fixed point yields the equally spaced coordinates, while the explicit cyclic states show existence. The rank dynamics exclude all other nonconstant periods, and facet permutation symmetry proves equal physical-basin areas. The all-dimensional proof is analytical. The standalone exact-rational test passed 138033 supporting assertions in dimensions three through seven; it is not an exhaustive proof.
+## correctness
 
-## Originality — PASS within inspected sources
-Everett's 2020/2021 article introduces the planar three-line farthest-projection system and ends by proposing higher-dimensional projection to farthest faces as a question. Its inspected definitions and theorems concern planar triangles and do not yield an all-dimensional simplex classification, explicit cycles or physical basins. A publicly indexed three-cycle classification and a separate right-isosceles four-cycle classification concern that same planar line system. Wang--Zhang (2016) instead work on ordered-triangle moduli. Results about farthest-point maps on polyhedra select distant points rather than an orthogonal facet projection. These dimensional, domain and operator differences rule out direct implication by the inspected statements. Search coverage is not a guarantee of global publication priority, and older projection-algorithm literature remains a plausible terminology risk.
+PASS
 
-## Mathematical value — PASS
-The originating paper explicitly asks what happens for higher-dimensional polytopes under the analogous farthest-facet rule. The result answers this for the canonical regular simplices in every dimension at least three, not just by exhibiting examples but by classifying *all* nontrivial periodic orbits, their exact prime periods, their geometry, exceptional tie arrests, exponential attraction and physical-basin proportions. The appearance of exactly \(d!\) equally weighted physical attractors is a genuine structural feature of the higher-dimensional map, not an arbitrary finite parameter computation.
+For d>=3 on disjoint relative open facets, the orthogonal projection resets the selected largest positive barycentric coordinate to zero and adds lambda_j/d to all others; all target coordinates are positive. Relative rank rotates through d+1 labels; ties persist until a maximal tie then fix. The strict sorted gap recurrence is a primitive row-stochastic d-by-d companion matrix with first row 1/d, making uniform gaps the unique normalized attracting Perron fixed point and all nonunit modes contractive. Summing barycentric coordinates fixes gaps to 2/[d(d+1)], giving exactly d! primitive (d+1)-cycles and equal area basins 1/d! by facet symmetry. Independent exact-rational cycle and rank checks on d=3..6 corroborate, do not replace the proof.
 
-## Limits and nearest comparisons
-The dynamics on facet intersections and exterior supporting hyperplanes, arbitrary irregular simplices or other polytopes are not addressed. The closest indexed planar farthest-projection result was available only as a title and summary; no stronger high-dimensional assertion was visible there. Projection-method literature may contain equivalent formulations under different names. All independently performed review here is same-model; the claimed publication priority is conditional on the stated inspections.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Equivalent maximal-coordinate reset and orthogonal facet projection are the same map only in the stated regular-simplex interior domain. Everett’s 2021 theorem concerns three planar lines and explicitly asks for higher-dimensional facet dynamics. The same-date farthest-vertex contraction theorem has geometric barycentric points and a different map/domain; it does not imply the arithmetic reset law or tie arrests. No inspected older theorem/classification entails the all-d result.
+
+## value
+
+PASS
+
+This solves the regular-simplex all-dimensional instance of the originating higher-dimensional farthest-facet projection question: exact classification of every nontrivial cycle, its period, exceptional tie arrest, convergence and equal physical basin weights. The d! factorial phase count is structural and relevant to piecewise-affine dynamical systems, not a routine one-off value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

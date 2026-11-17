@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:15:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-attracting-cycle-classification-for-farthest-facet-proj--24d4bcb41009/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-attracting-cycle-classification-for-farthest-facet-proj--24d4bcb41009/check_simplex.py"
+      ],
+      "rationale": "For d>=3 on disjoint relative open facets, the orthogonal projection resets the selected largest positive barycentric coordinate to zero and adds lambda_j/d to all others; all target coordinates are positive. Relative rank rotates through d+1 labels; ties persist until a maximal tie then fix. The strict sorted gap recurrence is a primitive row-stochastic d-by-d companion matrix with first row 1/d, making uniform gaps the unique normalized attracting Perron fixed point and all nonunit modes contractive. Summing barycentric coordinates fixes gaps to 2/[d(d+1)], giving exactly d! primitive (d+1)-cycles and equal area basins 1/d! by facet symmetry. Independent exact-rational cycle and rank checks on d=3..6 corroborate, do not replace the proof.",
+      "residual_risks": [
+        "Statement is only for regular simplices, relative open facets, and tie-to-fixed convention; no classification of other polytopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Everett 2021 concluding n>2 face question, https://doi.org/10.1080/1726037X.2020.1847765",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-farthest-vertex-simplex-contractions-have-factorially-many-attra--0536d8dd505f"
+        ],
+        "reasoning": "The farthest-vertex theorem is a strict homothety on the solid simplex, with positive geometric stationary coordinates, unlike boundary facet projection with one zero coordinate and arithmetic gaps. Everett does not prove the higher-dimensional map. No domination.",
+        "searches": [
+          "regular simplex farthest orthogonal facet projection attracting cycles barycentric gaps d factorial",
+          "Resultary farthest-vertex simplex contractions factorial attracting cycles",
+          "Everett A Piecewise Contractive Map on Triangles higher dimensions"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1080/1726037X.2020.1847765",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-farthest-vertex-simplex-contractions-have-factorially-many-attra--0536d8dd505f",
+        "https://arxiv.org/abs/1605.01794",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-attracting-cycle-classification-for-farthest-facet-proj--24d4bcb41009/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Everett last-page statement of an open higher-dimensional analogue (journal 18, 183-192)",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-farthest-vertex-simplex-contractions-have-factorially-many-attra--0536d8dd505f"
+        ],
+        "reasoning": "Neither planar orbit facts nor geometric-coordinate vertex homotheties entail this arithmetic-coordinate boundary projection result, despite identical d! numerical counts.",
+        "searches": [
+          "regular simplex farthest orthogonal facet projection attracting cycles barycentric gaps d factorial",
+          "Everett farthest projection planar triangle periodic orbits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact projection formula in frozen RESULT.md Step 1; Everett’s three-line orthogonal projection rule, DOI 10.1080/1726037X.2020.1847765"
+        ],
+        "reasoning": "For regular simplices nearest orthogonal point on farthest other facet equals resetting maximal barycentric coordinate and redistributing it uniformly. Search at the operator level; line maps and vertex contractions are not equivalent.",
+        "searches": [
+          "regular simplex farthest orthogonal facet projection attracting cycles barycentric gaps d factorial",
+          "\"largest-coordinate reset\" uniform redistribution simplex farthest-facet periodic orbit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned result is infinite d>=3 classification from primitive matrix, not just d<=7 checks; Resultary search returned the different farthest-vertex model"
+        ],
+        "reasoning": "No encountered external database gives the exact all-dimensional farthest-orthogonal-facet counts/basin areas. Lack of a table alone is not novelty proof.",
+        "searches": [
+          "regular simplex farthest orthogonal facet projection attracting cycles barycentric gaps d factorial",
+          "regular simplex facet projection d factorial orbit count exact table"
+        ]
+      },
+      "rationale": "Equivalent maximal-coordinate reset and orthogonal facet projection are the same map only in the stated regular-simplex interior domain. Everett’s 2021 theorem concerns three planar lines and explicitly asks for higher-dimensional facet dynamics. The same-date farthest-vertex contraction theorem has geometric barycentric points and a different map/domain; it does not imply the arithmetic reset law or tie arrests. No inspected older theorem/classification entails the all-d result.",
+      "residual_risks": [
+        "Priority may exist in less-indexed projection-method or barycentric redistribution literature; no universal absence assertion.",
+        "Statement is only for regular simplices, relative open facets, and tie-to-fixed convention; no classification of other polytopes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Planar three-line result; explicitly proposes higher-dimensional analogue without solving d-simplex facet map.",
+          "evidence": "Final discussion raises n>2 farthest-face projection; map and hypotheses use planar lines.",
+          "identifier_or_url": "https://doi.org/10.1080/1726037X.2020.1847765",
+          "material_read": "Full accessible publisher PDF, definitions, planar dynamical theorems and closing discussion (including last-page higher-dimensional problem).",
+          "method": "Public full text and rendered final page",
+          "title": "A Piecewise Contractive Map on Triangles",
+          "trigger": "Origin of farthest projections and explicit higher-dimensional question"
+        },
+        {
+          "assessment": "NOT_COVERING: farthest vertex homothety produces all-positive geometric barycentrics, not boundary projection arithmetic barycentrics.",
+          "evidence": "Formula F_lambda(x)_i=lambda x_i+(1-lambda)1_{i=minimum}; claimed sorted stationary vector geometric.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-farthest-vertex-simplex-contractions-have-factorially-many-attra--0536d8dd505f",
+          "material_read": "Complete RESULT.md incl assumptions, proof, orbit coordinates, basins and limits.",
+          "method": "GitHub published source file text at blob 8c9ede7fe90516a0547941aaf26255dbcf3ab783",
+          "title": "Farthest-vertex simplex contractions have factorially many attracting cycles",
+          "trigger": "Same date, same factorial attracting-cycle number on simplex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1080/1726037X.2020.1847765",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-farthest-vertex-simplex-contractions-have-factorially-many-attra--0536d8dd505f",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-attracting-cycle-classification-for-farthest-facet-proj--24d4bcb41009/RESULT.md"
+      ],
+      "rationale": "This solves the regular-simplex all-dimensional instance of the originating higher-dimensional farthest-facet projection question: exact classification of every nontrivial cycle, its period, exceptional tie arrest, convergence and equal physical basin weights. The d! factorial phase count is structural and relevant to piecewise-affine dynamical systems, not a routine one-off value.",
+      "residual_risks": [
+        "Priority may exist in less-indexed projection-method or barycentric redistribution literature; no universal absence assertion.",
+        "Statement is only for regular simplices, relative open facets, and tie-to-fixed convention; no classification of other polytopes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Priority may exist in less-indexed projection-method or barycentric redistribution literature; no universal absence assertion.",
+    "Statement is only for regular simplices, relative open facets, and tie-to-fixed convention; no classification of other polytopes."
+  ],
+  "schema_version": 1
+}

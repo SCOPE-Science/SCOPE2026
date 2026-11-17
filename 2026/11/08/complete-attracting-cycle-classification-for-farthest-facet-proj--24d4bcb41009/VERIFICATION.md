@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 check_simplex.py` using Python 3 standard library. The check performed on the packaged script yielded `PASS: 138033 exact-rational assertions (dimensions 3 through 7)`.
+## correctness
 
-The code verifies the centered regular-simplex Euclidean orthogonal projection against the barycentric reset formula with rational arithmetic; exact periodic witness vectors; all cyclic orders for small dimensions; the proposed one-step gap matrix; and representative trajectories with positive-coordinate ties. It does not prove the result for all dimensions or certify prior-art priority. The all-dimensional assertions rest on the explicit geometry and primitive finite-dimensional Markov matrix proof given in `RESULT.md`.
+PASS
 
-The source was inspected through the full published article, including its 2D definition and final higher-dimensional question. The related indexed 2D claim was available as a ranked summary; its full package was not accessed. Publication-priority residual risk is explicitly recorded in the review.
+For d>=3 on disjoint relative open facets, the orthogonal projection resets the selected largest positive barycentric coordinate to zero and adds lambda_j/d to all others; all target coordinates are positive. Relative rank rotates through d+1 labels; ties persist until a maximal tie then fix. The strict sorted gap recurrence is a primitive row-stochastic d-by-d companion matrix with first row 1/d, making uniform gaps the unique normalized attracting Perron fixed point and all nonunit modes contractive. Summing barycentric coordinates fixes gaps to 2/[d(d+1)], giving exactly d! primitive (d+1)-cycles and equal area basins 1/d! by facet symmetry. Independent exact-rational cycle and rank checks on d=3..6 corroborate, do not replace the proof.
+
+## originality
+
+PASS
+
+Equivalent maximal-coordinate reset and orthogonal facet projection are the same map only in the stated regular-simplex interior domain. Everett’s 2021 theorem concerns three planar lines and explicitly asks for higher-dimensional facet dynamics. The same-date farthest-vertex contraction theorem has geometric barycentric points and a different map/domain; it does not imply the arithmetic reset law or tie arrests. No inspected older theorem/classification entails the all-d result.
+
+## value
+
+PASS
+
+This solves the regular-simplex all-dimensional instance of the originating higher-dimensional farthest-facet projection question: exact classification of every nontrivial cycle, its period, exceptional tie arrest, convergence and equal physical basin weights. The d! factorial phase count is structural and relevant to piecewise-affine dynamical systems, not a routine one-off value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
