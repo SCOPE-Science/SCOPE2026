@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T23:56:54.598946Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A pair-weight-four nonzero word must be a Hamming-weight-three codeword supported on three cyclic consecutive coordinates, equivalent to xor-zero of the three corresponding nonzero F₂⁴ columns. GL(4,2) acts freely and transitively on fixed ordered distinct starting columns; fixing (1,2) leaves 13! permutations, and dividing the resulting generating polynomial coefficients by 96 counts distinct indexed codes. The acyclic subset/last-two columns DP counts each tail and both wrap-around triples exactly once. An independent C++ implementation of this recurrence reproduced the full exact seven unnormalized coefficients [1642251264,2567162880,1512023040,434319360,65617920,5492736,153600], sum 13!; integer division gives claimed profile, sum 64864800. Zero-triple condition and any two adjacent columns yield pair distance exactly five, while any B>0 yields four. This is an exhaustive finite algorithm, not samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erskine–Griggs STS(15) paper includes projective geometry case and existence of good orderings, Chee et al. constructions and Chen–Lin–Liu cyclic/constacyclic lower bounds, length-7/8 profile results."
+        ],
+        "reasoning": "None supplies complete frequency law among all code-indexed coordinate permutations at length fifteen. The restriction to Hamming codes rather than all symbol-pair codes matters.",
+        "searches": [
+          "https://arxiv.org/pdf/2204.02732",
+          "https://arxiv.org/abs/1211.1728",
+          "https://arxiv.org/abs/1605.03460",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-five-symbol-pair-spectra-of-coordinate-ordered-extended-hamming--c881c25b1ed2/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2204.02732",
+        "https://arxiv.org/abs/1211.1728",
+        "https://arxiv.org/abs/1605.03460",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-five-symbol-pair-spectra-of-coordinate-ordered-extended-hamming--c881c25b1ed2/RESULT.md",
+        "https://pure.royalholloway.ac.uk/files/41150489/sts_sequencing_final.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of distance-5 Hamming interleavers implies B=0 for at least one code, but does not determine precisely 17,106,784 such indexed codes nor the entire seven-value count."
+        ],
+        "reasoning": "General pair-metric theory, lower bounds and existence are logically weaker than submitted complete population histogram. Prior length-seven code results cannot be lifted to length fifteen by parameter substitution.",
+        "searches": [
+          "https://arxiv.org/pdf/2204.02732",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05/RESULT.md",
+          "https://arxiv.org/abs/1211.1728"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every rank-four Hamming parity-check coordinate ordering induces cyclic ordered points of PG(3,2); B counts consecutive projective lines; known STS(15) good-sequencing literature asks avoidance B=0, not complete counts B=0,...,6."
+        ],
+        "reasoning": "Equivalent invariant is three-consecutive-collinearity count over cyclic sequencings modulo GL(4,2). Alias searches yield no previously established seven-coefficient distribution; existence of good cyclic orderings cannot imply full distribution.",
+        "searches": [
+          "Resultary search: binary Hamming [15,11,3] coordinate permutations cyclic symbol pair weight four consecutive collinear triple distribution",
+          "PG(3,2) Steiner triple systems STS(15) cyclic collinear triples counts",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite exact sum of submitted coefficients = 64,864,800; independent DP returned unnormalized [1642251264,2567162880,1512023040,434319360,65617920,5492736,153600], divided by 96."
+        ],
+        "reasoning": "This is a newly reconstructed exact census rather than known table recomputation on available evidence; exhaustive finite recurrence certifies the number regardless of its unproven universal historical novelty.",
+        "searches": [
+          "Resultary complete binary Hamming fifteen pair profile",
+          "STS(15) number of 3-consecutive collinear cyclic triples distribution",
+          "projective geometry PG(3,2) good point sequencings frequency"
+        ]
+      },
+      "rationale": "The 15-coordinate projective STS(15) incidence problem is a naturally motivated indexed Hamming interleaver histogram. Existing symbol-pair coding bounds and cyclic block-avoiding sequencing results give existence or distances, not a seven-value histogram across all 64,864,800 indexed code spaces. Earlier length-7 and extended-length-8 complete spectra have different finite universes. Best-of-knowledge priority with unindexed-tabulation risk.",
+      "residual_risks": [
+        "Possible unindexed PG(3,2) cyclic triple histogram or unpublished exhaustive tables; full text of early conference coding articles not comprehensively examined.",
+        "The result classifies local pair-weight-four multiplicity only, not full pair-weight spectra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_EXISTENCE_NOT_COUNTS",
+          "evidence": [
+            "Good STS(15) cyclic orderings are shown to exist, but no entire consecutive-block histogram for PG(3,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.02732",
+          "material_read": "Original paper opening definitions and relevant STS(15) sequencing/existence sections including projective geometry case",
+          "method": "Inspected original arXiv PDF pages/figures and relevant section text, compared existential and enumeration quantifiers.",
+          "title": "Good point sequencings of Steiner triple systems",
+          "trigger": "Direct projective Steiner triple system interpretation of 15 Hamming columns"
+        },
+        {
+          "assessment": "DISTINCT_SMALLER_DOMAIN",
+          "evidence": [
+            "[7,4,3] Hamming code complete spectra over 30 presentations, not the 64,864,800 length-15 universe."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05/RESULT.md",
+          "material_read": "Published Resultary title, precise 30-code universe and three-spectrum summary",
+          "method": "Read indexed published theorem description and compare domain and invariant.",
+          "title": "Exact symbol-pair spectra of all length-seven binary Hamming interleavers",
+          "trigger": "Nearest published exact Hamming ordering census"
+        },
+        {
+          "assessment": "DISTINCT_SMALLER_DOMAIN",
+          "evidence": [
+            "[8,4,4] extended Hamming different code and length."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-five-symbol-pair-spectra-of-coordinate-ordered-extended-hamming--c881c25b1ed2/RESULT.md",
+          "material_read": "Published Resultary theorem description and length-8 counts",
+          "method": "Read indexed published theorem description and compare domain and invariant.",
+          "title": "Five symbol-pair spectra of coordinate-ordered extended Hamming codes",
+          "trigger": "Nearest complete extended-Hamming code presentation census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The projective geometry PG(3,2) Hamming code is canonical; cyclic ordering changes symbol-pair performance and the complete seven-value distribution measures the availability and abundance of optimal interleavers. Counting all indexed configurations exactly via a meaningful finite recurrence gives a reusable natural design invariant not supplied by existence statements or length-seven tables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Across all 64,864,800 indexed binary [15,11,3] Hamming codes, pair-weight-four multiplicity B takes 0..6 with frequencies (17106784,26741280,15750240,4524160,683520,57216,1600); exactly B=0 codes have maximal pair distance five within this family.",
+  "limitations": [
+    "Only the local symbol-pair-weight-four statistic is enumerated, not full code weight enumerators.",
+    "This exhausts the finite recurrence exactly; originality is best-of-knowledge and unindexed tables may exist."
+  ],
+  "schema_version": 1
+}
