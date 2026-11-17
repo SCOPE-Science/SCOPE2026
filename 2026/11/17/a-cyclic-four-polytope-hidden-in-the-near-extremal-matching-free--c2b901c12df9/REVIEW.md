@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem is a nonequivariant integral homotopy equivalence at an explicitly stated threshold. For any center removed from a dual face, its remaining pendant leaf is isolated in the complement; this proves the conical link and permits elementary collapses. After eliminating centers, replacing mixed cycle edges by available pendant edges gives an exact matching criterion for every leaf subset. The four-facets are precisely pairs of disjoint cycle edges, matching Gale's evenness classification of facets of \(C(n,4)\). The dual is therefore a three-sphere. Combinatorial Alexander duality gives exactly one integral homology class in degree \(2n-6\), and full-skeleton connectivity plus Hurewicz and homological Whitehead upgrades this to the claimed homotopy sphere. The finite checker separately tests each critical dual-collapse condition for \(5\le n\le11\). The only nonstandard input is the explicit matching replacement and conical-link reduction, both proved in full in RESULT.md.
+
+## Originality — PASS, with uncertainty
+Ghosh–Selvaraja (arXiv:2603.02824, Sections 4–5 and Proposition 5.12) study the same matching-free complexes, including the adjacent \(n-1\) threshold, but do not state the \(n-2\) homotopy classification. Das–Ghosh–Selvaraja (arXiv:2604.17100) establish regularity of squarefree powers; their theorem does not determine the integral homotopy type or collapse. Das–Roy–Saha (arXiv:2409.06021, Section 5) give regularity/depth information but not this geometric duality. Gale's evenness criterion is an established tool, not a claimed novelty. The precise new link is the dominated-vertex collapse of the matching-free Alexander dual onto \(\partial C(n,4)\), followed by integral homotopy classification. Relevant published research-index queries on the graph, threshold and possible cyclic-polytope equivalence did not identify a covering claim. The possibility of an implicit or otherwise unindexed equivalent statement remains.
+
+## Value — PASS
+The \(n-2\) threshold is a natural next-to-extremal matching threshold in a recently studied class of whisker graphs. The exact identification of the Alexander dual with a cyclic-polytope boundary after collapses explains an infinite-family homotopy sphere rather than merely deriving algebraic regularity or one Betti number. It supplies a reusable geometric model and a sharp topology classification across unbounded graph order, with a transparent bridge between matching theory and convex polytope combinatorics. It is not a named-number exercise or a routine restatement of the previously established regularity formula.
+
+## Scope and remaining risks
+The claim covers \(n\ge5\), threshold exactly \(n-2\), and ordinary integral homotopy; it makes no statement for other thresholds or group actions. The only outstanding originality uncertainty is implicit or unindexed overlap. No independent mathematical assessment has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
