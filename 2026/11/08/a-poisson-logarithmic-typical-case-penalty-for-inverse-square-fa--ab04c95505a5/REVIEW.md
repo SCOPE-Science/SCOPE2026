@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The random-location approximation ratio reduces exactly to the reciprocal-gap identity (1); the finite optimum is the minimum consecutive spacing. Exponential spacings remove the common normalization, while a heavy-tailed reciprocal law yields the factor \(2n\log n\). The adjacent-maximum correction to the squared reciprocal sum is negligible at scale \(n^2\). Joint Poisson convergence of the rescaled minimum and inverse-square point sum then proves the stated distribution by Slutsky's theorem. The finite exact-rational checker passes \(3,223\) location profiles and \(125\) seeded scale tests. The checker is diagnostic only; it does not prove convergence.
+PASS
 
-## Originality
+For sorted uniform locations, omitting report i costs its nearest-neighbor distance δ_i and its lottery probability is δ_i^-2/Σδ_j^-2. With n-1 facilities, the optimum is the minimum adjacent gap g*. Thus exact conditional expected approximation ratio R_n=(Σδ_i^-1)/(g* Σδ_i^-2). Uniform spacings are normalized iid exponentials, whose common normalizer cancels. The adjacent-minima identity produces A_n=2ΣE_j^-1-Σmax(E_j,E_(j+1))^-1 and analogous squares. The first sum divided by n log n converges in probability to one by truncation while corrections have finite mean; the square sum is controlled by its extreme point process and corrections vanish on n² scale. Joint scaled minimum and square sum converge to the first and all inverse-squared arrivals of a unit-rate Poisson process. Slutsky yields R_n/log n => 1/(T_1 Σ_j T_j^-2), strictly positive nonconstant. Independent exact rational profiles (3<=n<=7) checked cost ratio and adjacent corrections; numerical samples cannot prove the limit.
 
-PASS, with residual literature risk. The defining mechanism and worst-case \(\Theta(\sqrt n)\) guarantee are established by Chan–Lin–Wang, arXiv:2608.22484, Section 4. The original full primary text was examined, including its incentive and approximation proofs, and no uniform-random-sample, logarithmic or Poisson limit was found. Fotakis–Tzamos, arXiv:1305.3333, Section 6, gives an alternative mechanism and a worst-case factor \(2\), not the asserted law for Inverse-Square. Published mathematical-record searches using mechanism names, inverse-square weighting, random uniform gaps and Poisson extreme sums found no claim entailing this exact limit; absence from indexing cannot prove absolute priority. Historical research claims of gap-product facility selection concern a different sampling rule and a fixed number of facilities.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The theorem exposes a concrete logarithmic typical-performance penalty for a natural recently proposed strategyproof rule, quantitatively distinguishing typical behavior from its substantially weaker square-root worst-case envelope. The random Poisson limit is sharper than a mere order bound and reveals how the smallest neighboring gap interacts with many reciprocal spacings; it offers a benchmark for comparing robust metric mechanisms and line-specific alternatives.
+PASS best-knowledge: Chan–Lin–Wang first give the Inverse-Square omission mechanism and tight worst-case order sqrt n; their inspected mechanism and main approximation results do not establish the conditional expected approximation ratio on iid uniform one-dimensional report profiles. Related one-omission and gap-product published findings concern different omission probabilities or worst-case bounds. The Poisson nearest-spacing extremes and harmonic denominator yield a distinct new distributional typical-case law. Any hidden appendix or unindexed average-case treatment remains a priority risk.
 
-## Remaining limits
+## value
 
-Uniform independent samples, one fewer facility than agents, and linear social cost only. The result is in distribution, not in expectation. General metrics are used only to contextualize the mechanism's existing worst-case theorem. Published work outside inspected materials may contain an equivalent result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The same mechanism exhibits a marked gap between worst-case square-root distortion and typical logarithmic divergence, with a genuinely random nondegenerate explicit Poisson limit. The exact conditional cost formula makes clear this is not a single realized lottery outcome, and the limit gives quantifiable risk for a natural random population model beyond worst-case analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
