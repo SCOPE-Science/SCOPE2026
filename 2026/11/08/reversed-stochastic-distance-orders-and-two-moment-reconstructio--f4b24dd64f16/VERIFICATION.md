@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify_bipartite_distances.py` was executed successfully under Python 3 with SymPy available. It sampled 120,000 pairs across eight \(K_{p,q}\) spaces (\((1,2),(1,7),(2,2),(2,3),(2,7),(3,3),(3,5),(5,5)\)). Its direct geometric distance routine constructs the complete weighted graph and runs Floyd–Warshall, rather than applying the analytical edge-pair classification to compute the sample. The empirical CDFs at seven thresholds and the means agreed with the exact predictions within stated tolerances.
+## correctness
 
-Exact symbolic integrations for five bipartitions verified normalization, first and second moments, and the two-moment reconstruction identity. All fixed-order comparisons for integers \(4\le n\le29\) and selected radii passed. The vertex-sampling reversal was checked through exact counts. Successful output:
+PASS
 
-```text
-COMPLETE_BIPARTITE_METRIC_DISTANCE_OK configurations=8 samples=120000
-SYMBOLIC_CDF_MOMENT_INVERSE_AND_REVERSED_STOCHASTIC_ORDER_OK
-```
+The graph edge-pair trichotomy has exact weights (1,n-2,(p-1)(q-1))/pq and intrinsic conditional distances |U-V|, U+V and 2-|U-V|. Their elementary triangular distributions give the claimed piecewise CDF and integrate to mu=5/3-2n/(3P), m2=17/6-(5n-2)/(3P). Delta=6m2+8-15mu=4/P recovers P, then n, hence unordered (p,q). For fixed n the CDF is C+(A+(n-2)B-(n-1)C)/P with strictly positive numerator for every 0<r<2; as p balances P increases. Uniform vertex sampling instead has CDF (n+2P)/n^2 on 1<=r<2, proving a strict reversal. The diameter tail linear/quadratic phase follows directly from the upper CDF. Star and single-edge boundary cases are included.
 
-Mathematical validity for all integer parameters follows from the proof, not finite samples or numerical thresholds. No independent audit or external certification has been performed. The historical-priority comparison remains necessarily qualified by discoverability of older literature.
+## originality
+
+PASS
+
+Important prior overlap: published November 1 Continuous two-point geodesic tomography of complete bipartite metric graphs already gives the identical FULL density, the mean, and parameter recovery using the near-zero density. Thus neither the distance law nor identification from a full law is novel, and the two-moment inverse is a simple further algebraic consequence of that already known density. The surviving, separately assessable assertion is strict first-order stochastic monotonicity under balancing of the continuous arclength law and its opposite direction under vertex-uniform sampling, including all thresholds and boundary cases. Those contrasting orders are not stated in the inspected earlier full theorem. Value rests on this substantive sampling-measure reversal, not on repackaging the known law.
+
+## value
+
+PASS
+
+The same fixed family of metric graphs reverses the direction of every strictly increasing distance functional when one changes between two canonical sampling measures. This exact universal first-order stochastic phenomenon, including the unique extremal star and balanced cases and the contrasting diameter-tail cycle threshold, is an interpretable natural geometric effect beyond merely reprinting an exact probability density. The two-moment algebra is not independently presented as a major new theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
