@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the finite neighborhood-complex classification
+# Independent mathematical audit
 
-The included script `verify_k5c4.py` requires Python 3 and no third-party packages. Run `python3 verify_k5c4.py` from the directory containing the file. The exact standard output is recorded in `verification_output.txt`.
+## correctness
 
-The computation exhaustively tests all \(2^{20}=1,048,576\) vertex subsets by a common-neighbor predicate and independently constructs subfaces of the twenty explicit open neighborhoods. It compares the two complete sets and obtains 950 distinct nonempty faces with face vector \((20,130,360,300,120,20)\). The deterministic matching has 446 pairs and one, 53, and four critical cells of dimensions zero, two, and three. An oriented Hasse diagram with 3,260 cover incidences is topologically sorted to establish acyclicity, rather than relying on critical counts alone.
+PASS
 
-The verifier calculates the full integral Morse boundary between the critical three-cells and critical two-cells using exact signed gradient recursion, then independently cancels all 446 matched pairs using unit pivots in the original integer chain complex. Both leave zero differentials. The absence of critical one-cells and Hurewicz \(\pi_2\cong H_2\) for the simply connected two-skeleton turn these zero attaching degrees into the stated wedge homotopy type. The alternating face sum equals \(50=1+53-4\) as an auxiliary consistency check.
+Independently reconstructed the twenty six-element open neighborhoods from the Cartesian adjacency, enumerated all 950 faces and f=(20,130,360,300,120,20). Per-vertex greedy matching left exactly one critical vertex, 53 critical 2-cells and four 3-cells after 446 pairs; full 3260 reversed-match cover incidence topological sort consumed all 950 nodes. Fresh signed recursive integral 3-to-2 Morse boundary is identically zero. Hurewicz plus absence of 1-cells makes all four 3-cell attaching maps null, giving the stated wedge; not a uniform m,n theorem.
 
-This is an exhaustive verification of a *fixed finite object*, not a numerical survey of an unbounded family and not a claim of independent mathematical audit.
+## originality
+
+PASS
+
+Earlier full Resultary 2026-10-11 theorem for K_m square C_n requires n>=5 because opposite-layer pairs have unique center; it explicitly excludes n=4. At n=4 unique-center fails and the earlier S1 summand cannot be substituted. Kozlov general neighborhood/Hom simple homotopy equivalence does not determine these integral ranks. No earlier matching exact n=4 computation identified.
+
+## value
+
+PASS
+
+The excluded n=4 boundary of an established natural clique-fiber family changes the topology to simply connected with mixed dimensions. A complete exact finite computation resolves a motivated natural boundary rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
