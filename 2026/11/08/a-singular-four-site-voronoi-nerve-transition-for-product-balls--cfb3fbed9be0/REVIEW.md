@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The common-Voronoi condition for the three horizontal sites forces the horizontal coordinate to be their Euclidean circumcenter. For \(p>1\), a strictly monotone scalar equation gives the unique common fourfold point. For \(p=1\) the triangle inequality removes the triple \(123\) exactly when \(h<R\); an explicit fourth-site triple witness demonstrates every other face of the nerve. The two omitted inclusion-exclusion terms yield the exact deficit. A strict gauge-ball neighborhood around a triangle vertex supplies the positive volume bound. The mean-value theorem proves both the all-\(p\) enclosure of the escaping point and its exponential endpoint asymptotic. Supplementary numerical verification covers 8,504 cases; it is not used as a substitute for proof.
+## correctness
 
-## Originality — PASS, with priority qualification
-The closest primary source is Shelley--Tartakovsky, *Union of Translates of a Convex Body* (arXiv:2610.25841; October 19, 2026). Its explicit dimension-three failure uses five sites and a smooth strictly convex bicone approximation; its original limiting bicone is directly related to the present body. The examined manuscript does not supply the four-site nerve phase classification for the product-\(p\) family, the uniformly bounded mean-value estimate on the escaping Voronoi point, or its exponential escape rate as \(p\downarrow1\). The already-known Euclidean-ball reduction is not claimed as new. Search comparisons with the finite-site generalized Voronoi literature and the accessible record did not establish a stronger theorem subsuming these specific results. A formulation in earlier nonsmooth convex-distance Voronoi work remains a possible priority risk; novelty is best-knowledge, not a proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a sharp combinatorial bifurcation at the strict-convexity endpoint and quantifies how Voronoi intersections can disappear even though the unit balls converge in Hausdorff distance: the sole fourfold point escapes exponentially far away. The exact missing-face identity and an explicit strictly positive union-volume error link this bifurcation to the geometric inclusion-exclusion problem motivating the source paper. Unlike an isolated numerical witness, the result covers all positive axial heights and triangle radii, and a continuous parameter family of norms, with a uniform analytic escape bound.
+The horizontal triple equality forces u=0. For p>1 the strictly increasing equation (t+h)^p−t^p=R^p produces one fourfold tie and MVT bounds Q_p−h<t_p<Q_p. At p=1 triangle inequality excludes base triple for h<R; explicit a=(h²−R²)/(R+2h) witnesses each other triple. Missing IE contributions cancel to vol((W1∩W2∩W3)\W4), and the open gauge ball proves positive deficit on the claimed open range.
 
-## Scope and residual risks
-The positive defect is established only on a sufficient parameter region, and only for the nonsmooth endpoint. There is no assertion of a globally minimal site count for arbitrary norms, no claim of failure for a strictly convex four-site example, and no independent historical-priority determination. The direct relationship to the bicone construction of arXiv:2610.25841 is acknowledged rather than represented as independent invention.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Four-site nonsmooth convex-distance nerve collapse, exponential fourfold-point escape and a positive missing-face volume defect are not implied by the inspected five-site smooth construction; this is qualified priority because the latter primary full text could not be independently accessed.
+
+## value
+
+PASS
+
+The number of sites and parameterwise strict-to-nonstrict nerve transition are natural obstructions to geometric inclusion-exclusion and a Hausdorff-continuity pathology. It is an exact structural family, not a one-off numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

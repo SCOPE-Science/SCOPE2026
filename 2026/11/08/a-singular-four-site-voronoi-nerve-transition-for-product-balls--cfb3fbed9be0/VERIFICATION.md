@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The result has an analytic proof in `RESULT.md`. The included Python 3 standard-library script `check.py` was run from the source file that was subsequently embedded. It checked 4,500 random bicone Voronoi triple witnesses and exclusions, 4,000 positive-exponent fourfold equidistance cases, and four specified asymptotic-rate values, reporting:
+## correctness
 
-`FOUR_SITE_BICONE_VERIFIER_OK 8504 random_1= 4500 random_p= 4000 lower_defect_bound= 0.0002226513389433433`
+PASS
 
-For the fixed example \(R=11/20\), \(h=1/2\), the four sample exponents \(p\in\{1.03,1.02,1.015,1.01\}\) produced positive negative-height roots converging toward the predicted asymptotic ratio. The numerical output is a check on the derived equations, not a certificate over all positive parameters. The proof of the asymptotic uses a mean-value theorem estimate with a uniform error less than \(h\), and the proof of positive union-volume error uses an open gauge ball and its exact volume \(2\pi/3\).
+The horizontal triple equality forces u=0. For p>1 the strictly increasing equation (t+h)^p−t^p=R^p produces one fourfold tie and MVT bounds Q_p−h<t_p<Q_p. At p=1 triangle inequality excludes base triple for h<R; explicit a=(h²−R²)/(R+2h) witnesses each other triple. Missing IE contributions cancel to vol((W1∩W2∩W3)\W4), and the open gauge ball proves positive deficit on the claimed open range.
 
-The public note and structured scientific review state the known connection to the five-site bicone construction. External independent assessment has not been performed.
+## originality
+
+PASS
+
+Four-site nonsmooth convex-distance nerve collapse, exponential fourfold-point escape and a positive missing-face volume defect are not implied by the inspected five-site smooth construction; this is qualified priority because the latter primary full text could not be independently accessed.
+
+## value
+
+PASS
+
+The number of sites and parameterwise strict-to-nonstrict nerve transition are natural obstructions to geometric inclusion-exclusion and a Hausdorff-continuity pathology. It is an exact structural family, not a one-off numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
