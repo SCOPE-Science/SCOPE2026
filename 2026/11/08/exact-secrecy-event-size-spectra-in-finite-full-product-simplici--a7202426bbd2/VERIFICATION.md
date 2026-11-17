@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The self-contained `CHECKER.py` script uses the Python 3 standard library only. It directly tests the original (SN) requirement: for each owner-star facet and each different agent, it searches for a same-local-state facet outside the truth event. Independently it evaluates the full multivariate inclusion-exclusion polynomial, including signs and exponents, and the surjective-map count at minimal complement size.
+## correctness
 
-Command: `python3 CHECKER.py`.
+PASS
 
-Observed output:
-```
-PASS: 108 parameter vectors, 54522 candidate-event inspections
-grid (2,2,2): [0, 0, 2, 4, 1]
-grid (3,3): total 27
-grid (3,2,2): min-witness count 8
-grid (4,3,5,2): min missing facets=5, extremal event count=1093500
-```
+Wang Definition 3.8 (SN) and Definition 3.10 imply St(v) subset U and one exterior false witness for each other-agent coordinate value; in a full product this is precisely surjectivity of each projection of H=F\U. Conversely set owner N_a^S(v)={U} and other neighborhoods empty. Inclusion-exclusion over missed labels gives exact polynomial; H needs at least t=max n_b entries and at equality is indexed bijectively by a largest coordinate, giving (n_a-1)^t times independent surjection counts for all remaining coordinates. n_a=1 implies zero, even if other dimensions 1. Independent direct subsets vs IE reproduced (3,3):27 and (2,2,2):7, plus four mixed grids; no inference from finite tests to universal proof.
 
-Exhaustive testing covers exactly the finite parameter vectors and cell bounds in the checker, not arbitrarily large products. The all-size assertions rely on the written proof and classical identities. No independent external validation or historical-priority audit has been performed.
+## originality
+
+PASS
+
+Wang introduces the full (SN) semantics, and the earlier Nov 2 general secrecy-capacity theorem identifies witness-set hitting conditions, a two-agent ungraded degree product and a three-agent #P-hardness boundary. The graded full Cartesian-product size enumerator for arbitrary agent count and its exact sharp extremizer multiplicity are not established there or in inspected Wang primary text. The witness equivalence and classical inclusion-exclusion are credited, not presented as novel. Best-of-knowledge originality for the complete size spectrum only.
+
+## value
+
+PASS
+
+A complete explicit graded distribution and minimal-exposure threshold on the canonical full-product epistemic model supplies a reproducible baseline for the semantic counting problem, complementing a known #P-hardness threshold for arbitrary complexes. The precise false-facet resource count and number of realizations are natural domain-specific invariants rather than an arbitrary small parameter slice. Mathematical value is bounded to full products, not a generalized complexity advance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
