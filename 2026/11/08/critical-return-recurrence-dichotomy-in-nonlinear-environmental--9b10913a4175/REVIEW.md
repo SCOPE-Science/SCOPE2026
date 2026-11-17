@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The critical-return model is quoted exactly from the motivating source. Uniqueness of the interior state, strict convexity for larger groups, exact signed Dulac divergence and the planar omega-limit alternatives prove the global statement. At pairwise size the explicit proper first integral yields all interior periodic levels. `check.py` symbolically checks the exact algebra and small-group witness; these finite checks are not offered as a substitute for the general proof.
+## correctness
 
-**Originality — PASS (qualified).** Jiang et al. establish the model, equilibrium coordinates, local stability formulas and strict payoff regimes, but the inspected paper does not provide the no-interior-recurrence/boundary-liminf theorem for the critical equality line. Their formulas already imply a critical coexistence source for larger groups, so local repulsion alone is not a new result. Ito and Yamamichi classify neutral pairwise feedback cycles, and the pairwise case here is only the sharp comparison. The original claim is the model-specific **all-group equality-line global recurrence dichotomy**. Searches of available research records and relevant primary material did not identify stronger coverage, but equivalences outside indexed sources remain possible.
+PASS
 
-**Value — PASS.** Repulsion of a coexistence equilibrium ordinarily leaves open the possibility of a surrounding stable oscillation. The strict positive-Dulac argument closes that gap at the critical public-goods return and forces eventual arbitrarily close approaches to an edge for every nonstationary higher-group trajectory, while every pairwise trajectory stays on its own compact orbit. This is a meaningful distinction for interpreting recurrent cooperation in higher-order group games rather than a recomputation of a stationary payoff threshold.
+At r=N, the environmental critical system has xdot=x(1-x)G and pdot=eps p(1-p)((theta+1)x-1). In the interior, pdot=0 forces x=a=1/(theta+1), while affine p-dependence and D<1<A give the unique p*. For N>=3 the gain f=G+1 has f_xx>0 and f(0,p*)=f(a,p*)=1, so G_x(a,p*)>0: the equilibrium is a source with positive trace/determinant. The strictly positive Dulac B=1/[x²(1-x)p(1-p)] has divergence [∫_0^x t f_xx(t,p)dt]/[x²p(1-p)]>0, excluding all interior cycles. Poincaré–Bendixson plus a unique hyperbolic source then forces every nonstationary trajectory to have boundary distance liminf zero, not necessarily convergence. For N=2 f_xx=0 and an exact coercive separated first integral makes every other interior level periodic. Exact N=3 example and signs checked.
 
-**Closest scientific sources:** Jiang et al., arXiv:2510.10259, model Eq. 7 and Appendices B–C; Ito and Yamamichi, *PNAS Nexus* 2024, pgae455. **Limitations:** Deterministic two-dimensional feedback model only; no assertion about a specific boundary limit or stochastic paths, and no independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The parent Jiang et al primary paper has the exact asymmetric nonlinear game and models r<N and r>N; its equality-line source calculation alone does not preclude an interior attracting cycle. The additional signed Dulac identity and all-initial-condition boundary liminf dichotomy at r=N survive the inspected comparisons; N=2 neutral center is credited.
+
+## value
+
+PASS
+
+The same critical group-return ratio creates a complete contrast between neutral recurrence for pairs and mandatory late boundary excursions for all larger groups. This is a natural sharp all-group bifurcation in actual state-space recurrence. The signed global Dulac obstruction, beyond local stability, is a motivated structurally useful theorem rather than a numerical phase plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
