@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The local truth-table implication f(a,b,c)=c iff a=b=1-c forces alternating structure for every output with equal endpoint bits. Complementary endpoint inputs yield an exact signed-shift bijection of the other 2^(n-1) words. Each shift-coordinate orbit has a consistency parity of (n-2)t/gcd(n-1,t), yielding the exact all-t fixed count. Two separately implemented full-map checks independently verified every one-step image for n=3..14, the signed shift through n=17, and all tested fixed-iterate counts. Finite checks corroborate but do not establish the symbolic result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inokuchi and Sato (2000), §2 and Theorem 3.40, use fixed-boundary simultaneous updates; their Rule 23 cycles have lengths at most two.",
+        "Donoso-Leiva et al. Theorem 12 proves existence of an update-order covering for even circumference and focuses on fixed-point convergence."
+      ],
+      "reasoning": "The broad convergence classification does not dominate an exact one-pass image for a specified order, and fixed-boundary synchronous dynamics does not dominate the cyclic sequential dynamics. The checked primary statements do not imply this theorem by corollary or parameter substitution.",
+      "searches": [
+        "On the Convergence of Elementary Cellular Automata under Sequential Update Modes rule 23 fixed points update orders",
+        "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules CA-23",
+        "sequential Rule 23 as anti-majority negative threshold system period n minus one orbit census"
+      ]
+    },
+    "checked_sources": [
+      "Wolfram, Rev. Mod. Phys. 55 (1983), DOI 10.1103/RevModPhys.55.601",
+      "Inokuchi and Sato, Bull. Inform. Cybern. 32 (2000), DOI 10.5109/13492",
+      "Donoso-Leiva et al., arXiv:2509.07797 (original 2025, revised 2026)",
+      "Stricker, Complex Systems 32 (2023), DOI 10.25088/ComplexSystems.32.3.229 (abstract only)",
+      "Indexed mathematical results on sequential Rule 60, cyclic Rule 3 and majority Rule 232",
+      "Previously catalogued mathematical results on sequential Rule 45 and Rule 184"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 12 of arXiv:2509.07797 gives Rule-23 even-ring E-covering, while its Table 5 gives no fixed-scan orbit counts.",
+        "Inokuchi–Sato Theorem 3.40 has bounded temporal cycles for fixed-boundary synchronous Rule 23, whereas the present order has primitive periods growing as n-1 or 2(n-1)."
+      ],
+      "reasoning": "An explicit bit-by-bit derivation proves the new signed shift; neither an existence theorem for a tailored schedule nor a distinct synchronous boundary model logically implies its image criterion, zero-or-one preperiod, or all-t fixed counts.",
+      "searches": [
+        "exact fixed point counts gcd(n-1,t) binary anti-majority rule 23 Gauss Seidel sequential scan signed shift",
+        "sequential Rule 23 as anti-majority negative threshold system period n minus one orbit census",
+        "sequential Rule 23 anti-majority cellular automaton exact orbit length cycle 2n-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rule 23 is complement-of-three-site-majority, but applying complement after each individual site update is not the simultaneous complement of a whole sequential Rule-232 sweep. Theorem 12 of arXiv:2509.07797 treats the identical Rule 23 yet a different conclusion."
+      ],
+      "reasoning": "Bit complementation and spatial reflection relate some rules/schedules, but neither maps the fixed ordered Rule-23 image to the synchronous majority entropy results nor supplies its signed affine recurrent system. The same-rule primary result asserts fixed-point reachability using a suitable initial-state-dependent order rather than our fixed scan; its conclusion is logically independent.",
+      "searches": [
+        "Rule 23 cyclic sequential left to right sweep image consists of configurations with unequal first and last bit plus two odd alternating words; every image state recurrent",
+        "exact fixed point counts gcd(n-1,t) binary anti-majority rule 23 Gauss Seidel sequential scan signed shift",
+        "cyclic sequential Rule 23 periodic configurations 2^(n-1) plus two; one-step eventual periodicity; conjugacy with signed rotation",
+        "\"rule 23\" \"sequential\" \"period\" cyclic automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical searches returned related but distinct findings on cyclic Rule 3 periodic cores and sequential Rule 60, without this Rule 23 formula.",
+        "Previously catalogued Rule 45 and Rule 184 image results use different Boolean local rules."
+      ],
+      "reasoning": "No matching exact count, model-specific table, or checked stronger classification was recovered. Absence from search alone is not proof of novelty, so this conclusion is conditional on the concrete primary comparisons and the documented residual archival risk.",
+      "searches": [
+        "Rule 23 cyclic sequential left to right sweep image consists of configurations with unequal first and last bit plus two odd alternating words; every image state recurrent",
+        "cyclic sequential Rule 23 periodic configurations 2^(n-1) plus two; one-step eventual periodicity; conjugacy with signed rotation",
+        "sequential Rule 23 as anti-majority negative threshold system period n minus one orbit census",
+        "\"rule 23\" \"sequential\" \"image\" \"binary\" automata",
+        "sequential rule 23 cellular automaton periodic cyclic update 2^(n-1) attractor period 2(n-1)"
+      ]
+    },
+    "rationale": "Concrete same-rule and wider-mode primary papers were inspected. Their statements do not cover a fixed cyclic left-to-right Rule-23 scan or the new complete image and primitive-period formula. Prior indexed results on different rules are not stronger through implication. Historical priority remains qualified.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier work may derive the same left-to-right Rule-23 image and signed-shift spectrum.",
+      "Stricker 2023 was checked only at abstract level; its announced model is synchronous, and the exact question differs.",
+      "The primary arXiv review is inspected in relevant sections rather than every line of 42 pages; no decisive unresolved same-map comparison remains."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines simultaneous elementary automata, not the in-place cyclic scan or a formula for its fixed iterates",
+        "evidence": [
+          "Original paper Rev. Mod. Phys. 55 (1983), 601-644, https://content.wolfram.com/sw-publications/2020/08/statistical-mechanics-cellular-automata.pdf; the local rule uses simultaneous updates, explicitly Section 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.55.601",
+        "material_read": "Section 2 local rule and synchronous conventions; Section 4 reachable configurations and temporal evolution discussion in author PDF, with text search for Rule 23",
+        "method": "Opened author-hosted full PDF and read the specified sections (accessible textual sections)",
+        "title": "Statistical Mechanics of Cellular Automata",
+        "trigger": "Original elementary binary cellular automaton definitions and potential rule equivalences"
+      },
+      {
+        "assessment": "Its global map is synchronous with fixed spatial boundaries, and its Rule 23 recurrent periods are restricted to one/two under those conditions; it cannot imply the arbitrarily long cycles of the ordered periodic map",
+        "evidence": [
+          "https://catalog.lib.kyushu-u.ac.jp/opac_download_md/13492/p023.pdf, definitions 2.3 (simultaneous f on old sites), Section 3.16 pp.38-40, Theorem 3.40"
+        ],
+        "identifier_or_url": "https://doi.org/10.5109/13492",
+        "material_read": "Definitions 2.1-2.3 and Section 3.16, Lemma 3.38 and Theorem 3.40, with the original open repository PDF",
+        "method": "Read substantive full-text sections in Kyushu University repository",
+        "title": "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules",
+        "trigger": "Same exact Rule 23 and possible stronger all-period enumeration"
+      },
+      {
+        "assessment": "Proves a state-dependent covering of Rule 23 by suitable update orders for even rings, not a fixed left-to-right one-sweep image, signed-shift conjugacy, or temporal fixed-point counts",
+        "evidence": [
+          "https://arxiv.org/pdf/2509.07797, Table 5 pp.18-19, Theorem 12 pp.21-22, closing future-work discussion p.37"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.07797",
+        "material_read": "42-page PDF introduction, definition of sequential modes, Table 5, Section 3 (pp.18-22) and Theorem 12, discussion on p.37",
+        "method": "Read relevant primary text and results from the arXiv PDF",
+        "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+        "trigger": "Most plausible exact rule-and-update-mode primary text, including its Rule 23 result"
+      },
+      {
+        "assessment": "Classifies synchronous elementary cellular automata by orbit-length properties, not labelled in-place sequential Rule 23; residual risk limited by different map",
+        "evidence": [
+          "https://www.complex-systems.com/abstracts/v32_i03_a01/"
+        ],
+        "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.32.3.229",
+        "material_read": "Journal abstract and classification scope",
+        "method": "Read primary abstract (not full paper)",
+        "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+        "trigger": "Published limit-cycle tables potentially dominating special cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f10d0c6-3085-4e45-9e06-4d28ff49c08e",
+  "value": {
+    "rationale": "The natural finite dynamical system has a sharp nonlinear-to-affine collapse: a full half-cube of recurrent states is conjugate to an invertible signed shift after exactly one sweep. The parity defect adds an isolated odd-length two-cycle, and the exact all-t orbit statistics and maximal period expose a qualitative distinction from earlier convergence-only work. This is a structural all-length theorem, not a numerical table or a routine restatement.",
+    "status": "PASS"
+  }
+}
