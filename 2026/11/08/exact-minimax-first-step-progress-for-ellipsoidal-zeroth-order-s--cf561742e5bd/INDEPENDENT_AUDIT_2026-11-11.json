@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:14:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact POEM-ES v2 Algorithm 1 uses r-scaled symmetric finite differences and Sigma^(-1/2) transformed normalized sphere directions, with first step eta0=1/||g0|| for r_epsilon=1. For f(x)=a·x on a radius-two disk, g0=2(a·Sigma^{1/2}v)Sigma^{-1/2}v and projection is inactive, hence the expected decrease is the signed angular integral in the package. The arcsinh and arcsin primitives reproduce the exact finite-delta formula including coordinate axes. Its minimizers are trapped at q between constants/sqrt(log(1/delta)) by positive-term bounds and a matching trial direction; uniform rescaling q=t/sqrt(L) gives limiting cost t/2+1/t and unique t=sqrt2, yielding m_delta~(2sqrt2/pi)sqrt(delta L). Independently evaluated the exact formula against direct 2pi-angle numerical quadrature at five pairs and checked decreasing-delta minimizers; these tests do not replace the uniform asymptotic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2609.38561v2",
+          "Source v2 establishes a general O~((r^2 kappa+d*)/epsilon^2) complexity bound; no sharp one-step linear-objective slope optimization in Algorithm 1/analysis."
+        ],
+        "reasoning": "General stochastic oracle complexity does not entail the exact finite-delta signed angular integral, normalized first-step minimax, or moving least-favorable slope. This neither contradicts nor improves that convergence theorem.",
+        "searches": [
+          "ellipsoidal sampling first step linear objective worst direction angular gaussian log condition number",
+          "https://arxiv.org/html/2609.38561v2",
+          "isotropic parameter-free zeroth-order POEM 2502.05600"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.38561v2",
+        "https://arxiv.org/abs/2502.05600",
+        "https://arxiv.org/abs/2605.31536",
+        "https://doi.org/10.1609/aaai.v33i01.33014205"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2609.38561v2",
+          "Algorithm 1 Eq.(5)-(7) supplies g0 and eta0, whereas Lemmas 6–7 bound ||g|| and E||g||² with condition number."
+        ],
+        "reasoning": "Norm/variance bounds cannot be interchanged with expected a·g/||g|| because of the nonlinear normalization and sign coupling. The closed arcsinh/arcsin expression and t/2+1/t minimization require further analysis.",
+        "searches": [
+          "ellipsoidal sampling first step linear objective worst direction angular gaussian log condition number",
+          "arxiv:2609.38561v2 Algorithm 1 Lemmas 3,6,7 convergence Theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2609.38561v2",
+          "For linear objective the gradient factor cancels on normalization, leaving expectation sign(a·Sigma^.5 v) times the projected inverse-metric unit vector."
+        ],
+        "reasoning": "This is an angular signed-moment minimax reformulation, not simply the usual covariance second moment or gradient-estimator unbiasedness. The exact combined covariance and inverse covariance is algorithm-specific.",
+        "searches": [
+          "ellipsoidal sampling first step linear objective worst direction angular gaussian log condition number",
+          "signed angular normalized anisotropic two point estimator worst direction first update"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2609.38561v2",
+          "No matching first-step table in inspected source or closest Resultary search hits (gradient algorithms with different updates)."
+        ],
+        "reasoning": "The absence of an exact table does not prove priority; unlike a sampled coefficient, the proof determines all delta and an exact asymptotic optimizer.",
+        "searches": [
+          "ellipsoidal sampling first step linear objective worst direction angular gaussian log condition number",
+          "two dimensional angular central Gaussian signed first step exact minimax"
+        ]
+      },
+      "rationale": "Full primary arXiv HTML v2 Algorithm 1 and theoretical Sections 4/5 were independently inspected: the original establishes general variance and convergence bounds involving kappa, not the exact signed normalized first update on linear objectives nor its minimizing slope and sharp asymptotic coefficient. An older sign-Gaussian/minimax result could be relevant, and this residual risk is explicit.",
+      "residual_risks": [
+        "An older Gaussian signed-angle formula with a minimax corollary may subsume the first-step specialization; 2019 sign-full random projections primary article not fully inspected.",
+        "The theorem is only first-step, deterministic, two-dimensional and uses the v2 algorithm, not later-iterate guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_METHOD_NOT_SHARP_FIRST_STEP_MINIMAX",
+          "evidence": [
+            "Algorithm Eq.(5)-(7) exactly matches rank-scaled estimator and step normalization; Section 4 gives second-moment/condition-number bounds, not inf over slopes at t=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.38561v2",
+          "material_read": "Full accessible HTML: Sections 1–5, Algorithm 1 lines 170–230, Lemmas 3 and 6–11, general main theorem and surrounding discussion; v2 dated October 8, 2026",
+          "method": "Direct primary arXiv HTML open and section/algorithm/theorem comparisons",
+          "title": "Parameter-Free Zeroth-Order Optimization with Ellipsoidal Sampling, arXiv v2",
+          "trigger": "Exact POEM-ES estimator and potential dominating convergence theorem"
+        },
+        {
+          "assessment": "BACKGROUND_ISOTROPIC",
+          "evidence": [
+            "Original POEM uses isotropic directions rather than Sigma anisotropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.05600",
+          "material_read": "Public abstract/metadata and algorithm description cited by exact method paper; complete original paper not reread in this execution",
+          "method": "ArXiv primary public description plus POEM-ES reference comparison",
+          "title": "A Parameter-Free and Near-Optimal Zeroth-Order Algorithm for Stochastic Convex Optimization",
+          "trigger": "Isotropic ancestor of POEM-ES"
+        },
+        {
+          "assessment": "RELATED_MOMENTS_NOT_DECISIVE",
+          "evidence": [
+            "Ordinary angle moments do not on their face state signed normalized POEM-ES directional minimax."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.31536",
+          "material_read": "Available primary abstract and title; complete full paper not reread in this execution",
+          "method": "ArXiv primary abstract/title and comparison of defined observable",
+          "title": "Closed-form linear moments of the two-dimensional angular central Gaussian distribution",
+          "trigger": "Possible equivalent planar angular expectation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalized single-step progress under anisotropic zeroth-order sampling is a natural algorithmic invariant: this exact minimax quantifies a genuine loss and identifies a counterintuitive moving worst-slope direction with sharp logarithmic correction. The analysis does not claim later-iteration rate or paper-sized algorithmic improvement, but the precise worst-angle diagnostic can guide understanding of preconditioner conditioning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to normalized first step of exact v2 POEM-ES, two dimensions, linear 1-Lipschitz objectives, fixed covariance, no noise and no active projection.",
+    "No multistep or convergence-optimality claim and no claim that anisotropic sensitivity itself is new."
+  ],
+  "schema_version": 1
+}

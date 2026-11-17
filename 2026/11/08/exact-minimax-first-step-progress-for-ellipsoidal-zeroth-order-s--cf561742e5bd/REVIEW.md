@@ -1,19 +1,21 @@
-# Review of the first-step ellipsoidal minimax theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(0<\delta<1\), the first normalization of Algorithm 1 in arXiv:2609.38561v2 reduces exactly to a unit step \(x_1=-g_0/\|g_0\|\). The prescribed linear objective, disk and fixed full-rank preconditioner satisfy the source's convexity, Lipschitz and active-subspace assumptions; projection is inactive. Pairing antipodal directions yields an explicit one-dimensional integral. Two verified antiderivatives give the stated arcsinh/arcsin closed form. A compact minimizer exists. Positive-term estimates trap all minimizing orientations at the \(1/\sqrt{\log(1/\delta)}\) scale, where a uniform expansion reduces the asymptotic minimum to the unique minimizer of \(t/2+1/t\). This reconstructs the exact constants and all quantifiers; it does not infer an asymptotic from finitely many trials. The separate standalone numerical calculation in `verify_progress.py` returned `CHECKS_OK 460` and was compared with the formula.
+PASS
 
-## Originality — PASS with residual historical risk
+The exact POEM-ES v2 Algorithm 1 uses r-scaled symmetric finite differences and Sigma^(-1/2) transformed normalized sphere directions, with first step eta0=1/||g0|| for r_epsilon=1. For f(x)=a·x on a radius-two disk, g0=2(a·Sigma^{1/2}v)Sigma^{-1/2}v and projection is inactive, hence the expected decrease is the signed angular integral in the package. The arcsinh and arcsin primitives reproduce the exact finite-delta formula including coordinate axes. Its minimizers are trapped at q between constants/sqrt(log(1/delta)) by positive-term bounds and a matching trial direction; uniform rescaling q=t/sqrt(L) gives limiting cost t/2+1/t and unique t=sqrt2, yielding m_delta~(2sqrt2/pi)sqrt(delta L). Independently evaluated the exact formula against direct 2pi-angle numerical quadrature at five pairs and checked decreasing-delta minimizers; these tests do not replace the uniform asymptotic argument.
 
-The primary Sholokhov--Rogozin paper (arXiv:2609.38561v2) defines the method, proves rank/conditioning-dependent bounds and considers experiments, but its main analysis and appendices do not state the exact worst-first-step expected-progress functional, the least-favorable orientation or the \(\sqrt{\delta\log(1/\delta)}\) minimax law. The original Ren--Luo POEM paper (arXiv:2502.05600) treats isotropic sampling. Vareilles (arXiv:2605.31536) computes ordinary moments of a related angular Gaussian distribution, not signed POEM-ES progress and its optimization over slope. Earlier Gaussian sign-correlation identities and broad derivative-free convergence bounds are not claimed as original. Mathematical implications and the explicit domain of each comparison are recorded in `AUDIT.json`. An unlocated prior sharp signed-angular minimax identity is a residual priority risk; absence from searches is not proof of absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The algorithm's parameter-free first move always has unit Euclidean norm on this natural linear benchmark. Its *expected* objective progress nevertheless has a nontrivial worst-direction sensitivity to geometric preconditioning; the direction causing maximal degradation is neither an eigenvector nor fixed as anisotropy grows. The exact constant and moving worst orientation answer an intrinsic algorithmic robustness question that is not supplied by the existing general convergence bound, and can calibrate anisotropic startup behavior against the isotropic benchmark \(2/\pi\). This is an exact natural minimax invariant, not merely a numerical observation. It is not evidence of poor end-to-end convergence and does not challenge previously proved conditioning-dependent bounds.
+Full primary arXiv HTML v2 Algorithm 1 and theoretical Sections 4/5 were independently inspected: the original establishes general variance and convergence bounds involving kappa, not the exact signed normalized first update on linear objectives nor its minimizing slope and sharp asymptotic coefficient. An older sign-Gaussian/minimax result could be relevant, and this residual risk is explicit.
 
-## Closest literature and limits
+## value
 
-The closest article is *Parameter-Free Zeroth-Order Optimization with Ellipsoidal Sampling*, arXiv:2609.38561v2, Algorithm 1 and the main convergence analysis. Historical priority is qualified by the angular Gaussian and signed-projection literatures. The theorem concerns just the first noiseless update in two dimensions; alternative stepsizes, noisy sketches, rank-deficient covariance and subsequent averaging are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normalized single-step progress under anisotropic zeroth-order sampling is a natural algorithmic invariant: this exact minimax quantifies a genuine loss and identifies a counterintuitive moving worst-slope direction with sharp logarithmic correction. The analysis does not claim later-iteration rate or paper-sized algorithmic improvement, but the precise worst-angle diagnostic can guide understanding of preconditioner conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
