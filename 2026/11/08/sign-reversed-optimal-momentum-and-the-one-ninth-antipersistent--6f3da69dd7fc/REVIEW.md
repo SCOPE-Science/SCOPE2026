@@ -1,19 +1,21 @@
-# Scientific review: sign-reversed optimal momentum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full augmented-state covariance equation is explicitly given and solved in RESULT.md. Direct Schur–Jury stability, rational factorizations, and differentiation establish the global sign result. The positive decomposition, compactness of minimizer rescalings, and uniform asymptotic expansion establish the sharp \(1/9\) limit and square-root approach. The standalone symbolic verifier solves the actual Lyapunov equation, checks the two factorizations and leading singular expansion, and evaluates exact rational examples. Critical boundaries \(|q|=1\) and \(\beta\in\{-1/2,1\}\) are excluded as unstable/nonstationary, not included by continuity.
+PASS
 
-## Originality — PASS, with publication-precedence risk
+The stable heavy-ball interval follows Jury criteria for z²−βz+β: −1/2<β<1; q∈(−1,1). For augmented state (x_k,x_(k−1),xi_(k−1)), solved stationary 3×3 Lyapunov covariance Σ=MΣMᵀ+σ²BBᵀ exactly, reproducing the rational variance ratio. Factored R−1 gives strict wrong-sign exclusion, while derivative at β=0, 2q(1−q), gives an improving opposite-sign candidate. Pole divergence guarantees interior minimizers. For q<0 the exact decomposition R=(1+2β)^(−2)+strict positive term proves R>1/9. Setting q=−1+t², β=1−ct expands R=1/9+t(4c/27+4/(9c))+O(t²); compactness from two positive terms forces all optimizing c→√3, coefficient 8√3/27. Independent symbolic Lyapunov solve and both factorizations/expansion verified using SymPy, after inspecting verify.py. The claim excludes q=±1 and unstable β boundaries.
 
-Kühn and Rosenow (arXiv:2306.05300, Theorem 4.3, Appendix C and J) obtain stationary heavy-ball relations for a different, finite-epoch anticorrelation law and restrict momentum to the nonnegative range; those results do not imply the sign reversal across the full negative-momentum stable interval or the sharp AR(1) optimal boundary layer. Dang et al. (arXiv:2401.06738) and Pan et al. (arXiv:2312.14567) study accelerated stochastic heavy ball in other noise regimes. Xie et al. (arXiv:2103.17182) use a distinct two-buffer positive-negative optimizer. Searches of published mathematical results and accessible earlier claim statements exposed no equivalent. An unindexed classical ARMA/control-theory variance-minimization formula remains a specific precedence risk, and independent comparison is not complete.
+## originality
 
-## Value — PASS
+PASS
 
-The question is motivated by measured temporal anticorrelation in epoch-based stochastic optimization, which can change stationary risk. The result gives a full global sign rule, not a local perturbation; it proves the unexpectedly finite universal ninefold improvement ceiling in the extreme anticorrelation regime and a sharp square-root tuning law. It directly distinguishes positive from negative momentum on a canonical quadratic benchmark and quantifies the penalty for selecting the wrong sign. This is a structural optimization conclusion, not an isolated numeric example.
+The inspected primary work on epoch-correlated stochastic gradient noise explicitly limits heavy-ball momentum to β≥0 and uses a finite-epoch, non-AR(1) covariance model. It therefore does not imply the global negative-β sign theorem or the sharp 1/9 AR(1) optimization layer. Additional stochastic-heavy-ball papers use independent noise or different algorithms. Classical ARMA/H2-control colored-noise filters could implicitly contain the same scalar optimization; priority qualified accordingly.
 
-## Scientific limitations
+## value
 
-AR(1) is a simplified stationary colored-noise benchmark rather than the exact without-replacement epoch covariance. The exact matched-step scalar assumptions are necessary in the stated theorem. No finite-horizon or nonquadratic guarantees, practical tuning guarantee, or globally unique fixed-correlation minimizer are asserted. General linear-filter theory may contain an equivalent result that was not located. The symbolic checks support, but do not replace, the analytical minimizer argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Temporally correlated gradients affect long-run optimization risk, and allowing negative momentum is a motivated often-excluded design choice. The complete global wrong-sign exclusion and ninefold extreme-antipersistence variance floor with optimal square-root approach give informative sharp benchmarking that local derivatives or variance computation alone would not provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

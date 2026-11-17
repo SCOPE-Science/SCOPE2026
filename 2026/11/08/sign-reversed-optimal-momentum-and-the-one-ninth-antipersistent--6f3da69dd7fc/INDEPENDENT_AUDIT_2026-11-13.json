@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:04:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and explicit Lyapunov matrix",
+        "Independent SymPy exact covariance and singular expansion checks",
+        "https://arxiv.org/abs/2306.05300",
+        "https://arxiv.org/abs/2401.06738",
+        "Resultary heavy-ball AR1/negative momentum semantic searches"
+      ],
+      "rationale": "The stable heavy-ball interval follows Jury criteria for z²−βz+β: −1/2<β<1; q∈(−1,1). For augmented state (x_k,x_(k−1),xi_(k−1)), solved stationary 3×3 Lyapunov covariance Σ=MΣMᵀ+σ²BBᵀ exactly, reproducing the rational variance ratio. Factored R−1 gives strict wrong-sign exclusion, while derivative at β=0, 2q(1−q), gives an improving opposite-sign candidate. Pole divergence guarantees interior minimizers. For q<0 the exact decomposition R=(1+2β)^(−2)+strict positive term proves R>1/9. Setting q=−1+t², β=1−ct expands R=1/9+t(4c/27+4/(9c))+O(t²); compactness from two positive terms forces all optimizing c→√3, coefficient 8√3/27. Independent symbolic Lyapunov solve and both factorizations/expansion verified using SymPy, after inspecting verify.py. The claim excludes q=±1 and unstable β boundaries.",
+      "residual_risks": [
+        "AR(1) is not the same as actual finite-epoch without-replacement gradient noise.",
+        "An unindexed earlier H2/ARMA optimal linear-filter analysis might derive the same sharp stationary bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kühn–Rosenow 2025 primary text studies epoch-correlated noise with β nonnegative (Theorem 4.3 / Appendix C), not stationary AR(1) under negative momentum.",
+          "Dang/Babanezhad/Vaswani and Pan/Liu/Wang/Zhang treat adaptive or independent/anisotropic stochastic gradient noise; Xie et al. use a separate positive-negative momentum construction."
+        ],
+        "reasoning": "No directly applicable earlier stronger theorem for this stationary last-iterate and matched-curvature AR(1) model was established.",
+        "searches": [
+          "https://arxiv.org/abs/2306.05300",
+          "https://arxiv.org/abs/2401.06738",
+          "https://arxiv.org/abs/2312.14567",
+          "https://arxiv.org/abs/2103.17182"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and explicit Lyapunov matrix",
+        "Independent SymPy exact covariance and singular expansion checks",
+        "https://arxiv.org/abs/2306.05300",
+        "https://arxiv.org/abs/2401.06738",
+        "Resultary heavy-ball AR1/negative momentum semantic searches",
+        "heavy ball momentum AR1 anticorrelated gradient noise optimal negative momentum stationary variance one ninth",
+        "AR(1) noise momentum sign-reversed 1/9 variance bound strong anticorrelation",
+        "Kühn Rosenow Correlated Noise in Epoch-Based Stochastic Gradient Descent theorem 4.3 momentum range",
+        "arxiv:2306.05300",
+        "arxiv:2401.06738",
+        "arxiv:2103.17182"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonnegative-momentum model excludes the optimizing β<0 when q>0.",
+          "Stationary AR(1) covariance differs from without-replacement epoch sampling and does not follow by renaming correlation."
+        ],
+        "reasoning": "Neither matching variance machinery nor an optimization restricted to β≥0 subsumes every-sign global optimality or the singular negative-autocorrelation boundary.",
+        "searches": [
+          "Kühn–Rosenow theorem 4.3 Appendix C finite-epoch positive momentum",
+          "general Lyapunov solver versus global constrained minimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar augmented-state Lyapunov solution is equivalent to a stationary linear-filter energy computation.",
+          "Negative β lies inside Schur stable range only for β>−1/2; earlier published epoch work restricts β≥0."
+        ],
+        "reasoning": "Equivalence of covariance machinery does not automatically entail the exact global sign optimization and singular one-ninth limit, but could mean older filter theory contains it implicitly.",
+        "searches": [
+          "scalar heavy-ball with AR(1) noise as a linear ARMA transfer function",
+          "discrete Lyapunov H2 colored-noise norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No corresponding fixed-step scalar colored-noise optimum or 1/9 exact limiting coefficient found in the ranked published findings.",
+          "Symbolic computation verified 1/9 and coefficient 8√3/27 for inspected exact model."
+        ],
+        "reasoning": "An unknown older control-theoretic table remains possible; absence of search hits is not a proof of newness.",
+        "searches": [
+          "Resultary search heavy ball AR(1) one ninth risk",
+          "stationary ARMA(2,1) optimal negative momentum literature"
+        ]
+      },
+      "rationale": "The inspected primary work on epoch-correlated stochastic gradient noise explicitly limits heavy-ball momentum to β≥0 and uses a finite-epoch, non-AR(1) covariance model. It therefore does not imply the global negative-β sign theorem or the sharp 1/9 AR(1) optimization layer. Additional stochastic-heavy-ball papers use independent noise or different algorithms. Classical ARMA/H2-control colored-noise filters could implicitly contain the same scalar optimization; priority qualified accordingly.",
+      "residual_risks": [
+        "AR(1) is not the same as actual finite-epoch without-replacement gradient noise.",
+        "An unindexed earlier H2/ARMA optimal linear-filter analysis might derive the same sharp stationary bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related but not AR(1) signed-momentum optimum",
+          "evidence": "Epoch-based anticorrelation and nonnegative β assumptions; no claimed q→−1 AR(1) 1/9 optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.05300",
+          "material_read": "Accessible full journal article text, Theorem 4.3 and Appendix C/J discussions, including explicit β≥0 regime",
+          "method": "Primary full HTML/text read via accessible journal copy",
+          "title": "Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances",
+          "trigger": "Closest primary scalar heavy-ball gradient-noise variance analysis"
+        },
+        {
+          "assessment": "Different noise adaptation and optimization objective",
+          "evidence": "No evidence from inspected material of exact matched-step stationary AR(1) negative-momentum optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.06738",
+          "material_read": "Abstract/problem statement and cited main objective; full paper not deeply audited",
+          "method": "Bibliographic/abstract comparison",
+          "title": "(Accelerated) Noise-adaptive Stochastic Heavy-Ball Momentum",
+          "trigger": "Potential broader heavy-ball rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and explicit Lyapunov matrix",
+        "Independent SymPy exact covariance and singular expansion checks",
+        "https://arxiv.org/abs/2306.05300",
+        "https://arxiv.org/abs/2401.06738",
+        "Resultary heavy-ball AR1/negative momentum semantic searches"
+      ],
+      "rationale": "Temporally correlated gradients affect long-run optimization risk, and allowing negative momentum is a motivated often-excluded design choice. The complete global wrong-sign exclusion and ninefold extreme-antipersistence variance floor with optimal square-root approach give informative sharp benchmarking that local derivatives or variance computation alone would not provide.",
+      "residual_risks": [
+        "AR(1) is not the same as actual finite-epoch without-replacement gradient noise.",
+        "An unindexed earlier H2/ARMA optimal linear-filter analysis might derive the same sharp stationary bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For curvature-matched scalar quadratic heavy ball with AR(1) additive gradient noise, every stationary-risk optimizer β has sign opposite to q, and as q↓−1 the optimal variance ratio tends to 1/9 with sharp sqrt(1+q) tuning and risk corrections.",
+  "limitations": [
+    "AR(1) is not the same as actual finite-epoch without-replacement gradient noise.",
+    "An unindexed earlier H2/ARMA optimal linear-filter analysis might derive the same sharp stationary bound."
+  ],
+  "schema_version": 1
+}
