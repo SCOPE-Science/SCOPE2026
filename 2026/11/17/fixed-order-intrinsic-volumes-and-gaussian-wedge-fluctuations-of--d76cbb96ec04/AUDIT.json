@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Correct Steiner normalization follows from Joós--Lángi Corollary 1. For uniform Boolean columns, normalized Gram matrix has mean \\(M=(I+\\mathbf1\\mathbf1^{\\mathsf T})/4\\); its inverse and determinant are explicit. \\(U=\\xi^{\\mathsf T}M^{-1}\\xi=4R(k+1-R)/(k+1)\\), with \\(R\\sim\\operatorname{Bin}(k,1/2)\\), has exact \\(\\mathbb EU=k\\), \\(\\operatorname{Var}(U)=2k/(k+1)\\), \\(\\mathbb EU^2=k(k^2+k+2)/(k+1)\\). First-order delta method gives variance \\(k/(2\\cdot4^k)\\); second-order determinant Taylor and bounded concentration give relative coefficient \\(-k^3/[4(k+1)d]\\) and \\(O_k(d^{-2})\\) remainder. Verified all fifteen finite direct/compressed intrinsic sums and ten finite-order binomial moment identities from actual package checker path. Fixed k and singular-matrix boundary explicitly handled. The ratio statement follows algebraically from \\(k=1\\) case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Joós--Lángi arXiv:2206.03204 Corollary 1 explicitly states every zonotope intrinsic volume as a sum of generator wedge norms; paper Section 4 studies bounds for arbitrary zonotopes with fixed ambient dimension and many generators.",
+        "Breiding--Bürgisser--Lerario--Mathis arXiv:2109.14996 Theorem 5.2 gives general exterior-product intrinsic-volume representation.",
+        "The 2022 White Whale paper arXiv:2205.13309 Sections 4-5 address edge counts and vertex degrees, not intrinsic volumes."
+      ],
+      "reasoning": "General wedge-based identities subsume the exact starting formula (5) and its straightforward multinomial regrouping; those parts are explicitly credited. Their geometric generality does not itself supply the simultaneous fixed index with dimension tending to infinity coefficient -\\(k^3/[4(k+1)]\\) or Gaussian variance \\(k/(2\\cdot4^k)\\). Generic central limit/delta-method facts are methodological inputs, not a pre-existing statement of the natural family-specific constants.",
+      "searches": [
+        "White Whale zonotope resonance arrangement intrinsic volumes surface area Euclidean metric",
+        "Bernoulli k-column parallelepiped volume square-root Gram determinant expectation \\(1/d\\) correction",
+        "arXiv:2206.03204 Isoperimetric problems for zonotopes Corollary 1",
+        "arXiv:2109.14996 The zonoid algebra generalized mixed volumes and random determinants Theorem 5.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.14996 (full PDF material inspected)",
+      "arXiv:2205.13309 (full PDF material inspected)",
+      "arXiv:2206.03204 (full PDF material inspected)",
+      "Published White Whale random-direction width result (public index, 2026-10-25): directional width limit with nonzero variance; this differs from \\(k\\)-wedge intrinsic-volume laws.",
+      "Published White Whale incenter result (public index, 2026-11-08): exact inradius and incenter segment; it does not determine intrinsic-volume expansions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published White Whale incenter result (public index, 2026-11-08): exact inradius and incenter segment; it does not determine intrinsic-volume expansions.",
+        "Published White Whale random-direction width result (public index, 2026-10-25): directional width limit with nonzero variance; this differs from \\(k\\)-wedge intrinsic-volume laws.",
+        "arXiv:2206.03204 formula (4) is the exact wedge-sum framework, which is used as a premise, not claimed as a new discovery."
+      ],
+      "reasoning": "An inradius or random-direction width distribution does not determine every fixed order intrinsic-volume coefficient and its \\(1/d\\) correction. The generic intrinsic-volume sum covers (5) and (3) in principle but not the explicit all-k expansion (1), distributional limit (2), or ratio (4), which require distinct moment, determinant and concentration computations. The proposed claim is restricted to those new explicit statements.",
+      "searches": [
+        "White Whale zonotope Khinchine inequality minimal width inradius facet support directions",
+        "White Whale zonotope resonance arrangement intrinsic volumes surface area Euclidean metric",
+        "arXiv:2205.13309 Sizing the White Whale vertex and edge enumeration",
+        "arXiv:2206.03204 Corollary 1 intrinsic volumes of zonotopes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2205.13309 defines the Minkowski sum of nonzero 0/1 generators; its dual hyperplane arrangement is the resonance arrangement.",
+        "arXiv:2109.14996 Theorem 5.2 expresses zonoid intrinsic volumes through expected wedge norms.",
+        "Published White Whale random-direction width result (public index, 2026-10-25): directional width limit with nonzero variance; this differs from \\(k\\)-wedge intrinsic-volume laws."
+      ],
+      "reasoning": "The all-Boolean zonotope, resonance/White Whale zonotope, iid Bernoulli-column Gram wedge expectation, and Steiner-volume coefficients are equivalent descriptions of the current objects. The identified broader frameworks give starting expectation identities but do not evaluate the fixed-order noncentral Boolean moments or the stated first correction and variance. Previously indexed width is a one-direction support statistic, not the \\(k\\)-wedge law for \\(k\\ge2\\).",
+      "searches": [
+        "White Whale Boolean-subset-generator zonotope fixed order Steiner intrinsic volumes asymptotic second order correction",
+        "resonance zonotope hypergraphical zonotope random Boolean 0-1 matrix wedge Gram determinant Gaussian limit",
+        "White Whale intrinsic volumes ratio mean width second order asymptotics",
+        "arXiv:2109.14996 The zonoid algebra random determinants"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Deza--Hao--Pournin arXiv:2205.13309 Table 8 reports vertex/edge sizes up to dimension nine, not Euclidean intrinsic-volume values.",
+        "published-finding corpus returned White Whale incenter and spherical-width records but no fixed intrinsic-volume table."
+      ],
+      "reasoning": "No exact metric table directly covering the all-fixed-\\(k\\) asymptotic constants was identified. This negative search is evidence of a bounded comparison only, not a proof of novelty; the exact generic wedge formula is already known.",
+      "searches": [
+        "White Whale zonotope intrinsic volumes second",
+        "\"resonance arrangement\" \"intrinsic volumes\" zonotope",
+        "\"White Whale\" zonotope volume surface area",
+        "published-finding corpus White Whale Boolean-subset-generator zonotope fixed order Steiner intrinsic volumes asymptotic second order correction"
+      ]
+    },
+    "rationale": "The exact general zonotope wedge formula is prior knowledge; the accepted contribution is the all-fixed-order White Whale expansion with explicit relative correction \\(-k^3/[4(k+1)d]\\), the Gaussian wedge law with variance \\(k/(2\\cdot4^k)\\), and limiting normalized intrinsic-volume ratios. The primary White Whale paper enumerates vertices/edges and does not compute these metric asymptotics; the general zonoid formula papers do not state or imply those explicit constants without the novel noncentral Bernoulli Gram moment calculation. Searches returned same-object published widths/incenter results with nonimplicative metric claims, not an equivalent Steiner-volume expansion.",
+    "residual_risks": [
+      "An unindexed exact asymptotic for noncentral Bernoulli Gram determinants might imply the explicit coefficients even if not titled as White Whale geometry.",
+      "The generic wedge formula and delta method are known; the original contribution must be limited to exact family-specific moment constants and asymptotic consequences.",
+      "published-finding corpus and web searches are bounded and do not establish absolute historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same object and generators; studied vertex/edge enumerations, no fixed-index intrinsic-volume asymptotic stated in inspected material",
+        "evidence": [
+          "arXiv:2205.13309 pp.1-3 defines all nonzero 0/1 generator zonotope",
+          "Section 4 table discussion pp.19-20 and Section 5 p.20 onward count edges/degrees",
+          "Whole 26-page PDF yielded no matches for intrinsic, volume, area"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.13309",
+        "material_read": "Title/abstract/Introduction, generator definition and dual arrangement, Sections 4-5 edge and vertex-degree descriptions and table context; whole extracted text searched for intrinsic, volume, and area",
+        "method": "Open arXiv full PDF and render first-page screenshot; inspect extracted relevant sections and whole-document keyword matches",
+        "title": "Sizing the White Whale",
+        "trigger": "Exact same Boolean-subset zonotope and potential existing metric tables"
+      },
+      {
+        "assessment": "Exact generic wedge formula covers base identity and must be credited; later bounds do not give the White Whale fixed-\\(k\\) sharp constants",
+        "evidence": [
+          "Corollary 1, printed p.5, Vk is sum of generator wedge lengths",
+          "Section 4, printed pp.16-17, addresses fixed d with n generators rather than fixed k and growing d",
+          "Whole PDF no White Whale or Bernoulli matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.03204",
+        "material_read": "Introduction and precise Corollary 1 formula (4) with proof, Steiner normalization, later Section 4 asymptotic inequalities with ambient dimension fixed",
+        "method": "Open arXiv full PDF and render first-page screenshot; inspect Corollary 1 and Section 4 with whole-document keyword searches",
+        "title": "Isoperimetric Problems for Zonotopes",
+        "trigger": "Potential dominating general intrinsic-volume formula"
+      },
+      {
+        "assessment": "General expectation framework is foundational prior art, not an explicit computation of White Whale fixed-\\(k\\) constants",
+        "evidence": [
+          "Theorem 5.2, printed p.29, Vk(K)=length(K wedge k)/k!",
+          "The introduction describes random determinant representation",
+          "Whole PDF no White Whale or Boolean matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.14996",
+        "material_read": "Introduction, statements of Theorems 5.1-5.2 and proof of intrinsic-volume identity, random determinant interpretation and keyword searches",
+        "method": "Open arXiv full PDF and first-page screenshot; inspect relevant theorem and related introduction; keyword search for White Whale, Boolean and Bernoulli",
+        "title": "The Zonoid Algebra, Generalized Mixed Volumes, and Random Determinants",
+        "trigger": "General expected-wedge representation could subsume candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d76cbb96-ec04-4adc-9417-32345210cc30",
+  "value": {
+    "rationale": "A canonical, notoriously high-complexity zonotope with \\(2^d-1\\) nonzero Boolean generators has a tractable, nontrivial full family of fixed-index Euclidean intrinsic-volume asymptotics. The sharp second-order coefficient, nondegenerate Gaussian law for individual generator-parallelotope volumes and normalized ratio \\(\\sqrt{k+1}/2^{k/2}\\) quantify persistent angular alignment and permit metric study without vertex enumeration. These are motivated geometric invariants, not arbitrary finite slices; the already-known generic exact wedge sum is separately credited.",
+    "status": "PASS"
+  }
+}
