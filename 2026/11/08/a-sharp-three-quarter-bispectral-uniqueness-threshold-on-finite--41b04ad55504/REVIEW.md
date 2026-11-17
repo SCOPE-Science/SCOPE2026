@@ -1,19 +1,21 @@
-# Scientific review: sharp bispectral spectral-erasure threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies all normalizations, uses reality to identify second correlation with the Fourier power spectrum, and uses exact triple-correlation products to obtain phase multiplicativity on the nonzero support. When the DC coefficient vanishes, adjoining the identity with phase one preserves the partial-character identities, including zero-sum pairs. For each group displacement, two translated copies of the dense support overlap in more than twice the number of excluded points; this yields connected difference graphs and well-defined phase quotients. A triple intersection then proves global multiplicativity. The resulting character is exactly a translation by finite biduality. The sharpness example is verified by exhaustive enumeration of all admissible zero-sum Fourier triples and a strict Fourier-dominance positivity inequality. A standalone dependency-free checker passed 28,604 assertions; the general proof does not depend on finite enumeration. No unproved asymptotic or probabilistic claim is made.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Fourier transform of rho2 gives |F(a)|² and rho3 gives F(a)F(b)F(-a-b); ratio phases w on common support obey partial-character relations. If DC is zero, adjoining identity with w(0)=1 respects all pairs by w(-a)=w(a)^-1. For E missing r<N/4 frequencies, E_t has size ≥N-2r>2r. Its graph with edges b-a∈E has ≤r nonneighbors/vertex and is connected, forcing w(a+t)/w(a) constant. Triple translated intersections have size ≥N-3r>0 and prove the extension W(t+u)=W(t)W(u); duality yields a translation, with uniqueness even at zero frequencies. Independently enumerated 28 ordered/6 unordered zero-sum triples in the Z8 support {0,1,3,4,5,7}, all phase exponents sum zero; DC 6 and other five nonzero coefficients of modulus 1 ensure f,g≥1/8 and phase z=e^(iπ/5) is not an 8th root, proving sharp nontranslation. Tensor product with h=1+1_{0} on H preserves one-quarter zero support and correlations.
 
-Agulnick–Busick-Warner (arXiv:2604.13310, introduction, Theorems 1.3 and B and related examples) bound the sufficient order of autocorrelation data by support-generation properties but do not state the universal sharp order-three density threshold for arbitrary real signals. Casper–Orozco (arXiv:2503.21022v2, introduction, Main Theorem and basic algorithm) provide order bounds and reconstruction for rational-valued signals based on the group rank; their results do not imply the stated real-valued order-three density theorem or its sharp counterexample. Jaming–Kolountzakis (arXiv:math/0207051, especially Section 3) study triple-correlation reconstruction for indicator functions and particular cyclic group orders. Bendory–Boumal–Ma–Zhao–Singer (arXiv:1705.00641, Proposition II.1) handle band-limited Fourier supports, which do not cover arbitrary-location erased frequencies. Searches for dense partial-character extension, equivalent bispectral identifiability, and the exact one-quarter missing-frequency threshold did not expose stronger covering statements. Existing sparse-spectrum or discrete-Fourier statements concern different hypotheses and measurements. A mathematical equivalence hidden in classical Freiman-extension or phase-retrieval literature remains possible and is not ruled out by search absence alone.
+## originality
 
-## Value — PASS
+PASS
 
-The target is a natural inverse problem arising in bispectrum-based phase retrieval with missing Fourier measurements. The theorem identifies the exact *universal* worst-case deterministic erasure fraction supporting third-order uniqueness, independent of the ambient finite abelian group and placement of missing frequencies, and proves sharpness already for strictly positive measurements. This is not a genericity or numerics-only statement; the dense partial-character extension and explicit equality mechanism explain a structural rigidity/breakdown boundary. Product-group counterexamples show the obstruction is not confined to one small group. The theorem addresses identifiability, not noise stability or efficient reconstruction.
+Autocorrelation phase-ratio reduction is standard; Agulnick–Busick-Warner 2026 give general bounds in terms of support generating length but their inspected hypotheses and Theorem 1.3 do not entail a three-quarter, order-three universal cutoff. Casper–Orozco concern rational-valued signals and higher moment order; Jaming–Kolountzakis treat indicators, Bendory et al. contiguous frequency bands. A dense Freiman-homomorphism theorem may make the extension lemma known, but no inspected source establishes the full sharp signal claim with positive equality examples. PASS best of knowledge with explicit combinatorial alias risk.
 
-## Residual risks and scope
+## value
 
-The novelty comparison is limited to inspected primary literature and selected mathematical research records; an equivalent density lemma under additive-combinatorial terminology cannot be categorically excluded. The proof requires exact first-, second-, and third-order ordinary autocorrelation data and real signals. The optimal threshold for prescribed group structure or constrained alphabets, noisy recovery, and computational reconstruction rates are open here. Independent validation of the mathematical claims and publication priority has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, group-independent, geometry-free spectral-erasure threshold for translation identification from the second and third correlations, plus strictly positive equality counterexamples. The dense partial-character lemma is structurally reusable for phase retrieval and harmonic reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
