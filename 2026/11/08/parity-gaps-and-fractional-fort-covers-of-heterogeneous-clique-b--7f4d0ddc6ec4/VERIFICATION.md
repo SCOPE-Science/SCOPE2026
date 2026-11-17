@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 installation. The script independently constructs the adjacency relation, enumerates forts, computes minimality by inclusion, calculates maximum disjoint packings by recursive search, and checks fractional-cover feasibility and parameterized optimizer-face conditions. It exhausts all 66 ordered clique-size profiles meeting the stated small-profile bounds and prints `VERIFY_OK` on success.
+## correctness
 
-These finite checks are not a substitute for proof. The unrestricted disjoint-packing formula follows from the hub/no-hub decomposition; the fractional bound and all optimizers follow by summing pair inequalities and examining equality; the ordinary zero forcing number follows from transversal duality. No external mathematical audit has been performed.
+PASS
+
+A substantive false corollary was discovered: q_i=3 defines K4 blocks, not triangles; q_i=2 defines triangle blocks and gives gap zero. Full corrected RESULT.md, SLOGAN.txt and REVIEW.md are supplied. The surviving theorem follows from exhaustive minimal-fort types, hub/no-hub packing, blade pair inequalities and equality constraints. Independent all-forts enumeration checked six graphs, but the infinite proof is the combinatorial argument. Correctness PASS applies to the complete repaired final claim only.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the repaired statement: uniform windmill minimal-fort types and general LP definitions are known, but no inspected result gives the heterogeneous parity gap and entire optimizer face. The revised K4 example is a genuine gap; triangle-block gap is zero. Historical priority of more general hypergraph formula remains open.
+
+## value
+
+PASS
+
+PASS for the repaired result: the natural fort matching-versus-fractional-cover gap and exact optimizer face of heterogeneous clique bouquets are independently useful graph invariants. The parity-controlled unbounded gap on K4 blocks and rigid/flexible fractional face genuinely quantify nonintegrality. The incorrect triangle example is removed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -2,68 +2,42 @@
 
 ## Finding
 
-For integers \(m\ge 2\) and \(q_1,\ldots,q_m\ge 2\), let \(B=B(q_1,\ldots,q_m)\) be the graph formed by identifying one vertex of each clique of order \(q_i+1\). Its shared vertex is the *hub* \(h\), and its disjoint outer vertex sets \(V_i\), called blades, have \(|V_i|=q_i\). Put \(Q=\sum_iq_i\), \(o=|\{i:q_i\text{ odd}\}|\), and let \(\mathbf 1_{o=m}\) be one when every blade size is odd and zero otherwise.
-
-Write \(\operatorname{ft}(B)\) for the maximum number of pairwise disjoint forts; \(Z^*(B)\) for the minimum fractional cover of forts; and \(Z(B)\) for the standard zero forcing number. Then
-
+For integers \(m\ge2\) and \(q_1,\ldots,q_m\ge2\), let \(B(q_1,\ldots,q_m)\) be the simple graph made by identifying one common hub \(h\) in \(m\) cliques of orders \(q_i+1\). Each outer blade \(V_i\) has exactly \(q_i\) vertices. Put \(Q=\sum_iq_i\), \(o=|\{i:q_i\text{ odd}\}|\), and let \(\mathbf1_{o=m}\) indicate that all blades have odd size. Then the maximum number \(\operatorname{ft}(B)\) of pairwise disjoint forts, the minimum fractional fort-cover weight \(Z^*(B)\), and the ordinary zero-forcing number are
 \[
-\boxed{\operatorname{ft}(B)=\sum_{i=1}^m\left\lfloor\frac{q_i}{2}\right\rfloor+\mathbf1_{o=m},\qquad
-Z^*(B)=\frac{Q}{2},\qquad Z(B)=Q-m+1.}
+\boxed{\operatorname{ft}(B)=\sum_{i=1}^m\lfloor q_i/2\rfloor+\mathbf1_{o=m},\qquad Z^*(B)=Q/2,\qquad Z(B)=Q-m+1.}
 \]
-
-In particular, the additive fractional packing gap is exactly
+In particular,
 \[
-\boxed{Z^*(B)-\operatorname{ft}(B)=\frac{o}{2}-\mathbf1_{o=m}.}
+\boxed{Z^*(B)-\operatorname{ft}(B)=o/2-\mathbf1_{o=m}.}
 \]
-When all blades have size three, the gap is \(m/2-1\), so this gap is unbounded even among block graphs whose nontrivial blocks are triangles.
+For \(q_i=3\) for every \(i\), the gap is \(m/2-1\) and grows without bound. **These blocks are \(K_4\), not triangles.** For a bouquet of triangles, \(q_i=2\) for every \(i\), and this gap is exactly zero. No unbounded-gap assertion is made for triangle bouquets.
 
-The complete face of optimal fractional fort covers is also explicit. Every optimum assigns zero weight to the hub; every outer vertex in a blade of size at least three has weight \(1/2\); and the two vertices in each blade of size two have weights \(t_i\) and \(1-t_i\), where \(0\le t_i\le1\). Such an assignment is optimal **if and only if**
+The complete face of optimal fractional covers is as follows. Every optimum has \(w_h=0\); every vertex on a blade with \(q_i\ge3\) has weight \(1/2\); and the two weights on each size-two blade are \(t_i,1-t_i\) with \(0\le t_i\le1\). These weights constitute an optimum if and only if
 \[
 \boxed{\sum_{i:q_i=2}\min\{t_i,1-t_i\}+\frac12|\{i:q_i\ge3\}|\ge1.}
 \]
-In particular, the fractional optimum is unique exactly when \(m=2\) or every blade has at least three outer vertices.
+The fractional optimum is unique exactly when \(m=2\) or all blade sizes are at least three.
 
 ## Assumptions and scope
 
-All graphs are finite, simple, undirected and labelled. The parameters satisfy \(m\ge2\), \(q_i\ge2\). A *fort* is a nonempty set \(F\subseteq V(B)\) such that every vertex outside \(F\) has either zero or at least two neighbors in \(F\). A *minimal fort* contains no smaller fort. The fort number \(\operatorname{ft}\) is the maximum cardinality of a pairwise vertex-disjoint family of forts. The fractional zero forcing number \(Z^*\) is the optimum of
-\[
-\min\sum_{v\in V(B)}w_v,\qquad
-w_v\ge0,\quad \sum_{v\in F}w_v\ge1\quad\text{for every minimal fort }F.
-\]
-The same optimum is obtained if the bounds \(w_v\le1\) are included. The ordinary zero forcing number \(Z\) uses the rule that a coloured vertex with exactly one uncoloured neighbor colours that neighbor.
+All graphs are finite, simple, undirected and labelled; \(m\ge2\), \(q_i\ge2\). A fort is a nonempty vertex set \(F\) such that every vertex outside \(F\) has either zero or at least two neighbors in \(F\). A minimal fort contains no proper subfort. The fort-packing number is the maximum count of pairwise vertex-disjoint forts. The fractional cover minimizes \(\sum_vw_v\), subject to \(w_v\ge0\) and \(\sum_{v\in F}w_v\ge1\) for every minimal fort. These definitions are distinct from the ordinary zero-forcing parameter. Weights may be taken at most one without changing the optimum.
 
 ## Proof
 
-**1. Fort classification.** The minimal forts are precisely (I) all two-vertex subsets of one outer blade and (II) every set consisting of the hub together with exactly one vertex from each outer blade. This classification is known for uniformly sized windmills; the following argument records the precise structure for unequal blades.
+**Minimal forts.** If a fort omits the hub, every blade it meets must contain at least two fort vertices: otherwise an outside vertex of that blade has exactly one fort neighbor. Every such fort contains a pair of outer vertices of a single blade, which is itself a fort. Thus minimal hub-free forts are precisely the pairs in a single \(V_i\). If a fort contains the hub, it must meet each blade, since an unselected blade vertex would otherwise have the hub as its sole fort neighbor. Conversely the hub plus exactly one outer vertex from each blade is a fort, and none of these selected vertices can be removed without destroying that property. Every hub-containing fort contains one of these. This exhausts the minimal forts.
 
-If a fort \(F\) omits the hub, a blade containing exactly one vertex of \(F\) would have an outside vertex seeing exactly that one neighbor. Hence every populated blade contains at least two vertices, and any such blade contains a type-I fort. Minimality therefore forces \(F\) to be a type-I pair. If \(F\) includes the hub, every blade must contain at least one vertex of \(F\), since otherwise its outer vertices would each see just the hub. Conversely, any choice of the hub and one vertex per blade is a fort: every remaining outer vertex sees its chosen blade vertex and the hub. It is minimal, because removing the hub leaves singleton blade intersections, and removing any selected blade vertex leaves unchosen vertices in that blade seeing just the hub. Every fort containing the hub contains one of these type-II forts. This proves the classification.
+**Packing.** Replacing each member of a disjoint fort family by one of its minimal subforts preserves the family size. With no hub fort, the maximum count is \(\sum_i\lfloor q_i/2\rfloor\), obtained by independently pairing each blade. With one hub fort (there cannot be two), the count is at most, and can attain, \(1+\sum_i\lfloor(q_i-1)/2\rfloor\). The latter exceeds the former only if every \(q_i\) is odd. Their maximum gives the displayed packing formula.
 
-**2. Disjoint fort packing.** Every family of disjoint forts can be replaced by one of minimal forts, without decreasing its cardinality. If it contains no type-II fort, its type-I pairs lie independently within each blade, so its maximum size is \(\sum_i\lfloor q_i/2\rfloor\). If it contains a type-II fort, it contains exactly one (all type-II forts share the hub), uses one vertex in each blade, and accommodates at most \(1+\sum_i\lfloor(q_i-1)/2\rfloor\) forts. Both bounds are attained by disjoint pairings. The difference between the second bound and the first is \(1-|\{i:q_i\text{ even}\}|\); the second is strictly larger exactly when all blade sizes are odd. Thus the stated formula for \(\operatorname{ft}(B)\) follows.
+**Fractional cover and its complete optimizer face.** Every blade has pair constraints \(w_u+w_v\ge1\) for all distinct outer vertices \(u,v\); summing them yields \(\sum_{v\in V_i}w_v\ge q_i/2\). The total objective is consequently at least \(Q/2\). Weights \(1/2\) on every outer vertex and zero on the hub attain this lower bound; every hub fort contains at least \(m\ge2\) outer vertices, so its constraint is satisfied. In any optimum the hub weight must vanish and each blade sum must equal \(q_i/2\). For \(q_i\ge3\), equality in the summed pair inequalities forces every blade weight to equal \(1/2\); for \(q_i=2\), it forces the two weights to be \(t_i,1-t_i\). The smallest weight of a hub-type minimal fort over choices of one vertex from each blade is the boxed left-hand expression, so imposing that it be at least one exactly characterizes the face. For \(m=2\), any size-two blade is forced to split equally to satisfy this constraint; when \(m\ge3\), a size-two blade admits a nonconstant perturbation about \(t_i=1/2\). This proves the uniqueness criterion.
 
-**3. Fractional optimum.** The type-I constraints in a blade \(V_i\) are \(w_u+w_v\ge1\) for every distinct \(u,v\in V_i\). Summing gives \(\sum_{v\in V_i}w_v\ge q_i/2\). If \(q_i\ge3\), equality forces all vertex weights to equal \(1/2\): it is equality in every pair constraint, and three distinct vertices then determine their weights. If \(q_i=2\), equality permits precisely the pair \((t_i,1-t_i)\) with \(0\le t_i\le1\).
+**Ordinary zero forcing.** A blue set forces the entire graph if and only if it hits every minimal fort: the remaining white vertices of any stalled process form a fort, while a disjoint fort can never be penetrated by a force. To meet all outer pairs, at least \(q_i-1\) vertices must be chosen from each blade. Choosing exactly this many while omitting the hub leaves a hub fort disjoint from the blue set, so one additional vertex is essential. The hub and \(q_i-1\) outer vertices from each blade form a forcing set of size \(Q-m+1\), proving the formula.
 
-Adding the blade bounds yields total weight at least \(Q/2\), because the hub weight is nonnegative. The assignment \(w_h=0\) and \(w_v=1/2\) for all other vertices attains this bound and covers each type-II fort, whose weight is \(m/2\ge1\). Therefore \(Z^*(B)=Q/2\), and all optimal assignments must have hub weight zero and attain equality on every blade. For such assignments, the least weight of a type-II fort is exactly \(\sum_{q_i=2}\min(t_i,1-t_i)+|\{i:q_i\ge3\}|/2\). Requiring this number to be at least one is both necessary and sufficient. If \(m=2\), equality requires every available two-vertex blade to split weights equally. If \(m\ge3\) and there is a two-vertex blade, all half weights are feasible with slack in the type-II constraint, so some two-vertex blade weights can be varied continuously. This establishes the entire optimal face and uniqueness criterion.
-
-**4. Ordinary zero forcing.** A set is zero forcing if and only if it meets every minimal fort: if the forcing process stalls before completion, the remaining uncoloured vertices form a fort; conversely a disjoint fort cannot be entered by a force. To meet all type-I pairs, a set contains at least \(q_i-1\) vertices of each blade. If precisely these are selected and the hub is omitted, the omitted hub and one omitted vertex of each blade form a disjoint type-II fort. Hence at least one more vertex must be selected. Choosing the hub together with \(q_i-1\) arbitrary vertices in every blade meets all minimal forts (equivalently, each remaining outer vertex is immediately forced). Thus \(Z(B)=Q-m+1\).
-
-Combining the packing and fractional formulas gives the claimed parity gap and all corollaries.
+The gap and the corrected \(K_4\)/triangle consequences now follow directly. A triangle blade has two outer vertices (\(q_i=2\)); a size-three outer blade is a \(K_4\) block. This distinction is essential to the stated structural example.
 
 ## Verification
 
-The accompanying standard-library script `verify.py` independently builds each graph's adjacency list from edges, enumerates *all* forts and filters inclusion-minimal ones, computes the maximum number of pairwise disjoint minimal forts by recursion, and tests the stated minimal-fort classification and exact fort-packing formula. It checks fractional feasibility of uniform half weights and independently compares sampled optimal-face assignments with all minimal-fort constraints. The direct enumeration passes all 66 ordered profiles with two to four blades, blade sizes in \(\{2,3,4\}\), and \(\sum_iq_i\le11\), yielding `VERIFY_OK`. The infinite statements and complete optimizer-face characterization follow from the proof, not from these samples.
+A direct adjacency-based, all-forts enumeration independently checked the minimal-fort classification and disjoint-packing formula for the six profiles \((2,2),(3,3),(2,3,3),(3,3,3),(2,2,2),(3,2,4)\). It also explicitly confirmed zero fractional packing gap on bouquets of triangles. The original supplied `verify.py` reports 66 checked ordered profiles with two to four blades, sizes in \(\{2,3,4\}\) and at most 11 outer vertices. Both finite checks corroborate but do not replace the unrestricted proof.
 
-Reproduce using `python3 verify.py`; no third-party packages are required.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Cameron, Hogben, Kenter, Mojallal and Schuerger introduced the fort number, fort hypergraph and fractional zero forcing through packing/covering programs. Becker, Cameron, Hanely, Ong and Previte gave the windmill minimal-fort classification and its count for uniform blades; the supporting classification above is **not claimed original in the uniform case**. Abiad and Ghasemi Nezhad established an abundance bound for minimal forts in arbitrary block graphs. The present specific contribution is the exact simultaneous fort-packing and fractional-cover evaluation, the complete optimizer face for unequal blades, and the unbounded parity-controlled additive gap for the bouquet class.
-
-## Limitations
-
-The theorem concerns a single common hub joining disjoint clique blades with at least two outer vertices each, not arbitrary block graphs or Cartesian graph products. It does not give an efficient method for arbitrary graphs. The minimal-fort structure for uniform windmills is prior work. Literature-priority conclusions for the new packing and fractional optimizer formulas are provisional pending independent review; computational comparisons are finite and do not establish an infinite claim.
-
-## References
-
-1. T. R. Cameron, L. Hogben, F. H. J. Kenter, S. A. Mojallal and H. Schuerger, *Forts, (fractional) zero forcing, and Cartesian products of graphs*, arXiv:2310.17904 (first public 2023-10-27), https://arxiv.org/abs/2310.17904.
-2. P. Becker, T. R. Cameron, D. Hanely, B. Ong and J. P. Previte, *On the Number of Minimal Forts of a Graph*, arXiv:2404.05963 (first public 2024-04-09), especially the windmill section and Corollary 28, https://arxiv.org/abs/2404.05963.
-3. A. Abiad and S. Ghasemi Nezhad, *Fort Abundance in Zero Forcing*, arXiv:2609.11754 (first public 2026-09-10), https://arxiv.org/abs/2609.11754.
+Cameron, Hogben, Kenter, Mojallal and Schuerger introduced the fort-hypergraph packing and fractional-cover framework (arXiv:2310.17904). Becker, Cameron, Hanely, Ong and Previte classified minimal forts of uniform windmills (arXiv:2404.05963); this already-known classification is not claimed original. Abiad and Ghasemi Nezhad studied minimal-fort abundance on block graphs (arXiv:2609.11754). The specific contribution assessed here is the simultaneous exact packing/cover formulas, optimizer-face classification, and unbounded parity gap for **\(K_4\)-block** bouquets and their heterogeneous extensions. No corresponding unbounded gap for triangle blocks is claimed. Historical priority beyond inspected sources is not certified; computations cover only finite instances. The formulas are limited to one-hub clique bouquets, not arbitrary block graphs.

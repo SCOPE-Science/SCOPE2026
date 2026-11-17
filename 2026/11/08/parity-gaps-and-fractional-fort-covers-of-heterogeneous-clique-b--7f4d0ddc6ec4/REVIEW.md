@@ -1,19 +1,17 @@
-# Mathematical review
+# Mathematical review of the corrected clique-bouquet result
 
 ## Correctness
 
-PASS. The classification of minimal forts is proved from the original outside-neighbor condition, with separate hub-absent and hub-present cases. The disjoint packing argument exhausts configurations without and with a hub-containing fort, and explicitly attains both upper bounds. The fractional covering proof combines pair-constraint averaging for a sharp lower bound, a feasible uniform assignment for the upper bound, and equality conditions to give the exact optimizer face. The zero-forcing formula follows from the fort transversal criterion and an explicit seed construction. Boundaries \(m=2\) and \(q_i=2\) are included. Independent direct graph enumerations and reproducible code corroborate 66 finite profiles but are not treated as an infinite proof.
+PASS for the corrected theorem and all consequences. Minimal forts are outer pairs or the hub with one vertex from each blade. Taking maximal disjoint packings with or without a hub fort yields the parity formula. Pair constraints and their equality cases give both the fractional minimum and its complete optimizer face; the fort transversal criterion gives ordinary zero forcing. The erroneous claim of an unbounded gap on **triangle** blocks is corrected: outer size three produces K4, whereas a triangle has outer size two and zero gap. Direct finite adjacency enumeration independently checked six profiles and the triangle countercase. The proof, not enumeration, covers all \(m\ge2\), \(q_i\ge2\).
 
 ## Originality
 
-PASS, with historical priority provisional. The closest primary work is Becker et al. (arXiv:2404.05963), which already classifies the minimal forts of uniformly sized windmills. That result is credited and is not the claimed novelty. The underlying LP and packing definitions are from Cameron et al. (arXiv:2310.17904). Abiad and Ghasemi Nezhad (arXiv:2609.11754) study block-graph fort abundance, not exact fractional-cover optimizer faces. Targeted searches and comparison of these full texts and related mathematical findings did not locate a theorem simultaneously giving the heterogeneous parity-packing formula, fractional optimum, and all optimizers. A formula hidden in another general fort-hypergraph characterization remains a residual priority risk.
+PASS as a best-of-knowledge assessment, not a guarantee of historical priority. The 2024 Becker–Cameron–Hanely–Ong–Previte windmill classification supplies the known minimal-fort types. Cameron–Hogben–Kenter–Mojallal–Schuerger supply the general fort packing and fractional covering framework. Those sources do not explicitly supply the simultaneous heterogeneous parity-packing formula and full optimal-face classification. More general unpublished or unindexed consequences remain possible.
 
 ## Mathematical value
 
-PASS. The result exhibits a parity-controlled discrepancy between a natural packing parameter and its fractional cover for every heterogeneous clique bouquet, as well as a complete description of all optimal LP solutions. For triangle bouquets the additive gap grows linearly in the number of blocks; the exact transition between rigid and non-rigid optimizers is a structural feature not explained by minimum zero forcing alone. This is a motivated natural unbounded graph family rather than a finite table.
+PASS. The exact gap measures the separation of a natural fort matching parameter from its fractional transversal relaxation on a natural family of block graphs. Complete optimizer-face equations distinguish rigid and flexible fractional covers. The unbounded gap on K4-block bouquets is a nontrivial parity-controlled example. The analogous assertion for triangles was false and is not a part of the surviving finding.
 
 ## Limitations
 
-The result is restricted to one-hub clique bouquets with at least two nontrivial blades. The supporting uniform-windmill minimal-fort description is known. Priority remains a best-knowledge assessment, and the finite checks do not independently certify the unrestricted theorem.
-
-Self-review: passed. Independent audit: not yet performed.
+Only bouquets of cliques with one common hub and at least two outer vertices in each blade are covered. Numerical checks are finite. Earlier uniform-windmill minimal-fort classifications are credited. No external expert attestation is asserted.
