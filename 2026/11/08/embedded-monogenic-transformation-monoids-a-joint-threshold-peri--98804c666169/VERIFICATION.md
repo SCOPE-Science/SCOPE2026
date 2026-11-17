@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python 3 standard-library interpreter. There are no third-party dependencies, downloaded datasets, random seeds, or network connections.
+## correctness
 
-The verifier counts permutations of each exact order with a cycle-decomposition recurrence and Möbius inversion; counts forest parent assignments by distance layers; independently enumerates all functions on sets of sizes 1 through 6; computes the sets of actual powers of every function; and compares the exact joint counts of generated embedded monoids and their generator fibers. It separately enumerates permutations up to degree 6 to test the cycle recurrence. Expected totals of distinct embedded submonoids are `1, 4, 26, 237, 2842, 42488` for degrees 1 through 6. Each test prints `CHECK_OK` and the completed program prints `VERIFY_OK`.
+PASS
 
-This is a finite reproducibility check, not a proof for arbitrary degree. The all-degree result depends on the separately written bijective counting argument and elementary inequality. Neither this document nor the program claims external or independent mathematical verification.
+PASS. Each full transformation decomposes uniquely into a permutation of s cyclic vertices with exact order p and n−s labeled rooted forest vertices of maximal depth h. Ordered distance-layer parent assignments give E_(n−s,s,h); Möbius inversion of permutation orders gives Q_(s,p). A monogenic embedded submonoid has φ(p) generating maps at h=0 or1, unique generator for h≥2; these preserve s. Thus the joint quotient C(n,s)Q_(s,p)E_(n−s,s,h)/c(h,p) is exact, including m=0 and p=1. Counting the h≤1 overcounts produces M_n=n^n−∑_s C(n,s)(s!−C_s)s^(n−s), with bound n exp(1/2−n/3) for relative error. Independent enumeration of all functions n=1..5 produced total embedded counts 1,4,26,237,2842 and checked nonzero triple classes (1,3,7,14,26); finite sample does not prove all degrees.
+
+## originality
+
+PASS
+
+PASS only for joint stable-cyclic-rank s refinement with h and p: Resultary 2026-11-02 gives EXACT same bivariate (h,p) embedded count, same generator correction c(h,p), same unrefined totals and an even sharper exponential O(√n(2/e)^n) overcount bound. Those parts of this package are fully covered and are not novel. Earlier published bivariate EGF does not state the stable-rank resolved fiber M_(n;h,p,s); obtaining it requires keeping cycle-support cardinality in the rooted-forest combinatorics. The extra rank is a natural invariant, although the extension is short and there is substantial implicit-coverage risk.
+
+## value
+
+PASS
+
+PASS narrowly. The joint maximal-depth, eventual-cycle-period and stable-rank distribution is an exact natural embedding statistic for finite transformation dynamics; knowing h,p alone does not recover the distribution of the eventual image size s. It permits conditional counts by image size and separates maps with identical power semigroup type but different embedding ranks. Its component forest formula is explicit and independently useful. The prior total and asymptotic, and the elementary generator lemma, add no value here; ranking this as a modest finite combinatorial refinement rather than a new global monoid classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

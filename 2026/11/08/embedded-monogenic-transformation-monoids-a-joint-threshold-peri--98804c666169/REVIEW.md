@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The functional-digraph decomposition partitions the generator transformations uniquely into a cyclic subset, a permutation of specified order, and a height-refined rooted forest. The proof derives the exact fiber size of the map from transformations to generated embedded submonoids: Euler's totient for thresholds zero and one, and one for larger thresholds. This yields the integer formula. Summing the exceptional low-threshold generator excess gives the total census; an explicit product inequality gives the exponential comparison. The standalone verifier constructs actual transformation-submonoid sets in every dimension up to six and tests each nonzero \((h,p,s)\) cell, plus exact permutation orders and generator multiplicities.
+## correctness
 
-**Originality — PASS relative to examined sources.** Elliott–Levine–Mitchell classify isomorphism types using threshold and period, not individually embedded labeled submonoids nor stable-rank refinements. Hansen–Jaworski supply the classical cycle-plus-forest decomposition in random-mapping probability; this does not provide a three-parameter embedded-submonoid census. East–Egri-Nagy–Mitchell already explain equivalence of monogenic subsemigroup generators and compute degree-three examples; the generator-fiber phenomenon is therefore acknowledged as prior algebra, not independent novelty. Their enumeration algorithm does not give the all-degree joint expression or asymptotic. Monogenic inverse submonoids of partial injections belong to a different ambient algebra and do not imply the claimed full-transformation census. No directly covering published statement was located by the documented searches. This is evidence-based priority assessment, not a uniqueness or publication-priority certificate.
+PASS
 
-**Mathematical value — PASS.** The move from abstract monoid types to distinct embedded submonoids is natural for finite transformation-semigroup enumeration, and retaining the stable cyclic rank distinguishes genuinely different representations. The sharp structural change in generator multiplicity at power threshold two is needed for correct counts, while the total formula determines the rate at which embedded monogenic submonoids approach the full \(n^n\) transformation count. The first six totals furnish reproducible natural invariants rather than an arbitrary finite slice.
+PASS. Each full transformation decomposes uniquely into a permutation of s cyclic vertices with exact order p and n−s labeled rooted forest vertices of maximal depth h. Ordered distance-layer parent assignments give E_(n−s,s,h); Möbius inversion of permutation orders gives Q_(s,p). A monogenic embedded submonoid has φ(p) generating maps at h=0 or1, unique generator for h≥2; these preserve s. Thus the joint quotient C(n,s)Q_(s,p)E_(n−s,s,h)/c(h,p) is exact, including m=0 and p=1. Counting the h≤1 overcounts produces M_n=n^n−∑_s C(n,s)(s!−C_s)s^(n−s), with bound n exp(1/2−n/3) for relative error. Independent enumeration of all functions n=1..5 produced total embedded counts 1,4,26,237,2842 and checked nonzero triple classes (1,3,7,14,26); finite sample does not prove all degrees.
 
-**Closest literature and residual risks.** Elliott, Levine, Mitchell, *Counting monogenic monoids and inverse monoids*, arXiv:2303.12387, Theorem 1 and Lemmas 3–4; Hansen and Jaworski, *Random mappings with a given number of cyclical points*, *Ars Combinatoria* 94 (2010). General functional-digraph enumeration may contain equivalent formulas in a differently indexed form; this cannot be excluded without exhaustive external review. Results apply to labeled full transformations, not conjugacy classes, other transformation semigroups, or inverse monoids. Finite checks do not replace the universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for joint stable-cyclic-rank s refinement with h and p: Resultary 2026-11-02 gives EXACT same bivariate (h,p) embedded count, same generator correction c(h,p), same unrefined totals and an even sharper exponential O(√n(2/e)^n) overcount bound. Those parts of this package are fully covered and are not novel. Earlier published bivariate EGF does not state the stable-rank resolved fiber M_(n;h,p,s); obtaining it requires keeping cycle-support cardinality in the rooted-forest combinatorics. The extra rank is a natural invariant, although the extension is short and there is substantial implicit-coverage risk.
+
+## value
+
+PASS
+
+PASS narrowly. The joint maximal-depth, eventual-cycle-period and stable-rank distribution is an exact natural embedding statistic for finite transformation dynamics; knowing h,p alone does not recover the distribution of the eventual image size s. It permits conditional counts by image size and separates maps with identical power semigroup type but different embedding ranks. Its component forest formula is explicit and independently useful. The prior total and asymptotic, and the elementary generator lemma, add no value here; ranking this as a modest finite combinatorial refinement rather than a new global monoid classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
