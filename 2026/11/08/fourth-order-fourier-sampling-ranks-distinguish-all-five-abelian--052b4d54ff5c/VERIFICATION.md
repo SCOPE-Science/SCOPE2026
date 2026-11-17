@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complex rank counts were checked by exact coefficient arithmetic in the cyclotomic ring of the primitive sixteenth root of unity, with determinants of every required nested minor computed by signed permutation expansion. A second checker evaluates the matrix over the eight primitive sixteenth roots in \(\mathbb F_{97}\) and takes the maximum finite-field rank. The coefficient bound \(4!<97\) proves that this maximum equals the complex rank. A third checker loops over every unordered row and column four-set directly instead of relying on translation orbits. The three procedures agreed on every total in the accompanying rank-count table.
+## correctness
 
-Checked groups in order: \(C_{16}\), \(C_8\times C_2\), \(C_4^2\), \(C_4\times C_2^2\), \(C_2^4\). The respective counts of row translation-orbit representatives were 116, 120, 122, 128, and 140. In every case, the sum of rank counts was \(3{,}312{,}400\), the complete number of four-set pairs.
+PASS
 
-Reproduction: compile each `.cpp` file with a standard C++17 compiler, for example `g++ -O3 -std=c++17 checks/fourier16_exact.cpp -o fourier16_exact` followed by `./fourier16_exact`. All computations use integer arithmetic; no third-party libraries or external data are required. Compare each printed group and four rank counts to `data/rank_counts.tsv`.
+All five invariant-factor types and all 1820 unordered four-element row and column sets are counted. Determinant coefficients in Z[zeta16] of order<=4 have absolute size <=24, so eight primitive 16th-root reductions in F97 certify exact complex nonvanishing; taking the maximum rank over the eight evaluations is exact. Independent C++17 implementation reconstructs translation row-orbits and ranks modulo 97, agreeing exactly on all five full rank histograms and totals 3312400. All source Git blob hashes and nested directory tree hashes independently reconstruct the assigned tree identity.
 
-Scientific limits: The certificate applies only to rank-one through rank-four restrictions of the five abelian character tables of order sixteen. It does not certify any external historical novelty priority, a higher-order pattern, or independent mathematical validation.
+## originality
+
+PASS
+
+The previously published C16 and elementary abelian endpoint tables are credited as prior art; the full three missing intermediate-group rank distributions and resulting complete five-way fingerprint are not implied by them. Fourier-support uncertainty and four-point orthogonal spectral sets do not count ranks of all arbitrary four-by-four restrictions.
+
+## value
+
+PASS
+
+The exact exhaustive five-way Fourier-sampling rank census determines an abelian group order-16 isomorphism type from a natural experimentally relevant sampling-invertibility statistic. Intermediate groups differ strongly from two known extremes. A self-contained finite classification is worthwhile even without an all-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

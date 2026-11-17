@@ -1,15 +1,21 @@
-# Scientific review: order-sixteen abelian Fourier rank incidence
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification exhausts the five isomorphism types and \(1{,}820^2\) ordered row-set/column-set pairs for each. Determinant coefficients in the eighth-degree cyclotomic basis have magnitude at most \(4!=24\), which makes the eight-root \(\mathbb F_{97}\) test exact for all minor sizes up to four. Standalone exact cyclotomic minors and modular-rank computations yield identical rank totals. A third implementation visits all row sets without translation-orbit reduction and obtains the same counts. This proves a finite exhaustive statement, not an infinite extrapolation.
+## correctness
 
-## Originality — PASS after bounded historical comparison
-Meshulam (arXiv:math/0312407) provides a Fourier-support uncertainty bound, Bella–Olshevsky–Sakhnovich (2007) a characteristic-two exponent-matrix rank statement, and Kolountzakis–Matolcsi (arXiv:math/0411512) an orthogonal spectral-set/tiling theorem. None of these inspected implications gives all ranks of every four-by-four Fourier restriction for each order-sixteen group. Existing exact endpoint tables for the cyclic and Boolean groups are acknowledged; the middle three complete distributions and the five-group fingerprint are the contribution. Searches of published mathematical records also found related spectral-set censuses of two middle group types but no directly covering all-ranks table. Historical priority remains bounded by search and document access.
+PASS
 
-## Value — PASS
-A four-by-four Fourier restriction is an interpolation map: its full rank determines whether four chosen Fourier modes can be recovered uniquely from four chosen measurements. At fixed group size, the five exact rank distributions differ substantially and the full-rank count distinguishes all five abelian-group types. A full natural five-case classification of this invariant goes beyond a single arbitrary numerical experiment, while remaining a finite theorem.
+All five invariant-factor types and all 1820 unordered four-element row and column sets are counted. Determinant coefficients in Z[zeta16] of order<=4 have absolute size <=24, so eight primitive 16th-root reductions in F97 certify exact complex nonvanishing; taking the maximum rank over the eight evaluations is exact. Independent C++17 implementation reconstructs translation row-orbits and ranks modulo 97, agreeing exactly on all five full rank histograms and totals 3312400. All source Git blob hashes and nested directory tree hashes independently reconstruct the assigned tree identity.
 
-## Closest antecedents and limits
-The cyclic and Boolean order-sixteen endpoint counts were available previously and are not re-claimed as newly originated. Other related results concern supports or orthogonal bases, not arbitrary rank. An unlocated general theorem or exact table could reduce novelty; no result for larger group orders, higher minors, nonabelian matrices, or arbitrary Hadamard matrices is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published C16 and elementary abelian endpoint tables are credited as prior art; the full three missing intermediate-group rank distributions and resulting complete five-way fingerprint are not implied by them. Fourier-support uncertainty and four-point orthogonal spectral sets do not count ranks of all arbitrary four-by-four restrictions.
+
+## value
+
+PASS
+
+The exact exhaustive five-way Fourier-sampling rank census determines an abelian group order-16 isomorphism type from a natural experimentally relevant sampling-invertibility statistic. Intermediate groups differ strongly from two known extremes. A self-contained finite classification is worthwhile even without an all-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

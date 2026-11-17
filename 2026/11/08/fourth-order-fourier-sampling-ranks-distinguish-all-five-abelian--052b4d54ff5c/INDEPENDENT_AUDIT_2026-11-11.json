@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:54:21.760863Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md",
+        "checks/fourier16_mod97.cpp blob 116cd14dfa600081e074180e95f1f2f5890a8b99",
+        "fourier_independent.cpp and fourier_independent.log",
+        "check_trees.py"
+      ],
+      "rationale": "All five invariant-factor types and all 1820 unordered four-element row and column sets are counted. Determinant coefficients in Z[zeta16] of order<=4 have absolute size <=24, so eight primitive 16th-root reductions in F97 certify exact complex nonvanishing; taking the maximum rank over the eight evaluations is exact. Independent C++17 implementation reconstructs translation row-orbits and ranks modulo 97, agreeing exactly on all five full rank histograms and totals 3312400. All source Git blob hashes and nested directory tree hashes independently reconstruct the assigned tree identity.",
+      "residual_risks": [
+        "Finite classification only for order16 and 4x4 minors; no inference to general group orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolountzakis–Matolcsi (2004) treats orthogonal Hadamard spectral subsets; generic invertible restrictions need not be orthogonal.",
+          "Published Walsh-Fourier all-dimension formula covers C2^4 endpoint, but not other 2-groups."
+        ],
+        "reasoning": "Neither orthogonality criterion nor the Boolean family dominates all five intermediate group types.",
+        "searches": [
+          "complex rank distribution four by four Fourier character submatrices abelian groups order 16 4x4",
+          "arxiv:math/0411512 complex Hadamard spectral subsets",
+          "four-by-four Walsh minor rank census dimension four"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0312407",
+        "https://arxiv.org/abs/math/0411512",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-fourth-order-rank-incidence-for-the-cyclic-16-point-fou--d844f172dad8",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Middle rank-4 totals 2565888, 2297856 and 2052608 are pairwise distinct and differ from both endpoints; none is fixed by endpoint tables.",
+          "Meshulam and spectral-set hypotheses concern supports or orthogonality, not all restrictions."
+        ],
+        "reasoning": "A complete group-isomorphism fingerprint follows only after classifying the three hitherto unspecified intermediate group types.",
+        "searches": [
+          "Resultary cyclic 16 Fourier rank incidence",
+          "Resultary all-dim Walsh 4x4 census",
+          "complex rank distribution four by four Fourier character submatrices abelian groups order 16 4x4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A rank-4 Fourier minor is exactly an invertible four-frequency sample/interpolation matrix. Meshulam bounds Fourier uncertainty but does not enumerate all 4x4 rank classes."
+        ],
+        "reasoning": "The equivalence to four-frequency interpolation was considered; no checked theorem states all middle-group incidence totals.",
+        "searches": [
+          "complex rank distribution four by four Fourier character submatrices abelian groups order 16 4x4",
+          "arxiv:math/0312407 uncertainty inequality finite abelian Fourier supports"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "C16 previously: (16,9728,293888,3008768). C2^4 previously: (560,104160,1612800,1594880).",
+          "No published table found for C8xC2, C4xC4, C4xC2^2 at this exact four-subset restriction; negative search does not certify novelty."
+        ],
+        "reasoning": "An unindexed computational rank database remains a specific historical-priority risk.",
+        "searches": [
+          "complex rank distribution four by four Fourier character submatrices abelian groups order 16 4x4",
+          "Resultary order sixteen cyclic fourth-order rank incidence table",
+          "Resultary Walsh 4x4 minor census"
+        ]
+      },
+      "rationale": "The previously published C16 and elementary abelian endpoint tables are credited as prior art; the full three missing intermediate-group rank distributions and resulting complete five-way fingerprint are not implied by them. Fourier-support uncertainty and four-point orthogonal spectral sets do not count ranks of all arbitrary four-by-four restrictions.",
+      "residual_risks": [
+        "A non-indexed prior exact Fourier-minor incidence database could contain the three intermediate histograms.",
+        "Two endpoint distributions are prior work, not independent new results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING complete rank incidence",
+          "evidence": "Support cardinality inequality, no four-minor census.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0312407",
+          "material_read": "Original proof and uncertainty statements",
+          "method": "Primary PDF, inspected text and screenshot",
+          "title": "An uncertainty inequality for finite abelian groups",
+          "trigger": "Potential dominating general character-table theorem"
+        },
+        {
+          "assessment": "NOT_COVERING arbitrary invertible rank classes",
+          "evidence": "Orthogonality/spectral basis versus arbitrary invertible restrictions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0411512",
+          "material_read": "Original theorem and spectral-set conditions",
+          "method": "Primary PDF inspected with page screenshot",
+          "title": "Complex Hadamard matrices and the Spectral Set Conjecture",
+          "trigger": "Potential full Fourier restriction classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "independent exact C++17 enumeration and root-certification argument",
+        "https://arxiv.org/abs/math/0411512"
+      ],
+      "rationale": "The exact exhaustive five-way Fourier-sampling rank census determines an abelian group order-16 isomorphism type from a natural experimentally relevant sampling-invertibility statistic. Intermediate groups differ strongly from two known extremes. A self-contained finite classification is worthwhile even without an all-order theorem.",
+      "residual_risks": [
+        "Only abelian order 16, no higher-group or determinant-magnitude classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The finite census is exhaustive, not a general formula for all group orders.",
+    "Endpoint groups have earlier published counts."
+  ],
+  "schema_version": 1
+}
