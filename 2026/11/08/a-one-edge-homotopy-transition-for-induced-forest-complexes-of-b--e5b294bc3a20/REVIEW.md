@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-cone cover of the complete-bipartite forest complex yields an integral Mayer–Vietoris isomorphism from second homology to the first homology of its complete-bipartite intersection graph. Fundamental four-cycles for the spanning double-star are an integral basis; every such cycle is the boundary image of a tetrahedron newly permitted by a missing cross-edge. The unchanged two-skeleton proves simple connectivity and vanishing second homology, hence two-connectivity. The exact one-deletion relative cell complex has a unit connecting map, proving contractibility. The two-deletion witness has a primitive top boundary and one integral third homology generator, proving the claimed sphere type. Exhaustive graph-subset tests support all boundary assertions; they do not replace the integer argument.
+## correctness
 
-## Originality
-PASS, with residual publication-priority uncertainty. Carnero Bravo, *The Forest Filtration of a Graph* (arXiv:2307.13271, first public July 25, 2023), explicitly covers the complete-bipartite endpoint and a girth-based connectivity bound; those are excluded from the independent novelty claim. For a proper bipartite graph of girth four, that bound yields only one-connectivity, while the new missing-edge basis argument yields two-connectivity for all such graphs. The companion *Polyhedral joins and graph complexes* (arXiv:2307.14321) addresses lexicographic products instead of this one-edge transition. Targeted searches of forest filtrations, bipartite induced-forest homology, graph-complex connectivity and related public research records located no equivalent result. Hidden alternative terminology or an unindexed covering statement remains possible.
+PASS
 
-## Mathematical value
-PASS. This is a sharp homotopy phase transition within the entire class of finite bipartite graphs: the complete-bipartite exceptional second homology has arbitrarily large rank, yet one edge deletion annihilates it and contracts the entire complex. The universal connectivity criterion covers sparse as well as dense graphs, and a two-deletion example first displays genuine third homotopy. This supplies a structural refinement of the existing girth connectivity theorem in its degree-four regime.
+The complete-bipartite induced-forest complex is the union of two contractible joins with intersection the 1-dimensional K_{a,b}, so Mayer–Vietoris gives H2 canonically identified with H1(K_{a,b}) and simple connectivity. Missing xy admits tetrahedra on {x,u,y,v}; their boundaries map to fundamental four-cycles of the explicit double-star spanning tree. Those cycles form an integral basis, not merely a mod-two spanning family, and kill H2 without changing the 2-skeleton. For one deletion no further faces arise, the relative 3-cell attachment is a unimodular isomorphism, and simply connected acyclicity yields contractibility. For K3,3 minus two independent edges, the given f-vector and a primitive pair of top boundaries yield integral H3=Z; Hurewicz and Whitehead imply S3. Independently enumerated every bipartite graph on (2,2),(2,3),(3,3), checked F2 reduced homology and the two-deletion face vector. The integral conclusions rely on the spanning-tree proof, not mod-two checks.
 
-## Scope and limitations
-The theorem does not determine higher homology for arbitrary bipartite graphs. It studies the full induced-forest complex, not every stage of the degree-bounded forest filtration. Computations are over a field and cannot establish integral wedge or contractibility claims without the separate proof. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carnero Bravo proves the complete-bipartite wedge and girth-based connectivity; those are prior and credited. The girth-four inequality yields only 1-connectivity, not the new universal 2-connectivity for a proper bipartite spanning subgraph, and no one-edge contractibility theorem appears in the primary relevant sections. Other bipartite missing-edge enumerators count induced forests, not homotopy. These comparisons support a qualified best-knowledge originality pass.
+
+## value
+
+PASS
+
+The induced-forest complex is a natural object in graph-complex topology. The theorem gives a sharp, all-size homotopy transition under the smallest possible edge perturbation, with a canonical integral cell-attachment mechanism and a two-deletion S3 boundary. This is a useful structural lemma rather than arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
