@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mutation-free birth–death process reduces, after cancelling a common reproduction normalization, to a finite Dirichlet system on nonempty proper mutant sets. Strong connectivity makes the absorption system nonsingular for positive mutant fitness. Exact symbolic elimination proves the displayed fixation-difference rational function for the witness graph; a strictly positive denominator and Descartes' rule give one crossing in \((3,4)\). Exhaustive isomorphism-reduced enumeration of all admissible graphs up to four vertices and six arcs establishes the precise minimum and uniqueness claims. The symbolic checker enumerates 113 nonidentically-zero pairwise comparisons, 112 with no positive shifted-numerator sign variation; the other is the stated pair. A separate standard-library rational solver checks the algebra at seven exact parameter values. The proof, rather than sampled checks, supplies the continuous-parameter conclusions.
+PASS
 
-## Originality — PASS, subject to stated historical risk
+The finite birth–death Moran Dirichlet equations on mutant subsets correctly sum rates r A_ij/outdeg(i) for mutant additions and A_ij/outdeg(i) for resident removals; strong connectivity ensures absorption and positive-denominator rational fixation. Source verify_symbolic.py enumerates all oriented loopless arc sets for n<=3 and n4 with <=6 arcs, tests both-way reachability, canonicalizes under all permutations, and solves the 2^n−2 linear equations over Q(r). Independent graph-orbit enumeration reproduced n4 strong-connected class counts by arcs 4:1, 5:4, 6:16; independent rational Dirichlet solution on exceptional graph yields ρ2(2)−ρ4(2)=−34255931/1147634834 and ρ2(4)−ρ4(4)=168843849728/21235908109693. The exact rational difference r³P(r)/D(r) with D all positive and P one sign variation and bracket 3<r*<4 proves one crossing. No unbounded n claim; full exhaustive symbolic script inspected, not an infinite-graph proof.
 
-The foundational directed replacement model in Lieberman–Hauert–Nowak (2005) treats average-location fixation and graph-level selection behavior. Broom–Rychtář–Stadler (2009, 2011) study individual insertion sites on undirected rather than directed graphs; their results do not imply a unique directed four-vertex rank switch. Zhang (2014) studies special directed examples, and Adlam–Nowak (2014) studies aggregate behavior of randomly structured digraphs. Keller–Uğurlu (2024) analyzes martingale conditions and a two-vertex family under a stationarity-based selection policy. None of the inspected material establishes, implies, or tables the six-arc crossing classification. This is novelty relative to the inspected evidence, not a guarantee that no earlier uncatalogued exact computation exists. An inaccessible or unlocated historical small-digraph table remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The initial site of a new advantageous mutation is a natural and consequential choice in structured populations. The result identifies the first possible reversal of relative site success as selective fitness changes, within an exact and explicitly delimited graph class. It provides a complete sharp minimum and uniqueness theorem, not an arbitrary isolated numerical instance. The direction and threshold of reversal are certified by exact formulas, offering a benchmark against heuristics based only on site centrality or neutral drift. It does not imply any conclusion for larger weighted graphs or for empirical evolution.
+Foundational Lieberman–Hauert–Nowak directed birth–death evolutionary dynamics and Broom et al positional fixation on undirected small graphs do not give a complete strongly-connected directed four-site six-arc classification of fitness-induced *relative introduction-site ranking* reversals. Related Resultary work concerns edge-addition effects or position dependence under other update policies; no exact previously published crossing polynomial or six-arc uniqueness was located.
 
-## Closest literature and limitations
+## value
 
-See the six full citations in `RESULT.md`. In particular, the 2011 study's full text explicitly restricts its structural model to connected undirected graphs and gives approximate general-fitness vertex comparisons, not an exact directed census. The 2024 microscopic model allows directed matrices but selects using the stationary distribution, which is generally not uniform across vertices. The theorem is restricted to strongly connected loopless directed graphs with uniform weights on the arcs leaving each vertex, homogeneous fitness, and birth–death updating. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It is scientifically useful to identify the smallest topology where increasing the same mutant fitness reverses the ranking of two introduction sites, while rigorously distinguishing fixed source-site comparison from graph modification or average fixation. The sharp 4-vertex/6-arc finite cutoff and exact algebraic crossover constitute a natural complete small-graph classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
