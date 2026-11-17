@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the **squared** Hilbert–Schmidt localization norm with the unit-
-\(L^2\) Gaussian and physical phase-space area \(A\). The exact Gaussian interaction identity is taken from Nicola–Riccardi (3.5), not inferred from a finite calculation. Squared-radius coordinates give exactly preserved area for zero-mean profiles. A two-upper-limit Taylor expansion identifies both terms of the quadratic coefficient. The cross-boundary term is a circular convolution with coefficients \(I_n(2A)\); a divergence-theorem computation fixes the self-boundary term at \(-I_1(2A)\). Their difference vanishes at degree one and is strictly negative at every higher degree. The Bessel ratio Riccati identity proves strict mode ordering without relying on a finite cut-off. Small- and large-area expansions use standard Bessel series and asymptotics. Independent quadrature of the original fourfold integral agrees with the predicted coefficient for twelve area/mode pairs. The checker cannot certify universal statements by itself; the analytical argument does.
+PASS
 
-## Originality — PASS, provisional
+The known Gaussian localization identity makes H(Ω)=double integral over Ω of exp(-pi|z-w|^2). Converting to squared-radius coordinates yields smooth upper-limit integrals. Expanding the two radial upper limits yields cross-boundary Gaussian circle convolution e^-2A I_|n|(2A), and self-boundary term -e^-2A I1(2A) after radial differentiation of the disk potential via divergence theorem. The n=0 constraint is removed by exact area conservation; n=1 cancels as translations. Bessel ratio derivative r_k′=1-(2k+1)r_k/x-r_k^2 plus r_k<1 initially proves strict I_{k+1}<I_k for k>=1; n=2 thus uniquely minimizes positive curvature. Standard Bessel asymptotics yield c(A)=A+O(A^2), c(A)~3/(8 sqrt(pi) A^(3/2)). Independent quadrature of the double Gaussian boundary energy for two areas and four angular modes confirms expansion, but each fixed u has only pointwise o(epsilon^2) remainder; not a uniform global stability proof.
 
-The focal Nicola–Riccardi work proves global extremality and a non-sharp-in-area quantitative deficit, as well as qualitative exponent sharpness. It states the Gaussian interaction formula but does not resolve the area-constrained angular Hessian in its complete Fourier spectrum. Gómez–Guerra–Ramos–Tilli calculate quantitative stability for the operator-norm concentration problem; that functional is not the Hilbert–Schmidt energy. Acerbi–Fusco–Morini derive general second-variation theory in a Green-function-plus-perimeter setting, which offers a methodological analogue but no Gaussian Bessel coefficient. Knüpfer–Shi study nonlocal perimeter asymptotics rather than the fixed-scale Gaussian disk Hessian. Searches for the Gaussian disk's exact \(I_1(2A)-I_n(2A)\) coefficients and stronger equivalent variants did not identify prior coverage; this is not a proof of global novelty. The remaining risk is that a broader radial-kernel shape-calculus theorem may implicitly entail the formula after special-function evaluation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The known qualitative assertion that the disk optimizes the Hilbert–Schmidt functional gives no cost for individual angular errors. The explicit result resolves the full local Hessian, identifies the translation kernel, proves a strict all-degree hierarchy, and supplies the sharp least-cost deformation and its coefficient for every aperture area. These quantities directly specify how sensitive the established localization optimum is to elliptical versus higher-mode geometric errors. The \(A\to0\) and \(A\to\infty\) coefficient laws expose different sensitivity scales. This is a natural quantitative invariant of an established optimization problem, rather than a change of notation or an arbitrary parameter slice.
+Nicola–Riccardi prove global disk maximality and quantitative HS deficit, but the inspected primary text does not exhibit this complete angular Fourier–Bessel disk Hessian and exact least-mode coefficient. Prior Resultary shape-Hessian works concern optimized top eigenvalues and Ky Fan sums, not squared HS norm; same location geometry is not same functional.
 
-## Limits and priority risks
+## value
 
-The theorem is about one-signal-coordinate Gaussian localization, smooth deformations of a disk, and pointwise small-deformation remainders. It does not establish global optimal constants or make claims about other Schatten norms. The substantial literature on radial-kernel second variations can contain unrecognized equivalent specializations. Human or independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact spectral curvature resolves local stability anisotropy of a widely studied localization functional, identifies the least expensive ellipse-like deformation and gives sharp aperture scaling. It refines existing global rearrangement bounds with a natural mode-resolved invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
