@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The conditional residual mean is zero, yielding an exact cross-moment identity and a closed two-by-two second-moment recursion after the first update. Exact symbolic expansion produces the three Schur–Jury expressions. Their signs prove the sufficient regime. In the excluded regime, positivity of the moment matrix and the first-step moment vector, together with Perron–Frobenius, proves failure of decay from the specified initialization, not just from an unspecified initial state. The deterministic \(p=1\) boundary and the memoryless reference are treated separately. The executable verifier replays symbolic identities and finite-prefix rational checks; only the analytic proof establishes the infinite-time result.
+## correctness
 
-## Originality
-**PASS with residual precedence risk.** The 2020 Horváth–Richtárik analysis directly motivates comparing error feedback with unbiased compression; that qualitative comparison is prior art. The 2025 and 2026 tight-analysis papers address optimized worst-case Lyapunov guarantees for contractive compressors, not the exact all-stepsize characterization of this specific amplified Bernoulli compressor, notably the region where its squared relative compression error is at least one. The closest published Bernoulli error-feedback classification is for the distinct biased, unamplified operator and has a different threshold. Targeted record and literature searches found no earlier explicit statement of the half-retention impossibility frontier, but an earlier specialist equivalence remains possible.
+PASS
 
-## Value
-**PASS.** The result exactly separates the safe and unsafe regions of a canonical, practically motivated unbiased dropout operator under classical residual compensation. The half-retention threshold means that below a concrete compression density, *no fixed learning rate* rescues mean-square convergence, whereas removing the memory restores a nontrivial stable range. This is an exact algorithm-design boundary with a natural uncompressed comparator, rather than an arbitrary numeric example or merely a check that a known sufficient bound fails.
+From independent Bernoulli state matrices and conditional E[e_new|history]=0, c_k=E[x_ke_k]=E[e_k^2] for k>=1. Reconstructed the exact 2x2 covariance recursion N with entries 1-2h+h^2/p, (1+2h)/p-2, (1-p)h^2/p, (1-p)(1+2h)/p; verified determinant (1-p)(1-2h^2)/p, trace and three Jury expressions. The only binding Jury inequality is h[4p-2-(3-2p)h]/p>0. When it fails for 0<p<1, N has strictly positive entries in the excluded region and a positive nonzero residual-free first-step moment vector; Perron-Frobenius prevents x mean square from vanishing. p=1 reduces to deterministic gradient descent, 0<h<2. Memoryless baseline has multiplier 1-2h+h^2/p, stability 0<h<2p. Endpoints included as non-convergent, not inferred from finite tests.
 
-## Limitations
-The claim covers a scalar homogeneous quadratic with exact gradients, independent identically distributed compressor calls and fixed stepsize. It does not establish instability for every compressor or other error-feedback algorithm. Independent validation and a comprehensive scholarly precedence review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No retrieved earlier theorem for the all-probability fixed-step unbiased 1/p-amplified Bernoulli EF frontier; an earlier exact Bernoulli EF study treats the distinct biased unscaled compressor with a renewal/residual-reset law, which cannot be transferred by renormalizing h. General unbiased-compression comparisons and Lyapunov rates do not yield this precise simultaneous half-retention obstruction. Best-of-knowledge PASS, not priority certification.
+
+## value
+
+PASS
+
+The exact p=1/2 stability wall is a motivated qualitative failure of classical error feedback relative to no-memory compression with exactly the same unbiased compressor, with an explicit sharp all-p step-size diagram. The result is a structural counterexample to an intuitive advantage of feedback; it is neither a tiny numerical gain nor a formal parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

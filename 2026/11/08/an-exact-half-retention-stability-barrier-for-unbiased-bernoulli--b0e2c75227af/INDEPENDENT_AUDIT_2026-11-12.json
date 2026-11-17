@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:39:56.710472Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From independent Bernoulli state matrices and conditional E[e_new|history]=0, c_k=E[x_ke_k]=E[e_k^2] for k>=1. Reconstructed the exact 2x2 covariance recursion N with entries 1-2h+h^2/p, (1+2h)/p-2, (1-p)h^2/p, (1-p)(1+2h)/p; verified determinant (1-p)(1-2h^2)/p, trace and three Jury expressions. The only binding Jury inequality is h[4p-2-(3-2p)h]/p>0. When it fails for 0<p<1, N has strictly positive entries in the excluded region and a positive nonzero residual-free first-step moment vector; Perron-Frobenius prevents x mean square from vanishing. p=1 reduces to deterministic gradient descent, 0<h<2. Memoryless baseline has multiplier 1-2h+h^2/p, stability 0<h<2p. Endpoints included as non-convergent, not inferred from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horvath-Richtarik Algorithm 2 treats unbiased compressor residuals, but no exact sharp scalar Bernoulli retention phase; tight later analyses optimize Lyapunov rates in broader classes without this stated fixed-operator all-step p threshold."
+        ],
+        "reasoning": "Broader convergence analyses are not automatically a sharp particular-compressor exact frontier; reviewed statements do not imply the one-half impossibility boundary.",
+        "searches": [
+          "Resultary: unbiased Bernoulli sparsification error feedback scalar quadratic mean square stability retention probability half threshold phase diagram Schur",
+          "https://arxiv.org/abs/2006.11077",
+          "https://arxiv.org/abs/2506.05271",
+          "https://arxiv.org/abs/2605.31594"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-half-retention-stability-barrier-for-unbiased-bernoulli--b0e2c75227af",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+        "https://arxiv.org/abs/2006.11077",
+        "https://arxiv.org/abs/2506.05271"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current p<=1/2 all-h instability is not implied by prior biased result, which has stable h for every positive p."
+        ],
+        "reasoning": "The same compressor qualification changes the premise; prior theorems neither imply nor refute the present mean-square Schur calculation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+          "https://arxiv.org/abs/2006.11077"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier biased Bernoulli update C(z)=xi z has residual zero after successful transmission; current unbiased C(z)=xi z/p leaves (1-1/p)u and a nonzero residual."
+        ],
+        "reasoning": "Scalar update laws are inequivalent for p<1. A step-size substitution cannot make the residual dynamics or stationary mean-square operator match.",
+        "searches": [
+          "Resultary: unbiased Bernoulli sparsification error feedback scalar quadratic mean square stability retention probability half threshold phase diagram Schur",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact threshold is 2p/(2-p) for unscaled biased compression versus (4p-2)/(3-2p) for 1/p-amplified unbiased compression."
+        ],
+        "reasoning": "A matched-parameter exact table was sought; the superficially closest published exact table belongs to a different dynamics, not a lookup for this invariant.",
+        "searches": [
+          "Resultary: unbiased Bernoulli sparsification error feedback scalar quadratic mean square stability retention probability half threshold phase diagram Schur",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e"
+        ]
+      },
+      "rationale": "No retrieved earlier theorem for the all-probability fixed-step unbiased 1/p-amplified Bernoulli EF frontier; an earlier exact Bernoulli EF study treats the distinct biased unscaled compressor with a renewal/residual-reset law, which cannot be transferred by renormalizing h. General unbiased-compression comparisons and Lyapunov rates do not yield this precise simultaneous half-retention obstruction. Best-of-knowledge PASS, not priority certification.",
+      "residual_risks": [
+        "Other specialized scalar stochastic-switching Lyapunov analyses might contain an equivalent exact result; inspected main theoretical statements do not exhaust all appendices.",
+        "No universal high-dimensional or adaptive-step conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The earlier compressor is C_p(z)=xi z without 1/p scaling, and successful messages reset residual; its 2p/(2-p) theorem does not imply the unbiased case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+          "material_read": "Full RESULT.md including Bernoulli update, geometric renewal proof, threshold and scope",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Sharp mean-square stability loss for Bernoulli error-feedback sparsification",
+          "trigger": "exact older Bernoulli EF stability bound"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Algorithm structure and qualitative downside of EF are prior; no all-p scalar Bernoulli exact fixed-step frontier read.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.11077",
+          "material_read": "Accessible primary ar5iv HTML, discussion and algorithm/convergence comparison",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "A Better Alternative to Error Feedback for Communication-Efficient Distributed Learning",
+          "trigger": "same classical residual mechanism with unbiased compressors"
+        },
+        {
+          "assessment": "RISK_REMAINS",
+          "evidence": "Optimized worst-case compressor bounds need not equal sharp iid Bernoulli moment matrix; no proof of priority from incomplete appendix search.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.05271",
+          "material_read": "Published main theoretical statements and scope as compared against source; not every appendix independently read",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Tight analyses of first-order methods with error feedback",
+          "trigger": "tight rates potentially dominate scalar result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact p=1/2 stability wall is a motivated qualitative failure of classical error feedback relative to no-memory compression with exactly the same unbiased compressor, with an explicit sharp all-p step-size diagram. The result is a structural counterexample to an intuitive advantage of feedback; it is neither a tiny numerical gain nor a formal parameter renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-half-retention-stability-barrier-for-unbiased-bernoulli--b0e2c75227af",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+    "https://arxiv.org/abs/2006.11077",
+    "https://arxiv.org/abs/2506.05271"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scalar exact quadratic, iid independent unbiased Bernoulli 1/p scaling; no multidimensional/noisy case."
+  ],
+  "residual_risks": [
+    "Other specialized scalar stochastic-switching Lyapunov analyses might contain an equivalent exact result; inspected main theoretical statements do not exhaust all appendices.",
+    "No universal high-dimensional or adaptive-step conclusion."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "evidence": "The earlier compressor is C_p(z)=xi z without 1/p scaling, and successful messages reset residual; its 2p/(2-p) theorem does not imply the unbiased case.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+      "material_read": "Full RESULT.md including Bernoulli update, geometric renewal proof, threshold and scope",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Sharp mean-square stability loss for Bernoulli error-feedback sparsification",
+      "trigger": "exact older Bernoulli EF stability bound"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "evidence": "Algorithm structure and qualitative downside of EF are prior; no all-p scalar Bernoulli exact fixed-step frontier read.",
+      "identifier_or_url": "https://arxiv.org/abs/2006.11077",
+      "material_read": "Accessible primary ar5iv HTML, discussion and algorithm/convergence comparison",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "A Better Alternative to Error Feedback for Communication-Efficient Distributed Learning",
+      "trigger": "same classical residual mechanism with unbiased compressors"
+    },
+    {
+      "assessment": "RISK_REMAINS",
+      "evidence": "Optimized worst-case compressor bounds need not equal sharp iid Bernoulli moment matrix; no proof of priority from incomplete appendix search.",
+      "identifier_or_url": "https://arxiv.org/abs/2506.05271",
+      "material_read": "Published main theoretical statements and scope as compared against source; not every appendix independently read",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Tight analyses of first-order methods with error feedback",
+      "trigger": "tight rates potentially dominate scalar result"
+    }
+  ]
+}
