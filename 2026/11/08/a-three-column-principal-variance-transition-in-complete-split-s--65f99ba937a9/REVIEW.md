@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object and edge-coordinate normalization are explicit for every integer \(p,q\ge2\). The proof reconstructs covariance using the weighted matrix-tree polynomial, then verifies exact block covariance entries using the split-graph Laplacian pseudoinverse. The clique and independent-set symmetry decomposition supplies all eigenvalues and dimensions; the exceptional \(p=2\) case is handled independently. The determinant identity \(\det(B-TI)=q(p-2)(q-3)/(p^2(p+q)^3)\) proves the threshold for the full infinite domain. Exact rational tree enumeration checks 1,565 covariance entries in nine small parameter profiles and 64 spectral trace profiles. Risks: an unnoticed algebraic error beyond the tested range is possible, though the proof exposes all necessary identities; external independent proof checking has not occurred.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For every p,q>=2, C_ef=δ_ef K_ee-K_ef² follows from differentiating the weighted tree determinant. The pseudoinverse of the Laplacian of K_p vee independent K_q has three vertex-contrast eigenspaces, giving explicit clique-edge and cross-edge current blocks. Orthogonal edge-space decomposition by clique/independent permutation symmetries produces the listed Q,T,V,Y and B± eigenvalue classes with multiplicities adding to |E|; p=2 is separately handled. Exact inequalities show smallest positive Q and det(B-TI)=q(p-2)(q-3)/(p²(p+q)³), with B22-T<0; consequently the top eigenspace switches B+ (q=2), B+=T (q=3), T (q>=4) for EVERY p>=3. Independent direct Laplacian-pseudoinverse covariance diagonalization matched the claimed complete spectrum at (2,2),(2,3),(2,5),(3,2),(3,3),(3,4),(4,2),(5,6), while bundled exact rational small-tree enumeration provides independent entry checks. No spectral conclusion is inferred solely from matching two finite traces.
 
-Actual literature and published-result searches compared variants under spanning-tree covariance, transfer currents, complete multipartite fixed-forest counting, spanning-tree polytope spectra, and principal-component transitions. The closest primary sources give general tree-polytope constructions, generic moment computation, and strong forest-containment formulas. Those statements imply access to pair moments but do not state or directly imply the complete special-family spectrum and the \(q=3\) extremal-eigenspace reversal without substantial diagonalization. The full text of a 2023 particularly relevant fixed-forest counting paper was inaccessible, so unexamined implicit coverage remains a risk. No historical-priority certification or independent novelty review is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem classifies a metric second-moment invariant of a standard infinite two-parameter graphic-matroid base-polytope family, identifies all principal-component multiplicities, and gives a sharp, clique-size-independent spectral transition with exact condition numbers. The full spectrum is not a mere renaming of the general transfer-current covariance identity; distinguishing the two competing largest representations requires a nontrivial all-parameter diagonalization and exact sign comparison. This is useful as a geometric benchmark for anisotropy of vertex distributions in graph polytopes. It does not claim algorithms or results for arbitrary graphs.
+Transfer-current/determinantal formulas and stronger arbitrary complete-multipartite fixed-forest containment results already give entries of the edge covariance, and originality is NOT claimed for these marginals. Those results do not directly diagonalize the complete-split graph covariance nor prove a universal p-independent q=3 change of principal eigenspace. Closest Resultary balanced multipartite spectral result is a different graph family with no clique edges. The full 2023 Li–Chen–Yan article was unavailable; report as risk, not a wholesale NOT_COVERING determination.
 
-## Closest literature and limits
+## value
 
-Aprile–Fiorini–Huynh–Joret–Wood (2021), arXiv:2106.11945, establishes spanning-tree-polytope context; Zmigrod–Vieira–Cotterell (2021) treats expectation computation for spanning-tree distributions; Li–Chen–Yan (2023), DOI:10.1002/jgt.22954, covers complete multipartite fixed-forest containment but its full text was unavailable; Wang–Ge (2026), arXiv:2602.03602, gives a general fixed-forest formula, inspected through its principal theorem. Neither inspected full-text claim exhibits this covariance spectrum or its sharp principal-mode switch. The affine Euclidean edge metric and uniform distinct-tree measure are essential.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete edge-coordinate covariance spectrum and exact multiplicities of a canonical two-parameter graphic-matroid base-polytope vertex measure are a natural intrinsic anisotropy benchmark. Its universal three-independent-vertex principal-axis transition and exact condition number are not a restatement of generic determinant probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

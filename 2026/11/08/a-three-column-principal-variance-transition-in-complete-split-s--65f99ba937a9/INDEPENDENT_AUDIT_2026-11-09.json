@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T21:56:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob ca9ca91cbf8ce90e3e5013bbb97fa3415e526527, full transfer-current and representation proof",
+        "Frozen artifacts/verify.py blob bfdf3adfde4c3da0f75bb9320fea0c4ae2e728e5, full rational tree enumeration and trace tests",
+        "Independent direct numpy spectral comparison over eight (p,q) profiles"
+      ],
+      "rationale": "For every p,q>=2, C_ef=δ_ef K_ee-K_ef² follows from differentiating the weighted tree determinant. The pseudoinverse of the Laplacian of K_p vee independent K_q has three vertex-contrast eigenspaces, giving explicit clique-edge and cross-edge current blocks. Orthogonal edge-space decomposition by clique/independent permutation symmetries produces the listed Q,T,V,Y and B± eigenvalue classes with multiplicities adding to |E|; p=2 is separately handled. Exact inequalities show smallest positive Q and det(B-TI)=q(p-2)(q-3)/(p²(p+q)³), with B22-T<0; consequently the top eigenspace switches B+ (q=2), B+=T (q=3), T (q>=4) for EVERY p>=3. Independent direct Laplacian-pseudoinverse covariance diagonalization matched the claimed complete spectrum at (2,2),(2,3),(2,5),(3,2),(3,3),(3,4),(4,2),(5,6), while bundled exact rational small-tree enumeration provides independent entry checks. No spectral conclusion is inferred solely from matching two finite traces.",
+      "residual_risks": [
+        "The spectrum and condition number are for uniform random spanning trees, NOT uniform interior-volume points of the spanning-tree polytope.",
+        "Unweighted complete-split graph and ambient standard edge metric essential; other graph classes not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Ge general forest counts can specialize to singleton marked edges and two-edge forests; these are known moments.",
+          "Balanced multipartite spectral paper assumes all part sizes n>=2, k>=3 and has no intra-clique edges; cannot specialize to singleton clique parts plus an independent q-set."
+        ],
+        "reasoning": "More general low-order inclusion formulas do not state a spectral ordering after edge-space decomposition; balanced multipartite spectrum is not a covering parameter specialization.",
+        "searches": [
+          "Wang Ge arXiv:2602.03602 arbitrary complete multipartite forest-containment theorem",
+          "Li Chen Yan DOI:10.1002/jgt.22954 tripartite/quadripartite forest counts",
+          "Resultary full published RESULT: Five strictly ordered covariance modes of balanced multipartite spanning-tree polytopes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.03602 (Wang–Ge 2026)",
+        "DOI:10.1002/jgt.22954 (Li–Chen–Yan 2023)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-strictly-ordered-covariance-modes-of-balanced-multipartite--c91128a9045c",
+        "https://aclanthology.org/2021.tacl-1.41/ (Zmigrod–Vieira–Cotterell 2021)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical transfer-current yields C_ef directly, so raw probabilities and covariance entries are not independent discoveries.",
+          "The submitted 2-by-2 B block, its p-1-fold multiplicity and determinant q(p-2)(q-3)/(p²n³) require an extra orthogonal representation calculation absent from compared statements."
+        ],
+        "reasoning": "The strongest inspected prior result enables but does not immediately imply the principal-axis transition without substantive new all-parameter diagonalization.",
+        "searches": [
+          "Lyons 2003 determinantal spanning-tree transfer current",
+          "Li Chen Yan 2023 published abstract and Wiley full-view page",
+          "Wang Ge arXiv:2602.03602 main theorem",
+          "Resultary 2026-11-08 balanced multipartite full RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph K_p vee independent K_q is the complete multipartite graph with p singleton parts and one q-vertex part.",
+          "Weighted matrix-tree theorem determines every pair covariance via transfer currents, from which a nontrivial symmetry decomposition can recover its spectrum."
+        ],
+        "reasoning": "Exact pair-covariance and forest-count formulas are mathematically equivalent inputs, but not published as the full uniform-edge-metric spectrum and q=3 extremal representation transition.",
+        "searches": [
+          "Resultary semantic: complete split Kp joined Kq independent uniform spanning tree covariance spectral q=3",
+          "Transfer current graph spanning-tree pair inclusion probabilities",
+          "Complete multipartite graph K_{1,...,1,q} containment vs split graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact q=3 spectral crossover hit identified was the submitted result; balanced multipartite spectra use other graph parameters.",
+          "No accessible published complete-split covariance eigenvalue table with the same multiplicities was identified."
+        ],
+        "reasoning": "A forest-count database can reconstruct entries but the complete spectral table remains a distinct computed invariant in the inspected literature; missing 2023 full paper is explicitly at risk.",
+        "searches": [
+          "Resultary published semantic search complete split graph spanning tree edge covariance full spectrum",
+          "Resultary semantic search complete multipartite spectral principal variance q=3",
+          "Wang Ge 2026 fixed forest counts"
+        ]
+      },
+      "rationale": "Transfer-current/determinantal formulas and stronger arbitrary complete-multipartite fixed-forest containment results already give entries of the edge covariance, and originality is NOT claimed for these marginals. Those results do not directly diagonalize the complete-split graph covariance nor prove a universal p-independent q=3 change of principal eigenspace. Closest Resultary balanced multipartite spectral result is a different graph family with no clique edges. The full 2023 Li–Chen–Yan article was unavailable; report as risk, not a wholesale NOT_COVERING determination.",
+      "residual_risks": [
+        "The 2023 Li–Chen–Yan full paper inaccessible via available OA or Oxford (VPN disconnected); cannot exclude an implicit spectral formula without full text.",
+        "A representation-theoretic specialization of an uninspected general transfer-current decomposition might cover the same spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides pair moments in principle, not full spectral theorem",
+          "evidence": "A complete-split graph is p singleton parts plus a q-vertex part, but a fixed-forest count does not state the spectral eigenvalue crossing.",
+          "identifier_or_url": "arXiv:2602.03602 (Wang–Ge 2026)",
+          "material_read": "Relevant arXiv primary main theorem and setup",
+          "method": "primary source theorem inspection",
+          "title": "On enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+          "trigger": "General forest containment includes split graphs as multipartite instance"
+        },
+        {
+          "assessment": "Unresolved exact-text comparison; no whole-paper not-covering claim",
+          "evidence": "Abstract advertises closed formulas for tripartite and quadripartite cases, not an eigen-decomposition; Oxford vpn_disconnected job c94025c235abe28de9f57283d25cee89.",
+          "identifier_or_url": "DOI:10.1002/jgt.22954 (Li–Chen–Yan 2023)",
+          "material_read": "Full public Wiley page with abstract, references, publication metadata; actual full PDF not obtained",
+          "method": "primary publisher abstract/metadata and Oxford institutional attempt",
+          "title": "Enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+          "trigger": "Strong forest containment for complete multipartite graphs"
+        },
+        {
+          "assessment": "Distinct family; no direct specialization",
+          "evidence": "All k parts require equal n>=2; the current split graph has p singleton parts and one q-sized independent class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-strictly-ordered-covariance-modes-of-balanced-multipartite--c91128a9045c",
+          "material_read": "Entire published RESULT.md, theorem and proof of five modes for balanced multipartite",
+          "method": "direct published full-result inspection",
+          "title": "Five strictly ordered covariance modes of balanced multipartite spanning-tree polytopes",
+          "trigger": "Closely related covariance spectral problem"
+        },
+        {
+          "assessment": "Computation background not spectral classification",
+          "evidence": "Methods for arbitrary tree moments do not state B block or q=3 eigenspace transition.",
+          "identifier_or_url": "https://aclanthology.org/2021.tacl-1.41/ (Zmigrod–Vieira–Cotterell 2021)",
+          "material_read": "Primary relevant general expectation statements",
+          "method": "primary-paper relevant claims",
+          "title": "Efficient Computation of Expectations under Spanning Tree Distributions",
+          "trigger": "Generic spanning-tree expectation method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob ca9ca91cbf8ce90e3e5013bbb97fa3415e526527, full transfer-current and representation proof",
+        "Frozen artifacts/verify.py blob bfdf3adfde4c3da0f75bb9320fea0c4ae2e728e5, full rational tree enumeration and trace tests",
+        "arXiv:2602.03602 (Wang–Ge 2026)",
+        "DOI:10.1002/jgt.22954 (Li–Chen–Yan 2023)"
+      ],
+      "rationale": "The complete edge-coordinate covariance spectrum and exact multiplicities of a canonical two-parameter graphic-matroid base-polytope vertex measure are a natural intrinsic anisotropy benchmark. Its universal three-independent-vertex principal-axis transition and exact condition number are not a restatement of generic determinant probabilities.",
+      "residual_risks": [
+        "Moment formulas are known and not counted as independently valuable; significance rests on exact spectrum and q=3 structural crossing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge historical-priority assessment, with explicitly specified inaccessible primary sources; no external certification.",
+    "Every assigned Git source-tree SHA was fetched and verified against the frozen source snapshot, and substantive RESULT.md and verification scripts were read.",
+    "Individual finite computations corroborate but do not prove unbounded claims.",
+    "No GitHub writes, dispatcher closeout or publication performed; metadata privacy prevents ready import."
+  ],
+  "schema_version": 1
+}
