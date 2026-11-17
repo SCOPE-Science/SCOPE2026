@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Equation (1) is reconstructed by finite-character orthogonality and a complete seven-element unordered-pair collision check. Equation (2) is an algebraic identity with individually nonnegative terms; its expansion and exact rational tests agree, and its equality conditions force precisely fourteen projective phase patterns. The package's own checker was extracted and run with the recorded success marker. The proof applies to all complex vectors on the stated seven-point curve, not merely samples.
+## correctness
 
-## Originality
-**PASS under bounded comparison.** The original finite-field restriction framework is acknowledged. Published work on this same quartic graph derives total additive energy and solves a multiplicatively invariant **subspace** optimization, not the unrestricted result here. Published difference-set Fourier extension yields the \(5/2\) bound on each separate four-point arm, and is explicitly treated as prior work; that theorem alone does not upper-bound the union. The present nonnegative mixed-arm penalty excludes simultaneous occupancy and determines the complete full-curve maximizers. Searches for a full-graph equivalent under quartic extension, additive energy, cyclic difference-set union, and \(\Lambda(4)\) terminology found no covering statement in the inspected materials. General unpublished or obscure union-of-design bounds remain a priority risk.
+PASS
 
-## Mathematical value
-**PASS.** A first exact unrestricted case resolves a concrete gap left by two preceding exact statements for the same algebraic curve, and shows a meaningful localization phenomenon: the global seven-point Fourier inequality is sharp only on a four-point additive-design arm. The full coefficient inequality and its rigid fourteen-point extremizer list are not consequences of the already known constant-input energy or the subspace norm; a positive mixed-arm deficit explains why the extra three available curve points never help. This is a natural complete finite-field boundary case, not an arbitrary numerical slice.
+Over F7, direct unordered two-sum fiber calculation yields exactly six collisions {0,t}<->{4t,4t}. Orthogonality gives E=2S²-sum|f|⁴+4 Re sum f(0)f(t) conjugate(f(4t)²). Expanding the stated SOS deficit gives nonnegative 2/3 B_H B_-H plus magnitude and phase defects. Vanishing forces one orbit H or -H, equal magnitudes and a 7-cycle phase recurrence, producing precisely 2*7=14 projective optimizers and fourth-power norm 5/2. Independent F7 pair fiber exhaustion, 100 distinct random Gaussian-integer identity checks, all fourteen phase examples performed; the all-complex proof is the analytic SOS.
 
-## Limitations
-The sharp theorem is specific to \(\mathbb F_7\), uses normalized output counting measure, and does not settle the unrestricted quartic extension problem over general finite fields. A broader general theorem could imply the displayed identity. No independent mathematical assessment is available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published finite abelian (7,4,2)-difference-set theorem gives the sharp 5/2 constant on each four-point arm separately, not a union inequality. Prior exact additive energy and character-invariant low-dimensional norm do not bound arbitrary seven complex coefficients. New strict mixed-arm defect and all fourteen global extremizers survive comparison with full prior difference-set RESULT.md and same-day two-sum histogram.
+
+## value
+
+PASS
+
+This gives a natural sharp unrestricted Fourier restriction endpoint on the full F7 quartic curve; a mixed-arm energy penalty reveals a non-obvious localization rather than simply recomputing a 4-point constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

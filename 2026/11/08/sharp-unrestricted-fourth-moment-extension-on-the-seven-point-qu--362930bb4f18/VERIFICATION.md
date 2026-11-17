@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 artifacts/verify.py` from the extracted package root. The script uses only Python's standard library. The observed output was:
+## correctness
 
-`QUARTIC_SEVEN_SHARP_PASS exact_integer_and_rational_tests=1000 projective_extremizers=14 pair_fibers=22`
+PASS
 
-The script exhausts all 28 unordered pairs in the seven-point curve, verifies all six secondary collision fibers, exactly checks the real-amplitude deficit decomposition on 1000 rational vectors, checks the fourth-moment identity on 1000 Gaussian-integer input vectors, and directly evaluates fourteen Fourier-phase optimizers. Randomized finite checks are corroborative only; the all-complex coefficient proof is Equation (2) of RESULT.md.
+Over F7, direct unordered two-sum fiber calculation yields exactly six collisions {0,t}<->{4t,4t}. Orthogonality gives E=2S²-sum|f|⁴+4 Re sum f(0)f(t) conjugate(f(4t)²). Expanding the stated SOS deficit gives nonnegative 2/3 B_H B_-H plus magnitude and phase defects. Vanishing forces one orbit H or -H, equal magnitudes and a 7-cycle phase recurrence, producing precisely 2*7=14 projective optimizers and fourth-power norm 5/2. Independent F7 pair fiber exhaustion, 100 distinct random Gaussian-integer identity checks, all fourteen phase examples performed; the all-complex proof is the analytic SOS.
 
-The only mathematical limitations are the seven-element field hypothesis and the absence of a theorem for other field orders. Historical priority is bounded to inspected literature; independent assessment has not been performed.
+## originality
+
+PASS
+
+Published finite abelian (7,4,2)-difference-set theorem gives the sharp 5/2 constant on each four-point arm separately, not a union inequality. Prior exact additive energy and character-invariant low-dimensional norm do not bound arbitrary seven complex coefficients. New strict mixed-arm defect and all fourteen global extremizers survive comparison with full prior difference-set RESULT.md and same-day two-sum histogram.
+
+## value
+
+PASS
+
+This gives a natural sharp unrestricted Fourier restriction endpoint on the full F7 quartic curve; a mixed-arm energy penalty reveals a non-obvious localization rather than simply recomputing a 4-point constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
