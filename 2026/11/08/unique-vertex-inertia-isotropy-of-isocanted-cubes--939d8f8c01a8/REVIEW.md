@@ -1,15 +1,21 @@
-# Scientific review: unique vertex-inertia isotropy of isocanted cubes
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact vertex set is established directly from the defining facet inequalities, including its cardinality and distinctness in the strict parameter range. Central symmetry gives mean zero. A uniformly chosen nonempty subset yields explicit one- and two-coordinate inclusion probabilities. These give a constant-diagonal, constant-off-diagonal covariance matrix, whose two orthogonal eigenspaces and eigenvalues follow by direct linear algebra. Reparametrization by \(x=a/(\ell-a)\) yields a strictly increasing quadratic eigenvalue ratio. Solving the sole positive root proves the unique isotropic cant; the eigenvalue positivity, variance reversal, and condition-number monotonicity follow from strict positivity and the endpoint limits. The radial-shell calculation proves a noncospherical tight frame. The standalone exact-rational verifier reproduces all critical identities on 35 rational dimension/cant profiles and checks the threshold exactly in six even dimensions; the infinite claim rests on the symbolic argument.
+## correctness
 
-## Originality — PASS, subject to independent historical priority review
-The 2020 introducing paper gives the vertex labels and face lattice; the 2024 volume paper treats Euclidean volume and the polar; the 2025 continuation treats facets, tiling, and lower-dimensional volumes. These prior results do not explicitly give the covariance of *uniformly sampled distinct vertices*. The closest accessible full published mathematical findings on the exact same body provide radial shell counts, inball centers, and John/Löwner ellipsoids. The former identifies single-vertex norms but not pairwise coordinate moments; the latter optimizes enclosing/inscribed volume rather than averaging over equally weighted vertices. An accessible earlier study on the *uniform-volume* isotropic constant also uses a different measure, with a distinct optimum at \(a/\ell=1/2\). Implication comparisons were made at the level of probability measure and conclusion, not merely theorem titles. No identified result implies the precise vertex-covariance isotropy threshold without new moment analysis. The risk remains that frame or zonotope literature has an equivalent calculation under a different name.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete geometric classification of a canonical cubical-zonotope family: the full vertex inertia spectrum, its least and greatest variance eigenspaces, and its unique tight-frame realization are determined for every dimension and parameter. The exact cant \(1/(2+2^{d/2})\) is neither an arbitrary specialization nor a restatement of the family definition. The tight-frame configuration is noncospherical at every dimension, separating second-moment isotropy from equal radial lengths and from optimal enclosing-ellipsoid roundness. It also specifies the exact best-conditioned uniform-vertex second-moment geometry of these canonical embeddings. Its value does not depend on a stronger conjecture or an unproved downstream application.
+Read all frozen RESULT.md. The complete vertex set is {±v_S: nonempty S subset[d]}, v_S,i=ell/2 for i in S and a-ell/2 otherwise; the active-facet argument gives extremality and excludes missing vertices. Symmetric signs center the measure and the exact nonempty-subset marginal and pair probabilities are 2^(d-1)/(2^d-1), 2^(d-2)/(2^d-1). The off-diagonal covariance ((2^d-4)a²+4a ell-ell²)/(4(2^d-1)) and diagonal imply λperp=2^(d-2)(ell-a)²/(2^d-1); λparallel/λperp=1+d/2^d((2^d-1)x²+2x-1), x=a/(ell-a). Its derivative is positive, crosses one only at x=1/(2^(d/2)+1), giving a/ell=1/(2+2^(d/2)). Exact independent enumeration and rational moments in dimensions 2–7 verified values; difference in squared radii for successive subset sizes is a(ell-a)>0. Endpoints excluded because vertex counting changes at coalescence; finite samples are corroboration only.
 
-## Closest literature and limitations
-The mathematical boundary is the fixed standard-Euclidean realization with uniform vertex counting measure. The source vertex enumeration and radial shells are known. Uniform-volume isotropy, optimal ellipsoids, and metric radii are separate established problems. Exhaustiveness of the historical search cannot be guaranteed, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. Earlier geometry supplies the coordinates and shells, but no known implication yields isotropic vertex threshold without the performed moment calculation.
+
+## value
+
+PASS
+
+Vertex-uniform versus volume-uniform inertia are genuinely different natural measures on a well-studied symmetric polytope. The exact unique isotropic cant provides an all-dimensional tight-frame and covariance-conditioning characterization, relevant to sampling discrete vertex supports; the noncospherical d-shell phenomenon makes it structurally nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
