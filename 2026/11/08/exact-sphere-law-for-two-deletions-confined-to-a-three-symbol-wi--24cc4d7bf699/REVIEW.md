@@ -1,15 +1,21 @@
-# Scientific review: localized two-in-three deletion sphere law
+# Independent mathematical audit
 
-## Correctness — PASS
-The adjacent-deletion output equivalence classes have a path structure determined by distance-two equality. Each skipped-middle output either duplicates an adjacent-deletion output or contributes exactly one new output. This establishes the all-length local triple identity, from which the stated maximum and minimum, transfer enumerator, and finite moments follow. The lag-two covariance vanishes by conditional alphabet symmetry and the bounded two-dependent sequence satisfies a standard blocking central limit theorem. The standalone checker, replayed from the delivered source, passed 144555 direct comparisons and 27 finite distribution/moment profiles. Finite tests supplement rather than replace the proof.
+## correctness
 
-## Originality — PASS with residual risk
-The first-public 2025 study by Ye, Sun and Ge develops localization constraints and coding constructions; the October 2026 Ye–Ge paper gives the general \((t,T)\) localized model, with an optimal-redundancy existence theorem. Their inspected relevant full-text sections give no exact \((2,3)\) sphere law, full volume distribution, variance or central limit theorem. The 2021 Bitar–Hanna–Polyanskii–Vorobyev earlier localized model is oriented toward code construction and a different deletion/window parameter. Research-record searches located unrestricted binary two-deletion sphere variance and a three-window single-error coding census, which neither cover nor imply this output-volume identity. Residual risk: an equivalent elementary formula may appear in unindexed or older literature; scholarly priority is not certified.
+PASS
 
-## Value — PASS
-The \((2,3)\) localized deletion model is a natural smallest case where a skipped-middle deletion adds outputs beyond the consecutive-deletion sphere. Exact sphere sizes and their full distribution address local ambiguity of this emerging synchronization channel, reveal a binary-versus-nonbinary extremal transition, and quantify typical dispersion. These are intrinsic combinatorial invariants rather than a selected numerical example. No general code-optimality theorem is asserted.
+For exact deletion of i<j with j-i<=2, adjacent-pair output A_i matches A_(i+1) precisely when x_i=x_(i+2); equivalence classes form path components. A skipped-middle pair D_i contributes a genuinely new output precisely when x_(i+1) differs from both neighbors, and those new D_i outputs are distinct. Their indicator difference is +1 on all-distinct triples, -1 on equal triples, zero otherwise, proving B(x)=n-1+sum d. Ordered-pair transfer gives the all-n enumerator; extrema follow from forbidden equal triples or proper 3-color walks. Stationary two-dependent triple scores have covariance gamma0=(q-1)(3q^2-5q+1)/q^4, gamma1=(q-1)^3/q^4, gamma2=0, giving the finite variance and positive-variance m-dependent CLT. Independent direct enumerations for q=2,3 and n=3..7 confirmed volumes and rational variances.
 
-## Limitations
-The findings fix exactly two deletions in a nonwrapping window of length at most three and do not extend to arbitrary localized deletions, code capacity or nonuniform sources. Independent mathematical validation and definitive priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact center-dependent three-window two-deletion sphere volume, full distribution/variance, extrema and CLT are not furnished by the closely related available localized-deletion correction-code constructions. A 2025 primary article full relevant text was inspected; 2026 successor full text unavailable and residual risk retained. Unrestricted two-deletion sphere laws concern a different deletion channel.
+
+## value
+
+PASS
+
+Exact deletion-output neighborhoods are natural coding-theoretic combinatorial invariants; the local identity and complete alphabet-uniform sphere law provide useful finite counts and fluctuations for localized channels. This is a genuinely motivated classification, not an arbitrary small-length experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
