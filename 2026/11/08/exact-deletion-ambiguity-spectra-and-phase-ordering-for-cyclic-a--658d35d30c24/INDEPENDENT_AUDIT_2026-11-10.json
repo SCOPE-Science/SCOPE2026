@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T16:56:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Greedy embedding of a symbol uses first position 1+((r-p) mod q), followed by independent positive jumps 1..q. The simultaneous first-symbol threshold multiset is {h+1..q} disjoint-multiset-union {q-h+1..q}; initial symbol plus jumps uniquely encodes the distinct received word. Summing coefficient partial sums gives the formula. Cumulative threshold dominance gives phase order; minimal threshold d+1 and unique all-one jump sequence gives LCS length max(0,n-d) and multiplicity including q=2h. Boundary ell=0 explicitly one. Independently tested 660 (q,n,h,ell) cases by literal distinct-subsequence sets, not a proof of all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Ge Theorem abstract gives upper bounds conditioned on lower-order intersections and run counts; Wang–Li–Fu arXiv abstract gives N_q(n,2,t), an extremal maximum over distant centers."
+        ],
+        "reasoning": "An upper bound or pairwise extremum does not determine each actual phase-shifted pair and all deletion radii. Wang–Li–Fu full text unavailable; residual special-case risk documented.",
+        "searches": [
+          "Resultary: exact intersections of deletion balls for cyclic periodic words phase-shifted deletion descendants all lengths LCS overlap counts",
+          "arxiv:2606.25822",
+          "arxiv:2609.16837"
+        ]
+      },
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.13/LIPIcs.CPM.2025.13.html",
+        "https://arxiv.org/abs/2606.25822",
+        "https://arxiv.org/abs/2609.16837",
+        "Resultary 2026/11/2 cyclic permutation embedding-multiplicity finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact proposed thresholds depend on both first-occurrence phases; neither single LCS score nor general overlap inequality supplies this threshold multiset and coefficientwise ordering."
+        ],
+        "reasoning": "Only the LCS length subclaim is covered by a general algorithm; the whole exact profile and phase domination are not known implications.",
+        "searches": [
+          "Resultary: exact intersections of deletion balls for cyclic periodic words phase-shifted deletion descendants all lengths LCS overlap counts",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.13/LIPIcs.CPM.2025.13.html",
+          "arxiv:2606.25822"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaevoy–Zolotov–Tiskin CPM 2025 computes LCS scores of doubly periodic strings, not distinct common words at every retained length."
+        ],
+        "reasoning": "The two shifted words are a special periodic-LCS input, but LCS score does not imply full common-descendant cardinalities.",
+        "searches": [
+          "Resultary: exact intersections of deletion balls for cyclic periodic words phase-shifted deletion descendants all lengths LCS overlap counts",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.13/LIPIcs.CPM.2025.13.html",
+          "arxiv:2609.16837"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published cyclic-embedding spectrum concerns one word and positional subsequence counts; current claim concerns sets common to two different phase shifts."
+        ],
+        "reasoning": "A one-center embedding multiplicity table is not the two-center distinct-word intersection spectrum.",
+        "searches": [
+          "Resultary: exact intersections of deletion balls for cyclic periodic words phase-shifted deletion descendants all lengths LCS overlap counts",
+          "Resultary: exact embedding-multiplicity spectrum of cyclic permutation powers 2026-11-02"
+        ]
+      },
+      "rationale": "The exact all-radius individual-pair spectrum and coefficientwise phase order do not follow from the inspected general deletion-ball upper bounds, extremal restricted-pair envelopes, LCS-only algorithms or same-period single-word embedding multiplicities. Originality is best-of-knowledge; Wang–Li–Fu and Sun–Ge full text not available in this run.",
+      "residual_risks": [
+        "Primary full texts of Sun–Ge and Wang–Li–Fu not read; Oxford authorized access reported vpn_disconnected for Sun–Ge.",
+        "An unindexed exact cyclic-word descendant-spectrum formula could still cover this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS LCS length as an algorithmic question; NOT the all-retained-length count",
+          "evidence": "Abstract and §1 explain LCS-score problem only; §2 framework counts maximal matching path scores.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.13/LIPIcs.CPM.2025.13.html",
+          "material_read": "Full accessible HTML: abstract, introduction, definitions of periodic strings and semi-local LCS, comparison and main LCS algorithm",
+          "method": "Primary full HTML reading",
+          "title": "Doubly-Periodic String Comparison",
+          "trigger": "Same two-periodic-word family and LCS endpoint"
+        },
+        {
+          "assessment": "NO full-text NOT_COVERING assertion; general upper bounds known, priority risk remains",
+          "evidence": "Abstract explicitly states constrained upper bounds and lifting of error-correcting codes.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.25822",
+          "material_read": "Arxiv abstract; PDF at arxiv and lawful OA not retrievable; Oxford job returned vpn_disconnected",
+          "method": "Abstract inspection; full text inaccessible",
+          "title": "Extremal Deletion-Ball Intersections under Run-Count and Lower-Order Deletion-Ball Intersection Constraints",
+          "trigger": "General overlap theorem for deletion balls"
+        },
+        {
+          "assessment": "No whole-document exclusion; extremal statement differs from arbitrary phase-resolved profile",
+          "evidence": "Abstract describes q>=4, t>=2, sufficiently large n and Levenshtein-distance >=2 extremal pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.16837",
+          "material_read": "Arxiv abstract, including N_q(n,2,t) maxima and extremizers; full text not retrieved",
+          "method": "Abstract inspection",
+          "title": "On Sequence Reconstruction Problem for q-ary Deletion Channels",
+          "trigger": "Potential exact overlap theorem over q-ary alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact distinct-received-word ambiguity is a natural invariant of deletion channels; truncations of repeated permutations form a canonical structured family. The uniform exact spectrum, rather than mask-counts or only LCS, supplies meaningful quantified pair ambiguity and phase hierarchy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol331-cpm2025/html/LIPIcs.CPM.2025.13/LIPIcs.CPM.2025.13.html",
+    "https://arxiv.org/abs/2606.25822",
+    "https://arxiv.org/abs/2609.16837",
+    "Resultary 2026/11/2 cyclic permutation embedding-multiplicity finding"
+  ],
+  "disposition": "passed",
+  "final_claim": "For phase-shifted cyclic alphabet words of equal arbitrary truncated length, distinct common deletion descendants have an exact bounded-composition spectrum; overlap decreases coefficientwise in circular phase distance, and the LCS count is one except antipodal shifts with two.",
+  "limitations": "Primary literature comparisons are best-of-knowledge, not exhaustive priority certification; finite tests corroborate without proving universal cases; primary-source accessibility individually identified.",
+  "residual_risks": [
+    "Primary full texts of Sun–Ge and Wang–Li–Fu not read; Oxford authorized access reported vpn_disconnected for Sun–Ge.",
+    "An unindexed exact cyclic-word descendant-spectrum formula could still cover this result."
+  ],
+  "schema_version": 1
+}
