@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The degree-three neighbours of each internal path vertex must have pairwise distinct colours. Together with endpoint conditions this excludes the hub colour from every path vertex and forces different colours at path distance two. This reduction is both necessary and sufficient when combined with the hub's exact frequency cap. In a three-colour solution the two remaining path colours alternate independently on odd and even positions, forcing period four; odd lengths violate the hub cap. All even instances and four-colour odd instances have explicit constructions. The coefficient-extraction identity is exactly the product of proper path-colouring inventory polynomials. Finite brute-force graph-neighbourhood checks and separate polynomial dynamic programming were replayed.
+## correctness
 
-**Originality (PASS, provisional).** The primary 2026 strong-majority vertex-colouring paper studies the general invariant and exact values for other graph families. The fan parity law and optimal-colouring counts were not found in its inspected relevant sections. Searches for fan, apex, cone, distance-two and majority variants in published mathematics and accessible previous claims did not disclose a stronger implication. The nearby majority C-colouring and strong-majority edge index do not imply the fan vertex theorem. A 2025 paper about fan quadratic embedding constants has a different object of study. Historical priority remains subject to unindexed and unavailable material.
+PASS
 
-**Mathematical value (PASS).** This determines a new invariant on a standard infinite hub-and-path graph family, identifies a sharp infinite parity obstruction, and gives an exact classification and enumeration of *all* minimum-palette colourings. The period-four rigidity connects a global hub balance constraint to local distance-two constraints; the odd-case polynomial records the full class-multiplicity obstruction. These are naturally motivated full-family statements rather than a chosen parameter slice. The result does not claim a general apex-join theorem or independent confirmation.
+Each internal degree-three path vertex sees hub and two distance-two vertices, which must have mutually distinct colours; the hub colour never occurs on the path, and c(v_{i+2})≠c(v_i). Hub demand caps each path-colour frequency at floor(n/2). Two available path colours cannot cover odd n within that cap. On even n the forced period-four binary word gives exactly 12 or 6 named solutions; on odd n the two parity-index paths are independently properly 3-coloured, and coefficient extraction enforces the frequency cap. Direct open-neighbourhood enumeration reproduced n=2:6,3:24,4:12,5:192,6:6,7:912,8:12. Edge case n=2 is K3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge exact fan-graph strong-majority vertex invariant and labelled optimal census not covered by strong-odd fan-colouring or generic majority bounds. The forced distance-two path relation and hub frequency constraint combine into a genuine parity law and explicit odd-case generating function.
+
+## value
+
+PASS
+
+Complete natural fan-family classification with parity change and exact named optimum counts, including a nontrivial finite generating-function expression for all odd n; not merely the already known general majority bound or strong-odd graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

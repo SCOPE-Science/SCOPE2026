@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:59:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each internal degree-three path vertex sees hub and two distance-two vertices, which must have mutually distinct colours; the hub colour never occurs on the path, and c(v_{i+2})≠c(v_i). Hub demand caps each path-colour frequency at floor(n/2). Two available path colours cannot cover odd n within that cap. On even n the forced period-four binary word gives exactly 12 or 6 named solutions; on odd n the two parity-index paths are independently properly 3-coloured, and coefficient extraction enforces the frequency cap. Direct open-neighbourhood enumeration reproduced n=2:6,3:24,4:12,5:192,6:6,7:912,8:12. Edge case n=2 is K3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2605.23828v1 treats general upper bounds and cycle/complete-graph families; does not give all-n fan optimal enumeration",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00 computes chromatic number for strong-odd fans"
+        ],
+        "reasoning": "Graph-join results in a different invariant and general strong-majority upper bounds do not imply odd/even 3-versus-4 fan numbers or 6/12 optimum counts.",
+        "searches": [
+          "fan graph K1 join Pn strong majority vertex coloring three four periodic 12 six count",
+          "https://arxiv.org/html/2605.23828v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.23828v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00",
+        "fan graph K1 join Pn strong majority vertex coloring three four periodic 12 six count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2605.23828v1 definition at open neighbourhood and upper bound",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00 strong-odd spectrum on K1 vee P_n"
+        ],
+        "reasoning": "For path nodes of degree three, two distance-two path colours must differ and both avoid hub colour; the hub imposes per-colour ≤floor(n/2), producing the parity. Neither cited theorem implies these constraints and census.",
+        "searches": [
+          "fan graph K1 join Pn strong majority vertex coloring three four periodic 12 six count",
+          "https://arxiv.org/html/2605.23828v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2605.23828v1 strong-majority definition and results for cycles / complete graphs, no fan theorem identified",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00 is about strong-odd colouring, a different local multiplicity parity condition"
+        ],
+        "reasoning": "Strong-odd colourings require parity of incident colour multiplicities, whereas strong-majority bounds each colour frequency by half of open-neighbourhood size. Their graph family name matches but invariants do not.",
+        "searches": [
+          "fan graph K1 join Pn strong majority vertex coloring three four periodic 12 six count",
+          "strong majority coloring fan path hub parity named optimal vertex count",
+          "https://arxiv.org/html/2605.23828v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current theorem enumerates 3-colour fans: 12 when n≡0 mod4 and 6 when n≡2 mod4; odd n=3,5,7,9 yield 24,192,912,4128",
+          "https://arxiv.org/html/2605.23828v1 provides no fan enumeration"
+        ],
+        "reasoning": "No exact strong-majority fan counting table found in searched published material; the strong-odd exact table is for a different admissibility condition. Absence of indexed matches alone does not prove priority.",
+        "searches": [
+          "fan graph K1 join Pn strong majority vertex coloring three four periodic 12 six count",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact fan-graph strong-majority vertex invariant and labelled optimal census not covered by strong-odd fan-colouring or generic majority bounds. The forced distance-two path relation and hub frequency constraint combine into a genuine parity law and explicit odd-case generating function.",
+      "residual_risks": [
+        "Exact strong-majority fan census may be present in unindexed literature or the full strong-odd manuscript may contain a relevant incidental observation; neither is established by searched materials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NO_FAN_CLASSIFICATION",
+          "evidence": "https://arxiv.org/html/2605.23828v1",
+          "identifier_or_url": "https://arxiv.org/html/2605.23828v1",
+          "material_read": "Full arXiv HTML, definition and cycle/complete/general graph theorems",
+          "method": "Public arXiv HTML",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Foundational vertex invariant and graph-family prior results"
+        },
+        {
+          "assessment": "DISTINCT_INVARIANT_BASED_ON_AVAILABLE_SUMMARY",
+          "evidence": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00",
+          "material_read": "Resultary search summary and title only; full RESULT.md not read",
+          "method": "Published summary retrieval",
+          "title": "Exact strong odd chromatic numbers of fan graphs and clique–path joins",
+          "trigger": "Same fan graph family but possibly different strong-colouring invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete natural fan-family classification with parity change and exact named optimum counts, including a nontrivial finite generating-function expression for all odd n; not merely the already known general majority bound or strong-odd graph invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For F_n=K1 vee P_n, n≥2, Maj(F_n)=3 for even n and 4 for odd n; named optimum three-colour count is 12 or 6 according to even n mod4, and the odd optimum count is a three-variable coefficient sum of two proper path-colouring polynomials.",
+  "limitations": [
+    "Odd n≥3 formula is a finite coefficient extraction, not a closed form.",
+    "No claim for arbitrary apex joins or strong-odd colourings."
+  ],
+  "schema_version": 1
+}
