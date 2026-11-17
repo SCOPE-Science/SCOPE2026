@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the signed-harmonic slope definition, Hermite basis, ℓ1 increment geometry, positive derivatives at all four cubic corners, coordinate derivative bounds 0 to 2, exact three-cell variation 1+8(u+v)/27, telescoping/lower-semicontinuity extension, and near-plateau rational witness 1+32/(27(1+epsilon)). A freshly generated standard-library checker verifies polynomial coefficient identities, exact rational witnesses and 3200 finite critical-point tests. The mathematical proof, not numerical testing, covers infinite sequences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aràndiga–Yáñez 2019 DOI 10.1016/j.aml.2019.02.012, introduction and Section 2",
+        "Fritsch–Butland 1984 DOI 10.1137/0905021, pp.300–304"
+      ],
+      "reasoning": "More general shape-preserving classes and sufficient slope constraints do not specify the same nonlinear sensitivity; the sharp bound exploits both the partial derivatives of the precise harmonic selector and exact Hermite bump geometry. No inspected broader theorem includes the claimed numerical factor as an implication.",
+      "searches": [
+        "nonlinear monotone cubic interpolation stable in variation of differences cubic Hermite shape preserving",
+        "\"monotone cubic\" \"total variation\" \"difference\" stability",
+        "\"PCHIP\" \"bounded variation\" stability data"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1137/0905021",
+      "https://anthonylloyd.github.io/public/interp/pchip/A_method_for_constructing_local_monotone_picewise_cubic_interpolants_fritsch1984.pdf",
+      "https://math.mit.edu/~edelman/publications/admissible_slopes.pdf",
+      "https://doi.org/10.1016/j.aml.2019.02.012",
+      "https://doi.org/10.1137/0717021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI 10.1137/0905021, p.300 states each-signal monotonicity and the slope-ratio square [0,2]^2",
+        "Edelman–Micchelli 1987, pp.441 and 443 describe admissible slopes for single interpolation shapes",
+        "Aràndiga–Yáñez 2019, Theorems 1.2–1.4 and 2.2 on monotonicity and Section 2 accuracy"
+      ],
+      "reasoning": "These sources imply that each interpolated signal preserves adjacent sample variation, but cannot alone imply the two-input modulus: differences of individually monotone cubic interpolants need not be monotone. The proof independently analyzes a one-edge perturbation, its exact three-cell variation, and the near-plateau sharp witness.",
+      "searches": [
+        "\"Fritsch Butland\" \"variation\" \"Lipschitz\" interpolation",
+        "sharp two-input bounded variation norm of harmonic-mean slope piecewise cubic Hermite PCHIP on uniform grid",
+        "\"monotone cubic\" \"total variation\" \"difference\" stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fritsch–Butland, DOI 10.1137/0905021, full text pp.300–304, formulas (2),(5) and examples",
+        "Edelman–Micchelli 1987, author-hosted PDF, pp.441,443,448"
+      ],
+      "reasoning": "Equivalent object: the 1984 signed harmonic mean agrees with the common PCHIP interior slope on a uniform grid. But the known one-input monotonicity/variation equality does not logically determine variation of the difference of two separately interpolated data sequences. No indexed exact equivalent 59/27 law was identified.",
+      "searches": [
+        "sharp two-input bounded variation norm of harmonic-mean slope piecewise cubic Hermite PCHIP on uniform grid",
+        "\"Fritsch Butland\" \"total variation\" Lipschitz sensitivity perturbation",
+        "\"59/27\" \"Fritsch\" \"Butland\" variation Lipschitz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fritsch–Butland 1984 has formulas for slope selection, figures comparing interpolation methods, and no table of two-input BV norms",
+        "Aràndiga–Yáñez 2019 has error/accuracy tables, not a two-input variation table"
+      ],
+      "reasoning": "The indexed tables and exact claims checked relate to interpolation accuracy or one-input shape preservation, not the target sharp two-input variation coefficient. Search absence is not proof of novelty.",
+      "searches": [
+        "\"59/27\" cubic interpolation total variation",
+        "\"harmonic mean\" \"cubic Hermite\" \"variation\" perturbation stability",
+        "shape-preserving monotone cubic interpolation nonexpansive total variation two signal perturbations"
+      ]
+    },
+    "rationale": "The 1984 five-page Fritsch-Butland paper was inspected in full: it specifies the signed harmonic selector (p.300 formula 2 and p.301 formula 5, uniform grid) and proves monotonicity, without asserting a perturbation variation norm. The 1987 Edelman-Micchelli inspected pages establish admissible slope geometry, not a norm of differences of interpolants. The inspected 2019 Arandiga-Yanez sections quantify interpolation accuracy/monotonicity and reductions of mean formulas, not the sharp 59/27 two-input BV factor. Relevant indexed findings on different interpolation range, smoothers and nonlinear medians do not imply this coefficient. A historical unindexed theorem remains possible.",
+    "residual_risks": [
+      "A previously unindexed or differently named exact two-input stability theorem may exist.",
+      "The 1987 article and later pages of the 2019 article were not examined in full; no complete-document noncoverage claim is made for them.",
+      "The 1980 Fritsch–Carlson article was only available as a publisher abstract in this comparison.",
+      "The original June 1984 printed issue gives only month precision; its exact original public-release day is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the two-input BV modulus; defines the selector and studies monotone interpolation of individual data sets",
+        "evidence": [
+          "p.300 harmonic mean (2), interpolation monotonicity and [0,2]^2 slope-ratio square",
+          "p.301 uniform-grid reduction of weighted formula (5) to harmonic mean (2)",
+          "pp.302–304 numerical interpolation comparisons, no perturbation TV theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0905021",
+        "material_read": "Entire five-page article: pp.300–304, formulas (1)–(5), all main paragraphs, figures and reference list",
+        "method": "Open-access full-text PDF examined as text and by page images 0–4",
+        "title": "A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+        "trigger": "Exact harmonic-mean slope construction and possible covering perturbation theorem"
+      },
+      {
+        "assessment": "Inspected single-interpolant slope-domain results do not provide the claimed two-input sensitivity; remaining pages uninspected",
+        "evidence": [
+          "p.441 abstract and function-class scope",
+          "p.443 admissible slope-domain theorem",
+          "p.448 admissible-slope characterization"
+        ],
+        "identifier_or_url": "https://math.mit.edu/~edelman/publications/admissible_slopes.pdf",
+        "material_read": "Author-hosted PDF selected pages 441, 443, and 448 (summary and principal admissible-slope theorems)",
+        "method": "Open-access PDF page-image inspection",
+        "title": "Admissible Slopes for Monotone and Convex Interpolation",
+        "trigger": "Potentially broader monotonicity/slope classification from which exact variation bounds might follow"
+      },
+      {
+        "assessment": "Inspected theorems address monotonicity and interpolation accuracy, not the precise two-input BV norm; remaining sections are a residual priority risk",
+        "evidence": [
+          "pp.73–74 formulas defining Hermite interpolation and monotonicity conditions",
+          "pp.74–76 harmonic-mean formulas, Theorem 2.2 and accuracy comparisons",
+          "p.77 discussion of uniform-grid coincidences"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.aml.2019.02.012",
+        "material_read": "Full-text extracted pp.73–77 covering the introduction, methods, Theorems 1.2–1.4, 2.2 and 2.4, and comparison setup; later pages not evaluated in detail",
+        "method": "University-repository OA PDF text inspected; page-image retrieval returned an access error",
+        "title": "Third-order accurate monotone cubic Hermite interpolants",
+        "trigger": "Later generalization of harmonic-mean slope methods and potential stronger covering stability theorem"
+      },
+      {
+        "assessment": "The abstract establishes monotonicity conditions but full-document noncoverage is not asserted",
+        "evidence": [
+          "Publisher abstract describes necessary and sufficient cubic monotonicity conditions and an interpolation algorithm"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0717021",
+        "material_read": "Publisher abstract and publication metadata only",
+        "method": "Publisher page, no full article accessed",
+        "title": "Monotone Piecewise Cubic Interpolation",
+        "trigger": "Original Fritsch–Carlson global shape-preserving construction cited by the lead paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "479993d5-519d-46e7-97b3-89304b69e0de",
+  "value": {
+    "rationale": "The classical harmonic-mean Hermite interpolation method is individually variation-preserving, but the new exact all-grid two-input perturbation gain 59/27 quantifies hidden oscillatory sensitivity. A single-jump near-plateau witness and a local three-cell mechanism explain sharpness. This is a natural complete operator-stability invariant, independent of arbitrary finite truncation or a known numerical table.",
+    "status": "PASS"
+  }
+}
