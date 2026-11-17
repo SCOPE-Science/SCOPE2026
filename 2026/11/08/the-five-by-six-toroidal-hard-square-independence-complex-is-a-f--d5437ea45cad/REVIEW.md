@@ -1,15 +1,21 @@
-# Review of the five-by-six toroidal hard-square homotopy classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim concerns the *single* graph \(C_5\square C_6\), with both directions periodic and with no diagonal adjacency. Independent enumerators agree on all 199,821 faces (including empty), cardinality by cardinality. The explicit pivot matching contains exactly 99,910 disjoint Hasse pairs, matches the empty face, and leaves exactly one five-dimensional critical simplex. All 1,347,900 Hasse covering relations are oriented and the entire 199,821-vertex digraph topologically sorted, proving acyclicity exhaustively. The augmented discrete-Morse CW complex has only one implicit zero-cell and one five-cell, hence \(S^5\). The executable source and exact output accompany the result.
+## correctness
 
-## Originality
-**PASS on inspected evidence, with residual risk.** Jonsson 2006 determines the Euler characteristic for exactly this toric hard-square graph, not its homotopy type. Work by Bousquet-Mélou–Linusson–Nevo and Matsushita–Wakatsuki covers open, cylindrical or path-product grids. Adams and coauthors already proved a related equal-width five-by-five homotopy theorem; that result is excluded from this final claim and does not imply the five-by-six conclusion. published-finding corpus was searched under Cartesian-grid, toric hard-square and 30-vertex circulant aliases; no covering published record was identified. The full text of Jonsson 2010 on grid cross-cycles was inaccessible, so the possibility of an unobserved special-case theorem remains explicit.
+PASS
 
-## Mathematical value
-**PASS.** This is a canonical next-width case for doubly-periodic hard-square independence complexes and also a natural 30-vertex circulant. The result upgrades a known Euler-characteristic constraint to the full integral homotopy type, including exact homology concentration and torsion-freeness. The previous adjacent equal-width case does not force the topology of the first coprime-width torus.
+The graph is precisely the undirected fully periodic C5□C6, no diagonals, degree four at each of 30 vertices. Independent exact bitset enumeration found 199,821 faces including the empty face, f-vector (30,375,2560,10545,27450,46230,51000,37080,17790,5580,1080,100), and an ascending pivot matching of 99,910 disjoint pairs leaving the sole six-vertex face mask 4342820 (dimension five). Oriented Hasse graph of all 1,347,900 covers was independently topologically sorted across all 199,821 faces; no cycle. The empty face is matched, so augmented discrete Morse gives one nonempty critical 5-cell and hence a pointed S5 CW model. Independent script reconstructed the exact finite universe and acyclicity, beyond relying on saved stdout; no extrapolation to all tori.
 
-## Limitations
-Only this 30-vertex graph is classified, not arbitrary dimensions. No equivariant homotopy theorem or family-wide pattern is asserted. Definitive priority relative to all inaccessible material and independent assessment remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jonsson 2006 establishes the negative-activity/equivalently reduced Euler invariant of fully periodic 5×6 but explicitly does not determine its integral homotopy type. Published 5×5 toroidal and open/cylindrical grid homotopy theorems have different graph inputs. No inspected exact homotopy theorem covers the 5×6 product. This is a best-of-knowledge claim with a material access risk for Jonsson 2010, not proof of unique priority.
+
+## value
+
+PASS
+
+Fully periodic toric hard squares are natural statistical-mechanics/combinatorial topology objects. Determining exact integral homotopy S5 at the neighboring 5×6 width (beyond known Euler and 5×5 cases) is an independently useful exact natural finite invariant, not a random slice or an inferred homology rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

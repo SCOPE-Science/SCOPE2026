@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification of the five-by-six toroidal independence complex
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The source has no dependencies beyond the Python standard library. Its stdout must match `verification_output.txt` exactly.
+## correctness
 
-The program checks symmetric degree-four periodic Cartesian grid adjacency; compares independent full face enumeration by vertex extension with a structurally independent five-cyclic-row pattern enumeration; checks every distinct discrete-Morse matching pair; constructs all 1,347,900 Hasse cover relations and verifies that reversing the matched cover directions yields an acyclic digraph by exhaustive sorting of all 199,821 faces. The empty simplex is included and matched. The sole unmatched simplex mask and dimensions appear in recorded output. The finite verification is specific to one graph, not a general theorem about toroidal grids.
+PASS
 
-The inference to the claimed CW type is by augmented discrete-Morse theory: matching the empty face and leaving one critical five-simplex yields a pointed CW complex with a basepoint and one five-cell, necessarily a five-sphere.
+The graph is precisely the undirected fully periodic C5□C6, no diagonals, degree four at each of 30 vertices. Independent exact bitset enumeration found 199,821 faces including the empty face, f-vector (30,375,2560,10545,27450,46230,51000,37080,17790,5580,1080,100), and an ascending pivot matching of 99,910 disjoint pairs leaving the sole six-vertex face mask 4342820 (dimension five). Oriented Hasse graph of all 1,347,900 covers was independently topologically sorted across all 199,821 faces; no cycle. The empty face is matched, so augmented discrete Morse gives one nonempty critical 5-cell and hence a pointed S5 CW model. Independent script reconstructed the exact finite universe and acyclicity, beyond relying on saved stdout; no extrapolation to all tori.
 
-Independent mathematical audit was not performed. The uninspected full text of a directly relevant 2010 paper remains an originality limitation, not an unverified correctness assumption.
+## originality
+
+PASS
+
+Jonsson 2006 establishes the negative-activity/equivalently reduced Euler invariant of fully periodic 5×6 but explicitly does not determine its integral homotopy type. Published 5×5 toroidal and open/cylindrical grid homotopy theorems have different graph inputs. No inspected exact homotopy theorem covers the 5×6 product. This is a best-of-knowledge claim with a material access risk for Jonsson 2010, not proof of unique priority.
+
+## value
+
+PASS
+
+Fully periodic toric hard squares are natural statistical-mechanics/combinatorial topology objects. Determining exact integral homotopy S5 at the neighboring 5×6 width (beyond known Euler and 5×5 cases) is an independently useful exact natural finite invariant, not a random slice or an inferred homology rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
