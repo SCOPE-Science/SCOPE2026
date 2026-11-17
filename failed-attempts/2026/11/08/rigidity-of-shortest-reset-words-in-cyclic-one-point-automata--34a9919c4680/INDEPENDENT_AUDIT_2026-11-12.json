@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T11:16:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For word with A rotations and h_i effective 0→r jumps, final state from i equals i+A+r h_i (mod n); if gcd>1, distinct residue classes never merge. For coprime r all n jump-count residues must be distinct, forcing a trajectory with at least n−1 effective jumps. At least n−r rotations separate consecutive jumps, giving |w|≥(n−1)+(n−2)(n−r). The explicit alternating word reaches this bound and induction on absent subset states shows reset to r. Equality consumes all rotation and defect letters in forced gaps, yielding the unique string even at n=2. Independently checked shortest-word multiplicity via subset BFS at bounded n≤9; infinite result follows from argument, not BFS.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf states gcd criterion, exact 1+(n-2)(n-d+1) threshold, and unique literal shortest reset word for every 1≤d<n.",
+          "October 26 result covers deletion-order structures and uniqueness constrained to minimum number of merge letters; it explicitly does not prove unrestricted shortest reset."
+        ],
+        "reasoning": "The November 2 unrestricted result dominates the current final claim, unlike the older constrained statement; both documents were examined in full.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf full RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-counts-of-strict-collapse-schedules-in-cyclic-defect-one-a--7ea017efeb25 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-counts-of-strict-collapse-schedules-in-cyclic-defect-one-a--7ea017efeb25",
+        "https://cyber.bibl.u-szeged.hu/index.php/actcybern/article/view/3780/3764",
+        "Resultary semantic search: shortest reset words uniqueness for cyclic permutation and one-point idempotent 0 to r automaton Martyugin unique optimal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous proof uses identical trajectory effective jump counts and gap≥n−d rotation budget to force the same unique label word.",
+          "Both send all n states to d and have length (n−1)+(n−2)(n−d)."
+        ],
+        "reasoning": "The previous result implies candidate via a↔b. Nothing is left after removing previously known synchronizability/threshold and the November 2 uniqueness theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf Proof Sections 1–4",
+          "rename b rotation, a defect versus a rotation b defect"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf: letter b is rotation +1 and letter a sends 0 to d, while current record swaps letter names. Under the alphabet bijection a↔b and d=r, its unique optimal string a(b^(n-d)a)^(n-2) equals current (ba^(n-r))^(n-2)b."
+        ],
+        "reasoning": "This is a literal generator renaming preserving word length, transition semigroup and counts of optimal words. Every n, r, and boundary case is identical.",
+        "searches": [
+          "shortest reset words uniqueness for cyclic permutation and one-point idempotent 0 to r automaton Martyugin unique optimal",
+          "cyclic unitary automata exact jump distance reset threshold unique shortest word 0 d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf is an all-parameter exact theorem, not just a lookup of small n.",
+          "The current subset-automaton BFS finite n≤12 checks instances but cannot defeat existing infinite-family coverage."
+        ],
+        "reasoning": "A published general theorem, rather than an exact finite table, completely covers the candidate.",
+        "searches": [
+          "shortest reset words uniqueness for cyclic permutation and one-point idempotent 0 to r automaton Martyugin unique optimal",
+          "Resultary exact jump reset threshold shortest words cyclic unitary automata"
+        ]
+      },
+      "rationale": "The prior November 2 published theorem proves the same exact coprime criterion, threshold and *unique* word for all n and d after swapping the roles of input labels a and b. The novelty claim is completely covered.",
+      "residual_risks": [
+        "Martyugin optimal-length result is prior and explicitly credited; Nov 2 uniqueness theorem supersedes candidate irrespective of historical uncertainty.",
+        "Subset-BFS tests are finite and not themselves an infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive pre-existing complete uniqueness theorem for all coprime jumps",
+          "evidence": [
+            "gcd(n,d)=1; word a(b^(n-d)a)^(n−2) unique shortest; length 1+(n−2)(n−d+1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf",
+          "material_read": "Entire RESULT.md, Finding, Proof Sections 1–4, assumptions, comparison and limitations; Git blob cc1bbb7030cdee1db4c9a1e19fb7b829582bf6d9",
+          "method": "Read entire source and explicitly exchanged generator labels",
+          "title": "Exact jump-distance reset thresholds and unique shortest words for cyclic unitary automata",
+          "trigger": "Resultary search found exact same family with reversed alphabet"
+        },
+        {
+          "assessment": "Partial earlier related coverage, not itself decisive for unrestricted claim",
+          "evidence": [
+            "Explicit scope: uniqueness only among words containing n−1 merge letters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-counts-of-strict-collapse-schedules-in-cyclic-defect-one-a--7ea017efeb25",
+          "material_read": "Full RESULT.md including constrained reset-word section, proof and limitations",
+          "method": "Read and distinguished its restricted resource-minimal uniqueness from unrestricted minimum length",
+          "title": "Sharp counts of strict-collapse schedules in cyclic defect-one automata",
+          "trigger": "Related earlier trajectory/deletion schedule classification"
+        },
+        {
+          "assessment": "Historical optimum and explicit example prior; November 2 2026 theorem is the decisive uniqueness source",
+          "evidence": [
+            "Martyugin 2009 Proposition 6.2 length and example; no inferred uniqueness from these alone."
+          ],
+          "identifier_or_url": "https://cyber.bibl.u-szeged.hu/index.php/actcybern/article/view/3780/3764",
+          "material_read": "Proposition 6.2 and associated construction as described in inspected record; not independently reread full PDF in this audit",
+          "method": "Used corroborating historical comparison only",
+          "title": "Complexity of Problems Concerning Reset Words for Some Partial Cases of Automata",
+          "trigger": "Original 2009 threshold theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Counting optimum words in this natural automaton is a worthwhile invariant when unknown, but the exact one-element optimizer set was already established uniformly. Generator renaming, another proof and finite BFS provide no new mathematical result over that earlier theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Martyugin optimal-length result is prior and explicitly credited; Nov 2 uniqueness theorem supersedes candidate irrespective of historical uncertainty.",
+    "Subset-BFS tests are finite and not themselves an infinite proof."
+  ],
+  "schema_version": 1
+}
