@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The algebraic proof in `RESULT.md` establishes all-order and all-partition statements without empirical extrapolation. The standalone `verify.py` uses Python 3 standard-library rational arithmetic and independently compares directly formed matrix polynomials against the three entry formulas. Invocation: `python3 verify.py`. Observed output:
+## correctness
 
-`VERIFY_OK exact_matrix_entry_and_cubic_identity_checks= 430180 partitions= 247`
+PASS
 
-The matrices cover every ordered complete multipartite partition of \(2\le n\le8\), Taylor orders \(1\le p\le8\), and four rational normalized steps per case. Exact cubic identities are additionally tested for every \(3\le n<100\) and each nonsingleton part size at four rational arguments. The program also checks row sums exactly, all even-order test-point sign equivalences, and the simplified cubic criterion. These are finite tests, not independent verification of the infinite analytic proof.
+The eigenprojectors P0,Pn,P_j resolve the multipartite Laplacian into three entry classes. Even Taylor truncations are strictly convex and positive; only cross-part entries impose beta_p/n. Odd truncations are strictly decreasing, and the Jensen gap divided by x^2 is strictly decreasing; diagonals and within-part entries have unique terminal zeros. The cubic Jensen identity yields the minimum-size/singleton law. Independent polynomial matrix multiplication agreed on six partitions, five degrees and four normalized steps. The all-order result rests on the proof.
 
-The underlying projector identities, scalar Taylor integral remainder, convexity and positive-kernel interpolation argument are stated explicitly in `RESULT.md`. At an even-order cutoff a cross-part entry is exactly zero and subsequently strictly negative; for odd orders each diagonal and each existing within-part off-diagonal has a unique and permanent crossing. No positive-time reentry is asserted or used.
+## originality
 
-Scientific limitations and a full-text access risk are recorded in `RESULT.md` and `REVIEW.md`. Independent audit has not been performed.
+PASS
+
+Best-of-knowledge PASS: the complete Horváth 2005 specialist paper was obtained and read in its relevant mathematics. It gives generic RK positivity and cone thresholds rather than this complete multipartite Taylor projector and exact parity law. General 2015 polynomial-first-zero methods do not themselves imply the closed family-wide results.
+
+## value
+
+PASS
+
+PASS: the sharp normalized positivity horizon for high-order Taylor graph heat steps is independent of all multipartite sizes exactly for even orders, while odd orders have permanent competing sign obstructions. This is a meaningful sharp numerical-positivity boundary beyond a general sufficient CFL bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
