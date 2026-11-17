@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:41:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For follower grounded unit path L0, the exact inverse Green matrix G(i,k)=min(i,k) is verified by boundary and interior finite differences. A new edge of conductance omega from leader 0 to follower j yields L=L0+omega e_j e_j^T, so Sherman–Morrison yields exact inverse-trace gain Delta=omega S_n(j)/(1+omega j), S_n(j)=sum_i min(i,j)^2=n j^2-(2/3)j^3+(1/2)j^2+j/6. The sign of adjacent gain Delta(j+1)-Delta(j) is the sign of A=(n-j)(2j+1)+(omega j(j+1)/6)(6n-8j-1). Before j0=ceil((6n-1)/8), A>0; after j0 it crosses once at positive omega_{n,j}=6(n-j)(2j+1)/(j(j+1)(8j+1-6n)), strictly decreasing with j. Thus all maximizing sites, adjacent-only ties and monotone staircase follow. For omega fixed, j_opt/n→3/4 from threshold estimates, gain/n²→3/8, total trace/n²→1/2, residual fraction→1/4. For n omega_n→c>0, uniform objective convergence yields F_c(u)=c(u²−2u³/3)/(1+cu) and its unique root u_c in (3/4,1). Exact independent inversion of augmented Laplacians for n≤10 and threshold checks at small n supplement, not replace, the all-size proof; Brownian convention gives stationary covariance L^{-1}/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Zhang PDF p4 states k-edge selection as optimization of Tr(L_Q^{-1}) and proposes greedy algorithms",
+          "Zhou et al. arXiv:2309.17019 PDF title and abstract optimize smallest eigenvalue of grounded Laplacian"
+        ],
+        "reasoning": "Xu–Zhang general approximate framework encompasses any fixed path instance but does not state symbolic closed-form optimizer staircase or the macroscopic exact constants. Patterson changes which vertices are grounded (infinite strength), Zhou changes objective (lambda_min), hence neither entails finite-conductance trace-inverse optimizer classification.",
+        "searches": [
+          "Xu Zhang 2023 Minimizing Polarization Noisy Leader Follower full PDF edge addition",
+          "Patterson McGlohon Dyagilev exact k leader path placement",
+          "Zhou Sun Li Zhang 2023 grounded Laplacian eigenvalue adding edges"
+        ]
+      },
+      "checked_sources": [
+        "Xu–Zhang arXiv:2308.07008 full PDF relevant §§4–5",
+        "Patterson–McGlohon–Dyagilev arXiv:1412.6595 abstract",
+        "Zhou–Sun–Li–Zhang arXiv:2309.17019 abstract and objective",
+        "Pandey Zenodo:20328332 abstract only",
+        "Resultary path/coherence findings semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xu–Zhang ranks arbitrary candidate edges via their gain, so numerical optimal location at any fixed n is computable by prior work",
+          "Pandey public description discusses grounded path degree-weighted sums, landmark selection and edge removal, not an explicit same-leader added-edge trace-inverse staircase"
+        ],
+        "reasoning": "General rank-one formula is a reusable premise, not a prior theorem on exact positivity, monotonicity and intersections of its specialized rational gain curves; no proven implication of the exact continuum crossover was observed. The Pandey material was not read in full; an implicit equivalent remains plausible.",
+        "searches": [
+          "general grounded Laplacian effective resistance one edge gain Sherman Morrison",
+          "Pandey 2026 Exact Grounded Resistance Sums on Path Graphs Zenodo 20328332",
+          "leader-driven opinion variance unit path shortcut attachment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Zhang arXiv:2308.07008 §§4–5 defines minimizing Tr(Lground^{-1}) and rank-one update objective",
+          "This source pins the one-edge objective to the same noisy-leader model"
+        ],
+        "reasoning": "The known general gain identity specializes exactly to the submitted path, but does not itself compare its n−1 candidate locations and solve for all switching weights. Deriving the staircase is mathematically additional, though algorithmically the general optimization can compute any fixed n.",
+        "searches": [
+          "weighted one-edge leader to path optimal location inverse trace grounded Laplacian",
+          "single shortcut rooted path effective resistance sum variance staircase",
+          "Resultary published findings, semantic query of the precise claim and its mathematical aliases (2026-11-12)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact threshold formula derived by direct adjacent-S_n difference is not listed in inspected Xu–Zhang theorem or its algorithms",
+          "Independent rational n≤10 matrices confirm nontrivial two-site weight transitions"
+        ],
+        "reasoning": "The all-n transition table is supplied by one rational expression; no matching evaluated table was located in inspected prior findings. A search absence does not establish universal novelty.",
+        "searches": [
+          "path leader edge conductance threshold 6(n-j)(2j+1) over j(j+1)(8j+1-6n)",
+          "best extra fixed leader link path grounded inverse trace explicit table"
+        ]
+      },
+      "rationale": "The exact finite-conductance rank-one gain formula for noisy leaders is established by Xu–Zhang (2023) and expressly credited. The new theorem derives closed form and complete all-n, all-conductance staircase and scaling on the unit rooted path. Inspected broader greedy edge algorithms do not logically assert these sharp closed-form site thresholds, while spectral-eigenvalue optimality and perfectly pinned leader selection are different objectives. A 2026 grounded-path resistance preprint was only accessible descriptively and remains a concrete priority risk.",
+      "residual_risks": [
+        "Pandey 2026 same-object grounded path manuscript could contain implicit equivalent edge sensitivity; only description accessible.",
+        "An unpublished exact gain-comparison table in network design literature might precede this classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_GENERAL_METHOD_NOT_SAME_EXPLICIT_CLASSIFICATION",
+          "evidence": "p4 Lemma 4.1: stationary polarization=1/2 Tr(L_Q^{-1}); Problem (6) minimizes effective resistance after adding edges; no exact rooted path switching threshold in read sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07008",
+          "material_read": "Full accessible PDF formulation and optimization §§4–5; PDF p4 visually inspected, particularly Lemma 4.1 and Problems (5),(6)",
+          "method": "Read arXiv PDF extracted text and page screenshot",
+          "title": "Minimizing Polarization in Noisy Leader-Follower Opinion Dynamics",
+          "trigger": "Same stochastic network, same Tr grounded inverse objective, potential exact domination"
+        },
+        {
+          "assessment": "INAPPLICABLE_DIFFERENT_OBJECTIVE",
+          "evidence": "Maximizes lambda_min of grounded Laplacian rather than minimizing Tr(L^{-1}), so its optimizer need not coincide.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.17019",
+          "material_read": "Abstract, opening objective and theorem descriptions, including PDF title page screenshot",
+          "method": "Accessible arXiv PDF",
+          "title": "Optimization on the smallest eigenvalue of grounded Laplacian matrix via edge addition",
+          "trigger": "Same graph operation but alternative objective"
+        },
+        {
+          "assessment": "INAPPLICABLE_INFINITE_STRENGTH",
+          "evidence": "Selects leaders instead of adding a finite-strength edge to the same pre-existing leader.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.6595",
+          "material_read": "Publicly indexed theorem statement and research context, not a full-paper review",
+          "method": "arXiv abstract",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Potential path control location coverage"
+        },
+        {
+          "assessment": "PRIORITY_RISK_PARTIAL",
+          "evidence": "Degree-weighted sums/edge removal and landmark topics are described; cannot assert there is no hidden same trace-inverse added-edge result.",
+          "identifier_or_url": "https://zenodo.org/records/20328332",
+          "material_read": "Public abstract and research description; actual PDF extraction unsuccessful; no proof sections read",
+          "method": "Zenodo bibliographic record; full text not obtained",
+          "title": "Exact Grounded Resistance Sums on Path Graphs: Closed Forms, Optimal Landmarks, Cycles, and Edge Sensitivity",
+          "trigger": "Very close 2026 exact path resistance study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-added-link intervention in noisy social networks is a natural optimization problem. This theorem gives all finite-size rational switching weights, every unique/tied optimal site, and the exact 3/4 placement and 75% variance-removal limit, illustrating a non-obvious strength-dependent location effect. It provides a meaningful closed-form benchmark for graph-design algorithms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One fixed noise-free leader, homogeneous rooted path and exactly one added finite-conductance leader edge only.",
+    "No assertion for heterogeneous graphs, edge budgets greater than one, or other noise models.",
+    "Pandey PDF full text inaccessible; qualified priority."
+  ],
+  "schema_version": 1
+}
