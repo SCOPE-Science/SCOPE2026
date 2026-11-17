@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:10:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unbiased nearest-integer stochastic rounding on Z and q∈(0,1), if q=1/b with integer b≥2 the two possible adjacent states after any step map into the same new adjacent pair; conditional unbiasedness fixes probabilities uniquely, proving X_t in law R(n/b^t) for all n,t and varying reciprocal integer steps. Conversely, for nonreciprocal q choose m=floor(1/q), n=floor(m/q)+1; the first support is {m,m+1}, then strictly positive support {0,1,2}, unlike direct R(q²n), so t=2 necessity is universal. Nonnegative chain has absorbing zero and P(τ>t)=min(1,n/b^t); tail summation yields Eτ=floor(log_b n)+1+[n/b^floor(log_b n)]/(b−1) and a nonconstant 1-periodic phase. Independently checked rational transitions q=1/2,1/5 and counterexample q=2/3 and exact algebraic boundary; finite cases corroborate proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Croci–Fasi–Higham–Mary–Mikaitis survey covers implementations and error analysis across algorithms, not this exact integer-lattice Markov kernel.",
+          "El Arar 2022 variance/error works treat general stochastic rounding and accumulated errors, but their hypotheses/conclusions do not determine exact absorbing iteration distributions."
+        ],
+        "reasoning": "General numerical-analysis results on unbiased moment accumulation do not imply the exact cancellation of propagation noise at reciprocal-integer scales nor necessity; no stronger statement identified in read texts.",
+        "searches": [
+          "stochastic rounding distributional composition reciprocal integer contraction exact absorbing time logarithmic phase",
+          "unbiased rounding conditional errors distributional semigroup scalar contraction"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/reciprocal-integer-rigidity-and-exact-absorption-laws-for-stocha--374d6aac7770/RESULT.md",
+        "https://eprints.maths.manchester.ac.uk/2843/1/cfhm22.pdf",
+        "https://arxiv.org/abs/2207.03837",
+        "https://arxiv.org/abs/2207.10321",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-bit-stochastic-rounding-decay-as-a-convolution-of-coupon--d4febfbf759f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even exact E[R(qX)]=qE[X] holds for all q∈(0,1), so does not imply q must be a reciprocal integer for distributional equality.",
+          "The positive-mass {0,1,2} witness for q not reciprocal contradicts all-distribution law, a property not controlled by the cited variance upper bounds."
+        ],
+        "reasoning": "The submitted claim is genuinely stronger/different than earlier first-moment preservation and error estimates: support closure plus only-if and exact τ law require new arguments.",
+        "searches": [
+          "stochastic rounding distributional composition reciprocal integer contraction exact absorbing time logarithmic phase",
+          "Croci Fasi Higham Mary Mikaitis stochastic rounding survey random errors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Croci et al. general unbiased rounding implies E[X_t]=q^t n but not law equality; q=2/3,n=7 gives a three-state law at t=3.",
+          "El Arar et al. stochastic rounding variance bounds are moment statements, not complete transition-law identities."
+        ],
+        "reasoning": "Unbiasedness of individual rounding is strictly weaker than all-law collapse, as the constructive nonreciprocal three-point witness proves. No equivalent law-classification theorem found among inspected results.",
+        "searches": [
+          "unbiased stochastic rounding reciprocal integer contraction distribution absorption hitting time",
+          "stochastic rounding nested integer grids refinement exact distribution coarsening"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed bit-limited stochastic rounding descent/coupon-collector and negative affine stationary laws refer to different rounding grid or transition, not the same one-step R(n/b^t) kernel.",
+          "No prior exact table for all n,b,t and periodic Eτ formula was found in these queries."
+        ],
+        "reasoning": "The absorption law follows from full two-point distributional identity, not a pre-existing tabulation. Absence of indexed tables is residual search evidence, not conclusive novelty proof.",
+        "searches": [
+          "unbiased stochastic rounding reciprocal integer contraction distribution absorption hitting time",
+          "stochastic rounding exact absorption time floor log base b periodic"
+        ]
+      },
+      "rationale": "Stochastic-rounding surveys and El Arar et al. supply unbiasedness, moment error analysis and probabilistic variance bounds, not an exact all-starting-value distributional semigroup criterion or log-periodic absorption law. Resultary comparisons with finite-bit rounding and negative-slope affine contractions have different kernels. Accept best-of-knowledge, noting possible equivalent two-point linear-interpolation-kernel composition theorem outside numerical analysis.",
+      "residual_risks": [
+        "Possible earlier Markov-kernel interpolation/coarsening theorem not indexed by the stochastic-rounding terminology.",
+        "Ideal independent unbiased fresh rounding on unit grid is essential; not claimed for pseudorandom finite-bit or variable-spacing floating-point."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes rounding framework, but inspected results do not provide exactly compositional reciprocal-integer distribution or hitting-time phase",
+          "evidence": "Mode 1 nearest-neighbor unbiased random rounding, contrasted against whole-law composition.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2843/1/cfhm22.pdf",
+          "material_read": "Full available 32-page revised PDF opened; inspected stochastic-rounding definition/modes and error-analysis discussion and first-page screenshot",
+          "method": "Lawful open-access PDF web read",
+          "title": "Stochastic Rounding: Implementation, Error Analysis, and Applications",
+          "trigger": "Foundational survey of stochastic-nearness and error accumulation"
+        },
+        {
+          "assessment": "Analyzes algorithmic stochastic rounding effects, not the claimed scalar integer-lattice absorption law",
+          "evidence": "Unbiased roundoff is a shared premise only.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.03837",
+          "material_read": "Full accessible 8-page primary PDF opened; inspected first page and error-analysis statements",
+          "method": "Read arXiv PDF sections and screenshot first page",
+          "title": "The Positive Effects of Stochastic Rounding in Numerical Algorithms",
+          "trigger": "General stochastic rounding error and convergence framework"
+        },
+        {
+          "assessment": "Provides probabilistic error bounds; not a complete Markov-law semigroup/absorption classification in inspected material",
+          "evidence": "Theorem framework bounds stochastic errors, while the submitted conclusion is exact two-state law for all t.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.10321",
+          "material_read": "Full accessible 21-page primary PDF opened; inspected first page and martingale variance bounds for polynomial evaluation",
+          "method": "Read arXiv PDF selected sections and screenshot first page",
+          "title": "Stochastic Rounding Variance and Probabilistic Bounds: A New Approach",
+          "trigger": "Possible dominating general variance theorem"
+        },
+        {
+          "assessment": "Finite-bit precision and coupon-collector dynamics are different objects; not evidence for same complete distribution",
+          "evidence": "Different rounding lattice and decrement model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-bit-stochastic-rounding-decay-as-a-convolution-of-coupon--d4febfbf759f",
+          "material_read": "Resultary indexed title and abstract/summary only",
+          "method": "Resultary semantic search",
+          "title": "Finite-bit stochastic-rounding decay as a convolution of coupon collectors",
+          "trigger": "Search returned other exact absorption law involving stochastic rounding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It identifies exactly when independent per-step random lattice rounding loses no distributional information relative to one rounding, which is a natural rigidity property of a Markov kernel rather than generic mean conservation. The exact absorption law and logarithmic lattice phase provide precise stopping-time information for discrete scalar decay and suggest which rounding schedules exhibit noise accumulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/reciprocal-integer-rigidity-and-exact-absorption-laws-for-stocha--374d6aac7770/RESULT.md",
+    "https://eprints.maths.manchester.ac.uk/2843/1/cfhm22.pdf",
+    "https://arxiv.org/abs/2207.03837",
+    "https://arxiv.org/abs/2207.10321",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-bit-stochastic-rounding-decay-as-a-convolution-of-coupon--d4febfbf759f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Identity is all-starting-value/all-step exact distribution, not per-instance if-and-only-if.",
+    "No claims for finite-precision grids, nonlinear contractions, correlated randomness, or biased rounding."
+  ],
+  "residual_risks": [
+    "Possible earlier Markov-kernel interpolation/coarsening theorem not indexed by the stochastic-rounding terminology.",
+    "Ideal independent unbiased fresh rounding on unit grid is essential; not claimed for pseudorandom finite-bit or variable-spacing floating-point."
+  ],
+  "schema_version": 1
+}
