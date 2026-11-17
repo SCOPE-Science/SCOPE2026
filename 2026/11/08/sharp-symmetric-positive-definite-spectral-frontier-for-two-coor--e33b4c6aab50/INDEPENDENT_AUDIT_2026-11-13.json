@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:16:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For A=LI+P, P PSD, with L>=(1+sqrt2)/2, det A-|a+c| and det A-|d+c| are strictly positive from a quadratic AM-GM bound when 4L(L-1)>=1; hence 1+y_i(z)>0 for all signs. The package exact resolvent finite-difference identity F(w)-F(z)=-2 sum_{flips} z_i x_i(z)(1+y_i(w)) proves global optimality of consistent signs and strict ascent on mismatch flips. The rank-one perturbation family has least eigenvalue L and flips polarity below threshold. Independently computed all four exact rational witness potentials; 99/100 is unique largest and (+,+) candidate=(-1/100,1). The symmetry of 2x2 A^-1 gives rho(|A^-1|)=1/L. This does not prove analogous n>2 claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nonsymmetric prior A^-1 has lower diagonal eigenvalue -eps, cannot be SPD."
+        ],
+        "reasoning": "General counterexample just beyond 1/2 does not imply SPD failure there or SPD sharp threshold.",
+        "searches": [
+          "discrete potential absolute value equation symmetric positive definite 2x2 sharp spectral radius threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-dpo-half-threshold-sharpness--ba2cd47befbe"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-dpo-half-threshold-sharpness--ba2cd47befbe",
+        "https://arxiv.org/abs/2609.12763"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing 1/2 sufficient theorem does not ensure stronger 0.828427... guarantee."
+        ],
+        "reasoning": "Positive definite matrix structure enables a new polarity positivity proof and a matching rank-one SPD sharp family; Chen-Xia full-text access remains unresolved.",
+        "searches": [
+          "discrete potential absolute value equation symmetric positive definite 2x2 sharp spectral radius threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-dpo-half-threshold-sharpness--ba2cd47befbe",
+          "https://arxiv.org/abs/2609.12763"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen-Xia general DPO bound rho<1/2; same F(z), sign variables, equation."
+        ],
+        "reasoning": "AVE potential framework is prior, sharp SPD restriction has extra hypotheses and larger valid interval.",
+        "searches": [
+          "discrete potential absolute value equation symmetric positive definite 2x2 sharp spectral radius threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-dpo-half-threshold-sharpness--ba2cd47befbe",
+          "https://arxiv.org/abs/2609.12763"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior table supplies counterexamples for each c in (1/2,1) outside SPD; this case gives safe c<=2(sqrt2-1)."
+        ],
+        "reasoning": "The domains differ and the sharp SPD boundary is not a known-table substitution.",
+        "searches": [
+          "discrete potential absolute value equation symmetric positive definite 2x2 sharp spectral radius threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-dpo-half-threshold-sharpness--ba2cd47befbe"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge). Chen-Xia establishes DPO potential and sufficient 1/2 bound; the Sept17 counterexample is nonsymmetric upper triangular with a negative diagonal, so it does not imply a sharp SPD positive-eigenvalue frontier. This final result proves safety up to 2(sqrt2-1)>1/2 and an SPD counterexample at every strictly larger inverse spectral radius below 1. The original Chen-Xia full preprint could not be retrieved; authorized institutional access reported a disconnected VPN. Preserve that risk explicitly.",
+      "residual_risks": [
+        "Chen-Xia complete preprint text inaccessible in arXiv HTML and lawful OA attempts; Oxford authorized access reports VPN disconnected. A hidden sharper SPD result in its appendices remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING SPD claim",
+          "evidence": "Counterexample A^-1=[[1/2+eps,-1/2],[0,-eps]] is nonsymmetric with negative eigenvalue, impossible SPD; no positive subclass optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-dpo-half-threshold-sharpness--ba2cd47befbe",
+          "material_read": "Entire accessible RESULT.md, including upper-triangular counterexample and scaling discussion",
+          "method": "GitHub connector full published text",
+          "title": "The one-half threshold is sharp for discrete-potential AVE certification",
+          "trigger": "exact same DPO potential, general 1/2 boundary"
+        },
+        {
+          "assessment": "MATERIAL_INCOMPLETE with explicit priority risk",
+          "evidence": "Abstract states norm/spectral sufficient 1/2 guarantee, not the candidate sharp SPD subclass; inaccessible full text not used for any whole-paper negative coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12763",
+          "material_read": "ArXiv abstract, metadata and publicly indexed description only; full arXiv HTML and OA mirror unavailable; institutional access returned vpn_disconnected",
+          "method": "Web arXiv and lawful HTML attempts, authorized Oxford request",
+          "title": "Discrete Potential Optimization for Absolute Value Equations: A Sign-Flip Framework with Polynomial Complexity",
+          "trigger": "source of candidate potential and 1/2 guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The 2x2 SPD class is a natural tractable subclass of AVEs; proving the exact worst-case potential-certification frontier and matching wrong-sign counterexamples materially enlarges the safe regime beyond the general 1/2 estimate. This is a precise structural boundary for an actual algorithmic objective, not merely a sample numeric improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; source-inspection depth and residual priority risk recorded in originality.source_inspections/residual_risks.",
+    "Independent finite symbolic/rational checks in private independent_math_checks.py corroborate but do not prove full quantified statements.",
+    "Existing Lean/expert verification channels untouched; no publication or GitHub modification."
+  ],
+  "schema_version": 1
+}

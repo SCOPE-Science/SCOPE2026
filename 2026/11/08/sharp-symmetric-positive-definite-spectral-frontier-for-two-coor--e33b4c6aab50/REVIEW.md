@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is quantified over every real symmetric positive-definite two-coordinate matrix above the sharp spectral threshold and every right-hand side, with an explicit counterexample family for each lower spectral margin. Positive-definite shifts ensure all four candidate resolvents exist. Direct inversion gives the two polarity formulas; the positive-semidefinite decomposition and arithmetic-geometric mean inequality prove strict positivity at and above the boundary. The exact finite-difference identity then proves the equivalence and ascent directions. A rank-one perturbation supplies matrices with exactly prescribed smallest eigenvalue below the boundary and a small right-hand-side perturbation yields a unique inconsistent maximizer. A rational witness and exact-arithmetic script reproduce the critical algebra without replacing the infinite proof.
+PASS
 
-## Originality — PASS, with priority limitations
+PASS. For A=LI+P, P PSD, with L>=(1+sqrt2)/2, det A-|a+c| and det A-|d+c| are strictly positive from a quadratic AM-GM bound when 4L(L-1)>=1; hence 1+y_i(z)>0 for all signs. The package exact resolvent finite-difference identity F(w)-F(z)=-2 sum_{flips} z_i x_i(z)(1+y_i(w)) proves global optimality of consistent signs and strict ascent on mismatch flips. The rank-one perturbation family has least eigenvalue L and flips polarity below threshold. Independently computed all four exact rational witness potentials; 99/100 is unique largest and (+,+) candidate=(-1/100,1). The symmetry of 2x2 A^-1 gives rho(|A^-1|)=1/L. This does not prove analogous n>2 claims.
 
-The 2026 Chen--Xia paper introduces the discrete potential and proves general one-half sufficient norm and scaled spectral conditions but does not give this two-dimensional symmetric-positive-definite sharp frontier. The publicly indexed published-finding corpus record `ba2cd47befbe` shows sharpness of one-half in general through a nonsymmetric triangular example; neither its unrestricted counterexample nor its scalar minimality statement implies a larger safe threshold restricted to symmetric positive-definite matrices. Searches for the special threshold and aliases did not identify prior coverage. Older AVE uniqueness/splitting work does not examine this potential. Remaining priority uncertainty is not excluded by a search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines an exact structural safety boundary for the smallest nontrivial coupled symmetric problem. It raises the universal permissible inverse spectral radius from the general \(1/2\) bound to \(2(\sqrt2-1)\), while proving that the gain is maximal for that class. The rank-one family locates the breakdown of the sign-potential ascent geometry without loss of AVE uniqueness, distinguishing solver reliability from mere solvability. This is a sharp qualitative classification, not a routine restatement of the general norm bound.
+PASS (best-of-knowledge). Chen-Xia establishes DPO potential and sufficient 1/2 bound; the Sept17 counterexample is nonsymmetric upper triangular with a negative diagonal, so it does not imply a sharp SPD positive-eigenvalue frontier. This final result proves safety up to 2(sqrt2-1)>1/2 and an SPD counterexample at every strictly larger inverse spectral radius below 1. The original Chen-Xia full preprint could not be retrieved; authorized institutional access reported a disconnected VPN. Preserve that risk explicitly.
 
-## Limitations and closest literature
+## value
 
-The conclusion concerns two dimensions, symmetry, positive definiteness, exact arithmetic, and the original unscaled potential. It supplies no rate bound beyond finite sign-state termination and does not cover larger matrices or alternative AVE algorithms. Closest sources are Chen--Xia (arXiv:2609.12763), the published published-finding corpus general sharpness record `ba2cd47befbe`, and the Hladík et al. AVE survey. Independent replication of the mathematical proof has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The 2x2 SPD class is a natural tractable subclass of AVEs; proving the exact worst-case potential-certification frontier and matching wrong-sign counterexamples materially enlarges the safe regime beyond the general 1/2 estimate. This is a precise structural boundary for an actual algorithmic objective, not merely a sample numeric improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

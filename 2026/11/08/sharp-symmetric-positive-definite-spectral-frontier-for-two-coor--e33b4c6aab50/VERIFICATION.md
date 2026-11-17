@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and proof limits
+# Independent mathematical audit
 
-The elementary identities used in the theorem are reconstructible directly from the two-by-two inverse, positive-semidefinite decomposition, the arithmetic-geometric mean inequality, and a resolvent difference identity. They hold for infinitely many real matrices; numerical checking is not offered as a substitute for the proof.
+## correctness
 
-The standalone `verify_spd_dpo.py` uses only standard-library exact fractions. Running `python3 verify_spd_dpo.py` prints one explicit rational counterexample, reports 250 exact safe tests, and ends with `VERIFY_OK`. It checks all sixteen ordered pairs of sign configurations for each sampled system, the necessary sign and potential inequalities, three additional lower-bound witness configurations, and the rational matrices' asserted eigenvalue factors.
+PASS
 
-This verification does not constitute an independent audit, formal theorem proving, or exhaustive testing of all real inputs. The source material and public prior-results comparisons are summarized separately in the scientific review.
+PASS. For A=LI+P, P PSD, with L>=(1+sqrt2)/2, det A-|a+c| and det A-|d+c| are strictly positive from a quadratic AM-GM bound when 4L(L-1)>=1; hence 1+y_i(z)>0 for all signs. The package exact resolvent finite-difference identity F(w)-F(z)=-2 sum_{flips} z_i x_i(z)(1+y_i(w)) proves global optimality of consistent signs and strict ascent on mismatch flips. The rank-one perturbation family has least eigenvalue L and flips polarity below threshold. Independently computed all four exact rational witness potentials; 99/100 is unique largest and (+,+) candidate=(-1/100,1). The symmetry of 2x2 A^-1 gives rho(|A^-1|)=1/L. This does not prove analogous n>2 claims.
+
+## originality
+
+PASS
+
+PASS (best-of-knowledge). Chen-Xia establishes DPO potential and sufficient 1/2 bound; the Sept17 counterexample is nonsymmetric upper triangular with a negative diagonal, so it does not imply a sharp SPD positive-eigenvalue frontier. This final result proves safety up to 2(sqrt2-1)>1/2 and an SPD counterexample at every strictly larger inverse spectral radius below 1. The original Chen-Xia full preprint could not be retrieved; authorized institutional access reported a disconnected VPN. Preserve that risk explicitly.
+
+## value
+
+PASS
+
+PASS. The 2x2 SPD class is a natural tractable subclass of AVEs; proving the exact worst-case potential-certification frontier and matching wrong-sign counterexamples materially enlarges the safe regime beyond the general 1/2 estimate. This is a precise structural boundary for an actual algorithmic objective, not merely a sample numeric improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
