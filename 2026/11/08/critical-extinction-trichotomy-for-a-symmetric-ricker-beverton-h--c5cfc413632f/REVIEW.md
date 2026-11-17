@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact two-step recurrences have quadratic coefficients \(2k\) in each species' own density and \(2\) across species. Global extinction follows directly from strict two-step decrease on the positive quadrant. The exact alternating log-ratio identity forces synchronization for \(k>1\), a finite nontrivial ratio for \(k=1\), and ratio divergence for \(0<k<1\). A reciprocal bootstrap establishes the minority constant. All quantifiers are for strictly positive initial data and fixed \(k>0\). Numerical checks supplement, not replace, these proofs.
+## correctness
 
-## Originality — PASS within accessible evidence
-The 2023 Ouyang–Zhang–Chen paper contains the exact population update and states extinction for \(ab\le1\). The inspected public abstract and indexed passages do not give the normalized critical time-parity trichotomy. Literature searches and comparable mathematical-result statements identified different critical population models, including a two-species competitive Ricker system with a nonidentical recurrence. The 2022 next-iterate-operator paper studies different maps. This is **not** proof of global novelty: the originating paper's **full text could not be inspected**; an accessible full copy was not obtained from lawful sources. An equivalent result there remains a specific substantial publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-The same globally extinct fishery map has three sharply different observable normalized composition laws, separated by the natural saturation parameter \(k=1\): universal synchronization, initial-condition-dependent two-phase memory, and parity-selective extinction with an exact minority power. This answers a genuine quantitative question left open by qualitative extinction and is not merely an exercise in classifying fixed points.
+F_k(y,z)=(z e^-y/(1+kz),y e^-z/(1+ky)) maps each coordinate strictly below the opposite input, so both even subsequences decrease to zero. Taylor expansion of F_k^2 gives x_next=x(1-2kx-2t+O((x+t)^2)) and t_next=t(1-2x-2kt+O((x+t)^2)), whence S=x+t=Theta(1/m) and sum S diverges while sum S² converges. Exact L_next=-L-[phi_k(y)-phi_k(z)], phi_k(u)=u-log(1+ku), and order-reversal give increment of |L| equal phi_k(max)-phi_k(min). For k>1 sign eventually negative and ratio ->1, giving n y,n z ->1/(k+1). For k=1 the ratio tends positive finite and diagonal iff equal starts, producing complementary alternating profiles. For k<1 off-diagonal ratio separates; the dominant two-step component ~1/(2km), minority has exponent m^-1/k and a strictly positive constant by summability of logarithmic remainder. Independent code verified the exact ratio identity and regimes up to n=150000: k=.6 dominant n*y=1.66411 vs 1/k=1.66667, k=1 n(y+z)=.999974, k=1.5 n(y+z)=.797897 vs 2/(k+1)=.8; full k>1 ratio convergence is slower than these samples, consistent with asymptotic proof.
 
-## Sources, scope and outstanding risks
-The specific full manuscript risk and search comparisons are itemized in `AUDIT.json`. The claim concerns only the symmetric critical-production slice and cannot be lifted automatically to unequal parameters. Computational spot checks do not certify the infinite-time limits. The review assesses only the present analytical claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact source Ouyang–Zhang–Chen (2023) covers the same Ricker–Beverton–Holt map and proves global extinction when ab<=1, but indexed published statements do not provide critical a=b=1, p=q=k, two-step normalized n^-1 parity composition and the minority n^-1/k amplitude. Resultary searches identified other symmetric Ricker competition and cyclic ecological models with different update formulae; no equivalent trichotomy was found. OA article is published under CC, but fetching its publisher full text failed, leaving a substantial qualified originality risk.
+
+## value
+
+PASS
+
+At the neutral ab=1 linearization both +1 and -1 multipliers force nontrivial two-step normal form. The exact phase transition at k=1 between symmetric, memory-retaining and parity-selected extinction has a natural ecological interpretation and gives needed sharp normalized rates/positive minority constant, unlike a restatement of known unnormalized extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

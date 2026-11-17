@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:53:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "F_k(y,z)=(z e^-y/(1+kz),y e^-z/(1+ky)) maps each coordinate strictly below the opposite input, so both even subsequences decrease to zero. Taylor expansion of F_k^2 gives x_next=x(1-2kx-2t+O((x+t)^2)) and t_next=t(1-2x-2kt+O((x+t)^2)), whence S=x+t=Theta(1/m) and sum S diverges while sum S² converges. Exact L_next=-L-[phi_k(y)-phi_k(z)], phi_k(u)=u-log(1+ku), and order-reversal give increment of |L| equal phi_k(max)-phi_k(min). For k>1 sign eventually negative and ratio ->1, giving n y,n z ->1/(k+1). For k=1 the ratio tends positive finite and diagonal iff equal starts, producing complementary alternating profiles. For k<1 off-diagonal ratio separates; the dominant two-step component ~1/(2km), minority has exponent m^-1/k and a strictly positive constant by summability of logarithmic remainder. Independent code verified the exact ratio identity and regimes up to n=150000: k=.6 dominant n*y=1.66411 vs 1/k=1.66667, k=1 n(y+z)=.999974, k=1.5 n(y+z)=.797897 vs 2/(k+1)=.8; full k>1 ratio convergence is slower than these samples, consistent with asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 article presents global extinction for entire ab<=1 parameter region, stronger only for the coarse extinction statement, not the k-sensitive correction and profile."
+        ],
+        "reasoning": "Broader coarse extinction results do not determine exact first-order power laws or retained composition. Full paper remains inaccessible; risk explicitly retained.",
+        "searches": [
+          "critical extinction Ricker Beverton Holt a=b=1 p=q=k alternating minority exponent 1/k",
+          "doi:10.1016/j.chaos.2023.113384"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.chaos.2023.113384",
+        "https://openalex.org/W4361294196",
+        "https://arxiv.org/abs/2210.07943"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ab=1, origin extinction follows prior general result, but prior indexed available text gives no inequality on L_n ratio drift or k=1 memory foliation."
+        ],
+        "reasoning": "A linearization with multipliers +/-1 plus extinction alone permits multiple decay patterns; the submitted sign analysis and summable corrections are substantive non-implied refinements.",
+        "searches": [
+          "critical extinction Ricker Beverton Holt a=b=1 p=q=k alternating minority exponent 1/k",
+          "doi:10.1016/j.chaos.2023.113384"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 2023 paper addresses exactly general y_next=a z e^-y/(1+pz), z_next=b y e^-z/(1+qy), with ab<=1 extinction. Assigned slice is a=b=1,p=q=k and refines the normalized rates/ratio dynamics."
+        ],
+        "reasoning": "Same underlying map and its extinction status are known, but normalized parity-selection and sharp k=1 profile is not an equivalent formulation of mere convergence to origin.",
+        "searches": [
+          "critical extinction Ricker Beverton Holt a=b=1 p=q=k alternating minority exponent 1/k",
+          "doi:10.1016/j.chaos.2023.113384"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-real k and all-positive-initial-state normalized phase diagram is not a finite table; numerical fishery figures cannot establish positive limiting minority amplitude."
+        ],
+        "reasoning": "No exact table was found that encodes the asserted asymptotic trichotomy. Mathematical proof relies on ratio recurrence, not enumeration.",
+        "searches": [
+          "critical extinction Ricker Beverton Holt a=b=1 p=q=k alternating minority exponent 1/k",
+          "OpenAlex:W4361294196"
+        ]
+      },
+      "rationale": "The exact source Ouyang–Zhang–Chen (2023) covers the same Ricker–Beverton–Holt map and proves global extinction when ab<=1, but indexed published statements do not provide critical a=b=1, p=q=k, two-step normalized n^-1 parity composition and the minority n^-1/k amplitude. Resultary searches identified other symmetric Ricker competition and cyclic ecological models with different update formulae; no equivalent trichotomy was found. OA article is published under CC, but fetching its publisher full text failed, leaving a substantial qualified originality risk.",
+      "residual_risks": [
+        "Material full-text originality risk: 2023 source is OA-labeled but publisher full text could not be retrieved; no inference of whole-document noncoverage from snippets.",
+        "The theorem is limited to a=b=1, p=q=k>0 and strictly positive starts; threshold k=1 memory parameter is defined dynamically, not in elementary closed form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_INCOMPLETE_PRIORITY_RISK",
+          "evidence": "The highlights explicitly state ab<=1 extinction but do not state normalized k transition. Whole-document noncoverage cannot be certified.",
+          "identifier_or_url": "https://doi.org/10.1016/j.chaos.2023.113384",
+          "material_read": "Accessible publisher indexed abstract and highlights, plus OpenAlex bibliographic entry; publisher full text returned an inaccessible linkinghub redirect despite OA label.",
+          "method": "DOI publisher metadata and indexed abstract; OpenAlex W4361294196",
+          "title": "Balanced harvesting of dynamical discrete Ricker & Beverton–Holt system",
+          "trigger": "Exact identical parent fishery map and global ab<=1 extinction"
+        },
+        {
+          "assessment": "DISTINCT_MODEL_NOT_DECISIVE",
+          "evidence": "General planar next-iterate framework does not supply these exact k-dependent constants in available statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.07943",
+          "material_read": "Citation and abstract-level context only, not entire manuscript.",
+          "method": "Bibliographic context",
+          "title": "An augmented phase plane approach for discrete planar maps: Introducing next-iterate operators",
+          "trigger": "Possible general next-iterate framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the neutral ab=1 linearization both +1 and -1 multipliers force nontrivial two-step normal form. The exact phase transition at k=1 between symmetric, memory-retaining and parity-selected extinction has a natural ecological interpretation and gives needed sharp normalized rates/positive minority constant, unlike a restatement of known unnormalized extinction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Material full-text originality risk: 2023 source is OA-labeled but publisher full text could not be retrieved; no inference of whole-document noncoverage from snippets.",
+    "The theorem is limited to a=b=1, p=q=k>0 and strictly positive starts; threshold k=1 memory parameter is defined dynamically, not in elementary closed form.",
+    "Actual frozen Git tree SHA independently retrieved and exactly matched assignment; computed checks corroborate selected claims but do not replace a proof.",
+    "This is a private independent best-of-knowledge assessment with no external certification; no public-facing file changes submitted."
+  ],
+  "schema_version": 1
+}
