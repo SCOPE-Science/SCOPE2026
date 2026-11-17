@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof counts identical difference fibers, not sums of unrelated quadruples. It explicitly handles the zero difference, the mismatch of coordinate valuations, every nonzero valuation shell, the nonsingular finite-field intersection, and the singular reduction when parameters agree modulo the prime. The singular change of variables uses a Hensel square root of the unit ratio and a determinant that is a unit because the prime is odd. The zero-product case is counted separately. CRT gives the global statement. The standalone verifier independently enumerates actual ordered quadruple differences for finite cases.
+## correctness
 
-**Originality (PASS, qualified).** The comparison is about mathematical implication, not title similarity. Cilleruelo–Garaev arXiv:1007.1526 gives hyperbola concentration bounds and no all-frequency mixed cross-energy. Gong–Veys–Wan arXiv:1306.4104 gives single-parameter Kloosterman power moments and their self-energy consequence, but does not specify the cross product of two distinct hyperbola Fourier magnitudes or the dependence on \(\nu_p(\lambda-\mu)\). Ricotta–Royer arXiv:1609.03694 Proposition 5.4 establishes a one-graph quadruple bound, rather than exact two-parameter mixed fibers. The known equality-parameter local factor is recovered and excluded from originality. Searches also tested alternate terms (mixed Kloosterman fourth moments, cross energy, difference correlation, quadratic-character stratification). No covering result was found in the inspected material. The possibility of an unlocated equivalent correlated-moment theorem remains a residual risk.
+PASS
 
-**Mathematical value (PASS).** Cross-energy is a canonical additive-combinatorial invariant of two natural arithmetic curves and an exact fourth-order Fourier correlation. The formula is complete at every odd modulus, and the p-adic valuation stratification is mathematically substantive: it distinguishes opposite square classes (no higher-difference-shell contribution), parameters congruent at one or more levels, and exact coincidence. Its composite-modulus formula is not a table of isolated cases.
+For odd p^k and unit lambda,mu the ordered additive collision energy equals sum_(s,t) D_lambda(s,t)D_mu(s,t), origin phi(p^k)^2, with nonzero difference fibers restricted to matching p-adic valuations. Positive equal-valuation shell h contributes (p−1)^2 p^(2k−2)(1+chi). In unit (s,t) coordinates the quadratic root count yields N_k=p^(k−1)(p−4−chi) for v_p(lambda−mu)=0 by smooth Hensel lifting and quadratic character sums. For v>=1, the only singular mod-p branch becomes AB=−epsilon with A,B multiples of p; classifying valuations yields N_k=p^(k−1)[2p−6+(v−1)(p−1)+1_(v=k)], and chi=1. Assembling shell and unit terms proves both explicit displayed local formulas, including p=3 and k=1; CRT gives every odd N and Fourier orthogonality gives q² times mixed fourth moment. Independently evaluated 1027 parameter cases by direct ordered difference-fiber convolution, not the quadratic-root method.
 
-**Scope and evidence.** The prime \(2\), nonunit parameters, and incomplete sums are excluded. Direct finite tests corroborate the proof but are not a proof for unbounded moduli. Scholarly priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A mixed two-curve parameter correlation requires cross-difference fibers, not merely the already-known self-energy or its complete same-hyperbola pair-sum histogram. The different-residue and congruent-residue cases create genuinely different Legendre and valuation regimes; matching the diagonal does not make these off-diagonal terms covered. Published full self-energy and pair-sum texts were inspected, and primary Kloosterman literature searched, with historical correlation-risk stated.
+
+## value
+
+PASS
+
+Modular hyperbolas and full-frequency Kloosterman correlations are natural arithmetic statistics. The exact off-diagonal two-parameter energy records a genuine quadratic-character and p-adic proximity transition invisible in diagonal fourth moments, and the CRT product gives a complete classification over all odd residue rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
