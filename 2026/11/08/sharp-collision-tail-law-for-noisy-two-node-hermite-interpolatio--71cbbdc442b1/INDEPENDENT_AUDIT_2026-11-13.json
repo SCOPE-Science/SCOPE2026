@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T15:16:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-collision-tail-law-for-noisy-two-node-hermite-interpolatio--71cbbdc442b1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-collision-tail-law-for-noisy-two-node-hermite-interpolatio--71cbbdc442b1/verification/check_hermite_tail.py"
+      ],
+      "rationale": "The right-node value-cardinal Hermite polynomial R_m(z)=z^m sum_{k=0}^{m−1} binom(m+k−1,k)(1−z)^k has degree 2m−1 and leading coefficient (−1)^{m−1}B_m; the left value cardinal has opposite leading coefficient. Under h=Y−X→0, uniform bounded jet errors give h^{2m−1}(P_m−f)(t)→(−1)^{m−1}B_m(ε_Y0−ε_X0)(t−X)^{2m−1}, since derivative-error terms are higher in h and f∈C^{2m} has uniformly bounded Hermite remainder. Thus |h|^{2m−1} E_m→B_m Z M_{2m−1}(X) uniformly. Integrate the iid knots via h=u/T^{1/(2m−1)}, use a bounded support in u from the deterministic scaled-error bound, and dominated convergence to get exact positive coefficient 2 B_m^{1/d}E[Z^{1/d}]∫ M_d(x)^{1/d} dx for tail T^{−1/d}, d=2m−1. Layer-cake yields E[E_m^p]<∞ iff p<1/d, including log divergence at boundary. Independent exact rational cardinal checks and m=1 numerical coefficient C1(Z=1)=0.79684325201043 corroborate pieces; they do not replace proof.",
+      "residual_risks": [
+        "Finite independent computations and package checkers are corroboration, not an infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal collision exponents for ordinary random-node Lagrange (without multiplicity) and one-per-cell Lagrange sampling have different node ensembles/degree and do not cover derivative constraints.",
+          "Fourier superresolution clustered nodes uses different basis and deterministic conditioning objects."
+        ],
+        "reasoning": "Broader interpolation instability literature motivates but does not supply the exact m-jet random Hermite tail exponent 1/(2m−1) and the coefficient.",
+        "searches": [
+          "noisy Hermite interpolation random iid knots heavy-tailed global L2 error collision moment",
+          "https://arxiv.org/abs/2203.11923",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.11923",
+        "https://arxiv.org/abs/2207.01852",
+        "https://doi.org/10.1007/BF01432880",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Batenkov–Diab deterministic singular spectra, Arnoldi stabilization and Gautschi inverse-norm bounds do not themselves compute Pr(E>T) from iid knots.",
+          "Generic m=1 Lagrange moments form a covered limiting case, while m≥2 cardinal leading coefficient B_m plus uniform collision integration gives full exact distributional tail."
+        ],
+        "reasoning": "An old general confluent-nodes probability theorem might cover the higher multiplicities, but none was established from actual reviewed sources.",
+        "searches": [
+          "https://arxiv.org/abs/2203.11923",
+          "https://arxiv.org/abs/2207.01852",
+          "https://doi.org/10.1007/BF01432880",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The m=1 case is ordinary random-node Lagrange interpolation and can inherit known reciprocal-gap instability.",
+          "Batenkov–Diab covers Fourier confluent Vandermonde singular values; Niu–Zhang–Zhou builds Arnoldi stabilized confluent systems."
+        ],
+        "reasoning": "Hermite confluent jet interpolation is the same broad linear-algebra family, but the full random-knot global L2 tail and dependence on only the value-error difference require separate proof.",
+        "searches": [
+          "noisy Hermite interpolation random iid knots heavy-tailed global L2 error collision moment",
+          "https://arxiv.org/abs/2203.11923",
+          "https://arxiv.org/abs/2207.01852",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gautschi 1978 abstract establishes inverse confluent-matrix norm lower bounds, not a probabilistic table of iid knot error tails."
+        ],
+        "reasoning": "A numerical conditioning table cannot establish the distributional formula without knot/noise integration; detailed full text could not be inspected, so no whole-document negative claim.",
+        "searches": [
+          "noisy Hermite interpolation random iid knots heavy-tailed global L2 error collision moment",
+          "https://doi.org/10.1007/BF01432880"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with special-case caveat: generic two-node m=1 noise amplification is already a Lagrange/Vandermonde phenomenon, and published random Lagrange interpolation has collision/moment laws. For m≥2 confluent Hermite jets the exponent 1/(2m−1), exact global L2 coefficient for arbitrary bounded dependent jets (independent of knots), and complete moment threshold are not implied by reviewed Fourier-confluent singular-value bounds, Arnoldi stabilization, or Lagrange-only results. Gautschi's 1978 highly relevant inverse confluent-matrix paper was only available as abstract; authorized Oxford full text request explicitly failed due disconnected VPN, retained as risk, not automatic FAIL.",
+      "residual_risks": [
+        "The m=1 exponent is an expected known reciprocal-gap phenomenon; novelty resides in the all-m Hermite and exact coefficient formulation.",
+        "Gautschi 1978 full text inaccessible due explicit disconnected institutional VPN; historical overlap remains possible.",
+        "Noise is assumed bounded and independent of X,Y; derivative errors do not govern leading tail when P(Z>0)>0."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DETERMINISTIC_DIFFERENT_MATRIX",
+          "evidence": "Fourier confluent Vandermonde reconstruction and worst-case finite superresolution, not iid two-node polynomial Hermite L2 error tail.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.11923",
+          "material_read": "Full arXiv HTML primary text including main singular-value bounds and modeling sections",
+          "method": "Full primary text comparison",
+          "title": "Super-resolution of generalized spikes and spectra of confluent Vandermonde matrices",
+          "trigger": "Clustered-node confluent singular-value theory might dominate tail claim"
+        },
+        {
+          "assessment": "RELEVANT_NOT_FULLY_INSPECTED",
+          "evidence": "Orthogonalized confluent interpolation computations; does not establish absence of stochastic collision law across entire paper.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.01852",
+          "material_read": "Open-access paper abstract and metadata, not full text",
+          "method": "ArXiv source and bibliographic comparison",
+          "title": "Confluent Vandermonde with Arnoldi",
+          "trigger": "Hermite derivative interpolation with stabilization"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Abstract: lower bounds on inverse Vandermonde and selected confluent matrices; whether any sharp random collision probability follows in full text is unknown.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01432880",
+          "material_read": "Publisher abstract and citation data; no full text. Authorized institutional full-text retrieval responded vpn_disconnected; not bypassed.",
+          "method": "arXiv/OA search then authorized institutional attempt",
+          "title": "On inverses of Vandermonde and confluent Vandermonde matrices III",
+          "trigger": "Old primary inverse confluent matrix norm bounds, potentially dominating"
+        },
+        {
+          "assessment": "RELATED_NONCONFLUENT",
+          "evidence": "Vandermonde repulsion and Lagrange-only moment thresholds; not equal Hermite multiplicity and B_m prefactor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "material_read": "Published Resultary record title and mathematical abstract/search summary only",
+          "method": "Semantic scientific comparison, not a claimed full-text negative inspection",
+          "title": "A universal collision-exponent moment law for random-node polynomial interpolation",
+          "trigger": "Same random-node noise/threshold language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.11923",
+        "https://arxiv.org/abs/2207.01852",
+        "https://doi.org/10.1007/BF01432880"
+      ],
+      "rationale": "PASS: Random near-colliding interpolation nodes cause a sharp, unavoidable heavy-tail error law for exact unregularized Hermite reconstruction. A precise L2 tail constant and all-order sharp integrability threshold are natural stability statistics, expose worsening ill-conditioning as derivative order grows, and are useful for identifying when noise moments cease to exist; more than a routine consequence of a single matrix inverse norm bound.",
+      "residual_risks": [
+        "Mathematical usefulness evaluated for the precise final claim, not from accuracy or novelty alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The m=1 exponent is an expected known reciprocal-gap phenomenon; novelty resides in the all-m Hermite and exact coefficient formulation.",
+    "Gautschi 1978 full text inaccessible due explicit disconnected institutional VPN; historical overlap remains possible.",
+    "Noise is assumed bounded and independent of X,Y; derivative errors do not govern leading tail when P(Z>0)>0."
+  ],
+  "schema_version": 1
+}
