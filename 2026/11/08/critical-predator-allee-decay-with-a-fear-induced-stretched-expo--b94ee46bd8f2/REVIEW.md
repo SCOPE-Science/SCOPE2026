@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is restricted to a positive-data invariant wedge under explicit inequalities. The proof derives both differential inequalities for global extinction and an exact coupled antiderivative \(H(y)\), then integrates an exact prey logarithmic identity. The \(O(t^{-3/2})\) predator remainder gives integrable errors in the prey exponent, proving a finite positive amplitude rather than just a logarithmic equivalence. The standalone symbolic checker verifies both identities and the rational example; numerical integration is only corroborative.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+With m=c and µ=e+p/a-r>0, choosing qn<1, q small enough to make xdot/x<=-3µ/4 and δ such that sδ²/c²<µ/4 makes z=x/y decay at least e^{-µt/2}. The forward-invariant wedge makes x decay exponentially while y decreases with ydot of order -y^3. The exact H(y)=c/(s y)+c²/(2s y²) satisfies Hdot=1-nx(y+c)/[y(nx+c)], whose correction is absolutely integrable because x/y is. Inversion gives y=c/(sqrt(2s)) t^{-1/2}+c/(2s)t^{-1}+O(t^{-3/2}). Exact logarithmic prey decomposition -µ-rky+rk²y²+R with integrable R, plus integrals of y and y², proves x~L t^{rkc(kc-1)/(2s)} exp(-µt-rkc sqrt(2/s)sqrt t), L>0. Existence/positivity hold in the actual open wedge, not a global basin.
 
-The initiating article explicitly discusses collision at \(m=c\), but its material from equations through its conclusion is directed to equilibria, local stability, bifurcations and simulations. It does not state the combined asymptotic with its fear-dependent stretched exponential and logarithmic exponent. The 2021 fear/group-defense reaction–diffusion study uses a different predator equation without this cubic degeneration. The nearest available published research claims about cubic slowing concern other modified Leslie–Gower/Allee systems and do not imply the specific prey amplitude asymptotic in this system. Source, alias, equivalence and broader-cover searches did not identify a covering result; negative search alone is not proof of absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact predator Allee threshold defeats ordinary hyperbolic linear decay analysis. This result separates the algebraic predator tail, the fear-controlled \(\sqrt t\) attenuation of prey, and the nontrivial logarithmic correction, all on a genuine open initial-data set rather than a tuned orbit. These quantities determine extinction times and leading transient predictions near the threshold. This is a motivated classification of the critical extinction kinetics, not a cosmetic rewrite of fixed-point stability.
+The same Leslie–Gower predator Allee system in Vinoth et al. supplies equilibria, local stability and Hopf/saddle-node bifurcations, not this nonhyperbolic extinction wedge and its precise two-component rates. Different ecology papers involve different reaction terms. Best knowledge only.
 
-## Closest literature and limits
+## value
 
-The directly initiating paper is Vinoth et al. (2021), https://doi.org/10.1186/s13662-021-03490-x. Closest structurally is the general cubic-slowing observation for another modified Leslie–Gower model, but it neither has this exact vector field nor the fear-induced prey tail. Mishra and Tiwari (2021), https://doi.org/10.1007/s11071-021-06719-2, study fear with a different predator growth mechanism. Kong and Shao (2024), https://doi.org/10.3934/math.20241520, address another model and were inspected through bibliographic description/abstract only. Possible unindexed equivalent work remains a risk. No claim of global dynamics or external independent verification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A collision of the predator Allee and alternative-resource thresholds is structurally natural. The strict positive wedge, two-term predator law, exact fear-dependent prey stretched-exponential factor, sign-sensitive algebraic correction and positive trajectory amplitude are specific quantitative refinements needed for critical extinction comparisons. Not just a textbook observation of t^-1/2 decay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
