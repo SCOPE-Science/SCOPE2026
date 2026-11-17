@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:50:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For fixed 0<a<2/3, E(1-aG²)²=1-2a+3a²<1 ensures negative log multiplier drift. The two-sided stationary backward product has independent geometric holding blocks, each with increment L(log|1-aG²|+delta); positive increment tail has exponent c=-log rho on y/log y scale by the two-sided length/mark event estimates. The constructed stochastic upper envelope with strictly negative mean and smooth subexponential integrated tail makes Veraverbeke applicable to the random-walk maximum. The discounted innovation sum is L²-bounded, while one long constant Gaussian-mark run yields a conditional-Gaussian lower bound with the same exponent. No claim about rho=0 or finite horizons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wu Theorem 3.1 includes stationary existence and infinite moments.",
+          "Zachary arXiv:1410.8551 theorem requires negative drift and subexponential integrated increment tail, not built in for SGD.",
+          "arXiv:2610.23750 presumes regularly varying additive innovations, which fail for Gaussian noise."
+        ],
+        "reasoning": "The prior generic maximum theorem supplies a proof ingredient after verifying a special increment law and matching anti-cancellation lower event.",
+        "searches": [
+          "Gaussian refresh least squares SGD stationary tail logarithmic probability log x / log log x geometric persistence noise",
+          "https://arxiv.org/abs/2610.05599",
+          "https://arxiv.org/html/1410.8551v1",
+          "https://arxiv.org/abs/2610.23750"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.05599",
+        "arxiv:1410.8551",
+        "arxiv:2610.23750",
+        "Resultary: Gaussian refresh least squares SGD stationary tail logarithmic probability log x / log log x geometric persistence noise"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Wu Appendix G provides probability lower bounds with unspecified/nonmatching constants; this does not upper-bound errors on the sharp scale.",
+          "The maximum theorem alone does not lower-bound stationary Gaussian innovation noise, which requires a separate one-long-block conditional Gaussian event."
+        ],
+        "reasoning": "Neither known existence/infinite moments nor a general maximum-tail theorem immediately forces the exact stationary-error coefficient; the two coupled directions are genuinely additional.",
+        "searches": [
+          "Gaussian refresh least squares SGD stationary tail logarithmic probability log x / log log x geometric persistence noise",
+          "https://arxiv.org/abs/2610.05599",
+          "https://arxiv.org/html/1410.8551v1",
+          "https://arxiv.org/abs/2610.23750"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary SGD error is a perpetuity over a geometrically held Gaussian multiplier; Y=L log|1-aG²| is its regenerative log-product increment.",
+          "Li–Wu arXiv:2610.05599v1 treats the same recursion but only obtains a nonsharp one-sided event estimate in Appendix G."
+        ],
+        "reasoning": "Compared SGD with Markov-held random coefficient recursions and geometric-block multiplicative perpetuities; general class membership alone does not determine -log rho.",
+        "searches": [
+          "Gaussian refresh least squares SGD stationary tail logarithmic probability log x / log log x geometric persistence noise",
+          "https://arxiv.org/abs/2610.05599",
+          "https://arxiv.org/html/1410.8551v1",
+          "https://arxiv.org/abs/2610.23750"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query located the present exact rate result and different dilogarithmic reset or infinite-variance SGD tail models, no directly covering earlier table."
+        ],
+        "reasoning": "Infinite-threshold law for a continuous stationary error, not a finite searchable enumeration; same parameters and tail scale were compared.",
+        "searches": [
+          "Gaussian refresh least squares SGD stationary tail logarithmic probability log x / log log x geometric persistence noise",
+          "https://arxiv.org/abs/2610.05599",
+          "https://arxiv.org/html/1410.8551v1",
+          "https://arxiv.org/abs/2610.23750"
+        ]
+      },
+      "rationale": "PASS (best knowledge). Li–Wu 2026 arXiv:2610.05599 establishes this exact Gaussian-refresh stationary model, existence, infinite positive moments, and Appendix G a one-sided nonsharp tail lower bound, but it does not identify the exact two-sided logarithmic decay constant. Zachary’s random-walk maximum theorem is a prior tool, applied after nontrivial regenerative reduction. Li–Lei–Wei–Wu use regularly varying innovations, unlike Gaussian additive noise and multiplicative persistence here.",
+      "residual_risks": [
+        "Unindexed regenerative/perpetuity exact-tail specializations may have covered this coefficient.",
+        "The subexponential comparison and Veraverbeke hypotheses are critical; finite check cannot replace them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_WEAKER_TAIL",
+          "evidence": "Moment divergence and one-sided tail result do not specify the sharp two-sided -log rho coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05599",
+          "material_read": "Theorem 3.1 and Appendix G including Corollary G.3 and supporting probability estimates",
+          "method": "Accessible arXiv HTML transcription, selected primary sections inspected",
+          "title": "Gaussian Limits for SGD Without Stationary Moments",
+          "trigger": "Identical Gaussian-refresh least squares SGD and its tail question"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_PROOF_TOOL",
+          "evidence": "Requires verifying the regenerative law and integrated-tail conditions; does not directly assert SGD error law.",
+          "identifier_or_url": "https://arxiv.org/html/1410.8551v1",
+          "material_read": "Main theorem, negative drift and integrated-tail subexponential conditions",
+          "method": "Accessible complete HTML, theorem and proof conditions checked",
+          "title": "A Note on Veraverbeke’s Theorem",
+          "trigger": "Random-walk maxima used for multiplicative-product upper tail"
+        },
+        {
+          "assessment": "DISTINCT_ASSUMPTIONS",
+          "evidence": "Regularly varying innovations differ from Gaussian innovation with persistent multiplicative coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23750",
+          "material_read": "Abstract and stated innovation/scaling assumptions",
+          "method": "Accessible arXiv summary and selected statement, not entire paper",
+          "title": "Exact Tail Laws for Nonlinear SGD with Infinite-Variance Gradients",
+          "trigger": "Possible dominating recent SGD tail theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. In a stationary least-squares SGD law with all positive moments infinite, quantifying extremely rare errors with the exact refresh-dependent constant is a substantive reliability fact not implied by a CLT or moment-divergence alone. It distinguishes temporal persistence from fixed stable stepsize and noise variance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Class restricted to one-dimensional fixed-step stationary Gaussian-refreshed regression, not nonstationary training or rho=0.",
+    "Exact logarithmic tail coefficient only; no multiplicative equivalent.",
+    "Risk of unknown earlier regenerative perpetuity calculation of the same constant."
+  ],
+  "schema_version": 1
+}

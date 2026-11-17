@@ -1,19 +1,21 @@
-# Review of sharp logarithmic rare-error rate
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS, self-review.** The stationary-series construction is valid because the Gaussian update coefficient has negative mean log magnitude for each fixed \(0<a<2/3\). The backward Gaussian-refresh process decomposes into iid geometric runs. The logarithmic block-increment tail rate is \(-\log\rho\), with matching upper/lower estimates from Gaussian marks and long geometric runs. The product maximum is controlled by a negative-drift random walk and Veraverbeke's theorem, applied to an explicitly dominating subexponential law. A square-integrable discounted additive envelope controls the remaining SGD noise; one long Gaussian-mark run with Gaussian anti-cancellation proves the matching stationary error lower bound. All quantifiers concern fixed \(a,\rho,\sigma\) and \(x\to\infty\). Standalone finite checks: `python3 verify.py`.
+PASS
 
-## Originality
+PASS. For fixed 0<a<2/3, E(1-aG²)²=1-2a+3a²<1 ensures negative log multiplier drift. The two-sided stationary backward product has independent geometric holding blocks, each with increment L(log|1-aG²|+delta); positive increment tail has exponent c=-log rho on y/log y scale by the two-sided length/mark event estimates. The constructed stochastic upper envelope with strictly negative mean and smooth subexponential integrated tail makes Veraverbeke applicable to the random-walk maximum. The discounted innovation sum is L²-bounded, while one long constant Gaussian-mark run yields a conditional-Gaussian lower bound with the same exponent. No claim about rho=0 or finite horizons.
 
-**PASS, qualified.** Li--Wu (arXiv:2610.05599v1), Section 3 and Appendix G, supply the same refresh design, moment-divergence theorem, and a non-sharp one-sided lower tail. The sharp two-sided logarithmic coefficient is not given there. Zachary (arXiv:1410.8551) proves the general random-walk maximum theorem used in the proof, but a nontrivial SGD product reduction and matching conditional-Gaussian lower bound are still required. Li--Lei--Wei--Wu (arXiv:2610.23750v1) instead assume regularly varying, infinite-variance innovations; this theorem has Gaussian innovations and persistent multiplicative dependence. Targeted comparisons of published mathematical claims did not uncover a directly covering result; an equivalent unindexed regenerative perpetuity specialization remains a concrete historical-priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact coefficient provides a sharp reliability scale for stationary stochastic optimization with temporally persistent Gaussian designs, where Gaussian central approximations coexist with infinite stationary moments. It separates the leading effects of persistence from the fixed stepsize and noise scale. This is a meaningful missing numerical-optimization error diagnostic, rather than a routine restatement of the moment-divergence theorem.
+PASS (best knowledge). Li–Wu 2026 arXiv:2610.05599 establishes this exact Gaussian-refresh stationary model, existence, infinite positive moments, and Appendix G a one-sided nonsharp tail lower bound, but it does not identify the exact two-sided logarithmic decay constant. Zachary’s random-walk maximum theorem is a prior tool, applied after nontrivial regenerative reduction. Li–Lei–Wei–Wu use regularly varying innovations, unlike Gaussian additive noise and multiplicative persistence here.
 
-## Limits and sources
+## value
 
-The claim is scalar, stationary, fixed-stepsize, and Gaussian; it does not address finite horizons, independent covariates, or matching multiplicative prefactors. The principal source is arXiv:2610.05599v1; the random-walk ingredient is arXiv:1410.8551; the distinct contemporary innovation-tail comparison is arXiv:2610.23750v1. Independent review is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. In a stationary least-squares SGD law with all positive moments infinite, quantifying extremely rare errors with the exact refresh-dependent constant is a substantive reliability fact not implied by a CLT or moment-divergence alone. It distinguishes temporal persistence from fixed stable stepsize and noise variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
