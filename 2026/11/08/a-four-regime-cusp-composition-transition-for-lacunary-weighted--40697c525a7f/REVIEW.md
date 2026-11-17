@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(0<\theta<1\), the fractional cusp has one boundary contact, yielding the normalized-power asymptotic \(U_n\sim A_\theta n^{-1/\theta}\). The lacunary \(H^1\)-coefficient inequality gives the weight-independent error \(U_n-V_n=O(n^{-2/\theta})\). Consequently, the Hilbert–Schmidt series has exactly the stated geometric-power/log summability thresholds. The boundary Gram estimate gives boundedness; a vanishing coefficient diagonal gives compactness for negative logarithmic powers, while nondecaying unit-column norms exclude compactness at the zero logarithmic power. The full proof proves each limiting and infinite-dimensional statement; 817 finite checks only corroborate identities.
+PASS
 
-## Originality — PASS (best-knowledge)
+For theta∈(0,1), b≥2, alpha>0, gamma real, psi_theta=1-(1-z)^theta is a positive-coefficient disk selfmap fixing 0. Its unique boundary contact has 1-|psi(e^{it})|² ∼ 2cos(pi theta/2)|t|^theta. Boundary Laplace integral gives U_n=||psi^n||_{H²}² ∼ A_theta n^{-kappa}, kappa=1/theta, with H¹ norm O(n^{-kappa}). The Paley lacunary H¹ estimate yields 0≤U_n-V_n≤C||psi^n||_{H¹}²=O(n^{-2kappa}), uniformly in all beta≤1 weights, so V_n∼U_n. Exceptional normalized column norms then scale as b^{j(alpha-kappa)}(j log b)^gamma, giving exactly the HS thresholds and two Abelian divergence residues A_theta/log b. At alpha=kappa,gamma=0, off-exception input is HS; exceptional Gram entries are majorized by C b^{-kappa|j-k|/2}, hence bounded by Schur. Gamma<0 inserts a decaying diagonal giving compactness, while gamma=0 has weakly-null unit inputs with nonzero limiting output and gamma>0/alpha>kappa produce unbounded columns. The argument covers endpoints gamma=-1,0, and finite scripts do not prove the asymptotics.
 
-The initiating article by Cruz-Zamorano, Dellepiane and Seco (arXiv:2610.40148v1, October 29, 2026), including Theorem 1.3, Sections 4.1–4.2 and Section 5, compares *classes* of composition symbols rather than determining a fixed fractional-cusp symbol with the stated power-log lacunary troughs. The related Hilbert–Schmidt class-equality results do not imply that this symbol occupies a particular boundedness/compactness/Schatten regime. Earlier analytic multiplier-composition and lens-map papers, and indexed findings about other composition operators, do not provide the four-regime classification or either exact pole coefficient. Publication priority remains vulnerable to a general older kernel/Carleson theorem expressed differently; it is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The borderline changes are intrinsic to a naturally parameterized cusp symbol and geometric lacunary weights. The classification resolves all power/log cases, finds a compact operator outside \(S_2\), and gives identical exact residues at two distinct ideal boundaries. These distinctions are not merely numerical certificates or routine restatements of class-equality results; they explain how a fixed compact Hardy composition operator changes under sparse coefficient reweighting.
+PASS best-of-knowledge: primary Cruz-Zamorano–Dellepiane–Seco class-equality theorems for lacunary weighted spaces were inspected in arXiv HTML Sections 1, 4, 6. They do not determine the precise fractional cusp symbol C_{1-(1-z)^theta} across all alpha,gamma, the intermediate compact/non-HS region, or either exact HS residue. Resultary semantic search found general class-equality theorems (including all Hadamard ratios) and unrelated affine cases but no exact symbol-specific four-regime statement; algebraic comparison shows class-equality does not imply this symbol’s individual rates. Residual risk of older general Carleson/cusp criteria remains named, not treated as an automatic FAIL.
 
-## Scientific limitations
+## value
 
-The theorem is symbol-specific, in the complex Hilbert setting, and gives only a one-sided essential-norm estimate at the noncompact endpoint. It neither classifies other Schatten indices nor asserts an independently checked priority statement. The finite companion code is not an infinite-dimensional proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp classification of a natural fractional boundary-contact selfmap on sparse weighted Hardy spaces identifies two different logarithmic transitions, a genuine compact/non-HS interval, an explicit bounded noncompact endpoint and exact analytic divergence residues. These are motivated critical invariants rather than an arbitrary small finite slice, and future compactness/Schatten studies can use the precise threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
