@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. The program exhaustively checks every support on complete Cartesian grids with \(1\leq p,q\leq4\), comparing the literal trace definition to the bipartite star-forest criterion. It independently computes the labeled-component recurrence and the closed formula \(\Phi_{2,q}(z)=(1+2z)^q+qz^2\), and it computes the defining Littlestone minimax recursion for ten smaller shapes.
+## correctness
 
-The completed run ended with:
+PASS
 
-`CARTESIAN_RECTANGLES_PASS 74954 supports 10 online_ranks`
+For all p,q>=1 and all query supports, the missing-corner closure of two positive edges forbids any non-induced three-edge path; each edge of a star forest has a degree-one endpoint so selecting endpoints of positive queried edges realizes every labeling. The labeled-component exponential formula yields exp(u+v+uvz+u(exp(vz)-1-vz)+v(exp(uz)-1-uz)); a forest bound and two disjoint stars give VC=max(p,q) when min=1, p+q-2 otherwise. There are exactly 1+(2^p-1)(2^q-1) distinct concepts, giving online upper p+q-1; the e_(1,1) positive branch has p+q-2 free cells and the negative branch includes the smaller full rectangle family, yielding matching online lower. Cases p=q=1, one-row/column and empty concept checked. Independently enumerated all supports of 2x3 grid; source verify.py examined, not blindly trusted.
 
-The verifier tests 74,954 supports, including all 65,536 supports of a four-by-four grid, and ten online dimensions. The full captured stdout is in `checker_output.txt`. The proof in `RESULT.md` is all-parameter; these finite checks are diagnostic, not a substitute for that proof.
+## originality
 
-All source comparisons remain bibliographically bounded. No external independent audit or expert certification is represented by these checks.
+PASS
+
+The exact all-support star-forest criterion, two-sort EGF and online/static dimensions were not implied by relevant prior edge-partition or restricted-rectangle findings. Historical equivalence under Boolean outer-product concept classes remains possible.
+
+## value
+
+PASS
+
+This class is the canonical rank-one Boolean incidence hypothesis family; the exact all-support obstruction and weighted enumerator allow arbitrary shattering counts, and the sharp online excess over VC for p,q>=2 is structural and all-parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

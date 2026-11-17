@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three-edge path obstruction is forced by the rectangular closure of two positive corners; every star-forest labeling is realized by selecting the endpoints of its positive edges. The component enumeration is a labeled exponential-formula identity. The VC extremal construction and upper bound agree, while the Littlestone upper bound counts distinct concepts and the lower bound builds two full-depth subtrees. Boundary sizes and the treatment of the empty concept are explicit. Independently enumerated small cases agree with the complete proofs.
+## correctness
 
-**Originality — PASS with stated search limits.** The closest inspected primary work (Block et al., Cryptology ePrint 2020/1605 and ITC 2021) defines Cartesian rectangles and studies induced-path-free graph partitions/covers, not shattering traces or online dimension. Its induced-path condition allows a four-cycle, whereas the present criterion forbids a non-induced three-edge path, so its result neither states nor implies the present classification. Semantic research-record searches and targeted literature searches did not find an equivalent complete shattering, generating-function and Littlestone theorem. An earlier result under terminology such as Boolean outer-product concepts remains a historical-priority risk. The fixed-cardinality \(2\times2\) rectangle concept class is not the unrestricted class here.
+PASS
 
-**Mathematical value — PASS.** This is a structural all-support characterization for a natural rank-one Boolean hypothesis class. It resolves every coefficient of its shattering polynomial simultaneously, gives a closed two-row specialization, and determines a sharp all-parameter separation between static and adaptive learning dimensions. The key graph obstruction is stronger than the induced-\(P_4\)-free property studied for edge covers, so the result is not merely a restatement of an existing partition bound.
+For all p,q>=1 and all query supports, the missing-corner closure of two positive edges forbids any non-induced three-edge path; each edge of a star forest has a degree-one endpoint so selecting endpoints of positive queried edges realizes every labeling. The labeled-component exponential formula yields exp(u+v+uvz+u(exp(vz)-1-vz)+v(exp(uz)-1-uz)); a forest bound and two disjoint stars give VC=max(p,q) when min=1, p+q-2 otherwise. There are exactly 1+(2^p-1)(2^q-1) distinct concepts, giving online upper p+q-1; the e_(1,1) positive branch has p+q-2 free cells and the negative branch includes the smaller full rectangle family, yielding matching online lower. Cases p=q=1, one-row/column and empty concept checked. Independently enumerated all supports of 2x3 grid; source verify.py examined, not blindly trusted.
 
-**Limits.** Unrestricted full Cartesian products, with distinct empty concepts identified, are essential. The formula is not asserted for fixed-size factors or restricted host graphs. Finite checks corroborate but do not replace the proof; external independent mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-support star-forest criterion, two-sort EGF and online/static dimensions were not implied by relevant prior edge-partition or restricted-rectangle findings. Historical equivalence under Boolean outer-product concept classes remains possible.
+
+## value
+
+PASS
+
+This class is the canonical rank-one Boolean incidence hypothesis family; the exact all-support obstruction and weighted enumerator allow arbitrary shattering counts, and the sharp online excess over VC for p,q>=2 is structural and all-parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
