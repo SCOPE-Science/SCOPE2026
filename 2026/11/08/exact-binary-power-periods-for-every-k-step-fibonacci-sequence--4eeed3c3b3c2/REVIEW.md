@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The recurrence-to-unit-order equivalence is proved using a unimodular Hankel pairing, so no cyclic-vector assumption is left unproved. The order of the quotient-ring unit is exactly \(k+1\) modulo two because no smaller positive power can equal one. The factor identity and precise squaring valuations establish each successive power-of-two lift with no missing boundary cases (including \(r=1\) and \(k=2\)). All quantified claims are proved symbolically. Separately, 232 finite parameter pairs agree by direct state iteration and polynomial-ring exponentiation; those checks are supplementary.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** OEIS A351889 explicitly marks the same universal formula as Conjecture 1. Tongron–Kerdmongkon (2022) treats the same recurrence but only selected low-order explicit periods. Taşcı–Özkan Kızılırmak (2018) is not about order-\(k\) recurrences despite its similar title; its \(k\) is a coefficient in an order-two relation. Published mathematical records on Lucas pair periods, regular Fibonacci periods and separate recurrence arithmetic do not imply this all-order formula. The 2006 Lü–Wang paper concerns the same Wall-number domain but its full text could not be checked; the absent decisive comparison is an explicit residual risk, not evidence of uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** The proof settles the precisely stated Conjecture 1 of OEIS A351889 for all recurrence orders and binary prime-power exponents, identifies an exact lifting mechanism, and supplies exact minimal periods rather than an upper bound or finitely verified instances. This is a natural period-classification question, not a parameter substitution or arbitrary finite slice.
+The coefficient pairing H=(lambda(x^(i+j))) in Z[x]/(P_k) is anti-triangular with ones on anti-diagonal and unimodular, so scalar-period equality on all j implies x^t=1 in the quotient. Mod2 P_k=(x^(k+1)+1)/(x+1), giving order exactly k+1 because no smaller power x^t (t≤k) equals 1 in degree<k and x^(k+1)=1. The integral identity x^(k+1)=1+2(x^k−1), where u=x^k−1 and ux^k are nonzero modulo 2, yields exact 2-adic squaring valuations and period 2^(r−1) lift with no exception at r=1 or k=2. Independent direct state cycles for 91 k,r pairs corroborate, not prove, all k and r.
 
-## Limitations and closest literature
-The theorem is restricted to the impulse-initialized standard recurrence and powers of two. It does not classify other initial values or odd-prime-power moduli. The closest primary sources are OEIS A351889 (conjecture), Tongron–Kerdmongkon (2022, partial period results), Lü–Wang (2006, full text unavailable), and Taşcı–Özkan Kızılırmak (2018, different recurrence). Later unindexed equivalences remain possible; mathematical correctness does not by itself certify priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+OEIS A351889 visibly labels precisely this all-order, binary-prime-power law as Conjecture 1. The strong candidate Lü–Wang 2006 article concerns same k-step recurrence but full paper inaccessible, its abstract does not establish the exact formula; record priority risk rather than automatic rejection. Other published 2-step weighted Fibonacci or fixed-k orbit spectra do not dominate all-order impulse periods.
+
+## value
+
+PASS
+
+Gives a uniform exact solution to a named OEIS conjecture for unbounded recurrence order and modulus exponent using a structural quotient-ring lifting argument. Natural period invariant, not arbitrary data fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

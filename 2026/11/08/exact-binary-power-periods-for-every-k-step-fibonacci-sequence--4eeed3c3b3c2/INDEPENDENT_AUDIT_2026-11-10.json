@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T16:01:03.286564Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coefficient pairing H=(lambda(x^(i+j))) in Z[x]/(P_k) is anti-triangular with ones on anti-diagonal and unimodular, so scalar-period equality on all j implies x^t=1 in the quotient. Mod2 P_k=(x^(k+1)+1)/(x+1), giving order exactly k+1 because no smaller power x^t (t≤k) equals 1 in degree<k and x^(k+1)=1. The integral identity x^(k+1)=1+2(x^k−1), where u=x^k−1 and ux^k are nonzero modulo 2, yields exact 2-adic squaring valuations and period 2^(r−1) lift with no exception at r=1 or k=2. Independent direct state cycles for 91 k,r pairs corroborate, not prove, all k and r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary fixed five-step state orbit population covers k=5 only; other two-step weighted recurrences differ in definition; generic modular periodicity does not give least period."
+        ],
+        "reasoning": "No accessible prior statement found covering every order k and r simultaneously.",
+        "searches": [
+          "Resultary k-step recurrence period over 2 powers",
+          "Lü and Wang 2006 period modulo general m",
+          "Tongron and Kerdmongkon 2022 Periods of k-step Fibonacci functions modulo m"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob 9ca4e74ac44474fc0a4fa04993aca05a4a2dd1d7; check.py blob 8616db7c6e559ff544dc359c271b7d644c2c4f4d",
+        "Independent recurrence-period enumeration 2≤k≤14,1≤r≤7, 91 pairs",
+        "OEIS A351889 public conjecture entry",
+        "Lü Wang 2006 abstract and OA search; authorized Oxford VPN disconnected",
+        "Resultary k-step and fixed order comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed k and generic period assertions cannot imply uniform exact minimal period without 2-adic lifting."
+        ],
+        "reasoning": "The new ring-theoretic proof establishes exact and minimal period in one statement.",
+        "searches": [
+          "OEIS A351889",
+          "Resultary 2026/10/26 complete period spectrum five-step Fibonacci",
+          "K-step Fibonacci sequence modulo m Lü–Wang 2006 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Formula is stated conjecturally in A351889. Lü–Wang abstract discusses Wall numbers; exact all-order law not confirmed without full text."
+        ],
+        "reasoning": "Correctly separates conjectured identity from a verified prior proof; earliest proof priority remains a material risk.",
+        "searches": [
+          "OEIS A351889 Conjecture 1 k step Fibonacci mod 2^r",
+          "Lü Wang 2006 K-step Fibonacci sequence modulo m"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS first terms and conjecture are not proof of universal formula; fixed k=5 table does not establish arbitrary k."
+        ],
+        "reasoning": "All k,r theorem exceeds a computed table and direct finite enumerations.",
+        "searches": [
+          "OEIS A351889 table",
+          "Resultary complete period spectrum five-step k=5"
+        ]
+      },
+      "rationale": "OEIS A351889 visibly labels precisely this all-order, binary-prime-power law as Conjecture 1. The strong candidate Lü–Wang 2006 article concerns same k-step recurrence but full paper inaccessible, its abstract does not establish the exact formula; record priority risk rather than automatic rejection. Other published 2-step weighted Fibonacci or fixed-k orbit spectra do not dominate all-order impulse periods.",
+      "residual_risks": [
+        "Full 2006 Lü–Wang paper could contain an earlier proof; Oxford institutional request returned vpn_disconnected; no bypass attempted.",
+        "Other historical general Wall number literature may subsume exact 2-adic lift, despite OEIS still conjectural."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONJECTURED_NOT_ESTABLISHED",
+          "evidence": "OEIS specifically labels π_k(2^r)=(k+1)2^(r-1) a conjecture.",
+          "identifier_or_url": "OEIS A351889 https://oeis.org/A351889",
+          "material_read": "Full accessible sequence entry including Formula / Conjecture 1 and references",
+          "method": "web opened OEIS",
+          "title": "Period of n-step Fibonacci numbers mod k",
+          "trigger": "exact asserted conjecture"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "Abstract and bibliography are too sparse to pronounce not covering; explicitly unresolved source-priority risk.",
+          "identifier_or_url": "Lü and Wang (2006) https://utilitasmathematica.com/index.php/Index/article/view/410",
+          "material_read": "Public title, bibliographic abstract only; full proof not accessible",
+          "method": "web open-access search; authorized institutional request returned VPN disconnected",
+          "title": "K-step Fibonacci sequence modulo m",
+          "trigger": "high-overlap historical paper on Wall numbers"
+        },
+        {
+          "assessment": "SPECIAL_CASE_DIFFERENT_SCOPE",
+          "evidence": "Describes k=5 recurrence state orbits not universal k-step impulse least period.",
+          "identifier_or_url": "Resultary/2026 2026/10/26/SCOPE-complete-period-spectrum-of-the-five-step-fibonacci-recurrence-m--445f20034900",
+          "material_read": "Indexed full statement/summary, not complete primary proof",
+          "method": "Resultary semantic search",
+          "title": "Complete period spectrum of the five-step Fibonacci recurrence modulo 2^k",
+          "trigger": "closest published orbit-period study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a uniform exact solution to a named OEIS conjecture for unbounded recurrence order and modulus exponent using a structural quotient-ring lifting argument. Natural period invariant, not arbitrary data fitting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the impulse-initialized order-k Fibonacci recurrence, least period modulo 2^r is exactly (k+1)2^(r−1), every k≥2,r≥1.",
+  "limitations": [
+    "Only impulse initial state and prime-power modulus 2^r; arbitrary initial vectors and odd moduli not classified."
+  ],
+  "schema_version": 1
+}
