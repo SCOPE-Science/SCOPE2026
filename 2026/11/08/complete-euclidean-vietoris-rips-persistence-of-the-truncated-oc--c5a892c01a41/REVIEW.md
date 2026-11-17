@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The new Euclidean shell and graph-distance correspondence is an exact 276-pair integer enumeration. A connected 30-edge graph is the verified result of 24 elementary collapses at squared threshold four. An explicit geometric 44-triangle sphere is already present at squared threshold six and is the exact target of 212, 452, 812 and 5740 separately checked relative simplicial collapse pairs at thresholds eight, ten, twelve and fourteen. Thus the inclusion maps across those intermediate stages are integral homology isomorphisms and the earlier map onto the geometric sphere is a split surjection. The known graph-metric theorem supplies integral wedge classifications at squared thresholds six and sixteen. These two premises are used as published results, independently matched to the Euclidean complexes by complete metric-shell enumeration and corroborated by mod-two rank computations, without claiming to reproduce the original integral Morse calculation. No numerical experiment is substituted for infinite quantification: all new claims concern a finite point set and are exhaustively checked.
+## correctness
 
-**Originality — PASS on inspected evidence.** Saleh–Titz Mite–Witzel (arXiv:2302.14388v1) explicitly addresses Platonic rather than truncated-octahedral vertices. The closest previous truncated-octahedral Rips paper proves graph-metric homotopy at integer radii, which applies only to selected Euclidean shells and does not imply the new seven-circle stage, square-face splitting or four common-boundary retractions. A permutahedral Rips approximation paper studies different approximate complexes. The same graph appears in existing four-letter permutahedral computations, but with adjacent-swap rather than chord distance. Direct Euclidean/permutahedron alias searches yielded no exact new result, and the prior integral endpoint results are openly acknowledged. Risk: equivalent unindexed Euclidean calculations may exist.
+PASS
 
-**Value — PASS.** The exact Euclidean barcode of a canonical 24-vertex Archimedean point cloud is a natural geometric invariant. It resolves how the six square-face loops disappear independently from seven remaining loops, rather than merging all 13 first-homology bars at graph distance two. The fixed geometric boundary sphere explaining the long-lived second-homology class adds structural information and exact inclusion maps, while the full filtration makes the chord-metric distinction reproducible. This is more than a change of units or a finite isolated Betti-number computation; no claim of a larger classification is made.
+For all 24 signed permutations of (0,1,2), exact squared Euclidean shells 2,4,6,8,10,12,14,16,18,20 were regenerated. Independently regenerated full clique-face sets for squared t=4,8,10,12,14, then REPLAYED ALL 7,240 elementary collapse pairs of pinned 116,962-byte JSON certificate, checking both faces exist, one is codimension-one free in current complex, and deleting them. Counts: t4 24 pairs to connected 24-vertex/30-edge graph (7 loops); t8 212, t10 452, t12 812, t14 5740 pairs, each to literally identical 24-vertex,66-edge,44-triangle surface, contained already in t6; every edge has 2 incident triangles, every vertex link connected circle, surface connected, Euler=2, so S2 and primitive integral persistent class. Squared t=6 and 16 agree exactly with graph-metric Rips at radii 2 and 4, so their integral ∨9 S2 and ∨5 S4∨2 S5 follow from earlier full graph-metric theorem inspected in full. t18 leaves twelve antipodal nonedges, yielding S11; t20 simplex. The 6/7 H1 split follows square tetrahedron collapses. This is complete for the fixed finite cloud and inclusive convention. Mod-two checks alone do not establish integral endpoint theorem, which is explicitly cited.
 
-The full article-level comparison rests on the 2023 Platonic-solid paper, the published truncated-octahedral graph-metric result and a permutahedral approximation paper, with source-inspection limits and residual risks detailed in `AUDIT.json` and `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The genuinely different ambient-Euclidean metric splits the original 13 H1 classes into 6 early-death square-face classes and 7 later-death classes, and retains an integral marked geometric S2 across four intermediary chord shells. The older graph-shortest-path result covers only merged shells at r_graph=1,2,3,4,5,6; it cannot determine intermediate scale t=4 nor the common-surface retractions t=8,10,12,14. Search of Resultary and relevant external primary literature found no earlier exact Euclidean 24-vertex truncated-octahedron barcode, within stated scope; absolute unindexed priority cannot be guaranteed.
+
+## value
+
+PASS
+
+Complete integral Euclidean persistence of a natural 24-vertex Archimedean polyhedron fills a specific gap between known graph-metric stages. The split of 13 original loops into six short and seven long bars and a marked primitive surface generator surviving four chord shells are nontrivial, independently useful exact invariants; the new finite certificate is exhaustive and the result is not a mere reparameterization of known graph-distance data. No general theorem or paper-sized leap is demanded for this natural finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
