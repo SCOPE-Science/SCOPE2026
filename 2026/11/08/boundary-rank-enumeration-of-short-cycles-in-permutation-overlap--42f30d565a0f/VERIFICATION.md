@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of the exact short-cycle census
+# Independent mathematical audit
 
-The algorithm's all-order, fixed-length claim is established by the boundary-rank reconstruction proof in `RESULT.md`. This verification additionally checks its finite specialization at walk length \(3\).
+## correctness
 
-Run `python3 verify_counts.py` from the folder holding all embedded files, with Python 3 and `g++` supporting C++17. It compiles `count_three_cycles.cpp`, enumerates every ordered first-three rank tuple and possible final-three rank set for all \(6\le n\le24\), and tests the complete triple rank-insertion walk space for every valid vertex. The integer results must match the 19 rows of `three_cycle_census.csv` exactly. Each row is also checked against the proved conversion between rooted closed three-walks and directed three-cycles.
+PASS
 
-The separate `direct_graph_check.py` directly constructs every permutation vertex and every labeled edge of the unrestricted graph for all \(3\le n\le8\), then evaluates the exact weighted adjacency-matrix trace of degree three. This independent method checks all six smaller orders, including the three orders common with the boundary census. A successful complete replay prints `BOUNDARY_RANK_CHECK_OK`, `DIRECT_GRAPH_CHECK_OK` and `VERIFY_OK`.
+For n>=2k and fixed k, the necessary order-pattern equality between v[1..n-k] and v[k+1..n] defines an increasing bijection f from the ranks outside the last k entries onto the ranks outside the first k entries. Specifying the ordered first-k tuple and unordered final-k set uniquely determines f; iterating f along all k residue classes reconstructs at most one valid permutation, with domain-end and duplicate checks. All (n+1)^k final-rank insertion sequences yield unique edge-labeled walks (including parallel edges), giving O_k(n^(3k+1)) arithmetic operations. For k=3 and n>3 only the two monotone loop triples are nonsimple rooted closed walks, hence C3=(W3-2)/3. Independent full-graph weighted 3-walk trace reconstructions for n=3..7 matched counts 26,40,56,56,76 and the corresponding package census (n>=6). Source C++ and Python finite algorithms and exact 19-row table were read; full 19-row C++ run was not independently executed. This is a structural all-n fixed-k algorithm proof plus bounded diagnostics, NOT a general closed count formula.
 
-Scope of verification: finite integer enumeration, source-program replay, a mathematical proof of candidate completeness and exact edge accounting. The checks do not establish a closed formula for arbitrary order or certify priority in the historical literature. Independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Asplund–Fox 2016 defines exactly this unrestricted multigraph, proves overlap criterion and poses exact higher short-cycle counting as Question 24; its statement does not supply ordered-prefix/unordered-suffix reconstruction with polynomial-for-fixed-k labeled-walk accounting. 312-avoiding subgraph cycles and limiting cycle polytope are different restrictions/objects.
+
+## value
+
+PASS
+
+Question 24 on cycles in the natural permutation-overlap multigraph motivates the finite exact invariant. Unique boundary-rank reconstruction replaces factorially many vertices by O_k(n^(2k)) candidate descriptions and gives exact labeled walk counts in polynomial time for each fixed length; the nineteen-point three-cycle census is an independently useful nontrivial finite calculation rather than a known-table recomputation. The finite table does not claim all-n enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

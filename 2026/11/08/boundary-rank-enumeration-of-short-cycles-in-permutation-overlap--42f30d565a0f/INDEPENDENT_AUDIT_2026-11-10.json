@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T06:54:22.595243Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2k and fixed k, the necessary order-pattern equality between v[1..n-k] and v[k+1..n] defines an increasing bijection f from the ranks outside the last k entries onto the ranks outside the first k entries. Specifying the ordered first-k tuple and unordered final-k set uniquely determines f; iterating f along all k residue classes reconstructs at most one valid permutation, with domain-end and duplicate checks. All (n+1)^k final-rank insertion sequences yield unique edge-labeled walks (including parallel edges), giving O_k(n^(3k+1)) arithmetic operations. For k=3 and n>3 only the two monotone loop triples are nonsimple rooted closed walks, hence C3=(W3-2)/3. Independent full-graph weighted 3-walk trace reconstructions for n=3..7 matched counts 26,40,56,56,76 and the corresponding package census (n>=6). Source C++ and Python finite algorithms and exact 19-row table were read; full 19-row C++ run was not independently executed. This is a structural all-n fixed-k algorithm proof plus bounded diagnostics, NOT a general closed count formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asplund–Fox Question 24 asks for counts with 3<=k<n; its bounds and special cases do not imply a polynomial algorithm for labeled rooted walks in the full unrestricted graph.",
+          "Borga–Penaguiao cycle polytope governs limiting consecutive-pattern frequencies, not the finite labeled edge multiplicities."
+        ],
+        "reasoning": "The prior statements are not broad theorems covering this algorithm and finite n=6..24 labeled-cycle table.",
+        "searches": [
+          "overlap graph of permutations enumeration directed k-cycles closed walks fixed k polynomial time rank insertions short cycles",
+          "https://arxiv.org/pdf/1609.02210",
+          "https://doi.org/10.5802/alco.135"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1609.02210",
+        "https://arxiv.org/abs/1310.1520",
+        "https://doi.org/10.5802/alco.135"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Overlap-equivalence is necessary, and the submission adds unique rank-set decoding and enumerates every labeled insertion path from each surviving vertex.",
+          "The 312-avoiding cycle count cannot be added or specialized to give full-graph multiplicities."
+        ],
+        "reasoning": "Neither the old necessary condition nor the restricted subgraph result supplies the new polynomial-size candidate reconstruction and exact multigraph walk enumeration.",
+        "searches": [
+          "overlap graph of permutations enumeration directed k-cycles closed walks fixed k polynomial time rank insertions short cycles",
+          "https://arxiv.org/pdf/1609.02210",
+          "https://arxiv.org/abs/1310.1520"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asplund–Fox Theorems 1 and 3 establish overlap compatibility, not the new residue-class boundary rank reconstruction and edge-multiplicity count.",
+          "Ehrenborg–Kitaev–Steingrímsson counts cycles in a 312-avoiding subgraph only."
+        ],
+        "reasoning": "The exact graph is shared with Asplund–Fox, but the algorithmic fixed-k count is not a restatement of its overlap condition.",
+        "searches": [
+          "overlap graph of permutations enumeration directed k-cycles closed walks fixed k polynomial time rank insertions short cycles",
+          "https://arxiv.org/abs/1609.02210",
+          "https://arxiv.org/abs/1310.1520"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source exact table columns n,candidate_vertices,rooted_closed_3_walks,directed_3_cycles were inspected; 19 rows n=6..24. Independent full graph n=3..7 gives W3(n)=(80,122,170,170,230) and C3=(26,40,56,56,76).",
+          "Asplund–Fox discusses lower-order cycle enumeration and open remaining k-cycles, not the supplied entire 19-row table."
+        ],
+        "reasoning": "This is a finite exact census, not a conjectured all-n quasi-polynomial.",
+        "searches": [
+          "overlap graph of permutations enumeration directed k-cycles closed walks fixed k polynomial time rank insertions short cycles",
+          "https://arxiv.org/pdf/1609.02210"
+        ]
+      },
+      "rationale": "Asplund–Fox 2016 defines exactly this unrestricted multigraph, proves overlap criterion and poses exact higher short-cycle counting as Question 24; its statement does not supply ordered-prefix/unordered-suffix reconstruction with polynomial-for-fixed-k labeled-walk accounting. 312-avoiding subgraph cycles and limiting cycle polytope are different restrictions/objects.",
+      "residual_risks": [
+        "An obscure earlier rank-set encoding or exact three-cycle table could overlap, not located in the inspected primary material.",
+        "Full n=6..24 source census was read but not independently rerun to completion; independent small n=3..7 traces corroborate only these orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ANTECEDENT_NOT_ALGORITHM",
+          "evidence": "Asplund–Fox supplies criterion and low-order counts but explicitly leaves short-cycle enumeration open in general.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.02210",
+          "material_read": "Full original arXiv PDF, definitions, overlap theorems, loops and Question 24 in its later sections",
+          "method": "Read full PDF and inspected the question/theorem page image",
+          "title": "Enumerating cycles in the graph of overlapping permutations",
+          "trigger": "Same unrestricted graph and short cycles"
+        },
+        {
+          "assessment": "RESTRICTED_SUBGRAPH",
+          "evidence": "312-avoiding condition excludes many unrestricted permutation vertices and labeled edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.1520",
+          "material_read": "Original paper abstract and accessible bibliographic/theorem description; complete full text not claimed",
+          "method": "Inspect primary arXiv description and comparison source",
+          "title": "Number of cycles in the graph of 312-avoiding permutations",
+          "trigger": "Closely named cycle counting theorem"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Limiting frequency polytope does not determine exact finite edge-distinguished cycle counts.",
+          "identifier_or_url": "https://doi.org/10.5802/alco.135",
+          "material_read": "Article abstract and cycle-polytope mathematical scope",
+          "method": "Inspect publication description and mathematical distinction",
+          "title": "The feasible region for consecutive patterns of permutations is a cycle polytope",
+          "trigger": "Graph cycle representation may dominate counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Question 24 on cycles in the natural permutation-overlap multigraph motivates the finite exact invariant. Unique boundary-rank reconstruction replaces factorially many vertices by O_k(n^(2k)) candidate descriptions and gives exact labeled walk counts in polynomial time for each fixed length; the nineteen-point three-cycle census is an independently useful nontrivial finite calculation rather than a known-table recomputation. The finite table does not claim all-n enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complexity exponent depends on fixed k and requires n>=2k, not an FPT algorithm or uniform polynomial in both inputs.",
+    "Only length three is implemented as an exhaustive numerical census for orders 6 through 24.",
+    "A closed all-n formula for C3 is not established; composite k primitive cycles need further reduction.",
+    "Direct independent full graph tests n<=7 are finite diagnostics.",
+    "No external expert/Lean attestation is manufactured; no GitHub write or dispatcher closeout occurred."
+  ],
+  "schema_version": 1
+}
