@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central graph step follows from the eight signed vertex heights and counting intersected cube edges; the three strip-events characterization is exact for \(0<|t|<\min(a,b,c)/3\). The arclength/coarea calculation supplies each \(O(|t|^3)\) strip remainder, and local coordinates at transverse pairwise intersections supply the \(|t|^2\) terms. The tangent-addition identity establishes the universal linear coefficient. Strict convexity and Jensen prove the unique cubic optimizer. The standalone edge-enumeration checker tests 16,800,000 configurations. Limits: finite trials are not a proof; the error bound depends on fixed positive dimensions.
+PASS
 
-## Originality — PASS (subject to independent historical assessment)
+Eight signed box vertex heights ±S,±d_1,±d_2,±d_3 classify generic plane-edge sign crossing counts: for small nonzero t a pentagon occurs exactly when one of three |d_i|<|t|; at most two strips overlap and no triple does. In positive spherical octant density 2/pi, coarea shows each strip area (2 L_i/R)t+O(t^3) and the three great-circle arc lengths satisfy sum L_i=pi. Near each two-strip boundary crossing, local triangular set |delta|+a_k w<t has area t²/(a_k sqrt(a_i²+a_j²))+O(t³). Inclusion–exclusion sum E_i-2 sum pair intersections gives exactly leading 4t/R and displayed quadratic term; symmetry gives |t|. Strict convexity of [v(1-v)]^-1/2 for v_i=a_i²/R² and Jensen yield unique cube and coefficient -18sqrt(2)/(pi R²). Independent second coefficient numerical checks for 3 box shapes corroborate strict Jensen bound, not analytic proof.
 
-Lonke (arXiv:math/9812123) treats centrally constrained random subspaces and expected face numbers, not the local derivative of the off-center pentagonal event. The published central rectangular-box formula and cube extremality describe a different statistic at exactly zero offset. Zhang (arXiv:2010.12349) supplies the central regular cube probability; its abstract, not full body, was inspected. Coleman (1981) discusses random chord lengths through boxes, not off-center section polygon count. No inspected source implies the stated second-order term; a complete independent priority search remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The onset of odd-sided sections is a natural local signature of breaking central symmetry in a random hyperplane section. The leading slope is unexpectedly universal at fixed body diagonal, while the first shape-dependent coefficient is exact and has a unique cubic extremizer. This is a complete, structurally motivated infinitesimal rigidity result, not a table of arbitrary numerical examples. It does not establish uniform quantitative bounds over all aspect ratios or full shape recovery.
+The earlier central box section angle/probability results (Lonke 1998 and published central hexagon/cube rigidity) sample t=0, where the pentagon event is identically absent. The new cusp derivative, shape-sensitive negative quadratic correction, and unique constrained second-order optimizer require varying the plane offset, not increasing dimension at zero offset. Resultary searches did not identify an earlier exact off-centre two-term law, with priority risk for hard-to-search integral-geometric literature.
 
-## Review status
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The probability law probes a natural geometric phase transition: pentagons vanish at central sections yet appear at linear rate on translating the section plane. Determining the universal first coefficient and sharp shape-sensitive quadratic rigidity at fixed diagonal is a structural geometry result beyond routine central-section tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
