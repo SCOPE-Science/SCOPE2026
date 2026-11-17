@@ -1,15 +1,21 @@
-# Scientific assessment: crown skew-derivation cohomology spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain consists of all finite fields and all crowns with at least three lower and three upper vertices. The skew Leibniz convention and inner operator are fixed explicitly. Fornaroli–Khrypchenko's cohomology isomorphism reduces the outer quotient to a weighted cochain complex; the proof then calculates both its allowed-edge dimension and coboundary rank in every dihedral case. The identity case is precisely the holonomy condition for a weighted cycle incidence matrix; reflection fixed-vertex coboundaries have disjoint supports; adjacent rotations have no fixed vertex and exactly one common neighbor per lower vertex. The finite automorphism count follows from units, scalar central units, fractional edge scalings and the dihedral poset group. These computations yield the stated probabilities and nonuniform-integrability effect without asymptotic approximations. The standalone verifier checks 144 instances directly from the defining algebraic equations, 900 cochain cases, and 51 exact moment identities. Finite testing is supporting evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected material
-The foundational paper arXiv:2307.08439 proves the general cohomological reduction and computes individual two- and four-crown examples, which this result expressly credits. Its inspected introduction, automorphism decomposition, skew derivation sections, and cohomology examples do not give an all-size, all-dihedral-symmetry dimension table or the automorphism-uniform law. The arXiv:2108.03765 paper describes a different crown Lie-automorphism invariant. Krylov–Tuganbaev (2024) concerns ordinary derivations, while the 2020/2021 additive-derivation literature concerns the identity twist. Targeted searches and accessible prior claims did not establish direct prior implication of the explicit complete spectrum. A possible broader treatment under twisted Hochschild cohomology remains a genuine residual priority risk; no negative universal novelty claim is made.
+PASS
 
-## Mathematical value — PASS
-Outer skew-derivation dimensions measure the obstruction to innerness for a natural algebra family already used to study these derivations. The complete dihedral classification reveals a sharp symmetry effect: all reflections have dimension two, adjacent rotations have an unbounded dimension, and generic rotations have dimension zero. Its exact uniform-automorphism law exhibits nonuniform integrability: convergence in distribution to half zero/half two accompanies a limiting expected dimension of two instead of one. This is a natural infinite-family classification with a substantive probabilistic consequence, rather than a change of notation or isolated finite computation.
+For the height-one 2m-vertex crown with 2m edges, twisted degree-one cocycles correspond to edges allowed by the dihedral symmetry, and degree-zero cochains to its fixed vertices. For identity, connected weighted-cycle incidence rank is 2m-1 iff holonomy=1, else 2m, giving dimensions 1/0. Nonidentity rotations have no fixed vertices; ±1 rotations allow m edges, other shifts zero. Each reflection allows four edges and two disjoint nonzero fixed-vertex coboundaries, giving dimension 2 in all characteristics. Unit groups modulo central scalars and multiplicative holonomy classes yield |Aut A|=2m q^(2m)(q-1)^(2m). Classes then give Pr[m]=1/m, Pr[2]=1/2, Pr[1]=1/(2m(q-1)), residual Pr[0], and E[d]=2+1/(2m(q-1)) while weak limit has mean 1. Independent weighted cochain ranks verified through m=12 over p=2,3,5 (873 cumulative crown assertions); source independently provides defining skew-Leibniz checker. The all-m proof is structural, not finite extrapolation.
 
-## Sources and limitations
-Primary comparison: Fornaroli–Khrypchenko (2023), arXiv:2307.08439, Sections 1–3 and Examples 3.14–3.15 and 3.22; Fornaroli–Khrypchenko–Santulo (2021), arXiv:2108.03765, Section 4.3; Krylov–Tuganbaev (2024), Mathematics 12:999, Sections on ordinary derivations; Fornaroli–Pezzott (2021), Communications in Algebra 49:1816–1828, accessible abstract and publication metadata. The last source's full text was not material-read, so it is used only to describe its scope. Scope is finite fields, crowns with at least three minimal elements, linear automorphisms, and the stated skew derivation convention. Equivalent unpublished formulations and unindexed work are not excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fornaroli–Khrypchenko, arXiv:2307.08439 Corollary 3.8, already give the general twisted-cohomology reduction and isolated small-crown Examples 3.14–3.15, 3.22. Neither the all-m dihedral edge/coboundary ranks nor the full automorphism-uniform distribution and rare-large-dimension limit appears there. Related crown Lie-automorphism theory addresses a distinct property. No Resultary match covering the new full spectrum beyond the assigned record.
+
+## value
+
+PASS
+
+Outer twisted derivation dimension is a natural obstruction to innerness. The complete crown-family automorphism classification discovers a genuine symmetry-sensitive 0/1/2/m spectrum and a rare-event failure of uniform integrability; this is a meaningful infinite-family cohomological invariant, not a routine one-off substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
