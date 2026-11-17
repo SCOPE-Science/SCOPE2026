@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** A fixed-symbol insertion can yield at most one palindrome, since two different insertion positions would make the leftmost and rightmost disagreements carry incompatible reflected symbols. This forces even-length independence and odd-length fixed-center independence. An exact partition into central-symbol cliques proves the upper bound. Different outer symbols force a period-two alternating pair, and equal outer symbols reduce to a shorter palindrome conflict; the edge recurrence and closed form follow. Exhaustive finite verification is supplementary to the all-length proof.
+## correctness
 
-**Originality: PASS, qualified.** The fully inspected 2012–2013 deletion-coding papers prove unrestricted packing bounds, including constrained run settings, but not the exact palindrome-source restricted capacity or full recursive conflict graph. Indexed two-read deletion reconstruction excludes a different class of pairs, and palindromic block edits are a different channel. Searches for equivalent palindrome-source deletion coding results found no covering claim. The possibility of unindexed historical statements remains unresolved.
+PASS
 
-**Value: PASS.** The problem of correcting arbitrary one-symbol loss for structurally constrained palindrome sources is natural in deletion coding. The all-alphabet, all-length optimum and exact conflict graph give a complete and reusable classification, not just a code construction or finite-length numerical table.
+For q>=2, all-length one-symbol deletion shadows restricted to palindromes: inserting a FIXED letter into a word yields at most one palindrome. Therefore even palindromes form an edgeless graph, and distinct odd palindromes sharing a descendant have different central symbols. Fixed central-symbol families provide q^m codes at length 2m+1, while cliques of q words with identical m-letter half force <=q^m; even length 2m gives q^m all palindromes. Different outer symbols in an odd conflict force two opposite-phase alternating palindromes; equal outer symbols reduce to length n-2. Thus the graph recursion is q smaller copies and one bridge for each unordered outer pair, giving e_m=q e_(m-1)+C(q,2) and e_m=q(q^(m+1)-1)/2. Independent word-shadow construction corroborated every graph edge and formula for q=2 n<=13, q=3 n<=9 and q=4 n<=7. The lemmas, not those finite tests, establish arbitrary n,q.
 
-The scope excludes general unrestricted deletion codes, multiple deletions, and channels that delete palindromic blocks. Independent specialist assessment and historical priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for q-ary extension and complete one-deletion confusability graph when q>=3, with the full binary q=2 capacity and binomial-tree graph explicitly prior/covered; no novelty is claimed for the binary specialization.
+
+## value
+
+PASS
+
+Natural source-constrained deletion-coding classification for all alphabets: exact whole confusability graph rather than only capacity, with cross-symbol bridges and all-length edge counts not obtained from the earlier binary tree result. The binary graph itself is correctly credited to prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
