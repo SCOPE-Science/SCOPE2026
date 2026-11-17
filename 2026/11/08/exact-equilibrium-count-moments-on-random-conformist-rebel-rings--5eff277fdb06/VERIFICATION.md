@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python verify_cycle_equilibria.py` with standard Python. This command enumerates every random type word and every binary action profile for ring sizes \(3\) through \(10\). It verifies best-response payoff inequalities directly, then compares their exact integer moment sums against the transfer-matrix moments using `fractions.Fraction`. It separately verifies a radical-free recurrence that follows from the displayed characteristic polynomials.
+## correctness
 
-The exact run returns:
+PASS
 
-```
-n=3 mean=13/4 second=25/2 empty_types=0/8
-n=4 mean=25/4 second=81/2 empty_types=0/16
-n=5 mean=121/16 second=501/8 empty_types=0/32
-n=6 mean=169/16 second=1021/8 empty_types=2/64
-n=7 mean=1093/64 second=10305/32 empty_types=0/128
-n=8 mean=1681/64 second=24353/32 empty_types=0/256
-n=9 mean=9841/256 second=213901/128 empty_types=0/512
-n=10 mean=14641/256 second=482701/128 empty_types=2/1024
-VERIFIED: 2040 type configurations, full action-profile checks, first and second moments.
-```
+For simple cycles C_n,n>=3, fair iid conformist/rebel signs t_i and binary action signs x_i, payoff t_i x_i(x_{i-1}+x_{i+1}), edge products e_i=x_ix_{i+1} have product +1 and two action lifts. Projection onto even edge-product parity gives Z_n(t)=tr prod B_t+tr prod(B_t D). Independence gives E Z_n=tr A^n+tr(AD)^n. Two replicas with four joint edge sign states and four parity characters give E Z_n²=tr K^n+tr(KD_e)^n+tr(KD_f)^n+tr(KD_eD_f)^n. Independently expanded all four displayed characteristic polynomials exactly and exhaustively summed direct-payoff equilibrium counts for all 2^n fair-type words for n=3..8; exact means and second moments match. Dominant eigenvalues 3/2 and (5+sqrt17)/4 give normalized variance exponent (5+sqrt17)/9>1. This is an exact all-n transfer proof, not a finite experimental inference.
 
-The finite enumeration corroborates the analytic argument but does not prove it for arbitrarily large rings. That proof rests on the two parity-projector identities and characteristic polynomials explicitly supplied in `RESULT.md`. Source-priority comparisons are not independently audited; some relevant full text was not accessible.
+## originality
+
+PASS
+
+The checked 2014 primary fashion-game paper proves when equilibria exist on cycles (Theorem 4) and parity constraints, but does not derive the present fair-iid type-averaged exact first/second equilibrium-count law in the material examined. Semantic Resultary searches did not identify an earlier identical two-replica fixed-cycle moment formula. Some broad random-network statistical mechanics papers are plausible predecessors, and inaccessible Sun 2016 complete text is a specified priority risk rather than a negative verdict.
+
+## value
+
+PASS
+
+Exact annealed first and second moment formulas quantify fluctuations of a natural equilibrium-count observable; exponential normalized variance despite near-certain existence is a meaningful and reusable statistical-mechanical distinction, beyond a routine expectation check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

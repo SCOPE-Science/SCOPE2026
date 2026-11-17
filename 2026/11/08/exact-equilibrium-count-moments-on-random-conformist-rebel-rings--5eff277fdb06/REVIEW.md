@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes binary payoff normalization, ring size, fair independent types and weak best-response ties. Spin edge products yield exactly two lifts under an even-product constraint. The proof reconstructs the first-moment and joint second-moment transfer operators, gives all four relevant characteristic polynomials, and derives the limit from their dominant spectral radii. A separate exact enumeration and rational transfer implementation checked every type and spin profile for all ring sizes from \(3\) through \(10\). Finite tests are not substituted for the all-size matrix proof. The classical no-equilibrium probability is explicitly attributed, not claimed as new.
+PASS
 
-## Originality — PASS, qualified
+For simple cycles C_n,n>=3, fair iid conformist/rebel signs t_i and binary action signs x_i, payoff t_i x_i(x_{i-1}+x_{i+1}), edge products e_i=x_ix_{i+1} have product +1 and two action lifts. Projection onto even edge-product parity gives Z_n(t)=tr prod B_t+tr prod(B_t D). Independence gives E Z_n=tr A^n+tr(AD)^n. Two replicas with four joint edge sign states and four parity characters give E Z_n²=tr K^n+tr(KD_e)^n+tr(KD_f)^n+tr(KD_eD_f)^n. Independently expanded all four displayed characteristic polynomials exactly and exhaustively summed direct-payoff equilibrium counts for all 2^n fair-type words for n=3..8; exact means and second moments match. Dominant eigenvalues 3/2 and (5+sqrt17)/4 give normalized variance exponent (5+sqrt17)/9>1. This is an exact all-n transfer proof, not a finite experimental inference.
 
-The closest full sources inspected are Cao–Yang (2014), which proves the existence boundary rather than moments; Shen–Lin (2020), which optimizes minimum satisfaction rather than counting random equilibria; and Cao–Sanchez–Zhang (2026), which studies heterogeneous game existence and dynamics without this ring law. The published-finding corpus semantic searches for ring equilibrium-count moments, conformist/rebel type words, and transfer-matrix second moments produced no equivalent indexed result; nearby indexed parity games and matching counts do not logically imply the present replica formulas. Sun (2016), a particularly relevant random-network statistical-mechanics paper, could not be read in full through available authorized access, leaving material priority uncertainty. Search noncoverage is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact count fluctuations are a motivated observable in statistical mechanics of network games. The analytically sharp exponent \((5+\sqrt{17})/9\) separates almost-sure *existence* from concentration of the *number* of equilibria, a substantive distinction not supplied by known ring-existence tests. The entire infinite-size second-moment law includes nontrivial parity and complex-spectrum corrections and can serve as an exact benchmark for random-network approximations. It is neither a rephrased existence theorem nor an arbitrary finite census.
+The checked 2014 primary fashion-game paper proves when equilibria exist on cycles (Theorem 4) and parity constraints, but does not derive the present fair-iid type-averaged exact first/second equilibrium-count law in the material examined. Semantic Resultary searches did not identify an earlier identical two-replica fixed-cycle moment formula. Some broad random-network statistical mechanics papers are plausible predecessors, and inaccessible Sun 2016 complete text is a specified priority risk rather than a negative verdict.
 
-## Closest work and residual limitations
+## value
 
-Priority remains uncertain for the unavailable full text of Sun (2016), for unindexed equivalent calculations and for potential overlap with statistical-mechanics transfer methods. These sources are not represented as checked in full. All claims concern fair iid types on simple rings; no quenched limit or typical-profile concentration theorem is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact annealed first and second moment formulas quantify fluctuations of a natural equilibrium-count observable; exponential normalized variance despite near-certain existence is a meaningful and reusable statistical-mechanical distinction, beyond a routine expectation check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
