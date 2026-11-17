@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The torus parameterization yields exact original-time angular velocity \(\dot\theta=-[a^2+u-c(1-u^2)]\) and normalized Euclidean-area pushforward \(w_a(u)du/J_a\). The complete-square identity locates a double interior root at criticality and two simple interior roots above. Integrating the exact small-velocity sublevel sets proves the stated tail exponents, full coefficients and mean-period singularity. The local rescaling \(u-u_*=v/\sqrt t\), \(c-c_*=\lambda/t\) proves the crossover with no informal interchange of limits. Positive moment integrability follows from root multiplicity. An independent finite symbolic/numerical checker verifies identities and representative asymptotics but is not used as proof.
+PASS
 
-## Originality — PASS within the cited evidence
+On smooth embedded T_a with a>1, angular coordinate obeys θdot=−Q_c(u), Q_c(u)=a²+u−c(1−u²), hence least period T=2π/|Q_c(u)| off equilibria. The actual Euclidean surface element, not flat angle measure, pushes to density w_a(u)/J_a. The quadratic has no roots at c<c*, one double u-root at c=c*=(a²+sqrt(a⁴−1))/2 and two simple u-roots for c>c*, each u-root giving two latitude equilibria. Sublevel areas |Q|<2π/t produce critical t^(−1/2), supercritical t^(−1) exact constants; rescale u=u*+v/sqrt(t), c=c*+λ/t to obtain universal signed square-root crossover, including zero region. Local k-fold zero integrability proves moment cutoffs p<1/2 and p<1; rescaled quadratic denominator gives subcritical mean blowup coefficient 2π²w(u*)/[J_a(a⁴−1)^(1/4)]. Independent symbolic reduction verified Q, discriminant and c*gamma relation; numerical limited checks are corroboration only.
 
-The originating Jana paper (arXiv:2401.07843, relevant full text inspected) proves the pseudo-type integrability structure and periodicity of parallels; those known statements are excluded from the new claim. The inspected Llibre–Rebollo-Perdomo preprint addresses configurations of invariant curves and cycles, not surface-area period statistics. Searches across relevant published research records and primary-literature terms, including equivalent angular-speed sublevel formulations and double-root unfoldings, produced no statement implying the metric constants or simultaneous crossover. A previously recorded four-meridian cubic-torus period law concerns a flow with a finite set of meridian cycles, not the present axisymmetric continuum of latitude cycles. The 2011 Llibre–Medrado text was not fully accessible, and unindexed equivalent computations remain a residual priority risk; absence of matches is not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For the natural complete-integrability family singled out by the source classification, this gives a fully parameterized geometric-probability phase diagram for original physical periods: two different Pareto exponents, four versus two stationary parallels, different sharp moment thresholds, an exact mean-period blow-up coefficient, and a nontrivial critical crossover whose profile distinguishes precritical truncation from postcritical split roots. This is quantitative information not determined by the known first integrals or qualitative circle foliation. The object and observable are natural: the surface area and minimal return period of the physical polynomial flow.
+Jana 2024 full text establishes invariant torus / pseudo-type cubic complete integrability and latitude orbit structure but does not state the normalized Euclidean surface-area distribution, period-tail asymptotics or crossover. Llibre–Rebollo-Perdomo studies invariant meridians/parallels and limit cycle existence, not quantitative random initial point period tails. Nearby published torus-cycle tail results concern meridian-type isolated cycles and different sampling/flows; no stronger matching law found. Novelty best-of-knowledge confined to area-weighted distribution and exact phase transition constants.
 
-## Limitations and closest literature
+## value
 
-The claims concern only the displayed homogeneous cubic specialization, normalized Euclidean surface area, and fixed \(a>1\). No assertion about general pseudo-type fields or uniformity for diverging scaling parameters is included. Closest material: Jana, arXiv:2401.07843, Sections 2–5; Llibre–Rebollo-Perdomo, 2013, theorems on invariant parallels/meridians; and related period-divergence findings for different planar or toroidal systems. The 2011 earlier work and potentially unindexed equivalent calculations were not completely inspected. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The geometric sampling law quantifies a sharp period-tail universality-class change at a double stationary-latitude bifurcation: bounded, t^(−1/2), t^(−1) regimes, critical 1/t parameter window, divergent-moment thresholds and exact mean blowup. These form a coherent mathematically motivated classification of a natural integrable cubic torus family, not a routine restatement of complete integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

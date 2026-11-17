@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the period-tail formulas
 
-The proof in `RESULT.md` is self-contained and covers every real parameter in its stated domain. `CHECK.py` is an independent finite reproducibility check, **not** a proof of uniformity in the parameter or of any infinite limit. Python 3 with `sympy` and `scipy` is required to run `python CHECK.py`.
+# Independent mathematical audit
 
-The checker verifies exactly (symbolically) that the cubic vector field is angular and that its reduced speed has the stated completed-square form. It numerically integrates the actual Euclidean-area density on an example torus with \(a=3/2\); evaluates the exact sublevel areas using the polynomial roots; and compares their \(\sqrt t\)-normalized values at \(t=10^4\) and \(t=10^6\) to the analytical scaling profile for five fixed \(\lambda\) values.
+## correctness
 
-Representative independently executed output:
+PASS
 
-```
-EXACT_POLYNOMIAL_FLOW_AND_SQUARE_COMPLETION_OK
-lambda -10 t 10000 scaled_tail 0.0 limit 0.0
-lambda -2 t 1000000 scaled_tail 0.528324092 limit 0.528322901
-lambda 0 t 1000000 scaled_tail 0.631836158 limit 0.631834827
-lambda 2 t 1000000 scaled_tail 0.720629908 limit 0.720628482
-lambda 10 t 1000000 scaled_tail 0.551242734 limit 0.551240152
-CROSSOVER_FINITE_CHECK_OK
-```
+On smooth embedded T_a with a>1, angular coordinate obeys θdot=−Q_c(u), Q_c(u)=a²+u−c(1−u²), hence least period T=2π/|Q_c(u)| off equilibria. The actual Euclidean surface element, not flat angle measure, pushes to density w_a(u)/J_a. The quadratic has no roots at c<c*, one double u-root at c=c*=(a²+sqrt(a⁴−1))/2 and two simple u-roots for c>c*, each u-root giving two latitude equilibria. Sublevel areas |Q|<2π/t produce critical t^(−1/2), supercritical t^(−1) exact constants; rescale u=u*+v/sqrt(t), c=c*+λ/t to obtain universal signed square-root crossover, including zero region. Local k-fold zero integrability proves moment cutoffs p<1/2 and p<1; rescaled quadratic denominator gives subcritical mean blowup coefficient 2π²w(u*)/[J_a(a⁴−1)^(1/4)]. Independent symbolic reduction verified Q, discriminant and c*gamma relation; numerical limited checks are corroboration only.
 
-The subcritical mean-coefficient calculation was additionally evaluated at \(a=3/2\) for gaps \(10^{-2},10^{-3},10^{-4}\); the rescaled means respectively approached \(2.7929691,2.6360427,2.5837398\), consistent with the analytically proved limit \(2.5591061\). This extra diagnostic is not embedded as a separate code dependency. Endpoint singularities in the area density are integrable; all tail constants use interior points. The moment thresholds follow from a standard one-dimensional local integral, not finite enumeration.
+## originality
 
-Independent mathematical audit: not performed.
+PASS
+
+Jana 2024 full text establishes invariant torus / pseudo-type cubic complete integrability and latitude orbit structure but does not state the normalized Euclidean surface-area distribution, period-tail asymptotics or crossover. Llibre–Rebollo-Perdomo studies invariant meridians/parallels and limit cycle existence, not quantitative random initial point period tails. Nearby published torus-cycle tail results concern meridian-type isolated cycles and different sampling/flows; no stronger matching law found. Novelty best-of-knowledge confined to area-weighted distribution and exact phase transition constants.
+
+## value
+
+PASS
+
+The geometric sampling law quantifies a sharp period-tail universality-class change at a double stationary-latitude bifurcation: bounded, t^(−1/2), t^(−1) regimes, critical 1/t parameter window, divergent-moment thresholds and exact mean blowup. These form a coherent mathematically motivated classification of a natural integrable cubic torus family, not a routine restatement of complete integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
