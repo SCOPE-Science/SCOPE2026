@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ball-volume distribution gives independent exponential radial offsets at rate \(d-1\). Hyperbolic distance and half-angle identities reconstruct the exact leading angle coefficients, and Gauss–Bonnet converts the angle sum into area deficit. Independent Pareto tails plus a chord-triangle inequality give the conditional tail formula and the sharp moment threshold. A seeded 405,000-triangle numerical experiment directly compares the finite-radius angle calculation against the limiting expression; it is corroborative, not a proof.
+## correctness
 
-**Originality — PASS, historical priority provisional.** Orsingher and Toaldo analyze geodesic-ray shooting and random *right* triangles, with a different area law, whereas Bao and Chen provide deterministic coordinate area identities. The inspected material does not state a Pareto-weighted three-point area-deficit limit from volume-uniform hyperbolic balls. Searches of published mathematical research records for area defect, ideal triangle, radial boundary layer, and moment cutoff returned no equivalent formula. Closest mathematical record: the deterministic Finsler–Hadwiger hyperbolic triangle area envelopes; other geometric-probability papers use different objects. An uninspected random-simplex theorem or a generic asymptotic implication remains a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** The result captures the exponential approach of a random hyperbolic triangle to its maximal ideal area, gives its full conditional limit distribution, and proves a dimension-dependent integrability transition which needs angular singularity analysis. It yields a natural non-Euclidean sampling statistic and sharply distinguishes finite and infinite limiting moments.
+PASS: hyperbolic polar-volume CDF yields R-r_i=>independent Exp(d-1) in common-quantile coupling; Y_i=e^{R-r_i} are Pareto(d-1). Hyperbolic cosine law gives b_ij=r_i+r_j+2log sin(theta_ij/2)+o(1), half-angle identity yields alpha_i~2e^-r_i s_jk/(s_ij s_ik), and Gauss–Bonnet converts into W_d. Conditional finite Pareto convolution tail is sum a_i^(d-1) by one-big-jump argument. For p<d-1, triangle inequality a_i≤2(1/s_ij+1/s_ik) and Haar small-angle probability O(delta^(d-1)) imply integrability; p≥d-1 diverges from independent Y_i. Numerically recomputed equiangular d=2 example e^R*(pi-A_R) at R=5,7,9: 6.927749,6.928195,6.928203 vs 4sqrt3=6.928203. Claims only limit-variable moments, not finite-R moment convergence.
 
-**Limitations.** No finite-radius moment-convergence theorem, unconditional tail constant, or uniform-in-angle expansion is asserted. The status is a scientific review of the presented evidence, not an independent audit or historical priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: deterministic triangle area formulas and stochastic right-triangle shooting laws do not give the three independent volume-uniform growing-ball angular–Pareto mixture. Other random hyperbolic simplex literature might imply part and remains a residual risk.
+
+## value
+
+PASS
+
+PASS: exact limiting distributional representation and sharp dimension-dependent moment cutoff for a canonical hyperbolic random geometry experiment; reveals infinite mean in d=2 and finite mean/infinite variance in d=3, with clear boundary of angular singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
