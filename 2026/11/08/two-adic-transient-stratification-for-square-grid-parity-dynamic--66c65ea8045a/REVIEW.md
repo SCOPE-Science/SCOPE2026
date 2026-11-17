@@ -1,11 +1,21 @@
-# Review of the square-grid parity transient classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic path matrix has characteristic polynomial given by the tridiagonal recurrence. The factorization into a possible zero root of multiplicity \(h-1\) and distinct nonzero roots each of multiplicity \(2h\) follows from the characteristic-two Chebyshev identity and simple odd-order roots of unity. Equal-root tensor sectors are precisely the generalized zero eigenspace. Explicit truncated-polynomial arguments yield the length-\(2h\) and length-\(h\)/one Jordan blocks. Fitting decomposition gives the exact population formulas. All boundary cases \(h=1\), \(h=2\), and \(u=1\) are handled explicitly. Exact independent tests pass for 121 grid iterate ranks and 452 supplementary algebra assertions. Infinite validity depends on the displayed proof, not these tests.
+## correctness
 
-**Originality — PASS (with documented historical-source risk).** The exact \(n\)-dimensional kernel is known, including in Yamagishi (2015) and Curtis et al. (2018), and is excluded from the asserted novelty. The published Cartesian-product papers primarily determine reversibility and single-step nullity, and Boyles (2022) analyzes a shifted operator. Glasby et al. (2014) provides general modular tensor-product Jordan methods, not the assembled all-side-length square-grid zero-primary Jordan partition or first-entry census. A restricted earlier corner-feedback study includes the unmodified \(n=2^a-1\) case; the new all-size decomposition and mixed recurrent/nilpotent phases are not contained in that restricted case. The full older Sutner (2000) and Hunziker–Machiavelo–Park (2004) papers were inaccessible; abstracts alone were not used to rule out coverage. An equivalent unindexed classification remains possible.
+PASS
 
-**Value — PASS.** Square-grid four-neighbor parity updating is a canonical finite additive dynamical system with boundary effects. A known uniform nullity hides different nilpotent Jordan lengths and recurrent dimensions. The theorem resolves this natural all-size temporal classification and reveals complete extinction at \(n=2^a-1\) (also at the exceptional two-by-two grid) and mixed recurrent/transient dynamics for the remaining side lengths; it supplies exact entry populations rather than a one-step rank or reversibility test.
+Proved endpoint vector cyclic for path adjacency, with characteristic/minimal polynomial p_n(z)=z^(h−1)g_u(z)^(2h), g_u squarefree. In B=A_n⊗I+I⊗A_n, equal-root sectors only yield zero eigenvalues. For the nonzero roots e=2h, Frobenius change z=x+y in K[x,y]/(x^e,y^e) gives e chains length e. For the zero root e=h−1, z^h=0, and h−2 independent vectors z^(h−1)x^j force h−2 chains length h, leaving J1. Fitting kernels yield d_t, sharp time and population; summing block counts n recovers known single-step nullity. Independent direct binary-grid rank checks of 72 cases; no extrapolation from those finite cases.
 
-**Limits.** Primitive orbit lengths on the invertible primary sector and nonsquare rectangles are not addressed. The stated literature-access qualifications remain material for historical priority. The verification programs are finite corroboration rather than infinite proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original all-size full zero Jordan partition, not the known dim ker B=n or known special sides n=2^a−1. Prior Chebyshev gcd and modular tensor-product tools provide ingredients, not the closed mixed 1,h,2h block formula and time census for all n.
+
+## value
+
+PASS
+
+The exact all-n 2-adic transition profile is a natural complete dynamical invariant for boundary-dependent cellular automata, adding all finite-time kernel sizes and first-entrance probabilities to established rank-one kernel results; families n=2^a−1 exhibit sharp nilpotent extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

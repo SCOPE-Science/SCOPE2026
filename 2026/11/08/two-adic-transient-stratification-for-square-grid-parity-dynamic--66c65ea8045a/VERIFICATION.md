@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The square-grid matrix calculation in `check_grid.py` constructs and powers binary matrices directly, independent of the path-Chebyshev factorization. It compares the computed ranks of every iterate from zero to two past the predicted maximum transient, for side lengths 2 through 18. The exact run produced 121 agreements.
+# Independent mathematical audit
 
-The algebra calculation in `check_algebra.py` independently verifies the path polynomial identity and squarefreeness of its reduced factor for side lengths 2 through 129, and checks the nilpotent multiplication ranks on both truncated square algebras for power-of-two parameters 2, 4, 8 and 16. Its exact run produced 384 polynomial assertions and 68 rank assertions.
+## correctness
 
-The captured execution outputs are supplied beside the scripts. All reported checks passed. The mathematical proof in `RESULT.md` establishes the unbounded statement; finite checks do not certify it by induction. The eventual primitive-period spectrum of the invertible component is not calculated. Independent audit has not been performed.
+PASS
+
+Proved endpoint vector cyclic for path adjacency, with characteristic/minimal polynomial p_n(z)=z^(h−1)g_u(z)^(2h), g_u squarefree. In B=A_n⊗I+I⊗A_n, equal-root sectors only yield zero eigenvalues. For the nonzero roots e=2h, Frobenius change z=x+y in K[x,y]/(x^e,y^e) gives e chains length e. For the zero root e=h−1, z^h=0, and h−2 independent vectors z^(h−1)x^j force h−2 chains length h, leaving J1. Fitting kernels yield d_t, sharp time and population; summing block counts n recovers known single-step nullity. Independent direct binary-grid rank checks of 72 cases; no extrapolation from those finite cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge original all-size full zero Jordan partition, not the known dim ker B=n or known special sides n=2^a−1. Prior Chebyshev gcd and modular tensor-product tools provide ingredients, not the closed mixed 1,h,2h block formula and time census for all n.
+
+## value
+
+PASS
+
+The exact all-n 2-adic transition profile is a natural complete dynamical invariant for boundary-dependent cellular automata, adding all finite-time kernel sizes and first-entrance probabilities to established rank-one kernel results; families n=2^a−1 exhibit sharp nilpotent extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

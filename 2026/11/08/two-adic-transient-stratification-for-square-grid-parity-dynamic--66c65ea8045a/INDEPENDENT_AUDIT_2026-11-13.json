@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:58:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob af8a387167ed0bf74c7d581ad18cf2feb4224268, path polynomial and tensor-sum proof §§1–5",
+        "check_grid.py blob ecaeb0b9a8900d2b7cceebcf28c9e1bb40e0bcf6, check_algebra.py blob 80c17c56104f666a7649c0ee60d162d3251fa470",
+        "Independent direct GF2 n-by-n grid rank/nullity checks: 72 comparisons"
+      ],
+      "rationale": "Proved endpoint vector cyclic for path adjacency, with characteristic/minimal polynomial p_n(z)=z^(h−1)g_u(z)^(2h), g_u squarefree. In B=A_n⊗I+I⊗A_n, equal-root sectors only yield zero eigenvalues. For the nonzero roots e=2h, Frobenius change z=x+y in K[x,y]/(x^e,y^e) gives e chains length e. For the zero root e=h−1, z^h=0, and h−2 independent vectors z^(h−1)x^j force h−2 chains length h, leaving J1. Fitting kernels yield d_t, sharp time and population; summing block counts n recovers known single-step nullity. Independent direct binary-grid rank checks of 72 cases; no extrapolation from those finite cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Odd prime-power work changes characteristic; Boyles deals B_n+I instead of B_n",
+          "General Jordan partition tools require resolving each characteristic-two root multiplicity"
+        ],
+        "reasoning": "Inspected overlaps are wrong characteristic, shifted operator, or general methods; none directly dominates the all-n open-square zero-primary census.",
+        "searches": [
+          "Resultary: odd prime power open square automata",
+          "Glasby–Praeger–Xia 2014",
+          "Boyles 2022 shifted Lights Out"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: square grid open neighbor parity automaton all sizes zero-primary Jordan stratification first periodic entry distribution",
+        "Yamagishi 2015 Periodic harmonic functions on lattices and Chebyshev polynomials, Theorem 1.1, Corollary 4.1 (inspected primary PDF)",
+        "Glasby–Praeger–Xia 2014 modular tensor-product partitions, arXiv:1401.2748",
+        "Sutner 2000 and Hunziker–Machiavelo–Park 2004 bibliographic records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=5, h=2,u=3 gives J1+4J4 and five cumulative layers; known kernel n=5 only one scalar constraint"
+        ],
+        "reasoning": "Full partition implies first-kernel theorem and special nilpotent cases; converse does not recover h/2h block splits or transient distributions.",
+        "searches": [
+          "Yamagishi 2015",
+          "Resultary: two-adic square-grid transient entry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B_n=A_n⊗I+I⊗A_n, path p_n Chebyshev recurrence",
+          "Known ker B_n dimension n"
+        ],
+        "reasoning": "Compared Chebyshev-polynomial and Fitting language: known first kernel is a consequence of sum of block counts, not equivalent to complete partition by lengths.",
+        "searches": [
+          "Resultary: square-grid parity higher nullity",
+          "Yamagishi 2015 Theorem1.1/Cor4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known n-by-n nullity n and special side lengths n=2^a−1",
+          "Current complete counts q^(R+d_t) by every t"
+        ],
+        "reasoning": "No accessible exact table of full all-side Jordan types found; inaccessible older σ-automata literature remains risk rather than evidence of absence.",
+        "searches": [
+          "Yamagishi 2015 table of square kernel ranks",
+          "Resultary: square-grid parity full Jordan"
+        ]
+      },
+      "rationale": "Best-of-knowledge original all-size full zero Jordan partition, not the known dim ker B=n or known special sides n=2^a−1. Prior Chebyshev gcd and modular tensor-product tools provide ingredients, not the closed mixed 1,h,2h block formula and time census for all n.",
+      "residual_risks": [
+        "Sutner (2000) and Hunziker–Machiavelo–Park (2004) directly relevant full articles were inaccessible; their higher-kernel consequences remain a priority risk.",
+        "The identity dim ker B_n=n and dyadic-minus-one special cases are known; no novelty credit assigned to them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS first kernel only; NOT_FULL_JORDAN",
+          "evidence": "General square grid nullity n follows, but this statement does not itself imply dimensions ker B^t at t>1.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2015.03.004",
+          "material_read": "Primary PDF theorem 1.1 and corollary 4.1 and relevant arguments",
+          "method": "Inspected available PDF theorem and Chebyshev gcd formula",
+          "title": "Periodic harmonic functions on lattices and Chebyshev polynomials",
+          "trigger": "Same square grid adjacency and characteristic-two nullity"
+        },
+        {
+          "assessment": "GENERAL_TOOLS_PRIORITY_RISK",
+          "evidence": "Jordan tensor products are related to equal-root truncated sums but published general decomposition is not shown to furnish this all-n square-grid classification without nontrivial specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.2748",
+          "material_read": "Available arXiv summary and relevant tensor-product formulation",
+          "method": "Reviewed accessible mathematical description, not full paper line-by-line",
+          "title": "Decomposing modular tensor products, and periodicity of Jordan partitions",
+          "trigger": "Possible general modular Jordan partition method"
+        },
+        {
+          "assessment": "INACCESSIBLE_HISTORICAL_RISK",
+          "evidence": "Cannot exclude an equivalent higher-kernel theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(97)00242-9",
+          "material_read": "Bibliography and abstract-level description; full text unavailable",
+          "method": "Abstract/bibliographic review",
+          "title": "σ-Automata and Chebyshev-Polynomials",
+          "trigger": "Earlier exact Chebyshev work on related automata"
+        },
+        {
+          "assessment": "INACCESSIBLE_HISTORICAL_RISK",
+          "evidence": "Reversibility focus does not establish absence of zero-primary chain classification in full text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2004.03.031",
+          "material_read": "Bibliography and accessible abstract-level description only",
+          "method": "Abstract-level reading",
+          "title": "Chebyshev polynomials over finite fields and reversibility of σ-automata on square grids",
+          "trigger": "Exact same square-grid reversible/cyclotomic framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Motivation and full statement in frozen RESULT.md at blob af8a387167ed0bf74c7d581ad18cf2feb4224268",
+        "Frozen RESULT.md blob af8a387167ed0bf74c7d581ad18cf2feb4224268, path polynomial and tensor-sum proof §§1–5"
+      ],
+      "rationale": "The exact all-n 2-adic transition profile is a natural complete dynamical invariant for boundary-dependent cellular automata, adding all finite-time kernel sizes and first-entrance probabilities to established rank-one kernel results; families n=2^a−1 exhibit sharp nilpotent extinction.",
+      "residual_risks": [
+        "A deeper pre-existing Chebyshev theorem might make this an unrecorded corollary, but no decisive covering implication was found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every n>=2 open n-by-n square-grid neighbor-sum update over finite characteristic-two field has zero-primary Jordan partition J2^(u−1) for h=1, or J1+Jh^(h−2)+J2h^(h(u−1)) for h=2^ν2(n+1)>=2, u=(n+1)/h, and exact first-periodic-entry counts q^(R+d_t).",
+  "limitations": [
+    "Only square open grids n>=2 over characteristic-two finite fields; no nonsquare rectangle, shifted Lights Out, or primitive recurrent period classification.",
+    "Relevant Sutner/Hunziker source full texts remain uninspected."
+  ],
+  "schema_version": 1
+}
