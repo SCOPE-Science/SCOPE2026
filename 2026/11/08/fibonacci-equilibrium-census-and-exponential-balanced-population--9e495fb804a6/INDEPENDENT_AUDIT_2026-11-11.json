@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T14:54:26.603024Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed vacancy, jumping a boundary agent leaves just one occupied destination neighbor; an interior agent sees both vacancy neighbors. If end colors agree, Nash requires all opposite-color internal agents isolated; if ends differ, terminal runs are singleton and internal runs have lengths <=2 with an even number of runs. Counting opposite-color gaps gives C(r-1,b)+C(b-1,r); counting each alternating 2h+2-run arrangement gives 2 sum_h C(h,r-h-1)C(h,b-h-1). Summing generating functions over populations yields H_n=F_(n+2)+(-1,0,+1) indexed by n mod 3, with two monochromatic words included. The balanced central term is maximal in each run class and total distinct-end count grows phi^(2m+o(m)); division by C(2m,m) gives rate phi^2/4. Directly rebuilt exact rational relocation payoffs on all binary words n=3..12, checking entire formula composition by composition. Code does not substitute for all-n generating-function and asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary potentiality establishes existence, no count.",
+          "Published related complete-bipartite enumeration uses a distinct graph."
+        ],
+        "reasoning": "Neither a potential function nor a biclique closed census implies the cycle composition formula.",
+        "searches": [
+          "arxiv:2305.17757",
+          "2026/10/26/SCOPE-exact-potential-and-equilibrium-census-for-one-vacancy-diversity--abb933b376cf"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-equilibrium-run-census-and-parity-dependent-welfare-loss-o--69b919e63ddd/RESULT.md",
+        "https://arxiv.org/abs/2305.17757",
+        "https://arxiv.org/abs/2505.10005",
+        "2026/10/26/SCOPE-exact-potential-and-equilibrium-census-for-one-vacancy-diversity--abb933b376cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r=b=m the new E_(m,m) specializes to 2 sum_h C(h,m-h-1)^2, which agrees with the prior balanced theorem and must not be claimed original.",
+          "For r!=b, new terms C(r-1,b)+C(b-1,r) can be strictly positive and have no balanced counterpart."
+        ],
+        "reasoning": "The prior balanced theorem cannot be used to infer every r,b census; new proof distinguishes previously unavailable equilibrium regimes.",
+        "searches": [
+          "https://arxiv.org/abs/2305.17757",
+          "2026/11/2/SCOPE-exact-equilibrium-run-census-and-parity-dependent-welfare-loss-o--69b919e63ddd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balanced slice has identical graph, utility and single-vacancy Nash criterion in 2026-11-02 publication.",
+          "General current composition includes arbitrary unequal positive r and b, plus same-end isolation patterns."
+        ],
+        "reasoning": "Exact balanced equivalence is credited. The submitted full statement has strictly broader domain and a new all-type-word Fibonacci total.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-equilibrium-run-census-and-parity-dependent-welfare-loss-o--69b919e63ddd",
+          "Fibonacci equilibrium one vacancy cycle diversity seeking jump games pure Nash equilibrium type words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 2 published theorem gives a complete balanced run-count table indexed by welfare; this is not new in this submission.",
+          "No all-composition E_(r,b) or H_n table appears in that full prior text."
+        ],
+        "reasoning": "Prior exact table covers diagonal slice only; the current off-diagonal/equal-end cases are not reparametrizations of its diagonal.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-equilibrium-run-census-and-parity-dependent-welfare-loss-o--69b919e63ddd",
+          "2026/11/8/SCOPE-fibonacci-equilibrium-census-and-exponential-balanced-population--9e495fb804a6"
+        ]
+      },
+      "rationale": "The 2023 primary article proves potentiality/existence for one-vacancy regular graphs and bounds on efficiency, not full composition-resolved numbers. Crucially, the published 2026-11-02 Resultary theorem for balanced populations on odd cycles already proves the balanced run criterion, exact balanced census and welfare; these are PRIOR COVERED and receive no novelty credit. The present claim strictly extends to all positive unequal r,b, gives new same-end isolation cases and a Fibonacci total H_n with a periodic correction. Different variety-count and similarity-seeking objectives are not equivalent.",
+      "residual_risks": [
+        "Potential unindexed extension of the 2026-11-02 balanced theorem to arbitrary compositions.",
+        "Known balanced rarity and welfare should be cited, not represented as first discovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers balanced r=b=m, including singleton-end alternating-run classification and exact binomial welfare counts. Does NOT cover r!=b, equal-color boundary cases, or all-composition Fibonacci totals.",
+          "evidence": "For m>=2 count 2(2m+1) sum_k C(k-1,m-k)^2; welfare W=2k, PoA parity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-equilibrium-run-census-and-parity-dependent-welfare-loss-o--69b919e63ddd/RESULT.md",
+          "material_read": "Complete RESULT.md at current public Git blob 5bf21f0b429f96a9f503c53a7d4c4b1756083290, including all theorem statements and proofs",
+          "method": "Authenticated read-only GitHub fetch_file (Resultary/2026)",
+          "title": "Exact equilibrium run census and parity-dependent welfare loss on a balanced odd cycle",
+          "trigger": "Same two-type fraction utility, one vacancy on cycles, exact Nash pattern census"
+        },
+        {
+          "assessment": "Covers existence and potentiality on regular graphs and maximum-degree-two; does not imply enumeration of Nash local optima.",
+          "evidence": "Narayanan, Sabbagh and Voudouris, 2023 preprint/2025 journal, sections on one-vacancy potential and balanced topology.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.17757",
+          "material_read": "Model, theorem descriptions for regular graphs and one vacancy, and available primary full-text web sections",
+          "method": "Open-access publisher HTML and linked primary manuscript",
+          "title": "Diversity-Seeking Jump Games in Networks",
+          "trigger": "Original exact utility model, possible general potential theorem"
+        },
+        {
+          "assessment": "Distinct variety-count objective versus fraction of unlike occupied neighbors; not the same Nash predicate.",
+          "evidence": "Narayanan et al., 2025",
+          "identifier_or_url": "https://arxiv.org/abs/2505.10005",
+          "material_read": "Public abstract and model description",
+          "method": "Open-web search and result summary",
+          "title": "Variety-Seeking Jump Games on Graphs",
+          "trigger": "Potential broader preference game"
+        },
+        {
+          "assessment": "Complete bipartite graphs have different adjacency and Nash conditions; no implication to cycle counts.",
+          "evidence": "Resultary query: Fibonacci equilibrium one vacancy cycle diversity seeking jump games pure Nash equilibrium type words",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-potential-and-equilibrium-census-for-one-vacancy-diversity--abb933b376cf",
+          "material_read": "Published mathematical summary, not full document",
+          "method": "Resultary semantic search",
+          "title": "Resultary related biclique equilibrium classification",
+          "trigger": "Other all-population equilibrium enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete closed count of Nash configurations for every population split measures the full density of local optima, which a convergence/potential theorem does not supply. Its new unequal-end/equal-end split and periodic-corrected Fibonacci total cover all sizes, while the previously published balanced specialization supplies only one slice. The sharp exponential rarity is useful context but already substantially covered in a prior balanced theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict Nash deviations only, one vacancy, two types, occupied-neighbor fractional diversity payoff.",
+    "The balanced subfamily already appears in 2026-11-02 literature; provenance of full off-diagonal census is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

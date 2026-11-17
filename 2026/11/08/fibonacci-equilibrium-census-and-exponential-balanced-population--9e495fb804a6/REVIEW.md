@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem treats the relocation adjacency correctly: a boundary occupant who moves next to her abandoned vertex sees one occupied neighbor, whereas a nonadjacent occupant sees two. This gives an if-and-only-if equilibrium criterion. Equal-end words are counted by isolated opposite-colored agents in distinct gaps; unlike-end words are counted by an even number of alternating runs with singleton terminal runs and internal lengths one or two. The bivariate rational generating function reduces to Fibonacci numbers plus a three-periodic term. The balanced-count asymptotic uses a dominant-pole bound and a central-binomial maximum argument; neither step relies on finite enumeration. The standalone verifier directly tested rational payoffs of 131,064 binary configurations, 3,159 formula cases, and a small full labeled instance. The proof establishes the infinite claim; computation is corroborative only.
+PASS
 
-## Originality — PASS, with priority risk
+For a fixed vacancy, jumping a boundary agent leaves just one occupied destination neighbor; an interior agent sees both vacancy neighbors. If end colors agree, Nash requires all opposite-color internal agents isolated; if ends differ, terminal runs are singleton and internal runs have lengths <=2 with an even number of runs. Counting opposite-color gaps gives C(r-1,b)+C(b-1,r); counting each alternating 2h+2-run arrangement gives 2 sum_h C(h,r-h-1)C(h,b-h-1). Summing generating functions over populations yields H_n=F_(n+2)+(-1,0,+1) indexed by n mod 3, with two monochromatic words included. The balanced central term is maximal in each run class and total distinct-end count grows phi^(2m+o(m)); division by C(2m,m) gives rate phi^2/4. Directly rebuilt exact rational relocation payoffs on all binary words n=3..12, checking entire formula composition by composition. Code does not substitute for all-n generating-function and asymptotic proof.
 
-The closest work is Narayanan, Sabbagh and Voudouris, arXiv:2305.17757 (Sections 2, 5 and 6): it proves potentiality for one-vacancy regular graphs and maximum-degree-two graphs, but potentiality does not determine the number or composition distribution of absorbing states. The first paper does not state the displayed full census or the exponential balanced-population limit in the inspected sections. Narayanan et al., arXiv:2505.10005, concern a distinct variety-count payoff, not the fraction-of-opposite-neighbors payoff, and do not imply the result. Kreisel et al., DOI 10.1007/s10458-023-09632-7, use the opposite similarity-seeking objective. Related scientific claims concerning swap-stable occupied rings, one-vacancy bipartite similarity games, and EFX graph orientations were compared for implication; none uses the present equilibrium predicate and counting parameters. Published mathematical-record and primary-literature searches gave no covering exact result. A relevant unindexed or otherwise inaccessible equivalent cannot be ruled out.
+## originality
 
-## Value — PASS
+PASS
 
-Existence and convergence do not quantify how many stable outcomes there are. This infinite-family theorem completely determines equilibrium prevalence for every two-type population split and shows that balanced configurations are exponentially unlikely to be equilibria, with a sharp exact rate. The result supplies a nontrivial distribution-free baseline for simulations of strategic residential integration and for comparing equilibrium prevalence across population imbalances. It is not merely a particular equilibrium construction or an arbitrary small-parameter enumeration.
+The 2023 primary article proves potentiality/existence for one-vacancy regular graphs and bounds on efficiency, not full composition-resolved numbers. Crucially, the published 2026-11-02 Resultary theorem for balanced populations on odd cycles already proves the balanced run criterion, exact balanced census and welfare; these are PRIOR COVERED and receive no novelty credit. The present claim strictly extends to all positive unequal r,b, gives new same-end isolation cases and a Fibonacci total H_n with a periodic correction. Different variety-count and similarity-seeking objectives are not equivalent.
 
-## Limits and closest comparisons
+## value
 
-The model is exactly one-vacancy, fraction-valued, two-type, strategic, and cyclic. The total Fibonacci count includes two monochromatic type words only as an explicitly labeled combinatorial extension; positive-size two-type games use the fixed-composition formula. The equilibrium-selection distribution under a dynamic update rule is not determined. Publication priority is subject to residual search incompleteness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete closed count of Nash configurations for every population split measures the full density of local optima, which a convergence/potential theorem does not supply. Its new unequal-end/equal-end split and periodic-corrected Fibonacci total cover all sizes, while the previously published balanced specialization supplies only one slice. The sharp exponential rarity is useful context but already substantially covered in a prior balanced theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
