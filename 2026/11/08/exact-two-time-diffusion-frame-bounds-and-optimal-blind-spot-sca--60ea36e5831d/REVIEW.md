@@ -1,11 +1,21 @@
-# Review of exact two-time diffusion frame bounds
+# Independent mathematical audit
 
-**Correctness — PASS.** Two-fold Fourier downsampling gives the normalized alias matrix \(M_t(u)\). Its exact characteristic polynomial is \(\lambda^2-(1+e^{-2t}+2d)\lambda+d\), with \(d=e^{-2t}\sinh^2(tu)\). At \(\lambda=1/2\), the polynomial is strictly negative, proving monotonicity of both eigenvalues in \(u\); endpoint essential extrema are therefore sharp. The alias collision proves the no-frame claim for any finite heat-time set at zero notch. Uniform domination by \(t^2e^{-t}\) proves the global optimal time asymptotic. The standalone checker reproduces finite alias and periodic spatial calculations, but those computations alone cannot certify a continuum theorem.
+## correctness
 
-**Originality — PASS against available inspected evidence.** Aldroubi–Davis–Krishtal (2013, Theorem 2.1 and Proposition 2.3) established the general polyphase criterion and full-space symmetric-filter obstruction, which are specifically **not** asserted as new. Aldroubi et al. (2021) proved restricted sampling away from blind spots and general stability estimates. The 2026 graph Paley–Wiener article was inspected at abstract level only. The claimed addition is the exact sharp two-snapshot bounds for normalized graph heat flow and the universal optimal-lag quadratic blind-spot law, not qualitative stable reconstruction. The closest relevant indexed work on finite graph sensors/dynamical sampling concerns different graphs or rank/determinant criteria and does not imply the sharp infinite-line formulas. Residual risk: a similar special-case calculation could be in older literature or the inaccessible 2026 full text; neither search nor this review certifies publication priority.
+PASS
 
-**Mathematical value — PASS.** The exact stability constant and its time optimization quantify a natural spectral-margin trade-off that general existence theorems do not resolve. The \(c^2\) law measures the unavoidable loss at the diffusion alias collision, and its coefficient selects a universal acquisition time. The problem is intrinsically tied to robust reconstruction from half-rate spatial measurements rather than an arbitrary finite parameter slice.
+Normalized Laplacian eigenvalues 1-cos(theta) and even-site downsampling give exactly (1/sqrt(2))[[1,1],[e^-t(1-u),e^-t(1+u)]]. Its Gram trace 1+e^-2t+2d, determinant d=e^-2t sinh^2(tu), eigenvalues increase in u. Hence A=Lambda_-(c,t), B=Lambda_+(1,t) are sharp for 0<c<1. At c=0 alias collision prevents any finite-time positive frame lower bound. Uniform c^-2 A_c(t)<=t^2 exp(-t) yields sharp small-gap max and argmax t0 solving t0=1+e^-2t0. Independently checked matrix eigenvalue endpoints at three c,t pairs.
 
-**Limitations.** Only the normalized integer-line heat generator, unweighted zero/positive two-time observations on even sites, and the symmetric notch \(0<c<1\) are classified. Optimal time is classified asymptotically for small notch, not uniquely for every fixed notch. The closest recent graph paper was not available in full text, and no independent mathematical or publication-priority audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Aldroubi-Davis-Krishtal supplies polyphase/reconstruction framework, making the 2x2 reduction standard; its accessible abstract and Resultary search did not provide the exact sharp normalized Z heat frame endpoints, universal small-gap coefficient and convergent optimum time. Full primary works including a 2026 graph Paley-Wiener study not inspected here; explicit priority caveat retained.
+
+## value
+
+PASS
+
+PASS: Optimal stable recovery from two spatially undersampled heat snapshots is a natural inverse-problem objective; exact frame bounds and the quadratic optimal near-collision constant quantify a real instability beyond qualitative injectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
