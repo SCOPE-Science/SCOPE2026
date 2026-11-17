@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`. The standard-library `check.py` was executed as packaged and printed `SPHERICAL_SECTOR_GEODESIC_ESCAPE_GRAPH_CHECK_OK`. It compares direct great-circle interpolation in dimensions 2, 3 and 6 against angle comparisons, checks Monte Carlo estimates of empty graph frequency, edge means and variances for several finite parameter pairs, verifies nested neighbor sets, and tests the analytic \(1/n\) critical limits.
+## correctness
 
-These finite tests are corroboration. The exact formulas and infinite-limit assertions rely on the analytic arguments in `RESULT.md`. The comparisons skip a small prescribed vicinity of the antipodal-azimuth boundary where a fixed 120-sample arc grid could miss a narrow excursion. No external or independent mathematical audit has been performed.
+PASS
+
+The unique shorter spherical geodesic has strictly positive sine interpolation weights; its projection lies on the minor planar angular cone. For azimuths in [0,alpha], alpha<2pi, escape is equivalent a.s. to |phi_i-phi_j|>pi. Thus low and high endpoint intervals form nested bipartite neighborhoods. Order-statistic range integration gives no-edge probability n(1-q)^(n-1)-(n-1)(1-q)^n and elementary edge-indicator covariances give the stated mean and variance. Under alpha_n=pi(1+lambda/n), independent multinomial rare endpoint counts converge to two unit-rate Poisson processes, and the strict inequality s+t<lambda is almost surely continuous. An independently written checker tested exact finite-sample formulas, nestedness and Monte Carlo moments; analytical arguments establish the all-n graph convergence.
+
+## originality
+
+PASS
+
+A contemporaneous published stronger meridian-cut theorem contains the identical spherical positive-cone/azimuth reduction and the n=2 containment probability; neither its actual final statement nor the inspected older geometric primary literature classifies the entire n-point escape graph, computes the dependent edge-count variance, or proves the two-process finite graph onset. The new result is scoped to the full random graph law, not novelty of the projection lemma, range formula, or Poisson-process machinery.
+
+## value
+
+PASS
+
+The complete random-graph-valued transition at the first loss of spherical convexity is a natural classification, not just an isolated probability. The exact dependency variance and limiting bipartite Poisson corner structure provide a model benchmark that survives its known two-point geometric reduction; proof is transparent and bounded in scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

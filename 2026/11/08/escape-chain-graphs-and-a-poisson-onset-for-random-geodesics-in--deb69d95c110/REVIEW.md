@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The shorter great-circle formula is a positive linear combination of endpoint vectors, so its planar projection traverses precisely the smaller azimuthal cone. The edge criterion \(|\phi_i-\phi_j|>\pi\) and chain-graph structure follow deterministically. The joint minimum/maximum density gives the empty graph law, disjoint corner triangles give the edge mean, and conditioning on one endpoint gives the covariance \(2q^3/3-q^4\) and the exact variance. Multinomial rare-cell convergence proves the two-independent-Poisson critical graph, with all displayed first- and second-moment limits also verified directly by finite formulas. The packaged checker independently tested spherical interpolants, random graphs and sharp asymptotics. Boundaries and measure hypotheses are explicit.
+## correctness
 
-## Originality — PASS (subject to historical priority)
-The archived Lassak article treats convex spherical lunes, not reflex-sector escape graphs. The inspected halfsphere random-polytope paper concerns facet and volume asymptotics. The later convex right-angle-wedge paper concerns random spherical polytope facets, not nonconvex geodesic escape. McColm's interval random-geometric-graph model is mathematically closely related via graph complement and is a residual priority concern; its publicly accessible abstract discusses asymptotic threshold functions, not this spherical statement. Relevant accessible research records on spherical-cap and equatorial-zone two-point escape probabilities are distinct in domain, dimension, sampling invariance, and graph structure. The order-statistic and Poisson tools are established; no novelty is attributed to them separately. No source was identified that states or directly subsumes the full geometric-law claim; unindexed and inaccessible sources remain possible.
+PASS
 
-## Mathematical value — PASS
-This determines a natural geometric visibility network exactly, not an arbitrary slice: every finite reflex sector in every spherical dimension has the same graph law under a broad sampling class. It yields a deterministic graph-class classification, a sharp finite-sample probability of complete geodesic compatibility, explicit fluctuations, and a nontrivial entire critical random-graph limit. The fact that a curved, dimension-dependent random-geodesic system reduces to a universal chain graph, with a sharp critical \(1/n\) window, is structural information not furnished by the classical convex-lune or hemisphere results. It provides a calibrated benchmark for stochastic geodesic convexity. The equivalence to a complement of an interval distance graph may limit historical novelty, and the theorem does not extend to general spherical domains.
+The unique shorter spherical geodesic has strictly positive sine interpolation weights; its projection lies on the minor planar angular cone. For azimuths in [0,alpha], alpha<2pi, escape is equivalent a.s. to |phi_i-phi_j|>pi. Thus low and high endpoint intervals form nested bipartite neighborhoods. Order-statistic range integration gives no-edge probability n(1-q)^(n-1)-(n-1)(1-q)^n and elementary edge-indicator covariances give the stated mean and variance. Under alpha_n=pi(1+lambda/n), independent multinomial rare endpoint counts converge to two unit-rate Poisson processes, and the strict inequality s+t<lambda is almost surely continuous. An independently written checker tested exact finite-sample formulas, nestedness and Monte Carlo moments; analytical arguments establish the all-n graph convergence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A contemporaneous published stronger meridian-cut theorem contains the identical spherical positive-cone/azimuth reduction and the n=2 containment probability; neither its actual final statement nor the inspected older geometric primary literature classifies the entire n-point escape graph, computes the dependent edge-count variance, or proves the two-process finite graph onset. The new result is scoped to the full random graph law, not novelty of the projection lemma, range formula, or Poisson-process machinery.
+
+## value
+
+PASS
+
+The complete random-graph-valued transition at the first loss of spherical convexity is a natural classification, not just an isolated probability. The exact dependency variance and limiting bipartite Poisson corner structure provide a model benchmark that survives its known two-point geometric reduction; proof is transparent and bounded in scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
