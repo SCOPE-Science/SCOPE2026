@@ -1,22 +1,21 @@
-# Scientific review: minimax clipped-ramp controls for monotone stratified quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final theorem is an equality over **all** fixed deterministic, square-integrable, mean-zero stratum controls and all bounded nondecreasing integrands, with independent uniform within-stratum draws. The unit-step reduction follows from the nonnegative Stieltjes representation of monotone functions and convexity of the squared centered-estimator norm. Averaging the exact unit-step risk over a uniformly selected stratum and a central local jump supplies a lower bound, whose Hilbert-space square completion has a unique equality point. The clipped-ramp candidate has a flat maximum over precisely that central interval, so it attains the lower bound. Every dependence on \(n\), each local coordinate, and the variance normalization has been reconstructed. A standalone standard-library rational verifier passed 3,217 assertions; no finite sample is used as an infinite-dimensional proof. Unproved: more general adaptive or coupled estimator classes.
+PASS
 
-## Originality — PASS, with recorded precedence risks
+For independent equal strata with predeclared arbitrary centered L² controls, monotone functions are positive mixtures of unit steps, and convexity of error squared reduces sup variance to one jump. At jump local position t in stratum j, n² risk=∑||g_i||²+t(1−t)−2⟨h_t,g_j⟩. Averaging j uniformly and t in [1/2−1/(2n),1/2+1/(2n)] yields a unique squared-norm completion at g_i=m/n, where m is the centered clipped ramp. Its max step risk is flat exactly on that central interval, so the lower minimax bound is attained. Formula (3n²−3n+1)/(12n⁴), including n=2 value 7/192; uniqueness follows strict square penalty. Independently exact-rational checks at n=1,2,3,4,5,8 verify the finite formulas, but the Hilbert argument proves all controls and monotone f.
 
-The central motivating paper of Basak, Bect and Vazquez (arXiv:2203.00423, PDF pp. 3–6, Theorems 3.1 and 4.1) gives separate results for unstratified linear-control sampling and uncorrected independent stratification. The current theorem concerns the missing joint, unrestricted stratumwise additive-control optimization, establishes its clipped nonlinear optimizer, proves uniqueness, and gives a different sharp constant. Bayne and Chakraborty (arXiv:1804.01197, PDF pp. 1–5) combine generic controls and stratification for molecular integrals but not the bounded-monotone universal minimax problem. Chopin and Gerber (arXiv:2210.01554, PDF pp. 1–3 and abstract) assume smoothness and use numerical derivatives, so their higher-order guarantees do not cover the discontinuous unit-step worst cases. Published mathematical-research semantic searches found general control/stratified sampling and bounded-variance results, but no comparable exact theorem. This is best-knowledge originality rather than a proof of universal precedence. An equivalent result in older numerical integration or optimal-recovery literature remains a genuine risk; Novak's 1992 paper was identified but its entire primary text was not fully inspected.
+## originality
 
-## Value — PASS
+PASS
 
-The missing design problem is natural: a bounded monotone risk integrand has neither derivatives nor a known shape beyond its order, yet its integral is estimated from one observation per fixed stratum. A preselected correction must improve the **worst case** without data-dependent tuning. The theorem characterizes the unique optimal control in an infinite-dimensional admissible family, including clipping rather than just a best scalar coefficient, and supplies a sharp finite-sample gain. At two points the worst-case variance falls from \(1/16\) to \(7/192\), about 41.7 percent below uncorrected stratification and below the global linear-control benchmark \(1/24\). It does not change the leading \(n^{-2}\) variance rate, nor establish unrestricted unbiased quadrature optimality; those limitations are material rather than concealed.
+Qualified PASS: the fixed-design arbitrary stratum-specific predetermined control minimax is not implied by Basak–Bect–Vazquez separate global linear-control and no-control stratified bounds. The functional minimax risk and unique clipped-ramp control appear genuinely distinct from the accessible comparisons. Prior stochastic-integration/control-variate literature may contain equivalent techniques.
 
-## Closest literature and limits
+## value
 
-- S. Basak, J. Bect, E. Vazquez, *Integration of bounded monotone functions*, arXiv:2203.00423 (2022), especially Theorems 3.1 and 4.1; same integrand class, different estimator classes.
-- M. G. Bayne, A. Chakraborty, *Composite control-variate stratified sampling*, arXiv:1804.01197 (2018); generic hybrid method for molecular integrals, no matching minimax statement.
-- N. Chopin, M. Gerber, *Higher-order Monte Carlo through cubic stratification*, arXiv:2210.01554 (2022); smoothness and derivative-based control construction rather than bounded-monotone uniform-risk optimization.
-- E. Novak, *Quadrature formulas for monotone functions*, Proc. AMS 115 (1992); relevant wider randomized/adaptive complexity, not established as covering the fixed additive-control claim. Primary full-text comparison remains incomplete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solving the exact unique minimax preannounced control across the full L² stratumwise class under only bounded monotonicity is a natural decision-theoretic question; clipped saturation and sharp risk across all n provide a useful fixed-design boundary beyond the separate known estimators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

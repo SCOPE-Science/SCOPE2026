@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T20:54:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent equal strata with predeclared arbitrary centered L² controls, monotone functions are positive mixtures of unit steps, and convexity of error squared reduces sup variance to one jump. At jump local position t in stratum j, n² risk=∑||g_i||²+t(1−t)−2⟨h_t,g_j⟩. Averaging j uniformly and t in [1/2−1/(2n),1/2+1/(2n)] yields a unique squared-norm completion at g_i=m/n, where m is the centered clipped ramp. Its max step risk is flat exactly on that central interval, so the lower minimax bound is attained. Formula (3n²−3n+1)/(12n⁴), including n=2 value 7/192; uniqueness follows strict square penalty. Independently exact-rational checks at n=1,2,3,4,5,8 verify the finite formulas, but the Hilbert argument proves all controls and monotone f.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "More general randomized high-order quadratures optimize other smoothness classes or sample couplings; those guarantees do not imply the discontinuous bounded-monotone minimax under these fixed restrictions.",
+          "Separate Basak bounds have different values/risk: 1/(12n) and 1/(4n²) versus clipped joint (3n²−3n+1)/(12n⁴)."
+        ],
+        "reasoning": "No inspected dominating all-control equal-strata fixed-design optimization theorem; distinguishing estimator and adversarial function classes prevents false coverage.",
+        "searches": [
+          "Resultary: minimax control clipped ramp independent per stratum monotone integration worst case variance",
+          "https://arxiv.org/abs/2203.00423",
+          "Chopin–Gerber 2022 Higher-order Monte Carlo through cubic stratification",
+          "Bayne–Chakraborty 2018 composite control-variate stratified sampling"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.00423",
+        "https://arxiv.org/abs/2210.01554",
+        "https://arxiv.org/abs/1804.01197",
+        "E. Novak, Quadrature formulas for monotone functions (1992), bibliographic only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate benchmark risks cannot be combined by simply subtracting the global linear control; cross-stratum controls alter the least-favorable unit-step conditional error.",
+          "New proof chooses a central interval least-favorable prior with support width 1/n and yields unique clipped g_n, not a globally linear control."
+        ],
+        "reasoning": "The central-clipping KKT/saddle argument is required beyond prior separate benchmarks, making the exact result non-mechanical.",
+        "searches": [
+          "https://arxiv.org/abs/2203.00423",
+          "Basak Bect Vazquez 2022 Theorems 3.1 and 4.1",
+          "Resultary: minimax control clipped ramp independent per stratum monotone integration worst case variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jump-function basis h_t(u)=1_{u>t}−(1−t) transforms all bounded-monotone integrands into a convex family; minimizing the maximum is a Chebyshev-center/least-favorable prior problem.",
+          "Basak et al. Theorem 3.1 uses global i.i.d. uniform linear control; their Theorem 4.1 uses one point per equal stratum without independent general controls."
+        ],
+        "reasoning": "The Hilbert-center formulation is standard duality, but the exact joint design solution is not a rephrasing of either prior separate sharp risk.",
+        "searches": [
+          "Resultary: minimax control clipped ramp independent per stratum monotone integration worst case variance",
+          "https://arxiv.org/abs/2203.00423",
+          "Control variates stratified sampling least-favorable unit step Hilbert space minimax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assertion optimizes an infinite-dimensional L² control choice and uncountable bounded-monotone function family, not an established combinatorial lookup table.",
+          "The n=1 value 1/12 was previously known, but n≥2 controls are different."
+        ],
+        "reasoning": "No tabulated exact n-dependent joint-control optimality formula identified; isolated n=1 cannot cover whole optimization.",
+        "searches": [
+          "Resultary: minimax control clipped ramp independent per stratum monotone integration worst case variance",
+          "https://arxiv.org/abs/2203.00423",
+          "Numerical integration minimax control variates finite n bounds"
+        ]
+      },
+      "rationale": "Qualified PASS: the fixed-design arbitrary stratum-specific predetermined control minimax is not implied by Basak–Bect–Vazquez separate global linear-control and no-control stratified bounds. The functional minimax risk and unique clipped-ramp control appear genuinely distinct from the accessible comparisons. Prior stochastic-integration/control-variate literature may contain equivalent techniques.",
+      "residual_risks": [
+        "Older minimax-control formulations could yield the same clipped ramp under non-obvious equivalence.",
+        "Novak 1992 and some control-variate literature were not read in complete primary text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global linear-control and independent-strata risks are separately treated; paper does not optimize arbitrary fixed L² controls on each stratum jointly.",
+          "evidence": [
+            "Theorem 3.1 risk 1/(12n) for linear control with iid uniform samples; Theorem 4.1 risk 1/(4n²) for plain equal stratum sampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.00423",
+          "material_read": "Entire 7-page primary PDF; definitions and proofs around Theorems 3.1, 4.1, plus visually inspected PDF pages 1 and 5.",
+          "method": "Primary PDF opened/read; PDF pages screenshot inspected.",
+          "title": "Integration of bounded monotone functions: Revisiting the nonsequential case, with a focus on unbiased Monte Carlo (randomized) methods",
+          "trigger": "Same bounded-monotone integration class and benchmark risks may dominate."
+        },
+        {
+          "assessment": "Different high-order/smooth setting; not adequate to assert whole-document no coverage.",
+          "evidence": [
+            "Focus is cubic stratification and higher-order methods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.01554",
+          "material_read": "Title and abstract-level method/comparison; full text not inspected.",
+          "method": "arXiv bibliographic comparison.",
+          "title": "Higher-order Monte Carlo through cubic stratification",
+          "trigger": "Possible stronger stratified control mechanism."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solving the exact unique minimax preannounced control across the full L² stratumwise class under only bounded monotonicity is a natural decision-theoretic question; clipped saturation and sharp risk across all n provide a useful fixed-design boundary beyond the separate known estimators.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent uniform point per fixed equal stratum, predetermined additive unbiased L² controls, bounded measurable monotone f only.",
+    "Does not optimize adaptive/nonlinear controls or dependent sampling; relative benefit O(1/n) despite unchanged n^(−2) rate.",
+    "Scientific review complete; import/publication withheld for privacy. No GitHub write, dispatcher closeout or scheduling change."
+  ],
+  "schema_version": 1
+}

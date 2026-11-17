@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical boundaries
+# Independent mathematical audit
 
-Run `python3 verify_minimax.py` in the directory containing this file. It uses only Python's standard library and requires no data downloads. The attached `verification_output.txt` records a successful run with **3,217 exact rational assertions**, for eight sample sizes, including non-unit-step tests. The checker derives means, squared norms and covariance integrals by direct piecewise-polynomial integration, and compares the worst-case formula on a rational grid. Its test at \(n=1\) is a known consistency limit, not an additional novelty claim.
+## correctness
 
-The actual correctness justification for the universal statement is **not** the grid check: it is the analytic reduction to unit jumps, the explicitly averaged Hilbert-space lower bound, and the equality of the bound with the clipped-ramp objective. Exact arithmetic does not turn a finite grid into exhaustive real-variable verification. All local sample coordinates are unit-interval coordinates; global stratum scale is \(1/n\). Controls are centered before estimating an integral, and all variances use independent stratum samples. General quadrature classes, adaptive fitting, dependent sampling, and unknown-mean control functions have not been tested or proved optimal. Independent audit has not been performed.
+PASS
+
+For independent equal strata with predeclared arbitrary centered L² controls, monotone functions are positive mixtures of unit steps, and convexity of error squared reduces sup variance to one jump. At jump local position t in stratum j, n² risk=∑||g_i||²+t(1−t)−2⟨h_t,g_j⟩. Averaging j uniformly and t in [1/2−1/(2n),1/2+1/(2n)] yields a unique squared-norm completion at g_i=m/n, where m is the centered clipped ramp. Its max step risk is flat exactly on that central interval, so the lower minimax bound is attained. Formula (3n²−3n+1)/(12n⁴), including n=2 value 7/192; uniqueness follows strict square penalty. Independently exact-rational checks at n=1,2,3,4,5,8 verify the finite formulas, but the Hilbert argument proves all controls and monotone f.
+
+## originality
+
+PASS
+
+Qualified PASS: the fixed-design arbitrary stratum-specific predetermined control minimax is not implied by Basak–Bect–Vazquez separate global linear-control and no-control stratified bounds. The functional minimax risk and unique clipped-ramp control appear genuinely distinct from the accessible comparisons. Prior stochastic-integration/control-variate literature may contain equivalent techniques.
+
+## value
+
+PASS
+
+Solving the exact unique minimax preannounced control across the full L² stratumwise class under only bounded monotonicity is a natural decision-theoretic question; clipped saturation and sharp risk across all n provide a useful fixed-design boundary beyond the separate known estimators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
