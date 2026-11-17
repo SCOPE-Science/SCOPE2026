@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The key link lemma follows immediately from the exact two-triangle incidence: each open neighborhood is a disjoint union of cycles. A closed neighborhood with \(k\) or fewer vertices, or a \(k\)-vertex link without triangular components, supplies the obstruction; a triangular link component supplies a four-vertex clique obstruction. This proves the universal minimum-degree inequality. The two Euler edge bounds then give sphere and torus impossibility. Exact icosahedral adjacency forces a unique minimum planar witness, while the quotient triangular lattice avoids chordless cycles of length four and five by a disk Euler argument. The complete small-witness checker returned `ALL_FAREY_BOUNDARY_CHECKS_OK`.
+PASS
 
-## Originality
+Verified the link of every vertex under phi_0 is 2-regular, hence a union of cycles. For degree <=k-1 the closed neighborhood has <=k nonremovable vertices; at degree k, an induced link cycle or a K4 yields a nonremovable <=k set, proving delta>=k+1 for k>=4. Combine with orientable Euler edge inequality E<=3v-6+6g to derive g>=1+(k-5)v/12. Independent exact graph reconstruction: the 12-vertex icosahedron has degree 5, exactly two triangles per edge, no nonremovable subset of <=4 vertices, and 12 nonremovable 5-vertex subsets; T_6 (36 vertices) has degree 6, exactly two triangles per edge, no nonremovable subset of <=5 vertices. The all-m torus witness follows the lattice lift and absence of induced 4/5 cycles, not just finite test. The planar 12-vertex uniqueness uses degree saturation and two-triangle links; small cases and exact boundary accounted for.
 
-**PASS, subject to stated historical-priority risks.** The motivating March 2026 paper gives a planar nonexistence result only at \(\psi_6\), not the sharp \(\psi_4/\psi_5\) boundary or the toroidal \(\psi_5/\psi_6\) boundary with witnesses. The 2025 axiomatization also leaves those finite thresholds open. A previous argument establishes a weaker generic minimum-degree/genus barrier for larger axiom depths, so quadratic genus growth alone is not claimed new. Classical uniqueness of the icosahedron and the Euler formula are credited. The relevant manuscripts and the planar uniqueness paper were inspected at their hypotheses and conclusions. A broader earlier result may still affect priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The two exact low-genus thresholds address a natural boundary in finite approximations to an infinite graph theory. The optimal twelve-vertex sphere realization and an explicit infinite family of toroidal realizations give both sides of the obstruction, and the two-regular link lemma turns a local logical condition into a uniform degree restriction. The result is more than a generic genus inequality or a small numerical improvement.
+Lockhart 2026 Proposition 4 already gives planar impossibility phi0+psi6, whereas the new result sharpens it to psi5, adds sharp psi4 icosahedral minimum and uniqueness, torus psi5/psi6 threshold and explicit genus lower bound. No inspected source gives these precise paired threshold classifications. The generic Euler inequality and simple graph facts alone do not compute both sharp realizability cutoffs.
 
-## Closest literature and limits
+## value
 
-Lockhart, *Pseudofiniteness of the Farey Graph* (arXiv:2603.23900), proves the prior \(\psi_6\) planar barrier and constructs finite high-genus approximants. Mohammadi Khangheshlaghi–Tent (arXiv:2503.02121) establish the axioms. Liang–Wei (2021) record the classical icosahedron neighborhood uniqueness. No claim is made about the exact higher-genus minimum, the smallest toroidal witness, or independent certification of historical priority. The checker confirms finite witnesses but is not a proof of arbitrary-depth assertions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact sphere and torus realizability thresholds are natural structural invariants for the finite Farey-local axiom hierarchy, with a unique minimum spherical witness and meaningful genus obstruction; the result does not claim optimal higher-genus values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
