@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T05:55:28.175138Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-shattering-polynomial-for-convex-equivalence-relations-on--f0f3d770c003/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-shattering-polynomial-for-convex-equivalence-relations-on--f0f3d770c003"
+      ],
+      "rationale": "Cuts C subset [N], N=n-1, encode exactly all interval-block equivalences; a queried pair (i,j) is equal iff C avoids [i,j-1]. A pattern isolating one negative label forces a private cut site for that interval, and selecting exactly the private sites of negative labels realizes any pattern, proving iff. A valid family of intervals can be ordered by both endpoints with no nesting or triple overlap; a three-state A/B/D scan counts its starts, with matrix T=[[1,z,0],[1,1+z,z],[0,1,1]]. Its resolvent gives (1-2t+(1-z)t^2)/((1-t)(1-(2+z)t+(1-z)t^2)); coefficient extraction gives sum_j C(k-1,j)C(N+k-j,2k). Every interval requires one unique private site, giving VC<=N with equality only for N singleton intervals. Substituting z=1 yields known (3^N+1)/2 totals. One full interval is inclusion-maximal of size one while the adjacent support has size N, proving nonpurity. Independent complete cut-labelling tests for N=1..4 give polynomials 1+z; 1+3z+z^2; 1+6z+6z^2+z^3; 1+10z+20z^2+9z^3+z^4.",
+      "residual_risks": [
+        "Independent finite checks are bounded; unrestricted assertions rest on the reconstructed combinatorial proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known all-partition theorem gives forest supports under refinement closure, not convex interval partitions; its hypotheses do not hold.",
+          "Convex-partition learning on simplices studies label oracle queries and approximations, not finite-chain pair equality."
+        ],
+        "reasoning": "Neither theorem dominates the proposed concept family or supplies the rational bivariate polynomial.",
+        "searches": [
+          "interval hypergraph irredundant private elements shattered pair equality convex equivalence relations ordered partitions polynomial",
+          "convex partition intervals equivalence pair query private site shattering polynomial 3^N irredundant intervals",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+          "https://arxiv.org/abs/1807.06170"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+        "https://arxiv.org/abs/1807.06170",
+        "https://oeis.org/A007051",
+        "https://oeis.org/A119258"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known total is a specialization at z=1 and does not determine the coefficient polynomial or the interval-private-site iff criterion.",
+          "General equivalence-relation transitivity is not enough for convexity under contiguous cut sites."
+        ],
+        "reasoning": "The three-state transfer and nonpure face construction go beyond these prior implications.",
+        "searches": [
+          "interval hypergraph irredundant private elements shattered pair equality convex equivalence relations ordered partitions polynomial",
+          "convex partition intervals equivalence pair query private site shattering polynomial 3^N irredundant intervals",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+          "https://oeis.org/A007051"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Convex equivalence classes correspond to cut sets; pair-equality queries correspond to avoiding the interval of cuts.",
+          "Refinement-closed partition theorem requires every refinement of each permitted partition; convex interval partitions fail this hypothesis."
+        ],
+        "reasoning": "Private-site interval irredundance is the correct alias; searched it without finding a complete identical coefficient enumeration. Results for all refinement-closed families are inapplicable.",
+        "searches": [
+          "interval hypergraph irredundant private elements shattered pair equality convex equivalence relations ordered partitions polynomial",
+          "convex partition intervals equivalence pair query private site shattering polynomial 3^N irredundant intervals",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+          "https://arxiv.org/abs/1807.06170"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007051 records exact total s_0+...+s_N=(3^N+1)/2; A119258 has different k coefficients despite same total.",
+          "For N=3, A119258 row (1,5,7,1) is not target (1,6,6,1)."
+        ],
+        "reasoning": "Existing total database sequence is not claimed as novel; no inspected exact coefficient table matches submitted shattering support sizes.",
+        "searches": [
+          "interval hypergraph irredundant private elements shattered pair equality convex equivalence relations ordered partitions polynomial",
+          "convex partition intervals equivalence pair query private site shattering polynomial 3^N irredundant intervals",
+          "https://oeis.org/A007051",
+          "https://oeis.org/A119258"
+        ]
+      },
+      "rationale": "OEIS A007051 already contains the total sequence (3^N+1)/2, expressly NOT new. OEIS A119258 has same row totals but different coefficient refinements; at N=3 it is (1,5,7,1), whereas submitted polynomial has (1,6,6,1). Existing refinement-closed partition shattering theorems do not apply: convex partition families are not closed under arbitrary refinement, e.g. splitting a 3-point interval block into {1,3}|{2} is nonconvex. Relevant finite convex-partition learning literature uses point labels in a simplex, not these pair-equality tests. No inspected prior work implies the complete weighted private-site interval count and nonpure shattering complex.",
+      "residual_risks": [
+        "An older interval-system irredundance generating function under private witness terminology could cover the coefficient result; ranked search was not exhaustive.",
+        "Caution: identical univariate OEIS totals never certify the new bivariate refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INAPPLICABLE",
+          "evidence": [
+            "Convex equivalence relations are not refinement-closed; counterexample nonconvex refinement of {1,2,3}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+          "material_read": "Full theorem, refinement-closure hypothesis, forest support proof, VC/Ldim claim and graph-colouring specialization",
+          "method": "Full published RESULT.md read via GitHub connector",
+          "title": "Refinement-closed partition concepts: exact shattering supports, online dimension, and coloring quotients",
+          "trigger": "Broad pair-equality partition theorem possibly dominating target"
+        },
+        {
+          "assessment": "DIFFERENT_QUERY_MODEL",
+          "evidence": [
+            "Continuous simplex domain and oracle differ from finite-chain pair equality and interval-cut encoding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.06170",
+          "material_read": "ArXiv abstract and introduction describing point-label queries on simplices; not all appendices",
+          "method": "Open PDF introduction and relevant definitions inspected",
+          "title": "Learning Convex Partitions and Computing Game-theoretic Equilibria from Best Response Queries",
+          "trigger": "Plausible convex partition learning title"
+        },
+        {
+          "assessment": "KNOWN_TOTAL_ONLY",
+          "evidence": [
+            "(3^N+1)/2 previously recorded; A119258 row differs from submitted coefficients."
+          ],
+          "identifier_or_url": "https://oeis.org/A007051",
+          "material_read": "A007051 total sequence entry and A119258 coefficient rows/definitions, including N=3",
+          "method": "Direct database web pages and displayed row comparison",
+          "title": "OEIS A007051 and A119258",
+          "trigger": "Numerically identical total support counts and possible matching refinement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a/RESULT.md",
+        "https://arxiv.org/abs/1807.06170",
+        "https://oeis.org/A007051",
+        "https://oeis.org/A119258"
+      ],
+      "rationale": "Private-site structure translates a natural finite-order learning problem into an exact nontrivial rational all-cardinality enumeration; the sharp unique maximum face and arbitrarily large facet-size gap are mathematically motivated structural consequences. This supplies more than a known total integer sequence or a textbook VC bound.",
+      "residual_risks": [
+        "An older interval-system irredundance generating function under private witness terminology could cover the coefficient result; ranked search was not exhaustive.",
+        "Caution: identical univariate OEIS totals never certify the new bivariate refinement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Convex equivalence relations on finite chains: private-site criterion and rational pair-equality shattered-support polynomial with nonpure facet gap",
+  "limitations": [
+    "n>=1; no online/Littlestone rank, cyclic block-convexity, or arbitrary nonconvex partitions."
+  ],
+  "schema_version": 1
+}

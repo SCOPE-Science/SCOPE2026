@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The bijection of convex equivalences and cut sets is exact, with one Boolean concept per subset of \([n-1]\). Necessity of a private site follows by labeling only one comparison negative, and sufficiency follows by selecting private cut sites only for comparisons labeled negative. In a private-site interval family, intervals are strictly ordered at both endpoints and cannot have triple overlap; each new interval must become singly active before it can close. This yields an exhaustive, uniquely decoded three-state transfer. Matrix inversion gives the rational generating function; coefficient extraction establishes all terms including \(k=0\), and cardinality/uniqueness/nonpurity follow from exclusive sites. The actual packaged standalone checker independently enumerates all cut assignments and all supports through five cut sites, and tests polynomial identities through thirty sites. The finite tests corroborate but do not replace the general proof. Assumptions are explicit, including \(n=1\).
+PASS
 
-## Originality — PASS, qualified
+Cuts C subset [N], N=n-1, encode exactly all interval-block equivalences; a queried pair (i,j) is equal iff C avoids [i,j-1]. A pattern isolating one negative label forces a private cut site for that interval, and selecting exactly the private sites of negative labels realizes any pattern, proving iff. A valid family of intervals can be ordered by both endpoints with no nesting or triple overlap; a three-state A/B/D scan counts its starts, with matrix T=[[1,z,0],[1,1+z,z],[0,1,1]]. Its resolvent gives (1-2t+(1-z)t^2)/((1-t)(1-(2+z)t+(1-z)t^2)); coefficient extraction gives sum_j C(k-1,j)C(N+k-j,2k). Every interval requires one unique private site, giving VC<=N with equality only for N singleton intervals. Substituting z=1 yields known (3^N+1)/2 totals. One full interval is inclusion-maximal of size one while the adjacent support has size N, proving nonpurity. Independent complete cut-labelling tests for N=1..4 give polynomials 1+z; 1+3z+z^2; 1+6z+6z^2+z^3; 1+10z+20z^2+9z^3+z^4.
 
-Checked earlier published result statements for statement and parameter overlap, together with published research search and the relevant sections of the source PDFs [1,2]. No matching convex-equivalence pair-query shattering polynomial was recovered. Chase–Freitag [1] provides general VC/model-theoretic context; Goldberg–Marmolejo-Cossío [2] concerns labels of regions of continuous simplices. The interval-private-site formulation is a potentially stronger alias to check; no known published-finding corpus record supplied the polynomial. The total numbers are already OEIS A007051, expressly excluded from novelty. OEIS A119258 shares totals but has different individual coefficients, so it does not imply the claim. Main remaining risk: a classical theorem on irredundant interval hypergraphs might prove the same f-vector under other terminology. Full-text priority confirmation beyond accessible material is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise question is the face enumeration and purity of the shattering complex for a foundational model-theoretic concept family defined by an equivalence predicate plus order-convexity. The exact all-cardinality f-vector is stronger than a single VC dimension and gives an algorithmic finite-state description. The unbounded gap between inclusion-maximal faces of sizes one and \(n-1\) is a structural obstruction to matroid-like purity, with direct interpretive relevance to independence complexes of query supports. This is not a mere restatement of the pre-existing row sum.
+OEIS A007051 already contains the total sequence (3^N+1)/2, expressly NOT new. OEIS A119258 has same row totals but different coefficient refinements; at N=3 it is (1,5,7,1), whereas submitted polynomial has (1,6,6,1). Existing refinement-closed partition shattering theorems do not apply: convex partition families are not closed under arbitrary refinement, e.g. splitting a 3-point interval block into {1,3}|{2} is nonconvex. Relevant finite convex-partition learning literature uses point labels in a simplex, not these pair-equality tests. No inspected prior work implies the complete weighted private-site interval count and nonpure shattering complex.
 
-## Scope and residual risks
+## value
 
-The result is for pair-equivalence queries and unrestricted interval partitions of a finite *linear* order. It makes no online-dimension or priority-certification claim. Known total sequence and nonidentical row-sum refinements are identified; an inaccessible potentially relevant irredundance paper could still dominate the proposed novelty. Independent external audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Private-site structure translates a natural finite-order learning problem into an exact nontrivial rational all-cardinality enumeration; the sharp unique maximum face and arbitrarily large facet-size gap are mathematically motivated structural consequences. This supplies more than a known total integer sequence or a textbook VC bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
