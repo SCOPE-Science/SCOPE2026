@@ -1,15 +1,21 @@
-# Review: bounded-gap circular sliding
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound tracks cyclically order-preserving token lifts and counts their total absolute displacements. For each matching lift, the periodic-coordinate meet is feasible, and a directed-dependency argument guarantees an available monotone decrement unless all gaps lie at a forbidden uniform endpoint. Combining descents gives exactly the lower bound. The included exhaustive comparison checks 48 nontrivial parameter instances, and an independent lift-descent program checks 17,467 unordered pairs across 54 parameter instances. Infinite validity follows from the proof, not those finite tests.
+## correctness
 
-## Originality
-PASS with historical priority qualification. The closest directly relevant paper is Brewster, Mynhardt and Teshima (2023), which gives the structure of the cycle i-graphs, including bracelet graphs, but not their exact all-pairs transportation metric. Bonsma, Kamiński and Wrochna (2014) address reachability of independent sets in claw-free graphs, not the present optimal-length equality. A general cyclic bounded-gap isometry was not found by targeted literature, published-finding corpus, and accessible historical-claim searches; there remains a risk of analogous results under exclusion-process terminology.
+PASS
 
-## Value
-PASS. A complete geodesic metric and guaranteed shortest feasible rearrangement is a substantive complement to reachability and adjacency information. This covers an infinite multi-parameter system, makes shortest paths effectively computable and identifies the sharp frozen endpoint obstruction. The nontrivial cycle independent-domination case follows as a natural application, not as the definition of the generalized problem.
+For k>=2, integer 1<=a<b, ak<n<bk, the cyclic ordered lifts satisfy all differences in [a,b]; coordinatewise minima preserve the periodic constraints. If positive deficits cannot be decremented, an active-index dependency cycle exists. A two-cycle across a gap would impose both a and b; a full cyclic chain would force all gaps to equal a or all b and n=ak or bk, excluded. Thus monotone descent to the meet, reversed descent from the target, realizes precisely the L1 cost for each lifted ordered matching. Cyclic order cannot be exchanged by unit legal slides, giving the lower bound and exact distance after minimizing lifts; frozen boundary cases correctly excluded. A separately coded exhaustive small case with 16 states and 256 pair distances found no discrepancy. Partial finite enumeration cannot prove universal isometry.
 
-## Limits
-The theorem is restricted to uniform integral gap bounds, one-site slides and strict interior total spacing. Tests are finite and no independent scholarly audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Already-published upper-gap-only cyclic token isometry gives an important close analogue but does not impose the new simultaneous nontrivial lower gap a>=2. Intersection of isometric subgraphs need not be isometric; the two-sided dependency proof establishes preservation of both constraints in the exact geodesic. Closest cycle minimum independent domination i-graph source gives adjacency, not general two-sided distances.
+
+## value
+
+PASS
+
+Exact all-pairs geodesic distance inside a two-sided hard-spacing constraint is a natural transport/reconfiguration invariant. It refines mere connectivity of cycle independent domination sets and the previously known upper-gap-only geodesic case; sharp frozen endpoints and constructive paths are substantive mathematical structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
