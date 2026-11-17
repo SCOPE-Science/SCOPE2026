@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T13:07:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An interleaving is exactly one length-eight binary word with four A and four B, so there are 70 distinct concept masks and the 16 available queries compare the i-th A and j-th B. Independent complete exhaustive Python computation generated all 70 masks and evaluated every query and the full memoized minimax shattering recurrence (Ldim C = 1+max_q min(Ldim C0,Ldim C1) where both children nonempty). It obtained Ldim on square profiles n=1,2,3,4 equal to 1,2,4,5; all four diagonal queries 4x4 split 35/35. The package provides an exact finite integer-exhaustion certificate: only those four roots could support 2^5=32 witnesses per child, endpoints fail because S_{3,4} best first split is 15/20, and for the middle q22 a unique 17/18 split branches into 9/9 children lacking any 4/4 split. A constructive first-elements deletion argument supplies depth5. The finite exhaustion here is exhaustive for the EXACT finite 70-concept domain, not an extrapolation to larger chains.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li et al. analyze worst-case comparisons required to identify a merge (minimax decision-tree height).",
+          "The current Ldim is maximal depth of a full binary tree whose every answer sequence is realizable: reversed optimization and logical quantifier."
+        ],
+        "reasoning": "A theorem about optimal merge-identification comparison count does not imply the maximum balanced online shattering depth without a further argument.",
+        "searches": [
+          "Li Sun Zhang On the Optimality of Tape Merge of Two Lists with Similar Size arxiv:1610.03266",
+          "Littlestone dimension interleavings two ordered chains order ideals product poset 4x4 balanced comparison"
+        ]
+      },
+      "checked_sources": [
+        "Chase/Freitag 2019 arxiv:1904.10122",
+        "Li/Sun/Zhang 2016 arxiv:1610.03266",
+        "Resultary targeted query Littlestone dimension interleavings two ordered chains order ideals product poset 4x4 balanced comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic information bound floor(log2 70)=6 is elementary and not claimed new.",
+          "The specified exact Ldim 5, its four 35/35 roots and nested 17/18 then 9/9 obstruction require separate complete finite evaluation."
+        ],
+        "reasoning": "General theory and merge complexity do not automatically yield the nested shattering obstruction, and no stronger result implying it was verified among sources examined.",
+        "searches": [
+          "Chase Freitag 2019 arxiv:1904.10122",
+          "Li Sun Zhang 2016 arxiv:1610.03266",
+          "Littlestone dimension interleavings two ordered chains order ideals product poset 4x4 balanced comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Interleavings correspond to order ideals of [4]x[4] after reversing a coordinate.",
+          "Chase and Freitag establish online dimension framework but no computed 4x4 grid-ideal depth in inspected sections."
+        ],
+        "reasoning": "Under the binary-string and grid-ideal equivalence the question is the same exact finite membership Ldim; targeted searches did not locate an earlier exact depth5 statement.",
+        "searches": [
+          "Littlestone dimension interleavings two ordered chains order ideals product poset 4x4 balanced comparison",
+          "Littlestone online shattering order ideals [4]x[4] point membership",
+          "Chase Freitag Bounds in Query Learning arxiv:1904.10122"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 30-result targeted search found the assigned finding and other different online-dimension families, no previously published 4x4 grid-ideal table in inspected hits.",
+          "The 70-by-16 incidence table was independently exhausted for this finite claim."
+        ],
+        "reasoning": "A finite exact invariant can be original/valuable, but missing indexed table is only bounded negative search evidence, not a proof of novelty.",
+        "searches": [
+          "Littlestone dimension interleavings two ordered chains order ideals product poset 4x4 balanced comparison",
+          "Resultary exact 4x4 interleaving Littlestone depth five",
+          "online learnability ideal lattice product two chains balanced comparison"
+        ]
+      },
+      "rationale": "Best-of-knowledge first symmetric four-by-four online shattering entropy deficit for this ordered-interleaving concept class. Previously studied worst-case number of MERGE comparisons is a different minimax quantity; general Littlestone theory does not state the exact 70-concept calculation. Earlier exact tables or a general poset-order-ideal Ldim result remain a risk.",
+      "residual_risks": [
+        "An unindexed table of Littlestone dimensions of grid-order-ideal point-membership classes could precede this exact value.",
+        "No general all-m,n dimension formula is proved: only the exact 4x4 and smaller equal-size calibration cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines general query-learning/Littlestone framework; inspected sections do not compute exact 4x4 grid ideal Ldim",
+          "evidence": [
+            "General dimension and shattering methods, not exact 70-word two-chain interleaving table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.10122",
+          "material_read": "Introduction and relevant sections 1-2, with direct PDF page inspection",
+          "method": "Primary arXiv PDF text/page",
+          "title": "Bounds in Query Learning",
+          "trigger": "Original Littlestone/query-learning theory possibly calculating ideal classes"
+        },
+        {
+          "assessment": "Optimizes worst number of comparisons to identify a merge; not equivalent to largest full realizable shattering depth",
+          "evidence": [
+            "Paper studies worst-case merge comparison complexity, not maximum complete error-mistake tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.03266",
+          "material_read": "Introduction and main stated comparison-complexity results, with direct PDF page inspection",
+          "method": "Primary arXiv PDF text/page",
+          "title": "On the Optimality of Tape Merge of Two Lists with Similar Size",
+          "trigger": "Same two-chain merging problem but potentially different objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-ordered-chain interleaving lattice is a canonical finite concept family. The first balanced symmetric failure of the cardinality ceiling despite all four perfectly balanced root comparisons, requiring a nested obstruction, is a motivated exact online-learning invariant not reducible to a toy one-step count. An exact complete finite case has value without a general asymptotic theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only m=n up to 4 are classified; larger interleaving dimensions are not asserted.",
+    "Online dimension is distinct from worst-case merge identification comparison complexity."
+  ]
+}
