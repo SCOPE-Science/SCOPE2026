@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification of the cocktail-party extreme-avalanche theorem
+# Independent mathematical audit
 
-## Analytic certificate
+## correctness
 
-The proof in `RESULT.md` supplies (i) the upper odometer \(q=(2,1,\ldots,1)\), (ii) an if-and-only-if burning bijection with the vertex-deleted graph, (iii) both closed matrix-tree determinants, (iv) the stationary Green-function mean, and (v) the \(e^{-1}\) limiting activity share. The comparison vector's putative terminal heights can be negative at the drive; the first-illegal-excess argument explicitly verifies why the odometer bound remains valid.
+PASS
 
-## Reproducible computation
+Let d=2m-2 on G=K_{2m} minus the perfect matching with sink s and drive u its forbidden partner. The reduced Laplacian sends q=(2 at u, 1 at every W vertex) to d e_u, giving a valid first-excess odometer bound t<=q even if comparison terminal heights at u are negative. Equality requires c_u=d-1 and every other c_v>=1. Dhar burning on H=G-u with same sink gives a precise iff h_v=c_v-1 recurrent, by a one-height and one-threshold shift, and yields determinant count (2m-3)^(m-1)(2m-1)^(m-2). Total recurrent count (2m-2)^m(2m)^(m-2); Green stationary equation Delta E t=e_u yields E T=2m/(2m-2). Product-limit yields e^-1 of mean toppling activity carried by rare extremes. Independent complete enumeration for m=2,3,4 checked total states 4,384,82944, extremal 1,45,6125 and means 2,3/2,4/3. Unbounded m is analytic spectral/burning proof.
 
-From the same directory as the included scripts:
+## originality
 
-```bash
-python verify_exhaustive.py
-python verify_reduction.py
-```
+PASS
 
-The first script uses direct stable-height enumeration, Dhar recurrence testing, and an explicit legal-toppling stabilizer for \(m=2,3,4\), giving respectively \(4,384,82944\) recurrent states and \(1,45,6125\) maximizing states. It separately checks the exact means \(2,3/2,4/3\), the maximal odometer pattern, and the universal toppling bounds.
+PASS best-of-knowledge: the closest full published sink-deletion theorem assumes drive adjacent to the sink and proves no site topples twice, so it is inapplicable to the uniquely nonadjacent drive here, which topples twice in the maximizer. The complete-bipartite published e^-1 activity example likewise has adjacent drive, different graph, different counts and odometer. Here a distinct one-vertex deletion and shifted burning characterization yield the exact CP-graph formula. Unindexed sandpile work remains a priority risk.
 
-The second independently evaluates reduced Laplacian determinants exactly for every \(m\) from 2 to 10, verifies the Green-function linear system, explicitly enumerates recurrent states of the smaller graph for \(m=2,3,4\), and checks the corresponding maximizing configurations in the original graph. It also prints finite approximations to the proven \(e^{-1}\) limit; numerical approximation is not used as a proof of the limit.
+## value
 
-The scripts require Python 3; the second also requires SymPy. All checked cases passed. Results for unbounded \(m\) rest on the analytic proof, not on extrapolation from finite tests. No independent scientific audit was performed.
+PASS
+
+The deleted matching creates a natural extremal sandpile regime genuinely different from standard adjacent-sink avalanches: an exactly characterized double toppling, an all-m spanning-tree count and a nonzero asymptotic 1/e share of mean activity from O(1/m) probability events. This is a motivated graph-family structural law with a nontrivial asymptotic effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
