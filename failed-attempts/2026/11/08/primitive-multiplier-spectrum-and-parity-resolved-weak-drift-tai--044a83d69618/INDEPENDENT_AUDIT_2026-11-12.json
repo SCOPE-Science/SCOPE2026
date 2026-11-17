@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T06:52:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive-drift Dyck periodic points are in shift-equivariant bijection with words on M labelled opening symbols and one generic closing symbol, with height d determined by composition. Counting yields F_n(d)=binom(n,(n-d)/2)M^((n+d)/2); least period divides n and scales height under repetition, giving the stated Mobius sum over k|gcd(n,d). For odd n,d=1 the repetition correction is empty; for even n,d=2 only k=2 can subtract, and it appears iff n/2 is odd. A Chernoff upper bound for nonpositive heights and n(M+1)^(n/2) nonprimitive points, Stirling's central binomial formula, and the binomial CLT yield the displayed rare-shell prefactors and Gaussian limit. Independently enumerated primitive full-shift words for M=2,3, n<=8, agreeing with exact formulas; the finite check is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takahasi 2025 §2.5 explicitly attributes exact Dyck periodic point formulas to Hamachi–Inoue; §2.3 gives shift-commuting Borel coding",
+          "Classical necklace theory covers all n and all compositions, hence the exact least-period refinement for every allowed d"
+        ],
+        "reasoning": "General primitive words with fixed alphabet composition are stronger than the special M-colored openings and one closing symbol. A standard direct corollary covers the least-period and parity correction; the LDP already covers the exponential rate.",
+        "searches": [
+          "Takahasi 2025 arxiv2503.14164 §2.3 full shift embeddings and §2.5 periodic counts",
+          "Takahasi 2024 arxiv2409.01261 periodic multiplier distributions"
+        ]
+      },
+      "checked_sources": [
+        "Takahasi, arXiv:2503.14164, §2.3 and §2.5 (open full HTML)",
+        "Hamachi–Inoue, Monatsh. Math. 145 (2005), DOI 10.1007/s00605-004-0297-5 (unavailable)",
+        "Classical multivariate primitive necklace Möbius inversion",
+        "Takahasi arXiv:2409.01261 (abstract and metadata)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact F_n(d)=binom(n,(n-d)/2)M^((n+d)/2) follows from known coding; P_n(d)=sum_{k|gcd(n,d)}μ(k)F_{n/k}(d/k) is the classical periodic-word inversion",
+          "For d=1 gcd=1; for d=2 gcd allows exactly k=1,2; Stirling yields prefactors"
+        ],
+        "reasoning": "Every central formula follows by textbook substitutions into previously available general results. Historical Hamachi–Inoue full text was unavailable, but this decisive conceptual implication is not an argument from missing access.",
+        "searches": [
+          "arXiv:2503.14164 full HTML §2.3, §2.5",
+          "Hamachi–Inoue DOI 10.1007/s00605-004-0297-5 metadata",
+          "standard primitive necklace formula with fixed composition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Takahasi 2025 arXiv:2503.14164 §2.3 describes the full-shift embeddings and §2.5 credits exact counts to Hamachi–Inoue",
+          "Standard primitive-necklace formula for cyclic words with prescribed composition uses the same divisor-sum μ(k)"
+        ],
+        "reasoning": "Under positive height the coding preserves cyclic periods and words are precisely M open-symbol colors plus a generic close. Thus the submitted Möbius formula is the known multivariate primitive-word formula under an existing conjugate symbolic presentation.",
+        "searches": [
+          "Resultary primitive multiplier spectrum Dyck least-period Mobius positive height",
+          "Web Dyck shift primitive periodic point distribution multiplier height exact period Möbius binomial count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A few bounded cases from source verify.py agree with classical exact necklace counts; a lookup table is unnecessary to derive every n,d",
+          "No separately new infinite certificate or finite object with a nontrivial unknown exact invariant is supplied"
+        ],
+        "reasoning": "The absence of an identically worded Dyck table does not confer novelty: the general necklace-count formula determines the whole table.",
+        "searches": [
+          "Dyck shift primitive height exact number table",
+          "Hamachi Inoue 2005 periodic point counts",
+          "Resultary Dyck primitive neutral fiber counts"
+        ]
+      },
+      "rationale": "Prior full-shift Borel embedding for positive/negative Dyck multiplier classes is shift-equivariant, and the exact number of fixed-height periodic points is binomial composition counting. Applying the standard multivariate primitive-necklace / Möbius inversion theorem gives the exact claimed primitive-height formula with no new symbolic-dynamics lemma; the parity correction is just the gcd(n,2) term and the sharp n^(-1/2) constants are standard Stirling. Takahasi’s primary article explicitly credits exact period counts to Hamachi–Inoue and provides embeddings, so the claimed distinct refinement is mathematically a direct classical coding-and-necklace corollary, not an uncovered independent theorem.",
+      "residual_risks": [
+        "Hamachi–Inoue 2005 full text inaccessible owing to disconnected authorized institutional VPN; no claim about its complete contents",
+        "This is a rejection on mathematical implication/routineness, not an assertion that the exact claim was printed verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CODING_COVERS_FORMULAS",
+          "evidence": "Section 2.5 says exact periodic counts originate in Hamachi–Inoue; §2.3 supplies full-shift coding; the new least-period μ-inversion is a standard necklace corollary.",
+          "identifier_or_url": "https://arxiv.org/html/2503.14164",
+          "material_read": "Full freely accessible HTML, especially introduction, §§2.3 and 2.5, Lemmas 2.8–2.9 and references to Hamachi–Inoue",
+          "method": "Read relevant primary complete proof sections and compared coding/composition",
+          "title": "Large deviation principles for periodic points of the Dyck shift (Takahasi, 2025)",
+          "trigger": "Exact Dyck multiplier counts, full-shift embeddings, strongest likely prior implication"
+        },
+        {
+          "assessment": "GENERAL_MULTIPLIER_DISTRIBUTIONS",
+          "evidence": "Asymptotic periodic point multiplier distributions, distinct from the exact n,d table; not needed as decisive coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.01261",
+          "material_read": "Primary abstract and publication metadata; full HTML fetch failed",
+          "method": "Abstract/search, no whole-document coverage claim",
+          "title": "Distributions of periodic points for the Dyck shift and heterochaos baker maps (Takahasi, 2024)",
+          "trigger": "Known multiplier-class equidistribution and rate"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIMARY",
+          "evidence": "Priority risk is named explicitly; rejection instead follows the already inspected standard full-shift coding plus classical necklace implication.",
+          "identifier_or_url": "https://doi.org/10.1007/s00605-004-0297-5",
+          "material_read": "Bibliography and Takahasi 2025 substantive attribution; no original article full text",
+          "method": "Arxiv/OA search attempted then authorized Oxford retrieval; VPN disconnected",
+          "title": "Embeddings of shifts of finite type into the Dyck shift (Hamachi and Inoue, 2005)",
+          "trigger": "Named historical exact periodic-count/coding paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the near-neutral height statistic is naturally motivated, every reported exact number and rare-shell asymptotic is obtained immediately by combining an existing shift-equivariant full-shift encoding, standard necklace Möbius inversion, Chernoff and Stirling. No additional nonstandard structure, classification boundary requiring new insight, or mathematically independent precision remains. Reject as textbook specialisation rather than treating reproducibility or a new presentation as value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Hamachi–Inoue 2005 full text inaccessible owing to disconnected authorized institutional VPN; no claim about its complete contents",
+    "This is a rejection on mathematical implication/routineness, not an assertion that the exact claim was printed verbatim."
+  ],
+  "schema_version": 1
+}
