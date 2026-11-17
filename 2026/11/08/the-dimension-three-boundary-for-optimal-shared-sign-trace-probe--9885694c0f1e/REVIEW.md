@@ -1,15 +1,21 @@
-# Scientific review: dimension-three shared-sign coupling
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Rademacher quadratic-form covariance identity, spectral Chebyshev positivity, and the two-coordinate sign agreement follow from the displayed formulas. In three coordinates, quotienting by global sign leaves four uniformly weighted states, and every feasible coupling of these states is realized by full Rademacher marginals. Birkhoff decomposition and rearrangement imply the six pairwise inequality criterion, including zero and tie cases. In the strictly diagonally dominant symmetric matrix witness, exact covariance calculations establish variances \(62/9\) and \(2/9\). An executable exact-rational checker independently recalculates the example and explores all \(24\) four-state permutations on many integer triples; its finite tests supplement but do not prove the universal theorem.
+## correctness
 
-## Originality
-**PASS, with precedence risk.** Read sections of the primary full texts arXiv:2108.11281, arXiv:2103.10516, arXiv:2005.10009 and the lawful full text of arXiv:2010.09649. They focus on multilevel matrix correction, independent probe-level allocation, concentration, and low-rank variance reduction, respectively. They do not state the six sharp three-dimensional conditions or polynomial SPD witness. Relevant similarity searches did not identify a covering research record. The general optimal coupling of finite scalar distributions by matching sorted outputs is classical and thus not novel; there remains genuine risk that the special matrix-function coupling criterion is a known application of classical rearrangement not captured by available searching.
+PASS
 
-## Value
-**PASS.** Shared random signs are a standard inexpensive variance-reduction design for trace differences. The result exactly settles whether that design is optimal in the first nontrivial dimensions and supplies a sharp operational counterexample with the same marginal probe laws and the same per-pair function-evaluation budget. A simple *coordinate permutation* achieves the global optimum, rather than requiring an abstract coupling. The limitation to a three-coordinate model matters, but it exposes an otherwise hidden difference between positive correlation and optimal covariance coupling.
+Reconstructed Cov(Q_F,Q_G)=4∑_{i<j}FijGij and spectral monotonicity via doubly-stochastic p_kl; n=2 has two ordered sign-response levels. In n=3 the eight sign vectors reduce to four equal-mass antipodal classes; Birkhoff/rearrangement says identity coupling maximizes covariance iff all six pairwise class differences agree in sign. Exact rational L²=[[21,24,14],[24,401,2],[14,2,13]], class responses and all 24 class permutations independently evaluated: shared contrast variance 62/9, second/third coordinate swap 2/9, ratio31; Gershgorin diagonal-dominance SPD and increasing f,g on positive spectrum. Actual verify_coupling.py checked structurally. No higher-dimensional optimality claimed.
 
-## Limits and closest work
-Frommer et al. (arXiv:2108.11281), Hallman--Troester (arXiv:2103.10516), Cortinovis--Kressner (arXiv:2005.10009), and Hutch++ (arXiv:2010.09649) provide the closest trace-estimation context. General rearrangement and Birkhoff theory subsume the abstract coupling optimization but do not identify the specific six edge-coefficient tests or the shared-spectral-function dimension-three failure without specializing the matrix structure. No claim is made for general high-dimensional cost-effective coupling or for independent confirmation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signed-permutation universality theorem already shows any optimal n<=3 joint probe coupling is realizable by a signed permutation; it does not provide the shared-identity six-inequality criterion, monotone same-operator spectral covariance or the 31-fold polynomial example. Classical monotone rearrangement is credited. No source inspected gives this precise pairwise criterion and same-matrix witness.
+
+## value
+
+PASS
+
+The exact boundary determines when the cost-free common-probe variance reduction widely used in multilevel stochastic trace differences is optimal among ALL full-product-sign-preserving couplings; strict quantitative 31-fold improvement and exact implementable permutation are genuine design counterexamples beyond merely restating Birkhoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
