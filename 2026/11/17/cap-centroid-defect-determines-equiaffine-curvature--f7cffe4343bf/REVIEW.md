@@ -1,0 +1,15 @@
+# Scientific assessment: cap-centroid curvature law
+
+## Correctness — PASS
+The \(C^4\) Taylor expansion and signed square-root inversion give the chord-width coefficient \(5b^2/(8a^3)-c/(2a^2)\), which is not reducible to the fourth derivative alone: the cubic-jet square is essential. Horizontal-slice integration gives area and first moment, and their ratio has the exact combination \((3f''f''''-5f'''^2)/(525f''^3)\). Normalization by cap area to the power \(2/3\) yields precisely the standard equiaffine curvature. The finite conic inequalities follow from covariance monotonicity of the exact chord-width factor. The standalone mpmath checker confirms conic signs, the limiting constant, and an asymmetric quartic jet. No finite numerical check is substituted for the proof.
+
+## Originality — PASS with stated priority risk
+The closest exact statement, Kim–Kim–Park (arXiv:1502.00188, Section 2, Theorem 2), gives the universal leading \(3/5\) ratio and an exact parabola characterization; its full accessible text was inspected, including the area/centroid integral identities and later sections. Kim–Kim (arXiv:1305.3337) characterizes parabolas by their exact area law, and Kim–Kim (arXiv:1502.01205) studies leading limits of triangle centroids. The standard equiaffine curvature formula is background. None of the inspected source claims or implications supplies the second-order cap-area-normalized equiaffine curvature recovery. Searches for equivalent phrasings and for a stronger geometric moment theorem produced no decisive covering result. This establishes best-knowledge noncoverage, not absolute priority; some specialist cap/affine-geometry literature remains a residual risk.
+
+## Value — PASS
+Area and centroid depth are directly defined integral-geometric quantities, whereas equiaffine curvature requires fourth-order differential information. The result recovers that fourth-order local invariant from shrinking cap measurements, with an affine-covariant normalization and a sign test distinguishing elliptic from hyperbolic local osculating behavior. The normalizing exponent is forced by dimensions and the cap-area scaling, and the coefficient is universal for every positive-curvature \(C^4\) arc. This is a specific inverse-geometric extension of a motivated classical characterizing property, not a recomputation of the Archimedean \(3/5\) limit.
+
+## Limitations and closest literature
+The theorem supplies pointwise asymptotics without a uniform rate, covers only smooth plane arcs, and does not assert global conic recognition from a single zero value. The global strict sign statement is confined to nondegenerate conic caps. Primary comparisons: https://arxiv.org/abs/1305.3337 , https://arxiv.org/abs/1502.00188 , https://arxiv.org/abs/1502.01205 . The classical equiaffine definition is not claimed new. Complete historical priority remains unverified; independent mathematical review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
