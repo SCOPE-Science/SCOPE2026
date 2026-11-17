@@ -1,19 +1,21 @@
-# Review of the four-color bipartite temporal classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The update rule factors exactly through initially occupied color classes on each shore. All 225 pairs of nonempty color supports are covered, and tagged representatives preserve the original-labelled trajectory including coalescences. Replayed coefficient matrices give the ten classes; a separate direct-neighbor implementation confirms 92,752 fully labelled states. The proof of general \(m,n\) is the surjection lift of the exact 225-case certificate, not a finite-size extrapolation. The code is supplied for rerun and its full finite catalogue is readable.
+PASS
 
-## Originality
+For every m,n>=1, vertices initially sharing a shore/color are synchronous twins; retaining one tagged representative per initially occupied color gives an exact finite quotient for microscopic trajectories even after color classes merge. The update (a_i,b_j)->(a_i+1_{a_i+1 in R},b_j+1_{b_j+1 in L}) modulo four, applied simultaneously, exhausts the 15^2=225 initial shore-support pairs. Independently regenerated all 225 tagged histories and their ten (first-entry,least-period) populations 18,3,4,40,12,60,8,64,8,8 for (0,1),(0,4),(0,6),(1,1),(1,4),(2,1),(2,4),(3,1),(3,4),(4,1), respectively. The four period-six signatures are precisely 3-versus-3 initial supports; each has U_3(m)U_3(n) lifts, giving 4(3^m-3*2^m+3)(3^n-3*2^n+3). Nonzero C_(4,1)(2,3) and coexistence of periods 4 and 6 make 4-entry and 12-lag sharp when m,n>=3. The exhaustive tagged quotient, rather than finite-size vertex simulation, proves F^16=F^4 for all sizes. Boundary m=1 and n=1 are included by zero surjection factors.
 
-PASS, qualified. The 1993 lattice work treats multi-color CCA but not complete-bipartite exact first-entry counts; the 2016 arbitrary-graph result addresses three colors. The closest prior four-color complete-tripartite theorem assumes three nonempty shores and has only periods one and four, whereas this proof exhibits genuine primitive six-cycles and an exact bipartite ten-class census. Searches of literature and published research statements found no equivalent or dominating theorem. Full 1993 source inspection was unavailable and unindexed equivalents remain a residual priority risk; lack of a search hit alone is not claimed as a proof of novelty.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The complete, natural two-parameter classification resolves precise first-entry distributions beyond general eventual-period bounds. The period-six resonance is confined to exactly four ordered pairs of three-color supports, and sharply separates the bipartite and previously classified tripartite dynamics. Exact cycle populations, finite-shore cutoffs, and the vanishing density of six-cycles explain a structural dynamical distinction that a small numerical experiment alone would not settle.
+The exact ten-class all-m,n first-entry census and primitive six-cycle on the four-color successor-contact biclique are not given by the inspected earlier source results. The 2026-11-02 tripartite theorem studies the same rule but requires THREE nonempty parts and explicitly forbids period six; three-color biclique and four-state Greenberg–Hastings results alter the alphabet/rule. No stronger previous theorem identified that entails the current four-color two-shore census.
 
-## Scope and limitations
+## value
 
-Applies only to synchronous four-state successor-contact updating on labelled complete bipartite graphs. There is no assertion of independent certification or historical uniqueness. Full text of one old general cellular-automata reference was not accessible; the comparison therefore rests on its published abstract and domain, not an alleged page-by-page exclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact first-periodic-entry law for all labelled bicliques and the unexpected primitive six-cycle resonance provide a natural structural dynamical classification, not an arbitrary tiny instance: all vertex counts follow by surjection lifting and the sharp exponent/lag boundaries distinguish bipartite from tripartite topology. A researcher studying cyclic excitable systems can use these exact basin polynomials; no downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

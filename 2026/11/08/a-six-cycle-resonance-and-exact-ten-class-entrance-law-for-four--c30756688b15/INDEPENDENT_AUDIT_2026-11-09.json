@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T19:53:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every m,n>=1, vertices initially sharing a shore/color are synchronous twins; retaining one tagged representative per initially occupied color gives an exact finite quotient for microscopic trajectories even after color classes merge. The update (a_i,b_j)->(a_i+1_{a_i+1 in R},b_j+1_{b_j+1 in L}) modulo four, applied simultaneously, exhausts the 15^2=225 initial shore-support pairs. Independently regenerated all 225 tagged histories and their ten (first-entry,least-period) populations 18,3,4,40,12,60,8,64,8,8 for (0,1),(0,4),(0,6),(1,1),(1,4),(2,1),(2,4),(3,1),(3,4),(4,1), respectively. The four period-six signatures are precisely 3-versus-3 initial supports; each has U_3(m)U_3(n) lifts, giving 4(3^m-3*2^m+3)(3^n-3*2^n+3). Nonzero C_(4,1)(2,3) and coexistence of periods 4 and 6 make 4-entry and 12-lag sharp when m,n>=3. The exhaustive tagged quotient, rather than finite-size vertex simulation, proves F^16=F^4 for all sizes. Boundary m=1 and n=1 are included by zero surjection factors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "J. Gravner, H. Lyu, D. Sivakoff, Limiting behavior of 3-color excitable media on arbitrary graphs, arXiv:1610.07320",
+          "R. Durrett and D. Griffeath 1993 cyclic automata arXiv:patt-sol/9303002"
+        ],
+        "reasoning": "The arbitrary-graph paper concerns three colors, not four; the older lattice setting concerns spatial regimes rather than an all-labelled-biclique entry-time polynomial. These are not generalized four-color four-shore covers.",
+        "searches": [
+          "four-color cyclic cellular automaton complete bipartite graph K_{m,n} six cycle transient basin exact period enumeration",
+          "arXiv:1610.07320"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-six-cycle-resonance-and-exact-ten-class-entrance-law-for-four--c30756688b15/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-six-cycle-resonance-and-exact-ten-class-entrance-law-for-four--c30756688b15/scripts/verify_supports.py",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-step-period-collapse-and-exact-orbit-counts-for-four--a56bc883e0df",
+        "arXiv:1610.07320",
+        "arXiv:patt-sol/9303002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-step-period-collapse-and-exact-orbit-counts-for-four--a56bc883e0df",
+          "2026-11-01 three-color biclique six-class Resultary title and summary"
+        ],
+        "reasoning": "The earlier tripartite four-color theorem itself supplies a two-shore six-cycle example to illustrate nonimplication, but does not supply the ten-class census; three-color biclique counts have different support cardinalities and temporal periods. The submitted claim does not follow.",
+        "searches": [
+          "four-color cyclic cellular automaton complete bipartite graph K_{m,n} six cycle transient basin exact period enumeration",
+          "Resultary: exact six-class census for three-color cyclic dynamics on bicliques"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-step-period-collapse-and-exact-orbit-counts-for-four--a56bc883e0df",
+          "arXiv:1610.07320"
+        ],
+        "reasoning": "The tripartite theorem is a genuinely different support universe (3375 triples instead of 225 pairs) and yields F^7=F^3, only periods 1 and 4; changing a positive shore size to zero is outside its hypotheses, and its proof does not imply the biclique period-six signatures.",
+        "searches": [
+          "four-color cyclic cellular automaton complete bipartite graph K_{m,n} six cycle transient basin exact period enumeration",
+          "Resultary: Sharp three-step period collapse and exact orbit counts for four-color cyclic dynamics on tripartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026-11-02 complete tripartite four-color orbit coefficient table (16 symmetrized coefficients)",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-six-cycle-resonance-and-exact-ten-class-entrance-law-for-four--c30756688b15/checks/support_catalog.tsv"
+        ],
+        "reasoning": "The identified prior table is for tripartite supports, and the GH table is for a different transition rule. Independently re-enumerated 225 microscopic support signatures; no identical ten (t,p) coefficient table appears in the compared sources.",
+        "searches": [
+          "four-color cyclic cellular automaton complete bipartite graph K_{m,n} six cycle transient basin exact period enumeration",
+          "Resultary: exact four-state excitation orbits and basins on complete bipartite graphs"
+        ]
+      },
+      "rationale": "The exact ten-class all-m,n first-entry census and primitive six-cycle on the four-color successor-contact biclique are not given by the inspected earlier source results. The 2026-11-02 tripartite theorem studies the same rule but requires THREE nonempty parts and explicitly forbids period six; three-color biclique and four-state Greenberg–Hastings results alter the alphabet/rule. No stronger previous theorem identified that entails the current four-color two-shore census.",
+      "residual_risks": [
+        "The 1993 foundational paper could not be inspected in full; an unindexed biclique computation is possible.",
+        "Independent full proof consists of exact finite-support recurrence and exhaustive 225-case certificate; no formal verification of the program."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different nonempty-three-shore graph family; explicitly excludes six-cycle and contrasts K_3,3 six-cycle",
+          "evidence": "F^7=F^3 and period set {1,4} for K_{a,b,c}; proof requires all a,b,c>=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-step-period-collapse-and-exact-orbit-counts-for-four--a56bc883e0df",
+          "material_read": "Entire RESULT.md: finding, exact support recurrence, proof, coefficient table, limits, references",
+          "method": "Read full GitHub RESULT.md Git blob 8d8a6456b98bf9003ab711400805c7be1c79597f",
+          "title": "Sharp three-step period collapse and exact orbit counts for four-color cyclic dynamics on tripartite graphs",
+          "trigger": "Same four-color successor-contact rule and a plausible reduction from three shores"
+        },
+        {
+          "assessment": "Not same four-color alphabet; cannot determine period-six census",
+          "evidence": "Three-color model, 2016 preprint",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Title/abstract and three-color scope",
+          "method": "Open preprint abstract and quoted scope",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Arbitrary graph theorem might cover bicliques"
+        },
+        {
+          "assessment": "Inconclusive for absolute priority; not asserted whole paper noncovering",
+          "evidence": "1993 lattice dynamics; residual risk explicitly retained",
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+          "material_read": "Bibliographic/abstract and accessible description, NOT full paper",
+          "method": "Public abstract; full text could not be inspected",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Foundational same update family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact first-periodic-entry law for all labelled bicliques and the unexpected primitive six-cycle resonance provide a natural structural dynamical classification, not an arbitrary tiny instance: all vertex counts follow by surjection lifting and the sharp exponent/lag boundaries distinguish bipartite from tripartite topology. A researcher studying cyclic excitable systems can use these exact basin polynomials; no downstream theorem is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only synchronous threshold-one rule with precisely four colors and complete bipartite graphs; all m,n>=1.",
+    "The finite support-state classification is exhaustive only because the quotient/lifting proof is valid; ordinary finite graph simulation alone would not prove it."
+  ],
+  "schema_version": 1
+}
