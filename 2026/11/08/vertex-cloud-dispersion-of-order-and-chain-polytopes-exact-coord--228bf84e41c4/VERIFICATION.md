@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-Run `python3 verify.py` with the standard Python 3 library. Expected terminal line:
+# Independent mathematical audit
 
-`VERTEX_DISPERSION_EXACT_OK 33867 posets; chain checks 18; boundary check PASS`
+## correctness
 
-This computes the exact ideals and maximal antichains for every increasing-label DAG presentation on at most six elements, compares complete ordered-pair squared Hamming-distance sums and individual coordinate counts, checks the exact gap and strictness classification, and checks explicit all-chain formulas for dimensions three through twenty. It also directly computes the failure of covariance positive-semidefinite ordering in the three-element chain using the vector \((1,0,-1)\).
+PASS
 
-This finite check does not establish the theorem for arbitrary dimensions. The analytic proof's load-bearing steps are the binary-pair counting identity, maximal-element deletion injection, and equality analysis. All are reconstructed in `RESULT.md`. Primary-source priority comparisons remain provisional; independent audit is not performed.
+PASS: for a uniformly sampled 0/1 vertex cloud with N vertices and c_x ones, the ordered-pair coordinate variance is 2c_x(N-c_x)/N². Ideals have count a_x; antichains biject to maximal elements of ideals with count b_x. The factorization follows, b_x≤a_x and b_x≤N-a_x by containment and injective deletion; strictness exactly for a point internal to a three-element chain. For any nonnegative diagonal weights the sum is nonnegative. A 3-chain projection provides a genuine covariance-Loewner counterexample. Independent 1,099 increasing-labeled poset checks corroborate, not replace, the all-poset proof.
+
+## originality
+
+PASS
+
+PASS, qualified: earlier all-poset covariance theorem is continuous-volume, while the present exact count is uniformly sampled discrete vertices; closest October 2026 Lee manuscript concerns edges in accessible metadata but final complete text inaccessible.
+
+## value
+
+PASS
+
+PASS: exact coordinatewise all-vertex-pair dispersion is a natural global metric invariant of Stanley’s order/chain polytope pair; it specifies every coordinate gap and all equality cases, distinguishes edge and continuous-volume comparisons, gives unbounded chain separation and an exact non-Loewner boundary. These are useful independent mathematical facts, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Binary vertex coordinates reduce pairwise squared separation to exact one-coordinate counts. The classical ideal/antichain bijection supplies those counts; deleting a maximal element supplies the second injection. Equality occurs precisely when the two injections have the stated exhaustive/surjective properties. All quantifiers are over finite posets, nonnegative diagonal weights, and uniformly sampled vertices. The strictness criterion at nonminimal/nonmaximal elements is proved directly. A separate exact-integer implementation enumerates 33,867 labeled acyclic specifications with at most six vertices and independently verifies every coordinate and pairwise count; this is supplementary, not a replacement for the general proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Lee (2026, arXiv:2610.07413) compares individual polytope *edges*, their directions, and connected-component counts in symmetric differences; the present invariant averages across *all* pairs of vertices and provides a stronger coordinate-by-coordinate formula, which is not a restatement of an edge count or length dominance. Published f-vector work also concerns counts of faces rather than metric vertex-cloud moments. Targeted literature and mathematical-record searches did not identify the exact mean-square identity. The final version of the most relevant manuscript was not available for complete-text review, so unlocated discussion there remains a material residual risk.
+PASS
 
-**Mathematical value — PASS.** The finding closes a natural global metric comparison for canonical poset polytopes, complementing the recently established local edge comparison. It identifies precisely which poset elements create a positive dispersion gap, classifies equality for all posets, and exhibits an unbounded separation factor even though the two polytopes have the same number of vertices and edges. The three-chain obstruction shows why the diagonal-metric scope is mathematically sharp; it is not a generic covariance-ordering assertion. This gives exact benchmarks for uniformly sampled vertices, not merely a single small numerical case.
+PASS: for a uniformly sampled 0/1 vertex cloud with N vertices and c_x ones, the ordered-pair coordinate variance is 2c_x(N-c_x)/N². Ideals have count a_x; antichains biject to maximal elements of ideals with count b_x. The factorization follows, b_x≤a_x and b_x≤N-a_x by containment and injective deletion; strictness exactly for a point internal to a three-element chain. For any nonnegative diagonal weights the sum is nonnegative. A 3-chain projection provides a genuine covariance-Loewner counterexample. Independent 1,099 increasing-labeled poset checks corroborate, not replace, the all-poset proof.
 
-**Limits and closest literature.** Stanley's 1986 vertex theory is a prerequisite, not a novel claim. Lee's arXiv:2610.07413 is the closest primary work. Freij-Hollanti–Lundström (arXiv:2312.13890) studies f-vectors. The source-comparison priority risk and the distinction between uniform vertices and continuous volume measure remain explicit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: earlier all-poset covariance theorem is continuous-volume, while the present exact count is uniformly sampled discrete vertices; closest October 2026 Lee manuscript concerns edges in accessible metadata but final complete text inaccessible.
+
+## value
+
+PASS
+
+PASS: exact coordinatewise all-vertex-pair dispersion is a natural global metric invariant of Stanley’s order/chain polytope pair; it specifies every coordinate gap and all equality cases, distinguishes edge and continuous-volume comparisons, gives unbounded chain separation and an exact non-Loewner boundary. These are useful independent mathematical facts, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
