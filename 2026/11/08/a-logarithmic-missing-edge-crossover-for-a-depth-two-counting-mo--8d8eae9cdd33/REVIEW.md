@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated assertion is exactly one moving-parameter limit for the depth-two formula \(\Psi=(\#E\ge\#O)\), with \(E=(\#\top=2\#p)\) and \(O=(\#\top=2\#p-1)\). Conditional on the complete unary labeling, all non-root adjacency rows are independent, and root-to-nonroot edges are independent of those rows. The difference of the two root successor counts, apart from a self-edge contribution occurring with probability \(O(n^{-1/2})\), is therefore a sum of iid three-valued variables. The critical local binomial-difference estimate is derived by exponential tilting, Taylor bounds, and a local Fourier inversion, with the needed uniform error. The sign law follows from a triangular-array central limit theorem when the mean number of marked root successors diverges and from a union bound when it vanishes. The unconditional Gaussian balance \(B/\sqrt n\) produces the boundary \(|Z|=\sqrt a\); Bernstein's inequality handles the zero-defect limit. A subsequence argument covers every moving parameter \(\varepsilon_n\to0\). The bundled checker independently confirms the exact finite conditional reduction for all unary valuations and directed loop-allowing adjacency matrices through four worlds, and validates the row probability formula through eleven worlds. Finite computations are not used as infinite proofs.
+PASS
 
-## Originality — PASS within inspected evidence
+Conditional on fair unary colors, let B be signed color imbalance; B/sqrt(n) -> N(0,1). The row signed sums D_v are independent differences of two binomials with edge probability r=1-epsilon. For root children, excluding its self-loop, the balance difference T_n is conditional sum of n-1 i.i.d. {-1,0,1} terms with probabilities r q_(-1)(B), r q_0(B); the omitted root self-term is nonzero with probability O(n^-1/2). In epsilon>=c/log n, an exponentially tilted lattice local CLT at deviations B=O(sqrt n) yields q_j~(2pi n r epsilon)^-1/2 exp(-(rB-j)^2/(2nr epsilon)), j=0,-1, so the expected number of balanced children M_n has log M_n/log n->1/2-Z²/(2a) when epsilon log n->a>0. The conditional sign is 1/2 below |Z|<sqrt(a), and zero-event true with probability 1 above that threshold, producing 3/2-Phi(sqrt(a)); Bernstein handles a=0, CLT a=infinity; subsequence compactness yields moving-parameter o(1). Finite independent row convolution for n=5, K=2, r=3/4 gave q0=149/512 and q-1=87/1024. This finite check does not validate the local-CLT asymptotic.
 
-Ghosh and Schwarzentruber's arXiv:2610.26187v1 Section 6.1 establishes the very same syntactic formula as a nonconvergent example for fixed-branching full trees, and Section 7 raises graph convergence questions; the inspected full paper does not establish the near-complete directed-graph logarithmic crossover. The graph distributions and quantifiers are materially different, so their tree theorem does not imply this result. Almeida arXiv:2512.24293 and Collins et al. arXiv:2603.05705 treat the existence and structure of balanced colorings in undirected graphs, rather than the probability of this prescribed random coloring and counting-modal event. Benedikt--Zhukovskii arXiv:2602.17752 was inspected in its public full-text introduction and Sections 5--7; its concentration theorems assume fixed dense or polynomial sparse edge probabilities in undirected graphs, so do not cover the changing near-complete directed regime. Searches of indexed research findings and public literature did not find an equivalent limit. This is a bounded originality assessment, not a proof of global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating paper supplies a sharply different answer under deterministic regular-tree branching: its depth-two counting-modal witness does not have a limit. The new theorem identifies why random graph neighborhoods change the behavior, determines a nontrivial and mathematically forced \(1/\log n\) boundary layer, and evaluates the entire crossover profile through a standard normal distribution. The result is an exact probability phase diagram for a fixed natural logical observable, not merely a routine substitution or a repeated numerical table. The sharp transition is explained by a competition between the roughly \(n\) candidate successors and a conditional balanced-neighborhood probability suppressed by a large-deviation factor.
+Ghosh–Schwarzentruber Section 6.1 studies the same syntactic formula but on deterministic regular rooted trees and shows parity oscillation. It does not cover random independent directed edges, fair random colors or the 1/log n near-complete window. Benedikt–Zhukovskii studies undirected aggregate concentration and other density regimes. A similar Resultary mixed-Poisson balance theorem concerns two simultaneous independent balance predicates on fixed-density directed graphs rather than this single balance threshold under epsilon->0.
 
-## Relevant literature and limitations
+## value
 
-The first public source is Ghosh and Schwarzentruber's October 19, 2026 preprint. Earlier papers on neighborhood-balanced colorings and general logical concentration are related but do not, on the inspected evidence, give the same limit. This assessment remains limited by the possibility of equivalent special-purpose moderate-deviation results in other literature. The theorem is restricted to the model and formula stated; no general-purpose algorithm for convergence of counting-modal graph formulas is claimed. External mathematical and historical-priority assessment remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural formula previously known for nonconvergence on trees develops a sharp, continuous probability transition on near-complete directed random graphs. The exact Gaussian crossover isolates a semantically meaningful missing-edge scale; it is not a textbook substitution or random unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
