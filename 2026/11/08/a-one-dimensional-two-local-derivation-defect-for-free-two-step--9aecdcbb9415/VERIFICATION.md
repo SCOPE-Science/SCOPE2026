@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python checker.py` followed by `python rank_check.py` in the directory containing both scripts. Only Python 3's standard library is required. The expected deterministic output is preserved in `checks.txt`.
+## correctness
 
-The first program creates the ordinary derivations from arbitrary generator endomorphisms and central shears, then tests linear witness solvability against paired inputs. It exhausts all 729 ordered pairs when the generator rank is two and the field is \(\mathbb F_3\), checks 2,500 pairs when the rank is three over \(\mathbb F_3\), 600 in rank three over \(\mathbb F_5\), and 350 in rank four over \(\mathbb F_3\). It also produces explicit pairs for which a merely local projection has no simultaneous witness.
+PASS
 
-The second program forms, by independent left-kernel elimination, linear constraints on the full matrix space of putative two-local maps. Its constraint ranks are 2, 17, 17, and 59 in the four tested cases, leaving precisely the predicted dimensions 7, 19, 19, and 41. The linear-space rank conclusion is exact for these finite-field cases because the proved family constructs the matching lower bound; the finite witness samples do not alone establish the theorem for all fields.
+The Lie bracket [v,w]=v wedge w forces any ordinary derivation to have blocks B,f,B^[2]. The distinguished-vector alternating-bivector normal form produces C with Cv=0 and C^[2]z=z, giving a simultaneous derivation witness for the central projection S(v+z)=z even when two generator components are dependent. Conversely pair (v,v+z) forces (T-B^[2])z=C^[2]z with Cv=0; taking z=v wedge w from both factor directions shows every decomposable bivector is an eigenvector. Linearity on e_i wedge(e_j+e_k) for m>=3 makes the eigenvalues one scalar. Thus 2LocDer=Der+kS and the dimensions follow. For m=3, B -> B^[2] is invertible because char!=2, so all center-preserving maps are local, giving 27 dimensions. Independently solved modular simultaneous-witness systems over F3 for the projection S on 166 ordered pairs and exhibited a specific incompatible pair for the rank-one quotient projection Theta. Finite checks support the all-field proof, not replace it.
 
-Proof dependencies: the alternating normal form of bivectors, the explicitly proved distinguished-vector projection lemma, derivations of the free class-two Lie algebra, and elementary linear algebra. No unverified external computational certificate or machine formalization is invoked. Independent audit has not been performed.
+## originality
+
+PASS
+
+The stronger same-object published local-derivation classification determines the one-point reflexive hull, not the two-point hull. Published general nilpotent 2-local existence results do not imply its exact linear family-wide defect. The 2015 general two-local paper was accessible only at abstract level, even after an authorized institutional request failed; its possible stronger implications are retained as priority risk. This is a qualified best-knowledge pass, not an inference of novelty from search absence.
+
+## value
+
+PASS
+
+The two-point reflexive hull of derivations on the canonical free two-step nilpotent Lie family is a natural rigidity invariant. A precise one-dimensional obstruction for every m>=3, compared with the much larger one-point local hull, resolves a motivated structural distinction rather than an arbitrary parameter slice. Exact rank-three dimensions 18,19,27 concretely illustrate the two levels of locality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
