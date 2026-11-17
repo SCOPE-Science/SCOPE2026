@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` using the standard library. The program independently tests the private-neighbor graph definition on every vertex subset of every cycle of order \(3\) through \(19\). It compares those complete cardinality distributions with (i) coefficients of the rational formal series and (ii) an independent rooted-gap transfer enumeration through order \(45\). It also checks exact upper cardinalities through order \(154\), including the seven rotations when \(7\mid n\).
+## correctness
 
-An observed successful execution printed:
+PASS
 
-`VERIFY_OK direct_graph_n=3..19 subsets=1048568 minimal_sets=3874 rational_coefficients_n=3..154 upper_quasiperiodic=PASS extremal_seven=PASS`
+Gap proof is valid for labelled n>=3, including the one-omission boundary: gaps have sizes 0..4 with short/long local-adjacency rules, transfer-matrix det(I-T) yields D(x,z), and nonnegative deficit 5n-7|S|=3(t-h)+2s0+2c3+c2 yields the seven-period extremal pattern plus the two corrected residue classes; iterative gap substitutions supply every n. Independently enumerated all vertex subsets for n=3..12 and compared every cardinality coefficient with the rational recurrence; upper and seven-extremal formulas verified to n=79.
 
-The statement for arbitrary order is justified by the cyclic-gap proof and nonnegative deficit decomposition in `RESULT.md`, not by extrapolation from finite checks. The package includes no independent mathematical audit or infinite machine-generated certification.
+## originality
+
+PASS
+
+Best-of-knowledge: complete inclusion-minimal super-domination census and exact sharp 7-period upper spectrum are not established by the inspected published minimum-size or all-set results; one inaccessible plausible source remains named.
+
+## value
+
+PASS
+
+Inclusion-minimal super dominating sets are maximal objects in a natural finite graph set system and their full cardinality distribution is a useful exact invariant, not determined by the known minimum-size value. The sharp 5/7 extremal density, two exceptional residue classes, and unique 7-rotation rigidity are substantive structural classifications; no arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

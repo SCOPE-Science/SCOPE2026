@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces super domination to a necessary-and-sufficient cyclic-gap condition and inclusion-minimality to unsplittable gaps. The three-state transfer determinant gives the entire cardinality polynomial; the nonnegative deficit identity proves a sharp \(5/7\) upper bound and singles out its equality case. Deficits one and three are classified to establish the two exceptional residue classes. Explicit extensible gap words prove attainment in all orders. The packaged verifier independently checks the original graph definition, every small coefficient, and the upper formula through order \(154\).
+## correctness
 
-**Originality — PASS, with residual priority risk.** Ghanbari–Jäger–Lehtilä, arXiv:2209.01795 (2022), Section 6, count only minimum-size super dominating sets of cycles, not the inclusion-minimal family of every cardinality or its upper extremal size. Kaidash, DOI 10.1007/978-3-031-73365-9_6 (2024), introduces a polynomial for **all** super dominating sets, not the inclusion-minimal polynomial defined here; only the latter paper's abstract was accessible. Comparisons with related published enumerations and searches for upper super domination did not identify equivalent coverage. A hidden analogous theorem or a stronger uninspected statement remains possible; absence from searches is not proof of publication priority.
+PASS
 
-**Mathematical value — PASS.** The problem asks for all minimal solutions rather than merely optimal ones, a naturally different invariant in domination theory. The finite five-gap language gives a complete labelled polynomial, a sharp seven-period upper-minimal size formula with exceptional residues, and exact rigidity (seven extremal sets at every multiple of seven). These provide structural and enumerative information not implied by known minimum-set counts or an all-set weight polynomial.
+Gap proof is valid for labelled n>=3, including the one-omission boundary: gaps have sizes 0..4 with short/long local-adjacency rules, transfer-matrix det(I-T) yields D(x,z), and nonnegative deficit 5n-7|S|=3(t-h)+2s0+2c3+c2 yields the seven-period extremal pattern plus the two corrected residue classes; iterative gap substitutions supply every n. Independently enumerated all vertex subsets for n=3..12 and compared every cardinality coefficient with the rational recurrence; upper and seven-extremal formulas verified to n=79.
 
-**Scientific limits.** The theorem is restricted to labelled cycles with at least three vertices. Finite verifier tests corroborate but do not prove the infinite statements. The 2024 prior work was accessible only in abstract/metadata form. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: complete inclusion-minimal super-domination census and exact sharp 7-period upper spectrum are not established by the inspected published minimum-size or all-set results; one inaccessible plausible source remains named.
+
+## value
+
+PASS
+
+Inclusion-minimal super dominating sets are maximal objects in a natural finite graph set system and their full cardinality distribution is a useful exact invariant, not determined by the known minimum-size value. The sharp 5/7 extremal density, two exceptional residue classes, and unique 7-rotation rigidity are substantive structural classifications; no arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
