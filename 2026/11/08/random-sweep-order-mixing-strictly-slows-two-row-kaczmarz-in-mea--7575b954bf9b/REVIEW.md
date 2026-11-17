@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two complete sweeps are rank-one maps \(cvu^{\mathsf T}\) and \(cuv^{\mathsf T}\). Their repeated/switching squared-norm factors are exactly \(c^4\) and \(c^2\), respectively. Tracking the random last-sweep type produces a positive 2-by-2 transfer matrix. Its trace/determinant yield the claimed eigenvalues. Perron positivity proves the exact asymptotic rate for every nonzero deterministic initial error; row-sum symmetry yields the finite-horizon fair-mixing law. Boundary cases and finite verification are explicitly separated. Exact rational enumeration reproduced the stated transfer identities.
+PASS
 
-## Originality — PASS, with specialist precedence risk
+For unit line directions with 0<c<1, full sweeps are rank-one F=cvuᵀ and R=cuvᵀ. Repeating one order yields squared contraction c⁴ after the initial step, switching gives c². Tracking squared-error mass by last sweep produces the exact positive 2×2 transfer K=[[pc⁴,pc²],[(1−p)c²,(1−p)c⁴]], trace c⁴ and determinant −p(1−p)c⁴(1−c⁴). Its Perron root is [c⁴+sqrt(c⁸+4p(1−p)c⁴(1−c⁴))]/2, strictly >c⁴ for 0<p<1 and maximal only at p=1/2. From positive left/right Perron vectors and u,v spanning R², this is the sharp expected-squared-error factor for every nonzero deterministic start. For fair p, row sums give exact finite-n formula. Independent Fraction arithmetic explicitly enumerated 2^n orientation words through n=5 at c=3/5, p=2/5, start (1,2) and agrees with transfer for each n. Orthogonal c=0, equal-line c=1 and p endpoints are not misrepresented.
 
-The all-bias, complete-sweep permutation distribution differs from single-row independent random sampling in Steinerberger (2020) and from randomized block-averaged projection in Necoara (2019). Their accessible full texts were examined for definitions, theorems and implications; neither asserts the 2-by-2 complete-sweep transfer law. Bai–Wu's exact mean-square calculations concern the independently sampled Kaczmarz model, not full two-row permutations. Older two-projection random-product theory and inaccessible detailed row-reordering analyses remain residual risks; the result should not be treated as independently certified novelty.
+## originality
 
-## Value — PASS
+PASS
 
-It gives a complete sharp classification of a natural minimal random-reshuffling model: the same pair of equal-cost convergent sweeps is strictly slowed by any nontrivial mixing, with a unique worst bias and an unbounded relative slowdown near orthogonality. This provides a diagnostic counterexample to the assumption that repeated order randomization necessarily improves cyclic projection methods, without extrapolating to larger systems.
+The published October 18 four-way Kaczmarz shuffling theorem already gives the fair IID-per-epoch two-row factor c^{2t}[(1+c²)/2]^{t−1} under isotropic initialization and compares it with fixed repeated order. Thus the fair slowdown observation is prior coverage; the current result adds a complete bias-dependent Perron rate for arbitrary deterministic initial errors, the unique fair worst-bias classification and strict degradation for every p∈(0,1). These are not in the inspected earlier four-way theorem (which assumes uniform random permutations), nor in independent-row sampling theory. Remaining prior specialist two-projection random products are a risk.
 
-## Sources and limits
+## value
 
-Necoara, https://arxiv.org/abs/1902.09946; Steinerberger, https://arxiv.org/abs/2007.02910; Bai–Wu, https://doi.org/10.1016/j.laa.2018.05.009; Kaczmarz anomaly in tomography, https://www.mdpi.com/2673-9909/2/2/12. Exact arithmetic only; no proof for more than two rows, independent per-row sampling, noisy equations, floating point, or almost-sure error rates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Order randomization is a central design choice for Kaczmarz sweeps, and an exact all-bias phase-free classification on the first nontrivial consistent system is a motivated invariant: every mixed sweep law strictly loses contraction, with a divergence of relative slowdown as lines approach orthogonality. Although part of the fair fact was known under isotropic random initialization, its sharp law for arbitrary bias and every deterministic initial vector is distinct and potentially useful for analyzing/choosing sweep policies; no claims about larger systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

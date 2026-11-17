@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit line directions with 0<c<1, full sweeps are rank-one F=cvuᵀ and R=cuvᵀ. Repeating one order yields squared contraction c⁴ after the initial step, switching gives c². Tracking squared-error mass by last sweep produces the exact positive 2×2 transfer K=[[pc⁴,pc²],[(1−p)c²,(1−p)c⁴]], trace c⁴ and determinant −p(1−p)c⁴(1−c⁴). Its Perron root is [c⁴+sqrt(c⁸+4p(1−p)c⁴(1−c⁴))]/2, strictly >c⁴ for 0<p<1 and maximal only at p=1/2. From positive left/right Perron vectors and u,v spanning R², this is the sharp expected-squared-error factor for every nonzero deterministic start. For fair p, row sums give exact finite-n formula. Independent Fraction arithmetic explicitly enumerated 2^n orientation words through n=5 at c=3/5, p=2/5, start (1,2) and agrees with transfer for each n. Orthogonal c=0, equal-line c=1 and p endpoints are not misrepresented.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Necoara 2019 uses randomized blocks / individual block projections; its sampling laws do not enforce both rows once per epoch.",
+          "The four-way published result treats any number of orthogonal pairs, but restricts each RR orientation to probability 1/2, so does not dominate arbitrary p."
+        ],
+        "reasoning": "A wider class of data matrices is not automatically wider on bias parameter: the earlier multi-pair theorem does not cover biased two-row order selection. General two-projection matrix-product theorems might, a residual risk.",
+        "searches": [
+          "random sweep Kaczmarz convergence two rows independent order slowing",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md",
+          "https://arxiv.org/abs/1902.09946",
+          "alternating projection random products two orthogonal lines geometric contraction"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1902.09946",
+        "https://arxiv.org/abs/2007.02910",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md",
+        "https://doi.org/10.1016/j.laa.2018.05.009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published pair shuffle proof shows independent fair orientation each epoch and computes c^{2t} h^{t−1}, h=(1+c²)/2.",
+          "Current K(c,p) reduces to h weighted factor for p=1/2; with p≠1/2, a genuinely nonsymmetric positive Perron matrix is required."
+        ],
+        "reasoning": "The submitted fair formula is covered in an isotropic normalization, but the all-interior-bias strict slowdown and arbitrary-initial Perron asymptotic require analysis not supplied by prior published exact statements. Thus a meaningful residual finding survives.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md",
+          "https://arxiv.org/abs/2007.02910",
+          "https://arxiv.org/abs/1902.09946"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 published theorem’s pair calculation gives c^{2t}[(1+c²)/2]^{t−1} for RR (fair independent epoch permutations); current p=1/2 transfer has the same mean-squared factor after accounting for isotropic start.",
+          "The same paper gives SS fixed order c^{4t−2} for its paired rows."
+        ],
+        "reasoning": "Fair mixing slowdown and its c-dependent factor have earlier coverage. The all-bias spectral rate, all-initial-vector classification and unique worst fair p are not consequences stated by those fair-only RR formulas without further nontrivial transfer analysis.",
+        "searches": [
+          "random sweep Kaczmarz convergence two rows independent order slowing",
+          "Kaczmarz reshuffling versus single shuffle exact paired rows",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier published exact RR and SS losses agree with the p=1/2 specialization under isotropic initialization.",
+          "Current exact transfer discriminant contains 4p(1−p)c⁴(1−c⁴), not fixed p=1/2."
+        ],
+        "reasoning": "A known exact fair table is credited. No inspected published expression or database contains the full continuum of p and all deterministic starts.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md",
+          "random sweep Kaczmarz convergence two rows independent order slowing",
+          "Kaczmarz two-row order probability bias p Perron c4 discriminant"
+        ]
+      },
+      "rationale": "The published October 18 four-way Kaczmarz shuffling theorem already gives the fair IID-per-epoch two-row factor c^{2t}[(1+c²)/2]^{t−1} under isotropic initialization and compares it with fixed repeated order. Thus the fair slowdown observation is prior coverage; the current result adds a complete bias-dependent Perron rate for arbitrary deterministic initial errors, the unique fair worst-bias classification and strict degradation for every p∈(0,1). These are not in the inspected earlier four-way theorem (which assumes uniform random permutations), nor in independent-row sampling theory. Remaining prior specialist two-projection random products are a risk.",
+      "residual_risks": [
+        "Fair IID shuffle loss formula is already published; no novelty credit for the fair-only law itself.",
+        "An unlocated earlier biased two-projection random-product theorem could imply the remaining Perron formula.",
+        "Small rational enumeration checks only one parameter/sample and is not a proof of asymptotic all-real statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FAIR_SPECIALIZATION_COVERED, BIAS_EXTENSION_NOT",
+          "evidence": "RR formula c^{2t}[(1+c²)/2]^{t−1} specializes to fair independent order each epoch; only fair RR is considered.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md",
+          "material_read": "Full RESULT.md: paired-row switching calculation, four sampler finite formulas, proof and scope",
+          "method": "published primary mathematical text",
+          "title": "Exact four-way Kaczmarz shuffling constants on a power-law family of paired rows",
+          "trigger": "identical complete-sweep paired-row geometry"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING",
+          "evidence": "Individual/block sampling differs from independent orientation of complete two-row sweeps.",
+          "identifier_or_url": "https://arxiv.org/html/1902.09946v1",
+          "material_read": "Primary arXiv HTML introduction and randomized block update model",
+          "method": "primary full-text section examination",
+          "title": "Faster randomized block Kaczmarz algorithms",
+          "trigger": "random projections comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order randomization is a central design choice for Kaczmarz sweeps, and an exact all-bias phase-free classification on the first nontrivial consistent system is a motivated invariant: every mixed sweep law strictly loses contraction, with a divergence of relative slowdown as lines approach orthogonality. Although part of the fair fact was known under isotropic random initialization, its sharp law for arbitrary bias and every deterministic initial vector is distinct and potentially useful for analyzing/choosing sweep policies; no claims about larger systems.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1902.09946",
+    "https://arxiv.org/abs/2007.02910",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md",
+    "https://doi.org/10.1016/j.laa.2018.05.009"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only exact consistent 2×2 systems, i.i.d. full-sweep orientation, Euclidean mean-squared error.",
+    "The all-bias theorem is not evidence that larger or noisy systems behave analogously."
+  ],
+  "residual_risks": [
+    "Fair IID shuffle loss formula is already published; no novelty credit for the fair-only law itself.",
+    "An unlocated earlier biased two-projection random-product theorem could imply the remaining Perron formula.",
+    "Small rational enumeration checks only one parameter/sample and is not a proof of asymptotic all-real statements."
+  ],
+  "schema_version": 1
+}
