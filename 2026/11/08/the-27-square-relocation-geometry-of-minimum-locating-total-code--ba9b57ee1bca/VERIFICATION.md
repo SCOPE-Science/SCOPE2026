@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The proof's classification is mathematical, and the following stand-alone Python 3 checks are provided to corroborate its finite boundary cases and independently validate the underlying graph presentation.
+## correctness
 
-`python3 verify_direct.py` exhaustively searches the standard eighteen-vertex Pappus graph by selected set size and builds the token-jump and token-slide adjacency lists. Expected: minimum eight, 108 optimal codes, 108 jump edges in 27 four-cycles, and zero slide edges.
+PASS
 
-`python3 verify_geometry.py` constructs the nine points of \(\mathbb F_3^2\) and the nine retained lines from their equations. It constructs all 108 geometric codes, checks every four-plus-four incidence candidate, and verifies the independently parameterized component partition.
+The exact AG(2,3) incidence model removes the x+y=c parallel class, leaving nine points and nine degree-three line vertices. Every LTD code requires a,b>=3; when either part has three selections, collision of open signatures forces >=6 on the other part, so size>=8. Four-point covers are W plus p, and four-line covers a whole retained parallel class D plus ell; signature compatibility forces ell through q=W intersect E where E is the D-line through p. All such choices satisfy total domination and unique open signatures. They number 3*3*3*2*2=108. A legal token jump fixes (W,D,E) and flips p or ell, giving 27 C4; token slides are impossible between same-type replaced vertices of a bipartite incidence graph. Fresh independent enumeration over all selected subsets through size 8 corroborated 108 minima and TJ degree 2/TS degree 0; the universal structural proof is not inferred from enumeration.
 
-`python3 verify_model.py` verifies a complete explicit 18-vertex relabelling between the standard 27-edge cubic model and the affine incidence model.
+## originality
 
-The three accompanying `.out` files are the exact standard outputs from execution of the packaged scripts. The verification does not establish historical novelty, and a finite check cannot by itself replace the symbolic structural proof in `RESULT.md`.
+PASS
+
+Best-of-knowledge statement/implication comparison, not a novelty certification. The graph-theoretic object can be described as the Levi incidence graph of AG(2,3) with one line direction deleted; reconfiguration is among size-eight LTD codes, not the published semitotal, identifying, ordinary locating, or open-locating classes. No mathematical implication of 27C4 was found in those other predicates. Neither 297 minimum semitotal sets nor 18 minimum ordinary locating-dominating sets implies the size-eight LTD geometric classification; no independent claim-to-prior implication established.
+
+## value
+
+PASS
+
+The minimum-layer reconfiguration graph of a canonical 18-vertex cubic incidence graph is a natural exact invariant of detector relocation. The classification gives the complete optimum geometry, 27 independent four-cycle mobility islands and an absolute token-slide obstruction; these are not just a renaming of a previously listed optimum count. A future reconfiguration study can use the exact components as a benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
