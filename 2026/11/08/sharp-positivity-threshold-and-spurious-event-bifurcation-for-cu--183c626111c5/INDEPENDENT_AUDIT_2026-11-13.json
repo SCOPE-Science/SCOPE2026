@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T23:14:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: for y0>0, lambda,h>0 and z=lambda h, cubic Hermite with exact endpoint value and derivatives has H_z(s)=1-zs+B(z)s²+A(z)s³. Differentiating including exp(-z) gives ∂_z H_z(s)=-s(1-s)²-e^-z s²[2-s+z(1-s)]<0 in interior. Its compact minimum strictly decreases continuously from 1 at z=0 to -infinity for z→infinity, yielding unique positivity threshold. Endpoint values positive force a unique interior even-multiplicity root at first contact; a cubic forces double root, and for z beyond it exactly two simple interior zeros. Nonzero ∂_z and positive curvature give square-root opening K=sqrt(-2 H_z/H_ss). Independent symbolic identity and numerical saddle reproduced z*=3.86930633627, s*=0.675694826 and K~0.336550838. Finite rational Bernstein certificates in verify.py were inspected but not mistaken for proof or fully replayed here.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dougherty et al 1989 study derivative constraints ensuring nonnegative interpolants; Higham 1992 ODE plotting uses monotone cubic routines and inserted knots; Ouermi et al 2022 ENO constrained method."
+        ],
+        "reasoning": "These methods impose different constraints or give sufficient bounds rather than classify the exact unmodified exponential Hermite family and its two spurious zero events.",
+        "searches": [
+          "Resultary search: Cubic Hermite interpolation exponential decay exact derivatives positivity threshold spurious zeros",
+          "https://www.ams.org/mcom/1989-52-186/S0025-5718-1989-0962209-1/S0025-5718-1989-0962209-1.pdf",
+          "https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P13.pdf",
+          "https://arxiv.org/abs/2204.06168"
+        ]
+      },
+      "checked_sources": [
+        "https://www.ams.org/mcom/1989-52-186/S0025-5718-1989-0962209-1/S0025-5718-1989-0962209-1.pdf",
+        "https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P13.pdf",
+        "https://arxiv.org/abs/2204.06168"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic positivity under sufficient derivative inequalities does not imply the if-and-only-if z<z_* for exact true slopes; Higham modifies plotting to preserve monotonicity rather than classifying errors in unmodified cubic."
+        ],
+        "reasoning": "The submitted full iff, exactly two zero bifurcation, and K formula are not consequences of the read generic theorems, though undocumented special cases remain possible.",
+        "searches": [
+          "Resultary search: Cubic Hermite interpolation exponential decay exact derivatives positivity threshold spurious zeros",
+          "https://www.ams.org/mcom/1989-52-186/S0025-5718-1989-0962209-1/S0025-5718-1989-0962209-1.pdf",
+          "https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P13.pdf",
+          "https://arxiv.org/abs/2204.06168"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical cubic Hermite basis is exactly the submitted interpolant with endpoint data (1,e^-z) and slopes (-z,-ze^-z); prior generic criteria cover shape-preserving modifications."
+        ],
+        "reasoning": "Common Hermite basis is known, but the exponential family exact sharp z boundary and bifurcation require analysis not encoded by mere formula reuse.",
+        "searches": [
+          "Resultary search: Cubic Hermite interpolation exponential decay exact derivatives positivity threshold spurious zeros",
+          "https://www.ams.org/mcom/1989-52-186/S0025-5718-1989-0962209-1/S0025-5718-1989-0962209-1.pdf",
+          "https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P13.pdf",
+          "https://arxiv.org/abs/2204.06168"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted z_*≈3.86930633627266, interior tangency s_*≈.675694825927, onset K≈.336550837825. Independent root solve matches numerical constants.",
+          "Inspected prior generic shape conditions do not report matching exact exponential frontier constant."
+        ],
+        "reasoning": "Exact implicit sharp threshold is proved globally by strict monotonicity; numerical digits alone are not evidence of novelty.",
+        "searches": [
+          "Resultary search: Cubic Hermite interpolation exponential decay exact derivatives positivity threshold spurious zeros",
+          "https://www.ams.org/mcom/1989-52-186/S0025-5718-1989-0962209-1/S0025-5718-1989-0962209-1.pdf",
+          "https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P13.pdf",
+          "https://arxiv.org/abs/2204.06168"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: classical cubic Hermite nonnegativity/monotonicity studies (Dougherty–Edelman–Hyman 1989, Higham 1992) provide general sufficient shape constraints, not the fully sharp exponential exact-endpoint step-length boundary, globally exactly-two false events and local sqrt opening in this model. ENO positive interpolators modify slopes/data and are not this unmodified cubic. Relevant full primary sections were inspected where accessible; older exact exponential special cases may exist outside bounded search.",
+      "residual_risks": [
+        "Older ODE/Hermite interpolation tables could include the same scalar exponential critical step as an unindexed example; bounded literature search cannot certify priority.",
+        "Reported long decimals are numerical reproductions, not full interval-certified 80-digit values; exact theorem uses unique analytic implicit root."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL SHAPE CRITERIA, NO OBSERVED SHARP EXPONENTIAL BOUND",
+          "evidence": "General sufficient data-slope constraints and clipping methods rather than the exact unmodified exponential positivity bifurcation.",
+          "identifier_or_url": "https://www.ams.org/mcom/1989-52-186/S0025-5718-1989-0962209-1/S0025-5718-1989-0962209-1.pdf",
+          "material_read": "Accessible publisher PDF text covering construction and general derivative sign constraints; PDF screenshot unavailable (403) and no claim of every page inspected",
+          "method": "AMS published full text view and bounded sections read",
+          "title": "Nonnegativity-, monotonicity-, or convexity-preserving cubic and quintic Hermite interpolation",
+          "trigger": "Classical exact nonnegativity criteria for cubic Hermite"
+        },
+        {
+          "assessment": "DIFFERENT PLOTTING / MODIFIED MONOTONICITY PROBLEM",
+          "evidence": "Monotone cubic interpolation and node insertion, not the submitted exact-exponential sharp positivity threshold.",
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~dhigham/Publications/P13.pdf",
+          "material_read": "Author full-text PDF including introductory conditions, ODE plotting sections and conclusions; selected page screenshots inspected",
+          "method": "Authorized public author manuscript PDF reading and selected page images",
+          "title": "Monotonic piecewise cubic interpolation, with applications to ODE plotting",
+          "trigger": "Directly concerned with ODE output and spurious interpolation artifacts"
+        },
+        {
+          "assessment": "CONSTRAINED ALGORITHM, DIFFERENT QUESTION",
+          "evidence": "Method changes interpolation to enforce positivity; submitted uses unmodified Hermite exact endpoint data.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.06168",
+          "material_read": "Public arXiv abstract, synopsis and methodological scope; not asserted entire manuscript read",
+          "method": "arXiv public text scope reading",
+          "title": "ENO-Based High-Order Data-Bounded and Constrained Positivity-Preserving Interpolation",
+          "trigger": "Current related positivity-preserving interpolation algorithms"
+        },
+        {
+          "assessment": "SUPPORTED",
+          "evidence": "Strict ∂z negativity and topology of a cubic establish a unique sharp threshold, global zeros and square-root onset.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-positivity-threshold-and-spurious-event-bifurcation-for-cu--183c626111c5",
+          "material_read": "Entire RESULT.md with analytical proof and verification; full verifier code, source metadata",
+          "method": "Frozen GitHub RESULT.md and verify.py; independent symbolic and numerical checks",
+          "title": "Sharp positivity threshold and spurious-event bifurcation for cubic Hermite exponential dense output",
+          "trigger": "Assigned claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: false zero-events in interpolated positive ODE trajectories motivate the exact natural dimensionless sharp interpolation-step threshold. Global classification and sqrt-bifurcation constant provide useful numerical-analysis event detection boundary despite being a scalar exponential specialization. This is a motivated concrete invariant, not just an arbitrary numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact scalar exponential positive decay and unmodified endpoint values/slopes; not arbitrary ODE systems, approximate slopes or constrained plotting.",
+    "No claim that finite-precision event detection produces exactly two events; result is analytic continuous cubic zeros.",
+    "Older ODE/Hermite interpolation tables could include the same scalar exponential critical step as an unindexed example; bounded literature search cannot certify priority.",
+    "Reported long decimals are numerical reproductions, not full interval-certified 80-digit values; exact theorem uses unique analytic implicit root."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The proof is in `RESULT.md`. Reproduce `verification_output.txt` with `python verify.py` using `requirements.txt` (SymPy 1.14.0 and mpmath 1.3.0).
+## correctness
 
-The executable verifies exact symbolic Hermite endpoint identities and discriminant identities. It builds rational upper and lower bounds for \(e^{-z}\) using a truncated positive Taylor series for \(e^z\) and a geometric majorant for the remainder; it verifies every Bernstein coefficient on four subintervals is positive for the lower-bound cubic at \(z=19/5\), giving rigorous positivity on the entire interval. It also proves \(H_{39/10}(2/3)<0\) using an exact-rational upper enclosure, and shows that the wholly positive interpolant at \(z=7/2\) already has a positive interior slope. Finally it solves the double-root system at 80 decimal digits and numerically tests the small-positive-parameter root splitting. The packaged run reports 50 passing assertions.
+PASS
 
-The uniqueness of the critical parameter, multiplicity of its zero, exact two-root count above threshold, and square-root asymptotic for all sufficiently small perturbations are established analytically in the written proof, not inferred from the finite tests. The 80-digit root output is not a validated high-precision interval proof. The two rational bracket endpoints and the full global theorem are verified separately. Independent scientific review has not been performed.
+PASS: for y0>0, lambda,h>0 and z=lambda h, cubic Hermite with exact endpoint value and derivatives has H_z(s)=1-zs+B(z)s²+A(z)s³. Differentiating including exp(-z) gives ∂_z H_z(s)=-s(1-s)²-e^-z s²[2-s+z(1-s)]<0 in interior. Its compact minimum strictly decreases continuously from 1 at z=0 to -infinity for z→infinity, yielding unique positivity threshold. Endpoint values positive force a unique interior even-multiplicity root at first contact; a cubic forces double root, and for z beyond it exactly two simple interior zeros. Nonzero ∂_z and positive curvature give square-root opening K=sqrt(-2 H_z/H_ss). Independent symbolic identity and numerical saddle reproduced z*=3.86930633627, s*=0.675694826 and K~0.336550838. Finite rational Bernstein certificates in verify.py were inspected but not mistaken for proof or fully replayed here.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: classical cubic Hermite nonnegativity/monotonicity studies (Dougherty–Edelman–Hyman 1989, Higham 1992) provide general sufficient shape constraints, not the fully sharp exponential exact-endpoint step-length boundary, globally exactly-two false events and local sqrt opening in this model. ENO positive interpolators modify slopes/data and are not this unmodified cubic. Relevant full primary sections were inspected where accessible; older exact exponential special cases may exist outside bounded search.
+
+## value
+
+PASS
+
+PASS: false zero-events in interpolated positive ODE trajectories motivate the exact natural dimensionless sharp interpolation-step threshold. Global classification and sqrt-bifurcation constant provide useful numerical-analysis event detection boundary despite being a scalar exponential specialization. This is a motivated concrete invariant, not just an arbitrary numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
