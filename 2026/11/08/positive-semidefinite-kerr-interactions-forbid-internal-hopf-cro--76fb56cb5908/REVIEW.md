@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact intensity-phase Jacobian gives the pencil \(\lambda(\lambda+\kappa)-4DV_S\). For positive-semidefinite \(V_S\), the Sylvester symmetric-matrix reduction excludes every nonzero imaginary root, including singular supports. The explicit stronger-than-onsite dimer construction is physical at every positive damping value; its quartic has a unique Routh–Hurwitz stability switch with a simple transverse imaginary pair, and its formulas were checked by independent exact-rational calculations and a standalone executable checker.
+## correctness
 
-**Originality — PASS, with residual priority risks.** The most closely related primary work is Gómez and del Pino, arXiv:2610.26573v1 (2026). It supplies the stationary spectral pencil, the equal-sign symmetrization and a case-specific dimer Hopf condition; these are not claimed as new. The new theorem instead treats arbitrary network size, arbitrary active branch signs and positive-semidefinite cross-Kerr matrices, coupled with an all-ratios sharp two-mode constructive converse. published-finding corpus, accessible prior claims and relevant published literature were searched by mechanism and implication, not title alone. The generic spectral pencil in the source and incomplete full-text examination of additional papers remain explicit priority risks. Independent literature verification is not asserted.
+PASS
 
-**Value — PASS.** The PSD/non-PSD distinction provides a network-wide design criterion for intrinsic oscillatory instabilities, together with a sharp realizability boundary and a completely algebraic tunable-loss witness. It distinguishes robust structural impossibility from a parameter-dependent example and clarifies which nonlinear interactions can produce oscillatory destabilization.
+PASS: From amplitude/phase equations, the active-support Jacobian is [[0,-4 diag(sigma_j chi_j I_j)],[-V_S,-kappa I]], with characteristic det[lambda(lambda+kappa)I-4DV_S]. For V_S PSD, 4DV_S has the same characteristic polynomial as real symmetric 4 sqrt(V_S) D sqrt(V_S), including singular PSD, so mu is real. Nonzero lambda=i omega would give mu=-omega²+i kappa omega nonreal: impossible for any mixed phase signs and common kappa>0. For symmetric a,b>0 dimer b<=a is PSD. For every b>a, the constructive branch with epsilon=(b-a)/(2b), I_e=I(1-epsilon), I_o=I(1+epsilon) yields t<0,d>0 and a Routh-Hurwitz threshold kappa_c²=2 b chi I (3b+5a)/a, omega²=2a chi I(b-a)/b. Independent SymPy factored t²-2kappa_c² t-4d identically to zero and confirmed threshold, as well as supplied exact witness. The crossing is transverse, not a nonlinear cycle existence theorem.
 
-**Scope.** The theorem concerns internal linear spectral crossings with common positive damping, not nonlinear Hopf normal forms, the existence or stability of periodic cycles, dormant transverse modes, quantum master-equation spectra, or unequal-damping arrays. The analytical proof is decisive; finite test output is supplementary. Closest relevant literature: Gómez–del Pino 2026, Ameye–Eichler–Zilberberg 2025, Trinchão et al. 2026.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Gómez–del Pino October 2026 derive related active-mode Jacobian and particular dimer Hopf conditions; the inspected abstract and source package attribution establish these inputs as prior. Distinct new theorem is PSD no-internal-Hopf for any N with mixed signs and converse realizability iff b>a for every positive symmetric dimer coupling ratio. No equivalent stronger matrix criterion located in Resultary search. The relevant Gómez–del Pino full arXiv paper could not be fetched, and authorized Oxford access reports VPN disconnected, so a priority risk is explicitly retained rather than asserted away.
+
+## value
+
+PASS
+
+PASS: A uniform spectral-signature obstruction for every dimension and every active support is a structural bifurcation boundary, with a sharp converse that gives explicit physically admissible stationary parameter paths. It distinguishes indefinite nonlinear interactions from merely strongly driven PSD networks; not a routine numerical threshold for one example. It is restricted to internal spectral crossing under equal positive damping and says nothing by itself about nonlinear Hopf normal forms or dormant-mode instabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:21:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: From amplitude/phase equations, the active-support Jacobian is [[0,-4 diag(sigma_j chi_j I_j)],[-V_S,-kappa I]], with characteristic det[lambda(lambda+kappa)I-4DV_S]. For V_S PSD, 4DV_S has the same characteristic polynomial as real symmetric 4 sqrt(V_S) D sqrt(V_S), including singular PSD, so mu is real. Nonzero lambda=i omega would give mu=-omega²+i kappa omega nonreal: impossible for any mixed phase signs and common kappa>0. For symmetric a,b>0 dimer b<=a is PSD. For every b>a, the constructive branch with epsilon=(b-a)/(2b), I_e=I(1-epsilon), I_o=I(1+epsilon) yields t<0,d>0 and a Routh-Hurwitz threshold kappa_c²=2 b chi I (3b+5a)/a, omega²=2a chi I(b-a)/b. Independent SymPy factored t²-2kappa_c² t-4d identically to zero and confirmed threshold, as well as supplied exact witness. The crossing is transverse, not a nonlinear cycle existence theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ameye–Eichler–Zilberberg consider linearly coupled parametric network rather than a nonlinear V-signature criterion",
+          "Gómez–del Pino arXiv:2610.26573 primary abstract"
+        ],
+        "reasoning": "General oscillator bifurcation studies do not imply the all-support PSD signed spectral theorem on the distinct nonlinear-coupling Jacobian.",
+        "searches": [
+          "PSD Kerr matrix forbids Hopf mixed phase signs symmetric dimer critical damping strong cross coupling",
+          "arXiv:2501.08793 Kerr oscillator networks parametric instability landscape",
+          "Resultary: PSD Kerr matrix forbids Hopf mixed phase signs symmetric dimer critical damping strong cross coupling"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.26573",
+        "arXiv:2501.08793",
+        "arXiv:2605.18690",
+        "Resultary PSD Kerr matrix forbids Hopf mixed phase signs symmetric dimer critical damping strong cross coupling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact PSD symmetric reduction is a separate dimension-free algebraic proof",
+          "Gómez–del Pino initial network equations and known Jacobian credited as antecedents"
+        ],
+        "reasoning": "Prior matrix spectral equation is a methodological input, but its statement as known does not by itself establish the universal PSD no-go and sharp constructive converse. Full primary text access is a residual risk.",
+        "searches": [
+          "arXiv:2610.26573",
+          "arXiv:2501.08793",
+          "PSD Kerr matrix forbids Hopf mixed phase signs symmetric dimer critical damping strong cross coupling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier original discusses dimer mixed-branch instability and Appendix B.5 Jacobian equation, per source citation and accessible abstract"
+        ],
+        "reasoning": "Model normalized to common kappa and real symmetric nonlinear V; the prior dimer b=2a case is a special possible witness, not universal PSD network no-go nor all b>a existence.",
+        "searches": [
+          "PSD Kerr matrix forbids Hopf mixed phase signs symmetric dimer critical damping strong cross coupling",
+          "arXiv:2610.26573 Gómez del Pino Appendix B5 C4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dimer b/a=2 treatment uses particular parameter constraints; current kappa_c² and omega² continuous in b/a>1"
+        ],
+        "reasoning": "No checked exact parameter table supplies iff all-ratios and arbitrary N theorem; lack of full appendix prevents categorical whole-document noncoverage.",
+        "searches": [
+          "PSD Kerr matrix forbids Hopf mixed phase signs symmetric dimer critical damping strong cross coupling",
+          "arXiv:2610.26573 v1 dimer appendix critical threshold"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Gómez–del Pino October 2026 derive related active-mode Jacobian and particular dimer Hopf conditions; the inspected abstract and source package attribution establish these inputs as prior. Distinct new theorem is PSD no-internal-Hopf for any N with mixed signs and converse realizability iff b>a for every positive symmetric dimer coupling ratio. No equivalent stronger matrix criterion located in Resultary search. The relevant Gómez–del Pino full arXiv paper could not be fetched, and authorized Oxford access reports VPN disconnected, so a priority risk is explicitly retained rather than asserted away.",
+      "residual_risks": [
+        "Full Gómez–del Pino primary appendix unavailable: arXiv source returned disabled/403 and Oxford VPN disconnected, so a same-model result could be implicit or explicit there.",
+        "Public source RESULT.md has a malformed control-character fraction rendering at one displayed kappa formula; exact formula elsewhere and symbolic check are correct, but public sanitization/render repair is needed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INSUFFICIENT FOR WHOLE-DOCUMENT NOT_COVERING; potentially relevant priority risk; cited prior dimer work acknowledged",
+          "evidence": [
+            "19 Oct 2026 v1; Appendix B.5/C.4 pointed to by source package",
+            "Oxford access status vpn_disconnected, no bypass"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26573",
+          "material_read": "Primary arXiv abstract, bibliographic history, accessible source-package citation of Appendix B.5/C.4; full Appendix text NOT READ due arXiv access failure and VPN disconnected",
+          "method": "arXiv original abstract, lawful open mirror attempt, authorized Oxford request",
+          "title": "Avalanches and Aging Driven by Parametric Amplification in Kerr Oscillator Networks",
+          "trigger": "Same model active-support Jacobian and Hopf mechanism"
+        },
+        {
+          "assessment": "Linear-coupling context, not proven covering nonlinear Kerr V theorem",
+          "evidence": [
+            "Ameye et al. 2025"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.08793",
+          "material_read": "Abstract/model scope, not entire paper",
+          "method": "Original arXiv bibliographic/abstract material",
+          "title": "The parametric instability landscape of coupled Kerr parametric oscillators",
+          "trigger": "Broader KPO stability possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A uniform spectral-signature obstruction for every dimension and every active support is a structural bifurcation boundary, with a sharp converse that gives explicit physically admissible stationary parameter paths. It distinguishes indefinite nonlinear interactions from merely strongly driven PSD networks; not a routine numerical threshold for one example. It is restricted to internal spectral crossing under equal positive damping and says nothing by itself about nonlinear Hopf normal forms or dormant-mode instabilities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal damping only, finite-frequency internal spectral Hopf; no inference about nonlinear periodic orbits or dormant modes."
+  ],
+  "schema_version": 1
+}
