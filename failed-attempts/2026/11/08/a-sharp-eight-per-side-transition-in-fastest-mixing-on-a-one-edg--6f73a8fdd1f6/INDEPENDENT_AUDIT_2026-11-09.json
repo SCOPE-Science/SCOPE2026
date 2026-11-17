@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T12:52:05.558382Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed all 2n eigenvalues from the ordinary within-class, exchange-even and odd quotient blocks, and the convex objective max{|1-nx|,|T|,F(x,t)}. At n<=7, the odd block lower bound 1/sqrt(n) is attained at x=1/n,t=0 and other modes lie below it. At n>=8, explicit candidate x=2/[2(n-1)+sqrt(n²-8n+8)] has t=0, T=(n-2)/Z and odd eigenvalues ±T; the displayed convex subgradient cancellation gives a global lower bound for all invariant kernels, and symmetrization applies globally. Independent full-matrix eigenvalue comparisons at n=3,4,7,8,9,20,60 confirmed formulas; they are corroboration, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd–Diaconis–Xiao 2004 supplies general semidefinite framework; the 2026-10-25 publication already gives *exact stronger coverage* of this one-edge defect including both phases and n->infinity asymptotics."
+        ],
+        "reasoning": "The prior result covers every specified n and all admissible symmetric chains. The extra uniqueness-of-invariant-optimizer sentence is tied to equality at its lower-bound and convex optimum certificate; no distinct surviving theorem sufficiently novel/valuable was established.",
+        "searches": [
+          "fastest mixing Markov chain balanced complete bipartite graph one missing edge n eight threshold SLEM",
+          "Boyd Diaconis Xiao fastest mixing symmetric graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-eight-per-side-transition-in-fastest-mixing-on-a-one-edg--6f73a8fdd1f6/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior primary RESULT.md Sections Finding, Exact spectrum, First branch, Second branch, Global optimality and Limitations all cover current final claim.",
+          "Earlier 2026-10-25 result also states a positive defect penalty and O(n^-2) correction not necessary for current, thus is at least as strong in main optimization conclusions."
+        ],
+        "reasoning": "Current theorem is a restatement/rederivation of the previously published optimum; neither different proof notation nor repeated finite eigenchecks create originality.",
+        "searches": [
+          "fastest mixing Markov chain balanced complete bipartite graph one missing edge n eight threshold SLEM",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary 2026-10-25 RESULT.md defines the identical G_n and SLEM and exactly the same formulas for n3..7, n>=8 and optimal weights."
+        ],
+        "reasoning": "Equivalent operator-norm/SDP and symmetry-orbit formulations describe the same optimization problem; current F(x,t) rewrite is not a new mathematical claim.",
+        "searches": [
+          "fastest mixing Markov chain balanced complete bipartite graph one missing edge n eight threshold SLEM",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior formula for n>=8: x=2/Z, y=(2-nx)/(2(n-1)); current y=(n-2+sqrt(n²-8n+8))/((n-1)Z), Z=2(n-1)+sqrt(n²-8n+8). They are algebraically equal.",
+          "Both give mu_n=(n-2)/Z and below 8 mu_n=1/sqrt(n)."
+        ],
+        "reasoning": "This is literal exact-theorem/database duplication rather than an uncertain search match.",
+        "searches": [
+          "fastest mixing Markov chain balanced complete bipartite graph one missing edge n eight threshold SLEM",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md"
+        ]
+      },
+      "rationale": "The exact full mathematical theorem was publicly established on October 25, 2026. Its domain G_n=K_{n,n} with one missing edge, symmetric nonnegative row-stochastic matrices with holding, n>=3, SLEM objective, both phase branches, analytic radical, globally optimal two-orbit weights and n=8 transition are identical. Source text was read in full rather than inferred from a title.",
+      "residual_risks": [
+        "No unresolved precedence issue changes the full mathematical match to a previously published exact claim.",
+        "Independent eigenvalue spot checks verify values but do not confer originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: identical n>=3 piecewise SLEM optimum, x/y weights and threshold.",
+          "evidence": [
+            "Same spectral decomposition as current; formulas are algebraically equivalent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md",
+          "material_read": "Complete published RESULT.md, including mathematical findings, parameters, convex certificate, weights, asymptotics, limitations and primary references.",
+          "method": "GitHub exact published primary file read in full",
+          "title": "A sharp part-size-eight transition for fastest mixing after one bipartite edge failure",
+          "trigger": "Identical missing-biclique graph and spectral transition surfaced in Resultary search"
+        },
+        {
+          "assessment": "General SDP setup alone is not the reason for scientific rejection.",
+          "evidence": [
+            "The later 2026 exact theorem decides originality."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Published abstract/framework and source scope inspected; not used as decisive exact prior.",
+          "method": "Primary literature bibliographic and mathematical statement search",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General convex optimization source cited by both"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the graph and exact optimization problem are naturally motivated, the submitted piecewise SLEM threshold and optimal chain weights are already explicitly published in an exact theorem. Repeating its proof or computations has no distinct new scientific invariant, structural boundary, or result to evaluate; novelty and independent value therefore fail.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-eight-per-side-transition-in-fastest-mixing-on-a-one-edg--6f73a8fdd1f6/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md",
+    "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-eight-per-side-transition-in-fastest-mixing-on-a-one-edg--6f73a8fdd1f6/RESULT.md"
+  ],
+  "disposition": "failed",
+  "limitations": "Completed best-of-knowledge mathematical C/O/V assessment of the frozen Git snapshot and corresponding current main RESULT blob. Independent finite checks corroborate only their stated domains; inaccessible primary text is documented as originality residual risk, never failure by itself.",
+  "residual_risks": [
+    "No unresolved precedence issue changes the full mathematical match to a previously published exact claim.",
+    "Independent eigenvalue spot checks verify values but do not confer originality."
+  ],
+  "schema_version": 1
+}
