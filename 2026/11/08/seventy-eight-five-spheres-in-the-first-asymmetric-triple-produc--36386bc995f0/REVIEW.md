@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Two independently generated sets of exactly 34,910 faces agree; a forbidden-triple characterization independently enforces the defining maximum-degree-one condition. The supplied standalone verifier generates full ascending and descending element matchings, checks all 191,232 nonempty Hasse incidences and verifies acyclicity by exhaustion. Both matchings leave a single critical vertex and 78 critical five-cells. The discrete-Morse CW conclusion is therefore a genuine homotopy equivalence, not just a Betti-number calculation. A third mixed-order matching confirms the mod-two homology through boundary ranks. The computation is finite and its scope is explicitly bounded.
+## correctness
 
-## Originality — PASS on inspected evidence
-The primary question is Question 44 of Carnero Bravo's forest-filtration preprint. Its Corollary 43 treats the two-equal-small-factor subfamily, whereas the present first asymmetric case has factors 2, 3 and 4. The 2023 categorical-product independence-complex theorem applies at filtration level zero, not one; the polyhedral-join sequel treats lexicographic rather than categorical products. Previous balanced data at factors 2, 3 and 3 do not logically imply the new complex's homotopy type. Exact-name, alternative-name, implication, broader-family and exact-table searches disclosed no covering computation. The principal residual risk is equivalent work in unindexed or inaccessible literature; absence from searches alone is not proof of novelty.
+PASS
 
-## Value — PASS
-This answers a natural, explicitly raised finite case of a published positive-level triple-product question. Factor sizes 2, 3 and 4 are the first genuinely unequal nontrivial case; its 24-vertex, 72-edge graph gives a meaningful asymmetry test beyond both the two-equal-small-factor theorem and the earlier balanced case. Despite maximal simplex dimensions 5, 6, 7 and 11, the entire complex is a wedge of spheres of dimension five. That integral structural fact is not supplied by the published zero-level formula or the balanced example. The claim does not suggest an unproved general law for larger parameters.
+PASS: For the categorical graph K2×K3×K4, 24 lexicographically numbered vertices are adjacent iff all three coordinates differ; each degree six, total 72 edges. Admissible face condition is induced max degree <=1 (also exclusion of each centered 3-vertex path). Independent construction enumerated exactly 34,910 faces including empty. Ascending-pivot matching yields 17,415 face pairs and critical count one zero-cell plus 78 dimension-five cells; complete orientation of all face-cover relations topologically sorts every one of the 34,909 nonempty faces. Forman CW gives an integral wedge of 78 S^5. This finite graph is exhausted rather than inferred from samples.
 
-## Closest literature and limits
-Carnero Bravo, *The Forest Filtration of a Graph*, arXiv:2307.13271, Section 4.2.2 and Question 44; Antolín Camarena and Carnero Bravo, *Homotopy type of the independence complex of some categorical products of graphs*, arXiv:2307.12401, Section 4; and Carnero Bravo, *Polyhedral joins and graph complexes*, arXiv:2307.14321, Section 5. The result is limited to the specified graph and filtration level. Equivalent unindexed literature remains possible. No independent external validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Carnero Bravo arXiv 2307.13271 Question 44 explicitly asks positive-level forest filtrations of categorical K2×Km×Kn, while Corollary 43 treats the K2×K2×Kn subfamily. Level-zero K2×Km×Kn independence-complex formulas in arXiv 2307.12401 do not determine level-one induced-degree-one topology; a balanced K2×K3×K3 17-sphere computation does not imply K2×K3×K4. No prior exact 78 S5 result found beyond submitted version.
+
+## value
+
+PASS
+
+PASS: The finite (2,3,4) case answers the first asymmetric instance of an explicitly published natural categorical-product forest-filtration problem. The exact integral wedge of 78 S5 is not mechanical from balanced or level-zero results; the 24-vertex complex has maximal face dimensions 5,6,7,11 yet collapses homotopically to a pure dimension-five sphere wedge. A bounded exact natural structural result qualifies without an all-parameter theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

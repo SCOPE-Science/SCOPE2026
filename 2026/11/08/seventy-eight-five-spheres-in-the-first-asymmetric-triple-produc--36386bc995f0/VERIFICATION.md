@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and finite proof limits
+# Independent mathematical audit
 
-`verify_product.py` is a standalone Python 3 program requiring only the standard library. Run `python3 verify_product.py` and compare its full JSON output to `verification_output.json`. It rebuilds the 24-vertex categorical graph, computes its 72 edges, enumerates faces independently using selected-neighbor degree constraints and forbidden centered triples, tests three acyclic matchings over the complete Hasse graph, and computes mod-two Morse boundary ranks for the independent mixed-order reduction.
+## correctness
 
-The primary and reverse matchings each have 17,415 pairs, one critical vertex and 78 critical five-cells; complete acyclicity is checked on 34,909 nonempty faces and 191,232 Hasse incidences. This produces the integral wedge homotopy equivalence through Forman's discrete Morse theorem. The third reduction has nine critical four-cells, 95 five-cells and eight six-cells, with respective fifth- and sixth-differential ranks nine and eight over the two-element field. Graph, face, matching and rank assertions are evaluated by the code, rather than being inferred from an existing output file.
+PASS
 
-The proof is exhaustive only for the stated finite graph; it does not certify any infinite parameter family. The verification is reproducible but not an independent external audit.
+PASS: For the categorical graph K2×K3×K4, 24 lexicographically numbered vertices are adjacent iff all three coordinates differ; each degree six, total 72 edges. Admissible face condition is induced max degree <=1 (also exclusion of each centered 3-vertex path). Independent construction enumerated exactly 34,910 faces including empty. Ascending-pivot matching yields 17,415 face pairs and critical count one zero-cell plus 78 dimension-five cells; complete orientation of all face-cover relations topologically sorts every one of the 34,909 nonempty faces. Forman CW gives an integral wedge of 78 S^5. This finite graph is exhausted rather than inferred from samples.
+
+## originality
+
+PASS
+
+PASS (qualified): Carnero Bravo arXiv 2307.13271 Question 44 explicitly asks positive-level forest filtrations of categorical K2×Km×Kn, while Corollary 43 treats the K2×K2×Kn subfamily. Level-zero K2×Km×Kn independence-complex formulas in arXiv 2307.12401 do not determine level-one induced-degree-one topology; a balanced K2×K3×K3 17-sphere computation does not imply K2×K3×K4. No prior exact 78 S5 result found beyond submitted version.
+
+## value
+
+PASS
+
+PASS: The finite (2,3,4) case answers the first asymmetric instance of an explicitly published natural categorical-product forest-filtration problem. The exact integral wedge of 78 S5 is not mechanical from balanced or level-zero results; the 24-vertex complex has maximal face dimensions 5,6,7,11 yet collapses homotopically to a pure dimension-five sphere wedge. A bounded exact natural structural result qualifies without an all-parameter theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
