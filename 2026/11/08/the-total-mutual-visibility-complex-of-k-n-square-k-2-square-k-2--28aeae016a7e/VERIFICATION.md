@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verifier.py` from a directory containing this exact standalone script. It uses only the Python standard library and constructs \(G_n=K_n\square K_2\square K_2\) directly. The program independently derives forbidden pairs from common-neighbor sets for distance-two endpoints, enumerates the feasible complex for \(2\le n\le6\), checks exact face and facet polynomials, and computes every fixed-size token-jumping component count on these instances.
+## correctness
 
-For \(2\le n\le4\), it additionally checks every one of the \(2^{4n}\) possible subsets against the structural classification; for \(n=2,3\), it independently tests every subset against existence of unobstructed shortest paths between *every* ordered endpoint pair (endpoints are permitted to lie in the selected set). The binary chain-complex ranks for \(n=2,3,4\) agree with the wedge homotopy formula. The homotopy equivalence for general \(n\) is proved by identifying two joins of zero-spheres and attaching \(4n\) one-cells, not by extrapolation from finite homology.
+PASS
 
-The last successful program output in the reproducibility session is:
+Pinned RESULT.md blob 954197523b7255c9e655c4c9b8f5acf3bf58117f proves Hamming distance-two criterion inductively, then classifies selected columns by Q2 parity. Every legal set is either a partial same-parity transversal (two n-fold joins of S0) or one of 4n adjacent-label column edges. This yields exact F=2(1+2z)^n-1+4nz² and facets, and the two connected spheres linked by 4n edges yield S^(n-1) vee S^(n-1) vee (4n-1) S1; k-token replacement connectivity follows. Independently all 2^8 subsets for n=2 and all 2^12 for n=3 were checked directly against all-pairs shortest-path visibility and analytic face counts 25 and 65. These are finite corroboration; arbitrary n follows from the column argument. n=2 merges all summands into nine circles.
 
-```
-VERIFY_OK n=2..6 total_faces=2253 exact_enumerators=PASS maximal_spectrum=PASS exhaustive_masks_n2..4=PASS mod2_homology_n2..4=PASS direct_shortest_paths_n2..3=PASS all_token_jumping_components=PASS
-```
+## originality
 
-These calculations do not establish independent mathematical validation or publication priority.
+PASS
+
+Best-of-knowledge: exact product-family face/facet polynomial, integral wedge homotopy and fixed-cardinality reconfiguration are not included in the inspected more general distance-two criterion and extremal maximum. Search does not prove universal novelty.
+
+## value
+
+PASS
+
+Structural classification of every face and the integral homotopy of a natural Hamming graph family, plus a clean reconfiguration connectivity threshold, are independent mathematically meaningful invariants; they exceed routine evaluation of the already known maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
