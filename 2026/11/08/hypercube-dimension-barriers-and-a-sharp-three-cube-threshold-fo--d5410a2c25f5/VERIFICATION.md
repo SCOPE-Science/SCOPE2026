@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_hypercube.py` using Python 3.8 or later; there are no nonstandard Python dependencies. The expected stdout is `VERIFY_OK checks=1080`. The checks use `fractions.Fraction` and integer polynomial arithmetic, evaluate all Q3 radial entries against exact rational-function formulas, check the root bracket with exact fractions, independently verify \(D(h)T(h)=N(h)\) for five rational steps using full \(8\times8\) matrices, confirm row sums and sample signs, and check the large-step coefficient structure across multiple dimensions and stages.
+## correctness
 
-The finite program does **not** prove that all dimensions or all step sizes have been exhaustively checked. Those universal properties require the Walsh spectral formula, Padé integral identity, binomial generating function and Descartes argument documented in `RESULT.md`. Independent review has not been performed. All edge rates equal one and arithmetic in the checks is exact rational arithmetic.
+PASS
+
+Gauss collocation has R_s(z)=P_s(z)/P_s(-z); integral representation makes |R_s(-x)|<1 and even-stage R_s(-x)>0. Walsh diagonalization gives Krawtchouk kernel coefficients. Odd s→-1 on positive modes, giving negative diagonal for d>=2 at large h. Even s has R_s(-x)=1-2s(s+1)/x+O(x^-2); for d>=3 the nearest-neighbor coefficient is -s(s+1)S_d/(2^d h)+O(h^-2) with S_3=1/6 and S_(d+1)>S_d. Symbolic independent exact checks verified all 4 Q3 rational numerators against common denominator, unique positive quartic root 8.583763463733359, and positive S_d for d=3..9. For s=2, Q1,Q2 all h remain nonnegative; analytic coefficient signs establish Q3 iff cutoff. No extrapolation from bounded tests.
+
+## originality
+
+PASS
+
+Existing results establish Gauss/Padé stability and the two-stage unconditional-positivity classification for all Cartesian products of cliques (hence Q_d=K2^d), so the two-stage d<=2 unconditional boundary is prior-covered. They do not yield the exact Q3 step-size threshold or the stage-parity d>=3 theorem for arbitrary even/odd s. The latter and the explicit first-failure cutoff survive as original motivated results, subject to specialist numerical-analysis priority risk.
+
+## value
+
+PASS
+
+A minimal reversible 8-state system where a spectrally stable, mass-preserving implicit method loses Markov positivity has a sharp analytical timestep threshold; the full stage-parity obstruction distinguishes spectral contractivity and positive state propagation across all dimensions. Both are motivated benchmarks for geometric integrators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

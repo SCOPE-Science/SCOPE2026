@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:54:07.982898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gauss collocation has R_s(z)=P_s(z)/P_s(-z); integral representation makes |R_s(-x)|<1 and even-stage R_s(-x)>0. Walsh diagonalization gives Krawtchouk kernel coefficients. Odd s→-1 on positive modes, giving negative diagonal for d>=2 at large h. Even s has R_s(-x)=1-2s(s+1)/x+O(x^-2); for d>=3 the nearest-neighbor coefficient is -s(s+1)S_d/(2^d h)+O(h^-2) with S_3=1/6 and S_(d+1)>S_d. Symbolic independent exact checks verified all 4 Q3 rational numerators against common denominator, unique positive quartic root 8.583763463733359, and positive S_d for d=3..9. For s=2, Q1,Q2 all h remain nonnegative; analytic coefficient signs establish Q3 iff cutoff. No extrapolation from bounded tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md iff d=1 or d=2 with q<=3, for s=2",
+          "arXiv:2102.08242 general positivity-preserving numerical methods"
+        ],
+        "reasoning": "A larger Cartesian product graph class covers the s=2 eventual negativity condition. It does not cover stages s other than 2 or sharp positivity interval on the 8-vertex cube.",
+        "searches": [
+          "Gauss Legendre collocation Padé graph heat equation hypercube positivity negative entries sharp Q3 threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md",
+        "https://arxiv.org/abs/2102.08242",
+        "Frozen RESULT.md blob 9848b52dfe2de1448b4ee167d78d793f4fb70e5 and verify_hypercube.py blob 1325ddc916bc0095e9a5d6a640d98f0a31704412"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md expansion -12L^+ for s=2",
+          "Frozen proof Q3 exact numerators N_0..N_3 and stage-parity formula"
+        ],
+        "reasoning": "The earlier Green-function sign criterion implies eventual negativity but does not determine when the Q3 entry changes sign, or arbitrary s stage-parity barriers.",
+        "searches": [
+          "hypercube Q3 Gauss Legendre two stage Padé positivity 8.583763463 quartic root"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md s=2 Cartesian clique product includes Q_d",
+          "Resultary 2026/11/8 stage-parity complete multipartite result concerns a noncube family Q2 only"
+        ],
+        "reasoning": "Related Gauss end-step results cover other graph classes and already imply s=2 all-h boundary, but not the explicit h threshold on Q3 nor parity across all s.",
+        "searches": [
+          "Gauss Legendre collocation Padé graph heat equation hypercube positivity negative entries sharp Q3 threshold",
+          "hypercube Q3 Gauss Legendre two stage Padé positivity 8.583763463 quartic root"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search matched no other quartic cutoff; related Radau cube thresholds use distinct rational functions",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md gives only eventual sign, not Q3 exact h threshold"
+        ],
+        "reasoning": "No prior exact Q3 numerator/quartic table in searched corpus; this is bounded search evidence, not proof of novelty.",
+        "searches": [
+          "hypercube Q3 Gauss Legendre two stage Padé positivity 8.583763463 quartic root"
+        ]
+      },
+      "rationale": "Existing results establish Gauss/Padé stability and the two-stage unconditional-positivity classification for all Cartesian products of cliques (hence Q_d=K2^d), so the two-stage d<=2 unconditional boundary is prior-covered. They do not yield the exact Q3 step-size threshold or the stage-parity d>=3 theorem for arbitrary even/odd s. The latter and the explicit first-failure cutoff survive as original motivated results, subject to specialist numerical-analysis priority risk.",
+      "residual_risks": [
+        "Unindexed numerical-analysis results may cover the exact cube cutoff; general primary literature full text not obtained, so originality remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Covers two-stage all-h positivity iff d<=2 for cubes; does not give exact Q3 cutoff or all s",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7/RESULT.md",
+          "material_read": "Complete Finding, Assumptions, Proof, Verification and Limitations",
+          "method": "Connected GitHub full RESULT.md blob 989f1f47f748774358afdfdbbcca17adb939e7d7",
+          "title": "Sharp all-step Gauss positivity on Cartesian products of complete graphs",
+          "trigger": "Strictly broader graph class for s=2"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT_RISK",
+          "evidence": "Related general integrator order barriers may imply weaker qualitative constraints but no specific Q3 comparison was asserted",
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+          "material_read": "Title/abstract and cited role only; full article was not verified/read in this run",
+          "method": "Web search and arXiv HTML attempt",
+          "title": "Positivity-preserving methods for population models",
+          "trigger": "General higher-order positivity-barrier primary literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal reversible 8-state system where a spectrally stable, mass-preserving implicit method loses Markov positivity has a sharp analytical timestep threshold; the full stage-parity obstruction distinguishes spectral contractivity and positive state propagation across all dimensions. Both are motivated benchmarks for geometric integrators.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all Gauss–Legendre stage counts s and Boolean cube dimensions d, exact eventual entrywise negativity barriers depend on stage parity; the two-stage heat step on Q3 has its sharp positivity interval 0<=h<=8.583763463733... given by the unique positive root of h^4-6h^3-20h^2-18h-6.",
+  "limitations": "Even-stage theorem eventual rather than uniform timestep; exact threshold only s=2,d=3, rate=1. An accessible full general literature text was not established; risk explicitly retained.",
+  "schema_version": 1
+}
