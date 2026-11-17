@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-circle Koopman spectrum is explicitly witnessed by a reducing bilateral-shift subspace built from independent coordinate signs. For each positive upper bidiagonal fiber the inverse-entry formula is an exact finite algebraic identity, with a row/column sign factorization proving sharp phase alignment in the induced Euclidean norm. The two-dimensional square-singular-value identity is obtained from the characteristic polynomial of \((M-rI)^*(M-rI)\), whose derivative rigorously proves the unique gap maximum. Monotonicity outside the two spectral radii rules out hidden further radial components. The strict pseudospectral boundary convention is essential to the equality case. Numerical SVD checks are diagnostics, not infinite proofs.
+## correctness
 
-## Originality — PASS, with priority caveat
-The full primary text sections on spectral components (Duru–İlter–Kitover–Orhon, arXiv:2610.24853, Corollaries 3.8–3.9, Remark 3.10) give a cardinality bound for spectral components, not the resolvent/pseudospectral topology. Trefethen–Contedini–Embree (2001) study random bidiagonal matrix pseudospectra and contain inverse formulas, making this a genuine close antecedent. The claim is therefore restricted to the exact phase-aligned *constant-weight Koopman* resolvent and its sharp two-circle merger parameter, not novelty of bidiagonal inverse algebra or matrix pseudospectra in general. Semantic searches did not surface a covering published-finding corpus finding; a stronger general matrix result might still make the formula a corollary. Independent priority verification is outstanding.
+PASS
 
-## Value — PASS
-The quantitative question arises naturally after a sharp spectral-component theorem: when do the separate spectral circles remain distinguishable under norm-bounded perturbations? The exact all-fiber-dimensional radial reduction converts an infinite-dimensional operator pseudospectral computation into a finite nonnormal singular-value calculation, and the two-dimensional case provides a complete natural topology cutoff that decreases with coupling. It is not a general theorem for variable fiber weights or other Banach-space norms.
+On the Bernoulli Koopman space, coordinate sign functions give a reducing bilateral shift, hence full unit-circle spectral support. Direct integral over U transfers the infinite-operator resolvent to sup_{|eta|=r}||(M-eta I)^-1||. Exact upper-bidiagonal inverse entries have unique nonzero path; |d_i-eta|>=|d_i-r| and row/column signs factor at real r, so entrywise majorization yields equality at eta=r for operator 2-norm. For m=2, the smaller singular value on [a,b] maximizes at midpoint, with eps*=(sqrt((b-a)^2+gamma^2)-gamma)/2; monotonicity outside spectral circles and strict < for open pseudospectrum give two components at equality and merger only for epsilon>eps*. Spectrum itself is union of diagonal circles. Proof does not rely on the numerical diagnostic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS with priority caveat. Duru et al. arXiv:2610.24853 Corollary 3.8 bounds spectral connected components but not exact resolvent norm nor pseudospectral merge; Trefethen–Contedini–Embree (2001) gives prior bidiagonal inverse and finite/infinite pseudospectral theory, not explicitly this Koopman constant-fiber radial formula in inspected material. Both classical ingredients openly credited. A general theorem on bidiagonal pseudospectra may imply this special case and remains a concrete risk.
+
+## value
+
+PASS
+
+Spectrally distinct Koopman circles become pseudospectrally connected for a sharp computable perturbation size; exact radial reduction and coupling-dependent threshold are natural quantitative stability invariants of a nonnormal ergodic composition operator, not only finite-matrix numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
