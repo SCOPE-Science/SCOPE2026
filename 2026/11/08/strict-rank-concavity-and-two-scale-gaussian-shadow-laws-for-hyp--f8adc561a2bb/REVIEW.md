@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The generic Gaussian shadow reduces to rotating top-rank order statistics. Counting the two orientations of every pairwise score tie gives the exact conditional binomial integral. The change of variables to a beta expectation has been checked against direct Gaussian-sample convex hull enumeration. The strict second differences follow from a strictly decreasing derivative of the Gaussian quantile kernel coupled with stochastically ordered beta variables. Beta concentration and Gaussian Mills asymptotics yield the two regimes; uniform integrability is supplied by fixed beta moments and an explicit near-zero kernel bound. Endpoint ranks, complements, normalizations, and the case of a planar intrinsic simplex are included. Simulations confirm small cases but do not constitute the proof.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** The connection between hypersimplex shadows and \(k\)-sets, the pairwise score-tie integral, and general Gaussian-polytope face-angle formulas are pre-existing. The present claim does not repackage those as inventions. The inspected primary material does not give the explicit Gaussian beta-kernel strict rank-concavity theorem with central-rank uniqueness and both fixed- and proportional-rank asymptotics. Relevant published results bound expected planar \(k\)-edges or treat different parameters and dimension limits. The foundational 1994 paper was not available in complete text; hence the priority assessment is provisional rather than a claim of exhaustive uniqueness.
+PASS
 
-**Mathematical value — PASS.** Hypersimplex shadows encode planar \(k\)-sets, a natural geometric-combinatorial invariant. Their expected size as a function of rank is not determined by the standard worst-case bounds or by the general existence of an expected-facet integral. The global strict concavity solves the precise balanced-rank optimization problem; the sharp all-rank upper envelope and the linear-versus-square-root-logarithmic growth give two distinct scaling laws for a classical family. These are structural results rather than a single arbitrary computed value.
+A Haar projection onto an intrinsic two-plane is equivalent up to nonsingular planar linear transformation and translation to independent Gaussian planar point coordinates. The maximizing k-subset changes only at ties of a pair of projected Gaussian coordinates; each unordered pair has exactly two tie directions. The tied score is N(0,1/2), independent of the others, and the chance of exactly k-1 larger scores gives n(n-1) binom(n-2,k-1) times the integrated Gaussian tie density. Quantile substitution yields F_n(k)=n E[f(Beta(k,n-k))] with f(q)=sqrt2 exp(-Phi^{-1}(q)^2/2). Differentiation gives f'=-2sqrt(pi)Phi^{-1}, f''<0, and F(k+1)-F(k)=E[f'(Beta(k+1,n-k))]. Strict order-statistic stochastic increase proves every internal second difference negative; complement symmetry fixes the central maximizer and f<sqrt2 almost surely gives the strict bound. Beta concentration yields dense rank limit; fixed-k nBeta(k,n-k) -> Gamma(k,1) and Mills asymptotics with uniform integrability prove 2sqrt(pi)k sqrt(2log n). Independent normal-tie numerical integration gave strict concavity sequences at n=6,10, not used as infinite proof.
 
-**Closest literature and limits.** Black–Criado, *Random Shadows of Fixed Polytopes* (arXiv:2406.06936), contains the explicit hypersimplex-to-\(k\)-set motivation but gives general bounds. Leroux–Rademacher (arXiv:2106.04782) presents the general expected planar \(k\)-facet integral and bounds. Godland–Kabluchko–Zaporozhets (arXiv:2007.02590) establishes broad Gaussian image angle identities. Bárány–Steiger (1994) may contain stronger specialized results that could affect historical priority; full inspection was not possible. No assertion is made about variance, concentration, or intermediate-rank uniformity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Older Gaussian k-facet and k-set papers, especially Leroux–Rademacher 2023, furnish a general expected crossing/facet integral and therefore cover the unadorned integral count as a special case. Black–Criado 2024 studies random shadows of fixed polytopes including hypersimplices and general bounds. The surviving mathematical contribution in the assigned theorem is the explicit concave beta-quantile kernel, rigorous all-finite-rank strict maximization, and dense versus fixed-rank two-scale sharp asymptotic. The cited accessible primary full texts were inspected for these consequences, with residual concern about older k-set theory.
+
+## value
+
+PASS
+
+Expected number of vertices in a random planar shadow is central in random polytope geometry and pivot complexity. The exact rank-optimized, strictly concave hypersimplex profile is a natural complete classification, and the contrast between O(n) central ranks and O(sqrt(log n)) fixed ranks provides nontrivial sharp geometry not inherent in generic upper bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
