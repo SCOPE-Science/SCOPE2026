@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limits
+# Independent mathematical audit
 
-Execute `python3 verify_edge_general_position_trees.py` with Python 3.10 or later; it uses only standard-library modules. The script constructs all labelled trees of orders three through seven using Prüfer codes and 450 seeded additional trees of orders eight through ten. Independently from the subtree characterization, it reconstructs every unique shortest vertex-to-vertex path and checks every edge subset by the definition that no three selected edges lie on one geodesic. It then tests inclusion-maximality through all possible one-edge additions and compares the two complete cardinality polynomials with separately implemented rooted recurrences. Separate computations check the proposed lower and upper values, the number of maximal two-edge sets obtained from maximal degree-two chains, and the number of maximum sets obtained from terminal chain products.
+## correctness
 
-Output from execution against the actual packaged checker:
+PASS
 
-`VERIFY_OK labeled_trees_n3_to7=18247 additional_trees_n8_to10=450 instances=18697 valid_edge_sets=556214 maximal_edge_sets=172716 both_polynomials=PASS lower_number=PASS upper_number=PASS extremal_counts=PASS`
+For any finite simple tree with n>=3, the hull of a >=2-edge edge-general-position set has all its leaf edges selected and no internal selected edge; conversely leaf edges of a connected >=2-edge subtree are geodesically in position. A set is inclusion-maximal exactly when every hull nonleaf vertex has all T neighbors inside, since any unsaturated internal vertex offers a valid leaf-edge extension, and every other outside edge attaches beyond a leaf, making an existing selected edge interior. Saturated subtree leaf degree is 2+sum_internal(deg_T(v)-2). The full star at a vertex of minimum nonleaf degree attains lower number; whole T achieves leaf upper number. Pure iff path or star. Exact coefficients for two-leaf subpaths along maximal deg2 chains and maximum arms, plus rooted recurrences, follow from these bijections. Independent direct geodesic checks on P6, a six-vertex double-star and an asymmetric seven-vertex tree give 10z², 2z³+z⁴, 6z²+4z³. Finite tests corroborative only.
 
-The script's exhaustive claim covers **labelled trees of orders three through seven only**, not all trees. The 450 larger trees are deterministic samples, not an exhaustive census. Neither computation implies correctness for every order; the general proof is the mathematical basis of the theorem. Polynomial-time arithmetic complexity refers to dense exact-integer polynomial operations and does not claim a bit-complexity bound. The literature comparison does not constitute a formal priority certificate. No independent external audit or certification has been performed.
+## originality
+
+PASS
+
+Earlier October13 and October18 published results already give entire all edge-general-position polynomial, maximum size and maximum-set terminal-arm coefficient for every tree. Earlier Oct4 spider result treats a special subclass. Those are expressly credited; the new claim surviving is the precise inclusion-maximal SATURATED-subtree bijection, complete facet polynomial for any tree, lower cardinality min nonleaf degree, and path/star pure classification. Full prior statements inspected do not state these all-tree facet results; best-of-knowledge priority risk remains for unindexed work.
+
+## value
+
+PASS
+
+Facet structure, minimal maximal cardinality and purity are natural invariants of the edge-general-position independence system, not arbitrary small instances. The sharp lower number and saturation classification show how far local maximal sets differ from known largest sets, with efficient exact counting; nontrivial multi-branch tree configurations covered beyond known spider special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
