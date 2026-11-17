@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python verification/check.py` with Python 3 and only the standard library. The script calculates exact rational synchronous Markov transitions, independently reproduces the first opposite-hub infection time via a frozen binomial process and by set partitions, and tests the exact geometric first-hub activation from the large-side start. It checks 209 assertions over finite cases, plus finite-size convergence and a numerical evaluation of the infinite tail sum. All checks complete successfully in the supplied package.
+## correctness
 
-A finite-state computation is not an infinite proof. The theorem's limits are justified by the coupled geometric waiting times, independent-update survival product, strong law, dominated convergence, uniform summable tail bound, and a geometric activation plus logarithmic completion-time envelope as written in `RESULT.md`.
+PASS
 
-The first public date in the metadata is the 2025-08-11 public repository record for the precursor thesis. Its full text was not accessed. The directly inspected full primary manuscript is arXiv:2602.16300v1, first submitted 2026-02-18. A definitive external priority search or independent proof review has not been performed.
+With simultaneous independent recipient-side updates on K_(a,2), seed in the 2-vertex side, freeze the other hub and assign iid Geom(1/2) clocks to large-side vertices. Conditional hub survival through t rounds is product_{s=0}^{t-1} W_s/a; an equality-pattern set partition yields the stated exact finite-a formula. LLN and dominated convergence give P(G>t)=2^{-t(t-1)/2}; uniform tail bound P(G_a>t)<=2^{-(t-1)} proves mean convergence. Once both hubs blue, all remaining large vertices fill next round with probability approaching 1, giving Tsmall=>1+G and E→3.64163256.... Opposite large-side start waits Geom(2/a-1/a²) for any hub, followed by O(log a) expected completion; hence Tlarge/a=>Exp(2), E/a→1/2 with stated sandwich bound. Independent exact transition checks for 70 finite-state steps and P(G_a>3)=(a+1)/(8a) corroborate, do not prove, limits.
+
+## originality
+
+PASS
+
+Lichtenberg’s 2025 Rice thesis primary full PDF became accessible during this independent review: its Section 3.6 provides numerical K_(a,b) expectations and Conjecture 3.6.1 on seed preference, but not either exact distributional limit. The 2026 Geneson paper supplies broad O-bound and preference conjecture; a separate same-model Resultary published theorem proves the sharper all-finite-a mean preference and a/2+O(log a) gap, so neither mean preference nor its leading gap is original here. The surviving original contribution is the exact small-origin q-series law, Exp(2) large-origin law and finite-a set-partition survival identity.
+
+## value
+
+PASS
+
+On a natural two-hub complete bipartite network this rigorously separates a constant-order nongeometric q-series completion law from a linearly growing Exp(2) law according to the seed side, providing the full distributions behind previously known mean-side preference. The exact finite-a set-partition first-activation law supplies useful detailed hitting-time data absent from mean recurrences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

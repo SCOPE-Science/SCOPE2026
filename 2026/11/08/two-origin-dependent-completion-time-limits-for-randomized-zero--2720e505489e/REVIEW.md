@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The recipient-side RZF transition is used exactly, with synchronous independent white-vertex updates. The frozen second-hub coupling gives a conditional product survival formula, whose set-partition expansion gives the exact finite-size law. The strong law and dominated convergence give the small-hub activation limit; the uniform geometric tail bound proves convergence of expectations. A uniform bound shows that completing the large side needs one additional round after the second hub with probability tending to one. Conversely, the first hub activation from the large side is exactly geometric with parameter \(2/a-1/a^2\), and the remaining time is bounded in expectation by \(O(\log a)\). This proves both weak and mean limits. The complete packaged finite verifier provides independent rational finite-state calculations, but does not replace the infinite proofs.
+## correctness
 
-**Originality — PASS, with material residual risk.** Geneson et al., arXiv:2602.16300v1, Definition 1.1 and Theorem 3.7, give the exact update model and an upper bound for an *optimally chosen seed*, while Conjecture 3.12 concerns which part gives faster propagation; they do not state the orientation-specific q-series and exponential limiting laws. The available summary of Lichtenberg's 2025 thesis discusses computational and special-family results, but the entire thesis was not accessible, so its exact overlap is not resolved. The earlier Chan et al. work is sender-side probabilistic zero forcing, not the same update mechanism. Targeted research-record searches found forced-coloring, deterministic zero-forcing, and domination results for bicliques, none implying these stochastic completion distributions. An undiscovered earlier equivalent is possible.
+PASS
 
-**Value — PASS.** The motivating paper explicitly examines bicliques and conjectures the preferred starting side, but its available bound does not identify the true asymptotic time scale for either start in \(K_{a,2}\). A complete nongeometric q-series law of constant-order completion versus an exponential limit on the linear scale is a meaningful qualitative and quantitative separation, establishing the conjectured preference asymptotically in this first nonstar family. The finite-size partition identity gives additional usable exact data for the key activation time. This is neither a formal parameter substitution nor a mere known table entry.
+With simultaneous independent recipient-side updates on K_(a,2), seed in the 2-vertex side, freeze the other hub and assign iid Geom(1/2) clocks to large-side vertices. Conditional hub survival through t rounds is product_{s=0}^{t-1} W_s/a; an equality-pattern set partition yields the stated exact finite-a formula. LLN and dominated convergence give P(G>t)=2^{-t(t-1)/2}; uniform tail bound P(G_a>t)<=2^{-(t-1)} proves mean convergence. Once both hubs blue, all remaining large vertices fill next round with probability approaching 1, giving Tsmall=>1+G and E→3.64163256.... Opposite large-side start waits Geom(2/a-1/a²) for any hub, followed by O(log a) expected completion; hence Tlarge/a=>Exp(2), E/a→1/2 with stated sandwich bound. Independent exact transition checks for 70 finite-state steps and P(G_a>3)=(a+1)/(8a) corroborate, do not prove, limits.
 
-The result is restricted to \(K_{a,2}\), and no global graph-family dominance claim is made. The Rice thesis full text and possible earlier equivalent publications remain historical-priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lichtenberg’s 2025 Rice thesis primary full PDF became accessible during this independent review: its Section 3.6 provides numerical K_(a,b) expectations and Conjecture 3.6.1 on seed preference, but not either exact distributional limit. The 2026 Geneson paper supplies broad O-bound and preference conjecture; a separate same-model Resultary published theorem proves the sharper all-finite-a mean preference and a/2+O(log a) gap, so neither mean preference nor its leading gap is original here. The surviving original contribution is the exact small-origin q-series law, Exp(2) large-origin law and finite-a set-partition survival identity.
+
+## value
+
+PASS
+
+On a natural two-hub complete bipartite network this rigorously separates a constant-order nongeometric q-series completion law from a linearly growing Exp(2) law according to the seed side, providing the full distributions behind previously known mean-side preference. The exact finite-a set-partition first-activation law supplies useful detailed hitting-time data absent from mean recurrences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
