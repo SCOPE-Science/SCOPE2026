@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every filtration is parametrized by the placement of the \(n\) leaves relative to the two branch vertices; exact counting of unique earlier neighbors yields the complete facet classification. The two one-sided subcomplexes are contractible by elementary attachments. The relative long exact sequence over \(\mathbb Z\), rather than a rational Euler characteristic argument, proves the precise signed-augmentation lattice, including the class-swap signs. Full face comparisons and signed Lefschetz traces are executed for sizes two through six. The proof covers all integers \(n\ge2\); the finite checks are corroboration, not its logical foundation.
+## correctness
 
-**Originality — PASS, with residual risk.** The originating September 2026 primary paper does not classify complete bipartite graphs beyond the four-cycle case. The earlier nonequivariant sphere count is explicitly excluded from the originality assertion. Previously indexed symmetry calculations for **ordinary** Morse matching complexes are not calculations of this strict strong subcomplex. The nearest sources were checked by comparing the mathematical objects and implications, not by title alone. Unindexed equivalent statements remain a risk, and not all indexed manuscript full texts could be retrieved.
+PASS
 
-**Mathematical value — PASS.** An exact integral homology representation for the full automorphism group refines a known homotopy classification in a natural infinite family, distinguishing class-preserving and class-swapping permutations that identical Betti ranks cannot distinguish. The result is uniform, structural, and supplies an explicit lattice rather than only a numerical character.
+For each ordering of K2n, a b_i pairs to its sole earlier a_t when exactly one a precedes it, and a_t pairs to sole earlier b_i if exactly one b precedes it. This gives two contractible U_t sides with facets T_t and S_t,i; exactly 3n bridges A_i,B_i,C_i joining sides, with no mixed higher simplices. Brute independent all-order enumeration versus facet construction verified n=2..5 (face counts 20,47,106,237), corroborating symbolic classification. Pair long exact sequence yields H1=ker(Z[E_n]->Z_sgn), with class-swap signs -A,-C,-B, and rational traces 3fixed-1 and 1-fixed. Universality follows combinatorial facet proof, not finite checks.
 
-**Scientific limits.** No equivariant homotopy equivalence is asserted, and the method does not address general complete bipartite parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison, with bounded primary-material access limitations explicitly preserved. A rank-only wedge theorem implies neither ε: Z[E_n]->Z_sgn nor chi(s,sigma)=1-f(sigma); a nonequivariant description cannot supply signed integral kernel.
+
+## value
+
+PASS
+
+The full strong K2n complex has natural full bipartition automorphism group S2xSn; determining the integral G-lattice of degree-one homology is a real equivariant refinement beyond the known wedge rank. Signed augmentation, not just dimension, retains integral extension information a future equivariant computation may need.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

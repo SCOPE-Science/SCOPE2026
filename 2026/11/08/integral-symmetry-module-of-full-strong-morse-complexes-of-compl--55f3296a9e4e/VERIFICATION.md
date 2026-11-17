@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-`python3 verify.py` executes with the Python standard library; `verify_output.txt` records the actual run. The verifier independently enumerates every vertex filtration for \(n=2,3,4,5,6\), builds its strong gradient from the number of earlier neighbors, and confirms equality of **all** faces with those arising from the closed facet formula. It checks that all \(3n\) mixed faces are exactly the predicted edges and that no claimed facet is contained in another. The complete simplicial chain action on fixed faces is evaluated with orientation signs to produce Lefschetz traces for selected swaps and vertex permutations, then compared with the two character formulas.
+# Independent mathematical audit
 
-The proof is independent of finite computation: the three-partition description of all filtrations yields an exact all-parameter facet census; elementary contractibility of each side yields a relative homology exact sequence over \(\mathbb Z\); and the signed bridge permutation action determines the integral module. No external/independent audit was performed.
+## correctness
+
+PASS
+
+For each ordering of K2n, a b_i pairs to its sole earlier a_t when exactly one a precedes it, and a_t pairs to sole earlier b_i if exactly one b precedes it. This gives two contractible U_t sides with facets T_t and S_t,i; exactly 3n bridges A_i,B_i,C_i joining sides, with no mixed higher simplices. Brute independent all-order enumeration versus facet construction verified n=2..5 (face counts 20,47,106,237), corroborating symbolic classification. Pair long exact sequence yields H1=ker(Z[E_n]->Z_sgn), with class-swap signs -A,-C,-B, and rational traces 3fixed-1 and 1-fixed. Universality follows combinatorial facet proof, not finite checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison, with bounded primary-material access limitations explicitly preserved. A rank-only wedge theorem implies neither ε: Z[E_n]->Z_sgn nor chi(s,sigma)=1-f(sigma); a nonequivariant description cannot supply signed integral kernel.
+
+## value
+
+PASS
+
+The full strong K2n complex has natural full bipartition automorphism group S2xSn; determining the integral G-lattice of degree-one homology is a real equivariant refinement beyond the known wedge rank. Signed augmentation, not just dimension, retains integral extension information a future equivariant computation may need.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
