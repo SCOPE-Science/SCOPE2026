@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The input and output norms use counting measure. Fourier character orthogonality gives exactly \(q^d\) times the prescribed-image count as every squared singular value; both sides were checked against independent incidence matrices for small instances. Symmetric congruence preserves the inner product condition \(\alpha\cdot\beta\), and Schur complements determine both cases of the prescribed first column. Counting all first columns gives the symmetric invertible-matrix recurrence; its explicit parity forms imply the exact spectrum, multiplicities, rank, kernel, and condition numbers for every prime power. The proof includes characteristic two. Risks: finite tests only check samples; the all-parameter conclusion depends on the symbolic recurrences and block determinant identity.
+## correctness
 
-## Originality — PASS under bounded comparison
-Relevant primary works were compared by statements and operators, not title similarity. Brent–McKay provides the general invertible symmetric-matrix total and symmetric-elimination ideas, but not the prescribed-action count combined with partial Lagrangian tomography; Koh analyzes full finite-field affine line/hyperplane families and endpoint estimates, not these directions; Marmo–Michor–Neretin analyzes all Lagrangian directions over the reals, not the finite-field restricted graph transform. The full arXiv HTML was inspected in the relevant constructions and principal-results sections. An abstract-only source, Scarabotti's 2003 work on finite Radon Fourier decomposition, could conceivably cover the present restriction as a corollary; its full text was unavailable and is explicitly a priority risk. The accessible prior-claim comparison showed related but different finite affine Radon, Grassmann-star sampling, and symmetric rank-one Fourier problems. General Fourier diagonalization and symmetric-matrix total counts are old. The proposed new object is the sharp, fully counted partial spectrum and parity criterion. A bounded search cannot establish global historical priority.
+PASS
 
-## Mathematical value — PASS
-The family consists of a geometrically canonical set of affine Lagrangian planes transverse to two polarizations. Their exact measurement nullspace identifies which observables cannot be recovered. The parity dichotomy is a non-obvious exact statement about reconstruction stability, with sharp equality of mixed singular values for all odd dimensions versus a quantified defect in every even dimension. The result classifies rank and stability for the whole infinite family of prime-power fields and all dimensions, rather than a small case; no generalization to arbitrary incomplete samples is claimed.
+For q any prime power and dimension d>=2, the affine nonsingular-symmetric graph transform sums f(x,Mx+c) over x for each invertible symmetric M and c. Its counting-norm Gram operator is translation invariant; at Fourier mode (alpha,beta) the eigenvalue is q^d times the number of invertible symmetric M with M beta=-alpha. The constant mode has q^d S_d, while exactly 2(q^d-1) coordinate-axis nonconstant modes have eigenvalue zero. For alpha,beta nonzero, imposing a nonzero dot product gives S_{d-1} matrices, while dot=0 gives q^{d-1} S_{d-2} matrices by a congruence/Schur complement calculation. Their frequencies have multiplicities (q^d-1)(q-1)q^{d-1} and (q^d-1)(q^{d-1}-1), respectively. The two positive nonconstant modes coincide iff d is odd; for even d their ratio gives singular-value condition (1-q^{1-d})^-1/2. The kernel is exactly zero-mean row-only plus column-only functions. Independent full frequency incidence census for (q,d)=(2,2),(2,3),(3,2) reproduced eigenvalues, ranks, multiplicities and kernel counts. The theorem concerns the restricted invertible-symmetric graph family, not all Lagrangian views.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full continuous real Lagrangian Radon transform of Marmo–Michor–Neretin integrates over all affine Lagrangians and develops symplectic inversion, not an exact finite-field spectrum for invertible symmetric graph slopes. Doowon Koh obtains finite-field L^p->L^r endpoint estimates for broader X-ray/Radon views, not this restricted graph-family Gram matrix or parity-tuned stability. Standard counts of nonsingular symmetric matrices (Brent–McKay) supply necessary arithmetic, not the incidence-conditioned Fourier multiplicities. Scarabotti studies multiplicity-free permutation representations; its complete text could not be accessed, and the abstract alone cannot exclude an implicit stronger transform theorem. With this explicit priority risk, the restricted-view kernel, exact Fourier spectrum and odd/even tightness are best-of-knowledge original.
+
+## value
+
+PASS
+
+This is a natural partial-view finite symplectic tomography problem: precise recoverable signal subspace, explicit blind Fourier axes, and a sharp parity-dependent inverse condition number materially determine which information can be reconstructed and how stably. The odd-dimension tightness and even penalty are mathematical structure, not just a finite checker result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
