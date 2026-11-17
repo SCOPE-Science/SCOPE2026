@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is analytical: first verify the strict-curvature inequality, the tangent-length and curvature-radius formulas, and the tangent midpoint differential. Then multiply the resulting determinant-one shear by the inverse rotation of adjacent tangent frames. The two displayed traces give the entire characteristic equations. The resonance list follows from strict phase monotonicity, with its complete domain and excluded endpoint explicitly stated in the proof. No step infers an infinite statement from finite enumeration.
+## correctness
 
-The supplied `checker.py` is a standalone Python 3 script requiring only the standard library. Run from a directory containing the embedded files using `python3 checker.py`. It directly solves the oriented tangent equation for the actual outer-billiard map at all selected cases, finite-differences the map, verifies determinant one and the predicted traces for both signs at 104 parameter points, and compares 2,070 resonance values to the closed equations. The observed output was `PASS 104 finite-difference Jacobian comparisons;  2070 resonance equations checked`. This is supporting finite numerical evidence, not an exhaustive proof or independent review.
+PASS
 
-Scope limitations: the theorem says nothing about all other periodic points, nonlinear KAM stability, twist coefficients, bifurcation of islands, or the non-strictly-convex boundary itself. Equivalence with unindexed prior literature cannot be excluded. Independent mathematical validation has not been performed.
+The statement only concerns the two explicitly named tangent-intersection periodic families for integer n≥6 and 0<ε<n^(−2); it does not count all outer-billiard periodic orbits. From γ(t)=e^{it}+εe^{int}, the speed, curvature and radius at extremal tangencies give ρ_s=(1+snε)^2/(1+sn²ε) and tangent half-length ℓ_s=(1+sε)tan(2π/(n−1)). The co-rotating Jacobian K_s=R(−2θ) [[−1,−2ρ_s/ℓ_s],[0,−1]] is determinant one and has the exact stated trace after factorizing (1+snε)^2−(1+sε)(1+sn²ε)=−s(n−1)^2 ε. The positive-elliptic and hyperbolic trace inequalities and monotonicity hold throughout the open convexity range; jπ/k<φ_* is necessary and sufficient for scalar K_+^k=(-1)^jI. The smaller quadratic root, strictly increasing resonance list, small-ε square roots and logarithmic hyperbolic boundary law follow by exact algebra. Independently computed resonance parameters for n=6,7,8,9,10,11,15,20,40,100 satisfy the original trace equation and ε∈(0,n^(−2)); finite checks are not proof of global monotonicity, which was verified symbolically.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Bialy–Mironov–Shalom introduced this exact harmonic curve family and symmetric tangent-intersection cycles, including geometric elliptic/hyperbolic examples. The inspected original Section 4 does not present the present rational all-ε Floquet traces, exact primitive return multipliers, finite scalar-monodromy parameter census or logarithmic exponent divergence at ε→n^(−2). Ramírez-Ros 2006 addresses perturbation of resonant invariant curves (Melnikov breakup), not the exact linear monodromy of these named discrete periodic orbits. Generic area-preserving Jacobian formula is background, not the claimed contribution.
+
+## value
+
+PASS
+
+The all-parameter stability spectrum and exact resonance thresholds of geometrically natural symmetric periodic orbits answer a motivated bifurcation/stability question for the classical harmonic family. Exact scalar-monodromy exceptions and rigorous boundary exponent are useful precise invariants not implied by descriptive orbit pictures; no nonlinear KAM/bifurcation conclusions are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
