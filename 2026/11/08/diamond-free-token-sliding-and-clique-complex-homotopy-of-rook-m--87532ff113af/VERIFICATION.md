@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The script independently enumerates the nonattacking placements and valid token slides on 41 rook-board parameter instances, comparing all clique coefficients to the theorem. It checks vertex degrees, connectedness, one-spare diameters, and four-cycle counts at double one-spare boards. In addition it enumerates all labeled simple input graphs with at most five vertices and every positive token size, checking the common-core clique-count identity and the induced-diamond implication on 5,405 input-and-token cases.
+## correctness
 
-Observed output:
+PASS
 
-```text
-VERIFY_OK cases=41 states=1482 nonempty_cliques=11645 clique_coefficients=PASS degrees=PASS connectivity=PASS one_spare_diameters=PASS two_spare_four_cycles=PASS general_graph_instances=5405 core_identity=PASS diamond_transfer=PASS
-```
+For adjacent k-token states sharing core I, any common neighbor outside that core would contain both endpoints of a sliding edge and violate independence. Thus every clique of size >=2 has a unique (k-1)-core. An induced diamond in TS then forces one in G. Maximal cliques of diamond-free graphs meet only at vertices, so each simplex collapses to a tree of edges. Counting unused rook rows/columns yields the all-clique polynomial; connectivity and star-transposition boundaries give graph topology, girth, diameter and four-cycle count. Rook corner cases k=1 and m=n=k follow from direct move enumeration; finite checker is only corroboration.
 
-These checks are exhaustive only within the stated finite parameter ranges. They do not verify unrestricted graph orders or replace the common-core, collapse, connectivity, and permutation proofs given in RESULT.md. The star-graph diameter is prior literature, not an independently proposed result. No external or independent mathematical audit was performed.
+## originality
+
+PASS
+
+PASS on inspected evidence: Avis–Hoang 2022 develops token sliding and triangle common-core/realizability results, but its identified result does not state the all-t clique-count identity, diamond-freeness transfer, or exact rook flag-complex homotopy. Classical star-transposition diameter is credited, not claimed novel. Exact broad independent literature coverage is uncertain because the entire Avis–Hoang full PDF was not read in this run.
+
+## value
+
+PASS
+
+PASS: exact all-clique enumerators and homotopy ranks for a natural and infinite rook-matching reconfiguration family distinguish it from original matching complexes; preservation of diamond-freeness is a reusable structural result. This is a natural exact classification, not merely a small count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
