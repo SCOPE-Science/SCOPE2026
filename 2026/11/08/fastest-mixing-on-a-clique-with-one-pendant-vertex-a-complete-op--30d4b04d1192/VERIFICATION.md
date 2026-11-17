@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python verify.py` with SymPy and NumPy available. The execution prints `VERIFY_OK 68 symbolic/exact comparisons` when all assertions pass. The symbolic part establishes the quotient characteristic-polynomial identity as a rational function of a symbolic positive integer parameter, checks normalization of the forced weights, and checks the spectral window endpoints. The tests construct 11 uniform exact-rational transition matrices, check their Rayleigh identities, and compare 40 additional reproducibly chosen rational internal-weight instances against numerical spectra. One exact-rational construction reproduces the previously published four-vertex case, with its numerical SLEM comparison within floating-point tolerance.
+## correctness
 
-The graph-size tests are finite. Only the proof in RESULT.md establishes the assertions for every integer in the theorem. The randomized tests use floating-point symmetric eigensolvers and tolerance \(10^{-9}\); they do not constitute exact certification of arbitrary real eigenvalues. No independent mathematical audit has occurred.
+PASS
+
+For all n≥4, a centered vector (2n−1,n−2,−3,…,−3) gives λ₂(L)≤(n+1)(1−P_hh)/(5n−4) and thus the sharp hub-holding penalty. Equality in the Rayleigh principle forces the leaf and hub-star edge weights. The exact three-dimensional quotient Laplacian has eigenvalues 0,(n+1)/(5n−4),3(2n−1)/(5n−4), while remaining eigenvalues are 1−p−λ_j(L_W). Independent symbolic factorization checked the quotient and forced edge mass; these spectral identities establish necessity and sufficiency of the internal spectral window, including nonnegative diagonal rows. The uniform internal point attains the lower bound.
+
+## originality
+
+PASS
+
+Prior Boyd–Diaconis–Xiao exactly solves n=3 and the separately published incident-star-deletion theorem (a=1, b=n−1) implies the all-n optimal SLEM value; neither comparison supplies the submitted full non-invariant optimizer face and universal strict hub-holding penalty.
+
+## value
+
+PASS
+
+The exact global optimizer face and its rigidity-versus-freedom decomposition are natural questions in constrained Markov chain design; identifying all allowed asymmetric interior designs and a quantitative cost of hub self-loops can guide robust optimization, independently of the already covered scalar optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
