@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the all-seed and almost-everywhere infinite statements directly. `verify.py` is an independently runnable exact-rational implementation of finite indexing, endpoint identities, backward-branch upper bounds, extremal-orbit partial sums, and one explicit cycle. Run `python3 verify.py` with a standard Python 3 installation (no third-party packages). The expected terminal message is:
+## correctness
 
-`VERIFY_OK exact_checks=27453 k_range=2..7 grid=17 inverse_depth=8`
+PASS
 
-The code does not exhaust uncountably many initial points or infinitely many times. Ergodicity of the full-branch tent map, backward-history realization, and the sharp limit interval are established mathematically, not inferred from numerical tests. There has been no independent scientific audit.
+The exact recurrence x_(n+1)=T(x_floor(n/k)) has constant tent iterate T^m(z) on the plateau of k^m consecutive indices and B_m=(k^(m+1)-1)/(k-1) endpoint. The subtraction B_m E_m-B_(m-1)E_(m-1)=k^m T^m(z) proves convergence of averages iff ordinary orbit converges. The tent fixed points 0,2/3 have expanding derivatives of magnitude 2, so convergent orbits eventually land on these points; only countably many preimages do. For typical dense orbits, every backward tent history arises as a subsequential endpoint configuration. The inverse-branch inequality w_-j+w_-(j-1)/2<=1 gives upper weighted average 2k/(2k+1); zero history attains 0 and repeated right inverse beginning at w0=1 attains the upper bound. Monotone plateau averaging and |A_(N+1)-A_N|<=1/(N+1) fill all intermediate limits. Independently checked exact fractional plateau telescoping and extremizing backwards history for k=2..7, length 80. These are corroborative; ergodic density and compactness prove the infinite assertion.
+
+## originality
+
+PASS
+
+The k=2 cluster interval [0,4/5] for dense seeds is EXACTLY covered by the published 2026-11-02 theorem and is not credited as original. The original contribution surviving here is a uniform theorem for every integer k>=3, the parameter-dependent extremal value 2k/(2k+1), and the complete all-seed Cesaro convergence criterion for the family. The adaptation of a known k=2 method is a priority/value qualification but k=2 does not logically imply the all-parameter formula or all-seed classification.
+
+## value
+
+PASS
+
+The integer proportional delay k is the natural model parameter, and its physical-time Cesaro cluster interval is a natural invariant contrasting the undelayed ergodic mean. Determining the exact endpoint for all k and an all-initial-state convergence characterization resolves the full homogeneous family, instead of just recomputing the known k=2 number. The method is straightforward but produces a precise parameter law that can be reused for geometric-stasis dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
