@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For each center-permutive Rule-57 local update, the bit holds exactly for neighbor pair (0,1). In a two-sweep return, any unchanged site forces both neighbors unchanged, hence all unchanged and an impossible fixed point. Thus all sites toggle. Precisely accounting for the old/new neighbor order forces x_(i+2)=1-x_i (0≤i≤n-3) and boundary equalities x_(n-1)=x_1, x_(n-2)=x_0. Solving four residue classes gives exactly four states iff n≡2 mod4, all complementing in two steps. All local site changes are involutive and their composition bijective. Exhaustive implementation n=3..17 and an independent local check n=3..256 corroborate the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vielhaber, arXiv:1208.2762, sections 2–3 (full accessible text) proves group generation with *varying* temporal rules for finite sizes; it does not enumerate cycles of the single map repeatedly applied.",
+        "Donoso-Leiva et al., arXiv:2509.07797, §3.2 Table 6 puts Rule 57 in the class without fixed points but does not count two-cycles.",
+        "Donoso-Leiva et al., arXiv:2505.10645 (abstract) addresses maximum period and cycle-complexity regimes, not directly comparable at full-text level."
+      ],
+      "reasoning": "Variable-schedule universality, maximum period and fixed-point absence do not logically force either presence or exact multiplicities of period-two orbits of one chosen update order. A possible stronger all-period classification in inaccessible or unindexed material remains a residual risk.",
+      "searches": [
+        "rule 57 fixed left to right sequential sweep exact permutation cycle structure orbit period all n",
+        "Wolfram elementary 57 sequential update permutation order binary ring n asymptotic",
+        "\"Rule 57\" sequential \"cycle\" orbit 2",
+        "elementary cellular automata rule 57 block sequential periodic point cycles orbit 2012",
+        "published-finding corpus: Wolfram elementary 57 sequential update permutation order binary ring n asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1208.2762",
+      "https://arxiv.org/abs/2509.07797",
+      "https://arxiv.org/abs/2004.07128",
+      "https://arxiv.org/abs/2505.10645",
+      "https://arxiv.org/abs/1208.2770",
+      "2026/11/2/SCOPE-scan-order-phase-diagram-and-exact-rule-150-cycle-census-on-bina--a8edc73752da",
+      "2026/10/25/SCOPE-exact-companion-polynomial-classification-of-sequential-rule-60--348a48e3fbd8",
+      "2026/11/8/SCOPE-exact-cyclic-image-obstructions-for-two-open-five-neighbor-binar--b4fa1671dcc9",
+      "2026/10/26/SCOPE-exact-temporal-two-orbit-census-and-spatial-zeta-for-elementary--752b17859ec3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 source says fixed temporal rules can be bijections and considers generation of permutation groups by *changing* temporal rules; it gives no infinite ring-length classification for Fix(F²).",
+        "The 2025 sequential-convergence paper proves absence of fixed points of Rule 57; Fix(F)=∅ does not determine Fix(F²).",
+        "The 2020 sensitivity paper compares update maps under schedules; equality/non-equality of schedule maps does not yield their temporal two-orbits."
+      ],
+      "reasoning": "The new statement fixes the scan order and counts an exact short-period subset of its configuration permutation at every n≥3. There is no identified stronger relevant theorem that implies its modulo-four resonance; checked other-rule orbit counts and a separate Rule-23 fixed-scan classification concern different truth tables.",
+      "searches": [
+        "arxiv:1208.2762 full-text passages on ECA-57, permutations and periods",
+        "arxiv:2509.07797 full-text Table 6 and Rule-57 classification",
+        "arxiv:2004.07128 full-text sensitivity definitions",
+        "published-finding corpus: rule 57 fixed left to right sequential sweep exact permutation cycle structure orbit period all n",
+        "published-finding corpus: elementary cellular automaton 57 fixed left to right sequential sweep primitive two-cycles ring congruent 2 modulo 4 four configurations 0011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rule 57 updates are center-permutive; its two-cycle condition is equivalent to a complementing pair of length-four spatial words and two boundary congruences.",
+        "Vielhaber 2012, arXiv:1208.2762, §1 and §3.1 studies schedule-dependent reversible transformations but does not state the length-two orbit criterion.",
+        "Closest published mathematical record 2026/11/2/SCOPE-scan-order-phase-diagram-and-exact-rule-150-cycle-census-on-bina--a8edc73752da concerns additive Rule 150 rather than nonlinear Rule 57."
+      ],
+      "reasoning": "Checked aliases temporal two-cycle/fixed second iterate, complementing states, 0011 block, cyclic congruence and fixed scan. Reflection and bit-complement symmetries can transfer such a statement between some ECA rules only together with transformed temporal scan orders; none of the closest found statements implies this theorem.",
+      "searches": [
+        "elementary cellular automaton 57 fixed left to right sequential sweep primitive two-cycles ring congruent 2 modulo 4 four configurations 0011",
+        "asynchronous rule 57 short temporal period 2 orbit complement pattern 0011 ring",
+        "ECA57 sitewise hold propagation 2cycles cyclic word 0011",
+        "\"rule 57\" \"2-cycle\" sequential cellular automata",
+        "\"ECA 57\" \"period two\" asynchronous",
+        "published-finding corpus: rule 57 fixed left to right sequential sweep exact permutation cycle structure orbit period all n",
+        "published-finding corpus: elementary cellular automaton 57 fixed left to right sequential sweep primitive two-cycles ring congruent 2 modulo 4 four configurations 0011"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus findings 2026/10/25/SCOPE-exact-companion-polynomial-classification-of-sequential-rule-60--348a48e3fbd8 (sequential Rule 60), 2026/11/8/SCOPE-exact-cyclic-image-obstructions-for-two-open-five-neighbor-binar--b4fa1671dcc9 (five-neighbor binary automata), and 2026/10/26/SCOPE-exact-temporal-two-orbit-census-and-spatial-zeta-for-elementary--752b17859ec3 (synchronous Rule 18) concern different update maps.",
+        "Direct enumeration independently gives zero fixed-second-iterate states for lengths 3,4,5,7,8,9 etc and four for 6,10,14, supporting but not proving novelty."
+      ],
+      "reasoning": "No identified exact table contains the four complementing Rule-57 fixed-scan period-two states for every circumference. Rule-specific and parameter-sensitive comparisons exclude the retrieved additive and synchronous tables as logical covers.",
+      "searches": [
+        "published-finding corpus: elementary cellular automaton 57 fixed left to right sequential sweep primitive two-cycles ring congruent 2 modulo 4 four configurations 0011",
+        "published-finding corpus: asynchronous rule 57 short temporal period 2 orbit complement pattern 0011 ring",
+        "published-finding corpus: ECA57 sitewise hold propagation 2cycles cyclic word 0011",
+        "\"rule 57\" \"2-cycle\" sequential cellular automata",
+        "\"ECA 57\" \"period two\" asynchronous"
+      ]
+    },
+    "rationale": "The precise fixed-scan all-length two-cycle rigidity is not stated or implied by the inspected variable-schedule permutation-group results for Rule 57, the no-fixed-point classification, or other-rule temporal-two results. Direct claim/parameter/equivalence comparisons and own-claim deduplication found no covering record. Historical priority remains qualified by incomplete indexing and the abstract-only 2025 maximum-period paper.",
+    "residual_risks": [
+      "Unindexed or poorly retrieved fixed-schedule Rule-57 studies could contain the same theorem.",
+      "The 2025 maximum-period classification was accessible only at abstract level and has not been decisively compared at full-text level."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact fixed left-to-right two-cycle claim; addresses schedule-dependent permutation generation and bijectivity rather than fixed-map short-period classification",
+        "evidence": [
+          "Rule 57 local table and hold exception in Example 1",
+          "§3.1 bounded-size alternating group statements, §3.2 function image results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.2762",
+        "material_read": "Rule truth table, definitions, full relevant sections 1, 2 and 3, especially §3.1 and Theorem 3",
+        "method": "Accessible full HTML text with search for periodicity and Rule 57",
+        "title": "Computing by Temporal Order: Asynchronous Cellular Automata",
+        "trigger": "Exact same ECA Rule 57 and deterministic update schedules"
+      },
+      {
+        "assessment": "NOT_COVERING period-two census; records Rule 57 among rules lacking fixed points",
+        "evidence": [
+          "Table 6 no-fixed-points row includes 57; §3.2 focuses on convergence when fixed points exist"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.07797",
+        "material_read": "Full accessible HTML text, introduction, definitions and Table 6 including Rule 57",
+        "method": "Full-text search and section comparison",
+        "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+        "trigger": "Same sequential cellular automata and explicit Rule 57 classification"
+      },
+      {
+        "assessment": "NOT_COVERING Rule-57 primitive two-orbits; studies numbers of distinct update schedules rather than recurrent-state subsets",
+        "evidence": [
+          "§2.4 lists Rule 57 among ECA representatives; Theorem 3 enumerates non-maximal-sensitivity rules, not short-period states"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.07128",
+        "material_read": "Full accessible HTML text, sections 1–2, tables on rule families and schedule equivalence",
+        "method": "Read definitions, classification and Rule-57 mentions",
+        "title": "Non-maximal Sensitivity to Synchronism in Periodic Elementary Cellular Automata: Exact Asymptotic Measures",
+        "trigger": "Possible stronger classification up to reflection/complement schedule equivalence"
+      },
+      {
+        "assessment": "UNRESOLVED historical-coverage risk; abstract describes longest-period classification and does not state the short-period theorem",
+        "evidence": [
+          "Abstract emphasizes maximum limit-cycle period regimes and numerical energy/density"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.10645",
+        "material_read": "Abstract and introductory metadata only; full text not accessible here",
+        "method": "Abstract-level inspection",
+        "title": "Impact of (a)Synchronism on ECA: Towards a New Classification",
+        "trigger": "Could provide broader recurrent cycle analysis across rules"
+      },
+      {
+        "assessment": "Different full shift/surjective CA topology setting rather than one fixed finite-ring sequential ECA; not a decisive coverage risk",
+        "evidence": [
+          "Abstract concerns temporally but not spatially periodic configurations on infinite shifts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.2770",
+        "material_read": "Abstract and article metadata",
+        "method": "Abstract-level title and scope comparison",
+        "title": "Strictly Temporally Periodic Points in Cellular Automata",
+        "trigger": "Potential alias for temporally periodic configurations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a90f45a-cd0f-423e-a59e-d7db6d0f70a1",
+  "value": {
+    "rationale": "Rule 57 is a prominent nonlinear, schedule-sensitive yet center-permutive automaton. The precise minimal nontrivial recurrence sector is a motivated natural invariant: although every fixed-sweep state is periodic, primitive two-cycles exhibit a strict n≡2 mod4 resonance with only two orbits. The hold-propagation dichotomy and two boundary equations provide a reusable structural mechanism explaining this finite population; it is not a textbook substitution or an arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
