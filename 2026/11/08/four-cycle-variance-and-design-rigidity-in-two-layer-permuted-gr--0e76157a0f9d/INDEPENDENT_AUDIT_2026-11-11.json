@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:17:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all binary d-by-d regular incidence matrices with row and column degree r, 2<=r<=d-2, two independent uniform interlayer permutations reduce the second-step pile support to a uniform r-subset S. Pair-collision statistic C2 equals sum_{u<v in S} c_uv with row codegrees c_uv, common mean mu=r(r-1)/(d-1). Centered h_uv=c_uv-mu has zero row sums, so identical, adjacent and disjoint ordered edge-pair contractions are H,-2H,+H. Inclusion rates alpha=(r)_2/(d)_2, beta=(r)_3/(d)_3, gamma=(r)_4/(d)_4 give Var(C2)=(alpha-2beta+gamma)H = r(r-1)(d-r)(d-r-1)H/[d(d-1)(d-2)(d-3)], strictly positive coefficient. Constancy iff all row pair intersections equal mu, equivalently symmetric 2-(d,r,mu) design, necessarily integer mu. Identity H=2C4+d*binom(r,2)-binom(d,2)mu^2 follows from counting K_2,2 motifs. Independently verified exact first and second moments across many circulant matrices d=4..9, r=2..d-2; d=7 r=3 design variance0 vs consecutive offset variance 6/5. The proof quantifies all matrices, finite checks only corroborate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-layer vacancy theorem concerns variance of number of empty destinations Z, a nonlinear occupancy indicator observable, not Var(C2).",
+          "The degree-two graph result concerns Var(Z2) and mean(Z3), not collision pair counts for all regular r."
+        ],
+        "reasoning": "Shared design equality and four-cycle motif are meaningful prior context but neither exact result determines the claimed C2 variance polynomial, its coefficient and full d,r class.",
+        "searches": [
+          "Resultary 2026/11/1 Design-rigid vacancy fluctuations after two permuted regular layers",
+          "Resultary 2026/10/26 Four-cycle signatures in three-layer shuffled regular-graph occupancy"
+        ]
+      },
+      "checked_sources": [
+        "Chiclana arXiv:2610.14724 original full open-access text",
+        "Resultary 2026/11/1 design-rigid vacancy full RESULT.md",
+        "Resultary 2026/10/26 four-cycle signatures full RESULT.md",
+        "Pinned RESULT.md and verify_collision.py for assigned record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact expected collision count from Frobenius norm is graph-independent, while this newly evaluated variance depends on H and distinguishes matrices at same (d,r).",
+          "Vacancy Z counts zero endpoints, and its variance is not the variance of sum binom(N_j,2).",
+          "Degenerate U-statistic theory supplies an established combinatorial method, not the specific row-codegree four-cycle equality class as a previous theorem."
+        ],
+        "reasoning": "The all-matrix equality and single-motif variance identification are not immediate restatements of known model-specific quantities, although they use standard finite-population moment expansions.",
+        "searches": [
+          "Chiclana, Poisson occupancy of paths on permuted regular graphs, arXiv:2610.14724",
+          "Design-rigid vacancy fluctuations after two permuted regular layers, 2026/11/1",
+          "Hoeffding general U-statistics, 1948"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chiclana model exact expected chi-square/Frobenius quantities and generating-function variance *bounds* do not give the exact variance of quadratic path collision count."
+        ],
+        "reasoning": "Generic degenerate second-order finite-population U-statistics yield a known variance mechanism; the particular graph-codegree, four-cycle and symmetric-design correspondence is the claim. No inspected equivalent model-specific result found.",
+        "searches": [
+          "Resultary: two layer permuted regular graphs path collision occupancy variance four cycles codegrees symmetric design finite sample quadratic U statistic",
+          "arXiv:2610.14724"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula for collision-pair second-moment/motif count in inspected primary or related Resultary records."
+        ],
+        "reasoning": "No known table covers all binary square regular matrices by codegree dispersion; search limitations are retained as risk.",
+        "searches": [
+          "Resultary: graph two-step collision variance codegree four-cycle exact",
+          "Chiclana arXiv:2610.14724"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality follows from statement-level and implication-level comparisons; no identified complete earlier theorem covers the stated surviving exact result. See structured checks, inspected source material and risks.",
+      "residual_risks": [
+        "General finite-population degenerate U-statistic identities are classical and could have an unindexed precisely equivalent matrix specialization",
+        "Does not characterize existence of symmetric designs at every admissible (d,r), nor >2 layer collision fluctuations"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides model, bounds and lower-order observables; no exact variance of C2 or design rigidity for this quadratic observable",
+          "evidence": "Section 3.2 and Section 6 contraction/covariance identities",
+          "identifier_or_url": "https://arxiv.org/abs/2610.14724",
+          "material_read": "Accessible original paper full text examined, including Section 3.2 variance bounds, covariance and Frobenius/chi-square moment identities",
+          "method": "Primary source material inspected",
+          "title": "Poisson occupancy of paths on permuted regular graphs",
+          "trigger": "Exact independent-permutation layered regular-graph path model"
+        },
+        {
+          "assessment": "Strong neighboring prior on vacancy count Z and designs, distinct from pair-collision variance C2",
+          "evidence": "Theorem Var(Z), convexity of overlap avoidance f(t), projective-plane equality",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-design-rigid-vacancy-fluctuations-after-two-permuted-regular-lay--026f188ee936",
+          "material_read": "Entire RESULT.md read, including exact vacancy variance and design equality proof",
+          "method": "Primary source material inspected",
+          "title": "Design-rigid vacancy fluctuations after two permuted regular layers",
+          "trigger": "Same two permuted layers and symmetric design rigidity"
+        },
+        {
+          "assessment": "Four-cycle sensitivity established for vacancy statistics in degree-two undirected graphs; no claimed C2 variance identity",
+          "evidence": "Theorem on C4-components and zero-destination counts",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-four-cycle-signatures-in-three-layer-shuffled-regular-graph-occu--55771ce76a42",
+          "material_read": "Entire RESULT.md read, including exact mean/variance Z2, mean Z3 and degree-two examples",
+          "method": "Primary source material inspected",
+          "title": "Four-cycle signatures in three-layer shuffled regular-graph occupancy",
+          "trigger": "Two/three-layer graph motif influence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact graph-geometry sensitivity of a natural finite-depth collision fluctuation, and zero-variance rigidity precisely for symmetric incidence designs, identify the first nontrivial observable beyond geometry-independent expected occupancy. The bipartite four-cycle count is a single motif controlling this variance; comparison of same-size regular graphs with variances 0 and 6/5 is a motivated explicit structural distinction, not mere numerical tabulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General finite-population degenerate U-statistic identities are classical and could have an unindexed precisely equivalent matrix specialization",
+    "Does not characterize existence of symmetric designs at every admissible (d,r), nor >2 layer collision fluctuations"
+  ],
+  "schema_version": 1
+}

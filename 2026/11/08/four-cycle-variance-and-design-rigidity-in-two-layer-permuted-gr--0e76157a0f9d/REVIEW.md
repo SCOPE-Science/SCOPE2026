@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-layer model reduces exactly to choosing an \(r\)-subset of rows uniformly, and the collision count becomes a quadratic codegree sum. The zero-row-sum identity for centered codegrees yields the exact ordered-edge overlap sums \(H,-2H,H\), hence the finite-population coefficient \((r)_2/(d)_2-2(r)_3/(d)_3+(r)_4/(d)_4\). Algebra factors this as a strictly positive coefficient for all \(d\ge4\), \(2\le r\le d-2\). Constant codegree is exactly the block-intersection condition for a symmetric design. The 7-vertex examples have the same mean and variances \(0\) and \(6/5\). Exact rational enumeration over 1,548 finite matrix/subset cases checks implementation of these identities, but does not substitute for the all-order algebra.
+PASS
 
-## Originality — PASS (provisional)
+For all binary d-by-d regular incidence matrices with row and column degree r, 2<=r<=d-2, two independent uniform interlayer permutations reduce the second-step pile support to a uniform r-subset S. Pair-collision statistic C2 equals sum_{u<v in S} c_uv with row codegrees c_uv, common mean mu=r(r-1)/(d-1). Centered h_uv=c_uv-mu has zero row sums, so identical, adjacent and disjoint ordered edge-pair contractions are H,-2H,+H. Inclusion rates alpha=(r)_2/(d)_2, beta=(r)_3/(d)_3, gamma=(r)_4/(d)_4 give Var(C2)=(alpha-2beta+gamma)H = r(r-1)(d-r)(d-r-1)H/[d(d-1)(d-2)(d-3)], strictly positive coefficient. Constancy iff all row pair intersections equal mu, equivalently symmetric 2-(d,r,mu) design, necessarily integer mu. Identity H=2C4+d*binom(r,2)-binom(d,2)mu^2 follows from counting K_2,2 motifs. Independently verified exact first and second moments across many circulant matrices d=4..9, r=2..d-2; d=7 r=3 design variance0 vs consecutive offset variance 6/5. The proof quantifies all matrices, finite checks only corroborate.
 
-Full-text inspection of Chiclana, arXiv:2610.14724, including the model setup, Section 3.2, covariance identities and discussion of path occupancy, found generating-function variance inequalities and second-order expectations but not the stated exact collision-variance formula, its four-cycle specialization, or design rigidity. The model-specific statement is not implied by a numerical or first-order expectation bound alone. Classical symmetric-design texts define the equality condition, and Hoeffding-type finite-population quadratic-statistic theory supplies a possible general identity; novelty therefore rests in the exact graph-model specialization and structural characterization, not an assertion that the underlying sampling-variance algebra is unprecedented. Targeted public and mathematical-record searches found no direct matching assertion. Historical priority is not fully established.
+## originality
 
-## Value — PASS
+PASS
 
-This identifies the first geometry-sensitive *sample-to-sample* dispersion of a natural occupancy statistic in a permutation-mixed regular path model whose first collision moment is geometry-independent. The exact correspondence with bipartite four-cycles, a symmetric-design rigidity criterion, and an explicit same-order same-degree separation provide intrinsic structural content beyond a generic small finite calculation. The result makes no claim about arbitrary-length paths.
+Best-of-knowledge originality follows from statement-level and implication-level comparisons; no identified complete earlier theorem covers the stated surviving exact result. See structured checks, inspected source material and risks.
 
-## Closest literature and residual limits
+## value
 
-Rafael Chiclana, *Poisson occupancy of paths on permuted regular graphs* (2026), arXiv:2610.14724, Section 3.2; Eric S. Lander, *Symmetric Designs* (1983), Chapter 1; W. Hoeffding (1948), general U-statistics. A prior algebraic specialization under another name, particularly in finite-population sampling theory, cannot be ruled out by the searches performed. The code tests finitely many matrices only. Independent scrutiny remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact graph-geometry sensitivity of a natural finite-depth collision fluctuation, and zero-variance rigidity precisely for symmetric incidence designs, identify the first nontrivial observable beyond geometry-independent expected occupancy. The bipartite four-cycle count is a single motif controlling this variance; comparison of same-size regular graphs with variances 0 and 6/5 is a motivated explicit structural distinction, not mere numerical tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
