@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Step 1 gives uniform global bounds and a strictly positive susceptible floor using geometric infection decay during low-S intervals. The critical parameter identity exactly cancels all linear terms in d(log L)/dt, and the pulse scaling preserves L. This proves L->0, I->0, and by logistic comparison S->s uniformly by pulse phase. The exact reciprocal derivative yields the sharp positive n^-1 coefficient; an exponentially stable scalar variational equation yields the unique negative susceptible correction. The symbolic identity and three independent finite RK4 diagnostic regimes pass in check.py. No finite experiment is substituted for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maurício de Carvalho--Rodrigues (2023), Theorem A covers p strictly below or above p2 and identifies the transition, not p=p2.",
+        "Zhou--Sattayatham--Jiao (2016), Section 2, uses a three-state pulse-birth/mature-susceptible model rather than the two-variable continuous logistic-recruitment reduction.",
+        "Zhang et al. (2024) studies a numerical scheme for a linear-demography SIR pulse system, not this nonlinear leading profile."
+      ],
+      "reasoning": "An open-side global stability theorem gives no decay rate at the nonhyperbolic equality and cannot establish the all-positive phase profile. Qualitative persistence/extinction theorems in differing models likewise do not imply it.",
+      "searches": [
+        "impulsive logistic susceptible epidemics transcritical critical endemic-free n^-1 algebraic decay first integral",
+        "\"logistic growth\" \"pulse vaccination\" \"SIR\" \"threshold\" equality 2020",
+        "2023 Carvalho Rodrigues pulse SIR vaccination period global asymptotic critical p2 threshold exact clearance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2312.02306 (public 2023-12-04), exact-model author full-text transcription",
+      "doi:10.1186/s13662-016-0853-z, full HTML model and analysis",
+      "doi:10.3390/axioms13120854, accessible abstract and model excerpt only",
+      "doi:10.1155/2013/670263, accessible HTML introduction/model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source full-text Theorem A lists p in (0,p2) and (p2,p1), plus p=0,1 and transition labels.",
+        "The source section 11 infers transcritical crossing from a Floquet multiplier; its section 7 computes the multiplier and does not identify nonlinear equality dynamics.",
+        "The new proof gives a strictly decreasing L and its exact reciprocal derivative, then a global profile for every positive starting point."
+      ],
+      "reasoning": "The original threshold and Floquet multipliers identify one neutral direction but not global clearance or its quantified coefficients; a local transcritical statement also cannot exclude positive recurrent dynamics globally. The new strict identity supplies that missing global obstruction and explicit phase amplitudes.",
+      "searches": [
+        "\"Pulse vaccination in a SIR model\" \"1/t\" 2023 2024",
+        "\"p=p_2\" \"pulse vaccination\" \"critical\" \"algebraic\" infectious",
+        "\"pulse vaccination\" \"n^{-1}\" susceptible infectious"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source full-text Eq.(8) is exactly the pair considered here; its threshold in Lemma 7 gives q=exp(-(A-delta/beta)T), while its open regions exclude the equality.",
+        "Other pulse-SIR references examined use linear vital recruitment or stage-structured susceptible populations."
+      ],
+      "reasoning": "Equivalent variations could use the coordinates log S, log I, a weighted product, an integrated inverse product, or Floquet eigenvectors. Direct inspection of the originating model and threshold sections found none of the strict global identity or complete phase coefficients. Similarity to a generic center-manifold inverse-time statement does not imply the explicit globally valid integral or susceptible correction.",
+      "searches": [
+        "\"pulse vaccination\" \"S^β I\" Lyapunov",
+        "\"pulse vaccination\" \"algebraic decay\" \"infection\" threshold",
+        "pulse vaccination logistic SIR exact Lyapunov IS^beta critical threshold global phase resolved inverse n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact coefficient table or claim with the same logistic pulse dynamics and phase-resolved infection plus susceptible asymptotics was found in the queried mathematical results or publication searches.",
+        "Numerical or qualitative threshold tables for different SIR models do not supply the derived integral C."
+      ],
+      "reasoning": "Both the strict product identity and the all-positive n^-1 profiles are analytical, not a restatement of a numerical database. This negative search is supporting evidence only, not proof of priority.",
+      "searches": [
+        "pulse vaccination logistic SIR exact Lyapunov IS^beta critical threshold global phase resolved inverse n",
+        "periodic disease-free SIR impulse vaccine population critical weighted product invariant reciprocal infection rate",
+        "\"pulse vaccination\" \"1/t\" infection periodic impulsive logistic"
+      ]
+    },
+    "rationale": "The exact-model full-text transcription of Maurício de Carvalho--Rodrigues, arXiv:2312.02306, Eq.(8), Theorem A, Lemma 7 and Sections 7 and 11, gives the model, disease-free pulse orbit, strict-side thresholds, and transcritical crossing, but not the equality-case global Lyapunov identity, n-scaled infection profile, or leading susceptible deficit. Nearby indexed results concern distinct SIR, SEIR and pulse-phase models and do not imply the full two-variable claim. A stage-structured pulsed SIR paper has different equations. Search absence is not a uniqueness proof.",
+    "residual_risks": [
+      "Unindexed earlier use of the same weighted-product identity or an equivalent Floquet/normal-form coefficient could exist.",
+      "The 2024 numerical-method paper was not retrieved in full (rate limit), although its displayed linear-demography model differs materially.",
+      "The high-confidence comparisons are specific cited sections, not an exhaustive review of all world literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model but inspected results are open-side or local; equality-case global phase-resolved asymptotics not present in inspected sections.",
+        "evidence": [
+          "Eq.(8) matches Sdot=S(A-S)-beta SI, Idot=beta SI-delta I with S pulses and unchanged I.",
+          "Theorem A brackets p2 in strict intervals; Lemma 7 computes R_p; Section 11 gives multiplier crossing."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/383190903_Pulse_vaccination_in_a_SIR_model_Global_dynamics_bifurcations_and_seasonality",
+        "material_read": "Author-uploaded full-text HTML transcription, targeted passages: model Eq.(8), Theorem A, Lemma 7, disease-free orbit, Floquet multipliers, Section 11, discussion of the transcritical boundary.",
+        "method": "Read page text and compare model equations, exact parameter threshold, hypotheses and conclusions.",
+        "title": "Pulse vaccination in a SIR model: global dynamics, bifurcations and seasonality",
+        "trigger": "Exact originating model and threshold; highest overlap risk"
+      },
+      {
+        "assessment": "Two susceptible stages with pulsed births and vaccinations, unlike logistic continuous susceptible growth; no direct implication.",
+        "evidence": [
+          "Section 2 uses four classes and separately timed birth and vaccine pulses.",
+          "Abstract addresses disease-free global stability and permanence, not a phase-coefficient identity for the present model."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13662-016-0853-z",
+        "material_read": "Open-access HTML, Abstract and Sections 1-3 including displayed stage-structured pulse equations.",
+        "method": "Compared state variables, birth mechanism, pulse schedule and global conclusions.",
+        "title": "Dynamics of an SIR epidemic model with stage structure and pulse vaccination",
+        "trigger": "Earlier pulsed SIR global asymptotic comparison"
+      },
+      {
+        "assessment": "Different vital-growth equations and focus on a time-discretization method; plausible broader background but not decisive exact coverage.",
+        "evidence": [
+          "Publisher abstract states construction of an impulsive linearly implicit numerical scheme and global attractivity sufficient conditions.",
+          "Model excerpt uses Sdot=b-beta SI-bS instead of Sdot=S(A-S)-beta SI."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/axioms13120854",
+        "material_read": "Search-exposed abstract and model-section excerpt identifying linear vital terms; full publisher retrieval rate-limited.",
+        "method": "Compared model description and reported conclusions; full paper not claimed read.",
+        "title": "Impulsive Linearly Implicit Euler Method for the SIR Epidemic Model with Pulse Vaccination Strategy",
+        "trigger": "Numerical/analytical pulsed SIR comparison"
+      },
+      {
+        "assessment": "State-dependent saturating vaccination with linear demographic recruitment; its theorems do not directly cover fixed-pulse logistic susceptible profile.",
+        "evidence": [
+          "Section 2 models vaccination coverage as a saturated function of susceptible density.",
+          "Model introduction assumes constant birth/death rates rather than logistic susceptible self-limitation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/670263",
+        "material_read": "Open HTML introduction and model description including saturating state-dependent pulse fraction.",
+        "method": "Compared impulse law and susceptible recruitment assumptions.",
+        "title": "Nonlinear Pulse Vaccination in an SIR Epidemic Model with Resource Limitation",
+        "trigger": "Earlier SIR pulse intervention model with nonlinearities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8f3a582-62c9-4210-9d46-b57d842e832f",
+  "value": {
+    "rationale": "The exact invasion threshold is a mathematically and epidemiologically natural missing boundary between disease-free and endemic phase diagrams. A global strict Lyapunov obstruction, all-initial-state clearance, explicit pulse-phase infection amplitudes and a signed susceptible correction identify what the neutral Floquet multiplier alone cannot quantify. The invariant and phase coefficients are specific structural information, not parameter renaming, a small numerical improvement, or a generic textbook local asymptotic.",
+    "status": "PASS"
+  }
+}
