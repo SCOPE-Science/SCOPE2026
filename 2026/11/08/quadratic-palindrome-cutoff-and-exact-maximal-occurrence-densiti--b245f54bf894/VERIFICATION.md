@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-Reproduce from the embedded standalone file: `python3 verify_palindrome.py`. The test enumerates all starts for the longest length and the next two lengths in substitution prefixes, bases \(3\) through \(10\), including direct comparison with the claimed occurrence formula. It also checks modular arithmetic cases for bases \(3\) through \(250\). Observed output: `VERIFY_OK bases=3..10 palindrome_window_tests=2363532 modular_cases=1488`.
+## correctness
 
-The proof is in `RESULT.md`. The certificate is not an exhaustive computation over bases or the infinite word. The decisive nonstandard ingredients are the transition recurrence, the residue-reflection obstruction, the exceptional \(b=3\) parity check, and the primitive substitution's transition density. No independent scientific audit has been performed.
+PASS
+
+For b>=3 the fixed point w of 0->0^(b-1)1, 1->1^(b-1)0 has the XOR transition sequence d with mandatory 1 at residue b-2, optional 1 at b-1 and zeros elsewhere. No b consecutive zeros nor three consecutive ones occur. Reflection of mandatory transition ones in a transition palindrome restricts its center to two residues; lengths b^2 and b^2-1 would force b forbidden consecutive parent symbols. For maximal w-palindrome length b^2-1 the residue count and parity exclude all start residues except 0; an exact run of b parent letters yields only the two stated complementary words. Every b-run starts at parent block end, giving occurrence positions b^2*t+b(b-1) with w(t)=1-a,w(t+1)=a. The primitive induced transition substitution has 1-density 2/(b+1), yielding 01 and 10 densities 1/(b+1) and each maximal-palindrome start density 1/[b^2(b+1)]. The b=2 case is explicitly excluded. Independent literal prefix enumeration for bases 3,4,5,6,7 at 25,000 letters each matched all predicted maximal starts and found no length b^2 palindromes.
+
+## originality
+
+PASS
+
+The Mephisto substitution and the general finite-palindrome/automatic-prefix-length theory are prior art. The infinite-base sharp cutoff, exact two maximizing words, and complete occurrence-density law survive comparison to the identified primary literature and unrelated published morphic-word classifications.
+
+## value
+
+PASS
+
+A natural automatic-word family has a sharp quadratic palindromic cutoff, precisely two extremal factors and exact occurrence densities, all over an infinite base parameter. These are structural combinatorics-on-words facts, not arbitrary finite-window counts or a mere reindexing of prefix palindromic length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

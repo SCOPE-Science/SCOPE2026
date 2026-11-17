@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:54:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 0a771e267b0e207e3848e082d0bf2b380ea8943d",
+        "Frozen verify_palindrome.py blob bb47e8cfb1d6d23a31050f7b755aad7b6181a594",
+        "Independent 25,000-character literal palindrome/start census for b=3..7"
+      ],
+      "rationale": "For b>=3 the fixed point w of 0->0^(b-1)1, 1->1^(b-1)0 has the XOR transition sequence d with mandatory 1 at residue b-2, optional 1 at b-1 and zeros elsewhere. No b consecutive zeros nor three consecutive ones occur. Reflection of mandatory transition ones in a transition palindrome restricts its center to two residues; lengths b^2 and b^2-1 would force b forbidden consecutive parent symbols. For maximal w-palindrome length b^2-1 the residue count and parity exclude all start residues except 0; an exact run of b parent letters yields only the two stated complementary words. Every b-run starts at parent block end, giving occurrence positions b^2*t+b(b-1) with w(t)=1-a,w(t+1)=a. The primitive induced transition substitution has 1-density 2/(b+1), yielding 01 and 10 densities 1/(b+1) and each maximal-palindrome start density 1/[b^2(b+1)]. The b=2 case is explicitly excluded. Independent literal prefix enumeration for bases 3,4,5,6,7 at 25,000 letters each matched all predicted maximal starts and found no length b^2 palindromes.",
+      "residual_risks": [
+        "The bounded check is not a proof for every base; the analytic reflection/run and primitive-frequency arguments supply that extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frid–Laborde–Peltomäki derive automaticity of prefix palindromic-length differences when palindromes are finite, but do not identify the exact finite bound here."
+        ],
+        "reasoning": "The general automaticity theorem takes finiteness as an assumption rather than proving the b^2-1 maximum or counting its occurrences; other few-palindrome constructions use different morphisms.",
+        "searches": [
+          "generalized Mephisto Waltz word uniform morphism 0^(b-1)1 1^(b-1)0 maximal palindrome length b^2-1 density",
+          "https://arxiv.org/abs/2009.02934",
+          "https://arxiv.org/abs/2311.13003"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2009.02934",
+        "https://arxiv.org/abs/2311.13003",
+        "https://arxiv.org/abs/2201.09556",
+        "https://oeis.org/A064990",
+        "Resultary semantic search: generalized Mephisto Waltz word uniform morphism 0^(b-1)1 1^(b-1)0 maximal palindrome length b^2-1 density"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Automaticity of a prefix-length difference sequence and palindromic properties of a different morphic family do not force these exact longest-factor types or densities."
+        ],
+        "reasoning": "The submitted transition reflection restrictions and parent-run correspondence are substantive new implications needed beyond the cited results.",
+        "searches": [
+          "generalized Mephisto Waltz word uniform morphism 0^(b-1)1 1^(b-1)0 maximal palindrome length b^2-1 density",
+          "https://arxiv.org/abs/2009.02934"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A064990 identifies the b=3 generating substitution; existing prefix-palindromic length theorems do not state the longest reversal-palindromic factors."
+        ],
+        "reasoning": "Distinguished ordinary contiguous reversal palindromes from reverse-complement factors, prefix palindromic length, rich words, and period-doubling words; those invariants do not specialize to the exact cutoff or occurrence sets.",
+        "searches": [
+          "generalized Mephisto Waltz word uniform morphism 0^(b-1)1 1^(b-1)0 maximal palindrome length b^2-1 density",
+          "Mephisto Waltz A064990 longest ordinary palindrome"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS documents the base-three word, not the uniform b>=3 maximum length, two explicit palindromes, or start densities."
+        ],
+        "reasoning": "A sequence entry for the defining word is not a table of the requested invariants. No indexed all-b table matching the theorem was located; this is not treated as affirmative proof of novelty.",
+        "searches": [
+          "generalized Mephisto Waltz word uniform morphism 0^(b-1)1 1^(b-1)0 maximal palindrome length b^2-1 density",
+          "https://oeis.org/A064990"
+        ]
+      },
+      "rationale": "The Mephisto substitution and the general finite-palindrome/automatic-prefix-length theory are prior art. The infinite-base sharp cutoff, exact two maximizing words, and complete occurrence-density law survive comparison to the identified primary literature and unrelated published morphic-word classifications.",
+      "residual_risks": [
+        "An earlier exact automata/word-combinatorics enumeration for this family might be unindexed or formulated through maximal palindromic factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not_covering_exact_claim",
+          "evidence": [
+            "Its result concerns automaticity conditional on bounded palindromes, not this base-parameterized maximum and density."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.02934",
+          "material_read": "Accessible primary full text, including the theorem on prefix palindromic length automaticity and definitions",
+          "method": "Read primary HTML/full-text sections; compared theorem hypotheses and conclusion",
+          "title": "On prefix palindromic length of automatic words",
+          "trigger": "Potential general theorem dominating finite-palindrome morphic words"
+        },
+        {
+          "assessment": "definitional_prior_art",
+          "evidence": [
+            "The 0->001, 1->110 rule is known; this does not list the present longest-palindrome classification."
+          ],
+          "identifier_or_url": "https://oeis.org/A064990",
+          "material_read": "Sequence definition and morphism",
+          "method": "Opened sequence record",
+          "title": "Mephisto Waltz word A064990",
+          "trigger": "Exact base-three object and possible table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fixed point morphism and transition proof",
+        "Base-three Mephisto object A064990",
+        "Independent literal finite-prefix tests"
+      ],
+      "rationale": "A natural automatic-word family has a sharp quadratic palindromic cutoff, precisely two extremal factors and exact occurrence densities, all over an infinite base parameter. These are structural combinatorics-on-words facts, not arbitrary finite-window counts or a mere reindexing of prefix palindromic length.",
+      "residual_risks": [
+        "It intentionally excludes b=2 and does not classify all shorter palindromes or prefix palindromic-length functions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Finite tests only for bases 3..7; proof supplies all b>=3. No assertion for Thue–Morse b=2, shorter palindromes, or definitive historical priority.",
+  "schema_version": 1
+}
