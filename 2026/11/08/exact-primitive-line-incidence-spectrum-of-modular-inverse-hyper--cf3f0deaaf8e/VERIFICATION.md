@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `python3 verify.py` using the standard Python 3 library from the package directory. The script independently enumerates every primitive affine line using the two canonical coefficient normalizations, intersects them with the modular inverse hyperbola, and compares the entire multiplicity distribution against the formula. It also checks both incidence moment identities and the extremal line counts.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-```
-VERIFY_OK cases=15 all_primitive_lines=292402 first_moment=PASS sharp_maxima=PASS
-```
+PASS
 
-The tested \(p,k\) values are \((3,1),(3,2),(3,3),(3,4),(3,5),(5,1),(5,2),(5,3),(7,1),(7,2),(7,3),(11,1),(11,2),(13,1),(13,2)\). All tested prime powers are finite: this verifies no unbounded universal quantifier, and cannot exclude a counterexample beyond the tested cases. The paper's classification rests on the stated arithmetic argument; the verifier provides a separate finite consistency check. No independent external audit has been carried out.
+A primitive affine ring line has exactly one canonical form X+bY=c or aX+Y=c with a∈pR, so T=q²+q p^(k-1) lines. On the hyperbola xy=1, each form reduces to a quadratic in unit x. The second family yields only single roots by Hensel; in the first, discriminant z²=c²-4b has 2 unit roots, 2p^h roots for nonzero square strata valuation 2h, and p^floor(k/2) roots for zero discriminant. Correct unit-root exclusions and line counts yield N1=2(p-1)S², N2=(p-1)(p-2)S²/2, N_(2p^h)=(p-1)U p^(k-2h-1)/2, N_(p^floor(k/2))=U for k>=2, separate k=1 branch and N0 by subtraction. Independent exhaustive line-point counting of 7 (p,k) cases including (3,3),(5,2),(7,2), 4672 total canonical lines, corroborated exact spectrum and first incidence moment.
+
+## originality
+
+PASS
+
+Khan–Magner–Senger–Winterhof use classical quadratic roots for Euclidean straight-line collinearity of integer representatives, not all primitive modular ring-affine line subsets. Survey and Ford–Khan–Shparlinski examine Euclidean geometric statistics. Closely related Resultary finite-chain-ring additive convolution is a different invariant. No inspected paper supplies complete all-lines N_j, maximum-attainer count and limiting fractions.
+
+## value
+
+PASS
+
+A uniform complete incidence multiplicity classification for the natural inverse hyperbola and all primitive affine lines over finite local rings is a geometrically meaningful exact invariant, with sharp tangencies and stabilized distributions, beyond any isolated finite-case enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
