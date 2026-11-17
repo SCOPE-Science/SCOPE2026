@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:39:56.710535Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With common Poisson clock the coordinates are conditionally independent centered Gaussians of shared variance V=2D integral exp(2gamma u)(1-s)^(2N_u)du. Verified the generator on v^p gives -Delta_p v^p+2Dp v^(p-1), and the surrogate gives -barDelta_p v^p+2Dp v^(p-1). The integrability iff positive criterion follows from Minkowski for sufficiency and truncated-generator stationarity plus positivity for necessity. Products  (2D)^p p! /prod_j Delta_j and Gaussian Wick factors give all even mixed moments. Independently checked s=1/2, lambda=D=1, gamma=1/3 gives E[V]=12/5, E[V^2]=1152/65, Cov=3888/325, with Gaussian barDelta_2<0. High-order cutoff z_c solves (1-e^(-2z_c))/(2z_c)=gamma/lambda; Gaussian cutoff 1-gamma/lambda. No finite simulation was promoted to an all-p proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Oct26 proves full Pareto tail exponents for original and approximating one-coordinate processes, which determine existence of every moment; Galla introduces common-noise many-particle approximation and correlation."
+        ],
+        "reasoning": "All-order tail exponents dominate the new finite-moment thresholds; conditional Gaussian extension to multiple independent Brownian drives shares a single environmental variance.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "https://arxiv.org/html/2602.21635"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-high-moment-boundary-that-escapes-weak-reset-gaussian-d--0fd84d50ad50",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+        "https://arxiv.org/html/2602.21635"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published s-dependent exponent p_s implies E|X|^(2p)<infinity iff p_s>2p, giving current Delta_p>0. Prior asymptotic p_s~c_b/s with c_b=2z_c."
+        ],
+        "reasoning": "This is decisive stronger-theorem coverage. Substituting one pair of parameters and using Wick conditional factorization yields the submitted cutoffs and cross-square example.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "https://arxiv.org/html/2602.21635"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior psi_s(2p)=-Delta_p; prior psi_DA(2p)=-barDelta_p, identical s,lambda,gamma,D and stochastic dynamics."
+        ],
+        "reasoning": "The current moment existence conditions are precisely the existing positive-tail exponent criterion in even moment variables.",
+        "searches": [
+          "Resultary: partial resetting proportional Poisson Brownian gas Ornstein Uhlenbeck unstable drift exact high moments threshold diffusion approximation common reset",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both prior and new work give fourth-moment wedge gamma/lambda between 1-3s/2 and 1-3s/2+s^2-s^3/4, identical common variance and asymptotic high-p ratio."
+        ],
+        "reasoning": "The exact boundary is already in published earlier table/formula even though previous presentation uses tail exponent rather than variance moments.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "Resultary: partial resetting proportional Poisson Brownian gas Ornstein Uhlenbeck unstable drift exact high moments threshold diffusion approximation common reset"
+        ]
+      },
+      "rationale": "FAIL from exact theorem implication, not a lack of search. October 26 published full RESULT.md already proves the identical one-coordinate jump-diffusion and surrogate tail indices via psi_s(u)=gamma*u+(lambda/s)((1-s)^u-1) and psi_DA(u)=(gamma-lambda)u+lambda*s*u(u-1)/2. Its tail theorems give all absolute moment finiteness thresholds by substituting u=2p, since -psi_s(2p)=Delta_p and -psi_DA(2p)=barDelta_p. It also proves the identical finite true/infinite surrogate fourth-moment wedge and 1/s tail-index separation. Multiple coordinates share a clock and are conditionally Gaussian, an established construction in Galla; the joint-even-moment threshold and covariance are immediate Gaussian tensorization/normalization of known one-particle moments. The new product notation does not evade stronger coverage.",
+      "residual_risks": [
+        "The rejected work may include differently presented exact moment products not printed in the prior paper; these are elementary generator recurrences and do not restore novelty to its principal claims.",
+        "Original joint moment statement presumes distinct coordinates N>=2 and common clock; previous one-coordinate tail proof and Gaussian-mixture conditional independence cover its quantitative cutoffs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_COVERAGE",
+          "evidence": "Same original exact SDE and diffusion surrogate; tail exponent positive root and 4th-moment wedge imply submitted integrability thresholds for every even order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "material_read": "Complete earlier RESULT.md, all hypotheses, explicit full tail proof, fourth-moment strip and weak-reset expansion",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Exact moment-loss wedge and Pareto-exponent reversal under frequent partial resetting",
+          "trigger": "identical Poisson contraction and Gaussian surrogate"
+        },
+        {
+          "assessment": "COVERING_COMPONENT",
+          "evidence": "Known common-noise diffusion and Gaussian-mixture mechanism; not an independent new correlated-statistics model.",
+          "identifier_or_url": "https://arxiv.org/html/2602.21635",
+          "material_read": "Primary main article and supporting derivation of many-particle Gaussian environmental noise and square correlation, as accessible",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "the original common-noise Gaussian surrogate and shared-clock model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Brownian-gas question is naturally motivated, but the final advertised moment-loss window, fourth-order counterexample and high-order cutoff are direct consequences of the earlier exact one-particle tail theorem. The joint moment products and square covariance follow mechanically from the same conditional Gaussian variance already in the literature. This does not constitute a separately needed, non-implied mathematical fact; correctness and explicit formulas alone cannot rescue intrinsic duplication.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-high-moment-boundary-that-escapes-weak-reset-gaussian-d--0fd84d50ad50",
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+    "https://arxiv.org/html/2602.21635"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is originality/value coverage only, not a correctness failure.",
+    "No inference about more general nonlinear/reset-distribution models."
+  ],
+  "residual_risks": [
+    "The rejected work may include differently presented exact moment products not printed in the prior paper; these are elementary generator recurrences and do not restore novelty to its principal claims.",
+    "Original joint moment statement presumes distinct coordinates N>=2 and common clock; previous one-coordinate tail proof and Gaussian-mixture conditional independence cover its quantitative cutoffs."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "STRONG_COVERAGE",
+      "evidence": "Same original exact SDE and diffusion surrogate; tail exponent positive root and 4th-moment wedge imply submitted integrability thresholds for every even order.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+      "material_read": "Complete earlier RESULT.md, all hypotheses, explicit full tail proof, fourth-moment strip and weak-reset expansion",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Exact moment-loss wedge and Pareto-exponent reversal under frequent partial resetting",
+      "trigger": "identical Poisson contraction and Gaussian surrogate"
+    },
+    {
+      "assessment": "COVERING_COMPONENT",
+      "evidence": "Known common-noise diffusion and Gaussian-mixture mechanism; not an independent new correlated-statistics model.",
+      "identifier_or_url": "https://arxiv.org/html/2602.21635",
+      "material_read": "Primary main article and supporting derivation of many-particle Gaussian environmental noise and square correlation, as accessible",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "A diffusion approximation for systems with frequent weak resetting",
+      "trigger": "the original common-noise Gaussian surrogate and shared-clock model"
+    }
+  ]
+}
