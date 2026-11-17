@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the all-iteration covariance-probing law
+# Independent mathematical audit
 
-The proof uses the exact covariance polynomial in the normal matrix, so every statement for all positive iteration indices is an algebraic theorem under the listed hypotheses, not a finite numerical extrapolation. A Rademacher coordinate-product bijection and the projector identity \(P^2=P\) justify the sub-Gaussian proxy; the flat-spike binomial counting is exhaustive at arbitrary finite parameters by the independent-sign proof.
+## correctness
 
-Run `python verify.py` with Python 3.9+ and NumPy. The observed output was:
+PASS
 
-```
-VERIFY_OK; 1200 dense-operator comparisons; 6 exact exhaustive binomial cases; 20 endpoint checks
-```
+For B=lambda_- I+(lambda_+-lambda_-)P, functional calculus gives Gamma_k=sigma^2(q_- I+(q_+-q_-)P). Each Rademacher probe has w_j^2=1, hence signed relative error equals (p_hat-p)(t_k-1)/(1+p(t_k-1)). The ratio t_k falls strictly from kappa at k=1 to 1/kappa as k tends to infinity for 0<omega<=1/lambda_+; scalar absolute ratio is maximized at endpoints, with threshold p=1/2. P^2=P gives row off-diagonal square sum p(1-p), yielding horizon-free Hoeffding and an exact binomial flat-spike tail. Independent dense rational/float probes checked 720 scalar identities and 9 binomial normalizations; not the proof of all k.
 
-The script creates random orthoprojectors of ranks one and co-rank one and tests the signed error identity against explicit dense covariance multiplications at eight iteration counts and many positive step sizes. Six small finite Rademacher models are enumerated exhaustively and their multiplicities compared with binomial coefficients. The checker also verifies both endpoint factors and their threshold ordering. Finite tests do not establish infinite-time monotonicity; the weighted-average argument in RESULT.md does. The probability tail bound is the standard Rademacher moment-generating-function inequality applied once to the shared projector estimator; it does not require checking infinitely many steps computationally.
+## originality
 
-Limitations: exact arithmetic is assumed; the code uses floating-point computations for diagnostic dense tests, not a formal proof of their validity for untested inputs. The estimator targets the exact propagated covariance rather than a randomized-SVD approximation. Independent audit has not been performed.
+PASS
+
+No directly covering theorem after statement-level searches, with residual risks recorded. The surviving claim is not an identified corollary of the compared sources.
+
+## value
+
+PASS
+
+A horizon-free pathwise error identity directly addresses reuse of random diagonal probes across Landweber iterates and the stopping-index issue. The universal leverage 1/2 endpoint switch and exact flat-spike tail distinguish a genuine common-randomness problem from merely repeating fixed-matrix confidence intervals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
