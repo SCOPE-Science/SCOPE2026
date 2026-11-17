@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:57:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For full-dimensional simplex Δ, K_t=(1-t)Δ+t(-Δ), normalized mixed volume Q_{n,k}=V(K_t[n-k],-K_t[k])/vol(K_t). Orthant slicing gives F_n(a,b)=Σ binom(n,j)^2 a^(n-j)b^j. With a+b=1 and p=ab, H_n(p)=Σ n!p^j/[(n-2j)! j!²] has positive-factor product from simple zeros of Legendre P_n. The normalized reflected polynomial factors as (s+u)^n∏(1+r_i(p)su/(s+u)^2), r_i(p)=λ_i(1-4p)/(1+λ_i p) strictly decreasing. Every interior coefficient includes positive binom(n-2,k-1)e_1, hence strict decrease from binom(n,k) to 1 as t grows 0 to 1/2. Hypergeometric binomial-square second moment yields center quadratic 2k(n-k)/(2n-1). Verified by separate exact rational coefficient calculations for n=2..8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fryš et al general Godbersen bound supplies Q_{n,k}(t)<=binom(n,k), with equality at simplex t=0; does not establish Q(t1)>Q(t2).",
+          "Artstein-Avidan–Putterman bound unbalanced primal volume and aggregated weights rather than individually ordered normalized coefficients."
+        ],
+        "reasoning": "An all-K endpoint upper bound and a known symmetric lower endpoint do not logically imply monotonicity along an intermediate path, much less the second-order coefficient. A yet-unread theorem may be more general; retain risk.",
+        "searches": [
+          "Fryš et al 2026 Higher-order Godbersen inequality arxiv2610.06806",
+          "Artstein-Avidan Putterman On unbalanced difference bodies Godbersen 2024",
+          "Fryš Kotrbatý higher-order difference bodies"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.06806",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276",
+        "https://arxiv.org/abs/2412.05308",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/SLOGAN.txt",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276: strict Mahler product of the same interpolated bodies; includes polar factor, not polarization V(K_t[n-k],-K_t[k]).",
+          "General Godbersen endpoint bound does not compare two interior t values."
+        ],
+        "reasoning": "The prior implication stops at endpoint inequalities; the candidate produces strict derivative sign for each interior mixed-volume coefficient. Santaló product cannot recover these individual ratios without additional unproved conditions.",
+        "searches": [
+          "Reviewed candidate coefficient factorization in RESULT.md",
+          "Fryš–Kotrbatý general Godbersen endpoint theorem",
+          "Resultary Santaló/Mahler monotonic interpolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identity F_n(a,b)=Σ binom(n,j)^2a^(n-j)b^j is classical and used as input; the candidate compares coefficients for (K_t,-K_t), normalized by vol(K_t).",
+          "Primal volume H_n(p) alone is not the same as Q_{n,k}(t)."
+        ],
+        "reasoning": "The final invariant concerns the mixed-volume polarization of a new body and its reflection, divided by the new volume. It is not simply the known volume of an unbalanced difference body; the product decomposition supplies the missing coefficient comparison.",
+        "searches": [
+          "Reflected simplex mixed volumes t(-Δ)+(1-t)Δ Legendre polynomials",
+          "Godbersen normalized mixed ratios under Minkowski symmetrization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949: exact coefficient profile for a ONE-VERTEX TRUNCATED simplex (different family), no (1-t)Δ+t(-Δ) monotone coefficient theorem."
+        ],
+        "reasoning": "The candidate all-dimensional all-index strict coefficient order cannot be inferred by renaming the truncation parameter. Not a database exact value or previously known finite table.",
+        "searches": [
+          "Resultary exact Godbersen profile for one-vertex truncated simplex",
+          "Legendre H_n(p) coefficient generating function"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Fryš–Kotrbatý–Mouamine–Wang prove the general Godbersen inequality and simplex extremizer, fixing endpoint t=0 but not an ordered all-index path of ratios for the mixed body K_t. Artstein-Avidan–Putterman study unbalanced difference-body primal volumes rather than normalized opposite mixed volumes of K_t. Separate Resultary Mahler-profile and vertex-truncated-simplex results concern distinct invariants/deformations. Relevant Fryš full text could not be retrieved with permitted institutional access, so stronger hidden coefficient identities are a documented risk rather than automatic rejection.",
+      "residual_risks": [
+        "Full Fryš et al 2026 primary text inaccessible via lawful arXiv/OA and authorized Oxford VPN (vpn_disconnected), so broader theorem implications cannot be categorically excluded.",
+        "Prior alternate formulations under mixed-volume polarization and hypergeometric polynomials may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full primary implications remain an originality risk, not falsely declared completely noncovering",
+          "evidence": "Available theorem description gives simplex equality for endpoint, not derivative ordering.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06806",
+          "material_read": "Accessible abstract and original candidate text discussing Theorem 1.2; primary full PDF/HTML unavailable",
+          "method": "arXiv and lawful OA attempted; authorized institutional retrieval returned vpn_disconnected, job 2d1a8c12fc76f431959544074b5ac86e",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+          "trigger": "Sharp general mixed-volume bound might dominate interpolation"
+        },
+        {
+          "assessment": "Different deformation family, does not imply reflected simplex symmetrization profile",
+          "evidence": "Truncation depth changes one vertex; K_t is Minkowski combination with the full reflected simplex.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "material_read": "Published theorem summary and shape class; not complete paper read",
+          "method": "Resultary semantic retrieval",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Potential exact finite coefficient profile on related simplex bodies"
+        },
+        {
+          "assessment": "Different invariant, polar Santaló product, not mixed ratios",
+          "evidence": "Mahler product includes a polar-volume factor, does not separately pin down Q_{n,k}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276",
+          "material_read": "Published theorem summary; not whole paper read",
+          "method": "Resultary semantic retrieval",
+          "title": "Strict Mahler-product monotonicity along simplex asymmetric difference bodies",
+          "trigger": "Same K_t but potentially dominating invariant"
+        },
+        {
+          "assessment": "Potential historical-priority risk; not asserted whole-paper noncovering",
+          "evidence": "Primal unbalanced body volume vs individual normalized mixed reflections are not formally equivalent.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.05308",
+          "material_read": "Accessible bibliographic and abstract-level scope information, no complete primary text",
+          "method": "Literature search",
+          "title": "On unbalanced difference bodies and Godbersen’s conjecture",
+          "trigger": "Natural primary deformation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. It provides a natural interpolation among sharp Godbersen extremizers and the symmetric equality body; the simultaneous strict order of all mixed-volume coefficients and exact universal second-order stability quantify the entire coefficient vector, not a repackaging of endpoint bounds. The proof introduces a valuable Legendre-root positive-factor representation rather than a finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.06806",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-strict-mahler-product-monotonicity-along-simplex-asymmetric-diff--516fa817d276",
+    "https://arxiv.org/abs/2412.05308",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-coefficientwise-godbersen-interpolation-along-reflected-s--112759e49c3d/REVIEW.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only full-dimensional simplices in n>=2, 1<=k<=n-1, reflected Minkowski interpolation 0<=t<=1; no general convex-body deformation claim."
+  ],
+  "residual_risks": [
+    "Full Fryš et al 2026 primary text inaccessible via lawful arXiv/OA and authorized Oxford VPN (vpn_disconnected), so broader theorem implications cannot be categorically excluded.",
+    "Prior alternate formulations under mixed-volume polarization and hypergeometric polynomials may be unindexed."
+  ],
+  "schema_version": 1
+}

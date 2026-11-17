@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The theorem's critical premises are (i) the exact orthant decomposition of the simplex difference-body volume; (ii) the factorization of \(H_n\) from the simple interior zeros of Legendre polynomials; (iii) positivity and strict decrease of the factor parameters \(r_i\); and (iv) the second-moment formula for the binomial-square weights. These premises are established within `RESULT.md` except for the classical Legendre zero-location theorem, whose standard orthogonal-polynomial proof is a known input.
+## correctness
 
-Run `python3 verify.py` with the Python 3 standard library. The program reconstructs the normalized reflected-volume polynomial in two independent algebraic ways: by direct binomial expansion of the simplex sum and by the reduced \(H_n\) polynomial. For dimensions 2 through 16 and six rational aperture parameters it checks these identities and the endpoint mixed-volume normalizations exactly; it also checks strict coefficient decrease along five consecutive parameter intervals at all interior indices and the exact center-derivative identity. The observed result in the present package was `PASS 1605`.
+PASS
 
-The checker is a finite exact-arithmetic diagnostic and is not an exhaustive or infinite certificate. Its values support the formulas but do not establish them outside the tested range. The preceding analytic argument handles all stated dimensions, indices and parameters. Independent audit has not been performed.
+For full-dimensional simplex Δ, K_t=(1-t)Δ+t(-Δ), normalized mixed volume Q_{n,k}=V(K_t[n-k],-K_t[k])/vol(K_t). Orthant slicing gives F_n(a,b)=Σ binom(n,j)^2 a^(n-j)b^j. With a+b=1 and p=ab, H_n(p)=Σ n!p^j/[(n-2j)! j!²] has positive-factor product from simple zeros of Legendre P_n. The normalized reflected polynomial factors as (s+u)^n∏(1+r_i(p)su/(s+u)^2), r_i(p)=λ_i(1-4p)/(1+λ_i p) strictly decreasing. Every interior coefficient includes positive binom(n-2,k-1)e_1, hence strict decrease from binom(n,k) to 1 as t grows 0 to 1/2. Hypergeometric binomial-square second moment yields center quadratic 2k(n-k)/(2n-1). Verified by separate exact rational coefficient calculations for n=2..8.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Fryš–Kotrbatý–Mouamine–Wang prove the general Godbersen inequality and simplex extremizer, fixing endpoint t=0 but not an ordered all-index path of ratios for the mixed body K_t. Artstein-Avidan–Putterman study unbalanced difference-body primal volumes rather than normalized opposite mixed volumes of K_t. Separate Resultary Mahler-profile and vertex-truncated-simplex results concern distinct invariants/deformations. Relevant Fryš full text could not be retrieved with permitted institutional access, so stronger hidden coefficient identities are a documented risk rather than automatic rejection.
+
+## value
+
+PASS
+
+PASS. It provides a natural interpolation among sharp Godbersen extremizers and the symmetric equality body; the simultaneous strict order of all mixed-volume coefficients and exact universal second-order stability quantify the entire coefficient vector, not a repackaging of endpoint bounds. The proof introduces a valuable Legendre-root positive-factor representation rather than a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
