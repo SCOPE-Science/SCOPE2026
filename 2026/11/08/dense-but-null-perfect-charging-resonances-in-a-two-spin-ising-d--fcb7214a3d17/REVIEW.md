@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Hermitian matrix has a one-dimensional antisymmetric eigenmode and an irreducible Jacobi triple. The strict nonzero-overlap property makes the three simultaneous odd phases necessary, not just sufficient. The trace, pairwise-eigenvalue sum and determinant yield the explicit reconstruction with the exact positivity domain. Homogeneity and rounding to odd integers prove density, while countability proves planar Lebesgue nullity. The zero-Ising boundary is ruled out by a nonzero-overlap zero mode. The provided standard-library checker replays exact rational identities, independent full-matrix evolution, and approximating parameter sequences. All-domain assertions use the proof.
+PASS
 
-## Originality — PASS (qualified)
+The source Hamiltonian is Hermitian; antisymmetric |m> decouples at -2J and the shifted symmetric block B is an irreducible 3x3 Jacobi matrix when Omega,D>0. Each spectral eigenvector has nonzero |p> component. Perfect transfer |00>→|11> is therefore equivalent to e^{-it beta_j}=-1 for every one of three distinct real eigenvalues. det B=-16JD^2<0, tr B=8J>0 imply exactly one negative root. Equating the full cubic characteristic coefficients yields S1=8J/a, S3=-16JD^2/a^3, Omega^2=a^2 Q with Q=(S1^3-4 S1 S2+8S3)/(16S1), so the stated odd-triple positivity and inverse construction are necessary and sufficient; no spectral-phase branch omitted. Countability proves planar nullity; approximating each real Jacobi eigenvalue by a nearby odd integer on scale k and using continuity at S1,Q>0 proves density of the reconstructed positive (J,D). A zero eigenmode with nonzero |p> projection excludes J=0,D>0. Independently constructed scipy expm for (-1,1,3) gives |<11|U|00>|²=0.9999999999999998 and leakage 3e-16, confirming the witness but not proving density.
 
-The two directly relevant battery works, arXiv:2610.21928 (2026) and arXiv:2406.16047 (2024), supply the model and charging performance but do not state the full odd-triple inverse classification or dense/null two-coupling set in the read text. General spectral commensurability of perfect transfer is long-established and is not claimed as new. The nearest indexed perfect-transfer paper obtains dense rational tunings for a different complete-graph diagonal-shift family and does not imply this Ising/DM inversion. An indexed XY/DM thermal-concurrence result concerns a different physical observable. An unindexed equivalent theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A natural sharp question left by the published near-perfect ergotropy maps is whether exactly complete charging occurs, and how its tunings occupy the physically relevant two-coupling plane. The theorem supplies all exact pairs and times, shows their topological density and zero area simultaneously, and exhibits positive unbounded DM interaction supporting exact full charge. It distinguishes mathematical attainability from noise-robust high performance.
+PASS best knowledge for exact joint two-coupling inverse classification and dense measure-zero set, not for classical phase-commensurability or the battery Hamiltonian itself. Primary Ising/DM charging studies analyze ergotropy, power and noisy or time-dependent behavior; the diagonal-shift complete-graph perfect-transfer result has different control parameters. No inspected prior theorem implies the exact S1,S2,S3 inversion over positive (J,D), though a nonindexed exact-transfer specialization remains a risk.
 
-## Limits of assessment
+## value
 
-Only strictly positive Ising/DM strengths, fixed nonzero transverse drive and noiseless two-spin unitary evolution are covered. None of the claims establishes a noisy-battery guarantee or an optimal shortest time. The finite computational replay does not replace the spectral proof; publication-priority uncertainty persists. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp natural quantum-battery attainability question: all and only positive Ising/DM tunings for exact full charge and all transfer times, simultaneously topologically dense and planar null, plus unbounded positive DM witnesses and a strict J=0 boundary. This resolves exact versus numerical near-perfect charging and can be used when engineering robust approximations; not a short-time or noisy robustness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
