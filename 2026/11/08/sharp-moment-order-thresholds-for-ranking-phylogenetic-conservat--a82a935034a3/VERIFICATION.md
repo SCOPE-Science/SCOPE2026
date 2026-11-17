@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the conservation moment hierarchy
+# Independent mathematical audit
 
-The algebraic proof is equations (1)–(4) of RESULT.md: every protected-leaf gain is a sum of joint extinction probabilities of descendant clades; the two perturbations annihilate all factorial moments through degree \(n-2\), leave the \(n\)-th extinction probability fixed, and shift the \((n-1)\)-way probability by exactly \(2\varepsilon/n\). The length-one clade isolates this shift in a single protection-vs-protection comparison. Uniqueness follows by continuity and a sufficiently small strictly positive branch length.
+## correctness
 
-Run `python3 check.py` from the extracted package using Python 3.8 or later, without third-party packages. It constructs fully supported exchangeable laws for each integer \(n=3,\dots,10\) and verifies the corresponding factorial moment identities with exact `Fraction` values. For the four-taxon example it enumerates **all sixteen extinct subsets**, computes expected intervention gains from the actual rooted-PD survivor set definition, and independently computes them by descendant-edge joint-extinction events. The rational outputs agree and verify both different unique optimizers. This finite replay is not the infinite proof; equations (1)–(4) cover all \(n\ge3\).
+PASS
 
-Independent external validation was not performed.
+The exact gain for protecting leaf i is G_i=sum over edges e containing i of length(e)*Pr(C_e subset E), with no independence assumption. Full-root clades add a common constant to all gains, proving the n<=k+1 sufficiency even with a root stem. For n=k+2, the signed binomial finite-difference perturbation annihilates factorial moments through n-2 and keeps mass at n fixed, but shifts q_(n-1) by 2epsilon/n. The clade A versus singleton d tree makes d and a exchange unique best positions; positivity and strict separation persist for sufficiently small positive delta. Independent exact enumeration of all 16 extinction subsets in the four-taxon witness gives gains (43/16,5/4,1,11/4) and (45/16,11/8,9/8,11/4). Finite n<=10 tests are not used as proof of all k.
+
+## originality
+
+PASS
+
+Older HED marginal-contribution and correlated-extinction frameworks contain the branch-event identity or its ingredients, and nonindependent extinctions changing priorities is not new. This exact information-order cutoff and uniform exchangeable pair with matching all-extinct event, identical lower marginals and unique priority reversal on the same positive tree were not implied by inspected comparator statements. Best-of-knowledge, subject to prior moment-problem decision rankings.
+
+## value
+
+PASS
+
+A natural decision-identifiability threshold: quantifies precisely which order of extinction dependence is required to rank one-species rescue actions. The positive all-support, same-tree, all-order witnesses make the informational limit robust and nontrivial, not merely renaming the gain formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

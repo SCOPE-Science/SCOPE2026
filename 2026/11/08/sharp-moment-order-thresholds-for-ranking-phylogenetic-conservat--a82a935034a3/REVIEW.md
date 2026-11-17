@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The indicator identity for edge survival makes \(G_i=\sum_{e:i\in C_e}\ell_e\Pr(C_e\subseteq E)\) exact for any joint extinction distribution. Edges subtending the entire leaf set contribute equally to every possible intervention; with at most \(k+1\) taxa, every other clade has at most \(k\) taxa. A finite-difference perturbation of a binomial extinction-count distribution cancels all factorial moments of orders up to \(k=n-2\) and the complete-extinction probability while changing the \((n-1)\)-way moment. A common long ancestral edge together with a single distinguished pendant edge creates strict competing rankings, and the exact four-leaf witness verifies the reversal with positive rational lengths. The bundled program independently enumerates 16 four-species outcomes and verifies the gain formula. Exhaustive finite tests are corroborative, not a substitute for the proof for all integers \(k\).
+## correctness
 
-## Originality — PASS within available evidence, provisional
-Steel–Mimoto–Mooers establish independent-extinction phylogenetic contributions; Faller–Steel treat correlated phylogenetic diversity by clade-extinction probabilities; Simianer explicitly establishes conservation ranking changes under dependence for Weitzman diversity and discusses higher-order probabilities, so none of those general ideas is presented as novel. The inspected primary material did not contain a sharp all-order threshold for the **ranking** of protected single tips under rooted PD, or the exchangeable paired laws matching every order through \(k\) and full extinction while giving distinct uniquely optimal tips. Searches of the exact claim, synonyms and related higher-order-interaction literature did not establish a stronger covering statement. General algorithms over all extinction scenarios could in principle subsume the calculation computationally but do not, as inspected, supply this classification. Residual risk: older conservation theory or data-driven ecology work not located during the review may imply the sharp statement. Failure to find it is not proof of priority.
+PASS
 
-## Value — PASS
-The question determines the **minimal order of joint-extinction information** needed for a stable protection priority. It is structurally meaningful because individual and pairwise extinction probabilities are commonly easier to estimate than high-order common-catastrophe probabilities. The all-order theorem gives a sharp boundary rather than an arbitrary numerical slice; its four-taxon rational witness shows that even knowing the all-extinct probability does not resolve an actionable ranking when hidden triple dependence remains. The result is a theoretical sensitivity boundary, not a policy forecast.
+The exact gain for protecting leaf i is G_i=sum over edges e containing i of length(e)*Pr(C_e subset E), with no independence assumption. Full-root clades add a common constant to all gains, proving the n<=k+1 sufficiency even with a root stem. For n=k+2, the signed binomial finite-difference perturbation annihilates factorial moments through n-2 and keeps mass at n fixed, but shifts q_(n-1) by 2epsilon/n. The clade A versus singleton d tree makes d and a exchange unique best positions; positivity and strict separation persist for sufficiently small positive delta. Independent exact enumeration of all 16 extinction subsets in the four-taxon witness gives gains (43/16,5/4,1,11/4) and (45/16,11/8,9/8,11/4). Finite n<=10 tests are not used as proof of all k.
 
-## Limitations and source coverage
-The action does not change other species' extinction distribution; ecological rescue/competition induced by action is excluded. Cost heterogeneity, risk-estimation error, finite ecological mechanisms, and multiple simultaneous interventions are excluded. The nearest published source on correlated Weitzman conservation priority was read in full available public PDF including its discussion of higher-order joint probabilities; its metric and pairwise parameterized examples differ from the sharp rooted-PD moment hierarchy. Priority remains subject to independent expert checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Older HED marginal-contribution and correlated-extinction frameworks contain the branch-event identity or its ingredients, and nonindependent extinctions changing priorities is not new. This exact information-order cutoff and uniform exchangeable pair with matching all-extinct event, identical lower marginals and unique priority reversal on the same positive tree were not implied by inspected comparator statements. Best-of-knowledge, subject to prior moment-problem decision rankings.
+
+## value
+
+PASS
+
+A natural decision-identifiability threshold: quantifies precisely which order of extinction dependence is required to rank one-species rescue actions. The positive all-support, same-tree, all-order witnesses make the informational limit robust and nontrivial, not merely renaming the gain formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
