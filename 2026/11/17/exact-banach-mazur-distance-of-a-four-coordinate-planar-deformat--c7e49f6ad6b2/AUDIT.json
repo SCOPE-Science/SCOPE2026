@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Unit-ball polar has eight explicit edges; exact inverse operator norm is M/|det|. Rowwise boundary reduction is valid. For 48 ordered edge pairs, each affine branch minus c*det is nonnegative by exact degree-eight rational Bernstein certificates at four corner pairs across eight rational subintervals, proving continuum positivity. The remaining 16 cells form three symmetry classes treated by explicit all-parameter inequalities, including a concave endpoint check. The optimal row matrix yields equality. Standalone checker prints 13824 exact nonnegative Bernstein coefficients; finite symbolic proof, no floating-point sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deregowska–Lewandowska 2026 proves d <= lambda/(4-3lambda) for codimension at most two, not equality",
+        "2024 Kobos–Varivoda paper concerns cube/cross-polytope distances in dimensions three and four and other planar geometric cases"
+      ],
+      "reasoning": "Substituting lambda=2(1+t)/(2+t) into the 2026 general upper bound gives (1+t)/(1-t) for t<1, which is strictly weaker than 1+t/2 in the interior, hence it cannot imply exact equality.",
+      "searches": [
+        "interior Banach Mazur distance interpolating square hexagon plane 2(1+t)/(2+t) projection constant",
+        "arXiv:2610.06141v1 Theorem 2.4 and Introduction",
+        "DOI:10.1007/s00454-024-00641-1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.06141v1",
+      "published-finding corpus:2026/10/26/SCOPE-sharp-projection-constants-for-a-symmetric-four-coordinate-defor--5cb469d0202c",
+      "DOI:10.1007/s00025-021-01368-8",
+      "DOI:10.1007/s00454-024-00641-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 prior same norm: d=1+t/2+O(t^2)",
+        "Lassak 2021: distance 3/2 for affine-regular hexagon",
+        "2026 Deregowska–Lewandowska: only a general projection-constant upper bound"
+      ],
+      "reasoning": "A first-order expansion admits arbitrary higher-order terms, so it cannot imply an identity on the full interval. A single endpoint cannot imply the interior. The general upper estimate is strictly weaker. The present lower bound covers unrestricted linear maps, eliminating an unproved symmetry restriction.",
+      "searches": [
+        "exact Banach Mazur distance from a symmetric four coordinate deformation N_t(x,y)=max(|x|,|y|,|x+t y|,|t x+y|) to ell infinity squared equals 1+t/2",
+        "interior Banach Mazur distance interpolating square hexagon plane 2(1+t)/(2+t) projection constant",
+        "Lassak 2021 Theorems 1 and 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026-10-26 identical N_t record gives only first-order distance 1+t/2+O(t^2), explicitly not exact interior distance",
+        "Lassak 2021 Theorem 1 treats affine-regular hexagon endpoint t=1"
+      ],
+      "reasoning": "The current continuous exact equality is stronger than the recorded first-order expansion and the endpoint theorem; none of these mathematical statements determines every interior value.",
+      "searches": [
+        "exact Banach Mazur distance from a symmetric four coordinate deformation N_t(x,y)=max(|x|,|y|,|x+t y|,|t x+y|) to ell infinity squared equals 1+t/2",
+        "public planar parallelogram sandwich and affinely symmetric octagon literature"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact published-finding corpus hit 2026/10/26/SCOPE-sharp-projection-constants-for-a-symmetric-four-coordinate-defor--5cb469d0202c contains only projection constant and first-order BM asymptotics",
+        "No identical source/claim/parameter in 72 recoverable earlier finding claims in the accessible current ledger"
+      ],
+      "reasoning": "Source and object matches were checked at the level of claim implication; no accessible known table gives the full exact t-dependent distance. Negative searches do not establish absolute uniqueness.",
+      "searches": [
+        "exact Banach Mazur distance from a symmetric four coordinate deformation N_t(x,y)=max(|x|,|y|,|x+t y|,|t x+y|) to ell infinity squared equals 1+t/2",
+        "sharp BM distance 1+t/2 for symmetric quadrilateral intersection or octagon deformation",
+        "interior Banach Mazur distance interpolating square hexagon plane 2(1+t)/(2+t) projection constant",
+        "existing own full ledger search: 2610.06141, four-coordinate, banach-mazur distance, Deregowska"
+      ]
+    },
+    "rationale": "The nearest same-family published record yields projection constants and a first-order BM expansion, not an exact interior identity. The motivating qualifying paper yields a weaker upper bound and the Lassak result covers only the hexagon endpoint. The exact all-parameter lower bound is newly established here under checked available sources; priority risk from older equivalent planar formulas persists.",
+    "residual_risks": [
+      "Older equivalent convex-body descriptions might imply the interior formula without matching parameter names.",
+      "Closest same-family 2026 public record was accessible through its scientific abstract/claim only, not its entire source directory; its explicit nonassertion of interior exactness mitigates but does not eliminate this risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "general inequality not exact interior four-coordinate distance",
+        "evidence": [
+          "v1 2026-10-05; MSC 46B20",
+          "Theorem 2.4 is a codimension-two projection-to-distance upper bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06141",
+        "material_read": "2026 full-text introduction, definitions, theorem statements and discussion of limits",
+        "method": "HTML full-text inspection",
+        "title": "Projection Constants and Banach-Mazur Distance in Codimension Two",
+        "trigger": "qualifying motivating paper, exact problem and MSC"
+      },
+      {
+        "assessment": "direct prior on exact projection constant but explicitly only BM first-order asymptotic",
+        "evidence": [
+          "lambda=2(1+t)/(2+t)",
+          "d=1+t/2+O(t^2) without exact interior claim"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-projection-constants-for-a-symmetric-four-coordinate-defor--5cb469d0202c",
+        "material_read": "accessible published title/abstract/claim summary; full individual supporting files not inspected",
+        "method": "semantic mathematical-record search and statement comparison",
+        "title": "Sharp projection constants for a symmetric four-coordinate deformation",
+        "trigger": "same family, closest object/parameters"
+      },
+      {
+        "assessment": "covers t=1 endpoint, not non-regular interior deformation",
+        "evidence": [
+          "Theorem 1: affine-regular hexagon distance 3/2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00025-021-01368-8",
+        "material_read": "full accessible HTML, introduction, precise Theorems 1 and 2 and geometric proof framework",
+        "method": "open-access full HTML reading",
+        "title": "Banach–Mazur Distance from the Parallelogram to the Affine-Regular Hexagon and Other Affine-Regular Even-Gons",
+        "trigger": "same endpoint hexagon and parallelogram target"
+      },
+      {
+        "assessment": "does not state full exact four-coordinate deformation profile",
+        "evidence": [
+          "3D/4D cube–cross-polytope exact distances; separate planar asymmetry construction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00454-024-00641-1",
+        "material_read": "full accessible HTML, abstract and two-dimensional and cubic distance sections",
+        "method": "open-access full HTML inspection",
+        "title": "On the Banach–Mazur Distance in Small Dimensions",
+        "trigger": "potentially broader small-dimensional distance theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c7e49f6a-d6b2-494a-a712-465f78432257",
+  "value": {
+    "rationale": "The exact distortion of a natural real planar norm interpolating between an injective square and the extremal hexagon is a motivated quantitative invariant, not an arbitrary chosen parameter. It strengthens a prior first-order asymptotic to the complete interval and supplies an exact sharp isomorphism and unrestricted global lower-bound certificate. This gives an explicit benchmark linking projection constants to Banach–Mazur geometry.",
+    "status": "PASS"
+  }
+}
