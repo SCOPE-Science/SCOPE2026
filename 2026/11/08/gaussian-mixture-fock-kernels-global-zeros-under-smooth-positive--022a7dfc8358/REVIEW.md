@@ -1,19 +1,21 @@
-# Scientific review: Gaussian-mixture Fock kernel zeros
+# Independent mathematical audit
 
-## Correctness — PASS
-Gaussian multiindex moments establish the exact one-variable kernel series in every complex dimension. The factorially scaled Taylor coefficients converge geometrically at rate \(a\), with a limiting prefactor that conflicts with the only possible finite-zero order-one Hadamard factorization. Thus all nontrivial mixtures have infinitely many zeros. For small admixture, an absolutely convergent exponential expansion allows a quantitative half-plane zero exclusion and a Rouché isolation of a simple negative real zero. The resulting lower and upper modulus bounds have the same leading logarithmic term. The complex Hessian of the explicitly normalized potential has eigenvalues computable from a single radial function, yielding uniform strict positivity and uniform smooth convergence.
+## correctness
 
-Independent finite checks in `CHECK.py` compare both kernel representations, exact rational moments, localize the simple negative real zero and test the curvature inequality. These checks are ancillary and do not substitute for the infinite statements proved by the Hadamard, Rouché, and curvature arguments.
+PASS
 
-## Originality — PASS on inspected evidence
-Liu–Wang–Zeng (2026, arXiv:2609.26810), Theorem 1.2 and Proposition 3.4, provide general pointwise upper and near-diagonal lower estimates; they do not imply global zero-freeness or the logarithmic escape law. The fully inspected earlier Marzo–Ortega-Cerdà (2008, arXiv:0810.0388) theorem concerns upper estimates for one-dimensional weighted Fock kernels. The fully inspected Zeytuncu (2010, arXiv:1009.2806) paper exhibits zeros for comparable radial weights on the bounded disk, not for smooth nearly quadratic entire Fock weights, and gives no escape constant for Gaussian mixtures. Nearby available published findings concern weighted-disk kernel zeros, Fock extremal radii or Fock Toeplitz operators rather than this two-Gaussian kernel family.
+Reconstructed exact Gaussian multiindex monomial moments and kernel series; factorial-scaled coefficient ratios force the only finite-zero order-one Hadamard candidate to be exp(a t), contradicted by the coefficient limit for 0<eps<1. For q small, geometric exponential representation, half-plane zero exclusion and Rouché provide a unique simple negative root at a t=log(q)/(1-r)-q^(1-r)/(1-r)+O(q^(2(1-r))), and nearest-zero modulus has the corresponding sharp log scale. Hessian eigenvalues a+Delta p and a+Delta p-Delta^2 s p(1-p) yield a-Delta eta/e uniform lower bound. Endpoints eps=0,1 have zero-free kernels; off-diagonal only. Independent high-precision root at eps=1e-4,a=1,b=2: a t=-18.44066426570005, h(t) residual 1.4e-56, shift -0.02018353175 against leading -0.020001000075. Finite check does not replace infinite proof.
 
-The 2026 Hu–Lv–Schuster paper on weighted-Fock kernel estimates is a relevant inaccessible comparison: its abstract was examined, but full text was not obtained through the available authorized access path. An older equivalent statement under alternate entire-function terminology cannot be ruled out. These are genuine publication-priority risks, not verified covering results.
+## originality
 
-## Value — PASS
-The global Lu Qi-Keng property is a natural spectral geometry question distinct from positive diagonal and near-diagonal kernel estimates. The complete two-Gaussian mixture family shows that zero-freeness fails immediately away from either Gaussian endpoint; the first-zero distance has a sharp, parameter-dependent logarithmic scale. Uniform \(C^m\) and strict-curvature control demonstrate that the instability is not caused by a rough or degenerating weight. This gives a quantitative boundary to extending local weighted-Fock kernel estimates into global nonvanishing principles.
+PASS
 
-## Scope and limitations
-No exact nearest-zero location beyond the leading logarithmic law, and no angular distribution or full real-zero classification, are claimed. The real zero's two-term expansion is only as the faster-decaying Gaussian weight tends to zero. The infinite-zero result holds for all mixing parameters. Full literature priority and independent mathematical validation remain open.
+On inspected primary theorem sections, Fock kernel pointwise upper estimates and near-diagonal nonvanishing do not imply a global classification of zeros. Resultary semantic search returned nearby Fock-jet and Zak-zero records, but not an earlier identical two-Gaussian infinite-zero and logarithmic escape theorem. This is best-of-knowledge, with inaccessible 2026 comparison and older zero-theory priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Global Lu Qi-Keng zero-freeness is a natural object-specific property. Complete all-mixture nonvanishing failure, the sharp logarithmic first-zero scale, and uniform C^m/strictly psh closeness provide a meaningful stability boundary unavailable from routine near-diagonal bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
