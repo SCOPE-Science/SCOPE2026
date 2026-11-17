@@ -1,19 +1,21 @@
-# Review of radius-order comparison and smooth sharpness
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ball-constrained exact minimizer satisfies a unique scalar-multiplier KKT equation. Its coordinate solution is increasing in its input and decreasing in the multiplier, while its displacement is increasing in both. Comparison of multipliers proves order preservation at fixed radius and monotonicity in radius, hence trajectory-wise dominance under independently chosen ordered schedules. Full nonterminal ball moves decrease the transformed coordinate \(\ell_1\) norm by at least the radius. For smooth sharpness, a feasible trial point annihilates the stiff coordinates; normalizing its cost by the next stiffness and taking the singular hierarchy limit proves that exactly one further coordinate vanishes at each step, giving \(N_1=d\) for small positive stiffness ratio. The proof establishes infinite-dimensional-family claims without relying on finite numerical checks. The included checker passed 960 trajectory comparisons and the quadratic dimension witnesses from two through seven.
+PASS
 
-## Originality — PASS, qualified
+PASS: In orthogonally transformed nonnegative coordinates, the exact strictly convex Euclidean-ball subproblem has a unique KKT multiplier λ and scalar equations p_i+λφ_i’(p_i)=w_i. Scalar outputs are monotone in inputs and inverse-monotone in λ; the displacement norm is nondecreasing in inputs and λ, so the λ adjustment gives an order-preserving ball map at fixed t and coordinatewise output monotonicity as radius grows. Induction compares any ordered radius schedules. Each nonterminal radius-t step reduces transformed ℓ1 by at least t, giving N_t≤ceil(||w0||1/t). The explicit diagonal SPD quadratic with coefficient ε^{i-d} has exactly d nonterminal/terminal steps from ones for sufficiently small ε by a feasible-comparison induction; the construction establishes sharpness for every d≥2 without numerical extrapolation. Independent scalar-KKT bisection comparisons tested 1600 ordered-radius trajectory steps for independent diagonal quadratics in d=2..6.
 
-The nearest same-iteration work is Richtárik–Li (arXiv:2609.35147v1), which proves general convex finite termination and supplies a nonsmooth/polyhedral dimension-sharp family and a general-radius nonmonotonicity example. It does not establish the present coordinatewise radius-order comparison for orthogonally separable objectives or a smooth strongly convex dimension-sharp family. The earlier Gruntkowska–Li–Rane–Richtárik work (arXiv:2502.02002) proves universal convex bounds but not the new comparisons or lower example. Carmon et al. (arXiv:2003.08078) study an accelerated ball-oracle method. Semantic published-claim searches returned related but noncovering methods. Priority risks remain for older isotone resolvent and trust-region literature; absence of a search hit is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-General ball-proximal iteration can exhibit paradoxical radius effects, so a sufficient structural regime in which larger radii can never hurt is relevant to exact trust-region oracle selection. The exact smooth-SPD attainment demonstrates that the dimensional term cannot be blamed on nonsmooth polyhedral geometry alone and clarifies the scope of the generic complexity theory. The contribution is a structural comparison and a natural sharpness boundary; it does not imply a practical oracle-cost improvement.
+PASS best of knowledge: The primary Richtárik–Li paper proves general convergence, an O_d distance/radius bound, a nonsmooth polyhedral sharpness family and counterexamples to radius ordering for arbitrary coupled convex functions. Neither it nor the original Broximal paper proves a coordinatewise radius-order comparison for *all* orthogonally separable strictly convex objectives or a smooth SPD sharpness witness. The statement is restricted enough to avoid contradicting their general nonmonotonicity. Primary Richtárik–Li complete preprint was inaccessible here; this remains a concrete priority risk.
 
-## Limits
+## value
 
-Only exact ball-oracle steps on orthogonally separable strictly convex differentiable objectives are covered. The smooth worst-case family becomes ill-conditioned as the stiffness ratio vanishes. The historical comparison is bounded, and no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Choosing exact ball radii is a structural convergence question, and larger radius does not improve general coupled convex trajectories. The result identifies a natural sufficient geometry where coordinatewise comparison is rigorous for all schedules, strengthens a useful finite-length guarantee, and establishes sharp dimension dependence within smooth strongly convex functions rather than a polyhedral limiting example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:49:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In orthogonally transformed nonnegative coordinates, the exact strictly convex Euclidean-ball subproblem has a unique KKT multiplier λ and scalar equations p_i+λφ_i’(p_i)=w_i. Scalar outputs are monotone in inputs and inverse-monotone in λ; the displacement norm is nondecreasing in inputs and λ, so the λ adjustment gives an order-preserving ball map at fixed t and coordinatewise output monotonicity as radius grows. Induction compares any ordered radius schedules. Each nonterminal radius-t step reduces transformed ℓ1 by at least t, giving N_t≤ceil(||w0||1/t). The explicit diagonal SPD quadratic with coefficient ε^{i-d} has exactly d nonterminal/terminal steps from ones for sufficiently small ε by a feasible-comparison induction; the construction establishes sharpness for every d≥2 without numerical extrapolation. Independent scalar-KKT bisection comparisons tested 1600 ordered-radius trajectory steps for independent diagonal quadratics in d=2..6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richtárik–Li abstract explicitly notes larger radii need not shorten general trajectories, and gives general O_d(1+D/t) termination plus a polyhedral lower family. The earlier Broximal paper gives generic quadratic D²/t² call bounds."
+        ],
+        "reasoning": "General finite termination does not yield coordinatewise comparison; a general-case counterexample outside the separable subclass does not refute the restricted theorem.",
+        "searches": [
+          "https://arxiv.org/abs/2609.35147",
+          "https://arxiv.org/abs/2502.02002",
+          "Acceleration with a Ball Optimization Oracle arXiv:2003.08078"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.35147",
+        "https://arxiv.org/abs/2502.02002",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/radius-order-comparison-and-smooth-sharpness-for-exact-ball-prox--90396b375e46"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The L1 path-length argument relies on per-coordinate sign preservation and one-direction motion under orthogonal separability. The previous general distance-squared bound and polyhedral example do not imply this L1 budget or its smooth sharpness."
+        ],
+        "reasoning": "The new KKT scalar monotonicity lemma and smooth quadratic induction are needed to get the exact conclusion; generic Broximal iteration results alone cannot specialize to it without further argument.",
+        "searches": [
+          "https://arxiv.org/abs/2609.35147",
+          "https://arxiv.org/abs/2502.02002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same exact-ball iteration is called Broximal point method. For separable objective the KKT multiplier couples coordinates; prior general analyses do not state a coordinatewise isotonicity principle."
+        ],
+        "reasoning": "Terminological alias Broximal was compared to exact Euclidean ball-proximal method, with iteration and exact-oracle assumptions matched.",
+        "searches": [
+          "ball constrained proximal exact iteration radius monotonicity separable convex coordinatewise KKT",
+          "https://arxiv.org/abs/2609.35147",
+          "https://arxiv.org/abs/2502.02002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded prior literature did not present a tabulation of smooth SPD diagonal examples with step count d; the new example is an all-d constructive singular hierarchy, not a numerical record."
+        ],
+        "reasoning": "A prior enumeration of finite dimensions would not imply the universal all-d induction and all-schedule order principle.",
+        "searches": [
+          "ball proximal separable quadratic exact radius comparison dimension sharp example",
+          "https://arxiv.org/abs/2609.35147"
+        ]
+      },
+      "rationale": "PASS best of knowledge: The primary Richtárik–Li paper proves general convergence, an O_d distance/radius bound, a nonsmooth polyhedral sharpness family and counterexamples to radius ordering for arbitrary coupled convex functions. Neither it nor the original Broximal paper proves a coordinatewise radius-order comparison for *all* orthogonally separable strictly convex objectives or a smooth SPD sharpness witness. The statement is restricted enough to avoid contradicting their general nonmonotonicity. Primary Richtárik–Li complete preprint was inaccessible here; this remains a concrete priority risk.",
+      "residual_risks": [
+        "Richtárik–Li complete preprint could not be inspected because web arXiv full text was unavailable and authorized institutional retrieval VPN disconnected; specialist full-text check remains desirable.",
+        "Classical monotone operator/proximal comparison theory might imply the separable radius ordering under a different name.",
+        "The smooth sharpness family has arbitrarily ill-conditioned Hessians; no universal fixed ε threshold or oracle runtime is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_PRIOR_WITH_MATERIAL_READ_LIMIT",
+          "evidence": [
+            "Preprint posted 2026-09-28; describes dimension-dependent bound and polyhedral sharpness, not explicit separable order theorem in accessible sections; institutional request VPN disconnected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.35147",
+          "material_read": "Primary arXiv abstract and bibliographic metadata plus accessible academic overview; full primary HTML and PDF inaccessible this run",
+          "method": "Compared stated general convergence/sharpness/nonmonotonicity to the restricted separability result, explicitly limiting negative coverage conclusion",
+          "title": "A Sharper Theory of Ball-Proximal Optimization: Convergence and Radius Selection (Richtárik and Li, 2026)",
+          "trigger": "Exact method, bound and monotonic radius context"
+        },
+        {
+          "assessment": "BASELINE_NO_DOCUMENTED_COVERAGE",
+          "evidence": [
+            "General convex method introduced and squared-distance termination bound; complete text not read"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.02002",
+          "material_read": "Abstract and theorem descriptions, not full primary content",
+          "method": "Compared general radius and squared-distance finite-step results with submitted restricted L1 construction",
+          "title": "The Ball-Proximal (=Broximal) Point Method (Gruntkowska, Li, Rane, Richtárik, 2025)",
+          "trigger": "Foundational exact ball oracle finite termination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Choosing exact ball radii is a structural convergence question, and larger radius does not improve general coupled convex trajectories. The result identifies a natural sufficient geometry where coordinatewise comparison is rigorous for all schedules, strengthens a useful finite-length guarantee, and establishes sharp dimension dependence within smooth strongly convex functions rather than a polyhedral limiting example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only exact ball solves and coordinatewise strictly convex even separable forms after orthogonal transform; no extension to coupled, nonsmooth, or approximate objectives.",
+    "Foundational preprint full text uninspected owing to legitimate access block; novelty remains bounded."
+  ],
+  "schema_version": 1
+}
