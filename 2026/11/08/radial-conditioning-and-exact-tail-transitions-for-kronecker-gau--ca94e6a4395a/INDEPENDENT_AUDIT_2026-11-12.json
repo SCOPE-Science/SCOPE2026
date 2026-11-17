@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:49:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Gaussian polar decomposition separates chi-square squared radii from independent uniform directions. Every normalized factor has second-moment identity; conditioning out removed radial variables makes additional normalization an exact conditional expectation, so convex order and unbiasedness follow for arbitrary nonzero real PSD H. A product-state maximizer has positive spherical-neighborhood measure. AM–GM bounds a probe by (c rho/r^r)(sum squared radii)^r and the sum over m samples by one chi-square sum, giving the upper logarithmic t^{1/r} rate. Requiring one sample’s r independent chi-square radii to exceed a balanced threshold near the maximizing directions gives the matching lower rate; r=0 bounded, r=1 positive exponential moment below its sharp strict threshold, r>=2 none. No critical equality MGF claim. Independent rational chi-square calculations corroborated E Z^2 64/32/16 for H=I4 and the Bell projector product-state radius 1/2. Tail proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer–Avron Theorem 4/5 gives moment bounds and sampling complexity of product probes; Bujanović–Kressner Section 2 gives Gaussian rank-one probability bounds. Generic chaos inequalities bound scales with constants and do not directly state this exact product-state radius."
+        ],
+        "reasoning": "Known concentration frameworks are broader in stochastic polynomials but do not directly identify the matrix-dependent coefficient and comparison of every mixed radial design; implicit specialization remains a risk.",
+        "searches": [
+          "https://arxiv.org/pdf/2309.04952",
+          "https://arxiv.org/pdf/2004.06433",
+          "Gaussian chaos tail Latała theorem exact sharp logarithmic coefficient homogeneous polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2309.04952",
+        "https://arxiv.org/pdf/2004.06433",
+        "https://arxiv.org/abs/math/0505313",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/radial-conditioning-and-exact-tail-transitions-for-kronecker-gau--ca94e6a4395a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known E[Z^2] endpoint identity is implied by spherical fourth-moment factors, but does not by itself imply the exact logarithmic upper-tail constant. New proof uses both a global AM–GM chi-square upper bound and a maximizing-direction lower bound for every residual r and sample m."
+        ],
+        "reasoning": "The tail coefficient requires new explicit angular optimization and two-sided asymptotic; the convex-order design hierarchy is not asserted by the inspected endpoint prior results.",
+        "searches": [
+          "https://arxiv.org/pdf/2309.04952",
+          "https://arxiv.org/pdf/2004.06433",
+          "Latała Estimates of moments and tails of Gaussian chaoses arXiv math/0505313"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer–Avron full PDF Section 3.2 and Corollary 3 discuss all-Gaussian and all-spherical distributions, partial-trace variance; no intermediate subset family with exact convex-loss order."
+        ],
+        "reasoning": "Conditioning on independent chi-square radii is the natural equivalent Rao–Blackwell formulation; endpoints are covered, but its arbitrary-subset and tail law are additional conclusions.",
+        "searches": [
+          "Gaussian rank one Kronecker trace probe partial radial normalization conditional expectation",
+          "https://arxiv.org/pdf/2309.04952",
+          "https://arxiv.org/pdf/2004.06433"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected prior numerical or tabular entry lists the complete r=0,...,d sharp coefficient ladder or convex-loss dominance."
+        ],
+        "reasoning": "There is no exact preexisting family table in the inspected literature; absence of a search result alone does not prove novelty.",
+        "searches": [
+          "Resultary Kronecker Gaussian trace radial conditioning stretched exponential",
+          "https://arxiv.org/pdf/2309.04952"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Bujanović–Kressner and Meyer–Avron give rank-one Gaussian probe bounds and Gaussian versus all-spherical endpoint variance analyses. The fully inspected Meyer–Avron paper treats full product distributions and variance/sampling complexity; it does not state the arbitrary intermediate-subset convex-order family or exact matrix-dependent t^{1/r} logarithmic constant and exponential-moment ladder. Generic homogeneous Gaussian-chaos large-deviation theory can imply related exponents and may implicitly cover sharp coefficients after optimization; the risk is documented. The joint conditional-design theorem survives bounded comparisons.",
+      "residual_risks": [
+        "Classical homogeneous-Gaussian large deviation principles may implicitly give exact log coefficients via a variational contraction; not fully excluded.",
+        "The sharp threshold MGF equality case for one remaining factor is intentionally not classified.",
+        "Only real finite-dimensional nonzero PSD matrices, fixed d/m and independent Gaussian/spherical factors; evaluating product-state numerical radius may be hard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_ENDPOINT_NOT_FULL_HYBRID",
+          "evidence": [
+            "Section 3.2 and Corollary 3 treat all Gaussian versus fully normalized sphere; no displayed exact residual-Gaussian log-tail family"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.04952",
+          "material_read": "Full 42-page arXiv v2 PDF, introduction, Corollary 3, Theorems 4–5, distributional variance and sample complexity sections; page images inspected",
+          "method": "Read original source hypotheses and displayed inequalities; compared endpoint vs hybrid and tail constant",
+          "title": "Hutchinson’s Estimator is Bad at Kronecker-Trace-Estimation (Meyer and Avron)",
+          "trigger": "Strongest direct Kronecker Gaussian/spherical trace estimation prior"
+        },
+        {
+          "assessment": "PARTIAL_GAUSSIAN_PREMISE",
+          "evidence": [
+            "This paper analyzes rank-one Gaussian and Rademacher probes and tail bounds, not a hybrid per-factor Gaussian-sphere design ladder"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.06433",
+          "material_read": "Full 29-page arXiv PDF, introduction and Section 2 Gaussian upper/lower tail bounds; page image inspected",
+          "method": "Compared estimator, product-state geometry, norm/trace tail bounds against submitted precise one-sided t^{1/r} law",
+          "title": "Norm and trace estimation with random rank-one vectors (Bujanović and Kressner)",
+          "trigger": "Earlier Gaussian product probes and heavy-tail motivation"
+        },
+        {
+          "assessment": "RESIDUAL_POSSIBLE_IMPLICATION",
+          "evidence": [
+            "May imply raw tail exponent or exact supremal coefficient after nontrivial specialization; no direct dominance established"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0505313",
+          "material_read": "Paper metadata and theorem descriptions from search only; complete text not verified in this run",
+          "method": "Recorded unresolved comparison rather than claiming full-document noncoverage",
+          "title": "Gaussian chaos tail estimates (Latała, arXiv:math/0505313)",
+          "trigger": "Potential broad implicit homogeneous Gaussian large deviations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Heavy-tail obstruction is an actual problem of Kronecker trace estimation. The claim gives a quantitative design rule, precise tail constants via the product numerical radius, strict monotone convex-loss comparison, and the exact number of radial normalizations needed to gain exponential moments. It is a motivated invariant beyond known endpoint variance reductions; hard computation of rho is disclosed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No moment-generating-function conclusion at its critical equality threshold.",
+    "Generic chaos LDP literature could implicitly cover log-tail constants; retained as specific O risk."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gaussian polar factorization yields exact unbiasedness and conditional mean preservation. The second moments agree with the fourth-coordinate-moment identity, and the upper-tail constant has a matching analytic upper and lower bound via AM–GM and chi-square tail asymptotics. The one-factor exponential-moment threshold is established strictly away from its unclassified endpoint; all other quantifiers and the bounded full-normalization case follow. `verify.py` passed 52 exact-rational algebra checks from the files in this package. Nonzero positive semidefiniteness, finite dimensions, and a fixed sample count are essential.
+## correctness
 
-## Originality — PASS, qualified
-Bujanović–Kressner (arXiv:2004.06433, proof and experiments) address rank-one Gaussian estimates and probability bounds. Meyer–Avron (arXiv:2309.04952, Corollary 3 and Section 3.2) already use radial Gaussian decomposition to compare all-Gaussian and all-spherical variances; those ingredients are known, not newly claimed. Chen–Sun–Xi (arXiv:2610.12534) study tensor Frobenius-norm probes and moments. The comparison found no statement establishing the full intermediate-normalization convex-order family together with the exact large-threshold logarithmic coefficient \(\frac r2(m/(c_J\rho(H)))^{1/r}\). Generic homogeneous Gaussian large-deviation theory may imply the exponent after an additional optimization; the degree of prior implicit coverage warrants specialist review. No directly dominating equivalent was identified in the inspected open literature. An unsuccessful search alone is not a proof of priority.
+PASS
 
-## Value — PASS
-Kronecker probing is a motivated numerical linear-algebra oracle model. The design question of how many Gaussian factors must be normalized to eliminate non-exponential outliers has an exact, general answer, even when the matrix is not itself a Kronecker product. The sharp angular constant is a product-state norm that can differ strictly from the operator norm, as the two-qubit rank-one example demonstrates. The transition is mathematically useful despite the potential difficulty of computing the coefficient in applications.
+PASS: Gaussian polar decomposition separates chi-square squared radii from independent uniform directions. Every normalized factor has second-moment identity; conditioning out removed radial variables makes additional normalization an exact conditional expectation, so convex order and unbiasedness follow for arbitrary nonzero real PSD H. A product-state maximizer has positive spherical-neighborhood measure. AM–GM bounds a probe by (c rho/r^r)(sum squared radii)^r and the sum over m samples by one chi-square sum, giving the upper logarithmic t^{1/r} rate. Requiring one sample’s r independent chi-square radii to exceed a balanced threshold near the maximizing directions gives the matching lower rate; r=0 bounded, r=1 positive exponential moment below its sharp strict threshold, r>=2 none. No critical equality MGF claim. Independent rational chi-square calculations corroborated E Z^2 64/32/16 for H=I4 and the Bell projector product-state radius 1/2. Tail proof is analytic.
 
-## Limitations and closest literature
-The result covers only real PSD matrices, Gaussian factors, fixed dimensions, independent probes and a fixed sample count; it does not give prefactors, dimension-free concentration or a tractable product-state norm algorithm. The all-spherical variance mechanism belongs to Meyer–Avron, and the general large-deviation principle may narrow the claim's conceptual originality. These are recorded publication-precedence risks rather than hidden uncertainties.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Bujanović–Kressner and Meyer–Avron give rank-one Gaussian probe bounds and Gaussian versus all-spherical endpoint variance analyses. The fully inspected Meyer–Avron paper treats full product distributions and variance/sampling complexity; it does not state the arbitrary intermediate-subset convex-order family or exact matrix-dependent t^{1/r} logarithmic constant and exponential-moment ladder. Generic homogeneous Gaussian-chaos large-deviation theory can imply related exponents and may implicitly cover sharp coefficients after optimization; the risk is documented. The joint conditional-design theorem survives bounded comparisons.
+
+## value
+
+PASS
+
+PASS: Heavy-tail obstruction is an actual problem of Kronecker trace estimation. The claim gives a quantitative design rule, precise tail constants via the product numerical radius, strict monotone convex-loss comparison, and the exact number of radial normalizations needed to gain exponential moments. It is a motivated invariant beyond known endpoint variance reductions; hard computation of rho is disclosed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
