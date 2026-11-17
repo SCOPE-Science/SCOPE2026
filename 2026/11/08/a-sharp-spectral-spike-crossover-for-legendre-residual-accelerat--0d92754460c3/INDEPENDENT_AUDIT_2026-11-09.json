@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T15:56:40.040318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For z=(2c−a−b)/(b−a)>1, Legendre parity and positive-coefficient monotonicity give exact |P_n(z)/P_n(z0)| vs unity according to c relative to a+b, including every finite degree. Exterior Laplace asymptotic gives factor q^{2n+1}/(πsqrt(z²−1)) for (2n+1)P_n(z)^2. With one N(0,1) spike and d−1 midpoint uniform bulk, orthogonality gives mean denominator ≈(d−1)/(2n+1), derivative Markov bound gives O(n³/d) relative quadrature error, and Gaussian fourth moments give vanishing relative variance under d/n^4→∞. Slutsky yields (d/q^{2n})R_n⇒[q/(πsqrt(z²−1))]χ¹² and the strict mass trichotomy. Independent degree-2,5,12,25 recurrence/norm/reflection checks support, not replace, proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pedregosa–Scieur studies average-case spectral-density acceleration with normalized Legendre polynomials and explicitly lists outlier modeling as future work.",
+          "Scieur–Pedregosa Polyak momentum bulk asymptotics are for a different recurrence."
+        ],
+        "reasoning": "Even broader average-case algorithm theory does not supply the explicitly computed Gaussian one-spike relative-error limit for this exact Legendre family.",
+        "searches": [
+          "Resultary semantic query: Legendre residual polynomial spectral outlier spike random gaussian initialization chi-square crossover high dimensional q^2n Pedregosa Scieur",
+          "Pedregosa Scieur Average-Case Acceleration Through Spectral Density Estimation 2020 outlier eigenvalues future work",
+          "Legendre orthogonal polynomial outlier Gaussian relative residual chi-square random spectral bulk",
+          "Li 1995 Chebyshev semi iteration perturbed complex line segment spectrum"
+        ]
+      },
+      "checked_sources": [
+        "F. Pedregosa and D. Scieur, Average-Case Acceleration Through Spectral Density Estimation, ICML/PMLR 119 (2020), arXiv:2002.04756 (full paper, especially uniform spectral density and section on outlier modeling).",
+        "D. Scieur and F. Pedregosa, Universal Average-Case Optimality of Polyak Momentum, arXiv:2002.04664 (abstract/results).",
+        "X. Li, The Convergence Rate of the Chebyshev SIM Under a Perturbation of a Complex Line-Segment Spectrum, LAA 230 (1995), abstract only.",
+        "NIST DLMF §§14.15 and 18.15, classical exterior Legendre asymptotics and orthogonality."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Legendre exterior asymptotic is prior; the present new implication combines it with midpoint bulk concentration and one Gaussian chi-square numerator.",
+          "1995 Li Chebyshev perturbation source was abstract-only."
+        ],
+        "reasoning": "An endpoint stability theorem cannot automatically imply a distributional critical window for a distinct spectral recurrence; 1995 potential analogous special case remains a risk.",
+        "searches": [
+          "Resultary semantic query: Legendre residual polynomial spectral outlier spike random gaussian initialization chi-square crossover high dimensional q^2n Pedregosa Scieur",
+          "Pedregosa Scieur Average-Case Acceleration Through Spectral Density Estimation 2020 outlier eigenvalues future work",
+          "Legendre orthogonal polynomial outlier Gaussian relative residual chi-square random spectral bulk",
+          "Li 1995 Chebyshev semi iteration perturbed complex line segment spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Relative outlier weight is precisely R_n=G0²P_n(z)² / ΣG_j²P_n(t_j)² after canceling the common P_n(z0)−² factor; spectral endpoint misspecification gives single-direction blow-up."
+        ],
+        "reasoning": "Exact deterministic reflection belongs to known orthogonal-polynomial behavior, but it does not imply probabilistic chi-square relative takeover without bulk concentration and dimension scaling.",
+        "searches": [
+          "Resultary semantic query: Legendre residual polynomial spectral outlier spike random gaussian initialization chi-square crossover high dimensional q^2n Pedregosa Scieur",
+          "Pedregosa Scieur Average-Case Acceleration Through Spectral Density Estimation 2020 outlier eigenvalues future work",
+          "Legendre orthogonal polynomial outlier Gaussian relative residual chi-square random spectral bulk",
+          "Li 1995 Chebyshev semi iteration perturbed complex line segment spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF asymptotic and Legendre norms are known exact tables but not the random error ratio; no matching single-spike critical distribution database identified."
+        ],
+        "reasoning": "Classical polynomial tables fix individual factors but do not directly yield the stochastic d/q²n transition.",
+        "searches": [
+          "Resultary semantic query: Legendre residual polynomial spectral outlier spike random gaussian initialization chi-square crossover high dimensional q^2n Pedregosa Scieur",
+          "Pedregosa Scieur Average-Case Acceleration Through Spectral Density Estimation 2020 outlier eigenvalues future work",
+          "Legendre orthogonal polynomial outlier Gaussian relative residual chi-square random spectral bulk",
+          "Li 1995 Chebyshev semi iteration perturbed complex line segment spectrum"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: classical polynomial reflection and spectral modeling are preexisting, but the simultaneously specified Gaussian high-dimensional relative-error crossover with explicit χ² constant was not found in examined full source or related SCOPE prior.",
+      "residual_risks": [
+        "X. Li 1995 full text inaccessible, so equivalent classical endpoint perturbation theorem for absolute error cannot be ruled out.",
+        "Explicit scalar Legendre model is not an adaptive optimum for unknown outliers; scope fixed by construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING random one-spike relative-error chi-square critical window and reflection boundary at c=a+b",
+          "evidence": "Authors specifically identify outlier spectral modeling as a future issue rather than prove one-spike high-dimensional takeover.",
+          "identifier_or_url": "https://proceedings.mlr.press/v119/pedregosa20a/pedregosa20a.pdf",
+          "material_read": "Complete accessible PMLR paper, uniform spectral model, Legendre recurrence and section 8 on modeling outlier eigenvalues as future work",
+          "method": "Primary full-PDF reading of construction and discussion",
+          "title": "Average-Case Acceleration Through Spectral Density Estimation",
+          "trigger": "Legendre family is calibrated to uniform bulk interval"
+        },
+        {
+          "assessment": "RESIDUAL_RISK, no whole-paper noncoverage determination",
+          "evidence": "Chebyshev spectrum perturbation can include analogous absolute reflection effects but does not at abstract level show Gaussian relative χ² window.",
+          "identifier_or_url": "https://doi.org/10.1016/0024-3795(93)00361-3",
+          "material_read": "Bibliography/abstract only; full paper not accessible during run",
+          "method": "Journal abstract and citation investigation",
+          "title": "The Convergence Rate of the Chebyshev SIM Under a Perturbation of a Complex Line-Segment Spectrum",
+          "trigger": "Potential stronger general endpoint-misestimation convergence result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Identifies a sharp separation between absolute eigenvector contraction and relative random-error domination in a naturally motivated orthogonal-polynomial spectral accelerator, with an explicit, nondegenerate critical distribution useful for spectral model misspecification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "F. Pedregosa and D. Scieur, Average-Case Acceleration Through Spectral Density Estimation, ICML/PMLR 119 (2020), arXiv:2002.04756 (full paper, especially uniform spectral density and section on outlier modeling).",
+    "D. Scieur and F. Pedregosa, Universal Average-Case Optimality of Polyak Momentum, arXiv:2002.04664 (abstract/results).",
+    "X. Li, The Convergence Rate of the Chebyshev SIM Under a Perturbation of a Complex Line-Segment Spectrum, LAA 230 (1995), abstract only.",
+    "NIST DLMF §§14.15 and 18.15, classical exterior Legendre asymptotics and orthogonality."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One fixed SPD spectral outlier, evenly spaced bulk, Gaussian isotropic initial coordinates, exact Legendre polynomial residual family.",
+    "d_n/n^4→∞ sufficient not optimal; result is asymptotic, not a finite-sample tail bound."
+  ],
+  "residual_risks": [
+    "X. Li 1995 full text inaccessible, so equivalent classical endpoint perturbation theorem for absolute error cannot be ruled out.",
+    "Explicit scalar Legendre model is not an adaptive optimum for unknown outliers; scope fixed by construction."
+  ],
+  "schema_version": 1
+}
