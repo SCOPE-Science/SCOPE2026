@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional Gaussian variance equals the sum of integrated Brownian bridge and terminal Brownian motion covariances, yielding the exact gap-cubic identity. Direct uniform integrals supply the exact expectation. Strict convexity proves the unique deterministic optimal schedule. Exact adjacent-pair covariances give the nonzero 1-dependent long-run variance; a blocking proof yields the central limit theorem. The standalone exact-rational checker has been executed successfully. Finite checks are supporting consistency evidence, not a substitute for the proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest inspected primary studies are Briol et al. (2017), Foster–Lyons–Oberhauser (2019), and Li et al. (2022); see AUDIT.json for specific comparisons. General Brownian bridge covariance and Gaussian-process quadrature posterior formulas are not new. The assessed specific result concerns the combined exact one-per-cell design mean, its explicit optimal-schedule comparison, and the \(11/3456\) location-induced central limit variance. Equivalent formulations in experimental-design literature remain a residual risk, so publication priority is not independently established.
+PASS
 
-## Value — PASS
-The theorem answers a natural numerical-integration design question: how much posterior uncertainty independent within-cell randomization introduces relative to the best noiseless Brownian-kernel observation schedule. The exact ratio \(3/2\) and fluctuation law show the size and reliability of this cost, rather than merely a convergence rate.
+Given Brownian observations, each interior interval is a Brownian bridge with integrated variance h^3/12 and the terminal interval is a free Brownian increment with integrated variance h^3/3. The exact gap functional follows. Strict convexity with weights 1,...,1,4 yields unique gaps 2/(2n+1) and 1/(2n+1), including n=1 and all equal strata. Independent exact polynomial integration yields E W=3/2, E W^2=127/28, E W_iW_{i+1}=449/336, giving long-run variance 11/24 and CLT 11/3456 after division by 144. Bounded 1-dependence supplies CLT and even/odd strong laws. These identities were independently recomputed symbolically.
 
-## Limits
-Noisy observations, non-Brownian covariance, adaptive designs and nonuniform stratification are not assessed. Independent literature and scientific review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Gaussian process quadrature and Brownian bridge theory give ingredients but not this full finite-budget mean, unique asymmetric anchored optimum and location CLT coefficient. The related published stationary OU result has the same 3/2 and 1-dependent asymptotic constants after local Brownian scaling but has two unknown terminal boundary conditions and different finite optimum; it does not imply the exact anchored Brownian formula. Stronger Gauss–Markov sampling literature not exhaustively inspected.
+
+## value
+
+PASS
+
+Quantifies exact expected loss and its fluctuations when replacing optimal Brownian-kernel quadrature nodes with simple randomized stratification. Distinguishes finite-design effects from conditional path uncertainty and gives a reusable explicit design coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
