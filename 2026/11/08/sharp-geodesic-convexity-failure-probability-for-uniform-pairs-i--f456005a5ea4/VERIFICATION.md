@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Analytic and computational verification
+# Independent mathematical audit
 
-The unit-sphere area-normalized probability is computed using a two-point spherical geodesic change of variables and two elementary integrals. The analytic derivation proves the continuum identity; simulations are not substituted for a proof.
+## correctness
 
-The standalone `check.py` implements two independent numerical checks: (i) deterministic Simpson quadrature of the conditional great-circle integral, using a boundary-regularizing substitution; (ii) direct surface-area-uniform sampling of both endpoints and computation of the minimum South/North coordinate over their actual minimizing great-circle arc, without using the integral formula to classify successes. The random generator is seeded, so the displayed check is reproducible.
+PASS
 
-Observed successful samples at six excluded-cap radii had absolute deviations within the specified five-standard-error threshold; the integral agreed with the cubic formula to its prescribed tolerance. The exact maximum check also succeeded. Run `python3 check.py`, requiring only Python's standard library, to repeat it. The checker prints `SPHERICAL_CAP_SHARP_GEODESIC_NONCONVEXITY_OK` on success.
+RESULT.md blob 1460c5: normalized two-point spherical Blaschke-Petkantschin identity has factor 1/2 and |sin(u-v)| Jacobian (F=1 reproduces 16pi^2). A forbidden south-cap arc of length 2h leads to ordered crossing integral I(h)=2(pi-2h-sin(2h)); integrate normal coordinate z in [0,sin beta] to obtain P_unconditional=(sin beta-sin^2 beta)/4. Divide by cap mass squared ((1+cos beta)/2)^2 to get 0.5*t*(1-t)^2, beta=pi-rho, t=tan(beta/2). Concavity derivative (1-t)(1-3t)/2 yields unique 2/27 max; hemisphere/full-sphere and epsilon^2/2 vs epsilon/4 endpoints checked. Independent numerical quadrature for beta=0.13,0.35,0.7,1.25 agreed to <3e-15. Finite integration verifies normalization, not continuum proof alone.
 
-The comparison literature consists of primary full texts from Santaló (1946) and Lassak (2013 online), along with an abstract-only comparison for Le (1989). No independent review or historical priority certification has been performed; unindexed sources remain a risk.
+## originality
+
+PASS
+
+Earlier exact equatorial-zone exit formula treats a symmetric band, not a cap, and its P=cos(theta)/[2(1+cos theta)] cannot be specialized into the large-cap conditional event. Earlier joint antipodal boundary-layer law treats S^q with q>=3 and near-hemisphere distance conditioning, not the entire S^2 large-cap geodesic containment probability. Classical spherical widths/convexity study deterministic caps, not this exact area-uniform two-point integral. Bounded priority risk remains in older integral geometry and spherical distance-pair literature.
+
+## value
+
+PASS
+
+This is the natural quantitative defect of geodesic convexity when a spherical cap exceeds a hemisphere. The exact all-radius law, unique most failure-prone cap, and different sharp onset/closing exponents answer a motivated, nontrivial geometric-probability question; neither a textbook convexity observation nor an arbitrary finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

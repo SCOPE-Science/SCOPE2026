@@ -1,17 +1,21 @@
-# Scientific review: spherical-cap geodesic escape
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses specify intrinsic minimizing arcs, the area-uniform conditional product measure, and the exact radius interval, including endpoints. The argument uses spherical two-point disintegration with its Jacobian and normalization, a complete identification of the intersecting arcs, two elementary analytic integrals, and direct calculus. Checking the half-angle formula recovers both the sharp extremum and the distinct endpoint rates. The included executable test compares direct point samples and independent quadrature; numerical evidence is not treated as proof.
+## correctness
 
-## Originality — PASS, subject to historical-priority limits
-The closest primary full texts inspected are Santaló's spherical convexity inequalities (1946) and Lassak's spherical widths/reduced bodies (2013 public date). They treat convexity and geometric invariants but do not state the probability of a minimizing arc leaving a large area-sampled cap; their quantitative results do not imply the conditional pair probability. Three targeted mathematical-record searches explored alternate phrasing as geodesic visibility, convexity loss, and cap-pair escape; the closest published findings concerned multicap unions, Euclidean shell visibility, and spherical-polytope facets. They do not imply the new theorem. A related random-spherical-triangle paper could be inspected only at the abstract level, and unindexed older integral-geometry sources remain a genuine priority risk. Absence of a search match is not asserted as proof of novelty.
+PASS
 
-## Value — PASS
-Spherical caps crossing the hemisphere threshold are a canonical setting where local convexity fails globally. The exact **fraction** of pairwise minimizing geodesics violating containment measures this defect, and the theorem determines the unique most nonconvex cap in the probabilistic sense. Both the precise sharp constant and unequal endpoint exponents are structural information, beyond a simple binary convex/nonconvex criterion.
+RESULT.md blob 1460c5: normalized two-point spherical Blaschke-Petkantschin identity has factor 1/2 and |sin(u-v)| Jacobian (F=1 reproduces 16pi^2). A forbidden south-cap arc of length 2h leads to ordered crossing integral I(h)=2(pi-2h-sin(2h)); integrate normal coordinate z in [0,sin beta] to obtain P_unconditional=(sin beta-sin^2 beta)/4. Divide by cap mass squared ((1+cos beta)/2)^2 to get 0.5*t*(1-t)^2, beta=pi-rho, t=tan(beta/2). Concavity derivative (1-t)(1-3t)/2 yields unique 2/27 max; hemisphere/full-sphere and epsilon^2/2 vs epsilon/4 endpoints checked. Independent numerical quadrature for beta=0.13,0.35,0.7,1.25 agreed to <3e-15. Finite integration verifies normalization, not continuum proof alone.
 
-## Sources and limitations
-1. L. A. Santaló, *Annals of Mathematics* (1946), DOI `10.2307/1969084` (primary full text inspected).
-2. M. Lassak, *Aequationes Mathematicae*, online 2013-12-06, DOI `10.1007/s00010-013-0237-3` (primary full text inspected).
-3. H. Le, “Random spherical triangles II: Shape densities” (1989); only abstract inspected; distinct triple-sampling object, but historical literature is not exhausted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier exact equatorial-zone exit formula treats a symmetric band, not a cap, and its P=cos(theta)/[2(1+cos theta)] cannot be specialized into the large-cap conditional event. Earlier joint antipodal boundary-layer law treats S^q with q>=3 and near-hemisphere distance conditioning, not the entire S^2 large-cap geodesic containment probability. Classical spherical widths/convexity study deterministic caps, not this exact area-uniform two-point integral. Bounded priority risk remains in older integral geometry and spherical distance-pair literature.
+
+## value
+
+PASS
+
+This is the natural quantitative defect of geodesic convexity when a spherical cap exceeds a hemisphere. The exact all-radius law, unique most failure-prone cap, and different sharp onset/closing exponents answer a motivated, nontrivial geometric-probability question; neither a textbook convexity observation nor an arbitrary finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
