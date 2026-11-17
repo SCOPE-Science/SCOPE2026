@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Concatenation in the acyclic path algebra gives exactly four families of commutator equations. Their linear coefficient matrix has the nine disjoint rank cases in `RESULT.md`; counting the six free coefficients and the central coordinates produces the full exact rank spectrum for all \(m\ge1\) and prime powers \(q\). Each group centralizer is an affine-linear kernel in the radical, so orbit–stabilizer gives the class sizes, their multiplicities, and the total polynomial without a characteristic restriction. The standalone verifier independently constructs path products and adjoint matrices, exhaustively checks complete distributions in four small cases, and separately enumerates commuting pairs in the smallest case.
+PASS
 
-## Originality: PASS within the inspected comparison, with residual priority risk
+Reviewed RESULT.md commutator calculation for the radical basis a,b,c,d_i,ab,bc,d_ic,abc (dim 2m+6). Commutator coefficients are αβ′−α′β, βγ′−β′γ, δ_iγ′−δ_i′γ, and αB′−α′B+Aγ′−A′γ. The resulting (m+3)×(m+4) matrix has the nine exhaustive case ranks 0,1,2,3,m+2,m+3; the q^(m+1) free central coefficients explain T_r. Centralizer sizes q^(2m+6−r) imply each class size q^r, and direct summation yields k(G)=q^m(2q^(m+2)+2q^3−q^m−q^2−2q+1). Independent fresh finite enumeration over q=2,m=1,2,3 and q=3,m=1 rederived all 4 rank distributions without importing the package verifier: q2 m1 ranks 0:4,1:20,2:56,3:112,4:64; q2 m3 ranks 0:16,1:272,2:800,3:960,5:1024,6:1024; q3 m1 ranks 0:9,1:126,2:756,3:2754,4:2916. For m≥3, the omission 4,...,m+1 follows directly from complete case ranks. Finite tests do not establish prime-power universality; symbolic matrix argument does.
 
-Hennecart and Perry, arXiv:2208.07738v1 (2022), formulate the radical commuting-pair count and solve cases with directed paths of length at most two, alongside source/sink reduction operations. The current shortcut quiver contains the length-three path \(abc\) and has a nonseparating shortcut \(1\to3\); its complete centralizer spectrum and growing gap are not directly implied by those cases. Pak and Soffer, arXiv:1507.00411 (2015), address general pattern-group conjugacy counting by recurrence; only its abstract was examined, so potential broader coverage is left as a concrete residual risk. Searches of mathematical finding summaries and primary-publication searches did not locate an equivalent statement; absence of a hit is not claimed to prove novelty.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Centralizer size and conjugacy-class size are intrinsic finite-group invariants. A complete stratum-by-stratum distribution over a variable-parameter, nilpotency-class-three algebra-group family answers a natural strengthened quiver counting question. The expanding forbidden interval of consecutive class-size exponents is structural information beyond polynomiality of the total, and the full formula gives exact commuting-pair totals through Burnside's relation.
+No inspected prior statement implies the full q,m class-size distribution for a length-three path algebra with both a 1→2→3→4 line and m parallel 1→3 shortcut arrows. Earlier three-step multiarrow-line result computes ordered commuting pairs for a different quiver and does not supply each adjoint rank. Hennecart–Perry broader quiver methods remain a genuine unverified priority risk because the complete primary full text was inaccessible.
 
-## Scope and residual risks
+## value
 
-Proof applies only to the specified four-vertex shortcut quiver, with no path relations or extra arrows. Finite checks cannot establish the theorem for untested fields; the symbolic rank proof does. Broader pattern-group enumeration or algebra-group centralizer classifications could already imply this formula, and publication priority is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural algebra-group question: a full elementwise centralizer-rank spectrum, exact conjugacy-class number and arbitrarily long missing interval for a small path-algebra family. The shortcut arrows alter commutator structure relative to both pure lines and radical-square-zero algebras; the family and gap are motivated by Higman-type class enumeration, not arbitrary low-dimensional tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
