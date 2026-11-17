@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` is the verification of every integer \(a,b\ge2\). Exact finite checkers are included as reproducible regression tests and do not certify the infinite statement independently.
+## correctness
 
-From the directory containing this file, with Python and `sympy` installed, execute:
+PASS
 
-```
-python verification/check_biclique.py
-python verification/check_krylov.py
-```
+For T adjacency of K_{a,b}, one-body energies are ±sqrt(ab),0 and only zero two-body energy admits bosonic collision-diagonal-free eigenvectors. In symmetric matrix blocks (P,M,Q), TX+XT=0 and vanishing diagonals require double-centering of M and constant opposite row sums in P,Q. Unsigned vertex-edge incidence kernels have rank m for m>=3 but rank 1 for m=2, and an orthogonal mixed phi adds one dimension; their projector adds exactly and yields the boxed dimension and diagonal capture laws. Every other eigenmode decays under arbitrary strictly positive losses. Independent exact rank and Krylov computations checked (a,b)=(2,2),(2,3),(2,4),(3,3),(3,4),(4,4), with e.g. K_{2,4} dark rank 6, AB loss 5/8, AA loss 2/5; finite tests only corroborate the proof.
 
-The first constructs the physical distinct-pair projector as a rational matrix, verifies \(P^2=P=P^\mathsf T\), verifies annihilation by the complete hopping generator, and checks exact ranks and capture probabilities for \((a,b)=(2,2),(2,3),(2,4),(2,5),(3,3),(3,4),(3,5),(4,4),(4,5),(5,5)\).
+## originality
 
-The second independently constructs the full symmetric-pair hopping operator in a rational, generally unnormalized coordinate basis. Its stacked collision-observation operators at powers zero through four determine the entire dark subspace by exact row rank, for \((2,2),(2,3),(2,4),(3,3),(3,4),(4,4)\). Five powers suffice because the symmetric two-body Hamiltonian has at most five distinct energies. The test does not rely on the analytic projector construction.
+PASS
 
-Observed terminal check markers: `BICLIQUE_EXACT_OK` and `KRYLOV_INDEPENDENT_OK`. Both scripts were run against their embedded source contents during the package verification. There is no claim of external validation, proof assistant certification, general numerical enumeration, or experimentally measured loss.
+The 2026-10-12 equal-speed distinguishable-walker theorem implies the bosonic capture laws and dimension for a,b>=3 through symmetric-state projection; these facts alone are NOT original. The new complete treatment of the sharp a=2 or b=2 rank exceptions, and a uniform explicit orthogonal projector through unsigned incidence kernels and one mixed rank-one vector, were not established by that theorem, which excludes 2-vertex parts. Searches of related bosonic multipartite and path results did not reveal an equivalent all-a,b >=2 classification. Best-of-knowledge originality only.
+
+## value
+
+PASS
+
+The two-vertex side is a natural, singular boundary where the unsigned incidence rank changes and an extra protected boson mode appears, with a discontinuous capture formula. The all-size explicit projector and exception classification provide a precise invariant needed for collision-loss quantum transport. The previously implied >=3 capture and dimension formulas are credited; the sharp rank-2 exception and complete projector remain nontrivial and scientifically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
