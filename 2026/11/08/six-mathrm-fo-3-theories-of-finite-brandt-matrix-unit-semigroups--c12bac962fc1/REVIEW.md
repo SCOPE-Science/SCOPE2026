@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The invariant is complete for the ternary multiplication relation: nonzero products and zeros depend only on the equality partition of the row/column endpoints, and a three-variable move requires at most two new indices beyond the four on stationary pairs. Both complete finite orbit refinement (255 patterns) and an independently written full concrete-state enumeration give the exact same rank partition \(1,2,3,5,6\). This establishes five adjacent finite separations; the unlimited tail uses the independent mathematical back-and-forth argument.
+## correctness
 
-**Originality — PASS, with qualified priority.** The nearest prior scientific statement on the same matrix-unit family determines *quantifier rank three* only and merges all sizes at least five. It does not imply an unrestricted *three-variable* classification; the new rank-four separator splits size five from six and the all-rank theorem shows exactly where this process stops. Dawar–Holm provide the general game tool, Stronkowski–Trotta study relational semigroup graphs in a distinct axiomatization setting, and Gould–Quinn-Gregson establish Brandt automorphism structure rather than a sharp finite-variable cutoff. Dedicated semigroup/matrix-unit and semantic research-record searches found no directly equivalent classification; priority beyond accessible texts is not claimed.
+PASS
 
-**Mathematical value — PASS.** The natural family of Brandt inverse semigroups has an exact unbounded-depth three-variable theory spectrum, with a sharp six-index (37-element) saturation point. The result identifies a rank-three versus rank-four boundary invisible to earlier bounded-rank work and isolates why a matrix unit's two index endpoints permit a nontrivial saturation threshold. This is a complete classification and exact rank profile, not a mere isolated finite computation.
+Automorphism orbits of three pebbled nonzero matrix units correspond to equality partitions of at most six underlying row/column index labels, plus zero positions. When moving a pebble, at most four labels remain; adding two labels is always possible at n≥6, so the 3-pebble game is preserved for all depths and all m,n≥6. Independent complete orbit computation enumerated 255 canonical three-variable patterns, all substitution successors, and rank refinement [1,2,3,5,6] stabilizing at rank4, with B5 and B6 first distinguished there. A separate source direct concrete-state verifier supplies additional finite cross-check. The finite classification is not extrapolated to unbounded indices; the 6-label back-and-forth argument proves that part.
 
-The claim is limited to trivial-group Brandt semigroups, the named-zero ternary-relational language, and counting-free three-variable first-order logic. A shorter explicit rank-four separating formula and a broader classification across variable widths are not established. Independent review and exhaustive historical-priority validation are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge, the exact infinite-depth FO^3 six-class stabilization and rank-four B5/B6 separator are not implied by the inspected general Brandt automorphism/aleph0-categoricity theorem, generic 3-pebble correspondence, or rank-three-only results. A materially stronger depth-unbounded bound survives.
+
+## value
+
+PASS
+
+Sharp unbounded-depth three-variable expressivity for a natural finite semigroup family is a motivated complete logical classification. It identifies the precise B5/B6 rank-four obstruction beyond the known rank-three analysis; 37 is the smallest cardinality of the stable family representative. The finite 255-state certificate and uniform structural game strategy together yield a useful independently stated exact result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

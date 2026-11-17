@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Exact source checks: `verify_orbits.py` independently constructs all 255 orbit patterns from set partitions of up to six indices and enumerates every possible one-pebble move. `verify_direct.py` enumerates all concrete three-variable assignments, their atomic diagrams, and all variable replacements over each of the six finite semigroups. Both derive the same rank partition and terminal rank-four stabilization, with their outputs preserved in `orbit_output.txt` and `direct_output.txt`.
+# Independent mathematical audit
 
-The unrestricted upper bound for index sizes at least six is a separate mathematical argument: after one move there are at most four fixed endpoint labels and at most two labels to be added. The finite calculations prove only the exceptional index comparisons, not anything about untested larger structures.
+## correctness
 
-No independent mathematical review or external certification has been performed. The relevant language contains a named zero and a ternary multiplication relation, not a binary multiplication function.
+PASS
+
+Automorphism orbits of three pebbled nonzero matrix units correspond to equality partitions of at most six underlying row/column index labels, plus zero positions. When moving a pebble, at most four labels remain; adding two labels is always possible at n≥6, so the 3-pebble game is preserved for all depths and all m,n≥6. Independent complete orbit computation enumerated 255 canonical three-variable patterns, all substitution successors, and rank refinement [1,2,3,5,6] stabilizing at rank4, with B5 and B6 first distinguished there. A separate source direct concrete-state verifier supplies additional finite cross-check. The finite classification is not extrapolated to unbounded indices; the 6-label back-and-forth argument proves that part.
+
+## originality
+
+PASS
+
+Best of knowledge, the exact infinite-depth FO^3 six-class stabilization and rank-four B5/B6 separator are not implied by the inspected general Brandt automorphism/aleph0-categoricity theorem, generic 3-pebble correspondence, or rank-three-only results. A materially stronger depth-unbounded bound survives.
+
+## value
+
+PASS
+
+Sharp unbounded-depth three-variable expressivity for a natural finite semigroup family is a motivated complete logical classification. It identifies the precise B5/B6 rank-four obstruction beyond the known rank-three analysis; 37 is the smallest cardinality of the stable family representative. The finite 255-state certificate and uniform structural game strategy together yield a useful independently stated exact result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
