@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:56:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py at assigned Git blob SHAs",
+        "Bojarovska and Flinth, Phase Retrieval from Gabor Measurements, arXiv:1503.05800, Theorem 2.2 and finite Gabor lifting",
+        "Lam and Leung, On vanishing sums of roots of unity, arXiv:math/9511209",
+        "Independent exact integer root-count checks, source /mnt/data/independent_math_check_2146.py"
+      ],
+      "rationale": "Expanding g(x+u) conjugate(g(x)) into chirp/chirp, chirp/indicator, indicator/chirp and indicator/indicator yields p zeta^(au^2) on v=2au plus 2k+C_u prime-root summands with nonnegative integer coefficients. For prime p, a vanishing p-root sum must have equal exponent counts, so p must divide the total number of summands, congruent to L_u modulo p even on the chirp line. With 0<L_u<=3k<p no zero is possible. Off the line, every nonzero cyclotomic algebraic integer has norm a nonzero integer and its p-2 other conjugates are <=L_u, giving |A|>=L_u^(-(p-2)); on line triangle inequality gives p-L_u>=1. Weyl characters diagonalize the Hermitian-matrix lifting, yielding sqrt(p)|A| singular values, with ||g||^2<=p+3k. Independently reconstructed residue counts for p=5,7,11 all supports k<p/3 with a=1,2 and all pixels, and exactly checked each of three boundary zeros (all p residue classes once). Finite checks corroborate but do not prove infinite p.",
+      "residual_risks": [
+        "Prime p and exactly +1 real impulses essential; the 1/3 fraction is sufficient, not necessary or asymptotically optimal; algebraic lower bound may be very conservative."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full published Oct 11 single-impulse result addresses exactly one delta impulse and cyclic N, whereas this statement permits every support set up to floor((p-1)/3).",
+          "The classical Gabor sufficient condition takes nonvanishing as an assumption; it does not derive support-size immune constructions."
+        ],
+        "reasoning": "Broader phase-retrieval frameworks do not control the submitted explicitly perturbed chirp's ambiguity for all U. Prime cyclotomic constraints are leveraged in a new multi-site application; no dominating multi-site published theorem was identified.",
+        "searches": [
+          "Resultary: quadratic chirp Gabor sparse indicator perturbation zero free ambiguity phase retrieval cyclotomic",
+          "Resultary: single-impulse quadratic-chirp exact cyclic Gabor tomography",
+          "Resultary: positive rational Gabor windows nonzero ambiguity"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-single-impulse-quadratic-chirps-exact-cyclic-gabor-tomography-sp--03361b3cff9c",
+        "https://arxiv.org/pdf/1503.05800",
+        "https://arxiv.org/abs/math/9511209",
+        "Resultary: quadratic chirp Gabor sparse indicator perturbation zero free ambiguity phase retrieval cyclotomic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier exact A(u,v) has two interference roots and one impulse term because U is a singleton; present expansion has 2k+C_u roots with arbitrary overlap geometry.",
+          "General Gabor lifting theorem converts any nonzero ambiguity into recovery, but supplies no construction ensuring it for adversarial U."
+        ],
+        "reasoning": "The published one-impulse result is recovered at k=1 but does not imply robustness under arbitrary additional impulses; the crucial support-uniform cyclotomic counting bound is not a corollary of a general lifting equivalence.",
+        "searches": [
+          "Oct11 published single-impulse RESULT.md full text",
+          "Bojarovska-Flinth arXiv:1503.05800 Theorems 2.2 and 2.3",
+          "Resultary: quadratic chirp Gabor sparse indicator perturbation zero free ambiguity phase retrieval cyclotomic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prime-root residue polynomial of the cross terms has total 2k+C_u; finite Gabor measurements are informationally complete exactly under the nonzero ambiguity sufficient criterion (Bojarovska-Flinth 2015 Theorem 2.2).",
+          "The published single-impulse chirp (Oct 11) gives explicit exact ambiguity for g=chirp+t delta_0, not arbitrary supports U."
+        ],
+        "reasoning": "Translate the support-doping theorem into a cyclotomic no-cancellation condition for the ambiguity coefficients and a Weyl-diagonal lifted design. The prior k=1 case is subsumed, but no matching arbitrary-U statement follows from it.",
+        "searches": [
+          "Resultary: quadratic chirp Gabor sparse indicator perturbation zero free ambiguity phase retrieval cyclotomic",
+          "Gabor ambiguity self-window nonzero all time-frequency shifts; algebraic vanishing roots of unity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently computed the full root residue counts for p=5,7,11 and the three specified forbidden configurations, all p roots once on the latter.",
+          "Earlier one-impulse cyclic spectrum explicitly tabulates k=1, not the all-support arbitrary-k theorem."
+        ],
+        "reasoning": "A finite enumeration or a k=1 closed spectrum is not an exact table of all prime orders and arbitrary multi-impulse supports; there is no database covering the all-prime quantified claim.",
+        "searches": [
+          "Resultary: quadratic chirp Gabor sparse indicator perturbation zero free ambiguity phase retrieval cyclotomic",
+          "Finite exact chirp root residues k=1..floor((p-1)/3), p=5,7,11",
+          "Three exact p=5,7,11 boundary support certificates"
+        ]
+      },
+      "rationale": "The cyclotomic vanishing criterion and Gabor-lifting diagonalization are classical inputs, not original findings. The full published single-impulse quadratic-chirp theorem covers k=1 and all odd cyclic lengths but not arbitrary adversarial support k growing linearly with prime p. A fresh statement-level search found no covering theorem for the modulus-by-overlap condition and position-free 3k<p guarantee, with bounded-priority uncertainty.",
+      "residual_risks": [
+        "A more general theorem on sparse positive perturbations of perfect sequences or cyclotomic phase masks could imply the multi-impulse guarantee; historical priority not certified.",
+        "Novelty excludes the previously known k=1 case and the generic Gabor nonvanishing criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_MULTI_SITE",
+          "evidence": "Only g=chirp+t delta_0 treated; the general k-support overlap C_u does not appear.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-single-impulse-quadratic-chirps-exact-cyclic-gabor-tomography-sp--03361b3cff9c",
+          "material_read": "Entire RESULT.md: finding, four ambiguity branches, odd/even zero pattern, exact phase retrieval, proof, limitations and references",
+          "method": "Full GitHub primary research text via connected Git read",
+          "title": "Single-impulse quadratic chirps: exact cyclic Gabor tomography spectrum and arithmetic rank obstruction",
+          "trigger": "Very close quadratic-chirp Gabor perturbation and exact singular-value setting"
+        },
+        {
+          "assessment": "GENERAL_CRITERION_COVERED_ONLY",
+          "evidence": "A nonzero ambiguity sufficient condition implies phase retrieval but does not derive the new explicit uniformly safe support family.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Primary arXiv PDF obtained; material read includes introduction, Theorems 2.2/2.3 and lifting framework, not an exhaustive page-by-page review",
+          "method": "Open arXiv PDF text and page image inspection",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Published general lifting/nonvanishing implication used by the claim"
+        },
+        {
+          "assessment": "SUBMITTED_CLAIM_VERIFIED",
+          "evidence": "Exact positive-root count L_u and prime divisibility, plus independent finite root-count checks.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-adversarial-indicator-doping-of-prime-quadratic-chirps-f--55ee00bec3cd/RESULT.md",
+          "material_read": "Complete frozen RESULT.md and verify.py, including cyclotomic lemma, stability, boundary examples and verification scope",
+          "method": "Frozen GitHub blobs, complete text",
+          "title": "Uniform adversarial indicator doping of prime quadratic chirps for full Gabor tomography",
+          "trigger": "Identify submitted final claim and quantifiers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bojarovska-Flinth arXiv:1503.05800",
+        "Oct 11 single-impulse quadratic-chirp theorem",
+        "Frozen RESULT.md and independent cyclotomic checks"
+      ],
+      "rationale": "An all-position adversarial construction of full Gabor phase retrieval from a natural quadratic chirp, tolerating a positive fraction of perturbed entries, is a substantive stability/design question. The explicit overlap-sensitive modular certificate explains which support geometry matters and produces exact boundary cancellation witnesses; it is not merely a renamed k=1 identity. Quantitative if conservative singular-value control makes the result useful for robust finite tomography.",
+      "residual_risks": [
+        "No claim that one-third is optimal or that fewer Gabor measurements suffice; a future sharper margin remains open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd prime p>=5, nonzero quadratic coefficient a and arbitrary nonempty support U of size k with 3k<p, adding unit indicators at U leaves all p^2 self-ambiguity coefficients nonzero; the stronger sufficient modular test is p not dividing 2k+|U cap (U-u)| for all u. A concrete Galois-norm singular-value bound and three exact failures beyond the sufficient density are given.",
+  "limitations": [
+    "Prime p and exactly +1 real impulses essential; the 1/3 fraction is sufficient, not necessary or asymptotically optimal; algebraic lower bound may be very conservative.",
+    "A more general theorem on sparse positive perturbations of perfect sequences or cyclotomic phase masks could imply the multi-impulse guarantee; historical priority not certified.",
+    "Novelty excludes the previously known k=1 case and the generic Gabor nonvanishing criterion.",
+    "No claim that one-third is optimal or that fewer Gabor measurements suffice; a future sharper margin remains open."
+  ],
+  "schema_version": 1
+}

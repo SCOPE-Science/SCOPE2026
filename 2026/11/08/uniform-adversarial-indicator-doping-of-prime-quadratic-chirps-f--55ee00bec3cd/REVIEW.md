@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cross-term expansion is an exact identity, and the number of prime-root summands is \(2|U|+|U\cap(U-u)|\) away from the unperturbed chirp contribution. Prime cyclotomic divisibility rules out cancellation unless this integer is divisible by the prime. The on-line case has the same modular obstruction because its extra term is itself \(p\) copies of a root. A Galois-norm bound proves the quoted quantitative estimate, and standard Weyl-basis diagonalization yields the precise lifting normalization. The three off-line cancellations are verified by exact root-count certificates. Exact finite checks: 331112 cases plus three failure examples. The all-primes statement rests on the proof, not enumeration.
+## correctness
 
-**Originality — PASS under bounded search, priority not certified.** Lam--Leung (arXiv:math/9511209) already proves the vanishing-sum lemma, and Bojarovska--Flinth (arXiv:1503.05800) already proves the zero-free Gabor criterion; neither is presented as novel. Primary full-text comparisons did not identify the adversarial multi-impulse chirp design with a uniform linear-density guarantee and pair-overlap certificate. Public indexed work on one-impulse chirps (published-finding corpus record `03361b3cff9c`) and on positive rational windows (`65df80cb23d5`) does not imply the present theorem for arbitrarily doped complex chirps. D. Li's more recent full-spark perturbation construction (arXiv:2609.09614) uses a distinct, specialized perturbation approach. Residual risk: a general unpublished or differently worded sparse-chirp perturbation theorem could cover this result.
+PASS
 
-**Mathematical value — PASS.** This gives a deterministic, position-adversarial design guarantee for full finite time-frequency tomography using a standard unimodular seed, and a transparent arithmetic obstruction when robust design can fail. It treats \(\lfloor(p-1)/3\rfloor\) simultaneously affected sites in every prime dimension, rather than a single defect or an incidental bounded example. The exact modular geometry explains both the uniform guarantee and counterexamples. Its noise bound is explicit but not claimed optimal; improving the allowed density or sharp stability is genuinely open within this analysis.
+Expanding g(x+u) conjugate(g(x)) into chirp/chirp, chirp/indicator, indicator/chirp and indicator/indicator yields p zeta^(au^2) on v=2au plus 2k+C_u prime-root summands with nonnegative integer coefficients. For prime p, a vanishing p-root sum must have equal exponent counts, so p must divide the total number of summands, congruent to L_u modulo p even on the chirp line. With 0<L_u<=3k<p no zero is possible. Off the line, every nonzero cyclotomic algebraic integer has norm a nonzero integer and its p-2 other conjugates are <=L_u, giving |A|>=L_u^(-(p-2)); on line triangle inequality gives p-L_u>=1. Weyl characters diagonalize the Hermitian-matrix lifting, yielding sqrt(p)|A| singular values, with ||g||^2<=p+3k. Independently reconstructed residue counts for p=5,7,11 all supports k<p/3 with a=1,2 and all pixels, and exactly checked each of three boundary zeros (all p residue classes once). Finite checks corroborate but do not prove infinite p.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The cyclotomic vanishing criterion and Gabor-lifting diagonalization are classical inputs, not original findings. The full published single-impulse quadratic-chirp theorem covers k=1 and all odd cyclic lengths but not arbitrary adversarial support k growing linearly with prime p. A fresh statement-level search found no covering theorem for the modulus-by-overlap condition and position-free 3k<p guarantee, with bounded-priority uncertainty.
+
+## value
+
+PASS
+
+An all-position adversarial construction of full Gabor phase retrieval from a natural quadratic chirp, tolerating a positive fraction of perturbed entries, is a substantive stability/design question. The explicit overlap-sensitive modular certificate explains which support geometry matters and produces exact boundary cancellation witnesses; it is not merely a renamed k=1 identity. Quantitative if conservative singular-value control makes the result useful for robust finite tomography.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
