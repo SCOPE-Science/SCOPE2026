@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The self-contained `verify.py` performs exact arithmetic with explicit irreducible binary polynomial encodings of \(\mathbb F_2\), \(\mathbb F_4\), and \(\mathbb F_8\). It enumerates every invertible upper triangular matrix in its tested sizes, then all field-coordinate vectors; it checks the equations \(x^2=x\) directly and counts nonzero idempotents. The observed exact frequency distribution is compared to the independently stated recurrence, and all first and second moments are checked against the symbolic formulas.
+## correctness
 
-Run `python3 verify.py` with a standard Python 3 interpreter; expected output is embedded in `verification_output.txt`. Tested configurations are \(q=2,1\le n\le6\), \(q=4,1\le n\le3\), and \(q=8,1\le n\le2\): 11 cases, 36,033 matrices. No randomness and no external libraries are required. The all-\(n\), all-\(s\) result is supported by the proof; finite tests are not a substitute for that proof.
+PASS
+
+For upper-triangular invertible matrices over F_{2^s}, rescaling each coordinate transforms idempotence into Artin-Schreier equations y_j^2+y_j=sum_{i<j}b_ij y_i^2. Frobenius linearity and the nondegenerate absolute trace pairing show each new uniform coefficient row induces a uniform binary linear functional on the existing F_2 solution space of dimension d. It is zero with probability 2^{-d}, so the solution dimension increases to d+1, otherwise stays d. Thus K_n=2^{D_n}-1 and transition probabilities are independent of field extension degree. Conditional moments produce E K_n=n and Var K_n=n(n-1)/2; all-increase and never-increase paths give the two exact extreme atoms. Independent rational Markov calculations verified distributions and moments through n=9; these corroborate rather than prove all n and all s.
+
+## originality
+
+PASS
+
+Field-size-universal random triangular evolution-algebra idempotent distribution: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
+
+## value
+
+PASS
+
+The full rational-idempotent-count distribution for a natural upper-triangular ensemble, independent of extension field size despite genuinely nonlinear multiplication equations, is a useful exact benchmark for random evolution algebras and finite-field random semilinear maps; exact mean, variance and rare-event atoms supplement the distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

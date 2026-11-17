@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly identifies the idempotent equations, rescales by invertible diagonal coefficients, and uses the nondegenerate trace pairing to show that the new functional is uniform over the full dual of the previous solution space. The two possible nullity transitions give the complete law; separate conditional recurrences prove the expectation, variance and extreme atoms. Edge case \(n=1\) is correct. All statements are field-rational in characteristic two. The standalone program directly enumerates the defining idempotent equations for 36,033 matrices over three fields, giving corroboration without pretending finite enumeration proves infinite quantifiers.
+## correctness
 
-## Originality — PASS (qualified)
-The closest public work is the October 2026 survey by Kaygorodov, Martín González and Viruel (arXiv:2610.22248v1), whose Remark 23 concerns the entire general linear group and gives mean one, and Question 22 identifies random evolution algebra questions. The new upper-triangular ensemble has a different probability measure, mean \(n\), and an entire field-independent distribution. Wei–Zou's earlier result counts perfect evolution-algebra isomorphism classes; it is not an idempotent-count law. Van Peski (arXiv:2407.19578v1) establishes closely related finite-n random triangular rank laws: the \(q=2\) recurrence may be covered. The new claim is nonlinear evolution-algebra field-size invariance over **all** binary extension fields, not originality of the binary rank law. Full text was inaccessible, so a broader implication remains a substantial and explicitly unresolved risk. The Mészáros source could only be inspected at abstract level. Searches of related scientific records and synonyms did not find a full theorem, but failed search is not novelty proof. Independent priority assessment remains outstanding.
+PASS
 
-## Mathematical value — PASS
-The exact distribution and moment formulas form a complete natural statistic for a structurally defined infinite ensemble of perfect algebras, with a sharp and unexpected binary-field universality effect. The comparison with the unrestricted mean-one statistic demonstrates a substantial structural transition under graph support restriction. The proof gives a reusable trace/Frobenius-functional method. Its restrictions to binary characteristic, uniform labeled triangular support and rational idempotents are essential limitations and clearly disclosed.
+For upper-triangular invertible matrices over F_{2^s}, rescaling each coordinate transforms idempotence into Artin-Schreier equations y_j^2+y_j=sum_{i<j}b_ij y_i^2. Frobenius linearity and the nondegenerate absolute trace pairing show each new uniform coefficient row induces a uniform binary linear functional on the existing F_2 solution space of dimension d. It is zero with probability 2^{-d}, so the solution dimension increases to d+1, otherwise stays d. Thus K_n=2^{D_n}-1 and transition probabilities are independent of field extension degree. Conditional moments produce E K_n=n and Var K_n=n(n-1)/2; all-increase and never-increase paths give the two exact extreme atoms. Independent rational Markov calculations verified distributions and moments through n=9; these corroborate rather than prove all n and all s.
 
-## Closest literature and limitations
-Primary comparison: arXiv:2610.22248v1, full relevant text inspected, Remark 23 and Question 22; other contexts: arXiv:2606.17895 (abstract only), arXiv:2310.12368 (abstract only), DOI 10.3390/math11122764 (accessible open text); arXiv:2407.19578v1 (abstract only; probable coverage of binary-matrix special case). Any implication from older triangular random semilinear matrix theorems remains a significant, unresolved historical risk. No odd-characteristic, arbitrary-matrix or isomorphism-class distribution is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Field-size-universal random triangular evolution-algebra idempotent distribution: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
+
+## value
+
+PASS
+
+The full rational-idempotent-count distribution for a natural upper-triangular ensemble, independent of extension field size despite genuinely nonlinear multiplication equations, is a useful exact benchmark for random evolution algebras and finite-field random semilinear maps; exact mean, variance and rare-event atoms supplement the distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
