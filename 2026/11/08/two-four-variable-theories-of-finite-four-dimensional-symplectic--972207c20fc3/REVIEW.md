@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes the projective-point interpretation, all finite fields, simple irreflexive adjacency, and unlimited quantifier depth. The four-pebble strategy is reconstructed from an explicit projective-dependence invariant. Its extension lemma separates repeated, dependent, and independent stationary triples and proves all existence subcases using only nonzero linear forms and the cutoff \(q\ge3\). The four-clique cutoff and three-variable strategy are checked separately. A standalone checker corroborates low field orders; no finite sample is used as proof of the universal claim.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Sources on generalized quadrangles and symplectic graph parameters give the basic geometry. General pebble-game literature supplies the method but not the order-independent four-pebble extension lemma. The comprehensive 2021 study of graph 4-vertex regularity does not imply equality of full, unbounded-depth four-variable theories across varying field orders. Targeted literature and mathematical research-record searches located no exact statement or stronger implication. The strongest remaining risk is an unlocated specialized theorem on fixed-variable equivalence of polar point graphs.
+PASS
 
-**Mathematical value — PASS.** The claim classifies an infinite, natural, geometrically structured graph family uniformly across characteristic and unbounded cardinality. The nontrivial field-uniform lifting lemma yields an exact expressive-power phase change between widths three and four, and demonstrates that four variables see only the smallest field exception.
+For Sp(4,q) projective point orthogonality graph, strongly regular counts show every third-vertex adjacency pattern over any ordered pair occurs, yielding FO3 equivalence. At four reusable variables an enhanced 3-pebble signature records equality, adjacency and projective collinearity; exhaustive dependent/independent triple linear-algebra extension cases show uniform reachable next-point signatures for q>=3. The q=2 graph lacks a four-clique since a totally isotropic subspace has dimension at most two with only q+1=3 projective points, while q>=3 has K4. Independent enumeration of exact enhanced extension catalogs for q2 and q3 (all triples) and q5 sampled triples (16 signatures each; 0 mismatches), plus K4 boundary, corroborates but does not prove all fields or unlimited quantifier depth.
 
-**Closest literature and limits.** Dawar–Holm (2012) explains general finite-variable games; Brouwer–Ihringer–Kantor (2021) establishes 4-vertex combinatorial regularity; Brouwer's symplectic graph reference and Giudici's finite geometry exposition establish object parameters. The conclusion does not concern counting logic, arbitrary polar spaces, or dimensions other than four. Historical-priority assessment is not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published quantifier-RANK-four classification of symplectic polar graphs is not FO^4 with four reusable variable names at UNBOUNDED depth, so even its rank-2 restricted family subclass does not entail new uniform unbounded four-pebble back-and-forth. General strongly regular four-vertex conditions likewise do not imply FO4 equivalence.
+
+## value
+
+PASS
+
+Exact finite-variable indistinguishability threshold for natural finite classical polar graphs with unbounded logical depth, distinguished by a smallest-field clique obstruction; valuable in model theory and finite model theory because bounded quantifier rank alone is strictly weaker.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
