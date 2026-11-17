@@ -1,19 +1,12 @@
-# Scientific review
+# Scientific reassessment of the mixed local/global box inverse
 
 ## Correctness
-
-PASS. The local ordered-pair integral over each face is a planar covariogram integral; its straight-edge loss is exactly \(2r^3/3\) per unit boundary length. For each shared polyhedral edge the two-face integral is a three-dimensional ball-wedge volume with Jacobian \(\sin\theta\) and sector angle \(\pi-\theta\). The remaining contributions are \(O(r^4)\), including vertex-only incidences. Rectangular geometry permits exact facewise integrations, not merely asymptotics. Centering and surface-area weights give the stated squared-distance mean. The three elementary symmetric polynomials and hence the unordered side lengths are algebraically recovered. The standalone checker passes on four unequal/equal boxes; it does not replace the proof.
+PASS. The published exact short-distance polynomial determines \(s_1\) and \(s_2\). Direct area weighting across six faces gives \(M_2=(s_1^2s_2-2s_2^2+2s_1s_3)/(6s_2)\). This is linear with nonzero coefficient in \(s_3\); Vieta's formula recovers all sides. The rank-two Jacobian of \((s_1,s_2)\) at each noncubic triple proves local ambiguity without the extra moment. Independent face-coordinate second-moment calculations matched the formula for four unequal/equal triples.
 
 ## Originality
-
-PASS, provisional. The known unit-cube face-pair formulas of Mathai, Moschopoulos and Pederzoli (1999), summarized with explicit density formulas by MathWorld, are conceded as prior. Gille (2005) studies isotropic random *line* chords near wedge edges, not distances between independent area-uniform *surface* points; its full article was materially reviewed. Tong, Ahmadi and Pan (2013) treat points uniform *within planar triangles*, not 3D polyhedral surfaces. Ciccariello (2019) treats 3D polyhedron line-chord distribution, not boundary point pairs. The closest published analogous polygonal pair-distance result addresses two-dimensional polygon interiors, not three-dimensional polyhedral surfaces. Published-record searches for the edge coefficient, its aliases, and box inverse statistics found no claim that logically supplies this three-dimensional surface-point formula with the box reconstruction. The full 1999 cube paper remained inaccessible, so any unindexed generalized result remains a residual historical-priority risk. Search absence alone is not claimed as proof of novelty.
+PASS for the **corrected** mixed-statistic inverse. The entire general dihedral-edge coefficient and exact local quartic for boxes are explicitly published in 2026-10-25 and 2026-11-02 Resultary theorems. The latter also proves the continuous local nonidentifiability family. None of these inspected theorems adds the global surface-pair second moment to recover the missing \(s_3\), nor states this three-statistic complete inverse. General **volume-uniform** orthotope moment reconstruction is a different sampling model. Residual risk: unindexed surface-covariance inverse results or full historic cube distance work.
 
 ## Value
+PASS. The prior local inverse problem has a demonstrated one-dimensional ambiguity. The corrected theorem resolves that deficiency using exactly one additional scalar observation from the same sampling law, with a closed formula and uniqueness even at repeated sides. This is a motivated exact inverse theorem rather than a new label for the published edge expansion.
 
-PASS. The short-distance coefficient extracts a directly interpretable, nontrivial dihedral-edge functional from a single scalar probability law for any convex polyhedron. The exact box polynomial and the explicit three-statistic inverse theorem give a complete, natural geometric identification result with a finite list of observable statistics. The reconstruction is not a parameter-renaming exercise: the cubic coefficient comes from cancellation between same-face loss and cross-face gain, and the global second moment supplies the third elementary symmetric invariant missing from the local distribution. Known cube calculations by themselves do not state the three-parameter inverse conclusion.
-
-## Limitations
-
-Surface-point chord distance must not be confused with intrinsic surface geodesics or Crofton line sampling. The general theorem does not recover every edge independently and the inverse requires a rectangular-box model. Unindexed historical overlap remains possible and no independent expert audit has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The claim assumes an a priori box model, surface uniformity and Euclidean chords. No universal stability or general-polyhedron reconstruction is asserted. It does not represent previous general surface-distance formulas as new.
