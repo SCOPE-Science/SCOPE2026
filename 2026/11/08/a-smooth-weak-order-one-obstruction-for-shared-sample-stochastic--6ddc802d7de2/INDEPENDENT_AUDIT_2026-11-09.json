@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T17:56:30.818632Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choose smooth even compact cutoff χ=1 on [-2,2], 0 outside [-3,3], c(x)=∫0^xχ(u)du, f0=0,f1=2∫0^xc(u)du. Gradients g0=0,g1=2c are globally bounded, all derivatives bounded, and sample losses globally Lipschitz C∞. For shared-sample two-stage stochastic Heun starting X0=1 with h=1/n, all predictors/states remain [0,1], where c=x. Sample0 update multiplier 1, sample1 multiplier 1−2h+2h², so E X_n=(1−h+h²)^n=e^-1(1+1/(2n)+O(n^-2)). The authors' noise-only target dZ=−c(Z)dt+√h|c(Z)|dW, started at 1, matches geometric Brownian dG=−Gdt+√hGdW unless an exponentially rare escape above 2; exponential reflection bound and uniform second moments prove E Z_1=e^-1+O(exp(−C/h)). Hence lim n(E X_n−E Z_1)=1/(2e). General one-step mean mismatch is h²/2 Cov(g_gamma'(x),g_gamma(x)), nonzero at x=1; ordinary local weak error O(h²) yields global order 1 against the asserted target, not claimed alternative modified equations. Independently evaluated exact multipliers and scaled errors at increasing n, tending to 1/(2e). Source original equations (5), (6) and Theorem1 were read in accessible complete HTML version and checked for same-stage sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2002.09304",
+          "arxiv:1811.01558",
+          "arxiv:2201.12782"
+        ],
+        "reasoning": "The original claims positive order rather than providing this explicit negative globally Lipschitz counterexample; the other papers address different stochastic RK guarantees. No inspected stronger correction/counterexample contains exact target conclusion.",
+        "searches": [
+          "shared-sample stochastic Runge Kutta Heun missing second order drift covariance corrected SDE weak 2 counterexample Ayadi Turinici"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2002.09304; full ResearchGate author-paper text",
+        "arxiv:1811.01558",
+        "arxiv:2201.12782",
+        "Assigned RESULT.md and associated records",
+        "Independent exact rational Heun recursion and asymptotic check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original 2020 Section3.1 equations (5), (6), Theorem1",
+          "General SDE modified-equation framework arxiv:1811.01558"
+        ],
+        "reasoning": "A *valid proof* of the original authors' claimed order two would contradict the exhibited positive n-scaled bias; the submitted explicit example instead refutes that claim and does not follow from an affirmative convergence theorem. Source's missing covariance term explains contradiction.",
+        "searches": [
+          "shared sample stochastic Heun second order weak modified equation covariance gradient Ayadi Turinici counterexample",
+          "shared-sample stochastic Runge Kutta Heun missing second order drift covariance corrected SDE weak 2 counterexample Ayadi Turinici"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ayadi–Turinici arxiv:2002.09304 Section3.1 equations(5)-(7) and Theorem1",
+          "Li–Tai–E arxiv:1811.01558"
+        ],
+        "reasoning": "Method is a shared-sample stochastic Heun with one index used in both stages. That is not independent-stage stochastic Heun or deterministic RK2; the covariance Cov(g',g) survives and changes local weak mean at h².",
+        "searches": [
+          "shared sample stochastic Heun second order weak modified equation covariance gradient Ayadi Turinici counterexample",
+          "shared-sample stochastic Runge Kutta Heun missing second order drift covariance corrected SDE weak 2 counterexample Ayadi Turinici"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary targeted semantic retrieval for same-sample weak second-order covariance flaw",
+          "Assigned deterministic rational multiplier verification"
+        ],
+        "reasoning": "Exact bias limit 1/(2e) is analytically derived, not a known table of method coefficients; targeted search did not return an existing example for this equation. Search failure is not proof of priority.",
+        "searches": [
+          "shared sample stochastic Heun second order weak modified equation covariance gradient Ayadi Turinici counterexample",
+          "shared-sample stochastic Runge Kutta Heun missing second order drift covariance corrected SDE weak 2 counterexample Ayadi Turinici"
+        ]
+      },
+      "rationale": "The original 2020 Ayadi–Turinici theorem asserts weak order two relative to its uncorrected stochastic modified SDE and is the target of a mathematically explicit counterexample, not a prior refutation. Earlier stochastic modified equation frameworks (Li–Tai–E) and other Runge–Kutta methods do not state the globally smooth, globally Lipschitz shared-sample two-point example or its exact 1/(2e) global first-order bias. Resultary semantic queries did not find equivalent preexisting rebuttal. This is a best-of-knowledge originality PASS with literature risk.",
+      "residual_risks": [
+        "Priority of this specific critique outside searched records cannot be categorically excluded.",
+        "Original paper arXiv direct file access failed and Oxford VPN was disconnected; accessible full author-paper text was read instead.",
+        "The bound concerns fixed T=1 and the noise-only SDE; an h-dependent drift-corrected modified SDE could restore higher weak order and is outside this counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1 is directly contradicted by valid smooth two-point example",
+          "evidence": "Same index in both stages, target drift −average g with diffusion √(h variance), theorem asserts weak order two",
+          "identifier_or_url": "arxiv:2002.09304; https://www.researchgate.net/publication/339380647_Stochastic_Runge-Kutta_methods_and_adaptive_SGD-G2_stochastic_gradient_descent",
+          "material_read": "Complete accessible author-paper text including Section 3.1 stage reuse, equations (5)–(7), Theorem 1 and first-moment proof around (16)–(21)",
+          "method": "Accessible lawful published full-text HTML plus arXiv metadata; institutional access attempt returned vpn_disconnected",
+          "title": "Stochastic Runge-Kutta methods and adaptive SGD-G2 stochastic gradient descent",
+          "trigger": "Exact equation (5) and target equation (6) weak-order-two claim"
+        },
+        {
+          "assessment": "BACKGROUND only; no negative identity asserted in inspected material",
+          "evidence": "General modified-equation theory not the exact submitted two-point mismatch",
+          "identifier_or_url": "arxiv:1811.01558",
+          "material_read": "Abstract/limited relevant framework; full text not independently read",
+          "method": "ArXiv metadata and cited statements",
+          "title": "Stochastic Modified Equations and Dynamics of Stochastic Gradient Algorithms I",
+          "trigger": "Potential pre-existing weak SDE correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A precise failure of an explicit published weak-order-two guarantee under the method's own same-sample protocol is a motivated negative correctness boundary. The smooth globally Lipschitz data remove a possible regularity loophole; exact positive global bias identifies the missing covariance correction and matters to researchers choosing an appropriate stochastic modified equation. It does not overclaim convergence failures for unrelated adaptive optimizers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2002.09304; full ResearchGate author-paper text",
+    "arxiv:1811.01558",
+    "arxiv:2201.12782",
+    "Assigned RESULT.md and associated records",
+    "Independent exact rational Heun recursion and asymptotic check"
+  ],
+  "disposition": "passed",
+  "limitations": "Counterexample only to auxiliary same-sample Heun and its particular noise-only SDE; does not establish failure of adaptive SGD-G2 or exclude different drift corrections.",
+  "residual_risks": [
+    "Priority of this specific critique outside searched records cannot be categorically excluded.",
+    "Original paper arXiv direct file access failed and Oxford VPN was disconnected; accessible full author-paper text was read instead.",
+    "The bound concerns fixed T=1 and the noise-only SDE; an h-dependent drift-corrected modified SDE could restore higher weak order and is outside this counterexample."
+  ],
+  "schema_version": 1
+}

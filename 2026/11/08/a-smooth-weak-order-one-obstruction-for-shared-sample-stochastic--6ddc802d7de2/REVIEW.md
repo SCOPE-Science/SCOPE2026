@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The globally smooth compact cutoff makes both sample losses globally Lipschitz and of at most linear growth. The explicit recurrence holds for every integer \(n\ge2\) because the states and predictors remain in \([0,1]\). The target diffusion can be coupled to geometric Brownian motion until a barrier of two; reflection and second-moment bounds make the difference in expected values exponentially small. Thus the global first-order weak-bias constant \(1/(2e)\) is exact, and the counterexample lies inside the original hypotheses. Supplementary rational-arithmetic checks passed; finite checks are not the proof.
+## correctness
 
-## Originality — PASS, qualified
-The motivating paper's Theorem 1 itself asserts weak order two, whereas its scheme is shown to have order one for this particular smooth example. Direct reading of its equations (5)--(7), (16), and (19)--(21) reveals the distinction between same-index averaging and the missing gradient--Jacobian covariance. Broad stochastic-modified-equation literature and the later SRKCD analysis provide related frameworks and methods, not an implication establishing this specific smooth counterexample. A prior historical correction or unindexed counterexample may exist and remains a scholarly overlap risk. No claim of an exhaustive novelty proof is made.
+PASS
 
-## Value — PASS
-The theorem under test is a substantive accuracy guarantee for a numerical method used to motivate adaptive stochastic optimization. An explicit smooth source-compliant obstruction with a sharp global weak-error constant distinguishes modeling bias from finite precision and gives a benchmark for correcting modified equations. It does not assert failure of the implemented adaptive SGD-G2 method.
+Choose smooth even compact cutoff χ=1 on [-2,2], 0 outside [-3,3], c(x)=∫0^xχ(u)du, f0=0,f1=2∫0^xc(u)du. Gradients g0=0,g1=2c are globally bounded, all derivatives bounded, and sample losses globally Lipschitz C∞. For shared-sample two-stage stochastic Heun starting X0=1 with h=1/n, all predictors/states remain [0,1], where c=x. Sample0 update multiplier 1, sample1 multiplier 1−2h+2h², so E X_n=(1−h+h²)^n=e^-1(1+1/(2n)+O(n^-2)). The authors' noise-only target dZ=−c(Z)dt+√h|c(Z)|dW, started at 1, matches geometric Brownian dG=−Gdt+√hGdW unless an exponentially rare escape above 2; exponential reflection bound and uniform second moments prove E Z_1=e^-1+O(exp(−C/h)). Hence lim n(E X_n−E Z_1)=1/(2e). General one-step mean mismatch is h²/2 Cov(g_gamma'(x),g_gamma(x)), nonzero at x=1; ordinary local weak error O(h²) yields global order 1 against the asserted target, not claimed alternative modified equations. Independently evaluated exact multipliers and scaled errors at increasing n, tending to 1/(2e). Source original equations (5), (6) and Theorem1 were read in accessible complete HTML version and checked for same-stage sampling.
 
-## Closest sources and limits
-Ayadi--Turinici (2020), arXiv:2002.09304, Theorem 1 and equations (5)--(7), (16), (19)--(21); Li--Tai--E (2018), arXiv:1811.01558; Stillfjord--Williamson (2022), arXiv:2201.12782. The result does not cover other weak observables' optimal orders, other stochastic modified equations, or adaptive learning-rate performance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original 2020 Ayadi–Turinici theorem asserts weak order two relative to its uncorrected stochastic modified SDE and is the target of a mathematically explicit counterexample, not a prior refutation. Earlier stochastic modified equation frameworks (Li–Tai–E) and other Runge–Kutta methods do not state the globally smooth, globally Lipschitz shared-sample two-point example or its exact 1/(2e) global first-order bias. Resultary semantic queries did not find equivalent preexisting rebuttal. This is a best-of-knowledge originality PASS with literature risk.
+
+## value
+
+PASS
+
+A precise failure of an explicit published weak-order-two guarantee under the method's own same-sample protocol is a motivated negative correctness boundary. The smooth globally Lipschitz data remove a possible regularity loophole; exact positive global bias identifies the missing covariance correction and matters to researchers choosing an appropriate stochastic modified equation. It does not overclaim convergence failures for unrelated adaptive optimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
