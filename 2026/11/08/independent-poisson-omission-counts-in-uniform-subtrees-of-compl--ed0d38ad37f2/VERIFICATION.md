@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The derivation reduces each omitted-vertex class count to the matrix-tree formula for the corresponding induced complete split graph. Dividing by the spanning-tree count yields an exact bivariate coefficient formula; a summable factorial majorant, a separate treatment of clique-only subtrees and the negligible independent singletons justify dominated convergence. Differentiation verifies strict monotonicity of the limiting spanning probability.
+# Independent mathematical audit
 
-Reproducible finite checks: run `python check.py` using the Python standard library. The checker computes exact Kirchhoff cofactors, enumerates edge subsets on small graphs, checks subtree-class counts by independently enumerating selected vertex sets, and compares finite-size coefficient ratios against the analytic limit at three different growth ratios. Its successful output is `VERIFY_OK 868 exact/analytic-limit assertions`.
+## correctness
 
-The finite comparisons cannot certify an infinite limit; the proof supplies that step. A general total-omission Poisson theorem was previously published, but it does not by itself determine the joint class-specific law. No independent mathematical audit or independent scientific validation is claimed.
+PASS
+
+The exact induced split-graph spanning-tree count tau(i,j)=i^(j-1)(i+j)^(i-1) follows from Laplacian eigenvalues, with clique-only and singleton independent exceptions separated. Independently reconstructed exact Kirchhoff determinants for (a,b)=(2,2),(3,3),(4,2): 8,324,864. Subtree count at omitted (k,l) is C(a,k)C(b,l) tau(a-k,b-l); fixed-index ratios converge to lambda_A^k lambda_B^l/(k!l!), lambda_A=exp(-c-1/(1+c))/(1+c), lambda_B=c exp(-1/(1+c)). Factorial envelope plus negligible boundary terms establishes total variation. Derivative of lambda sum is strictly positive; endpoint of limit function is not a separate c=0 theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge the class-resolved independent Poisson pair is an added precise law relative to the published total-omission Poisson theorem; the latter scalar projection does not imply independence or the two intensities.
+
+## value
+
+PASS
+
+Distinct clique/nonclique missing counts quantify how a uniformly sampled subtree fails to span a dense heterogeneously degreed graph, a meaningful natural refinement of the central scalar spanning invariant; explicit intensities and independence permit conditional class-composition analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

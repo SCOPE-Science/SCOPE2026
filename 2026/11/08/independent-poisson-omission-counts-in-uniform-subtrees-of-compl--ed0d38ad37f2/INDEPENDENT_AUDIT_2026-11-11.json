@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:58:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact induced split-graph spanning-tree count tau(i,j)=i^(j-1)(i+j)^(i-1) follows from Laplacian eigenvalues, with clique-only and singleton independent exceptions separated. Independently reconstructed exact Kirchhoff determinants for (a,b)=(2,2),(3,3),(4,2): 8,324,864. Subtree count at omitted (k,l) is C(a,k)C(b,l) tau(a-k,b-l); fixed-index ratios converge to lambda_A^k lambda_B^l/(k!l!), lambda_A=exp(-c-1/(1+c))/(1+c), lambda_B=c exp(-1/(1+c)). Factorial envelope plus negligible boundary terms establishes total variation. Derivative of lambda sum is strictly positive; endpoint of limit function is not a separate c=0 theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner–Wang Theorem 2 applies to general dense graphs but is univariate. Cambie et al. study same split graph mean order under fixed-clique/large independent side, not this proportional two-dimensional law."
+        ],
+        "reasoning": "General graph results dominate the scalar projection, not the stated two independent class-wise limiting laws.",
+        "searches": [
+          "arxiv:2605.03583 The Distribution Of Subtrees In Dense Graphs And Roots Of Subtree Polynomial",
+          "arxiv:2308.12808 mean subtree order split graphs",
+          "arxiv:1910.07349 random subtree spanning"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.03583",
+        "https://arxiv.org/abs/2308.12808",
+        "https://arxiv.org/abs/1910.07349",
+        "https://doi.org/10.1002/jgt.22359"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposed independent class count law implies Poisson total with rate lambda_A+lambda_B; converse is false. A mean-order statistic likewise cannot imply full bivariate independence."
+        ],
+        "reasoning": "Exact class-specific intensities and factorization are the additional mathematical assertion relative to broad prior scalar theorem.",
+        "searches": [
+          "Wagner Wang 2026 Theorem 2 total omissions",
+          "Cambie Chen Hao Tokar 2024 split graph subtree mean",
+          "Wagner 2021 spanning probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wagner–Wang proves Poisson law of total missing vertices in dense graphs, hence it covers the sum K+L, not class composition or independence."
+        ],
+        "reasoning": "Knowing the Poisson distribution of K+L does not determine its joint colored partition: independent Poisson rates require a multivariate proof.",
+        "searches": [
+          "Wagner Wang 2026 scalar omitted-vertices Poisson theorem",
+          "complete split graph random subtree clique and independent missing joint law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matrix-tree counts for K_a join overline K_b checked; prior complete-graph and complete-bipartite tables do not explicitly give the proportional two-class joint omitted law."
+        ],
+        "reasoning": "The natural colored-vertex omission invariant is not just another total-subtree-number table. Full older 2018 text not accessible remains a priority risk.",
+        "searches": [
+          "Chin Gordon MacPhee Vincent 2018 subtrees of graphs complete bipartite split",
+          "uniform subtree two class omissions complete split exact enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge the class-resolved independent Poisson pair is an added precise law relative to the published total-omission Poisson theorem; the latter scalar projection does not imply independence or the two intensities.",
+      "residual_risks": [
+        "Chin et al. 2018 complete primary article not obtained; inaccessible plausible historical source is a priority risk, not itself originality failure.",
+        "No claim when b/a tends to zero or infinity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_COVERAGE_ONLY",
+          "evidence": [
+            "Theorem 2 yields total omitted Poisson, not types."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.03583",
+          "material_read": "Full relevant Theorem 2 and definitions of subtree omitted-size distribution",
+          "method": "arXiv full text open-access HTML",
+          "title": "The Distribution Of Subtrees In Dense Graphs And The Roots Of The Subtree Polynomial",
+          "trigger": "potentially stronger dense-graph theorem"
+        },
+        {
+          "assessment": "DIFFERENT_MEAN_AND_REGIME",
+          "evidence": [
+            "Mean order and edge additions, not proportional-growth joint omissions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.12808",
+          "material_read": "Full relevant split-graph results and fixed clique regime",
+          "method": "arXiv full text",
+          "title": "Decreasing the mean subtree order by adding k edges",
+          "trigger": "identical split graph object"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNREAD_FULL",
+          "evidence": [
+            "Potential older formula may already imply colored law; do not claim whole-document noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.22359",
+          "material_read": "Bibliography/abstract and available supporting statements; complete publisher text not obtained",
+          "method": "publisher abstract and cross references",
+          "title": "Subtrees of graphs",
+          "trigger": "older comprehensive title, includes complete-graph examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct clique/nonclique missing counts quantify how a uniformly sampled subtree fails to span a dense heterogeneously degreed graph, a meaningful natural refinement of the central scalar spanning invariant; explicit intensities and independence permit conditional class-composition analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2605.03583",
+    "https://arxiv.org/abs/2308.12808",
+    "https://arxiv.org/abs/1910.07349",
+    "https://doi.org/10.1002/jgt.22359"
+  ],
+  "disposition": "passed",
+  "final_claim": "Uniform random (not necessarily induced or spanning) subtrees of K_a join independent b, with a,b->infinity and b/a->c>0, have independent Poisson omitted clique and nonclique counts with explicit rates; spanning probability decreases strictly with c.",
+  "limitations": [
+    "Only a finite positive class ratio, no quantitative convergence rate."
+  ],
+  "residual_risks": [
+    "Chin et al. 2018 complete primary article not obtained; inaccessible plausible historical source is a priority risk, not itself originality failure.",
+    "No claim when b/a tends to zero or infinity."
+  ],
+  "schema_version": 1
+}
