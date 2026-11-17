@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the complete universal law. The crucial equalities are: (i) two crossed edges in each horizontal base face until the largest antipodal projection is passed, (ii) exactly two additional vertical crossings per projection pair below the threshold, (iii) the exact transform \(F_h(r)=r/\sqrt{h^2+r^2}\), (iv) the closed regular-hexagon trigonometric integrations, and (v) the sign of the derivative of the octagon probability.
+## correctness
 
-Run `python geometry_hex_prism_check.py` in an environment satisfying `requirements.txt`. A fixed seed draws 350,000 unit normals for each of fifteen prism configurations (regular hexagon, regular octagon, and a nonregular centrally symmetric hexagon; five positive half-heights each). The program directly counts crossed edges and compares them directionwise to the independent projection-order formula, numerically integrates over 30,000 azimuths, verifies three analytical regular-hexagon probabilities, checks aspect-ratio recovery, and compares the octagon optimum with nearby heights. The expected success marker is `PRISM_CENTRAL_SECTION_OK`.
+PASS
 
-A Monte Carlo experiment cannot certify the theorem for every normal, every prism, or every height. No external independent audit or certification was performed. The exact statements rest on the finite combinatorial edge-classification proof and calculus in `RESULT.md`.
+For a generic normal, cap-edge cuts contribute four when t<horizontal support, while exactly two vertical edges cross for each antipodal vertex pair with projection rho<t; after t exceeds largest rho the section has 2m sides. Uniform absolute vertical spherical coordinate gives F_h(r)=r/sqrt(h^2+r^2). Ordered projection intervals yield full law; P4 strictly decreases from 1 to0 by dominated convergence. For a regular hexagon cosine antiderivatives give three probabilities; derivative of P8 changes sign only at h=sqrt5/2. Independent numerical boundary calculations passed.
+
+## originality
+
+PASS
+
+The October 25 general even-REGULAR-prism theorem already gives the exact n=6 octagon probability and optimal height, so those parts are not original. However it proves only maximal-section event for regular bases, and does not entail the full distribution for arbitrary centrally symmetric polygonal B, its height identifying P4 or explicit P4/P6 hex law. Older prism-stereology full text inaccessible; residual risk recorded rather than failed solely for access.
+
+## value
+
+PASS
+
+An exact entire side-count law for any fixed centrally symmetric polygonal base and a strictly invertible height statistic are naturally useful geometric-stereology classification/inverse results; neither value depends on reclaiming the known hexagonal P8 optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

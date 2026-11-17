@@ -1,15 +1,21 @@
-# Review of central-section stratification and height rigidity
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each nonexceptional normal, every central-section polygon vertex is the intersection with a crossed prism edge. When the signed height threshold is below the largest base projection, each base contributes two crossed edges, and the number of crossed vertical edges is twice the number of antipodal projection pairs below that threshold. Above the largest projection, only the vertical edges cross. The normal-direction transform has the exact cumulative distribution stated in the theorem. These steps prove the general probability formula and strict height identifiability. For the regular hexagon, direct trigonometric integration gives the formulas; differentiation and an elementary single-root sign test prove the unique octagonal optimum. The accompanying executable checks are corroboration, not infinite proofs.
+## correctness
 
-## Originality
-**PASS, with historical-priority qualification.** Complete accessible texts of Hartley–Pellicer–Williams (arXiv:1206.6119v1) and Finch (arXiv:1203.2464v1) were inspected; their results concern, respectively, abstract-polytope covers and projections rather than this random central-plane side-count law. Voss (1982) and Ohser–Mücklich (1995) concern random section stereology and are materially relevant, but their complete manuscripts could not be read; only bibliographic descriptions and abstracts were accessible. Their classical random-plane ensembles generally include offset sampling, whereas the present direction law conditions every plane to contain the geometric center. This difference prevents an implication from their available descriptions, but cannot exclude a historical specialization. No proof of historical uniqueness is claimed.
+PASS
 
-## Mathematical value
-**PASS.** A complete order-statistic formula classifies central sections of *every* prism over a centrally symmetric polygon with at least six vertices. A single natural statistic recovers the height for every known base in this family, including irregular ones. In the regular hexagonal case, three distinct section types have explicit probabilities and the largest-section probability has a nontrivial sharp interior optimum. This is a motivated extension of stereological shape inference, not a one-off numerical evaluation.
+For a generic normal, cap-edge cuts contribute four when t<horizontal support, while exactly two vertical edges cross for each antipodal vertex pair with projection rho<t; after t exceeds largest rho the section has 2m sides. Uniform absolute vertical spherical coordinate gives F_h(r)=r/sqrt(h^2+r^2). Ordered projection intervals yield full law; P4 strictly decreases from 1 to0 by dominated convergence. For a regular hexagon cosine antiderivatives give three probabilities; derivative of P8 changes sign only at h=sqrt5/2. Independent numerical boundary calculations passed.
 
-## Limits
-The law is specific to Haar-uniform central orientations and fixed centrally symmetric polygonal bases. No assertion covers random offsets, unknown bases, arbitrary prisms, finite-sample inference accuracy or independent verification. Full-text priority checking for Voss and Ohser–Mücklich remains unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 25 general even-REGULAR-prism theorem already gives the exact n=6 octagon probability and optimal height, so those parts are not original. However it proves only maximal-section event for regular bases, and does not entail the full distribution for arbitrary centrally symmetric polygonal B, its height identifying P4 or explicit P4/P6 hex law. Older prism-stereology full text inaccessible; residual risk recorded rather than failed solely for access.
+
+## value
+
+PASS
+
+An exact entire side-count law for any fixed centrally symmetric polygonal base and a strictly invertible height statistic are naturally useful geometric-stereology classification/inverse results; neither value depends on reclaiming the known hexagonal P8 optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
