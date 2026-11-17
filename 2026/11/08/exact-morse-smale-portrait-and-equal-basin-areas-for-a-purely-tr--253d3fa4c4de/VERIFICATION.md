@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python, SymPy, NumPy and SciPy installed. The program evaluates exact trigonometric identities, the covering determinant, the quotient Jacobian at every one of the \(18\) lifts, the three potential levels and the deck-translation identity. It additionally integrates \(24\) finite-time sample trajectories as an illustrative numerical consistency check.
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK covering_degree=3 critical_points=18 sink=3 saddle=9 source=6 energy_levels=3 numerical_orbits=24`
+The frozen RESULT.md quotient dynamics and potential were independently checked: phi=(-x-y,2x-y,2y-x) yields phi_dot_i=-3K(sin phi_i-mean sin phi) and V_dot=-3K sum(sin phi_i-mean)^2. Equal-sine zero-sum triples give exactly three uniform triples plus the three permutations of (0,pi,pi); det[[2,-1],[-1,2]]=3 lifts each, yielding 18 equilibria. Independently verified Jacobian eigenvalues (-3K,-3K), (3K/2,3K/2), (-K,3K), giving 3 sinks, 6 sources, 9 saddles and potential levels 0,9/2,4. Strict decrease excludes cycles and same-level saddle connections, finite omega-limits converge, stable/unstable intersections with sources/sinks are transverse; threefold phase translation permutes sinks and preserves flat measure, giving 4*pi^2/3 per basin. These are global analytic deductions, not consequences of the 24 sample trajectories.
 
-These finite experiments and symbolic checks do not constitute a proof that every real initial condition converges or that all invariant manifolds are transverse. Those statements follow from the analytic Lyapunov, equilibrium-classification and potential-order arguments in `RESULT.md`. This package has not received independent scientific validation.
+## originality
+
+PASS
+
+The full accessible Dai–Kori (2025) study contains this pure k21 equal-frequency equation as a specialization but its main results discuss heterogeneous frequencies, partial synchrony, local Jacobians and bifurcations. It does not state the complete 18-point Morse–Smale classification or exact three equal-area basins in the inspected body. General higher-order Kuramoto papers model different networks or stability questions. Structural global classification is not mechanically implied by the old local trace/determinant formulas alone.
+
+## value
+
+PASS
+
+An exact global phase portrait of the minimal purely higher-order three-oscillator network is a natural structural theorem, resolving equilibrium counts, all-orbit convergence, recurrent set, transversality and area fractions. Even though the toy triangle is small, the analytic global geometry provides a clean benchmark distinguishing pairwise versus triadic coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
