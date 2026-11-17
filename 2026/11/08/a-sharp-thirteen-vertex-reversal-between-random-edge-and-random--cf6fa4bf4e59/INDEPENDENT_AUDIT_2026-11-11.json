@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:45:10.917760Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Proved spider laws: all peripheral b_i jobs match private d_i or a_i; the center fails under job-side vertex order iff processed last and each arm job chooses a_i, giving 1/((m+1)2^m). Under uniformly random edge priorities it fails iff each arm internal edge a_i b_i is earliest of the three arm edges, giving 3^-m independently across arms. Thus the two-point stochastic order flips precisely for m>=4; the m=4 gap is 1/6480, with E[M_V]=399/80 and E[M_E]=404/81. For sharp n<=13 cutoff, independently enumerated all free trees with a second generator and both bipartition orientations and evaluated a separate exact Fraction first-edge/first-job recurrence: a single positive orientation at n=13, none for n<=12. Inspected pinned verify.py, including its independent induction-complete leaf-extension tree generator and canonical centers. This is exhaustive finite calculation, not a proof of an all-order tree classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General randomized greedy matching and average labeled-tree analysis do not provide per-oriented-tree inequalities through n=12"
+        ],
+        "reasoning": "Broader results with randomness over trees or fixed degree sequences cannot imply the exact exception count for every underlying tree without additional analysis.",
+        "searches": [
+          "random edge versus random vertex greedy matching trees bipartition spider first reversed expectation",
+          "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "https://doi.org/10.1214/aoap/1177005436",
+          "https://doi.org/10.1002/rsa.3240020104"
+        ]
+      },
+      "checked_sources": [
+        "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "https://doi.org/10.1287/stsy.2021.0082",
+        "https://doi.org/10.1214/aoap/1177005436",
+        "https://doi.org/10.1002/rsa.3240020104",
+        "https://doi.org/10.1145/3614318",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spider laws P(M_V=m)=1/((m+1)2^m), P(M_E=m)=3^-m, reversed domination for every m>=4"
+        ],
+        "reasoning": "The prior averaged inequality is not contradicted and does not entail this per-tree reverse stochastic order or unique minimal oriented tree.",
+        "searches": [
+          "random edge versus random vertex greedy matching trees bipartition spider first reversed expectation",
+          "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "https://doi.org/10.1287/stsy.2021.0082"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arnosti random-edge vs random-job-vertex algorithms match definitions, but theorem average over random edge set; current claim compares a particular tree"
+        ],
+        "reasoning": "Matching models are equivalent at the algorithmic level but not at the probabilistic quantifier level (random graph expectation versus pointwise T). Even a reversed cyclic graph does not give a tree of minimal order.",
+        "searches": [
+          "random edge versus random vertex greedy matching trees bipartition spider first reversed expectation",
+          "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "https://doi.org/10.1287/stsy.2021.0082"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive exact-rational enumeration of all free tree types through n=13 found one positive oriented case, 4-armed length-3 spider, gap 1/6480"
+        ],
+        "reasoning": "Known unlabeled-tree counts are not an existing two-algorithm expectation comparison table. No matching table in inspected literature; this absence by itself is not a novelty proof.",
+        "searches": [
+          "random edge versus random vertex greedy matching trees bipartition spider first reversed expectation",
+          "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "https://doi.org/10.1214/aoap/1177005436"
+        ]
+      },
+      "rationale": "The closest same-algorithm work proves domination after random graph averaging and explicitly allows deterministic graph counterexamples; it does not determine a sharp fixed-tree cutoff or one-sided bipartition orientation. Exact three-edge spider two-point laws and unique thirteen-vertex orientation add distinct finite structural information.",
+      "residual_risks": [
+        "Only an abstract or bibliographic description, not complete text, was available for some older deterministic greedy-matching papers; an equivalent fixed-tree ordering result may have escaped the search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AVERAGED_GRAPH_RESULT_NOT_FIXED_TREE",
+          "evidence": [
+            "Theorem 1 averages over a random bipartite graph with a prescribed job degree sequence; the paper shows deterministic non-tree/cyclic reversals. This does not rule out a unique first tree reversal at order 13."
+          ],
+          "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "material_read": "Full author-hosted April 2021 preprint, definitions, Theorem 1 and Figure 1 discussion",
+          "method": "primary full text",
+          "title": "Greedy Matching in Bipartite Random Graphs",
+          "trigger": "Same two algorithms and stochastic domination with possible deterministic exceptions"
+        },
+        {
+          "assessment": "AVERAGE_OVER_TREES_NOT_POINTWISE",
+          "evidence": [
+            "Average-over-random-tree performance does not establish per-tree random-vertex comparison or the n<=13 uniqueness table"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005436",
+          "material_read": "Accessible abstract, stated average-case model and theorem scope; full historical text not established as read",
+          "method": "bibliographic abstract and accessible description",
+          "title": "The Average Performance of the Greedy Matching Algorithm",
+          "trigger": "Random edge matching on random trees or graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mathematically motivated expectation/stochastic-order comparison of two standard greedy algorithms is reversed by a uniquely minimal oriented tree, and the infinite spider family gives a clean analytic mechanism. The small n=13 gap is significant as a sharp counterexample to a natural universal pointwise domination conjecture, not claimed as a large numerical improvement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+    "https://doi.org/10.1287/stsy.2021.0082",
+    "https://doi.org/10.1214/aoap/1177005436",
+    "https://doi.org/10.1002/rsa.3240020104",
+    "https://doi.org/10.1145/3614318",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The n<=13 classification depends on an exhaustively implemented exact tree enumerator; its finite scope is explicit.",
+    "The models use fixed designated job side, unweighted trees, uniformly random edges or job order and uniform feasible neighbor choice."
+  ],
+  "residual_risks": [
+    "Only an abstract or bibliographic description, not complete text, was available for some older deterministic greedy-matching papers; an equivalent fixed-tree ordering result may have escaped the search."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "AVERAGED_GRAPH_RESULT_NOT_FIXED_TREE",
+      "evidence": [
+        "Theorem 1 averages over a random bipartite graph with a prescribed job degree sequence; the paper shows deterministic non-tree/cyclic reversals. This does not rule out a unique first tree reversal at order 13."
+      ],
+      "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+      "material_read": "Full author-hosted April 2021 preprint, definitions, Theorem 1 and Figure 1 discussion",
+      "method": "primary full text",
+      "title": "Greedy Matching in Bipartite Random Graphs",
+      "trigger": "Same two algorithms and stochastic domination with possible deterministic exceptions"
+    },
+    {
+      "assessment": "AVERAGE_OVER_TREES_NOT_POINTWISE",
+      "evidence": [
+        "Average-over-random-tree performance does not establish per-tree random-vertex comparison or the n<=13 uniqueness table"
+      ],
+      "identifier_or_url": "https://doi.org/10.1214/aoap/1177005436",
+      "material_read": "Accessible abstract, stated average-case model and theorem scope; full historical text not established as read",
+      "method": "bibliographic abstract and accessible description",
+      "title": "The Average Performance of the Greedy Matching Algorithm",
+      "trigger": "Random edge matching on random trees or graphs"
+    }
+  ]
+}

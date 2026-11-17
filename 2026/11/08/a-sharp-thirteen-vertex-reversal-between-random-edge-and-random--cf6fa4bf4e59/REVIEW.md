@@ -1,19 +1,21 @@
-# Scientific review: sharp tree threshold for two greedy matching algorithms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two matching algorithms are normalized as uniform edge priority versus uniform job-side priority plus independent uniform free-neighbor selection. Every arm job of the spider has a private leaf, so final matching size has two possible values. Independence of disjoint edge-priority triples gives the random-edge failure probability \(3^{-m}\); last-job conditioning gives the random-vertex failure probability \(1/((m+1)2^m)\). Both calculations are verified against exact rational dynamic programming and independent small-arm enumeration of all priority permutations. For the finite sharp cutoff, the executable certificate constructs all nonisomorphic trees by an exhaustive leaf-extension induction and computes exact expected values from first-step recurrences, considering both bipartition orientations. It reports no reversal through twelve vertices and one at thirteen, with exact gap \(1/6480\). The completeness argument for the generator and the normalization of the recurrences are included in `RESULT.md`.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Proved spider laws: all peripheral b_i jobs match private d_i or a_i; the center fails under job-side vertex order iff processed last and each arm job chooses a_i, giving 1/((m+1)2^m). Under uniformly random edge priorities it fails iff each arm internal edge a_i b_i is earliest of the three arm edges, giving 3^-m independently across arms. Thus the two-point stochastic order flips precisely for m>=4; the m=4 gap is 1/6480, with E[M_V]=399/80 and E[M_E]=404/81. For sharp n<=13 cutoff, independently enumerated all free trees with a second generator and both bipartition orientations and evaluated a separate exact Fraction first-edge/first-job recurrence: a single positive orientation at n=13, none for n<=12. Inspected pinned verify.py, including its independent induction-complete leaf-extension tree generator and canonical centers. This is exhaustive finite calculation, not a proof of an all-order tree classification.
 
-Arnosti (2021/2022) proves an *edge-set-averaged* random-vertex stochastic dominance theorem and exhibits a smaller *cyclic* counterexample on a fixed graph; neither implies a fixed-tree first-failure classification or the present infinite spider law. Dyer–Frieze (1991) studies random-edge performance without this two-procedure tree comparison; Dyer–Frieze–Pittel (1993) is reported by Arnosti to study averages over random labeled trees, an assertion consistent with isolated exceptions. The 1995 Aronson et al. vertex process permits both sides of a graph to be selected and hence is a different process. Searches of public research records and other literature did not identify the two-point spider formulas or the first thirteen-vertex oriented-tree threshold. Complete older full texts, notably the 1993 article, could not all be inspected; lack of a search hit is not treated as proof of historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-A natural finite-graph question left open by stochastic superiority *on average* is whether acyclicity alone prevents a fixed-instance reversal. The exact first counterexample is not a contrived dense graph but a fully symmetric four-arm tree. The two short failure formulas explain the reversal mechanism and yield a full infinite family of strict first-order stochastic dominance reversals, while the exhaustive finite certificate shows the sharp minimal order and uniqueness. This is a structural boundary with direct relevance to choosing between two standard randomized greedy matching algorithms, not merely a decimal comparison.
+The closest same-algorithm work proves domination after random graph averaging and explicitly allows deterministic graph counterexamples; it does not determine a sharp fixed-tree cutoff or one-sided bipartition orientation. Exact three-edge spider two-point laws and unique thirteen-vertex orientation add distinct finite structural information.
 
-## Closest literature, limitations and risks
+## value
 
-The closest primary source is Arnosti, *Greedy Matching in Bipartite Random Graphs*, https://doi.org/10.1287/stsy.2021.0082 , especially Figure 1 and Theorem 1. Related sources include Dyer–Frieze (1991), Dyer–Frieze–Pittel (1993), Aronson–Dyer–Frieze–Suen (1995), and Tang–Wu–Zhang (2023). The finite threshold relies on a transparent exhaustive exact computation, not a handwritten structural classification. The statements exclude different vertex-selection conventions, edge weights, capacities and non-tree graph families. Historical priority and the mathematical proof have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically motivated expectation/stochastic-order comparison of two standard greedy algorithms is reversed by a uniquely minimal oriented tree, and the infinite spider family gives a clean analytic mechanism. The small n=13 gap is significant as a sharp counterexample to a natural universal pointwise domination conjecture, not claimed as a large numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
