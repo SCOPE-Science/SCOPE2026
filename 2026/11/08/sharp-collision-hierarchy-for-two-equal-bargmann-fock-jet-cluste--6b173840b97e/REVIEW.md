@@ -1,11 +1,21 @@
-# Scientific review: two-cluster Bargmann–Fock jet collision spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalization uses the standard Gaussian Fock norm and Weyl unitary translates of normalized monomials, so the two nodewise jet families are orthonormal. The Gram matrix has the exact two-identity-block form, and the leakage identity follows from unitarity. The proof supplies an explicit expansion for every leakage entry; the unique minimal-order exterior minor has order \(p^2\) and a nonzero factorial-Vandermonde coefficient. Exterior singular values and their consecutive quotients then yield every sharp power \(4p-2\) and leading constant. The triangular factorization guarantees nondegeneracy for every positive separation. The exact multiplicity-two formula is a separate check. `CHECK.py` passed 717 high-precision assertions on matrix entries, exterior constants, Gram eigenvalues and small-separation behavior. These finite checks are confirmatory, not a substitute for the proof for all multiplicities.
+## correctness
 
-**Originality — PASS relative to the inspected evidence, with residual risk.** The most relevant new source is Alpay–De Martino–Diki, arXiv:2604.22165, first posted 2026-04-24; its full accessible Sections 2–4 develop Fock RKHS kernel/representer constructions and superoscillation but not Hermite two-node Gram collision singular-value asymptotics. Haimi–Romero (2020) studies derivative sampling and interpolation through weighted Beurling densities; its analytic setting overlaps, but its stated conclusions do not quantify the local Gram spectrum or the constants for colliding normalized finite jet clusters. Borichev–Hartmann–Kellay–Massaneda (2015) provides geometric conditions for multiple Fock sampling and interpolation, not this all-order collision spectral law. The classical Weyl displacement and Laguerre matrix formulas are not originality claims. Comparison with recoverable earlier mathematical results did not identify a dominating statement. The abstract of Wünsche (1991) was accessible, but its full text was not inspected, leaving a genuine priority risk for related displaced-number-state calculations. Other Hermite/interpolation or quantum-optics literature may contain an equivalent asymptotic statement; neither searched databases nor nomenclature partitions certify uniqueness.
+PASS
 
-**Value — PASS.** Multiple derivative evaluation at nearby locations is a standard structured interpolation problem, and the exact loss of its lower Riesz bound directly determines worst-case coefficient amplification. The answer is not a routine value-evaluation identity or a one-off numerical cutoff: for every jet multiplicity it separates the entire cluster-conditioning hierarchy into \(m\) distinct, sharp powers, including nontrivial factorial constants and the sharp worst exponent. The result identifies which derivative combinations become unrecoverable most rapidly and quantifies this in a natural normalized Hilbert geometry.
+Two translated orthonormal Fock jet clusters give Gram block [I C;C* I] with C=P_mD_rP_m, hence spectrum 1±σ_j(C); leakage A=(I−P_m)D_rP_m satisfies A*A=I−C*C. The m distinct leakage singular-value orders are extracted from the unique leading p×p exterior minor: rows m..m+p−1, columns m−p..m−1, of order r^{p²}, coefficient c_{m,p}=sqrt(prod_i (m+i)!/(m−p+i)!)*prod_i i!/(p+i)!. All other minors vanish at higher order and analytic Fock tails are controlled. Ratios of exterior norms give s_{m,p}~(c_{m,p}/c_{m,p−1})r^{2p−1}=γ_{m,p}r^{2p−1}; squaring/2 yields λ^-~γ²r^{4p−2}/2, sharp smallest λ and condition number. At m=2 direct singular values give exact λ_min=1−exp(−r²/2)(sqrt(4+r^4)+r²)/2. Independent mpmath displaced-monomial computations for m=1..4 at r=.035 checked all leading constants within ~0.13% and exact block identity. Only fixed-m local r→0 is proven.
 
-**Limits.** This is a fixed-multiplicity small-separation theorem in the classical one-variable Bargmann–Fock norm. It does not give global conditioning bounds for multiple centers, non-Gaussian weights or noisy data statistics. The standard Weyl matrix elements are prior knowledge. Publication priority and mathematical correctness have not undergone an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: classical Weyl-displaced Fock matrix elements and RKHS representer/interpolation results are known; multiple-Fock interpolation density/geometric criteria are also prior. These do not as inspected yield the explicit m-level two-cluster jet Gram spectrum and sharp factorial constants. The older 1991 displaced-Fock full text and other coherent-state conditioning literature were not accessible and remain named risks; absence of a match is not proof of worldwide novelty.
+
+## value
+
+PASS
+
+PASS: Colliding Hermite/Fock evaluation clusters form a natural conditioning problem in RKHS interpolation. A complete distinct hierarchy r^{4p−2}, with explicit constants and worst singular-value exponent 4m−2 for every m, quantifies precisely which jet directions become unidentifiable; this is meaningful structural spectral information beyond merely asserting instability or finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

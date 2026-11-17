@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T15:16:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-collision-hierarchy-for-two-equal-bargmann-fock-jet-cluste--6b173840b97e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-collision-hierarchy-for-two-equal-bargmann-fock-jet-cluste--6b173840b97e/CHECK.py"
+      ],
+      "rationale": "Two translated orthonormal Fock jet clusters give Gram block [I C;C* I] with C=P_mD_rP_m, hence spectrum 1±σ_j(C); leakage A=(I−P_m)D_rP_m satisfies A*A=I−C*C. The m distinct leakage singular-value orders are extracted from the unique leading p×p exterior minor: rows m..m+p−1, columns m−p..m−1, of order r^{p²}, coefficient c_{m,p}=sqrt(prod_i (m+i)!/(m−p+i)!)*prod_i i!/(p+i)!. All other minors vanish at higher order and analytic Fock tails are controlled. Ratios of exterior norms give s_{m,p}~(c_{m,p}/c_{m,p−1})r^{2p−1}=γ_{m,p}r^{2p−1}; squaring/2 yields λ^-~γ²r^{4p−2}/2, sharp smallest λ and condition number. At m=2 direct singular values give exact λ_min=1−exp(−r²/2)(sqrt(4+r^4)+r²)/2. Independent mpmath displaced-monomial computations for m=1..4 at r=.035 checked all leading constants within ~0.13% and exact block identity. Only fixed-m local r→0 is proven.",
+      "residual_risks": [
+        "Finite independent computations and package checkers are corroboration, not an infinite proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RKHS representer and multiple-sampling geometric characterizations have broader spaces and domains, but concern different predicates (existence/density, not two-cluster sharp Gram eigenvalues)."
+        ],
+        "reasoning": "Their broad coverage does not imply the factorial-by-mode collision constants without a new unique-leading-minor calculation.",
+        "searches": [
+          "Bargmann Fock two confluent jets collision singular values spectrum m derivative cluster asymptotic",
+          "https://arxiv.org/abs/2604.22165",
+          "https://arxiv.org/abs/1508.03932",
+          "https://doi.org/10.1007/s11785-020-01065-4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.22165",
+        "https://arxiv.org/abs/1508.03932",
+        "https://doi.org/10.1007/s11785-020-01065-4",
+        "https://doi.org/10.1088/0954-8998/3/6/005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The representer theorem establishes existence; multiple sampling gives density conditions; displaced-state identities give matrix elements.",
+          "Exterior-minor identity and all-order factorial constants are further deductions not claimed in inspected sources."
+        ],
+        "reasoning": "A stronger old theorem may imply the result, but none was observed in material actually read; best-of-knowledge O remains provisional.",
+        "searches": [
+          "https://arxiv.org/abs/2604.22165",
+          "https://arxiv.org/abs/1508.03932",
+          "https://doi.org/10.1007/s11785-020-01065-4",
+          "https://doi.org/10.1088/0954-8998/3/6/005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weyl translated jets D_w(z^j/√j!) and their Gram overlaps are classical Fock RKHS objects.",
+          "Alpay–De Martino–Diki proves representer results; Borichev et al. characterizes multiple sampling/interpolation through separation and density."
+        ],
+        "reasoning": "The final theorem uses old objects and overlap identities; the precise all-m singular hierarchy is the narrower new structural question, not a renaming of the representer theorem.",
+        "searches": [
+          "Bargmann Fock two confluent jets collision singular values spectrum m derivative cluster asymptotic",
+          "https://arxiv.org/abs/2604.22165",
+          "https://arxiv.org/abs/1508.03932"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Displaced Fock state amplitudes are standard special-function tables; the exact Gram spectrum depends on singular values of an m×m block and its r→0 expansion."
+        ],
+        "reasoning": "No checked tabulation of the 4p−2 hierarchy or leading coefficients was found; the old primary full text was inaccessible, explicitly retained as a priority risk.",
+        "searches": [
+          "Bargmann Fock two confluent jets collision singular values spectrum m derivative cluster asymptotic",
+          "https://doi.org/10.1088/0954-8998/3/6/005"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: classical Weyl-displaced Fock matrix elements and RKHS representer/interpolation results are known; multiple-Fock interpolation density/geometric criteria are also prior. These do not as inspected yield the explicit m-level two-cluster jet Gram spectrum and sharp factorial constants. The older 1991 displaced-Fock full text and other coherent-state conditioning literature were not accessible and remain named risks; absence of a match is not proof of worldwide novelty.",
+      "residual_risks": [
+        "A. Wünsche (1991) full text on displaced Fock states was inaccessible; cannot certify absence of equivalent spectral asymptotics.",
+        "The full weighted-Fock primary 2020 paper was not read; broader Fock conditioning literature may cover the hierarchy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_SHARP_COLLISION_SPECTRUM",
+          "evidence": "Represents Fock evaluation constraints and interpolation, not 2m×2m colliding equal-jet spectral asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.22165",
+          "material_read": "Full arXiv HTML (Fock representer and applications Sections 2–4)",
+          "method": "Full-text primary source and theorem comparison",
+          "title": "Representer theorem in complex reproducing kernel Hilbert spaces with applications to Fock and Hardy spaces and superoscillations",
+          "trigger": "Same Fock evaluation/representation geometry"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "Determines density/separation criteria for sampling/interpolation, not finite two-cluster sharp Gram eigenvalue constants.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03932",
+          "material_read": "Full primary arXiv HTML theorem and density/geometric criteria",
+          "method": "Full-text primary source reading",
+          "title": "Geometric conditions for multiple sampling and interpolation in the Fock space",
+          "trigger": "Same multiplicity and Fock interpolation theme"
+        },
+        {
+          "assessment": "RELEVANT_ACCESS_LIMIT",
+          "evidence": "Published interpolation density results, but cannot claim full-document absence of spectral hierarchy.",
+          "identifier_or_url": "https://doi.org/10.1007/s11785-020-01065-4",
+          "material_read": "Open-access publisher primary introductory statement and theorem abstract, not the entire paper",
+          "method": "Lawful OA source inspection",
+          "title": "Multiple sampling and interpolation in weighted Fock spaces of entire functions",
+          "trigger": "Potential broader multiple-Fock-space result"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK",
+          "evidence": "Displaced-state identities certainly precede current construction; detailed all-m collision constants could conceivably occur there.",
+          "identifier_or_url": "https://doi.org/10.1088/0954-8998/3/6/005",
+          "material_read": "Publisher abstract and citation metadata only; full text inaccessible",
+          "method": "Publisher abstract; lawful OA/preprint search",
+          "title": "Displaced Fock states and their connection to quasiprobabilities",
+          "trigger": "Classical displaced Fock transition matrices might encode complete Gram spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.22165",
+        "https://arxiv.org/abs/1508.03932",
+        "https://doi.org/10.1007/s11785-020-01065-4"
+      ],
+      "rationale": "PASS: Colliding Hermite/Fock evaluation clusters form a natural conditioning problem in RKHS interpolation. A complete distinct hierarchy r^{4p−2}, with explicit constants and worst singular-value exponent 4m−2 for every m, quantifies precisely which jet directions become unidentifiable; this is meaningful structural spectral information beyond merely asserting instability or finite experiments.",
+      "residual_risks": [
+        "Mathematical usefulness evaluated for the precise final claim, not from accuracy or novelty alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A. Wünsche (1991) full text on displaced Fock states was inaccessible; cannot certify absence of equivalent spectral asymptotics.",
+    "The full weighted-Fock primary 2020 paper was not read; broader Fock conditioning literature may cover the hierarchy."
+  ],
+  "schema_version": 1
+}
