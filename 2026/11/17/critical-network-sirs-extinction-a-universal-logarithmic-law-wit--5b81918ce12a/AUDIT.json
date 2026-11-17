@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md proof, steps 1–4",
+      "checks/check.py exact equations and critical simulations",
+      "Gatti–Como arXiv:2604.21065v2 threshold convergence theorem"
+    ],
+    "rationale": "The exact Perron derivative is −w^T((y+z)⊙Wy). LaSalle gives global extinction at exact criticality. A time-ratio estimate from (log u)′→0 and the stable convolution on ker(w^T) give y=vu+pu²+o(u²), z=hu+qu²+o(u²). The cubic expansion yields (u^-1)′=K+Lu+o(u) and t u→1/K, hence the logged limit. Exact SymPy checks verify p,q,K,L, the cubic sign root and invariance relations; numerical trajectories are supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonaccorsi–Turri present thresholds and network SIRS mean-field dynamics; relevant full text does not present the present critical two-term theorem.",
+        "Published critical SIRCm correction concerns infection-driven immune escape instead of heterogeneous network SIRS; it is not a general theorem subsuming this one."
+      ],
+      "reasoning": "Related threshold theorems and generic center-manifold theory do not state stronger quantitative conclusions that imply the specified coefficient and sign classification. No dominating coverage was identified in inspected accessible literature; the absence of a search hit alone is not offered as proof.",
+      "searches": [
+        "\"two group SIRS spectral threshold second order slow manifold logarithmic correction sign flip as immunity loss changes\"",
+        "\"SIRS Gatti Como 2026 second order critical decay Perron eigenvectors phase amplitude\"",
+        "https://iris.unitn.it/retrieve/e3835198-3203-72ef-e053-3705fe0ad821/sirs-version3.0.pdf",
+        "2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2604.21065",
+      "https://arxiv.org/pdf/2604.21065",
+      "https://iris.unitn.it/retrieve/e3835198-3203-72ef-e053-3705fe0ad821/sirs-version3.0.pdf",
+      "https://doi.org/10.1002/mma.4061",
+      "https://doi.org/10.3934/dcdsb.2015.20.3057",
+      "2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc",
+      "2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1",
+      "2026/11/8/SCOPE-sharp-critical-clearance-with-prevalence-responsive-links-in-mul--96c9306c6507",
+      "2026/11/8/SCOPE-sharp-heterogeneous-critical-extinction-profiles-for-a-two-chann--afbd5e688ab5",
+      "2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gatti–Como gives critical global convergence and the weighted infected Lyapunov equation, which imply u→0 but not the numerical first- and second-order amplitudes.",
+        "The published SIRCm result has a feedback-controlled logarithmic term but not this directed network SIRS flow; the published heterogeneous aerosol–droplet SIS result gives a different Perron coefficient and no SIRS immunity-memory correction.",
+        "The two-node family varies only common δ, keeps the Perron spectrum exactly critical, and reverses the correction by the strictly increasing cubic 8d³+45d²+27d−54."
+      ],
+      "reasoning": "The new claim requires stable-direction second-order slaving q and p and a third-order nonlinearity; neither spectral threshold, one-term critical SIS results, nor a different SIRCm example logically entails it. The combination is not a numerical restatement of the prior threshold theorem.",
+      "searches": [
+        "\"directed irreducible SIRS ODE critical threshold sharp inverse-time prevalence waning immunity Perron normalization\"",
+        "\"two group SIRS spectral threshold second order slow manifold logarithmic correction sign flip as immunity loss changes\"",
+        "\"SIRS Gatti Como 2026 second order critical decay Perron eigenvectors phase amplitude\"",
+        "https://arxiv.org/abs/2604.21065",
+        "2026/11/8/SCOPE-universal-critical-relaxation-and-a-feedback-controlled-logarith--4105e5caa4dc",
+        "2026/11/8/SCOPE-sharp-heterogeneous-critical-extinction-profiles-for-a-two-chann--afbd5e688ab5",
+        "2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gatti–Como Section IV uses a left Perron weighted infected functional for global disease-free attraction at reproduction threshold, but does not derive p,q,L or reciprocal-log asymptotics.",
+        "The proposed law is equivalently a two-term slow-manifold expansion for the exact 2n-dimensional SIRS vector field, whose quadratic and cubic coefficients are explicitly computed."
+      ],
+      "reasoning": "A generic quadratic transcritical center-manifold normal form implies existence of 1/t and possible log terms, but not the sharp coefficients for the directed heterogeneous SIRS network, nor a sharp physical waning-rate sign reversal. No inspected exact statement is equivalent.",
+      "searches": [
+        "\"directed irreducible SIRS ODE critical threshold sharp inverse-time prevalence waning immunity Perron normalization\"",
+        "\"network SIRS exact logarithmic correction reciprocal infection prevalence 1/y - k t log t critical irreducible directed network\"",
+        "https://arxiv.org/pdf/2604.21065"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic search returned adaptive SIS / SIRCm critical log-law records with distinct equations, and heterogeneous SIS Perron extinction records, but no exact directed SIRS p,q,L coefficients or waning polynomial.",
+        "Exact symbolic rational identities for the concrete two-node example were verified in the attached checker; this was not copied from a known table."
+      ],
+      "reasoning": "The object and parameter tuple were compared on claim implications; no identified indexed record tabulates the exact two-node SIRS cubic and sign reversal.",
+      "searches": [
+        "\"network SIRS epidemic model Gatti Como 2026 critical threshold R0=1 algebraic decay universal asymptotic Perron eigenvectors 1/t\"",
+        "\"SIRS threshold heterogenous network opposite sign log correction reciprocal infection\"",
+        "\"SIRS threshold exact polynomial decay inverse time network heterogeneous rates Perron eigenvector\"",
+        "2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1",
+        "2026/11/8/SCOPE-sharp-critical-clearance-with-prevalence-responsive-links-in-mul--96c9306c6507"
+      ]
+    },
+    "rationale": "Originality is assessed for the joint two-term directed-network SIRS critical law and the sharp common-waning sign reversal, NOT for generic Perron thresholds or generic inverse-time/logarithmic normal-form effects. The primary motivating paper proves threshold global convergence but not asymptotic coefficients. Relevant network-SIRS full text and related historical studies were compared, with accessible indexed results examined by implication. Strongest close results concern different SIS/SIRCm state equations and do not supply the displayed p,q,L or 2-node waning polynomial. Residual older-literature priority risk remains.",
+    "residual_risks": [
+      "Full text of the older Yang–Draief–Yang SIRS paper could not be read; its abstract does not settle all possible quantitative results.",
+      "Indexed mathematical records provide summaries, not full proofs; a mathematically equivalent unindexed SIRS asymptotic theorem may exist.",
+      "General center-manifold normal-form theory supplies the methodology; the novelty claim is restricted to this explicit network-SIRS law and algebraic waning reversal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating threshold/global convergence is prior; no sharp critical inverse-time coefficient, signed log correction, or two-node waning sign-reversal classification found",
+        "evidence": [
+          "arXiv:2604.21065v2, pp. 2–6, disease-free stability and Perron functional",
+          "arXiv v1 first public on 2026-04-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.21065",
+        "material_read": "Complete 9-page arXiv v2 PDF, especially model equations Section II, main threshold/stability Section IV, critical Lyapunov proof, appendices and references",
+        "method": "Text extraction and visual page inspection",
+        "title": "On the dynamic behavior of the network SIRS epidemic model",
+        "trigger": "Same precise heterogeneous directed network SIRS equations and critical threshold"
+      },
+      {
+        "assessment": "Does not establish this explicit two-term critical spectral law or its common-waning sign threshold",
+        "evidence": [
+          "Bonaccorsi–Turri, model and mean-field threshold sections"
+        ],
+        "identifier_or_url": "https://iris.unitn.it/retrieve/e3835198-3203-72ef-e053-3705fe0ad821/sirs-version3.0.pdf",
+        "material_read": "Available full PDF, including additive incidence discussion, equilibrium/stability threshold analyses and conclusions",
+        "method": "Full-text inspection and rendered-page review",
+        "title": "Deterministic and stochastic mean-field SIRS models on heterogeneous networks",
+        "trigger": "Related heterogeneous-network SIRS dynamics and possible domination by broad model"
+      },
+      {
+        "assessment": "Related global equilibrium results; exact critical log tail not determined from available material",
+        "evidence": [
+          "Yang–Draief–Yang, first published 2016-06-30; full-text access limitation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/mma.4061",
+        "material_read": "Public bibliographic record and abstract; full text not accessible",
+        "method": "Abstract inspection",
+        "title": "Heterogeneous virus propagation in networks: a theoretical study",
+        "trigger": "Earlier heterogeneous network SIRS model with possible threshold coverage"
+      },
+      {
+        "assessment": "Different delayed system with qualitative global stability; no located quantitative present coefficients",
+        "evidence": [
+          "Muroya–Kuniya–Enatsu, DCDS-B 2015, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/dcdsb.2015.20.3057",
+        "material_read": "Public journal abstract and bibliographic record",
+        "method": "Abstract and theorem-scope comparison",
+        "title": "Global stability of a delayed multi-group SIRS epidemic model with nonlinear incidence rates and relapse of infection",
+        "trigger": "Potentially stronger multi-group SIRS global threshold theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b81918c-e12a-469b-bb2c-515f36fdfaf5",
+  "value": {
+    "evidence": [
+      "RESULT.md explicit two-term theorem and monotone cubic waning boundary",
+      "Gatti–Como first-public 2026 network SIRS qualitative threshold theorem"
+    ],
+    "rationale": "The prior network threshold only establishes eradication; it does not quantify how slow that eradication is. The explicit Perron amplitude and signed log correction resolve the first two universal slow-decay terms under irreducible directed heterogeneous contact. The precise two-population sign reversal at fixed R0=1 reveals a substantive immunity-waning effect absent from the linear epidemic reproduction threshold. An exact natural two-group boundary, not a tiny perturbative numerical gain.",
+    "status": "PASS"
+  }
+}
