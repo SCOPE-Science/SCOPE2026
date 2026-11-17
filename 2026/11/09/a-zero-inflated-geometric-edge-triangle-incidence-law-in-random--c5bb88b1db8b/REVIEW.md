@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact conditional transition equations distinguish edges created by vertex selections (incidence zero) and by edge selections (incidence one). The edge density converges almost surely to the golden ratio by a strictly contracting stochastic-approximation drift with bounded martingale differences. Every fixed incidence class then converges almost surely through a linear bounded-noise stochastic-approximation induction. The limiting masses sum to one, so countable coordinate convergence upgrades to total variation on the nonnegative integers. Exact state enumeration and incidence checks independently test all finite transition equations, not the infinite theorem.
+## correctness
 
-## Originality
-PASS under best-knowledge literature comparison, with an explicit uninspected-primary-source risk. Krapivsky–Lucas (arXiv:2608.26547) introduce the same process and give simplex-count and vertex-degree results, but their accessible abstract and detailed indexed overview do not state a distribution of triangle incidences per edge; power-law vertex degrees do not imply it. Kovalenko et al. (2021) already analyze edge triangle-degree in uniformly selected-edge triangle growth, so exponential edge incidence is prior art; their fixed-dimension triangle-only process does not permit zero-incidence edges and does not give the mixed-process constants. Ding et al. (2024, 2026) treat face-dimensional choices with additional attachment mechanisms; their abstracts show distinct power-law generalized degrees and do not imply this uniform pooled-choice theorem. The complete Krapivsky–Lucas article and Ding full texts could not be examined; a stronger hidden comparison remains possible. Absence from searches is not uniqueness proof.
+PASS
 
-## Value
-PASS. The edge–triangle incidence law is a natural higher-order local observable for the exact new model, not an arbitrary parameter slice. It resolves a different structural statistic from the vertex-degree distribution: a positive atom at zero and a geometric tail coexist with power-law graph vertex degrees. The exact \(3/5\) single-triangle probability and complete total-variation limit provide a useful local profile for interpreting the model's higher-order structure. No downstream theorem or maximum-degree claim is asserted.
+The exact vertex-vs-edge selection yields E[ΔE|F]=1+E/(n+E), and E[ΔA0]=(n−A0)/(n+E), E[ΔA1]=(2E+A0−A1)/(n+E), E[ΔAk]=(A(k−1)−Ak)/(n+E) for k≥2. The e=E/n stochastic approximation has unique attracting golden-ratio root φ; bounded martingale differences and a stable linear induction give almost-sure fixed-k limits. q0=(3√5−5)/10, q1=3/5, qk=q1 r^(k−1), r=(5−√5)/10, sum to one; Scheffé/truncation gives simultaneous l1 convergence, not merely finite-k convergence. Independently enumerated 1,442 incidence identities and 5,199 drift identities for all reachable labeled states through six vertices; checked mean and normalization. Infinite proof rests on exact recurrences and martingale theorem, not enumeration.
 
-## Limitations
-No full-text coverage determination for arXiv:2608.26547; limited access to two related journals. Mathematical correctness has not been independently audited, and finite diagnostics are not infinite proofs. The result is restricted to this two-dimensional mixed attachment mechanism.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge distinct edge–triangle incidence distribution for pooled uniform vertex-or-edge RRSC(2), not the older graph-degree law nor the edge-only attachment model. Full article examined; its degree focus is vertex-degree and generalized degree not this exact geometric zero-inflated edge incidence law.
+
+## value
+
+PASS
+
+Natural complete exact asymptotic distribution for the edge triangle-degree observable in the original RRSC(2) growth process. It shows positive zero-incidence mass and geometric positive tail despite power-law vertex degrees; the almost-sure total-variation conclusion is an independently useful probabilistic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_edge_incidence.py` using the Python 3 standard library. The checker enumerates all reachable labeled graphs through seven vertices. In each state it enumerates all currently eligible old vertices and edges and validates the exact integer conditional-drift numerators for each edge triangle-incidence class. It verifies the exact relation between edges and triangular 2-faces, checks closed-form limiting identities, and runs a seeded diagnostic at 150000 vertices.
+## correctness
 
-Observed replay: `PASSED 525916 checks`. The checks establish only finite transition identities and numerical consistency; they do not alone prove asymptotic convergence or historical priority. The analytical argument proving almost-sure and total-variation convergence is in RESULT.md. The result has undergone self-review; independent audit has not been performed.
+PASS
+
+The exact vertex-vs-edge selection yields E[ΔE|F]=1+E/(n+E), and E[ΔA0]=(n−A0)/(n+E), E[ΔA1]=(2E+A0−A1)/(n+E), E[ΔAk]=(A(k−1)−Ak)/(n+E) for k≥2. The e=E/n stochastic approximation has unique attracting golden-ratio root φ; bounded martingale differences and a stable linear induction give almost-sure fixed-k limits. q0=(3√5−5)/10, q1=3/5, qk=q1 r^(k−1), r=(5−√5)/10, sum to one; Scheffé/truncation gives simultaneous l1 convergence, not merely finite-k convergence. Independently enumerated 1,442 incidence identities and 5,199 drift identities for all reachable labeled states through six vertices; checked mean and normalization. Infinite proof rests on exact recurrences and martingale theorem, not enumeration.
+
+## originality
+
+PASS
+
+Best-knowledge distinct edge–triangle incidence distribution for pooled uniform vertex-or-edge RRSC(2), not the older graph-degree law nor the edge-only attachment model. Full article examined; its degree focus is vertex-degree and generalized degree not this exact geometric zero-inflated edge incidence law.
+
+## value
+
+PASS
+
+Natural complete exact asymptotic distribution for the edge triangle-degree observable in the original RRSC(2) growth process. It shows positive zero-incidence mass and geometric positive tail despite power-law vertex degrees; the almost-sure total-variation conclusion is an independently useful probabilistic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
