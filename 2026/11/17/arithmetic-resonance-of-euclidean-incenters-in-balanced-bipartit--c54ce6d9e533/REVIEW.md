@@ -1,0 +1,15 @@
+# Scientific review — balanced bipartite snowflake incenters
+
+## Correctness — PASS
+The proof uses the connected-tight-edge vertex criterion with both directions established. In the open snowflake interval it exhausts three types of dual extreme potentials; the decisive equality \(\|P_Hf\|^2=R_m(t)^2-[ta+(2-t)b]^2/(2m)\) is exact. The balanced patterns attain the maximum for every even part size. Opposing maximum-norm facets certify global inradius optimality. Integer solutions to the equality constraint yield exactly the stated rational resonance set and binomial count. Balanced contact normals span the within-block zero-sum subspace; resonant additional contacts fill its one-dimensional orthogonal complement. Strict slack at finitely many noncontacts justifies the positive center-segment width away from resonance, and exact local expansion at the primitive resonant profile proves its quadratic pinching. Exact rational enumeration and independent small-dimensional halfspace reconstruction corroborate these claims; they are not substituted for the uniform argument.
+
+## Originality — PASS, qualified
+The direct prior snowflake-biclique result already classifies every dual vertex, and its total facet count is **not new**. Its full `RESULT.md` was inspected, including the interior tight-edge proof; it does not state the Euclidean normal-length maximum, rational equality classification, center rank or center-width asymptotic. The ordinary biclique symmetric-edge-polytope endpoint and its facets were inspected in the relevant sections of Higashitani–Jochemko–Michałek (arXiv:1807.07678). General finite-metric Lipschitz-free geometry and ordinary-graph Hilbert distortion treat different invariants. The geometric theorem is therefore not a mere restatement of the prior facet number, although it intentionally builds on the prior complete vertex list. A historical equivalent under an alternate formulation remains a residual priority risk; searches are not proofs of uniqueness.
+
+## Mathematical value — PASS
+The metric family is canonical: snowflakes of a complete bipartite shortest-path metric. The result pinpoints a non-generic arithmetic mechanism by which the **entire maximum-ball center set** changes from a segment to a unique point. It gives an exact count of additional tangent facets and a sharp quadratic collapse coefficient near every resonant parameter, not just the combinatorial facet total already in the literature. The dense union of finite resonance sets across even dimensions explains why this phenomenon is structurally widespread, while each fixed-dimensional family has isolated exceptional parameters.
+
+## Residual limitations
+The result does not cover odd or unequal cluster sizes, the graph and equilateral endpoints, or arbitrary Hilbert norm choices. The width law is a local asymptotic; a closed global piecewise width formula is not claimed. Independent audit has not been performed, and unindexed equivalent literature remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
