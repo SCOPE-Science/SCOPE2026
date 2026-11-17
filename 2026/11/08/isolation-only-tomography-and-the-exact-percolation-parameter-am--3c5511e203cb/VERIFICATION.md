@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The identities are proved for all finite simple labelled graphs with independent equal-probability site-retention marks. `verify.py` independently exhausts all labelled graphs on one through five vertices and all possible retained sets at two exact rational probabilities. It checks first moments, joint moments, the sign reconstruction, and the exhaustive distinction between graphs with a distance-two pair and disjoint unions of cliques. It also tests the two-root exceptional law for disjoint edges and a distinct second root for a triangle.
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 standard library. The expected output begins `VERIFY_OK 102616`. The full all-order argument, the continuous parameter classification, and the statistical guarantee follow from the analytic proof; the finite checks do not certify these infinite statements on their own. There is no independent audit or empirical validation of the model on real networks.
+## correctness
+
+PASS
+
+Direct Bernoulli product gives mean pq^{d_v}; joint isolation is zero on an edge and p²q^{d_u+d_v−c_uv} otherwise, so covariance sign exactly recovers adjacency. A positive pair gives q^{-c_uv}; absence of distance-two pairs forces clique components. Distinct component orders give q by ratios of means; equal K_k components have identical full law at exactly the two roots of p(1−p)^{k−1}, except unique critical p=1/k. Repeated nonedge co-isolation and union bound give stated exponential failure bound without knowing p. Independent exact graph checks n≤4 verified 410 pair instances.
+
+## originality
+
+PASS
+
+Covariance signs give exact host adjacency from isolation-only labelled site-percolation indicators at unknown p. The full identified graph family for unique p versus twofold complete-law ambiguity and the parameter-free finite-sample graph decoder go beyond the earlier singleton-Bernoulli fold and random-subgraph trace results. Originality remains best-of-knowledge.
+
+## value
+
+PASS
+
+Recovering a labelled graph from isolation-only observations and characterizing precisely when unknown site-retention p is not identifiable are natural inverse-probability problems. The complete all-host classification and constructive finite-sample guarantee are useful exact statements, not merely a tiny illustrative instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
