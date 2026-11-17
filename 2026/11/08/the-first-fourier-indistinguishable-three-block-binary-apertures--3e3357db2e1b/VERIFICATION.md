@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 CHECK.py` with Python 3.10 or later; no third-party modules are needed. It enumerates exactly \(\sum_{n=5}^{12}\binom{n-1}{4}=792\) normalized three-run binary words, uses independent pair-count and bit-shift integer autocorrelation calculations, confirms all reversal and signature counts, and isolates the sole two-class ambiguity at span 12. It also verifies both examples' correlation vectors and inequivalence.
+## correctness
 
-The separate direct bitmask check over binary words with occupied endpoints and exactly four internal 0/1 transitions matched the same eight rows, independently of five-part composition enumeration. The analytic implication from Fourier magnitude equality to autocorrelation equality uses a common nonzero-on-a-dense-set unit-cell Fourier factor and equality of Laurent polynomials; the converse follows by the same identity. The finite checker does not prove anything about spans greater than 12, noninteger endpoints, or uniqueness against signals outside the stated class.
+PASS
+
+For integer unit-cell words, the Fourier transform is a common unit-cell factor times P(e^{-2pi i xi}); full continuous intensity equality is equivalent to equal aperiodic integer autocorrelation C(d). Every three-run normalized word of span n is a positive five-part composition, bijective with four cuts among n-1 positions. Exact exhaustive four-cut enumeration for all n=5..12 yields 792 words, 170 reversal orbits versus 169 correlation signatures only at n12, and exactly one nontrivial pair. Explicit reciprocal polynomial factors give intensity equality at all real frequencies, not just sampled DFT frequencies.
+
+## originality
+
+PASS
+
+General factor-reversal homometry and existence of nonunique three-interval apertures are prior. The surviving claim is exact earliest integer-grid span plus unique first ambiguity fiber, not general three-interval nonuniqueness. Xia–Xu 2026 Section 5 full material was inaccessible; its abstract alone cannot exclude an equivalent span-12 example, so historical priority is materially qualified.
+
+## value
+
+PASS
+
+Sharp smallest-support counterexample and uniqueness among all three-interval integer-grid masks is a natural resolution limit for exact phase retrieval and a useful finite design bound. Exhaustive first-fiber classification is intrinsically meaningful even without stability or arbitrary real-endpoint classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
