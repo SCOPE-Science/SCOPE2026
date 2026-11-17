@@ -1,15 +1,21 @@
-# Scientific review: exact two-site rectification inversion
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-state generator is explicit and irreducible for positive kinetic rates and interior reservoir densities. Its four rooted-tree cofactors are calculated symbolically and yield a positive normalization and an exact rational stationary current. The full even-current numerator factors as the site-rate contrast times a *single affine function of squared drive*. The two threshold values are obtained from the zero and endpoint value of this affine factor, so the claimed one-reversal classification covers every prescribed kinetic parameter. A separate exact-Fraction solution of stationary balance agrees with the polynomial formula in 288 rational tests. The witness at rates \(u=1/2\), \(v=3/2\), \(d=63/4\) has its cancellation at exactly \(\delta=1/2\). The polynomial proof, not finite enumeration, establishes the universal result.
+## correctness
 
-## Originality — PASS, with stated access risk
-The nearest source is Sakai and Akimoto (2026, arXiv:2609.03560), which motivates sample-dependent rectification in site-disordered boundary-driven exclusion and describes approximate stationary closures. The exact all-bias two-site kinetic-phase boundary and the quartic crossover are not implications of those publicly accessible descriptions. A prior exact two-site theorem applies to **matched contact-removal and internal hop prefactors** and proves a fixed sign; it is recovered only in the noninverting normalization \(d=1\), not for independently controlled internal hopping. Earlier exact four-site open exclusion and periodic-ring examples concern different generators or boundary protocols. Targeted semantic-index searches returned no directly covering theorem, but negative retrieval is not proof of novelty. The motivating primary full text remained inaccessible, leaving a concrete publication-priority risk.
+PASS
 
-## Value — PASS
-The site-dependent equilibrium profile already makes rectification plausible, but it does not predict the **direction** of the effect. The theorem distinguishes a fixed-orientation regime, a unique finite-driving inversion regime, and an opposite-orientation regime, with sharp kinetic boundaries and an explicit rational witness. This identifies contact–bulk kinetic mismatch as a control of direction rather than just magnitude in the smallest nontrivial open interacting channel. It gives an exact, reproducible benchmark for approximate nonlinear current closures. No assertion is made that a two-site crossover survives in macroscopic systems.
+The 4-state generator is irreducible for u,v,d>0 and |δ|<1; its rooted spanning-tree cofactors sum to a positive normalization. Direct cofactor algebra yields J(δ)=4duv δ(p+2-δh)/D(δ) and its symmetrized current E=16duv δ²h[(p+2)²+4d(uv-1)-δ²h²]/[D(δ)D(-δ)]. The unique zero of the affine factor in δ² gives d1=(u+1)(v+1)/(1-uv)<d0=(p+2)²/[4(1-uv)] for uv<1, and other regimes have fixed sign. At d=d0 the even quadratic term vanishes and the quartic coefficient is -8duvh³/D0², nonzero since u≠v. Independent exact rational 4-state stationary solves give E(1/4)=-2304/246445121, E(1/2)=0, E(3/4)=80640/560485349 for u=1/2,v=3/2,d=63/4. Tests do not prove the polynomial identities, which follow from displayed cofactors.
 
-## Residual risks and limits
-The identical-model motivating preprint was accessible by abstract and secondary mathematical exposition, not by full primary text or appendices. Unindexed exact two-site transport literature could contain a stronger equivalent statement. The result applies only to the specified four-state exclusion generator and stationary current, not to arbitrary contact laws, fluctuation statistics or thermodynamic-limit systems. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 13 two-site theorem has exactly matched internal and departure prefactors (d=1) and a fixed rectification sign, whereas this independently scaled internal edge has distinct kinetic thresholds and genuine sign inversion at fixed parameters. The September 2026 model preprint motivates disorder rectification through approximate Galerkin/mean-field closures; accessible portions do not imply this precise d-dependent full-bias rational classification, but the primary manuscript was not fully read. A different four-site inversion is not the same Markov generator. Best-of-knowledge PASS with explicit access risk.
+
+## value
+
+PASS
+
+A sharp direction reversal at fixed contact asymmetry is a substantive structural boundary: the drive strength controls which reservoir orientation is favored. The complete smallest interacting channel classification and exact rational witness offer a benchmark for approximate transport closure, not an arbitrary small-instance search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
