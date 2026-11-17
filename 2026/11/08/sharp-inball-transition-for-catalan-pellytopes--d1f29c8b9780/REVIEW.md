@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is for all integers \(n\ge d\ge3\) in the precise Newton-polytope coordinates. Its facet-normal premise is the published normal-fan ray theorem for the same family. The proof derives facet supports from the summands, reduces the ball problem to endpoint coordinate bounds and a directed adjacent chain, proves sufficiency using a finite path-feasibility lemma and discrete concavity, and distinguishes a unique short-regime center from a relative-open \((n-2)\)-dimensional long-regime incenter family. The strict threshold cannot land at equality for integer parameters. The standalone verifier recomputes all supports directly from the summands, executes 12,551 exact integer support/identity comparisons with floating-point feasibility checks, and agrees with 55 separate numerical linear programs; these checks supplement the unrestricted proof.
+PASS
 
-## Originality: PASS (historical priority provisional)
+For the canonical Newton-polytope embedding P_{d,n} with n>=d>=3, each prefix simplex has 0 and consecutive coordinate-one vertices. Additive support gives coordinate bounds r<=c_i<=w_i-r and difference-facet bounds c_j-c_i+sqrt(2)r<=sum_{t=i}^{j-1} b_t-binomial(j-i,2), where b_t=min(d,n-t). The normal-ray classification in the Bossinger–Gürdoğan originating work is the explicitly stated external premise. Summing adjacent constraints yields r<=d(2n-d+1)/(2(2+(n-1)sqrt(2))), while endpoint widths give r<=d/2. At r* the inequality sqrt(2)r*>(d-1)/2 makes longer differences redundant; concavity of interval support numerators proves all path feasibility inequalities. The tight chain gives a unique incenter with n+1 contacts in one regime; strict slack gives an affine (n-2)-dimensional incenter set with generic four contacts in the other. Equality would equate irrational and rational quantities. The n,d>=3, metric/realization caveats matter.
 
-The September 2026 introductory theorem supplies the combinatorial normal fan, while the preceding pellytope literature addresses vertex structure, chord diagrams, and binary geometries. Neither accessible mathematical statement covers the exact inscribed sphere or the dimensional phase transition. Related published insphere results for Loday or other generalized permutohedral realizations cannot be transferred across unimodular nonisometries. Database searches for the object, formula, facet contacts, Chebyshev center, and equivalent staircase-Minkowski descriptions produced no implication-equivalent result. The full body of the recent originating manuscript could not be re-inspected after initial access; this remains a genuine residual risk, not a claimed negative full-text search.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The Catalan pellytopes interpolate between the cube, pellytope, and associahedron, yet their new normal fans do not predict Euclidean incenter geometry. An explicit all-parameter radius formula and the sharp change from a unique center with many contacts to a positive-dimensional center locus with four generic contacts identify a structural metric phase absent from the combinatorial interpolation alone. The result is not a finite table or an arbitrary low-dimensional computation.
+The published Bossinger–Gürdoğan paper introduces precisely these intermediate pellytopes and their normal fans. Its accessible abstract/introduction and facet-normal description do not state this inradius and contact transition; related Resultary inball theorems study other embeddings/polytopes. The full originating 2026 paper remained inaccessible via arXiv/OA and authorized Oxford reported vpn_disconnected, so this is an explicitly qualified best-of-knowledge originality PASS with substantive residual risk, not a claim of negative coverage from unread pages.
 
-## Closest literature and limitations
+## value
 
-Bossinger–Gürdoğan, arXiv:2609.38456 (construction, rays, fan and combinatorics); Bossinger–Telek–Tillmann-Morris, arXiv:2410.08002 (earlier \(d=2\) family); SageMath's explicit earlier pellytope realization. Loday/associahedral metric results concern distinct embeddings. The full 2026 manuscript beyond accessible introduction was not obtained; an overlooked pre-existing metric result remains possible. Independent verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact inball and center-space phase boundary for a named natural interpolating family supply a nontrivial metric invariant not determined by combinatorial equivalence. Both the radius and a change from unique incenter to a high-dimensional face of incenters are significant structural features, and the contact-facet classification is mathematically motivated by the family geometry. No paper-sized generalization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
