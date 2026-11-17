@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The map is homogeneous and positive, so its normalized rational recurrence is exact. At the rate ratio two the total subordinate fraction obeys a strict drift \(u-u'=(1-u)(2u^2+B)/E\); this proves \(u\to0\). Its reciprocal increments are eventually bounded, which forces \(\sum_tu_t=\infty\). The subordinate max/min ratio is monotone and can have no limit above one, yielding equalization of all subordinate coordinates. The exact reciprocal-increment limit then fixes the universal coefficient. For ratios above two, an exact relative-fitness recursion gives a geometric bound and a positive convergent multiplicative correction. No infinite-time assertion is inferred merely from finite calculations.
+PASS
 
-## Originality: PASS within compared evidence
+Reconstructed homogeneous normalization and exact total-minority drift u-u_next=(1-u)(2u²+B)/(2+2u-2u²-B); u decreases to 0. Bound u-u_next<=3u² yields non-summable u; subordinate max/min ratio decreases and must reach one, forcing B/u²->1/m. Reciprocal increment ->1+1/(2m), hence Cesaro gives all starting states exact t^-1 coefficients. For r>2 coordinate ratios contract by <=2/r and summable errors yield strictly positive geometric constants. Algebra for stationary q=(2-r)/(1+mr) and boundary m>=2 checked. Own independent unequal-start m=3 110000-step test t*u=0.853339 versus 6/7=0.857143 corroborates only; finite runs not the proof.
 
-The source paper introduces the operator, derives fixed points and a critical nonhyperbolic center-manifold case, and treats global dynamics mainly in dimension two. The submitted statement is about normalized composition of **every positive orbit in any dimension** and its **exact** critical inverse-time coefficients. The critically degenerate vector fails the strictly positive equilibrium hypothesis in related projective-convergence results; such a result therefore does not supply these boundary rates. Search queries for discrete quadratic population operators, boundary extinction, inverse-time critical exclusion, and discrete replicator asymptotics found no equivalent formula in the inspected material. This is an evidence-limited originality judgment, not a proof of absolute priority.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The critical case is a genuine nonhyperbolic transition separating a positive stationary composition and geometric exclusion. Its rate is not obtained from a linearization with a unit multiplier. The coefficient \(2/(2m+1)\) is universal across all positive initial compositions, and the proof explains a nontrivial equilibration of initially unequal subordinate types. These are natural dynamical observables for the population interpretation and characterize the transition quantitatively.
+The exact all-dimensional positive-start 1/t coefficient at the water-filling tie is not an implication of the earlier all-dimensional direction theorem; object/operator and fixed points are prior.
 
-## Limits and risks
+## value
 
-Absolute population mass is not controlled. Unequal subordinate coefficients and boundary initial states require separate analysis. The lower-side fixed composition is shown to exist, not shown globally attracting. More general unindexed discrete replicator or nonhyperbolic stability theory might imply an equivalent asymptotic, so independent literature and proof review remain useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact critical extinction exponent and common amplitude for all positive initial compositions identifies a natural sharp transition where qualitative water-filling convergence has no rate. The coefficient quantifies biologically motivated coexistence-to-exclusion boundary and is not a routine substitution of existing asymptotic rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
