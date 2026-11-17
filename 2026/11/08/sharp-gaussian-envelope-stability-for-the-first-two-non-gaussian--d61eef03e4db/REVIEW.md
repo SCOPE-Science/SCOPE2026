@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The centered Hermite ambiguity identity gives \(e^t G_w=wL_1(t)^2+(1-w)L_2(t)^2\). At the fixed contact \(t_0=3-\sqrt5\), both squared Laguerre values equal \(9-4\sqrt5\), giving a sharp upper bound for every weight. At \(w_*=1-1/\sqrt5\), exact polynomial factorization into \((t-t_0)^2\) and a strictly positive quadratic certifies the inequality for *every* real radius. Vanishing of the derivative at the interior contact proves the optimizer is unique. The checker confirms these algebraic identities and independently compares normalized Hermite ambiguity integrals at ten points. The mathematical proof is not inferred from numerical tests.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Alaifari--Yang (arXiv:2410.05486), especially Sections 2.2 and 3.2, give Hermite ambiguity windows and threshold-based complementary coverage; they do not state or prove this sharp weighted Gaussian-relative two-window minimax constant. Hansson-Sandsten--Sandberg (DOI 10.1155/2010/391798) treat process-specific MSE optimization of multitaper spectrograms, not the present least-squares ambiguity-gain minimum. Grohs--Liehr--Rathmair (arXiv:2207.10620) study multiwindow lattice uniqueness rather than exact all-radius exposure balancing. Published mathematical-index and accessible historical claim searches identified no equivalent theorem; this negative evidence is not a proof of priority. A general or separately published Laguerre-minimax formula remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The first two non-Gaussian Hermite ambiguity windows each have a zero circle. The exact optimal allocation quantifies how two such imperfect windows compensate, sharpens their mere non-common-zero property to a complete global Gaussian-relative design guarantee, and identifies the unique obstruction circle. This is directly motivated by multiwindow direct inversion with a fixed total exposure budget. The gain pertains to the intrinsic common Gaussian-envelope metric; no stable full-plane unweighted or nonlinear phase reconstruction is claimed.
+The normalized centered Hermite ambiguity functions are A h_j(x,ξ)=exp(−τ/2)L_j(τ) for τ=π(x²+ξ²), with L1=1−τ and L2=1−2τ+τ²/2. The true Gaussian-relative weighted squared gain is F_w(τ)=wL1²+(1−w)L2², w∈[0,1], τ≥0. At τ0=3−sqrt5, L1(τ0)=sqrt5−2 and L2(τ0)=−(sqrt5−2), so every w obeys inf F_w≤9−4sqrt5. For w*=1−1/sqrt5, the exact certificate F_w*−(9−4sqrt5)=(sqrt5/20)(τ−τ0)²((τ−1−sqrt5)²+4) is nonnegative on all reals with unique equality radius; independently verified symbolic difference identically zero. Differentiating at interior τ0 forces unique optimal w*. The Gaussian factor decays, so theorem is only Gaussian-relative, not uniform unweighted inversion; no global nonlinear STFT phase-reconstruction guarantee.
 
-## Limits of review
-The source comparison is against the specified inspected accessible literature. The direct integral tests are finite. Independent historical and mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Alaifari–Yang primary work establishes multiwindow STFT ambiguity deconvolution and Hermite–Laguerre multipliers, but inspected Sections 2.2 and 3.2 do not give this exact h1/h2 global weighted minimax value or unique allocation. The same-day published three-window h1/h2/h3 optimum, read in full, places weight zero on h2 and optimizes using h1+h3; it neither implies nor states the constrained h1+h2 optimum. Gaussian+h1 disk-weight problems use different window pair and a finite unweighted disk. No stronger/identical read result covers the submitted two-window theorem; historical priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The smallest natural pair of non-Gaussian Hermite ambiguity windows has different radial zero circles. Its sharp normalized all-radius noise amplification margin and unique optimal acquisition split are mathematically motivated exact design information, with a nontrivial SOS lower certificate and full equality geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
