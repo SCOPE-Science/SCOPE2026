@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unnormalized Walsh coefficient of the permutation-matrix indicator is exactly the integer permanent of its associated sign matrix. The row/column gauge normalization is proved to be \(512\)-to-one, with \(65536\) normalized cases. The exact Ryser-subset identity gives a finite, reproducible coefficient formula; the self-contained program checks each case by two independent integer formulas and separately through a weighted \(3876\)-multiset enumeration. The resulting table determines the sharp convolution endpoint norm, the Walsh zero count, and the random-permanent zero probability. No asymptotic or unproved infinite step is used.
+## correctness
 
-**Originality — PASS within inspected coverage.** The closest historical paper is Wanless (2005), which treats attainable signed permanent values, minimal positive values, and examples, including at order five, but does not give the full frequency distribution or exact Fourier-algebra norm in its inspected material. Tao–Vu (2008) prove asymptotic random-permanent magnitude/nonvanishing and the second moment, not the first absolute moment or the exact order-five distribution. The nearby indexed regular-binary-matrix permanent census concerns different matrix entries and a different restricted class. A local prior claim about a principal Fourier matrix on permutation matrices is a different spectral problem, not a statement about all frequencies in the ambient binary matrix group. Broad priority remains uncertain because a small-case signed-permanent catalogue might exist elsewhere.
+PASS
 
-**Mathematical value — PASS.** The set of permutation matrices is a canonical finite-group orbit and defines a natural Fourier idempotent. The complete exact order-five Walsh spectrum determines the sharp endpoint amplification constant and kernel sparsity, while simultaneously giving a previously unlocated exact first absolute moment and zero mass for the classical random-sign permanent. Second-moment estimates and attainable-value results do not settle these quantities. Order five is a natural first finite benchmark beyond the smallest cases, and the complete distribution is useful for testing exact/permanent-distribution computations; this is not offered as a general-dimensional advance.
+The stated Fourier transform is exactly the integer permanent of a 5x5 sign matrix, by expanding the 120 permutation monomials. Row and column sign operations preserve absolute permanent and give precisely 2^9=512 matrices per normalized first-row/first-column +1 representative. The 2^16 remaining entries are exhaustively enumerated, not extrapolated: exact Ryser inclusion-exclusion gives absolute counts 20200,29820,11640,3050,600,200,25,1 for values 0,8,16,24,32,48,72,120. Their sum is 65536, first absolute moment 33045/4096, zero proportion 2525/8192; convolution norm equality follows from finite-group point mass and phase-aligned extremizers. Independent fresh exact Python Ryser enumeration on all 65536 cases plus separate matching formula checks corroborated the coefficients. This is a genuinely finite exhaustive certificate, not an infinite-dimension assertion.
 
-The finite computation is exhaustive and integer-exact but remains an executable certificate rather than an independently reviewed proof. Literature-priority uncertainty is the principal residual scientific risk. Scope is exactly \(M_5(\mathbb F_2)\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact order-five sign-permanent multiplicity census and resulting M5(F2) permutation-spectrum endpoint norm are not included in the inspected Wanless possible-values/minimum-positive permanent results, Tao–Vu asymptotic Bernoulli permanent work, or the nearby Resultary Fourier-minor, signed-hafnian and permutation-resonance records. Thus best-of-knowledge priority PASS confined to this natural finite n=5 distribution and its projection interpretation; cannot assert global historical novelty.
+
+## value
+
+PASS
+
+The first nontrivial large-order finite exact absolute-permanent distribution is a natural enumerative invariant of independent random sign matrices, simultaneously computing Fourier support and an exact operator norm for a distinguished permutation-orbit frequency set. Complete unbiased classification over all 2^25 inputs via a proved 512-to-one normalization is independently useful and is not a small arbitrary subset or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
