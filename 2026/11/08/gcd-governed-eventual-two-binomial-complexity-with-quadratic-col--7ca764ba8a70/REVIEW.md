@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For binary words of fixed length, the count of ones and scattered `01` count determine all six nonempty pattern counts of length at most two. The decomposition into complete cyclic periods and a residue tail is exact. Its phase-profile collision equation separates phases with unequal full-period pair counts beyond the stated bound. Equal full-period pair counts are classified by a gcd intersection; the unique possible matching tail one-count has strictly different pair count. The explicit delayed-collision construction satisfies the same pair equation with equality. The standalone checker independently enumerates small cases and corroborates all key identities. The bound is sufficient, not an asserted optimal per-parameter cutoff.
+PASS
 
-## Originality
+For each starting phase s, the factor at n=mp+r is U_s^m T_{s,r}. Its two-binomial signature is determined by its ones count and scattered 01 count, and its 01 count equals m q(U_s)+binom(m,2)ab+ma c(T)+q(T). The full-period q(U_s) values on the zero and one branches are integer multiples b and a with exactly g-1 intersections; hence p-g+1 distinct signatures at r=0. For m>binom(p-1,2), any collision requires equal full-period q and equal tail one-count. The only interior r at which a cross-branch equal-q pair has equal prefix one-count yields tails 0^u1^(b-v) versus 1^(b-v)0^u with distinct 01 counts. This proves p signatures for each nonzero residue. The explicit a=2h+1,b=2h+3 witness has full-period q difference 1, tail q difference h(h+2), and collides at m=h(h+2)=p^2/16-1. Independent direct two-binomial signature enumeration verified 1152 stable residue cases a,b<=8, and 24 quadratic-delay witnesses h=1..24. No infinite result is inferred solely from these tests.
 
-PASS on inspected evidence, with bibliographic risk. The closest primary results concern binomial complexity of Thue--Morse and generalized Thue--Morse words, characterization of morphic and Sturmian complexity families, and general Parikh matrices of powers. Their inspected results do not imply the specific two-run periodic gcd law or the quadratic transient family. The power-matrix formula is a relevant computational antecedent but does not solve cyclic phase collision classification. Vivion (arXiv:2509.11172, Theorem 1) covers the binary 1-balanced case, including the boundary subfamily with \(\min(a,b)=1\), but for \(a,b\ge2\) the host has both length-two factors `00` and `11` and is not 1-balanced. The nontrivial gcd deficits and quadratic transients are not implied by that sufficient theorem. Research-record and accessible prior-claim comparisons uncovered no exact or stronger equivalent. Unindexed equivalents cannot be excluded.
+## originality
 
-## Value
+PASS
 
-PASS. A complete explicit eventual complexity law for a natural two-parameter periodic test family identifies precisely when a second-order scattered-subsequence statistic reconstructs every cyclic starting phase, with a gcd-governed obstruction. The quadratic-delay family shows that even this elementary periodic class can exhibit a long reconstruction transient, making a subquadratic general cutoff impossible. The result supplies structural insight rather than only numerical values or a general boundedness assertion.
+PASS best-of-knowledge: general Parikh-matrix power identities compute concatenation statistics but do not classify cyclic starting-phase coincidences; the published 2025 binary 1-balanced sufficient theorem covers boundary families with min(a,b)=1 but cannot imply gcd-dependent deficits for unbalanced two-long-run words or quadratic-delay collisions. Independent Resultary searches for cyclic two-binomial complexity, Parikh matrices, two-run periodic words and equivalent phase formulas found no earlier matching all-length eventual classification.
 
-## Related literature and limitations
+## value
 
-Rigo--Stipulanti--Whiteland (arXiv:2201.04603) motivates binomial reconstruction; Lü--Chen--Wen--Wu (arXiv:2112.05347) and Lejeune--Leroy--Rigo (arXiv:1812.07330) analyze different aperiodic sources; Atanasiu--Poovanandran--Teh (arXiv:1808.04102) provides power-matrix identities, while Vivion (arXiv:2509.11172) studies equality of binomial and ordinary factor complexity in special broad classes. No exact formula for every short length is asserted. Unindexed or inaccessible equivalent literature remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The gcd-deficient number of cyclic 2-binomial profiles is an exact natural information-theoretic invariant of a simple periodic word, and the family of collisions persisting quadratically many complete periods proves the stabilization scale is genuinely nontrivial. This supplies more than a routine individual Parikh-matrix computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

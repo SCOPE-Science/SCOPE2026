@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:50:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md @ 92f73f2a473d60b39723a33a2fafab5c4262bd6b",
+        "pinned verifier @ 1db4c571bc8ec1e990b62b0c530b8a8a61442b72"
+      ],
+      "rationale": "For each starting phase s, the factor at n=mp+r is U_s^m T_{s,r}. Its two-binomial signature is determined by its ones count and scattered 01 count, and its 01 count equals m q(U_s)+binom(m,2)ab+ma c(T)+q(T). The full-period q(U_s) values on the zero and one branches are integer multiples b and a with exactly g-1 intersections; hence p-g+1 distinct signatures at r=0. For m>binom(p-1,2), any collision requires equal full-period q and equal tail one-count. The only interior r at which a cross-branch equal-q pair has equal prefix one-count yields tails 0^u1^(b-v) versus 1^(b-v)0^u with distinct 01 counts. This proves p signatures for each nonzero residue. The explicit a=2h+1,b=2h+3 witness has full-period q difference 1, tail q difference h(h+2), and collides at m=h(h+2)=p^2/16-1. Independent direct two-binomial signature enumeration verified 1152 stable residue cases a,b<=8, and 24 quadratic-delay witnesses h=1..24. No infinite result is inferred solely from these tests.",
+      "residual_risks": [
+        "Finite computational checks corroborate but do not prove the unrestricted claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vivion: for 1-balanced binary words, two-binomial complexity coincides with ordinary factor complexity; covers min(a,b)=1.",
+          "For a,b>=2 the word contains both 00 and 11, violating the balanced hypothesis; higher-order fingerprints on whole-period windows are a different, stronger observation not implying the second-order class count."
+        ],
+        "reasoning": "Published broader balanced-family or k>=3 reconstruction results do not dominate the unbalanced 2-binomial calculation or its quadratic transient lower bound.",
+        "searches": [
+          "arXiv:2509.11172 Theorem 1 binary balanced words",
+          "arXiv:2201.04603 binomial complexities morphic words",
+          "Resultary: sparse third-order subsequence fingerprints two-run binary cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1808.04102",
+        "https://arxiv.org/pdf/2509.11172",
+        "https://arxiv.org/abs/2201.04603",
+        "https://arxiv.org/abs/2112.05347",
+        "Resultary related two-run cyclic-scattered-subsequence findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parikh power formula supplies an algebraic starting identity but leaves phases and tail interactions to solve.",
+          "The 1-balanced theorem implies equality at its covered boundary, but never gives a deficit when gcd(a,b)>1 with a,b>=2."
+        ],
+        "reasoning": "The new conclusions require collision arithmetic across cyclic phase pairs and the explicit quadratic-delay witness beyond known generic binomial-complexity techniques.",
+        "searches": [
+          "arXiv:1808.04102 Parikh matrices powers",
+          "arXiv:2509.11172 Theorem 1",
+          "arXiv:2201.04603 morphic binomial complexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A two-binomial signature of equal-length binary words reduces exactly to (#1, #scattered 01), equivalently a binary Parikh matrix entry.",
+          "Power-matrix factorization yields the formula for U_s^m but not the collision classification among all starting phases."
+        ],
+        "reasoning": "Changing from 2-binomial equivalence to Parikh matrices or inversion statistics does not make the all-phase gcd count a known theorem.",
+        "searches": [
+          "arXiv:1808.04102",
+          "Resultary: cyclic phase 2-binomial two-run words gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found related exact tortoise, group, ordinary factor, third-order subsequence, and cyclic substring multiset spectra for two-run words, but not a table/formula for this precise scattered-01 phase equivalence."
+        ],
+        "reasoning": "Different invariants do not provide the exact p-g+1 count or a universal m ~ p^2/16 late collision; absence of a hit remains a residual risk.",
+        "searches": [
+          "Resultary: two binomial complexity periodic binary word 0^a1^b gcd collision quadratic stabilization",
+          "Resultary: two-run periodic (0^a 1^b) scattered subsequence 01 Hamming inversion gcd two binomial complexity"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: general Parikh-matrix power identities compute concatenation statistics but do not classify cyclic starting-phase coincidences; the published 2025 binary 1-balanced sufficient theorem covers boundary families with min(a,b)=1 but cannot imply gcd-dependent deficits for unbalanced two-long-run words or quadratic-delay collisions. Independent Resultary searches for cyclic two-binomial complexity, Parikh matrices, two-run periodic words and equivalent phase formulas found no earlier matching all-length eventual classification.",
+      "residual_risks": [
+        "Possibly an unindexed periodic Parikh-matrix phase-spectrum theorem exists.",
+        "The balanced a=1 or b=1 cases are covered by existing sufficient results; novelty is restricted to genuinely unbalanced arithmetic and delay witnesses.",
+        "The sufficient stabilization bound need not be sharp for a fixed pair."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its 1-balanced premise covers boundary one-short-run cases but not the two-long-run gcd phenomenon.",
+          "evidence": [
+            "1-balanced words have matched two-binomial/ordinary complexity; the present a,b>=2 family contains 00 and 11."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.11172",
+          "material_read": "Abstract, Theorem 1 1-balanced statement and relevant context inspected in available PDF",
+          "method": "Read available theorem passages, with a checked PDF page image",
+          "title": "New examples of words for which binomial complexities and subword complexity coincide",
+          "trigger": "Potentially stronger equality theorem for binary periodic words"
+        },
+        {
+          "assessment": "Provides concatenation arithmetic but no cyclic-phase collision or quadratic stabilization theorem.",
+          "evidence": [
+            "Multiplicativity of Parikh matrices gives equation for q(U^mT), not the gcd intersection classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.04102",
+          "material_read": "Abstract and power-matrix identity, as referenced in assigned proof",
+          "method": "Read relevant result description and compared against explicit cyclic phase count",
+          "title": "Parikh matrices for powers of words",
+          "trigger": "General formula for scattered length-two counts of U^m"
+        },
+        {
+          "assessment": "All parameter conditions and collision witnesses are mathematically reconstructed.",
+          "evidence": [
+            "Full-period q(U) intersection count g-1; quadratic witness m=h(h+2)."
+          ],
+          "identifier_or_url": "2026/11/08/gcd-governed-eventual-two-binomial-complexity-with-quadratic-col--7ca764ba8a70/RESULT.md",
+          "material_read": "Complete proof steps 1-4, normalization, witness and limitations",
+          "method": "Pinned Git blob inspection and independent phase-count calculations",
+          "title": "Gcd-governed eventual two-binomial complexity with quadratic collision delays",
+          "trigger": "Assigned final scientific statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1808.04102",
+        "https://arxiv.org/pdf/2509.11172",
+        "https://arxiv.org/abs/2201.04603",
+        "https://arxiv.org/abs/2112.05347",
+        "Resultary related two-run cyclic-scattered-subsequence findings"
+      ],
+      "rationale": "The gcd-deficient number of cyclic 2-binomial profiles is an exact natural information-theoretic invariant of a simple periodic word, and the family of collisions persisting quadratically many complete periods proves the stabilization scale is genuinely nontrivial. This supplies more than a routine individual Parikh-matrix computation.",
+      "residual_risks": [
+        "Possibly an unindexed periodic Parikh-matrix phase-spectrum theorem exists.",
+        "The balanced a=1 or b=1 cases are covered by existing sufficient results; novelty is restricted to genuinely unbalanced arithmetic and delay witnesses.",
+        "The sufficient stabilization bound need not be sharp for a fixed pair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possibly an unindexed periodic Parikh-matrix phase-spectrum theorem exists.",
+    "The balanced a=1 or b=1 cases are covered by existing sufficient results; novelty is restricted to genuinely unbalanced arithmetic and delay witnesses.",
+    "The sufficient stabilization bound need not be sharp for a fixed pair."
+  ],
+  "schema_version": 1
+}
