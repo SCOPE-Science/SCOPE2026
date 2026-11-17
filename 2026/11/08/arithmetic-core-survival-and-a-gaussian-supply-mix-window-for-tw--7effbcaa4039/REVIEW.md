@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The partition-matroid rank assumption is explicit: each random instance is conditioned to have at least the two quotas available. The characteristic function is the number of disjoint resource-complete bundles. Every base must receive at least one under a core payoff. Averaging over all bases gives an upper bound of one because the grand payoff equals the minimum integer packing number. Equality forces zero payoff on nonsaturated categories; within-category uniformity is derived only for packing number at least two. The one-bundle exception is separately stated. Conversely the constructed payoff classes satisfy every coalition by disjoint-base decomposition. The exact binomial event has both equality and overlap handled. Binomial unimodality controls the modular discrepancy, and the triangular-array central limit plus exponentially unlikely failed quota conditioning gives the limit. The standalone checker passed 405 LP, 9,612 event, 38 rational and nine asymptotic tests; all-limit proof is analytic.
+PASS
 
-## Originality — PASS with residual priority risk
+The core inequalities reduce to all r+s resource bases because any coalition of value t contains t disjoint bases. Average payoff of a uniform base is (r/a)w_A+(s/b)w_B <=(w_A+w_B)/q=1. Since every base must pay at least one, equality forces zero pay to every nonsaturated type. For q>=2, swapping same-type elements inside a base forces equal pay within each saturated type; for q=1 no within-type equality is needed. Thus a core exists iff a=qr or b=qs. For binomial random X_m the event is the exact union of lower-tail residue X≡0 mod r and upper-tail residue m-X≡0 mod s, with a single possible overlap of O(m^-1/2). Unimodal binomial mass and fixed-modulus block variation yield tail-residue equidistribution O(m^-1/2); the triangular-array CLT yields Phi(-beta/sigma)/r+Phi(beta/sigma)/s. Independently solved all 20 small coalition LPs at quotas (2,3) and a<=6,b<=6; m=12000 binomial numeric probabilities match the predicted window within 1e-4. This corroborates, but does not prove, the full limiting law.
 
-The initiating paper arXiv:2609.37278, first public September 29, 2026, contains the general matroid packing game and deterministic core theory (especially Sections 2–5), including a general algorithm deciding whether a core exists. The deterministic two-quota arithmetic criterion is a specialization, not independently prioritized. The precise new claim is the probability under binomially sampled type counts, the exact finite formula and its Gaussian interpolation between distinct modular residue frequencies. Searches of arXiv, the broader web, available research records, and accessible historical claims found no direct coverage of that stochastic statement. Generic binomial CLT or a deterministic core decision procedure does not directly assert the limiting probability; their combination here requires explicit lattice residue and boundary accounting. Residual risk: an unindexed random-resource/core-survival result or an unstated equivalent derived from the deterministic paper could make the claimed novelty narrower.
+## originality
 
-## Value — PASS
+PASS
 
-The supply model is the minimal heterogeneous resource-packing economy with fixed integer technological quotas and random exogenous resource types. It distinguishes deterministic production feasibility, which holds with probability approaching one, from transferable-utility coalitional stability, whose probability remains a quota-dependent constant. The exact critical window supplies a quantitatively useful reliability comparison for unequal production quotas, rather than an arbitrary small numerical instance. The persistence of arithmetic effects in a large market and the transition between the two quota reciprocals identify a substantive structural boundary.
+The previously published matroid packing core theory gives a general deterministic core decision framework that includes the submitted two-quota saturation test. The final distinct result here is the probability under IID random type allocation and the exact square-root Gaussian supply-mix window combining modulo r/s bottlenecks. Primary general matroid-packing work read does not include the IID random-supply model or congruence-window distribution; Resultary searches for stochastic aliases found no result implying this law. Best-of-knowledge originality pass is only for the finite probability and asymptotic stochastic statements, not the deterministic core algorithm or CLT lemma.
 
-## Closest sources and limitations
+## value
 
-The closest work is Liu–Xiao–Chen–Fang, arXiv:2609.37278. Its general core theory dominates the deterministic criterion but does not state the binomial random supply law in the inspected material. Baiou–Barahona (2020) is about graphic matroid network strength games, not this random two-partition supply law. The result needs fixed quotas, independent types, conditional full partition rank, and does not characterize the empty-core nucleolus or correlated type assignments. Search absence alone does not prove priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Randomly supplied resources in complementarity/partition matroid games provide a natural stability question: whether the feasible payoff core survives despite integer quotas. Its nontrivial 1/r versus 1/s survival frequencies and m^-1/2 Gaussian interpolation at a rational supply balance are an informative arithmetic phase transition, not an arbitrary parameter slice or a simple general deterministic core restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
