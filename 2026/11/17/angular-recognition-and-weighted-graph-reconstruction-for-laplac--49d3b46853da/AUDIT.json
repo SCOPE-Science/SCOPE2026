@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For L a connected weighted graph Laplacian, (L^dagger e_i)^T Le_j=delta_ij-1/n gives its exact inward facet normals. Their unnormalized Gram equals (L^dagger)^2. Rescaling the normalized cosine Gram by its unique positive kernel vector recovers this matrix up to scale; the positive spectral square root of its pseudoinverse recovers L. Conversely, a symmetric rank-(n-1) positive-semidefinite root with kernel span(1) and nonpositive offdiagonal is exactly a connected weighted graph Laplacian; its normal Gram reconstructs the candidate angles. Scale and permutation equivariance are explicit. The P4 matrix is verified symbolically. The standalone numerical tests cover 770 connected simple graphs n=3,4,5, twice weighted, but are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Devriendt–Van Mieghem arXiv:1807.06475, §3 and p. 6: vertex Gram is the graph Laplacian",
+        "Devriendt arXiv:2010.04521, Theorem 1: Laplacian/nonobtuse-simplex bijection",
+        "The explicit P4 column-Laplacian example has a dihedral cosine -7/sqrt(105), so it is outside the nonobtuse-image class"
+      ],
+      "reasoning": "The 2018–2020 Fiedler correspondence covers all hyperacute simplices but for a distinct graph map. It is broader in allowed simplex dimensions yet does not characterize the Braun–Meyer column-Laplacian image, which includes obtuse members. The necessary spectral-square-root sign criterion is new to the checked statements; general angle-Gram identity is prior.",
+      "searches": [
+        "Fiedler simplex angle reconstruction vs Braun Meyer Laplacian simplex",
+        "interior facet angle Gram matrix graph Laplacian simplex spectral reconstruction",
+        "arxiv:1807.06475 §3",
+        "arxiv:2010.04521 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "Braun–Meyer 2017 arXiv:1706.07085v1 full relevant primary material",
+      "Devriendt–Van Mieghem 2018 arXiv:1807.06475v1 full relevant primary material",
+      "Devriendt 2020 arXiv:2010.04521 relevant §§2.2–2.3",
+      "Indexed published mathematical record summaries for Laplacian simplex angles/inradii and metric reconstruction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Braun–Meyer arXiv:1706.07085, Proposition 3.4: lattice and volume statements for the column simplex",
+        "Devriendt arXiv:2010.04521, Property 1: normalized pseudoinverse-Gram formula for facet angles",
+        "Devriendt arXiv:2010.04521, Theorem 1: hyperacute simplex correspondence",
+        "The four-vertex path normal Gram has positive off-diagonal 7/16 despite graph L off-diagonals nonpositive"
+      ],
+      "reasoning": "The general angle-Gram identity plus the known vertex coordinates supplies premises for the present proof, so its inputs and ingredients are not novel. Their combination alone is not recorded as a classification in the checked texts; the exact if-and-only-if angular image criterion, unweighted equal-negative-entry test, and weighted graph inverse are the scoped result. Unlike a direct specialization of the hyperacute theorem, the candidate handles obtuse column simplices and the original graph rather than the Fiedler dual graph.",
+      "searches": [
+        "Laplacian simplices dihedral angles reconstruct weighted graph from facet normals Gram pseudoinverse",
+        "Euclidean similarity rigidity graph Laplacian simplices from facet angles weighted",
+        "arxiv:1706.07085 §3",
+        "arxiv:2010.04521 Property 1 and Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Devriendt arXiv:2010.04521, pp. 9–11: pairwise simplex dihedral angles derive from normalized pseudoinverse of vertex Gram; classical Fiedler bijection concerns hyperacute simplices",
+        "Braun–Meyer arXiv:1706.07085, §3: canonical graph polytope uses columns of L"
+      ],
+      "reasoning": "The result can equivalently be phrased as: the normalized facet Gram is the diagonal normalization of (L^dagger)^2, and the unique positive kernel scaling lets the positive inverse square root recover L. This is not the Fiedler identification of L with the inverse facet Gram; P4 is obtuse.",
+      "searches": [
+        "weighted graph isomorphism reconstruction from dihedral angles of Braun Meyer Laplacian simplices",
+        "Laplacian column simplex angle Gram squared Moore Penrose inverse spectral inverse",
+        "arxiv:2010.04521 §2.2–2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed cycle-Laplacian angle-spectrum result computes fixed-family cosine multiplicities, not an inverse for arbitrary weighted graphs",
+        "The indexed vertex-transitive Laplacian-simplex result concerns inradii and circumspheres",
+        "Braun–Meyer arXiv:1706.07085 contains no dihedral-angle calculation in the inspected 26-page preprint"
+      ],
+      "reasoning": "Specific angle tables or distributions do not imply all-graph image recognition from a complete pair-indexed angle matrix. Indexed search is evidence of limited overlap, not proof of priority, and does not replace primary-source reading.",
+      "searches": [
+        "complete facet dihedral angular matrix recognizes weighted Laplacian-column simplex via positive-semidefinite square root",
+        "Laplacian simplex of cycle graph exact dihedral angles facet normal spectrum 2019 2021",
+        "weighted graph Laplacian reconstruction from simplex dihedral normal cosine matrix"
+      ]
+    },
+    "rationale": "The claim is specifically an exact angle-image recognition criterion and inverse of the Braun–Meyer Laplacian-column simplex in all dimensions and positive graph weights, including obtuse simplices. The original 2017 source establishes the vertex construction but pursues lattice/Ehrhart properties. Devriendt 2020 establishes the general normal-Gram/angle relation and Fiedler nonobtuse inverse, which are cited as ingredients, not claimed novel. The Fiedler realization has vertex Gram equal to L, whereas the column realization has vertex Gram equal to L squared, causing a different inverse sign condition. Indexed related results treat angle distributions of special graph families, not the weighted all-graph image criterion. Residual priority risk remains for unindexed or implicitly equivalent literature.",
+    "residual_risks": [
+      "Complete pair-indexed dihedral data, not a multiset, is required.",
+      "General simplex angle-Gram theory supplies important prior lemmas; a hidden published derivation could imply the precise column-Laplacian image criterion.",
+      "Potential unindexed Fiedler-era or graph-reconstruction sources not fully accessible cannot be excluded from historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the column vertex construction and lattice/Ehrhart properties, not the complete Euclidean angular inverse criterion",
+        "evidence": "arXiv v1 dated 2017-06-21; page 6 Proposition 3.4 and §§4–6 tree/cycle/complete graph topics; no occurrence of dihedral or angle in the indexed full PDF",
+        "identifier_or_url": "https://arxiv.org/pdf/1706.07085",
+        "material_read": "Original full-text PDF (26 pages), contents, §3 definition/Proposition 3.4 and topic headings and examples in §§4–6; full text search for angle/dihedral",
+        "method": "Primary open PDF text with page screenshot inspection; locate exact vertex realization and original claims",
+        "title": "Laplacian Simplices",
+        "trigger": "Defines exactly the Laplacian-column simplex and may already contain graph reconstruction"
+      },
+      {
+        "assessment": "Its canonical graph realization has graph Laplacian as vertex Gram, not as the vertex coordinate matrix. Its angle/dual graph logic is acknowledged but differs from the present spectral inverse",
+        "evidence": "Page 6 Eq. (3) sets Q=S^T S; footnote restricts inverse hyperacute simplices",
+        "identifier_or_url": "https://arxiv.org/pdf/1807.06475",
+        "material_read": "Original PDF (23 pages), §3 graph-simplex correspondence including page 6 and §3.1 discussion of facet normals; searched full PDF for dihedral",
+        "method": "Primary full-text and page screenshot inspection of the Gram convention",
+        "title": "The Simplex Geometry of Graphs",
+        "trigger": "Could contain a dominating graph inverse via dihedral data"
+      },
+      {
+        "assessment": "Contains the general normal-angle formula and classical hyperacute-Laplacian bijection, explicitly credited. Does not state the image of canonical column-Laplacian simplices or its positive-square-root inverse",
+        "evidence": "Property 1 on p.10 and Theorem 1 on p.11; examples requiring nonobtuse angle contrast with P4 column realization",
+        "identifier_or_url": "https://arxiv.org/pdf/2010.04521",
+        "material_read": "Original PDF (32 pages), §2.2 pp. 8–10 on canonical Gram and dihedral angles and §2.3 pp. 10–11 on hyperacute correspondence; scanned other related arguments by text search",
+        "method": "Primary full-text, direct equation and screenshot inspection, comparison of vertex Gram conventions",
+        "title": "Effective resistance is more than distance: Laplacians, Simplices and the Schur complement",
+        "trigger": "Closest broader simplex-angle and Laplacian geometry theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49d3b468-53da-4716-ad81-147c24cb7880",
+  "value": {
+    "rationale": "A natural complete metric inverse classification for all connected positively weighted graphs: determine which Euclidean simplex angle matrices can be realized by Laplacian columns and reconstruct graph support plus relative edge conductances. The final sign test is a nonlocal spectral inverse on the positive kernel-rescaled angle Gram, and the result covers obtuse column simplices excluded by the standard hyperacute correspondence. This addresses a coherent graph-polytope inverse problem rather than an arbitrary finite calculation or a restatement of a scalar formula.",
+    "status": "PASS"
+  }
+}
