@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof checks area normalization, disk eigenvalue normalization and gap, cyclic selection, a factorial coupling tail, resolvent asymptotics, and the angular Taylor expansion. The asymptotic statements hold for each fixed positive polygon area.
+# Independent mathematical audit
 
-Run `python check_polygon.py` using Python 3, SymPy and mpmath. The symbolic and numerical program reports `POLYGON_FOCK_CHECKS_PASS 73`. The finite checks confirm coefficients and sample matrix compressions; they are not an exhaustive proof for all side counts, nor an independent mathematical audit.
+## correctness
 
-The first eigenfunction coefficient assumes that a polygon side midpoint has angle zero. All independent-audit activity remains unperformed.
+PASS
+
+The Fock operator differs from disk localization by O_A(N^-2); the fixed disk gap Ae^-A makes its top eigenvalue simple. N-fold rotational symmetry kills vacuum couplings below degree N. The first coupling equals -2e^-A A^(N/2+1)/(N^2 sqrt(N!))(1+O(1/N)), all later multiples are factorially smaller, and the Schur complement yields 4e^-2A/(1-e^-A)*A^(N+2)/(N^4N!). Exact area conservation and Taylor integration give the h^4,h^6,h^8 deficit coefficients. Independent high-precision coupling ratios for A=2, N=12,20,32 were 1.0319,1.0175,1.0103, confirming but not proving the limit.
+
+## originality
+
+PASS
+
+No stronger statement or equivalent theorem located in inspected materials; best-of-knowledge with specific access and priority risks.
+
+## value
+
+PASS
+
+The factorial eigenvector correction is a sharp high-angular-frequency spectral fact beyond standard Faber-Krahn stability; it identifies the first nontrivial Fock mode and magnitude, a natural observable for polygonal localization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: regular-polygon Gaussian localization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the normalization of the Gaussian STFT and Fock monomials. The exact area-normalized radial endpoint gives both the vacuum integral and a second-order boundary displacement. The equal-area disk operator has a strictly positive top spectral gap, and the polygon operator converges to it in norm through a symmetric-difference estimate. Cyclic rotation kills every vacuum-to-monomial coupling below degree \(N\). A uniform short-interval asymptotic gives the degree-\(N\) coefficient, while factorial tails suppress all higher permitted degrees. The Schur-complement resolvent converges on that high-degree vector to scalar multiplication by \((1-e^{-A})^{-1}\), proving the sharp gain and eigenfunction coefficient. Exact symbolic integration and high-precision quadrature corroborate the expansion; neither substitutes for the infinite-dimensional argument. No estimates are claimed uniformly in area.
+PASS
 
-## Originality — PASS, provisional
+The Fock operator differs from disk localization by O_A(N^-2); the fixed disk gap Ae^-A makes its top eigenvalue simple. N-fold rotational symmetry kills vacuum couplings below degree N. The first coupling equals -2e^-A A^(N/2+1)/(N^2 sqrt(N!))(1+O(1/N)), all later multiples are factorially smaller, and the Schur complement yields 4e^-2A/(1-e^-A)*A^(N+2)/(N^4N!). Exact area conservation and Taylor integration give the h^4,h^6,h^8 deficit coefficients. Independent high-precision coupling ratios for A=2, N=12,20,32 were 1.0319,1.0175,1.0103, confirming but not proving the limit.
 
-Nicola–Tilli (2022) proves global disk extremality and the Gaussian equality case. Gómez–Guerra–Ramos–Tilli (2024, first circulated 2023) proves sharp stability order and second variations in the signal, rather than the explicit regular-polygon spectral expansion. Existing fixed-profile smooth shape-Hessian formulas do not directly imply this result for a nonsmooth sequence whose first angular frequency increases with \(N\). No examined source establishes the sharp factorial gain and leading eigenvector correction. The strongest unresolved priority risk is an earlier Toeplitz approximation or high-symmetry perturbation theorem that includes this special family; the bibliographic search is not an exhaustive novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An area-matched regular polygon is a canonical implementable approximation to the globally optimal disk mask. The result identifies a sharp fourth-order concentration penalty and a *different*, factorial scale for the improvement obtained by optimizing the signal itself. This separates geometric approximation loss from signal adaptation, and explains the high angular mode selected by discrete rotational symmetry. It is more than a generic stability estimate or a routine reparametrization: the factorial law needs a selection rule and a resolvent calculation beyond any fixed-order shape expansion.
+No stronger statement or equivalent theorem located in inspected materials; best-of-knowledge with specific access and priority risks.
 
-## Closest literature and limitations
+## value
 
-The closest primary sources are DOI 10.1007/s00222-022-01119-8 and DOI 10.1007/s00222-024-01248-2. The theorem treats fixed positive area and large polygon order only; it does not classify the entire spectrum, provide a uniform area-dependent threshold, or establish independent historical priority. The attached numerical checker is limited to finitely many tests.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The factorial eigenvector correction is a sharp high-angular-frequency spectral fact beyond standard Faber-Krahn stability; it identifies the first nontrivial Fock mode and magnitude, a natural observable for polygonal localization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
