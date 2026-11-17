@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The nonlinear planar map has the exact identity \(F^4=(h^2,h^2)\) for \(h(t)=b/(1+t^m)\). The proof solves all scalar period-two equations, establishes a unique strictly increasing hyperbolic parameter \(B_m(s)\), and derives both four-cycle multipliers. It accounts for every strictly positive starting point, including the exceptional axes. The critical four-phase limit follows from a directly reconstructed cubic coefficient of the scalar second iterate and a reciprocal-square telescoping asymptotic. The invariant-probability statement uses recurrence on the explicitly classified finite periodic set. A standalone program completed 391 exact and finite checks, with no claim that sampling proves universal statements.
+PASS
 
-## Originality: PASS within inspected evidence
+Direct F^2=(h(x),h(y)) and F^4=(h²(x),h²(y)); h decreasing and h² increasing bounded, so every scalar orbit converges to fixed point of h². Hyperbolic scalar two-cycle coordinates L=r e^-s,H=r e^s reduce to unique increasing B_m(s) from strict Q(t)=t*coth(t) convexity; bifurcation threshold b_c and multiplier (m*sinh(s)/sinh(ms))²<1 follow. Scalar sign basins give exactly two primitive planar four-cycles, no others, and support of invariant measures via recurrence. At b=b_c, symbolic expansion of normalized h² yields z ↦ z − (m²−1)z³/6+O(z⁴); reciprocal-square telescoping proves signed sqrt(n) four-phase law. Independently recomputed cubic coefficient for m=2,3,4,7 exactly, and checked source finite script; these checks do not prove universal real m.
 
-Gibo and Ito's 2015 family construction, Ohmori and Yamazaki's 2023 preprint, and Yamazaki and Ohmori's 2023 rational limit and numerical eight fourth-iterate points are credited. The 2023 open-access full article's §3(vi), Eq. (11), and Table 1 provide no all-positive-parameter cycle/basin/ergodic-measure classification or critical signed relaxation law in the inspected text. Searches for the scalar negative-feedback recurrence, its hyperbolic two-cycle formulation, inverse-power maps, and critical rational flips returned no direct stronger coverage. The earlier preprint, its later conference text and the 2015 original were not readable in full; their contents and unindexed equivalents are genuine priority risks, not declared absent.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The paper's numerical four-state phenomenon is explained by a sharp universal threshold for all real positive exponents and feedback strengths. Exact classification of physical versus other invariant measures and the exceptional saddle orbit connects global asymptotics to observable long-term behavior. At the nonhyperbolic threshold the planar map remains globally attracting with a quantified orientation-sensitive four-phase power law. These features are motivated by the model's critical rhythm transition and are neither a mere parameter substitution nor a small finite computation.
+Best-of-knowledge: Yamazaki–Ohmori 2023 publisher paper contains precisely this rational limit map as Eq.(11), numerical fourth-iterate points and Table1 at m=2,b=10; the inspected full HTML does not state all-real-parameter global phase diagram, full invariant/physical measure census or the signed sharp critical law. Related Resultary hits are for distinct max-plus, inverse-power or feedback maps, not mathematical statements implying this complete one.
 
-## Scope and limitations
+## value
 
-The result concerns only the exactly specified rational time-step-infinity map on the strictly positive quadrant. It says nothing about arbitrary finite-step-size cycles, the distinct max-plus system, or unrelated feedback models. The original 2015 article and earliest 2023 preprint remain full-text access risks. Specialist independent review is required before external claims of publication priority or certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A model-motivated universal dynamical phase diagram improves isolated numerical examples, sharply locating onset of two competing four-cycles. The complete invariant/physical measure census and orientation-sensitive critical n^-1/2 relaxation give precise natural dynamical invariants rather than only proof technique or a small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
