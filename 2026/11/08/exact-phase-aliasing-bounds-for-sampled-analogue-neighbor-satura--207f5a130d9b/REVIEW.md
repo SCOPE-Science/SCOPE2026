@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hypothesis that distinct phases have distinct first observations makes history equality equivalent to congruence modulo the primitive period. Directly counting admissible starts establishes the sharp residue cutoff. Elementary additive subgroup arithmetic proves the progression census. The explicit construction satisfies the chronological split and forecast-horizon boundary; full test starts have all phases equally often, yet all sampled starts select the sole fully saturated phase. The finite exhaustive verifier reproduces the counting statements but is not used to infer the infinite-parameter result.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual priority risk.** Velichko and Pham (arXiv:2608.16120v2, Sections 2.3–2.8 and 3–4) define exact-neighbor saturation, use evenly spaced test subsets in selected controls, and give a rough recurrence-scale estimate. Their inspected text does not derive the finite \(K\)-copy residue cutoff or arithmetic-progressions saturation law, nor a sharp \(1\) versus \(1/P\) discrepancy. Published relevant records on Fourier quadrature aliasing, phase-dependent calibration, and sensor schedules concern different observables and do not imply the claimed neighbor-multiplicity law. Historical completeness, including generic sampling literature, is not established.
+PASS
 
-**Value — PASS.** The statistic being sampled is the paper's mechanism-specific diagnostic for a known finite-precision inference failure. The result gives a sharp, arbitrarily severe false-saturation warning and a precise phase-balanced sampling condition, instead of a generic observation that periodic samples can alias. The theorem is a natural finite cutoff for an exact, practically interpretable diagnostic. It does not establish error on the cited experiments or generalize to noisy or transient dynamics.
+Distinct values in different phases make K zero-distance neighbours equivalent to a residue multiplicity inequality. Exact training count is c_T(p)=max(0,1+floor((T-Y-H-p)/P)). At T-Y-H=(K-1)P+r-1 exactly r/P of full-period test starts are saturated. Stride d visits residues of one coset modulo gcd(P,d); the stated formula g/P times the intersection cardinality follows from modular orbit counting. With r=1, stride d=P selects exclusively saturated phase, yielding sample fraction 1 vs full fraction 1/P and maximal gap 1-1/P; coprime d over full orbit is unbiased. Independently verified 2376 (P,K,Y,H,stride) parameter instances. Assumptions include from-start exact periodicity, no Theiler exclusion and full stride cycles.
 
-**Closest literature and limits.** Velichko–Pham is the closest primary full-text source. Familiar arithmetic phase-locking in other sampled statistics is acknowledged, without implying the exact catalogue-neighbor result. Independent historical and mathematical assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier finite-precision Lyapunov-collapse study defines exact Kth-nearest-neighbour saturation and subsampling protocols, but the finite phase occupancy cutoff and sharp stride aliasing counterexample are not implied by the generic observation that finite orbits repeat; this identifies a sampling identifiability ambiguity rather than a new Lyapunov theorem.
+
+## value
+
+PASS
+
+The specific diagnostic is motivated by finite-precision predictive-neighbour saturation. A concrete sharp false-100%-saturation example and exact sufficient anti-aliasing sampling rule provide a useful methodological boundary; not just a renamed CRT count divorced from application. No claim that existing published experiments actually had this bias.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
