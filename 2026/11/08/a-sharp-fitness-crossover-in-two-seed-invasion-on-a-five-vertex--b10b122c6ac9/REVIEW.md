@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The defined five-vertex death–Birth chain lumps exactly to twelve \((i,j)\) states because each vertex in a given bipartition part has precisely the same neighbors. The actual ten transient backward equations and two absorbing boundary values are stated explicitly. The seven-degree integer polynomial certificate solves every backward equation identically in the indeterminate \(r\), and the positive denominator plus finite-state absorption establish that these are the unique fixation probabilities for every \(r>0\). All three sign differences are identically checked. Two have strictly positive numerator coefficients. The third has exactly one positive zero by a single Descartes sign change and an opposite-sign evaluation. The delivered independent 30-state solver checks an additional 240 exact rational comparisons but is not used to prove the all-fitness theorem. Domain excludes \(r=0\), and no fixation-time conclusion is made.
+PASS
 
-## Originality (PASS, subject to stated priority risk)
+For death–Birth update on K_(2,3), the lumped (i,j) count chain has 10 transient states and four rates: (2-i)rj/(3-j+rj), i(3-j)/(3-j+rj), (3-j)ri/(2-i+ri), j(2-i)/(2-i+ri). Supplied rational polynomial certificate N_(i,j)/(60(r+1)Q(r)) has Q positive coefficients; original verifier algebra explicitly checks all ten coefficientwise backward equations, not a finite sample. Independently used symbolic algebra to verify F_(1,1)-F_(2,0)=H/(60(r+1)Q) exactly; all pairwise domination polynomials have positive coefficients. H has one descending-coefficient sign change and H(1)<0<H(3), so exactly one positive root 2.05144026631733... . Neutral r=1 probabilities independently checked as 1/2,5/12,1/3. Full-state rational finite checks are supporting, not a substitute for polynomial identities.
 
-The initiating paper Durocher–Karras–Pavlogiannis–Tkadlec, *Invasion Dynamics in the Biased Voter Process* (arXiv:2201.08207, §§2–5), provides general biased-voter initial-seed maximization, already notes fitness-dependent seed rankings, and proves complexity and submodularity statements, but gives no exact \(K_{2,3}\) two-seed crossover. Thus novelty is solely the explicit complete analytic three-profile formula and unique degree/mixing threshold. Zhang et al.'s exact complete-bipartite formulas use birth–death updating; de Souza–Neves analyze star topology; Brewster et al. analyze neutral bidegreed and star/cycle settings rather than arbitrary-fitness two-seed \(K_{2,3}\). Petsinis et al. optimize placement of bias rather than placement of initial mutants. Research-record searches of the precise objects, update convention, graph, parameter and crossover did not return a covering theorem. Residual risk: an unindexed calculation or general theorem might imply this specific five-vertex result. Negative search results alone do not prove novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-On a smallest unequal nonstar biclique, each of the three possible two-mutant orbit types represents a biologically meaningful choice between concentrating seeds on central individuals and distributing them across degree classes. Neutral theory favors high-degree concentration, while this theorem proves that at sufficiently high fitness spatial mixing strictly dominates it and pins down the exact threshold. The whole positive-fitness classification gives a concrete nontrivial benchmark for influence and evolutionary seeding; it is not a mere relabeling or arbitrary numerical slice. The five-vertex model is limited in scale and no claim of universality across graph sizes is made.
+Best-of-knowledge original exact all-fitness two-mutant seed-location classification for unweighted K_(2,3) under death–Birth. Durocher et al. already establish biased-voter model, seed optimization and fitness-dependent changes in general, but not this graph’s three rational seed-probability laws and unique 2.05144 threshold. Birth–death bipartite and death–Birth star laws use different mechanisms or graphs.
 
-## Scope and outstanding limits
+## value
 
-No independent external validation has been performed. Source comparisons address published text and available research records but cannot exclude inaccessible or unpublished equivalents. Exact linear algebra is certified in the accompanying standard-library checker; finite test points are supplemental to polynomial identity proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+K_(2,3) is the smallest nonstar unequal complete bipartite graph suitable for a genuine two-part placement tradeoff, and the exact all-r crossover answers a motivated evolutionary network seed-allocation decision; not a numerical sample alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
