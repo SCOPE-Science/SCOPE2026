@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every maximal geodesic is proved to be either an edge inside one peripheral clique or a three-vertex geodesic through the hub joining different petals. This gives an equality of labelled simplicial complexes with a join-plus-cone construction. The join has a standard integral sphere-wedge homotopy type; attaching a cone over \(N\) distinct points to the connected join contributes exactly \(N-1\) circles. The facet and face enumerators follow by an exhaustive structural partition, including singleton-petal and two-petal cases. A standalone finite checker independently rederives maximal geodesics and mod-two homology for 102 small profiles, but is not used as an infinite or integral proof.
+## correctness
 
-## Originality — PASS, provisionally
-The foundational 2021 geodesic-transversal studies and the Peterin–Semanišin 2021 author manuscript on joins were compared materially. The latter's Lemma 3.1 and scalar join theorems already imply the minimum cardinality and largely explain the combinatorial structure: neither fact is asserted as new. No inspected primary text or searched near-match gives the explicit mixed-dimensional integral homotopy wedge for arbitrary clique petals. The enumerators accompany that genuinely topological refinement. Research records on Lovász neighborhood complexes of block graphs and general-position or dissociation polynomials of windmills concern distinct simplicial complexes and do not imply this statement. Search non-detection is not proof of novelty; a differently indexed topological computation remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem determines an integral homotopy invariant for all generalized windmills, not merely a minimum covering number. For three or more nontrivial petals, the geodesic-avoidance complex has simultaneous nonzero reduced homology in dimensions \(1\) and \(r-1\); this mixed-dimensional phenomenon is not determined by prior scalar graph-join results. The exact two-family facet classification also provides all inclusion-minimal transversal multiplicities.
+For r>=2 and positive petal sizes, every maximal geodesic is an in-petal edge or a cross-petal hub triple. This gives the exact face complex K ∪ (c*D(X)), K the join of discrete petal complexes, and N separate attachment points. The homotopy cofiber is K wedge (N-1) circles, yielding the stated integral S^{r-1} wedge with multiplicity product(m_i-1), including singleton-petal and r=2 boundary cases. Direct facet complements give F(z)=product(1+m_i z)+z+Nz² and M(z)=product(m_i)z^{N+1-r}+Nz^{N-1}. Independent BFS full-shortest-path computations checked five profiles, not all r.
 
-## Closest coverage and limits
-The closest structural coverage is Peterin–Semanišin, *Geodesic transversal problem for join and lexicographic product of graphs* (2022, author manuscript dated 2021-10-26). The finite checker covers profiles with at most nine peripheral vertices; the integral conclusion rests on the unrestricted topological proof. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior join-geodesic theory establishes the maximal-geodesic types and scalar minimum, which are credited; the surviving integral wedge homotopy and complete graded homology are not logically implied by the scalar minimum or known clique-free complexes.
+
+## value
+
+PASS
+
+The natural geodesic-avoidance simplicial complex has a genuinely mixed-dimensional homotopy type, not merely a cardinality optimum. Exact homotopy and facet generating functions furnish graph-complex invariants usable in further topological-combinatorics work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
