@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_strong_subdiv.py` with Python 3.9 or newer; only standard-library modules are used. This file accompanies the proof in `RESULT.md`. It constructs graphs from their adjacency relations and makes no assumption about the target MMD edge set when calculating distances. For orders four through seven, the independently computed MMD graph equals the disjointness graph, and exhaustive edge-family enumeration agrees with the star/triangle polynomial. For orders four and five, all vertex subsets are additionally tested against the original pairwise strong-resolution definition, followed by all single-deletion minimality checks.
+## correctness
 
-Observed counts by graph order: 8, 15, 26, 42. The verifier tests 2,131,008 edge-family bitmasks and 33,792 strong-resolving candidate vertex sets, and prints `VERIFY_OK`. These are finite tests, not an infinite certificate. Unrestricted quantifiers are addressed by the explicit distance cases, the established vertex-cover correspondence, and the self-contained maximal-intersecting classification.
+PASS
 
-No independent audit has been performed.
+For n>=4 in H_n obtained by subdividing each K_n edge once, verified original-to-original distance 2, original-to-edge vertex distance 1 or 3, and edge-to-edge distance 2 (intersecting old edges) or 4 (disjoint). Neighbor maximality then identifies MMD pairs exactly as pairs of subdivision vertices representing disjoint old edges; every original vertex is isolated in the strong resolving graph. By standard strong resolving graph/vertex cover equivalence, inclusion-minimal strong resolvers are exactly complements among the C(n,2) edge vertices of maximal pairwise-intersecting 2-subsets of [n]. Such families are precisely all n full stars and C(n,3) triangles: a nonstar intersecting family contains the sides of a triangle and no further 2-set. Consequently R_n(z)=n z^(C(n,2)-n+1)+C(n,3) z^(C(n,2)-3); the two cardinalities differ by n-4 and all intermediate sizes absent. Independent shortest-path BFS MMD and exhaustive maximal intersecting family checks at n=4..6 returned 8,15,26 sets as expected; the n>=4 proof is structural.
+
+## originality
+
+PASS
+
+The reduction of strong resolving sets to vertex covers of the strong resolving graph and classification of maximal intersecting two-sets are classical and receive no originality credit. The specific complete-graph incidence subdivision has its strong resolving graph identified as KG(n,2), yielding an exact minimal-resolver polynomial and unbounded cardinality gap not found in inspected earlier papers.
+
+## value
+
+PASS
+
+The strong resolving sets of the complete graph incidence subdivision are a natural obstruction family. Identifying their minimal covers with maximal intersecting 2-subset families gives a complete two-term labelled polynomial and the unbounded gap n-5 of impossible intermediate cardinalities; neither the minimum strong metric dimension nor generic algorithms describe this distribution. This sharp family-level classification has stand-alone utility despite its use of classical intersecting-set structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

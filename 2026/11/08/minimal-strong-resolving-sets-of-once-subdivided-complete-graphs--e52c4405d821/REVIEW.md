@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four distance formulas follow from the incidence structure. Each non-disjoint-type vertex pair has an explicit neighbor witnessing failure of mutual maximal distance, while disjoint old-edge pairs satisfy the condition. The established strong resolving graph–vertex-cover equivalence then reduces the entire family to maximal intersecting two-set families, for which the star/triangle dichotomy is proved directly. The two classes and their multiplicities are distinct, including the coincident-cardinality boundary \(n=4\). The standalone verifier checks the original strong-resolving definition for all vertex subsets at \(n=4,5\) and independently checks the distance graph and all maximal intersecting families at \(n=4,5,6,7\).
+## correctness
 
-**Originality — PASS, provisional publication priority.** Read the relevant full HTML sections of Kuziak et al., arXiv:1612.02843v1, and Bergougnoux et al., arXiv:2309.17419v2. Both explicitly give the general reduction to vertex cover; neither inspected text identifies the strong resolving graph of \(S(K_n)\) as \(KG(n,2)\) or the two-term cardinality distribution. The known elementary classification of maximal intersecting two-subsets is not presented as new. Searches for the specific graph identification, its aliases, and upper minimal strong resolving numbers gave no decisive covering source. Accessible related records concern chain graphs, strong geodetic parameters, or Vietoris–Rips invariants, none of which implies the claimed family classification. An unindexed specialization or stronger all-subdivision theorem remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** Complete minimal-set classification for a natural symmetric incidence graph addresses the minimal-solution enumeration program directly, gives an exact polynomial and all extremizers, and exhibits infinitely growing gaps in cardinalities of minimal strong metric generators. This is more than re-evaluating a single minimum parameter: it distinguishes two qualitatively different maximal intersecting structures and counts all solutions.
+For n>=4 in H_n obtained by subdividing each K_n edge once, verified original-to-original distance 2, original-to-edge vertex distance 1 or 3, and edge-to-edge distance 2 (intersecting old edges) or 4 (disjoint). Neighbor maximality then identifies MMD pairs exactly as pairs of subdivision vertices representing disjoint old edges; every original vertex is isolated in the strong resolving graph. By standard strong resolving graph/vertex cover equivalence, inclusion-minimal strong resolvers are exactly complements among the C(n,2) edge vertices of maximal pairwise-intersecting 2-subsets of [n]. Such families are precisely all n full stars and C(n,3) triangles: a nonstar intersecting family contains the sides of a triangle and no further 2-set. Consequently R_n(z)=n z^(C(n,2)-n+1)+C(n,3) z^(C(n,2)-3); the two cardinalities differ by n-4 and all intermediate sizes absent. Independent shortest-path BFS MMD and exhaustive maximal intersecting family checks at n=4..6 returned 8,15,26 sets as expected; the n>=4 proof is structural.
 
-The strongest established background is the general strong-resolving-graph reduction; the new ingredient is the exact specialized MMD geometry. Neither finite verification nor literature search proves global novelty. The theorem applies only to single subdivisions of complete graphs. Independent mathematical and publication-priority reviews remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reduction of strong resolving sets to vertex covers of the strong resolving graph and classification of maximal intersecting two-sets are classical and receive no originality credit. The specific complete-graph incidence subdivision has its strong resolving graph identified as KG(n,2), yielding an exact minimal-resolver polynomial and unbounded cardinality gap not found in inspected earlier papers.
+
+## value
+
+PASS
+
+The strong resolving sets of the complete graph incidence subdivision are a natural obstruction family. Identifying their minimal covers with maximal intersecting 2-subset families gives a complete two-term labelled polynomial and the unbounded gap n-5 of impossible intermediate cardinalities; neither the minimum strong metric dimension nor generic algorithms describe this distribution. This sharp family-level classification has stand-alone utility despite its use of classical intersecting-set structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
