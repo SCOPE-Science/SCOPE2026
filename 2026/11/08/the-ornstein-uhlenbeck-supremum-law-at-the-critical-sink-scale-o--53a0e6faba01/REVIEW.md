@@ -1,19 +1,21 @@
-# Review of the critical sink-scale Ornstein–Uhlenbeck occupancy law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** For fixed \(p\in(0,1)\) and \(q_n\sqrt n\to c\in(0,\infty)\), the theorem concerns only convergence in distribution of the normalized stationary sleeping-particle count. The exact stationary representation is Proposition 5 of Junge–Kaufman–Meisel (arXiv:2604.04747). Its coordinate-resampling drift is \(-(1-q_n)(Y_n-np)/n\), and its normalized local process has drift \(-x\) and diffusion coefficient \(\sqrt2\). The centered sink count at the boundary's deterministic crossing center has a Gaussian fluctuation independent of the local stationary OU process. The proof explicitly includes an early-hitting localization argument, late-hitting tightness, and Brownian immediate-crossing continuity; without these, a compact-window functional CLT alone would not suffice. The Gaussian boundary offset cancels in law only after conditional stationary time shift and OU reversibility. The 69,812 exact-rational tests in `check_finite.py` confirm the finite transition algebra and no-overshoot premise, but do not establish any infinite limit.
+PASS
 
-## Originality
+Proof reconstructed from exact stationary-sleeper first-hit representation in Junge–Kaufman–Meisel Proposition 5. Bernoulli refresh preserves independent Bernoulli(p) stationary coordinates even conditional on sink choices; independent exact checks show birth u=(1-q)p(1-y/n), death d=(1-q)(1-p)y/n, drift -(1-q)(y-np)/n, center second moment ->2p(1-p). At t_n=(1-p)n/q_n and time windows n*s, martingale diffusion scaling gives stationary OU, jointly independent sink-count Gaussian G; fluctuation of Z across n steps vanishes on sqrt(n) scale. Doob and binomial-refresh subgaussian maximal bounds localize the first hit from both tails; nondegenerate OU immediate crossing enables hitting-time functional continuity. Distribution at hit equals -(G+c tau)/sigma; shifting the time boundary and reversing stationary OU cancels G, yielding sup_t(X_t-(c/sigma)t). Endpoint path properties follow linear penalty, OU Gaussian increments/ergodicity. Finite checker script examined, but no finite experiment is asserted to prove functional CLT, independence, localization or continuum law.
 
-**PASS, subject to historical-priority risk.** Junge–Kaufman–Meisel explicitly identify \(1/q_n=n^{1/2+o(1)}\) as the anticipated Gaussian-to-Gumbel transition, but their stated fluctuation theorem assumes \(1/q_n\gg n^{1/2+\varepsilon}\); their paper does not state the limiting OU supremum law at \(q_n\sqrt n\to c\). Járai–Mönch–Taggi analyze a different effective sink scale near \(1/n\). Known OU first-hitting/maximum methods may provide standard ingredients, not the specific stationary occupancy asymptotics for this model. Search comparisons against related published mathematical findings did not identify this exact model-and-scale result. The 2023 paper's theorem and OU heuristic were inspected, but a complete line-by-line inspection of every earlier source was not performed. Thus priority cannot be certified universally.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result fills a parameter window expressly singled out as unresolved in the motivating preprint, replacing a qualitative transition prediction by a precise, reproducible distributional family. A single OU supremum functional simultaneously captures the Gaussian endpoint, strict upward finite-parameter shift and monotone dependence on sink strength. The cancellation of the separately nondegenerate sink-count Gaussian offset is a non-obvious mechanism particular to the stationary moving-boundary problem. No claims of moment convergence, rates or global phase diagrams beyond the fixed finite-constant critical window are made.
+Best-of-knowledge critical-window model-specific limit not established by inspected original ARW paper; its exact representation and far smaller sink Gumbel asymptotic are prior, while the finite c OU supremum limit requires new moving-boundary analysis.
 
-## Closest literature and limitations
+## value
 
-The key source is Junge, Kaufman and Meisel, *Scaling limit and density conjecture for activated random walk on the complete graph*, arXiv:2604.04747, especially Theorem 3, Proposition 5, Section 1.5 and the boundary-process construction. Járai, Mönch and Taggi, *The number of particles in activated random walk on the complete graph*, arXiv:2304.10169, establish the older large-shift regime and discuss OU heuristics. Reed, Ward and Zhan, *On the generalized drift Skorokhod problem in one dimension*, DOI:10.1239/jap/1363784421, concern related OU hitting distributions, not this particle model. Residual risk is a broader moving-boundary or OU approximation theorem that, with the exact representation, might immediately imply the result; this was not located in the inspected sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite nonzero critical sink parameter is an explicit open scaling gap between known stationary Gaussian and Gumbel regimes in a natural interacting-particle model. Identifying a nontrivial continuously parameterized OU-supremum crossover has independent mathematical relevance and could inform future asymptotic and finite-size studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

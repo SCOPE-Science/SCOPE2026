@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T14:01:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob c1b6f6b006e987ecacbb08e33a41f054147d313d",
+        "frozen check_finite.py blob 9bc5e864e093b5b0ecc5cdc380d6bcecea59914b",
+        "https://arxiv.org/html/2604.04747v2"
+      ],
+      "rationale": "Proof reconstructed from exact stationary-sleeper first-hit representation in Junge–Kaufman–Meisel Proposition 5. Bernoulli refresh preserves independent Bernoulli(p) stationary coordinates even conditional on sink choices; independent exact checks show birth u=(1-q)p(1-y/n), death d=(1-q)(1-p)y/n, drift -(1-q)(y-np)/n, center second moment ->2p(1-p). At t_n=(1-p)n/q_n and time windows n*s, martingale diffusion scaling gives stationary OU, jointly independent sink-count Gaussian G; fluctuation of Z across n steps vanishes on sqrt(n) scale. Doob and binomial-refresh subgaussian maximal bounds localize the first hit from both tails; nondegenerate OU immediate crossing enables hitting-time functional continuity. Distribution at hit equals -(G+c tau)/sigma; shifting the time boundary and reversing stationary OU cancels G, yielding sup_t(X_t-(c/sigma)t). Endpoint path properties follow linear penalty, OU Gaussian increments/ergodicity. Finite checker script examined, but no finite experiment is asserted to prove functional CLT, independence, localization or continuum law.",
+      "residual_risks": [
+        "Localization and independence assumptions are delicate; the convergence is weak only, not uniform moments or convergence rates.",
+        "Conditional binomial stationarity depends on exact self-looped complete graph and initial Bernoulli refresh construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier 2023 complete-graph ARW paper treats sink scaling of order 1/n, whereas q_n~c/sqrt(n) is larger.",
+          "Generic stationary Ornstein–Uhlenbeck boundary-crossing theory is a tool, not an identification of sleeper stationary law."
+        ],
+        "reasoning": "A general OU invariance principle alone does not imply the ARW hitting-time correction, tightness in the remote past, or offset cancellation. No actually read stronger particle-system result covers the fixed-c law.",
+        "searches": [
+          "activated random walk complete graph critical sink q sqrt(n) Ornstein Uhlenbeck supremum distribution",
+          "https://arxiv.org/html/2604.04747v2",
+          "https://arxiv.org/abs/2304.10169"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.04747v2",
+        "https://arxiv.org/abs/2304.10169"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Proposition 5 determines S_n in distribution via first time Y_n(j)=n-Z_n(j).",
+          "Current argument derives joint OU plus independent Gaussian boundary shift, localizes first contact, and eliminates offset via OU reversibility, giving supremum with linear drift."
+        ],
+        "reasoning": "The earlier representation does not logically alone assert the hitting-functional limit; new uniform localization and continuity arguments are necessary. The fixed-c theorem addresses explicitly open interpolation between existing endpoints.",
+        "searches": [
+          "https://arxiv.org/html/2604.04747v2",
+          "activated random walk complete graph critical sink q sqrt(n) Ornstein Uhlenbeck supremum distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Junge–Kaufman–Meisel arXiv:2604.04747v2 Proposition 5 represents stationary sleeper count by Bernoulli refresh and first-hit boundary.",
+          "Its theorem identifies Gumbel only in smaller sink regime and discusses q_n^{-1}=n^{1/2+o(1)} intermediate scale as open; present q_n sqrt(n)->c treats fixed finite constant."
+        ],
+        "reasoning": "OU supremum is a classical Gaussian-process functional; novelty is model-specific critical window. Neither cited model representation nor Gumbel endpoint is an equivalent finite-c limit theorem.",
+        "searches": [
+          "activated random walk complete graph critical sink q sqrt(n) Ornstein Uhlenbeck supremum distribution",
+          "https://arxiv.org/html/2604.04747v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No model-specific exact table for finite-c crossover surfaced in published research semantic search.",
+          "The result is an asymptotic continuum law, not a finite combinatorial sequence."
+        ],
+        "reasoning": "An exact database/table check is relevant to prevent re-reporting known critical-window distribution; no such actually accessed source identified. Failed searches are not novelty proof.",
+        "searches": [
+          "activated random walk complete graph critical sink q sqrt(n) Ornstein Uhlenbeck supremum distribution",
+          "https://arxiv.org/html/2604.04747v2",
+          "https://arxiv.org/abs/2304.10169"
+        ]
+      },
+      "rationale": "Best-of-knowledge critical-window model-specific limit not established by inspected original ARW paper; its exact representation and far smaller sink Gumbel asymptotic are prior, while the finite c OU supremum limit requires new moving-boundary analysis.",
+      "residual_risks": [
+        "A later arXiv revision or independent work may solve the critical transition; semantic search alone cannot certify absence.",
+        "The full 2023 paper was not read in this run, and a hidden appendix could bear on the crossover.",
+        "Classical OU supremum functional itself is not new and is not claimed as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides essential exact first-hit model representation and remote-regime limits but does not state this fixed-c OU supremum law.",
+          "evidence": "arXiv:2604.04747v2; Proposition 5; Section 1.5 explicitly mentions 1/q_n=n^(1/2+o(1)) critical crossover; Gumbel under n^(1/2+epsilon)<<1/q_n.",
+          "identifier_or_url": "https://arxiv.org/html/2604.04747v2",
+          "material_read": "Accessible full arXiv HTML: model definition, main theorems, Proposition 5, stated Gumbel window, Section 1.5 on unresolved transition, and representation/proof passages in Sections 2–3.",
+          "method": "Open primary full-text HTML",
+          "title": "Scaling limit and density conjecture for activated random walk on the complete graph",
+          "trigger": "Exact same model and key stationary representation; potential complete prior coverage."
+        },
+        {
+          "assessment": "Reported regime q_n of order 1/n differs from finite c/sqrt(n), so no whole-document noncoverage conclusion from abstract alone.",
+          "evidence": "Járai–Mönch–Taggi arXiv:2304.10169; distinct sink scaling.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.10169",
+          "material_read": "Abstract and theorem-topic metadata; entire full text not materially read in this run.",
+          "method": "arXiv abstract/metadata search",
+          "title": "The number of particles in activated random walk on the complete graph",
+          "trigger": "Same complete-graph ARW with different sink scale."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2604.04747v2"
+      ],
+      "rationale": "The finite nonzero critical sink parameter is an explicit open scaling gap between known stationary Gaussian and Gumbel regimes in a natural interacting-particle model. Identifying a nontrivial continuously parameterized OU-supremum crossover has independent mathematical relevance and could inform future asymptotic and finite-size studies.",
+      "residual_risks": [
+        "No claim about joint limits q_n sqrt(n)->0 or infinity, convergence of normalized moments, or explicit distribution function."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For complete-graph driven dissipative activated random walk with Bernoulli sleep probability p in (0,1) and sink probability q_n sqrt(n)->c in (0,infinity), the stationary sleeper count (S_n-np)/(sqrt(p(1-p))*sqrt(n)) converges weakly to sup_{t>=0}(X_t-theta t), theta=c/sqrt(p(1-p)), for stationary variance-one OU X; the family has strict stochastic ordering and correct Gaussian/infinite boundary behavior.",
+  "limitations": [
+    "Self-loop complete graph, fixed p, c strictly between 0 and infinity.",
+    "No finite-sample rate or expectation/variance convergence."
+  ],
+  "schema_version": 1
+}
