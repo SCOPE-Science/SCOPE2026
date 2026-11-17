@@ -1,19 +1,21 @@
-# Review of the balanced Johnson-graph tuple-orbit theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument relies on the **published** group equality \(\operatorname{Aut}(J(2k,k))\cong S_{2k}\times C_2\), whose exact action is given by coordinate relabelling and complementation. Every higher-arity orbit is classified by its full Venn-cell count vector; complement reverses bit patterns. The fixed-point count is a stars-and-bars calculation, the full-group orbit count is an application of Burnside's lemma, and equality-pattern Möbius inversion converts all tuples to distinct tuples. The triple-intersection fiber and its reflection follow from eight explicitly enumerated nonnegative cell counts. A separate four-block stabilizer count and finite cubic sums verify the closed parity formulas. Relative-interior and full-rank arguments justify the Ehrhart exponent for fixed arity. `checker.py` independently reproduces the stated small exhaustive counts, the formulas through \(k=25\), and all automorphisms of the smallest graph. No finite run is offered in place of a general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Inspected the actual 12906-byte RESULT and checker source. Pair orbitals of k-subsets are intersection sizes; graph automorphisms preserve graph distance, so the 2-closure is the known full group G. A triple with common (k-1)-intersection and complements with (k-2)-intersection excludes complement from 3-closure, even for k=2. H-orbits on r-tuples equal integer Venn profiles a_eps, and complement reverses eps; fixed profiles have 2^(r-1) equal opposite-cell counts summing k, giving B_r=binom(k+2^(r-1)-1,2^(r-1)-1). Burnside yields (A_r+B_r)/2; Stirling inversion handles distinct tuples. For three distinct sets, the eight Venn cells yield the exact interval L≤t≤U and involution t↦p+q+u-k-t, giving ceiling(N/2) orbits; independent pair-stabilizer count supports closed I3/J3 formulas. The rational Venn polytope has 2^r-r-1 independent degrees of freedom and an interior point, yielding the stated fixed-r asymptotic. Independent integer reconstruction matched all ternary counts for k=2..11; small finite checks do not prove unbounded formulas. Source verifies k2 special 48 automorphisms; the proof treats repeated coordinates explicitly.
 
-The October 2026 source concerns model-theoretic limit properties, not finite complete tuple-orbit profiles; Ganesan and Jones determine the underlying automorphism group and ordinary pair orbitals, not the evaluated ternary fiber or higher-arity complement-fixed census. The closest identified mathematical-record findings instead concern tuple-orbit profiles of unrelated homogeneous structures or Johnson-slice harmonic analyses. The accepted claim is specifically the complete evaluated profile, sharp ternary symmetry defect and asymptotic complement-pairing rate, **not** the earlier automorphism theorem or general Burnside, Stirling and Ehrhart identities. This comparison is not a proof of historical uniqueness: older association-scheme literature might subsume part of the enumeration, and the full Jones article could not be inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The pairwise association scheme sees precisely the same vertex-pair types with or without the extra complement symmetry, while the first informative ternary level admits a fully explicit fiber classification and polynomial enumeration. This sharp arity boundary is a natural finite-model-theoretic symmetry question raised by work on finite Johnson-graph limits. The all-arity formula and vanishing fraction of complement-fixed orbit types identify how pervasive the additional symmetry is among finite tuple types, beyond the textbook group-order computation. Every balanced size and every fixed arity is covered; the result is not an arbitrary finite instance or a renamed general theorem.
+Best-of-knowledge statement/implication comparison: Compared higher intersection numbers, association-scheme orbitals, relational 2-/3-closure and finite-model-theoretic tuple types. Pair orbitals alone do not enumerate triple fibers or higher profiles. No inspected broader theorem provides the explicit all-arity orbit count with complement-fixed Venn strata. The elementary 2-closure consequence is already implied by classical pair orbitals and is not the sole asserted value. An association-scheme higher-intersection table may encode some r=3 numbers; no identical examined table gives the uniform r and complement-fixed formulas. Priority risk remains. The candidate proves genuinely additional evaluated orbit profiles. General Burnside, Stirling and Ehrhart are correctly used as known methods.
 
-## Closest literature and limitations
+## value
 
-See Benediktsson–Macpherson–Adler, arXiv:2610.40054v1, and Ganesan, arXiv:1412.5055v1, with Jones, DOI:10.1016/j.ejc.2004.01.012, for prior groups and pair orbitals. The latter publication was available only in public excerpts. Earlier higher-order Johnson-scheme enumerations remain a residual priority risk. The asymptotic ratio weights orbit types uniformly and does not describe the frequency of randomly selected labelled tuples.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first arity where an extra graph complement symmetry is distinguishable is a natural relational-complexity boundary for balanced Johnson graphs. Exact orbit statistics at all tuple arities and ternary fibers are useful to automorphism, finite-model-theory and association-scheme analyses. This is broader than a small computational invariant or rediscovery of the automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
