@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** An explicit determinant-preserving reduction of the ADMM characteristic pencil to a cyclic bidiagonal system establishes the complete polynomial for every block count \(n\ge2\), and strict Schur inequalities establish the stated three-block consequence. The independent standard-library exact-arithmetic checker makes 200 assertions, exhausts 152 finite fixed orders across \(n=2,3,4,5\), and tests 8 larger-size orders. These finite tests are supporting evidence, not the proof.
+## correctness
 
-**Originality — PASS (best-knowledge, with precedence risk).** Direct searches compared the mathematical implication of the result with Mihić–Zhu–Ye's general QP permutation analysis, Cipolla–Gondzio's random multi-block QP analysis, the earlier Sun–Luo–Ye random-order theory, Ke–Ma–Zhang's three-block quadratic analysis, and an existing symmetric three-block ADMM penalty optimizer. General permutation-dependent bounds, a randomized per-sweep process, and an identical-curvature three-block optimizer do not entail the symmetric all-block fixed-order characteristic law. One plausible 2018 source could not be read completely; analogous rank-one Gauss–Seidel results may exist and remain a specialist-precedence risk. Literature searches do not prove priority.
+PASS
 
-**Value — PASS.** The all-block exact spectral law answers a motivated algorithmic question—whether expensive testing of all fixed cyclic orders can improve asymptotic spectral performance for rank-one-constrained separable quadratic ADMM—and shows that any benefit must lie elsewhere, such as finite-time transients. Its four-block explicit witness demonstrates a large real finite-time difference despite spectral equality. This is a structural classification, not an arbitrary isolated parameter value.
+Reconstructed the centered y_i=a_i(x_i-x_i*) and scaled-dual sweep, triangular row reductions, R_{i+1}-R_i=(lambda-1)y_i, cyclic bidiagonal determinant and removable lambda=1 factor, establishing the full (n+1)-degree polynomial including zero multiplicity. Direct Schur inequalities establish n=3 convergence at all positive penalties. Independent exact-rational matrices and characteristic polynomials were computed for n=2..5 under multiple permutations. The finite computation is corroboration, not the proof for arbitrary n.
 
-The result does not claim order-independence for per-epoch randomization, general constraint matrices, or uniform convergence for arbitrary numbers of blocks. A standard separate three-block Schur calculation is supplied as supporting scope rather than a separate novelty claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The evaluated novelty is full fixed-order isospectrality for every n>=2 and heterogeneous strictly convex scalar blocks with one scalar constraint; the known equal-curvature three-block optimal-penalty result and general randomized/Gauss-Seidel ADMM analyses do not imply this all-order characteristic identity. No searched prior record establishes its full statement. This is best-of-knowledge, not proof of global priority; the three-block Schur corollary may overlap specialist results.
+
+## value
+
+PASS
+
+Order-dependent convergence rates matter for multiblock ADMM. Proving that every fixed cyclic order has the same complete eigenvalue multiset for this natural rank-one constraint class, while finite-time vectors differ, is a structural algorithmic result beyond textbook parameter substitution; heterogeneous arbitrary n is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

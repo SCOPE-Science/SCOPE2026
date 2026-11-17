@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T11:19:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-all-order-isospectrality-law-for-scalar-constraint-quadratic--dc6c98b3c10b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-all-order-isospectrality-law-for-scalar-constraint-quadratic--dc6c98b3c10b/VERIFICATION.md"
+      ],
+      "rationale": "Reconstructed the centered y_i=a_i(x_i-x_i*) and scaled-dual sweep, triangular row reductions, R_{i+1}-R_i=(lambda-1)y_i, cyclic bidiagonal determinant and removable lambda=1 factor, establishing the full (n+1)-degree polynomial including zero multiplicity. Direct Schur inequalities establish n=3 convergence at all positive penalties. Independent exact-rational matrices and characteristic polynomials were computed for n=2..5 under multiple permutations. The finite computation is corroboration, not the proof for arbitrary n.",
+      "residual_risks": [
+        "The theorem excludes variable-order or randomly permuted sweeps, overrelaxation, and general constraint matrices.",
+        "All-n identity is established by symbolic determinant reduction; numerical rational checks only cover finite n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general quadratic ADMM literature includes nonscalar constraints and order-dependent algorithms, but does not force complete spectrum equality in this scalar rank-one subfamily.",
+          "The three-block result cannot by itself imply all n>=4 without an additional theorem."
+        ],
+        "reasoning": "Searched stronger random-order and three-block convergence results; breadth of their domains is not evidence of a stronger specific isospectral conclusion.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s10092-023-00546-0",
+          "https://arxiv.org/abs/1903.01786",
+          "https://doi.org/10.4208/eajam.240817.010318"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-all-order-isospectrality-law-for-scalar-constraint-quadratic--dc6c98b3c10b/RESULT.md",
+        "https://link.springer.com/article/10.1007/s10092-023-00546-0",
+        "https://arxiv.org/abs/1903.01786",
+        "https://arxiv.org/abs/1503.06387",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-critical-damping-penalty-for-symmetric-three-block-admm--88ef47013166",
+        "https://doi.org/10.4208/eajam.240817.010318"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Special case n=3, c1=c2=c3 from the new formula can yield the prior optimizer, but reversing this implication is invalid.",
+          "General random permutation ADMM statements concern expected or order-dependent performance and do not imply deterministic all-order isospectrality."
+        ],
+        "reasoning": "The final all-order identity strictly generalizes the symmetric three-block setting in block count and heterogeneous coefficients; previous general convergence claims are not the same claim.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-critical-damping-penalty-for-symmetric-three-block-admm--88ef47013166",
+          "https://link.springer.com/article/10.1007/s10092-023-00546-0",
+          "https://arxiv.org/abs/1503.06387"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct block map M has the full characteristic polynomial symmetric in the c_i for all n; random-order averaged iterations have a different operator.",
+          "Rank-one constrained scalar ADMM could be formulated as a structured Gauss-Seidel iteration; no inspected source supplied this conjugacy and characteristic formula."
+        ],
+        "reasoning": "Checked cyclic ADMM, rank-one Gauss-Seidel and permutation invariance formulations, not merely title matching; equal finite-time errors are expressly not claimed.",
+        "searches": [
+          "Resultary: scalar equality constrained separable quadratic multi-block ADMM update order permutation invariance characteristic polynomial eigenvalues convergence 3 block",
+          "https://link.springer.com/article/10.1007/s10092-023-00546-0",
+          "rank-one Gauss Seidel fixed cyclic permutation spectrum separable quadratic ADMM"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published symmetric three-block optimizer supplies a numerical penalty and low-degree spectral result for identical curvature.",
+          "No exact all-n coefficient table or all-permutation identity was identified in searched Resultary records."
+        ],
+        "reasoning": "The equal-curvature n=3 table is a special parameter slice, not the heterogeneous characteristic law.",
+        "searches": [
+          "Resultary: scalar equality constrained separable quadratic multi-block ADMM update order permutation invariance characteristic polynomial eigenvalues convergence 3 block",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-critical-damping-penalty-for-symmetric-three-block-admm--88ef47013166"
+        ]
+      },
+      "rationale": "The evaluated novelty is full fixed-order isospectrality for every n>=2 and heterogeneous strictly convex scalar blocks with one scalar constraint; the known equal-curvature three-block optimal-penalty result and general randomized/Gauss-Seidel ADMM analyses do not imply this all-order characteristic identity. No searched prior record establishes its full statement. This is best-of-knowledge, not proof of global priority; the three-block Schur corollary may overlap specialist results.",
+      "residual_risks": [
+        "Equivalently formulated rank-one Gauss-Seidel isospectrality may predate this record under different terminology.",
+        "Three-block Ke–Ma–Zhang full text was not available for complete comparison; possible coverage of the n=3 stability consequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not demonstrating the rank-one scalar full-spectrum invariance.",
+          "evidence": [
+            "General QP linear algebra and random-order iteration framework does not provide the displayed symmetric product law."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10092-023-00546-0",
+          "material_read": "Publisher open full HTML: abstract, main iteration-matrix formulation and ordering discussion.",
+          "method": "Read published full HTML sections.",
+          "title": "A linear algebra perspective on the random multi-block ADMM: the QP case",
+          "trigger": "Closest general quadratic-ADMM linear algebra and order dependence"
+        },
+        {
+          "assessment": "Strict special parameter case; not an all-n theorem.",
+          "evidence": [
+            "Only three identical blocks; optimal penalty for that family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-critical-damping-penalty-for-symmetric-three-block-admm--88ef47013166",
+          "material_read": "Published record summary and theorem scope for three equal scalar blocks.",
+          "method": "Resultary search and linked mathematical finding.",
+          "title": "Critical-damping penalty for symmetric three-block ADMM",
+          "trigger": "Closest mathematical-result overlap"
+        },
+        {
+          "assessment": "Unresolved potential overlap specifically with three-block corollary.",
+          "evidence": [
+            "Cannot infer absence of an n=3 equivalent from abstract alone."
+          ],
+          "identifier_or_url": "https://doi.org/10.4208/eajam.240817.010318",
+          "material_read": "Abstract/bibliographic description only; entire text not obtained.",
+          "method": "Publisher/DOI accessible metadata, limited access.",
+          "title": "Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints",
+          "trigger": "Plausible specialist earlier three-block coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-all-order-isospectrality-law-for-scalar-constraint-quadratic--dc6c98b3c10b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-all-order-isospectrality-law-for-scalar-constraint-quadratic--dc6c98b3c10b/RESULT.md",
+        "https://link.springer.com/article/10.1007/s10092-023-00546-0"
+      ],
+      "rationale": "Order-dependent convergence rates matter for multiblock ADMM. Proving that every fixed cyclic order has the same complete eigenvalue multiset for this natural rank-one constraint class, while finite-time vectors differ, is a structural algorithmic result beyond textbook parameter substitution; heterogeneous arbitrary n is essential.",
+      "residual_risks": [
+        "The theorem excludes variable-order or randomly permuted sweeps, overrelaxation, and general constraint matrices.",
+        "All-n identity is established by symbolic determinant reduction; numerical rational checks only cover finite n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem excludes variable-order or randomly permuted sweeps, overrelaxation, and general constraint matrices.",
+    "All-n identity is established by symbolic determinant reduction; numerical rational checks only cover finite n."
+  ],
+  "schema_version": 1
+}

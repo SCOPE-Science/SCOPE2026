@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify.py` uses only Python's standard library and rational arithmetic. Execute `python3 verify.py` from this directory. Its recorded standard output appears in `verification_output.txt`. The verifier directly constructs the sequential ADMM sweep and computes characteristic coefficients by an independent Faddeev–LeVerrier recurrence.
+# Independent mathematical audit
 
-Verified: 200 exact-arithmetic assertions; fixed-order permutation counts \(2,6,24,120,4,4\) for block counts \(2,3,4,5,6,7\), respectively; three-block Schur factorizations over sampled rational triples; and two explicitly different finite-time error vectors and squared norms for an identical spectrum.
+## correctness
 
-The exhaustive statement is only about the finite sets of permutations checked. The all-dimensional identity and all-parameter Schur conclusion depend on the analytic determinant and inequalities, not on computer enumeration. Independent scientific audit was not performed. Specialist publication precedence remains subject to later review.
+PASS
+
+Reconstructed the centered y_i=a_i(x_i-x_i*) and scaled-dual sweep, triangular row reductions, R_{i+1}-R_i=(lambda-1)y_i, cyclic bidiagonal determinant and removable lambda=1 factor, establishing the full (n+1)-degree polynomial including zero multiplicity. Direct Schur inequalities establish n=3 convergence at all positive penalties. Independent exact-rational matrices and characteristic polynomials were computed for n=2..5 under multiple permutations. The finite computation is corroboration, not the proof for arbitrary n.
+
+## originality
+
+PASS
+
+The evaluated novelty is full fixed-order isospectrality for every n>=2 and heterogeneous strictly convex scalar blocks with one scalar constraint; the known equal-curvature three-block optimal-penalty result and general randomized/Gauss-Seidel ADMM analyses do not imply this all-order characteristic identity. No searched prior record establishes its full statement. This is best-of-knowledge, not proof of global priority; the three-block Schur corollary may overlap specialist results.
+
+## value
+
+PASS
+
+Order-dependent convergence rates matter for multiblock ADMM. Proving that every fixed cyclic order has the same complete eigenvalue multiset for this natural rank-one constraint class, while finite-time vectors differ, is a structural algorithmic result beyond textbook parameter substitution; heterogeneous arbitrary n is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
