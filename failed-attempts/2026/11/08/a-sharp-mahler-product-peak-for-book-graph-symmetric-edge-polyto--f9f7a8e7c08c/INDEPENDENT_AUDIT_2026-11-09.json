@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T21:19:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a root basis for triangular book K_(1,1,m), the polar constraints are |t|<=1, |w_i|<=1 and |t-w_i|<=1. Fubini integrates (2-|t|)^m over [-1,1] giving anchored polar 2(2^(m+1)-1)/(m+1). Its polar has sections |y|_1<=1, B-1<=z<=1-A with section length 2-|y|_1; integrating over the cross-polytope yields coordinate primal 2^m(m+2)/(m+1)!. Reciprocal primal/dual Gram Jacobians cancel in their product. Hence R_m=(m+2)/(m+1)(1-2^(-m-1)), difference numerator m^2+4m+5-2^(m+2) has signs positive at m=1,2 and negative for every m>=3 by induction; maximum R_3=75/64, and (m+1)(R_m-1)->1. Independent exact Fraction computations for m=1..29 verified both product and difference identities, not used to justify infinity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted-book theorem gives the polar volume for every m>=2 and every 0<t<=2, including t=1; the m=1 triangle also follows directly. Ohsugi–Tsuchiya covers suspensions of cactus graphs including the star."
+        ],
+        "reasoning": "Two separate existing volume theorems jointly imply the all-m product; neither needs the assigned new proof to deduce it.",
+        "searches": [
+          "book graph Lipschitz polar volume K1,1,m and Mahler product exact",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-laplace-gaussian-boundary-layer-in-weighted-book-lipschitz-bal--13ac2f6aeaf6/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-book-graph-lipschitz-polytopes-have-a-sharp-three-page-inertia-c--7b1ca41fe5a4/RESULT.md",
+          "Ohsugi–Tsuchiya arXiv:2008.08621"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2008.08621",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-laplace-gaussian-boundary-layer-in-weighted-book-lipschitz-bal--13ac2f6aeaf6/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-book-graph-lipschitz-polytopes-have-a-sharp-three-page-inertia-c--7b1ca41fe5a4/RESULT.md",
+        "2026-11-09 Resultary query: Mahler volume product triangular book graph symmetric edge polytope K1,1,m peak",
+        "2026-11-09 Resultary query: book graph Lipschitz polar volume K1,1,m and Mahler product exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying 2^m(m+2)/(m+1)! and 2(2^(m+1)-1)/(m+1), then dividing by 4^(m+1)/(m+1)!, yields exactly R_m."
+        ],
+        "reasoning": "The difference R_(m+1)-R_m has elementary numerator m^2+4m+5-2^(m+2); the unique m=3 maximum and m->infinity limit are direct, short corollaries of the known exact all-m expression. Hence O FAIL even without word-for-word antecedent.",
+        "searches": [
+          "Ohsugi–Tsuchiya Theorem 1.1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-laplace-gaussian-boundary-layer-in-weighted-book-lipschitz-bal--13ac2f6aeaf6/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-book-graph-lipschitz-polytopes-have-a-sharp-three-page-inertia-c--7b1ca41fe5a4/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_(1,1,m) is the suspension of an m-leaf star, so Ohsugi–Tsuchiya primal-volume theorem covers it.",
+          "For edge length t=1, the weighted-book Lipschitz dual is exactly P_m^o and has anchored volume 2[2^(m+1)-1]/(m+1)."
+        ],
+        "reasoning": "These equivalences identify both original parts and show that a dual description or alternative graph name does not establish new volume results.",
+        "searches": [
+          "Mahler volume product triangular book graph symmetric edge polytope K1,1,m peak",
+          "book graph Lipschitz polar volume K1,1,m and Mahler product exact",
+          "arXiv:2008.08621",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-laplace-gaussian-boundary-layer-in-weighted-book-lipschitz-bal--13ac2f6aeaf6/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-book-graph-lipschitz-polytopes-have-a-sharp-three-page-inertia-c--7b1ca41fe5a4/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published book covariance theorem states D_m=(2^(m+1)-1)/(m+1) and volume 2D_m/sqrt(m+2).",
+          "The primal formula 2^m(m+2)/(m+1)! is published through h-star/matching-volume results."
+        ],
+        "reasoning": "Exact m-dependent values are already in published formulas, regardless of whether the numerical peak 75/64 was explicitly tabulated.",
+        "searches": [
+          "Mahler volume product triangular book graph symmetric edge polytope K1,1,m peak",
+          "book graph Lipschitz polar volume K1,1,m and Mahler product exact",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-book-graph-lipschitz-polytopes-have-a-sharp-three-page-inertia-c--7b1ca41fe5a4/RESULT.md"
+        ]
+      },
+      "rationale": "The book Mahler formula is an immediate product of TWO PRIOR explicit whole-family volume formulas: Ohsugi–Tsuchiya (2020) determines primal normalized volume of the suspension of a star, which is the same K_(1,1,m); the published 2026-10-18 weighted-book Lipschitz dual theorem covers the entire polar for all 0<t<=2, and its t=1 case is exactly this polar volume. Independently the 2026-10-25 book Lipschitz covariance theorem explicitly gives that very polar volume. These known exact m-formulas algebraically imply the claimed R_m and its elementary finite-difference peak. New wording of the peak is not sufficient to rescue a corollary of stronger prior results.",
+      "residual_risks": [
+        "Prior studies may not explicitly spell out the maximum at m=3, but the full all-m expression and its one-line finite difference dominate this specialization.",
+        "The published t=1 polar formula and primal formula are sufficient to reject originality irrespective of whether other book-graph Mahler papers exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMAL_FORMULA_PRIOR",
+          "evidence": "Normalized primal volume of suspension of a star gives 2^m(m+2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.08621",
+          "material_read": "Theorem 1.1 and suspension/matching-volume results from original PDF",
+          "method": "read relevant full-text portions",
+          "title": "Symmetric edge polytopes and matching generating polynomials",
+          "trigger": "Suspension-of-star primal polytope"
+        },
+        {
+          "assessment": "STRONGER_POLAR_VOLUME_PRIOR",
+          "evidence": "Volume 2H_m(t), H_m(t)=[2^(m+1)-(2-t)^(m+1)]/(m+1); t=1 yields exact assigned polar.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-laplace-gaussian-boundary-layer-in-weighted-book-lipschitz-bal--13ac2f6aeaf6/RESULT.md",
+          "material_read": "Entire published RESULT.md including full halfspace description and integral volume proof",
+          "method": "read entire published theorem/proof/limitations RESULT.md",
+          "title": "A Laplace–Gaussian boundary layer in weighted book Lipschitz balls",
+          "trigger": "Identical polar as t=1 weighted book"
+        },
+        {
+          "assessment": "EXACT_POLAR_PRIOR",
+          "evidence": "Unweighted Q_m intrinsic volume 2D_m/sqrt(m+2), D_m=(2^(m+1)-1)/(m+1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-book-graph-lipschitz-polytopes-have-a-sharp-three-page-inertia-c--7b1ca41fe5a4/RESULT.md",
+          "material_read": "Entire published RESULT.md including exact D_m formula, geometry and proofs",
+          "method": "read entire published theorem/proof/limitations RESULT.md",
+          "title": "Book-graph Lipschitz polytopes have a sharp three-page inertia crossing",
+          "trigger": "Identical unweighted book polar and covariance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The nonmonotone Mahler product of a natural graph family, with a precise three-page optimizer and limiting Hanner benchmark, is a meaningful geometric phenomenon, though already mechanically recoverable from published exact whole-family volume identities. Value is assessed separately from originality and correctness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Failure is scientific originality, not correctness or transport.",
+    "Book graph unweighted, integer m>=1; no arbitrary graph or weighted Mahler statement.",
+    "No independent new theorem survives after removal of prior-covered volume formulas and elementary corollaries."
+  ]
+}
