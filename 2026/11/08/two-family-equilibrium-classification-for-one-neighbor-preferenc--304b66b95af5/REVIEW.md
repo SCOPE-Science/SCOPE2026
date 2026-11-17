@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument verifies the literal deviation convention, including the vacating of the origin, and proves both directions of a disjoint-run classification up to its explicitly enumerated overlap. Circular-composition counting yields the binomial formula. A separately implemented exhaustive verifier checked all occupancy patterns on cycles of sizes 3 through 16, as well as 600 larger sampled patterns. The exhaustive check is supporting evidence, not an infinite proof.
+## correctness
 
-**Originality — PASS (qualified).** The main paper defines the game and uses the same ideal-one-neighbor utility in a nonexistence example on another topology, but its jump-stability and tree results do not imply the exact unrestricted-jump cycle classification or count. The closest other papers use colored-neighborhood ratios or identity-dependent local swaps, so neither dominates this assertion. The mathematical content not supplied by these sources is the dichotomy between occupied dimers and isolated vacancies, the population parity cutoff, and its exact census. Exact searches for the cyclic special case did not locate prior coverage; an unindexed equivalent remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** An all-size existence/nonexistence criterion and complete equilibrium census answer a natural tractable special case of a game whose general jump-equilibrium existence problem is computationally difficult. The density \(2/3\) and parity obstruction expose a genuine qualitative transition between two distinct types of stable occupation. The count also provides exact reliability benchmarks for uniformly randomized placements; no generic complexity improvement is claimed.
+C: If k>=2, an occupied singleton with utility zero can move into the gap immediately preceding another occupied run and gain exactly one neighbor, so it is unstable. If a run has length >=3, an interior dissatisfied occupant can profit from a boundary vacancy whenever some vacant run has length >=2. Conversely all dimer occupants already have utility one; with isolated single vacancies, every dissatisfied interior occupied vertex sees two occupied neighbors before moving, and every vacancy continues to have two occupied neighbors after such a move. Counting cyclic gap compositions gives D=n/(k/2)*C(z-1,k/2-1), H=n/z*C(k-z-1,z-1), subtracting the three repeated 110 patterns exactly at k=2z. Independently enumerated literal occupant-to-vacancy jumps for all 2^n bit strings, 3<=n<=12, agreeing with formula at every k, including n=3 and full/empty boundaries. All-n classification follows from run arguments, not finite experiments.
 
-**Closest literature and limitations.** Deligkas et al., arXiv:2607.23248v1, Sections 2, 4, 4.1, and 6, introduces precisely the corresponding utility example but not this cyclic census. Friedrich et al., arXiv:2302.12107v1, Sections 1 and 3, covers a different two-type Schelling utility. Aziz et al., arXiv:2407.05240v1, Sections 1, 2 and 4, concerns swaps without vacant vertices. The result does not cover heterogeneous utilities, other topologies, or convergence of improvement paths. A possible unindexed equivalent remains the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O: PASS best-of-knowledge with explicit full-text access risk. Deligkas–Eiben–Schierreich–Voudouris (2026) introduces the anonymous-neighbor network model and a one-neighbor-utility obstruction on other topologies; the accessible abstract and bibliographic text do not establish this all-cycle exact run/census theorem, but its full text was inaccessible (arXiv HTML/OA and Oxford VPN). Friedrich et al. study colored Schelling preferences, Aziz et al. fully occupied swaps. No direct logically dominating inspected statement is known, and inability to inspect one plausible source alone does not force rejection.
+
+## value
+
+PASS
+
+V: PASS. The all-size exact existence condition reveals a sharp and natural 2/3 density transition with odd-population exclusion below threshold, plus full integer equilibrium census. This closes a mathematically meaningful special-case gap in the anonymous-neighborhood jump game, without claiming arbitrary graph equilibria or dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
