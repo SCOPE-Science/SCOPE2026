@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite-board fluctuation identity
+# Independent mathematical audit
 
-Execute `python3 check.py` in the directory containing this file. Python 3 standard library only; the checker does not download inputs or require external software.
+## correctness
 
-It tests the closed edge count, wedge count, and parity-sensitive mixed diagonal sum by direct site iteration at every integer board size from 2 through 80. It then computes the complete finite-population second moment with rational hypergeometric probabilities and compares it to the stated rational variance. Independently, for each of the four sizes 2, 3, 4 and 5, it constructs all attack edges and enumerates **all** subsets of precisely the specified cardinality, comparing directly obtained first and second moments. A final rational identity verifies the limiting cancellation. All 491 programmed exact checks passed.
+PASS
 
-The proof in `RESULT.md` proves the identities for all integer board sizes; the bounded computations are reproducibility tests only, not a substitute for its algebraic parity sum, falling-factorial covariance identity or limiting argument. The last result is an **iterated** limit with temperature first. No global result about arbitrary finite temperature, phase transitions, or independence of external review is claimed.
+On N^2 vertices with exactly N uniformly occupied, H is the induced-edge count in the queen attack graph. Using the exact degree formula 4(N-1)-|i-j|-|i+j-(N-1)|, the edge total S=N(N-1)(5N-1)/3 and the incident-edge-pair total W have the claimed parity-polynomial forms, after evaluating the mixed |u^2-v^2| sum separately on integer and half-integer grids. For p_k=(N)_k/(N^2)_k the variance identity S p2+2W p3+2(binomial(S,2)-W)p4-(S p2)^2 proves both rational parity formulas, including N=2,3 with p_k=0 when k>N. Coefficient limit is 31/18. Differentiating the finite partition function yields the explicitly ordered T→∞ then N→∞ specific heat law. Independent exhaustive configurations N=2..5 (6,84,1820,53130 subsets) matched variances 0,26/63,2479/2275,4544/2277. No finite-T thermodynamic limit is proved.
+
+## originality
+
+PASS
+
+The 2026 Liu–Liao–Wang primary abstract and available detailed article summary identify the same unrestricted N-queen lattice-gas and exact infinite-temperature mean, plus Monte Carlo specific heat, not the submitted exact finite-N variance. The source full paper could not be inspected by lawful web route, so no whole-document NOT_COVERING claim is made. General variance decomposition for edge counts of hypergeometric random subsets is standard, but the parity-sensitive queen-graph wedge count and exact physical coefficient are a specialized evaluation. Resultary searches returned no exact matching variance formula.
+
+## value
+
+PASS
+
+The exact 31/18 high-T specific-heat coefficient is a natural observable in a recently studied canonical physical model; parity-sensitive finite-size corrections enable quantitative checking of simulations. The object and observable are independently motivated, unlike an arbitrary combinatorial slice. The covariance machinery itself is not novel; the geometry-specific second incidence moment is the claimed contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
