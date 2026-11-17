@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T06:57:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For deterministic positive dyadic weights w_{2^k}=2^{beta k}, other w_j=1, the marginal insertion depth law has Bernoulli factors p_r=w_r/W_r. The exact innovation martingale M_j=sum_{r<=j}p_r xi_r and T_n-E T_n=sum_{j=2}^n(1+(n-j)p_j)xi_j give orthogonal variance identity. If beta<1, p_j<=1/j off hubs and p_2^k<=2^{-k(1-beta)} at hubs; E v_j=O(log²j), so sum p_j² E v_j<infinity and M_j ->Z_beta a.s./L². Cesaro and Kronecker eliminate average xi_j, yield T_n/n-log n ->c_beta+Z_beta with finite positive variance (xi_3 nonzero), c_beta=gamma-1+sum(p_j-1/j) absolutely convergent. For beta>=1 every large dyadic j has p_j bounded below, and two old hubs retain positive masses with expected depths separated by at least fixed amount, giving E v_{2^k}>=c(beta)>0; positive per-hub terms force Var(T_n)/n²>=a_beta log n. Independent exact weighted enumeration n<=7 beta 0,1,2 confirms means and variances; infinite conclusions follow from martingale proof, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gałązka–Wdowicka (2026), Section 10: condition p_n=O(n^-1) is sufficient but need not be necessary and more general deterministic weights are open; their Theorem 5.2 innovation identity is universal.",
+          "Sénizergues (2021) concerns polynomial-precision cumulative weights and may cover W_n=n+O(n^beta) for beta<1."
+        ],
+        "reasoning": "Earlier positive-regime results may dominate the subcritical half; they do not imply normalized variance grows at least log n at beta>=1 where dyadic hubs carry persistent mass.",
+        "searches": [
+          "Weighted recursive trees dyadic hubs powers of two weighted attachment beta total path length variance martingale",
+          "https://arxiv.org/abs/2610.00614",
+          "arXiv:1904.07115"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.00614",
+        "arXiv:1904.07115 (Sénizergues weighted-profile theory; potentially covering only subcritical side)",
+        "Resultary 2026-10-18 stretched-exponential weighted-tree fluctuation theorem (different p_n profile)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At hub j=2^k, p_j scales as 2^{-k(1-beta)} for beta<1 versus 1/j=2^{-k}; beta>=1 p_j remains bounded below.",
+          "Theorem 6.1 in Gałązka–Wdowicka assumes O(1/j), violated at hubs for every beta>0."
+        ],
+        "reasoning": "The prior theorem cannot settle beta>0 and supplies no non-L² divergence criterion. This claim proves a new persistent-two-hub lower bound at every dyadic step.",
+        "searches": [
+          "https://arxiv.org/abs/2610.00614",
+          "Weighted recursive trees dyadic hubs powers of two weighted attachment beta total path length variance martingale",
+          "arXiv:1904.07115"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published general exact innovation representation agrees with the audited T_n centered martingale formula.",
+          "Condition p_n=O(1/n) fails for every beta>0 at dyadic hubs."
+        ],
+        "reasoning": "Same algebraic martingale formula is acknowledged as prior; distinct new claim is its exact sharp variance classification for a sparse irregular sequence. A regular power-weight profile is not equivalent to labels with geometrically sparse spikes.",
+        "searches": [
+          "Weighted recursive trees dyadic hubs powers of two weighted attachment beta total path length variance martingale",
+          "https://arxiv.org/abs/2610.00614",
+          "arXiv:1904.07115"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact finite path-length variance identity from primary source is a general tool, not a previously computed dyadic-hub all-exponent classification.",
+          "Independent n<=7 enumeration checks only consistency of the formula."
+        ],
+        "reasoning": "No matching table or all-beta classification found; the proof supplies new all-order lower bounds and summability thresholds, not just finite simulation.",
+        "searches": [
+          "Weighted recursive trees dyadic hubs powers of two weighted attachment beta total path length variance martingale",
+          "https://arxiv.org/abs/2610.00614",
+          "arXiv:1904.07115"
+        ]
+      },
+      "rationale": "PASS best of knowledge: the 2026 primary Gałązka–Wdowicka theorem supplies innovation identity and L² convergence when p_n=O(1/n), but for every beta>0 the dyadic mass spikes violate this sufficient hypothesis. That paper explicitly raises necessity/general irregular weight limits as an open issue; it does not prove variance divergence for beta>=1. Sénizergues profile theory may cover the beta<1 convergence but not this sharp sparse-hub boundary. Distinct earlier stretched-exponential weight phase transitions concern p_n~c n^-gamma on all n and cannot be transplanted to sparse macroscopic hubs.",
+      "residual_risks": [
+        "Sénizergues full all-theorem specialization to irregular superlinear hub weights not established; a broader variance-divergence result in older irregular-tree literature remains possible.",
+        "No larger-scale limit or tightness result claimed at or above beta=1.",
+        "Exact finite trees through n=7 cannot prove asymptotic assertions; analytic sum and lower-bound arguments do."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact dyadic beta threshold; general sufficient condition violated",
+          "evidence": "Section 10 explicitly calls for more general deterministic weights and points out sufficient p_n=O(n^-1) need not be necessary.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00614",
+          "material_read": "ArXiv HTML: Section 5 exact innovation representation, Section 6 limit theorem and Section 10 discussion/open questions; source including Theorem 5.2 and Section 10 lines 601-622",
+          "method": "Read relevant full-text HTML sections and theorem statements, not merely index abstract",
+          "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+          "trigger": "Exact general innovation identity and claimed p_j=O(1/j) sufficient condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp structural threshold within a natural geometric sparse-attachment family: for beta<1 sum of hub weights negligible relative to population while at beta>=1 repeated persistent hubs generate fresh non-decaying innovation variance and log-divergent normalized total path variance. A meaningful positive/negative boundary to the existing sufficient martingale theorem, not an arbitrary finite parameter or routine renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.00614",
+    "arXiv:1904.07115 (Sénizergues weighted-profile theory; potentially covering only subcritical side)",
+    "Resultary 2026-10-18 stretched-exponential weighted-tree fluctuation theorem (different p_n profile)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed beta and deterministic dyadic hub weights only; beta>=1 conclusion about L² scale variance, not non-tightness or distribution; law Z_beta not explicit.",
+    "All structural finite verifiers are checks only; results over infinite n or all characteristic-seven algebraic-closure parameters depend on the reconstructed analytic/symbolic proof.",
+    "Prior literature compared mathematically at theorem-and-implication level; no unsupported global priority certification claimed."
+  ],
+  "residual_risks": [
+    "Sénizergues full all-theorem specialization to irregular superlinear hub weights not established; a broader variance-divergence result in older irregular-tree literature remains possible.",
+    "No larger-scale limit or tightness result claimed at or above beta=1.",
+    "Exact finite trees through n=7 cannot prove asymptotic assertions; analytic sum and lower-bound arguments do."
+  ],
+  "schema_version": 1
+}
