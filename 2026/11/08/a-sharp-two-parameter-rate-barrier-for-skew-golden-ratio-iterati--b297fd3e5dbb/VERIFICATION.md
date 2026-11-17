@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof in `RESULT.md` derives the two-step recurrence from the published algorithm, reduces to the two characteristic quadratics, proves the elementary disk-root inequality, and gives an exact nonnegative decomposition ruling out spectral radius below \(1/\sqrt2\). Equality is completely classified.
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3, SymPy, and NumPy. In the assembled package this script produced: 1,309 exact rational parameter checks, 9,120 numerical spectral-root comparisons, 20 checks of the six-dimensional real-rotation recurrence, and symbolic identities of the factorization, characteristic polynomial and compatible initialization. These finite diagnostics do not replace the parameter-uniform proof.
+## correctness
 
-The result is for a real skew-isometry and exact arithmetic, not for arbitrary monotone operators, variable steps, nontrivial proximal terms or finite-precision implementations. Independent external verification has not been performed.
+PASS
+
+Eliminate auxiliary iterate to obtain x^{k+1}=(I−tJ)x^k+(t/c)Jx^{k−1}. On +i eigenspace, P(z)=z²+(-1+it)z−it/c. Assume both roots in radius R=1/sqrt2; Schur-Cohn necessary condition yields D≤0, but exact decomposition D=u(1+u)(1/q−2/(1+u))²+(1−u)³/[2(1+u)]≥0 for q=2/c>0,u=(qt)²∈(0,1], equality iff q=u=1. At (2,1), repeated root (1−i)/2 has modulus R; matching initial conditions gives x^k=(k+1)R^k orthogonal rotation x0 and max norm factor 3/2 at k=2, first <1 at k=6. Symbolic decomposition, polynomial and finite sequence independently checked.
+
+## originality
+
+PASS
+
+Best-knowledge all-c sharp spectral-rate barrier and exact initial transient refine the same skew example beyond the original GRAAL admissible-range theorem. Classical c=2 FRB rate is correctly credited.
+
+## value
+
+PASS
+
+Exact two-parameter rate barrier shows tuning the golden-ratio mixing coefficient cannot outperform the classical 1/sqrt2 rate even beyond usual c≤golden ratio and explains precise transient amplification of the unique rate-optimal defective iteration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

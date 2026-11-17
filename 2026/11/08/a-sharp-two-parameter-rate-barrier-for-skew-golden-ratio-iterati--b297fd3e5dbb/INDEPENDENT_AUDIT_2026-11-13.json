@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:07:59.223660Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eliminate auxiliary iterate to obtain x^{k+1}=(I−tJ)x^k+(t/c)Jx^{k−1}. On +i eigenspace, P(z)=z²+(-1+it)z−it/c. Assume both roots in radius R=1/sqrt2; Schur-Cohn necessary condition yields D≤0, but exact decomposition D=u(1+u)(1/q−2/(1+u))²+(1−u)³/[2(1+u)]≥0 for q=2/c>0,u=(qt)²∈(0,1], equality iff q=u=1. At (2,1), repeated root (1−i)/2 has modulus R; matching initial conditions gives x^k=(k+1)R^k orthogonal rotation x0 and max norm factor 3/2 at k=2, first <1 at k=6. Symbolic decomposition, polynomial and finite sequence independently checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Soe–Tam–Vetrivel gives c≥3 instability and all-operator stability sufficiency for c<3; FRB rate optimization covers gamma-dependent resolvent splitting."
+        ],
+        "reasoning": "Neither prior bound proves ρ(c,t)≥1/sqrt2 for every c>1,t>0, unique c=2,t=1 or exact initialized finite-horizon amplification.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+          "arxiv:2610.34975",
+          "golden ratio algorithm skew rotation mixing parameter spectral radius 1 sqrt2 rate optimal c=2 transient"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.34975v1",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "https://arxiv.org/abs/1803.08832",
+        "https://arxiv.org/abs/2509.02005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schur inequality from Example 2.5 is repurposed at disk radius R=1/sqrt2 and refactored D=u(1+u)(1/q−2/(1+u))²+(1−u)³/[2(1+u)]≥0, equality only q=u=1."
+        ],
+        "reasoning": "Source supplies a genuinely new sharp global optimization and equality classification that do not follow from c≥3 instability or unrelated FRB optimum by direct specialization. Exact transient follows defective root plus initialized first iterate.",
+        "searches": [
+          "arxiv:2610.34975",
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GRAAL g=0 eliminated recurrence x_{k+1}=(I−tJ)x_k+(t/c)Jx_{k-1}, same as FRB_alpha with alpha=1/(c−1); classical FRB at c=2."
+        ],
+        "reasoning": "A solver recurrence representation is acknowledged, but the published FRB/RFB pure-skew split with implicit resolvent A≠0 has characteristic leading factor (1+iγh), so no real-parameter coefficient equality for varying c. Only one c=2 instance overlaps.",
+        "searches": [
+          "golden ratio algorithm skew rotation mixing parameter spectral radius 1 sqrt2 rate optimal c=2 transient",
+          "stochastic extragradient golden ratio spectral rate skew c mixing double root",
+          "arxiv:2610.34975",
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior FRB gamma=0 special factor 1/sqrt2 is known; source provides exact 3/2 transient at k=2 and norm expression for every k at c=2,t=1."
+        ],
+        "reasoning": "Known fixed-reflection tabulation does not classify global two-parameter optimizer; numerical curves alone cannot establish unique optimum.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+          "arxiv:2610.34975"
+        ]
+      },
+      "rationale": "Best-knowledge all-c sharp spectral-rate barrier and exact initial transient refine the same skew example beyond the original GRAAL admissible-range theorem. Classical c=2 FRB rate is correctly credited.",
+      "residual_risks": [
+        "Prior generalized FRB_alpha specialist literature might independently contain a two-parameter global rate characterization, but no such statement was located in inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides same characteristic polynomial, Schur-Cohn test and c≥3 divergent regime, but not uniform optimal spectral radius lower bound over all c>1,t>0 or exact initialized transients",
+          "evidence": [
+            "Eq (1.3), Example 2.5 chi polynomial, Remark 2.6 FRB-alpha representation"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.34975v1",
+          "material_read": "Primary arXiv HTML Sections 1, 2 and 2.1, in particular iteration (1.3), Example 2.5 and Remark 2.6, plus theorem statements and contents",
+          "method": "web full-text HTML, relevant sections read",
+          "title": "GRAAL for variational inequalities revisited: sharp parameter range and adaptive step sizes",
+          "trigger": "Exactly same c-parametrized skew rotation and characteristic polynomial"
+        },
+        {
+          "assessment": "Covers distinct FRB/RFB scheme p=(1+i gamma h) z²−(1−2 i h)z−i h. Only special overlap gamma=0 with focal c=2 after h=t/2; cannot make other c characteristic coefficients match with a real parameter mapping. No all-c GRAAL bound.",
+          "evidence": [
+            "FRB optimal 1/sqrt(gamma+2) at h=1/(2sqrt(1+gamma)); gamma=0 gives 1/sqrt2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+          "material_read": "Entire RESULT.md, including polynomial p_gamma,h and all gamma-dependent optimal-step proof",
+          "method": "GitHub raw RESULT.md fully read",
+          "title": "Exact rate-optimal steps for FRB/RFB on the skew-rotation family",
+          "trigger": "Same 1/sqrt2 rate on classical rotation and doubled root, may dominate via reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact two-parameter rate barrier shows tuning the golden-ratio mixing coefficient cannot outperform the classical 1/sqrt2 rate even beyond usual c≤golden ratio and explains precise transient amplification of the unique rate-optimal defective iteration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Linear skew-isometry only, exact constant steps; not universal convergence or finite-horizon minimax optimality.",
+    "No claims about floating-point robustness or general monotone operators."
+  ],
+  "schema_version": 1
+}
