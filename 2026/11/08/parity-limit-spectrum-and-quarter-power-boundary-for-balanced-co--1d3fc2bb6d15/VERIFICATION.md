@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite and asymptotic calculations
 
-The proof supplies exact mass formula (3), multinomial characteristic-function convergence (5), Fourier inversion (7), and the local limit (8). The standalone standard-library script `checker.py` exhaustively checks the leaf-valuation model through branching degree four against exact multinomial sums for several threshold and equality events, including a parity-gated formula. It also numerically computes the entire two-category difference distribution at branching degrees 100, 400, and 1600.
+# Independent mathematical audit
 
-Run: `python checker.py`. Expected terminating output contains `EXACT_FINITE_CASES_OK` and `ALL_CHECKS_OK`. The asymptotic reference constants are approximately 0.315809388873 for \(n^{1/4}\) times the tie mass and 0.157904694437 for \(n^{1/4}\) times the weak-inequality excess above one half. The finite numeric convergence is not monotone-fast; the script uses an honest 0.02 tolerance at the largest degree. No finite calculation establishes the general limits, which depend on the separate proof.
+## correctness
 
-No independent mathematical audit is represented by this file.
+PASS
+
+At each root child the centered leaf count defines a rare multinomial category of probability c n^-1/2. A triangular-array characteristic-function CLT yields independent n^1/4 Gaussian fluctuations and equiprobable category permutations. Parity gating constructs any rational limit pair. Fourier inversion and swap coupling give the n^-1/4 lattice mass and asymmetry O(n^-1/2), hence the explicit universal correction. The proof restricts fixed offsets and finite formulas; no universal rate for arbitrary formulas is claimed.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS: a full primary text of the same-language October 2026 counting-modal paper could not be accessed, so no whole-paper NOT_COVERING is asserted. Available result-level comparison concerns fixed lower-level probability laws, not n-dependent central-binomial rare cells with quarter-power fluctuations; a decisive broader theorem would require re-review.
+
+## value
+
+PASS
+
+PASS: an explicit complete rational pair limit spectrum for a natural depth-two modal fragment, and the sharp quarter-power correction to convergence, are exact logical/probabilistic classifications researchers can use; the fixed-offset restriction is natural for fixed formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
