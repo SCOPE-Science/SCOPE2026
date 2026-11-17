@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is restricted to even orders \(N\ge6\), simple forbidden graphs of maximum degree at most two, and random feasible-edge sampling. For every fixed set of up to four vertices, a one-step hazard estimate proves a uniform \(O((s/N)^k)\) survival bound. Its application to the exact survival ratio of one missing edge bounds each recurrence perturbation by \(O(s/N^3)\). The isolated-edge reference factors telescope to \(3/(N^2-1)\), and all perturbations sum to \(O(\log N/N^3)\). No step uses false independence of the residual vertices. The standalone exact-rational checker passed 28,833 assertions, including an independent small-instance exhaustive edge-priority method. These finite assertions do not establish the asymptotic theorem; the analytic moment bounds do.
+PASS
 
-## Originality — PASS, with residual priority risk
+Reconstructed the k≤4 fixed-tag survival hazard: P(A⊂S_s)≤C_k(s/N)^k. On surviving e, exact one-step feasible-edge ratio is [binom(s−2,2)−h]/[binom(s,2)−1−d−h], differing from q_s=(s−3)/(s+1) by [L d−2(s−2)h]/[D0(D0−d−h)]. Tag-triple/quadruple bounds yield |a_(s−2)−q_s a_s|≤B s/N³; q_s telescopes to 3/((N−1)(N+1)) and error sums to O(logN/N³). Δ(H)≤2 rules out stopping at size ≥4, so failure iff the terminal pair is forbidden. Independently implemented exact rational residual-pair DP for N=8 with one missing edge, a deleted perfect matching and a deleted path, finding 1/21 for a fixed missing edge in the single-edge case and 8/65 for deleted matching; finite enumeration is only corroboration.
 
-Arnosti (2021; https://doi.org/10.1287/stsy.2021.0082) studies the same RANDOM-EDGE rule but compares algorithms on random bipartite inputs; its theorems do not bound individual forbidden-pair survival on arbitrary deterministic near-complete nonbipartite inputs. Dyer and Frieze (1991; https://doi.org/10.1002/rsa.3240020104) introduced the general random feasible-edge algorithm, with published descriptions focusing on approximation guarantees and forests; complete inspection was not possible. Tang, Wu and Zhang (2019; https://arxiv.org/abs/1907.05135) study different vertex-first algorithms. An exact special-case law for the deletion of a perfect matching does not imply the present arbitrary degree-two-deletion result, even though the new theorem includes that example. A finding with the same shape-uniform failure constant and conditional location law was not identified in the checked sources or mathematical-research records. This is a best-knowledge originality assessment, not proof of worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-The leading constant is not the naive probability that two uniformly sampled vertices form a missing edge: it is \(3/2\) times that value. Crucially, the amplification does not depend on the number and lengths of forbidden path/cycle components, and conditional failure locations become uniform over the actual deleted edges. This resolves a natural structural question about the reliability and localization of random greedy matching failure in dense imperfect graphs. Uniformity over all degree-two defects is a substantive extension beyond symmetric matching-deletion cases, not merely another finite-parameter computation.
+Best of knowledge: unique contribution is shape-uniform per-forbidden-edge rare failure and conditional location across ALL degree-two H; the 3/2 constant for the perfect-matching deletion is already known.
 
-## Limitations and source access
+## value
 
-The proof does not cover maximum forbidden degree greater than two, alternative greedy selection rules, or sharp explicit finite-size error constants. The 1991 foundational primary paper was available only in abstract/metadata form despite searches for lawful full text. Hence historical priority remains a residual risk. The checked Arnosti primary paper was accessible in full, including theorem statements, algorithms, proofs, discussion and appendices. The computation has no independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shape universality for random greedy maximal matchings of almost-complete nonbipartite graphs is a motivated rare-event reliability theorem; per-edge conditional location and uniform error are not obtained from approximation ratios or a single symmetric example. The hypothesis allows arbitrary path/cycle components, hence removes nontrivial symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the k≤4 fixed-tag survival hazard: P(A⊂S_s)≤C_k(s/N)^k. On surviving e, exact one-step feasible-edge ratio is [binom(s−2,2)−h]/[binom(s,2)−1−d−h], differing from q_s=(s−3)/(s+1) by [L d−2(s−2)h]/[D0(D0−d−h)]. Tag-triple/quadruple bounds yield |a_(s−2)−q_s a_s|≤B s/N³; q_s telescopes to 3/((N−1)(N+1)) and error sums to O(logN/N³). Δ(H)≤2 rules out stopping at size ≥4, so failure iff the terminal pair is forbidden. Independently implemented exact rational residual-pair DP for N=8 with one missing edge, a deleted perfect matching and a deleted path, finding 1/21 for a fixed missing edge in the single-edge case and 8/65 for deleted matching; finite enumeration is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer--Frieze 1991 publisher abstract studies fixed graphs, approximation ratios and forests; full text was inaccessible.",
+          "Arnosti, Greedy Matching in Bipartite Random Graphs (DOI 10.1287/stsy.2021.0082), concerns random bipartite inputs and mean algorithm comparison."
+        ],
+        "reasoning": "A general worst-case matching-size theorem or random bipartite graph result does not imply a shape-uniform per-edge rare failure estimate for deterministic K_N minus arbitrary max-degree-two H. Older full-text risk explicitly remains.",
+        "searches": [
+          "Resultary: random greedy edge maximal matching nearly complete graphs complement maximum degree 2 probability terminal uncovered pair rare failure 3/(N²−1)",
+          "web: randomized greedy matching dense graph complement path cycle degree two rare failures",
+          "web: Dyer Frieze Randomized greedy matching 1991 pdf freely available"
+        ]
+      },
+      "checked_sources": [
+        "Dyer--Frieze 1991 DOI 10.1002/rsa.3240020104",
+        "Arnosti 2021 DOI 10.1287/stsy.2021.0082",
+        "Published cocktail-party graph theorem 2026/11/8/8250e0710001",
+        "Pinned actual RESULT.md at blob a28ab1ce45049e10d178423b106b0f859be16127"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published A sharp three-quarter rare-failure law for greedy matching on cocktail-party graphs establishes the coefficient for one symmetric H family only.",
+          "Current proof uses a k≤4 survival bound, an exact f_s−q_s perturbation identity, and a telescoping sum across arbitrary H with Δ(H)≤2."
+        ],
+        "reasoning": "The prior symmetric family is a strict special case. Nothing inspected proves arbitrary path/cycle H with shape-uniform per-edge O(logN/N³) error, though the full 1991 paper may carry relevant stronger bounds.",
+        "searches": [
+          "Resultary: random greedy edge maximal matching nearly complete graphs complement maximum degree 2 probability terminal uncovered pair rare failure 3/(N²−1)",
+          "web: randomized greedy matching dense graph complement path cycle degree two rare failures",
+          "web: Dyer Frieze Randomized greedy matching 1991 pdf freely available"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dyer--Frieze (1991), Randomized greedy matching, DOI 10.1002/rsa.3240020104: randomly chosen remaining feasible edge is the same algorithm, not the output law.",
+          "The one-deleted-pair survival probability 3/(N²−1) differs from the probability 1/binom(N,2) for a uniformly chosen final pair."
+        ],
+        "reasoning": "Algorithm aliases random feasible-edge, random-edge greedy, and uniform edge-priority are identified. Equivalence of an algorithm is not coverage of the precise asymptotic event probabilities.",
+        "searches": [
+          "Resultary: random greedy edge maximal matching nearly complete graphs complement maximum degree 2 probability terminal uncovered pair rare failure 3/(N²−1)",
+          "web: randomized greedy matching dense graph complement path cycle degree two rare failures",
+          "web: Dyer Frieze Randomized greedy matching 1991 pdf freely available"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published cocktail-party graph result covers H equal to a perfect matching (N=2n), p_n~3/(4n); it does not enumerate every disjoint union of paths and cycles.",
+          "Original package checker is finite through N=12; independent exact DP checked N=8 path, matching and single-edge examples."
+        ],
+        "reasoning": "The precise all-H conditional failure-location law is not a mere table recomputation. No inspected exact table dominates the uniform 4-vertex-survival argument; non-hit cannot establish historical novelty.",
+        "searches": [
+          "Resultary: random greedy edge maximal matching nearly complete graphs complement maximum degree 2 probability terminal uncovered pair rare failure 3/(N²−1)",
+          "web: randomized greedy matching dense graph complement path cycle degree two rare failures",
+          "web: Dyer Frieze Randomized greedy matching 1991 pdf freely available"
+        ]
+      },
+      "rationale": "Best of knowledge: unique contribution is shape-uniform per-forbidden-edge rare failure and conditional location across ALL degree-two H; the 3/2 constant for the perfect-matching deletion is already known.",
+      "residual_risks": [
+        "1991 full article inaccessible due VPN; cannot exclude a relevant dense-graph appendix",
+        "A stronger unindexed theorem under dimer adsorption or random-sequential matching terminology could imply this bound",
+        "Finite exact DP covers selected small graphs, not the uniform infinite family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deleted perfect matching H only, not arbitrary max-degree-two H; cannot imply shape-uniform conditional location distribution",
+          "evidence": [
+            "p_n=3/(4n)+O(log(n)/n²) on K_(2n) without a perfect matching; exact reduced intact-pairs recurrence"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-three-quarter-rare-failure-law-for-greedy-matching-on-co--8250e0710001",
+          "material_read": "Full published RESULT.md: finding, exact F(m,f) recurrence, survival/telescoping proof, limitations and references",
+          "method": "Read actual primary published mathematical result in full",
+          "title": "A sharp three-quarter rare-failure law for greedy matching on cocktail-party graphs",
+          "trigger": "Identical sampling algorithm and same 3/2 amplification constant"
+        },
+        {
+          "assessment": "Not safe to assert whole-paper noncoverage; residual historical priority risk",
+          "evidence": [
+            "Publisher abstract: graph-fixed randomized remaining-edge algorithm; main forest result sharp ratio 0.7690..."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "Publisher abstract and bibliographic detail only; original full article not available through checked OA/preprint sources; authorized Oxford returned vpn_disconnected",
+          "method": "Read abstract, attempted lawful institutional full text (job 943063a0d7e236f45aae6eb012a4d8ef)",
+          "title": "Randomized greedy matching",
+          "trigger": "Original 1991 introduction to fixed-graph random-edge greedy matching"
+        },
+        {
+          "assessment": "Average-case bipartite input comparison does not entail fixed near-complete nonbipartite rare failure",
+          "evidence": [
+            "Arnosti 2021 online/2022 journal, stochastic algorithm comparisons on random bipartite graphs"
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+          "material_read": "Accessible paper model and theorem descriptions in inspected primary source and original package comparison; not exhaustively reinspected this execution",
+          "method": "Primary bibliographic and statement-level comparison",
+          "title": "Greedy Matching in Bipartite Random Graphs",
+          "trigger": "Similar RANDOM-EDGE algorithm and possible stronger comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shape universality for random greedy maximal matchings of almost-complete nonbipartite graphs is a motivated rare-event reliability theorem; per-edge conditional location and uniform error are not obtained from approximation ratios or a single symmetric example. The hypothesis allows arbitrary path/cycle components, hence removes nontrivial symmetry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Even N≥6, simple H maximum degree two; no rates beyond uniform feasible-edge sampling",
+    "Absolute error constant unspecified and not asserted optimal",
+    "Independent finite DP at N=8 is not proof of the N→∞ bound",
+    "1991 full text inaccessible through checked legitimate channels; priority is qualified"
+  ],
+  "schema_version": 1
+}
