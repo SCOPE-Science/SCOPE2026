@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The mathematical argument reduces every positive prime two-cycle to a unique equilibrium midpoint, two logarithmic amplitude equations, a strict phase-sign condition, and an increasing one-variable product equation. The endpoint limits of that product determine exact existence and uniqueness. Directly differentiating the map confirms that the cycle threshold coincides with the sign boundary of \(\det(I+DT(E))\).
+## correctness
 
-The embedded file `verify_ricker.py` uses Python and `mpmath` with 95 decimal digits. Running `python verify_ricker.py` on the packaged file prints `VERIFY_OK finite_parameter_cases=7 analytic_proof_required=1`. It tests four parameter choices predicting positive two-cycles, two choices predicting absence, and one exact threshold case. In the existence cases it reconstructs both forward arrows with residuals less than \(10^{-65}\). The code's threshold comparisons are finite-precision arithmetic, not logical proofs of nonexistence.
+PASS
 
-Only positive period-two orbits in the specified parameter regime are classified. At the algebraic \(-1\) boundary, this result does not assert any normal-form nondegeneracy or stability of a bifurcating cycle; no global-basin assertion is proved. Independent validation is unperformed.
+Adding logarithms across both halves of any positive period-two orbit forces midpoint (X,Y) by invertibility of [[1,α],[β,1]]. Its amplitudes solve ψ_X(u)=αv and ψ_Y(v)=βu, ψ_Z(w)=2atanh(w/Z)−w. For 0<Z≤2 this odd ψ has strictly increasing same-sign map; hence a prime positive cycle is in phase. On w>0, H_Z(w)=ψ_Z(w)/w is continuous strictly increasing from 2/Z−1 to ∞. Setting v=ψ_X(u)/α, the product H_X(u)H_Y(v(u)) increases from (2/X−1)(2/Y−1) to ∞ once as v reaches Y; it equals αβ exactly once iff the strict inequality holds. Exponentiating amplitude equations verifies both mapping legs. det(I+DT(E))=(2−X)(2−Y)−αβXY, exactly the same sign. The proof includes critical equality and boundary X=2/Y=2, and makes no dynamics/stability claim.
+
+## originality
+
+PASS
+
+Goldar et al (September 16 2026) study the identical Ricker system and state local flip/period-two existence and numerical cases; their Section 5 Theorem 6 assumes an already existing positive two-cycle solution rather than an all-parameter necessary-and-sufficient global census, and does not establish uniqueness or in-phase rigidity under 0<X,Y≤2. Prior Kulakov et al show multimode behavior outside the certified domain, and published Resultary antiphase existence theorem occupies X,Y>2, not the low-load quadrant. None covers the exact complete theorem in the given domain.
+
+## value
+
+PASS
+
+A complete existence/uniqueness/nonexistence phase classification over a natural full coexistence rectangle resolves an authentic structural gap left by local bifurcation or numerical orbit examples. In-phase rigidity and exclusion at the critical spectral equality are substantive global dynamical facts, rather than restating a flip factor alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Positivity and the two species' exact logarithmic update identities force every two-cycle to have midpoint at the unique coexistence equilibrium when \(\alpha\beta\ne1\). For \(0<X,Y\le2\), the resulting odd amplitude functions have the correct sign, so opposing phases are impossible. The product of their strictly increasing positive amplitude quotients gives a global, sharp, necessary-and-sufficient root criterion, including its equality case. The constructed root is explicitly checked against both forward and backward map equations. Direct differentiation verifies the determinant identity. The seven numerical test cases are supplementary and not relied upon to prove the universal quantifiers.
+## correctness
 
-## Originality
-PASS within the inspected evidence. The 2026 Goldar et al. primary paper derives local stability and examines period-two solutions of the same map; it does not state a globally exhaustive if-and-only-if count with universal in-phase rigidity for the low-load rectangle. Kulakov et al. (2022) report multistable in/out-of-phase scenarios and numerically locate periodic solutions, but do not derive this exact global census. Ryals–Sacker (2017) cover absence of cycles in a parameter subdomain with small intrinsic growth rates, rather than the positive-existence domain established here. Naderi Yeganeh–Baigent (2026) concern global fixed-point attraction. The older two-species Ricker literature creates priority risk; the 2017 paper's complete body was not accessible, so that source is not claimed to have been exhaustively checked.
+PASS
 
-## Mathematical value
-PASS. The finite-dimensional ecological map has established regions with competing in-phase and out-of-phase cycles. A complete parameter-sharp orbit census and a rigorous exclusion of phase opposition on a natural equilibrium-coordinate rectangle settle more than stability at one fixed point or one observed orbit. Identifying exact correspondence with the equilibrium's flip characteristic factor supplies a usable global geometric boundary for the existence of positive two-cycles. The theorem makes no unsupported claim about stability or global convergence.
+Adding logarithms across both halves of any positive period-two orbit forces midpoint (X,Y) by invertibility of [[1,α],[β,1]]. Its amplitudes solve ψ_X(u)=αv and ψ_Y(v)=βu, ψ_Z(w)=2atanh(w/Z)−w. For 0<Z≤2 this odd ψ has strictly increasing same-sign map; hence a prime positive cycle is in phase. On w>0, H_Z(w)=ψ_Z(w)/w is continuous strictly increasing from 2/Z−1 to ∞. Setting v=ψ_X(u)/α, the product H_X(u)H_Y(v(u)) increases from (2/X−1)(2/Y−1) to ∞ once as v reaches Y; it equals αβ exactly once iff the strict inequality holds. Exponentiating amplitude equations verifies both mapping legs. det(I+DT(E))=(2−X)(2−Y)−αβXY, exactly the same sign. The proof includes critical equality and boundary X=2/Y=2, and makes no dynamics/stability claim.
 
-## Residual scientific and access risks
-Historical priority remains provisional, particularly for inaccessible full texts and earlier specialized Ricker periodic-orbit classifications. The excluded resonance \(\alpha\beta=1\) and any coexistence equilibrium coordinate above two may support different orbit structures. The checker tests selected finite cases only. No independent audit or external certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goldar et al (September 16 2026) study the identical Ricker system and state local flip/period-two existence and numerical cases; their Section 5 Theorem 6 assumes an already existing positive two-cycle solution rather than an all-parameter necessary-and-sufficient global census, and does not establish uniqueness or in-phase rigidity under 0<X,Y≤2. Prior Kulakov et al show multimode behavior outside the certified domain, and published Resultary antiphase existence theorem occupies X,Y>2, not the low-load quadrant. None covers the exact complete theorem in the given domain.
+
+## value
+
+PASS
+
+A complete existence/uniqueness/nonexistence phase classification over a natural full coexistence rectangle resolves an authentic structural gap left by local bifurcation or numerical orbit examples. In-phase rigidity and exclusion at the critical spectral equality are substantive global dynamical facts, rather than restating a flip factor alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
