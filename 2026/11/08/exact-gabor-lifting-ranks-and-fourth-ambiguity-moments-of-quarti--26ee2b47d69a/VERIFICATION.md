@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The attached `CHECK.py` uses the Python standard library and computes every ambiguity coefficient's *exact vanishing decision* through integer histograms of exponents modulo the prime cyclotomic polynomial. It checks the predicted zero set, the exact rank count, and—using exact integer cyclotomic autocorrelation reductions—every nontrivial quadratic Gauss magnitude required in the fourth-moment proof for all thirteen indicated primes. Run `python3 CHECK.py`; the expected final line is `ALL_EXACT_QUARTIC_CHECKS_PASSED`.
+## correctness
 
-Independent direct complex-matrix rank computations of the full measurement projectors gave ranks \(17\), \(43\), and \(101\) for prime orders \(5\), \(7\), and \(11\), respectively; numerical tolerances in those supplementary SVD computations were not used to decide infinite-range statements. The analytic cyclotomic/permutation and Weyl proofs establish the all-prime result. The package does not assert independent review, a machine formalization, or a certificate of publication priority.
+PASS
+
+For prime p≥5, a sum of pth roots with total p terms is zero iff each residue occurs once, via irreducibility of Φ_p. At translation a≠0, recentering x by a/2 converts the quartic difference plus bx to 4a y³+(a³+b)y+constant. The collision conic x²+xy+y²=-c has p−χ(-3) solutions and at most two diagonal, so y³+cy permutes only for c=0 and p≡2 mod3. This gives the full two-branch zero set and Weyl rank. For fourth moment, Fourier autocorrelation of the cubic phase difference has quadratic difference with coefficient 12ah≠0, whose Gauss sum squared modulus is p, yielding sum|A|^4=3−3/p+1/p². Parseval and Cauchy imply constant-modulus bound 2−1/p, achieved by cubic chirp; quartic excess (1−1/p)². Independent exact cyclotomic histograms across six primes and complex fourth-moment evaluations agree, but analytic Gauss/conic arguments cover all primes.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty for explicit prime-field quartic chirp zero locus, lifted rank dichotomy and sharp fourth moment comparison; general Alltop/Gabor machinery is openly credited. One plausible 2026 primary preprint could not be read in full.
+
+## value
+
+PASS
+
+The all-prime congruence-class transition identifies exactly when a natural quartic polynomial-phase code reaches maximal constant-modulus matrix rank and when it loses p−1 extra Weyl modes. The fourth moment gives a sharp, exact benchmark against optimum cubic-phase coding, relevant to finite Gabor sequence design beyond a trivial finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every prime \(p\ge5\), the zero criterion is reduced to a polynomial-permutation statement using the irreducible cyclotomic polynomial. The cubic permutation lemma is proved by a complete binary quadratic-form collision count; the exact finite Gabor lifting rank then follows by Weyl-basis Fourier diagonalization. The fourth moment is derived using Fourier autocorrelation and nondegenerate quadratic Gauss sums, independently of the zero classification. The sharp constant-modulus comparison is proved by Cauchy–Schwarz and attained by the classical cubic Alltop sequence. Exact histogram checks cover thirteen prime orders, and independent direct measurement-matrix ranks were computed at three small primes. All critical normalizations and exceptional prime congruences were checked against the formulas.
+## correctness
 
-## Originality — PASS relative to inspected material
-The complete primary literature examined includes Li, arXiv:2609.09614 (Sections 1, 3.1–3.2 and 5), Bojarovska–Flinth, arXiv:1503.05800 (the Gabor lifting theorems), and Price–Hall–Bartlett, DOI:10.1007/s10801-022-01187-2 (Alltop-monomial restrictions). Li already gives the general Weyl diagonalization; Bojarovska–Flinth give general phase-retrieval and lifting criteria; the Alltop literature gives cubic and planar polynomial context. None of these examined statements provides the exact all-prime quartic ambiguity-zero congruence, the resulting arithmetic rank dichotomy, and the fourth moment with a sharp constant-modulus comparison. The closest published mathematical-record entries concern an impulse-perturbed quadratic chirp, one-coordinate window rank and hyperbolic shell indicators, not this quartic unimodular family. One smallest-prime specialization falls under a known one-coordinate family and is not separately claimed as original.
+PASS
 
-## Value — PASS
-This is an exact arithmetic boundary for a natural polynomial-phase window beyond the quadratic and cubic designs: the rank is maximal within constant-modulus windows for one prime congruence class, and loses precisely \(p-1\) additional operator modes in the other. Its fourth ambiguity moment quantifies, by a sharp comparison, a uniform penalty versus cubic Alltop coding even in the maximal-rank branch. The result gives a finite-field sequence-design benchmark and complete measurement-operator obstruction rather than an isolated numerical example.
+For prime p≥5, a sum of pth roots with total p terms is zero iff each residue occurs once, via irreducibility of Φ_p. At translation a≠0, recentering x by a/2 converts the quartic difference plus bx to 4a y³+(a³+b)y+constant. The collision conic x²+xy+y²=-c has p−χ(-3) solutions and at most two diagonal, so y³+cy permutes only for c=0 and p≡2 mod3. This gives the full two-branch zero set and Weyl rank. For fourth moment, Fourier autocorrelation of the cubic phase difference has quadratic difference with coefficient 12ah≠0, whose Gauss sum squared modulus is p, yielding sum|A|^4=3−3/p+1/p². Parseval and Cauchy imply constant-modulus bound 2−1/p, achieved by cubic chirp; quartic excess (1−1/p)². Independent exact cyclotomic histograms across six primes and complex fourth-moment evaluations agree, but analytic Gauss/conic arguments cover all primes.
 
-## Remaining limitations and risk
-The lifting-rank obstruction is a complex-linear operator statement, not an assertion of failure of nonlinear signal phase retrieval. Prime powers, arbitrary quartic coefficients, and sharp singular-value bounds are outside scope. The cubic permutation criterion, Gauss sums and Weyl decomposition are established techniques; an implicit equivalent formula in older radar sequence or low-degree permutation-polynomial literature could affect priority. External independent scientific validation is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty for explicit prime-field quartic chirp zero locus, lifted rank dichotomy and sharp fourth moment comparison; general Alltop/Gabor machinery is openly credited. One plausible 2026 primary preprint could not be read in full.
+
+## value
+
+PASS
+
+The all-prime congruence-class transition identifies exactly when a natural quartic polynomial-phase code reaches maximal constant-modulus matrix rank and when it loses p−1 extra Weyl modes. The fourth moment gives a sharp, exact benchmark against optimum cubic-phase coding, relevant to finite Gabor sequence design beyond a trivial finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
