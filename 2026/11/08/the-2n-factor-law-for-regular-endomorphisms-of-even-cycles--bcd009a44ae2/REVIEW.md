@@ -1,15 +1,21 @@
-# Review of the even-cycle regular-endomorphism asymptotic
+# Independent mathematical audit
 
-## Correctness
-PASS. The cycle-step representation partitions strict endomorphisms into two orientations of automorphisms and closed nearest-neighbor bridges. The regularity/full-run criterion is proved independently via an idempotent inner inverse. Marking full-height runs gives exactly \(2n^2\sum_hW_{n,h}\), while marking distinct run pairs gives the spectral bound \(2n^3\sum_h\rho_h^{n-2h}\). The paths cannot overlap in steps, a necessary feature of the pair count. Spectral endpoint asymptotics and a uniform minimization separately produce the exponents \(K\) and \(2^{2/3}K\). Exact finite enumeration verifies the marked-run identity and the inequality for even sizes through 18; an independent direct semigroup-composition test verifies regularity and idempotency for sizes 4, 6 and 8. These finite computations corroborate, but do not replace, the proof of the asymptotic claim.
+## correctness
 
-## Originality
-PASS relative to the accessible records and primary literature. Dimitrova et al. (arXiv:2310.04149v1, Proposition 2.1) already establish the full-consecutive-images regularity criterion and the total endomorphism size. The distinct new statement is the quantitative asymptotic factor \(R_n/(2nI_n)\to1\) with exponentially small relative error in \(n^{1/3}\). An accessible prior cycle-idempotent count supplies the denominator \(I_n\) but no count of regular nonidempotents; a prior path-endomorphism regularity result concerns a different semigroup. Related range-penalized random-walk results do not identify the marked-full-run pair suppression in this monoid. Residual risk: an unindexed regular-element enumeration or a general return-walk theorem could imply this result. Search absence is not proof of publication novelty.
+PASS
 
-## Mathematical value
-PASS. The number of regular elements and the number of retractions are intrinsic natural invariants of a finite transformation monoid. This theorem determines an asymptotically *exact* conversion factor between the two for every even cycle family, not merely their common stretched-exponential logarithmic scale. It explains the factor by exponential suppression of multiple disjoint full-height monotone runs, giving a structural interpretation of an otherwise nontrivial count.
+Strict endomorphisms of loopless C_n for even n have +/-1 cyclic steps with winding ±n (2n automorphisms) or zero (n*binomial(n,n/2) bridge maps). For bridge span h, regularity is equivalent to a cyclic full monotone run of length h. Marking each such run and filling the complement by a strip-constrained path gives T_n=2n²Σ_h W_{n,h} and I_n=1+nΣ W_{n,h}. Distinct full runs cannot overlap, so pairs of runs are bounded by P_n≤2n³Σ_h[2cos(π/(h+2))]^(n-2h); the excess over unique runs is at most P_n. Uniform strip eigenvalue bounds and a positive pair of leading endpoint eigenprojections give log Σ_hW=n log2-K n^(1/3)+O(log n) where K=3π^(2/3)(log2)^(2/3)/2. The second-run exponent is 2^(2/3)K, hence R_n/(2nI_n)→1 with relative error exp[-δ n^(1/3)] for every δ<(2^(2/3)-1)K. Direct exact semigroup enumeration at n=4,6,8 and independent step-word counts beyond corroborate finite identities, not the uniform asymptotic.
 
-## Limitations
-The result applies to strict even-cycle endomorphisms only; no statement is made about weak endomorphisms or general graphs. The parameter \(n\) is even and tends to infinity; the finite bounds hold for all even \(n\ge4\). The original cycle regularity criterion and prior idempotent count are credited antecedents. Publication-priority searching is necessarily incomplete and independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison, not a novelty certification. The regular/retract condition is credited as known; the innovation, if original, is marked-run uniqueness with a sharp stretched-exponential deficit and ratio to idempotents. Those prior statements are necessary ingredients but do not alone establish that multiply-marked regular maps have exponentially smaller mass than singly marked maps; the two-run spectral bound is not a tautological substitution.
+
+## value
+
+PASS
+
+A natural semigroup statistic—the density of von Neumann regular transformations relative to idempotents—is sharply evaluated for an infinite graph family. The asymptotic factor 2n and explicit stretched-exponential suppression of extra full runs reveal an interpretable structural law beyond a known regularity decision criterion. A future semigroup enumeration or random-walk asymptotics study could use this unique-witness result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T08:16:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict endomorphisms of loopless C_n for even n have +/-1 cyclic steps with winding ±n (2n automorphisms) or zero (n*binomial(n,n/2) bridge maps). For bridge span h, regularity is equivalent to a cyclic full monotone run of length h. Marking each such run and filling the complement by a strip-constrained path gives T_n=2n²Σ_h W_{n,h} and I_n=1+nΣ W_{n,h}. Distinct full runs cannot overlap, so pairs of runs are bounded by P_n≤2n³Σ_h[2cos(π/(h+2))]^(n-2h); the excess over unique runs is at most P_n. Uniform strip eigenvalue bounds and a positive pair of leading endpoint eigenprojections give log Σ_hW=n log2-K n^(1/3)+O(log n) where K=3π^(2/3)(log2)^(2/3)/2. The second-run exponent is 2^(2/3)K, hence R_n/(2nI_n)→1 with relative error exp[-δ n^(1/3)] for every δ<(2^(2/3)-1)K. Direct exact semigroup enumeration at n=4,6,8 and independent step-word counts beyond corroborate finite identities, not the uniform asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2310.04149 gives regularity characterization and total endomorphism counts, not inspected asymptotic 2n ratio.",
+          "Bouchot arXiv:2202.11953 gives random walks penalized by range, a related large-deviation method rather than the same cycle semigroup count."
+        ],
+        "reasoning": "Prior general regularity criteria and strip-walk asymptotics require additional marked-runs, double-mark spectral gap and idempotent comparison; no source inspected has an implication delivering the exact semigroup factor with error.",
+        "searches": [
+          "regular endomorphisms even cycle monoid count asymptotic idempotents 2n factor",
+          "Dimitrova Fernandes Koppitz Quinteiro cycle endomorphisms regularity 2023 2024",
+          "path endomorphisms regular idempotent counts stretched exponential",
+          "Bouchot range penalized random walk strip saddle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2310.04149",
+        "https://oeis.org/A112850",
+        "https://arxiv.org/abs/2202.11953",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-2n-factor-law-for-regular-endomorphisms-of-even-cycles--bcd009a44ae2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular iff full monotone span is an explicit known theorem in the 2023 preprint.",
+          "Even-cycle total count |M_n|=n(2+binomial(n,n/2)) is known (OEIS A112850)."
+        ],
+        "reasoning": "Those prior statements are necessary ingredients but do not alone establish that multiply-marked regular maps have exponentially smaller mass than singly marked maps; the two-run spectral bound is not a tautological substitution.",
+        "searches": [
+          "regular endomorphisms even cycle monoid count asymptotic idempotents 2n factor",
+          "Dimitrova cycle regularity proposition 2.1 enumeration",
+          "Michels Knauer congruence classes paths cycles 2009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dimitrova–Fernandes–Koppitz–Quinteiro Proposition 2.1 already characterizes regular cycle maps by a full monotone span.",
+          "The current claimed asymptotic R_n~2n I_n asks how often marked monotone spanning runs occur uniquely, not merely whether one exists."
+        ],
+        "reasoning": "The regular/retract condition is credited as known; the innovation, if original, is marked-run uniqueness with a sharp stretched-exponential deficit and ratio to idempotents.",
+        "searches": [
+          "regular endomorphisms even cycle monoid count asymptotic idempotents 2n factor",
+          "regular elements endomorphism monoid even cycle monotone run criterion",
+          "cycle graph retract inverse semigroup idempotent regular asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A112850 records |End(C_2n)|, including 32,132,576, but not the count of regulars or 2nI_n error.",
+          "The same November 8 Resultary item is a copy of the assessed theorem, not independent earlier counting."
+        ],
+        "reasoning": "A total-endomorphism table cannot imply the regular subset cardinality; no confirmed earlier exact regular asymptotic table was located.",
+        "searches": [
+          "regular endomorphisms even cycle monoid count asymptotic idempotents 2n factor",
+          "OEIS even cycle endomorphisms A112850",
+          "regular endomorphisms even cycle counts and idempotents OEIS"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison, not a novelty certification. The regular/retract condition is credited as known; the innovation, if original, is marked-run uniqueness with a sharp stretched-exponential deficit and ratio to idempotents. Those prior statements are necessary ingredients but do not alone establish that multiply-marked regular maps have exponentially smaller mass than singly marked maps; the two-run spectral bound is not a tautological substitution.",
+      "residual_risks": [
+        "General published semigroup enumeration identities may imply the same asymptotic even without explicitly saying 2n-factor.",
+        "Finite tests do not independently verify uniform eigenprojection estimates; proof inspection addressed those analytically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Regularity criterion and monoid size are antecedents, not the unique-run 2n relative asymptotic in the examined text",
+          "evidence": [
+            "Proposition 2.1 full monotone section criterion; published 2024 Mathematica Slovaca"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04149",
+          "material_read": "Accessible primary PDF, including Proposition 2.1 and counting/regularity sections",
+          "method": "Primary PDF regularity theorem and enumeration comparison",
+          "title": "Dimitrova, Fernandes, Koppitz, Quinteiro, On monoids of endomorphisms of a cycle graph",
+          "trigger": "Same strict even-cycle endomorphism monoid and regularity notion"
+        },
+        {
+          "assessment": "Counts all maps, not only regular maps or their comparison to idempotents",
+          "evidence": [
+            "|End(C_2n)|=2n(2+binomial(2n,n)) in even cycle notation"
+          ],
+          "identifier_or_url": "https://oeis.org/A112850",
+          "material_read": "OEIS reference list, formula and explicit terms",
+          "method": "Direct database/table check",
+          "title": "Michels/Knauer cycle-endomorphism total enumeration, OEIS A112850",
+          "trigger": "Possible existing exact table of cycle endomorphisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2310.04149",
+        "https://oeis.org/A112850",
+        "https://arxiv.org/abs/2202.11953",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-2n-factor-law-for-regular-endomorphisms-of-even-cycles--bcd009a44ae2"
+      ],
+      "rationale": "A natural semigroup statistic—the density of von Neumann regular transformations relative to idempotents—is sharply evaluated for an infinite graph family. The asymptotic factor 2n and explicit stretched-exponential suppression of extra full runs reveal an interpretable structural law beyond a known regularity decision criterion. A future semigroup enumeration or random-walk asymptotics study could use this unique-witness result.",
+      "residual_risks": [
+        "General published semigroup enumeration identities may imply the same asymptotic even without explicitly saying 2n-factor.",
+        "Finite tests do not independently verify uniform eigenprojection estimates; proof inspection addressed those analytically."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General published semigroup enumeration identities may imply the same asymptotic even without explicitly saying 2n-factor.",
+    "Finite tests do not independently verify uniform eigenprojection estimates; proof inspection addressed those analytically."
+  ],
+  "schema_version": 1
+}
