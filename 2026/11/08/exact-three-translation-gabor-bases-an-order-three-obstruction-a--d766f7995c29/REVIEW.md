@@ -1,19 +1,21 @@
-# Scientific review: three-translation Gabor phase classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is exact for every integer \(N=3M\), nonzero step \(k\), and alphabet \(q\). Fourier inversion yields an equivalent local \(3\times3\) complex-Hadamard condition. Translation cycles force projective period three; the order obstruction and the six choices on each residue orbit follow from an elementary finite-dimensional classification. Independent free phases give the exact count and torus decomposition. The embedded checker exhaustively tested 15,773,391 small candidate phase arrays and separately assembled full Gramians for 124 constructed larger cases. The analytic argument, not finite testing, proves the arbitrary-parameter theorem.
+PASS
 
-## Originality — PASS relative to inspected literature
+Fourier inversion on the M modulation frequencies makes orthonormality equivalent to each 3x3 fiber matrix H_j having mutually orthogonal rows. Along the k-translation cycle, any consecutive three projective vectors are orthogonal, forcing projective period 3; therefore order t=N/gcd(N,k) must be divisible by three. When 3|t, d residue cycles in Z_M of length M/d each admit exactly six projective line patterns, determined by a cyclic permutation matrix and the unique order-three complex Hadamard/cyclic triple conditions; each of M free phase scalars yields q^M choices iff 3|q. Therefore count=6^d q^M, normalized count=6^d q^(M-1), and continuous solutions form exactly 6^d copies of T^M. Independent direct fiber tests covered 33 parameter cases / 94809 arrays, plus direct complex full Gram checks in inspected verifier; these do not replace cycle proof.
 
-Asipchuk–De Carli–Rodriguez (arXiv:2605.16139v2, complete HTML, especially Theorems 1.1 and 1.3) develop block decompositions and some diagonalizing constructions, but do not classify all flat windows for \(\{0,k,2k\}\) with modulation subgroup \(3\mathbb Z_N\). Hiranandani–Schlenker (arXiv:1311.5390v4, Sections 1 and 3) classify local circulant Butson matrices, not the inter-fiber consistency or the full enumeration. Nicola (arXiv:2305.02738, introduction and main localization classification) applies an extremal ambiguity-support restriction not assumed here. The closest previously recorded two-translation classification has a distinct binary fiber geometry; neither its statement nor its arithmetic implication covers the three-translation formula. Residual risk: an older global enumeration in finite-Gabor or filter-bank terminology might be indexed poorly and could imply the formula.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete infinite-family classification of quantized critical time-frequency bases: it simultaneously identifies an intrinsic order obstruction, the exact admissible phase alphabets, the count of realizations, and the topology of continuous solutions. The fact that the three-translation case has a pure divisibility-by-three rule, rather than the mod-four regimes of the two-translation case, is a meaningful structural distinction. The exact count is useful when constructing or enumerating finite constant-modulus Gabor systems, not a parameter relabeling.
+General finite Gabor block-decomposition and local circulant Butson order-three classifications are known, but the relevant primary literature does not directly provide the global translation-order obstruction, exact labelled q-phase count and continuous component topology for this critical {0,k,2k} translation family. Closest Resultary three-translate tight-frame result has N even and all even modulations (overcomplete), while the two-translate ONB result uses two shifts; neither implies the present count by parameter renaming.
 
-## Limits
+## value
 
-The theorem excludes other critical translation patterns, variable-amplitude windows and stability bounds. Older global classification priority remains incompletely excluded. Finite checks supplement but do not prove the all-parameter theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifying when a natural critical finite Gabor synthesis system is a basis and enumerating every flat phase mask is an exact frame-design problem. The order-three arithmetic obstruction and number/topology of admissible windows determine feasibility and design space rather than only showing examples, and are not a trivial restatement of the local Hadamard condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
