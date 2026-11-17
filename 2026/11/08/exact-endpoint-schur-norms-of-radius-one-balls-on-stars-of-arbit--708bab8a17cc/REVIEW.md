@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite proof supplies an explicit Hermitian majorant \(H\) such that both \(H+M\) and \(H-M\) are positive; determinant and diagonal checks on the two-dimensional invariant subspace and eigenvalues on its orthogonal complement establish complete positivity of the upper bound. An explicit normalized vector produces a trace-class two-sector witness achieving that bound. For the infinite star, a bounded-diagonal completely positive decomposition yields the matching \(5/3\) upper estimate, and finite-corner compressions give the lower estimate. No finite computation is used as an infinite-dimensional proof.
+## correctness
 
-**Originality — PASS (best knowledge, not independent priority certification).** Levene's Proposition 5.1(8) gives the three-by-three/two-leaf value \(9/7\), so that instance is prior work. The inspected 2026 radial tree papers concern general bounds and intermediate Schatten regimes, and the older Schur factorization literature provides methods but not the stated all-degree formula for the radius-one star. Targeted phrase, alias, and implication-based searches found no stronger formula covering all degrees or the infinite-star endpoint. The principal residual risk is an older graph-theoretic or factorization formula under different notation that entails the same expression.
+PASS
 
-**Mathematical value — PASS.** The graph-distance-one mask is a natural radial projector. The exact dependence on vertex degree quantifies how a Hilbert–Schmidt orthogonal projection with norm one becomes increasingly noncontractive at the operator/trace endpoints; a sharp countably infinite limit supplies a benchmark for high-degree radial analysis. The upper and lower constructions match for all degrees and identify a nontrivial degree threshold, rather than recomputing a single known small matrix.
+PASS: H±M with t=(5n-1)/(3n+1), x=t-1 and d=1-x decompose into leaf-difference eigenvalues 2 and 0 plus a 2x2 block with nonnegative diagonal and zero determinant, so the positive-kernel Schur decomposition gives cb upper bound t. The unit vector with squared center/leaf coordinates q=(n+1)/(3n+1), r=2/(3n+1) gives a trace-class dual witness with eigenvalues 2(n+1)/(3n+1), -(n-1)/(3n+1), and r repeated n-1 times: trace norm t. n=1 yields t=1 with zero negative eigenvalue. For infinite leaves, explicitly bounded positive-kernel CP maps have norms 4/3 and 1/3; finite corners attain limiting lower bound 5/3. Trace duality and Hilbert–Schmidt coordinate projection are direct. Independent exact rational PSD and trace equalities passed for n=1,...,1000; general proof is analytic.
 
-**Scope and limits.** The published two-leaf constant is not new. The theorem does not classify arbitrary tree masks or intermediate Schatten norms, and the priority determination is based on accessible primary sources and scientific-record searches, not a guaranteed exhaustive index.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): Levene 2014 explicitly lists the 3x3 n=2 star mask norm 9/7 in Proposition 5.1(8), but the inspected results do not give the all-degree rational formula or infinite star norm. Earlier general Schur factorization methods are tools but are not by themselves an exact all-degree identity. An unindexed graph-pattern formula remains a residual risk.
+
+## value
+
+PASS
+
+PASS: the finite-to-infinite sharp endpoint norm for an entire natural distance-one graph-mask family gives a reusable exact pattern with strict degree dependence. The two-leaf known value is acknowledged; n>=3 and the infinite boundary are substantive rather than arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
