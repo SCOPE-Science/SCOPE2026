@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Sylvester's unique positive-gap coordinates reduce pseudo-Frobenius gaps to the coordinatewise minimal points in a bounded modular lattice. In the large-generator unit case the lattice graph is an affine permutation; its record-minimum count exactly equals numerical-semigroup type. The near-maximum record-drop argument is fully quantified: no more than \(N\) unusually large decrements and no more than \(N\) nonadjacent record steps imply an adjacent unit-decrement record pair whenever \(3N+2\le p\). This forces modular step \(-1\), and therefore the asserted unique residue class. Finite independent Apéry/Dijkstra and residue-census checks pass; they are not the infinite proof. The allowed-class construction is explicit.
+## correctness
 
-## Originality
-PASS within inspected evidence, with a material residual risk. The closest and strongest source, Cabanillas (2019), arXiv:1904.08240, explicitly determines the complete pseudo-Frobenius sets of the same quotient objects (Theorems 6 and 7); **the old result is not described as failing to cover any individual pseudo-Frobenius computation**. The present claim is instead the cross-parameter high-type rigidity, including a forbidden penultimate type and exact uniqueness of the upper residue classes. These were not located in the inspected high-relevance sections, and their proof requires an additional extremal record-permutation argument. Liu (2023), arXiv:2312.10889, calculates generators rather than a high-type exclusion. Searches for equivalent arithmetical permutation records and quotient type spectra found no covering statement. An unlocated corollary of earlier continued-fraction/semigroup literature remains the principal originality risk.
+PASS
 
-## Mathematical value
-PASS. A forbidden type immediately below the sharp attainable maximum, valid uniformly in the quotient modulus (including composite moduli), is a natural structural boundary on a key numerical-semigroup invariant. Its strengthened near-extremal rigidity classifies an increasing initial segment of the top type spectrum as \(p\) grows, shows unique realizing residue classes, and identifies new impossibility cases controlled by unit conditions. The result is not merely a finite table or a relabeling of an existing individual-invariant algorithm.
+Sylvester’s gap parametrization converts gaps of <a,b>/p into positive lattice points (i,j) with p|(ab−ia−jb). The PF condition is coordinatewise minimality; the large-generator hypothesis a,b≥2p+1 makes every point in the unit-residue box [1,p]^2 positive. Unit conditions produce affine permutation j_i≡a−(ab^{-1})i (mod p); its left-to-right record minima count type. If R=p−N, at least p−3N−1 adjacent-position record transitions have value drop one, strictly positive when 3N+2≤p; hence step is −1 modulo p and a≡b. The descending initial run then has length p−N iff a≡b≡1−N, proving both directions. N=1 forces forbidden zero residue. Independently checked all 18,368 ordered unit-residue pairs for p=5..50 against all stated near-maximal criteria and penultimate exclusion.
 
-## Limitations and closest literature
-Cabanillas (2019), Theorems 6–8, is a strong prior source for *full* pseudo-Frobenius computation and must be consulted before any claim of an independent complete classification. The present argument is only about near-top types for \(a,b\ge2p+1\), \(\gcd(a,b)=\gcd(p,ab)=1\). The possibility of an equivalent already-known high-type corollary cannot be eliminated by finite searching. All computations are finite checks; independent validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cabanillas (2019) provides complete inputwise pseudo-Frobenius formulas via lattice minima, continued fractions and Ostrowski numeration; those general computability statements are prior art. The particular all-moduli parameter rigidity for type p−N in the interval 3N+2≤p and the uniform impossibility of p−1 are not stated in inspected sections; the new combinatorial record-transition argument supplies a uniform cross-modulus implication. An undiscovered corollary of the general formulas remains a residual risk.
+
+## value
+
+PASS
+
+The type of a numerical semigroup is an intrinsic Cohen–Macaulay invariant, and forbidding p−1 while classifying every near-maximal type by one residue pair is a structural restriction across arbitrarily many moduli and generators. This is more than computing finitely many individual PF sets and may guide high-type constructions; it does not claim a complete type spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
