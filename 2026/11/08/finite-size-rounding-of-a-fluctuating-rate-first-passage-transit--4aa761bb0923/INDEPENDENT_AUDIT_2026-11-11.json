@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:57:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nearest-neighbor CT walk with absorption at zero, reflecting endpoint N suppressing attempted outward jumps, and independent rates redrawn each physical tau, the finite killed generator A_N has eigenvalues 1-cos(theta_m), theta_m=(2m+1)pi/(2N+1). Averaging the rate Laplace transform yields G(t)=(I+(t A_N)^alpha)^(-1). Renewal across refresh intervals gives h=(I-G(tau))^(-1)int_0^tau G(t)dt 1=F(A_N)1, with F(s)=tau^(1-alpha)s^(-alpha)+tau int_0^1[(1-u^alpha)/(1+(tau s)^alpha u^alpha)]du. Subordination makes the remainder nonnegative and <=tau alpha/(1+alpha). Eigenvector sine coefficients are exactly 2/(2N+1)sin(j theta_m)cot(theta_m/2). Independently diagonalized actual A_N for N=1,2,3,5,11 against explicit sine eigenpairs, and checked limiting alpha=1 leads to 2jN. The low-frequency singular summation yields finite alpha<1/2, (2sqrt(2tau)j/pi)log N at alpha=1/2, and the stated odd-zeta amplitude N^(2alpha-1) for alpha>1/2. Uniform near-half exponent alpha=1/2+u/logN yields the (exp(2u)-1)/(2u) scaling factor, with bounded physical-time correction. Finite numerics are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arutkin–Reuveni treats general stochastic-rate renewal and exponential-refresh finite intervals with two absorbing ends. Angstmann considers a spectral fractional Fokker–Planck model with different subordination clock."
+        ],
+        "reasoning": "These generalized methodological frameworks support renewal/spectral tools but do not imply an exact mixed-boundary, physically refreshed Mittag-Leffler rate crossover and bounded finite clock correction without additional work.",
+        "searches": [
+          "Arutkin Reuveni arXiv:2302.07041 doubly stochastic continuous time random walk",
+          "Angstmann et al. arXiv:2511.18256 spectral fractional first passage finite intervals"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26925",
+        "arXiv:2302.07041",
+        "arXiv:2511.18256",
+        "arXiv:2410.10077",
+        "Resultary first-passage and rate-fluctuation searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Half-line result sets alpha threshold but does not fix finite boundary phase shift theta_m nor odd-integer zeta prefactor. Different-clock finite-domain fractional models can have different mean times.",
+          "Nonzero physical-time remainder contributes finite O(tau) to the actual mean; it must be derived rather than inferred from a discrete-time survival chain."
+        ],
+        "reasoning": "No inspected stronger theorem states the submitted formula or sharp logarithmic window. The finite reflected spectral calculation and uniform singular sum are the surviving mathematical contribution.",
+        "searches": [
+          "arXiv:2609.26925",
+          "arXiv:2302.07041",
+          "arXiv:2511.18256"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Levit–Reuveni supplies the half-line alpha=1/2 threshold and rate clock; submitted finite chain instead imposes right reflecting boundary at N with a definite -1/2 boundary generator."
+        ],
+        "reasoning": "The first-passage process shares its microscopic rate law but the finite spectral correction and crossover are not statements of the half-line result.",
+        "searches": [
+          "Resultary: fluctuating heavy tailed jump rates refreshed physical time first passage reflecting absorbing finite chain scaling alpha half transition",
+          "Levit Reuveni arXiv:2609.26925 first passage in presence of jump rate fluctuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact table for the stated physical-time absorbing/suppressed-reflecting generator and alpha_N=1/2+u/log N was found."
+        ],
+        "reasoning": "The result is an all-N eigenmode sum and continuum crossover function, not a small finite table; independent numerical comparison does not demonstrate novelty.",
+        "searches": [
+          "Resultary first passage finite-size rounding fluctuating rate heavy tail chain",
+          "arXiv:2410.10077 finite domain compounded random walk"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the half-line threshold alpha=1/2 under periodically refreshed heavy-tailed rates is from Levit–Reuveni, and the doubly stochastic walk spectral/renewal method is from Arutkin–Reuveni. The inspected published comparisons concern infinite half-line first passage or two absorbing finite endpoints with a different rate family. They do not state this exact finite mixed absorbing/suppressed-reflecting generator, all-site physical-time mean, uniformly bounded renewal correction, sharp three-regime finite-volume amplitudes, or logarithmic alpha=1/2+u/logN crossover.",
+      "residual_risks": [
+        "Levit–Reuveni exact 2026 article full text was not retrieved; priority for any embedded finite-domain appendix remains qualified.",
+        "The asymptotics hold for fixed start j and fixed refresh tau, and the specified reflecting convention; broad domain/clock variants are unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROOF_SUPPORTED",
+          "evidence": "Renewal F(A), mixed sine spectrum, bounded correction, odd-zeta coefficients and alpha-window.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/finite-size-rounding-of-a-fluctuating-rate-first-passage-transit--4aa761bb0923",
+          "material_read": "Entire pinned RESULT.md, verification/check.py and boundary definitions",
+          "method": "Pinned Git source blobs",
+          "title": "Finite-size rounding of a fluctuating-rate first-passage transition",
+          "trigger": "Actual source theorem"
+        },
+        {
+          "assessment": "HALF_LINE_PRIOR_AND_FULLTEXT_ACCESS_RISK",
+          "evidence": "Prior alpha=1/2 infinite/finite half-line mean threshold; no verified mixed absorbing/reflection finite result.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26925",
+          "material_read": "Public abstract and detailed accessible overview; original full arXiv PDF not retrieved",
+          "method": "arXiv/alternative lawful open-access search",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Same jump-rate law and infinite-volume threshold"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_BOUNDARY_RATE",
+          "evidence": "Two absorbing endpoints and different finite interval clock; not the presented mixed-boundary rate law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.07041",
+          "material_read": "Primary full-text PDF with model and finite-exit/spectral portions inspected",
+          "method": "Lawful arXiv PDF text and first-page screenshot",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "General renewal theory and finite-interval predecessor"
+        },
+        {
+          "assessment": "POTENTIAL_METHOD_ONLY",
+          "evidence": "Space-fractional subordinated dynamics differs from periodic heavy-tailed rate refresh.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.18256",
+          "material_read": "Abstract and accessible bibliographic summary, not full primary proof",
+          "method": "ArXiv and paper-search metadata",
+          "title": "First-Passage Times for the Space-Fractional Spectral Fokker-Planck Equation",
+          "trigger": "Possible broader finite-domain fractional spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite absorbing/reflecting observation domain is a natural regularization of a known infinite-mean first-passage transition. Its sharp crossover, including physical-time correction and exact critical logarithmic amplitude, supplies quantities needed for finite experiments and boundary-sensitive stochastic models; the all-N spectral formula and uniform window are nontrivial and not mechanically implied by the half-line threshold alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Start j and refresh duration tau are fixed while N tends to infinity; reflected endpoint suppresses outward jumps rather than redirecting them.",
+    "Only periodically refreshed Mittag-Leffler family 0<alpha<=1; full originating half-line primary literature remains partial-access."
+  ],
+  "schema_version": 1
+}

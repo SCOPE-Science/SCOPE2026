@@ -1,21 +1,21 @@
-# Scientific review: finite-size rounding of a fluctuating-rate first-passage transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim is confined to a single absorbing/reflecting one-dimensional nearest-neighbor continuous-time walk, with independently drawn nonnegative rates satisfying \(\mathbb E e^{-s\lambda}=(1+s^\alpha)^{-1}\) and deterministic refresh period \(\tau\). Absorption happens at its physical jump time. For each finite interval, the killed generator is positive definite; renewal across rate-refresh epochs yields its physical-time mean as a spectral multiplier. The scalar multiplier splits *exactly* into a fractional inverse and a nonnegative remainder uniformly bounded by \(\tau\alpha/(1+\alpha)\). The trigonometric eigenbasis, source-vector coefficients, fixed-parameter asymptotics, and logarithmic critical-window profile are explicitly derived in RESULT.md. The finite-volume independent diagonalization and amplitude tests replayed successfully. The tests are not replacements for the proofs of the infinite-volume statements.
+PASS
 
-## Originality — PASS, with priority risk
+For a nearest-neighbor CT walk with absorption at zero, reflecting endpoint N suppressing attempted outward jumps, and independent rates redrawn each physical tau, the finite killed generator A_N has eigenvalues 1-cos(theta_m), theta_m=(2m+1)pi/(2N+1). Averaging the rate Laplace transform yields G(t)=(I+(t A_N)^alpha)^(-1). Renewal across refresh intervals gives h=(I-G(tau))^(-1)int_0^tau G(t)dt 1=F(A_N)1, with F(s)=tau^(1-alpha)s^(-alpha)+tau int_0^1[(1-u^alpha)/(1+(tau s)^alpha u^alpha)]du. Subordination makes the remainder nonnegative and <=tau alpha/(1+alpha). Eigenvector sine coefficients are exactly 2/(2N+1)sin(j theta_m)cot(theta_m/2). Independently diagonalized actual A_N for N=1,2,3,5,11 against explicit sine eigenpairs, and checked limiting alpha=1 leads to 2jN. The low-frequency singular summation yields finite alpha<1/2, (2sqrt(2tau)j/pi)log N at alpha=1/2, and the stated odd-zeta amplitude N^(2alpha-1) for alpha>1/2. Uniform near-half exponent alpha=1/2+u/logN yields the (exp(2u)-1)/(2u) scaling factor, with bounded physical-time correction. Finite numerics are corroborative only.
 
-The closest primary papers were read for statements rather than title matching. Levit and Reuveni (arXiv:2609.26925, first posted September 22, 2026) establish the same rate law and the half-line threshold \(\alpha=1/2\), but not reflecting finite-volume rounding or its exact amplitude. Arutkin and Reuveni (arXiv:2302.07041) derive finite-interval exit formulas for the exponentially resampled-rate case and indicate the eigenmode method's broader geometry; this is an important structural antecedent, but not the periodically refreshed heavy-tailed finite-size critical window. Angstmann and colleagues (arXiv:2410.10077; arXiv:2511.18256) establish related finite-domain spectral fractional models and first-passage formulas, including two absorbing boundaries, but with a different microscopic time construction. The actual novelty is therefore the discrete mixed-boundary *physical-time* mean, bounded correction, three volume regimes with constants, and two-parameter finite-size crossover taken together, not the general spectral renewal technique or the already known infinite-half-line threshold.
+## originality
 
-Scientific search and comparison included published-finding corpus queries for finite-size first passage, Mittag-Leffler jump-rate refresh, absorbing/reflecting boundaries, mixed spectral fractional Laplacians, exact log criticality, as well as primary paper text and related prior claims. No indexed statement examined supplied this complete result. The strongest residual risk is an unindexed general killed-graph resolvent or fractional first-passage calculation that already gives the same mixed-boundary asymptotic crossover as a direct specialization. Negative search results do not prove absolute novelty.
+PASS
 
-## Value — PASS
+Best-of-knowledge: the half-line threshold alpha=1/2 under periodically refreshed heavy-tailed rates is from Levit–Reuveni, and the doubly stochastic walk spectral/renewal method is from Arutkin–Reuveni. The inspected published comparisons concern infinite half-line first passage or two absorbing finite endpoints with a different rate family. They do not state this exact finite mixed absorbing/suppressed-reflecting generator, all-site physical-time mean, uniformly bounded renewal correction, sharp three-regime finite-volume amplitudes, or logarithmic alpha=1/2+u/logN crossover.
 
-A sharp infinite-system mean-time transition is difficult to measure on a finite chain. The theorem predicts exactly how a single reflecting boundary rounds that transition: a bounded regime, a logarithmic divergence at the critical tail exponent, a fractional power above it, and a universal profile when the tail exponent differs from criticality by \(O(1/\log N)\). The explicit physical-time correction bound separates new finite-size scaling from complications of observation within a refresh interval. These are natural quantitative observables in confined fluctuating-diffusivity models, and are not an arbitrary finite table or a substitution into a known half-line statement.
+## value
 
-## Limits and external review
+PASS
 
-The microscopic reflecting convention, fresh-at-zero rate sampling, fixed initial site and refresh duration, and precise rate distribution are indispensable. The results are analytical and checked with finite numerical examples; no external physical data or independent scientific audit is claimed. The source comparison is substantial but not an exhaustive priority certificate.
+A finite absorbing/reflecting observation domain is a natural regularization of a known infinite-mean first-passage transition. Its sharp crossover, including physical-time correction and exact critical logarithmic amplitude, supplies quantities needed for finite experiments and boundary-sensitive stochastic models; the all-N spectral formula and uniform window are nontrivial and not mechanically implied by the half-line threshold alone.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
