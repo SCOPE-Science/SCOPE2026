@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From the root of this extracted package run:
+## correctness
 
-```sh
-python -m pip install -r requirements.txt
-python verification/check.py
-```
+PASS
 
-The test script reconstructs each Venn incidence pattern independently. It applies the seven Hall inequalities to a finite symbolic probability sum, checks the exact optimizer polynomial and all three difference factorizations, and separately enumerates survival subsets for degrees \(d=3,4,5,6\). It also exhausts 500 row-unlabeled, pollinator-labeled spanning configurations at \(d=3\). The included script ran with SymPy 1.14.0 and reported 532 targeted consistency cases passing, including four symbolic comparisons, 16 distribution checks, 12 coefficientwise checks, and 500 exhaustive configurations.
+For 3d plant incidences distributed among 3d-3 nonisolated pollinators, the excess ∑(deg−1)=3 forces exactly T/D/S/H up to label symmetry. Conditional binomial survivor probabilities and all seven Hall subset inequalities give the displayed exact reliability for T and factored positive T−D,T−S,T−H differences, for every integer d≥3 and 0<q<1; q=0,1 tie. Independent survival-mask enumeration gives T,D,S,H=(39,28,37,37)/64 for d=3, q=1/2 and T=415/512 at d=4, matching the formula; this is finite corroboration, the all-d proof is the classification and factorization.
 
-The symbolic Hall calculation, together with the exhaustive four-type argument in RESULT.md, addresses every integer \(d\ge3\) and real \(0<q<1\). The finite computations do not themselves prove the infinite-parameter claim. The mathematical review is not an independent audit. Historical priority and ecological external validity remain unverified.
+## originality
+
+PASS
+
+Best-of-knowledge new exact four-incidence-class, uniform-in-q Hall matching reliability optimum. Nearby ecological knockout and probabilistic random-bipartite matching results evaluate different sample spaces and objectives; transversal-matroid formulation alone does not establish the maximizing representation.
+
+## value
+
+PASS
+
+A universal optimizer for post-loss capacity-one service is mathematically motivated by Hall feasibility and redundancy allocation: a local cyclic overlap design beats both concentrated-pair and triple-core architectures for every loss probability, including a strict boundary classification. This is stronger than computing a single network reliability and need not predict field ecology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

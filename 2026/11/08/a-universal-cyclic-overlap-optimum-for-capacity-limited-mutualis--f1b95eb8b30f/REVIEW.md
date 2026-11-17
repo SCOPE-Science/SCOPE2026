@@ -1,23 +1,21 @@
-# Scientific review: universal cyclic-overlap optimum for capacity-limited mutualist survival
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is three degree-\(d\) plants, \(3d-3\) distinct nonisolated pollinator units, capacity one per surviving unit, homogeneous independent removal probability \(0<q<1\), and integer \(d\ge3\). Double counting forces exactly three excess incidences; this leaves four incidence types and no others. Hall's seven inequalities characterize the success event without approximation. Binomial survivor-category counting gives the optimum probability and three factored differences. Each difference is strictly positive in the stated domain. The accompanying symbolic enumerator independently reconstructs the formulas and the finite-subset checks test the low-degree cases. Boundary cases \(q=0,1\) are explicitly excluded from uniqueness.
+PASS
 
-## Originality — PASS within examined evidence, priority provisional
+For 3d plant incidences distributed among 3d-3 nonisolated pollinators, the excess ∑(deg−1)=3 forces exactly T/D/S/H up to label symmetry. Conditional binomial survivor probabilities and all seven Hall subset inequalities give the displayed exact reliability for T and factored positive T−D,T−S,T−H differences, for every integer d≥3 and 0<q<1; q=0,1 tie. Independent survival-mask enumeration gives T,D,S,H=(39,28,37,37)/64 for d=3, q=1/2 and T=415/512 at d=4, matching the formula; this is finite corroboration, the all-d proof is the classification and factorization.
 
-The nearest inspected ecological literature models robustness via last-partner loss, weighted interaction strength, and/or extinction cascades. A related matching paper optimizes degree distributions of random graphs rather than a fixed incidence design under right-side failures. Transversal-matroid language is an equivalent reformulation of feasibility, not a source of this constrained optimum without additional results. No inspected result was found whose statement logically implies the all-\(d\), all-\(q\), four-type optimizer. Remaining risks include specialized transversal-matroid reliability literature and uninspected supporting materials; these limits are not claims of exhaustive historical novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The capacity-one constraint turns ordinary partner-survival into a genuine simultaneous resource-allocation problem. Exactly three excess incidences is the first fixed-degree redundancy level that permits a cycle of pairwise overlap among all three plants, so the comparison is a natural minimal structural distinction rather than an arbitrary numerical slice. The theorem gives a unique global optimizer for every integer \(d\ge3\) and every nondegenerate failure probability, with exact gains over every alternative type. It is an idealized benchmark, not an empirical ecological management prescription.
+Best-of-knowledge new exact four-incidence-class, uniform-in-q Hall matching reliability optimum. Nearby ecological knockout and probabilistic random-bipartite matching results evaluate different sample spaces and objectives; transversal-matroid formulation alone does not establish the maximizing representation.
 
-## Closest literature and limits
+## value
 
-- Kaiser-Bunbury et al., Ecology Letters (2010), https://doi.org/10.1111/j.1461-0248.2009.01437.x — empirical pollination-network extinction and rewiring; no capacity-one injection criterion in the inspected model description.
-- Dietzfelbinger and Rink, arXiv:1203.1506 (2012), https://arxiv.org/abs/1203.1506 — random graph degree-distribution optimization, not fixed-right-deletion robust design.
-- Bane, Pocock and James, Ecology and Evolution (2018), https://pmc.ncbi.nlm.nih.gov/articles/PMC6262911/ — alternative knockout and cascade robustness measures, not Hall matching reliability.
+PASS
 
-Scientific limitations: the homogeneous-loss assumption, three-plant and exact-pool constraints, strict unit capacity, and lack of an independent priority audit. The generated certificate is neither an independent proof check nor an empirical validation.
+A universal optimizer for post-loss capacity-one service is mathematically motivated by Hall feasibility and redundancy allocation: a local cyclic overlap design beats both concentrated-pair and triple-core architectures for every loss probability, including a strict boundary classification. This is stronger than computing a single network reliability and need not predict field ecology.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
