@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T13:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md; verify_hermitian_q3r3.cpp and verify_hermitian_q3r3_independent.cpp source blobs 8dfdb28cfc565f9188b225601aef71ac99ac9fd9 and 30e209b0cd67675df9b8a3a07efb432ee742d014",
+        "independent_checks.py: exact external histogram row count and line-point weighted checksums"
+      ],
+      "rationale": "The full finite-field enumeration is mathematically exhaustive: all 729^2+729+1 projective points and lines have canonical coordinate representatives; points on the smooth Fermat Hermitian quartic number 892, each four-secant is selected by either pair-frequency 6 or a direct line intersection count of 4. The actual two independent C++17 sources construct two models of F729 (nonzero inverses and Frobenius checked), count 39879 secants, enumerate 730 points per secant, and assert the entire 17-row exterior histogram. The histogram sums to 531279 exterior points and its weighted sum is 28952154; including 159516 incidences on the curve gives 29111670=39879*730. It has min 25 at 1512 and max 222 at 63, the latter all F9-subplane exterior centers. Independently recalculated every histogram checksum and reviewed both finite algorithms; the expensive complete C++ runs were NOT rerun in this audit, so this C determination rests on the inspected complete exhaustive code and exact mathematical counting specification rather than a newly executed full census.",
+      "residual_risks": [
+        "Full billion-operation direct rerun was not executed in this turn; computational proof depends on correct implementation of the complete finite enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior full theorem gives exactly the entire 17-row distribution, exact 39879 four-secants, sharp 25..222 bounds and PG(2,F9) maximum locus. Korchmaros older completeness alone is weaker."
+        ],
+        "reasoning": "Earlier 2026-10-25 classification fully dominates the submitted finite result; earlier arXiv only established framework and partial completeness information.",
+        "searches": [
+          "Resultary exact splitting-fiber spectrum Hermitian plane quartic F729 2026/10/25",
+          "https://arxiv.org/abs/2302.10162"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-splitting-fiber-spectrum-of-the-hermitian-plane-quartic-ov--01a55bd79fb8",
+        "https://arxiv.org/abs/2302.10162",
+        "https://doi.org/10.1007/s10801-025-01456-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem gives all exterior centers spectrum, 39,879 lines, and exceptional 63 points over F9; submitted theorem is mathematically equivalent by rational projective coordinate change."
+        ],
+        "reasoning": "Every proposition in the submitted final claim follows immediately from the prior theorem after projective identification; no new invariant, stronger precision or unknown domain remains.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-splitting-fiber-spectrum-of-the-hermitian-plane-quartic-ov--01a55bd79fb8",
+          "2026-10-25 Resultary published exact fiber spectrum compared with 2026-11-08 submission"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior 2026-10-25 RESULT.md explicitly states N(P) counts rational fibers consisting of 4 distinct K-rational points; equivalently four-secants through the external center P. Its curve Y^3Z+YZ^3=X^4 is projectively equivalent over F9 to the submitted X^4+Y^4+Z^4=0 Hermitian form."
+        ],
+        "reasoning": "N(P) in the prior result equals the submitted s(P) under the projective transformation for every external point. Thus full numerical and geometric statements agree despite different curve equations and invariant names.",
+        "searches": [
+          "Hermitian quartic F729 split degree-four projection fibers 25 222",
+          "four-secant line through exterior center vs completely split rational fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier RESULT.md exact table: (25,1512),(48,36288),(49,60480),(50,36288),(51,12096),(52,36288),(53,18144),(54,67032),(55,12096),(56,72576),(57,36288),(58,48384),(59,54432),(61,12096),(62,9072),(65,18144),(222,63). Each row is identical to submitted table."
+        ],
+        "reasoning": "Exact prior public database/table is already present with the same field and geometric invariants. This is direct exact-table recomputation, so originality FAIL.",
+        "searches": [
+          "Exact splitting-fiber spectrum of the Hermitian plane quartic over F729",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-splitting-fiber-spectrum-of-the-hermitian-plane-quartic-ov--01a55bd79fb8"
+        ]
+      },
+      "rationale": "The complete exact result is published in a stronger-equivalent form on 2026-10-25, before the submitted 2026-11-08 record. Every 17 histogram row, sharp min/max and F9 locus, all 39879 four-secants and line character counts occur in the published projection-fiber result for the projectively equivalent Hermitian quartic. This is decisive statement-level coverage, not keyword coincidence.",
+      "residual_risks": [
+        "No novelty remains in the stated final claim; no narrower original mathematical remainder was provided or repaired."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_COVERAGE",
+          "evidence": "Entire external histogram identical row-by-row, plus min 25 and max 222 F9 locus, 39879 secants; 2026-10-25 precedes 2026-11-08.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-splitting-fiber-spectrum-of-the-hermitian-plane-quartic-ov--01a55bd79fb8",
+          "material_read": "Full public RESULT.md, including its complete 17-row table, finite-field proof, line histograms, maximum locus and references",
+          "method": "Retrieved and read original GitHub raw manuscript in full",
+          "title": "Exact splitting-fiber spectrum of the Hermitian plane quartic over F729",
+          "trigger": "Earlier primary result on EXACT same field and same all-center degree-four split-fiber statistic"
+        },
+        {
+          "assessment": "EARLIER_WEAKER_BACKGROUND",
+          "evidence": "Records Hermitian completeness questions and computational small cases but does not alone provide the 17-row spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.10162",
+          "material_read": "Public arXiv PDF relevant theorem/introduction/pages and completeness discussion",
+          "method": "PDF full-text examination and page image",
+          "title": "Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields",
+          "trigger": "Original Hermitian arc completeness problem in q=3,r=3"
+        },
+        {
+          "assessment": "NOT_NEEDED_FOR_DECISIVE_COMPARISON",
+          "evidence": "Large-q result is not the exact q=3 histogram; earlier 2026-10-25 source conclusively resolves originality.",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-025-01456-w",
+          "material_read": "Accessible abstract and main theorem context",
+          "method": "Publisher/source comparison",
+          "title": "Complete (k,q+1)-arcs from the Hermitian curve",
+          "trigger": "Strong broader large-parameter arc completeness theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2026-10-25 published exact splitting-fiber classification (full RESULT.md)"
+      ],
+      "rationale": "Although a complete finite geometry incidence spectrum is a natural and potentially useful object, this exact 17-row spectrum and its geometric characterization have already been published. Recomputing that identical known table with two different C++ programs increases reproducibility, not a distinct valuable mathematical contribution.",
+      "residual_risks": [
+        "No scientifically new piece isolated; do not credit prior known completeness or repeated arithmetic as a novel theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Full billion-operation direct rerun was not executed in this turn; computational proof depends on correct implementation of the complete finite enumeration.",
+    "No novelty remains in the stated final claim; no narrower original mathematical remainder was provided or repaired.",
+    "No scientifically new piece isolated; do not credit prior known completeness or repeated arithmetic as a novel theorem."
+  ],
+  "schema_version": 1
+}
