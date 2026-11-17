@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The full four-parameter statement follows from an explicit inclusion–exclusion identity for parallel sets and independent one-dimensional integration of their upper-right quadrant overlap. The strict first nonquadratic term proves the *maximal* polynomial interval, not just a lower bound. The conic-certificate argument gives both an admissible core and a geometric obstruction for every larger core, using exactly the certificate definition in [1]. The upper bound is not inferred from finite tests. See `RESULT.md` and `verify.py`.
+
+**Originality — PASS, provisional priority.** Direct comparison with the accessible full text of [1] shows that Example 4.5/Proposition 6.3 treat only the all-unit L polygon. The general theorem of [1] gives local polynomiality but not its maximal interval, conic reach for arbitrary arm proportions, or the unbounded separation law. The 2023 origin of polynomial reach [2] and the global convexity theorem [3] give distinct definitions/frameworks, not a covering bound. Semantic literature-index searches for the generalized L family, equivalent notions and cubic threshold returned no claim with matching implication; specific close-result IDs and remaining risks are recorded in the research audit. Searches are not proof of priority.
+
+**Mathematical value — PASS.** The result gives a complete natural four-length classification and a sharp obstruction to any quantitative converse to the known inequality \(\operatorname{polreach}\ge\operatorname{conreach}\). It also locates the first failure of the quadratic tube law and distinguishes the geometrically symmetric collision by a doubled cubic coefficient. This clarifies a concrete limitation of conic certificates as estimators of the longest polynomial regime, rather than merely rescaling a published example.
+
+**Limitations.** Euclidean outer parallel area, positive dimensions, one reentrant right-angle corner; neither general planar polygons nor higher dimensions are classified. The generality of priority claims remains conditional on the accessible literature. Numerical tests are corroborative only.
+
+Self-review: passed. Independent audit: not yet performed.
