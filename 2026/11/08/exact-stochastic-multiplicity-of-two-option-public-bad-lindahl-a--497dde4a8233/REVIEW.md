@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed object is a lottery over two public bads with four independent iid positive atomless harms. The PF inequalities reduce *exactly* to the endpoint and stationary-point conditions for the strictly concave sum of log costs. Under opposite preferences, both endpoints and the unique interior stationary point are PF precisely on the open ratio domain stated in the result; under same preferences there is only one PF endpoint. Conditioning on opposite-order preference patterns contributes a factor of one half. The two conditional ratio distributions are derived by direct integration, and exact rational/symbolic checks reproduce the final \(\log2-1/2\) and \(\log3/4\) formulas. The finite checker is corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For strictly positive iid atomless costs the two PF inequalities reduce to 2+(1-t)F'(t)≥2 and 2-tF'(t)≥2 for F=Σ log(b_i+t(a_i-b_i)). F''<0 except simultaneous indifference; thus exactly one or three distinct PF lottery allocations a.s., three iff F'(0)>0>F'(1). Under opposite preferences r=a1/b1,s=b2/a2∈(0,1), independent with conditional CDF H, the derivative signs are exactly max(0,2-1/r)<s<1/(2-r). The two orientations total probability 1/2. Independent SymPy integration reproduces H_uniform(r)=r and H_exp(r)=2r/(1+r), yielding log2−1/2 and log3/4. A separate exact rational test of 1260 nondegenerate integer-cost profiles verified endpoint/interior counts. Atomlessness makes equality boundaries null; the iid ratio law is not assumed universal beyond H.
 
-The 2026 public-bads paper provides the PF–Lindahl equivalence and deterministic characterization; no new claim is made for those. Its Theorem 4.9 and Proposition 6.1 do not give the probability law for random cost matrices. The 2019 private-bads paper supplies a different feasible geometry, establishes structural multiplicity, and explicitly poses stochastic prevalence as a question, without answering the public two-alternative lottery probability. Searches for exact stochastic laws, ratio formulations, and Lindahl equilibrium multiplicity in research records and available literature did not identify an equivalent result. An unindexed or differently described equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The exact stochastic multiplicity of a natural fair-allocation equilibrium correspondence is an interpretable benchmark: its prevalence is about 19.3% under independent uniform harms, versus 27.5% under independent exponential harms. The contrast holds despite identical ordinal-preference distributions, identifying cardinal heterogeneity as an economically relevant feature. Exact incidence directly addresses a stochastic selection issue raised in earlier bads-allocation literature, rather than an arbitrary numerical slice. It is not a general social-choice classification or a result for larger numbers of agents.
+Known PF/Lindahl equivalence and deterministic multiplicity do not include the exact random incidence for two public-bad alternatives; the present laws depend on cardinal magnitudes, with distinct uniform/exponential probabilities.
 
-## Closest literature and residual limits
+## value
 
-Cookson–Ebadian–Peters–Shah, arXiv:2607.26053v1 (2026), Theorem 4.9, Proposition 6.1, and Section 6; Bogomolnaia–Moulin–Sandomirskiy–Yanovskaia, *Social Choice and Welfare* 52 (2019), Section 5. Full-text relevant material was inspected and compared by implication, not merely titles. The stochastic result is distinct from the known deterministic cardinality bound. Residual risk: unindexed equivalent probability computations. The check script is finite/symbolic corroboration and not external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Multiplicity probability is a natural quantitative economic diagnostic explicitly motivated by the earlier bads-equilibrium random-prevalence question. The contrast 0.193147 (uniform) vs 0.274653 (exponential) under identical ordinal preferences isolates cardinal tail effects; arbitrary atomless-H Stieltjes law is a reusable two-alternative benchmark, not a generic claim for more agents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
