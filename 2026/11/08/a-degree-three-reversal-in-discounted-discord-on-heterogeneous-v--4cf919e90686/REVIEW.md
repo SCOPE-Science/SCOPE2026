@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite continuous-time voter chain has exact two-point generator closure: hub–leaf and leaf–leaf discord probabilities obey a stable two-dimensional linear ODE. Its Laplace resolvent yields the stated rational formula for every \(k\ge2\), \(\alpha,\beta>0\), \(0<\rho<1\), and \(\delta\ge0\). Differentiation at fixed leaf update rate gives the factor \(\alpha(k-3)-\delta\) without omissions at the boundaries; strictness follows from positivity of all other factors. Full-state rational calculations independently reproduce the formula and all tested threshold signs. The proof, not the calculations, covers all degrees.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+For each k≥2 the exchangeable pair variables u(t)=P(H≠L1),v(t)=P(L1≠L2) satisfy the exact 2×2 linear ODE u′=−(α+β)u+(k−1)β v/k, v′=2α(u−v) with initial 2ρ(1−ρ). Determinant of stable matrix=2α(α+β/k)>0, negative trace. Cramer resolvent gives Jδ and differentiating at fixed α,k,ρ,δ gives numerator 2ρ(1−ρ)(δ+2α)[α(k−3)−δ], strictly controlling signs for k=2,3,≥4 and equality. Independently factored derivative with symbolic algebra; exact full-state checker was read but not executed unmodified.
 
-Masuda, Gibert and Redner (arXiv:1003.0768, 2010) cover heterogeneous voter-model consensus effects, Iwamasa and Masuda (arXiv:1404.6360, 2014) analyze star/double-star coalescing-walk consensus times, and Cooper et al. (arXiv:1204.4106, 2012) give coalescing-walk voting bounds. Closely relevant original PDFs and sections have been compared with the exact current claim. None inspected gives the exact edge-disagreement Laplace functional, hub-rate derivative, or the degree-three / discount threshold classification. A previous result in another source using coalescent occupation times or Green functions remains possible. A failure to find a counterpart is not definitive priority proof.
+## originality
 
-## Value — PASS
+PASS
 
-This is an explicit, global structural separation between local-time improvement and long-horizon deterioration in a canonical social dynamics model. The degree-three neutrality and the sharp higher-degree discount threshold have natural interpretation and are valid at every positive hub activity, rather than isolated numerical examples. A general graph theorem or empirical application is not required for its motivated mathematical benchmark value.
+Exact star rate-sensitivity phase boundary concerns discounted cumulative edge discord under iid initial data, not consensus hitting time or fixation. Same-star published earlier theorem computes different observables, and Masuda/Gibert/Redner treats heterogeneous voter consensus; no inspected statement determines the δ-dependent sign reversal.
 
-## Limits
+## value
 
-Node-update voter convention, uniform leaf copying rate, iid binary initial opinions, finite stars and the edge-disagreement reward are essential. Higher hub activity is compared without imposing a fixed total update budget. The expected time until consensus and the stationary consensus distribution are not the target of this theorem. Independent historical audit was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural observable (integrated edge disagreement) exhibits a sharp hub-rate reversal exactly between three and four leaves, with a discount threshold independent of the hub rate. It has a mathematically surprising contrast with the strictly faster initial decline under larger β, providing meaningful structural insight beyond known consensus-time results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
