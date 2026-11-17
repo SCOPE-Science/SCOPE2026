@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:13:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The previously published operator-to-rooted-two-colored-tree bijection is used as a cited input, with the splitting condition that edges after removing the root join opposite colors. Since splitting operators satisfy R(R+lambda I)=0 and lambda!=0, eigenvalue -lambda multiplicity equals matrix rank, and in the triangular tree model this counts black nonroot vertices. For a fixed black set of size k, every legal tree is a spanning tree of K_(1,k,n-k); the matrix-tree theorem yields binom(n,k)(n+1)(n-k+1)^(k-1)(k+1)^(n-k-1) and star boundaries S(n,0)=S(n,n)=1. Splitting the special edge in a Cayley tree on n+2 labels proves total 2(n+2)^(n-1), acknowledging it was already given in prior art. The entropy function Phi(x)=(1-2x)log(x/(1-x)) has unique maximum 0 at 1/2 and Phi(1/2+u)=-8u^2+O(u^4); the exact total and a central Stirling calculation normalize the local Gaussian with variance 1/16. Independently enumerated all unrooted tree edge sets and proper nonroot colorings for n=2,3,4 and confirmed rank lists (1,6,1), (1,24,24,1), (1,80,270,80,1). The small-matrix verifier source tests actual Rota–Baxter equations. A finite tree test is not a CLT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov 2 full published theorem counts all RB maps; its rank statistic is n minus #white vertices with no white child, not the splitting-only black-count law.",
+          "Meir–Moon has an unconditioned simply generated tree bipartition theorem, with no fixed-edge constraint in its stated theorem."
+        ],
+        "reasoning": "The earlier all-operator law is not a conditional splitting law; the classical tree theorem may supply its method but does not expressly state or immediately identify the full K_(1,k,n-k) polynomial and its 1/16 conditional Gaussian.",
+        "searches": [
+          "Resultary: Rota Baxter splitting operators direct sum of fields rank polynomial",
+          "Resultary 2026/11/2 all-operator rank polynomial and concentration law",
+          "Meir–Moon Theorems 1,4,6"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1811.08219",
+        "https://arxiv.org/abs/2006.02654",
+        "https://combinatorialpress.com/article/ars/Volume%2051/volume-51-paper-2.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gubarev condition restricts to properly colored forest; does not compute black-size histogram.",
+          "Meir–Moon Theorem 4 gives Gaussian scaling for a different unconditioned tree collection; Nov 2 law has an asymptotic normalized rank about 0.6967 rather than 0.5."
+        ],
+        "reasoning": "The K_(1,k,n-k) formula follows from the credited prior bijection plus a new fixed-color spanning-tree count, and the local limit from its exact coefficient asymptotics. None of the inspected statements explicitly gives these exact conditional coefficients; note potential algebraic derivability from general colored-tree generating functions.",
+        "searches": [
+          "Gubarev 2018 Theorem 2 and Corollary 2",
+          "Meir–Moon 1999 Theorem 1 and Theorem 4",
+          "Resultary Nov 2 complete all-operator rank polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A splitting operator is equivalent to a properly two-colored rooted forest and, after root expansion, to a labeled tree containing a fixed designated edge.",
+          "Rank k is number of black vertices, a conditioned bipartition statistic."
+        ],
+        "reasoning": "This tree reformulation was fully accounted for in O; unconditioned bipartition/ALL-operator rank distributions do not simply equal its coefficients.",
+        "searches": [
+          "Resultary: splitting Rota Baxter F^n rank distribution bipartition size conditioned Cayley trees complete tripartite graph",
+          "Gubarev arXiv:1811.08219 Theorem 2",
+          "Meir–Moon 1999 bipartition numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gubarev Table 1 lists the unrefined total 2(n+2)^(n-1) with conjectural tag.",
+          "The n=2,3,4,5 rank histograms from source were confirmed by direct Prüfer-tree/matrix approaches; the current full k-polynomial was not found in source tables."
+        ],
+        "reasoning": "No exact splitting-rank table was found, but a classical table of fixed-edge conditioned tree bipartitions could potentially subsume the new coefficients.",
+        "searches": [
+          "Resultary Search Rota Baxter splitting rank polynomial",
+          "Gubarev arXiv:1811.08219 Table 1",
+          "Cayley tree bipartition numbers Meir–Moon 1999"
+        ]
+      },
+      "rationale": "PASS (qualified): Gubarev 2018 proves the tree correspondence, splitting characterization and total, which are prerequisites, not assessed as new. The submitted rank-resolved count and exact conditioned-tree local CLT distinguish the dimension of one splitting subalgebra. The earlier Nov 2 published full rank polynomial describes ALL Rota–Baxter operators using white vertices with no white children, and is not a rank distribution conditional on splitting; its asymptotic 0.6967n is a different ensemble. Meir–Moon 1999 develops general bipartition-size counts and normal/half-normal scaling for ordinary simply generated rooted trees; the fixed-designated-edge tree law in this theorem is closely related but is not stated or directly specialized in its inspected Theorems 1–6. It remains possible those classical coefficients imply the candidate after a short weighted extraction, and this is the main priority risk.",
+      "residual_risks": [
+        "Meir–Moon and classical conditioned Cayley-tree bipartition enumerators may already imply the full rank polynomial with a simple marked-edge argument, though the inspected statements do not explicitly provide it.",
+        "The structural tree-bijection, count of total splitting operators and general use of matrix-tree/stirling are all prior art; originality is only the k-refinement and sharp variance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSIFICATION_PRIOR_NOT_RANK_CENSUS",
+          "evidence": [
+            "The article gives tree and splitting conditions and an unrefined count, but not exact black-count polynomial or the rank-CLT."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.08219",
+          "material_read": "Theorem 2, Corollary 2, Table 1 and the proper-color condition on rooted trees",
+          "method": "Full OA PDF parsed and screenshot page containing Theorem 2",
+          "title": "Rota-Baxter operators on a sum of fields",
+          "trigger": "Identical operator class, cited tree/splitting bijection and unrefined total"
+        },
+        {
+          "assessment": "CLOSE_METHOD_AND_POSSIBLE_INDIRECT_COVERAGE",
+          "evidence": [
+            "Results count even/odd class sizes of ordinary rooted simply generated trees, not the specified fixed-edge-conditioned family. A derivable corollary remains a credible risk."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%2051/volume-51-paper-2.pdf",
+          "material_read": "Scanned pages 21–25, 28 and 30, including Theorems 1–4 and 6 and Gaussian/half-normal asymptotics",
+          "method": "Full scanned primary PDF, screenshots of abstract, Theorems 1,2,3,4,6 and intervening derivations",
+          "title": "On the Bipartition Numbers of Random Trees, II",
+          "trigger": "Potentially dominates the local Gaussian splitting-rank theorem"
+        },
+        {
+          "assessment": "ALL_OPERATOR_THEOREM_NOT_SPLITTING_SUBPOPULATION",
+          "evidence": [
+            "Unrestricted operator law does not determine the proper-colored restricted subpopulation by itself; its 0.6967 normalized rank limit differs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c",
+          "material_read": "Entire published RESULT.md including main theorem, rank-statistic proof, generating-function derivation, asymptotics",
+          "method": "Published primary full text via connected GitHub fetch",
+          "title": "A rank polynomial and concentration law for Rota-Baxter operators on finite sums of fields",
+          "trigger": "Earlier identical algebra and rank parameter; possible all-operator coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Actual matrix rank is the dimension of a naturally occurring direct-summand algebra in Gubarev’s established classification. Resolving its complete law by field-independent multipartite tree counts is a substantive rank refinement, and the sharp central Gaussian variance 1/16 answers a natural typical-balance question not settled by the known unrefined total. No general theory of all nonsplitting operators is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only splitting, nonzero weight, coordinatewise product algebra F^n; n->infinity CLT is about uniformly selected splitting operators only.",
+    "Mean and central local Gaussian follow the conditional coefficient law, not an all-operator distribution.",
+    "Prior search and primary reading were bounded; no claim of exhaustive historical novelty, publisher bypass, source-code-based proof, or formal independent certification.",
+    "Public file publication is withheld independently of scientific PASS."
+  ],
+  "schema_version": 1
+}
