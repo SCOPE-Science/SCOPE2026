@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python check_normalizer.py` with Python 3 and NumPy. The standalone script constructs the \(2(p-1)\)-square entrywise Fourier matrix independently of the two-block reduction and checks the full singular-value multiset predicted by multiplicative twisted sums for primes \(2,3,5,7,11,13,17,19\). At odd primes it tests additive parameters \(b=1\) and \(b=2\). The output ends with `NORMALIZER_FOURIER_PASS`, and no test discrepancy exceeds \(10^{-12}\). Its direct rank checks agree with the theorem, including the rank-one exceptional case at \(p=2\).
+## correctness
 
-A separate numerical determinant comparison at odd primes \(3,5,7,11\) for additive parameters \(1,2\) gave relative errors below \(3\times10^{-14}\). Those supplemental calculations are not required for replay. Numerical experiments cannot prove all-prime nonvanishing: the written cyclotomic proof does that. The Weil bound used for spectral separation is a classical theorem cited in RESULT.md; the checker does not certify that theorem.
+PASS
 
-No outside dataset, private file, or unstated checkpoint is needed for replay. Independent mathematical verification has not been performed.
+PASS: For T and W, ambient entrywise dot products give H=[A J;J A], A(t,u)=psi(tu+(tu)^(-1)), J all ones. Multiplicative characters take v_chi to K_chi v_chi^{-1}; two-copy symmetric/antisymmetric decomposition gives exceptional |K_1±(p-1)| and double |K_chi| for nontrivial chi. Over E=Q(mu_(p-1)), Phi_p is irreducible, so a zero K_chi would force all trace-fiber coefficient sums c_s equal, contradicting c_2=1 and some c_s=0. Equality in triangle inequality excludes K_1=±(p-1), and characteristic 2 yields rank one. Weil bounds ensure separated exceptional levels for p>=19. Independent full complex SVD vs character formula checked p=2,3,5,7,11 and both nonzero b values for odd p; finite checks support the proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Classical Mellin/twisted Kloosterman sums and their bounds are acknowledged ingredients, but the exact two-coset principal ambient-additive Fourier sampling matrix, its full singular multiset, and the unconditional all-odd-prime invertibility statement are not implied by full GL2 or SL2 exponential-sum evaluations, nor by full determinant-one self-Fourier invertibility. No inspected earlier same-normalizer theorem was found; risk of unindexed multiplicative Hankel diagonalization remains.
+
+## value
+
+PASS
+
+PASS: The split torus normalizer is a canonical arithmetic subset of SL2, and exact invertibility/conditioning of an unnormalized self-restricted ambient Fourier operator is a natural finite harmonic-analysis inverse problem. The full spectrum and characteristic-two rank transition are precise structural data, not a routine Kloosterman bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
