@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:15:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H=A^T A=[[1,rho],[rho,1]] direct_sum I, each omission residual is rank-one projection onto w_1=sigma e_1-rho e_2, w_2=e_2, w_j=e_j. The two-dimensional expected-operator eigenvalues lead to the unique balancing law p1=p2=1/D*, pj=(1+rho)/D*, D*=2+(n-2)(1+rho), with Gamma*=(1+rho)/D*. Gram determinants yield volume law Dvol=2+(n-2)(1-rho^2) and Gamma_vol=(1+rho)/Dvol>Gamma*. Fixed starting residual w1 closes a symmetric two-line Markov chain, giving exact all-k means ((1+rho^2)/D*)^k and ((1+rho^2)/Dvol)^k. Symbolic n=4,rho=3/5 exact eigenspectra agree. Mathematical correctness does not establish originality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-11-08 theorem is for arbitrary SPD H satisfying a signable nonnegative inverse Gram and positive inverse row sums, including every correlated-pair H=A^T A here.",
+          "2026-10-12 theorem derives a general exact finite-step second-moment transition for leave-one-out volume-sampled quadratic descent."
+        ],
+        "reasoning": "Both papers cover strictly larger matrix families and derive their claims without the particular correlated-pair example; at least their displayed general formulas mathematically entail this special case.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c",
+        "https://arxiv.org/abs/2610.04685",
+        "https://arxiv.org/abs/1904.04587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set Gtilde=[[1,rho],[rho,1]] direct_sum I; Gtilde^(-1)1=(1/(1+rho),1/(1+rho),1,...,1); normalization is exactly D* omission law.",
+          "The general volume-sampling finite-time recursion m_(k+1)=Q m_k on inverse-Hessian rows reduces on the two correlated coordinates to two-line self/cross factors 1,rho^2, giving ((1+rho^2)/Dvol)^k."
+        ],
+        "reasoning": "The new paper reports an illustrative direct-sum calculation and exact rates, but these are routine consequences of the cited general published laws; the original as written cannot pass O merely by adding a certificate.",
+        "searches": [
+          "Full published RESULT.md general E-optimal q_i formula Nov 8 2026",
+          "Full published RESULT.md maximal-block Hadamard-square mean-square law Oct 12 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H=A^T A SPD recasts Euclidean residual minimization as H-energy of coordinate errors, and codimension-one residual projectors as normalized inverse Hessian Gram E-optimal design.",
+          "Full published 2026-11-08 general optimizer proof provides q_i=r_i/sum r with r=Gtilde^(-1)1."
+        ],
+        "reasoning": "Same model/object under exact isometry, not merely analogous titles; sign change makes 2x2 block positive and yields submitted weights by substitution.",
+        "searches": [
+          "Resultary: leave one out volume sampling correlated column pair minimax probabilities worst case residual square",
+          "Resultary: exact two-regime convergence maximal-block volume-sampled quadratic coordinate descent",
+          "Resultary: a sharp volume-versus-uniform reversal for two-coordinate sampling on SPD stars"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formulas in the published general E-optimal design theorem and mean-square transition matrices subsume this source after direct substitution; no independent special-case table is needed."
+        ],
+        "reasoning": "Even absence of a dedicated special-case entry cannot establish novelty when a stronger symbolic expression dominates it.",
+        "searches": [
+          "Resultary: leave one out volume sampling correlated column pair minimax probabilities worst case residual square",
+          "Resultary: exact two-regime convergence maximal-block volume-sampled quadratic coordinate descent"
+        ]
+      },
+      "rationale": "Decisive published stronger coverage: the 2026-11-08 general all-but-one-coordinate SPD minimax theorem derives the unique optimizing distribution q_i proportional to (Gtilde^(-1) 1)_i for any signable normalized inverse-Hessian Gram. For this source H=A^T A, Gtilde=[[1,rho],[rho,1]] direct_sum I; its formula specializes exactly to p1=p2=1/D*, pj=(1+rho)/D*. The published 2026-10-12 general maximal-block volume sampler theorem gives the exact all-step mean-square Markov operator; this direct-sum two-line specialization yields the submitted fixed-start rates. Thus the submitted claimed main optimizer and all-step volume dynamics are implications of stronger existing results, not independent new mathematics. Same-day ordering of the November 8 optimizer result is uncertain but mathematical coverage is decisive.",
+      "residual_risks": [
+        "Same-day intra-day priority of Nov8 sources not established, but published stronger logical coverage decisive.",
+        "Motivating Xie–Yang full text unavailable because institutional VPN disconnected; this access issue is not the reason for rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unique optimizer as direct special case; stronger nonnegative normalized inverse-Hessian Gram criterion",
+          "evidence": "General lemma q*=Gtilde^-1 1 / (1^T Gtilde^-1 1); same objective largest expected H-energy retention",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "material_read": "Entire primary published RESULT.md, theorem, domain, proof of general minimax lemma and examples",
+          "method": "Full repository source file read and mathematical substitution H=A^TA",
+          "title": "A sharp volume-versus-uniform reversal for two-coordinate sampling on SPD stars",
+          "trigger": "Possible stronger optimizer for same all-but-one block method"
+        },
+        {
+          "assessment": "COVERS exact finite-step volume mean-square recursion that specializes to submitted rate",
+          "evidence": "Published m_(k+1)=Q m_k and Q_{ji}=p_j G_{ji}^2/w_i^2",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-two-regime-convergence-of-maximal-block-volume-sampled-qua--2ce7f475bd9c",
+          "material_read": "Entire primary published RESULT.md, exact transition equations (1)–(5), mean-square and pathwise asymptotics",
+          "method": "Full repository source file read and specialization to 2x2 correlated block",
+          "title": "Exact two-regime convergence of maximal-block volume-sampled quadratic coordinate descent",
+          "trigger": "Potential stronger all-iteration volume-sampling theory"
+        },
+        {
+          "assessment": "Unresolved historical comparison, but independent broad published coverage already decisive",
+          "evidence": "arXiv 2610.04685, abstract only",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04685",
+          "material_read": "Abstract and bibliographic metadata, not full text",
+          "method": "Open retrieval attempted; authorized institution VPN disconnected",
+          "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+          "trigger": "Most directly motivating named paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The optimized probabilities and comparison are a direct small block-diagonal specialization of an already published broad unique-minimax theorem, while the exact volume-sampled finite-step witness follows from a separately published full matrix dynamics formula. The present example illustrates known general laws but does not identify a mathematically motivated unknown invariant beyond them; correct reproducibility and explicit numbers are insufficient value for independent research acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Rejection is due to stronger prior mathematical coverage and limited independent value, not a false formula.",
+    "No repaired narrowed claim or complete replacement science files are supplied; preserve whole original failed package."
+  ],
+  "schema_version": 1
+}
