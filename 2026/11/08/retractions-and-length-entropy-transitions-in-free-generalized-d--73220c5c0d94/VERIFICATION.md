@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 CHECKER.py` with Python 3 and no third-party libraries. The script enumerates all allowed generator-image tuples for each indicated pair \((n,L)\), reconstructs their images using the binary algebra operations, directly tests idempotency, and groups idempotents by the number of fixed free generators. It separately calculates the closed rank-profile formula and asserts agreement. It additionally tests that identity substitution returns every enumerated element unchanged and checks the strict exponential sparsity inequality for ranks two through twenty.
+## correctness
 
-Expected final line: `VERIFY_OK`. The recorded complete output is `CHECKER_OUTPUT.txt`. The seven checks comprise ranks one through four, image bounds one through four as indicated by their printed parameters. In particular, \(n=3,L=2\) involves exactly \(9261\) endomorphisms and yields \(58\) idempotents, while \(n=2,L=4\) involves \(28900\) and yields \(31\). The program does not enumerate every rank and length and does not verify analytic asymptotics: those are proved in `RESULT.md` by elementary inequalities, finite maximum comparison, and calculus.
+PASS
+
+The free pair-model products concatenate underlying nonempty words. For an idempotent substitution, equality of the nonerasing projected word with its twice-substituted image forces each letter present in an image to have singleton image, necessarily itself. All remaining generator images lie in the free subalgebra on fixed letters, which the endomorphism fixes pointwise. This is an if-and-only-if classification. Each length-j image over s letters has 2^(j-1)s^j controls, yielding binomial(n,s) H_s(L)^(n-s) exactly. Finite exponential maximization, strict concavity of (n-s)log(2s), the Lambert W critical equation and the explicit n=3 tie prove the remaining statements, with the L-then-n limiting order respected. n=1 boundary identity holds.
+
+## originality
+
+PASS
+
+Zhuchok–Zhuchok 2026 gives the free generalized-dimonoid pair model and constant idempotents, not all nonconstant image-rank retractions, bounded-length counts, exponential entropy or Lambert-W rank concentration. Other found retraction spectra concern nonisomorphic graphs, algebras, or plain free monoids. Best-knowledge original quantitative classification; older semiretraction priority is not fully resolved.
+
+## value
+
+PASS
+
+Identifying all images of algebra retractions and their exact graded rank distribution is a motivated natural structural invariant, with a genuine entropy-selecting rank and nontrivial two-rank coexistence not read off from the previously known constant idempotents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
