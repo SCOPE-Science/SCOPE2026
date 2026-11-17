@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(2\le p\le q\), the vertices are precisely the incidence vectors of nonempty cuts whose two shores induce connected subgraphs. Binary shoreline signs give two disjoint types: nonconstant signs in each color class, and single exceptional vertices. The count \(C/2\) is exact. Evaluating four spin moments yields every covariance entry; the tensor decomposition exhausts all \(pq\) edge dimensions. Explicit eigenvalue comparisons and the integer lower bound on the exponential count establish the exact strictly separated principal-axis threshold \(q_*(p)\). Direct exact-arithmetic enumeration corroborates the result in 19 small graph profiles and 102 further phase-sign cases. Tests are not a substitute for the all-parameter proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+PASS: signed bipartite shores yield exactly (2^p-2)(2^q-2) nonconstant/nonconstant assignments plus 2(p+q) singleton exceptions, modulo a global sign, establishing C/2 vertices. The four pairwise spin moments give the covariance entries, and the orthogonal constant, row-contrast, column-contrast and doubly centered tensor spaces exhaust pq dimensions with the submitted eigenvalues. Their differences reduce the least-mode comparison to a signed integer expression; the proof uses a positive integer gap and an exponential-versus-quadratic bound to show strict q<q_*(p) versus q≥q_*(p), with q_* as stated. Fresh independent exact-Fraction covariance computations for seven p,q pairs verify the mode change around p=2,3,4 thresholds; these finite checks cannot prove the all-size threshold.
 
-The closest paper, Chimani, Juhnke-Kubitzke and Nover, *On the Bond Polytope* (arXiv:2012.06288v1, 2020), studies connected-cut polytope structure, facets and graph transformations, rather than vertex-uniform edge-covariance. An additional 2026 structural paper concerns sums and extension complexity. Graphical zonotopes, spanning-tree polytopes and related polyhedra have different vertex sets. Search comparisons used bond/connected-cut aliases, exact parameters, pair correlations, possible stronger coverage, and the zero-cut convention. The 2020 convention may include the zero vector: this theorem deliberately defines and samples the nonempty-bond polytope, so it must not be read as a covariance formula for an augmented polytope. No matching prior theorem was found; equivalent work under different terminology remains a risk. Originality is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four exact covariance eigenspaces, their multiplicities and a sharp exponentially scaled least-variance direction change give a nontrivial complete invariant for a natural two-parameter family of geometric objects. This phase behavior is not implied by counts or facet descriptions and supplies a measurable comparison between highly unbalanced and balanced biclique bond geometry.
+PASS, qualified: primary bond-polytope literature inspected concerns structural facets and cuts; indexed related covariance results have distinct sampling objects. No earlier explicit all-parameter nonempty-bond uniform-vertex spectrum or sharp exponential transition was established.
 
-## Limits and closest sources
+## value
 
-Only the nonempty-bond incidence-vertex uniform distribution in the ordinary edge-coordinate Euclidean metric is covered, not all graph cuts, the augmented zero-inclusive convention, or uniform-volume measure. The analytic proof covers every integer \(2\le p\le q\); the finite checker covers only its explicitly stated profiles. Related sources are Chimani et al. arXiv:2012.06288v1, Kolman–Tiwary arXiv:2601.11119, and Duarte et al. arXiv:2007.04513. Historical priority and mathematical correctness have not received independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: this is a complete exact spectral invariant for the natural two-parameter complete-bipartite nonempty-bond vertex measure, with a nontrivial sharply quantified exponential crossover in least-variance directions, meaningful beyond standard bond counts or facet geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

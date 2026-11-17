@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` in the extracted package. Python 3 standard library only; no network or data downloads are required. The checker enumerates exactly the nonempty connected-shore cuts for \(2\le p\le5\), \(p\le q\le8\), \(p+q\le11\), identifies each cut up to shore complement, computes all \(pq\times pq\) covariance entries with `Fraction`, and compares them against four analytic eigenspace actions. It checks the exact sign-change inequality for another 102 parameter profiles with \(2\le p\le18\). The reference replay reported:
+## correctness
 
-`BICLIQUE_BOND_INERTIA_CHECKS_PASSED cases=19 vertices=5133 entries=6144 phases=102`
+PASS
 
-The count of entries includes all ordered pairs of edge coordinates. These finite experiments cannot certify the unbounded integer domain; the proof establishes this through exact shore-sign sums, invariant tensor subspaces, a strict positivity inequality, and induction. The probability space excludes zero incidence. The formula is not valid without adjustment for augmented bond polytopes that include the empty cut. Independent verification has not been performed.
+PASS: signed bipartite shores yield exactly (2^p-2)(2^q-2) nonconstant/nonconstant assignments plus 2(p+q) singleton exceptions, modulo a global sign, establishing C/2 vertices. The four pairwise spin moments give the covariance entries, and the orthogonal constant, row-contrast, column-contrast and doubly centered tensor spaces exhaust pq dimensions with the submitted eigenvalues. Their differences reduce the least-mode comparison to a signed integer expression; the proof uses a positive integer gap and an exponential-versus-quadratic bound to show strict q<q_*(p) versus q≥q_*(p), with q_* as stated. Fresh independent exact-Fraction covariance computations for seven p,q pairs verify the mode change around p=2,3,4 thresholds; these finite checks cannot prove the all-size threshold.
+
+## originality
+
+PASS
+
+PASS, qualified: primary bond-polytope literature inspected concerns structural facets and cuts; indexed related covariance results have distinct sampling objects. No earlier explicit all-parameter nonempty-bond uniform-vertex spectrum or sharp exponential transition was established.
+
+## value
+
+PASS
+
+PASS: this is a complete exact spectral invariant for the natural two-parameter complete-bipartite nonempty-bond vertex measure, with a nontrivial sharply quantified exponential crossover in least-variance directions, meaningful beyond standard bond counts or facet geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
