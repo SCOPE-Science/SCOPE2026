@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T01:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent an exact-degree-two spherical harmonic on S^(2m-1) (m>=2) by a complex symmetric trace-free matrix. The decomposition into scalar |x|^2-|y|^2 (dimension 1), x-traceless and y-traceless (each (m-1)(m+2)/2), and mixed bilinear (dimension m^2) diagonalizes the normalized ambient-to-product-sphere Gram ratio. Direct fourth-moment contractions give squared singular values 4(m+1)(t-1/2)^2, 4(m+1)t^2/(m+2), 4(m+1)(1-t)^2/(m+2), and 4(m+1)t(1-t)/m. At t=1/2 exactly the scalar mode vanishes. On 0<t<1/2 the smallest band is min(lambda_Z,lambda_X), crossing once at t0=sqrt(m+2)/[2(1+sqrt(m+2))]; all competing max/min ratios decrease before and increase after that crossing. Thus kappa_min=1+2/sqrt(m+2), only at t0 and 1-t0, with maximal min eigenvalue (m+1)/(1+sqrt(m+2))^2 at those t. Independent numerical evaluation checked spectral ordering and kappa for m=2,3,4,9, including m=2 t=1/3 and kappa=2. The supplied checker is based on degree-four-exact rational cubature and its implementation was read; analytic invariance and inequalities establish all dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Clifford-torus harmonic cutoff contains other degrees but only balanced t; full-sphere random harmonic reconstruction samples from ambient sphere."
+        ],
+        "reasoning": "Parameter inclusion in harmonic degree alone is insufficient: no inspected theorem covers all product radii, all block dimensions and their optimal condition number.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-clifford-torus-harmonic-trace-spectrum-and-sharp-exponenti--2d81ee89510d",
+          "https://arxiv.org/abs/2202.12995"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-clifford-torus-harmonic-trace-spectrum-and-sharp-exponenti--2d81ee89510d",
+        "https://arxiv.org/abs/2202.12995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier t=1/2 case is noninjective on quadrupoles, while t=t0 and t=1-t0 give the finite sharp best condition number."
+        ],
+        "reasoning": "A balanced torus theorem cannot imply the sharp family-wide optimizer for all m without a distinct radius-varying calculation. Random full-sphere design theorem gives reconstruction bounds of a different operator.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-clifford-torus-harmonic-trace-spectrum-and-sharp-exponenti--2d81ee89510d",
+          "https://arxiv.org/abs/2202.12995"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier exact balanced Clifford torus trace spectrum is in ambient S^3 at t=1/2 and includes every harmonic cutoff; the present degree-two restriction has a scalar kernel at t=1/2."
+        ],
+        "reasoning": "The exact-degree-two four-sector spectrum and sharp unbalanced radii are not equivalent to a bandlimited balanced-torus Fourier-diamond theorem.",
+        "searches": [
+          "harmonic quadratic restriction singular values Clifford torus product spheres optimal conditioning",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-clifford-torus-harmonic-trace-spectrum-and-sharp-exponenti--2d81ee89510d",
+          "Clifford hypersurface product-sphere trace degree 2 harmonic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four eigenvalue sectors and multiplicities given analytically; checked optimal m2, m3, m4, m9."
+        ],
+        "reasoning": "No matching complete t-dependent singular-value table or optimizer was located in inspected sources; absence of a table is not novelty proof.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-clifford-torus-harmonic-trace-spectrum-and-sharp-exponenti--2d81ee89510d",
+          "quadrupole product-hypersurface eigenvalue spectrum"
+        ]
+      },
+      "rationale": "The earlier Clifford torus paper studies the balanced torus t=1/2 in S^3, a harmonic degree cutoff, its Fourier-diamond trace range and inverse instability; that trace is in fact singular on exact degree-two input. It neither quantifies the t-dependent four-sector spectrum for arbitrary m nor the two optimum imbalanced radii. General full-sphere random harmonic sampling and spherical low-coherence matrices do not yield this restricted continuous product-hypersurface optimization. Historical isoparametric-product-sphere literature could contain equivalent spectral decompositions; no complete priority guarantee is possible.",
+      "residual_risks": [
+        "Product-of-spheres isoparametric/Clifford hypersurface trace formulas may exist under different terminology beyond retrieved full text.",
+        "m=2 balanced-radius singularity overlaps earlier balanced-torus results and is not counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": [
+            "Balances |z1|²=|z2|²=1/2, cutoff L; for degree 2 scalar restriction vanishes; no m general t optimization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-clifford-torus-harmonic-trace-spectrum-and-sharp-exponenti--2d81ee89510d",
+          "material_read": "Full RESULT.md including exact Jacobi-sum spectrum, main proof and limitations",
+          "method": "GitHub published full text",
+          "title": "Exact Clifford-torus harmonic trace spectrum and sharp exponential inverse instability",
+          "trigger": "Same embedded product torus in four real dimensions"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING_OPERATOR",
+          "evidence": [
+            "Samples full sphere randomly; not continuous restriction to product hypersurface with exact singular spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.12995",
+          "material_read": "Accessible summary/abstract and bibliographic information only, no complete proof read",
+          "method": "Primary abstract",
+          "title": "Nearly Optimal Reconstruction of Low-Degree Spherical Harmonics",
+          "trigger": "Harmonic reconstruction prior using sphere samples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Restrictions of harmonics to codimension-one product spheres are canonical sampling/trace operators. Their exact singular values locate a rank-loss singular hypersurface and give a sharp globally best conditioning and least-eigenvalue design among all radii for every m>=2. The optimum is a precise reusable stability constant and geometric design parameter, not just a finite check or a textbook normalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-clifford-torus-harmonic-trace-spectrum-and-sharp-exponenti--2d81ee89510d",
+    "https://arxiv.org/abs/2202.12995"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Product-of-spheres isoparametric/Clifford hypersurface trace formulas may exist under different terminology beyond retrieved full text.",
+    "m=2 balanced-radius singularity overlaps earlier balanced-torus results and is not counted as new."
+  ],
+  "schema_version": 1
+}
