@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A complete bijection maps optimum sets to defect compositions with sum at most three; endpoint weights are exact, including the single-edge case. A formal finite-coefficient expansion proves every formula. Independent literal-hyperedge brute-force verification and an independent dynamic program pass.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General K-clique hypergraph bound gives isolation size upper bounds but not minimum-set multiplicities.",
+        "2026-11-18 uniform hypertrees paper gives order bound/equality structure for extremal *orders*, not count of optimum sets for all loose paths."
+      ],
+      "reasoning": "The proposed theorem ranges over all edge lengths and uniformities but is restricted to hyperpaths. General hypertree structural bounds do not supply the explicit multiplicity polynomial or its boundary correction.",
+      "searches": [
+        "arxiv:2611.17489v1",
+        "arxiv:2611.24477v1",
+        "Partial domination of hypergraphs 2024",
+        "loose hyperpath isolation polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.17489v1 (2026-11-12)",
+      "arxiv:2611.24477v1 (2026-11-18)",
+      "Li–Zhang–Ye DOI:10.1007/s00373-024-02840-2 (abstract only)",
+      "Index and literature searches documented in originality checks",
+      "Earlier loose-hypercycle theorem, compared at statement level"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baluci–Borg theorem bounds only the scalar optimum.",
+        "An earlier loose hypercycle theorem gives circular minimum-set polynomial; its four-edge cycle has four optimal sets while the four-edge hyperpath has one."
+      ],
+      "reasoning": "Numerical optimum bounds or a circular enumerator do not imply the open-boundary count. This claim proves a boundary-sensitive all-length result rather than only specializing the cycle formula; the close methodological relation remains disclosed.",
+      "searches": [
+        "arxiv:2611.17489v1",
+        "arxiv:2611.24477v1",
+        "f3337f5a-b080-4cd5-8cb0-f98aacc660d8",
+        "2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baluci–Borg studies hypergraph K_r-isolation cardinality bounds; the present count concerns optimum multiplicity on labelled loose paths.",
+        "The indexed literature search cycle-isolation result measures minimum cycle configurations, not incidence-tree loose paths."
+      ],
+      "reasoning": "Relabeling hypergraph edge isolation as K_r-isolation does not change the claim, but known scalar bounds omit minimum-set counts. Circular and open interval models have different boundary weights, so the cyclic formula does not imply this path formula.",
+      "searches": [
+        "uniform loose hyperpath minimum isolating sets 4 periodic polynomial count exactly one when 4 divides edge count",
+        "r-uniform loose hyperpath isolating set enumeration boundary defect number of minimum sets hypercycle",
+        "loose uniform hypercycle isolation number minimum set polynomial path cut",
+        "arxiv:2611.17489v1",
+        "arxiv:2611.24477v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed literature search returned cycle reconfiguration and other isolation-related results, no matching path table.",
+        "Original labelled hyperedge enumeration independently found the stated counts for 39 pairs."
+      ],
+      "reasoning": "A database search did not locate an exact count. Small verified values are not used as proof of absence or as a substitute for the infinite theorem.",
+      "searches": [
+        "uniform loose hyperpath minimum isolating sets 4 periodic polynomial count exactly one when 4 divides edge count",
+        "r-uniform loose hyperpath isolating set enumeration boundary defect number of minimum sets hypercycle",
+        "loose uniform hypercycle isolation number minimum set polynomial path cut",
+        "2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9",
+        "2026/11/8/SCOPE-an-exact-nt-r-2-boundary-for-isolation-overlap-dependence-in-ran--6fe3ab2f523b"
+      ]
+    },
+    "rationale": "No direct path-minimum-set enumerator was found in inspected source material or current semantic searches. Qualifying Baluci–Borg establishes scalar bounds, and the previously logged hypercycle enumeration does not imply the boundary-specific path count. Priority remains provisional.",
+    "residual_risks": [
+      "Original full text of the 2024 hypergraph introduction was not accessed; an earlier path-specific enumeration might exist under a different name.",
+      "The loose-hypercycle formulas use related interval-gap techniques; the open-boundary multiplicity classification is the specific contribution claimed.",
+      "The later November 18, 2026 hypertree article is used only as a scientific comparison to the November 12 source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published claims concern upper bounds and sharp constructions, not the number of minimum isolating sets on loose paths",
+        "evidence": [
+          "arXiv:2611.17489v1, published 2026-11-12; sections 1–3; theorem for clique isolation sizes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.17489",
+        "material_read": "HTML-rendered full-text sections including definitions, main theorem, construction, introduction and references (231 lines)",
+        "method": "Text inspection of full HTML rendering, plus targeted search for path and hypertree",
+        "title": "Isolation of k-cliques in uniform hypergraphs",
+        "trigger": "Same definition of hypergraph isolation and qualifying dated source"
+      },
+      {
+        "assessment": "Determines bounds and extremal hypertrees but does not enumerate optimum sets of loose hyperpaths; publicly posted after the 2026-11-12 motivating article",
+        "evidence": [
+          "arXiv:2611.24477v1 submitted 2026-11-18; Theorem 1.1, sections 2–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.24477v1",
+        "material_read": "HTML full text 277 lines, including theorem, subtree-packing proof, hypertree construction and reference list",
+        "method": "Full-text and targeted comparison",
+        "title": "The isolation number of uniform hypertrees",
+        "trigger": "Direct plausible later competitor concerning same invariant on a superclass"
+      },
+      {
+        "assessment": "Original isolation definitions; no material supporting an exact path enumeration seen, but absence cannot be concluded from an abstract",
+        "evidence": [
+          "Li–Zhang–Ye, Graphs Combin. 40 (2024), 109, DOI 10.1007/s00373-024-02840-2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-024-02840-2",
+        "material_read": "Publisher-indexed abstract and research page excerpt; complete original text not accessed",
+        "method": "Bibliographic/abstract comparison only",
+        "title": "Partial Domination of Hypergraphs",
+        "trigger": "Original 2024 hypergraph isolation framework"
+      },
+      {
+        "assessment": "Graph cycles, not uniform loose hyperpaths; no whole-document noncoverage claim made",
+        "evidence": [
+          "Public record ID ending 4d710023d8c9, title and abstract-level theorem statement"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9",
+        "material_read": "Published index title and abstract-level summary only; complete repository text not inspected",
+        "method": "Search result and claim-level implication comparison",
+        "title": "A four-periodic reconfiguration theorem for minimum isolating sets on cycles",
+        "trigger": "Close indexed published mathematical result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b45ed22-4f7c-49b0-98d0-8e651ad104a0",
+  "value": {
+    "rationale": "All-minimum-set counting is a natural reliability/multiplicity refinement of the isolation number. The infinite-family formulas show exact degree-three defect behavior, a universal one-optimum rigidity class and endpoint deviations not determined by known scalar or cyclic results.",
+    "status": "PASS"
+  }
+}
