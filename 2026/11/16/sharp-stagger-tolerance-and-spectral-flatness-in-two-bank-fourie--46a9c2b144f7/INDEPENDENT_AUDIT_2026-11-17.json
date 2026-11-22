@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T09:07:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unitary DFT on each of two m-point sampling banks decomposes the 2m-by-2m complex measurement into exactly m independent 2-by-2 blocks with trace 2+t²(1-2u) and Gram determinant t²(1-4u sin²(pi alpha)), u=(k/m)(1-k/m). The u=0 block bounds condition below by 1+sqrt(2), uniquely minimizing gain at t²=2. At that gain, evaluating the Gram characteristic polynomial at 2±sqrt2 establishes the full shift plateau sin²(pi alpha)≤1-1/sqrt2 and flat lower squared singular-value band at equality. Monotonicity of the lower root in u above the plateau gives the exact all-shift formula with u_m=floor(m²/4)/m². Determinant vanishes only for even m and half-grid shift; for odd m at half-grid, minimum squared singular value ∼2/(3m²), giving sharp linear condition growth. The m=1 exceptional all-shift case is explicit. Direct independently constructed complex matrices at m=1,2,3,4,7,16 and representative phase shifts matched the fiber eigenvalues.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inspected full SCOPE checkerboard RESULT.md proves optimum 1+sqrt2 for a d-dimensional parity sublattice and directional derivative, optimizing gain/direction/complex offset; it does NOT vary two one-dimensional value/derivative bank staggering",
+          "Kunis–Nagel study near-colliding value nodes rather than this derivative-normalized confluent pair"
+        ],
+        "reasoning": "The checkerboard theorem is neither a supermodel parameter specialization of these shifted two-bank finite Fourier fibers nor an implication for the complete phase plateau. The broad Hermite-spline results have a different approximation object.",
+        "searches": [
+          "Resultary sharp checkerboard Hermite sampling and dimension-free optimal derivative design",
+          "Kunis Nagel Vandermonde nearly colliding nodes condition number",
+          "Fageot Aziznejad Unser Uhlmann Hermite splines"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob fabb0ecd8b70c59d87e920ddc8f9d32e6050c0e4",
+        "Assigned hermite_shift_check.py blob e0934922782c1f39a5e178032963f26ab3f7aa9f",
+        "Yu–Townsend arXiv:2202.04722 (selected full-text pages)",
+        "Resultary checkerboard Hermite full RESULT.md",
+        "Kunis–Nagel doi:10.1007/s11075-020-00974-x (bibliographic evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shared value 1+sqrt2 comes from different 2×2 Gram constraints; the assigned determinant is t²(1-4u sin²(pi alpha)), which supplies its own phase boundary",
+          "The checkerboard result optimizes directional derivatives for a fixed index-two lattice, not relative rigid grid shifts of derivative measurements"
+        ],
+        "reasoning": "Neither stronger all-shift classification nor parity-half-grid nullity follows from those distinct measured objects without deriving the new fiber model.",
+        "searches": [
+          "Yu Townsend arXiv:2202.04722 interpolation stability discrete Kadec theorem",
+          "Resultary 2026/11/16 checkerboard Hermite all-direction optimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu–Townsend formulation samples values on perturbed grids with no shifted derivative bank",
+          "Assigned formula is a pairwise alias confluent Hermite 2×2 block with derivative gain and a nontrivial interval of globally optimal stagger phases"
+        ],
+        "reasoning": "Value-only trigonometric perturbation cannot substitute for a value/derivative channel; it has different measurement rank and singular-spectrum polynomial.",
+        "searches": [
+          "Resultary semantic: confluent Fourier Hermite interpolation staggered derivative sample grids optimum condition number 1+sqrt 2 phase flatness",
+          "Yu Townsend arXiv:2202.04722 value-only trigonometric interpolation perturbed nodes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finding is an all-m minimax family and strict phase classification, not a finite tabulated matrix; related Resultary one-defect two-grid Fourier interpolation concerns replacement of one Fourier mode rather than a derivative bank"
+        ],
+        "reasoning": "No exact table/compendium delivering this all-size confluent design was identified. A finite numerical table would not by itself prove the all-m threshold.",
+        "searches": [
+          "Resultary two-grid Hermite stagger phase-flat lower spectral band exact plateau",
+          "Fourier Hermite stagger derivative gain optimal condition table"
+        ]
+      },
+      "rationale": "A concrete, global minimax derivative-gain and phase-staggering plateau in confluent Fourier interpolation, plus complete rank/parity singularity and phase-flat lower band, differs from published value-only jitter bounds, generic Fourier–Vandermonde collision estimates and a distinct checkerboard directional-derivative minimax. Numerical equality of the silver-ratio constant does not mean the sampling maps coincide.",
+      "residual_risks": [
+        "Historical confluent Fourier/Hermite sampling literature may encode an equivalent shift classification under different normalization; not all long-form material was available.",
+        "Finite SVD checks are bounded confirmation, not proof of minimax across all m."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different value-only sample model",
+          "evidence": "formal setting is an unevenly spaced value-only trigonometric interpolation/quadrature problem",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04722",
+          "material_read": "PDF abstract, statement and selected theorem/proof pages (not every page)",
+          "method": "open-access PDF and visual page inspection",
+          "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+          "trigger": "perturbed trigonometric-grid sampling stability"
+        },
+        {
+          "assessment": "distinct fixed checkerboard lattice and vector/gain/offset optimization",
+          "evidence": "condition 1+sqrt2 involves s=min_epsilon|v·epsilon| and L=||v||_1, whereas assigned map depends on relative shift alpha and u_m",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-checkerboard-hermite-sampling-and-dimension-free-optimal-d--d252a6e5b7a3/RESULT.md",
+          "material_read": "entire RESULT.md finding, assumptions, six proof sections and limits",
+          "method": "read-only GitHub primary file fetch",
+          "title": "Sharp checkerboard Hermite sampling and dimension-free optimal derivative design",
+          "trigger": "same minimax constant and derivative sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The globally sharp robust staggering interval and its exact phase-flat endpoint identify sensor layouts tolerating derivative-grid shift without any condition penalty, while the odd/even half-step singularity gives a useful sharp reconstruction boundary. This is an independently meaningful numerical sampling design and structural analytic classification, not a relabeling of the checkerboard model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Model prescribes common rigid shift, consecutive frequencies, Euclidean data weighting.",
+    "Literature overlap with older confluent Fourier interpolation remains an acknowledged bounded risk."
+  ],
+  "schema_version": 1
+}

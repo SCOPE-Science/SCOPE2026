@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is fully reduced by unitary Fourier aliasing to \(2\times2\) blocks with explicitly computed trace and determinant. The zero-frequency block forces \(t=\sqrt2\); characteristic-polynomial endpoint comparisons establish the exact optimal phase interval and the flat lower eigenvalue across all residue blocks. Differentiating the smaller root establishes the global minimum beyond the interval. Rank and odd-grid asymptotic statements follow from the exact determinant and trace. The independently constructed full complex matrices passed 1,791 singular-spectrum and boundary assertions. These are finite corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS, provisional priority
+The unitary DFT on each of two m-point sampling banks decomposes the 2m-by-2m complex measurement into exactly m independent 2-by-2 blocks with trace 2+t²(1-2u) and Gram determinant t²(1-4u sin²(pi alpha)), u=(k/m)(1-k/m). The u=0 block bounds condition below by 1+sqrt(2), uniquely minimizing gain at t²=2. At that gain, evaluating the Gram characteristic polynomial at 2±sqrt2 establishes the full shift plateau sin²(pi alpha)≤1-1/sqrt2 and flat lower squared singular-value band at equality. Monotonicity of the lower root in u above the plateau gives the exact all-shift formula with u_m=floor(m²/4)/m². Determinant vanishes only for even m and half-grid shift; for odd m at half-grid, minimum squared singular value ∼2/(3m²), giving sharp linear condition growth. The m=1 exceptional all-shift case is explicit. Direct independently constructed complex matrices at m=1,2,3,4,7,16 and representative phase shifts matched the fiber eigenvalues.
 
-Published value-only jittered Fourier interpolation (Yu–Townsend, arXiv:2202.04722), near-colliding value Vandermonde bounds (Kunis–Nagel, DOI 10.1007/s11075-020-00974-x), and real-line Hermite-spline approximation (Fageot et al., arXiv:1902.02565) were checked against the precise value-plus-derivative two-bank spectrum. None of those statements entails the all-shift minimax plateau. Related two-channel published-finding corpus claims concern spectrogram intensity, finite-cycle sensors or wavelet scale staggering and are not the same operator. The sharp result may still be implied by older uninspected confluent-Fourier matrix theory; priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem exactly determines when relative derivative-sensor staggering costs no worst-case reconstruction stability, characterizes the unique optimal measurement gain, and identifies a frequency-flat lower spectrum at the critical boundary. It also gives the finite-grid parity singularity and sharp odd-grid instability scale. These resolve a natural complete class of critically sampled periodic Hermite measurements rather than an arbitrary numerical slice.
+A concrete, global minimax derivative-gain and phase-staggering plateau in confluent Fourier interpolation, plus complete rank/parity singularity and phase-flat lower band, differs from published value-only jitter bounds, generic Fourier–Vandermonde collision estimates and a distinct checkerboard directional-derivative minimax. Numerical equality of the silver-ratio constant does not mean the sampling maps coincide.
 
-## Limitations
+## value
 
-The optimality is with respect to normalized derivative data and Euclidean Fourier-coefficient error. The phase shift is rigid across the derivative bank. The full all-shift condition formula is stated only for the uniquely optimal derivative gain. Older mathematical literature may affect novelty. No independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The globally sharp robust staggering interval and its exact phase-flat endpoint identify sensor layouts tolerating derivative-grid shift without any condition penalty, while the odd/even half-step singularity gives a useful sharp reconstruction boundary. This is an independently meaningful numerical sampling design and structural analytic classification, not a relabeling of the checkerboard model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
