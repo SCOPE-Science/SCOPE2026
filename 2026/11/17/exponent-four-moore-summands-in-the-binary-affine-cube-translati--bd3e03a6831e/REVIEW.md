@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The quotient of the full nonempty-face flag complex by the order-eight binary translation group has exactly \((22,147,294,168)\) cells. An exact independent Burnside count, signed boundary check and \(311\) integral unit cancellations reduce its chain complex to a four-by-four top differential whose determinantal divisors are \(2,8,32,128\), proving Smith factors \(2,4,4,4\). The covering matroid complex is simply connected, and each translation fixes an edge midpoint; Armstrong's orbit-space theorem gives trivial quotient fundamental group. A simply connected three-dimensional CW complex with the resulting cellular matrix splits as the specified Moore-space wedge. The attached standard-library verifier reproduces all finite integer certificates; the topological deductions are stated separately.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Merino–Ramírez-Ibáñez–Rodríguez-Sánchez (arXiv:1203.0090, section 4) give the fourteen affine planes and Tutte polynomial; Ardila–Castillo–Samper (arXiv:1410.3870) give general shellability; Moci–Pezzoli (arXiv:2001.03760) concern matroid homology representations. None of those inspected statements computes the integral homotopy type of the ordinary nonfree translation quotient. The closest published exact cycle-basis calculation on this same matroid concerns its *unquotiented* third homology, not the quotient's order-four torsion. The older rank-three affine-plane translation-quotient claims concern different complexes and do not imply this rank-four calculation. published-finding corpus similarity queries, accessible prior records, alias and implication comparisons showed no exact or stronger covered theorem. Residual risk: independently published equivalent calculations not indexed or not accessible.
+PASS
 
-**Value — PASS.** The smallest binary three-dimensional affine geometry is a canonical matroid carrying a regular elementary abelian translation action. Its ordinary geometric quotient has three independent four-torsion summands even though every group element has order at most two and the covering homology is torsion-free. Determining all four Moore summands gives a complete integral homotopy type that a rational character or a routine count cannot supply. The theorem is deliberately limited to this natural eight-point case.
+For AG(3,2), independent faces counts (8,28,56,56), missing 14 XOR-zero tetrahedra; barycentric flags (148,1176,2352,1344), quotient orbits (22,147,294,168). Independently rebuilt each signed orbit flag boundary and confirmed d²=0, performed 21 degree-one,126 degree-two,164 degree-three integral unit pivots, obtaining exactly D=[[-2,-2,4,-2],[-2,2,0,-2],[-2,2,-4,2],[0,0,-4,0]] with SNF (2,4,4,4), hence H2=Z2+3Z4, other reduced homology zero. Full 2-skeleton of K gives pi1(K)=1; every translation fixes an edge midpoint, Armstrong gives pi1(Y)=1. A simply connected 3D CW complex with 2-skeleton a wedge of S2 and four 3-cell attaching degrees diagonalized by unimodular bases has the claimed Moore-space wedge. Independent full integer calculation is exhaustive for THIS 8-vertex object, not a family theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Matroid Tutte polynomial, covering complex wedge of 21 S3 and translation representations do not determine torsion or homotopy of the ordinary nonfree orbit quotient. Existing rank-three affine-plane quotient theorem is a different matroid rank; binary projective cap complexes are different objects. No exact same quotient with Z4^3 found in named searches.
+
+## value
+
+PASS
+
+This canonical smallest three-dimensional binary affine matroid and full elementary-ab. translation group show order-four torsion despite exponent-two group and torsion-free cover. A complete integral Moore wedge type is an independently meaningful natural exact invariant beyond rational characters and Euler counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
