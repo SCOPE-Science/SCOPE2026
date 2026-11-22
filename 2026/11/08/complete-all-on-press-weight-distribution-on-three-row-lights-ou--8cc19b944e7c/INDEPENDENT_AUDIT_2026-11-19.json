@@ -1,0 +1,206 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T05:46:36.108921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every labelled 3×n all-on press set corresponds exactly to a seed x1 in F2^3 satisfying x0=0, x_(n+1)=0 and x_(i+1)=111+B x_i+x_(i−1). The eight first seeds are exhaustive. Independent recurrence evaluation for all eight seeds confirms all twelve displayed columns, each pair-state (x13,x14)=(x1,x2), and six-block weights 10 for seeds 0,7 and 6 for seeds 1–6. Terminal-zero seed sets by n mod 6 are {0},{2},{1,3,4,6},{5},{7},all 8; their exact prefix weights yield all six boxed polynomials including n=1 and q>=1 for residue 0. Independent checks verified the formula for 1<=n<=600; an independently built full 3n×3n GF(2) elimination verified complete solution spectra for n<=40; direct full assignment enumeration checked 299592 assignments over widths 1..6. The infinite proof is the exact finite-state 12-period identity, not extrapolation. All ten actual source-tree blobs were identified and the Git tree SHA independently recomputed as a3e6a8bb52e0ef8ec5be1e63cc1d8742b43e7bd3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldwasser–Klostermeyer (2005), background and Theorem 3, gives the Fibonacci-polynomial gcd nullity formula and total odd/even closed domination set count, not weights of individual affine solutions.",
+          "Klostermeyer (2026), Sections 1–2, concerns homogeneous nullspace matrices, prime decomposition and Fibonacci recurrence, not all-ones coset weight classes.",
+          "The published Nov 2 low-width parity-nullspace grid code classification gives width-three homogeneous constant-weight codes, not the affine all-on solution spectrum.",
+          "Caro–Klostermeyer (2003) already covers all six width-three minimal cardinalities and the seed recurrence."
+        ],
+        "reasoning": "Known nullity and homogeneous-code weight results determine solution counts and changes between solutions; they do not alone fix weights of solutions to a nonzero syndrome without a chosen representative and overlap/intersection data. The older minima and method are not new. This claim adds the six exact all-on coset polynomials and optimizer counts, though the eight-seed method makes the extension short.",
+        "searches": [
+          "https://www.researchgate.net/publication/250342861_Parity_Dominating_Sets_in_Grid_Graphs",
+          "https://arxiv.cnoctave.top/pdf/2610.31475",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-low-width-spectrum-of-parity-nullspace-grid-codes--3c70f3b22c6a/RESULT.md",
+          "Resultary semantic query: Lights Out three row strips full solution cardinality generating function pattern weights"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+        "https://www.researchgate.net/publication/250342861_Parity_Dominating_Sets_in_Grid_Graphs",
+        "https://arxiv.org/html/1206.2973v1",
+        "https://arxiv.cnoctave.top/pdf/2610.31475",
+        "https://doi.org/10.1007/s003730200020",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-low-width-spectrum-of-parity-nullspace-grid-codes--3c70f3b22c6a/RESULT.md",
+        "https://mathworld.wolfram.com/LightsOutPuzzle.html",
+        "https://pldml.icm.edu.pl/pldml/element/bwmeta1.element.bwnjournal-article-doi-10_7151_dmgt_1137"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caro–Klostermeyer (2003) p.74 explicitly proposes iterating all eight seeds to determine the minimum; applying the method to full weights requires the separate complete period-12 seed/weight census.",
+          "The new polynomial implies old minima 6q+2 for r=2 and 6q+6 for r=5, and additionally determines two and six minimum press sets plus the heavier weight strata.",
+          "The homogeneous kernel weight polynomials from the Nov 2 record cover even-neighborhood solutions, not affine all-on output. The same family has 4 and 8 total solutions in the two nontrivial residues, consistent with the 2005 count theorem."
+        ],
+        "reasoning": "The established column-chasing recurrence algorithmically computes any fixed length and, after a small finite period-12 census, yields the submitted formulas. Thus methodology, existence, solution totals and minima have close prior coverage. The coefficientwise affine all-length classification does not follow solely from the prior scalar formulas or homogeneous code weight table without this extra weight computation. Incremental novelty is assessed narrowly, not as a new method or first proof of minimum cardinalities.",
+        "searches": [
+          "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+          "https://www.researchgate.net/publication/250342861_Parity_Dominating_Sets_in_Grid_Graphs",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-low-width-spectrum-of-parity-nullspace-grid-codes--3c70f3b22c6a/RESULT.md",
+          "https://doi.org/10.1007/s003730200020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caro–Klostermeyer (2003), section 3 pp.73–74, identifies odd dominating sets with closed-neighborhood all-ones parity solutions and explicitly iterates eight first-column choices for width three.",
+          "Minevich (2012), Sections 2–3, identifies all-on Lights Out with the symmetric binary system (I+A)x=1.",
+          "The checked finding counts Hamming weights of that affine solution fiber for every strip length, not the homogeneous kernel."
+        ],
+        "reasoning": "Odd domination, all-on Lights Out press sets, and solutions to the closed-neighborhood all-ones binary syndrome are equivalent under the same labelled-cell model. The distinction from the homogeneous even-neighborhood code is essential: its weight enumerator is not an all-ones coset weight enumerator. No external equivalent closed-form affine spectrum was established.",
+        "searches": [
+          "Resultary semantic query: Lights Out P3 square Pn all-on solution weight enumerator coefficients six residue classes minimum number of winning press patterns",
+          "Resultary semantic query: odd domination grid P3 times Pn number of minimum odd dominating sets exact counts complete weight spectrum",
+          "web: Lights Out 3 by n grid press weight enumerator all on minimum patterns count",
+          "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+          "https://arxiv.org/html/1206.2973v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Caro–Klostermeyer (2003) p.73 table lists scalar minimum sizes for each residue, without optimal multiplicity or complete weight coefficients.",
+          "MathWorld includes four solutions to the 3-by-2 all-on board, a known single-size special case.",
+          "Resultary searches returned the assigned same finding and different-graph or homogeneous-grid weight spectra, with no distinct earlier identical full affine enumerator among inspected hits."
+        ],
+        "reasoning": "A minimum-only table and an isolated 3-by-2 count do not cover the full coefficient data for every n. Search absence is not proof of novelty; the 2002 full-text access gap remains a genuine priority risk.",
+        "searches": [
+          "web: odd dominating sets 3 n grid cardinality distribution 6q+6 six eight",
+          "Resultary semantic query: odd domination grid P3 times Pn number of minimum odd dominating sets exact counts complete weight spectrum",
+          "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+          "https://mathworld.wolfram.com/LightsOutPuzzle.html"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge originality for the complete all-on affine solution-weight polynomial and optimal-set multiplicities, excluding known minimal cardinalities, seed recurrence, total solution counts and homogeneous code spectra. Caro–Klostermeyer (2003) already teaches the exact eight-seed calculation and all six minima, but its inspected section does not give the complete weights. Goldwasser–Klostermeyer (2005) gives total solution counts through Fibonacci gcd nullity; the Nov 2 low-width code result treats the homogeneous kernel rather than the affine all-ones coset. The new complete periodic coset weight census is an exact natural classification with a substantive albeit small incremental calculation. The inaccessible full 2002 grid article and other unindexed weight tables are recorded as priority risks, not automatic failure.",
+      "residual_risks": [
+        "The earlier 2003 paper states the exact same width-three eight-seed chase and computes all six minimum cardinalities; extracting the coefficient table is a small but complete additional finite census, not a new algorithm.",
+        "The highly relevant 2002 Goldwasser–Klostermeyer–Ware full paper was not accessible after open-access/arXiv search and authorized Oxford VPN failure; a prior equivalent weight table cannot be ruled out.",
+        "The 2001 Caro–Goldwasser–Klostermeyer paper was available only at abstract level due to primary PDF transport timeout.",
+        "Other unindexed grid odd-domination counts or Lights Out optimal-pattern tables may cover the result; search absence alone is not priority proof.",
+        "The published Nov 2 homogeneous width-three kernel weight spectrum does not by itself fix affine all-on coset weights, but an explicit affine construction combined with that code could mechanically reproduce the new coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all minimum cardinalities and seed search, not a displayed all-length weight distribution or optimum multiplicities in the inspected section.",
+          "evidence": [
+            "p.73 table γ_odd(3×n) by n mod 6",
+            "p.74 GF(2) row recurrence with all 2^m first row choices and 3×n sample"
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+          "material_read": "Primary PDF, section 3, journal pp.73–74 (PDF images pp.9–10); p.73 six-class table and p.74 recurrence and 3-row example.",
+          "method": "Opened original primary PDF and inspected pages with rendered page screenshots.",
+          "title": "The Odd Domination Number of a Graph",
+          "trigger": "Direct same-object three-row odd domination minima, complete eight-seed recurrence."
+        },
+        {
+          "assessment": "Theorem 3 determines total number of even closed sets through gcd degree; odd closed sets share that count. The inspected material does not provide a cardinality-resolved affine enumerator.",
+          "evidence": [
+            "Introduction: earlier work determines numbers of sets",
+            "Theorem 3 in background: 2^d total even dominating sets, hence same total odd"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/250342861_Parity_Dominating_Sets_in_Grid_Graphs",
+          "material_read": "Accessible primary author-uploaded full-text HTML extraction: Introduction, background, Fibonacci polynomial setup, Theorem 3 and relevant later statements about positive even sets.",
+          "method": "Read searchable full-text sections and compared exact quantifiers and target statistics.",
+          "title": "Parity Dominating Sets in Grid Graphs",
+          "trigger": "Potentially stronger exact enumeration of odd and even closed dominating sets in all rectangular grids."
+        },
+        {
+          "assessment": "The diagonal-in-range theorem proves solvability of all-on Lights Out for finite undirected graphs but does not count solution weights.",
+          "evidence": [
+            "Section 2: diagonal of symmetric binary matrix belongs to range",
+            "Section 3: Lights Out corollary"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1206.2973v1",
+          "material_read": "Complete four-page arXiv HTML, Sections 1–3 and bibliography.",
+          "method": "Read full HTML and Theorem/corollary statement and proof.",
+          "title": "Symmetric Matrices over F_2 and the Lights Out Problem",
+          "trigger": "General all-on solvability potentially dominating graph-specific conditions."
+        },
+        {
+          "assessment": "Treats homogeneous even-parity nullspace existence/prime decomposition, not the affine all-on press-weight distribution.",
+          "evidence": [
+            "Section 1 Eq. (1) homogeneous recurrence and Theorem 1 gcd existence",
+            "Section 2 prime nullspace structures"
+          ],
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2610.31475",
+          "material_read": "Accessible updated arXiv PDF text pages 1–7, inspected pages 1–2 as rendered screenshots, Sections 1–3 including principal theorem statements and references.",
+          "method": "Read full extracted paper text and cross-checked first two original page images.",
+          "title": "Prime Nullspace Matrices and Even Dominating Sets",
+          "trigger": "Recent exact same rectangular-grid parity recurrence and possible weight classification."
+        },
+        {
+          "assessment": "Gives 3-row homogeneous code constant-weight spectra at n+1 divisible by 3, but does not state all-on coset enumerators or coset intersection weights.",
+          "evidence": [
+            "Finding table width 3: 1+7z^(8t) for n=6t−1 and 1+3z^(4t) for n=3t−1 not 6t−1",
+            "Step 1 homogeneous recurrence v_(j+1)=Bv_j+v_(j−1)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-low-width-spectrum-of-parity-nullspace-grid-codes--3c70f3b22c6a/RESULT.md",
+          "material_read": "Complete published RESULT.md including all cases, assumptions, proof and limitations.",
+          "method": "Read source statement and complete proof; compared homogeneous binary kernel versus affine all-on solution coset.",
+          "title": "The complete low-width spectrum of parity-nullspace grid codes",
+          "trigger": "Published same-grid height-three exact Hamming weight enumerator may imply all-on formula."
+        },
+        {
+          "assessment": "Full text not inspected; cannot assert the entire paper lacks a relevant enumerator. Abstract emphasizes existence/divisibility and even parity, but it remains a live priority risk.",
+          "evidence": [
+            "Graphs and Combinatorics 18 (2002), 271–283; DOI 10.1007/s003730200020",
+            "Indexed abstract focuses Fibonacci divisibility and even dominating sets",
+            "Authorized retrieval unavailable due to disconnected VPN"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s003730200020",
+          "material_read": "Bibliographic abstract/review description only. ArXiv and legal open-access searches yielded no accessible primary full text; institutional retrieval returned vpn_disconnected.",
+          "method": "Read indexed scholarly abstracts, attempted arXiv/OA discovery followed by authorized institutional download, no bypass.",
+          "title": "Fibonacci Polynomials and Parity Domination in Grid Graphs",
+          "trigger": "Most plausible historical source containing general GF(2) recurrence with potential specialized strip weight tables."
+        },
+        {
+          "assessment": "Known prior grid odd-domination results; full paper comparison not completed and no negative full-text coverage claim is made.",
+          "evidence": [
+            "2001, volume 21 pages 119–136; abstract names odd/residue domination and grids",
+            "2003 article directly credits earlier grid work"
+          ],
+          "identifier_or_url": "https://pldml.icm.edu.pl/pldml/element/bwmeta1.element.bwnjournal-article-doi-10_7151_dmgt_1137",
+          "material_read": "Bibliographic abstract and citation coverage only; primary PDF retrieval timed out.",
+          "method": "Read journal/indexed summary, attempted the original PDF; no unsupported whole-document exclusion.",
+          "title": "Odd and residue domination numbers of a graph",
+          "trigger": "Earlier paper by the same authors may provide stronger three-row odd domination distributions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full cardinality distribution over every valid all-on press strategy is a natural optimization invariant of classical three-row Lights Out strips. Scalar minimum-press values and total affine-solution counts do not tell whether there are exactly 2, 6 or 1 optimal strategies or identify the distinct heavier solution stratum. The exact six-residue formula classifies every labelled press set at each weight for all lengths and makes the tie-breaking multiplicity transparent; this is a motivated, independently useful complete enumeration, not an arbitrary parameter slice or merely a fixed small-board calculation. Its scope is deliberately only height three and no broad method is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+    "https://www.researchgate.net/publication/250342861_Parity_Dominating_Sets_in_Grid_Graphs",
+    "https://arxiv.org/html/1206.2973v1",
+    "https://arxiv.cnoctave.top/pdf/2610.31475",
+    "https://doi.org/10.1007/s003730200020",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-low-width-spectrum-of-parity-nullspace-grid-codes--3c70f3b22c6a/RESULT.md",
+    "https://mathworld.wolfram.com/LightsOutPuzzle.html",
+    "https://pldml.icm.edu.pl/pldml/element/bwmeta1.element.bwnjournal-article-doi-10_7151_dmgt_1137"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only all-on binary closed-neighborhood Lights Out on ordinary labelled 3×n open rectangles; no arbitrary initial states, other widths or quotient-by-symmetry counts.",
+    "Older 2003 recurrence and six minimum values and 2005 total counts are prior results; the contribution is specifically the weight-refined complete spectrum.",
+    "One 2002 high-relevance full-text source remained inaccessible due to disconnected authorized VPN; no full-text NOT_COVERING inference was made.",
+    "Bounded exact checks up to width n=600 recurrence and n=40 independently eliminated matrices corroborate, not replace, the finite-state proof.",
+    "Public-source confidentiality and misleading provenance metadata prevent staging a ready publication plan this run."
+  ],
+  "residual_risks": [
+    "The earlier 2003 paper states the exact same width-three eight-seed chase and computes all six minimum cardinalities; extracting the coefficient table is a small but complete additional finite census, not a new algorithm.",
+    "The highly relevant 2002 Goldwasser–Klostermeyer–Ware full paper was not accessible after open-access/arXiv search and authorized Oxford VPN failure; a prior equivalent weight table cannot be ruled out.",
+    "The 2001 Caro–Goldwasser–Klostermeyer paper was available only at abstract level due to primary PDF transport timeout.",
+    "Other unindexed grid odd-domination counts or Lights Out optimal-pattern tables may cover the result; search absence alone is not priority proof.",
+    "The published Nov 2 homogeneous width-three kernel weight spectrum does not by itself fix affine all-on coset weights, but an explicit affine construction combined with that code could mechanically reproduce the new coefficients."
+  ],
+  "schema_version": 1
+}

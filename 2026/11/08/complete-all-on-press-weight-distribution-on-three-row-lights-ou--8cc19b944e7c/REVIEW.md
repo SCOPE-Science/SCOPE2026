@@ -1,15 +1,21 @@
-# Scientific review: all-on three-row press spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the exact full all-on press-set cardinality distribution for each \(P_3\square P_n\), \(n\ge1\), not the previous minimum-only values. The closed-neighborhood parity equations give a bijection between admissible full solutions and the eight possible three-bit first columns whose forced \((n+1)\)st column is zero. Every one of the eight sequences is shown by exact recurrence evaluation to have period dividing twelve, with six-column weight increments \(6\) or \(10\). The displayed table verifies the precise terminal-zero residues, then the initial prefixes determine every term of the six-case polynomial. No asymptotic extrapolation or missing boundary assumption is used. An independent full-matrix Gaussian elimination verifies coefficients for every length through 80, while a separate column-chasing program verifies through 300; both run on the supplied files. Limitation: this is an elementary infinite strip classification, not a theorem for arbitrary grids.
+## correctness
 
-## Originality — PASS with explicitly bounded priority risk
-Caro–Klostermeyer (2003), Section 3, *already gives all six residue-class minimum-cardinality values* and the column-chasing algorithm, including an eight-initial-vector method and one example. The prior minimum formulas are expressly excluded. Caro–Goldwasser–Klostermeyer (2001), Section 4.1, explicitly cites those results. Minevich (2012), Sections 2–3, proves existence of all-on solutions for general undirected graphs but not cardinality distributions. Goldwasser–Klostermeyer–Ware (2002) and Goldwasser–Klostermeyer (2002) study nullspace dimensions and homogeneous Fibonacci recurrences, which determine counts of solutions but not their coefficientwise Hamming-weight enumerator. MathWorld's four solutions for a three-by-two board are covered as a known example. An explicit all-length six-case weight polynomial and the resulting optimal-multiplicity table were not found in the accessible inspected sources or mathematical record searches. The earlier eight-seed algorithm can certainly be used to compute coefficients at any fixed length; the exact closed-form coefficient classification is the asserted increment. Priority risk: a similar table may have appeared in the inaccessible full 2002 article, unpublished exercises, or an unindexed source. Searches are evidence of coverage comparisons, not proof of uniqueness.
+PASS
 
-## Value — PASS
-Optimal press patterns are the central optimization output in the Lights Out puzzle; counting and classifying *all* ways to achieve and exceed the known optimum is a natural and operationally meaningful refinement. The first nontrivial three-row strip exhibits an eight-solution class with six exactly tied optimum strategies and two heavier strategies, contrasting with two-optimum and unique-optimum lengths. A closed family-wide weight polynomial gives the full distribution, rather than another instance solver or a new derivation of the known minimum. No general theorem or additional application is claimed.
+Every labelled 3×n all-on press set corresponds exactly to a seed x1 in F2^3 satisfying x0=0, x_(n+1)=0 and x_(i+1)=111+B x_i+x_(i−1). The eight first seeds are exhaustive. Independent recurrence evaluation for all eight seeds confirms all twelve displayed columns, each pair-state (x13,x14)=(x1,x2), and six-block weights 10 for seeds 0,7 and 6 for seeds 1–6. Terminal-zero seed sets by n mod 6 are {0},{2},{1,3,4,6},{5},{7},all 8; their exact prefix weights yield all six boxed polynomials including n=1 and q>=1 for residue 0. Independent checks verified the formula for 1<=n<=600; an independently built full 3n×3n GF(2) elimination verified complete solution spectra for n<=40; direct full assignment enumeration checked 299592 assignments over widths 1..6. The infinite proof is the exact finite-state 12-period identity, not extrapolation. All ten actual source-tree blobs were identified and the Git tree SHA independently recomputed as a3e6a8bb52e0ef8ec5be1e63cc1d8742b43e7bd3.
 
-## Limitations
-The novelty judgement is necessarily conditional on the accessible historical material. In particular, the published 2003 minimum formulas are known coverage and cannot be credited again; the full Goldwasser–Klostermeyer–Ware (2002) manuscript was not completely accessible. The verification code is supplementary to the recurrence proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality for the complete all-on affine solution-weight polynomial and optimal-set multiplicities, excluding known minimal cardinalities, seed recurrence, total solution counts and homogeneous code spectra. Caro–Klostermeyer (2003) already teaches the exact eight-seed calculation and all six minima, but its inspected section does not give the complete weights. Goldwasser–Klostermeyer (2005) gives total solution counts through Fibonacci gcd nullity; the Nov 2 low-width code result treats the homogeneous kernel rather than the affine all-ones coset. The new complete periodic coset weight census is an exact natural classification with a substantive albeit small incremental calculation. The inaccessible full 2002 grid article and other unindexed weight tables are recorded as priority risks, not automatic failure.
+
+## value
+
+PASS
+
+The full cardinality distribution over every valid all-on press strategy is a natural optimization invariant of classical three-row Lights Out strips. Scalar minimum-press values and total affine-solution counts do not tell whether there are exactly 2, 6 or 1 optimal strategies or identify the distinct heavier solution stratum. The exact six-residue formula classifies every labelled press set at each weight for all lengths and makes the tie-breaking multiplicity transparent; this is a motivated, independently useful complete enumeration, not an arbitrary parameter slice or merely a fixed small-board calculation. Its scope is deliberately only height three and no broad method is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
