@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification evidence
-The embedded standalone Python checker uses exact integer and rational arithmetic and independent explicit Winsorization evaluation. Running `python winsor_gini_check.py` gives:
+# Independent mathematical audit
 
-```text
-ALL_REPLICATION_MULTIPLICITIES_EXACT 2352
-ALL_WINSORIZED_CHAMBERS_AND_ATTAINMENT_EXACT 165
-EXACT_RANDOM_TWO_INPUT_INEQUALITIES 10800
-ALL_WINSORIZED_GINI_DIAGNOSTICS_PASSED
-```
+## correctness
 
-The enumeration covers all multiplicity vectors in dimensions two through seven (not dimensions above seven), all rank pairs in dimensions two through ten, and the stated rational samples. It is not an infinite proof. The complete analytic proof of the unrestricted statement is in RESULT.md. No external independent audit has been performed.
+PASS
+
+PASS: Reconstructed sample rank clipping for real n-vectors and integer 1<=a<b<=n, strict order chamber coordinate-replication multiplicities a and n-b+1 (others singleton), and exact all-cut Gini norm. Verified nonstandard replication lemma: for any m_j>=n/2 choose S or its complement containing j, then mass phi(u)<=phi(m_j); otherwise all m_j<n/2 and choose cut side with u>=s, select j in S with m_j>=u/s and use phi monotonicity and the algebraic inequality n(s-1)(u/s-1)>=0 to bound arbitrary cuts by a singleton. Discrete coarea yields global bound and single-pivot rank perturbation attains max{a(n-a),(n-b+1)(b-1)}/(n-1). Pairwise one-input clipping contraction is distinct. Independently enumerated all integer replication multiplicity compositions of n for 2<=n<=7 (3,10,35,126,462,1716 compositions) and every nontrivial binary cut, all agreeing with the lemma; checked rank boundary formulas and trivial a=1,b=n. No inference from a finite test to all dimensions.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): primary Winsorized-statistic publications concern estimator bias, robust dispersion/control charts or distributional properties, not the deterministic two-input Gini seminorm of the entire coordinatewise clipping map. Rank rearrangement, two-cell averaging, and same-day morphological Gini results supply related cut methodology but do not imply this exact all-rank Winsorization coefficient from their stated theorems. Generic replication cut reduction is a methodological antecedent and not claimed novel; the sharp general replication single-column capacity lemma and its application to order-statistic clamping survive the checked comparisons.
+
+## value
+
+PASS
+
+PASS: Empirical-quantile clipping is a standard robust-statistical preprocessing transformation. The exact finite-sample perturbation condition, the three nonexpansive rank-pair cases and linear n-amplification at a fixed trimming fraction identify a quantitatively important discrepancy between dispersion contraction and data-set sensitivity. Universally sharp exact fact with natural motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

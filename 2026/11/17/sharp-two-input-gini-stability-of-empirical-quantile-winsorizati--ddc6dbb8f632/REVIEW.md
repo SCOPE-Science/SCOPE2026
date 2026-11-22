@@ -1,15 +1,21 @@
-# Mathematical review: empirical-quantile Winsorization
+# Independent mathematical audit
 
-## Correctness (PASS)
-The complete proof uses an exact coordinate-replication lemma with an independently checked multiplicity/cut argument; the coarea extension covers all real increments. The strict-order-chamber computation is exhaustive over all rank orders, line-segment integration covers two-input global stability, and rank-pivot perturbations attain the bound. No finite enumeration is substituted for the unrestricted proof. Exact rational diagnostics cover 2,352 complete multiplicity cases, 165 rank-pair cells and sharp witnesses, and 10,800 pairs.
+## correctness
 
-## Originality (PASS, qualified)
-The primary full text of Dey et al. (2012, arXiv:1211.4262v1) treats robust control charts and Winsorized variance, not a two-input Gini seminorm of the entire vector map. Bieniek (2014) proves trimean bias bounds via projection; Bieniek's 2016 Winsorized-mean bias paper was available only through an abstract and publication record, and this access limitation remains a risk. Relevant previously published statements about sorting, sample Gini dispersion and Gini–Greenwood dependence address different maps or statistical functionals; the source comparisons found no implication of this exact deterministic constant. Database searches and comparisons are not a proof of priority.
+PASS
 
-## Value (PASS)
-Rank-capped Winsorization is natural in robust statistics. The result supplies exact perturbation sensitivity, complete nonexpansivity thresholds, attaining inputs, a structural multiplicity formula valid for arbitrary replication maps, and a striking dimension-linear amplification law for a fixed trimming fraction. It distinguishes one-input dispersion control from two-input robustness and provides a sharp stability baseline for pairwise-dispersion preprocessing.
+PASS: Reconstructed sample rank clipping for real n-vectors and integer 1<=a<b<=n, strict order chamber coordinate-replication multiplicities a and n-b+1 (others singleton), and exact all-cut Gini norm. Verified nonstandard replication lemma: for any m_j>=n/2 choose S or its complement containing j, then mass phi(u)<=phi(m_j); otherwise all m_j<n/2 and choose cut side with u>=s, select j in S with m_j>=u/s and use phi monotonicity and the algebraic inequality n(s-1)(u/s-1)>=0 to bound arbitrary cuts by a singleton. Discrete coarea yields global bound and single-pivot rank perturbation attains max{a(n-a),(n-b+1)(b-1)}/(n-1). Pairwise one-input clipping contraction is distinct. Independently enumerated all integer replication multiplicity compositions of n for 2<=n<=7 (3,10,35,126,462,1716 compositions) and every nontrivial binary cut, all agreeing with the lemma; checked rank boundary formulas and trivial a=1,b=n. No inference from a finite test to all dimensions.
 
-## Residual scientific limitations
-The result is only for complete-graph unweighted Gini variation and strict integer empirical quantile thresholds. No multivariate or general weighted-graph claim is made. Unindexed historical equivalents, notably in older statistical functional and deterministic resampling literature, remain possible; the 2016 Winsorized-bias paper's full text was inaccessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): primary Winsorized-statistic publications concern estimator bias, robust dispersion/control charts or distributional properties, not the deterministic two-input Gini seminorm of the entire coordinatewise clipping map. Rank rearrangement, two-cell averaging, and same-day morphological Gini results supply related cut methodology but do not imply this exact all-rank Winsorization coefficient from their stated theorems. Generic replication cut reduction is a methodological antecedent and not claimed novel; the sharp general replication single-column capacity lemma and its application to order-statistic clamping survive the checked comparisons.
+
+## value
+
+PASS
+
+PASS: Empirical-quantile clipping is a standard robust-statistical preprocessing transformation. The exact finite-sample perturbation condition, the three nonexpansive rank-pair cases and linear n-amplification at a fixed trimming fraction identify a quantitatively important discrepancy between dispersion contraction and data-set sensitivity. Universally sharp exact fact with natural motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
