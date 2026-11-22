@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 proof/verify_matrix.py` and `python3 proof/verify_direct.py` from the extracted package root, using Python 3 and only the standard library. Corresponding completed program outputs appear at `proof/matrix.out` and `proof/direct.out`.
+## correctness
 
-The matrix program constructs the correct edge-deleted adjacency for every \(3\le n\le18\); it checks \(608\) time-indexed nullities by exact arithmetic modulo three and verifies the first identity power equals the predicted sharp order. The independent direct update implementation iterates all \(3^{2n}\) states for \(n=3,4,5\), exactly \(66{,}339\) labelled states. The period counts match the analytical formulas and sum to the complete state space.
+PASS
 
-The proof is unrestricted in \(n\) and applies to every \(\mathbb F_{3^f}\). Finite replays are corroboration, not a proof for arbitrarily large graphs, fields, or times. No independent external mathematical audit has been performed.
+Exact adjacency identity χ_A(Y)=Y(Y+1)^(n−3)(Y²−(n−3)Y−2(n−2)) holds over Z and remains valid mod3, but its rational direct-sum basis is used only when n−2 is nonzero in F3. For n≡0,1 the 2-dimensional core has temporal cyclotomic Φ8 or Φ10; z-eigenline yields order4 and W n−3 lines each give J2(1), order3. At n≡2, direct sum fails since b lies in W; spatial Jordan A~J1(0)^2⊕J2(−1)⊕J1(−1)^(n−4), so temporal J4(1) gives order9 and the zero components order4. The resulting E(t) formulas follow from ker(J_k(1)^t−I)=min(k,3^ν3(t)) in characteristic 3, with E=4[4|t]+min(4,w_t)+(n−4)min(2,w_t) in resonant class and (n−3)(1+[3|t])+2[4|t]+4[m|t] (m=8 or10) otherwise. Finite-field extension does not alter ranks. Möbius inversion gives primitive period populations. Independently computed exact F3 ranks and sharp operator orders n=3..11 at all t up to L_n and matched these formulas.
+
+## originality
+
+PASS
+
+Generic reversible second-order CA theory predates the work; published characteristic-three bipartite and intact-clique Hamming waves do not include the one-missing-edge graph, while prior complete-multipartite one-edge shape is in characteristic two. No inspected primary statement implies its mod3 Jordan resonance and every-time period counts.
+
+## value
+
+PASS
+
+Removing one edge from the maximally symmetric clique creates a natural modular resonance and exact jump among 24,60,36 temporal clocks; the result determines all times, graph sizes and finite-field extensions, rather than giving a few experimental periods. The exact J4(1) boundary explains why rational decomposition fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
