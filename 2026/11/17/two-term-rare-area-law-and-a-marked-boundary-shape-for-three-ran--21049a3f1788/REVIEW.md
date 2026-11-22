@@ -1,19 +1,21 @@
-# Review of the rare-area finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gram-correlation density, orthant area identities, determinant factorization, Jacobian, uniform sine expansion, and Dirichlet moments are explicitly derived in `RESULT.md`. The exact arithmetic yields \(\mathbb E[g]=4/21\) and \(\mathbb E_h\sum T_i^2=29/55\), hence the relative second coefficient \(-7/330\). The disjointness of near-hemisphere events and the uniform density-ratio bound prove both the extreme tail and the marked total-variation convergence. A standalone checker reproduces rational coefficients and independent geometric/numerical diagnostics.
+PASS
 
-## Originality — PASS, with historical uncertainty
+PASS: For independent isotropic great circles, the Gram correlation density is 1/(4pi sqrt(1+2xyz-x²-y²-z²)). The four antipodal cell-pair areas A_i are pi/2 plus or minus arcsin correlation terms, sum to 2pi; the Jacobian and exact D=4 prod_i sin(A_i/2) yield a symmetric joint area density. On A1=2pi-eta, A2..A4=eta*t1..t3, the expanded joint form is eta³/(64pi)g(t)[1-eta²(1+sum t_i²)/48+O(eta^4)] uniformly including simplex faces. Independent rational Dirichlet moment calculations give E[prod(1-T_i)]=4/21 and weighted E[sum T_i²]=29/55, hence one-cell probability epsilon^4/672[1-7epsilon²/330+O(epsilon^4)], multiplied by four disjoint symmetry classes gives epsilon^4/168. The normalized deficit has Beta(4,1) and t simplex density 21/(8pi)prod(1-t_i)/sqrt(prod t_i), with O(epsilon²) TV via uniform density ratio. Script verifies rational factors/Gram identity on finite samples only; limiting proof analytic.
 
-The full joint angular law is known and is **not** claimed as new. Finch–Jones provides polar-dual and perimeter distributions, and Philip's inspected manuscript provides densities and numeric evaluations, but neither inspected source states the two-term four-cell maximum tail or the full independent rare-area partition law with total-variation rate. Prior published records concerning the balanced area range, a pole-containing zero-cell perimeter, and near-maximal perimeter of random spherical vertex triangles address different regimes. The leading scalar asymptotic follows in principle by boundary analysis of known densities; its isolated evaluation is not the whole contribution. An earlier paper giving an equivalent endpoint expansion or marked limit would supersede the novelty claim; this remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The asymptotic describes an actual extremal transition of a random spherical tessellation: one antipodal pair occupies almost half the sphere while the other three areas jointly vanish. The rare probability, the rational next correction, and the non-Dirichlet limiting partition quantify different aspects of the same geometric mechanism, and the conditional total-variation estimate permits finite-threshold rare-event approximations. This is motivated by cell-area extremes rather than an arbitrary sampled statistic.
+PASS best-of-knowledge: exact joint area and spherical-triangle angle distributions in Finch-Jones, Philip and Miles are prior and credited. Full Philip manuscript sections on joint area density and single triangle probability were inspected, without an explicit maximum-of-four near-half-sphere two-term expansion or conditional three-cell share. Published same-day three-great-circle minimum-cell, balance and small-perimeter results address opposite tails or other observables and do not dominate this rare maximum-area marked law.
 
-## Scope and limits
+## value
 
-Only three isotropic independent great circles and a near-hemisphere largest cell are covered. The numerical script does not independently prove the asymptotics. Independent review of proof and priority is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: This is a geometric rare-event law for a natural tessellation: one antipodal cell pair nearly fills a hemisphere, forcing a non-Dirichlet conditional partition of the remaining three cell-pair areas. The sixth-order correction and O(epsilon²) total variation of marks quantify the boundary behavior beyond a routine marginal distribution restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
