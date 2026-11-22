@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The exact external trace is P_i symmetric-difference Q_j. Equal traces exactly correspond to consecutive-position/consecutive-rank common intervals. Singleton and full-set collisions form a forest for nonmonotone permutations, with 2m+2 independent edges. Every proper nonmonotone interval or monotone bond produces an additional identification unless monotonicity is global; monotone global permutations are directly counted. Simple permutations have only baseline identifications. Prepending a shared minimum to a simple tail produces exactly m²−2 traces. Exhaustive tests through 8 and constructive tests through 30 corroborate analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foucaud et al., Theor. Comput. Sci. 668 (2017), Theorem 13 and Proposition 14, https://arxiv.org/abs/1507.08164 ; full text https://perso.limos.fr/ffoucaud/Publications/Papers/J21_ID-interval-permut-1-bounds_TCS_2017.pdf (Section 4, printed pages 48–50)",
+        "Berthe–Foucaud–Lehtilä–Parreau (2026), arXiv:2607.16889v1, https://arxiv.org/abs/2607.16889 ; introduction, main results and bibliography"
+      ],
+      "reasoning": "The 2017 paper covers sharp locating-domination vertex bounds, including the numeric k² threshold; its theorem does not impose or classify simplicity of every extremal diagram. The 2026 paper covers treewidth/pathwidth, not permutation-diagram equality rigidity. Such broader numeric bounds do not decide the strictness for every nonsimple marked representation.",
+      "searches": [
+        "Permutation graphs external open neighborhoods exact trace shatter function m squared minus one simple permutations iff no proper common intervals",
+        "VC density and shatter function of adjacency relation in permutation graphs trace count simple permutation pattern",
+        "permutation graph neighborhoods 1 types m parameters number m^2-1 common intervals of two linear orders"
+      ]
+    },
+    "checked_sources": [
+      "Foucaud et al., Theor. Comput. Sci. 668 (2017), Theorem 13 and Proposition 14, https://arxiv.org/abs/1507.08164 ; full text https://perso.limos.fr/ffoucaud/Publications/Papers/J21_ID-interval-permut-1-bounds_TCS_2017.pdf (Section 4, printed pages 48–50)",
+      "Berthe–Foucaud–Lehtilä–Parreau (2026), arXiv:2607.16889v1, https://arxiv.org/abs/2607.16889 ; introduction, main results and bibliography",
+      "Brignall (2010), A Survey of Simple Permutations, https://www.cambridge.org/core/books/abs/permutation-patterns/survey-of-simple-permutations/6685D741BEEE34FB394751B550C9DEDB (bibliographic survey/definition material)",
+      "Pre-existing finding: Sharp open-neighborhood trace complexity of permutation graphs; item 7089bb06-3bf1-4500-8fca-eb4d124d5fc0; statement and proof of maximum and sufficient simple witnesses"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foucaud et al., Theor. Comput. Sci. 668 (2017), Theorem 13 and Proposition 14, https://arxiv.org/abs/1507.08164 ; full text https://perso.limos.fr/ffoucaud/Publications/Papers/J21_ID-interval-permut-1-bounds_TCS_2017.pdf (Section 4, printed pages 48–50)",
+        "Pre-existing finding: Sharp open-neighborhood trace complexity of permutation graphs; item 7089bb06-3bf1-4500-8fca-eb4d124d5fc0; statement and proof of maximum and sufficient simple witnesses"
+      ],
+      "reasoning": "Old implication: simple => maximum (plus numeric maximum for any representation). New implication: maximum => simple, equivalently nonsimple => at most m²−2, with equality examples at all lengths. Since existence of one extremizer and a universal upper bound do not constrain all other configurations to be nonextremal, old statements do not imply the converse.",
+      "searches": [
+        "permutation graph locating dominating equality characterization simple permutations proper common intervals",
+        "permutation diagram neighborhood profiles exactly k squared minus two equality iff simple permutation",
+        "Permutation graphs external open neighborhoods exact trace shatter function m squared minus one simple permutations iff no proper common intervals",
+        "permutation graph neighborhoods 1 types m parameters number m^2-1 common intervals of two linear orders"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foucaud et al., Theor. Comput. Sci. 668 (2017), Theorem 13 and Proposition 14, https://arxiv.org/abs/1507.08164 ; full text https://perso.limos.fr/ffoucaud/Publications/Papers/J21_ID-interval-permut-1-bounds_TCS_2017.pdf (Section 4, printed pages 48–50)",
+        "Brignall (2010), A Survey of Simple Permutations, https://www.cambridge.org/core/books/abs/permutation-patterns/survey-of-simple-permutations/6685D741BEEE34FB394751B550C9DEDB (bibliographic survey/definition material)",
+        "Pre-existing finding: Sharp open-neighborhood trace complexity of permutation graphs; item 7089bb06-3bf1-4500-8fca-eb4d124d5fc0; statement and proof of maximum and sufficient simple witnesses"
+      ],
+      "reasoning": "The equality statement is equivalently no proper common interval in the upper/lower endpoint orders. Common-interval permutation simplicity is classical, but linking it as a necessary AND sufficient condition for maximum external neighborhood trace capacity is stronger than the known forward implication and numerical maximum.",
+      "searches": [
+        "permutation graph locating dominating equality characterization simple permutations proper common intervals",
+        "permutation diagram neighborhood profiles exactly k squared minus two equality iff simple permutation",
+        "simple permutation indecomposable intervals extremal inversion neighborhood traces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pre-existing finding: Sharp open-neighborhood trace complexity of permutation graphs; item 7089bb06-3bf1-4500-8fca-eb4d124d5fc0; statement and proof of maximum and sufficient simple witnesses",
+        "Published mathematical index entries on permutation-graph counting logic and permutation classes returned no identified complete equality-case table"
+      ],
+      "reasoning": "Searched named exact permutations, simple-pattern aliases, locating-domination equality and neighborhood traces. The pre-existing record claims the overall maximum and the forward sufficient construction only. No exact rank table or equality-case characterization was located; absence of a match is not proof of priority.",
+      "searches": [
+        "permutation graph locating dominating equality characterization simple permutations proper common intervals",
+        "permutation diagram neighborhood profiles exactly k squared minus two equality iff simple permutation",
+        "simple permutation indecomposable intervals extremal inversion neighborhood traces"
+      ]
+    },
+    "rationale": "The previously established bound and simple-witness sufficiency do not imply converse equality classification or sharp non-simple stratum. The primary prior full text treats numerical extremal size and a construction, not all representations. Current proof supplies both missing implications using independent common-interval identifications and the prepend-minimum second-stratum construction. Historical priority remains provisional.",
+    "residual_risks": [
+      "Specialist older locating-domination equality cases or permutation common-interval trace-rank literature may already imply the necessity statement.",
+      "The Brignall survey full chapter was not available in the inspected access; no assertion of whole-chapter noncoverage is made.",
+      "The result treats marked diagrams, not a representation-free isomorphism classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the numeric maximum after empty-trace adjustment, but does not state complete equality characterization for all marked diagrams",
+        "evidence": [
+          "Theorem 13, Proposition 14; printed pages 48–50"
+        ],
+        "identifier_or_url": "https://perso.limos.fr/ffoucaud/Publications/Papers/J21_ID-interval-permut-1-bounds_TCS_2017.pdf",
+        "material_read": "Full Section 4 around Theorem 13, Proposition 14 and detailed configuration counting, plus definitions and introduction",
+        "method": "Read lawful open author PDF and inspected printed page 49 screenshot",
+        "title": "Identification, location-domination and metric dimension on interval and permutation graphs. I. Bounds",
+        "trigger": "Closest published permutation-diagram sharp bound"
+      },
+      {
+        "assessment": "Proves sharp statements for bounded treewidth and pathwidth, not permutation-graph extremal representation rigidity",
+        "evidence": [
+          "Sections 1 and principal statements; cited Foucaud et al. 2017"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.16889",
+        "material_read": "Abstract, introduction, stated principal results, relevant prior-work comparison, and references",
+        "method": "Read arXiv accessible full-text HTML",
+        "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+        "trigger": "Recent motivating primary work on parameter-neighborhood complexity"
+      },
+      {
+        "assessment": "Establishes relevance of classical simplicity language; no full-text NOT_COVERING determination made",
+        "evidence": [
+          "Publisher page for the chapter"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/books/abs/permutation-patterns/survey-of-simple-permutations/6685D741BEEE34FB394751B550C9DEDB",
+        "material_read": "Accessible bibliographic/abstract and description only, not full chapter",
+        "method": "Read publisher abstract/bibliographic page",
+        "title": "A Survey of Simple Permutations",
+        "trigger": "Common-interval/simple-permutation alias and classical background"
+      },
+      {
+        "assessment": "COVERS sharp maximum and simple-permutation sufficiency, but explicitly does not classify all equality cases",
+        "evidence": [
+          "Prior record Finding and Limitations: no all equality classification"
+        ],
+        "identifier_or_url": "7089bb06-3bf1-4500-8fca-eb4d124d5fc0",
+        "material_read": "Recoverable claim, Finding, assumptions and proof of prior numeric formula and simple witnesses",
+        "method": "Read stored original record for implication-level deduplication only",
+        "title": "Sharp open-neighborhood trace complexity of permutation graphs",
+        "trigger": "Overlapping prior mathematical record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6dda30d4-8830-4559-8acc-fb0c74f44dbe",
+  "value": {
+    "rationale": "Determines all equality configurations at every parameter size, distinguishing all simple diagram representations from all nonsimple ones, and establishes the sharp second attainable profile size. Completeness is useful for equality-case analysis in location-domination and parameter-type capacity, not merely a small numerical improvement.",
+    "status": "PASS"
+  }
+}
