@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The claimed fourth-power moment values come from two finite Fourier coefficient sums derived by orthogonality. The attached C++17 certificate enumerates all \(q^7\) normalized arrays for each \(q\in\{1,2,3,4,6\}\), using exact Gaussian or Eisenstein integer arithmetic, and compares the two independent formulas for each. The attached Python standard-library checker reconstructs the minimum sets and their symmetry orbits.
+## correctness
 
-Run from the directory of the extracted files:
+PASS
 
-```
-c++ -O2 -std=c++17 verify.cpp -o verify
-./verify
-python3 orbit_check.py
-```
+Fourier Parseval expresses M4 as the sum of squares of ordered-pair convolution coefficients and independently ordered-pair autocorrelations. Three independent character/constant phases uniquely enforce a00=a10=a01=1, leaving precisely q^7 gauge representatives. The source C++ code enumerates all 1+128+2187+16384+279936=298636 representatives via exact Gaussian/Eisenstein integer pair norms, cross-checks two forms and classifies minima, next levels, maxima; the Python orbit code normalizes all six barycentric permutations and conjugation. A separate vectorized integer convolution enumeration reproduced every minimum, count, maximum, next value and number of distinct moments, and a separately written symmetry check reproduced orbit-size partitions [1], [3], [2,6], [3,6,6,6,6,6,12], [6]. Source maximum 442 uses termwise triangle-inequality equality to enforce coefficient characters. This is exhaustive only for the five finite alphabets, not unrestricted phases.
 
-Verified counts: \(1+128+2187+16384+279936=298636\) gauge representatives. In order \(q=1,2,3,4,6\), the exact minima were \(442,138,136,138,132\), and the normalized minimum counts were \(1,3,8,45,6\). The orbit checker established the complete disjoint orbit partitions, including sizes \(3,6,6,6,6,6,12\) in the quaternary case. All tests passed using the extracted package. No floating-point computation is needed or used for the stated conclusions.
+## originality
 
-The proof is exhaustive over precisely the named cyclotomic alphabets, not over arbitrary unit-circle coefficients. The certificate's reliability depends on inspecting and running the provided finite code; third-party independent audit has not been performed.
+PASS
+
+Exact phase moments for degree-two triangle and 3x3 square are published, but differ as support sets and their extrema cannot imply the degree-three ten-site classification. The ten-site minima, next-value gaps and full minimizer orbits were not present in the inspected full prior statements. No claim of priority over unindexed polyphase array tables.
+
+## value
+
+PASS
+
+The complete degree-three planar triangular aperture is a natural next Fourier/antenna support after the published six-site degree-two triangle; the exact low-degree cyclotomic family is a mathematically natural small alphabet class. Its nonmonotone q response and complete orbit structure are unknown from the nearby different geometries and provide a reproducible exact design benchmark, not an arbitrary one-entry calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

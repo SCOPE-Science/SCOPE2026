@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite and precisely scoped. Its fourth-moment identity follows from the orthogonality of distinct torus characters. Unique normalization removes exactly three independent cyclotomic phases. Exhaustive C++17 integer arithmetic checks all \(298636\) normalized assignments across the five specified alphabets with two distinct finite expressions, identifying the exact minima and gaps. The additional Python checker independently reconstructs the action of all barycentric permutations and complex conjugation on the lists of minimizing arrays and checks every orbit. The maximum and its equality class also follow analytically from the triangle inequality and multiplicative character relations.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Published array-design texts motivate the object and the moment invariant, but accessible full texts address planar Golay pairs or MIMO sequence optimization, not the complete exact table for this ten-point third-degree triangular aperture. The closest mathematical record summaries describe an earlier six-site second-degree triangular aperture and nine-site square or twelve-site prism supports. These conclusions cannot directly imply the different ten-frequency optimization. Searches for the precise aperture, alphabet orders and optimum values found no mathematical statement of this exact table. The historical novelty determination is provisional: specialist tables and one plausible triangular-array paper without accessible full text could contain additional information. The relevant inaccessible work was not classified as not covering on abstract evidence alone.
+PASS
 
-## Mathematical value — PASS
-The support is the full cubic polynomial triangle, the next natural member after a six-site quadratic triangle, and all five phase alphabets with cyclotomic field degree at most two are included. The exact nonlinear energy objective measures integrated sidelobe levels and is not a textbook normalization calculation. The strict \(q=3\) versus \(q=4\) ordering, strong \(q=6\) improvement, and complete orbit/geometric multiplicities provide a reproducible natural benchmark. No large system-level performance gain or continuous-phase global optimum is claimed.
+Fourier Parseval expresses M4 as the sum of squares of ordered-pair convolution coefficients and independently ordered-pair autocorrelations. Three independent character/constant phases uniquely enforce a00=a10=a01=1, leaving precisely q^7 gauge representatives. The source C++ code enumerates all 1+128+2187+16384+279936=298636 representatives via exact Gaussian/Eisenstein integer pair norms, cross-checks two forms and classifies minima, next levels, maxima; the Python orbit code normalizes all six barycentric permutations and conjugation. A separate vectorized integer convolution enumeration reproduced every minimum, count, maximum, next value and number of distinct moments, and a separately written symmetry check reproduced orbit-size partitions [1], [3], [2,6], [3,6,6,6,6,6,12], [6]. Source maximum 442 uses termwise triangle-inequality equality to enforce coefficient characters. This is exhaustive only for the five finite alphabets, not unrestricted phases.
 
-## Closest literature and limitations
-The accessible full texts of arXiv:2110.05214v1 (sections on cell-specific beams and array design) and arXiv:2104.03303v1 (phase-coded MIMO optimization and numerical design) do not present this ten-site exact spectrum. The Keizer 2020 triangular-grid IFT paper was available as abstract only. Comparisons with published summaries of related smaller triangular, square, prism and hexagonal Fourier-support problems did not reveal an implication covering the precise claim. Older exact polyphase-array classifications and access-limited designs are residual priority risks. The claim does not address higher-degree cyclotomic fields or unconstrained coefficient phases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact phase moments for degree-two triangle and 3x3 square are published, but differ as support sets and their extrema cannot imply the degree-three ten-site classification. The ten-site minima, next-value gaps and full minimizer orbits were not present in the inspected full prior statements. No claim of priority over unindexed polyphase array tables.
+
+## value
+
+PASS
+
+The complete degree-three planar triangular aperture is a natural next Fourier/antenna support after the published six-site degree-two triangle; the exact low-degree cyclotomic family is a mathematically natural small alphabet class. Its nonmonotone q response and complete orbit structure are unknown from the nearby different geometries and provide a reproducible exact design benchmark, not an arbitrary one-entry calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
