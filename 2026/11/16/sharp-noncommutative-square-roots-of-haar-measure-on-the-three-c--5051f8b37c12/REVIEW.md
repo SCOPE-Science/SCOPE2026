@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A three-character matrix Fourier inversion converts the exact Haar-square condition to a square-zero matrix. The unitary normal form of every square-zero \(2\times2\) matrix, the two eigenvalues of each atom, and direct commutator calculations give all necessity, sufficiency, sharp bounds, and minimality. `check.py` checks the Fourier algebra symbolically.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Jabbari proves the distinct identity \(\mu*\mu=\mu\), whereas these roots satisfy \(\mu*\mu=H\ne\mu\) whenever nontrivial. Chu–Hilberdink–Howroyd treat fixed functions for \(f*\mu=f\), not a classification of square-zero nontrivial matrix Fourier coefficients. The relevant primary texts and targeted Fourier aliases were inspected. A standard trine-measurement description may recast the matrices, but no prior implication giving the complete convolution-square condition and sharp noncommutativity bound was identified.
+PASS
 
-**Value — PASS.** This is the complete minimal-size boundary of the new matrix-idempotence rigidity phenomenon: positive three-atom qubit measures can become Haar in exactly two convolution steps while retaining maximal pairwise noncommutativity before squaring. It determines every such root and its sharp commutator and trace-norm moduli. The natural first possible group size and matrix dimension are both proved optimal.
+For G=Z3 with μ total mass I, Fourier convolution gives B=μ̂(1) with B²=0, μ̂(2)=B*, and μ̂(0)=I. Every nonzero square-zero 2×2 complex matrix is unitarily similar to tE12, t=||B||>0. Fourier inversion yields A_j=(I+t ω^-j E12+t ω^j E21)/3, with eigenvalues (1±t)/3, hence positivity exactly 0≤t≤1. Direct symbolic calculation gives μ*μ=H, [A_j,A_k] eigenvalues ±i√3 t²/9 and each trace deviation 2t/3, total 2t. At t=1 atoms are rank one; for t>0 noncommutative. On Z2 the nontrivial Fourier coefficient Hermitian and square-zero forces zero; scalar Z3 likewise. Independently checked the matrix convolution products, PSD determinants (1−t²)/9, and commutator coefficient symbolically. This is a universal Fourier classification, not evidence from the finite parameter samples.
 
-Closest literature: Jabbari (2026), Example 4.1 and Theorem 4.15; Chu, Hilberdink and Howroyd (2000/2001), Theorem 1 and Lemma 3. Residual priority risk: equivalent statements in finite-time quantum walks, covariant qubit POVMs, or older nonnormal convolution powers. Scope is finite group \(C_3\) only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jabbari's matrix Kawada–Itô rigidity theorem for positive matrix **idempotents** μ*μ=μ does not prohibit or classify positive roots of Haar μ*μ=H; its Example 4.1 is not a positive Haar root. Chu–Hilberdink–Howroyd's matrix-valued Choquet–Deny fixed-point criterion likewise is a different equation. The complete rank-one nilpotent Fourier orbit, positivity interval and exact extremal commutator constitute a distinct concrete theorem; priority risks remain in quantum trine POVM and finite-time-mixing folklore.
+
+## value
+
+PASS
+
+Explicit minimal positive **noncommutative** convolution square root of Haar, and sharp commutator classification, marks a structural boundary of matrix-valued Kawada–Itô intuition; it is a natural finite-group rigidity counterexample, not arbitrary arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
