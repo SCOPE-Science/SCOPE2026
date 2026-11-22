@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct orbit-barycenter argument proves the PL fixed-space model for every square board size. For each pair of distinct antipodal index pairs there are exactly two admissible four-square quarter-turn orbits; compatible families are precisely colored matchings. On odd boards the central square is a cone vertex. The established integer vertex-inflation splitting and integral matching-complex homology give a sharp first torsion threshold at fourteen. Exact Smith forms on the seven-label matching-complex boundary independently reproduce its unique factor three. Small boundary cases are explicitly included, with an empty even fixed set at board order two.
+## correctness
 
-**Originality — PASS within the inspected evidence.** The closest indexed transpose-fixed chessboard theorem has a different orbit type and torsion-free sphere wedge. The indexed doubled-cross-polytope boundary uses a fourfold matching-complex inflation rather than the twofold inflation from a quarter-turn chessboard. The foundational 1994 chessboard paper and the general inflation theorem do not imply any specific fixed locus without the new geometric orbit identification. The resulting numerical homology is a corollary of the established theorem after this identification, not a new independent homology theory. An older unindexed equivalence under rotating-rooks terminology remains possible.
+PASS
 
-**Mathematical value — PASS.** The PL classification is uniform over all board orders, sharply locates the first nontrivial integral torsion in geometric quarter-turn fixed spaces, and turns a natural symmetry-topology question into matching-complex topology with a known integral decomposition. It is more structural than a finite enumeration or an Euler-characteristic computation.
+PASS: Geometric G-fixed points correspond to simplices of admissible whole square-orbits with equal barycentric coordinates, not simply fixed vertices. Four-square quarter-turn orbits are nonattacking iff two distinct noncentral antipodal index pairs occur; exactly two allowed orbit types per edge of K_m and compatibility iff edges disjoint. Odd board has one universal central singleton, giving a cone. Bjoerner–Wachs–Welker Theorem 6.2/Corollary 6.3 supplies integral splitting for twofold inflations; M_m for m<=6 has torsion-free integer homology. M7 has H1=Z/3 and H2=Z^20; one-, two-, three-edge matching links contribute 21*6+105*2+105=441 free H2 generators, hence H2=Z^461. Independently verified orbit compatibility for n<=14 and exact M7 105x105 integer Smith form (84 unit factors, one factor 3, 20 zero). Universal PL identification is analytical; finite Smith calculations alone do not prove it.
 
-**Closest sources and boundaries.** See Björner–Lovász–Vrećica–Živaljević (1994), Björner–Wachs–Welker (Theorem 6.2 and Corollary 6.3), Shareshian–Wachs (2004), Mondal–Mukherjee–Saha (2023), and the indexed transpose-fixed and fourfold-inflated matching-complex results cited in RESULT.md or AUDIT.json. The work does not claim an integral wedge decomposition for the torsion-bearing fixed space, any full equivariant homotopy type, or a classification of all group actions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: prior literature provides matching/chessboard complexes, vertex-inflation splitting, and exact M7 torsion, all explicitly credited; the distinct quarter-turn geometric fixed-space identification with multiplicity-two matching inflation and resulting sharp board-order threshold were not found in indexed primary or Resultary results. Published transpose-fixed graph-board chessboard theorems and rotation quotients use different actions or quotient constructions, so do not imply this fixed set.
+
+## value
+
+PASS
+
+PASS: A uniform explicit PL classification of a natural rotational symmetry fixed space, not a finite-only table, reduces questions for all board sizes to known matching-complex topology. The first integral torsion threshold and exact free rank at n14 are meaningful, independently useful invariants arising from that structural identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

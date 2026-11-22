@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-20.md",
+      "INDEPENDENT_AUDIT_2026-11-20.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.10+ and SymPy 1.14. The program constructs each orbit of quarter-turns on squares, independently tests nonattackingness, identifies two alternatives per pair of antipodal label pairs, and exhaustively checks the correspondence between two-orbit compatibility and disjoint matching edges for every board order from one through fourteen. It exhaustively constructs the face vectors of the corresponding twofold matching inflations and their odd-board cones.
+## correctness
 
-For matching complexes on two through seven graph vertices, it constructs signed integer augmented simplicial boundary matrices and computes Smith normal forms over the integers. All nonzero Smith invariant factors on matching complexes through six are units; the seven-vertex matching complex has exactly one factor three, in the boundary from two-dimensional simplices, with boundary ranks \((1,20,85)\). Its one-dimensional homology is consequently \(\mathbb Z/3\mathbb Z\), and its two-dimensional free rank is twenty. These verify the critical finite published input directly.
+PASS
 
-The program outputs exact JSON statistics and terminates with `QUARTER_TURN_CHESSBOARD_EXACT_CHECK_PASS`; the expected byte-for-byte output is embedded as `verification_output.txt`. No randomized numerical methods or finite-field proxies are used in place of integer Smith reductions. The finite checks alone cannot establish the uniform PL equivalence for infinitely many board sizes; the explicit orbit-barycenter proof does so. The general integral splitting is due to the cited published inflation theorem.
+PASS: Geometric G-fixed points correspond to simplices of admissible whole square-orbits with equal barycentric coordinates, not simply fixed vertices. Four-square quarter-turn orbits are nonattacking iff two distinct noncentral antipodal index pairs occur; exactly two allowed orbit types per edge of K_m and compatibility iff edges disjoint. Odd board has one universal central singleton, giving a cone. Bjoerner–Wachs–Welker Theorem 6.2/Corollary 6.3 supplies integral splitting for twofold inflations; M_m for m<=6 has torsion-free integer homology. M7 has H1=Z/3 and H2=Z^20; one-, two-, three-edge matching links contribute 21*6+105*2+105=441 free H2 generators, hence H2=Z^461. Independently verified orbit compatibility for n<=14 and exact M7 105x105 integer Smith form (84 unit factors, one factor 3, 20 zero). Universal PL identification is analytical; finite Smith calculations alone do not prove it.
 
-Independent audit: not performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: prior literature provides matching/chessboard complexes, vertex-inflation splitting, and exact M7 torsion, all explicitly credited; the distinct quarter-turn geometric fixed-space identification with multiplicity-two matching inflation and resulting sharp board-order threshold were not found in indexed primary or Resultary results. Published transpose-fixed graph-board chessboard theorems and rotation quotients use different actions or quotient constructions, so do not imply this fixed set.
+
+## value
+
+PASS
+
+PASS: A uniform explicit PL classification of a natural rotational symmetry fixed space, not a finite-only table, reduces questions for all board sizes to known matching-complex topology. The first integral torsion threshold and exact free rank at n14 are meaningful, independently useful invariants arising from that structural identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
