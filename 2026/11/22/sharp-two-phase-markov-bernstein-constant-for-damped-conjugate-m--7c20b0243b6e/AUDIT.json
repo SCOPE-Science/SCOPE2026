@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The derivative supremum reduces exactly to the initial-velocity functional by contraction of right shifts. For the conjugate pair, phase reduction gives an exhaustive single-variable expression whose denominator switches once because exp(r u)(cos u-r sin u) has negative derivative on (0,pi). The two branches are respectively strictly unimodal and strictly decreasing, giving the unique globally optimal contact phase. An explicitly normalized extremizer attains the bound; strict monotonicity of the scalar threshold function gives the unique parameter boundary. Implicit differentiation yields a continuous first derivative and a strictly negative second-derivative jump. The strong-damping asymptotic follows from convergence of the unique bounded scaled root. The same constant for complex-valued inputs follows by translation, phase rotation and real-part reduction. A standard-library checker passed 174116 supplementary phase/trajectory comparisons and direct coefficient searches; these tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2209.12250 establishes monotonicity and estimates under real-exponent hypotheses; the introductory discussion explicitly separates complex-exponent computation from solved real-exponent comparisons.",
+        "arxiv:2403.16330 supplies an all-system optimization criterion and a numerical three-mode example e^{-t}(a1 cos t+a2 sin t+a3), rather than a two-mode analytic phase classification.",
+        "Borwein–Erdélyi (1996) treats a distinct Markov–Bernstein problem involving real exponential-sum exponents."
+      ],
+      "reasoning": "Broad constrained-approximation frameworks do provide optimization formulations, but their stated results neither imply an explicitly evaluated all-ratio scalar maximum nor identify the proposed contact bifurcation and loss of C2 smoothness. Existing numerical three-mode coverage cannot be specialized into the proposed exact two-mode formula.",
+      "searches": [
+        "arxiv:2209.12250 Generalized Markov-Bernstein inequalities, Theorems 1–3 and Conjecture 1",
+        "arxiv:2403.16330 Chebyshev approximation by non-Chebyshev systems, Sections 8.2 and 9.4",
+        "Markov Bernstein inequality exponential polynomial pair complex roots exact constant half line oscillatory"
+      ]
+    },
+    "checked_sources": [
+      "V. Yu. Protasov, arxiv:2209.12250, first version 2022-09-25; source sections inspected",
+      "V. Yu. Protasov and R. Kamalov, arxiv:2403.16330, first version 2024-03-24; original PDF sections inspected",
+      "P. Borwein and T. Erdélyi, DOI:10.1515/CRLL.1996.476.127; abstract/bibliographic material, limited access",
+      "Published mathematical-record semantic comparisons for conjugate modes, underdamped derivative inequalities, damping-contact thresholds and damped-oscillator observability"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The derivative-at-zero reduction is prior methodology and is explicitly credited; only its exact evaluation for the conjugate pair is claimed here.",
+        "Protasov (2022) does not prove a complete all-complex-exponent comparison principle.",
+        "Kamalov–Protasov (2024) gives an algorithm, not the critical damping-ratio formula and smoothness transition in the claim."
+      ],
+      "reasoning": "Applying general convex optimality to this particular function system does not itself furnish the stated unique contact location, explicit phase threshold, exact extremizers or curvature jump. The current claim supplies these additional evaluations, while making no claim to solve the broader complex-exponent conjecture or to originate the initial-velocity reduction.",
+      "searches": [
+        "arxiv:2209.12250, proof of derivative-at-zero reduction and exact solved hypotheses",
+        "arxiv:2403.16330, generalized alternance criterion and numerical examples",
+        "Borwein Erdelyi 1996 sharp Bernstein-type inequality exponential sums real exponents",
+        "Markov Bernstein sharp constant for complex exponential polynomial underdamped conjugate imaginary roots, optimal initial derivative of bounded scalar solution to linear second-order ODE on half-line"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Protasov, arxiv:2209.12250, pp. 3–5: the sharp initial-derivative norm is a constrained uniform-approximation extremum for exponential-polynomial spaces.",
+        "Kamalov–Protasov, arxiv:2403.16330, Sections 8.2 and 9.4: complex-exponential Markov–Bernstein constants can be computed via generalized constrained alternance.",
+        "The present domain is the underdamped oscillator solution space with one real conjugate pair, rather than generic complex-exponential sums."
+      ],
+      "reasoning": "The equivalent bounded-initial-velocity, two-dimensional real cosine–sine, and one-complex-conjugate-pair formulations were compared directly. The general literature defines or numerically computes the corresponding functional but does not give the exact two-phase damping-ratio formula, the unique active-contact threshold, or its second-derivative discontinuity.",
+      "searches": [
+        "\"damped sine\" \"Markov-Bernstein\" sharp constant derivative half line",
+        "\"complex exponents\" \"Markov-Bernstein\" exponential polynomials two",
+        "Markov Bernstein inequality sharp derivative constant for real damped harmonic oscillators e^{-a t}(A cos(b t)+B sin(b t)) on positive half-line two dimensional complex conjugate roots exact phase transition",
+        "arxiv:2209.12250, Sections 2–3: sharp derivative constants for real parts of complex exponential polynomials"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical table in arxiv:2403.16330 concerns lacunary algebraic polynomial systems, and its complex-exponent example has an additional nonoscillatory exponential mode.",
+        "The closest compared published mathematical records concern damped-oscillator observability and damped two-tone approximation, which optimize different functionals.",
+        "No inspected source supplies the exact 0.2990843801527... threshold or the equivalent scalar root equation."
+      ],
+      "reasoning": "The specific spectral pair, norm, critical parameter, and asymptotic slope were compared rather than relying on matching titles. No exact formula or numerical table of this two-mode derivative problem was identified in the inspected materials; this absence is not taken to prove universal uniqueness.",
+      "searches": [
+        "Exact first-derivative supremum norm of damped sine and cosine space e^{-a t} span{cos b t,sin b t} with sharp damping threshold 0.29908438015, single-contact and two-contact extremizers; underdamped oscillator Markov Bernstein constant",
+        "\"0.299084\" damped exponential Bernstein",
+        "\"1+W(1/e)\" \"Markov\" exponential polynomial",
+        "arxiv:2403.16330, numerical Markov–Bernstein Table 1 and Section 9.4"
+      ]
+    },
+    "rationale": "Direct full-text comparisons with arxiv:2209.12250 and arxiv:2403.16330 found general formulations and numerical non-Chebyshev approximation methods, but not an all-parameter analytic sharp constant for exactly one damped conjugate pair, its unique active-contact switch or the regularity jump. Database search compared the same object and aliases and returned other damped-oscillator functionals, not a result implying these conclusions. The derivation builds on previously known constrained approximation and half-line derivative reductions; those are not claimed as novel. Priority risk for specialist older work remains.",
+    "residual_risks": [
+      "An earlier exact calculation in specialist Chebyshev approximation, complex-exponential-polynomial, or second-order ODE literature may remain unidentified.",
+      "The complete Borwein–Erdélyi (1996) primary text was not inspected; the accessible stated object is materially different.",
+      "Independent mathematical peer validation and independent publication-priority assessment have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact complex-conjugate pair evaluation or the two-contact phase threshold.",
+        "evidence": "The paper defines the sharp constant for arbitrary complex exponents and reduces to a constrained optimization, but its comparison theorems and explicit bounds focus on real exponents; it flags the general complex comparison as unresolved.",
+        "identifier_or_url": "https://arxiv.org/pdf/2209.12250",
+        "material_read": "Primary preprint PDF: title/abstract, introduction, definitions in Sections 1–2, real-exponent results and bounds, applications/conjecture discussion; inspected a primary page image.",
+        "method": "Read full text in the indicated sections and checked hypotheses and stated implications against the two-mode claim.",
+        "title": "Generalized Markov–Bernstein inequalities and stability of dynamical systems",
+        "trigger": "Direct foundation for sharp initial derivative of exponential-polynomial spaces, potentially stronger coverage"
+      },
+      {
+        "assessment": "General computable framework, not a stated exact formula for the two-dimensional conjugate pair.",
+        "evidence": "Its damped example is the three-mode space e^{-t}(a1 cos t+a2 sin t+a3) and reports a numerical constant about 8.694367, not the two-mode sharp norm or its damping-dependent contact phase diagram.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.16330",
+        "material_read": "Primary preprint PDF: abstract/introduction, the generalized approximation framework, Sections 8.2–8.3, Section 9.4 and its complex-exponent example; inspected the primary page image containing the numerical example.",
+        "method": "Compared the actual basis dimension, time domain, objective and claimed output rather than just the article title.",
+        "title": "Chebyshev approximation by non-Chebyshev systems",
+        "trigger": "Follow-up methodology giving Markov–Bernstein inequalities for complex-exponential systems and a numerical damped example"
+      },
+      {
+        "assessment": "Different real-exponent setting; incomplete full-text access leaves a minor priority risk.",
+        "evidence": "The accessible abstract describes real exponential sums and supremal Markov–Bernstein inequalities, not the specific complex pair or its damping transition.",
+        "identifier_or_url": "https://doi.org/10.1515/CRLL.1996.476.127",
+        "material_read": "Available abstract and bibliographic excerpts; complete original was not confirmed read.",
+        "method": "Compared the stated real-exponent family and bounded-interval estimates to the damped conjugate-pair half-line problem.",
+        "title": "A sharp Bernstein-type inequality for exponential sums",
+        "trigger": "Classical candidate for dominating real-exponential Markov–Bernstein bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7c20b024-3b6e-4fe7-a637-5528c401ba0c",
+  "value": {
+    "rationale": "The exact maximal initial velocity of a uniformly bounded, underdamped second-order linear oscillator is a natural two-dimensional nonreal spectral benchmark singled out by the general exponential-polynomial inequality problem. The sharp coefficient shows a genuine contact-geometry transition at a uniquely specified physical damping ratio; it is C1 but not C2 there, has explicit extremizers, and matches the known repeated-real-root asymptotic coefficient as frequency vanishes. These facts answer a motivated structural and exact-constant gap, not an arbitrary numerical slice or an unmotivated parameter substitution.",
+    "status": "PASS"
+  }
+}
