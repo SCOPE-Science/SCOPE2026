@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single-set average is rank one. Mixed Hölder and the associate norm yield the exact fixed-set identity \(\|P_B\|=\|\mathbf1_B\|_{p,q}\|\mathbf1_B\|_{p',q'}/|B|\), including endpoint exponents. Reduction to vertical section lengths gives four explicit edge formulas and two corner formulas; Jensen or \(m^r\le m\) proves all upper bounds. Two independent two-height constructions attain the suprema as limits, and opposite corners have actual maximizers. Strict equality and strict-concavity compactness yield the complete attainment and maximizing-sequence classification. The proof treats all measurable sets, not a sampled family. A supplementary script passed 3,000 finite-grid upper-bound probes, eight two-height families and two exact corner tests; finite probes are not needed for infinite-dimensional correctness.
+PASS
 
-## Originality — PASS, qualified
+For any measurable B of area t in the unit square, mixed Hölder including endpoints gives exact rank-one norm ||P_B||=||1_B||_{p,q}||1_B||_{p′,q′}/t. With m(x) vertical section length, s=measure{m>0}, h=ess sup m, the six endpoint expressions reduce to concave moments ∫m^a or convex moments ∫m^r and products of h and s. Jensen and m^r≤m yield K=t^{-|1/p−1/q|}, with sharp two-height spike/dust sequences. Strict Jensen or m^r equality forbids attainment at each of the eight non-corner boundary pairs; all equal-exponent corners give 1, opposite corners attain iff s=h=1. If near-extremal then both factors tend to 1: strict concavity enforces m→t in L1 with h→1, or convex moment equality enforces s→1 and ∫m(1−m)→0; converses follow by continuity. Independent numeric endpoint check on five pairs confirmed bounds and opposite-corner equality. Finite grids are not used for arbitrary measurable functions.
 
-The motivating source defines uniform averaging friendliness and uses it for disjointness-preserving operators but does not compute the exact endpoint fixed-area envelope. Lü–van Neerven's conditional expectation examples concern distinct, sometimes infinite-rank operators. An accessible older comparative claim establishes a sharp small-area law for \(1<p,q<\infty\), which does not imply any boundary exponent or the all-area attainment/rigidity theorem here. The statement is intentionally restricted to the nonreflexive boundary. No exact endpoint counterpart emerged from the indexed semantic searches or the relevant full-text inspections; the remaining risk is an older unindexed mixed-norm averaging identity.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Single-set averaging norms are a structural hypothesis in Köthe–Banach disjointness-preservation theory. The result completes the entire nonreflexive boundary of the natural fixed-area optimization problem with an exact all-scale answer, and identifies precisely why best sets fail to exist for four continuous endpoint families. The spike-versus-dust rigidity dichotomy distinguishes two inequivalent concentration mechanisms, so it is more than an exponent substitution in a small-area asymptotic.
+Known general averaging-friendliness and conditional expectation unboundedness are qualitative, and a highly related exact interior small-t asymptotic excludes ALL endpoints. The judged contribution is the endpoint all-t equality and iff near-extremizer structure, not rank-one duality or Jensen alone.
 
-## Scope and limitations
+## value
 
-No assertion is made about interior exponents, general conditional expectations, stability rates, or an exhaustive search of all unpublished mathematical sources. No independent verification has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform boundedness phenomenon in mixed-Lebesgue averaging has a sharp endpoint fixed-measure quantitative form with different geometry from interior exponents. A complete all-area norm/attainment/rigidity classification at the nonreflexive boundaries is useful for projection geometry and mixed-norm operator stability, especially the spike-versus-dust dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
