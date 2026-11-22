@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T02:53:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For every stated (r,t) the disk and point fit in a common open hemisphere, making the minimal geodesic convex hull well-defined. Spherical right-triangle sine/cosine laws yield tangent angles u=acos(tan(r) cos(t)/sin(t)) and v=asin(sin(r)/sin(t)); the two triangle spherical excesses minus the facing spherical disk sector give added area Delta=2u cos r+2v-pi. Differentiation yields Delta′=2 sin r(cos r-cos t)/(sin t sqrt(sin^2 t-sin^2 r))>0, checked independently at multiple interior parameters with 1e-15 agreement. Expanding the positive denominator near t=r and t=pi-r and integrating gives Delta(r+h)=(2/3)sqrt(2tan r)h^(3/2)+O(h^(5/2)) and terminal deficit=4sqrt(2cot r)h^(1/2)+O(h^(3/2)); monotone inversion gives h~tan(r)*deficit^2/32. Sampled gnomonic spherical hulls in checker.py are corroboration, not a proof of the continuous hull.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 projective article gives only implicit hull-volume radius, while the Riemannian sequel is described as a delta->0 surface-area asymptotic, not a finite-level two-endpoint evaluation. The Euclidean ball result concerns ordinary Euclidean balls and a distinct terminal geometry."
+        ],
+        "reasoning": "General geometrical volume asymptotics may imply the onset exponent, but no inspected theorem supplies both the full spherical Delta(t) and the antipodal terminal coefficient. Inaccessible sequel remains a qualified risk.",
+        "searches": [
+          "Resultary query: spherical geodesic ball illumination body convex hull point explicit added area terminal square root cusp",
+          "arXiv:2605.25122 full Section 5.2",
+          "arXiv:2606.21112 abstract",
+          "Resultary 2026/11/1/SCOPE-finite-radius-ball-illumination-in-all-dimensions-and-its-quadra--e9a4ae084de4"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026 RESULT.md and checker.py",
+        "https://www.academ.us/article/2605.25122/",
+        "https://arxiv.org/abs/2606.21112",
+        "https://arxivlens.com/paperview/details/illumination-bodies-on-riemannian-manifolds-2486-dba2aeee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior implicit equation delta=Vol(conv(B_r,P)\\B_r) defines what to compute but is not an existing evaluation. General delta-down-to-zero theorems cannot determine the separate terminal t->pi-r cusp or global monotonic function."
+        ],
+        "reasoning": "The explicit spherical triangle/sector derivation and both endpoint coefficients add quantified content beyond the cited existence and leading-small-level results.",
+        "searches": [
+          "Resultary query: spherical geodesic ball illumination body convex hull point explicit added area terminal square root cusp",
+          "arXiv:2605.25122 Section 5.2",
+          "arXiv:2606.21112",
+          "Resultary 2026/11/1/SCOPE-finite-radius-ball-illumination-in-all-dimensions-and-its-quadra--e9a4ae084de4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known sphere-form illumination body of a ball is again a ball and is implicitly defined by added convex-hull volume. The current Delta_r(t) is exactly that finite-level added volume in dimension 2, before antipodal contact."
+        ],
+        "reasoning": "The constructions are identical in the subcritical sphere case; the novelty claim narrows to the evaluated expression and endpoint asymptotics, not the body definition or concentricity.",
+        "searches": [
+          "Resultary query: spherical geodesic ball illumination body convex hull point explicit added area terminal square root cusp",
+          "arXiv:2605.25122 Section 5.2 Example 2",
+          "arXiv:2606.21112"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 2 supplies a critical area and radial implicit definition but no evaluated table of the two spherical tangent angles, the derivative formula or terminal coefficient tan(r)/32."
+        ],
+        "reasoning": "Knowing threshold Delta*=2pi cos r is not the same as knowing the complete exact function or its terminal approach.",
+        "searches": [
+          "Resultary query: spherical geodesic ball illumination body convex hull point explicit added area terminal square root cusp",
+          "arXiv:2605.25122 Example 2",
+          "Resultary query spherical geodesic ball illumination body exact profile square-root cusp"
+        ]
+      },
+      "rationale": "PASS with access caveat: Assouline–Besau–Werner 2026 Section 5.2 Example 2 already proves concentricity, critical area and the radius defined implicitly by a geodesic hull volume; those are explicitly credited. Its full accessible Section 5.2 does not display the two-angle 2D spherical area evaluation or the two sharp endpoint coefficients. General Assouline–Schütt–Werner arXiv:2606.21112 treats Riemannian small-illumination asymptotics per available abstract, but full text could not be obtained from arXiv/OA and authorized Oxford retrieval returned vpn_disconnected; this is a real priority risk, not automatic fail. Euclidean R-ball illumination is a different convexity operation and geometry. The new scoped claim is explicit finite-level sphere geometry and its terminal square-root cusp, not prior qualitative radial symmetry.",
+      "residual_risks": [
+        "Full text of 34-page Assouline–Schütt–Werner preprint was inaccessible despite OA attempts and authorized institutional Oxford VPN; an uninspected appendix could give overlapping explicit ball values.",
+        "At t=pi-r antipodal-contact geodesics need conventions; the claim correctly excludes boundary and beyond."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS concentricity and critical threshold; NOT_COVERING the evaluated two-angle profile/terminal coefficient in inspected full text",
+          "evidence": "Section 5.2: radius r_delta determined implicitly by delta=vol([exp_z(r_delta U),B_r]\\B_r), no closed 2D evaluation",
+          "identifier_or_url": "https://www.academ.us/article/2605.25122/",
+          "material_read": "Entire accessible primary article with focus on Section 5.2 Example 2 and definitions of geodesic hull and ball illumination",
+          "method": "Full-text scholarly HTML, lines 269-280 inspected",
+          "title": "Illumination Bodies in Projective Geometries (Assouline–Besau–Werner)",
+          "trigger": "Nearly identical spherical geodesic ball and critical illumination level"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING claimed. Accessible description emphasizes small-delta general Riemannian asymptotic; priority risk retained",
+          "evidence": "2026-06-19 34-page preprint, general Ricci-bounded manifold volume asymptotics in abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2606.21112",
+          "material_read": "ArXiv/OA abstract and scholarly metadata; full paper not obtainable; Oxford authorized request yielded vpn_disconnected",
+          "method": "Abstract only, attempted arXiv html and lawful OA, followed by authorized institutional request",
+          "title": "Illumination bodies on Riemannian manifolds (Assouline–Schütt–Werner)",
+          "trigger": "Same general illumination operation in Riemannian geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The complete radius-versus-illumination area profile for the canonical spherical disk is a natural geometric invariant of an established illumination-body construction. The sharp mismatch between onset delta^(2/3) and quadratic terminal inverse law with curvature-dependent coefficient describes an analytically meaningful regime not captured by a local small-area theorem. It is not an arbitrary isolated parameter.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026 RESULT.md and checker.py",
+    "https://www.academ.us/article/2605.25122/",
+    "https://arxiv.org/abs/2606.21112",
+    "https://arxivlens.com/paperview/details/illumination-bodies-on-riemannian-manifolds-2486-dba2aeee"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a geodesic disk B_r on the unit two-sphere with 0<r<pi/2 and an exterior point at r<t<pi-r, the added convex-hull area has an exact two-angle expression, is strictly increasing to 2*pi*cos(r), and its initial 3/2-power and terminal 1/2-power cusps produce inverse exponents 2/3 and 2 with terminal coefficient tan(r)/32.",
+  "limitations": [
+    "Unit S^2, radius r<pi/2, t in (r,pi-r) and levels delta<2pi cos r; no antipodal or higher-dimensional claims.",
+    "Uninspected close Riemannian preprint remains a named originality risk; no fabricated access or certification."
+  ],
+  "residual_risks": [
+    "Full text of 34-page Assouline–Schütt–Werner preprint was inaccessible despite OA attempts and authorized institutional Oxford VPN; an uninspected appendix could give overlapping explicit ball values.",
+    "At t=pi-r antipodal-contact geodesics need conventions; the claim correctly excludes boundary and beyond."
+  ],
+  "schema_version": 1
+}

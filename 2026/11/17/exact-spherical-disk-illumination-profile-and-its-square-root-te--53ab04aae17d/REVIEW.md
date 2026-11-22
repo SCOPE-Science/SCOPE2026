@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A common open hemisphere exists for the full stated parameter domain, making the geodesic hull unique. The right-triangle laws give both tangent angles; Girard's area formula and the spherical sector calculation give the exact area. Differentiation yields a strictly positive derivative with the two rigorously expanded endpoint singularities. The inverse law follows from strict monotonicity. The standalone standard-library checker passed 27 independent numerical comparisons, including direct spherical polygon hull areas on both sides of the equator. The analytic proof covers the continuous infinite parameter domain; finite sampling is only corroboration.
+## correctness
 
-**Originality — PASS, with priority risk.** The nearest relevant primary result, Assouline–Besau–Werner (arXiv:2605.25122, Section 5.2), already gives the concentricity, critical area and implicit hull-volume description, and is fully credited. It does not state or derive the explicit spherical two-angle area formula or the two endpoint coefficients. Assouline–Schütt–Werner (arXiv:2606.21112) proves general Riemannian small-illumination asymptotics, not a displayed full finite-level spherical two-dimensional profile in its available abstract. Published Euclidean radius-ball illumination and hyperbolic area expansions concern distinct geometry. Public-record searches for the exact profile and sharp terminal behavior returned no matching claim. The complete text of arXiv:2606.21112 and possibly unindexed literature remain priority risks; independent audit is warranted.
+PASS
 
-**Mathematical value — PASS.** The finite-level inverse radius is a natural quantitative observable for the recently studied illumination body in positively curved geometry. Its exact global profile and two incompatible sharp endpoint laws reveal the singular terminal regime that an infinitesimal affine-surface-area theorem cannot detect. In particular, approaching the spherical antipodal boundary quadratically in the remaining illumination area has an explicit curvature-dependent coefficient. The calculation completes a concrete geometric model rather than introducing an artificial parameter or merely restating the known symmetry.
+PASS: For every stated (r,t) the disk and point fit in a common open hemisphere, making the minimal geodesic convex hull well-defined. Spherical right-triangle sine/cosine laws yield tangent angles u=acos(tan(r) cos(t)/sin(t)) and v=asin(sin(r)/sin(t)); the two triangle spherical excesses minus the facing spherical disk sector give added area Delta=2u cos r+2v-pi. Differentiation yields Delta′=2 sin r(cos r-cos t)/(sin t sqrt(sin^2 t-sin^2 r))>0, checked independently at multiple interior parameters with 1e-15 agreement. Expanding the positive denominator near t=r and t=pi-r and integrating gives Delta(r+h)=(2/3)sqrt(2tan r)h^(3/2)+O(h^(5/2)) and terminal deficit=4sqrt(2cot r)h^(1/2)+O(h^(3/2)); monotone inversion gives h~tan(r)*deficit^2/32. Sampled gnomonic spherical hulls in checker.py are corroboration, not a proof of the continuous hull.
 
-**Scope and sources.** Domain: unit two-sphere, \(0<r<\pi/2\), \(r<t<\pi-r\), levels below \(2\pi\cos r\). Primary source: https://arxiv.org/abs/2605.25122 (first public 2026-05-24), full Section 5.2 inspected. Related source: https://arxiv.org/abs/2606.21112 (first public 2026-06-19), abstract only. The endpoint with antipodal pairs is excluded. Earlier general saturation statements and the Euclidean/hyperbolic analogues are not new contributions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with access caveat: Assouline–Besau–Werner 2026 Section 5.2 Example 2 already proves concentricity, critical area and the radius defined implicitly by a geodesic hull volume; those are explicitly credited. Its full accessible Section 5.2 does not display the two-angle 2D spherical area evaluation or the two sharp endpoint coefficients. General Assouline–Schütt–Werner arXiv:2606.21112 treats Riemannian small-illumination asymptotics per available abstract, but full text could not be obtained from arXiv/OA and authorized Oxford retrieval returned vpn_disconnected; this is a real priority risk, not automatic fail. Euclidean R-ball illumination is a different convexity operation and geometry. The new scoped claim is explicit finite-level sphere geometry and its terminal square-root cusp, not prior qualitative radial symmetry.
+
+## value
+
+PASS
+
+PASS: The complete radius-versus-illumination area profile for the canonical spherical disk is a natural geometric invariant of an established illumination-body construction. The sharp mismatch between onset delta^(2/3) and quadratic terminal inverse law with curvature-dependent coefficient describes an analytically meaningful regime not captured by a local small-area theorem. It is not an arbitrary isolated parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
