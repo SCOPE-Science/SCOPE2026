@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For each length n>=1, height-one excursions are indexed bijectively by all even-cardinality subsets of [n]. The published alternating-interval criterion excludes all differing intervals except adjacent flat/nonflat swaps, which precisely move one token on P_n. In each even-token layer the first-mixed-(2i-1,2i) edge involution leaves C(floor(n/2),t) unmatched vertices all on the parity-t side; the matching bound and parity coloring coincide, proving capacity. Independent edge-boundary enumeration, sorted-coordinate distance proof, and Young-tableau geodesic proof establish remaining claims. Standalone verify.py ran exact deletion-set equality through n=10 and matching formula through n=18; distance_check.py ran independent exhaustive BFS through n=9. Finite computation is validation only, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sala et al. (2016) consider unrestricted synchronization reconstruction",
+        "Cai et al. (2020) characterize unrestricted single-deletion two-read confusability",
+        "de Alba et al. (2020) give generic token-graph alpha, not the Motzkin channel"
+      ],
+      "reasoning": "Broader q-ary classification allows the edge restriction with an additional nontrivial height-feasibility argument; generic graph-theory work supplies token independence but not the source/channel identification. Stronger coverage of this exact bridge was not encountered.",
+      "searches": [
+        "regular language (F|UF*D)* deletion ambiguity graph maximum code size 2^n",
+        "Motzkin excursion adjacent flat swap graph independence number 2-read reconstruction code",
+        "site:arxiv.org Motzkin deletion token graph reconstruction",
+        "site:arxiv.org Motzkin two read reconstruction deletion graph",
+        "Independence and matching numbers of token graphs paths Corollary 3.10 de Alba 2020"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1604.03000",
+      "arXiv:2001.01376",
+      "de Alba et al., Australasian Journal of Combinatorics 76(3) (2020), 387-403",
+      "OEIS A284979",
+      "relevant indexed two-read q-ary deletion edge results, Dyck-restricted reconstruction graph results, token-path independence literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai et al. Proposition 9 + height-one alternation is the new channel-edge proof",
+        "de Alba et al. Theorem 3.9 and Corollary 3.10 apply once the new channel-to-graph equivalence is proved"
+      ],
+      "reasoning": "The antecedent statements imply the reported formula only after deriving the unique height-one source representation and enforcing alternating-interval feasibility. The bridge and code-level interpretation, rather than raw numeric alpha or a corollary stated solely for abstract token graphs, are the assessed claim.",
+      "searches": [
+        "height-one Motzkin paths two-read deletion confusability graph adjacent swap level step components exclusion process",
+        "Motzkin path height one two distinct single deletion descendants even token graph path optimal independent set parity",
+        "Motzkin excursion adjacent flat swap graph independence number 2-read reconstruction code",
+        "Independence and matching numbers of token graphs paths Corollary 3.10 de Alba 2020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "de Alba et al. (2020), Corollary 3.10, proves alpha for generic path token graphs; paper does not discuss Motzkin deletion-read channel",
+        "Cai et al. (2020), Proposition 9, describes q-ary two-read deletion edges but not constrained Motzkin source equivalence"
+      ],
+      "reasoning": "Searches included graph isomorphism, simple exclusion, adjacent-flat swaps, deletion read intersections and independent sets. General abstract token-graph results imply the numeric capacity only after proving the new channel isomorphism; they do not themselves state that bridge.",
+      "searches": [
+        "height-one Motzkin paths two-read deletion confusability graph adjacent swap level step components exclusion process",
+        "height one Motzkin reconstruction two common single deletion descendants connected components",
+        "Motzkin path single deletion two read confusability graph simple exclusion",
+        "height-one Motzkin paths fixed step count two-read deletion graph independent sets optimal codes",
+        "flat Motzkin paths bounded height one deletion read reconstruction token graph path",
+        "Motzkin path height one two distinct single deletion descendants even token graph path optimal independent set parity",
+        "Motzkin excursion adjacent flat swap graph independence number 2-read reconstruction code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A284979 already lists the same shifted overall capacity numerical sequence",
+        "de Alba et al. (2020), Corollary 3.10 supplies generic path token alpha"
+      ],
+      "reasoning": "The numeric sequence is explicitly not asserted novel. A database entry giving these integers without the Motzkin deletion reconstruction interpretation does not dominate the structural claim.",
+      "searches": [
+        "height-one Motzkin paths fixed step count two-read deletion graph independent sets optimal codes",
+        "site:arxiv.org Motzkin two read reconstruction deletion graph"
+      ]
+    },
+    "rationale": "Best-knowledge statement comparison finds existing abstract token-graph path independence (2020) and existing general two-common-deletion alternating-interval criterion (2020), neither of which explicitly identifies the height-one Motzkin two-read confusability graph. The claimed contribution is the precise channel-to-token graph equivalence and its explicit code design, not abstract token alpha, old sequence or classical tableau formula. An earlier unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed or differently named Motzkin-specific deletion-read graph theorem could already state the equivalence.",
+      "Known path-token independence implies all scalar capacity values once the equivalence is established; novelty is limited to the source/channel structural identification and explicit interpretation.",
+      "Finite verification through n=10 cannot independently validate all n.",
+      "The claim is restricted to three distinct symbols and two distinct reads; ambiguity under repeated identical reads is a different model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND: unrestricted synchronization reconstruction; not height-one Motzkin token equivalence",
+        "evidence": [
+          "arXiv:1604.03000 first public 2016-04-11",
+          "Section V-A contextualizes deletion reconstruction"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1604.03000v2",
+        "material_read": "Abstract, channel definitions, relevant deletion and reconstruction section (V-A)",
+        "method": "full open-access HTML read and source-date confirmation",
+        "title": "Exact Reconstruction from Insertions in Synchronization Codes",
+        "trigger": "earliest qualified archival synchronization-channel motivation"
+      },
+      {
+        "assessment": "ESSENTIAL ANTECEDENT: alternating two-letter interval criterion is adopted and credited; no height-one Motzkin graph identification found",
+        "evidence": [
+          "Proposition 9 gives two-read intersection characterization using alternating intervals"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+        "material_read": "Definitions, single-deletion intersection characterization, Proposition 9 and neighboring proof material",
+        "method": "open-access HTML primary text inspected",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "critical structural lemma on two common single-deletion reads"
+      },
+      {
+        "assessment": "STRONG NUMERIC PRIOR: exact alpha of path token graphs known; does not state Motzkin read-graph isomorphism. Claim narrowly distinguishes application and equivalence",
+        "evidence": [
+          "Australas. J. Combin. 76(3), 387-403 (2020)",
+          "Corollary 3.10 includes path token graph independence"
+        ],
+        "identifier_or_url": "https://www.academia.edu/179271076/Independence_and_matching_numbers_of_some_token_graphs",
+        "material_read": "Abstract, introduction, Theorem 3.9, Corollary 3.10, related proof and examples",
+        "method": "full open-access text rendition inspected; journal record cross-checked",
+        "title": "Independence and matching numbers of some token graphs",
+        "trigger": "possible stronger covering theorem: abstract path token independence"
+      },
+      {
+        "assessment": "Same shifted numbers exist; not asserted a new sequence or table, and channel identification absent in sequence title",
+        "evidence": [
+          "Sequence numerically agrees with reported overall capacity values"
+        ],
+        "identifier_or_url": "https://oeis.org/A284979",
+        "material_read": "sequence values and numerical interpretation metadata",
+        "method": "public sequence page read",
+        "title": "OEIS A284979",
+        "trigger": "detect exact known capacity integers under alternate interpretation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "70aa4497-5896-485f-b4f7-4b549273386b",
+  "value": {
+    "rationale": "The exact characterization of a constrained single-deletion two-read communication channel by the path-token graph yields constructive maximum zero-error codebooks for every length and arch count, plus connected confusability strata, exact edge complexity, distances, and shortest ambiguity chains. Motivated by synchronization/reconstruction of a natural height-limited path language, it is not an arbitrary finite slice or known numerical table alone. The general token-graph alpha and tableau facts are antecedents, but the correspondence creates a reusable design principle; no claim is made about height>=2 or one-read deletion correction.",
+    "status": "PASS"
+  }
+}

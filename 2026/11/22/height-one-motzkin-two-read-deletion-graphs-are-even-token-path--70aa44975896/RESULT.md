@@ -1,0 +1,57 @@
+# Height-one Motzkin two-read deletion graphs are even-token path graphs
+
+## Finding
+For every integer \(n\ge 1\), let \(\mathcal M_n\) be the words of length \(n\) on the three **distinct** letters \(U,D,F\) which, when read as height changes \(+1,-1,0\), start and end at height zero and stay within heights zero and one. Form the simple confusability graph \(G_n\) on \(\mathcal M_n\): two *different* words are joined exactly when they have at least two **distinct** common words obtainable by deleting one letter, with all deletion outputs retained even if they are not Motzkin paths.
+
+For \(0\le t\le\lfloor n/2\rfloor\), let \(\mathcal M_{n,t}\) be the words having exactly \(t\) up-steps and \(t\) down-steps. Their subgraph is canonically isomorphic to the \(2t\)-token graph \(F_{2t}(P_n)\) of the ordinary \(n\)-vertex path: a word is represented by the \(2t\) positions of its non-flat symbols, and an edge moves a single occupied position to an adjacent unoccupied position. The components of \(G_n\) are exactly these \(\lfloor n/2\rfloor+1\) layers, of sizes \(\binom n{2t}\). In particular, \(|\mathcal M_n|=2^{n-1}\).
+
+The largest code on the layer \(\mathcal M_{n,t}\), reconstructible from **any two distinct one-deletion reads**, has cardinality
+\[
+\alpha(G_n[\mathcal M_{n,t}])=\frac12\left(\binom n{2t}+\binom{\lfloor n/2\rfloor}{t}\right).
+\]
+An explicit optimal code consists of precisely those words whose non-flat positions \(a_1<\cdots<a_{2t}\) satisfy \(\sum_{j=1}^{2t}a_j\equiv t\pmod2\), with positions indexed from one. Across every layer the exact overall optimum is
+\[
+\boxed{\alpha(G_n)=\frac{2^{n-1}+2^{\lfloor n/2\rfloor}}{2}}.
+\]
+The first capacities (\(n=1,\ldots,10\)) are \(1,2,3,6,10,20,36,72,136,272\). This is an *exact finite-blocklength* capacity, not an asymptotic rate.
+
+For \(n\ge2\), the layer \(t\) has precisely \((n-1)\binom{n-2}{2t-1}\) edges (out-of-range binomial coefficients interpreted as zero); therefore, for \(n\ge3\),
+\[
+|E(G_n)|=(n-1)2^{n-3},
+\]
+while \(|E(G_1)|=|E(G_2)|=0\). For two paths in the same layer, whose sorted non-flat positions are \(a_1<\cdots<a_{2t}\) and \(b_1<\cdots<b_{2t}\), their graph distance is exactly \(\sum_j|a_j-b_j|\). In particular the layer diameter is \(2t(n-2t)\). The number of shortest confusability chains between the all-left and all-right extreme configurations is the rectangular hook-length value
+\[
+\frac{(2t(n-2t))!}{\displaystyle\prod_{i=1}^{2t}\prod_{j=1}^{n-2t}(i+j-1)}.
+\]
+Empty products and \(0!=1\) cover singleton layers.
+
+## Assumptions and scope
+The alphabet consists of three distinct symbols: a flat step is not identified with either up or down. Reads are indexed *words after exactly one arbitrary deletion*, then deduplicated as words. Two reads must be distinct from one another. The source is a nonnegative Motzkin excursion of maximum height one, with no restriction on where flats occur. No cyclic wrap-around, run quotienting, or deletion-output validity filtering is used. A code is a subset of \(\mathcal M_n\), with zero-error identification from **any** pair of distinct reads if such a pair exists. If a source offers fewer than two distinct reads, the requirement is vacuous for that source; its collision graph still precisely describes pairs with ambiguous two-read observations.
+
+## Proof
+**1. Height-one representation.** A height-one excursion has the form \(F^{a_0}UF^{a_1}DF^{a_2}\cdots UF^{a_{2t-1}}DF^{a_{2t}}\), with nonnegative exponents, or equivalently its non-flat symbols alternate \(U,D,U,D,\ldots,U,D\). Conversely, choosing any \(2t\) occupied positions among \(n\) determines exactly one such excursion. Thus positions give a bijection to the \(2t\)-subsets of \(\{1,\ldots,n\}\), and \(\sum_t\binom n{2t}=2^{n-1}\).
+
+**2. The only confusability edges.** Proposition 9 of Cai--Kiah--Nguyen--Yaakobi characterizes pairs having two common distinct single-deletion outputs: in a shared context their first-to-last differing interval consists of opposite phases of a strictly alternating two-letter word, of length at least two. Here a \(U,D\) alternating interval is impossible in both phases, because the first \(U\) requires starting height zero while the first \(D\) requires starting height one, with the *same* prefix height. An interval alternating \(F,U\) of length at least three has a phase containing \(UFU\), hence two up-steps without a separating down-step, impossible at height at most one; similarly an interval alternating \(F,D\) of length at least three contains \(DFD\), impossible at nonnegative height. Therefore an edge must be an adjacent interchange \(FU\leftrightarrow UF\) or \(FD\leftrightarrow DF\). Conversely each such interchange within a valid source yields a second valid source, since moving a flat step across an adjacent up- or down-step preserves all admissible heights, and the two words have the two distinct deletion outputs furnished by deleting either end of the altered pair. There are no cross-layer edges.
+
+In the occupied-position representation, each such interchange is exactly a move along one path edge into a vacant position. The token graph is connected: repeatedly slide the leftmost possible token left to reach the packed configuration \(\{1,\ldots,2t\}\), or reverse this procedure. Thus precisely one component occurs for each \(t\).
+
+**3. A sharp code by matching.** Color each \(2t\)-subset by the parity of the sum of its one-based positions. Every token move changes that parity; each parity class is an independent set. To prove optimality, partition indices into the adjacent pairs \((1,2),(3,4),\ldots\), leaving index \(n\) unpaired if \(n\) is odd. In each subset having a first pair with exactly one occupied index, toggle the occupied and vacant positions of this first mixed pair. This is a fixed-point-free edge involution on all such subsets: earlier pairs remain unmixed and the same pair remains first mixed. The unmatched subsets occupy both positions or neither in each pair, and, because \(2t\) is even, leave the final unpaired index vacant. There are exactly \(\binom{\lfloor n/2\rfloor}{t}\) unmatched subsets, all of whose position sums have parity \(t\), as each fully occupied pair contributes an odd sum. Each matched pair contributes one vertex of each parity. Hence the parity-\(t\) class contains exactly \(\tfrac12(\binom n{2t}+\binom{\lfloor n/2\rfloor}{t})\) vertices. Any independent set may contain at most one endpoint from each disjoint matching edge and at most every unmatched vertex, giving precisely the same upper bound. Layers are disjoint, so summing this formula gives the claimed total capacity.
+
+**4. Edges.** For a fixed boundary \((i,i+1)\), each edge in the \(2t\)-token layer is uniquely described by its \(2t-1\) occupied positions outside that pair; exactly one endpoint occupies position \(i\), and the other occupies \(i+1\). Thus each boundary contributes \(\binom{n-2}{2t-1}\) edges. Summing over the \(n-1\) boundaries and then all even token counts gives the formulas above.
+
+**5. Distance and extreme-chain count.** In a token move, a single sorted token coordinate changes by one, so any route between two configurations has length at least \(\sum_j|a_j-b_j|\). This lower bound is attained: when a token must move right and is blocked by the next token, that next token must also need a rightward move; thus one can first move the rightmost token requiring rightward motion. The symmetric rule handles leftward moves, and repeating reduces the sum by one until the target is reached. Extreme occupied sets \(\{1,\ldots,2t\}\) and \(\{n-2t+1,\ldots,n\}\) are exactly \(2t(n-2t)\) apart, which is maximal because each sorted token coordinate lies between its rank and its rank plus \(n-2t\). Their shortest paths consist solely of rightward moves. Order the \(j\)-th move of the \(i\)-th token by the prerequisite that its preceding move has happened and that the token immediately to its right has already made its \(j\)-th move. These precedence relations form a \(2t\) by \(n-2t\) rectangular Young-diagram poset (with one coordinate reversed). The classical hook-length formula counts its linear extensions, giving the stated product.
+
+## Verification
+Two standalone Python 3 programs are embedded: `verify.py` generates every height-one path, compares every direct pairwise **distinct deletion-output intersection** against the adjacent-flat-swap criterion at lengths one through ten, and checks each sharp edge and optimal capacity. It also verifies the explicit disjoint-pair matching involution and its unmatched population for every layer through length eighteen. `distance_check.py` constructs token-graph edges independently and checks every pairwise graph distance, all component diameters, and rectangular extreme geodesic counts through length nine. Both were executed from their actual package paths and terminated with all assertions satisfied. These finite checks are not substitutes for the all-length arguments above.
+
+## Relationship to prior work
+Sala--Gabrys--Schoeny--Dolecek (public preprint, 11 April 2016) study exact reconstruction in synchronization channels and set the archival motivation. The two-common-deletion-output alternating-interval characterization is Proposition 9 of Cai--Kiah--Nguyen--Yaakobi (2020) and is explicitly a *borrowed* theorem. De Alba--Carballosa--Leaños--Rivera (2020), particularly Corollary 3.10, already determine independence numbers for **abstract token graphs of paths**. Therefore neither that general graph invariant, the hook-length formula, nor the numerical sequence in isolation is asserted to be new. The contribution evaluated here is the channel-specific graph identification for height-one Motzkin sources, its exact decomposition, and the resulting explicit zero-error coding and geodesic interpretation. The overall capacity numbers also coincide with an already-tabulated reversal-class sequence (OEIS A284979 at a shifted index), which is not claimed as a new sequence.
+
+## Limitations
+The claim concerns arbitrary single deletions with a **two-distinct-read** requirement, not unique decoding from one read, the standard single-deletion correction channel, non-distinct repeated reads, deletion plus substitution, or output-admissibility constraints. The result does not extend automatically to Motzkin height two or more, where alternating phases can both be admissible and create longer confusability edges. Abstract token-graph independence formulas and tableau counts predate this result; no independent validation or publication-priority guarantee is claimed. An earlier unindexed exact Motzkin reconstruction graph identification remains a residual originality risk.
+
+## References
+1. F. Sala, R. Gabrys, C. Schoeny, L. Dolecek, *Exact Reconstruction from Insertions in Synchronization Codes*, arXiv:1604.03000 (first public version 2016-04-11), https://arxiv.org/abs/1604.03000.
+2. K. Cai, H. M. Kiah, T. T. Nguyen, E. Yaakobi, *Coding for Sequence Reconstruction for Single Edits*, arXiv:2001.01376, Proposition 9, https://arxiv.org/html/2001.01376v2.
+3. H. de Alba, W. Carballosa, J. Leaños, L. M. Rivera, *Independence and matching numbers of some token graphs*, Australasian Journal of Combinatorics 76(3), 387--403 (2020), especially Theorem 3.9 and Corollary 3.10, https://ajc.maths.uq.edu.au/pdf/76/ajc_v76_p387.pdf.
+4. OEIS A284979, a known reversal-class enumeration with the same shifted numerical values, https://oeis.org/A284979.
