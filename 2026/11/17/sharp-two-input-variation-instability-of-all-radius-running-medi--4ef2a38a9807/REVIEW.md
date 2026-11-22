@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The median of affine signals is piecewise affine. Every active selection reads an index within radius \(r\), so a unit-jump perturbation changes at most \(2r+1\) output edges; integration and the discrete jump decomposition yield the bound for every pair. An explicit alternating-rank baseline makes all \(2r+1\) output edges change under a single input jump, and the extension argument preserves the witness at all greater lengths. Exact checker tests corroborate the rank calculations.
+## correctness
 
-## Originality — PASS (provisional)
-The classic one-input smoothing property of Restrepo–Chacón does not imply a sharp two-input modulus. Previously recorded radius-one and cyclic statements do not imply the all-radius clamped path coefficient or the optimal path-length threshold. Full archival coverage is incomplete; some older median-filter articles were accessible only through abstracts, so duplicate historical priority remains a specific risk.
+PASS
 
-## Mathematical value — PASS
-The theorem determines the complete sharp high-length law for every odd window width, together with a sharp minimal input size and an explicit adversarial rank construction. It identifies a quantitatively maximal instability under perturbations in an operator used for variation smoothing. This is an all-radius structural statement rather than a single arbitrary finite calculation.
+A moving median of affine inputs is continuous, piecewise affine, and away from ties its derivative at output i reads one input derivative h_{a_i} from within the clamped radius-r window. Every h decomposes as a constant plus weighted single jumps 1_{j>=t}; the selected image of a jump is constant 0 to the left of its influence band and 1 to its right, with at most 2r+1 output edges able to alternate. Triangle inequality and line integration yield V(Mx-My)<= (2r+1)V(x-y) for all real pairs, no genericity restriction. At n=2r+2, k=r+1, the interleaved baseline x=(0,2,...,2k-2,1,3,...,2k-1) has median output i; adding epsilon 1_{i>=k} makes output changes alternate 0/epsilon on all 2r+1 edges, proving equality. Appending endpoint baseline repetitions and perturbation ones preserves all original changes at larger n. For shorter paths, at most n-1<2r+1 output edges can change for a single jump, and the same selector decomposition gives a strict upper bound. Independently checked witnesses through r=31, boundary extension and sample exact pairs; no finite census is used as the universal proof.
 
-## Scope and limitations
-Noncyclic unweighted path variation, clamped endpoints, real inputs. The exact coefficients below the stated minimal length and modified boundary conventions are not determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The concrete external and published-record searches compared mathematical statements, operator domains, norms and implied subcases, not simply titles. Closest strong antecedents were read to their stated scope. No earlier theorem subsuming the final exact result was established. This is a best-of-knowledge conclusion, not priority certification; disclosed archival and nomenclature risks remain.
+
+## value
+
+PASS
+
+Running medians are classical one-signal total-variation smoothers; their full-window amplification of differences is a substantial counterintuitive stability threshold. The theorem supplies the complete all-radii large-path exact law, optimal first path length 2r+2 and explicit rank-selector witnesses, not merely another radius-one or cyclic instance. It is a natural all-window invariant that matters in nonlinear robust filtering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

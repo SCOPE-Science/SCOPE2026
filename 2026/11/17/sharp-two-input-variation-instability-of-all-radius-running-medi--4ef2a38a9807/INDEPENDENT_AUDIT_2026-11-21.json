@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-21",
+  "audited_at_utc": "2026-11-21T09:40:43.268342Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A moving median of affine inputs is continuous, piecewise affine, and away from ties its derivative at output i reads one input derivative h_{a_i} from within the clamped radius-r window. Every h decomposes as a constant plus weighted single jumps 1_{j>=t}; the selected image of a jump is constant 0 to the left of its influence band and 1 to its right, with at most 2r+1 output edges able to alternate. Triangle inequality and line integration yield V(Mx-My)<= (2r+1)V(x-y) for all real pairs, no genericity restriction. At n=2r+2, k=r+1, the interleaved baseline x=(0,2,...,2k-2,1,3,...,2k-1) has median output i; adding epsilon 1_{i>=k} makes output changes alternate 0/epsilon on all 2r+1 edges, proving equality. Appending endpoint baseline repetitions and perturbation ones preserves all original changes at larger n. For shorter paths, at most n-1<2r+1 output edges can change for a single jump, and the same selector decomposition gives a strict upper bound. Independently checked witnesses through r=31, boundary extension and sample exact pairs; no finite census is used as the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published cyclic sharp coefficient 2r+1 requires cyclic n>=8r, not clamped path n>=2r+2; prior endpoint-preserving path theorem handles r=1 only. One-input smoothing gives V(Mx)<=V(x) not two-input BV stability."
+        ],
+        "reasoning": "Although the same factor occurs in cyclic settings, cyclic wraparound and different sharp saturation length do not imply an exact minimal length for repeated-endpoint finite paths. The radius-one theorem is a special case, not a general-radius result.",
+        "searches": [
+          "Resultary search: running median filter windows path sharp two input total variation modulus full window 2r+1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026 pinned RESULT.md verified blob c4952e0481ad1068c9c8039cf8bd8f7fc123e995",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+        "https://doi.org/10.1109/78.286974",
+        "https://drum.lib.umd.edu/items/95ac7d84-40fc-46bd-9e9e-936ef1bbcb34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoint-preserving r=1 path formula reaches 3 for n>=4, agreeing with this r=1 special case; cyclic n>=8r has the same universal 2r+1 upper bound but no clamped n=2r+2 lower construction. The 1994 paper concerns one-signal smoothing in the accessible abstract."
+        ],
+        "reasoning": "The common selector-based upper bound can be anticipated, but the interleaved-rank explicit witness and sharp first path length for every r do not follow from either a radius-one proof or a cyclic boundary witness.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+          "https://doi.org/10.1109/78.286974"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The order-statistic median is an alternating max-min/stack-filter selector, but its structural representation by Maragos–Schafer does not itself give the exact output-difference BV norm."
+        ],
+        "reasoning": "Queried all-radius running median perturbation, variation of differences, selector-jump norm, stack filters and boundary saturation; no earlier same clamped-path all-radii sharp theorem found.",
+        "searches": [
+          "Resultary search: running median filter windows path sharp two input total variation modulus full window 2r+1",
+          "https://drum.lib.umd.edu/items/95ac7d84-40fc-46bd-9e9e-936ef1bbcb34"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact coefficients include radius-one finite endpoint-preserving paths and cyclic radius-one all sizes; neither is an all-radii clamped-path table or the n=2r+2 threshold."
+        ],
+        "reasoning": "Compared precise path length, window radius and boundary extension before assessing coverage; superficial equality of coefficient 3 at r=1 is not equivalent to all-radii theorem.",
+        "searches": [
+          "Resultary search: running median filter windows path sharp two input total variation modulus full window 2r+1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb"
+        ]
+      },
+      "rationale": "The concrete external and published-record searches compared mathematical statements, operator domains, norms and implied subcases, not simply titles. Closest strong antecedents were read to their stated scope. No earlier theorem subsuming the final exact result was established. This is a best-of-knowledge conclusion, not priority certification; disclosed archival and nomenclature risks remain.",
+      "residual_risks": [
+        "The complete 1994 Restrepo–Chacon IEEE article was inaccessible, despite arXiv/OA attempts; the authorized institutional service reported vpn_disconnected. This unresolved access does not alone negate best-of-knowledge O.",
+        "The 1987 archival report was inspected only in selected sections, not fully; it could contain unindexed stability corollaries.",
+        "Different clamped/mirror/cyclic endpoint conventions must not be conflated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers r=1 only; does not imply all-radii clamped theorem",
+          "evidence": [
+            "At unit weights factor 3 for n>=4, same radius-one value"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42/RESULT.md",
+          "material_read": "Complete RESULT.md including weighted r=1 formula, proof, and endpoint convention",
+          "method": "Published primary record retrieved via GitHub",
+          "title": "Sharp two-input variation sensitivity of three-point median smoothing on finite paths",
+          "trigger": "Closest exact noncyclic path median stability theorem"
+        },
+        {
+          "assessment": "Abstract establishes one-input TV smoothing; whole paper cannot be excluded from containing other facts",
+          "evidence": [
+            "Primary abstract describes smoothing of an individual input and not explicit pairwise sharp constant"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/78.286974",
+          "material_read": "1994 abstract, bibliographic entry and author-upload availability page; full original paper not read",
+          "method": "Open search, source page and manuscript route attempted; institutional full-text attempt returned access unavailable",
+          "title": "A Smoothing Property of the Median Filter",
+          "trigger": "Same median filter and total variation; potential prior implication"
+        },
+        {
+          "assessment": "Representation relevant to selector bound; no whole-document noncoverage claim",
+          "evidence": [
+            "General filter representations appear without a quoted all-radius finite-path sharp constant in inspected passages"
+          ],
+          "identifier_or_url": "https://drum.lib.umd.edu/items/95ac7d84-40fc-46bd-9e9e-936ef1bbcb34",
+          "material_read": "Archival report abstract and selected opening pages/methods about order-statistic and stack-filter representation; entire document not read",
+          "method": "Open primary PDF and selected rendered page inspection",
+          "title": "Morphological Filters—Part II: Their Relations to Median, Order-Statistic, and Stack Filters",
+          "trigger": "Relevant median selector and stack-filter antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Running medians are classical one-signal total-variation smoothers; their full-window amplification of differences is a substantial counterintuitive stability threshold. The theorem supplies the complete all-radii large-path exact law, optimal first path length 2r+2 and explicit rank-selector witnesses, not merely another radius-one or cyclic instance. It is a natural all-window invariant that matters in nonlinear robust filtering.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026 pinned RESULT.md verified blob c4952e0481ad1068c9c8039cf8bd8f7fc123e995",
+    "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-two-input-variation-sensitivity-of-three-point-median-smoo--5759b99f2a42/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+    "https://doi.org/10.1109/78.286974",
+    "https://drum.lib.umd.edu/items/95ac7d84-40fc-46bd-9e9e-936ef1bbcb34"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer r>=1 and every clamped finite path with n>=2r+2 vertices, the centered width-(2r+1) running median has attained sharp two-input adjacent-TV coefficient 2r+1. The smallest length achieving this full factor is n=2r+2.",
+  "limitations": [
+    "All-radii claim holds for n>=2r+2 with repeated endpoint padding and unweighted noncyclic adjacent TV; shorter path exact norms not determined.",
+    "No cyclic, mirror-reflected, weighted-median or higher-order-statistic generalization."
+  ],
+  "residual_risks": [
+    "The complete 1994 Restrepo–Chacon IEEE article was inaccessible, despite arXiv/OA attempts; the authorized institutional service reported vpn_disconnected. This unresolved access does not alone negate best-of-knowledge O.",
+    "The 1987 archival report was inspected only in selected sections, not fully; it could contain unindexed stability corollaries.",
+    "Different clamped/mirror/cyclic endpoint conventions must not be conflated."
+  ],
+  "schema_version": 1
+}
