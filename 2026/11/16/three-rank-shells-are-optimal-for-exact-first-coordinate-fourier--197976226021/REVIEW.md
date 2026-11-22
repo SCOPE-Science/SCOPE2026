@@ -1,15 +1,21 @@
-# Mathematical review: optimal three-rank-shell Fourier sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-For every prime power \(q\ge2\) and \(n\ge2\), the frequency differences among constant and one-entry additive characters have rank at most two. Left-right rank invariance reduces the Gram off-diagonals to two Fourier coefficients. Uniform-kernel counting gives their exact equivalence to \(\mathbb EZ=2-N^{-1}\) and \(\mathbb EZ^2=q+3-2(q+1)N^{-1}+qN^{-2}\), where \(Z=q^{n-\operatorname{rank}(M)}\) and \(N=q^n\). The two-point variance identity forces the second support point \(q+1-q/N\), strictly between consecutive admissible powers, proving the obstruction. Explicit positive weights on \(1,q,q^2\) satisfy the two moments. An independent exact-arithmetic checker verifies the identities and several exhaustively enumerated prime-field cases; finite tests are not used as infinite proof.
+## correctness
 
-## Originality — PASS, with priority limitation
-The 2020 rank-orbit Fourier work of Kawamura supplies general transform coefficients but does not present the positive rank-shell design or its sharp rank-stratum minimum. Yang and Honold (2010) study \(k\)-good distributions and minimum individual matrix support; their optimized cardinality and construction statements do not assert the minimum number of distinct rank orbits under left-right invariance. Byrne and collaborators (2023/2024) analyze weighted subspace designs within a different fixed-dimension block framework. Closest published sampling studies of uniform invertible matrices establish nontrivial Gram spectra, rather than an exactly identity Gram via a rank mixture. An older equivalent low-strength rank-metric cubature statement may exist; this risk remains, and independent priority review has not been performed.
+PASS
 
-## Mathematical value — PASS
-The number of rank strata is an intrinsic, symmetry-preserving complexity measure distinct from point support size. Exact orthonormality of the full first-coordinate Fourier band is a natural target for unbiased, optimally stable linear-feature sensing. The theorem completely determines the smallest achievable rank-stratum complexity for every field order and matrix size, supplies constructive strictly positive weights, and proves uniqueness on the canonical three consecutive top-rank strata. This is a structural sharp finite-field design result, not merely a recomputation of a known matrix-rank Fourier coefficient.
+Under left/right GL_n-invariance, the Fourier transform of the matrix law is constant on frequency-rank 1 and 2 classes, and differences of distinct coordinate frequencies have exactly those ranks (including same coordinate with distinct scalar). Let Z=q^{nullity M}, N=q^n. For independent input vectors, kernel-incidence counts imply p1=(E Z-1)/(N-1) and p0=E[(Z-1)(Z-q)]/[(N-1)(N-q)]. Rank-one Fourier zero requires p1=1/N, and rank-two orbit averaging additionally requires p0=1/N^2. These give E Z=2-1/N and Var Z=(q-1)(1-1/N)^2. Any two-support law on powers of q must include 1 (mean between 1 and q); variance then forces its other support b*=q+1-q/N strictly between q and q^2, impossible. Vandermonde moment matching on 1,q,q² gives positive w0,w1,w2 as quoted; q^2 is valid even n=2. Independently enumerated all 16 binary 2x2 matrices: rank counts 1,9,6 for ranks 0,1,2, weights 1/16,9/16,3/8 in that order and exact rank-one and rank-two character expectations both zero. No small finite-field enumeration is used as proof for all prime powers.
 
-## Scientific limits
-The lower bound requires bi-invariance and positive weights; neither arbitrary non-invariant measures nor other three-shell choices are classified. The proof is analytical, and the exact checker samples only prime fields of small order while validating symbolic identities for all parameter values. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after separate formulation/implication comparisons, published-result search, and bounded primary-literature inspection; not a certification of absolute historical priority. Checked the implication direction: ambient transform theory => possibility of computing multipliers; not => positivity/minimal-shell theorem as stated. Best of knowledge, with inaccessible full text explicitly noted.
+
+## value
+
+PASS
+
+A natural orbit-sparsity optimization for a rank-metric harmonic sampling frame; the sharp minimum number of GL_n×GL_n rank strata and positive explicit three-shell design are distinct from k-good matrix minimum *individual point-support* results. Exact orthonormality of 1+n²(q-1) modes has concrete structured-sampling significance without pretending to be a full Fourier basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
