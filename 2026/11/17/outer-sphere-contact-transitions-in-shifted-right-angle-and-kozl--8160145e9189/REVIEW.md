@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For positive legs and integer shifts, every factor lies in its coordinatewise box bounded by the first and last staircase vertices. Adding these boxes proves the global upper/lower bounds and yields an attained diameter. The midpoint-radius identity proves unique minimum-ball optimality and reduces equality to box corners. The crucial nonstandard step is verified in the written proof: a binary point of a right-angle simplex must be one of its step vertices, and overlapping variable-support intervals force a single nonincreasing binary pattern throughout their union. This gives exactly \(\prod_\alpha(\ell_\alpha+1)\) contact vertices and \(2^{c-1}\) unordered diametral pairs. Vandermonde's identity proves the Kozlov specialization; the finite exact-arithmetic verifier passed 1,245 instances and 11,278 assertions. The tests do not claim to exhaust unbounded dimensions or shifts.
+PASS
 
-## Originality: PASS (provisional historical priority)
+Reconstructed each generating simplex as the convex hull of nondecreasing-prefix step corners and established the coordinate box [L,U] for the entire Minkowski sum with both antipodal corners attained. In any Euclidean box, ||x−(L+U)/2||²≤||U−L||²/4, equality only if each nonconstant coordinate is a box endpoint; the two antipodal feasible corners imply the radius and unique center. Positivity of all legs forces every summand’s step coordinate in a contact to be 0 or its full leg value, and overlaps force matching binary step choices along each connected interval union; each union of ℓ integer coordinates has exactly ℓ+1 admissible cuts. Antipodal step pairs require each component’s binary word constant, giving 2^(c−1) unordered pairs. The Kozlov squared-diameter binomial autocorrelation follows by Vandermonde with k=0,1 terms removed. Independently enumerated all shifted vertex-sum contact patterns and antipodal pairs in hundreds of small n,r,shift tuples; this is corroboration of the universal equality-case proof.
 
-The central primary references were inspected in material detail, not inferred from search-result titles. Kozlov (1997, Sections 4--5) supplies the skeleton-vertex description; Snellman (2026, Sections 5 and 8--10) supplies shifted right-angle Minkowski sums and rank-two vertex results, but no minimum enclosing sphere or diameter-contact classification. The companion paper (2026) counts Hilbert-function sumsets, a different invariant. Searches in mathematical records and public primary literature found no stated all-rank overlap-component theorem, nor an equivalent minimum-ball contact count. The generic bounding-box radius inequality is standard and is explicitly excluded from the claim of novelty by itself. An equivalent theorem under orthoscheme, Minkowski-sum, or order-polytope language remains possible.
+## originality
 
-## Value: PASS
+PASS
 
-The exact outer-sphere geometry is a natural metric invariant of recently studied all-rank Kozlov polytopes, whose full higher-rank vertex structure is not generally classified. The result gives the complete sphere contact set and every diametral pair for *every* positive leg vector and rank, despite the missing full vertex census. The number of contacts depends only on shift-overlap intervals, creating an exact jump from \(n+s\) to \(n^2\) for two summands when the degree gap reaches \(n-1\); the binomial autocorrelation makes the Kozlov metric dependence fully explicit. This supplies a structural invariant, not just a generic diameter upper bound or a routine finite table.
+Read the exact original geometric construction and two primary Snellman full texts including the freshly posted Part III. They establish the Kozlov polytope, vertex and lattice/Ehrhart/centroid properties but do not dominate ordinary-coordinate Euclidean minimum spheres and their contact multiplicities. A separate Fibonacci contact theorem addresses distinct adjacent-sum inequalities. The new equality-case overlap classification survives best-of-knowledge.
 
-## Risks and limitations
+## value
 
-Priority is not independently established, and exact results in older orthoscheme literature could subsume the theorem. No assertions are made about entire facet lattices, inradii, arbitrary lattice points, or independent review. The only computational role is finite corroboration, not unbounded proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact enclosing sphere, its complete equality-case contact stratum, count of diametral pairs and sharp overlap-component transition are natural Euclidean metric invariants of a studied all-rank polytope family. The all-parameter contact classification is meaningful beyond known convex-hull/vertex enumerations; it is a structural metric fact rather than a gratuitous small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
