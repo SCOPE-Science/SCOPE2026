@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T15:08:27.358813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In upper half plane y=1, order three samples and set consecutive gaps u=LTP,v=LT(1-P); the joint ordered density6 with Jacobian T makes T~Beta(2,2), P uniform independent, Q|T=t uniform(0,1-t). Angle defects yield A(u,v)=2[atan(u/2)+atan(v/2)-atan((u+v)/2)]. As L→∞, arctan(2/u) gives the asserted Z pathwise; solving P(1-P)>=4/(zT+4) yields exact cdf support z>=12. Direct conditioning shows zP(Z>z)→24 and p<1 integrability; common majorant yields subcritical moment convergence, Fatou gives divergence above threshold. Beta gap marginals produce finite-L expectation integral; asympt integrals yield coefficient 24log(L/2)-24. For TV marked law transform v=zTmin(P,1-P)/4 on two symmetric rare intervals; unconditioned density exactly24/z per binary label with support converging to 0<v<1, so Scheffe applies. Fresh independent quadrature checked z survival products 20:17.4714,100:23.2232,1000:23.9472,10000:23.9951 and mean errors shrink from 1.0958 at L100 to .00565 at L20000; finite diagnostics do not prove total variation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ball law covers all hyperbolic dimensions d>=2 but only ball-volume-uniform sampling; it excludes singular one-dimensional horocycle measure.",
+          "Bao–Chen applies general deterministic triangles but supplies no probabilistic independence/marked rare-event asymptotic."
+        ],
+        "reasoning": "Higher dimensional generality of a different measure does not dominate the fixed-horocycle result; general triangle area identity alone does not imply the stochastic law without nontrivial order-statistic asymptotics.",
+        "searches": [
+          "2026/11/8 complete Resultary random hyperbolic ball theorem",
+          "random triangles horocycle hyperbolic area Pareto limit inverse spacings",
+          "Bao Chen 2014 Theorem2 area formula"
+        ]
+      },
+      "checked_sources": [
+        "Assigned full RESULT.md, verify_horocycle.py, METADATA/AUDIT Git blobs",
+        "random triangles horocycle hyperbolic area Pareto limit inverse spacings",
+        "large random hyperbolic triangles Pareto area volume uniform expanding ball",
+        "Bao and Chen 2014 Journal of Mathematics 838497 full open HTML DOI:10.1155/2014/838497",
+        "Beardon 2022 DOI:10.1007/s00013-022-01761-x hyperbolic circumscription",
+        "Resultary 2026/11/8 full hyperbolic ball random Pareto theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bao–Chen describes area from coordinates of fixed triangle and quadrilateral applications, not sampling or extreme deficits.",
+          "Ball random-variable W_d=sum angular coefficients times independent radial Pareto; its p<d-1 threshold is not a proof of Beta(2,2) horocycle Z or constant 24.",
+          "Horocycle Q,T,P Jacobian is 6T, with P uniform, giving an independent short-gap rare-event mark."
+        ],
+        "reasoning": "Prior inputs supply classical geometry but do not entail the full coupled random law or its exact coefficient and TV conditioning. Similar p<1 cutoff in d=2 does not establish coverage.",
+        "searches": [
+          "Bao Chen full open-access paper 2014 Section2 Theorem2",
+          "Resultary 2026/11/8 full volume-uniform hyperbolic ball triangle RESULT.md",
+          "Current horocycle full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hyperbolic area defect equals angle sum by Gauss–Bonnet; fixed-horocycle gaps yield arctan formula.",
+          "Previously published random BALL law has e^R scaling, not horocycle arclength L, and angular Pareto mixture rather than 4/T[1/(P(1-P))-1]."
+        ],
+        "reasoning": "The shared term Pareto area deficit conceals incompatible point laws and limiting random variables; no deterministic change of variables reduces volume-uniform balls to a single horocycle segment.",
+        "searches": [
+          "random triangles horocycle hyperbolic area Pareto limit inverse spacings",
+          "large random hyperbolic triangles Pareto area volume uniform expanding ball",
+          "Bao Chen 2014 deterministic hyperbolic triangle area formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a continuous distribution for all L>0 and limiting z>12; not a finite numerical table.",
+          "Exact cdf integral, moment cutoff and leading logarithmic mean are analytic function identities."
+        ],
+        "reasoning": "No relevant known table of random horocycle triangle areas was identified; limited numerical quadrature samples do not constitute novel evidence by themselves.",
+        "searches": [
+          "random triangles horocycle hyperbolic area Pareto limit inverse spacings",
+          "horocycle uniform three points beta span tail 24"
+        ]
+      },
+      "rationale": "Classical Bao–Chen 2014 gives deterministic hyperbolic triangle area formulas but no random uniform-horocycle sampling, inverse-beta limit, marked short-gap tail or finite-size logarithmic mean. A published 2026/11/8 random-hyperbolic triangle Pareto theorem samples by hyperbolic VOLUME from expanding geodesic balls, with radial independent Pareto factors and angular mixing; its dimensional moment cutoff resembles p<1 at d=2 but neither sampling law nor rescaling factor equals L or the explicit 24. Other expanding CIRCLE results use angular boundary measure rather than a fixed horocycle. Thus title/tail exponent similarity does not imply current joint law.",
+      "residual_risks": [
+        "General literature on horocycle/random ideal triangle limits may contain equivalent beta-inverse laws under a different terminology; full historic completeness not asserted.",
+        "The marked total-variation theorem concerns Z after L→∞, not simultaneous L and rare-event threshold z or any quantitative convergence rate; this is explicitly respected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic formula background; no stochastic sampling or limiting beta/marked law",
+          "evidence": "Section2 gives coordinate area formula; application Lambert/Saccheri quadrilaterals, not expanding horocycle random variables.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/838497",
+          "material_read": "Open-access full HTML paper: introduction, Theorem2, Section2 triangle coordinates/area identities, applications and stated scope",
+          "method": "Publisher open HTML article read",
+          "title": "A New Hyperbolic Area Formula of a Hyperbolic Triangle and Its Applications (Bao and Chen, 2014)",
+          "trigger": "Potential exact hyperbolic triangle area prior source"
+        },
+        {
+          "assessment": "Different volume-in-ball sample and radial/angular mixture; not current fixed-horocycle beta-uniform spacing law",
+          "evidence": "Theorem scales e^R and W_d=sum a_i Y_i with independent Pareto radial Y_i; no L or Beta(2,2) span.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-pareto-limit-law-and-sharp-moment-threshold-for-areas-of-large-r--4c826ecef45b",
+          "material_read": "Complete RESULT.md including sampling, radial coupling, angle proof, tail and limitations",
+          "method": "Read-only GitHub full text",
+          "title": "Pareto limit law and sharp moment threshold for areas of large random hyperbolic triangles",
+          "trigger": "Exact title and tail/moment overlap; possible dominating theorem"
+        },
+        {
+          "assessment": "The final mathematical assertions and their exact hypotheses inspected; source is treated as evidence, not instruction",
+          "evidence": "RESULT.md Git blob b732224a34379bcef63f0f28d2c8782bee66480f; checker Git blob 22379c0d667a28a8ac5d1a2186c8a923aa869087",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-pareto-area-deficit-law-for-triangles-sampled-on-expanding-hyp--df9c2fffee99/RESULT.md",
+          "material_read": "Entire final RESULT.md including full theorem, proof, scope, prior comparisons, and limitations; the source checker, METADATA.json and AUDIT.json independently inspected",
+          "method": "Read-only GitHub file/blob fetch at frozen inventory commit plus independent formula calculations",
+          "title": "A Pareto area-deficit law for triangles sampled on expanding hyperbolic horocycles",
+          "trigger": "Actual final claim and proof supplied for scientific audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The horocycle is a geometrically natural parabolic boundary, and its exact independent normalized spacings generate a distinctive heavy-tailed area-deficit law. The complete cdf, sharp constant, logarithmic mean correction, and total-variation marked rare-event geometry isolate a specific singular-gap mechanism unavailable from generic convergence results; a useful exact stochastic geometry boundary case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General literature on horocycle/random ideal triangle limits may contain equivalent beta-inverse laws under a different terminology; full historic completeness not asserted.",
+    "The marked total-variation theorem concerns Z after L→∞, not simultaneous L and rare-event threshold z or any quantitative convergence rate; this is explicitly respected."
+  ],
+  "schema_version": 1
+}

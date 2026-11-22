@@ -1,19 +1,21 @@
-# Scientific review: horocycle-triangle area limit
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact upper-half-plane geodesic tangent angles and Gauss--Bonnet give formula (1). The independent \(\operatorname{Beta}(2,2)\)--uniform span-ratio representation follows from the full joint ordered-statistic Jacobian. The limiting cdf, tail constant \(24\), critical moment exponent \(1\), and mean correction \(24\log(L/2)-24\) follow by explicit integrals. The rare-event law has an exact conditional density that converges in \(L^1\), giving the stated total-variation assertion. A numerical checker independently recomputed areas using the hyperbolic cosine law and compared the mean expansion with quadrature and tested limiting marks with seeded sampling. Risks: the finite tests do not certify infinite claims, but all limiting steps have analytic domination or exact density arguments; the marked result is deliberately an iterated limit, not a simultaneous scaling theorem.
+PASS
 
-## Originality
+In upper half plane y=1, order three samples and set consecutive gaps u=LTP,v=LT(1-P); the joint ordered density6 with Jacobian T makes T~Beta(2,2), P uniform independent, Q|T=t uniform(0,1-t). Angle defects yield A(u,v)=2[atan(u/2)+atan(v/2)-atan((u+v)/2)]. As L→∞, arctan(2/u) gives the asserted Z pathwise; solving P(1-P)>=4/(zT+4) yields exact cdf support z>=12. Direct conditioning shows zP(Z>z)→24 and p<1 integrability; common majorant yields subcritical moment convergence, Fatou gives divergence above threshold. Beta gap marginals produce finite-L expectation integral; asympt integrals yield coefficient 24log(L/2)-24. For TV marked law transform v=zTmin(P,1-P)/4 on two symmetric rare intervals; unconditioned density exactly24/z per binary label with support converging to 0<v<1, so Scheffe applies. Fresh independent quadrature checked z survival products 20:17.4714,100:23.2232,1000:23.9472,10000:23.9951 and mean errors shrink from 1.0958 at L100 to .00565 at L20000; finite diagnostics do not prove total variation.
 
-**PASS, conditional on the inspected literature.** Bao--Chen (2014) prove deterministic vertex-coordinate area formulas; Beardon (2022) studies horocyclic circumcycle classification. The published volume-uniform expanding-hyperbolic-ball Pareto area-deficit result has a different radial/angular sampling mechanism, not three uniform finite-horocycle positions. The nearest accessible prior horocycle sampling statement concerns Steiner topology, not triangle area. No inspected statement implies the independent \(\operatorname{Beta}(2,2)\)--uniform limiting variable, its complete cdf, exact constant \(24\), logarithmic mean correction, and conditional marked law. Risks: mathematical literature search is not exhaustive; independent historical priority assessment remains necessary.
+## originality
 
-## Value
+PASS
 
-**PASS.** The ideal-triangle area \(\pi\) is the canonical hyperbolic upper boundary, and horocycles provide a geometrically natural family approaching it. The result explicitly links geometry to an inverse-gap distribution, proves a sharp non-integrability threshold, and quantifies a non-uniform-integrability effect: the typical scaled deficit has a limit yet the mean diverges logarithmically with an exact finite correction. The marked theorem identifies one rare short adjacent gap as the mechanism, including its location and relative scale. These are natural complete distributional and geometric invariants, not arbitrarily chosen finite slices.
+Classical Bao–Chen 2014 gives deterministic hyperbolic triangle area formulas but no random uniform-horocycle sampling, inverse-beta limit, marked short-gap tail or finite-size logarithmic mean. A published 2026/11/8 random-hyperbolic triangle Pareto theorem samples by hyperbolic VOLUME from expanding geodesic balls, with radial independent Pareto factors and angular mixing; its dimensional moment cutoff resembles p<1 at d=2 but neither sampling law nor rescaling factor equals L or the explicit 24. Other expanding CIRCLE results use angular boundary measure rather than a fixed horocycle. Thus title/tail exponent similarity does not imply current joint law.
 
-## Closest literature and limitations
+## value
 
-The closest geometric sources are Bao and Chen (2014, DOI 10.1155/2014/838497), Beardon (2022, DOI 10.1007/s00013-022-01761-x), and University of Glasgow horocycle geometry notes. The nearest probabilistic comparison is the public hyperbolic-ball Pareto area-deficit result (2026), whose volume-uniform sampling does not imply this fixed-horocycle limit. The result does not claim a uniform two-parameter \(L,z\) limit, rates, nonuniform sampling, higher dimensions, or definitive historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The horocycle is a geometrically natural parabolic boundary, and its exact independent normalized spacings generate a distinctive heavy-tailed area-deficit law. The complete cdf, sharp constant, logarithmic mean correction, and total-variation marked rare-event geometry isolate a specific singular-gap mechanism unavailable from generic convergence results; a useful exact stochastic geometry boundary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
