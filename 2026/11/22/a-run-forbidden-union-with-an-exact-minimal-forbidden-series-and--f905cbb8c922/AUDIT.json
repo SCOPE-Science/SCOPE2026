@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The exact language condition is that both constant m-runs occur; length n-1 legal prefix/suffix force opposite terminal m-runs with alternating bounded interior runs. This is a unique decomposition and gives the claimed GF for all n. Its dominant radius solves sum_{j=1}^{m-1}rho^j=1, equal to renewal radius of the overlap bounded-run shift. Standard primitive finite-type state diagrams yield component Perron root lambda_m and unique Parry maximal measures, and ergodicity on two invariant components yields exactly two. The identity 2-lambda_r=lambda_r^{-r} proves the claimed delta_m asymptotic. Checked the m=2 boundary and 64 exhaustive small coefficient comparisons from CHECKER.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu–Zhang arXiv:2611.03758v1 Theorem A and Corollary 1 guarantee finiteness, not the exact number two, generating series, or small-gap asymptotic.",
+        "Béal et al. 2003 proves rationality and gives a quadratic-time automaton algorithm for arbitrary regular factorial languages; this is a dominating method for computational enumeration but does not state this uniform parameter-dependent formula or entropy/phase identity.",
+        "published-finding corpus 2026/10/25/SCOPE-two-maximal-entropy-phases-and-an-exact-periodic-orbit-law-for-a--29a622fd334c treats antisquare-good binary sequences, a different language with different transfer structure."
+      ],
+      "reasoning": "The general Wu–Zhang result implies only the finiteness and Bernoulli-up-to-period portions, explicitly excluded from novelty. Classical algorithms cover computability and rationality of the series, also explicitly excluded from novelty. The combined exact parameter-dependent formula, equality to intersection entropy, and sharp vanishing gap are not implications of those published statements without a family-specific argument.",
+      "searches": [
+        "published-finding corpus: forbidden word entropy of two component run length limited shifts exactly two maximal entropy measures with Perron roots",
+        "Web: minimal forbidden words finite union subshifts forbidden words factor complexity generating function entropy",
+        "Web: union of two shifts of finite type minimal forbidden words rational generating function run restrictions",
+        "published-finding corpus: two maximal-entropy phases and an exact periodic-orbit law for antisquare-good binary shifts"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.03758v1, November 2 2026; primary 37B10",
+      "doi:10.3233/FUN-2003-561-208, 2003",
+      "arxiv:2211.06068",
+      "published-finding corpus: 2026/10/25/SCOPE-two-maximal-entropy-phases-and-an-exact-periodic-orbit-law-for-a--29a622fd334c",
+      "published-finding corpus: 2026/10/25/SCOPE-entropy-phase-and-exact-periodic-point-spectra-of-two-neighbor-m--0e24c9db1915",
+      "published-finding corpus: 2026/10/13/SCOPE-exact-minimum-unavoidable-set-and-avoidance-window-census-in-the--96243f6839cd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.03758v1 Theorem A conclusion: finite ergodic MME and Bernoulli up to a finite period; it does not infer exact two, individual Parry supports, or the forbidden-series coefficients.",
+        "Béal et al. 2003 algorithm can enumerate minimal forbidden words from a regular-language representation, so rationality/algorithmic computability is already covered; the exact all-m series and entropy equality require explicit run decomposition.",
+        "Parry 1964 uniqueness on each primitive component yields one MME per component, but the equal-overlap entropy and small-gap asymptotic do not follow from Parry uniqueness alone."
+      ],
+      "reasoning": "The claimed theorem uses the elementary union/intersection decomposition to derive features beyond general finiteness, rationality, and one-component Parry uniqueness. We credit those pre-existing portions. The family-specific all-length generating series and exact entropy gap are the independent comparison targets.",
+      "searches": [
+        "published-finding corpus: two maximal-entropy phases antisquare-good shift zeta",
+        "Web: Generating Forbidden Words and Measures of Maximal Entropy for Subshifts Wu Zhang arxiv 2611.03758",
+        "Web: Computing forbidden words of regular languages Beal Crochemore Mignosi Restivo Sciortino 2003",
+        "published-finding corpus: union of two binary shifts forbidding constant runs of m zeros or m ones exact minimal forbidden word entropy and two maximal entropy measures"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2611.03758v1, Sections 1–2 and 5, proves a general implication from forbidden-word entropy gaps to finite Bernoulli maximizing-measure families, not a closed series for the complementary-run union.",
+        "Béal et al. 2003, Computing forbidden words of regular languages, Sections 1–2, provides an automaton procedure for minimal forbidden languages but not the specific two-run union coefficients."
+      ],
+      "reasoning": "The exact mixed-obstruction language was compared against synonyms (complementary constant-run avoidance, union of two mixing finite-type shifts, reducible sofic two-phase shift, bilateral bounded-run intersection). No inspected primary statement gives the uniform series 2z^{2m}/(1-R_m(z)^2) or the equality of its radius with the phase-intersection entropy. Generic computability does not amount to an explicit previously published closed family, but this remains a residual priority risk.",
+      "searches": [
+        "published-finding corpus: union of two binary shifts forbidding constant runs of m zeros or m ones exact minimal forbidden word entropy and two maximal entropy measures",
+        "published-finding corpus: binary subshift union forbid 0^m separately and 1^m separately golden mean m step minimal forbidden entropy gap",
+        "Web: \"minimal forbidden\" \"union\" \"golden mean shift\" entropy",
+        "Web: \"forbid 000\" \"forbid 111\" \"union\" entropy forbidden words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus IDs 2026/10/25/SCOPE-two-maximal-entropy-phases-and-an-exact-periodic-orbit-law-for-a--29a622fd334c and 2026/10/25/SCOPE-entropy-phase-and-exact-periodic-point-spectra-of-two-neighbor-m--0e24c9db1915 concern other symbolic systems.",
+        "Direct exhaustive enumeration through length 16 for thresholds 2–5 agrees with the derived generating-series coefficients; this tests the calculation but not priority."
+      ],
+      "reasoning": "No directly matching published-finding corpus record or published parameter table was returned in the actual searches. This is best-knowledge nonoverlap, not a proof of uniqueness; the unindexed or implicit special case in general automata literature remains a real residual risk.",
+      "searches": [
+        "published-finding corpus: exact rational generating function minimal forbidden complementary zero-run one-run union",
+        "published-finding corpus: minimal forbidden words intersection entropy union of two shifts of finite type",
+        "Web: \"minimal forbidden words\" \"intersection\" \"entropy\" \"two\" \"shifts\"",
+        "Web: \"minimal forbidden\" \"two\" \"components\" \"maximal entropy\" subshift"
+      ]
+    },
+    "rationale": "Current primary Theorem A of Wu–Zhang implies general finite Bernoulli MME conclusions and is fully credited; 2003 regular-language algorithms establish rationality/computability and are credited. The claimed uniform rational series, equality with phase-intersection entropy, exact component phase count as a joint result, and sharp vanishing gap were not present in inspected full primary statements or actual published-finding corpus searches; this remains best-knowledge novelty, subject to genuine residual historical risk.",
+    "residual_risks": [
+      "An older unindexed worked example of exactly this complementary-run union may already give the rational series or entropy identity.",
+      "The regular-language algorithm of Béal et al. could produce this exact case upon instantiation; no claim of novel rationality or computability is made.",
+      "Indexed published-finding corpus summaries rather than full texts were available for some adjacent symbolic two-MME findings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general finite MME/Bernoulli conclusion; does NOT give exact complementary-run union M_m(z), phase-intersection equality, precise count or asymptotic gap.",
+        "evidence": [
+          "Theorem A, intro Section 1 and Corollary 1",
+          "Eq. (7) gives h_G<=h_M<=h_SC<=h_top",
+          "Example 1 is on an alphabet of at least 4 letters; Section 5 is power-free subshifts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.03758",
+        "material_read": "Full-text Sections 1–2 including Theorem A, definitions/Example 1, and Section 5 application Proposition 2; PDF pages 1,5,6,39 were visually inspected; date and MSC verified.",
+        "method": "Accessible original arXiv v1 PDF and its HTML-extracted text, with visual page inspection.",
+        "title": "Generating Forbidden Words and Measures of Maximal Entropy for Subshifts",
+        "trigger": "Direct motivating primary source with the same invariants and entropy-gap hypothesis"
+      },
+      {
+        "assessment": "COVERS algorithmic computation/rationality but no uniform all-parameter closed formula for the particular complementary-run union in inspected material.",
+        "evidence": [
+          "Quadratic-time construction of a minimal forbidden word automaton",
+          "Statement that the minimal-forbidden series of a sofic shift is rational and its exponential growth is a conjugacy invariant."
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FUN-2003-561-208",
+        "material_read": "Abstract, Introduction, Section 2 defining minimal forbidden words, automaton construction, discussion of rational enumeration and entropy invariant from publicly available full-text extract.",
+        "method": "Read accessible text reproduced at https://www.academia.edu/25356778/Computing_forbidden_words_of_regular_languages; publisher abstract cross-check.",
+        "title": "Computing forbidden words of regular languages",
+        "trigger": "General possible stronger algorithm for sofic minimal-forbidden languages"
+      },
+      {
+        "assessment": "Gives general transfer/Perron techniques for finite-type languages, not the mixed forbidden-factor entropy of this reducible union.",
+        "evidence": [
+          "Sections 1, 4–7 focus on a multigraph with forbidden and repeated words, Perron eigenvectors and Parry measures."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.06068",
+        "material_read": "Full accessible introduction, organization and main abstract; finite-type and multigraph generating-function sections described.",
+        "method": "Read arXiv full HTML text introduction and sections synopsis.",
+        "title": "A combinatorial approach to study subshifts associated with multigraphs",
+        "trigger": "Possible dominating Perron-root/transfer generating-function treatment"
+      },
+      {
+        "assessment": "A different binary avoidance shift with different motifs; no implication to exact run-forbidden union series evident from its indexed claim. Full source comparison remains a residual risk.",
+        "evidence": [
+          "Indexed claim describes antisquare avoidance, Parry root and zeta, not complementary uniform long-run avoidance."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-two-maximal-entropy-phases-and-an-exact-periodic-orbit-law-for-a--29a622fd334c",
+        "material_read": "Indexed title and summary only; full primary package not inspected.",
+        "method": "published-finding corpus semantic query results and provided indexed summary.",
+        "title": "Two maximal-entropy phases and an exact periodic-orbit law for antisquare-good binary shifts",
+        "trigger": "Closest found overlap in conclusion of exactly two MMEs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f905cbb8-c922-4cee-9601-f6f0ac54a791",
+  "value": {
+    "rationale": "The complementary-run binary union is a canonical symbolic model of competing opposite local exclusions. Its infinite minimal obstruction language has an all-m rational count whose exponential growth equals the exact entropy of the physical overlap of the two maximizing phases, while each phase has larger entropy. The explicit two-phase Parry decomposition with a gap asymptotic 2^{-m-1} provides a sharp near-equality family illustrating that arbitrarily small positive forbidden-word entropy gaps permit persistent multiple maximal measures. This combines a structural invariant identity with phase behavior and a natural limit, not a stand-alone arbitrary table or generic rationality deduction.",
+    "status": "PASS"
+  }
+}
