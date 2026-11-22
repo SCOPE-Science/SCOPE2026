@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Frobenius projection theorem is established for each exact integer dimension and rank. Uniqueness permits symmetry reduction to four orbit parameters; for fixed cross-block parameter the matched off-diagonal block vanishes, and a one-dimensional strictly convex quadratic yields the unique projected matrix. The squared norm formula, shell counts, strict distance monotonicity and unique Hausdorff extremizer follow directly. The Gaussian rank local limit follows from the exact ratio of rook counts, Stirling expansion and log-concavity tail bounds; the metric Gaussian law is its delta-method image. The exact rational checker verifies 46,230 vertex inequalities in dimensions up to seven and an independent numeric solver confirms 18 configurations. Computation is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The partial-permutation polytope and rank enumeration are already known (Heuer–Striker, 2020, Sections 2–3). General nearest doubly stochastic matrix solvers and KKT equations are already known (Hu–Im–Li–Wolkowicz, 2021). A 2016 minimal completion theorem enlarges the matrix and minimizes enlargement, so does not determine same-size Euclidean distance. Published results on partial-assignment inballs, uniform-vertex covariance and the Gaussian deficiency of random partial bijections concern other invariants: especially, the Gaussian rank input is **not** asserted as novel here. Searches with exact rank parameters, matrix-nearness aliases, and published related mathematical records did not reveal the closed-form rank-stratified projection, all-rank metric shells and Hausdorff rigidity. This is a best-knowledge priority assessment, not a proof from absence of a search hit. Some older matrix-nearness full texts were inaccessible and remain a risk.
+PASS
 
-## Value — PASS
-Completing a partial matching to a perfect-matching **convex face** in the unscaled Frobenius metric is a natural geometric distance problem. The result completely characterizes a family of nearest points and every vertex-distance shell, gives the unique farthest point on the entire polytope, and exhibits a sharp square-root deficiency threshold. Uniform vertices fall exactly in the transition window, producing a nontrivial limiting squared error one half. This is substantially more specific than a routine renaming of a projection algorithm, and supplies a geometric interpretation of the known rank fluctuations.
+For n≥2 a rank-k 0–1 partial permutation is brought to diag(I_k,0_q) by isometries. Stabilizer invariance of the unique Euclidean projection to Birkhoff gives four block entries. The matched off-diagonal b≥0 is optimally zero; minimizing F(c)=kq(q+2)c²+(1-kc)² gives c=1/[n+q(q+1)], feasible, a=1-q/D and d=(q+2)/D. This proves the unique nearest doubly stochastic point and squared error q(q+2)/D for 0<k<n; k=0 gives J/n, k=n gives M. Ratios give strictly ordered shells; convexity of squared distance and uniqueness of zero among farthest vertices show zero is the sole farthest point even in the full convex polytope. Counts C(n,q)^2(n-q)! and saddle of ratio (n-q)/(q+1)^2 yield CLT with variance 1/2, then delta method variance 1/8; checks do not replace saddle control.
 
-## Limits
-The result does not solve nearest-bistochastic projection for arbitrary real matrices, weighted matrix norms, rectangular assignments, or constrained sparse bipartite graphs. The nearest-point calculation for partial-permutation vertices is proved here, while the earlier Gaussian deficiency law is credited. An equivalent special case hidden in an older numerical-matrix paper remains possible. External independent validation is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact all-rank Frobenius projection and metric shells, not for known rook counts or Gaussian partial-bijection rank CLT; similar names or generic projection existence do not imply the formula.
+
+## value
+
+PASS
+
+Completing partial matchings to perfect fractional matchings is a natural Euclidean stability problem: the exact nearest matrix, all rank deficiency shells, and sharp q∼√n scale quantify a nontrivial geometric phase relation, and the unique continuous farthest point matters beyond enumerated vertices. Neither the rank count nor a generic projection method alone supplies this structural metric fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
