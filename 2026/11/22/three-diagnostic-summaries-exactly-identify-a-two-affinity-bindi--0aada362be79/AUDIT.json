@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "From F/(1-F)=x(x+c)/(P+dx), direct differentiation gives H=1-(cd-P)x/((x+c)(P+dx)), with derivative sign controlled exactly by cP-dx^2. The unique minimum is m=sqrt(cP/d), its depth is 2sqrt(P)/(sqrt(P)+sqrt(cd)), and F(z)=1/2 iff z(z+c)=P+dz. Solving those three constraints reconstructs c,d,P. Since cd>P, the quadratic for a,b has two positive distinct roots straddling c; w=(c-a)/(b-a) is interior and unique. This proves surjectivity, injectivity and insufficiency of every diagnostic pair. Standalone CHECK.py passed 22503 assertions including independently selected triples; finite checks are only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Middendorf and Aldrich (online 2016-12-19), section Partial fraction expansion and identifiability, reconstructs full binding curve decomposition for n-site proteins, not a three-statistic inverse for arbitrary proportions of two monomer populations",
+        "Ravera et al. 2015 (doi:10.1085/jgp.201511365), Results, two binding sites and cooperativity parameters"
+      ],
+      "reasoning": "Full-curve partial fraction decomposition or two-site on-one-protein results do not prove that these three compressed features determine the arbitrary mixing fraction and both affinities. Source models and observables are distinguishable; no theorem in inspected material dominates the asserted finite-summary identifiability.",
+      "searches": [
+        "Middendorf Aldrich partial fraction two-site binding identifiability doi:10.1085/jgp.201611703",
+        "Ravera Quick Nicola Carrasco Amzel non-integer Hill coefficient 2015",
+        "two affinities weight global recovery from Hill slope minimum and EC50"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1529/biophysj.105.060194",
+      "doi:10.1007/s12154-009-0029-3",
+      "doi:10.1085/jgp.201511365",
+      "doi:10.1085/jgp.201611703",
+      "https://www.ncbi.nlm.nih.gov/sites/books/NBK91992/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abeliovich equation (14) gives the derivative of the binding curve and warns that shallow slope does not identify molecular cooperativity",
+        "Prinz 2009 explains Hill slopes from mechanistic models and multi-site response",
+        "Ravera 2015 parameterizes independent/cooperative binding on two sites of a single protein",
+        "Middendorf–Aldrich establishes limits of practical identifiability with full binding-curve measurements"
+      ],
+      "reasoning": "The new statement does not assert novelty of binding isotherms, Hill derivative, or full-curve identifiability. Showing the minimum is unique, obtaining all three explicit reconstruction equations, proving positivity for every admissible summary triple, and identifying the insufficiency of any pair are not stated conclusions or special cases of an explicitly stronger checked theorem. This conclusion remains limited to inspected evidence.",
+      "searches": [
+        "Abeliovich 2005 weighted mixture slope expression equation 14",
+        "2009 Prinz Hill coefficients and independent sites",
+        "2015 Ravera noninteger Hill slopes binding parameter recovery",
+        "Middendorf Aldrich 2016 full curve partial fraction binding parameters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abeliovich 2005, section Distinguishing negative cooperativity from a mixture of binding sites, equations (10)-(16), supplies weighted-mixture forward law and Hill slope, but not a three-diagnostic reconstruction",
+        "Prinz 2009 (doi:10.1007/s12154-009-0029-3), complete article discusses Hill slopes versus receptor mechanisms and fitting"
+      ],
+      "reasoning": "The binding curve and local-slope forward law are equivalent formulations of existing mathematics, and are not claimed new. The candidate inverse concerns the location and depth of the global *local-slope* minimum together with half-saturation, not an experimentally fitted single Hill exponent or the value at half-saturation. None of the compared statements gives a global bijection or complete feasible region for these summaries.",
+      "searches": [
+        "\"Hill slope\" \"minimum\" \"half-saturation\" heterogeneous binding",
+        "\"two-site\" \"minimum Hill coefficient\" binding affinity mixture",
+        "2005 Abeliovich doi:10.1529/biophysj.105.060194"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected table enumerates the data region m>0, 0<h<1, z>0 or its inverse a,b,w",
+        "The 2005 article tabulates empirical negative-cooperativity Hill coefficients, not this three-summary inverse"
+      ],
+      "reasoning": "The proposed theorem is a continuous three-parameter full classification, not a finite previously tabulated quantity; the underlying forward saturation curve is known but the alleged identifying triple was not found in exact tables or indexes.",
+      "searches": [
+        "two-class Langmuir receptor affinity weight inverse minimum local Hill slope half-saturation",
+        "Hill plot concentration slope minimum weighted mixture inverse formula",
+        "Biophysical Journal 2005 89 76-79 weighted mixture Hill plot"
+      ]
+    },
+    "rationale": "The 2005 source already gives the general weighted independent-site binding curve and local Hill-slope formula; the proposed new result is instead complete global reconstruction and the unrestricted feasible-data region from exactly three named scalar summaries. The other inspected works concern biochemical mechanisms, two-site molecule binding or parameter identification from full binding curves. No source examined supplied a stronger theorem implying the compressed three-summary inversion. Residual historical priority risk remains.",
+    "residual_risks": [
+      "Unindexed older biophysical, ligand-binding or inverse-problem literature may already contain the same three-statistic reconstruction or an explicitly dominating result.",
+      "The inverse is severely ill-conditioned as the two affinities coalesce or the minor population weight tends to zero; no experimental identifiability is established.",
+      "No independent scientific or historical-priority audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FORWARD_LAW_PRIOR; NOT_COVERING_IDENTIFYING_TRIPLE",
+        "evidence": [
+          "Equations 10-14 define mixture saturation and the Hill-slope derivative; subsequent argument studies possible shallow values and contrasts with molecular negative cooperativity. No unique three-summary inversion or complete diagnostic region is given."
+        ],
+        "identifier_or_url": "https://www.academia.edu/102107584/An_Empirical_Extremum_Principle_for_the_Hill_Coefficient_in_Ligand_Protein_Interactions_Showing_Negative_Cooperativity",
+        "material_read": "Full four-page article text, including Introduction, Theory, section Distinguishing negative cooperativity from a mixture of binding sites, equations 10-16, Discussion and References",
+        "method": "Open-access HTML extraction of full four-page article rendered as OCR-like text, corroborated against PubMed online date and article bibliographic record",
+        "title": "An Empirical Extremum Principle for the Hill Coefficient in Ligand-Protein Interactions Showing Negative Cooperativity",
+        "trigger": "Direct same-object primary source: mixture of nonidentical one-site classes and Hill-slope formula"
+      },
+      {
+        "assessment": "CONTEXT_NOT_COVERING",
+        "evidence": [
+          "Discusses fitted Hill coefficients and receptor/inhibitor mechanisms, not an arbitrary-weight monomer mixture inverse using local-slope minimum and midpoint."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2816740/",
+        "material_read": "Full HTML article body including Introduction, binding models, two independent sites discussion, and Discussion",
+        "method": "Open-access article HTML read",
+        "title": "Hill coefficients, dose–response curves and allosteric mechanisms",
+        "trigger": "Closest complete discussion of shallow Hill slopes and independent sites"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL_AND_SUMMARIES",
+        "evidence": [
+          "Uses two sites on one protein with additional cooperativity factor, not an arbitrary mixing fraction of one-site monomer classes; does not give the candidate three-summary reconstruction."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4442788/",
+        "material_read": "Full HTML article text including general two-site binding equations, independent-site case, numerical interpretation and Discussion",
+        "method": "Open-access article HTML read",
+        "title": "Beyond non-integer Hill coefficients: A novel approach to analyzing binding data, applied to Na+-driven transporters",
+        "trigger": "Two-affinity binding analysis and parameter identifiability"
+      },
+      {
+        "assessment": "FULL_CURVE_SCOPE_NOT_IDENTICAL",
+        "evidence": [
+          "The paper decomposes full n-site binding curves into partial-fraction components and studies practical identifiability, not the global bijection for arbitrary-weight one-site mixtures from three curve summaries. First online 2016-12-19."
+        ],
+        "identifier_or_url": "https://rupress.org/jgp/article/149/1/121/43637/The-structure-of-binding-curves-and-practical",
+        "material_read": "Full HTML introduction, general identifiability theorem description, two-site partial fraction expansion and practical-identifiability results, Discussion",
+        "method": "Publisher open-access HTML read",
+        "title": "The structure of binding curves and practical identifiability of equilibrium ligand-binding parameters",
+        "trigger": "Potential broader result about inverse binding-curve parameter identifiability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0aada362-be79-452b-bde2-12b529804de6",
+  "value": {
+    "rationale": "A shallow Hill slope is experimentally ambiguous between heterogeneous independent classes and molecular cooperativity. This theorem determines exactly what three intrinsic, interpretable statistics suffice to calibrate the canonical two-class heterogeneity model, establishes the entire feasible-statistics region and gives an explicit inverse. It is a complete natural identifiability problem rather than a parameter-specific numerical exercise; its limits about noisy measurements and alternative mechanisms are stated.",
+    "status": "PASS"
+  }
+}
