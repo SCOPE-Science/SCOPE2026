@@ -1,0 +1,192 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T21:02:42.022035Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer B>=2, n>=1 and every starting index, the stated 2-binomial fingerprint is precisely (n,r,T), where r is the number of markers and T their total relative offset, since scattered 01=T-r(r-1)/2 and the other two-letter counts follow at fixed length and weight. For r=0 or 1 the factor is immediate. For r>=2 the markers are consecutive powers B^a,...,B^(a+r-1); their sum gives T=A_r B^a-rs with A_r=(B^r-1)/(B-1). Exclusion of the immediately preceding marker confines a>=1 to half-open T intervals [(A_r-r)B^a,(A_r-r/B)B^a). Adjacent levels cannot overlap because B^r-1>=r(B-1/B) for B,r>=2, with equality only at B=r=2 and the upper endpoint open. The a=0 starts are only s=0,1 and give T=A_r,A_r-r; these lie below the positive levels except B=r=2, when they equal 3,1, the only level-one T equals 2, and higher levels start at 4. Thus T and r uniquely determine a,s and every factor. Explicit integer start windows L_{a,r}=max(B^(a-1)+1,B^(a+r-1)-n+1) for a>=1 and max(0,B^(r-1)-n+1) for a=0, with U_{a,r}=min(B^a,B^(a+r)-n), exhaust the factors with >=2 ones and neither double-count nor omit intervals; the n+1 zero/singleton words all occur at sufficiently isolated large powers. The resulting finite double sum counts all factors. At n=2, distinct 01 and 10 have the same first-order fingerprint, proving sharp order two. The geometric support is B-automatic (regular 10* base-B representations) and not eventually periodic (unbounded gaps and infinitely many ones). Checked the exact B=2,r=2 and end-exclusive boundary cases. A fresh separate exact-integer factor/sum/formula implementation compared 2,400,960 windows across bases 2..9 and n=1..120 with 960 formula comparisons; zero mismatches. These finite diagnostics are supplementary, not proof of the universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rigo et al. https://arxiv.org/abs/2201.04603 Section 7.1 sparse morphic example satisfies b^(2)<p while b^(3)=p; their structural morphism and Sturmian results impose incompatible recurrence/word construction hypotheses.",
+          "Vivion https://arxiv.org/abs/2509.11172 Theorem 1 has hypotheses of 1-balance/minimal Sturmian-like complexity, whereas p_B(n) can substantially exceed n+1 and the geometric-marker word is nonrecurrent with zero limiting density of ones.",
+          "The period-doubling theorem https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17/RESULT.md proves rigidity only for dyadic lengths of a different automatic word, and demonstrates a length-five collision."
+        ],
+        "reasoning": "A dominating theorem would need an applicable sufficient condition yielding injectivity for the nonrecurrent base-B power indicator for all integer bases and all factor lengths. The inspected broad classes and specific different-word automatic results do not satisfy that implication. The same-object reflection theorem controls reversal pairing, a weaker distinct invariant and no scattered-pair fingerprint.",
+        "searches": [
+          "2-binomial equivalence factor complexity geometric power marker characteristic word B^k scattered 01",
+          "lacunary binary words 2-binomial complexity same as factor complexity sparse powers",
+          "https://arxiv.org/abs/2201.04603",
+          "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+          "https://arxiv.org/abs/2509.11172",
+          "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2201.04603",
+        "https://www.researchgate.net/publication/380248131_Characterizations_of_families_of_morphisms_and_words_via_binomial_complexities",
+        "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+        "https://arxiv.org/abs/2509.11172",
+        "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+        "https://arxiv.org/abs/2510.07159",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17/RESULT.md",
+        "Resultary semantic search queries: 2-binomial equivalence factor complexity geometric power marker characteristic word B^k scattered 01; Powers of two automatic word binomial complexity 2 factor injectivity reconstruction; lacunary binary words 2-binomial complexity same as factor complexity sparse powers; characteristic sequence of integer powers scattered subsequence Parikh matrix factors",
+        "Frozen submitted source package RESULT.md, REVIEW.md, AUDIT.json, METADATA.json, VERIFICATION.md, SLOGAN.txt, verify.py at commit 3285a1744f5600128a1c74c65c4bca4aae6a999b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-object reflection complexity https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md uses uniqueness of pair of consecutive gaps to identify a factor by its start; it does not use or establish uniqueness from only the number and positional sum of markers. Distinct starts of the same r could a priori have equal T.",
+          "Rigo et al. https://arxiv.org/abs/2201.04603 Section 7.1 obtains b^(2)<p on a DIFFERENT sparse morphic language and hence cannot imply b^(2)=p for the power-support language.",
+          "Tribonacci https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf is a primitive substitution/fixed-point factor language, not the characteristic sequence of {B^a}.",
+          "Minimal absent factors https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md concern membership under contiguous factors, not the map from each valid factor to its scattered-01 count."
+        ],
+        "reasoning": "The previously stated implications do not by themselves give the all-base level interval separation [(A_r-r)B^a,(A_r-r/B)B^a) or resolve the B=r=2 boundary, which are the mathematical steps needed for this asserted fingerprint reconstruction. The exact factor count is close to (and may be derived from) the known complete same-object language, but the 2-binomial collision exclusion is a distinct consequence, not an explicit preexisting theorem. Novelty here is modest and vulnerable to unindexed alternative formulations.",
+        "searches": [
+          "https://arxiv.org/abs/2201.04603",
+          "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+          "https://arxiv.org/abs/2509.11172",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17/RESULT.md",
+          "2-binomial equivalence factor complexity geometric power marker characteristic word B^k scattered 01",
+          "Powers of two automatic word binomial complexity 2 factor injectivity reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed length in binary, two-binomial equality is equivalent to equality of weight r and sum T of one-positions; scattered 01=T-binomial(r,2), a standard Parikh-matrix/partition identity discussed by Richomme and Rigo et al.",
+          "Rigo–Stipulanti–Whiteland https://arxiv.org/abs/2201.04603 Introduction and Sections 2,7 show equality of 2-binomial and factor complexities for Sturmian and other specified families, not for the marker word with support {B^a}.",
+          "Vivion https://arxiv.org/abs/2509.11172 Theorem 1 studies 1-balanced, certain billiard, and Sturmian-colored classes; marker words have arbitrarily long all-zero factors at fixed length while early length-n factors may contain multiple ones, hence are not 1-balanced."
+        ],
+        "reasoning": "The exact equivalent claim is injectivity of (r,T) on the same-length factor set, not a claim that (r,T) determines every binary word. Neither the previously known moment identity nor faithfulness of a disjoint class proves faithfulness for this power-support language. The published period-doubling dyadic result is length-restricted and concerns a different word, whose length-five factors collide.",
+        "searches": [
+          "2-binomial equivalence factor complexity geometric power marker characteristic word B^k scattered 01",
+          "Powers of two automatic word binomial complexity 2 factor injectivity reconstruction",
+          "lacunary binary words 2-binomial complexity same as factor complexity sparse powers",
+          "https://arxiv.org/abs/2201.04603",
+          "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+          "https://arxiv.org/abs/2509.11172",
+          "https://arxiv.org/abs/2510.07159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returns the submitted target itself as the closest indexed exact match; it cannot be treated as a preexisting independent discovery.",
+          "Full published https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md identifies exact factor counts modulo reversal and asymptotics for the SAME w_B but gives no table of 2-binomial equivalence classes or T-injectivity.",
+          "Full published https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md gives minimal absent CONTIGUOUS factor classification for w_B and cannot determine scattered-01 collision classes.",
+          "Other searched two-binomial tabulations pertain to period-doubling, paperfolding or Cantor words, not w_B across all B,n."
+        ],
+        "reasoning": "The exact same-object factor language is documented elsewhere, so the factor-complexity information alone has limited novelty; the b^(2)=p identity and level-two sharpness are not given there. An exact indexed b^(2) table or theorem for this power-support word was not found; absence of a search hit is not proof of novelty.",
+        "searches": [
+          "2-binomial equivalence factor complexity geometric power marker characteristic word B^k scattered 01",
+          "Powers of two automatic word binomial complexity 2 factor injectivity reconstruction",
+          "characteristic sequence of integer powers scattered subsequence Parikh matrix factors",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md",
+          "published Resultary corpus query: two binomial rigidity geometric marker automatic powers of two",
+          "published Resultary corpus query: dyadic two-binomial spectra of paperfolding period doubling"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the all-base 2-binomial factor-reconstruction theorem, qualified by the preexisting general identity scattered-01 = positional moment minus binomial(weight,2), classical factor-complexity methods, and an extensive same-object reflection-complexity classification. The published same-object theorem enumerates and pairs powers-of-B factors under reversal but does not assert or imply injectivity of the scattered-subsequence fingerprint. Known binomial-faithfulness theorems apply to Sturmian, Tribonacci, and selected balanced/billiard language classes with hypotheses the geometric-power-support word does not satisfy. The closest Rigo–Stipulanti–Whiteland sparse nonrecurrent example requires order 3, not 2. Other published automatic words have distinct languages. The first-level arithmetic separation and exact all-base window formula remain unlocated as prior claims. This is an incremental, not foundational, new classification; unindexed equivalent formulations and stronger theorems are residual priority risks.",
+      "residual_risks": [
+        "The closely related published same-object reversal-complexity theorem already proves a full factor language count and uniqueness from first two gap positions; the submitted exact factor enumeration may be a short re-expression. Originality is specifically the all-base (r,T) collision exclusion, not the factor language itself.",
+        "Unindexed or differently named Parikh-matrix/binomial-class result, or a general sparse-word criterion specialized to powers, may predate this proof. Failed searches are not novelty proof.",
+        "The 2025 Richomme primary paper was only read in abstract and related citations; no whole-document exclusion is claimed.",
+        "Some selected thesis chapters and primary PDF portions, not every page of every very long source, were read; no blanket whole-document exclusion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_IMPLY_CLAIM",
+          "evidence": "Their sparse nonrecurrent construction h(0)=01, h(1)=12, h(2)=2 yields 2-binomial collisions but 3-binomial reconstruction, unlike w_B. Their positive Sturmian and morphism statements impose different language hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.04603",
+          "material_read": "Accessible full paper HTML text; Introduction, general 2-binomial definitions and main theorems, full relevant Section 7.1 including Theorem 7.4, Propositions 7.5–7.6 and Remark 7.3, searched for marker/power terminology.",
+          "method": "Primary published paper rendered as full-text HTML via https://www.researchgate.net/publication/380248131_Characterizations_of_families_of_morphisms_and_words_via_binomial_complexities",
+          "title": "Characterizations of families of morphisms and words via binomial complexities",
+          "trigger": "Closest primary study of 2-binomial faithfulness and sparse morphic words"
+        },
+        {
+          "assessment": "DIFFERENT_LANGUAGE_NOT_COVERING",
+          "evidence": "Applies a primitive Tribonacci substitution and proves its factor-language faithfulness. The support-word w_B is not this primitive uniformly recurrent substitution fixed point.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+          "material_read": "Full open-access primary PDF made available, title/abstract/introduction and relevant definitions, template argument and Tribonacci statements from the text; PDF first pages visually inspected.",
+          "method": "Lawful open-access institutional preprint PDF and web page/text plus page screenshot",
+          "title": "Templates for the k-binomial complexity of the Tribonacci word",
+          "trigger": "Known b^(2)=p classification for a non-Sturmian infinite word"
+        },
+        {
+          "assessment": "STRONGER_IN_ITS_SCOPE_BUT_INAPPLICABLE",
+          "evidence": "The stated 1-balanced, billiard and Sturmian-derived classes do not contain the nonrecurrent geometric-support characteristic word with arbitrarily long zero runs and many-one factors.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.11172",
+          "material_read": "Accessible primary full-text copy, theorem statement and relevant definitions and surrounding material (Theorem 1 classes and conditions).",
+          "method": "Author-posted full-text research copy / primary preprint abstract and theorem read",
+          "title": "New examples of words for which the binomial complexities and the subword complexity coincide",
+          "trigger": "Plausibly stronger 2025 theorem for several classes of words with all-order equality"
+        },
+        {
+          "assessment": "NO_APPLICABLE_COVERAGE_FOUND_IN_RELEVANT_SECTIONS",
+          "evidence": "The examined portions center on general 2-binomial theory and Thue–Morse/Tribonacci/period-doubling, not a uniform w_B integer-power-support theorem. Not an assertion of exhaustive page-by-page exclusion.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+          "material_read": "Accessible 229-page primary doctoral thesis, table of contents and relevant excerpts of chapters on 2-binomial equivalence and automatic/morphic examples; searched for lacunary/sparse and powers-of-integer support.",
+          "method": "Lawful open-access thesis PDF with text inspection and selected page screenshots",
+          "title": "On the k-binomial equivalence of finite words and k-binomial complexity of infinite words",
+          "trigger": "Potentially broader thesis classification beyond the Tribonacci paper"
+        },
+        {
+          "assessment": "SUBSTANTIAL_SAME_OBJECT_OVERLAP_BUT_NO_TWO_BINOMIAL_FINGERPRINT",
+          "evidence": "Same w_B, unique first-gap positions, exact reversal classes and growth; factors by reverse equivalence, not by scattered 01 and positional T. The ordinary factor count machinery overlaps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md",
+          "material_read": "Entire published RESULT.md full mathematical text, hypotheses, formulas, proof Steps 1–7 and comparisons.",
+          "method": "GitHub read-only fetch of full public mathematical record",
+          "title": "Exact reflection complexity and oscillation of geometric-support automatic words",
+          "trigger": "Most relevant published same-object exact all-base factor-language census"
+        },
+        {
+          "assessment": "RELATED_SAME_OBJECT_DIFFERENT_INVARIANT",
+          "evidence": "Antidictionary classification identifies missing contiguous factors but makes no claim about equivalence of present factors by scattered subsequences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-minimal-absent-factors-of-power-support-binary-words--6b81bf3b008e/RESULT.md",
+          "material_read": "Entire published RESULT.md mathematical statement, four-family absent-factor proof and formula.",
+          "method": "GitHub read-only fetch of full published mathematical result",
+          "title": "Complete minimal absent factors of power-support binary words",
+          "trigger": "Other full same-object classification and possible language-table dominance"
+        },
+        {
+          "assessment": "SAME_STATISTIC_DIFFERENT_LANGUAGE_AND_LENGTH_DOMAIN",
+          "evidence": "Only the period-doubling word at lengths 2^k; its two-binomial collision at length 5 prevents any all-length extension; no implication for powers-of-B markers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyadic-two-binomial-rigidity-of-the-period-doubling-word--ea4a069f1a17/RESULT.md",
+          "material_read": "Entire published RESULT.md mathematical statement, rotation-based proof, length-five collision and limitations.",
+          "method": "GitHub read-only fetch of full published mathematical record",
+          "title": "Dyadic two-binomial rigidity of the period-doubling word",
+          "trigger": "Closest published order-two reconstruction of an automatic factor language"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY_UNRESOLVED_FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Supports treating the binary two-letter scattered-count/moment correspondence as established; an uninspected theorem could add additional implications and remains a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+          "material_read": "Primary abstract describing the general 2-binomial geometrical/partition framework; no full text inspected.",
+          "method": "Primary abstract only, explicitly limited",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Alternative Parikh matrix / integer partition formulation could imply separation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order-two scattered-subsequence reconstruction of an entire natural aperiodic automatic language is a motivated exact combinatorics-on-words invariant. The proof gives the optimal reconstruction order for every B and factor length and an exact arithmetic factor-complexity census, not an arbitrary finite slice. In contrast, the Rigo et al. sparse nonrecurrent morphic word has order-two collisions and needs order three; the Tribonacci/Sturmian examples are recurrent and structurally different. The uniform nonrecurrent sparse power-marker family therefore provides a natural sharp positive case. Its exact formula is useful for complexity and algorithmic factor fingerprinting, though the counting apparatus overlaps a published same-object reflection census; no broad classification of all sparse words or downstream theorem is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer B>=2, the indicator word supported at indices {1,B,B^2,...} has distinct length-n factors separated by their order-2 scattered subsequence fingerprints for all n>=1; binomial order 2 is sharp. Its factor/two-binomial complexity is n+1 plus the explicit finite sum of counts of all integer start intervals containing consecutive B^a,...,B^(a+r-1) markers and excluding neighboring markers.",
+  "limitations": [
+    "No result for nongeometric sparse supports, arbitrary binary sequences or alphabets larger than two. Complexity is a finite interval sum, not an optimized elementary closed form.",
+    "The independent finite arithmetic scan is a bounded diagnostic, not an infinite proof; correctness follows from the reviewed half-open inequality and exact start-window argument.",
+    "Same-word published reflection complexity overlaps factor enumeration; this finding does not claim that known identity, factor membership or automaticity as new.",
+    "Originality is best-of-knowledge; obscure equivalent prior art or a stronger sparse-word criterion remains possible. Some relevant sources were inspected in selected sections only; one background paper abstract only.",
+    "Publication not_ready is a confidentiality/transport limitation, not C/O/V scientific failure. No external human expert attestation, Lean proof or GitHub publication is claimed."
+  ],
+  "schema_version": 1
+}
