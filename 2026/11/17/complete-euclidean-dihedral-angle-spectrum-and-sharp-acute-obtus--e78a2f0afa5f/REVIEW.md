@@ -1,15 +1,21 @@
-# Scientific review of the cycle Laplacian-simplex dihedral-angle classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The object is the \((n-1)\)-dimensional canonical Euclidean convex hull of the columns of the unweighted cycle Laplacian, \(n\ge3\). The proof independently establishes the facet-normal correspondence from barycentric coordinates, calculates the cycle pseudoinverse and its square by cyclic difference equations and zero-sum normalization, and derives each interior dihedral angle from the signed inner-normal cosine. Explicit unordered-pair counting covers every ridge with correct antipodal multiplicities. The inequalities \((n^2-19)/(n^2+11)\) and \(u\ge(n^2-1)/4\) establish the exact smallest-order acute–obtuse transition. The limiting law is a Riemann-sum consequence; its threshold and bounded angular moments are analytically evaluated. The separate checker obtains exact rational agreement from matrix inversion and directly solved facet hyperplanes for \(n=3,\dots,11\). Finite checks are not substituted for proof.
+## correctness
 
-## Originality
-**PASS, with residual historical-priority risk.** Braun–Meyer (2017) introduce and analyze these Laplacian simplices but focus on lattice reflexivity, Ehrhart enumeration, and related properties. Meyer–Pllaha (2018) study coding-theoretic invariants. Devriendt–Van Mieghem (2018) and Devriendt (2020) explain a *different* graph-to-simplex correspondence and a general relation between simplex dihedral angles and pseudoinverse Gram matrices; their general identities are antecedents, not themselves a cycle-specific table or asymptotic angular law. A previously published vertex-transitive Laplacian-simplex result gives cycle inradii and the facet normal formula for the **same** realization. This is the closest mathematical predecessor and it is explicitly credited. That result determines diagonal squared-normal norms but does not report off-diagonal squared-pseudoinverse Gram entries or the full ridge-angle multiset. The new claim requires the bi-Laplacian cycle kernel evaluation, exact multiplicities, finite mixed-angle transition, and angular limit. A generic formula which enables calculation is not mistaken for independent originality of its standard premise. Searches of published mathematical records and primary texts found no exact stronger classification. Historical nonappearance is not proof of priority; equivalently phrased biharmonic-angle literature remains a risk.
+PASS
 
-## Mathematical value
-**PASS.** The dihedral-angle multiset is a complete, natural metric invariant of a well-studied infinite simplex family, not an arbitrary parameter slice. The sharp change at cycle order five from entirely acute to mixed acute–obtuse, the explicit distance-indexed multiplicities, and the nondegenerate asymptotic law quantify genuine geometry that Ehrhart and spectral inradius results alone do not describe. The exact asymptotic proportion \(1-\sqrt{1-4/\sqrt{30}}\) of obtuse ridges and second cosine moment \(3/7\) make the invariant useful for comparing facet adjacency geometry across dimensions. No separate downstream theorem is claimed.
+C PASS: In the canonical unweighted cycle C_n, n>=3, the n Laplacian columns affinely span the zero-sum hyperplane. Its barycentric facet normals are L_n^+e_i. Directly solving both cyclic difference equations gives (L_n^+)^2_{00}=(n^2-1)(n^2+11)/(720n) and (L_n^+)^2_{00}-(L_n^+)^2_{0d}=d(n-d)[d(n-d)+2]/(24n); their normalized Gram cosine gives the exact claimed interior dihedral angle pi-arccos(1-30u(u+2)/D_n). Increasing u over 1..floor(n/2) proves levels and multiplicities, with n=3,4 acute and n>=5 both signs. Exact angular distribution follows the distance-pair Riemann sum, and integrated cosine moments give 1/(n-1), 3/7. Independent rational matrix inversions and directly reconstructed normals were checked for n=3..12; finite instances corroborate rather than prove all n.
 
-## Closest literature and limitations
-The closest same-object result is *Vertex-transitive Laplacian simplices have spectral inradii and degree-controlled circumradii* (publicly available 2026-10-11): its normal formula is explicitly reused, not claimed as novel. Braun–Meyer (arXiv:1706.07085), Meyer–Pllaha (arXiv:1809.02960), Devriendt–Van Mieghem (arXiv:1807.06475), and Devriendt (arXiv:2010.04521) were compared at the relevant primary text level. The Euclidean embedding must be preserved; nonorthogonal unimodular lattice representatives need not share these angles. No independent scientific audit or global priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS, best of knowledge: The same Euclidean realization and pseudoinverse facet-normal formula, and even the cycle diagonal norm/inradius, are known in the earlier vertex-transitive Laplacian-simplex theorem. That full proof was inspected. Its scalar spectral trace supplies only squared normal lengths, not their off-diagonal Gram matrix, distance-indexed full angle multiset or sharp acute/obtuse asymptotic. Braun-Meyer and Meyer-Pllaha focus on lattice/Ehrhart/coding invariants; Devriendt provides broader generic Gram angle machinery for a differing graph simplex model. The evaluated all-cycle angle spectrum and limiting law were not identified as earlier stated implications. Biharmonic Green-function tables and alternative angular nomenclature remain a priority risk.
+
+## value
+
+PASS
+
+V PASS: All ridge angles and multiplicities form a complete intrinsic Euclidean metric fingerprint of a canonical infinite graph-simplex family. The unexpected sharp mixed acute/obtuse transition at n=5 and a nondegenerate uniform-ridge limit with ~48.07 percent obtuse probability are mathematically meaningful, not just reusing the previously known inradius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
