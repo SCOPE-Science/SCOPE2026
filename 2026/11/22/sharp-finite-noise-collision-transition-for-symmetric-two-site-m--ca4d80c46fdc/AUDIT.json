@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact 2x2 Gaussian conditioning gives R=2m^2/(eta+1+k). Explicit exact differentiation gives sign(Rprime)=sign(T-eta). A uniform rational/hyperbolic inequality proves T strictly decreasing across (0,1/2); endpoint values and a one-sided Taylor expansion establish unique optimum, exact threshold and linear collision. Both packaged checkers ran successfully; finite grids are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai–Lam–Scarlett: T-dependent asymptotic noisy average-case upper/lower rates and approximation-based algorithms, not exact T=2 symmetric node locations.",
+        "Karvonen–Kanagawa–Särkkä: local-optimal-point positivity under total positivity and Matérn stability examples; not positive-nugget placement phase thresholds.",
+        "Pronzato–Zhigljavsky abstract: general energy/discrepancy framework; full text not inspected, so exact exclusion is unestablished."
+      ],
+      "reasoning": "A general Gaussian conditioning identity or energy minimization framework does not imply strict monotonicity of the concrete scalar threshold without further calculation. The inspected theorems cannot be specialized immediately to the explicit 8sqrt(e)-12 critical nugget and its linear approach law; historical uninspected exact design theorems remain risk.",
+      "searches": [
+        "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature arxiv 2202.10615v2 sections 1-3 and theorem 1",
+        "On the positivity and magnitudes of Bayesian quadrature weights 1812.08509v2 sections 3.5, 3.7, 4.5",
+        "Bayesian Quadrature, Energy Minimization, and Space-Filling Design 10.1137/18M1210332 abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1812.08509v2",
+      "https://arxiv.org/html/2202.10615v2",
+      "https://doi.org/10.1137/18M1210332",
+      "published-finding corpus:2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1",
+      "published-finding corpus:2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba",
+      "published-finding corpus:2026/11/2/SCOPE-exact-two-landmark-design-for-a-cosine-kernel-a-noise-independen--98c56c92dae5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018/2019 positivity article uses unregularized kernel weights and qualitative optimizers, no two noisy midpoint-replication threshold.",
+        "2022 noisy error-bounds paper operates asymptotically in sample budget, not exact symmetric two-site design.",
+        "Related published-finding corpus rough power-exponential heavy-tail and OU noiseless-spacing results have distinct objective / kernel and do not imply this Matérn-3/2 phase diagram."
+      ],
+      "reasoning": "An asymptotic regret bound cannot determine the unique finite-budget optimal location. A rough-exponential noncollision result is not a specialization of smooth Matérn-3/2. The explicit threshold and linear one-sided onset require the newly proved m,u,k derivative inequalities.",
+      "searches": [
+        "arxiv 1812.08509v2 Matérn Sections 3.5 and 4.5",
+        "arxiv 2202.10615v2 noise and Matérn Theorem 1",
+        "published-finding corpus related: 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1",
+        "published-finding corpus related: 2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The integrated-kernel posterior design objective is a 2x2 regularized Gram inverse, equivalent to two-point regularized kernel quadrature.",
+        "arXiv:1812.08509v2 Sections 3.5 and 4.5 discuss weight signs and Matérn examples, not the exact nugget-driven symmetric-location optimum.",
+        "Related exponential- and Brownian-kernel two-point designs involve different covariance functions and cannot imply the stated Matérn threshold."
+      ],
+      "reasoning": "Reparametrizing by half-separation yields an explicit one-variable objective. The searched published records and inspected work do not provide an equivalent characterization at eta=8sqrt(e)-12; unlike older exponential kernel results, smoothness at coincident sites changes the optimizer to a repeated midpoint pair.",
+      "searches": [
+        "Matérn 3/2 Gaussian kernel Bayesian quadrature two noisy observations optimal symmetric pair replication threshold",
+        "Exact bifurcation between repeated and separated measurement sites for smooth kernels, Gaussian process posterior integral variance",
+        "Optimal two-point Bayesian quadrature Matérn 3/2 kernel integrated mean symmetric noisy design",
+        "published literature aliases: matern;matérn;colliding noisy quadrature;replicate midpoint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned related kernel quadrature, noisy Gaussian process design and collision-tail records, not an entry of the proposed exact symmetric Matérn threshold.",
+        "Retrieved noisy OU and Brownian-bridge quadrature claims involve different covariance families and do not contain the specified Matérn threshold.",
+        "Web searches did not surface a lookup table for the same kernel/noise/observation-budget objective."
+      ],
+      "reasoning": "No exact precomputed table was retrieved; negative database searches are not uniqueness proofs. The value comes from an all-positive-noise analytical classification rather than only a numerical table lookup.",
+      "searches": [
+        "8 sqrt(e) minus 12 Matern three halves two symmetric noisy observation nodes collapse threshold quadrature",
+        "Matern 3/2 reflection symmetric two site Gaussian process integrated-mean quadrature phase transition at nugget variance finite",
+        "two repeated midpoint sites optimal positive noise covariance kernel exponential polynomial Matern 3/2 one dimensional integration",
+        "published index query terms Matérn; replication; collision",
+        "web exact 8 sqrt(e) Gaussian process quadrature; Matern quadrature replication noise optimal two points"
+      ]
+    },
+    "rationale": "Full-text Matérn and noisy-kernel comparisons do not imply the unique reflection-paired T=2 Matérn-3/2 positive-nugget collapse at 8sqrt(e)-12, nor its linear critical law. published-finding corpus and accessible published claim/source comparisons did not identify an equivalent; exact historical priority is not independently established.",
+    "residual_risks": [
+      "Uninspected historical Gaussian-process design literature could contain an equivalent two-site nugget formula.",
+      "Pronzato–Zhigljavsky was compared through its abstract only, not by a full-text exclusion.",
+      "published-finding corpus and record-index searches do not prove global novelty or completeness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact positive-observation-noise two-reflected-site optimizer or critical replication variance identified in inspected sections",
+        "evidence": [
+          "The local-optimality statement concerns distinct point sets and totally positive sufficiently smooth kernels; the Matérn example investigates weight magnitudes without a nugget phase diagram."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.08509v2",
+        "material_read": "Sections 3.5, 3.7, 4.5 and surrounding statements on local optimality, positivity, Matérn kernel experiments, and their caveats",
+        "method": "Full HTML text, section and formula inspection",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Same Bayesian quadrature variance, locally optimal points, and explicit Matérn-3/2 examples"
+      },
+      {
+        "assessment": "Asymptotic error-rate and randomized-algorithm results do not classify the symmetric T=2 nodes or the finite collision threshold",
+        "evidence": [
+          "Their sample budget T controls upper/lower error rates; no exact finite-two-point variational classification in inspected theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.10615v2",
+        "material_read": "Abstract, full Introduction and contributions, Related Work, Problem Setup, and noisy lower bound Theorem 1",
+        "method": "Full HTML text, principal statement and setup inspection",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Matérn kernel with Gaussian noisy sampling and Bayesian integration objective"
+      },
+      {
+        "assessment": "No whole-document noncoverage conclusion; residual historical overlap risk remains",
+        "evidence": [
+          "Abstract establishes general energy/discrepancy connection, not the specific Matérn-noise threshold."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1210332",
+        "material_read": "Abstract and bibliographic scope; full text not inspected",
+        "method": "Publisher abstract and stated scope comparison",
+        "title": "Bayesian Quadrature, Energy Minimization, and Space-Filling Design",
+        "trigger": "Broad kernel energy minimization may contain an implication for two-point designs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ca4d80c4-6fdc-41d4-a02a-5231707294f5",
+  "value": {
+    "rationale": "The two-observation budget is the smallest nontrivial simultaneous coverage-versus-replication choice for noisy Matérn Bayesian integration. The sharp positive-noise collision and linear approach law are a motivated structural threshold beyond routine formula substitution, giving exact design guidance within the natural reflection-symmetric class without overstating unrestricted global optimality.",
+    "status": "PASS"
+  }
+}
