@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** An acyclic orientation of \(K_{2,n}\) is a word over four local states forbidden to mix its two opposite two-step directions. Inclusion-exclusion counts all orientations by sinks, including the two-hub-sink exceptional word. The proof excludes positive roots from positive coefficients, excludes \([-2,0)\) by an exact elementary inequality, and uses Descartes' rule with endpoint signs (and a uniform positive witness at \(x=3\)) to prove the precise root counts and simplicity. The small-order boundaries are computed separately. Exhaustive orientation enumeration through \(n=8\) independently agrees with the polynomial; symbolic inequalities prove the unrestricted assertion.
+
+**Originality — PASS, with historical-priority limitation.** A 2026 graph-polynomial paper obtains real-rootedness for *chordal claw-free* acyclic sink polynomials, not for the claw-containing \(K_{2,n}\) family. A 2019 paper develops general multivariate acyclic sink polynomials and their evaluation methods, while a 2020 paper counts total and unique-sink acyclic orientations of complete bipartite graphs; those statements alone neither assert nor imply the real-zero parity classification without a further root argument. Related known root-count results for square bouquets concern different graphs. Targeted searches identified no equivalent family-wide root theorem, but unindexed earlier calculations or unpublished notes may exist.
+
+**Value — PASS.** Real-zero location and multiplicity are structural coefficient-shape properties, not routine consequences of the minimum or total orientation count. This complete infinite-family classification gives a natural non-chordal, claw-containing test case with a sharp transition from two to three real zeros according to parity and a single exceptional order. The sign mechanism is explicit and may inform comparisons with other biclique-shore parameters and graph-polynomial root questions.
+
+Closest literature: Alexandersson–Maia Leite, arXiv:2610.41502; Hwang et al., arXiv:1910.10920; Ayyer–Hathcock–Tetali, arXiv:2010.11236. Limits: only the two-vertex shore is treated; historical completeness is not independently certified; numerical enumeration is supplementary rather than an infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.
