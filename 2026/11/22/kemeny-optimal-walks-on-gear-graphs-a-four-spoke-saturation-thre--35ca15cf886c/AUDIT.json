@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The positive definite inverse-trace representation is strictly convex in all independent edge weights. Dihedral invariance thus holds at the unrestricted unique optimizer. Positive semidefinite monotonicity saturates every rim-vertex capacity, Fourier blocks give the exact rational scalar objective, Jensen/Cauchy prove its n>=7 endpoint sign, exact calculations settle n=4..6 and a quartic settles n=3, and the cyclic Poisson kernel supplies the exact value and asymptotics. Actual verify_gear.py passed 528 finite direct-eigenvalue/symbolic/numerical assertions. No infinite claim relies solely on finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel, Agharkar, Bullo open full text, https://motion.me.ucsb.edu/pdf/2014b-pab.pdf, §II-B Theorem 4 and Problem 2: arbitrary-topology Kemeny minimization is convex and expressible as an SDP.",
+        "Boyd et al., arxiv:0709.0955, §§1-2: orbit reduction for second-largest-eigenvalue-modulus minimization; §3 graph examples concern the SLEM objective.",
+        "Boyd, Diaconis, Xiao, https://stanford.edu/~boyd/papers/pdf/fmmc.pdf, §1 and §7: SLEM formulation and maximum-degree comparator, not the Kemeny-optimal gear law."
+      ],
+      "reasoning": "A general SDP that can numerically evaluate an arbitrary finite graph is not an explicit all-n theorem; none of these general sources derives the gear Fourier formula, exact saturation threshold, or asymptotic constants. The SLEM objective is not the inverse-trace Kemeny objective, and no parameter transformation in the inspected results converts one optimizer theorem into the other.",
+      "searches": [
+        "Robotic surveillance and Markov chains with minimal weighted Kemeny constant Patel Agharkar Bullo",
+        "Fastest Mixing Markov Chain on Graphs with Symmetries Boyd Diaconis Parrilo Xiao arxiv:0709.0955",
+        "exact Kemeny graph gear graph 2n+1 stationary uniform asymptotic n^{3/2}",
+        "fastest mixing on gear graph or Jahangir graph weighted stochastic"
+      ]
+    },
+    "checked_sources": [
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "https://stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://arxiv.org/pdf/0709.0955",
+      "https://arxiv.org/abs/1208.4716 (dated 2012-08-23; contextual spectral Kemeny source)",
+      "https://mathworld.wolfram.com/GearGraph.html",
+      "https://mathworld.wolfram.com/KirchhoffIndex.html",
+      "Gear-graph zero-forcing publication, ID 0d2ee409a2b6",
+      "Gear-graph majority-equilibria publication, ID 99c7289fb664",
+      "7e060df3-1d29-4883-bc13-78d1749b7358 (accessible helm Kemeny claim)",
+      "54eb5c93-9aca-4503-910b-793fb0116019 (accessible squared cycle Kemeny claim)",
+      "4ef8bd78-62e9-4b15-9a46-f8f0b22a700d (accessible double-cone Kemeny claim)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible original claim id 7e060df3-1d29-4883-bc13-78d1749b7358 concerns a helm: pendant leaves on a wheel, not degree-two inserted rim vertices.",
+        "Accessible original claim id 54eb5c93-9aca-4503-910b-793fb0116019 concerns a squared cycle with no hub.",
+        "Accessible original claim id 4ef8bd78-62e9-4b15-9a46-f8f0b22a700d concerns a double cone with two hubs and no gear subdivision.",
+        "Patel et al. 2014 general convexity theorem implies numerical solvability but not this symbolic graph-size law."
+      ],
+      "reasoning": "A helm pendant edge and a gear ring subdivision have different valence and Fourier quotients; neither graph can be substituted into the other result. General convexity by itself says nothing about the sign of the gear-specific endpoint derivative, and a bound for the SLEM does not imply inverse-trace optimum. Each closest implication lacks the central n=4 transition and unbounded baseline gap on the same object.",
+      "searches": [
+        "Kemeny-optimal symmetric stochastic walk on gear graph bipartite wheel Jahangir graph G_n with subdivided rim wheel",
+        "unique Kemeny-optimal symmetric stochastic walk on gear graph G_n hub saturated n>=4 subdivided wheel",
+        "Kemeny-optimal symmetric stochastic walks on leaf coronas helms wheels squared cycles",
+        "Fastest mixing Markov chain on a graph Boyd Diaconis Xiao 2004"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MathWorld Gear Graph identifies gear/bipartite-wheel/J_{2,n} as the same graph; web source https://mathworld.wolfram.com/GearGraph.html",
+        "Relevant published search hit gear-graph zero-forcing result, published ID 0d2ee409a2b6 concerns zero-forcing sets, not a stochastic Kemeny optimum.",
+        "A different published gear-graph hit gear-graph majority-equilibrium result, published ID 99c7289fb664 concerns binary majority equilibria, not inverse spectral sums."
+      ],
+      "reasoning": "The query variants used all principal graph aliases and the equivalent inverse-Laplacian/Kemeny formulations. The closest gear-name results solve unrelated graph invariants, and no retrieved assertion gives the exact symmetric stochastic minimizer, the n=4 holding threshold, or the asymptotic gap. Nonappearance is not itself a proof of uniqueness; strong candidates were compared by claim content.",
+      "searches": [
+        "Kemeny-optimal symmetric stochastic walk on gear graph bipartite wheel Jahangir graph G_n with subdivided rim wheel",
+        "optimal Kemeny Markov transition probabilities hub spokes and subdivided rim in gear graph",
+        "unique Kemeny-optimal symmetric stochastic walk on gear graph G_n hub saturated n>=4 subdivided wheel",
+        "gear graph Kemeny random walk minimum spoke probability hub rim midpoint sqrt n baseline maximum-degree",
+        "bipartite wheel Jahangir gear graph Kemeny constant spectral Markov chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Kirchhoff Index table (https://mathworld.wolfram.com/KirchhoffIndex.html) lists finite unweighted gear-graph resistance indices.",
+        "MathWorld Gear Graph (https://mathworld.wolfram.com/GearGraph.html) specifies 2n+1 vertices and 3n edges."
+      ],
+      "reasoning": "Static unit-edge Kirchhoff-index entries fix all conductances rather than optimizing symmetric stochastic transition weights subject to the hub and rim row-sum constraints. The table does not imply the unique optimizer or threshold; the checker separately verifies the non-unit optimal spectrum.",
+      "searches": [
+        "gear graph Kirchhoff index exact table Wolfram MathWorld",
+        "\"gear graph\" \"Kemeny\" constant",
+        "\"gear graph\" Laplacian Kirchhoff index effective resistance exact"
+      ]
+    },
+    "rationale": "General Markov Kemeny optimization and symmetry techniques are known, but the inspected primary texts and natural alias/parameter comparisons do not state or imply this gear-graph global optimizer, sharp n=4 holding switch, exact hyperbolic optimum, or sqrt(n) max-degree loss. Related helm and wheel graphs have structurally different edge orbits. This is a best-knowledge decision subject to priority risk.",
+    "residual_risks": [
+      "Unindexed or differently named gear/Jahangir Kemeny optimization papers may exist.",
+      "The exact Fourier resolvent for the gear graph could be derivable from a more general unpublished wheel-subdivision formula not found in inspected sources.",
+      "The primary sources have been inspected at the mathematical formulations and likely covering sections, not every line of every reference or all literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convexity and optimization formulation overlap with preliminaries, not the explicit gear-graph minimizer or size-specific threshold.",
+        "evidence": [
+          "Section II-B Theorem 4 proves convexity for reversible chains; §II describes the spectral trace, and the applications offer numerical graph problems. No stated gear graph transition theorem in inspected material."
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Full-text accessible PDF; introduction, main eigenvalue/trace formula, section II-B including Theorem 4, SDP formulation and concluding future-work statements, with full-text search for wheel.",
+        "method": "Read text extracted from the primary PDF and visually inspected its opening page and title; compared mathematical target and scope of Theorem 4.",
+        "title": "Robotic surveillance and Markov chains with minimal weighted Kemeny constant",
+        "trigger": "Same exact Kemeny minimization objective with fixed graph and stationary distribution"
+      },
+      {
+        "assessment": "The SLEM objective is not a reciprocal-spectrum sum; no gear Kemeny optimizer is stated in examined sections.",
+        "evidence": [
+          "§1.1 defines the maximum modulus of nontrivial eigenvalues and §7.2 compares spectral gaps against maximum-degree weighting, not Kemeny sums."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Primary full-text PDF introduction §§1.1–1.2, numerical/comparison conclusions §7.2, and searches for wheel and gear; inspected opening page visually.",
+        "method": "Read source PDF text and inspected its first page; compared the precise SLEM target and maximum-degree definition.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "General symmetric transition-probability design and the maximum-degree comparator"
+      },
+      {
+        "assessment": "Orbit averaging is prior general machinery, but the work minimizes SLEM, not the present Kemeny trace; it does not cover the claimed closed-form gear optimum.",
+        "evidence": [
+          "§1.1 displays the SDP for minimizing the second-largest eigenvalue modulus. §1.3 outlines edge-transitive, distance-transitive and products rather than the gear Kemeny problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Full-text accessible arXiv PDF, introduction and explicit objective in §§1–2, section outline for §§3–5; searched full text for gear, Jahangir, Kemeny; visually inspected page one.",
+        "method": "Read primary source text and inspected first page; performed exact-term searches for same graph/objective.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible stronger orbit-theoretic theorem covering arbitrary edge-orbit optimization"
+      },
+      {
+        "assessment": "Graph identification and fixed-weight resistance values are background, not an optimization theorem.",
+        "evidence": [
+          "Gear graph described as a wheel with subdivided rim edges and 2n+1 vertices; separate page tabulates its unweighted Kirchhoff indices."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/GearGraph.html ; https://mathworld.wolfram.com/KirchhoffIndex.html",
+        "material_read": "Accessible graph definition and Kirchhoff-index table entries for gear graphs.",
+        "method": "Read MathWorld descriptions and compared fixed unweighted invariant versus optimized weighted Laplacian trace.",
+        "title": "Gear Graph and Kirchhoff Index",
+        "trigger": "Same underlying graph alias and a table of closely related resistance-trace invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "35ca15cf-886c-46a1-847a-d15bf1d217e9",
+  "value": {
+    "rationale": "Gear graphs are a canonical alternating hub/ring family. The theorem establishes all-size unrestricted optimal transition weights, an exact hub-holding transition already at n=4, a closed-form optimum with sharp four-term asymptotics, and an unbounded sqrt(n) improvement over the conventional max-degree design. This is a structural graph-constrained stochastic-optimization classification rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
