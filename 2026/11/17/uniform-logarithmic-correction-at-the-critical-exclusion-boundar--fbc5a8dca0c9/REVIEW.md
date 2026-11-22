@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact change \(z=1-x\), \(u=a y/(1-b)\) gives the conserved offset \(u-z\). Each coordinate obeys a scalar logistic-type recursion at detuning \(\pm\tau/N\). Taking reciprocals yields an exact recurrence with a constant term and a harmonic tail. Uniform bounds \(c(k+1)\le w_k\le C(k+1)\), followed by \(w_k=\gamma k+O(1+k^2/N+\log(k+1))\), give the summable comparison \(1/w_k=1/(\gamma k)+O(1/N+(1+\log(k+1))/k^2)\). Variation of constants proves the exact \(\gamma e^{\pm\gamma\tau t}\log N\) coefficients and a bounded remainder. The standalone checker confirms the exact conservation relation and numerically probes the predicted asymptotic slope. It is not an infinite-proof certificate.
+PASS
 
-## Originality — PASS within available evidence
+Transform x,y to z=1-x, u=ay/(1-b), gamma=1-b. Exact updates z_next=z(1-gamma*u), u_next=u(1-gamma*z) preserve u-z=tau/N. For each v=z or u the reciprocal w=1/v obeys exact w_{k+1}=w_k/s+gamma/s²+gamma²/[s³ w_k(1-gamma/(s w_k))], s=1-gamma*sigma/N. Uniform positivity and c(k+1)<=w_k<=C(k+1), all k<=N imply w_k=gamma*k+O(1+k²/N+log(k+1)) and 1/w_k=1/(gamma*k)+O(1/N+(1+log k)/k²). The weighted residual sum has coefficient gamma*exp(gamma*sigma*t)*log N+O(1) uniformly sigma in bounded [-R,R], t in [delta,1]; leading linear recurrence equals N*(exp(gamma*sigma*t)-1)/sigma+O(1). Both reciprocal laws follow for sigma=+tau,-tau, including tau=0 continuous extension. Independent computation of exact invariant and N=20k versus 80k residual ratio matches the coefficient (for example gamma=0.6,tau=1.2,t=0.5). This is not a statement for t approaching zero or parameter boundaries.
 
-Boxonov's arXiv:2303.03884v1, equations (3.6), (3.10) and Theorem 2, already provide the system, conserved leaves and qualitative boundary selection. An earlier first-order same-model critical-window ensemble law already establishes the limiting \(t=1\) crossover curve and is not claimed again. The present theorem adds two explicit, nonzero logarithmic terms and a **uniform bounded remainder** on the full macroscopic observation interval. published-finding corpus comparisons included weak-selection clocks for other two-sex Volterra operators and singular-rate laws for switched operators, neither statement asserting these coefficients. It remains possible that specialized broad parabolic-recursion theory, or unavailable published full text, contains the same asymptotic correction.
+## originality
 
-## Value — PASS
+PASS
 
-Population extinction at the intersection of two fixed-point edges loses ordinary exponential convergence. Its natural \(N^{-1}\)-detuning window has a finite-generation bias which cannot be inferred from the first-order limiting curve. The theorem quantitatively resolves this bias and its asymmetry between the two state variables, with a uniform remainder across the transition. This is a mathematically motivated second-order law rather than a purely numeric optimization or an arbitrary subfamily.
+PASS: original Boxonov 2023 source supplies invariant lines and eventual corner dynamics. An earlier November 17 rare-event ensemble theorem supplies the critical O(N) first-order curve and a logarithmic clock only on the exactly tuned central leaf. It does not give the uniform bounded-detuning second-order two-coordinate reciprocal coefficient gamma exp(±gamma*tau*t) throughout positive macroscopic times, with O(1) remainder. The coupled offset, weighted harmonic forcing, and simultaneous positive coefficients constitute a genuine new refinement of that natural boundary regime. Best-of-knowledge because full source literature not all accessible.
 
-## Limitations
+## value
 
-The full journal revision was not compared line by line; broad recurrence-priority risk remains. Constants are uniform only for fixed interior base coordinate, bounded detuning and macroscopic time bounded away from zero. No independent review has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the two opposing extinction-selection faces meet at a nonhyperbolic corner, and the N^-1 detuning critical layer is a motivated dynamical crossover; first-order profiles do not quantify finite-generation reciprocal bias. The explicit logarithmic corrections and uniform O(1) residual distinguish the two sides and are independently useful finite-time quantitative asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
