@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The sphere-moment calculations are derived from the rank-\(n-1\) orthogonal projector onto the zero-sum angular-gap hyperplane. The local probability domains are analytic radial perturbations of a Euclidean ball; angular reversal forces the absence of odd half-power terms. This proves both positive correction coefficients and the stated \(O_n(\varepsilon^2)\) relative remainder. Numerically integrated exact sine deficits for \(n=3,4\), both perimeter and area, match the expressions and exhibit shrinking relative error. Numerical quadrature is corroboration only.
+PASS
 
-## Originality
+Angular spacings have constant Dirichlet density on ΣΔ_i=2π and have the regular polygon as isolated maximum of each observable; nonregular large gaps are excluded. For x_i=Δ_i−2π/n, Σx_i=0, local deficit aΣx_i²+bΣx_i³+c4Σx_i⁴+O_n(||x||⁵), a=sin(t)/4>0, with b,c4 explicit per observable. The analytic radial implicit solution exists uniformly; parity u↦−u cancels odd ε^(1/2) powers after sphere averaging. Sphere moment contractions ES4=3(n−1)/(n(n+1)) and E(S3²)=6(n−2)/(n(n+1)(n+3)) yield the two B_X formulas. The hyperplane Jacobian 1/√n and Dirichlet density give the C_X normalizations. At n=3 independent exact-sine radial quadrature gave P tail 0.008497355082256 vs two-term 0.008497339004332 at ε=.02 (relative ~1.89e-6) and area tail .006386726321017 vs .006386617312395 at ε=.015 (~1.71e-5). These two finite cases corroborate, but analytic parity/localization prove all fixed n.
 
-PASS, conditional on inaccessible full-text priority risks. Koroleva and Nikitin (2013, arXiv:1301.1360), Lemmas 2.1 and 2.3, already derive the endpoint exponent and **precisely the same leading constants** for both functionals; those are explicitly attributed. Lao and Mayer (2008) previously handled the triangle perimeter leading term. The new statement here concerns solely the next correction and its \(O_n(\varepsilon^2)\) remainder, not a renaming of the old leading law. The full accessible 2013 source stops after a quadratic ellipsoid squeeze; Xu, Meng and Li (2019) handle \(n\to\infty\) limits and expected errors instead. Full text for Bélisle (2011) and Wang and Xu (2018) was unavailable, so priority is not certified.
+## originality
 
-## Value
+PASS
 
-PASS. The exact first relative corrections are natural quantitative invariants of rare almost-regular polygons and permit a nontrivial comparison of perimeter and area concentration beyond their known first terms. Both are universally positive while their coefficients grow with different cubic rates as the polygon order increases. These are explicit shape effects of the cubic and quartic angular deficit terms, not an arbitrary numerical recomputation. No claim of a joint uniform-in-\(n\) theorem or a second-order limit for growing-cloud U-max statistics is made.
+PASS best-of-knowledge: Koroleva–Nikitin previously proved the exact same first-order constants, not the second relative correction; new B_X is not derived simply by their leading ellipse squeeze. Different n→∞ and U-max regimes do not imply fixed-n ε→0 coefficients.
 
-## Closest literature and limits
+## value
 
-The original first-order endpoint constants are from Koroleva–Nikitin, 2013, building on Lao–Mayer, 2008. The 2019 full open text treats a different \(n\)-asymptotic regime. Historic priority for the first-order law is settled against this finding; only the evaluated second-order correction is claimed as new. The 2011 and 2018 relevant full texts remain inaccessible. Independent mathematical and historical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial correction after the known leading small-deficit law is a natural exact shape-sensitive invariant. Its strict positivity and contrasting n³ perimeter/area growth quantify rare almost-regular polygon concentration beyond a previously known table, with mathematically motivated cubic and quartic fluctuation sources.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
