@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite spectrum
+# Independent mathematical audit
 
-From the directory containing `verify_petersen.cpp`, `walsh_histogram.csv`, and `projection_kernel_histogram.csv` run:
+## correctness
 
-```
-g++ -std=c++17 -O3 verify_petersen.cpp -o verify_petersen
-./verify_petersen
-```
+PASS
 
-The checker uses standard C++17 only and performs exact integer operations. It verifies all 32,768 orientation masks by topological peeling and an independently enumerated 57-cycle criterion; computes every Walsh multiplier by a transform and checks every even-weight frequency by a literal signed sum over all 16,680 acyclic masks; proves the odd-weight zeros by the global-reversal involution; checks the complete signed and projection-kernel CSV histograms; checks Parseval; and verifies all 105 two-edge correlations by line-graph distance.
+The 15-edge labelled Petersen orientation model and unnormalized binary Fourier transform are defined without quotient. Kahn topological peeling independently enumerated all 32768 masks, finding exactly 16680 acyclic; a complete integer FWHT found 19112 zero coefficients (16384 from global edge reversal plus 2728 additional even-weight zeros), rank 13656. Independently recomputed all 105 pair correlations by graph line distance: 30 pairs absolute multiplier 1944, 60 pairs 1080, 15 pairs zero. Fourier support projector has inverse Walsh kernel absolute sum 1113888 and norm 1113888/32768=34809/1024. Its norm is optimal even among non-translation-equivariant projections by averaging arbitrary projections over translations. Source verify_petersen.cpp was inspected with two acyclicity predicates, direct even-frequency sums, exact certificate comparisons; original CSVs were not independently regenerated from a downloaded source tree. The reported numbers were also independently recomputed.
 
-Expected verification marker:
+## originality
 
-```
-PETERSEN_ACYCLIC_FOURIER_PASS cycles=57 orientations=16680 zeros=19112 rank=13656 pair_shells=30,60,15 abs_kernel=1113888
-```
+PASS
 
-The optimality among arbitrary real or complex projections is an exact translation-averaging argument supplied in `RESULT.md`, not an exhaustive enumeration of projection matrices. Computation is exhaustive for the Petersen graph, not for all graphs. Independent mathematical validation was not performed.
+No examined accessible primary theorem, exact table, or prior published mathematical result implies the complete specific final claim. This is best-of-knowledge originality, with the separately recorded plausible historical risks.
+
+## value
+
+PASS
+
+The graph is a canonical nontrivial finite test object and the full signed Walsh nullity, two-edge correlation shells, and optimal unrestricted endpoint projection norm give exact structural/recovery information not implied by the familiar unsigned 16680 count. Self-contained exhaustive finite theorem with a mathematically motivated invariant, no extrapolation to all cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

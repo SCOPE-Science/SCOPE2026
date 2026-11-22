@@ -1,19 +1,21 @@
-# Scientific review: Petersen acyclic-orientation Fourier range
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite statement is proved by exhaustive mask enumeration with two independent acyclicity predicates, full Walsh–Hadamard and direct character sums, both Parseval checks, and a complete projection-kernel certificate. The 105 two-edge Fourier coefficients are classified by independent line-graph distance calculations. The unrestricted norm optimality follows analytically by averaging arbitrary projections over translations. This verifies the domain and normalization; finite checking is not used to infer a theorem on larger graphs.
+PASS
 
-## Originality — PASS under bounded comparison
+The 15-edge labelled Petersen orientation model and unnormalized binary Fourier transform are defined without quotient. Kahn topological peeling independently enumerated all 32768 masks, finding exactly 16680 acyclic; a complete integer FWHT found 19112 zero coefficients (16384 from global edge reversal plus 2728 additional even-weight zeros), rank 13656. Independently recomputed all 105 pair correlations by graph line distance: 30 pairs absolute multiplier 1944, 60 pairs 1080, 15 pairs zero. Fourier support projector has inverse Walsh kernel absolute sum 1113888 and norm 1113888/32768=34809/1024. Its norm is optimal even among non-translation-equivariant projections by averaging arbitrary projections over translations. Source verify_petersen.cpp was inspected with two acyclicity predicates, direct even-frequency sums, exact certificate comparisons; original CSVs were not independently regenerated from a downloaded source tree. The reported numbers were also independently recomputed.
 
-Stanley's chromatic reciprocity and Gebhard–Sagan's acyclic-orientation theory establish unweighted counting formulas; the Petersen count 16,680 and the 168 ordinary orientation-orbits are previously reported by Cameron. The closest object-specific mathematical census classifies click-equivalence components, not the coordinatewise Fourier spectrum. The inspected Backman–Hopkins introduction concerns a much broader Tutte-theoretic enumerative framework, but does not supply the evaluated Petersen rank, the three exact correlation levels, or the sharp projection constant. Explicit searches for equivalent formulations, stronger coverage, indexed tables and claim-to-prior implications are recorded in `AUDIT.json`. Only portions of two potentially relevant sources were accessible/inspected; an unindexed spectral table remains a material residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Petersen graph is a natural benchmark for orientation constraints and graph symmetry. The 2,728 even-weight Fourier zeros beyond global reversal reveal a genuine recoverability loss not fixed by ordinary acyclic-orientation enumeration. The full rank and minimum endpoint projection constant quantify exact recovery and stability, while the edge-distance classification gives a nontrivial three-level signed-dependence law on all 105 edge pairs, including exact independence on the 15 maximally separated pairs. These are natural, distinct invariants of one canonical finite object rather than arbitrary recomputations of the known orientation total.
+No examined accessible primary theorem, exact table, or prior published mathematical result implies the complete specific final claim. This is best-of-knowledge originality, with the separately recorded plausible historical risks.
 
-## Limits
+## value
 
-The claim is restricted to the 15-edge Petersen graph; it does not generalize ranks or norms to other cubic graphs. The signs of individual edge correlations depend on reference orientations, but the absolute levels do not. Computation and manuscript checks have not received an independent external audit. Residual historical-priority risk concerns unindexed tables and partially inspected sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph is a canonical nontrivial finite test object and the full signed Walsh nullity, two-edge correlation shells, and optimal unrestricted endpoint projection norm give exact structural/recovery information not implied by the familiar unsigned 16680 count. Self-contained exhaustive finite theorem with a mathematically motivated invariant, no extrapolation to all cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
