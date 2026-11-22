@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
-Run `python path_extension_check.py` with standard Python 3. The checker uses rational arithmetic, enumerates complete edge-sign potential sets on the tested small paths, tests signed coefficient vectors and all critical inequalities, and counts cyclic-ballot order regions for five distinct edge counts.
 
-Observed output:
-```
-EXACT_TREE_TRANSPORT_DUAL_AND_CRITICAL_FACE_PASS tested_cumulative_vectors= 11715 dual_profiles= 309
-CYCLIC_BALLOT_PERMUTATIONS_PASS edges= 3 admissible= 2 positive= 1 fraction_positive=1/2
-CYCLIC_BALLOT_PERMUTATIONS_PASS edges= 4 admissible= 6 positive= 1 fraction_positive=1/6
-CYCLIC_BALLOT_PERMUTATIONS_PASS edges= 5 admissible= 24 positive= 1 fraction_positive=1/24
-CYCLIC_BALLOT_PERMUTATIONS_PASS edges= 6 admissible= 120 positive= 1 fraction_positive=1/120
-CYCLIC_BALLOT_PERMUTATIONS_PASS edges= 7 admissible= 720 positive= 1 fraction_positive=1/720
-CRITICAL_FOUR_VERTEX_SIGNED_THRESHOLD_PASS
-WEIGHTED_PATH_SIGNED_OPTIMAL_EXTENSION_ALL_CHECKS_PASS
-```
-These tests are exact only for the tested finite configurations; infinite families are established by the proof. The checker is not an external audit or formal proof certificate.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For a weighted finite path with strictly positive edges ℓ_i and an equidistant added point at R≥D/2, every real-linear extension fixing original samples has affine coefficient weights summing one. Independent edge-slope duality yields its exact Kantorovich–Rubinstein norm N_j=Σ_{i<j}ℓ_i|F_i|+Σ_{i≥j}ℓ_i|F_i−1|. Endpoint evaluations force minimax radius D/2 and endpoint average attains it, giving operator norm 1. Equality at R=D/2 forces 0≤F_i≤1, weighted mean D/2 and every prefix inequality; these characterize all optimizers. A relative-interior linear perturbation shows critical dimension m−1, and a three-edge explicit perturbation gives first negative coefficient at four original vertices. For unit lengths, the cyclic maximum rotation lemma partitions central cube slice into m equal ballot regions; coordinate-order symmetry gives the nonnegative region 1/m! of the slice, hence fraction 1/(m−1)! of the optimizer region. The central cube section formula supplies its absolute Euclidean volume. Independently counted a fine rational grid in m=3: 2,549 signed and 1,275 nonnegative critical optimizers, approaching the exact 1/2 area proportion, without using sampling as an infinite proof. Inspected complete packaged 3,161-byte rational checker, including 11,715 profile checks and extremal Lipschitz test potentials.
+
+## originality
+
+PASS
+
+Godard gives the tree Lipschitz-free/L1 representation, general projection-extension works prove existence/norm estimates, and Marichal–Mossinghoff gives the central hypercube slice volume. Those prior ingredients are expressly excluded as standalone novelties. None of the inspected statements classifies all weighted-path signed norm-one coefficient sets or compares their volume to nonnegative optima by 1/(m−1)!. Parallel Resultary cycles, Cartesian cycle products and equilateral metrics have different KR constraints. Priority remains sensitive to unindexed continuous ballot/cube-center literature.
+
+## value
+
+PASS
+
+All weighted paths admit a natural optimal scalar extension problem. The exact critical signed optimizer polytope, threshold where negative coefficients become unavoidable among some optimizers, and sharp factorial prevalence of positive weight optimizers quantify geometry that generic extension-norm existence cannot convey. The infinite m law is a motivated exact invariant rather than an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

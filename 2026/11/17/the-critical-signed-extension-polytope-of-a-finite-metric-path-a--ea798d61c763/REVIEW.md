@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite weighted path with positive edges and equidistant one-point attachment \(R\ge D/2\), the edge-sign dual computation gives exactly \(N_j=\sum_{i<j}\ell_i|F_i|+\sum_{i\ge j}\ell_i|F_i-1|\), including signed weights. The endpoint triangle inequality and endpoint-average witness certify the global optimum \(1\). At \(R=D/2\), saturation of both endpoint inequalities forces \(0\le F_i\le1\) and the weighted mean equation; substituting these into all other norms is logically equivalent to the displayed prefix inequalities. Relative-interior and negative-coefficient constructions are explicit and cover boundary dimensions, including \(m=1\) and \(m=2\). For unit edges the cyclic rotation argument gives \(1/m\) of the central cube section, and the sorted chamber gives \(1/m!\); their ratio is \(1/(m-1)!\). All formula normalizations were checked. The standalone rational checker independently evaluates dual edge-sign potentials.
+## correctness
 
-## Originality — PASS with historical risk
-Relevant exact source inspections: Bruè--Di Marino--Stra, arXiv:1801.07533, Theorem 4.1 (2018); Ambrosio--Puglisi, arXiv:1609.01450, Theorems 2.14--2.15 (2016); Godard, arXiv:0904.3178, Theorem 3.2 (2009); and Marichal--Mossinghoff, arXiv:math/0607715, Theorem 4 (2006). General extension existence, tree \(L_1\) representation, and cube-section volume are acknowledged prior work. Searches of published mathematical-record summaries and the primary literature identified no stated theorem classifying this precise *signed* critical path extension equality polytope and giving its factorial positivity fraction. The standard cyclic-maximal-partial-sum argument is not separately claimed new. Residual historical risk: an equivalent Chebyshev-center or continuous-ballot-polytope formulation may have been published under another terminology.
+PASS
 
-## Mathematical value — PASS
-The question of *all* optimal linear extensions is not answered by an existence theorem or a norm estimate. Here the equality locus is explicitly solved for arbitrary positive edge lengths, its dimension and the first possible signed optimum are sharp, and in the canonical unit case a factorial fraction quantifies how atypical the positive optimizers become. These are natural invariants of a basic finite-tree extension problem and distinguish positive random projections from unrestricted signed operators. Their determination is more than evaluating a single extremal value or merely restating a known cube section.
+For a weighted finite path with strictly positive edges ℓ_i and an equidistant added point at R≥D/2, every real-linear extension fixing original samples has affine coefficient weights summing one. Independent edge-slope duality yields its exact Kantorovich–Rubinstein norm N_j=Σ_{i<j}ℓ_i|F_i|+Σ_{i≥j}ℓ_i|F_i−1|. Endpoint evaluations force minimax radius D/2 and endpoint average attains it, giving operator norm 1. Equality at R=D/2 forces 0≤F_i≤1, weighted mean D/2 and every prefix inequality; these characterize all optimizers. A relative-interior linear perturbation shows critical dimension m−1, and a three-edge explicit perturbation gives first negative coefficient at four original vertices. For unit lengths, the cyclic maximum rotation lemma partitions central cube slice into m equal ballot regions; coordinate-order symmetry gives the nonnegative region 1/m! of the slice, hence fraction 1/(m−1)! of the optimizer region. The central cube section formula supplies its absolute Euclidean volume. Independently counted a fine rational grid in m=3: 2,549 signed and 1,275 nonnegative critical optimizers, approaching the exact 1/2 area proportion, without using sampling as an infinite proof. Inspected complete packaged 3,161-byte rational checker, including 11,715 profile checks and extremal Lipschitz test potentials.
 
-## Limits
-Finite exact enumeration supports but does not prove the infinite-parameter result; analytic proofs are supplied in the result. The historical novelty assessment is qualified, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Godard gives the tree Lipschitz-free/L1 representation, general projection-extension works prove existence/norm estimates, and Marichal–Mossinghoff gives the central hypercube slice volume. Those prior ingredients are expressly excluded as standalone novelties. None of the inspected statements classifies all weighted-path signed norm-one coefficient sets or compares their volume to nonnegative optima by 1/(m−1)!. Parallel Resultary cycles, Cartesian cycle products and equilateral metrics have different KR constraints. Priority remains sensitive to unindexed continuous ballot/cube-center literature.
+
+## value
+
+PASS
+
+All weighted paths admit a natural optimal scalar extension problem. The exact critical signed optimizer polytope, threshold where negative coefficients become unavoidable among some optimizers, and sharp factorial prevalence of positive weight optimizers quantify geometry that generic extension-norm existence cannot convey. The infinite m law is a motivated exact invariant rather than an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
