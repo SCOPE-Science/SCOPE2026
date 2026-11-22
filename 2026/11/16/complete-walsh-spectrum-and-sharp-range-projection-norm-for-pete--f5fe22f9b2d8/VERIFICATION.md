@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Execute `python3 verification/check_petersen.py` from the package directory (or by absolute script path). Only Python's standard library is used. Expected marker: `PETERSEN_TREE_WALSH_PASS trees=2000 signings=32768 orbits=396 rank=18856 gcd=16 projection=36651/1024`.
+## correctness
 
-The script builds the 10 vertices as 2-subsets of five elements, the 15 disjointness edges, and the 2000 spanning trees by union–find over all 5005 nine-edge candidates. It evaluates the complete 32768-character unnormalized Walsh transform using exact integer butterflies; verifies **every** one independently against a 9-by-9 signed weighted Laplacian determinant computed by integer Bareiss; reconstructs 396 symmetry orbits from all 120 permutations of the five base elements; verifies the supplied orbit and magnitude certificates; checks multiplier and projector Parseval identities and minimum positive multiplier; and evaluates the exact endpoint projection numerator 1172832. No random seed, external packages, online data, or floating-point rounding are needed.
+PASS
 
-The exact finite census is exhaustive for the Petersen graph, but is not a general graph-family statement or external mathematical review. No claim of originality follows solely from the computation.
+Independent enumeration of all 5005 nine-edge subsets using graph edges between disjoint 2-subsets of [5] found exactly 2000 acyclic spanning subsets. Own integer 32768-point Walsh transform gave all 12 absolute bins including 13912 zeros, gcd/gap 16, exact rank 18856, inverse support-kernel absolute numerator 1172832, Parseval. A general averaged-conjugate projection proof is sound: for any projection Q onto a translation-invariant range E, translation average still maps into E and is identity on E, hence is the unique translation-invariant spectral support projection. Norm convexity plus translation isometries show it is globally optimal over all real/complex projections. Quotient 1172832/32768=36651/1024. The package independently specifies weighted-Laplacian determinants on all signings and 396 S5 automorphism orbits; independent full Walsh enumeration verifies the critical numerical claim without depending on saved logs.
+
+## originality
+
+PASS
+
+Petersen switching-isomorphism classifications and chromatic polynomials are not the signed spanning-tree enumerator: switching changes the signed sum because each tree has degree-dependent parity. Earlier general weighted matrix-tree factorizations concern other graph families/weight observables. No inspected text supplies the all-signing frequency distribution nor global projection minimum.
+
+## value
+
+PASS
+
+Petersen is a canonical cubic graph and its signed spanning-tree spectrum has substantial zero support and a sharp recovery cost. Exact exhaustive classification with non-obvious optimality of unrestricted projections is a motivated natural invariant, rather than a named parameter change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

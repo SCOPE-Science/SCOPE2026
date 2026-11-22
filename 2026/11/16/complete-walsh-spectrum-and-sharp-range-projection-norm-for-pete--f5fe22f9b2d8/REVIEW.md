@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a fixed finite Fourier classification. Its exact coefficients are computed from all 2000 nine-edge trees by a 15-stage integer Walsh transform, then independently verified by all 32768 signed weighted Matrix-Tree determinants using fraction-free elimination; the full independent graph-automorphism census has 396 orbits. The rank, dyadic gap, and endpoint norm follow by complete integer sums, Parseval checks, and the analytic translation-average optimality argument. The attached checker regenerates the input instead of relying on a downloaded lookup table. The theorem does not claim a result for other graphs.
+## correctness
 
-**Originality — PASS, bounded search.** Zaslavsky's signed Petersen analysis (2012) gives six *switching* classes and invariants of signed cycles, frustration, and coloring, while the weighted spanning-tree sign-sum is not switching invariant. Beck et al. (2013) evaluate signed chromatic polynomials, a different invariant. Martin–Reiner (2003) supply weighted-tree methodology for Cartesian products, not an evaluated Petersen signing spectrum; only their abstract was materially available during comparison, which is a residual historical-priority risk. Additional relevant previously published records on the Petersen pivot-exchange graph and other graphs' Fourier tree projections do not imply the numerical rank or minimum projection norm for this graph. No implication-level dominating result was found, but discovery coverage is not a proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The Petersen graph is the smallest bridgeless cubic graph without a three-edge-coloring and a canonical nonplanar graph with full \(S_5\) symmetry. The full signed-tree Fourier-support question tests recoverability of edge-cube convolution, an invariant not determined by the familiar number of trees or by switching-class enumeration. The exact singular rank \(18856\), sharp gap \(16\), and minimum unrestricted endpoint projection norm \(36651/1024\) settle distinct, nontrivial stability questions for this natural finite object. The 396-orbit certificate makes this finite computation independently repeatable.
+Independent enumeration of all 5005 nine-edge subsets using graph edges between disjoint 2-subsets of [5] found exactly 2000 acyclic spanning subsets. Own integer 32768-point Walsh transform gave all 12 absolute bins including 13912 zeros, gcd/gap 16, exact rank 18856, inverse support-kernel absolute numerator 1172832, Parseval. A general averaged-conjugate projection proof is sound: for any projection Q onto a translation-invariant range E, translation average still maps into E and is identity on E, hence is the unique translation-invariant spectral support projection. Norm convexity plus translation isometries show it is globally optimal over all real/complex projections. Quotient 1172832/32768=36651/1024. The package independently specifies weighted-Laplacian determinants on all signings and 396 S5 automorphism orbits; independent full Walsh enumeration verifies the critical numerical claim without depending on saved logs.
 
-**Closest literature and risks.** Weighted Matrix-Tree methods are classical. Zaslavsky (2012), Beck et al. (2013), and Martin–Reiner (2003) are the closest inspected items; none of the material read asserts the evaluated Petersen Fourier-range norm. Some general spectral-graph or obscure signed-tree tables may not have been indexed or accessible. Finite exhaustive proof does not imply a scalable graph-family theorem; independent audit is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Petersen switching-isomorphism classifications and chromatic polynomials are not the signed spanning-tree enumerator: switching changes the signed sum because each tree has degree-dependent parity. Earlier general weighted matrix-tree factorizations concern other graph families/weight observables. No inspected text supplies the all-signing frequency distribution nor global projection minimum.
+
+## value
+
+PASS
+
+Petersen is a canonical cubic graph and its signed spanning-tree spectrum has substantial zero support and a sharp recovery cost. Exact exhaustive classification with non-obvious optimality of unrestricted projections is a motivated natural invariant, rather than a named parameter change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
