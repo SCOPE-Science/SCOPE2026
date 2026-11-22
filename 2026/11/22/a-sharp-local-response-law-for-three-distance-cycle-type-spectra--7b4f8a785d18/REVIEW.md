@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The bijection between admissible three-valued Katětov vectors and complete nonalgebraic types follows from the universal homogeneous metric extension property. The proof separately establishes the clique-neighborhood polynomial, the squared-cycle clique list, the preservation of all triangles under the one-pair distance decrement, and the complete list of newly admissible patterns, including the seven-point exceptional pattern. Independent finite brute-force enumeration agrees with the all-order formulas through eleven vertices and with the general clique identity on all connected labeled graphs through five vertices. The finite checks are supporting verification, not the proof of the infinite statement.
+
+**Originality: PASS, provisional.** Sauer (arXiv:1010.4212, arXiv:1107.4794) supplies the underlying Katětov criterion and homogeneous metric construction, not the stated cycle enumeration. The published Widom–Rowlinson one-type polynomial result covers an old metric with only distances one and two, so it has no distance-three pair to modify and no restriction forcing distance-one coordinates into squared-graph cliques. Full-text comparison and searches did not locate the precise all-order cycle polynomial or the one-pair defect factorization. The remaining risk is equivalent work under alternative combinatorial terminology or unindexed sources.
+
+**Value: PASS.** The full multivariate spectrum gives exact counts of every one-point distance profile in a natural family of diameter-three homogeneous-metric parameter bases. More importantly, the local defect theorem proves a sharp, factorized response to a one-entry change of the parameter metric, identifies a stable range and its exceptional boundary, and explains the response by the geometry of common radius-two neighborhoods. This is stronger than a single finite count or an unmotivated specialization of the Katětov criterion.
+
+**Scope and limitations.** The theorem concerns pointwise named, three-truncated cycle metrics and one old pair of distance three shortened to two. It says nothing about arbitrary metrics or higher-arity types, and definitive historical priority requires independent examination.
+
+Self-review: passed. Independent audit: not yet performed.
