@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For all kappa>=0 and all nonzero initial states, solve the polar inverse-square equation exactly: r(t)=r0 exp(-kappa t)/sqrt(1-z^T Q_{kappa,t} z). Q is a positive definite trigonometric Gram matrix at every t>0. Its determinant is [(1-exp(-2kt))^2-4k^2 exp(-2kt) sin^2 t]/[4k^2(1+k^2)] for k>0, and t^2-sin^2 t at k=0. Ellipse area is pi/sqrt(det). For k>0 the limiting nonescaping ellipse has area 2pi k sqrt(1+k^2); subtract it before taking a finite-lifespan tail. Uniform expansions establish the claimed algebraic neutral tail, damped oscillatory exponential law, and crossover at k*t fixed. Exact proof is in RESULT.md; standalone checker passed independent quadrature and numerical asymptotic diagnostics. No finite diagnostic is treated as proof of all-time statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Llibre, https://doi.org/10.20944/preprints202407.1946.v1, posted 2024-07-24, full HTML equation (5): exact radial solution for homogeneous rigid systems.",
+        "A. Gasull and J. Torregrosa, https://doi.org/10.1090/S0002-9939-04-07542-2, Theorem 1.1: existence/uniqueness of periodic orbits for homogeneous rigid systems.",
+        "2026-11-17 indexed cubic star-node area law involves a different angular time and radial feedback."
+      ],
+      "reasoning": "The 2024 explicit solution is logically sufficient to begin deriving our area law; it is acknowledged as prior, never relabeled. It does not itself supply the two-dimensional Gram determinant, the subtraction of the infinite-existence ellipse, or the asymptotic/critical crossover. The 2004 theorem concerns periodic-orbit number/parameter thresholds, not area-sampled finite original-time lifetimes. Different cubic star-node exact-area statements cannot cover this coefficient-level law by specialization.",
+      "searches": [
+        "Jaume Llibre 2024 rigid polynomial homogeneous P=y^2 ellipse critical lambda star limit cycle persists",
+        "rigid polynomial flow xdot=-y + x(lambda+y^2) ydot=x+y(lambda+y^2) blowup exponent three halves and cube root hitting time",
+        "Exact number of limit cycles for a family of rigid systems Gasull Torregrosa 2004",
+        "Limit cycles for cubic rigid systems Gasull Prohens Torregrosa 2005",
+        "2026/11/17/SCOPE-exponentially-expanding-cycle-area-with-fixed-period-and-floquet--bdbdb9307389"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.20944/preprints202407.1946.v1",
+      "https://doi.org/10.3390/math12182806",
+      "https://doi.org/10.1090/S0002-9939-04-07542-2",
+      "https://doi.org/10.1016/j.jmaa.2004.07.030",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-sharp-area-growth-exponents-at-quartic-rigid-isochronous-cen--b12cd55905aa",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exponentially-expanding-cycle-area-with-fixed-period-and-floquet--bdbdb9307389",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-flight-time-partition-and-three-escape-scales-in-a-cubic-l--c58cc4799dfa",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-exact-basin-ellipse-and-geometric-escape-shells-in-a-quadratic-h--02acb855cf6e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The originating paper proves the polar representation, but its displayed claims concern existence of limit cycles and compactified phase portraits (https://doi.org/10.3390/math12182806).",
+        "The 2004 rigid-family theorem proves the possible number of periodic orbits and the existence conditions (https://doi.org/10.1090/S0002-9939-04-07542-2).",
+        "The 2026-10-11 indexed result has a different cubic Lambda--Omega flow and different escape exponents.",
+        "A final exact-formula search returned a backward blowup law for a different polynomial star-node flow, 2026/11/17/SCOPE-log-periodic-backward-blow-up-and-the-attracting-cycle-amplitude--6a5de5b86d75, whose temporal orientation and defining ODE differ."
+      ],
+      "reasoning": "Llibre's formula implies individual lifetime after integrating to the first zero, but not the published theorem of the *area of all initial states*, the oscillatory prefactor, and the uniform neutral-to-damped crossover without additional Gram-matrix geometry, determinant evaluation, subtracting the nonescaping region, and asymptotic analysis. The final claim excludes the general solution and basic limit-cycle count. The older rigid-system counting theorem also does not imply our explicit measure-theoretic asymptotics. The available summaries of other published computations use different differential equations.",
+      "searches": [
+        "Rigid Polynomial Differential Systems with Homogeneous Nonlinearities equation (5) Llibre 2024",
+        "rigid polynomial flow finite time escape area of initial conditions survival law",
+        "Jaume Llibre rigid P=y^2 exact radial Bernoulli solution 2024",
+        "2026/10/11/SCOPE-exact-flight-time-partition-and-three-escape-scales-in-a-cubic-l--c58cc4799dfa"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J. Llibre, equations (2)-(5) and Proposition 4, https://doi.org/10.3390/math12182806",
+        "The 2026-11-08 indexed rigid-center area result concerns quartic isochronous centers, not this cubic focus with physical-time blowup.",
+        "Final indexed cross-check returned published finite-time arcs in a Calogero--Payandeh rational flow, not the present rigid cubic: 2026/11/8/SCOPE-four-equal-finite-time-arcs-on-every-elliptic-level-of-a-solvabl--d0aaed010685."
+      ],
+      "reasoning": "The theorem can be restated as a Gram-ellipse lifetime distribution, an exact one-parameter family of quadratic initial-value thresholds, or a damping-crossover survival-area formula; these are equivalent forms of its novel area observable. Searches combining ellipse, lifetime, rigid cubic and oscillatory survival yielded different systems. Same terms in titles do not establish equivalence: the indexed quartic isochronous-center case has different radial degree, signs and invariant geometry.",
+      "searches": [
+        "rigid cubic vector field y squared exact ellipse limit cycle all negative lambda basin area finite-time escape",
+        "closed ellipse blow-up-time level sets for cubic rigid system, exact Lebesgue area asymptotic exponential oscillatory",
+        "elliptic finite-time escape isochrone rigid polynomial cubic flow e^(-2kT) sin^2 T survival area tail",
+        "2026/11/8/SCOPE-two-sharp-area-growth-exponents-at-quartic-rigid-isochronous-cen--b12cd55905aa",
+        "rigid cubic planar flow finite-time lifespan ellipse Lebesgue area neutral to damped crossover",
+        "Llibre 2024 y squared homogeneous rigid exact survivor area nested ellipses",
+        "pi / sqrt(t^2 - sin^2(t)) initial conditions blowup time rigid differential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed search returned the quadratic hypergraph escape-shell finding 2026/11/17/SCOPE-exact-basin-ellipse-and-geometric-escape-shells-in-a-quadratic-h--02acb855cf6e; its map is a discrete quadratic update, not a cubic continuous ODE.",
+        "The preprint and journal contain no displayed table of physical lifespan ellipse areas; the inspected source formula is for an individual orbit.",
+        "The 2004 and 2005 cited rigid limit-cycle papers present analytic orbit counts and phase portraits, not a database of physical-lifespan areas."
+      ],
+      "reasoning": "No relevant exact table of this same initial-state area was identified among available results. The closest exact ellipsoidal basin record concerns an unrelated discrete quadratic benchmark; its geometric time-survival law is not a formula for the present flow.",
+      "searches": [
+        "finite time escape area of initial states 1+2 kappa squared sin squared T exponential survival oscillations",
+        "rigid cubic differential equation ellipse exit time area P=y^2 lambda negative",
+        "the exact ellipse stable focus global basin of rigid cubic y square system",
+        "2026/11/17/SCOPE-exact-basin-ellipse-and-geometric-escape-shells-in-a-quadratic-h--02acb855cf6e"
+      ]
+    },
+    "rationale": "The existing general polar Bernoulli formula (Llibre 2024, Proposition 5) is not a novelty claim. The final claim instead computes the exact Euclidean area of all initial conditions still finite at each original-time horizon, subtracts the infinite-lifespan basin, obtains an oscillating exponential factor, and exhibits a uniform k*t crossover to the neutral algebraic tail. The checked primary results focus on radial integrability, limit-cycle existence and qualitative phase portraits; no inspected claim or indexed result states this lifetime-area identity for the same system. As every part is derivable by further analysis from the published radial solution, an independently derived equivalent area law outside inspected sources remains the main residual risk.",
+    "residual_risks": [
+      "The explicit general radial solution in the 2024 source materially reduces the work to Gram-geometry and asymptotics; the result is a newly evaluated observable, not new integrability. A separate exact area evaluation could exist in unindexed papers.",
+      "The 2005 cubic classification was accessible in reproduced text form, not audited line-by-line as an independent publication. It cannot be used to claim global absence of every equivalent result.",
+      "Indexed nearby research records with different systems were compared using their indexed summaries, not all complete primary manuscripts; their different defining equations make direct parameter coverage implausible, but not logically impossible without detailed checking.",
+      "No independent expert mathematical audit or external certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source contains precise radial integrability and orbit-census assertions. Treat all such facts as prior; the finite-horizon Lebesgue-area observable and its crossover are not among its stated theorems.",
+        "evidence": [
+          "Source model (2), formulas (3)-(5) and Proposition 4; https://doi.org/10.20944/preprints202407.1946.v1"
+        ],
+        "identifier_or_url": "https://doi.org/10.20944/preprints202407.1946.v1",
+        "material_read": "HTML posted date; abstract; MSC 34C05; sections 1 and 2 including model (2), Proposition 4, polar (3)-(4), and entire displayed solution in Proposition 5.",
+        "method": "Read source article text, its equations and stated results.",
+        "title": "Rigid Polynomial Differential Systems with Homogeneous Nonlinearities (preprint version 1)",
+        "trigger": "Earliest verified source for the exact model, published 2024-07-24; check date, ownership, defining equations and implications."
+      },
+      {
+        "assessment": "The peer-reviewed version provides the general polar solution and qualitative phase portrait, not the exact two-dimensional physical lifetime-ellipse area or its critical crossover.",
+        "evidence": [
+          "Equations (2)-(5), Proposition 4 and Proposition 5, sections 1-4, https://doi.org/10.3390/math12182806"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math12182806",
+        "material_read": "HTML abstract, MSC, Theorem 1, Propositions 1-5, proofs of polar solution and cubic slice, concluding section, appendix topics and references.",
+        "method": "Read journal text and compared displayed mathematical claims/normalizations with the derivation.",
+        "title": "Rigid Polynomial Differential Systems with Homogeneous Nonlinearities (peer-reviewed version)",
+        "trigger": "Same-paper journal version, potentially strengthened or with appendices on lifetime geometry."
+      },
+      {
+        "assessment": "The theorem addresses cycle counts, hyperbolicity and the limit-cycle existence interval; it does not state the horizon-dependent Euclidean initial-state area or its oscillatory tail. A general linear radial equation is acknowledged as earlier knowledge.",
+        "evidence": [
+          "Theorem 1.1 and sections 1-2, https://doi.org/10.1090/S0002-9939-04-07542-2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9939-04-07542-2",
+        "material_read": "Accessible full-text HTML reproduction of introduction, Theorem 1.1 and its statement on the coefficient-dependent cycle existence parameter, and representative technical sections.",
+        "method": "Compared theorem and defining family to the new physical-time lifespan-area observable.",
+        "title": "Exact number of limit cycles for a family of rigid systems",
+        "trigger": "Earlier core primary source for the same homogeneous rigid class and possible stronger exact results."
+      },
+      {
+        "assessment": "Its accessible material concerns cubic rigid classification and phase portraits, including possible multiple cycles in a larger family. Full priority risk for an uninspected hidden area calculation remains rather than being dismissed by snippets.",
+        "evidence": [
+          "Article abstract, introduction and key classification passages, https://doi.org/10.1016/j.jmaa.2004.07.030"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2004.07.030",
+        "material_read": "Accessible author-uploaded text rendition: abstract, defining rigid cubic polynomial family, introductory main results and classification, relevant section headings, with targeted term search.",
+        "method": "Read accessible text; inspected family, theorem goals and checked for explicit lifespan-area statements.",
+        "title": "Limit cycles for rigid cubic systems",
+        "trigger": "Related cubic rigid classification could cover the exact same polynomial slice and qualitative limit cycle geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ae7f648b-8e8d-436c-bcd6-720d61f67084",
+  "value": {
+    "rationale": "For a natural 2024 cubic rigid flow, physical-time escape is unavoidable outside a genuine geometric separatrix; measuring the exact finite-horizon set of survivable initial states is mathematically meaningful independently of the known trajectory formula. The new quantity is a whole family of nested Euclidean ellipse areas and exact tails, not a handpicked finite computation. The neutral case has a pi/t area tail while every strictly positive damping has an exponentially small survivor shell whose prefactor oscillates between two different sharp values. A uniform kappa*t crossover supplies a nontrivial boundary asymptotic. This is useful for exact finite-time blow-up risk and validating numerical integration, with strictly limited claims.",
+    "status": "PASS"
+  }
+}

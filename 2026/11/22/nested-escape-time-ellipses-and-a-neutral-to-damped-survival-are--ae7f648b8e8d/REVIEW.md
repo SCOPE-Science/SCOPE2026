@@ -1,0 +1,19 @@
+# Review of nested escape-time ellipses and survival areas
+
+## Correctness
+
+**PASS.** The real-plane polynomial vector field has a unique maximal solution. The polar angular velocity is exactly one, and the reciprocal-square radial variable solves a forced linear equation with an explicit integrating factor. The condition for continued existence is precisely a positive quadratic form inequality. The underlying Gram matrix is strictly positive definite at every positive horizon, so its sublevel area is exactly \(\pi/\sqrt{\det Q}\). The trigonometric Laplace integrals yield the stated determinant. Taking the infinite-time Gram limit separately from finite-horizon truncations correctly removes the nonescaping ellipse. The damped, neutral and cross-scaled tails follow from separate controlled expansions; the zero-damping formula is not obtained by substituting zero into an expression with a zero denominator. The complete proof is in RESULT.md, and the accompanying script tests distinct algebraic and numerical pathways. Unproved extensions to other nonlinearities are excluded.
+
+## Originality
+
+**PASS within inspected evidence, with explicit general-solution prior art.** The originating source is J. Llibre, *Rigid Polynomial Differential Systems with Homogeneous Nonlinearities*, first posted 2024-07-24 and published 2024-09-11. Its equation (2), Proposition 5 and homogeneous-slice discussion cover the defining differential system and a general radial initial-value representation. This general formula is acknowledged and is not claimed as new. The distinct claim concerns the *two-dimensional Euclidean area of the complete physical-lifespan sublevel family*, the exact Gram determinant, the oscillating exponential survival-area amplitude and the uniform damping crossover. The source's limit-cycle census and compactified phase portraits do not state those measure-theoretic observables. Gasull--Torregrosa (2004/2005) and Gasull--Prohens--Torregrosa (2005) concern rigid-system periodic-orbit counts and qualitative phase portraits; their accessible materials were compared. Indexed nearby work on cubic escape clocks, geometric survivor areas, and rigid centers involves different equations and cannot imply the stated coefficient formulas by a parameter substitution. A broad radial representation does offer a route to derive these identities, so earlier independent publication of this specific area computation remains a genuine priority risk. No claim of worldwide uniqueness or external certification is made.
+
+## Mathematical value
+
+**PASS.** The area of all initial conditions whose polynomial ODE solution remains finite until a prescribed physical time is an intrinsically defined and motivated observable, distinct from the existence of a periodic orbit. Its entire nested ellipse family and exact area are useful for initial-state risk quantification and for checking blow-up integrators. The sharp asymptotic change from a neutral algebraic tail to a damped, exponentially decaying tail with a nonconvergent periodic prefactor is not captured by the ordinary Lyapunov exponent, and the uniform \(\kappa t\)-crossover quantifies the singular transition. The result is specialized to the named source's cubic slice, but exact self-contained dynamics and a two-parameter asymptotic law make it more than an arbitrary numerical or normalization check.
+
+## Limits and comparison risks
+
+Only \(\kappa\geq0\), the displayed exact polynomial vector field, and original physical time are covered. No invariant probability, stochastic initial-data assumption, or arbitrary radial forcing is asserted. Source comparisons are based on the material actually read, not on the absence of search matches alone. Independent mathematical audit remains unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
