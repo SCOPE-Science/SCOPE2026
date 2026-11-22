@@ -1,163 +1,146 @@
 {
   "correctness": {
-    "rationale": "The zero-tie ambiguity is resolved by strict open-neighbor majority with retention. The symmetric epsilon-diagonal energy proves only periods one and two. All fixed and all-flipping words are classified by elementary rung constraints including n=2 boundaries. The 256-by-256 transfer counts ordered two-time pairs without double counting, and an explicit all-256-coordinate exact certificate proves an order-five recurrence. Five initial values determine the Lucas plus three-divisibility expression for all n>=2. Direct enumeration through n=10 and transfer checks through n=80 agree; neither finite range substitutes for the recurrence proof.",
+    "rationale": "For the corrected claim, a homogeneous endpoint cannot flip under degree-two tie retention. Any homogeneous interior rung in a fully flipping state forces neighboring homogeneous opposite rungs and hence contradiction at an end. Thus every rung is mixed. Complementary rails reduce local flip constraints exactly to d_1=d_{n-1}=1 and no consecutive zero indicators, including n=2. The free n-3 indicators (n>=3) have F_{n-1} choices, and the first rail bit doubles them. Complement equivariance pairs all states into F_{n-1} primitive two-cycle orbits. Independent exhaustive direct simulation on all 4^n states for n=2,...,9 agrees. Comparison with the earlier established all-two-periodic population yields the displayed asymptotic; no finite-to-infinite extrapolation.",
     "status": "PASS"
   },
+  "final_scientific_scope": "Only the all-vertex-flipping open-ladder sector (2F_{n-1}) and its complement-paired orbit classification, with credited comparison to the earlier census.",
+  "historical_evidence": "The earlier uncorrected record remains available in the frozen Git history. The source verifier artifacts remain unchanged.",
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "original_claim_prior_coverage": "Exact open-ladder all-two-periodic and fixed counts with mod-three correction covered by November 1 2026 published work; they are not claimed again.",
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Goles–Olivos proves a general period-at-most-two restriction, which is used but does not enumerate populations.",
-        "Kaaser–Mallmann-Trenn–Natale studies voting-time convergence and does not state the Fibonacci/Lucas population formula for open ladders.",
-        "Turau treats graphs that are trees, whereas every open ladder with at least two rungs has cycles.",
-        "An available open-ladder characteristic-two neighbor-sum periodicity claim has a linear rather than majority update; the identical graph family does not imply dynamical coverage."
+        "The November 8 cyclic-prism paper counts all-flipping states on cubic cyclic prisms and Möbius ladders; it has wraparound or twisted seam, no degree-two endpoints.",
+        "Turau 2022 complete characterization for trees excludes every square-containing open ladder n>=2.",
+        "Kaaser et al 2015 treat convergence-time bounds, not the pure-flip ladder population."
       ],
-      "reasoning": "A stronger conclusion about eventual period does not determine the numbers of fixed configurations, two-periodic configurations, or fully flipping states. A tree classification cannot imply a graph-family result for ladders containing squares.",
+      "reasoning": "Related stronger general periodicity and tree structure do not determine the pure flip count of the non-tree open ladder. Cyclic prism boundary constraints are not the endpoint rule; analogy motivates but does not imply the exact path count without the new boundary and propagation analysis.",
       "searches": [
-        "majority dynamics ladder graph primitive period two cycles Lucas Fibonacci periodic point count",
-        "majority dynamics synchronous threshold graphs recurrent periodic orbit counts wheel prism sunlet barbell",
-        "arxiv:1508.03519v1",
-        "arxiv:2202.01580v1",
-        "doi:10.1016/0012-365X(80)90121-1"
+        "Resultary_Search: \"fully flipping every vertex open ladder majority synchronous period two Fibonacci\"",
+        "Resultary November 8 2026 fully flipping cyclic prisms and Möbius ladder",
+        "arxiv:2202.01580v1 tree pure 2-cycles",
+        "arxiv:1508.03519v1 voting time"
       ]
     },
     "checked_sources": [
-      "doi:10.1016/0012-365X(80)90121-1",
-      "doi:10.1016/0012-365X(88)90005-2",
-      "arxiv:1508.03519v1",
-      "arxiv:2202.01580v1",
-      "OEIS:A395029",
-      "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
-      "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
-      "2026/10/11/SCOPE-parity-twisted-square-pair-representation-of-total-three-cut-lad--e24772158f9a",
-      "2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c"
+      "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-lucas-fibonacci-orbit-census-for-synchronous-majority-dynamics-o--589e6314b7c7/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-modulo-six-twist-resonance-in-synchronous-majority-dynamics-on--0a383da6731a/RESULT.md",
+      "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+      "https://arxiv.org/html/2202.01580v1",
+      "https://arxiv.org/abs/1508.03519"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Agur–Fraenkel–Klein proves fixed-word results for a cyclic self-inclusive one-dimensional rule, whose state space and adjacency differ.",
-        "General symmetric threshold period theorems imply possible periods but do not imply specific counts.",
-        "The open ladder has degree-two ends and degree-three interior; the exact finite transfer recurrence reflects these boundaries.",
-        "The two-period count and pure-flip count do not follow from known bounds on convergence time or from a fixed-point-only table with a different local rule.",
-        "An earlier all-length open-ladder exact census for linear characteristic-two neighbor summation has the same graph but a distinct additive XOR update with different recurrence and periodic behavior; it does not imply nonlinear majority counts."
+        "Earlier identical total formulas P_n=L_{2n}+1+3[3|n], H_n=2(F_{n+1}+1), N_n=(P_n-H_n)/2 logically cover the original main conclusion.",
+        "The two global total populations alone do not determine Q_n=# {x:M_n x=bar x}; the earlier open-ladder proof contains no all-flip formula.",
+        "The cyclic pure-flip result imposes no cyclic triple repetition but uses degree-three wraparound, not the open endpoint condition d_1=d_{n-1}=1.",
+        "The 1988 cyclic no-triple count supplies classical word-count techniques, not open-ladder rung homogeneity propagation."
       ],
-      "reasoning": "No stronger inspected theorem was found from which the three stated exact open-ladder counts can be recovered as a corollary. The claim is the family-specific population formula and its period-three correction, not the known periodicity restriction.",
+      "reasoning": "No novelty is claimed for previously proved total counts, mod-three correction, or generic Fibonacci enumeration. The focused proof establishes exactly the object-specific pure-flip sector, which is not a direct special case of the compared cyclic and tree results. Plausible implicit earlier variants are recorded as residual risk.",
       "searches": [
-        "On ladder graphs P_n square K_2 synchronous binary open-neighbor majority with ties retained, exact number of period-two states, Lucas L_{2n} plus multiple-of-three correction",
-        "majority dynamics ladder graph primitive period two cycles Lucas Fibonacci periodic point count",
-        "majority dynamics synchronous threshold graphs recurrent periodic orbit counts wheel prism sunlet barbell",
-        "periodic points of synchronous majority on cycle with chord cactus transfer matrix",
-        "doi:10.1016/0012-365X(88)90005-2",
-        "arxiv:1508.03519v1",
-        "OEIS:A395029"
+        "Resultary November 1 2026 exact open-ladder RESULT.md full proof",
+        "Resultary November 8 2026 fully flipping cubic prism RESULT.md full proof",
+        "Agur–Fraenkel–Klein 1988 theorem and corollary full primary PDF",
+        "Turau arxiv:2202.01580v1 full-text main scope"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The exact update is majority of neighbors with tie retention and no self-vote.",
-        "The closest indexed parity-automata result uses linear mod-two XOR on distance-two hypercubes, not the nonlinear majority map on open ladders.",
-        "Other closest records concern higher-dimensional geometry or homology of ladders, not recurrence counts."
+        "Resultary November 1 2026 Lucas–Fibonacci open ladder theorem states exactly the same fixed, two-step periodic and primitive-orbit census, and was read in full.",
+        "Its source does not identify the all-coordinate-flipping configurations; the current theorem singles out that subpopulation."
       ],
-      "reasoning": "Equivalent names include two-row rectangular grids, open ladders, synchronous majority dynamics, threshold networks and two-step fixed configurations. Result comparisons at matched graph, alphabet, update and periodic-state count found no equivalence in retrieved records.",
+      "reasoning": "The original principal mod-three claim is covered verbatim by the earlier same-graph, same-rule published result. The final revised claim is only the pure-flip sector. Equivalently it counts mixed-rung top words whose boundary change indicators equal 1 and which have no two adjacent 0 indicators; this is an exact classification, not the old full census.",
       "searches": [
-        "On ladder graphs P_n square K_2 synchronous binary open-neighbor majority with ties retained, exact number of period-two states, Lucas L_{2n} plus multiple-of-three correction",
-        "majority dynamics ladder graph primitive period two cycles Lucas Fibonacci periodic point count",
-        "two step fixed points majority vote on two by n grid ladder transfer matrix",
-        "\"ladder graph\" \"majority\" \"2-cycles\" synchronous",
-        "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4"
+        "Resultary_Search: \"open ladder P_n Cartesian K_2 synchronous majority fixed points two cycles Fibonacci Lucas mod 3\"",
+        "Resultary_Search: \"fully flipping every vertex open ladder majority synchronous period two Fibonacci\"",
+        "web: \"open ladder synchronous majority tie retaining fully flipping 2 cycles count Fibonacci P_n K_2\""
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "OEIS A395029 tabulates *closed-neighborhood* self-inclusive majority fixed points on ladders; its three-rung fixed-point count 22 differs from 8 for the open-neighbor rule here.",
-        "Indexed ladder spanning-tree kernel and ladder homology results refer to different invariants.",
-        "No matched finite or infinite table was returned for the stated open-neighbor majority clock counts."
+        "OEIS A395029 is closed-neighborhood fixed-state enumeration for ladders, not open-neighbor pure-flipping states.",
+        "Agur–Fraenkel–Klein Table 1 counts cyclic single-row fixed/no-triple binary words, not two-rail all-flip dynamics.",
+        "The numbers 2F_{n-1} as a bare Fibonacci sequence are classical; only their specific dynamical interpretation is at issue."
       ],
-      "reasoning": "Matching the graph alone does not imply matching the nonlinear update. The OEIS entry is structurally close but inapplicable due to the self-inclusive neighborhood. No retrieved table enumerates the two-step dynamics or mod-three correction.",
+      "reasoning": "A generic Fibonacci table does not establish a matched graph-dynamical invariant. No matched published pure-flip table for open ladders was located in the executed searches; this is bounded evidence only, not proof of nonexistence.",
       "searches": [
-        "On ladder graphs P_n square K_2 synchronous binary open-neighbor majority with ties retained, exact number of period-two states, Lucas L_{2n} plus multiple-of-three correction",
-        "two step fixed points majority vote on two by n grid ladder transfer matrix",
-        "OEIS:A395029",
-        "\"majority\" \"ladder\" \"Lucas\" \"two\" \"fixed\"",
-        "2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c"
+        "Resultary_Search: \"all vertices flip adjacent open ladder synchronous majority binary counting Fibonacci\"",
+        "OEIS A395029",
+        "Agur–Fraenkel–Klein Discrete Mathematics 70 (1988), Table 1"
       ]
     },
-    "rationale": "No covering periodic-state enumeration was located in the genuinely inspected related primary papers, closest mathematical-result records, prior available related claims or database, after comparing update rule, open vs closed neighbors, graph topology, period-one vs period-two populations, and potential stronger-general statements. This is a qualified noncoverage judgment, not a guarantee of globally first publication.",
+    "rationale": "The original principal Lucas/mod-three fixed and periodic counts are explicitly covered by November 1 2026 exact same-model publication and have been removed as novelty claims. The narrowed all-vertex-flipping open-ladder sector and endpoint-word characterization do not occur in that full prior theorem; later cyclic and earlier tree characterizations address different boundary/graph classes. The elementary Fibonacci enumeration is credited, and priority remains qualified by residual risks.",
     "residual_risks": [
-      "An earlier unindexed result might contain an equivalent census under a different name or update convention.",
-      "The complete three-page 1980 Goles–Olivos article was unavailable, so its contents beyond the accessible abstract were not independently excluded.",
-      "The bounded result index cannot prove universal novelty or priority."
+      "Agur–Fraenkel–Klein mention generalized noncyclic forbidden-word enumeration; although graph-specific propagation is separate, the final Fibonacci count may be perceived as a short boundary specialization.",
+      "An unindexed older enumeration of all-vertex-flipping open-ladder majority states or a broad graph transfer result could imply the corrected formula.",
+      "No exhaustive literature-index coverage or external expert verification; the full Kaaser paper and original 1980 Goles–Olivos text were not material to the specialized sector and were not fully read."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING: one-dimensional cyclic *self-inclusive* majority; excludes the open-neighbor two-row ladder and its period-two census",
+        "assessment": "COVERS_ORIGINAL_MAIN: fixed, all-two-periodic and primitive two-cycle counts and all modulo-three content; does not assert the pure-flip sector.",
         "evidence": [
-          "DOI 10.1016/0012-365X(88)90005-2",
-          "One-dimensional words with radius-one self-inclusive neighbor convention, not the two-rail graph."
+          "Exact Q_n=2(f_{n+1}+1), P_n=ell_{2n}+1+3[3|n], N_n=(P_n-Q_n)/2; same open-neighbor tie rule and all n>=2."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-lucas-fibonacci-orbit-census-for-synchronous-majority-dynamics-o--589e6314b7c7/RESULT.md",
+        "material_read": "Full finding, assumptions, transfer proof, recurrence certificate, period restriction, verification, limitations",
+        "method": "Direct exact GitHub source file reading",
+        "title": "Lucas–Fibonacci orbit census for synchronous majority dynamics on open ladders",
+        "trigger": "Near identical original statement and normalization"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: its objects are cubic cyclic and twisted ladders with periodic seam; open degree-two boundaries are not in its theorem.",
+        "evidence": [
+          "Its formulas Q_{n,0}=L_n+delta_n+2[2|n], Q_{n,1}=L_n-delta_n+2[2|n] impose cyclic or antiperiodic closure, unlike d_1=d_{n-1}=1."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-modulo-six-twist-resonance-in-synchronous-majority-dynamics-on--0a383da6731a/RESULT.md",
+        "material_read": "Full theorem, rung dichotomy, cyclic 4-state transfer, seam boundary argument, rarity and prior work",
+        "method": "Direct exact GitHub primary scientific text",
+        "title": "Fully flipping majority two-cycles on cyclic prisms and Möbius ladders",
+        "trigger": "Strong same observable all-flipping majority cycles on closely related ladder graphs"
+      },
+      {
+        "assessment": "CLASSICAL_WORD_COVERAGE_ONLY: establishes cyclic single-row no-triple counts, standard Fibonacci word techniques; does not state open two-row ladder all-flip sector.",
+        "evidence": [
+          "pp.295–299: majority of self and two cyclic neighbors; no-triple-word corollary; p.300 Table 1 cyclic-string values."
         ],
         "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
-        "material_read": "Entire eight-page legally accessible primary PDF text, including statements and proofs",
-        "method": "Direct primary PDF reading with visual page inspection",
+        "material_read": "Full eight-page text including the cyclic majority definition, fixed-word theorem, no-triple corollary, Fibonacci derivations, table and references",
+        "method": "Open-access PDF extracted text and rendered page screenshots (pp.295 and 298)",
         "title": "The number of fixed points of the majority rule",
-        "trigger": "Very close fixed-point counting with Fibonacci/Lucas combinatorics and majority rule"
+        "trigger": "Primary classical Fibonacci and cyclic no-000/111 count close to the final word constraint"
       },
       {
-        "assessment": "NOT_COVERING: convergence-time questions, no Fibonacci/Lucas population theorem on ladders",
+        "assessment": "NOT_COVERING_GRAPH: all explicit characterizations assume trees; P_n square K_2 has n-1 squares.",
         "evidence": [
-          "arXiv:1508.03519v1; public first day 2015-08-14",
-          "Theorems address stabilization time, not the exact count of Fix(M^2) for a ladder."
+          "Introduction explicitly restricts results and pure-2-cycle characterization to finite trees."
         ],
-        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
-        "material_read": "Introduction, rule definition, main convergence theorems and relevant text searched for ladder graphs",
-        "method": "Full-text PDF inspection with page image check",
-        "title": "On the Voting Time of the Deterministic Majority Process",
-        "trigger": "Exact same open-neighbor tie rule; possible general coverage"
-      },
-      {
-        "assessment": "NOT_COVERING: graph family is trees, while open ladders contain 4-cycles",
-        "evidence": [
-          "arXiv:2202.01580v1",
-          "Tree hypothesis does not include the ladders in this claim."
-        ],
-        "identifier_or_url": "https://arxiv.org/pdf/2202.01580",
-        "material_read": "Abstract, definitions, scope and major statements; first pages directly inspected",
-        "method": "PDF primary-text and rendered-page inspection",
+        "identifier_or_url": "https://arxiv.org/html/2202.01580v1",
+        "material_read": "Abstract, introduction and contributions, rule definition, pure-2-cycle section scope from primary HTML",
+        "method": "Open arXiv HTML main theorem scopes",
         "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
-        "trigger": "Directly addresses fixed states and 2-cycles for synchronous dynamics"
+        "trigger": "Directly names pure 2-cycles and complete characterization under the same majority convention"
       },
       {
-        "assessment": "GENERAL_COVERAGE_OF_PERIOD_ONLY, unresolved full-text priority risk for any explicit small-graph enumeration",
+        "assessment": "BACKGROUND_ONLY_FROM_READ_MATERIAL: convergence time and general period bound, no exhibited pure-flip ladder count; full paper not inspected.",
         "evidence": [
-          "1980 Discrete Mathematics 30:187–189",
-          "General theorem provides periods bounded by two but no explicit available open-ladder count."
+          "Abstract states graph majority convergence bounds and known Goles–Olivos period restriction."
         ],
-        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
-        "material_read": "Bibliographic abstract and accessible contextual accounts only; full original text not accessible",
-        "method": "Publisher/bibliographic description; accessible free full text unsuccessful, institutional full text unavailable",
-        "title": "Periodic behaviour of generalized threshold functions",
-        "trigger": "Foundational stronger general period theorem potentially implying periodic behavior"
-      },
-      {
-        "assessment": "NOT_COVERING: self-inclusive (closed-neighborhood) majority, which is different at interior vertices",
-        "evidence": [
-          "Sequence describes majority of *itself and its neighbors*.",
-          "At three rungs this closed-rule fixed count is 22 versus open-rule count 8."
-        ],
-        "identifier_or_url": "https://oeis.org/A395029",
-        "material_read": "Sequence definition and visible initial values",
-        "method": "Direct database entry inspection",
-        "title": "OEIS A395029",
-        "trigger": "Same ladder graph and majority fixed-point enumeration"
+        "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+        "material_read": "Public abstract and bibliographic scope, not paper full text",
+        "method": "arXiv public landing page and publisher conference listing",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "General same tie-retaining majority dynamics and period-two background"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "scientific_repair_review",
   "schema_version": 1,
-  "scope_run_id": "1a0c6687-01cb-4497-aa60-5b937b0f7eae",
   "value": {
-    "rationale": "The open ladder is a canonical planar width-two graph family, structurally different from cyclic prisms, bare cycles and closed-neighbor ladder dynamics. Its exact *entire periodic point population* separates fixed and primitive two-cycle states and shows a genuine bounded three-divisibility resonance superposed on Fibonacci/Lucas growth. Counting all-vertex flips further reveals asymptotic scarcity within rapidly increasing two-cycle populations. These are natural and informative invariant quantities not implied by the period bound or previously found nearby enumeration.",
+    "rationale": "This is a natural, independently specific dynamical sector on canonical width-two open ladders: an exact all-length classification of globally synchronous flips (not the already-known total 2-cycle census), with a boundary-forced Fibonacci count and exact asymptotic rarity. It complements the cyclic-prism pure-flip sectors and provides the complete graph-specific endpoint admissibility pattern. The post-reduction counting is elementary, so the contribution is modest; no new general theorem or novel Fibonacci identity is claimed.",
     "status": "PASS"
   }
 }

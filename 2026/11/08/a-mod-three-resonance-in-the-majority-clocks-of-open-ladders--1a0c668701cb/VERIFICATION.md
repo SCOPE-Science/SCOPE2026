@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,10 @@
 }
 ---
 
-# Verification record
+# Verification and scope of the focused theorem
 
-`transfer_verify.py` calculates the sixteen time-pair rung letters, 256 transfer pair-states and the open-neighbor majority truth tables. It checks all 256 entries of the exact order-five recurrence certificate and the eight displayed signature multiplicities, and compares full transfer counts with the Fibonacci–Lucas expressions for \(2\le n\le80\). This is the certificate needed for the all-length count, rather than a sample-only argument.
+The focused result classifies the all-vertex-flipping configurations on every open ladder by a local proof: every rung is mixed; endpoint horizontal changes are compulsory; adjacent zero changes are forbidden. Its exact count is 2F_{n-1} by the standard Fibonacci no-adjacent-zero recurrence. Global complement symmetry gives the primitive two-cycle orbit count F_{n-1}.
 
-`bruteforce_verify.py` independently constructs ladder edges and evaluates the local synchronous majority rule twice for every one of the \(4^n\) binary configurations at each \(2\le n\le10\). It checks fixed points, all two-step periodic points, and those changing at every vertex. The standalone programs require only Python's standard library. Both scripts were executed successfully; the actual outputs are saved as `transfer_output.txt` and `bruteforce_output.txt`.
+The archived `verification/bruteforce_verify.py` independently constructs open ladder neighbor sets, applies the strict open-neighbor majority/tie-retention map and checks all 4^n states through n=10, including the full-flip count. The archived `verification/transfer_verify.py` separately verifies all 256 coordinates of the original full-periodic transfer identity and compares the pure-flip sector through n=80. Their saved output files are retained unchanged. A separate independent direct n=2,...,9 exhaustive enumeration also produced 2,2,4,6,10,16,26,42 pure-flip states. None of these finite runs is treated as an all-length proof.
 
-The programs give internally reproducible verification, not independent human certification. No exhaustive count of transient basins or first-entry times is claimed. This document does not establish priority against unpublished or unindexed work.
+The exact all-periodic and fixed-state formulas displayed only for comparative rarity were published November 1, 2026 and are not a new verification claim of this focused document. The original source snapshot remains retrievable; no external expert or Lean proof has been performed. Historical priority of the narrowed sector is subject to the recorded best-of-knowledge limitations.
