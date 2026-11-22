@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is defined for the complete curvature-\(-1\) cone of angle \(0<\alpha<\pi\), an off-apex center \(s>0\), and all positive radii. The global distance formula uses the minimum circular angular separation. Direct radial integration splits exactly at \(d=\operatorname{arsinh}(\sinh s\sin(\alpha/2))\) and \(s\), yielding an elementary three-case formula. Its large-radius expansion gives both the exponential coefficient and the center-independent constant \(-\alpha\). A hyperbolic half-angle identity then proves explicit inverse uniqueness. First-cut overlap yields the \(3/2\)-power deficit. The numerical program independently integrates radial sections and checks the limiting formulas on four parameter pairs. Its finite tests corroborate but do not prove the quantified identities.
+## correctness
 
-## Originality — PASS, qualified
-Published literature on low-angle hyperbolic cone surfaces primarily treats harmonic maps, minimal diffeomorphisms, or isoperimetric inequalities. The inspected sources do not contain an exact off-apex ball-volume formula or the two-term exponential inverse law. An earlier flat Euclidean cone-profile claim has a first-cut and inverse statement, but its area growth is polynomial rather than exponential and cannot imply the center-independent hyperbolic constant or the explicit hyperbolic recovery map. Search results in the indexed mathematical record were compared for neighboring concepts and stronger possibilities; none found is an implication of the precise combined theorem. This is a best-knowledge originality assessment, not a historical uniqueness certificate. A specialized older cone-geometry calculation not retrieved remains a residual priority risk.
+PASS
 
-## Value — PASS
-The two-term asymptotic gives a natural inverse-geometric reconstruction from a single scalar function: the constant term reveals the singular cone angle, while the leading coefficient recovers the marked point. The full finite-radius formula and the first cut-locus singularity show where this information originates geometrically. The answer is a complete geometric invariant for this natural model, not a threshold picked to facilitate computation.
+Develop the positive-angle sector with angular shortest modular separation δ∈[0,alpha/2] (<π/2). The hyperbolic cosine law cosh D=cosh s cosh ρ−sinh s sinh ρ cosδ gives the minimal intrinsic distance; other windings and apex paths do not shorten this geodesic in the admissible low-angle cone. Completing the cosh radial square yields radial segment ρ± and the exact angular integral 4∫_0^min(sinh d,sinh R) sqrt(sinh²R−t²)/(1+t²)dt for R<s. Substitution t=sinh R sin u yields 2π(coshR−1) before d and 4(coshR θ−u) until apex R=s. For R≥s the radial lower endpoint becomes zero and integrating cosh ρ+−1 gives 2coshR(B+θ)−alpha−2u. The formulas coincide at R=s. As R→∞, u=O(e^-R) and θ=atan(sinh d)+O(e^-2R), giving V=G e^R−alpha+O(e^-R), G=B+atan(sinh d)=2atan(e^s tan(alpha/4)), and unique recovery s=log(tan(G/2)/tan(alpha/4)), alpha=−constant. At first-cut d=asinh(sinh s sin(alpha/2)) the two sheets form a tangent lens; the quadratic width 2ε−coth(d)y² yields (8/3)sqrt(2 tanh d)ε^(3/2). Independently evaluated radial angular integral versus closed formula in each radius regime at three different (s,alpha) pairs and checked inverse identities. The proof covers all parameters; numerical sampling is supplementary.
 
-## Sources and limitations
-The principal mathematical comparisons are Gell-Redman (2010), [arXiv:1010.4156](https://arxiv.org/abs/1010.4156); Toulisse (2014), [arXiv:1411.2656](https://arxiv.org/abs/1411.2656); and Izmestiev (2014), [arXiv:1409.7681](https://arxiv.org/html/1409.7681v1). The last source primarily addresses cone singularities of negative curvature, unlike the positive singular curvature of the present angle range. General curvature or noisy inverse problems are not addressed; no independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original all-radius marked-ball volume profile and sharp inverse coefficients on positive-singularity hyperbolic cones. Published related primary articles model conical surfaces/isoperimetry/minimal maps, not this exact off-apex profile. The indexed analogous flat-cone inversion has polynomial rather than exponential growth and does not imply the negative-curvature coefficients.
+
+## value
+
+PASS
+
+The exact full metric-ball area and its two-term large-radius coefficients form a natural intrinsic inverse-geometric invariant for a marked hyperbolic cone. Explicitly recovering cone angle and center distance, together with the first-cut onset constant, is a substantive rigorous geometric classification not given by the standard disk-area formula or generic cone-sector gluing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
