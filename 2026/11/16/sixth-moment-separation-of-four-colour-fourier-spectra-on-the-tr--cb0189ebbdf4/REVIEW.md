@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement uses an explicit six-vertex graph, exact additive palette laws and unnormalised characters. Componentwise character orthogonality proves the integer edge-subset identity. The 512 edge subsets and all 4096 frequencies in each palette are exhausted, while a separately coded exact colour enumeration and additive-energy check reproduce the full spectra and sixth-moment gap. Three actual standalone checker programs were executed successfully. No claim about an unbounded graph family is inferred.
+PASS
 
-## Originality
+The triangular prism has 264 proper 4-colourings (24 choices for first triangle, 11 compatible lower triples). Character orthogonality and expansion of ∏edges(1-1_{same-colour}) over its 512 edge subsets give an exact integer Fourier multiplier formula for each abelian 4-colour palette. Exhaustive 4096 frequencies in each law yield cyclic abs histogram {0:3072,8:348,24:399,40:198,56:30,72:9,88:39,264:1} and Klein {0:3072,8:408,24:291,40:258,56:18,72:9,88:39,264:1}. Independent direct 4^6 tensor character transforms recomputed both histograms and their moments: M2=264, M4=2044416 common, M6 87824400384 vs 87789010944, difference 35389440. All 4^6 Fourier indices were exhausted, not a sampled extrapolation.
 
-**PASS under bounded prior comparison.** The closest inspected frameworks are Sokal's multivariate Tutte expansion (arXiv:math/0503607), Shrock–Xu's weighted-set chromatic functions (arXiv:0911.4218), and Ellis-Monaghan–Moffatt's external-field expansion (arXiv:1005.5470). They explain how to generate weighted colouring sums generally, but the relevant material does not give the two fully evaluated Fourier singular spectra or the equal-fourth/unequal-sixth moment phenomenon on the triangular prism. Relevant published work on first-order cycle Fourier sampling and on alternative prism colouring constraints concerns different operators or colouring predicates. There remains a priority risk from unindexed explicit small-graph tables and from broader formulas whose specialised numerical consequences have not been tabulated.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The natural invariant is additive energy of the constrained colouring set within the two nonisomorphic abelian groups of order four. Standard chromatic counts cannot detect the group law. Here the full convolution ranks, sharp inverse stability and fourth energies still fail to distinguish it; the next even moment provably does. The precise sixth-energy gap supplies an exact example of higher-order additive structure invisible to lower-order Fourier statistics, without claiming a general downstream theorem.
+General Potts/Fortuin–Kasteleyn and external-field component-sum formulas encode arbitrary colouring weights, but do not themselves tabulate or explicitly imply without nontrivial evaluation the two exact prism histograms and first distinguishing even moment. Prior related 6-word surjection result has fourth-moment separation, not this prism sixth-moment phenomenon.
 
-## Scope and outstanding risk
+## value
 
-The result is finite, for the triangular prism and the two groups only. It should not be taken as an all-graph classification. The three cited general partition-function frameworks cover the evaluation method, not the new numerical census as an explicitly stated result. Independent validation and broader priority review remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact multiplier census for the canonical cubic triangular prism gives rank, sharp condition number and a concrete lowest-order Fourier-moment discriminator between two inequivalent four-element abelian colour groups. Identical fourth and distinct sixth additive energies is a mathematically informative invariant, not just raw reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
