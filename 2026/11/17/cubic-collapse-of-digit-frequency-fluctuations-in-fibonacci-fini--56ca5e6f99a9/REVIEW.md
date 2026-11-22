@@ -1,15 +1,21 @@
-# Review of cubic digit-frequency fluctuation law
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The marked two-loop determinant, implicit pressure derivatives, Cassini identity and return-word formula reconstruct the claim for every \(k\ge5\). The all-index Rauzy-graph structure is the prior Bruin–Leplaideur theorem, and the unique forbidden-factor length property is the classical Fibonacci/Sturmian result discussed by Amaral. The standalone checker independently corroborated eight finite covers, three pressure Hessian values and the positive asymptotic constant. No finite enumeration is used as an infinite proof.
+## correctness
 
-## Originality (O) — PASS, with priority risk
-Closest: *A Fibonacci entropy staircase and its full scaled accumulation interval* (2026), which proves the unmarked entropy renewal equation and cover plateaus, plus Bruin–Leplaideur (2013), which proves the underlying two-loop graph. Amaral (2025) provides a finite-index forbidden-pattern hierarchy. These sources do not state the field-marked pressure, exact digit-count variance, cubic asymptotic constant, or complete rescaled variance spectrum. Generic Markov central limit theory supplies a method, not this numerical all-order classification. An unindexed equivalent remains possible; independent priority determination is not claimed.
+PASS
 
-## Mathematical value (V) — PASS
-The digit-occupation asymptotic variance is directly motivated by statistical fluctuations in the maximal-entropy measures of finite Markov approximations to an aperiodic uniquely ergodic shift. Sharp cubic collapse contrasts with the previously known inverse-linear entropy decay; the nontrivial full scaled interval captures a quantitative oscillation invisible to zero entropy alone. This is a naturally indexed invariant, not a cherry-picked finite example.
+For all k>=5 the Rauzy-graph presentation supplies two first-return loops with lengths (F_{k-1},F_k) and digit-one counts (F_{k-3},F_{k-2}). The labeled determinant yields exp(at-pP)+exp(bt-qP)=1, valid for all real t. Two differentiations give P''(0)=uv(aq-bp)^2/(pu+qv)^3; Cassini gives |aq-bp|=1. Scaling by q^3 yields C=UV/(rU+V)^3, and the known Fibonacci cover plateaus yield exactly [C,phi^3 C] as the scaled variance limit set. Distinguishes fixed-cover CLT from varying cover. Independently recomputed Cassini and numerical variance for k=5..10, converging toward 0.517496; these finite checks do not prove all k. The full prior entropy proof and primary bispecial/return-loop facts were separately read.
 
-## Limitations
-The limit first takes observation time to infinity for a fixed cover. No uniform-in-cover central limit theorem is established. The graph and forbidden-factor structures are cited, not new. Historical priority and any external scientific audit remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier entropy staircase establishes the t=0 equation and cover plateaus but not the labeled potential t, explicit P''(0), cubic occupation variance, or its scaled interval; the asserted new object is a digit observable fluctuation, not entropy itself. Structural Fibonacci combinatorics is prior; no direct dominating digit-variance result found. Provisional best-of-knowledge historical priority, not a claim that generic renewal-CLT algebra is novel.
+
+## value
+
+PASS
+
+This exact infinite family answers a natural statistical invariant of finite Markov approximants to the Fibonacci subshift: the maximal-entropy digit-occupation fluctuation. A sharp n^{-3} decay and full nontrivial accumulation interval contrast with inverse-linear entropy scaling, useful to researchers studying approximation and observable pressure, not a trivial isolated numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
