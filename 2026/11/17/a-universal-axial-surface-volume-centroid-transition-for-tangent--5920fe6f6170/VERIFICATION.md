@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks and boundaries
 
-Execute `python3 verify.py` in the directory containing this document and the verifier. The checks evaluate \(I_j\) and \(J_j\) exactly as rational polynomials for rational taper parameters; separately integrate the slice and complete-boundary surface densities by Simpson quadrature; and test the sign trichotomy on both sides of the crossing for dimensions \(2\) through \(12\). They also confirm the exact planar formula, pyramid endpoints and the near-prism limit over that finite range. The scientific proof of the infinite-dimensional statements is provided separately in `RESULT.md`; finite tests are not substituted for it.
+# Independent mathematical audit
 
-The package does not claim a complete historical priority census, uniqueness of an intermediate minimizer, or independent mathematical certification.
+## correctness
+
+PASS
+
+The final claim concerns axial coordinates only. Reconstructed the volume moment v=J_m/I_m and complete surface centroid [a^m+m sqrt((H/R)^2+(1-a)^2) J_{m-1}]/[1+a^m+m sqrt((H/R)^2+(1-a)^2) I_{m-1}] from the tangential base identity R area(∂B)=m vol(B) and the common facet slant factor. Their difference has sign sqrt(t²+(1-a)²)-T_d(a), with ell-v>0 by decreasing weight s, and T_d(a)>1-a by 2J_m>I_m² for the nondegenerate survival-distribution X. This proves a unique positive height crossing and strict trichotomy for all d>=2 and all tangential bases. Checked the endpoint integrals: h_d(0)=sqrt(d²-1), for d=2 h_2²=(a+3)(3a+1), while d>=3 has h_d'(0+)=-sqrt(d²-1) and lim_{a->1}h_d'=2. Interior minimum follows from opposite derivative signs; no uniqueness claimed. Independently recomputed rational I,J and surface-volume signs at t=h/2,h,2h for d=2,...,11 and 4 tapers, rather than relying on the checker log.
+
+## originality
+
+PASS
+
+The exact base-shape-independent complete-boundary axial centroid crossing for proper tapered frusta and dimension-specific taper response are not supplied by the inspected general centroid inequalities or earlier results on other frustum invariants. Best-of-knowledge only.
+
+## value
+
+PASS
+
+The natural question of when a uniform-volume center and complete-boundary area center swap their axial order for a tapered solid has a shape-independent exact answer. The strict interior taper optimum in every dimension at least three is a motivated geometric phase change not merely a classical formula for one frustum. It can be used to benchmark centroid inequalities and geometric sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment: A universal axial surface–volume centroid transition for tangential frusta
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact lateral hypersurface area follows from the shared tangential inradius and divergence theorem; integrating two caps and the lateral strips yields the full surface centroid. A strictly positive one-dimensional variance proves that the threshold lies above the slant lower bound, and a single strictly monotone square-root expression gives a unique positive crossing. Endpoint derivative and near-prism series are computed from finite polynomials. Independent rational-moment and numerical quadrature tests supplement this proof.
+## correctness
 
-**Originality — PASS, provisional priority.** Tokmachev (arXiv:2607.08869v1) studies convex-order consequences when centroids coincide, not a frustum height classification. Myroshnychenko–Ryabogin–Tatarko–Yaskin (arXiv:2611.11635v1) proves a global sharp separation bound, but not the exact height at which these centroid components agree. Earlier tangential-base pyramids cover only the zero-top-radius endpoint. Indexed homothetic-frustum results about reflected mixed volumes and width transforms do not imply this formula. General engineering centroid tables create a residual risk for the circular three-dimensional special case; they do not establish the indexed all-dimensional result.
+PASS
 
-**Mathematical value — PASS.** There is a natural complete-boundary versus bulk balance problem, an exact base-independent classification for an infinite geometrical class, and a nonmonotone taper transition in dimension at least three contrasted with strict planar monotonicity. The universal limiting ratio of \(4\) near prisms is an additional sharp structural consequence.
+The final claim concerns axial coordinates only. Reconstructed the volume moment v=J_m/I_m and complete surface centroid [a^m+m sqrt((H/R)^2+(1-a)^2) J_{m-1}]/[1+a^m+m sqrt((H/R)^2+(1-a)^2) I_{m-1}] from the tangential base identity R area(∂B)=m vol(B) and the common facet slant factor. Their difference has sign sqrt(t²+(1-a)²)-T_d(a), with ell-v>0 by decreasing weight s, and T_d(a)>1-a by 2J_m>I_m² for the nondegenerate survival-distribution X. This proves a unique positive height crossing and strict trichotomy for all d>=2 and all tangential bases. Checked the endpoint integrals: h_d(0)=sqrt(d²-1), for d=2 h_2²=(a+3)(3a+1), while d>=3 has h_d'(0+)=-sqrt(d²-1) and lim_{a->1}h_d'=2. Interior minimum follows from opposite derivative signs; no uniqueness claimed. Independently recomputed rational I,J and surface-volume signs at t=h/2,h,2h for d=2,...,11 and 4 tapers, rather than relying on the checker log.
 
-Limitations: equality concerns the axial component, not transverse centroid components. A minimizer exists for each dimension at least three but is not proved unique. A prism itself has axial equality for every height, so its limiting ratio does not describe a nontrivial prism threshold. Historical priority has not received independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact base-shape-independent complete-boundary axial centroid crossing for proper tapered frusta and dimension-specific taper response are not supplied by the inspected general centroid inequalities or earlier results on other frustum invariants. Best-of-knowledge only.
+
+## value
+
+PASS
+
+The natural question of when a uniform-volume center and complete-boundary area center swap their axial order for a tapered solid has a shape-independent exact answer. The strict interior taper optimum in every dimension at least three is a motivated geometric phase change not merely a classical formula for one frustum. It can be used to benchmark centroid inequalities and geometric sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
