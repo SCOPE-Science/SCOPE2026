@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "An explicit Laplacian orbit decomposition gives 2(s-2) copies of u+(s-1)v, one copy of su, a trivial zero, and two remaining eigenvalues with sum su+2t and product 2tu. The Kemeny reciprocal sum therefore equals 2(s-2)/(u+(s-1)v)+(s+1)/(su)+s/(2t). Strict trace-inverse convexity and injective edge weighting force a unique automorphism-invariant global optimizer; monotonicity saturates t and v; a strictly positive scalar second derivative and endpoint derivatives prove one unique optimal u. Rescaling x=su yields the limiting bridge sqrt(2)-1 and optimal K/s=7/2+sqrt(2). Direct exact-rational full Laplacian inversions and numeric asymptotics replay in verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel–Agharkar–Bullo formulate an SDP minimizing Kemeny for arbitrary fixed graph/stationary law, but their general theorem supplies neither the scalar barbell optimizer nor its scaling.",
+        "Durastante–Gnazzo–Meini, Sections 5.1–5.2, consider perturbative numerical Kemeny minimization and compare with the generic SDP; their illustrated topologies are random blocks and power networks.",
+        "Boyd–Diaconis–Xiao optimize the SLEM spectral radius rather than the reciprocal-eigenvalue sum."
+      ],
+      "reasoning": "The generic convex SDP includes the graph family as an instance and establishes existence/computability, but its statement does not imply the explicit positive constant limit for the bridge or the analytic benchmark ratio without a separate nontrivial orbit spectrum, scalar optimization and asymptotic argument. These are the assessed claims, not the general optimization framework.",
+      "searches": [
+        "Kemeny constant barbell graphs optimal edge weights random walks two cliques one bridge",
+        "doi:10.1109/TAC.2015.2426317",
+        "doi:10.1007/s10543-026-01152-6",
+        "Fastest Mixing Markov Chain on a Graph Boyd Diaconis Xiao"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis and Xiao (2004), DOI 10.1137/S0036144503423264",
+      "Patel, Agharkar and Bullo (2015), DOI 10.1109/TAC.2015.2426317",
+      "Breen et al. (2019), DOI 10.13001/ela.2019.5175",
+      "Durastante, Gnazzo and Meini (2026), DOI 10.1007/s10543-026-01152-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 general SDP is agnostic to the clique-barbell optimizer parameters.",
+        "The 2019 barbell paper fixes a simple random walk on the graph (probabilities reciprocal to vertex degree) and computes its Kemeny value.",
+        "The current formula assigns asymptotic bridge probability sqrt(2)-1 and zero holding, unlike the maximum-degree walk bridge probability 1/s."
+      ],
+      "reasoning": "The exact optimum and its asymptotic constant are not a special case of a stated analytic optimizer in the inspected prior papers. The general SDP could be applied to each graph, but not without deriving the class spectra and solving the constrained problem. The fixed-walk barbell formulas do not optimize probabilities and do not imply the value or unique optimizer here.",
+      "searches": [
+        "\"Kemeny\" \"barbell\" \"optimal\" \"transition\" \"probabilities\"",
+        "\"Kemeny\" \"two cliques\" \"bridge\" \"optimal\" \"Markov\"",
+        "doi:10.13001/ela.2019.5175",
+        "doi:10.1109/TAC.2015.2426317"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Patel–Agharkar–Bullo, Theorem 2 and Problem 1, express reversible Kemeny design as trace-inverse minimization; their Kemeny convention differs by an additive one.",
+        "Breen et al., Section 1, use normalized-Laplacian spectral Kemeny formulas for the degree-proportional simple walk."
+      ],
+      "reasoning": "Changing from spectral Kemeny sum to inverse-trace optimization is an exact equivalence, not itself a novelty claim. The degree-proportional walk has a nonuniform stationary law on a barbell and cannot supply the freely optimized symmetric uniform-stationary transition probabilities. SLEM objectives are not equivalent to Kemeny inverse trace.",
+      "searches": [
+        "Kemeny optimal barbell graph two cliques bridge hub internal transition asymptotic sqrt two",
+        "\"Kemeny\" \"barbell\" \"optimal\" \"transition\" \"probabilities\"",
+        "doi:10.1109/TAC.2015.2426317",
+        "doi:10.13001/ela.2019.5175"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Breen et al. compute Kemeny on barbell-type graphs for a fixed degree-normalized random walk, as specified at the beginning of their paper.",
+        "Scientific indexed comparison titles on related clique barbells concern fastest mixing, fixed-weight leader placement, Hilbert geometry or separate graph parameters; no inspected exact optimal-transition table matches the target statement."
+      ],
+      "reasoning": "No exact table with the three freely optimized symmetric transition classes, unique root and limiting bridge probability was found in the inspected sources. Search nonreturn does not prove that no such table exists, and this remains a residual literature risk.",
+      "searches": [
+        "Kemeny constant barbell graphs optimal edge weights random walks two cliques one bridge",
+        "Kemeny optimal barbell graph two cliques bridge hub internal transition asymptotic sqrt two",
+        "\"Kemeny\" \"barbell\" \"optimal\" \"transition\" \"probabilities\"",
+        "10.13001/ela.2019.5175 computing Kemeny's constant for barbell graphs weighted stochastic optimization"
+      ]
+    },
+    "rationale": "Compared the actual mathematical statements of the primary papers and relevant indexed graph-family results. The general reversible Kemeny SDP, the fixed simple-walk barbell Kemeny formula, and SLEM-optimized walks do not state or directly imply the exact unrestricted equal-clique-barbell probability allocation and its asymptotic bridge constant. The new result requires a nontrivial eigenmode reduction and asymptotic minimizer localization. Search incompleteness and possible unindexed equivalent calculations remain explicit risks.",
+    "residual_risks": [
+      "An unindexed equivalent exact Kemeny-optimal barbell calculation may exist in a specialized graph or stochastic-control reference.",
+      "A generic optimization theorem can be numerically specialized to these graphs; the contribution is the explicit analytic family solution, not computational solvability.",
+      "The complete literature on degree-heterogeneous and constrained stationary policies was not exhaustively surveyed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "different optimization objective: SLEM; no implication of reciprocal-eigenvalue Kemeny optimum",
+        "evidence": [
+          "SIAM Review 46 (2004), opening abstract and objective explicitly minimize second-largest eigenvalue modulus"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "abstract, opening graph definition and objective; full article was opened with page-image inspection of the opening page",
+        "method": "publisher-author open copy and page-image comparison",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "foundational optimization of edge probabilities on an undirected graph"
+      },
+      {
+        "assessment": "establishes general convex formulation and trace identity, but no exact clique-barbell class optimizer or asymptotic bridge law in the inspected relevant material",
+        "evidence": [
+          "Theorem 2 gives the spectral trace inverse representation; Problem 1 and Theorem 4 are a general convex graph-design problem",
+          "Numerical examples are surveillance environments, not two equal cliques joined by one bridge"
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "abstract; Section II, Theorem 2, Problem 1, Theorem 4 and SDP; Sections III–IV around figures and numerical examples; opening and methodology pages inspected as page images",
+        "method": "lawful author-hosted full-text PDF, targeted theorem and experiment inspection",
+        "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+        "trigger": "same inverse-trace optimization objective with reversible Markov constraints"
+      },
+      {
+        "assessment": "degree-proportional simple random walk, not optimization over all symmetric stochastic kernels; different stationary law",
+        "evidence": [
+          "Section 1 fixes transition matrix P=D^{-1}A and reciprocal-degree neighboring transitions",
+          "Barbell is treated as one member of a wider fixed-walk graph family"
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/5175/4941/5239",
+        "material_read": "abstract; Sections 1 and 2 graph and simple-walk definitions; selected spectrum derivations for barbell-type graphs; page images of opening page and graph definition",
+        "method": "open-access journal PDF with targeted full-text and page-image inspection",
+        "title": "Computing Kemeny's Constant for Barbell-Type Graphs",
+        "trigger": "exact same barbell graph family and spectral performance measure"
+      },
+      {
+        "assessment": "general perturbative numerical methods, no displayed analytic clique-barbell optimum; explicitly acknowledges earlier general SDP",
+        "evidence": [
+          "Section 5.2 distinguishes its perturbative objective from the generic optimal-realization SDP",
+          "Examples focus on sparse random patterns, near-reducible blocks and power-network data"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-026-01152-6",
+        "material_read": "full HTML introduction, Section 5 examples and Section 5.2 comparison with generic SDP, conclusions; article-wide text search for barbell and clique",
+        "method": "open-access full-text article and targeted text inspection",
+        "title": "Kemeny's Constant Minimization for Reversible Markov Chains via Structure-Preserving Perturbations",
+        "trigger": "recent general Kemeny minimization and possibly stronger solution framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "933dde29-250d-44df-9a29-f329ab24b36e",
+  "value": {
+    "rationale": "A barbell is a canonical dense-community network with a single severe bottleneck. The solution classifies the unrestricted globally optimal uniform-stationary symmetric transition policy for every equal clique size, proves that the bottleneck receives a constant limiting probability rather than a vanishing probability, and derives a linear-in-size Kemeny regret for the standard maximum-degree walk. This is a structural, quantitative optimization benchmark rather than a routine reparameterization or a marginal numerical improvement.",
+    "status": "PASS"
+  }
+}
