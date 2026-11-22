@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every complex rank is computed from exact cyclotomic integers, using the determinant formula and the rank-minor criterion. Every five-subset has translation-orbit size twelve, so the exhaustive \(66\times66\) computation proves the all-mask distribution. Both the attached JSON and the standard-library verifier have been checked in the packaged form; rank calculations in characteristic 1009 agree for all representatives but are supporting checks, not the primary proof.
+## correctness
 
-**Originality — PASS (priority provisional).** The closest published Fourier-order-twelve result classifies row sets for which *every* maximal minor is nonzero. It does not determine the number or nullity of failing column partners. Caragea–Lee's principal-minor theorem and Cabrelli–Molter–Negreira's weaving criterion concern weaker predicates, while Delvaux–Van Barel construct families of low-rank blocks. An earlier aggregate zero-minor table across *all* orders and sizes is explicitly acknowledged. No inspected source supplies the \(66\times66\) size-five rank table or its \(27\) distinct double-loss classes. Earlier unpublished detailed tables remain possible.
+PASS
 
-**Mathematical value — PASS.** This is a natural complete fifth-order classification for a composite Fourier matrix where order-five sampling is already known to have exceptional spark obstructions. The new exact counts distinguish single-dimensional and double-dimensional reconstruction failure, and provide a complete incidence lookup for all five-frequency/five-position masks. The theorem is finite, but the classification is exhaustive and motivated by the previously known order-twelve exceptional row patterns.
+Every 5-subset of Z_12 has trivial translation stabilizer (gcd(5,12)=1), leaving exactly C(12,5)/12=66 orbit representatives in each index. For each pair, the determinant expanded in Q[z]/(Phi_12), Phi_12=z^4-z^2+1, vanishes iff all four exact integer coefficients vanish. Testing all 5x5, 4x4, 3x3 minors gives full complex rank. Independently recomputed all 4,356 representative ranks from the actual census12.json representative sets using exact integer polynomial reduction, finding zero discrepancies and counts 27 rank3, 757 rank4, 3572 rank5. Orbit size 144 gives 3888,109008,514368; 2 all-full-rank representative row sets give 24 full-spark rows. Finite order-twelve enumeration is an exhaustive proof of this finite claim; mod1009 corroboration is not used as complex-rank certification.
 
-**Limitations.** No classification is asserted for other Fourier orders and no noisy stability lower bound is derived. The exact computation, not independent peer review, supplies the finite certificate. Searches cannot prove absolute historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: a new complete fifth-order 66x66 positional rank-incidence array and two-dimension defect count, not determined by prior row full-spark, existence, support-profile, or aggregate zero-minor results. Exact old tabulations might hide the same data and remain a concrete priority risk.
+
+## value
+
+PASS
+
+The natural order-twelve harmonic design problem asks exactly which five-frequency masks lose dimensions and by how much. The complete exact incidence matrix and explicit two-dimensional losses distinguish recoverability beyond the prior full-spark yes/no classification. This bounded, exhaustive exact invariant is independently useful without a general order-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
