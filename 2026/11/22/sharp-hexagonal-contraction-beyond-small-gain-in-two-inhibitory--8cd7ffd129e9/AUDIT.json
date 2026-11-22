@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For same-forcing states the differences satisfy u'=-A(u+v), v'=-B(u'+v) with 0<=A<=a<1 and 0<=B<=b<1. The hexagonal norm max(|u|,|v|,|u+v|) contracts by q=a+b-ab<1. Pullback limits give a unique bounded bilateral response, and perturbations yield the quantitative global bound (a||e_p||+b||e_n||)/(1-q). Tanh responses meet every domain condition and attain q at the differential level; the gain-one affine model gives genuine 2-cycles. Exact-rational and nonlinear checks in verify.py passed but are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cecconi et al., arXiv:2611.13832v1, Theorem 1 assumes gamma_p+gamma_n<1 for arbitrary fading memory.",
+        "Al-Salman–AlSharawi–Kallel, arXiv:1912.07493, Sections 1–2 analyze planar mixed-monotone scalar second-order equations and invariant-domain embedding, not the sequential two-event operator with forced bilateral bounds.",
+        "Garab–Pötzsche, DOI 10.1007/s10884-018-9685-8, Sections 1–2 concern Morse decompositions for scalar delay-difference equations."
+      ],
+      "reasoning": "The initiating theorem cannot cover the admissible explicit example gamma_p+gamma_n=8/5. The general stability sources concern differing recurrences or general convergence principles without the exact nonlinear sign-sensitive event-loop conclusion. No inspected stronger statement dominates all components.",
+      "searches": [
+        "two event operators first order fading memory relay closed-loop period doubling nonconstant bounded rhythms deterministic two-cycle",
+        "inhibitory feedback two node delays event driven time interval small gain sum condition sharp nonnegative negative gains",
+        "two-dimensional monotone maps global stability compact invariant domain negative feedback",
+        "Morse Decompositions for Delay-Difference Equations Garab Pötzsche 2019"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.13832v1, Sections III–V",
+      "arXiv:1912.07493, introduction and Section 2",
+      "DOI:10.1007/s10884-018-9685-8, abstract and introduction",
+      "DOI:10.1155/2021/8343207, Gauss-Seidel theorems",
+      "Relevant indexed published results on fading-memory cyclic gradients, inhibitory neuronal sampling and hexagonal Banach-space constants; none supplies the same forced two-event statement."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.13832v1, equation (17), requires the sum of the operator gains to be strictly below one, whereas f=g=1-(1/10)tanh(8(T-2)) has both exact gains 4/5 and lies outside that hypothesis.",
+        "The event-space contraction q=24/25 and robust bi-infinite response follow from a max(|u|,|v|,|u+v|) inequality that is not a direct consequence of a triangle-inequality small-gain estimate.",
+        "Generalized Gauss–Seidel spectral-radius statements describe linear algebraic iterations, not the same arbitrary nonlinear decreasing maps, full bilateral forcing and chronological delays."
+      ],
+      "reasoning": "The broader published sum-small-gain theorem does not imply the new gain regime. Its contraction estimate loses cancellation of opposite signs. This proof retains signed cancellation through a hexagonal norm and establishes a sharp universal rate and exact failure at the boundary.",
+      "searches": [
+        "site:arxiv.org/html/2611 event-based analysis neuromorphic feedback systems",
+        "hexagonal norm cyclic nonlinear Gauss Seidel iteration sharp contraction a+b-ab",
+        "Generalized Refinement of Gauss-Seidel Method for Consistently Ordered 2-Cyclic Matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact recurrence uses one previous interval in the first response and one previous interval plus the newly computed first delay in the second; see arXiv:2611.13832v1, equations (12)–(15).",
+        "No equivalent hexagonal-norm contraction coefficient for this event chronology appeared in the read portions of arXiv:1912.07493 or the comparison searches."
+      ],
+      "reasoning": "An algebraically equivalent formulation would need the same sequential inhibitory sign pattern, arbitrary monotone Lipschitz response functions, a bound uniform over bi-infinite forcing, and a universal factor a+b-ab. Generic fixed-point or mixed-monotone theorems without these quantifiers do not imply the specific claim.",
+      "searches": [
+        "hexagonal norm max |x| |y| |x+y| global contraction cyclic inhibitory event response two-component one-lag gain alpha beta rate alpha+beta-alpha beta",
+        "two-dimensional coupled negative feedback sequential map x_k=f(x_k-1+y_k-1) y_k=g(y_k-1+x_k) contraction even if Lipschitz gains sum exceeds one",
+        "coupled monotone decreasing map x'=f(x+y) y'=g(x'+y) global contractivity hexagonal norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published note on the affine-regular hexagonal norm concerns a two-dimensional Banach-space geometric parameter, not a dynamical event feedback bound.",
+        "Related records concerning two-tap synaptic memory, Huygens networks and sampling thresholds do not state the two-event sequential one-lag contraction theorem."
+      ],
+      "reasoning": "No matching value table or previously indexed sharp coefficient was found for this precise forced model. The lack of a match cannot establish novelty; implication comparisons with retrieved titles and summaries were also made.",
+      "searches": [
+        "2026 event-based analysis neuromorphic feedback systems two monotone decreasing one-step delay kernels unique bi-infinite solution without small gain sum",
+        "sharp threshold alpha<1 beta<1 alternating lag-one event operators saturating tanh nonautonomous perturbation",
+        "event based neuromorphic feedback fixed point lag-one affine memory gain sum sharp Schur region noncontractive periodic entrainment"
+      ]
+    },
+    "rationale": "A sign-sensitive sharp hexagonal contraction for sequential one-lag inhibitory event responses yields global bilateral well-posedness with gains a=b=4/5, beyond the initiating event paper’s sufficient sum-small-gain condition. The two-step monotone recurrence and its sharp universal factor were not found in the inspected initiating full text, compared published results, or accessible prior claims. No search proves universal priority, and classical iteration literature remains a residual risk.",
+    "residual_risks": [
+      "An older theorem on sign-sensitive cyclic asynchronous iteration might cover the sharp nonlinear coefficient without mentioning event feedback.",
+      "Only relevant substantive passages of secondary comparison papers were read; no universal full-text priority search is possible.",
+      "The result is restricted to one-lag decreasing operators; no novelty claimed for arbitrary fading-memory systems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the high-sum-gain nonlinear inhibitory one-lag case; source proves uniqueness under summed gain <1.",
+        "evidence": "Section IV derives a decreasing first-order response and Section V imposes gamma_p+gamma_n<1 in Theorem 1.",
+        "identifier_or_url": "https://arxiv.org/html/2611.13832v1",
+        "material_read": "Sections III–V, first-order-filter response and gain computation, feedback loop equations (12)–(19), theorem and corollary",
+        "method": "Full-text HTML sections inspected and mathematical hypotheses compared",
+        "title": "Event-based analysis of neuromorphic feedback systems",
+        "trigger": "Exact initiating two-operator loop and strongest apparent competitor"
+      },
+      {
+        "assessment": "Different scalar second-order recurrence and embedding framework; no observed sharp event-loop contraction or bilateral forcing comparison.",
+        "evidence": "The studied recurrence is x_(n+1)=F(x_n,x_(n-1)), with mixed monotonicity; the present two-component update depends sequentially on the first new coordinate.",
+        "identifier_or_url": "https://arxiv.org/abs/1912.07493",
+        "material_read": "Full open-access rendered introduction and Section 2 on invariant domains and embedding",
+        "method": "Primary arXiv full-text rendering inspected",
+        "title": "Extension, embedding and global stability in two dimensional monotone maps",
+        "trigger": "Potential dominating mixed-monotone planar theorem"
+      },
+      {
+        "assessment": "No decisive coverage; focuses on scalar delayed recurrence and Lyapunov/Morse decomposition rather than event-specific forced two-coordinate contraction.",
+        "evidence": "The principal equation is x_(k+1)=f(x_k,x_(k-d)) and the analysis tracks Morse components by a discrete Lyapunov functional.",
+        "identifier_or_url": "https://doi.org/10.1007/s10884-018-9685-8",
+        "material_read": "Open-access Springer abstract and introduction, including scalar recurrence and statements of global attractor framework",
+        "method": "Publisher full-text HTML sections inspected",
+        "title": "Morse Decompositions for Delay-Difference Equations",
+        "trigger": "Plausible general theory of negative-feedback discrete delays"
+      },
+      {
+        "assessment": "General linear two-cyclic matrix convergence not equivalent to the forced nonlinear event-operator theorem.",
+        "evidence": "The stated results concern spectra of linear Jacobi and Gauss-Seidel iteration matrices rather than nonlinear maps with time-dependent forcing.",
+        "identifier_or_url": "https://doi.org/10.1155/2021/8343207",
+        "material_read": "Available HTML exposition of matrix iteration and spectral-rate results, including displayed Theorems 5–7",
+        "method": "Open full-text result inspected",
+        "title": "Generalized Refinement of Gauss-Seidel Method for Consistently Ordered 2-Cyclic Matrices",
+        "trigger": "Possible stronger general iteration result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8cd7ffd1-29e9-4d6f-8cfb-a73092b0c07c",
+  "value": {
+    "rationale": "The initiating neuromorphic event-feedback theorem has only the conservative gain-sum criterion for general fading memory. This sharp, sign-sensitive criterion gives robust unique rhythms with both gains as high as 4/5 (summed gain 8/5), quantifies full-trajectory convergence and response sensitivity, and identifies an exact failure boundary. The sharp inequality relies on the event chronology and its inhibitory sign, making it a structural, experimentally relevant extension rather than a parameter substitution. The general nonlinear forced theorem is not inferred from linear tests.",
+    "status": "PASS"
+  }
+}
