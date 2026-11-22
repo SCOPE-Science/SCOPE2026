@@ -1,21 +1,21 @@
-# Scientific review: exact one-sweep reachability for sequential Rule 184
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is a labelled binary ring of length \(n\ge3\), with the in-place scan \(0,1,\ldots,n-1\) and the exact Wolfram Rule 184 local Boolean function. The proof derives the three classes of site equations, establishes three necessary output tests, and supplies an explicit predecessor for every word satisfying all three. The associated four-state graph is a deterministic cyclic factor automaton for forbidden `101`; boundary failures are removed using two disjoint matrix entries, producing the stated generating function by a formal resolvent. Perron–Frobenius applies because the graph is primitive; the leading pole is not canceled. The standalone original-map enumeration checks every binary input and potential output for all lengths three through eighteen, and separate symbolic and transfer computations reproduce the rational function and the recurrence. Neither enumeration nor the program logs replace the all-length proof.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-The same finite-ring dynamics is *not* the synchronous traffic Rule 184 map: the latter conserves particle number and its one-step image is cyclic `1100`-avoidance, with a different rational generating function and exponential base; the present sweep can delete a single car and has scan-origin boundary exclusions. The 2007 asynchronous Rule-184 article's Rule-184 proposition describes order-independence of eventual periodic states rather than the one-sweep image. The 2014 asynchronous-conservation treatment and the 2025 sequential cycle survey address particle conservation or recurrent dynamics, not the exact boundary-sensitive image criterion. Two directly relevant published synchronous image results were inspected in complete RESULT.md texts and explicitly assume simultaneous updates. Searches of accessible published results using the update schedule, candidate forbidden word, boundary tests and growth polynomial returned no statement that covers or implies the present theorem. Unindexed or inaccessible studies remain a genuine priority risk; absence from search results does not prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-The one-sweep reachable language of a natural classical cellular automaton under a standard deterministic asynchronous schedule is a fundamental dynamical observable. The theorem recognizes *all* possible outputs at every ring size, gives a constructive inverse, determines the exact number of Garden-of-Eden outputs, and quantifies the entropy change from the synchronous rule. Its boundary-sensitive obstruction is structural rather than a finite table or an isolated numerical count. The fact that asynchronous scanning can destroy particles further separates the observable from the well-known conservation picture.
+PASS: the local traffic rule is f(left,0,right)=left, f(left,1,right)=right; the three scan equations use old left/right only before update and already updated left plus y0 at the final site. An internal 1->0 transition forces old center 1 followed by next old 0, excluding any cyclic 101 including seam; y[n-1]=1 with y0=0 forces a backward contradiction, and the exceptional (0,1,1,0) seam is incompatible with site0 and final equations. Conversely x_i=y[i-1] OR y_i for 1<=i<=n-2, with explicitly chosen (x0,xlast) in the RESULT.md three cases, satisfies each local equation whenever all three tests hold. Exact four-pair adjacency T forbidding 101 yields I_n=tr(T^n)-(T^n)_{10,10}-(T^(n-2))_{01,10} and stated GF and Pell-like cubic recurrence. Distinct outputs are counted, not preimages. Independently enumerated every input and every target for n=3..10; image-language sets agree exactly. Entire proof covers n>=3 and does not infer long-time dynamics.
 
-## Closest literature and risks
-- Macauley, McCammond and Mortveit, arXiv:0707.2360 (2007): Rule-184 eventual periodic order-independence (Proposition 6.3), not the one-sweep language.
-- Hazari and Das, *Complex Systems* 23 (2014): number conservation across asynchronous schedules; related but different claim.
-- Donoso-Leiva et al., arXiv:2505.10645 (2025): comparison of synchronous and asynchronous cyclic dynamics and recurrent states.
-- *Exact one-step reachability, inversion, and density spectrum of the cyclic traffic automaton* (2026): simultaneous Rule 184, image `1100`-avoidance.
-- *Exact cyclic one-step image and density-resolved enumerator of traffic Rule 184* (2026): same simultaneous-update restriction.
+## originality
 
-The claim concerns only a single prescribed left-to-right scan, not arbitrary schedules, repeated-sweep convergence, or exact fiber multiplicities. Historical priority beyond inspected public materials is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS (best of knowledge): synchronous Rule184 output language forbids 1100 and differs; prior sequential Rule184 literature establishes eventual convergence and has a complete transient-layer census, but its actual theorem does not state the one-sweep image characterization/GF. The current exact boundary-sensitive image test is not logically implied by eventual periodicity or clock census without additional information; different invariant from dynamics.
+
+## value
+
+PASS
+
+PASS: exact recognizability of the image of a fixed sequential traffic rule is a natural global reachability classification with constructive predecessor, finite boundary correction and asymptotic information loss, giving a precise distinction from mass-conserving synchronous traffic. A canonical all-length language is valuable independently of a general theorem for all elementary rules or multi-sweep behaviour.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

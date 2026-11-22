@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:53:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: the local traffic rule is f(left,0,right)=left, f(left,1,right)=right; the three scan equations use old left/right only before update and already updated left plus y0 at the final site. An internal 1->0 transition forces old center 1 followed by next old 0, excluding any cyclic 101 including seam; y[n-1]=1 with y0=0 forces a backward contradiction, and the exceptional (0,1,1,0) seam is incompatible with site0 and final equations. Conversely x_i=y[i-1] OR y_i for 1<=i<=n-2, with explicitly chosen (x0,xlast) in the RESULT.md three cases, satisfies each local equation whenever all three tests hold. Exact four-pair adjacency T forbidding 101 yields I_n=tr(T^n)-(T^n)_{10,10}-(T^(n-2))_{01,10} and stated GF and Pell-like cubic recurrence. Distinct outputs are counted, not preimages. Independently enumerated every input and every target for n=3..10; image-language sets agree exactly. Entire proof covers n>=3 and does not infer long-time dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Resultary relaxation theorem gives G_t(z) for initial states grouped by first convergence sweep and τ distributions, but that census counts initial states by transient depth, not distinct first-step output words. Synchronous Rule184 has forbidden 1100, not current 101 plus seam."
+        ],
+        "reasoning": "Even a fuller transient count need not determine exact one-step image language: it counts multiplicities/initial states and aggregate depths, whereas output membership requires separate inverse construction.",
+        "searches": [
+          "Resultary 2026-11-17 exact relaxation shells for fixed Rule184 sweep",
+          "Resultary 2026-11-02 synchronous Rule184 image/inversion",
+          "Hazari and Das 2014 asynchronous number conservation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0707.2360",
+        "https://arxiv.org/html/2509.07797v1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-one-step-reachability-inversion-and-density-spectrum-of-th--5a87e3038c99",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-relaxation-shells-for-a-left-to-right-rule-184-sweep--5e0d4f5d2786",
+        "Resultary_Search asynchronous Rule184 semantic query",
+        "Git RESULT blob bb09239639e5dab8972cd6993634312aba83c1b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stating all mixed states eventually reach 0^n does not reveal their first sweep. The relaxation G_t is indexed by input convergence time, not by output language and predecessor existence."
+        ],
+        "reasoning": "The theorem needs an independent local scan inverse and four-state trace correction, so current claim is not a mere corollary of those past statements.",
+        "searches": [
+          "Macauley et al. Proposition6.3",
+          "Resultary Rule184 fixed sweep relaxation paper full text",
+          "Resultary 2026-11-02 synchronous traffic image"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Macauley et al. establish only the two uniform periodic configurations under simple sequential order; Donoso-Leiva Rule184 classification concerns fixed-point convergence. Neither is an equivalent one-sweep image reachability test."
+        ],
+        "reasoning": "Eventual attractor classification does not distinguish which of exponentially many transient images occur after precisely the first sweep.",
+        "searches": [
+          "Resultary_Search asynchronous Rule184 left to right one sweep reachable outputs cyclic forbidden 101 count entropy",
+          "arXiv:0707.2360 Proposition 6.3",
+          "arXiv:2509.07797 Rule184 row"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The synchronous one-step image has different constraint/particle conservation; same-day 2026-11-17 first-entry census has different enumerand."
+        ],
+        "reasoning": "No previously found exact known table dominates all I_n of this specified sequential map. Similar cubic growth to Rule30/Rule18 does not imply equality of image populations or words.",
+        "searches": [
+          "Resultary_Search Rule184 image and relaxation",
+          "published cyclic synchronous Rule184 result 2026-11-02"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): synchronous Rule184 output language forbids 1100 and differs; prior sequential Rule184 literature establishes eventual convergence and has a complete transient-layer census, but its actual theorem does not state the one-sweep image characterization/GF. The current exact boundary-sensitive image test is not logically implied by eventual periodicity or clock census without additional information; different invariant from dynamics.",
+      "residual_risks": [
+        "The 2014 asynchronous number-conservation study and other less accessible complete texts could contain alternate first-sweep image data; no absolute priority claim.",
+        "Full same-day source chronology and paper priority should be reviewed before publication.",
+        "The proof depends on labelled scan seam; rotating the output without scan-order correspondence does not preserve the boundary condition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only two uniform periodic states under any simple sequential updating; no first-sweep image iff or labelled boundary-count series.",
+          "evidence": [
+            "Proposition 6.3 Rule184, periodic points"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0707.2360",
+          "material_read": "Full PDF relevant Proposition 6.3 and proof for Rule184; periodic-state conclusion",
+          "method": "arXiv full PDF text/page reading",
+          "title": "Order Independence in Asynchronous Cellular Automata",
+          "trigger": "Rule184 is discussed in order-independence"
+        },
+        {
+          "assessment": "Its first-entry population counts inputs grouped by τ, not distinct images; no explicit 101-and-seam iff and no I_n generating function.",
+          "evidence": [
+            "G0(z)=2z/(1-z), G_t(z) formula and clock lemma; cited known one-sweep image work as distinct"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-relaxation-shells-for-a-left-to-right-rule-184-sweep--5e0d4f5d2786",
+          "material_read": "Entire RESULT.md of published Resultary record, including input first-entry GF, sharp clock and basin proof",
+          "method": "GitHub fetched primary markdown blob c12991306a4539d1642026d84a38fa1aa5771cd4",
+          "title": "Exact relaxation shells for a left-to-right Rule 184 sweep",
+          "trigger": "same map, same day, potentially stronger census"
+        },
+        {
+          "assessment": "Classifies eventual behavior under sequential updates but not the exact first-step output image.",
+          "evidence": [
+            "Rule184 classification in convergence tables"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.07797v1",
+          "material_read": "Full arXiv HTML relevant ECA table and Rule184 convergence discussion",
+          "method": "full-text HTML",
+          "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+          "trigger": "Rule184 in universal convergence category"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: exact recognizability of the image of a fixed sequential traffic rule is a natural global reachability classification with constructive predecessor, finite boundary correction and asymptotic information loss, giving a precise distinction from mass-conserving synchronous traffic. A canonical all-length language is valuable independently of a general theorem for all elementary rules or multi-sweep behaviour.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/0707.2360",
+    "https://arxiv.org/html/2509.07797v1",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-one-step-reachability-inversion-and-density-spectrum-of-th--5a87e3038c99",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-relaxation-shells-for-a-left-to-right-rule-184-sweep--5e0d4f5d2786",
+    "Resultary_Search asynchronous Rule184 semantic query",
+    "Git RESULT blob bb09239639e5dab8972cd6993634312aba83c1b3"
+  ],
+  "disposition": "passed",
+  "final_claim": "Every one-sweep image of left-to-right in-place Rule 184 on a labelled binary cycle n>=3 is exactly a cyclic 101-avoiding word with y[n-1]<=y0 and forbidden boundary quadruple (y0,y1,y[n-2],y[n-1])=(0,1,1,0); its exact image GF is z^3(3+z+2z^2)/(1-2z+z^2-z^3) and entropy log2(1.754877666...) bits/site.",
+  "limitations": [
+    "No formal Lean or expert certification asserted.",
+    "Scientific review is complete; provenance-clean publication transport is not ready."
+  ],
+  "residual_risks": [
+    "The 2014 asynchronous number-conservation study and other less accessible complete texts could contain alternate first-sweep image data; no absolute priority claim.",
+    "Full same-day source chronology and paper priority should be reviewed before publication.",
+    "The proof depends on labelled scan seam; rotating the output without scan-order correspondence does not preserve the boundary condition."
+  ],
+  "schema_version": 1
+}

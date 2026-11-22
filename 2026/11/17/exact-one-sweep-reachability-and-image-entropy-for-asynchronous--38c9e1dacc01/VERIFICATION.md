@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of fixed-order Rule 184 one-sweep image
+# Independent mathematical audit
 
-The mathematical proof uses the exact in-place sequential site equations, a complete necessary-and-sufficient output-language characterization and a fully explicit inverse. The four-state cyclic transfer graph then gives an exact formal rational generating function. The infinite family is established by those arguments rather than a finite test.
+## correctness
 
-Run `g++ -O2 -std=c++17 checks/sweep184.cpp -o /tmp/sweep184 && /tmp/sweep184`, `python3 checks/transfer.py`, and `python3 checks/symbolic.py` from the directory containing these documents. The corresponding captured outputs are `checks/sweep184.out`, `checks/transfer.out` and `checks/symbolic.out`, respectively. Each program is self-contained aside from a C++17 compiler and Python 3 with SymPy for the symbolic stage. `checks/REPRODUCE.md` gives the specific commands and scope.
+PASS
 
-The C++ program independently evaluates every input and prospective output on all labelled rings from circumference three through eighteen, testing the three boundary/pattern conditions and replaying the constructed predecessor. The transfer program independently forms the graph, compares its exact trace/boundary formula for lengths three through thirty-four and checks the recurrence. The symbolic program checks the determinant and rational generating function exactly.
+PASS: the local traffic rule is f(left,0,right)=left, f(left,1,right)=right; the three scan equations use old left/right only before update and already updated left plus y0 at the final site. An internal 1->0 transition forces old center 1 followed by next old 0, excluding any cyclic 101 including seam; y[n-1]=1 with y0=0 forces a backward contradiction, and the exceptional (0,1,1,0) seam is incompatible with site0 and final equations. Conversely x_i=y[i-1] OR y_i for 1<=i<=n-2, with explicitly chosen (x0,xlast) in the RESULT.md three cases, satisfies each local equation whenever all three tests hold. Exact four-pair adjacency T forbidding 101 yields I_n=tr(T^n)-(T^n)_{10,10}-(T^(n-2))_{01,10} and stated GF and Pell-like cubic recurrence. Distinct outputs are counted, not preimages. Independently enumerated every input and every target for n=3..10; image-language sets agree exactly. Entire proof covers n>=3 and does not infer long-time dynamics.
 
-Limits: these calculations are finite corroborations; the general theorem requires the proof in `RESULT.md`. They do not establish arbitrary update-order results, long-time convergence, or independent mathematical certification. The cited historical literature is not exhaustively searchable.
+## originality
+
+PASS
+
+PASS (best of knowledge): synchronous Rule184 output language forbids 1100 and differs; prior sequential Rule184 literature establishes eventual convergence and has a complete transient-layer census, but its actual theorem does not state the one-sweep image characterization/GF. The current exact boundary-sensitive image test is not logically implied by eventual periodicity or clock census without additional information; different invariant from dynamics.
+
+## value
+
+PASS
+
+PASS: exact recognizability of the image of a fixed sequential traffic rule is a natural global reachability classification with constructive predecessor, finite boundary correction and asymptotic information loss, giving a precise distinction from mass-conserving synchronous traffic. A canonical all-length language is valuable independently of a general theorem for all elementary rules or multi-sweep behaviour.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
