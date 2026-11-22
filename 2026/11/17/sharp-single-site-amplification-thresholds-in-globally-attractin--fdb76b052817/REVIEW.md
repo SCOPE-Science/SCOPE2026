@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The all-positive initial-value problem is global and converges to the equilibrium by successive scalar reciprocal logistic equations. The exact terminal-coordinate first variation is a finite nilpotent exponential, so its norm squared is the stated positive truncated Bessel series. Maximization of the logarithmic ratio gives an exact necessary-and-sufficient crossing condition including equality. The full-operator criterion follows from the symmetric path spectrum. Its strict separation from the terminal threshold uses a uniform initial contraction, compact intermediate times, and uniform tails. Stirling and Laplace bounds in the proof rigorously localize all maximizing arguments at dimension scale and yield the logarithmic asymptotic. The standard-library checker corroborates selected finite identities, not the infinite theorem.
+## correctness
 
-## Originality
-PASS on inspected evidence, with residual historical risk. The recent generalized Lotka–Volterra network work motivates localized disturbances but does not derive this homogeneous competition chain's all-time sharp response threshold. The full published result about an inhibitory feedback ring studies all-vector Euclidean contractivity and already implies the unrestricted path threshold, which is explicitly credited. Its results do not imply that *positive one-coordinate pulses* require a strictly larger \(\kappa_n\), nor the \((\log n)/(4n)\) asymptotic. The finite-horizon Jordan-block peak work also maximizes over arbitrary vectors at five fixed dimensions, rather than the full one-site threshold. Classical ecological reactivity and g-reactivity focus on instantaneous response/outputs. The related Chen–Cohen food-web cascade paper has an accessible abstract describing simulations and maximum all-vector amplification, but its full paper could not be inspected; equivalence cannot be excluded categorically. No novelty proof is claimed from unsuccessful indexing alone.
+PASS
 
-## Value
-PASS. The exact delayed response to a single positive species disturbance is an ecologically motivated quantity distinct from worst-case signed perturbation reactivity. The theorem exposes a nonempty interval in which the model is globally attracting and *reactive* in the usual sense, but no one-species increase can ever amplify in the first-order Euclidean norm. The asymptotically different onset scales \((\log n)/n\) and \(n^{-2}\) quantify a meaningful finite-depth gap across all network sizes. This is not a mere reparameterization of the numerical abscissa.
+Strict positivity and scalar logistic bounds give global solutions; reverse induction using z_i=1/x_i and r_i(t)=d+b-bx_(i+1)(t)->d establishes global convergence to 1. Linearized J_n=-dI-bS_n and nilpotent exponential yield R_(n,j)^2=e^(-2dt)F_j(bt), F_j(v)=sum_(r<j) v^(2r)/(r!)^2, and terminal j=n dominates. q_n(v)=log F_n(v)/(2v) vanishes at zero/infinity, attains gamma_n, giving exact single-coordinate iff b/d>kappa_n, tangency equality and initial contraction. Symmetric Jacobian spectrum yields full-norm reactivity exactly b/d>rho_n=sec(pi/(n+1)); strict gap via compact time windows. Bessel I0 upper bounds, Stirling lower sums at v=n-sqrt(n), localization v_n/n->1, prove n(kappa_n-1)/log n->1/4; two-species stationary equation gives 2.48526751266.
 
-## Closest literature and limitations
-Márquez–Chaib De Mares–Riascos (2025), arXiv:2511.12701v1; Mari et al. (2017), doi:10.1111/2041-210X.12805; Yang et al. (2023), doi:10.1038/s41467-023-42580-0; *Exact no-amplification window for an inhibitory feedback ring* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-no-amplification-window-for-an-inhibitory-feedback-ring--43e519971d5d; Chen–Cohen (2001), doi:10.1098/rspb.2001.1596, full-text comparison inaccessible. No result is asserted about arbitrary ecological graphs, coordinate-invariant gain, finite noninfinitesimal impulses, or uniqueness of the maximizing delay.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full-operator transient reactivity of the same open Jordan chain is already published; the terminal one-coordinate all-time threshold is a different constrained operator-column quantity and not mathematically implied by the path log-norm bound or finite-horizon all-vector peaks. Historical 2001 ecology article inaccessible in full, so priority remains qualified.
+
+## value
+
+PASS
+
+Separates globally attracting dynamics, instantaneous all-vector reactivity, and delayed amplification of a physically restricted positive one-species perturbation, with quantitatively different n^(-2) and (log n)/n thresholds. This motivates the exact column invariant rather than a small benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
