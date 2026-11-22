@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "All 3^12=531441 base-three inputs were independently processed by a C++17 functional-graph indegree-peeling algorithm and a NumPy direct-iterate recurrence check. Both use the same explicit 24-edge graph but independent map-generation and periodicity algorithms; both reproduce exact period and orbit tables and sharp entry-time shells, including zero per-state period disagreements. The methods exhaust the entire finite domain and assert correctness of their discrete update maps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff (2016) gives a general infinite-graph framework and asymptotic activity, not exact all-input Chvátal period/entry distributions.",
+        "published-finding corpus records for complete bicliques give matched periods on that different graph family; neither covers the Chvátal graph."
+      ],
+      "reasoning": "A theorem for bicliques or synchronization classification on arbitrary finite graphs does not imply equal least-period selection on this non-bipartite four-chromatic graph; exact conjunction and counts are independent data.",
+      "searches": [
+        "published-finding corpus: 4-chromatic triangle-free graph 3-color excitable cyclic contact dynamics same least periods",
+        "published-finding corpus: cyclic three-color automaton on wheel graphs C_n plus universal hub fixed periodic orbits",
+        "web: Chvatal cyclic cellular automaton Greenberg Hastings period graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1610.07320v1 (accessible full HTML sections)",
+      "doi:10.1016/S0021-9800(70)80057-6 (primary short-paper text transcription)",
+      "arxiv:patt-sol/9304001 (abstract)",
+      "published-finding corpus 2026/11/8/SCOPE-excitation-on-the-chv-tal-graph-a-unique-symmetry-class-of-eleve--05c6ca769af2 (summary)",
+      "published-finding corpus 2026/11/17/SCOPE-exact-excitation-clock-reconstruction-and-period-divisibility-fo--6edafe27dc02 (summary)",
+      "published-finding corpus 2026/11/17/SCOPE-a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7 (summary)",
+      "published-finding corpus 2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668 (summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus record 2026/11/17/SCOPE-a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7: strict 8-to-4 period split on Frucht graph.",
+        "published-finding corpus record 2026/11/17/SCOPE-petersen-specific-period-doubling-between-cyclic-and-refractory--85df9829d668: strict 8-to-4 period split on Petersen graph.",
+        "Gravner–Lyu–Sivakoff (2016) Theorem 3 concerns synchronization and speed, not least-period equality."
+      ],
+      "reasoning": "Existing general comparison bounds plus different-graph counterexamples do not settle this finite graph. Existing GHM-only Chvátal data are compatible with but do not logically imply CCA orbit counts or pointwise equality. The claimed novelty is solely the finite joint comparison and CCA census, not the existing GHM-only census.",
+      "searches": [
+        "published-finding corpus: Chvatal graph three color cyclic Greenberg Hastings agreement period 3 4 7 10 11",
+        "published-finding corpus: 4-chromatic triangle-free graph 3-color excitable cyclic contact dynamics same least periods",
+        "web: Chvatal cyclic cellular automaton Greenberg Hastings period graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320, Theorem 3: common synchronization/irrotationality and activity, not a statement of identical eventual least periods.",
+        "published-finding corpus record 2026/11/17/SCOPE-exact-excitation-clock-reconstruction-and-period-divisibility-fo--6edafe27dc02 gives general period divisibility, strictly weaker than equality."
+      ],
+      "reasoning": "Neither equal synchronization category nor divisibility forces identical least periods. Indexed examples on the Petersen and Frucht graphs exhibit actual strict period division, so the Chvátal graph identity is not implied by the general comparison.",
+      "searches": [
+        "published-finding corpus: Chvatal graph three color cyclic Greenberg Hastings agreement period 3 4 7 10 11",
+        "published-finding corpus: Chvatal graph 3-state cyclic cellular automaton 531441 period same GH",
+        "web: Chvatal graph 3 color cyclic cellular automaton orbit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/11/8/SCOPE-excitation-on-the-chv-tal-graph-a-unique-symmetry-class-of-eleve--05c6ca769af2: GHM-only census and 8 primitive eleven-cycles.",
+        "published-finding corpus record 2026/11/17/SCOPE-four-state-chv-tal-excitation-period-collapse-and-six-extremal-s--924e4654e069: four-state GHM, not three-color CCA vs GHM."
+      ],
+      "reasoning": "The retrieved same-graph records determine GHM-only dynamics or a different state count, but do not report a pointwise CCA/GHM period agreement or CCA-orbit counts. Public indexed summaries are not full-text exclusions; this is retained as a residual priority risk.",
+      "searches": [
+        "published-finding corpus: Greenberg Hastings threshold two Chvatal graph 12 vertex 4 regular 4 chromatic triangle-free periodic orbits",
+        "published-finding corpus: Chvatal graph 3-state cyclic cellular automaton 531441 period same GH",
+        "web: Chvatal graph 3 state GH cyclic comparison"
+      ]
+    },
+    "rationale": "A complete pointwise equality of eventual least periods across 531441 matched initial configurations on the canonical Chvátal graph, plus CCA counts and joint settling times, was not found in queried published-finding corpus records and inspected primary literature. Unlike general synchronization or divisibility theory, the comparison is graph-specific; strict period division is known on other nontrivial graphs. Same-graph GHM-only counts are recognized as prior and not claimed new. Historical coverage is qualified because indexed full texts were not all accessible.",
+    "residual_risks": [
+      "Full text of the relevant published GHM-only Chvátal and general period-divisibility records was not accessible through semantic search; indexed summaries cannot exclude every stronger statement in their full content.",
+      "Unindexed older cyclic-vs-refractory Chvátal comparisons may exist; searches do not certify novelty.",
+      "The 1993 source full text was not inspected; only its bibliographic abstract was available."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides common synchronization/activity framework but no pointwise Chvátal least-period census",
+        "evidence": [
+          "Definitions equations (1),(2) and Theorem 3 (synchronization/irrotationality), pages rendered as HTML lines 18–24, 62–94"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+        "material_read": "Full accessible HTML: definitions, Lemma 1, Theorem 3, surrounding finite-graph proof, and conclusion of generic activity results",
+        "method": "Line-level reading of accessible article full text, including equations for both transition maps",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Closest fundamental same-model comparison of cyclic and refractory three-color dynamics"
+      },
+      {
+        "assessment": "Defines the graph; no three-state excitable-automaton result in the available 1970 text",
+        "evidence": [
+          "1970 Journal of Combinatorial Theory 9, 93–94, graph construction and minimum-order claim"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0021-9800(70)80057-6",
+        "material_read": "Accessible short-paper text/abstract and bibliographic information from an academic-hosted transcription",
+        "method": "Read available text transcription, checked original bibliographic record",
+        "title": "The smallest triangle-free 4-chromatic 4-regular graph",
+        "trigger": "Primary definition and motivation of the Chvátal graph"
+      },
+      {
+        "assessment": "Framework and lattice behavior; no visible Chvátal period table; full-text negative conclusion not claimed",
+        "evidence": [
+          "Original arXiv submission dated 1993-04-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9304001",
+        "material_read": "arXiv bibliographic record and abstract only; full primary content not inspected",
+        "method": "Open-access bibliographic/abstract comparison",
+        "title": "Threshold-Range Scaling of Excitable Cellular Automata",
+        "trigger": "Foundational archival treatment of cyclic and Greenberg–Hastings rules"
+      },
+      {
+        "assessment": "Covers GHM-only six periods and sharp entry time, not visibly CCA or joint per-input concordance",
+        "evidence": [
+          "published-finding corpus abstract specifies GHM eight eleven-cycle orbits and ten-step entry bound"
+        ],
+        "identifier_or_url": "published-finding corpus 2026/11/8/SCOPE-excitation-on-the-chv-tal-graph-a-unique-symmetry-class-of-eleve--05c6ca769af2",
+        "material_read": "Indexed title and full returned abstract/summary, not complete underlying paper",
+        "method": "published-finding corpus semantic lookup and scientific statement comparison",
+        "title": "Excitation on the Chvátal graph: a unique symmetry class of eleven-cycles and the complete entrance census",
+        "trigger": "Most relevant already-indexed same-graph GHM census"
+      },
+      {
+        "assessment": "General CCA/GHM period divisibility is not equality; other indexed graph examples exhibit strict division",
+        "evidence": [
+          "published-finding corpus abstract specifies per-node clock relation and period divisibility"
+        ],
+        "identifier_or_url": "published-finding corpus 2026/11/17/SCOPE-exact-excitation-clock-reconstruction-and-period-divisibility-fo--6edafe27dc02",
+        "material_read": "Indexed title and full returned abstract/summary, not complete underlying paper",
+        "method": "published-finding corpus semantic lookup and implication comparison",
+        "title": "Exact excitation-clock reconstruction and period divisibility for three-color graph automata",
+        "trigger": "Potential dominating general same-model theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "187a997d-25e7-471f-be33-db94b00f616a",
+  "value": {
+    "rationale": "The Chvátal graph is the canonical smallest four-regular triangle-free four-chromatic graph, a motivated minimal high-chromatic symmetry-constrained test. Equality of both models’ eventual periods for every one of 531441 states—including periods 7, 10, 11—is not forced by generic clock-divisibility theory and contrasts with strict splits on Petersen, Frucht and Heawood graphs. The distinct orbit and entry-time counts show that matched frequency does not imply matched transient dynamics, supplying an exact reference point for understanding topology-dependent period selection.",
+    "status": "PASS"
+  }
+}
