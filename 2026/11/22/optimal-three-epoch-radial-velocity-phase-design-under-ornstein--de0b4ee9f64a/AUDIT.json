@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For three observed phases, the exact mean-design determinant is 4 sin(a/2) sin(b/2) sin((a+b)/2), and the OU covariance determinant is sigma^6(1-exp(-2ca))(1-exp(-2cb)). The induced log-information is strictly concave in each gap for fixed total span (explicit f double-prime <= -1/(2x^2)), hence the global optimum has equal gaps. The one-variable log derivative is strictly decreasing across (0,pi), with unique zero in (0,2pi/3); its strict dependence on correlation rate gives monotone phase limits. Boundary determinants vanish. An extracted symbolic/numerical checker reproduces identities and supplements the continuous proof; numerical enumeration is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lam et al. (arxiv:2408.16830) provide general Gaussian-process RV Fisher calculations and optimize a semi-amplitude error criterion, but do not give a finite three-epoch joint determinant theorem.",
+        "Dette et al. (PMCID:PMC4914140) address continuous-time correlated-error designs and different regression parameterizations."
+      ],
+      "reasoning": "More general covariance-model frameworks are not automatically stronger global statements: they provide a way to calculate information but not a solved two-variable optimizer and its phase root under the stated finite constraints. Restricted continuous-time or one-parameter designs cannot imply the claimed three-parameter saturated design without additional proof.",
+      "searches": [
+        "exoplanet radial velocity observing cadence correlated stellar noise Gaussian process optimal time separation Fisher information two observations sinusoidal Doppler signal",
+        "Lam Bedell Zhao gaspery Optimized Scheduling of Radial Velocity Follow-Up Observations for Active Host Stars 2024 Fisher information quasi periodic GP",
+        "Baran Szak Kocsis Stehlik 2017 D optimal designs complex Ornstein Uhlenbeck processes constant complex mean two component observations",
+        "Dette Pepelyshev Zhigljavsky 2015 optimal designs in regression with correlated errors harmonic trigonometric exponential covariance",
+        "optimal observation times sine cosine intercept exponential correlated errors Fisher information three points Ornstein Uhlenbeck",
+        "arxiv:2408.16830",
+        "PMCID:PMC4914140"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2408.16830",
+      "https://arxiv.org/abs/1303.2863",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4914140/",
+      "https://arxiv.org/abs/1704.05719",
+      "https://research.jku.at/en/publications/equidistant-and-d-optimal-designs-for-parameters-of-ornstein-uhle-2/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kiselák and Stehlík (2008) prove equidistant OU designs for its constant trend parameter, which is only a one-parameter target, not the harmonic intercept-cosine-sine model. Full text not inspected; public abstract and bibliographic details were checked.",
+        "Baran et al. (2017) prove equidistance in a complex OU model, but not the nontrivial optimal gap value in a scalar harmonic regression with three unknown coefficients.",
+        "The periodic-kernel approximate design optimum in Dette et al. (2013) does not assert the three-point finite nonperiodic OU optimum."
+      ],
+      "reasoning": "The statement is not simply equal spacing: its nontrivial part optimizes the common spacing on a one-period interval, with a strict noise-color dependence and a quantitative efficiency loss. None of the inspected source results entails the explicit phase equation, strict noise-ratio monotonicity, and limiting loss for this specific information determinant. The uninspected full text of the 2008 scalar-mean paper remains a residual priority risk, not a covering inference from its abstract.",
+      "searches": [
+        "three observation D optimal time spacing sinusoidal regression unknown offset cosine sine amplitude exponential Ornstein Uhlenbeck covariance exact equispaced unique",
+        "Dette Pepelyshev Zhigljavsky 2015 optimal designs in regression with correlated errors harmonic trigonometric exponential covariance",
+        "D-optimal designs trigonometric regression Ornstein Uhlenbeck errors three observation times harmonic mean covariance exponential",
+        "arxiv:1303.2863",
+        "arxiv:1704.05719",
+        "doi:10.1016/j.spl.2007.12.012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The three-parameter harmonic model has a square 3-by-3 mean design matrix and scalar OU covariance. Baran et al. (arxiv:1704.05719) use complex two-component OU observations and an alternative trend and information determinant.",
+        "Dette et al. (arxiv:1303.2863) give approximate-design results under special periodic covariance kernels."
+      ],
+      "reasoning": "Complex OU mean estimation, periodic-kernel approximate designs and an independent-noise three-point sinusoidal design cannot be reduced to the finite scalar three-parameter OU Fisher determinant here; the latter has a correlation-rate-dependent optimum strictly below one-third period. They share techniques and context but do not establish this formula.",
+      "searches": [
+        "three observation D optimal time spacing sinusoidal regression unknown offset cosine sine amplitude exponential Ornstein Uhlenbeck covariance exact equispaced unique",
+        "three point trigonometric regression Gaussian Markov OU errors D-optimal design positive correlation phase interval",
+        "D-optimal designs trigonometric regression Ornstein Uhlenbeck errors three observation times harmonic mean covariance exponential",
+        "arxiv:1704.05719",
+        "arxiv:1303.2863"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined full texts and matched published research summaries contain no table of the correlation-dependent phase root or efficiency constant for exactly three scalar OU-correlated sinusoidal observations."
+      ],
+      "reasoning": "No exact entry in inspected published sources matches the complete domain, determinant criterion and phase equation; this negative search finding is not evidence of universal novelty.",
+      "searches": [
+        "three observation D optimal time spacing sinusoidal regression unknown offset cosine sine amplitude exponential Ornstein Uhlenbeck covariance exact equispaced unique",
+        "Baran Szak Kocsis Stehlik 2017 D optimal designs complex Ornstein Uhlenbeck processes constant complex mean two component observations",
+        "arxiv:2408.16830",
+        "arxiv:1303.2863"
+      ]
+    },
+    "rationale": "Primary full-text comparisons with the RV Fisher-information motivating source, periodic-kernel continuous approximate designs, correlated regression theory, and complex OU finite designs show no direct implication-level coverage for the unique scalar three-parameter finite OU phase law. Relevant public research records were searched by object, noise, method and equivalences; the closest results concern damped dynamical observability or phaseless and alternate criteria. Priority remains provisional, especially early finite-design papers.",
+    "residual_risks": [
+      "Uninspected older finite three-parameter trigonometric regression designs with exponential errors might state an equivalent or more general theorem.",
+      "The full text of Kiselák and Stehlík (2008) was not inspected; abstract comparison indicates a different scalar trend target.",
+      "An independent historical-priority assessment and independent mathematical audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant motivating framework; no exact three-sample joint OU D-optimal phase-gap theorem identified in read sections",
+        "evidence": "Lam et al. (2024) evaluate RV semi-amplitude uncertainty and quasi-periodic noise effects rather than solve the stated three-parameter OU determinant.",
+        "identifier_or_url": "https://arxiv.org/html/2408.16830",
+        "material_read": "Full HTML: abstract, design and Fisher-information sections, observational strategy sections, and conclusions",
+        "method": "Read primary HTML and compared nuisance parameters, noise kernel and optimization criterion",
+        "title": "gaspery: Optimized Scheduling of Radial Velocity Follow-Up Observations for Active Host Stars",
+        "trigger": "Direct study of RV Fisher information and correlated stellar noise"
+      },
+      {
+        "assessment": "Approximate universal design on periodic trigonometric kernel does not directly imply the finite OU result",
+        "evidence": "The source gives uniform continuous approximate designs for a class of periodic covariance kernels, not the scalar stationary exponential kernel on a single orbital window.",
+        "identifier_or_url": "https://arxiv.org/html/1303.2863",
+        "material_read": "Full HTML: model/optimality definitions, periodic-kernel trigonometric regression example, and proof/main result sections",
+        "method": "Compared approximate design measure, covariance periodicity, and exact discrete three-point restriction",
+        "title": "Optimal design for linear models with correlated observations",
+        "trigger": "Strong potential coverage of trigonometric regression under correlated observations"
+      },
+      {
+        "assessment": "Does not directly resolve this saturated finite three-parameter harmonic design",
+        "evidence": "The paper develops correlated-error design methodology centered on continuous observations and different trend structures.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4914140/",
+        "material_read": "Accessible complete article HTML: introduction, basic results and examples",
+        "method": "Checked regression dimension, continuous-design assumptions and optimization targets",
+        "title": "Optimal designs in regression with correlated errors",
+        "trigger": "Broader theory potentially covering exponential-correlated regression"
+      },
+      {
+        "assessment": "Different OU model and criterion; does not imply the correlation-dependent scalar harmonic phase equation",
+        "evidence": "Observations are complex two-dimensional OU states with a different trend estimation problem.",
+        "identifier_or_url": "https://arxiv.org/html/1704.05719",
+        "material_read": "Full HTML: definitions, mean and covariance matrix structure, Theorem 3.2 and discussion",
+        "method": "Compared dimension of observed signal, parameterization and whether its equal-spacing result determines the spacing value",
+        "title": "D-optimal designs for complex Ornstein-Uhlenbeck processes",
+        "trigger": "Precisely named OU D-optimal equidistance theorem"
+      },
+      {
+        "assessment": "No direct implication from accessible abstract; historical coverage remains unresolved until full paper is inspected",
+        "evidence": "Kiselák and Stehlík (2008) prove an n-point equidistant OU design for a scalar trend parameter; our theorem has three distinct mean coefficients and a nontrivial spacing fraction.",
+        "identifier_or_url": "https://research.jku.at/en/publications/equidistant-and-d-optimal-designs-for-parameters-of-ornstein-uhle-2/",
+        "material_read": "Public bibliographic description and complete abstract, not the full paper",
+        "method": "Compared abstract stated target (scalar trend mean and covariance parameters) against the three independent harmonic regression coefficients",
+        "title": "Equidistant and D-optimal designs for parameters of Ornstein-Uhlenbeck process",
+        "trigger": "Potential early dominating theorem for finite OU design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "de0b4ee9-f64a-4e13-91cd-ae76ed1bd97b",
+  "value": {
+    "rationale": "Three observations are the minimum sufficient number for joint estimation of velocity offset and both known-frequency harmonic coefficients. The exact global phase scheduling law quantifies the change caused solely by noise correlation: gap from 0.2869573 to one-third of a period, and a limiting white-noise scheduling determinant efficiency 0.8726724. This provides an analytic benchmark for checking finite-visit correlated-noise scheduling and illustrates a substantial information penalty, although field validation and general stellar-noise applicability are not claimed.",
+    "status": "PASS"
+  }
+}
