@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "Exact companion-matrix trace and determinant plus the strict Jury criterion give the deterministic periodic interval and exclude marginal boundaries; an independently derived symmetric-covariance recurrence and positive Lyapunov form give the iid mean-square criterion for all deterministic starts. The necessary condition follows from the covariance eigenvalue at and above cutoff and spanning of deterministic rank-one covariance initial conditions. A strictly increasing crossover polynomial gives unique reversal, monotonicity of its roots, and the logarithmic asymptotic. The supplied local symbolic program checked the matrix identities and rational examples; finite checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bollapragada, Chen and Ward, arXiv:2206.07553, introductory algorithm and stochastic minibatch framework and paper-wide searches for periodic/Bernoulli terminology.",
+        "Qiu and Milzarek, arXiv:2404.18452, original 2024 nonconvex reshuffling momentum framework; introduction, related work, algorithm and paper-wide periodic/Bernoulli searches.",
+        "Prior scalar random-curvature mean-square heavy-ball treatment establishes a more general iid stability inequality but not a periodic matched-frequency contrast.",
+        "Tran, Tran-Dinh and Nguyen arXiv:2403.03180 use an epoch-anchored shuffling momentum scheme and report convex convergence-rate results, not matched periodic-vs-iid raw heavy-ball mean-square ceilings."
+      ],
+      "reasoning": "The primary convergence theorems concern concentration or nonconvex shuffled convergence at different levels of generality, without the sharp scalar ceiling comparison. General iid conditions dominate one ingredient but do not dominate the crossover claim.",
+      "searches": [
+        "probabilistic momentum randomized coordinate descent independent Bernoulli skipping steps sampling probability stability threshold",
+        "heavy ball periodic missing gradient beta log m over m stability frontier",
+        "On the fast convergence of minibatch heavy ball momentum arXiv:2206.07553",
+        "Random Reshuffling with Momentum arXiv:2404.18452",
+        "Shuffling Momentum Gradient Algorithm for Convex Optimization arXiv:2403.03180"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2206.07553",
+      "https://arxiv.org/abs/2404.18452",
+      "https://arxiv.org/abs/1704.08515",
+      "https://arxiv.org/abs/1803.05591",
+      "The published 2026 three-objective Bernoulli-erased heavy-ball result",
+      "The published 2026 random-curvature phase-transition result",
+      "The published 2026 cyclic two-component heavy-ball result",
+      "https://arxiv.org/abs/2403.03180"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing iid theorem: C_iid is already known (after the unbiased-gradient normalization); its statement has no deterministic C_per.",
+        "Existing deterministic two-component theorem: a period-two gradient-free limit can yield C_per at m=2, but not the m-dependent all-period contrast.",
+        "2206.07553 gives general stochastic minibatch convergence bounds and not the stated exact comparison.",
+        "2404.18452 gives reshuffling convergence and complexity, not stability ceilings for independent Bernoulli erasures."
+      ],
+      "reasoning": "The new mathematical implication is the sign equivalence of C_per-C_iid with m beta^(m-1)+(m-1)beta^m-1 plus its unique and increasing roots and sharp long-period boundary-layer. Previous isolated component theorems do not directly imply this full statement without nontrivial additional calculations.",
+      "searches": [
+        "2026 A three-objective conflict for Bernoulli-erased heavy-ball optimization exact mean-square ceiling",
+        "2026 A sharp disconnected stability diagram for cyclic two-component heavy-ball descent",
+        "2022-06-15 Bollapragada Chen Ward independent minibatch heavy ball momentum",
+        "2024-04-29 Qiu Milzarek random reshuffling momentum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An existing 2026 Bernoulli-erased heavy-ball theorem supplies the iid scalar ceiling, not the deterministic matched-period comparator.",
+        "An existing 2026 cyclic two-component heavy-ball theorem supplies a two-period Floquet calculation, not an all-period matched-sampling reversal."
+      ],
+      "reasoning": "Neither an isolated random-coefficient condition nor an isolated periodic Floquet criterion states which of the two has a larger stable-step ceiling at equal active fraction, or determines the unique all-period boundary and its asymptotics. Alternate formulations through stochastic Lyapunov operators and switched Floquet multipliers were compared.",
+      "searches": [
+        "periodic missing gradient heavy ball momentum one active step every m steps versus Bernoulli random activations exact stability phase crossover beta",
+        "periodic gradient skipping heavy ball momentum linear convergence stability deterministic schedule Bernoulli thinning",
+        "one active gradient followed by m-1 zero gradients repeated periodically heavy ball momentum exact critical stable step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published mathematical result records included iid Bernoulli-erasure thresholds, a two-period deterministic heavy-ball diagram, and other momentum scheduling results. No identified exact result recorded the sequence defined by the all-period polynomial and its stability-order reversal."
+      ],
+      "reasoning": "Parameter coincidence at m=2 is a special case that does not imply the all-m monotonicity or logarithmic asymptotic. Search non-identification alone is not offered as a proof of novelty.",
+      "searches": [
+        "m beta^(m-1) +(m-1)beta^m equals one periodic and random sampled heavy ball stability",
+        "stability crossover sqrt two minus one momentum Bernoulli skip every other deterministic periodic update",
+        "heavy-ball gradient delivery period versus Bernoulli critical momentum closed root table"
+      ]
+    },
+    "rationale": "The iid frontier and elementary two-period Floquet stability calculations have direct published predecessors and are excluded from the novelty claim. The assessed claim is their exact matched-frequency contrast for every integer sampling period, the unique momentum reversal, and its strictly increasing logarithmic boundary-layer law. Actual searches and full primary theorem comparisons did not identify a dominating equivalence; switched-recursion literature leaves a real residual risk.",
+    "residual_risks": [
+      "The scalar iid mean-square condition is previously known, and m=2 periodic algebra has strong prior overlap; neither component alone is novel.",
+      "An earlier generic switched linear system or control paper may contain the exact comparative root as a special case.",
+      "Comparison is of deterministic stability with iid mean-square stability, not matching almost-sure contraction metrics; performance significance is therefore limited to sharp admissible-step robustness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different sampling law and type of guarantee; no equivalent exact all-m comparison located",
+        "evidence": [
+          "Original public posting 2022-06-15; latest PDF carries a later revision date",
+          "The displayed HBM formula and independent minibatch method do not specify fixed one-in-m periodic erasures"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.07553",
+        "material_read": "Abstract, introduction, minibatch algorithm and HBM recurrence, relevant page images; terminology searches for periodic and Bernoulli in the text",
+        "method": "Full PDF opened and relevant sections and page images inspected; find searches",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Direct stochastic heavy-ball source with quadratic matrix-product model"
+      },
+      {
+        "assessment": "Nonconvex convergence/complexity, not this exact scalar fixed-frequency stability crossing",
+        "evidence": [
+          "Original first version dated 2024-04-29; downloaded PDF is a later revision",
+          "The general reshuffling algorithm and cited results do not directly give the two exact competing spectral/moment ceilings"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.18452",
+        "material_read": "Abstract, algorithm and introduction/related work with page images, paper-wide exact-word searches for periodic and Bernoulli",
+        "method": "Full PDF opened and relevant primary theorem context inspected",
+        "title": "Random Reshuffling with Momentum for Nonconvex Problems",
+        "trigger": "Without-replacement momentum schedule may dominate periodic scheme"
+      },
+      {
+        "assessment": "Covers the iid ceiling, expressly excluded from the contribution; not a matched-frequency periodic comparison",
+        "evidence": [
+          "Its ceiling for nominal unbiased step gamma converts to C_iid after gamma=p tau",
+          "No deterministic every-m periodic companion comparison in its theorem"
+        ],
+        "identifier_or_url": "published mathematical finding, November 2026",
+        "material_read": "Complete result, precise hypotheses, proof and relationship to prior work",
+        "method": "Publicly available full text fetched and compared directly",
+        "title": "A three-objective conflict for Bernoulli-erased heavy-ball optimization",
+        "trigger": "Exact scalar iid Bernoulli erasure stability formula may dominate candidate"
+      },
+      {
+        "assessment": "Stronger iid stochastic-curvature criterion, but not a fixed periodic scheduling comparison",
+        "evidence": [
+          "Its coefficient-of-variation formula specializes to Bernoulli when allowing zero curvature as a boundary of positive laws; no periodic counterpart is claimed"
+        ],
+        "identifier_or_url": "published mathematical finding, October 2026",
+        "material_read": "Complete theorem, proof and stated limitations",
+        "method": "Publicly available full text fetched and compared directly",
+        "title": "The coefficient-of-variation phase transition for stability-margin-optimal stochastic heavy ball",
+        "trigger": "General random scalar curvatures subsume iid Bernoulli active/inactive curvature"
+      },
+      {
+        "assessment": "Can cover a two-period limiting case, but does not imply an all-m unique crossover against iid delivery",
+        "evidence": [
+          "Its fixed two-component positive curvature model has a two-step Floquet matrix, not the all-integer m matched-frequency theorem"
+        ],
+        "identifier_or_url": "published mathematical finding, October 2026",
+        "material_read": "Complete result, proof and exact Schur equations",
+        "method": "Publicly available full text fetched and compared directly",
+        "title": "A sharp disconnected stability diagram for cyclic two-component heavy-ball descent",
+        "trigger": "Period-two companion multiplication could subsume a narrow special case"
+      },
+      {
+        "assessment": "Epoch-anchored shuffling momentum is mathematically different from the fixed raw Polyak recursion; no matching spectral ceiling comparison identified",
+        "evidence": [
+          "Original public first version 2024-03-05",
+          "Algorithm uses an epoch-anchor momentum variable, rather than x_k-x_(k-1) at all inactive updates"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.03180",
+        "material_read": "Abstract, introduction, related work, and precise algorithm on page four",
+        "method": "PDF textual sections and rendered algorithm page directly inspected",
+        "title": "Shuffling Momentum Gradient Algorithm for Convex Optimization",
+        "trigger": "Shuffling momentum for strongly convex objectives might include the same periodic scheduling analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31cc3019-551c-439a-8d6a-843cbe9bcc71",
+  "value": {
+    "rationale": "At fixed average gradient-delivery frequency, selecting temporal correlation can reverse the maximum stable active-step strength exactly once as momentum changes. The closed all-period boundary, its strict monotonicity and logarithmic high-period layer provide a motivated design law for intermittent-gradient momentum. This is a stability-capacity result, not an optimal convergence-rate or cost theorem.",
+    "status": "PASS"
+  }
+}
