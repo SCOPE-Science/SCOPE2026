@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For each input auxiliary graph, active next-step edges are exactly isolated-edge components plus every pair of isolated vertices. The remaining covered vertices are partitioned into components of size at least three; all possible images and two-cycle partners follow. Exact inverse-image graph counts give every basin; the formal graph EGF removes singleton and K2 components. Matching enumeration and a Bonferroni estimate prove the orbit counts and rare-defect law. Two separate implementations exhaustively checked 2^C(n,2) initial inputs for n<=6 and n<=7 respectively, comparing individual orbit basins, as documented in packaged output files. No extrapolation from finite tests was used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2020 primary paper supplies general periodic/fixed-point counting bounds, not an explicit preimage basin size for each orbit.",
+        "Rook theorem classifies open NOR on L(K_{a,b}), with rectangle-plus-matching form, unlike L(K_n).",
+        "Kneser theorem studies disjointness of edges rather than endpoint-sharing."
+      ],
+      "reasoning": "Broader Boolean-network theorems imply that entry takes at most one update and that all periods divide two; those are credited. The all-n line-graph-of-complete-graph fibre calculations do not follow as stated from the inspected general results or graph families.",
+      "searches": [
+        "published-finding corpus: triangular graph L(K_n) synchronous MIS network complete attractor basin sizes matching",
+        "published-finding corpus: two-sweep stabilization of NOR dynamics on line graph of complete graph",
+        "2020 Aledo et al 10.1155/2020/9708347",
+        "published-finding corpus 2026/11/2/SCOPE-nor-dynamics-on-rook-graphs-rectangles-matchings-and-a-square-bo--c79fc7919f54",
+        "published-finding corpus 2026/11/2/SCOPE-complete-nor-attractors-and-basin-concentration-on-two-set-knese--e75c8d277ab3"
+      ]
+    },
+    "checked_sources": [
+      "2015 survey DOI 10.1155/2015/594294; first published 2015-03-24",
+      "2014 fixed point paper DOI 10.1016/j.jcss.2014.04.025",
+      "2015 conjunctive networks arXiv 1507.06141",
+      "2020 periodic-point paper DOI 10.1155/2020/9708347",
+      "2024 MIS network arXiv 2403.17658 / 2025 journal DOI 10.1016/j.ic.2025.105266",
+      "published-finding corpus 2026/11/1/SCOPE-basin-concentration-for-closed-neighborhood-nor-on-triangular-gr--4c118cb00c41",
+      "published-finding corpus 2026/11/2/SCOPE-nor-dynamics-on-rook-graphs-rectangles-matchings-and-a-square-bo--c79fc7919f54",
+      "published-finding corpus 2026/11/2/SCOPE-complete-nor-attractors-and-basin-concentration-on-two-set-knese--e75c8d277ab3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closed NOR has F(S)=E(uncovered vertices); open NOR additionally retains isolated-edge components I(S), which creates maximal-matching fixed points and a second leading failure mechanism.",
+        "Rook L(K_{a,b}) has row-column rectangles, while triangular L(K_n) has endpoint-complete cliques; neither graph family contains the other for n>=4.",
+        "Sequential MIS fixing-word theorems do not compute synchronous attraction basins."
+      ],
+      "reasoning": "The nearest results imply some standard ingredients, but do not imply 1+(m+1)a_r+r a_{r-1}, a_p+a_q, or the factor-two asymptotic. The proof reconstructs these from additional isolated-edge bookkeeping. Conversely the closed-NOR theorem cannot be specialized to a self-excluding rule.",
+      "searches": [
+        "published-finding corpus 2026/11/1/SCOPE-basin-concentration-for-closed-neighborhood-nor-on-triangular-gr--4c118cb00c41",
+        "published-finding corpus 2026/11/2/SCOPE-nor-dynamics-on-rook-graphs-rectangles-matchings-and-a-square-bo--c79fc7919f54",
+        "published-finding corpus 2026/11/2/SCOPE-complete-nor-attractors-and-basin-concentration-on-two-set-knese--e75c8d277ab3",
+        "2015 survey DOI 10.1155/2015/594294",
+        "2025 MIS network article 10.1016/j.ic.2025.105266"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2014 primary paper proves that fixed states of symmetric negative AND-NOT networks equal maximal independent sets; on L(K_n) these are maximal matchings.",
+        "2025 full HTML defines the MIS network by conjunction of negated open neighbors and treats sequential update, not a synchronous all-attractor basin census.",
+        "1981 Goles–Olivos threshold-period theorem does not specify the present exact basin populations."
+      ],
+      "reasoning": "Equivalent language includes negative AND–NOT network, synchronous MIS network, inhibition automaton, line graph of complete graph, and matching network. Fixed-point correspondences and period bounds under these names are covered and excluded from novelty; the individual basin formulas were not located.",
+      "searches": [
+        "published-finding corpus: synchronous Boolean NOR dynamics on line graph of complete graph triangular graph exact attractors and basins",
+        "published-finding corpus: open-neighborhood NOR line graph complete graph maximal matchings two-cycle basin exact",
+        "web: synchronous NOR dynamics graph open neighborhood fixed points 2 cycles Goles Olivos 1981",
+        "2014 DOI 10.1016/j.jcss.2014.04.025; 2025 DOI 10.1016/j.ic.2025.105266"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest closed NOR L(K_n) result gives a distinct zero-fixed-point census and different rare-obstruction coefficient."
+      ],
+      "reasoning": "No exact basin table or equivalent result for this rule-and-graph pair was returned. This is evidence of no observed overlap, not a proof of universal novelty.",
+      "searches": [
+        "published-finding corpus: synchronous open NOR on triangular line graph L(K_n) matching isolated edges and two uncovered vertices exact basin",
+        "published-finding corpus: matching plus disjoint clique open NOR triangular graph attraction basins",
+        "published-finding corpus: maximal matchings and paired clique oscillations in synchronous graph NOR"
+      ]
+    },
+    "rationale": "published-finding corpus searches and inspected exact primary statements reveal no stronger claim covering the open-neighborhood L(K_n) matching-plus-clique orbit and individual-basin theorem. General F^3=F, maximal matching fixed states, and broad periodic-point methods are background. The closed-neighborhood L(K_n) result is not equivalent: it forbids self-survival, has no fixed points, and its leading exceptional-basin coefficient is one rather than two. L(K_{a,b}) rook and KG(n,2) cases have distinct adjacency, so no implication. The sharp matching-sensitive basin census and doubled rare-obstruction asymptotic are not in accessible compared results. Priority remains qualified by unindexed older work.",
+    "residual_risks": [
+      "An unindexed historical explicit synchronous open NOR triangular-graph basin classification may exist under MIS, negative conjunctive, inhibition, or line-graph terminology.",
+      "The 2015 conjunctive-network preprint full text was not retrieved; abstract alone cannot certify its full contents.",
+      "The 2012 maxterm/minterm paper (DOI 10.1016/j.mcm.2011.08.040) was not read in full; possible specialized methods remain a priority risk.",
+      "Publication records and published-finding corpus search cannot establish global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING open rule; closest contrasting model with one rather than two rare-defect mechanisms",
+        "evidence": "F_closed(S)=E(uncovered vertices), no fixed states, B_closed=1+c_n+n c_{n-1}; explicit exclusion of open NOR.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-basin-concentration-for-closed-neighborhood-nor-on-triangular-gr--4c118cb00c41",
+        "material_read": "Full RESULT.md (10,333 characters), including assumptions, proof, basins, asymptotic and literature",
+        "method": "Authorized repository file retrieval",
+        "title": "Basin concentration for closed-neighborhood NOR on triangular graphs",
+        "trigger": "Identical triangular graph but alternative neighborhood convention"
+      },
+      {
+        "assessment": "NOT_COVERING because graph is L(K_{a,b}) rather than L(K_n)",
+        "evidence": "Theorem uses row/column empty sets and rectangle-plus-matching image; it proves general F^3=F, credited here.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-nor-dynamics-on-rook-graphs-rectangles-matchings-and-a-square-bo--c79fc7919f54",
+        "material_read": "Full RESULT.md (12,295 characters), classifications and proof",
+        "method": "Authorized repository file retrieval",
+        "title": "NOR dynamics on rook graphs: rectangles, matchings, and a square-board gap",
+        "trigger": "Same open NOR rule on a line graph of a complete bipartite graph"
+      },
+      {
+        "assessment": "NOT_COVERING due to disjoint-edge adjacency",
+        "evidence": "Kneser map requires each future edge to intersect every active edge, as opposed to nonsharing neighbors for triangular NOR.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-nor-attractors-and-basin-concentration-on-two-set-knese--e75c8d277ab3",
+        "material_read": "Result statement, assumptions, full core classification and basin proofs, accessible part of RESULT.md",
+        "method": "Authorized repository file retrieval",
+        "title": "Complete NOR attractors and basin concentration on two-set Kneser graphs",
+        "trigger": "Complement of triangular adjacency and same open NOR convention"
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND, no matching-skeleton basin theorem",
+        "evidence": "Reviews graph dynamics, period at most two for undirected NAND/NOR, and asks when initial states reach same orbit.",
+        "identifier_or_url": "https://doi.org/10.1155/2015/594294",
+        "material_read": "Accessible full-text main sections 1, 2, 4 and conclusions, published 24 March 2015",
+        "method": "Publisher-hosted open HTML",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Historical 2015 archive-scope broad periodicity"
+      },
+      {
+        "assessment": "FIXED_POINT_BACKGROUND only",
+        "evidence": "Symmetric negative AND-NOT fixed points correspond to maximal independent sets.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jcss.2014.04.025",
+        "material_read": "Accessible publisher full text introduction, proposition 1, theorem 2, fixed-point and proof sections",
+        "method": "Publisher-hosted HTML",
+        "title": "Maximum number of fixed points in AND–OR–NOT networks",
+        "trigger": "Potentially stronger fixed-point correspondence"
+      },
+      {
+        "assessment": "GENERAL_PERIODIC_POINTS; no exact triangular open NOR individual basin formulas observed",
+        "evidence": "Gives general lower bounds and an exact fixed-point count framework, without an individual basin partition for this graph.",
+        "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+        "material_read": "Abstract, theorem discussions, periodic-points sections and conclusions in accessible HTML",
+        "method": "Publisher-hosted open HTML",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "Potential general exact periodic count"
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_MODE, primarily sequential fixing words",
+        "evidence": "Explicitly defines open-neighbor MIS network and states its scope is sequential updates.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.17658",
+        "material_read": "Published full HTML model definitions, introduction, main results overview and conclusion",
+        "method": "Publisher-hosted HTML article and arXiv metadata",
+        "title": "Generalising the maximum independent set algorithm via Boolean networks",
+        "trigger": "Same open NOR network under MIS terminology"
+      },
+      {
+        "assessment": "PRIORITY_RISK_LIMITED_MATERIAL for beyond-abstract content",
+        "evidence": "The abstract describes maximal fixed-point counts under graph contractions, not synchronous all-basin enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/1507.06141",
+        "material_read": "ArXiv abstract and dated metadata only; full text not retrieved",
+        "method": "ArXiv abstract",
+        "title": "Fixed points in conjunctive networks and maximal independent sets in graph contractions",
+        "trigger": "2015 paper on conjunctive network fixed points"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9949863-577c-4fa6-8d0a-456e3ef60e23",
+  "value": {
+    "rationale": "The triangular graphs are a canonical infinite line-graph family, providing a natural test of how removing local self-inhibition changes recurrent geometry. The exact matching-skeleton attractor and every individual attraction basin constitute a complete parametric classification. The factor-of-two rare-obstruction law supplies a nontrivial comparison to the closed-neighborhood model, explaining the two independent minimal obstructions instead of merely computing a small finite table.",
+    "status": "PASS"
+  }
+}
