@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:09:53.614441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Moving the halfspace threshold differentiates the two crossing integrals; a boundary point x=(t,x′) contributes negative of D_ν(x,t) (and its μ analogue), where D is weight on lower vs upper side. For t≥0 and upper point y=(s,z), s>t, pair it with antipode (−s,−z); radial transverse symmetry allows z→−z in conditional average. Then distances differ only in longitudinal terms (t+s)²≥(t−s)² and g is nondecreasing; the slab −t≤s<t contributes nonnegative weight. Thus derivative ≤0, and origin symmetry makes C even. Smoothing compact radial hyperplane-null measures, dominated convergence and spherical coarea carry result to Borel laws and give sphere strictness when g(r)=r. For S^1, arc α=arccos t and chord kernel k(s)=2|sin(s/2)| yield within-arc integral 16(α−sinα), cross-arc 32sinα, full 16π, hence ratio 2sqrt(1−t²)/π. Rotational averaging separates fixed angle θ with probability θ/π, giving normalized R_d integrals; expansion of density cos^(d−2)(q) and its second/fourth moments yields the two 1/d coefficients. Independently evaluated d=2,3,10,30,100 normalized integrals numerically (not proof).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Correa et al. establish bounds on optimum for arbitrary measures (e.g. Euclidean kernel lower bound), Plan–Vershynin randomized tessellations preserve pairwise angular distances."
+        ],
+        "reasoning": "The input class of these works is broader or unrelated, but their conclusions are weaker/different: scalar guarantees versus a sharp optimizer with an exact radial/spherical profile.",
+        "searches": [
+          "optimal center hyperplane radial measures distance weighted cuts separating distributions spheres",
+          "https://arxiv.org/html/2611.09166v1",
+          "https://arxiv.org/abs/1111.4452"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py; reviewed frozen metadata/AUDIT/VERIFICATION/REVIEW",
+        "https://arxiv.org/html/2611.09166v1",
+        "https://arxiv.org/abs/1111.4452",
+        "Resultary query: optimal center hyperplane radial measures distance weighted cuts separating distributions spheres"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Correa et al. 2026 use P[separation by random central hyperplane]=angle/π for model bound, but do not compare C(u,t) as t varies."
+        ],
+        "reasoning": "The exact radial comparison needs the antipodal/transverse-reflection monotonic coupling; a random-hyperplane average does not imply global affine-hyperplane optimality.",
+        "searches": [
+          "optimal center hyperplane radial measures distance weighted cuts separating distributions spheres",
+          "https://arxiv.org/html/2611.09166v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random central hyperplanes separate two sphere points at relative angle θ/π, used by Correa et al."
+        ],
+        "reasoning": "That averaging identity gives only the weight of a random centered cut. It does not establish that *every* displaced affine cut has lower weight for arbitrary two distinct radial measures and all increasing g.",
+        "searches": [
+          "optimal center hyperplane radial measures distance weighted cuts separating distributions spheres",
+          "https://arxiv.org/html/2611.09166v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The circle chord-angle integrals and beta angular density are elementary and could be tabulated; a table of model integrals cannot prove all compact radial pair and weight centering."
+        ],
+        "reasoning": "No natural finite database covers an infinite family of Borel measures and kernels, making a table implication specifically inapplicable to the universal structural claim.",
+        "searches": [
+          "optimal center hyperplane radial measures distance weighted cuts separating distributions spheres",
+          "Resultary query: optimal center hyperplane radial measures distance weighted cuts separating distributions spheres"
+        ]
+      },
+      "rationale": "Correa et al. 2026 on separating measures by hyperplanes gives general approximation guarantees using angular separation, not exact maximizing affine offset for all radial pairs or the entire circle offset profile. Plan–Vershynin hyperplane embedding treats a different optimization objective. Standard angular integration is acknowledged prior; universal centering principle and detailed sphere computation are assessed distinct.",
+      "residual_risks": [
+        "Classical rearrangement/halfspace-depth work may contain an equivalent centering principle under a different formulation.",
+        "Measures must be hyperplane-null and kernels nondecreasing; uniqueness is only asserted for uniform sphere and linear weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_OBJECTIVE / NO CENTERING RESULT OBSERVED",
+          "evidence": "Bounds for broad measure classes and random-central angular guarantee; no weighted radial offset theorem or S^1 profile identified.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09166v1",
+          "material_read": "Accessible full arXiv HTML mathematical statements and proof sections, including general bounds and angle identity",
+          "method": "read full arXiv HTML (turn764112view0)",
+          "title": "Separating Measures by Hyperplanes",
+          "trigger": "Same distance-weighted pair-cut problem"
+        },
+        {
+          "assessment": "DISTINCT PROBLEM; full check incomplete",
+          "evidence": "Uniform quantization of random hyperplane embeddings, not deterministic weighted affine-cut extremum.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.4452",
+          "material_read": "Available abstract/introduction and target theorems through cited literature",
+          "method": "web abstract/theorem evidence, not full paper negative",
+          "title": "Dimension Reduction by Random Hyperplane Tessellations",
+          "trigger": "Possible stronger radial halfspace separator result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal centering principle eliminates the affine offset optimization for a broad natural class (radial laws, any increasing distance kernel), while explicit circle losses and dimensional corrections quantify a canonical model. It settles a structurally motivated special case of weighted hyperplane separation beyond known coarse bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical rearrangement/halfspace-depth work may contain an equivalent centering principle under a different formulation.",
+    "Measures must be hyperplane-null and kernels nondecreasing; uniqueness is only asserted for uniform sphere and linear weight."
+  ],
+  "schema_version": 1
+}

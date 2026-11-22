@@ -1,15 +1,21 @@
-# Scientific review: centered radial cut theorem
+# Independent mathematical audit
 
-## Correctness
-The theorem's measure class, strict-separation convention and compact-support assumptions are specified. The moving-threshold derivative is a pair of surface integrals, and its sign follows by pairing each upper-cap point with its antipode and reflecting transverse coordinates conditional on the first coordinate. The remaining middle slab contributes nonnegatively. Approximation extends the inequality to hyperplane-null radial Borel measures; a direct spherical coarea argument supplies strictness for the unit-sphere chord weight. Separate circle arc integration and the Gaussian Laplace expansion establish the profile and both high-dimensional coefficients. Numerical calculations are supporting checks, not an infinite proof.
+## correctness
 
-## Originality
-The motivating 2026 study of separating measures by hyperplanes derives general worst-case guarantees and uses the standard angular separation identity, but does not state the all-radial centering inequality or compute the complete circle offset law. The random-tessellation literature studies random hyperplanes and geometric embeddings, not this affine-threshold extremum; only its accessible abstract was inspected. Targeted database and open-web searches for radial weighted cuts, equivalent symmetric kernels, affine offsets and the precise circle formula produced no equivalent statement. These negative searches do not establish priority. General polarization and rearrangement theory remain a genuine residual risk because no complete exhaustive survey of that literature was possible.
+PASS
 
-## Mathematical value
-The result solves, at once, the weighted hyperplane-cut optimization for an infinite class of pairs of radial probability measures and arbitrary monotone Euclidean distance weights. The full exact circle profile and the two correction terms in the spherical dimension law give quantitative benchmark models for a newly studied distance-weighted geometric cut functional. It does not claim to improve the universal worst-case cut constant for unrestricted distributions.
+Moving the halfspace threshold differentiates the two crossing integrals; a boundary point x=(t,x′) contributes negative of D_ν(x,t) (and its μ analogue), where D is weight on lower vs upper side. For t≥0 and upper point y=(s,z), s>t, pair it with antipode (−s,−z); radial transverse symmetry allows z→−z in conditional average. Then distances differ only in longitudinal terms (t+s)²≥(t−s)² and g is nondecreasing; the slab −t≤s<t contributes nonnegative weight. Thus derivative ≤0, and origin symmetry makes C even. Smoothing compact radial hyperplane-null measures, dominated convergence and spherical coarea carry result to Borel laws and give sphere strictness when g(r)=r. For S^1, arc α=arccos t and chord kernel k(s)=2|sin(s/2)| yield within-arc integral 16(α−sinα), cross-arc 32sinα, full 16π, hence ratio 2sqrt(1−t²)/π. Rotational averaging separates fixed angle θ with probability θ/π, giving normalized R_d integrals; expansion of density cos^(d−2)(q) and its second/fourth moments yields the two 1/d coefficients. Independently evaluated d=2,3,10,30,100 normalized integrals numerically (not proof).
 
-## Limitations
-The center principle does not cover nonsymmetric laws, discontinuous nonmonotone kernels, or measures charging cutting hyperplanes. Uniqueness holds only in the stated unit-sphere chord model. Some historical comparison sources were accessible only as abstracts, so independent novelty and mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Correa et al. 2026 on separating measures by hyperplanes gives general approximation guarantees using angular separation, not exact maximizing affine offset for all radial pairs or the entire circle offset profile. Plan–Vershynin hyperplane embedding treats a different optimization objective. Standard angular integration is acknowledged prior; universal centering principle and detailed sphere computation are assessed distinct.
+
+## value
+
+PASS
+
+A universal centering principle eliminates the affine offset optimization for a broad natural class (radial laws, any increasing distance kernel), while explicit circle losses and dimensional corrections quantify a canonical model. It settles a structurally motivated special case of weighted hyperplane separation beyond known coarse bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
