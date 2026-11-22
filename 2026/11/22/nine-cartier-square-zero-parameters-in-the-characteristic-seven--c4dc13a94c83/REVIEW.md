@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Genus and the four-differential basis follow from ramification valuations; the Cartier coefficient expansion yields the exact semilinear matrix. Its square has single coefficient \((A+B V^7)^{1/49}\), and its cube vanishes identically. The degree-nine factorization, three pairwise distinct linear factors and three separable irreducible quadratics prove all nine geometric roots. The two cross-ratio identities imply the two branch-configuration orbits. An extracted standalone exact finite-field verifier independently recomputes coefficients, ranks and branch invariants over all smooth parameters in \(\mathbb F_{49}\).
+
+**Originality — PASS (provisional historical priority).** Elkin (2007) gives the general Cartier machinery, Moonen (2010) the one-dimensional special family, Li–Mantovan–Pries–Tang (2018) the associated generic Dieudonné module and Newton-polygon possibilities, Cavalieri–Pries (2023) mass formulas subject to a different prime congruence, and Streng (2025) explicit supersingular curves for other special families. The explicit nine-point characteristic-seven Cartier-square-zero locus and exact \(j\)-invariant values are not stated or logically forced by those inspected statements. Published characteristic-three and characteristic-nineteen computations for the same cover equation do not imply characteristic-seven coefficients. Search-based priority may miss older local tables.
+
+**Value — PASS.** This completely determines a natural jump locus in the one-dimensional genus-four cyclic-cover moduli family: all \(7\)-ranks and \(a\)-numbers are constant, but the next Cartier iterate separates two geometric classes from the rest. The exact nine marked parameters and two branch invariants are mathematically meaningful for studying special reduction and the interaction of ramification type with arithmetic geometry; the classification is not merely a chosen numerical sample.
+
+**Limits.** The result does not establish the entire Newton polygon or Dieudonné module of exceptional Jacobians. No independent mathematical audit was conducted. The priority claim is provisional because unindexed special-family computations could contain the same root equation.
+
+Self-review: passed. Independent audit: not yet performed.
