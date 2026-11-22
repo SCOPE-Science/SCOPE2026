@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The two-contact trace identity reduces expected isotropic squared disagreement to n-3+p^T A p with A=I/2+C^TC/4 positive definite. The stationary point is normalized edge endpoint sums of w=(2I+CC^T)^{-1}1. For connected subcubic graphs, the fixed-point map F_v(w)=(1-sum_{u~v}w_u)/(d_v+2) sends [0,1/3]^V to itself and contracts by at most 3/5. Summing two endpoint equations gives w_u+w_v>=1/9; the normalizer is <=2m/3, yielding p_e>=1/(6m). The double-star orbit reduction and KKT conditions show its bridge probability is exactly zero for k>=3, uniquely by strict convexity; for k=3 the excess is 3b^2/4. A standard-library exact-rational checker replays 526 representative/exhaustive-small graphs; proof is universal and not based on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. optimize lambda_2 of expected single-step matrix via an SDP (Eq.(14), PDF lines 285-312), which is an asymptotic-rate metric.",
+        "The 2013 periodic gossip work optimizes arithmetic mixing coefficients in repeated deterministic sweeps (HTML lines 398-458, 778-804), not sampling weights for exactly two iid contacts.",
+        "An earlier graph-wide two-contact quadratic identity is acknowledged, with no universal degree threshold in its path-specific conclusion."
+      ],
+      "reasoning": "The spectral-rate SDP uses the same projection matrices but a different function of probabilities and no fixed two-contact covariance objective. Periodic mixing-weight optimization changes the step operator and schedule, not this iid edge law. Neither is a stronger covering theorem. A general KKT method can derive an optimizer, but cannot establish the sharp all-graph degree cutoff without additional positivity analysis.",
+      "searches": [
+        "two-step gossip edge selection quadratic program positive weights maximum vertex degree three bridge omission double star",
+        "short horizon randomized Kaczmarz optimal row sampling support signless Laplacian edge incidence degree three",
+        "finite horizon optimal edge sampling randomized gossip quadratic graph line graph",
+        "optimal sampling distribution finite time gossip weights isotropic covariance trace",
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf Section IV",
+        "https://www.researchgate.net/publication/261162372_Towards_optimal_convex_combination_rules_for_gossiping Sections III-V"
+      ]
+    },
+    "checked_sources": [
+      "Boyd et al., Analysis and Optimization of Randomized Gossip Algorithms, IEEE CDC 2004, DOI 10.1109/CDC.2004.1429652",
+      "Boyd et al., Randomized Gossip Algorithms, IEEE Trans. Inf. Theory 2006, DOI 10.1109/TIT.2006.874516 (landing abstract)",
+      "Towards optimal convex combination rules for gossiping (2013, full HTML extracted text)",
+      "Fraigniaud and Peters, Minimum linear gossip graphs..., Networks 2001 (abstract only)",
+      "Published mathematical research index searched for finite-horizon gossip, Kaczmarz, double-star and signless resolvent",
+      "Earlier two-contact path and double-star spectral-width statement comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd spectral-gap criterion does not control the two-contact trace minimizer.",
+        "Earlier two-contact path claim contains general quadratic reduction, but only the path-specific explicit optimizer and reversal; no subcubic theorem.",
+        "Earlier spectral-width deletion of a bridge is a different function of the graph Laplacian and cannot imply optimal iid two-contact distribution."
+      ],
+      "reasoning": "An earlier exact two-contact path statement already establishes the general quadratic trace reduction and an explicit optimum on paths. It does not establish a graph-wide degree-based full-support condition, the signless Laplacian resolvent formula on all subcubic graphs or a degree-four support-collapse counterexample. An earlier balanced-double-star spectral-width statement deletes the bridge for a different Laplacian eigenvalue objective, hence neither implies nor is implied by the two-contact isotropic squared-error optimum. An earlier deterministic path sweep statement uses without-replacement contact permutations rather than a fixed iid law.",
+      "searches": [
+        "randomized gossip two rounds optimal i.i.d. edge sampling for finite horizon isotropic mean square error support graph degree subcubic full support line graph Gram",
+        "two-step gossip edge selection quadratic program positive weights maximum vertex degree three bridge omission double star",
+        "optimal two-step stochastic consensus degree four critical edge support double star all-edge inclusion criterion",
+        "gossip two iteration edge probability finite horizon least mean square error covariance graph optimum",
+        "finite horizon optimal edge sampling randomized gossip quadratic graph line graph",
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf Eq.(14)-(15)",
+        "Earlier two-contact path and double-star spectral-width mathematical statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The i.i.d. pairwise gossip operator is explicitly defined by Boyd et al. in Eq.(1), PDF lines 49-61; exact two-contact Frobenius error is a different time-finite criterion.",
+        "The quadratic matrix equals (I/2+C^TC/4); the signless Laplacian resolvent produces interior stationarity probabilities.",
+        "Own path result covers paths but not all subcubic graphs or higher-degree counterexample."
+      ],
+      "reasoning": "Compared aliases pairwise gossip / randomized edge projection / finite-horizon isotropic MSE / line-graph overlap / signless Laplacian inverse. Generic convex quadratic or SDP results alone do not imply nonnegative interior optimizer on every subcubic graph; this follows from a separate contraction and endpoint inequality. No inspected equivalent explicit theorem was identified.",
+      "searches": [
+        "randomized gossip two rounds optimal i.i.d. edge sampling for finite horizon isotropic mean square error support graph degree subcubic full support line graph Gram",
+        "two-contact iid edge averaging isotropic mean-square discrepancy exact quadratic objective incidence signless Laplacian resolvent inverse positivity",
+        "signless Laplacian inverse 2I+Q all ones vertex sum positive subcubic graph",
+        "gossip two iteration edge probability finite horizon least mean square error covariance graph optimum",
+        "finite horizon gossip optimal edge selection two steps squared error probability graph",
+        "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf Sections III-IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed closest two-round stochastic mixing on strongly regular graphs treats homogeneous two-round Markov steps and common-neighbor parameters; it does not treat iid single-edge arithmetic averaging support or degree-three resolvent positivity.",
+        "Indexed randomized-Kaczmarz works optimize minimax worst-direction contraction for inverse row-Gram systems, not the two-contact isotropic graph-edge trace.",
+        "No exact table or source result matching the subcubic support guarantee and the balanced-double-star omission was identified by these queries."
+      ],
+      "reasoning": "The closest indexed models use different update kernels, outcome functionals or graph classes. Absence of search hits is not mathematical proof of novelty; possible unindexed finite-horizon gossip optimization is retained as residual risk.",
+      "searches": [
+        "Subcubic maximum degree three preserves strictly positive optimal independent two-contact gossip sampling probabilities for every connected graph; degree four bridge is omitted",
+        "optimal two-step stochastic consensus degree four critical edge support double star all-edge inclusion criterion",
+        "signless Laplacian inverse 2I+Q all ones vertex sum positive subcubic graph",
+        "line graph quadratic optimal gossip scheduling random edge two steps degrees",
+        "2026/11/2/SCOPE-a-common-neighbor-phase-transition-in-two-round-stochastic-mixin--097c8c11c67a",
+        "2026/11/2/SCOPE-a-sharp-antagonistic-edge-threshold-for-optimized-randomized-kac--10f73aefcd02"
+      ]
+    },
+    "rationale": "Published-result searches and comparisons with earlier mathematical statements did not show the all-subcubic support theorem or sharp degree-four failure. The prior two-contact path record includes the global quadratic objective but not this universal support criterion. Primary Boyd et al. optimize a different asymptotic spectral rate and the periodic-gossip paper optimizes a different averaging coefficient; neither statement implies the new support threshold. Priority remains subject to indexed/unindexed literature coverage.",
+    "residual_risks": [
+      "Searches cannot establish priority; equivalent finite-horizon gossip support results might exist in unindexed literature.",
+      "Full 2006 journal continuation and the 2001 information-dissemination article were not inspected page by page; inspected 2004 primary conference paper covers the relevant projection/SDP statements.",
+      "The general two-contact quadratic identity is known in the own earlier path work; novelty is restricted to the subcubic full-support theorem, explicit signless-resolvent formula, quantitative margin and sharp degree-four support obstruction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated optimizer minimizes asymptotic second eigenvalue of average update matrix (Eq.(14)); not finite two-contact covariance trace, resolvent positivity or all-subcubic support.",
+        "evidence": "Eq.(1) and Sec IV Eq.(14), (15); cited author-hosted PDF, relevant pages 5310–5313, first-page visual inspection",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+        "material_read": "Extracted full relevant introduction, Section III first/second moment, Section IV optimization and Section V comparison, lines 0-340 and surrounding discussion; first page screenshot examined",
+        "method": "Open-access publisher-author PDF, extracted and visually checked via first-page screenshot",
+        "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+        "trigger": "Same edge-averaging operators and edge-selection probabilities; strongest primary antecedent"
+      },
+      {
+        "assessment": "Overview emphasizes asymptotic mixing / eigenvalue SDP, consistent with 2004 full conference text; separate journal sections not exhaustively inspected.",
+        "evidence": "author-hosted publication landing page and DOI 10.1109/TIT.2006.874516",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/gossip.html",
+        "material_read": "Authors abstract and overview on Stanford webpage; not claimed full journal text read",
+        "method": "Open-access author publication landing page",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Journal follow-up of the same foundational algorithm"
+      },
+      {
+        "assessment": "Optimizes averaging coefficient w for deterministic periodic schedules rather than edge-choice probabilities in iid two-contact averaging.",
+        "evidence": "source HTML full-text sections IV–VI",
+        "identifier_or_url": "https://www.researchgate.net/publication/261162372_Towards_optimal_convex_combination_rules_for_gossiping",
+        "material_read": "HTML-hosted full-text material on periodic gossip, optimization variable and examples in Sections III-V and conclusion",
+        "method": "Read source text HTML, especially lines 398-458, 508-635 and 778-819",
+        "title": "Towards optimal convex combination rules for gossiping",
+        "trigger": "Similar wording optimal gossip, graph degree and tree examples"
+      },
+      {
+        "assessment": "Finite-time information dissemination with message exchange and minimum communication time; not arithmetic-mean squared error or stochastic edge sampling.",
+        "evidence": "publisher abstract and DOI 10.1002/net.1033",
+        "identifier_or_url": "https://doi.org/10.1002/net.1033",
+        "material_read": "Published article abstract and metadata only",
+        "method": "Publisher abstract / metadata",
+        "title": "Minimum linear gossip graphs and maximal linear degree-bounded gossip graphs",
+        "trigger": "Graph maximum degree and gossip terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "df3bd66e-1e95-4786-aba3-0922ece29ed0",
+  "value": {
+    "rationale": "A network-design question distinct from optimizing long-term mixing: when a fixed iid short-budget pairwise averaging policy assigns zero probability to a possible contact, potentially removing connectivity. The all-graph subcubic full-support guarantee, explicit constructive resolvent and nonzero margin, together with a smallest-degree sharp disconnection mechanism, provide a natural structural boundary for feasible communication-network design. It is not merely an arithmetic restatement of the known quadratic loss formula.",
+    "status": "PASS"
+  }
+}
