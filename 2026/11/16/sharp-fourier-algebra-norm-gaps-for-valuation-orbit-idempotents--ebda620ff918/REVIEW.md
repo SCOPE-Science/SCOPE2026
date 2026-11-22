@@ -1,21 +1,21 @@
-# Scientific review — sharp valuation-shell Fourier-algebra norm gaps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses the probability-normalized Fourier transform on a finite abelian group and exactly specifies the common-index subgroup chain and all terminal layers. Restricting a function supported in a subgroup does not alter its Fourier-algebra norm because each subgroup character has equally many extensions. For the first occupied shell, splitting characters into those annihilating the next subgroup and the remaining extensions gives the exact recursion
-\[
-\|\mathbf1_E\|_A=2(1-q^{-1})+\|\mathbf1_F\|_A-2(1-q^{-1})\mu.
-\]
-The inequalities \(\|\mathbf1_F\|_A\ge1\) and \(\|\mathbf1_F\|_A\ge2\mu\) for nonempty proper \(F\) give the strict nonbinary gap. When \(q=2\), their joint equality requires \(\mu=1/2\) and \(\|\mathbf1_F\|_A=1\); radiality forces the two stated adjacent-layer choices. Annihilator character counts give the full exact formula. The standalone checker independently tested 3,556 exact rational patterns and 104 direct complex finite Fourier transforms. Those tests support, but do not replace, the arbitrary-depth proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For an outermost occupied subgroup H and its index-q successor U, every relevant radial indicator splits as 1_(H\U)+1_F with F⊆U. The q characters of H trivial on U have Fourier coefficients ((q−1)+μ)/q and (μ−1)/q, with μ=|F|/|U|; all remaining characters extend nontrivial characters of U in q-fold blocks. Absolute summation yields the exact one-step recursion ||E||_A=c_q+||F||_A−c_q μ, c_q=2(1−1/q). Nonempty proper F and its complement each have A-norm ≥1 by Fourier inversion, and ||F||_A−||U\F||_A=2μ−1, so ||F||_A≥max(1,2μ). For q≥3 this makes every non-shell, nonball norm strictly larger than c_q; one shell attains c_q. For q=2 the recurrence gives norm≥3/2 whenever F proper/nonempty, with equality forcing μ=1/2 and ||F||_A=1. Radial half-density forces exactly the next outer shell alone or the entire next subgroup, giving precisely two equality configurations. The identity 1_E=e0 1_G+Σ(ej−ej−1)1_Hj and annihilator-shell multiplicities (q−1)q^(s−1) prove the full rational norm formula for every depth. Finite exact rational pattern and direct DFT tests in the inspected checker corroborate, but the argument is all-depth. Small-norm and q=2 k=1 boundaries are consistent.
 
-Vujičić's 2026 orbit-hypergroup paper motivates the valuation-orbit symmetry and treats Fourier-algebra structure and amenability, not the sharp lower-end norms of radial indicator idempotents. The general coset-ring results of Green–Sanders (2008) and Sanders (2020) do not explicitly give the \(q\)-dependent equality classification; Sanders's full article was inspected for its theorem statements and subgroup-character formulas. Searches for radial shell Wiener norms, equivalent nested-chain idempotent gaps, and finite-ring Fourier projections found nearby concentration and square-residue studies but no statement implying the exact all-depth result. The classical Fourier transform of subgroup indicators is prior mathematics and is not claimed as a discovery.
+## originality
 
-The 1968 Saeki paper on small idempotent norms is an important residual risk; only its abstract and bibliographic information were accessible, not the complete proof. It may contain broader results from which part of this theorem follows. Its unavailable full text prevents a definitive historical uniqueness assertion, but the inspected evidence does not establish implication of the exact radial equality families and arbitrary common-index chains.
+PASS
 
-## Value — PASS
+The exact radial constant-index chain spectral gap, binary exception, equality rigidity and rational formula are not directly covered by the retrieved general coset-ring/idempotent bounds or the accessible valuation-orbit hypergroup results. Historical Saeki full text remains inaccessible and is a significant flagged priority risk, not automatic failure.
 
-Valuation orbits are a natural symmetry class in local-ring harmonic analysis. The minimum nontrivial Fourier-algebra norm measures how far a nonball idempotent is from a norm-one subgroup projection. Here this has a dimension-free, depth-independent answer determined by branching index, with a genuine binary structural exception and complete minimizers. The exact rational transform formula additionally makes all indicator norms computable without enumerating the ambient group. These answers are meaningful for the explicit orbit family, not merely arbitrary small numerical examples. No larger nonradial or nonabelian statement is claimed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Valuation layers and constant-index subgroup chains are natural harmonic-analysis symmetry classes. An exact first nonunit Fourier-algebra norm, the exceptional index-two phase and complete equality cases are intrinsic structural low-norm rigidity, not a randomly selected small numerical invariant; the computable annihilator formula is independently useful. Restriction to radial indicators and a real priority risk remain explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
