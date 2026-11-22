@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For each mode finite second moment and \\(a_i^2+s_i<1\\) ensure uniform \\(L^2\\) convergence of both product sums. Independent-depth centered first-factor recursions give \\(\\operatorname{Var}(S_+)=s/[(1-a)^2(B-s)]\\), \\(\\operatorname{Var}(S_-)=\\tau^2s/[(1-a)^2(B-\\tau^2s)]\\), and \\(\\operatorname{Cov}(S_+,S_-)=-\\tau s/[(1-a)^2(B+\\tau s)]\\). Their half-sum gives the claimed exact risk; arbitrary across-coordinate noise dependence disappears from squared Euclidean risk. Derivatives prove global strict convexity and opposing endpoint signs. The scalar optimizer quartic is equivalent to positive-denominator first-order conditions, and the golden limit and risk ratios follow by continuous root convergence. Uniform \\(L^2\\) tails prove finite-depth minimizer convergence. A standalone Python rational verifier passed 109 cases, including a nonsymmetric centered noise law and correlated diagonal modes. No finite experiment is used as proof of generality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghadimi and Wang 2018 Section 3 Algorithm 3 provides a randomized truncation of a stochastic Hessian-inverse product and error/convergence estimates, without coupled mirror strength.",
+        "The published partial-Gaussian-antithetic result deals with finite averages of linear-plus-quadratic normal responses and optimal equicorrelation, not Neumann products.",
+        "The phase-unknown heat-mode Gaussian-coupling result optimizes a two-sample Fourier estimator, and the antithetic extragradient stability result addresses two correlated oracles in saddle iterations.",
+        "The closest additional spectral-reflection finding concerns coupling Haar frames in a two-step finite-difference descent, a different oracle and gain objective from Neumann inverse products."
+      ],
+      "reasoning": "A broader Monte Carlo covariance, antithetic coupling, or bilevel inverse-Hessian convergence theorem would cover this claim only if it also implied the rational Neumann perpetuity risk under paired factor products and the exact tau optimizer. The inspected relevant source sections and accessible mathematical result synopses do not assert such an implication. Indexed synopses are not substitutes for full-text noncoverage checks; the inaccessible closest record is explicitly retained as a risk.",
+      "searches": [
+        "Neumann inverse Hessian antithetic averaging bias variance equal factor correlation reference error scalar",
+        "antithetic Neumann estimator matrix noncommuting anti-symmetric pairing noise skewness residual 2026",
+        "random affine perpetuity antithetic coupling control variates optimal negative correlation variance Neumann series",
+        "randomized Neumann series estimator inverse stochastic matrix variance infinite series independent random products",
+        "partial antithetic coupling stochastic fixed point random affine recursion variance optimal",
+        "variance reduction antithetic stochastic Neumann series Hessian inverse mirror strength",
+        "2026/11/8/SCOPE-the-finite-noise-transition-from-full-to-partial-gaussian-antith--a7c25255549a",
+        "2026/11/2/SCOPE-a-unique-interior-minimax-gaussian-coupling-for-phase-unknown-he--6f78abec688b",
+        "2026/10/25/SCOPE-sharp-antithetic-pairing-and-the-varphi-sqrt-varphi-stability-cu--2b6eab28d021",
+        "commuting Hessian antithetic Neumann paired products asymptotically variance optimal mirror tau scalar"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2611.15895v1 (relevant primary full-text sections and appendices)",
+      "arXiv:1802.02246 (Section 3 estimator and bounds)",
+      "2026/11/8/SCOPE-the-finite-noise-transition-from-full-to-partial-gaussian-antith--a7c25255549a (indexed scientific synopsis; full text unavailable)",
+      "2026/11/2/SCOPE-a-unique-interior-minimax-gaussian-coupling-for-phase-unknown-he--6f78abec688b (indexed scientific synopsis)",
+      "2026/10/25/SCOPE-sharp-antithetic-pairing-and-the-varphi-sqrt-varphi-stability-cu--2b6eab28d021 (indexed scientific synopsis)",
+      "2026/11/2/SCOPE-spectral-reflection-coupling-is-sharp-for-two-step-haar-frame-fi--654d1d9d1500 (indexed scientific synopsis)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.4 cancels odd perturbation-degree terms only at full mirroring; it does not minimize squared variance. The same paper explicitly describes its variance comparison as empirical and notes a variance/skewness trade-off.",
+        "The claimed strict interior optimum follows from a new explicit pair-covariance recursion, strict convexity, and the quartic first-order condition, not solely from odd-degree cancellation.",
+        "The foundational 2018 randomized truncated Neumann estimator has no shared antithetic pair to optimize."
+      ],
+      "reasoning": "The source already introduces partial mirroring and suggests it for stability, so those are not treated as new. Its theory and experiments are strictly weaker than a formula quantifying all tau, proving a unique scalar and commuting diagonal optimum with no distributional symmetry, and deriving the golden-ratio limit. The comparison concerns logical implication rather than matching keywords. A general unpublished perpetuity covariance identity could still subsume the calculation and remains a residual priority risk.",
+      "searches": [
+        "antithetic Neumann estimator approximate reference bias variance scalar two point Hessian perturbations cancellation even odd products",
+        "Neumann inverse Hessian antithetic averaging bias variance equal factor correlation reference error scalar",
+        "Antithetic Neumann estimator infinite product stochastic Hessian inverse variance partial mirror strength optimal tau golden ratio",
+        "\"antithetic\" \"stochastic Neumann series\" \"variance\" inverse Hessian partial reflection",
+        "arXiv:2611.15895v1 (https://arxiv.org/abs/2611.15895)",
+        "arXiv:1802.02246 (https://arxiv.org/abs/1802.02246)",
+        "2026/11/8/SCOPE-the-finite-noise-transition-from-full-to-partial-gaussian-antith--a7c25255549a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original mirrored Neumann definition has two products with factors A-E and A+tau E and fixed averaging weights; this matches the presented estimator up to the sign convention.",
+        "The source proves odd-degree cancellation at \\(\\tau=1\\) (Proposition 3.4, Appendix A.3), and reports partial-tau variance empirically (Appendix C.4-C.6).",
+        "Its inspected statements do not give the infinite-depth second-moment covariance identity, prove strict convexity of scalar/diagonal squared-risk, or state the quartic and golden limit."
+      ],
+      "reasoning": "The estimator family and its mirror strength are expressly prior work. Equivalent names such as antithetic Neumann estimator, damped mirror, partial reflection, and coupled stochastic inverse-Hessian Neumann sums were searched. The new object is the exact variance-optimality theorem within that existing family, not the design or parity cancellation of the family; empirical variance values do not logically entail this all-distributions unique interior optimum.",
+      "searches": [
+        "antithetic Neumann estimator approximate reference bias variance scalar two point Hessian perturbations cancellation even odd products",
+        "Antithetic Neumann estimator infinite product stochastic Hessian inverse variance partial mirror strength optimal tau golden ratio",
+        "partially mirrored inverse Hessian Neumann stochastic scalar exact stationary variance minimum noise",
+        "\"antithetic Neumann\" \"optimal\" \"mirror\" variance",
+        "\"antithetic\" \"stochastic Neumann series\" \"variance\" inverse Hessian partial reflection",
+        "\"partial antithetic\" \"Neumann\" estimator optimal mirror",
+        "arXiv:2611.15895v1 (https://arxiv.org/abs/2611.15895)",
+        "Neumann estimator reflected Hessian samples full mirroring partially reflected tau unique variance minimizer quartic golden ratio",
+        "distribution-free stochastic Neumann inverse squared-risk rational covariance antithetic products second moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper Appendix C.4 Table 5 and Appendix C.6 Table 8 report numerical ablations for several fixed mirror strengths but do not tabulate the distribution-free rational risk law or algebraic optimizer.",
+        "The concrete centered-two-point Hessian example yields the exact full-mirror variance \\(4/143\\) and a unique partial optimum near 0.7908174685.",
+        "No exact Neumann mirror-strength optimum or matching quartic table was identified in the accessed math research records."
+      ],
+      "reasoning": "The theorem is not a recomputation of the empirical ablation table: it proves an entire variance function for any centered square-integrable factor-noise law and all depths in the limit, with a sharp noise-boundary constant. The table compares different task metrics and distributions rather than this distribution-free analytical risk.",
+      "searches": [
+        "Antithetic Neumann estimator infinite product stochastic Hessian inverse variance partial mirror strength optimal tau golden ratio",
+        "partially mirrored inverse Hessian Neumann stochastic scalar exact stationary variance minimum noise",
+        "\"Bohne\" \"Polak\" \"mirror strength\" variance minimization",
+        "2026/11/8/SCOPE-the-finite-noise-transition-from-full-to-partial-gaussian-antith--a7c25255549a",
+        "arXiv:2611.15895v1 (https://arxiv.org/abs/2611.15895)"
+      ]
+    },
+    "rationale": "The source paper already defines the exact-reference mirror-strength family and full-mirror odd-term cancellation. The assessed contribution is instead the distribution-free exact risk formula, strict interior optimality, exact quartic and high-noise golden boundary, and commuting diagonal extension. Searches and material comparisons with arXiv:2611.15895, arXiv:1802.02246 and the closest published mathematical synopses found no covering logical implication. Empirical source tables and broad antithetic theory do not prove these statements. Residual historical risk from unindexed and inaccessible full texts remains.",
+    "residual_risks": [
+      "A mathematically equivalent variance-minimizing paired perpetuity identity could exist outside the searched public mathematical records.",
+      "The close published finite Gaussian-antithetic result was available only in a synopsis, not full text, so the analysis does not assert whole-document exclusion.",
+      "The result analyzes an exact reference and commuting diagonal models only; other mirror architectures may subsume or change the optimum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces ANE and partial/full mirroring, algebraically cancels odd perturbation terms, experimentally varies tau. The inspected scientific claims do not establish the universal infinite-depth second-moment formula or its unique golden-limit variance optimum.",
+        "evidence": [
+          "Section 3.4 Proposition 3.4, product expansion; Appendix A.3 proof; Section 3 discussion that variance comparison is empirical; Appendix C.4-C.6 reported partial strengths and variances."
+        ],
+        "identifier_or_url": "arXiv:2611.15895v1, https://arxiv.org/abs/2611.15895",
+        "material_read": "Sections 2, 3.4 with Proposition 3.4, Appendix A.3 with its proof, Appendix C.4 and C.5-C.6 variance and mirror-strength ablation tables; discussion of variance versus skewness.",
+        "method": "Read accessible public HTML full-text rendering, including relevant equation definitions, prose, tables and proof paragraphs.",
+        "title": "Your Hypergradient is Skewed: Antithetic Neumann Estimation for Bilevel Optimization",
+        "trigger": "Identical estimator family and mirror-strength parameter; decisive same-paper comparison."
+      },
+      {
+        "assessment": "Uses randomized-length stochastic Hessian products and proves inverse approximation/convergence bounds. It contains no partially mirrored shared-factor pair and hence no stated mirror-strength optimum.",
+        "evidence": [
+          "Section 3 Algorithm 3 draws a random product depth; Lemma 3.2 bounds the inverse approximation error."
+        ],
+        "identifier_or_url": "arXiv:1802.02246, https://arxiv.org/abs/1802.02246",
+        "material_read": "Section 3, especially Lemma 3.1, Algorithm 3 and Lemma 3.2, plus background assumptions and Section 3 convergence framing.",
+        "method": "Read public HTML full-text rendering and the relevant inverse-Hessian estimator construction and proof discussion.",
+        "title": "Approximation Methods for Bilevel Programming",
+        "trigger": "Foundational stochastic inverse-Hessian Neumann product and randomized truncation."
+      },
+      {
+        "assessment": "The available statement concerns finite Gaussian linear-plus-quadratic responses and correlation couplings, not random products and Neumann inverse weights. Whole-document noncoverage cannot be concluded from the synopsis alone.",
+        "evidence": [
+          "Indexed claim: unique optimal equicorrelation and a full-to-partial antithetic transition for finite Gaussian Monte Carlo, not a paired Neumann product."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-finite-noise-transition-from-full-to-partial-gaussian-antith--a7c25255549a",
+        "material_read": "Indexed title and substantive published synopsis only; no complete main text.",
+        "method": "Compared accessible indexed statement; direct repository-page access was unsuccessful.",
+        "title": "The finite-noise transition from full to partial Gaussian antithetics",
+        "trigger": "Closely analogous phenomenon of an interior negative-correlation optimum in Monte Carlo."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "51846216-0bee-4034-8576-7dd5e9177551",
+  "value": {
+    "rationale": "Mirror strength is a genuine free parameter of a recently proposed stochastic inverse-Hessian estimator, not an arbitrary slice. The theorem establishes a structurally nontrivial and universally interior variance optimum contrary to the full-reflection skewness objective; yields explicit implementable scalar calibration, a sharp algebraic noise-boundary constant, and a robust commuting-matrix convex tuning rule. It connects to finite-depth risk through uniform convergence and supplies a concrete roughly 20.5 percent paired-variance improvement. It does not falsely claim benefit for scalar inversion when the Hessian is exactly known or general end-to-end training.",
+    "status": "PASS"
+  }
+}
