@@ -1,19 +1,21 @@
-# Scientific review — minimum power domination on the five-cube
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The known cardinality \(\gamma_P(Q_5)=4\) follows from the sharp dimension-five specialization of Dean et al.'s 2011 bounds. The finite claim concerns \(\binom{32}{4}=35960\) possibilities, all of which are checked by two independent implementations of the standard power-domination closure. The six explicit symmetry orbits partition exactly the 3600 successful states; every possible one-token exchange is tested. Six representative breadth-first searches determine eccentricity through group invariance, and a separate C++ all-sources BFS checks the same histogram. Explicit deterministic programs and actual output files are included. Nothing is extrapolated to infinite graph families.
+PASS
 
-## Originality (PASS with historical-priority risk)
+Reconstructed the standard observed-closed-neighborhood plus unique-unobserved-neighbor power-domination closure and its order-independent least fixed point, the exact finite candidate range C(32,k), k≤4, the complete automorphism action F2^5⋊S5 (3840 transformations), the all-exchange TS/TJ edge criterion and the orbit-invariant BFS eccentricity argument. Reimplemented a fresh independent sequential monotone-mask checker (not merely replay of saved logs): all 5488 size-1..3 candidates fail, 3600 of 35960 four-candidates succeed, the six generated orbits have sizes 160,960,320,240,960,960; 70400 oriented TJ edges, 0 slides, and degree/eccentricity histograms and six full representative BFS distances match. This is a finite exhaustive proof for Q5 only. The source check_orbits.py and check_independent.cpp were read for correct loops/domains, not executed as opaque blobs. Git source-tree object was separately recomputed from all seven direct file/tree object IDs and equals the assignment SHA 8273e16976a7dda66e0ba40b22eb084ab04a4c0f.
 
-The nearest historically relevant full text, Dean et al. (2011), computes power-domination *cardinality bounds*, not the distribution of minimum sets or the reconfiguration graph. The 2015 Benson et al. full text applies a general zero-forcing lower-bound framework, not this state-space classification. The 2026 open-access full text by Bjorkman et al. initiates general PDS token-jump analysis and identifies token sliding as an avenue for further study; it does not imply the 3600-state five-cube certificate or its metric. Searches under five-cube, hypercube, sensor relocation, and token-jump/slide aliases found no exact matching classification. A 2012 Pai–Chiu hypercube note is a plausible but incompletely accessible source; its abstract concerns the power-domination number and a conjecture, not the specific claims. An unindexed equivalent enumeration remains possible. The known minimum cardinality is excluded from the originality claim.
+## originality
 
-## Value (PASS)
+PASS
 
-The first five-dimensional binary cube requires four minimum monitoring vertices, an instructive natural next case after the two-sensor four-cube. A complete description of the optimal placements is relevant to network reconfiguration and monitoring resilience: 3600 optimal placements are all locally slide-frozen yet form a connected nontrivial exchange network of diameter six. The six full Hamming-isometry orbits, exact degree/eccentricity spectra, and independent exhaustive certificates supply reusable benchmark data for constrained relocation and symmetry-based enumeration rather than an arbitrary finite curiosity. There is no claimed theorem for larger dimensions.
+The previously known value gamma_P(Q5)=4 is excluded. No inspected earlier source states or entails the exhaustive 3600-placement, six-orbit PDS census or exact 35200-edge TJ/zero-edge TS reconfiguration geometry. The closely related five-cube total-domination results concern minimum EIGHT-element sets and a different feasible family, so their frozen-exchange results do not imply the four-element power-domination graph. Full text of the historically plausible Pai–Chiu 2012 paper was newly located, replacing the old abstract-only uncertainty: its Theorem 8 gives gamma_P(Q5)=4 and Q6/Q7 minimum sizes, not an optimal-state census. Priority remains best-of-knowledge only, and the same current Resultary mirrored record is not counted as independent earlier coverage.
 
-## Closest literature and limits
+## value
 
-Sources inspected: Dean et al., 2011, https://kjtian.github.io/PDSHypercube.pdf (all four pages); Benson et al., 2015, https://ar5iv.labs.arxiv.org/html/1510.02421 (full article); Bjorkman et al., 2026, https://link.springer.com/article/10.1007/s44007-025-00187-5 (full open-access article). The Pai–Chiu (2012) full paper was not retrieved; only bibliographic/abstract content was examined. The residual risk is historical priority, not an unproved finite enumeration. Independent scholarly assessment is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact, natural optimum-placement/reconfiguration invariant for the first binary cube requiring four power-domination monitors; the complete symmetry and transition metrics concretely characterize resilience of minimum monitoring placements. The precise gap (3600 locally TS-frozen configurations yet connected all-state TJ exchange graph of diameter six) is a motivated structural feature and a finite reproducible benchmark for graph reconfiguration. This is not claimed as a general-dimension theorem; an exhaustive single-host classification can be useful independently of larger theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
