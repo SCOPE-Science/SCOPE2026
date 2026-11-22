@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The displayed matrix equals \\(uI+v(I_p\\otimes J_p)+J\\) by the three gcd classes. Its rational eigenvalues \\(u\\), \\(\\alpha\\), and \\(\\beta\\) give the nonzero determinant. For \\(\\ell\\ne p\\), averaging by \\(p\\) is integral over \\(\\mathbb Z_\\ell\\), with local Smith factors \\(u\\) of multiplicity \\(p(p-1)\\), \\(\\alpha\\) of multiplicity \\(p-1\\), and \\(\\beta\\) once. At \\(\\ell=p\\), the one-index-per-block pivot satisfies \\(P\\equiv J-I\\pmod p\\) and is invertible; the Schur complement is \\(u(I+RWP^{-1}R^{\\mathsf T})\\) and reduces to \\(p\\) blocks \\(I_{p-1}+J_{p-1}\\). Rank and exact determinant valuation yield \\(0\\) (multiplicity \\(p\\)), \\(a\\) (multiplicity \\(p(p-2)\\)), and \\(a+1\\) (multiplicity \\(p\\)) as the \\(p\\)-valuations. Coprimalities \\(\\gcd(v,\\beta)\\mid p^2\\) and \\(\\gcd(c,\\beta)\\mid p^2\\) identify every other local Smith valuation; the proposed factors divide consecutively. The embedded independent modular checker passed 4,499 grouped exact assertions on seven test cases; finite cases are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haukkanen–Korkee (2005), Section 3, proves gcd/lcm matrix divisibility under positive-integer set hypotheses, not cyclic power-gcd Smith forms.",
+        "Hong (2008) abstract treats exponent divisibility on divisor chains.",
+        "Telloni–Williams (2014) Theorem A concerns \\(\\mathbb Q[\\lambda]\\)-Smith forms for specified circulant polynomial matrices.",
+        "Noferini–Williams (2019) Theorem A gives common-divisor companion-ring reduction without the stated closed Smith list."
+      ],
+      "reasoning": "Compared whether any source actually implies the precise integer Smith list for all odd \\(p\\) and all positive \\(a\\). General algorithms could in principle compute individual instances; they do not state these explicit factors. The incomplete access to the Hong paper is flagged.",
+      "searches": [
+        "Integral Smith form of meet matrix gcd-powers on residue classes",
+        "hierarchical p-adic block matrices Smith normal forms uI+v block diagonal all-one matrices plus all-one",
+        "\"Smith normal form\" \"gcd\" \"circulant\" 2009",
+        "\"power gcd\" \"circulant\" \"invariant factors\" Smith"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1155/IJMMS.2005.925",
+      "https://doi.org/10.1016/j.laa.2007.08.037",
+      "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+      "https://arxiv.org/abs/1908.07331"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier calculation addresses the last invariant factor of the unpowered cyclic gcd kernel on prime squares, which leaves the other Smith factors undetermined.",
+        "The squarefree cyclic-gcd Smith classification does not imply the nonsquarefree \\(p^2\\) form.",
+        "Ramanujan-sum convolution kernels differ from gcd-difference powers as functions and no same-kernel reduction was identified."
+      ],
+      "reasoning": "A previous determinant, rational eigenspectrum, p-primary partial result, or last-factor formula does not imply the complete divisibility-ordered integer diagonal, especially the contributions from primes unequal to \\(p\\) and the p-local distribution for every \\(a\\).",
+      "searches": [
+        "Smith normal form of power-gcd circulant matrix gcd(i-j,N)^a for arbitrary exponent",
+        "Jordan totient circulant gcd differences and integral invariant factors prime square",
+        "Smith normal form gcd circulant matrix gcd(a-b,n) power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matrix is cyclic convolution with kernel \\(h\\mapsto\\gcd(h,p^2)^a\\); the block identity \\(uI+v(I_p\\otimes J_p)+J\\) is an equivalent description.",
+        "No retrieved published research statement identified a complete integer Smith diagonal for that equivalent cyclic kernel."
+      ],
+      "reasoning": "Searched cyclic-kernel, block-matrix, arithmetic-circulant and Smith-factor aliases, then compared the actual operator and invariant-factor conclusion rather than only title words. Similar results describe Ramanujan-sum circulants or largest factors, not the full power-GCD family.",
+      "searches": [
+        "Smith normal form of power-gcd circulant matrix gcd(i-j,N)^a for arbitrary exponent",
+        "gcd difference power circulant on Z/p^2, elementary divisors and Smith normal form p odd, all exponent a",
+        "complete Smith form cyclic gcd difference matrix G_{p,2} entries gcd(a-b,p^2)^s with odd p, nonunit invariant factors",
+        "\"Smith normal form\" \"gcd(i-j\" powers circulant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public indexed searches for exact prime-square gcd-difference Smith factors found no exact finite or parameterized table of these invariant factors.",
+        "Finite numerical tests in check.py are original verification calculations, not an imported database."
+      ],
+      "reasoning": "No known table was found with this six-tier all-parameter result. Search failures do not certify absence; complete identity requires matching all invariant factors, not one determinant or largest factor.",
+      "searches": [
+        "gcd(a-b,p^2)^a for all residues modulo p^2, Smith factors",
+        "complete Smith form cyclic gcd difference matrix G_{p,2} entries gcd(a-b,p^2)^s with odd p, nonunit invariant factors",
+        "Smith normal form and full invariant factor list power gcd difference circulant over cyclic group of order square prime, p-adic defects",
+        "gcd-circulant matrix Smith normal form p power"
+      ]
+    },
+    "rationale": "The cyclic-difference power-GCD kernel has a newly derived complete all-odd-prime-square integral invariant-factor formula. Source comparisons distinguish positive-index gcd matrices, Q[lambda] circulant Smith forms, general companion-ring reductions, and known partial gcd-circulant invariants from the full matrix family. General implicit-specialization priority risk remains.",
+    "residual_risks": [
+      "Hong (2008) was evaluated from its abstract only, not independently verified against its full theorem text.",
+      "General companion-ring/circulant algorithms may implicitly specialize to this example; such an implicit equivalence would affect historical priority even without matching phrasing.",
+      "Searches and accessible historical records are incomplete and cannot establish a mathematical uniqueness claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: works with gcd of positive integer index entries and matrix divisibility, not cyclic differences or an explicit all-prime-square Smith list.",
+        "evidence": [
+          "Theorem 3.1 assumes a factor-closed positive-integer set and proves divisibility of its GCD matrix into an LCM matrix.",
+          "Theorem 3.4 concerns gcd/lcm-closed sets with at most three elements."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/IJMMS.2005.925",
+        "material_read": "Open full paper: definitions, introduction, Section 3 Theorems 3.1–3.4 and their hypotheses/proofs, pages 925–931.",
+        "method": "Read open primary PDF text and compared index sets, gcd arguments, theorem conclusions.",
+        "title": "Notes on the divisibility of GCD and LCM matrices",
+        "trigger": "Classical GCD-matrix divisibility is a plausible stronger general predecessor."
+      },
+      {
+        "assessment": "ABSTRACT_NOT_COVERING, FULL_TEXT_UNREAD: stated results address gcd(x_i,x_j)^a versus gcd(x_i,x_j)^b on divisor chains, rather than gcd(x-y,p²)^a for cyclic residue differences.",
+        "evidence": [
+          "The abstract assumes a divisor chain of positive integers and compares exponent divisibility of power-GCD matrices.",
+          "Residual full-text coverage risk is recorded."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.08.037",
+        "material_read": "Publisher/research catalogue abstract and DOI bibliography; full article not accessible.",
+        "method": "Compared exact published abstract statement for divisor chains and exponent divisibility.",
+        "title": "Divisibility properties of power GCD matrices and power LCM matrices",
+        "trigger": "The phrase power GCD matrices makes this a plausible stronger predecessor."
+      },
+      {
+        "assessment": "NOT_COVERING AS STATED: Theorem A is over \\(\\mathbb Q[\\lambda]\\) for particular polynomial circulants with squarefree associated polynomials; it does not give the integer Smith factors of cyclic gcd-difference powers.",
+        "evidence": [
+          "Theorem A explicitly computes Smith factors over \\(\\mathbb Q[\\lambda]\\) under a no-repeated-root hypothesis.",
+          "Section 4 uses circulant lambda-matrices with cyclotomic associated-polynomial roots; no power-GCD difference kernel appears."
+        ],
+        "identifier_or_url": "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+        "material_read": "Open complete PDF accessible; introduction, preliminaries, Section 3 Lemma 3.3, Theorem A, and Section 4 cyclotomic hypotheses/examples (pages 1–8).",
+        "method": "Compared theorem base ring, polynomial-matrix hypothesis, and specialized conclusions with fixed integral power-GCD matrices.",
+        "title": "Smith forms of circulant polynomial matrices",
+        "trigger": "The present matrix is a circulant, so explicit Smith-form work on circulants may subsume it."
+      },
+      {
+        "assessment": "NOT_COVERING AS STATED: the paper provides a general Smith-reduction framework and torus-knot examples, but not this uniform explicit six-tier Smith diagonal. An implicit specialization is a residual risk.",
+        "evidence": [
+          "Theorem A reduces \\(f(C_g)\\) along a common monic polynomial divisor.",
+          "The abstract and examples address circulants generally and torus-knot Alexander polynomials; no power-GCD kernel or formula is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.07331",
+        "material_read": "Open complete arXiv HTML presentation, abstract, Section 1, Theorem A, and Sections 3–4 structural results.",
+        "method": "Checked hypotheses/conclusions of the companion-ring equivalence, its common-polynomial-divisor Smith reduction, and stated applications.",
+        "title": "Matrices in companion rings, Smith forms, and the homology of 3-dimensional Brieskorn manifolds",
+        "trigger": "General f(C_g) Smith-form theory includes circulants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6bac5dc6-cda2-4534-9a2a-5cb4496b18e9",
+  "value": {
+    "rationale": "This completely classifies the integral cokernel and all congruence obstructions for a natural arithmetic cyclic convolution kernel, uniformly in every odd prime and every positive power, at the first nonsquarefree order \\(p^2\\). It separates the unexpectedly stable p-primary structure from prime-to-\\(p\\) torsion in the full invariant factors; neither the obvious Fourier eigenvalues nor determinant/last-factor formulas recover that information.",
+    "status": "PASS"
+  }
+}
