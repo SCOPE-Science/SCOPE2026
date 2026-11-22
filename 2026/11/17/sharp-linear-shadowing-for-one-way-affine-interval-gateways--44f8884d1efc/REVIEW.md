@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs every exact and pseudo-orbit branch explicitly. It handles never-crossing sequences, crossing at the initial time, and crossing after arbitrarily many steps. The required strict buffer \(0<\delta<\tfrac12\min\{k-1,\mu-1\}\) keeps the right branch absorbing and both sharpness witnesses in their respective intervals. The upper error is a convex combination of the two inverse hyperbolicity gaps; constant pseudo-orbits near the two fixed points prove both lower bounds. The claim includes the exact normalization and the full parameter boundaries \(k=2\), \(\lambda=0\), and \(\mu=2-\lambda\). Rational code is only corroborative.
+## correctness
 
-## Originality
-PASS subject to normal historical-priority risk. Oliveira (2026), Section 10.3, proves existence of shadowing for its surjective two-parameter restriction using a nonsharp estimate. Bura–Good–Samuel (2026) prove a separate obstruction for transitive discontinuous interval maps and give a non-surjective example that falls on the boundary subfamily \(\lambda=0\), \(\mu=2\), for a selected value of \(k\). Searches in the mathematical discovery index and primary literature for exact affine gateway shadowing, optimal Lipschitz constants, and aliases found no stronger covering theorem. The exact all-parameter modulus, its two-phase boundary and its extension to all admissible \(k\) in the non-surjective example are not logical consequences of the published qualitative results without the additional sharp orbit-matching argument.
+PASS
 
-## Mathematical value
-PASS. A shadowing theorem is a quantitative statement about whether inexact computations track exact trajectories. The optimal linear error factor, not a merely sufficient bound, is a natural invariant. For this fully specified class the factor is independent of the jump height, and the phase boundary \(k+\lambda=2\) changes which dynamical fixed point controls the worst error. This sharp classification identifies a robust contrast between expanding and contracting bottlenecks, extending beyond the source's surjective region. No broader stability of arbitrary discontinuous maps is claimed.
+The right branch is absorbing since mu-delta>1; indefinite left pseudo-orbits must remain in delta/(k-1) of zero by back-substitution. For first high index N choose exact entry b in [1,k) delta-close to x_N: if x_N<k use b=x_N, otherwise choose b near k from below. Backward left expansion and forward right contraction give a convex-bound by the maximum of 1/(k-1) and 1/(1-lambda). Constant pseudo-orbits at epsilon/(k-1) and r-epsilon/(1-lambda) give independent sharp bounds as epsilon increases to delta. At lambda=0, k=2, mu=2-lambda, branches and boundaries remain valid. Independent exact-rational finite-prefix tests corroborated 22 accepted cases, without claiming infinite proof.
 
-## Limitations
-Proof is confined to forward pseudo-orbits of the two affine branches. The newly proved result does not establish nonlinear perturbation robustness or a two-sided shadowing theorem. The 2026 primary sources were inspected in their relevant full sections, but exhaustive historical priority and independent validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact uniform forward-shadowing modulus with a two-mechanism phase boundary; explicit prior surjective qualitative theorem does not imply sharp constant.
+
+## value
+
+PASS
+
+Computing the exact shadowing modulus for a natural discontinuous expanding-to-contracting gateway and identifying the switch of controlling fixed-point obstruction sharpens prior qualitative results; the phase boundary is mathematically meaningful rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
