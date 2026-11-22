@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact complete 252-state enumeration from two independent Petersen graph presentations. Microstate outgoing counts by energy (-5,-1,3,7), neutral connected components, and exact first-jump equations yield probability 8/63 and mean entrance time 5/42. Both standalone Python verifiers were run successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Smedt et al. (arxiv:cond-mat/0202465), section 4.1: one-dimensional chain, constrained zero-temperature Kawasaki moves; section 5 discusses their one-dimensional results.",
+        "Krzakala (arxiv:cond-mat/0409348) studies Kawasaki coarsening and glassiness on two-dimensional lattices.",
+        "Fast and Slow Mixing of the Kawasaki Dynamics on Bounded-Degree Graphs (2025): Definition 2.3 uses global pair exchange and finite inverse temperature."
+      ],
+      "reasoning": "Prior general model classes or qualitative metastability statements do not supply the microstate transition census or the absorbing-set probabilities for local edge swaps on Petersen. General positive-temperature ergodicity cannot imply zero-temperature transient-class probabilities.",
+      "searches": [
+        "\"Petersen graph\" \"zero-temperature\" \"Kawasaki\"",
+        "\"Petersen graph\" \"spin exchange\" metastable stochastic Ising",
+        "Strict zero-temperature Kawasaki dynamics on cubic triangle-free graphs invariant kinetic blocked states and reachability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0202465 (full text relevant sections)",
+      "arxiv:cond-mat/0409348 (full text relevant sections)",
+      "doi:10.1002/rsa.70038 (full text relevant sections)",
+      "Petersen graph Kneser, girth-five and five-cycle facts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:cond-mat/0202465, section 4 restricts to a one-dimensional chain and different constrained updates.",
+        "arxiv:cond-mat/0409348 studies 2D lattice coarsening rather than Petersen graph exact 252-state dynamics.",
+        "A previously published Petersen single-spin-flip zero-temperature law changes magnetization and so is dynamically nonequivalent."
+      ],
+      "reasoning": "The exact claim is stronger than a statement about existence of kinetic traps: it identifies all 13 closed classes and computes their harmonic measures under an explicit edge-exchange generator. None of the inspected prior assertions logically determines these values.",
+      "searches": [
+        "\"Petersen graph\" \"Kawasaki\" \"dynamics\" Ising",
+        "\"Petersen graph\" spin exchange dynamics metastable 5 particles",
+        "Kawasaki spin exchange ferromagnetic graph metastable blocking configurations exact 2004"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The explicit Markov chain is a five-particle nearest-neighbor exclusion model with Ising downhill-or-neutral acceptance.",
+        "No checked source states the exact 120-state closed class and 8/63 selection law."
+      ],
+      "reasoning": "The alternative particle-exclusion and spin-set representations use the same 252 configuration set and transition rule. Available near matches involve different graph families, all-to-all exchange, positive temperatures, or Glauber flips; none covers this exact Markov chain.",
+      "searches": [
+        "\"Petersen graph\" \"Kawasaki\" metastable",
+        "\"Petersen\" \"spin exchange\" metastable stochastic Ising",
+        "Five particle exclusion dynamics nearest neighbor spin swaps Petersen 252 configurations zero temperature long-time partition into 120 state recurrent class and twelve ground states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Petersen five-cycle counts are standard, but the searched indexed findings and publications did not provide the corresponding local Kawasaki transition/absorption table.",
+        "The 252-state table was freshly computed and checked from the definition."
+      ],
+      "reasoning": "A known count of twelve Petersen pentagons cannot determine a stochastic absorption probability or connectedness of neutral-exchange sectors. No exact identical kinetics table was found in the examined sources.",
+      "searches": [
+        "On the Petersen graph exactly 12 ground states and 120 neutral Kawasaki exchange metastable half-filled configurations, absorbing probability 8/63",
+        "Kawasaki metastability Petersen graph 5 positive spins probability 8/63 reaching 5-cycle zero-temperature"
+      ]
+    },
+    "rationale": "The 2002 one-dimensional constrained Kawasaki paper, 2004 two-dimensional Kawasaki paper, recent general Kawasaki finite-graph mixing work, and nearest indexed Petersen dynamical results do not imply the specific local-exchange half-filled Petersen absorption law. Searches did not locate equivalent results; priority remains conditional on accessible literature.",
+    "residual_risks": [
+      "An unindexed or non-open complete Petersen zero-temperature Kawasaki enumeration may predate this work.",
+      "Published graph-specific results using an implicit equivalent generator might require additional human priority review.",
+      "All claims concern uniform adjacent-bond clocks and zero-temperature neutral acceptance; global exchange results are inapplicable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different one-dimensional model and constrained strictly energy-lowering moves; does not give the Petersen local neutral-exchange absorbing fractions",
+        "evidence": [
+          "Section 4.1 considers an Ising chain and patterns -+-+ to --++; section 4.5 calculates large-deviation energies for chains."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0202465",
+        "material_read": "Abstract, introduction, section 4.1 definition and permitted exchanges, section 4.5 terminal-energy distribution, section 5 discussion",
+        "method": "Read arXiv full-text HTML transcription and PDF first-page rendering",
+        "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+        "trigger": "Foundation of zero-temperature constrained Kawasaki blockage; possible stronger exact final-state results"
+      },
+      {
+        "assessment": "Two-dimensional lattice Monte Carlo and glassiness; no exact Petersen chain classification or 8/63 fraction",
+        "evidence": [
+          "Model section defines a 2D periodic Ising lattice and computational coarsening measurements."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0409348",
+        "material_read": "Full-text introduction, model-and-methods discussion, first-page PDF",
+        "method": "Read arXiv HTML and PDF extracted text; visually inspected page one",
+        "title": "Glassy properties of the Kawasaki dynamics of two-dimensional ferromagnets",
+        "trigger": "Possible prior complete metastability description"
+      },
+      {
+        "assessment": "Mixing inequalities for positive-temperature global pair-exchange dynamics; does not imply zero-temperature local-move recurrent-class counts",
+        "evidence": [
+          "Definition 2.3 selects any opposite-spin pair, not necessarily an edge; positive beta is assumed."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.70038",
+        "material_read": "Abstract, introductory scope, and section 2.3 definition of the Kawasaki transition rule",
+        "method": "Read accessible publisher full-text HTML sections",
+        "title": "Fast and Slow Mixing of the Kawasaki Dynamics on Bounded-Degree Graphs",
+        "trigger": "Newer general graph Kawasaki theorem could dominate the exact claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8636cfdc-37aa-46a2-9f6f-3aaaf212db1e",
+  "value": {
+    "rationale": "Canonical cubic girth-five lattice yields an exact, structurally interpretable distinction between active kinetic metastability and equilibrium: 120 excited configurations form a closed communicating class, trapping 55/63 of uniform half-filled initial data. This is a natural fixed-magnetization quench observable, not just a catalogue of Petersen pentagons.",
+    "status": "PASS"
+  }
+}
