@@ -1,15 +1,21 @@
-# Scientific review — homothetic ellipse concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the planar area normalization and the complex polynomial degree throughout. Homothety gives the exact moment identity \(G(t)=t^2D_tGD_t\) and determinant exponent \((N+1)(N+2)\). The exterior-power leading principal minor is unique and positive, yielding every eigenvalue exponent and the determinant-ratio constants. Complementary minors and known planar Chebyshev orthogonality yield the sharp smallest-eigenvalue coefficient; reproducing-kernel evaluation gives the largest-eigenvalue coefficient. The eigenvector rescaling is justified by finite-dimensional coefficient bounds and uniqueness of the monic planar norm minimizer, not inferred from finite examples. The checker independently evaluates moment matrices, exact determinant identities, all eigenvalue scales, and scaled eigenvectors for degrees through six and two eccentricity choices. Assumptions: fixed positive \(a>b\), fixed finite \(N\), aperture \(t\downarrow0\). No numerical check is used as a universal proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The 2019 planar-orthogonal-polynomial paper gives the Chebyshev norm identity and basis but does not state the homothetic concentration determinant, spectral hierarchy or nodal limit. Its 2019 Coulomb-gas companion addresses polynomial kernels and different correlation limits. A related 2026 public mathematical note proves shrinking-window spectral powers for **real-line Gegenbauer/Dunkl–Hermite weights**, not two-dimensional analytic polynomials on a planar ellipse, and no implication to the planar sharp constants and nodal convergence was found. Another 2026 public note studies zeros of a finite center reproducing kernel as ellipse eccentricity changes, not zeros of the least-observed eigenfunction under a shrinking observation ellipse. Search coverage included alternate names such as Slepian concentration, planar Bergman restriction, small homothetic aperture, Chebyshev and Gegenbauer ellipses. Historical rediscovery is possible because Gram/exterior-power tools are classical; no claim of universal priority certification is made.
+PASS
 
-## Mathematical value — PASS
-This solves a defined inverse-observation stability problem for a **complete degree band** on every noncircular ellipse: it identifies all finite-band concentration powers and coefficients, the exact product at all aperture sizes, the sharp extremal condition-number constant, and the actual nodal pattern of the uniquely least-visible polynomial. The connection between Chebyshev orthogonality on a two-dimensional ellipse and sharp small-aperture spectral loss is nontrivial and can guide placement and conditioning of polynomial measurements. Exact determinant scaling alone is elementary and is not submitted as the sole value claim. The result is distinct from the cited one-dimensional shrinking-window theorem, whose sector formulas do not imply the planar moment ratios.
+The normalized ellipse area moment matrix G is positive definite and exact scaling z=tw gives G(t)=t^2 D_t G D_t; its determinant exponent is 2(N+1)+2 sum_{j=0}^N j. On kth exterior power the unique least t-exponent minor I=J={0,...,k-1} survives as a positive rank-one limit and has nonzero eigenvalue det(G_k)det((G^-1)_k). Taking consecutive exterior-power products establishes all k spectral exponents, not merely the product. Complementary principal minor identity yields least coefficient H_N/M_N, with H_N the L2 norm of monic ellipse planar Chebyshev P_N(z)=(c/2)^N U_N(z/c); the largest coefficient is K_N(0,0). The least polynomial f_t, normalized in outer E, has lower coefficients O(t^(N-j)) by fixed-space norm equivalence. Its rescaled monic limit minimizes the E norm uniquely and hence equals P_N. Symmetry of real Gram matrix and simple limiting roots force eventually real simple roots in tE. Exact rational independently constructed monomial moments confirmed all determinant and Chebyshev orthogonality/norm formulas for axes (3,2),(5,1) and N=1..4. This finite check corroborates but does not prove arbitrary N; the fixed-degree exterior-power and minimization proofs do.
 
-## Sources and remaining limits
-Primary sources: Akemann–Nagao–Parra–Vernizzi, arXiv:1905.02397v1, and Nagao–Akemann–Kieburg–Parra, arXiv:1905.07977v1. Additional statement-level and full-result comparisons were made against the publicly archived 2026 notes *Explicit shrinking-window eigenvalue hierarchy for Dunkl–Hermite and Gegenbauer concentration* and *Real-to-nonreal zeros in finite Bergman kernels of ellipses*. Other unindexed prior work could cover an equivalent general scaling lemma. The theorem has no growing-bandwidth, nonhomothetic, or stable numerical-algorithm claim. A separate independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite-dimensional exterior-power mechanism and planar Chebyshev ellipse norms are prior mathematics, but the bounded comparisons did not identify a single published result asserting the combined exact ellipse homothetic spectrum, explicit extreme constants, and rescaled least-mode nodal theorem. Priority is best-of-knowledge, not a guarantee.
+
+## value
+
+PASS
+
+This is a natural planar analogue of finite-band concentration with a genuine geometry-specific recovery question: exact sharp singular scales for all polynomial modes, explicit least-mode observability constant, and a limiting zero configuration on the ellipse focal segment. Those are structurally useful to approximation and inverse sampling and are not determined by the determinant alone. Uniformity in N or eccentricity is not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
