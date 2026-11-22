@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact geometric duality is fixed in the intrinsic zero-sum Euclidean space, with no deleted-coordinate metric substitution. Extreme polar potentials are classified by connected tight-edge graphs, which forces each clique blade to have a signed nonempty binary pattern. Opposite signs are strictly better for equal supports; a two-case strict increment proves the smaller blade is full at every maximizer. Maximization of the remaining strictly concave integer quadratic gives every parameter boundary. Contact multiplicities count distinct facet normals, and the rank proof uses an injective centering map and independent basis-difference arguments. Central symmetry proves unrestricted-center optimality. An exact-rational standalone enumeration of more than two million potentials and direct tight-graph checks corroborate, but do not replace, the proof. A final rank check distinguishes the two-consecutive-maximizer case, which has rank \(b+1\), from the unique-internal-maximizer case, rank \(b\).
+PASS
 
-## Originality
+Polar vertex characterization follows from tight-edge connectedness: with hub potential zero each clique blade has one chosen sign on a nonempty subset and zeros elsewhere, giving all and only extreme potentials. A centered polar normal from k nonzero leaves and signed sum s has norm²=k−s²/(a+b+1). Opposite signs dominate equal signs; all a smaller-blade leaves must be active; the remaining t in larger blade maximizes Q(t)=a+t−(t−a)²/N. Completing the square gives α=(3a+b+1)/2, exact discrete tie thresholds, contact multiplicities and sharp parity. Central symmetry converts origin-centered inradius to global radius. The span of contact normals has ranks 1, b or b+1, so its orthogonal complement gives all incenter affine dimensions with strict noncontact slack. Independent exact-rational enumeration checked 40,396 patterns in bounded parameters, not all integers.
 
-**PASS, with historical-priority qualifications.** The closest fully inspected equal-clique windmill theorem handles only equal-size blades and explicitly excludes unequal blade sizes. For \(a=b\) the result reproduces that known case and is not claimed as independently original. The new portion for \(b>a\) has a strict screening transition at \(b=3a+2\), partial large-blade extremizers, contact jumps, and alternating optimal-center affine dimensions, none implied by equal-blade balanced whole-clique contacts. Primary facet-graph and join-graph literature does not supply fixed-Euclidean inball or contact-normal rank classifications; maximum-variance (graph spread) literature is a potential source of unrecognized equivalent statements, which remains an explicit risk. Comparison of published theorem statements found no dominating asymmetric two-clique formula; absence from search results is not treated as proof of absolute novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The graph is a natural minimal asymmetric extension of the already studied equal-clique windmill. The result explains when a complete blade ceases to occur in every maximizing Lipschitz potential, and the exact threshold drives a nontrivial high-codimension collapse in the family of largest-ball centers. Both the full combinatorial contact multiplicity and parity-sensitive center dimension are intrinsic Euclidean invariants not recoverable from the known total facet count. The discrete quadratic and strict screening lemma are reusable structural tools, not merely numerical special cases.
+PASS. A fully inspected previously published equal-blade clique-windmill theorem supplies a=b and the generic polar-facet mechanism, but its hypotheses require all blade sizes equal and every touching normal has full blade support. The asymmetric family exhibits a new sharp b=3a+2 loss of full larger-blade support and previously absent parity-dependent incenter dimensions; the equal-blade result neither states nor mathematically implies that regime.
 
-## Closest literature and limits
+## value
 
-The equal-blade windmill full-result theorem is directly related and recovered only at equality of sizes. General 2021/2023 facet criteria and 2009 graph-spread definitions provide methods and terminology, not the asymmetric incenter theorem. The assertion is confined to two unit-edge clique blades in the canonical zero-sum Hilbert metric. Historical priority in alternative maximum-variance terminology is not fully excluded; the self-review is not external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp inradius/contact transitions and the sudden collapse of the family of maximum-radius centers are meaningful Euclidean invariants of a natural two-clique one-sum graph and its Lipschitz-free symmetric edge polytope. Exact binomial contact counts and affine center dimensions are not merely total-facet counts or isolated numerical computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

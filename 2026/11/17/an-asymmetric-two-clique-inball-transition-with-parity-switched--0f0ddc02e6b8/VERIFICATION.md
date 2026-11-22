@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-From the directory containing the standalone checker, run:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-No packages beyond the Python 3 standard library are needed. The checker independently enumerates all nonempty signed binary patterns per blade and evaluates the integer numerator of every squared polar-vertex norm. It compares exact maximum norms, maximizing-support descriptions, binomial tangent-facet counts, and center-span ranks to the theorem. For small cases, a separate ternary exhaustive inequality enumeration and tight-edge graph connectivity test reproduce the complete vertex set rather than assuming the product description; exact rational row reduction verifies rank. The 1,485 additional parameter checks evaluate the strict and tied integer quadratics directly.
+Polar vertex characterization follows from tight-edge connectedness: with hub potential zero each clique blade has one chosen sign on a nonempty subset and zeros elsewhere, giving all and only extreme potentials. A centered polar normal from k nonzero leaves and signed sum s has norm²=k−s²/(a+b+1). Opposite signs dominate equal signs; all a smaller-blade leaves must be active; the remaining t in larger blade maximizes Q(t)=a+t−(t−a)²/N. Completing the square gives α=(3a+b+1)/2, exact discrete tie thresholds, contact multiplicities and sharp parity. Central symmetry converts origin-centered inradius to global radius. The span of contact normals has ranks 1, b or b+1, so its orthogonal complement gives all incenter affine dimensions with strict noncontact slack. Independent exact-rational enumeration checked 40,396 patterns in bounded parameters, not all integers.
 
-Expected complete output:
+## originality
 
-```text
-EXACT_POLAR_PRODUCT_MAX_CONTACT_PASS cases=17 checked_vertices=2176596
-INDEPENDENT_TIGHT_EDGE_GRAPH_AND_CENTER_RANK_PASS
-INTEGER_QUADRATIC_THRESHOLD_EXACT_PASS profiles=1485
-TWO_CLIQUE_INBALL_AND_INCENTER_ALL_CHECKS_PASS
-```
+PASS
 
-These are finite rational checks, not a proof of all integer sizes or a demonstration of historical originality. The general proof in `RESULT.md` supplies the all-parameter argument. The statuses in this file do not assert independent validation.
+PASS. A fully inspected previously published equal-blade clique-windmill theorem supplies a=b and the generic polar-facet mechanism, but its hypotheses require all blade sizes equal and every touching normal has full blade support. The asymmetric family exhibits a new sharp b=3a+2 loss of full larger-blade support and previously absent parity-dependent incenter dimensions; the equal-blade result neither states nor mathematically implies that regime.
+
+## value
+
+PASS
+
+Sharp inradius/contact transitions and the sudden collapse of the family of maximum-radius centers are meaningful Euclidean invariants of a natural two-clique one-sum graph and its Lipschitz-free symmetric edge polytope. Exact binomial contact counts and affine center dimensions are not merely total-facet counts or isolated numerical computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
