@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the all-doubly-stochastic one-step operator-norm optimum. Left translations and conjugation symmetrization preserve exactly the permitted support, the doubly stochastic constraints, and the uniform projection. Convexity reduces the unrestricted feasible set to central probability measures. The four scalar Fourier eigenvalues follow from the ordinary \(A_5\) character table; the elementary inequality \(\max\{(1-x)/6,x/5\}\ge1/11\) is sharp at class masses \((5,3,3)/11\). Direct substitution and the regular-representation dimension-square multiplicities establish the asserted spectrum. The standalone exact integer permutation checker verifies the relevant group-specific adjacency polynomial and traces, without substituting finite tests for the general norm argument.
+## correctness
 
-## Originality — PASS, with historical-priority caveat
-A directly relevant finite-group Fourier study, Moreno–Velasco (2021), provides general mixing estimates, not an inspected exact 44-generator \(A_5\) constrained norm minimum. The accessible full text of Olesker-Taylor–Zanetti (2024) treats general-graph geometric bounds and mostly lazy reversible chains. A character-table normal-Cayley study from 2014 and several related studies were checked at their accessible abstract/description level; their full texts are not established as not covering this assertion. The distinguishing claim is the exact **global** optimization over all admissible bistochastic matrices, not the known Fourier/character formulas or merely an eigenvalue table. Published research-record searches found related icosahedral and graph-mixing findings, but no implication covering the present class-constrained optimum. Earlier specialized treatment remains possible and requires human follow-up.
+PASS
 
-## Value — PASS
-The allowed moves have an intrinsic geometrical description: every nontrivial odd-order icosahedral rotation, excluding all half-turns and holding. The problem poses an exact finite, structurally constrained, fastest-one-step-mixing design across 60 states, allowing arbitrary nonhomogeneous and nonreversible rules. The proof determines the sharp global contraction, uniform optimal construction, unique central equality weights, and full Fourier multiplicities, supplying a reusable finite-group averaging/minimax example. This is more than an arbitrary graph determinant or a generic existence bound.
+The actual source RESULT.md symmetrizes arbitrary feasible doubly stochastic matrices first over left translations, then conjugation, preserving the class-union support and using convexity of the operator norm. With class masses x,y,z on the order-three and two order-five classes, A5 characters give Fourier scalars (phi*y+phi_prime*z)/3, (phi_prime*y+phi*z)/3, (2*x-1)/4, -x/5. Since the two degree-three scalars sum (1-x)/3, mean-zero norm is at least max((1-x)/6,x/5), uniquely balanced at x=5/11,y=z=3/11. This is the uniform 44-neighbor kernel; its 3,3,4,5 irreducible dimension-square multiplicities yield 1(1),1/11(18),-1/44(16),-1/11(25), and symmetric normality yields exact k-step norm 11^-k. Unique central optimizer only; unrestricted uniqueness not claimed.
 
-## Limitations
-There is no claim of optimal multi-step time-varying mixing, no total-variation optimality, and no uniqueness across all noncentral minimizers. The result is a self-review only; an external independent audit has not occurred. Inaccessible relevant specialized literature introduces a residual historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Normal Cayley spectral theory and the A5 character table were known; Moreno–Velasco gives Fourier-mixing estimates for given group walks, not a sharp design over all doubly stochastic 44-edge matrices. The 2014 Cayley spectrum article examines different A5 connection sets (including a 5-cycle/2-class selection), not this odd-order 20+12+12 support. Resultary tetrahedral orbit-polytope optimization is on another family of stochastic kernels. No general theorem inspected that implies the exact 1/11 norm or central uniqueness. Best-of-knowledge PASS with recorded risks; no failure-to-find-is-proof-of-novelty inference.
+
+## value
+
+PASS
+
+Exact 44-supported nonholding A5 constrained minimax is a natural network design question; obtaining an unrestricted matrix lower bound, matching uniform walk, spectrum, and equality masses is useful beyond a stand-alone character-table computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
