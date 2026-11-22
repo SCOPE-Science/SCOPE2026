@@ -1,0 +1,11 @@
+# Scientific review: A quartic-to-quadratic diameter-tail crossover on spherical hippopedes
+
+**Correctness — PASS.** Sphere and cylinder equations imply the exact parameterization and length. For every fixed \(0<b<1\), the antipodal set is exactly four points, and a positive-definite quadratic sum expansion yields the coefficient after correctly accounting for four ordered pairs and the arclength Jacobians. At \(b=1-\kappa\sqrt\delta\), an exact trigonometric sum and bounded local rescaling give the quartic sublevel region, its factor \(2^{-15/4}/E(1/2)^2\), and \(L^1\) convergence of conditional densities. Numerical checks probe independent formulas but do not serve as an infinite proof.
+
+**Originality — PASS (best-knowledge, not absolute priority).** The nearest internal antecedent is record `6d5d48f1-93dd-4acb-a69c-8314b0c30bf7`, which covers the fixed Viviani member and a general single-antipodal-pair lemma, but specifically not the two-antipodal-pair shapes or their critical coalescence. The primary 2013 treatment describes the curves, not random-pair tail measures. Available published-finding corpus comparisons concern probability on different bodies or under different sampling measures. The original contribution is the fixed-\(b<1\) law plus the precise multi-pair-to-quartic joint scaling, conditional law, and topological bifurcation; the known fixed Viviani coefficient is expressly credited. Historical priority remains subject to literature coverage.
+
+**Mathematical value — PASS.** This classical sphere–cylinder family provides a natural one-parameter geometric singularity: the number of antipodal pairs drops at the Viviani threshold, changing a linear distance-tail law into a three-quarter-power law. Its exact resolved two-variable region and component transition give structural information not contained in separate fixed-parameter exponents.
+
+**Residual risks.** Prior work might contain an equivalent crossover under another name. The theorem does not give a joint uniform bound as \(\kappa\to\infty\). The curve may have a node, and all formulas count arclength with multiplicity as specified. No independent verification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
