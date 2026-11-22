@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The selector-table model bijects cyclic de Bruijn cycles with single-orbit local successor bijections. At orders two through four, exact exhaustive enumeration establishes the entire nonpositive covariance table. At every order at least five, the two specified turns are edge-disjoint; path contraction and the Euler-tour/arborescence ratio reduce the two-event probability to a \(2\times2\) kernel determinant. Finite suffix-prefix overlap lists provide an all-parameter symbolic evaluation, giving covariance \(2^{-n}\). This is not extrapolation from an experiment. The code independently checks full tables through order five and the explicit kernel through sixteen.
+
+**Originality — PASS (qualified).** Rødland's exact shuffled-word factor-count theory already covers general contracted path counts, so that determinant method is not claimed original. The 2013 de Bruijn cycle paper contributes background, not the new dependence statement. A published order-two, nonbinary covariance sign classification varies alphabet size, and does not imply this order-five binary threshold without a different calculation. Indexed searches for de Bruijn successor correlations, local transition dependence and binary feedback-table moment laws, together with the accessible ledger's earlier exact single-factor probability, revealed no statement of the new first-positive-order boundary. The broad general theory could conceal an equivalent corollary; a specialized older treatment may remain undiscovered.
+
+**Value — PASS.** The sharp first-positive order identifies a structural dependence transition in a standard random combinatorial design family, and the exact persistent \(2^{-n}\) witness describes its magnitude. This is a qualitative sign law, not a trivial single-value calculation or a routine re-expression of a general determinant.
+
+**Risks and limits.** Classification is only complete at orders at most four; at larger orders the result is an existence theorem rather than a full covariance spectrum. The proof relies on the uniform cyclic rotation-class measure and the exact de Bruijn successor encoding. Prior general factor moment formulae should not be mistaken for a novelty claim. No external or independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
