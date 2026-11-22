@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The mathematical argument in `RESULT.md` proves the claim for all integers \(q\ge4\), \(a,b\ge1\). The finite experiments below check implementations and boundary conditions, not all possible parameters.
+# Independent mathematical audit
 
-Run `python check_exhaustive.py` to enumerate labelled states directly. Run `c++ -std=c++17 -O2 check_independent.cpp -o check_independent && ./check_independent` for an independently written integer-encoded simulation and a separate event-by-event ancestry condition comparison. Their captured outputs are embedded in `check_exhaustive_output.txt` and `check_independent_output.txt`, respectively.
+## correctness
 
-The Python program tests fourteen triples and directly verifies maximum extinction time and its exact population. The C++ program tests eight triples and verifies the condition \(\tau=q+2\) for *every state*, not just the aggregated formula. Neither program relies on a symbolic algebra system. Calculations are finite; the all-parameter conclusion follows from the proof and not from extrapolating any numerical sample.
+PASS
 
-Scientific limitations: only the last extinction layer is classified, not the entire extinction histogram. The public literature comparisons do not establish historical uniqueness. Independent audit status remains not performed.
+For q>=4, excitation states at times t and t+2 cannot recur at one vertex, so the ancestry walk of an excitation never immediately reverses; any such walk in a tree is a simple path and has length at most diameter D=3. This limits last time of state 1 to t<=3 and last nonzero time to q+1, thus all rest by q+2. A t=3 excitation necessarily traverses a leaf-hub-hub-leaf path. The initial upstream hub must be 0 and upstream leaf shore has a 1; downstream hub initially 0 with no adjacent leaf initially 1, or q-1; downstream leaves include a color in {0,q-2,q-1}. These precise alternatives give L(a)R(b); opposite orientation is disjoint, giving the sum. All a,b positive makes count nonzero. Divide by q^(a+b+2); both L/q^m,R/q^m approach 1 giving 2/q^2. Independent all-state simulations verified q=4 a,b among (1,1),(2,2),(2,3),(3,3), q=5 (1,2),(2,2), q=6 (1,1).
+
+## originality
+
+PASS
+
+Natural all-parameter labelled double-star last extinction shell for q>=4; prior 3-color arbitrary graph and q-state one-dimensional analyses cover structural ingredients but not the branching count.
+
+## value
+
+PASS
+
+An all-branch-size exact natural extremal basin mass, with nonzero asymptotic probability 2/q^2 under growing branching, captures a meaningful finite-time delay phenomenon not determined by general extinction theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

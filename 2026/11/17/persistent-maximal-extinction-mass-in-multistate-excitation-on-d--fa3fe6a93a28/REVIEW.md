@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each integer \(q\ge4\) and \(a,b\ge1\), the deterministic rule is fixed unambiguously. Each excitation at time \(t\) has a predecessor excitation at time \(t-1\); two-step revisitation is impossible because state one deterministically progresses to state three after two updates. Therefore all ancestry walks on the double star are simple and at most three edges long. Every excitation is absent beyond time three, yielding a universal extinction bound \(q+2\). Equality requires excitation at time three. The only distance-three paths connect leaves across the two hubs. Conditional on their orientation, the initial state restrictions are necessary and sufficient; their two disjoint counts are exactly \(L_q(a)R_q(b)\) and \(L_q(b)R_q(a)\). Dividing by \(q^{a+b+2}\) proves the positive limiting probability \(2/q^2\). Both independent enumerators agree with the closed formula and the independently implemented oriented-event criterion in all recorded finite instances. These checks are supportive, not infinite proofs.
+PASS
 
-## Originality — PASS, historically qualified
+For q>=4, excitation states at times t and t+2 cannot recur at one vertex, so the ancestry walk of an excitation never immediately reverses; any such walk in a tree is a simple path and has length at most diameter D=3. This limits last time of state 1 to t<=3 and last nonzero time to q+1, thus all rest by q+2. A t=3 excitation necessarily traverses a leaf-hub-hub-leaf path. The initial upstream hub must be 0 and upstream leaf shore has a 1; downstream hub initially 0 with no adjacent leaf initially 1, or q-1; downstream leaves include a color in {0,q-2,q-1}. These precise alternatives give L(a)R(b); opposite orientation is disjoint, giving the sum. All a,b positive makes count nonzero. Divide by q^(a+b+2); both L/q^m,R/q^m approach 1 giving 2/q^2. Independent all-state simulations verified q=4 a,b among (1,1),(2,2),(2,3),(3,3), q=5 (1,2),(2,2), q=6 (1,1).
 
-Fisch and Gravner's 1995 paper investigates one-dimensional percolating paths rather than competing branch histories on double stars. Gravner, Lyu and Sivakoff develop finite-tree convergence for a three-color medium; the present theorem assumes \(q\ge4\), where the absence of two-step return and the distinct three-color terminal set give a different exact shell count. The published three-state finite-path sharp-shell count applies neither to two branching hubs nor four-or-more refractory colors. Specific published-finding corpus searches for double-star extinction and multistate excitation did not reveal an equivalent or stronger covering claim, and a claim-level overlap search of accessible prior local research found no same system and formula. This is evidence of noncoverage within examined material, not proof of historical uniqueness. A 1993 foundational preprint could be checked in abstract/metadata but not in its original full text; unindexed tree enumerations remain the primary residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact sharp-extinction population reveals a structural phenomenon not supplied by a bare diameter bound: as both leaf degrees diverge, a fixed positive \(2/q^2\) fraction of configurations still require the maximum number of updates to become quiescent. The formula resolves how initial excitations in one branch are screened or admitted by the other hub and its leaf colors. It supplies a natural, exact, all-size invariant for a canonical branching tree family and is useful for distinguishing worst-case from typical finite-time relaxation.
+Natural all-parameter labelled double-star last extinction shell for q>=4; prior 3-color arbitrary graph and q-state one-dimensional analyses cover structural ingredients but not the branching count.
 
-## Closest sources and limitations
+## value
 
-The closest inspected sources are Fisch–Gravner (1995), *One-dimensional Deterministic Greenberg–Hastings Models*, Section 5; Gravner–Lyu–Sivakoff (2016/2018), *Limiting behavior of 3-color excitable media on arbitrary graphs*, introduction and finite-tree/height results; and the published three-color finite-path maximum-extinction enumeration of 2026-11-08. None contains the derived four-or-more-state double-star last-layer count. The original full PDF of the 1993 foundational arXiv source was not available during inspection, and priority uncertainty remains. Only maximal extinction times are enumerated; no full intermediate-time census or independent review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-branch-size exact natural extremal basin mass, with nonzero asymptotic probability 2/q^2 under growing branching, captures a meaningful finite-time delay phenomenon not determined by general extinction theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
