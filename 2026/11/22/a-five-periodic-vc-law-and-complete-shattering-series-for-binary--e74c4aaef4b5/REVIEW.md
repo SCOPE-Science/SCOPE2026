@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The proof translates shattering into an alternating-quantifier subset-family automaton based on a four-state suffix recognizer for `0011`. A full twenty-six-state reachability certificate reduces exactly to seven accepting states and one rejecting sink. The generating-function identity is verified by seven exact formal polynomial equations. A seven-by-seven max-plus matrix identity supplies a finite proof of the five-step degree law. All eight thousand one hundred ninety-one support decisions at word lengths zero through twelve were independently checked against direct enumeration. The exact domain, quantifiers, empty case and linear boundary are explicit.
+
+**Originality: PASS, qualified.** Literature and indexed previous-work searches for the factor, its aliases, erasure projection, rational shattering enumerator and sharp rank formula returned no direct coverage. The 2021 binary-string VC study concerns factors of one fixed word; the 2016 partial-word avoidability study concerns different infinite-word satisfiability. The closest publicly indexed constrained-language shattering result covers avoiding both monochromatic triples, not `0011`. Its full statement/proof was inspected. General automata methods and previously known string VC theory are credited. Unindexed and inaccessible equivalents remain a historical-priority risk.
+
+**Value: PASS.** The shortest two-run four-bit forbidden factor yields nonlocal minimal obstructions to support shattering and a genuinely nontrivial, sharp five-periodic dimension law, unlike the naive consecutive-block obstruction. The exact all-length polynomial counts every support and is a natural refinement of VC dimension. This is a self-contained structural classification rather than a mere finite calculation or generic algorithm existence statement.
+
+**Limitations.** These assertions are restricted to linear finite binary words with the single forbidden contiguous factor `0011`; they do not establish other four-bit patterns or online ranks. The proofs depend on finite tables that are attached as independently replayable certificates. No historical claim of absolute priority is made.
+
+Self-review: passed. Independent audit: not yet performed.
