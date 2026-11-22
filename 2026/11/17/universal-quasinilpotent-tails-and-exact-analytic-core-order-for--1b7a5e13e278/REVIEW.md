@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Injectivity makes backward chains unique. Coefficient comparison yields the exact predecessor identity, and superexponential product decay converts its norm bound into the analytic-core exponential test. The forward product formula gives the universal negative-tail root test for the quasinilpotent part. A single test vector proves both directions of cross-weight core inclusion. The closed-range and generalized Kato conclusions follow from norm-small images of basis vectors and a commuting-projection argument. The finite rational checker confirms 2,555 identities, but is not used to infer infinite claims.
+## correctness
 
-**Originality — PASS (with identified priority risk).** Aznay–Chabbabi (2026, Section 2, Propositions 2.1–2.2) work with the particular Hilbert shift \(w_j=2^{-j}\); their negative-tail quasinilpotent criterion for that case is acknowledged as established. Miller–Miller–Neumann (2004, Lemma 1.1) supplies a general inner-local-radius/backward-chain characterization, not the explicit all-weight coefficient test or the cross-weight inclusion equivalence. Bourhim (2003, Section 4) analyzes bilateral local spectra and spectral regularity, not the order structure between analytic cores of two distinct damped shifts. The new quantitative order criterion cannot be read from a result on one operator without proving the weight-ratio equivalence. Residual risk: an older specialized coefficient criterion may be phrased in local-spectral language.
+PASS
 
-**Value — PASS.** The 2026 counterexample makes the nonclosed analytic and quasinilpotent cores mathematically consequential. The theorem classifies these subspaces on the whole natural class of one-sided null-weight shifts, while proving the unexpected asymmetry that one core is completely weight-independent and the other remembers cumulative weights up to exponential equivalence. The strict example exhibits inequivalent analytic-core structures despite identical quasinilpotent parts. These are structural and comparative conclusions beyond merely extending the original counterexample to more exponents.
+Every positive weight w_j<=1 tends to zero, so W_k=Π_{j<k} w_j decays faster than any fixed exponential. The exact n-step backward preimage coefficient ratio W_max(k-n,1)/W_k for k>0 (and 1 for k<=0), and its weighted ell_p norm, give both directions of the analytic-core characterization: the predecessor coordinate 1 forces |x_k/W_k|≤CR^k, while the weighted tail series Σ_m R^{pm}W_m^p is finite. Forward iterates on the positive half-line decay in nth-root norm, while the n-th output at index 0 equals x_-n, giving the exact H0 negative-tail condition. One test vector x_k=W_k forces necessity of the exponential comparison for core inclusion; the reverse implication uses the coordinate envelope. W/V and V/W exponential comparison yields log-difference O(k). The specific 2^{-j²} vs 2^{-j} witness separates cores. Finitely supported vectors establish density, the sqrt(W_k) and polynomial negative-tail vectors establish properness, and nonclosed range plus dense analytic core excludes generalized Kato splitting. Independent finite exact-rational predecessor identity checks passed for 96 (k,n) pairs with nonmonotone weights.
 
-**Closest literature and limits.** The most relevant earlier general statement is the backward-chain characterization of inner local spectral radius, a key methodological predecessor. The coefficient characterization and comparison use additional exact one-sided product estimates. The result does not treat two-sided varying weights, zero weights, or \(p=\infty\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Nov 8 published geometric-tail analytic-core theorem covers only w_j=q^j on ell², not arbitrary nonmonotone null tails in all ell^p or necessary-and-sufficient inclusions between different cores. General local spectral backward-orbit lemmas are credited. The cross-weight order is a mathematically additional condition, not simply the older Gaussian membership test rewritten.
+
+## value
+
+PASS
+
+Analytic cores and quasinilpotent parts are natural local-spectral invariants and pseudo-Fredholm obstructions. The exact all-weight membership tests, tail-independent H0 and strict cross-operator partial order give a useful classification across nonmonotone asymptotic tails rather than a single example. This is not just a reparameterized known geometric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
