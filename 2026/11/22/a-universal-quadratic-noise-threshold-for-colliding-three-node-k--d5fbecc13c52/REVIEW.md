@@ -1,0 +1,23 @@
+# Scientific review: universal collision threshold for three-node kernel quadrature
+
+## Correctness — PASS
+
+The claim is exact for every spacing \(d>0\), every symmetric non-point Borel probability \(\mu\), every nondegenerate Gaussian scale-mixture kernel with \(0<\mathbb E Q<\infty\), \(\mathbb E Q^2<\infty\), and independent Gaussian errors of common variance \(\eta\ge0\). The strict positive definiteness of the mixture on distinct centers establishes positive Gram denominator. The two-by-two symmetric system gives explicit weights. The key nonstandard sign lemma writes the shifted kernel mean as a fixed-scale hyperbolic cosine correction plus the nonnegative covariance of two decreasing functions of the mixing variable; the strict correction proves every outer weight positive. The center weight then has sign \(\eta-\eta_c\), exactly including equality and possible negative thresholds. Differentiation under expectations yields the positive coefficient \(A=2\mathbb E Q+m''(0)/m(0)\), while the fourth-order Gram determinant has coefficient \(2(3\mathbb E Q^2-(\mathbb E Q)^2)\). Dividing the exact formulas proves the asserted divergent and critical-noise weight limits. The Matérn-\(5/2\) closed form uses its gamma Gaussian-scale mixture and an elementary kernel primitive.
+
+The packaged verifier reproduces symbolic Gram identities and coefficients, then passes 112 finite mixture and Matérn parameter groups, including independent direct linear solves and a critical-noise zero. Finite checks are **not** used as proof for all measures, scales, spacings, or noises. The exact analytic signs and quantified limits are the evidence.
+
+## Originality — PASS with priority uncertainty
+
+The closest published Gaussian three-node positivity diagram treats one pure Gaussian covariance under **zero** nugget on the bounded uniform interval. The present exact nonnegative-noise threshold for *every* admissible Gaussian-scale mixture, arbitrary symmetric target distribution, and universal collision coefficient is not an implication of that fixed-shape zero-noise result. The published three-feature Legendre nugget frontier concerns a finite-rank polynomial kernel, not infinite-rank stationary Gaussian mixtures. Existing two-node power-exponential collision work proves random-node tail laws; it does not control the sign of fixed symmetric **three**-node posterior weights. The related fixed-interval Matérn-\(3/2\) positivity radius uses a rougher kernel whose Gaussian-mixture second moment diverges, so its asymptotics do not cover the present class. Separate full-text primary comparisons found sufficient positivity conditions for optimized totally positive kernels, generic RBF stability, or constrained positive rules, rather than this unconditional mixture sign theorem.
+
+Originality comparisons included the statement, aliases (ridge/nugget regularization, integrated cardinal weights, Gaussian scale mixtures), exact parameter specializations and possible stronger covering results. Remaining risk: an unindexed specialized classical or unpublished covariance-mixture theorem could already cover this result. Search absence alone is not offered as a novelty proof.
+
+## Value — PASS
+
+Three distinct symmetric observations are the smallest geometry in which two outer weights can stay positive while a middle unconstrained Bayesian quadrature weight becomes negative and diverges during coalescence. Negative weights undermine positive-measure interpretation and sensitivity to observation error. The theorem identifies a **sharp, computable** noise variance restoring nonnegative weights across an entire covariance-mixture family, and a universal quadratic collision scaling with sharp constants, plus a practical smooth Matérn example. This is a structural stability boundary beyond a textbook Gram solve: strict sign universality, full asymptotic classification, and a surprising need for arbitrarily small but spacing-calibrated regularization. It does not recommend increasing measurement noise as an accuracy strategy; equivalently the mathematical nugget may be chosen as ridge regularization.
+
+## Limits and priority considerations
+
+No result is asserted for asymmetric nodes, nonsymmetric measures, polynomial augmentation, heterogeneous or correlated observation noise, infinite second mixing moments, optimal quadrature error, or total publication priority. The symbolic and finite high-precision tests are corroboration only. The public proof is self-contained and all inputs needed for replay are embedded with the result.
+
+Self-review: passed. Independent audit: not yet performed.
