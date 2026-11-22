@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All assumptions, root order, unreduced chain conventions, and both Mayer indices are explicit. The proof uses the cubic-root tensor Leibniz identity and verifies every bar tensor factor by chain ranks; induction yields exactly one central short bar. The quotient by the empty face is handled explicitly, avoiding the common augmented-chain normalization error. For the punctured tournament, the only missing allowed path is the source-to-sink edge, and the three obstruction functionals are nonzero. The explicit chain \(x,dx,d^2x\) is a genuine stable complement and proves homological invariance. Two exact finite-field replays independently corroborate small cases but are not infinite proofs. The higher parameter range follows from algebraic induction, not extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+For a transitive tournament, all allowed paths are strictly increasing subsets and the primitive cube-root deletion differential d obeys d³=0. The augmented subset complex is E^{⊗_ω n}, with explicit bar tensor identities B1⊗E=B2, B2⊗E=B3⊕B1 and B3⊗E=B3⊕B3, giving exactly one short central bar and one B3 starting in degree zero. Modding out the empty subset converts that B3 into a B2 and yields the additive parity-dependent Kronecker Betti expressions in both q=1,2. Removing 1→n excludes one degree-one path; allowed d-invariant subspaces in degrees 2 and 3 are the respective kernels of missing-edge coefficient after d and d². For n≥4, x=(1,2,3,n) gives a nonzero λ(d²x)=1+ω²=-ω and its three-element bar splits the quotient, so all Mayer groups are invariant. Independently built exact q-boundary matrices mod 7 and verified both Betti profiles n=2..8, not a proof for all n or over C.
 
-The May 2026 foundational Mayer-path study gives general definitions and first-cycle descriptions, not this complete all-degree tournament calculation or the edge deletion. The 2024 simplex paper tabulates the first seven *full* simplex cases, which are acknowledged as earlier instances; its published calculation does not cover the punctured digraph, and it does not give a general formula. Kapranov's and Tikaradze's foundational \(N\)-complex results provide machinery but no stated extremal-edge stability result. Published calculations of monotone ladders and regular tournaments address non-equivalent structures or different invariants. The broad general homological algebra might permit alternative derivations, and unindexed equivalent results remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an all-size classification, not a new line of a finite table: it identifies all nonzero degrees and multiplicities for both cubic Mayer indices. It also proves a graph-specific exact edge-deletion stability statement for a dense directed acyclic family where the allowed-path chain space changes in three degrees. The explicit split exact complement explains the phenomenon and can be used to test proposed sensitivity and edge-perturbation rules for higher-order directed homology. The theorem does not claim a broad directed homotopy invariance or other root orders.
+The 2024 Mayer Dirac published finite simplex table through seven vertices already covers those undeleted sizes, and foundational N-complex q-tensor machinery is prior. The 2026 Mayer Path Homology primary full HTML was materially read: it classifies low-dimensional invariant path generators and first Mayer cycles but not all-size transitive-tournament Betti values nor the punctured source–sink arc. The result survives as a complete natural all-size classification plus an exact graph-specific edge-deletion split, subject to a general-tensor-theory corollary risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural directed graph family provides fully determined cubic Mayer homology for every n and both q indices; the edge-deletion result is a precise structural invariant of higher-order directed topology and exposes an exact lost-chain bar. It extends rather than simply reproducing the known finite simplex table; a natural exact classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
