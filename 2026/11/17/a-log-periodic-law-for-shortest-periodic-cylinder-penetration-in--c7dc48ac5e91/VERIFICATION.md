@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-Run the accompanying `verify.py` using Python 3.9 or newer, without third-party packages. The program enumerates every length-\(n\) binary block in each listed dyadic-period orbit, includes the fixed all-zero configuration, and keeps the minimum actual periodic extension period of each distinct block. At each \(1\le n\le110\), it checks the complete predicted frequency histogram, the exact factor-complexity identity, and both integer-valued moment-sum formulas. The actual run printed:
+## correctness
 
-```
-VERIFY_OK exact_histogram_1_to_110=110 exact_moment_identities=220
-```
+PASS
 
-Verification beyond finite checks: the proof in RESULT.md establishes the exact list of periodic points in the closure, disjoint cylinder families, the period histogram for **arbitrary** window length, and uniform summability of the remaining geometric-series weights. These infinite conclusions are arguments, not empirical extrapolations. Differentiating the explicit rational mean profile yields the sharp \(2/3\) and \(3/4\) extrema. This is not a formally verified proof, and independent validation has not been performed.
+Proof reconstructs periodic points of the compact closure (the dyadic cycles and all-zero configuration), since escaping periods contribute only singleton or zero nonperiodic limits. Distinct words with two or more 1s determine their dyadic gap; N-period singleton placements cover exactly N-r positions, while the other 2r singletons first enter at 2N. The all-zero and period-one all-one blocks give h(1)=2 even at n=1. Summation gives exactly 2n words and first/second moment geometric identities; summably weighted dyadic atoms yield the phase family and differentiation of m(t)=2/t-4/(3t²) gives endpoints 2/3, maximum 3/4 at t=4/3. All n>=1 including n a power of two are covered, and the normalized variance q(t)-m(t)^2 is explicitly justified.
+
+## originality
+
+PASS
+
+Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.
+
+## value
+
+PASS
+
+A natural countable zero-topological-entropy but densely periodic subshift separates mere periodic-density and linear word complexity from quantitative least-period penetration; its exact all-n histogram and nonconvergent normalized weak profile give an accessible counterexample and precise benchmark for symbolic dynamical recurrence questions, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

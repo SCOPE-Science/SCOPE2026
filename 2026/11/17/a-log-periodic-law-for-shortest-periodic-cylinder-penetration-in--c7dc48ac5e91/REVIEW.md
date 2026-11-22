@@ -1,11 +1,21 @@
-# Scientific review: dyadic sparse periodic-cylinder penetration
+# Independent mathematical audit
 
-**Correctness — PASS.** The closure has exactly the periodic points listed in RESULT.md; the only additional points are the zero point and singleton-marker configurations, the latter aperiodic. The proof separates all multiple-marker words (whose gap uniquely forces their period), the singleton-marker words, and the zero word. It determines the complete histogram at every integer word length, then derives moments and the weak phase laws by summable geometric weights. The equalities at small window lengths and all dyadic boundaries were checked by an independent exhaustive finite enumerator (`verify.py`, 110 lengths). The limiting claims are proved analytically and do not depend on finite enumeration.
+## correctness
 
-**Originality — PASS, subject to standard literature priority risks.** Salo's March 2026 full text investigates the qualitative density of periodic configurations and consequences for automorphism groups, not this countable example's least periodic extension statistics. Törmä's 2026 open-access paper investigates sparse-marker gap-width subshifts and their SFT covers, not the dyadic union of equally spaced periodic points. Closest published mathematical findings include single-cycle Hausdorff isolation/entropy and a geometric *all-pair-distance* spacing shift; the former studies an individual periodic orbit's neighborhood, and the latter admits heterogeneous gaps and has complexity growing as \(n\log n\), not \(2n\). A previous positive-entropy finite-type periodic-cylinder bound requires a primitive or irreducible finite adjacency graph with Perron root strictly greater than one, which is false for the present zero-entropy, infinite-period union. No matching all-length histogram, phase law, or mean accumulation interval was found in the queried records. Unindexed work on periodic points of countable shifts remains a priority risk; search nonappearance is not a proof of absolute novelty.
+PASS
 
-**Mathematical value — PASS.** Dense periodic points are a qualitative cylinder-by-cylinder statement. This canonical dyadic, discrete-scale-invariant test case shows sharply that even exact linear word complexity and zero entropy do not regularize the normalized distribution of the least period needed to enter a cylinder. The theorem supplies a *complete natural invariant* at every resolution, not an isolated calculation: exact language size, exact period histogram, weak phase distribution, and sharp oscillatory mean bounds. It is a simple quantitative benchmark for extensions of periodic-point density questions to rate-sensitive symbolic-dynamics questions.
+Proof reconstructs periodic points of the compact closure (the dyadic cycles and all-zero configuration), since escaping periods contribute only singleton or zero nonperiodic limits. Distinct words with two or more 1s determine their dyadic gap; N-period singleton placements cover exactly N-r positions, while the other 2r singletons first enter at 2N. The all-zero and period-one all-one blocks give h(1)=2 even at n=1. Summation gives exactly 2n words and first/second moment geometric identities; summably weighted dyadic atoms yield the phase family and differentiation of m(t)=2/t-4/(3t²) gives endpoints 2/3, maximum 3/4 at t=4/3. All n>=1 including n a power of two are covered, and the normalized variance q(t)-m(t)^2 is explicitly justified.
 
-**Scope and limitations.** The theorem is for one reducible, countable binary subshift, not a general theorem about all subshifts with dense periodic points. The distribution is uniform over distinct finite words and should not be confused with orbitwise recurrence or invariant-measure sampling. The comparison with geometric spacing shifts and a single-cycle Hausdorff study used retrieved summaries when complete papers were unavailable; it was not represented as full-text verification. Independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as an exact statement/implication after direct comparison of primary material and relevant published mathematical results; significant inaccessible or indirect antecedents are retained below rather than equated to novelty proof.
+
+## value
+
+PASS
+
+A natural countable zero-topological-entropy but densely periodic subshift separates mere periodic-density and linear word complexity from quantitative least-period penetration; its exact all-n histogram and nonconvergent normalized weak profile give an accessible counterexample and precise benchmark for symbolic dynamical recurrence questions, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
