@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T13:57:10.819235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full frozen RESULT.md fixes a bi-infinite alternating positive-length grid and every data-independent convex adjacent-secant weight. The piecewise cubic Hermite basis has a nonnegative middle-cell derivative at all four (left,right)-slope corners; each flanking H10/H11 excursion has magnitude 4/27 and contributes 8/27 to total variation. An arbitrary finite-variation signal is a convergent sum of steps, giving a sharp column maximum. Pairing even/odd column inequalities gives a lower bound 2ab/(a^2+b^2) valid even for nonperiodic knot weights; squared-length weights u=b^2/(a^2+b^2),v=a^2/(a^2+b^2) attain it. Hence the stated minimax 1+16ab/[27(a^2+b^2)] and uniform special 35/27 follow. Independent exact rational checks recomputed the two column identities and tested 1764 two-periodic candidates across four mesh contrasts; these checks do not replace the all-index telescoping proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Steffen result gives 1+16/27 sup_i(h_{i-1}+h_{i+1})/h_i for a nonlinear slope limiter and two-input TV, not fixed convex blend design.",
+          "Nochetto–Salgado concerns a TV-diminishing averaging construction."
+        ],
+        "reasoning": "Neither theorem dominates the fixed-coefficient all-weight alternating-grid minimax; different map and norm prevent implication.",
+        "searches": [
+          "cubic Hermite interpolation alternating grids sharp total variation affine reproducing convex combination adjacent secant optimal 35/27",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664",
+          "https://arxiv.org/abs/1211.1069"
+        ]
+      },
+      "checked_sources": [
+        "https://files01.core.ac.uk/download/pdf/35472972.pdf",
+        "https://doi.org/10.1137/0913059",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664",
+        "https://arxiv.org/pdf/math/0504022",
+        "https://arxiv.org/abs/1211.1069"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full 1990 report describes local C1 interpolation schemes and exact norms in other function spaces.",
+          "Same-day Steffen paper proves a different nonlinear operator bound and discusses its sharpness."
+        ],
+        "reasoning": "Those results do not imply the global 1+16ab/[27(a^2+b^2)] design bound under the present exact quantifiers; standard Hermite formulae and the equal-grid case are credited as background.",
+        "searches": [
+          "https://files01.core.ac.uk/download/pdf/35472972.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hermite basis represents convex secant blends including method G; this is a one-input discrete jump variation to continuous TV norm, not uniform-operator/derivative norm.",
+          "The earlier equal-grid 35/27 is one specialization; it does not give optimal weights at every ratio."
+        ],
+        "reasoning": "The operator class is recognized under cubic Hermite/Catmull-Rom/adjacent chord interpolation names, but the exact all-weight alternating-grid minimax is a separate quantified statement.",
+        "searches": [
+          "cubic Hermite interpolation alternating grids sharp total variation affine reproducing convex combination adjacent secant optimal 35/27",
+          "https://doi.org/10.1137/0913059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Beatson–Chacko tabulates operator and derived norms of eight interpolation schemes, not the stated alternating-grid sharp TV design infimum.",
+          "Published-result search returned adjacent Hermite stability results but no identical minimax table apart from the audited claim itself."
+        ],
+        "reasoning": "Database hit for the audited claim is not evidence of independent previous priority. A finite scheme comparison is not a sharp infimum over arbitrary weight sequences.",
+        "searches": [
+          "cubic Hermite interpolation alternating grids sharp total variation affine reproducing convex combination adjacent secant optimal 35/27",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664",
+          "https://files01.core.ac.uk/download/pdf/35472972.pdf"
+        ]
+      },
+      "rationale": "A natural sharp stability-design theorem survives source comparison. The known uniform coefficient and standard Hermite construction are prior material, not independently new; what survives is minimization over ALL nonperiodic convex knot blends on alternating meshes and its exact contrast dependence. Primary Beatson–Chacko reports local cubic methods, method G, and uniform/sup and derived-operator norms, not this BV design minimax. Same-day nonuniform Steffen source has a nonlinear limiter and a two-input difference norm rather than this linear data-to-function one-input norm. Residual historical risk remains for older unpublished or differently named local Hermite analyses.",
+      "residual_risks": [
+        "Historical Catmull–Rom/chord-weight technical reports may contain an unindexed equivalent bound or parameter optimization.",
+        "The exact uniform coefficient is prior; the originality judgment concerns the all-weight, all-contrast infimum only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related operator family; no displayed all-weight BV minimax",
+          "evidence": "C1 local methods compared in sup/derived function norms and error estimates; does not define BV design minimax.",
+          "identifier_or_url": "https://files01.core.ac.uk/download/pdf/35472972.pdf",
+          "material_read": "Full 1990 manuscript, interpolation method definitions, norm comparison and error estimates",
+          "method": "Lawful open-access PDF text and page image read",
+          "title": "Which cubic spline should one use?",
+          "trigger": "Same cubic Hermite methods and operator norm comparisons"
+        },
+        {
+          "assessment": "Distinct nonlinear slope selector and two-input TV seminorm",
+          "evidence": "Steffen derivative depends piecewise on secants; sharp constant 1+16/27 sup neighbor-to-center mesh ratios.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-mesh-ratio-control-of-two-input-variation-for-nonuniform-s--c024605d3664",
+          "material_read": "Full published RESULT.md including proof and assumptions",
+          "method": "Full primary research-result text read",
+          "title": "Sharp mesh-ratio control of two-input variation for nonuniform Steffen cubic Hermite interpolation",
+          "trigger": "Similar sharp Hermite variation statement"
+        },
+        {
+          "assessment": "Different B-spline quasi-interpolation class",
+          "evidence": "Defines dQIs and their infinity norms, rather than the weighted cubic Hermite TV infimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0504022",
+          "material_read": "Full 12-page primary text, Sections 2-3, PDF page 3 image",
+          "method": "Open-access arXiv PDF and screenshot",
+          "title": "Univariate spline quasi-interpolants and applications to numerical analysis",
+          "trigger": "Possible exact spline TV norm prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural, unbounded stability-design problem is solved over all knot-weight sequences rather than just a convenient symmetric ansatz. The exact attained minimax quantifies inevitable spline overshoot, supplies a robust coefficient prescription, and shows strong mesh contrast can improve sharp TV stability toward 1. Sharp witnesses and the telescoping impossibility bar supply structural interest beyond correct calculations; no claim to general spline optimality is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical Catmull–Rom/chord-weight technical reports may contain an unindexed equivalent bound or parameter optimization.",
+    "The exact uniform coefficient is prior; the originality judgment concerns the all-weight, all-contrast infimum only."
+  ],
+  "schema_version": 1
+}

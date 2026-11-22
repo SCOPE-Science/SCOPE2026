@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The definition specifies every knot, coefficient, function space and seminorm. The complete proof reduces the norm to a step via an absolutely summable jump series. The middle Hermite piece is verified monotone for every permitted pair of endpoint slopes, while each exterior overshoot has the exact variation \(8/27\) times its normalized derivative. The nonperiodic-weight lower bound uses a telescoping inequality on alternating mesh pairs; a periodic squared-length rule attains it. Symbolic computations and numerical stress checks support, but are not substitutes for, these identities. No infinite statement relies on finite enumeration.
+## correctness
 
-**Originality: PASS (best-knowledge, qualified).** The fixed uniform-grid sharp coefficient \(35/27\) is covered by prior work and is not claimed independently. The new statement minimizes over all, including nonperiodic, data-independent convex secant blends on every two-periodic mesh and establishes the sharp contrast law \(1+16ab/[27(a^2+b^2)]\). Beatson–Chacko's operator norms concern sup and derivative norm estimates for various interpolation schemes (including its method G, an instance of the present convex-secant family), but not for the BV metric or its coefficient design; Sablonnière's examined quasi-interpolants are not these piecewise Hermite operators. The related 2012 variation-diminishing finite-element scheme and nonuniform nonlinear limiter results do not imply the design infimum. A historical unindexed equivalence remains a priority risk.
+PASS
 
-**Mathematical value: PASS.** The theorem resolves a genuine stability-design question for the natural affine-reproducing convex-secant family and permits arbitrary weight sequences, not just a two-variable optimization imposed by symmetry. Alternating mesh contrast unexpectedly improves the optimal first-order variation stability and can make the gain arbitrarily close to one; the usual centered-chord choice behaves differently. The exact sharp one-jump witness and the period-pair telescoping obstruction explain both the positive design and the impossibility of improving it inside the stated class. The contribution is not intended as an accuracy-optimality or all-spline statement.
+The full frozen RESULT.md fixes a bi-infinite alternating positive-length grid and every data-independent convex adjacent-secant weight. The piecewise cubic Hermite basis has a nonnegative middle-cell derivative at all four (left,right)-slope corners; each flanking H10/H11 excursion has magnitude 4/27 and contributes 8/27 to total variation. An arbitrary finite-variation signal is a convergent sum of steps, giving a sharp column maximum. Pairing even/odd column inequalities gives a lower bound 2ab/(a^2+b^2) valid even for nonperiodic knot weights; squared-length weights u=b^2/(a^2+b^2),v=a^2/(a^2+b^2) attain it. Hence the stated minimax 1+16ab/[27(a^2+b^2)] and uniform special 35/27 follow. Independent exact rational checks recomputed the two column identities and tested 1764 two-periodic candidates across four mesh contrasts; these checks do not replace the all-index telescoping proof.
 
-**Closest literature and limitations.** The full available text of the 1990 Beatson–Chacko report was examined in its definitions of local methods, comparison of operator norms, and proof methods. The 2005 Sablonnière HTML text was examined for its QI definitions and cubic estimates. The 2012 Nochetto–Salgado arXiv abstract describes a TV-diminishing operator of another type. Older Catmull–Rom sources have different parameterization formulas and are a residual historical-priority risk. The mathematical scope is exactly the two-periodic real grid with fixed convex-adjacent-secant cubic Hermite reconstruction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A natural sharp stability-design theorem survives source comparison. The known uniform coefficient and standard Hermite construction are prior material, not independently new; what survives is minimization over ALL nonperiodic convex knot blends on alternating meshes and its exact contrast dependence. Primary Beatson–Chacko reports local cubic methods, method G, and uniform/sup and derived-operator norms, not this BV design minimax. Same-day nonuniform Steffen source has a nonlinear limiter and a two-input difference norm rather than this linear data-to-function one-input norm. Residual historical risk remains for older unpublished or differently named local Hermite analyses.
+
+## value
+
+PASS
+
+A natural, unbounded stability-design problem is solved over all knot-weight sequences rather than just a convenient symmetric ansatz. The exact attained minimax quantifies inevitable spline overshoot, supplies a robust coefficient prescription, and shows strong mesh contrast can improve sharp TV stability toward 1. Sharp witnesses and the telescoping impossibility bar supply structural interest beyond correct calculations; no claim to general spline optimality is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
