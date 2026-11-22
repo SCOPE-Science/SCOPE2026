@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T23:09:54Z",
+  "axes": {
+    "correctness": {
+      "proof_paths": [
+        "RESULT.md Finding and Assumptions",
+        "RESULT.md Proof cyclotomic rational-angle lemma and source-to-dark amplitude",
+        "RESULT.md Proof dissipative Jordan-block argument",
+        "check.py exact polynomial and projector code inspected but not taken as general proof",
+        "independent_quantum_check.py fresh 98 bounded checks"
+      ],
+      "rationale": "The frozen RESULT.md defines the open two-leg uniform-adjacency graph P2 square Pn for every n>=2, H_gamma=A-i gamma |a,1><a,1| with gamma>0, and input |b,n>. Product path/rung eigenvalues are 2cos(pi k/(n+1)) +/-1; each simple level is visible at the sink. The cyclotomic trace lemma correctly restricts the cross-band difference 2 to path eigenvalues +/-1 (indices (n+1)/3 and 2(n+1)/3), only if 3 divides n+1, giving exactly one zero-energy dark direction. The sink-cancellation vector (phi_{+,2t}-phi_{-,t})/sqrt2 with t=(n+1)/3 has source amplitude -c(1+(-1)^t)/sqrt2, c=sqrt3/(2sqrt(n+1)), giving 3/[2(n+1)] for n=5 mod 6 and zero otherwise. Bright complement has strictly negative imaginary spectrum by the dissipative quadratic form; finite Jordan blocks decay and the long-time norm is the dark projection, independent of gamma. Independently written check performed 59 exact Chebyshev-polynomial gcd tests for n=2..60 and 39 direct symmetric-adjacency projector tests for n=2..40 (98 passing checks). A first test-script comparison raised a spurious SymPy Poly domain-equality assertion despite identical expressions; corrected by comparing expressions, not by changing any result. Finite checks corroborate rather than prove the universal assertion. No contradiction found, including n=2, n=5, n=8, n=11, n=17 boundary examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior published result gives for all n>=2 the entire dark-space dimension and a closed formula at every vertex, not merely the diagonally opposite corner.",
+          "Razzoli et al. (2021), Equations (11)-(12) and Appendix A give generic bright/dark projection theory but do not themselves produce the exact ladder arithmetic table."
+        ],
+        "reasoning": "The October 26 all-vertex position-resolved ladder theorem strictly dominates the November 8 opposite-corner specialization; the general absorption-subspace formalism in Razzoli supplies background only.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/RESULT.md",
+          "Resultary semantic query: open quantum ladder with local loss modulo 6 survival probability dark states",
+          "https://www.mdpi.com/1099-4300/23/1/85",
+          "Web query: Transport efficiency of continuous-time quantum walks on graphs Razzoli Paris Bordone dark subspace"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/METADATA.json",
+        "https://www.mdpi.com/1099-4300/23/1/85",
+        "https://arxiv.org/abs/2205.13188",
+        "https://arxiv.org/abs/quant-ph/0610212"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sitewise formula: for 3|(n+1), row 2 has survival 3/[2(n+1)] exactly at column x congruent 1,5 modulo 6; otherwise zero.",
+          "Set x=n. If n=5 modulo 6, n+1 is divisible by 6 and row 2 x=n is selected. If n=2 modulo 6, n+1 divisible by 3 but x=n is not selected. If n is in any other class, the dark space is zero."
+        ],
+        "reasoning": "This is a direct unconditional implication under identical graph, sink, normalized hopping, source site and all positive absorption strengths. The earlier paper proves a strictly stronger all-site result, so neither the opposite-corner selection nor the modulo-six fraction survives as new. The change of sink-strength coefficient by 2 is immaterial.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/RESULT.md",
+          "Resultary record: An arithmetic on-off law for corner absorption on quantum ladders",
+          "https://www.mdpi.com/1099-4300/23/1/85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 Resultary RESULT.md defines A(P_n square P_2) and rank-one corner loss, and gives a normalized dark vector with sitewise probabilities, including every source site (x,y).",
+          "The November 8 claim fixes the source to (n,2) and sink to (1,1), so it is an exact specialization of those all-site probabilities."
+        ],
+        "reasoning": "Equivalent physical model despite A-i gamma |c><c| versus A-i(gamma/2)|c><c|: both assert all positive loss rates and one identifies the rates by factor two. The published all-site theorem covers this source and normalization. No operator-level distinction remains.",
+        "searches": [
+          "Resultary semantic query: open quantum ladder with local loss modulo 6 survival probability dark states non-Hermitian quantum walk first detection ladder periodic mod six",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/RESULT.md",
+          "Web query: continuous time quantum walk open ladder corner trap survival source opposite corner mod six absorbing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior RESULT.md directly tabulates 3/(2p) for row 2 at x congruent to 1 or 5 modulo 6, and zero elsewhere, when p=n+1 is divisible by 3.",
+          "Its 2026-10-26 metadata precedes the assigned 2026-11-08 metadata."
+        ],
+        "reasoning": "The exact numerical and modular survival invariant is already recorded for all source sites in a prior published mathematical result. No additional computation or new table column is needed.",
+        "searches": [
+          "Resultary search: corner absorption quantum ladder arithmetic on-off",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/METADATA.json",
+          "Resultary semantic search: open quantum ladder with local loss modulo 6 survival probability"
+        ]
+      },
+      "rationale": "FAIL: October 26 published prior same-model all-vertex ladder theorem gives the exact normalized dark eigenmode and final survival at each (x,y). At diagonally opposite x=n, row 2, its sitewise modular table reduces exactly to the assigned November 8 claim. Both use the unweighted path-times-rung adjacency Hamiltonian and a single lossy corner for all positive sink rates; factor 1/2 in the earlier definition of gamma has no mathematical effect. The prior theorem also proves the same energy-zero degeneracy and all-length classification. Four structured comparisons and full earlier proof checked. No novelty remains in a mere source-position restriction.",
+      "residual_risks": [
+        "Historical priority beyond the decisive October 26 covering result not comprehensively searched; it cannot change direct coverage.",
+        "Segawa 2022 and Volta 2006 primary full text was not read in this run, so no whole-document noncoverage claim is made for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: directly implies the entire assigned final claim, including rate independence, unique mode and exactly 3/[2(n+1)] versus zero pattern",
+          "evidence": [
+            "RESULT.md Finding all vertex probabilities and proof Step 3 dark-vector formula, Step 4 damping, source index x=n row 2",
+            "2026-10-26 METADATA.json publication_date; prior independent audit dated 2026-10-30"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/RESULT.md",
+          "material_read": "Complete published RESULT.md: Finding, Assumptions, Proof steps 1-4, Verification, Relationship to prior work, Limitations, References; plus independent audit MD and metadata publication date",
+          "method": "Retrieved full text using read-only GitHub file action, compared Hamiltonians, sink-rate convention, source localization and full sitewise survival table, algebraically substituted x=n, y=2",
+          "title": "An arithmetic on-off law for corner absorption on quantum ladders",
+          "trigger": "Exact earlier full-site ladder survival theorem returned by Resultary search, publication_date 2026-10-26, before assigned 2026-11-08 result"
+        },
+        {
+          "assessment": "GENERAL BACKGROUND: projector characterization and positive local sink are established; exact modulo-six ladder formula is not supplied here, while separate prior Resultary all-site theorem does fully cover",
+          "evidence": [
+            "Razzoli, Paris, Bordone (2021), Entropy 23(1):85, Eq. (9)-(12) and Appendix A"
+          ],
+          "identifier_or_url": "https://www.mdpi.com/1099-4300/23/1/85",
+          "material_read": "HTML introduction, Sections 2-4 on Hamiltonian, trap, transport efficiency and bright/dark projections, Section 6 and Appendix A bright-space characterization",
+          "method": "Inspected open primary full-text material and compared Eq. (9)-(12), Appendix A and graph families against ladder adjacency model",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "trigger": "Potential general bright/dark subspace implication and absorber convention"
+        },
+        {
+          "assessment": "Different evolution model in the available material; decisive originality failure is independent of this limited comparison",
+          "evidence": [
+            "arXiv:2205.13188 abstract, May 26 2022"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.13188",
+          "material_read": "Accessible arXiv abstract and model excerpt showing coined discrete-time walk and arc Hilbert space; not a complete primary full-text inspection",
+          "method": "Compared abstract/model dynamics, not relied upon to establish noncoverage",
+          "title": "Survival probability of the Grover walk on the ladder graph",
+          "trigger": "Earlier same geometry and corner-sink problem"
+        },
+        {
+          "assessment": "Not needed to resolve rejection; mathematical priority already decided by full published October 2026 ladder theorem",
+          "evidence": [
+            "Volta, Muelken, Blumen, J. Phys. A 39 (2006), abstract; arXiv:quant-ph/0610212"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0610212",
+          "material_read": "Published abstract and dated article information; complete paper not reviewed in this run",
+          "method": "Recorded possible spectral background without asserting full-text noncoverage",
+          "title": "Quantum transport on two-dimensional regular graphs",
+          "trigger": "Earlier work on finite open rectangles and transport resonances"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as a distinct research result: exact eventual corner survival is a natural physically motivated invariant, but this submitted final claim only evaluates at a single already-covered source site in an earlier fully tabulated all-site theorem. It introduces no new model, invariant, sharp limit, motivated boundary, or non-implied lemma. A separate proof/checker is useful as corroboration, not a scientifically new substantive contribution to warrant independent acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/3285a1744f5600128a1c74c65c4bca4aae6a999b/2026/11/08/a-modulo-six-survival-law-for-an-open-quantum-ladder-with-one-lo--48c81b0b4001",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f/RESULT.md",
+    "https://www.mdpi.com/1099-4300/23/1/85",
+    "https://arxiv.org/abs/2205.13188",
+    "https://arxiv.org/abs/quant-ph/0610212"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "All-size correctness is an analytic spectral proof; independent 98 tests are bounded and cannot prove all n or all gamma.",
+    "Earlier published covering theorem fully read and directly implies the assigned result; inaccessible or unindexed additional literature cannot restore originality.",
+    "Original fixed finite n then t->infinity; no claim for perturbed rung hopping, graph Laplacian, disorder or other trap/source configurations.",
+    "The original METADATA.json and AUDIT.json contain scope_run_id and other operational provenance; no private-to-public sanitization was approved or staged. The rejected record remains not_ready for publication/relocation."
+  ],
+  "residual_risks": [
+    "All-size correctness is an analytic spectral proof; independent 98 tests are bounded and cannot prove all n or all gamma.",
+    "Earlier published covering theorem fully read and directly implies the assigned result; inaccessible or unindexed additional literature cannot restore originality.",
+    "Original fixed finite n then t->infinity; no claim for perturbed rung hopping, graph Laplacian, disorder or other trap/source configurations.",
+    "The original METADATA.json and AUDIT.json contain scope_run_id and other operational provenance; no private-to-public sanitization was approved or staged. The rejected record remains not_ready for publication/relocation."
+  ],
+  "schema_version": 1
+}
