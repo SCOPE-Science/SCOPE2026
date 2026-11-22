@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Direct mass-lumped cyclic spectrum, positive inverse M-matrix off-diagonals, a verified norm/CFL margin, exact Poisson summation and a uniform geometric truncation tail prove all-mesh positivity and the distinct subsequence limits. The executable checker independently assembles direct resolvent matrices and validates 98 finite identities; finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.3 of 2611.20833 yields the positivity restriction but no two-sided spectral consistency rate.",
+        "General exponential sinc error statements are conditional on appropriate spacing refinement and therefore do not imply the exact fixed-k phase constants."
+      ],
+      "reasoning": "Positivity, maximal-principle stability, or quadrature error bounds alone are weaker/different from the exact two-subsequence result, and they do not imply the direction or size of the observed Nyquist bias.",
+      "searches": [
+        "arxiv 2611.20833 Bonito Guermond Nazarov maximum principle fractional sinc quadrature high-frequency error",
+        "periodic square root discrete graph Laplacian cycle explicit off-diagonal kernel cotangent sharp positivity CFL fractional heat forward Euler",
+        "positive CFL fractional resolvent sine quadrature constant log spacing Nyquist alternating mode Rademacher mesh",
+        "arxiv:2611.20833v1 Theorem 3.3 and Section 3.4",
+        "arxiv:1709.06619 Theorem 3.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.20833v1 HTML sections 2–4",
+      "arxiv:1709.06619 primary PDF sections 3 and 5",
+      "arxiv:1508.05869 primary PDF section 7",
+      "published-finding corpus semantic searches for source, claims, Mellin aliases, Nyquist and positivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published CFL inequality controls a convex-combination representation; it does not assert relative eigenmode accuracy.",
+        "Bounded exponential error as k tends to zero does not fix the sign of a nonzero error when k is held at 8.",
+        "Closest published-finding corpus sampled-resolvent result concerns temporal sampling of semigroup filters, rather than spatial half-powers."
+      ],
+      "reasoning": "Neither a stronger exact spectral representation nor a matching positive CFL plus Nyquist-subsequence theorem was identified in the inspected material. The new implication combines a scalar Poisson identity, a cyclic mass-lumped operator, an M-matrix positivity proof, and explicit arithmetic subsequences.",
+      "searches": [
+        "sinc quadrature fractional Laplacian Poisson summation log periodic relative error exact Fourier coefficients sine gamma Mellin",
+        "positive CFL fractional resolvent sine quadrature constant log spacing Nyquist alternating mode Rademacher mesh",
+        "periodic square root discrete graph Laplacian cycle explicit off-diagonal kernel cotangent sharp positivity CFL fractional heat forward Euler",
+        "arxiv:2611.20833v1 Equations (20)–(25)",
+        "arxiv:1508.05869 Theorem 7.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Fourier transform of the scalar sech kernel yields a log-periodic multiplier, and the inspected earlier papers use operator-norm exponential error bounds as quadrature spacing decreases.",
+        "The known alias and Mellin results found in published-finding corpus concern different spectral objects."
+      ],
+      "reasoning": "An equivalent claim would require the same Balakrishnan multiplier as a function of log eigenvalue and the two phase limits on a periodic heat grid; the inspected primary quadrature proofs only bound the discretization error rather than giving the positive-CFL signed subsequential phenomenon. Poisson summation itself is acknowledged as standard.",
+      "searches": [
+        "log periodic Poisson Mellin aliasing of Balakrishnan sinc quadrature fractional powers fixed logarithmic spacing Nyquist modes",
+        "infinite trapezoidal quadrature for x^s resolvent exact Fourier series hyperbolic secant log periodic discretization error",
+        "log periodic spectral relative error of Balakrishnan fractional Laplacian sinc quadrature on cyclic uniform finite element grid",
+        "arxiv:1709.06619 Sections 3 and 5",
+        "arxiv:1508.05869 Section 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest: 2026/10/26/SCOPE-exact-mesoscopic-fourier-resonances-in-a-positivity-preserving-p--ab69d2ac9b8a, which uses a different positive stencil."
+      ],
+      "reasoning": "No observed exact numerical constant, table row or equivalent record covers the signed pair of hyperbolic-secant constants on the positive fractional-heat update. Search failure is not a uniqueness certificate.",
+      "searches": [
+        "log periodic Poisson Mellin aliasing of Balakrishnan sinc quadrature fractional powers fixed logarithmic spacing Nyquist modes",
+        "log periodic spectral relative error of Balakrishnan fractional Laplacian sinc quadrature on cyclic uniform finite element grid",
+        "arxiv 2611.20833 Bonito Guermond Nazarov maximum principle fractional sinc quadrature high-frequency error",
+        "positive CFL fractional resolvent sine quadrature constant log spacing Nyquist alternating mode Rademacher mesh"
+      ]
+    },
+    "rationale": "Primary finite-element paper and foundational Balakrishnan quadrature work prove positivity and convergence bounds, whereas the new claim provides two exactly characterized opposite-signed Nyquist damping limits under the published sufficient CFL with strict Markov positivity. Actual published-finding corpus semantic searches found conceptual neighbors but no covering same-operator statement; residual priority risk noted.",
+    "residual_risks": [
+      "Prior unindexed numerical-analysis text may have the exact infinite logarithmic-grid multiplier from Poisson summation.",
+      "The precise fixed spacing k=8 and equal index cutoffs are a benchmark choice, not the optimized parameters of the cited convergent method.",
+      "Only relevant full-text sections, not every sentence of the complete older papers, were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides resolvent representation, sufficient maximum principle and exponential quadrature errors; not the exact two fixed-k Nyquist subsequences and signed limits",
+        "evidence": [
+          "arxiv:2611.20833v1 sections 2.2–2.3, 3.3–3.4; theorem 3.3 equation (21)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.20833v1",
+        "material_read": "Full HTML Sections 1, 2.1–2.3, 3.3–3.4, relevant high-order and conclusion paragraphs",
+        "method": "Read main text, Equations (2), (4), (5), (20), (21), (25), Theorem 3.3 and its proof",
+        "title": "Maximum principle preserving approximation of scalar conservation equations with a fractional Laplacian",
+        "trigger": "Exact published operator, finite-element mass lumping, positivity CFL and sinc quadrature"
+      },
+      {
+        "assessment": "Exponential error estimates when spacing tends to zero, with truncated positive resolvent sums; no explicit fixed-spacing hyperbolic-secant Fourier alias and CFL-admissible Nyquist phase limits located in inspected scientific sections",
+        "evidence": [
+          "arxiv:1709.06619 sections 3.1 and Remark 3.1, formulae (26)–(29)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.06619",
+        "material_read": "Abstract/introduction, Section 3.1 including sinc error decomposition, Theorem 3.2 and Remark 3.1, Sections 5 numerical-error discussion",
+        "method": "Inspected primary PDF text and rendered opening page; checked exact and alias terminology and detailed bounds",
+        "title": "On Sinc Quadrature Approximations of Fractional Powers of Regularly Accretive Operators",
+        "trigger": "Earlier mathematically closest logarithmic resolvent quadrature error analysis"
+      },
+      {
+        "assessment": "Gives exponential convergence as sinc spacing decreases; does not establish the two fixed-spacing opposing mesh limits with positive CFL step in the inspected statement and proof",
+        "evidence": [
+          "arxiv:1508.05869 Section 7, Theorem 7.1, Remark 7.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.05869",
+        "material_read": "Abstract/introduction, quadrature definition, Section 7 quadrature error theorem and its proof",
+        "method": "Inspected primary PDF text and rendered opening page, searched for Poisson aliasing and reviewed numerical-analysis error statements",
+        "title": "Numerical Approximation of Fractional Powers of Regularly Accretive Operators",
+        "trigger": "Foundational stronger coverage candidate for Balakrishnan sinc quadrature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "963c8655-a256-4667-ae52-5cd6efab6ed1",
+  "value": {
+    "rationale": "The motivated design gap is that monotone fractional diffusion and a conservative explicit CFL do not control high-frequency relative spectral accuracy. The exact logarithmic phases show both over- and under-damping on the same physical mesh family, with computable nonvanishing error constants, identifying the need to refine log-sinc spacing separately from extending its cutoff. This is a natural operator benchmark, not an arbitrary table value.",
+    "status": "PASS"
+  }
+}
