@@ -1,0 +1,15 @@
+# Scientific review: clique-windmill idempotent rank laws
+
+## Correctness — PASS
+The counted object is the full inverse-simplex-continuous partial transformation monoid (not graph partial automorphisms). The proof first restates the established idempotent fiber criterion and checks its necessity and sufficiency. A disjoint partition by whether the hub is fixed, undefined, or assigned to one fixed leaf yields an explicit independent-blade product and a single-hub correction. The equal-blade formula follows by substitution; the total-variation estimate follows by normalizing the dominant nonnegative polynomial term, and the classical iid central limit theorem gives the Gaussian limit. The coefficient formula agrees with independent exhaustive generation and literal continuity testing on nine graph sizes. Boundary values \(s_i=1\), \(m=1\), empty rank and full rank are included. Finite checks are not used as infinite proofs.
+
+## Originality — PASS (historical priority qualified)
+The general idempotent-fiber lemma is **already published** in the double-star census and is treated as prior theory, not a new discovery. The star rank enumerator is known and appears as a specialization. Published windmill Green-class counts concern the inverse monoid of induced-subgraph partial isomorphisms; idempotents there are just partial identities, and the rank law does not imply this one. The motivating primary work gives the definition, general structure, paths/cycles, but not this windmill polynomial or its Gaussian rank law. Searches of semigroup research records, general windmill / friendship aliases, idempotent enumeration, and Gaussian rank laws found no matching explicit result. An independent historical literature survey has not been performed; older unindexed graph-semigroup enumerations are residual risk.
+
+## Mathematical value — PASS
+The family smoothly interpolates from the already solved stars (one vertex per blade) to clique windmills and friendship graphs. The all-size polynomial gives the complete natural image-rank statistic, and its product-plus-shared-hub decomposition isolates the effect of finite local cliques on a graph-continuous semigroup. For friendship graphs, the new explicit rank fluctuations are asymptotically normal at \(\sqrt m\) scale with variance \(m/3\). This is a motivated quantitative structural refinement, not a new name for the universal fiber criterion.
+
+## Limits and closest sources
+The result assumes one common hub, pairwise disjoint peripheral complete blades and the full inverse-simplex-continuous monoid. It does not apply to arbitrary graph endomorphisms, arbitrary graphs or varying-size asymptotics. Closest inspected work: Margolis–Rhodes arXiv:2609.39370; published star enumeration; published double-star idempotent theorem; generalized-windmill partial automorphism theorem. Earlier results on the fiber lemma and stars are fully credited. No independent mathematical audit or priority certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
