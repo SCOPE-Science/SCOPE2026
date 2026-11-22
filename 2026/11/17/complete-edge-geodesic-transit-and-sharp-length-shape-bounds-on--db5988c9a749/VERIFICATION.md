@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-19.md",
+      "INDEPENDENT_AUDIT_2026-11-19.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The theorem uses the intrinsic shortest-path metric on two vertices connected by at least three positive-length edges with a uniquely shortest link. The proof in `RESULT.md` gives a complete partition of the product space into same-edge transit triangles and distinct-edge transit rectangles. All formulas are exact; no finite check is offered as proof for infinitely many length choices.
+## correctness
 
-The standalone Python standard-library script `verify.py` re-computes the event by independently enumerating simple path lengths. It compares the exact formula against midpoint quadrature and independently generated arclength-uniform endpoint pairs for eight length vectors involving 3–7 edges; each numerical quadrature uses a 230×230 grid for every ordered edge pair and 80,000 Monte Carlo pairs per configuration. The script checks the sharp fixed-length inequality and equality shapes. A second run of 650,000 independent conditioned-coordinate proposals verifies the three barycentric coordinate means of the same-edge simplex against \(1/3\), and the distinct-edge rectangle coordinate means against \(1/2\). Expected sampling error is accounted for by the stated tolerances in executable assertions.
+PASS
 
-Run with `python verify.py`; successful completion prints `PARALLEL_GEODESIC_COMPLETE_EDGE_TRANSIT_CHECKS_OK 8`.
+All positive geodesics can be chosen simple and a complete junction-to-junction traversal of any longer edge is replaced by shorter a; endpoints on shortest edge cannot yield full traversal. For two points on one longer edge length ell_i, the transit event is two triangles of total product area d_i^2/4, with barycentric triangle coordinates Dirichlet(1,1,1). For distinct longer edges i,j, comparing all four candidate simple path lengths gives the two disjoint corner rectangles, each area d_i d_j/4 per ordered pair, yielding d_i d_j per unordered pair over the two point orders and independently uniform conditional rectangle coordinates. Normalizing by L^2 proves the probability and mixture law. For fixed sum S= L-ma>0, Cauchy sum d_i^2 >=S^2/(m-1), positivity sum d_i^2 <S^2 yield the exact strict lower bound and attained equal-edges upper bound, plus global unattained supremum. Independently performed midpoint-grid path-minimum integration over 3 distinct 3–5 edge configurations, with agreement to ~0.002, and inspected source verify.py. Grid checks are not proof for arbitrary real lengths; domain partitions are.
 
-No randomized test establishes universal correctness, nor has any independent external mathematical audit been performed. The nearest literature studies spectral gaps and continuous mean distance on related metric graphs, with possible future historical comparison needed for exact complete-edge routing formulas.
+## originality
+
+PASS
+
+Exact two-junction whole-edge geodesic transit indicator, fixed-total sharp length-shape bounds, and conditional triangle/rectangle endpoint laws are not stated in compared metric-graph mean-distance work or near-tie studies. The prior graph shortest-path cell algorithms are relevant methods but do not imply this joint statement without substantive calculation.
+
+## value
+
+PASS
+
+Natural continuous analogue of geodesic edge load for a minimal nontrivial network, with exact conditional endpoint geometry and sharp dependence on all edge lengths. The positive precise fact is not a stock finite-graph betweenness calculation; the result distinguishes full traversal from partial edge use and gives exact extremizers and useful sampling laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
