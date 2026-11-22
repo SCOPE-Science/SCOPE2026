@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(n\ge1\), \(k\ge3\), the finite-state transition rule is fully specified and the proof's key step is explicit: a downstream suffix with \(b\) consecutive excitation rounds forces an upstream vertex to advance by exactly \(b\) before influence stops; among its \(k\) possible initial values, precisely \(1-b\pmod k\) extends that burst by one. The resulting suffixwise bijection \(d_i=x_i+b_{i+1}\pmod k\) proves the binomial burst count without limiting arguments or numerical extrapolation. The separate initially-unexcited configurations have an elementary refractory-decay census. This establishes the complete extinction polynomial, sharp bound, unique extremizer, and fixed-\(k\) central limit theorem. The independent brute-force and suffix-drive implementations agree on all prescribed test domains. The computational checks are finite and are not offered as a proof of the all-size quantifiers.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant accessible primary paper, Gravner–Lyu–Sivakoff (arXiv:1610.07320, full HTML inspected), defines its Greenberg–Hastings dynamics on **undirected** connected graphs and its Section 3 “tournament expansion” is an auxiliary maximum-rank process, not this oriented graph model. Its Theorem 3 gives an irrotationality/synchronization characterization, not an exact extinction-time histogram. Fisch–Gravner–Griffeath (arXiv:patt-sol/9304001) provide the early model but its available abstract concerns two-dimensional media and general threshold-range scaling. Existing exact analyses of cyclic successor-contact dynamics on transitive tournaments use a different transition rule and do not imply the present Greenberg–Hastings distribution. Search comparisons found no matching all-\(n,k\) formula, triangular encoding, or extremizer. Historical priority remains qualified because relevant unindexed work may exist and full text of the early foundational source was unavailable.
+PASS
 
-## Value — PASS
-The transitive tournament is the canonical maximally connected network with no directed feedback. A *complete* sharp all-size, all-refractory-length extinction classification is a natural dynamical invariant. The nonlinear, interacting excitation burst nevertheless has an exact binomial law under uniform initial conditions, with a constructive Hamming-weight recoding; the full physical extinction time has a distinct low-time refractory contribution. The unique full-duration wave-front and Gaussian typical clock quantify a mathematically meaningful best/worst-case separation in feedforward excitation. This is not a parameter substitution into the preceding cyclic successor-contact result because the refractory update is different and the derived recoding does not apply to that rule. No result for arbitrary DAGs or thresholds is claimed.
+For the transitive tournament on n>=1 vertices with edges i→j for i<j, each site samples its OUTGOING downstream neighbors, positive states 1..k-1 (k>=3) progress automatically, and zero is excited iff downstream state 1. If downstream suffix has excitation rounds precisely 0..b−1, the new upstream vertex follows x_i+t mod k through those b rounds. Exactly x_i≡1−b mod k adds excitation at time b; any other choice stops excitation forever. Processing suffixes n→1 yields invertible triangular recoding d_i≡x_i+b_{i+1} mod k and burst B=Σ1[d_i=1], hence exact binomial counts and distribution under uniform words. For B>=1 the last excited unit decays to zero k−2 rounds after its last excitation; B=0 words have exact zero-excitation cumulative count (t+1)^n. These cases yield the stated first-extinction polynomial, unique maximal word and fixed-k CLT by binomial convergence. Independently evolved all (k,n)=(3,4),(4,4),(5,4) words and checked the histograms; finite tests corroborate only.
 
-## Closest literature and remaining limitations
-Fisch–Gravner–Griffeath (1993) supply foundational model context, and Gravner–Lyu–Sivakoff (2016) the nearest accessible rigorous general study. Their undirected-graph scope differs from the present oriented complete feedforward network. Possible historical overlap outside searchable holdings remains the primary uncertainty. The exact theorem has the stated graph, update, and parameter restrictions; independent external mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Greenberg–Hastings model and papers on undirected excitation and auxiliary tournament expansions do not imply the exact directed complete-feedforward extinction polynomial or triangular Hamming-weight recoding. Related cyclic successor-contact on tournaments advances colors only with contact and is a distinct update. No earlier statement giving the same all-k binomial law or sharp unique extremizer was found in the searched material. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A finite-state directed network family with a nonlinear excitation rule has a nontrivial exact all-n,k census, a sharply attained maximal extinction clock, and a simple asymptotic distribution derived from a non-obvious triangular bijection. These are natural dynamical invariants and useful potential baselines for arbitrary acyclic graph excitation; no generalization is claimed without proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

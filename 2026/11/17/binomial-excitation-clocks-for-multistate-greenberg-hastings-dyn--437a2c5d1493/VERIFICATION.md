@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The constructive proof in `RESULT.md` establishes the theorem for every integer \(n\ge1\) and \(k\ge3\). Two independent, directly executable enumerators corroborate different aspects.
+# Independent mathematical audit
 
-Compile and run `verify_direct.cpp` with a C++17 compiler using `g++ -O3 -std=c++17 verify_direct.cpp -o verify_direct && ./verify_direct`; compare stdout to `verify_direct.txt`. This directly enumerates all \(k^n\) configurations for \(k=3\), \(1\le n\le10\); \(k=4\), \(1\le n\le8\); and \(k=5\), \(1\le n\le7\). It reconstructs the graph update without the suffix combinatorial recurrence, and checks the entire first-extinction histogram.
+## correctness
 
-Run `python3 verify_suffix.py`; compare stdout to `verify_suffix.txt`. This separately computes excitation-time traces of suffix extensions for \(3\le k\le7\), \(1\le n\le7\), and checks their complete active-burst polynomials. The program also checks that every excitation trace is a consecutive initial interval.
+PASS
 
-All specified checks passed. A finite set of exhaustive tests cannot certify unrestricted \(n\) and \(k\); that conclusion relies on the proof of the triangular bijection and refractory-decay count. These checks do not provide independent scientific validation.
+For the transitive tournament on n>=1 vertices with edges i→j for i<j, each site samples its OUTGOING downstream neighbors, positive states 1..k-1 (k>=3) progress automatically, and zero is excited iff downstream state 1. If downstream suffix has excitation rounds precisely 0..b−1, the new upstream vertex follows x_i+t mod k through those b rounds. Exactly x_i≡1−b mod k adds excitation at time b; any other choice stops excitation forever. Processing suffixes n→1 yields invertible triangular recoding d_i≡x_i+b_{i+1} mod k and burst B=Σ1[d_i=1], hence exact binomial counts and distribution under uniform words. For B>=1 the last excited unit decays to zero k−2 rounds after its last excitation; B=0 words have exact zero-excitation cumulative count (t+1)^n. These cases yield the stated first-extinction polynomial, unique maximal word and fixed-k CLT by binomial convergence. Independently evolved all (k,n)=(3,4),(4,4),(5,4) words and checked the histograms; finite tests corroborate only.
+
+## originality
+
+PASS
+
+The classical Greenberg–Hastings model and papers on undirected excitation and auxiliary tournament expansions do not imply the exact directed complete-feedforward extinction polynomial or triangular Hamming-weight recoding. Related cyclic successor-contact on tournaments advances colors only with contact and is a distinct update. No earlier statement giving the same all-k binomial law or sharp unique extremizer was found in the searched material. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A finite-state directed network family with a nonlinear excitation rule has a nontrivial exact all-n,k census, a sharply attained maximal extinction clock, and a simple asymptotic distribution derived from a non-obvious triangular bijection. These are natural dynamical invariants and useful potential baselines for arbitrary acyclic graph excitation; no generalization is claimed without proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
