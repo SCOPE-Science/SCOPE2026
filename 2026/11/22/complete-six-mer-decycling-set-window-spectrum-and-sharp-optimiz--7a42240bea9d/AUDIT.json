@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The 14 binary rotation classes partition 64 labeled six-mer vertices and each is a directed cycle, forcing at least 14 deletions. An explicit 14-vertex acyclic witness establishes sharpness. Every size-14 solution chooses exactly one per class, so the exact 181,398,528-choice domain is exhaustive. Pruning a branch only when its already-finalized survivor subgraph has a directed cycle is sound by monotonicity under adding vertices. C++ Kahn topological/longest-path computation and separately authored Python DFS cycle/longest-path computation (with different necklace order) both returned each of the 14 matching frequencies totaling 68,288; the latter explicitly verified the action and orbit counts. Finite full-domain proof, not extrapolation. The optimal mask example and two exceptional symmetry masks are replayable.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary full-text Section 4.3 and Table 1 report the total number of minimum sets at k=6 as 68,288; Section 5.3 reports per-component extrema as scatter-plot points, not each set multiplicity.",
+        "Original authors publish enumeration/longest-path code but no explicit path-spectrum theorem in reviewed source sections."
+      ],
+      "reasoning": "The earlier exact total and min/max do not mathematically determine the intermediate twelve frequencies or symmetry distribution. Generic code to perform further computations is not a preexisting statement of their outputs. Main originality risk is an external exhaustive list or supplement not inspected.",
+      "searches": [
+        "published-finding corpus: Marçais DeBlasio Kingsford 2023 MDS decycling sixmer exact path length distribution 68,288",
+        "published-finding corpus: binary order 5 de Bruijn decycling set exact minimum, ternary order-three full decycling census",
+        "https://doi.org/10.1089/cmb.2024.0544"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2311.03592",
+      "https://doi.org/10.1089/cmb.2024.0544",
+      "https://github.com/Kingsford-Group/mdsscope",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-complete-ternary-three-mer-minimum-decycling-set-census-and-shar--0d6eb2eaa895",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-minimum-unavoidable-set-and-avoidance-window-census-in-the--96243f6839cd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known count 68,288 and endpoints 13,26 constrain only three aggregate facts, leaving individual frequencies and optimizer symmetry unforced.",
+        "Independent exact enumerators report 408 at 13, 48 at 26, and 2 size-two plus 101 size-four optimizer symmetry orbits."
+      ],
+      "reasoning": "Even assuming the full earlier reported count and extrema, many distinct histograms share those facts. The classification of 408 optimizers under bit complementation/reversal requires additional explicit enumeration and group action analysis; it is neither a trivial restatement nor a corollary of the published aggregates.",
+      "searches": [
+        "published-finding corpus: 103 symmetry orbits among 408 shortest window binary k=6 minimum decycling sets under reversal and complementation; 2 size-two and 101 size-four",
+        "published-finding corpus: distribution of minimum-decycling-set window guarantees k=6 counting optimizing sets and worst-case configurations",
+        "published-finding corpus: binary order 5 de Bruijn decycling set exact minimum, ternary order-three full decycling census",
+        "https://arxiv.org/abs/2311.03592"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marçais–DeBlasio–Kingsford, arXiv:2311.03592, Section 2 identifies the sequence-sketching window guarantee with longest directed residual path. Section 5.2 and Table 2 report extrema, not exact multiplicities.",
+        "published-finding corpus 2026/10/25 ternary 3-mer decycling census studies a different graph."
+      ],
+      "reasoning": "The equivalent string-sketching formulation is already recognized; this finite classification counts all choices by each possible guarantee, not only whether a bound holds. No equivalent exact histogram or 408-optimum orbit partition was located.",
+      "searches": [
+        "published-finding corpus: binary six-mer de Bruijn minimum decycling sets full residual longest path histogram 13 408 14 3728 18 14052 26 48, 68288 total",
+        "published-finding corpus: distribution of minimum-decycling-set window guarantees k=6 counting optimizing sets and worst-case configurations",
+        "Web: Marçais DeBlasio Kingsford minimum decycling sets window guarantee sixmer 68288 histogram 408 3728 6624",
+        "https://arxiv.org/abs/2311.03592"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 k=6 states 68,288; Table 2 k=6 gives SA Min 13 and SA Max 26. Neither contains the 14-entry vector nor counts 408 minimizers.",
+        "GitHub Kingsford-Group/mdsscope README describes sketch_histo as histograms of gaps along a supplied DNA sequence; no six-mer MDS longest-path spectrum is documented there."
+      ],
+      "reasoning": "The exact target data are not the previously published counting table, endpoint table, or documented sketch-gap histogram. A complete precomputed 68,288-row data dump, if it existed, could cover the new frequency table by deterministic post-processing; that possibility is retained as a residual risk.",
+      "searches": [
+        "published-finding corpus: binary six-mer de Bruijn minimum decycling sets full residual longest path histogram 13 408 14 3728 18 14052 26 48, 68288 total",
+        "published-finding corpus: Marçais DeBlasio Kingsford 2023 MDS decycling sixmer exact path length distribution 68,288",
+        "https://github.com/Kingsford-Group/mdsscope"
+      ]
+    },
+    "rationale": "published-finding corpus queries for exact k=6 MDS longest-path multiplicities, 408 minima and 103 symmetry classes found no identical indexed statement. The directly relevant 2023 arXiv and 2024 journal full-text sections state the old total 68,288, known sharp endpoints 13 and 26 and component extrema, but not the complete per-set 14-bin distribution or sharp-minimizer orbit census. Their source code is algorithmic, not a published bin table. All local prior claims were checked for overlap. An unindexed supplemental census remains a specific priority risk.",
+    "residual_risks": [
+      "A public but unindexed supplemental file or generated dataset could encode all 68,288 sets or the same 14-bin histogram; the repository was inspected at README/file-list level but not exhaustively across every historical commit or generated result.",
+      "Published generic enumeration permits independent derivation of this finite spectrum; originality is therefore specifically the previously unreported distribution and optimizer symmetry, not the method of generating MDSs or the total/extrema.",
+      "Only k=6 is classified, and additional order-six follow-up publications not represented in available search indices could establish the same invariant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the known 68,288 sets and range 13..26; does not present all bin multiplicities or 408-optimum orbit classes in relevant scientific text",
+        "evidence": [
+          "arXiv:2311.03592 Sections 4.3 and 5.2-5.3; Table 1 and Table 2; first published November 6, 2023"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.03592",
+        "material_read": "Full open HTML with detailed inspection of Sections 2, 4.3, 5.2, 5.3, Tables 1 and 2 and caption of Figure 3",
+        "method": "Read public arXiv HTML at arxiv.org/abs/2311.03592 and searched for frequency/histogram and exact counts",
+        "title": "Sketching methods with small window guarantee using minimum decycling sets",
+        "trigger": "Same k=6 graph, MDS counts, remaining longest path; primary first-public preprint"
+      },
+      {
+        "assessment": "COVERS total and endpoint extrema but not the complete optimizer multiplicities/symmetries found here",
+        "evidence": [
+          "Journal of Computational Biology 31 (2024), Tables 1/2 and Section 5.3; first online July 9, 2024"
+        ],
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2024.0544",
+        "material_read": "Full open-access HTML, relevant Sections 4 and 5, tables, appendices/proof headings and references",
+        "method": "Read rendered journal HTML directly and compared Table 1/2 and Section 5.3 against final claim",
+        "title": "Sketching Methods with Small Window Guarantee Using Minimum Decycling Sets (journal)",
+        "trigger": "Journal version may strengthen coverage beyond 2023 preprint"
+      },
+      {
+        "assessment": "Public algorithms can enumerate MDSs and compute longest paths; no documented exact frequency table of six-mer MDS path lengths in inspected material",
+        "evidence": [
+          "GitHub Kingsford-Group/mdsscope README Programs list and Research Code overview"
+        ],
+        "identifier_or_url": "https://github.com/Kingsford-Group/mdsscope",
+        "material_read": "Public repository root file listing and README program descriptions; no unpublished private files",
+        "method": "Read repository overview, README and documented sketch_histo purpose",
+        "title": "MDSScope accompanying code repository",
+        "trigger": "Could store exact datasets/algorithms making claim a known table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a42240b-ea9d-4940-b263-c90a00f6cc25",
+  "value": {
+    "rationale": "At the first binary order with 68,288 minimum-size selectors, optimizing worst-case uncovered k-mer windows is the motivating objective of the primary sketching literature. The exact entire guarantee distribution establishes how rare sharp optimum 13 is (408/68,288), how many very poor designs exist (48 at 26), and a 103-class reversible symmetry enumeration suitable for benchmarking optimizer sampling/coverage. This is a natural complete classification of an exact performance invariant, not an arbitrary slice or an incremental tweak of the known min/max; it claims no clinical or genome-scale performance benefit.",
+    "status": "PASS"
+  }
+}
