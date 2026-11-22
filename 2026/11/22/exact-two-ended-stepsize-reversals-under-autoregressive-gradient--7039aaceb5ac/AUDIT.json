@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Unrolling SGD yields an exact strictly convex quadratic in feasible cumulative oracle weights. Toeplitz AR(1) inverse is explicit and positive definite for |rho|<1; its unconstrained unique minimizer has strictly positive weights of sum less than one and maps injectively back to steps in (0,1). Adjacent comparisons reduce exactly to signs of t+rho(1+rho) and rho(1+rho)-t P_N(rho). Rational-verifier recurrence and independent numerical optimization tested multiple parameters. Finite checks do not substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grimmer–Shen Theorem 1.1 assumes E[error_j|history]=0 and is high-dimensional worst-case smooth convex; AR(1) Gaussian error with rho nonzero violates conditional centering",
+        "published-finding corpus 2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f has unequal independent oracle variances, not autocovariance",
+        "published-finding corpus 2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384 compares permutations with mutually independent errors"
+      ],
+      "reasoning": "The wider function class of Grimmer–Shen does not cover a non-martingale oracle. The independent-noise rearrangement inequality and heteroscedastic martingale model do not imply the new AR(1) nonmonotonicity criterion; neither can be used as a stronger covering theorem.",
+      "searches": [
+        "Grimmer Shen 2026 exact theory optimal stepsizes stochastic gradient descent smooth convex lower dimension one scalar minimax schedule noise variance",
+        "optimal deterministic finite horizon SGD learning rates stationary AR1 gradient noise two endpoints initial and terminal upturn autocorrelation sign",
+        "2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f",
+        "2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.42048v1",
+      "https://documentserver.uhasselt.be/bitstream/1942/25871/1/Estimation%20in%20AR%281%29%20models.pdf",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-sharp-persistence-frontier-for-the-noise-floor-of-two-rate-sto--d1cc908093db/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hermans et al. eqs (5) and (21) imply inverse-covariance weight shape, which is explicitly prior",
+        "Grimmer–Shen 2026 assumes conditionally centered oracle, not colored noise",
+        "Published finite-horizon heterogeneous-noise published-finding corpus theorem requires unequal variance bounds"
+      ],
+      "reasoning": "Classical AR(1) GLS gives a substantial lemma but does not alone assert or optimize last-iterate gradient steps with nonzero initial bias; deriving and globally classifying the exact two-end step-order transitions requires the SGD weight-to-step map and strict convex bias/variance balance. The published related published-finding corpus findings solve mathematically distinct models. Reparameterization or unknown older optimization analyses remain priority risks.",
+      "searches": [
+        "Grimmer Shen 2026 exact theory optimal stepsizes stochastic gradient descent smooth convex lower dimension one scalar minimax schedule noise variance",
+        "correlated stochastic gradient noise optimal finite horizon step sizes quadratic AR1 memory SGD",
+        "optimal deterministic finite horizon SGD learning rates stationary AR1 gradient noise two endpoints initial and terminal upturn autocorrelation sign",
+        "2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f",
+        "2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc",
+        "2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384",
+        "2026/11/8/SCOPE-a-sharp-persistence-frontier-for-the-noise-floor-of-two-rate-sto--d1cc908093db"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hermans et al. eq (5) gives AR(1) GLS weight pattern, not shrinkage-augmented sequential SGD optimizer",
+        "published-finding corpus 2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc optimizes heavy-ball stationary variance, different objective"
+      ],
+      "reasoning": "Mapping the convex weight optimum to rates is algebraically equivalent to a constrained ridge/GLS mean estimate. Its inverse-covariance ingredients are classical and credited, but the exact pair of strict start/end step-order thresholds, their full sign-dependent classification, and their horizon dependence are not stated by the read prior work. The contribution is these motivated schedule boundaries, not the GLS identity.",
+      "searches": [
+        "correlated stochastic gradient noise optimal finite horizon step sizes quadratic AR1 memory SGD",
+        "generalized least squares scalar stochastic gradient last iterate learnable step sizes autoregressive noise golden ratio threshold",
+        "generalized least squares Toeplitz AR(1) covariance biased shrinkage gradient descent sequential update two-sided step ordering correlation",
+        "2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches show temporally varying SGD learning rates and Markov sampling records but no matching two-edge AR(1) phase diagram",
+        "Hermans et al. 2018 eq (5) is a known table of normalized statistical weights, not step sizes"
+      ],
+      "reasoning": "No inspected exact schedule table gives this signed autocorrelation, signal-to-noise phase diagram. Failure to retrieve a database match is not treated as proof of universal priority.",
+      "searches": [
+        "stationary AR(1) equal variance correlated oracle noise last iterate scalar quadratic optimal gradient descent learning-rate schedule terminal upward jump",
+        "sharp nonmonotone stepsize schedule correlated additive stochastic gradients time horizon stationary first order autoregression",
+        "2026/11/8/SCOPE-a-sharp-persistence-frontier-for-the-noise-floor-of-two-rate-sto--d1cc908093db"
+      ]
+    },
+    "rationale": "Qualified: the AR(1) GLS precision-weight pattern, convex quadratic optimization, and source SGD iteration are known. The examined published works do not give the exact fixed-horizon scalar SGD learning-rate schedule under equally distributed but temporally AR(1)-correlated oracle errors, or its unique possible initial vs terminal upturn and sharp thresholds. Novelty is claimed only for this sign-dependent step-order phase diagram and its sequential interpretation, not underlying GLS formulas.",
+    "residual_risks": [
+      "Classical GLS inverse-covariance formulas can make the derivation short; an older equivalent finite-horizon learning-rate statement could exist outside the inspected literature.",
+      "Temporal dependence appears in other stationary optimization studies; publication precedence beyond inspected full texts remains unverified.",
+      "No independent peer review or comprehensive global uniqueness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Conditional centering and high-dimensional minimax smooth convex class; AR(1) gradient errors are conditionally dependent and the present exact scalar expected-squared-loss optimum is not a corollary",
+        "evidence": [
+          "arXiv:2610.42048v1, equations (1.2), (1.4), (1.8), Theorem 1.1; conditional zero mean explicitly stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.42048v1",
+        "material_read": "Abstract, Introduction, Section 1.1, Theorem 1.1, assumptions and corollary and inspected full-text relevant sections",
+        "method": "Read original open-access HTML and evaluated hypotheses and final criteria",
+        "title": "Exact Theory and Optimal Stepsizes for Stochastic Gradient Descent in Smooth Convex Minimization",
+        "trigger": "Same base algorithm, optimal finite-horizon step schedule, monotonicity"
+      },
+      {
+        "assessment": "The AR(1) endpoint/interior inverse-precision weighting is prior art, explicitly credited. The paper estimates a common mean rather than optimizing finite-horizon gradient steps with shrinkage and proving boundary-order phase diagrams. Novelty claim excludes its weights.",
+        "evidence": [
+          "Hermans et al. 2018, equation (5): endpoints weight 1, interior 1-rho; equation (21): variance scales as (1+rho)/(n-(n-2)rho)"
+        ],
+        "identifier_or_url": "https://documentserver.uhasselt.be/bitstream/1942/25871/1/Estimation%20in%20AR%281%29%20models.pdf",
+        "material_read": "Sections 2, 3 (equation 5) and 5 (equations 21–22) in extracted authorized full text",
+        "method": "Inspected extracted full-text relevant sections and formulas",
+        "title": "Fast, Closed-form, and Efficient Estimators for Hierarchical Models with AR(1) Covariance and Unequal Cluster Sizes",
+        "trigger": "Directly supplies AR(1) constant-mean inverse covariance weights, a critical potentially stronger prior"
+      },
+      {
+        "assessment": "Requires conditional zero-mean independent or martingale noise and differing variance bounds. It optimizes high-dimensional worst-case smooth convex objective gap; no temporally correlated equal marginal variances, AR(1) inverse-covariance optimizer, or two-ended sign phase.",
+        "evidence": [
+          "published-finding corpus 2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f: v_i vary and E(error|past)=0; local threshold depends on v_{i+1}/v_i"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f/RESULT.md",
+        "material_read": "Full published RESULT.md: Finding, hypotheses, proof, related work, limitations",
+        "method": "Read published full research note from GitHub",
+        "title": "Exact minimax SGD schedules with heterogeneous oracle noise and a sharp step-order reversal criterion",
+        "trigger": "Exact optimal schedule reversal close to proposed finding"
+      },
+      {
+        "assessment": "Optimizes constant heavy-ball momentum for stationary variance, with fixed curvature-matched learning rate. Does not optimize deterministic finite-horizon schedules.",
+        "evidence": [
+          "published-finding corpus 2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc: objective V(beta,q), stationary as time to infinity"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc/RESULT.md",
+        "material_read": "Full published RESULT.md including recurrence and objective",
+        "method": "Read full published research note",
+        "title": "Sign-reversed optimal momentum and the one-ninth antipersistent noise floor",
+        "trigger": "Same AR(1) noise applied to scalar optimization"
+      },
+      {
+        "assessment": "The risk ordering explicitly assumes noise independent between iterations and compares permutations of a fixed multiset, not all schedules with correlated temporal noise.",
+        "evidence": [
+          "published-finding corpus 2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384: iid across time noise is required for exchange identity"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384/RESULT.md",
+        "material_read": "Full published RESULT.md including theorem, proof and assumptions",
+        "method": "Read full published research note",
+        "title": "Descending spectral steps minimize every terminal quadratic noise risk",
+        "trigger": "General terminal-risk descending-schedule theorem could dominate proposed claim"
+      },
+      {
+        "assessment": "Studies Markov correlations of randomly chosen step lengths, while oracle errors are independent and risk stationary. Does not cover fixed finite-horizon AR(1) oracle errors.",
+        "evidence": [
+          "published-finding corpus 2026/11/8/SCOPE-a-sharp-persistence-frontier-for-the-noise-floor-of-two-rate-sto--d1cc908093db: Markov chain on h+/h- and independent xi_k"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-sharp-persistence-frontier-for-the-noise-floor-of-two-rate-sto--d1cc908093db/RESULT.md",
+        "material_read": "Full published RESULT.md including stationary Markov chain and noise assumptions",
+        "method": "Read full published research note",
+        "title": "A sharp persistence frontier for the noise floor of two-rate stochastic gradient descent",
+        "trigger": "Correlated step order in scalar SGD may imply the same reversal"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7039aace-b5ac-4f17-889f-05bd8d721386",
+  "value": {
+    "rationale": "The motivating recent exact-schedule study proves decreasing optimal steps under martingale gradient noise. This natural scalar model provides a complete sharp boundary when equal-variance but temporally correlated gradient samples break that assumption. It distinguishes negative-correlation first-step rebound from positive-correlation terminal-step rebound, with horizon-independent versus horizon-dependent thresholds and exact rational witnesses. This is a motivated schedule-design limit, not an arbitrary parameter slice or a claim of general algorithms improvement.",
+    "status": "PASS"
+  }
+}
