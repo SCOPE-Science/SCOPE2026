@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exactly derived Gaussian sensor covariance and integral cross-covariances yield an explicit captured-variance formula. The strict derivative sign identity proves global high-budget midpoint optimality using a uniformly subunit compact ratio. Uniform first-order convergence plus strict corner derivatives proves exact endpoint-gradient optimality for sufficiently small precision at lambda=8. The intermediate-budget mixed witness defeats every pure mode by two positive exact rational inequalities. All scopes, limits and zero-precision conventions are stated. The standalone reproducer checks integrals, formula consistency and strict rational margins.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu–Aoi–Pillow, 2017, Sections 3 and 5.2, general GP derivative posterior and empirical Bayesian quadrature.",
+        "Karvonen–Kanagawa–Särkkä, 2018, Sections 2–4, optimal point quadrature weight positivity and magnitudes."
+      ],
+      "reasoning": "The prior general framework treats other optimization targets (posterior calculation, adaptive evaluation, weight stability) and does not state a theorem whose assumptions and conclusions subsume a co-located two-modality fixed total absolute precision design.",
+      "searches": [
+        "Under fixed total precision budget for a single co-located value-and-derivative Matérn 3/2 Gaussian process measurement estimating its integrated path, low budget favors derivative near endpoint, high budget value at center",
+        "Comparison between gradient and function observation Bayesian numerical integration under finite observation noise",
+        "2018 2020 Bayesian quadrature gradient observations integrating Gaussian process kernel quadrature",
+        "\"Exploiting gradients and Hessians\" \"Matérn\" \"quadrature\" \"single\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1704.00060",
+      "https://www.researchgate.net/publication/315764685_Exploiting_gradients_and_Hessians_in_Bayesian_optimization_and_Bayesian_quadrature",
+      "https://arxiv.org/abs/1812.08509",
+      "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+      "https://proceedings.mlr.press/v139/de-roos21a.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier Matérn-3/2 result optimizes two reflection-paired function-value observation sites with equal independent noise and fixed lambda=1, not one site with a derivative channel and variable allocated precisions.",
+        "The OU exponential-kernel precision-design result optimizes value-only sites and independent observation precision, not joint value/derivative sensing with differentiable Matérn covariance.",
+        "Wu–Aoi–Pillow includes general derivative-conditioned Gaussian formulas but no three-phase global optimality."
+      ],
+      "reasoning": "Different observable sigma-fields and cost domains defeat direct implication from function-only site designs; exact Gaussian posterior equations alone are necessary tools but do not supply the nontrivial global optimization proof.",
+      "searches": [
+        "Under fixed total precision budget for a single co-located value-and-derivative Matérn 3/2 Gaussian process measurement estimating its integrated path, low budget favors derivative near endpoint, high budget value at center",
+        "Gradient-enhanced Bayesian quadrature with one point Matérn 3/2, allocating measurement precision between value and derivative, design transition",
+        "Gaussian process derivative Bayesian quadrature optimal nodes derivative observation gradient 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu–Aoi–Pillow equations (4)–(8), (24)–(28): derivative Gaussian conditioning/BQ posterior but no co-located resource-constrained regime theorem.",
+        "Exact reformulation as maximizing a squared-kernel-mean term plus squared derivative-kernel-mean term, with separate rational precision responses; this reformulation was checked against primary BQ literature."
+      ],
+      "reasoning": "The broad Gaussian-conditioning identities permit calculation of each design risk but do not imply the strict global endpoint and midpoint allocation classes or the rationally certified mixed-only phase.",
+      "searches": [
+        "Under fixed total precision budget for a single co-located value-and-derivative Matérn 3/2 Gaussian process measurement estimating its integrated path, low budget favors derivative near endpoint, high budget value at center",
+        "Gradient-enhanced Bayesian quadrature with one point Matérn 3/2, allocating measurement precision between value and derivative, design transition",
+        "\"function and derivative\" \"integral\" \"optimal\" Gaussian process measurement location"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest relevant published mathematical results concerned OU kernel value-only point designs, two-noisy-site landmark models, and cubic gradient risk, but no same-site Matérn value-versus-derivative budget allocation.",
+        "No identified closed formula/table of exact full mixed-regime global optima from the queried results."
+      ],
+      "reasoning": "A missing exact database record is limited negative evidence only; analogous generic GP information formulas would not automatically settle global allocation regimes.",
+      "searches": [
+        "Under fixed total precision budget for a single co-located value-and-derivative Matérn 3/2 Gaussian process measurement estimating its integrated path, low budget favors derivative near endpoint, high budget value at center",
+        "Gradient-enhanced Bayesian quadrature with one point Matérn 3/2, allocating measurement precision between value and derivative, design transition",
+        "Comparison between gradient and function observation Bayesian numerical integration under finite observation noise",
+        "Gaussian process derivative Bayesian quadrature optimal nodes derivative observation gradient 2019",
+        "Matérn three halves Hermite Bayesian quadrature one-site value slope observation co-location, optimal information design under Gaussian precision cost",
+        "Stationary Gaussian numerical integration gradient versus value at same location, noisy derivatives, three regimes pure mixed measurement precision"
+      ]
+    },
+    "rationale": "Statement and implication checks distinguish the exact pure-gradient/mixed/pure-value co-located precision design from the conditional GP formulas and numerical BQ experiments in Wu–Aoi–Pillow, from standard point-evaluation BQ weight results in Karvonen–Kanagawa–Särkkä, and from earlier two-site function-only Matérn quadrature and stationary exponential-kernel point-only precision optimization. Searches of exact and broad aliases produced no dominating theorem; that search result is not a proof of absolute historical novelty.",
+    "residual_risks": [
+      "Non-exhaustive coverage of historical derivative-enhanced optimal design theory and inaccessible/unindexed works.",
+      "PMLR derivative-inference paper was assessed from its publisher abstract only; no false claim of full-text exclusion is made.",
+      "Alternate normalization of derivative channel observation precision would change the theorem and might make a different known design problem.",
+      "The exact topology and sharp thresholds of the mixed region are not classified; only a strict nonempty open mixed-only phase is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General derivative-conditioned posterior and numerical BQ methods are established; no exact classification of one co-located value/derivative observation under a shared absolute precision budget or three regime result was identified in the inspected full text.",
+        "evidence": [
+          "Section 3 equations (4)–(8) provide general joint derivative Gaussian conditioning; section 5.2 equations (24)–(28) give BQ posterior and adaptive location criteria and report GPBQhess versus GPBQ experiments. No fixed Matérn-3/2 allocation theorem in these sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.00060",
+        "material_read": "Original manuscript full-text author-posted rendering: Introduction, sections 2 and 3 on GP/derivative conditioning, section 5.2 on Bayesian quadrature, and discussion; particularly formulas (24)–(28).",
+        "method": "Read author-posted full text as HTML extracted from original manuscript at https://www.researchgate.net/publication/315764685_Exploiting_gradients_and_Hessians_in_Bayesian_optimization_and_Bayesian_quadrature, cross-checking arXiv source identification and initial date.",
+        "title": "Exploiting gradients and Hessians in Bayesian optimization and Bayesian quadrature",
+        "trigger": "Same derivative-enhanced Gaussian-process quadrature objective and plausible broad coverage."
+      },
+      {
+        "assessment": "Results govern quadrature point-value weights and numerical stability; they do not optimize competing value and derivative measurement-precision channels at one common site.",
+        "evidence": [
+          "Section 2 defines posterior integral variance and optimal quadrature weights for ordinary kernel point evaluations; Sections 3–4 examine positivity/bounds under optimal node placement and Matérn-type Sobolev kernels."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+        "material_read": "Open-access full-text Sections 2, 3 and 4 on posterior integration variance, RKHS norms, locally optimal nodes, positivity and weight magnitudes.",
+        "method": "Read full open-access HTML at https://link.springer.com/article/10.1007/s11222-019-09901-0, cross-referencing arXiv first-public metadata.",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Published Bayesian quadrature theory with univariate node optimality and Matérn examples."
+      },
+      {
+        "assessment": "The abstract describes scalable derivative Gaussian inference, not numerical-integral sensor resource allocation; lack of full text leaves a limited residual historical risk.",
+        "evidence": [
+          "PMLR 139:2535–2545 describes computational kernel matrix reductions for GP derivative observations in high-dimensional inference."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v139/de-roos21a.html",
+        "material_read": "Published proceedings abstract and problem statement only, not full paper.",
+        "method": "Read publisher proceedings page abstract; no full-text noncoverage claim.",
+        "title": "High-Dimensional Gaussian Process Inference with Derivatives",
+        "trigger": "Gradient-observation GP computational inference possibly covering the measurement model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1163ec88-a28d-4709-9b93-cc268f0cf318",
+  "value": {
+    "rationale": "For gradient-enhanced probabilistic numerical integration, a fixed resource budget must be allocated between signal and slope observations. The finding proves the genuinely mixed mode is sometimes strictly necessary, not just permitted, while both extreme allocation modes are exactly optimal at other budgets. This identifies a non-obvious structural boundary to an often-implicit all-or-nothing heuristic. It needs neither a general paper-sized theorem nor exact intermediate phase boundaries, and the fixed absolute-noise precision model is materially motivated and explicitly identified.",
+    "status": "PASS"
+  }
+}
