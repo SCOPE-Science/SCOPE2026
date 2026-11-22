@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite all-order chain formula is proved by independent local three-clock minima and two endpoint-vacancy factors, with exact combinatorial ranges and the exceptional boundary cases included. The canonical-start distribution follows by subtraction. For chains of growing length the Poisson theorem uses a quantitative decreasing-clock stabilization coupling, disjoint necessary-minimum events, a dependency-graph bound and converging exact means. The logarithmic longest-chain law has separate upper and independent-block lower bounds. The supplied standard-library checker enumerates every edge order for path sizes two through nine. This verification is finite evidence only, and the asymptotic assertions are justified by the written proof.
+
+**Originality — PASS, with historical-priority risk.** Gerin (2015), arXiv:1411.8002, already proves the two-vacancy distance-three probability and standard local-dependence tools: these are explicitly excluded from novelty. A spatially marked Poisson law for *late successful arrivals* concerns different random variables and has no direct implication for the longest jammed vacancy chain. The examined finite endpoint covariance and preseeded-dimer results likewise concern different statements. The contribution is the exact all-order finite chain formula plus the lattice Poisson maximum with the canonical-start factor \(2/3\). Page (1959) could not be read in full; broader multisite-correlation literature might contain a stronger result. Searching is not a proof of novelty.
+
+**Value — PASS.** The observable measures the largest cluster of mutually overlapping local augmenting-path opportunities after greedy dimer jamming. The typical maximum grows logarithmically, and the extreme law has a nontrivial clustering constant. This is a natural structural statistic of suboptimal maximal matchings rather than a restatement of occupancy density.
+
+The theorem is limited to open paths with homogeneous independent bond priorities, and the extreme limit is along integer subsequences. No claim is made for simultaneous execution of the overlapping augmentations. Independently established priority and validation are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
