@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T07:47:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md 6b00b31a0a5f8075d384cc26ff59dc3e9d7794db",
+        "pinned check.py ddc811358b97986f609a6d8a681664e2f4afc99d",
+        "https://arxiv.org/abs/2608.01109"
+      ],
+      "rationale": "At each convex polyhedral vertex, orient faces outward and label the three distinct side lengths modulo 3. The common cyclic label sequence forces each consecutive radial edge color to advance 2 mod 3, hence the vertex valence d is divisible by 3. Every three consecutive incident corners are the three angles of T once, so incident angle sum equals d*pi/3; strict convexity (<2pi) and d>=3 force d=3. Euler and triangulation counting yield V=F=4, E=6. Each side length appears on exactly two opposite tetrahedron edges, so P is disphenoid. The standard orthogonal coordinate realization gives x²=(b²+c²-a²)/8 etc, positive iff T acute, and uniform outward handedness by half-turn symmetries. The conclusion is an unrestricted combinatorial/convex proof; finite tetra/octa oriented-color verifier only corroborates.",
+      "residual_risks": [
+        "The notion of orientation preserving is explicitly with respect to outward surface orientation, not unrestricted 3D proper rotation of planar subsets. Convexity and genuine facets essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Georgiou computes min facet count allowing reflections (4,6,8); Hungerbühler et al monohedral constructions allow reflections; octahedron enumeration fixes F=8."
+        ],
+        "reasoning": "A reflection-allowed existence proof is logically weaker for uniform handedness; a specific F=8 table cannot rule out F>8. No searched broader theorem gives all-F one-handed classification.",
+        "searches": [
+          "https://arxiv.org/abs/2608.01109",
+          "https://www.research-collection.ethz.ch/entities/publication/bdb775af-ea7f-4ab7-874a-efcf45050267",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-all-edge-length-arrangements-of-scalene-faced-convex-octahedra--72d76a5b3c3a",
+          "monohedral convex polyhedra scalene triangles same outward oriented cyclic edge labels disphenoid"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.01109",
+        "https://www.research-collection.ethz.ch/entities/publication/bdb775af-ea7f-4ab7-874a-efcf45050267",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-all-edge-length-arrangements-of-scalene-faced-convex-octahedra--72d76a5b3c3a",
+        "Resultary monochiral/disphenoid/scalene triangular face searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Georgiou proves acute disphenoid existence (credited) and reflection-allowed minimum counts but does not claim exclusion for all outward-one-handed right/obtuse scalene polyhedra; exact local cyclic-color rule forces d divisible by 3 and strict curvature d=3."
+        ],
+        "reasoning": "The new implication is the all-F exclusion and tetrahedral rigidity, not the already-known acute construction. Earlier general congruent-face counting lacks the signed local relation used here.",
+        "searches": [
+          "https://arxiv.org/abs/2608.01109",
+          "https://www.research-collection.ethz.ch/entities/publication/bdb775af-ea7f-4ab7-874a-efcf45050267",
+          "monohedral convex polyhedra scalene triangles same outward oriented cyclic edge labels disphenoid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Georgiou Remark 3 distinguishes two oriented cyclic side-length words; abstract explicitly states reflection-allowed version, and the reviewed summary says direct-congruence right/obtuse scalene version remains open."
+        ],
+        "reasoning": "Compared orientation relative to outward surface normals, not mere ambient 3D rotations (which reverse planar intrinsic orientation). This prevents a false equivalence with reflection-allowed results.",
+        "searches": [
+          "monohedral convex polyhedra scalene triangles same outward oriented cyclic edge labels disphenoid",
+          "monochiral convex scalene triangular faces common outward cyclic order",
+          "orientation preserving Problem B22 scalene triangles disphenoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed exact scalene case is a four-arrangement classification of octahedra without outward-one-handed constraint."
+        ],
+        "reasoning": "This is an arbitrary-face-count obstruction rather than a pretabulated finite polyhedron census. No indexed exact oriented classification observed; absence is provisional.",
+        "searches": [
+          "monohedral convex polyhedra scalene triangles same outward oriented cyclic edge labels disphenoid",
+          "all scalene-faced convex octahedra edge length arrangements",
+          "one chirality scalene tetrahedra convex polyhedra classification"
+        ]
+      },
+      "rationale": "Georgiou (2026) classifies reflection-allowed congruent triangular facets, cites direct orientation as remaining open for right/obtuse scalene triangles; his acute tetrahedron converse is credited. Hungerbühler et al construct monohedral shapes with reflected facet arrangements, and the exact scalene octahedron classification is only an 8-face reflection-allowed finite case. Neither entails the all-face-count one-handed exclusion. The local modulo-three valence/curvature obstruction is not located as a previously published theorem.",
+      "residual_risks": [
+        "Oxford returned vpn_disconnected for Georgiou full text; abstract and substantive independent published analysis were read, but direct full primary comparison remains outstanding. Earlier differently worded orientable triangulation lemma could imply rigidity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reflection-allowed theorem does not logically include outward-signed exclusion; full text unavailable and residual risk explicitly named",
+          "evidence": [
+            "Georgiou abstract; review section on open direct-congruence case",
+            "vpn_disconnected authorization status"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.01109",
+          "material_read": "Primary abstract and bibliographic metadata; extended source-grounded third-party reading report of Section 4 and Remark 3; original PDF access blocked by institutional VPN",
+          "method": "arXiv abstract, published review, attempted authorized full text",
+          "title": "Congruent Triangular Faces, Reflections Allowed: Universal Realization and the Minimum Face Count in Problem B22",
+          "trigger": "Exact 2026 motivating scalene orientation variant"
+        },
+        {
+          "assessment": "Broader monohedral families without one-handed scalene restriction; cannot claim every theorem checked",
+          "evidence": [
+            "Hungerbühler–Hungerbühler–Pirron 2025"
+          ],
+          "identifier_or_url": "https://www.research-collection.ethz.ch/entities/publication/bdb775af-ea7f-4ab7-874a-efcf45050267",
+          "material_read": "Public abstract and selected introduction/construction scope, not full all-sections proof",
+          "method": "lawful OA source excerpts",
+          "title": "New families of monohedral polyhedra",
+          "trigger": "Potential broader congruent-faced convex construction"
+        },
+        {
+          "assessment": "Only eight-faced octahedra with both chirality types, cannot entail global all-face-count theorem",
+          "evidence": [
+            "classification of four octahedral arrangements"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-all-edge-length-arrangements-of-scalene-faced-convex-octahedra--72d76a5b3c3a",
+          "material_read": "Indexed result full mathematical statement, not complete document",
+          "method": "Resultary indexed research record",
+          "title": "All edge-length arrangements of scalene-faced convex octahedra",
+          "trigger": "Precise same triangles in fixed eight-face class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.01109",
+        "local face-color/angle curvature lemma and Euler classification"
+      ],
+      "rationale": "Solves the mathematically motivated signed/direct-congruence variant for all convex face counts, distinguishing reflection-allowed universal realizability from a strong one-handed obstruction. A simple exact curvature quantization forces global tetrahedral rigidity and gives an iff acute existence theorem; this is an unbounded classification, not a cosmetic reformulation.",
+      "residual_risks": [
+        "Only scalene, same outward chirality and convex full-dimensional polyhedra; no mixed handedness or nonconvex classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Authorized full Georgiou text unavailable (vpn_disconnected); possible older oriented triangulation characterization unresolved.",
+    "Common outward chirality and actual convex facets are essential, not an unrestricted congruence statement."
+  ],
+  "schema_version": 1
+}

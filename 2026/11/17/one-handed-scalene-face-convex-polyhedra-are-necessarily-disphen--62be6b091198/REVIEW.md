@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact oriented-edge progression around a vertex is \(c_{i+1}\equiv c_i+2\pmod3\); therefore the valence is a multiple of three and the incident face-angle sum is \(d\pi/3\). Strictly positive convex angular deficit permits only valence three. Euler's relation then gives a tetrahedron, and opposite-edge equality follows from the scalene edge-incidence counts. Explicit disphenoid coordinates certify both acuteness and the converse. The finite Python checks passed; they are not the proof of the unbounded theorem.
+## correctness
 
-## Originality — PASS (priority provisional)
-Georgiou (arXiv:2608.01109v1, 2026) distinguishes the two outward-handedness classes and explicitly leaves right/obtuse scalene orientation-preserving realization open. Its unrestricted reflected existence theorem and acute tetrahedral characterization do not establish the present nonexistence. The close published octahedral edge-incidence classification excludes orientation-preserving matching and cannot bound arbitrary facet counts. The 2025 monohedra article discusses Euler restrictions and mirror gluing, rather than the cyclic-label local curvature argument. Searches of published research records and the relevant literature found no implication-equivalent theorem; differently indexed earlier work remains a risk.
+PASS
 
-## Mathematical value — PASS
-The theorem solves a stated geometric realization gap across **all possible numbers of faces**, not merely a small vertex census. A local modulo-three coloring obstruction turns into an exact angular-curvature law and global tetrahedral rigidity. The result distinguishes an essential oriented-surface hypothesis from ordinary congruence of unmarked planar triangles in three-space.
+At each convex polyhedral vertex, orient faces outward and label the three distinct side lengths modulo 3. The common cyclic label sequence forces each consecutive radial edge color to advance 2 mod 3, hence the vertex valence d is divisible by 3. Every three consecutive incident corners are the three angles of T once, so incident angle sum equals d*pi/3; strict convexity (<2pi) and d>=3 force d=3. Euler and triangulation counting yield V=F=4, E=6. Each side length appears on exactly two opposite tetrahedron edges, so P is disphenoid. The standard orthogonal coordinate realization gives x²=(b²+c²-a²)/8 etc, positive iff T acute, and uniform outward handedness by half-turn symmetries. The conclusion is an unrestricted combinatorial/convex proof; finite tetra/octa oriented-color verifier only corroborates.
 
-## Limitations and relationship to literature
-Only genuine convex triangular facets with three distinct edge lengths and common outward-normal handedness are covered. The acute disphenoid construction is classical and credited. No result is claimed for reflected mixtures, isosceles triangles or nonconvex surfaces. Independent audit and exhaustive historical priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Georgiou (2026) classifies reflection-allowed congruent triangular facets, cites direct orientation as remaining open for right/obtuse scalene triangles; his acute tetrahedron converse is credited. Hungerbühler et al construct monohedral shapes with reflected facet arrangements, and the exact scalene octahedron classification is only an 8-face reflection-allowed finite case. Neither entails the all-face-count one-handed exclusion. The local modulo-three valence/curvature obstruction is not located as a previously published theorem.
+
+## value
+
+PASS
+
+Solves the mathematically motivated signed/direct-congruence variant for all convex face counts, distinguishing reflection-allowed universal realizability from a strong one-handed obstruction. A simple exact curvature quantization forces global tetrahedral rigidity and gives an iff acute existence theorem; this is an unbounded classification, not a cosmetic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
