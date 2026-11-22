@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For each vertex of F_2(K_{r,t}), the token graph is bipartite between cross pairs and same-shore pairs. Open-neighbourhood domination forces independent conditions: at most one empty row/column in the chosen cross-incidence matrix, and edge coverage of an entire shore by selected same-shore pairs. Inclusion-exclusion gives T_{r,t}; deletion-criticality gives star forests for minimal cases, with unique treatment of one-edge components. Counting labelled stars via EGFs gives M_{r,t}. Explicit extreme configurations and exact Stirling counts prove the lower/upper formulas. The embedded verifier independently enumerates both half-selection families to K_{4,4} and full token graphs for smaller cases. Finite checks are corroboration only; the proof is uniform.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.31557 characterizes ALL ordinary dominating sets in a more general closed-neighbourhood regime but does not enumerate open-neighbourhood total dominating sets.",
+        "arxiv:2611.15124 computes ordinary domination on bicliques and higher-token families.",
+        "arxiv:2610.04675 addresses total domination on Johnson graphs F_k(K_n), different hosts."
+      ],
+      "reasoning": "A general characterization of ordinary dominating sets is relevant but does not automatically supply the full cardinality distribution after forbidding self-domination; the separate open-neighborhood factorization and inclusion-minimal star-forest classification require additional analysis. Johnson-graph results concern a distinct graph family and do not dominate this theorem.",
+      "searches": [
+        "exact total domination number and number of minimum total dominating sets of the two-token graph F_2(K_{r,t}) complete bipartite graph; bipartition independent covering, Stirling numbers",
+        "total domination polynomial of bipartite two-token graphs F_2(K_{m,n}) all total dominating sets",
+        "arxiv:2610.31557",
+        "arxiv:2611.15124",
+        "arxiv:2610.04675"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.31557",
+      "https://arxiv.org/pdf/2611.15124",
+      "https://arxiv.org/abs/2610.28936",
+      "https://arxiv.org/abs/2610.04675",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-domination-polynomial-and-hub-threshold-for-f-2-k-2-n--51eec929be14",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-minimum-dominating-set-rigidity-and-a-four-column-exception-in-t--792ca4cd55d5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.31557 Lemma 2.2 characterizes ordinary dominating sets using cross-pair incidences and same-shore coverage. Its Theorem 1.1 computes gamma(F_2(K_{r,t})).",
+        "arxiv:2611.15124 Section 3.1 establishes ordinary-domination upper bounds and a two-row exact number."
+      ],
+      "reasoning": "The previous characterizations supply useful adjacency descriptions but not the stronger open-neighborhood requirement of a selected set, not the exact all-cardinality factorization, not the star-forest minimal-set census, and not the upper total-domination formula. The ordinary-domination minimum can be smaller in the published odd-shore exceptions, so the new minimum is not an equivalent restatement.",
+      "searches": [
+        "arxiv:2610.31557 Lemma 2.2",
+        "arxiv:2611.15124 Section 3.1",
+        "total domination polynomial of bipartite two-token graphs F_2(K_{m,n}) all total dominating sets",
+        "inclusionwise minimal total dominating sets of two-token graphs of complete bipartite graphs F2(K_mn), star forests and all cardinalities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.31557 treats ordinary dominating sets and distinguishes its closed-neighbourhood condition from the open-neighbourhood condition here.",
+        "arxiv:2611.15124 Section 3.1 presents ordinary domination bounds; no total-domination polynomial there."
+      ],
+      "reasoning": "The same graph is called F_2(K_{r,t}), a symmetric square or a double-vertex graph. Total domination uses an open neighborhood at every selected vertex, unlike ordinary domination; none of the inspected equivalent-name sources states the claimed two complete polynomials.",
+      "searches": [
+        "total domination polynomial of bipartite two-token graphs F_2(K_{m,n}) all total dominating sets",
+        "number of minimum total dominating sets of symmetric square of complete bipartite graph",
+        "inclusionwise minimal total dominating sets of two-token graphs of complete bipartite graphs F2(K_mn), star forests and all cardinalities",
+        "two-token graph symmetric square complete bipartite total domination",
+        "arxiv:2610.31557"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published mathematical-record entry 2026/11/2/SCOPE-domination-polynomial-and-hub-threshold-for-f-2-k-2-n--51eec929be14 covers ordinary domination polynomial only for F_2(K_{2,n}).",
+        "The entry 2026/11/2/SCOPE-minimum-dominating-set-rigidity-and-a-four-column-exception-in-t--792ca4cd55d5 counts ordinary minimum dominating sets for F_2(K_{3,n}).",
+        "The exact check of the new total polynomial gives K_{3,4} minimum 576 and minimal spectrum 576 z^5 + 384 z^6; no exact matching total-domination table was returned."
+      ],
+      "reasoning": "Relevant indexed tables and summaries concern ordinary domination or different graph products. The finite values are independently reproduced, but searching cannot exclude an unindexed earlier table; no table found in inspected full texts contains these total-domination coefficients.",
+      "searches": [
+        "exact total domination number and number of minimum total dominating sets of the two-token graph F_2(K_{r,t}) complete bipartite graph; bipartition independent covering, Stirling numbers",
+        "inclusionwise minimal total dominating sets of two-token graphs of complete bipartite graphs F2(K_mn), star forests and all cardinalities",
+        "\"total domination\" \"token graph\" \"complete bipartite\"",
+        "\"total dominating sets\" \"two-token\" \"complete bipartite\" count",
+        "2026/11/2/SCOPE-domination-polynomial-and-hub-threshold-for-f-2-k-2-n--51eec929be14",
+        "2026/11/2/SCOPE-minimum-dominating-set-rigidity-and-a-four-column-exception-in-t--792ca4cd55d5"
+      ]
+    },
+    "rationale": "No inspected primary theorem or returned mathematical record gives the complete all-set total-domination polynomial together with the inclusionwise minimal star-forest polynomial for two-token complete bipartite graphs. The closest arXiv works determine ordinary, not total, domination on these hosts. The known ordinary-dominating-set characterization does not directly state the new open-neighbourhood enumerators or minimality classes; the proof adds two independent coverage decompositions, exponential star-forest counting and extremal classification. Search evidence does not prove historical priority.",
+    "residual_risks": [
+      "Historical priority cannot be inferred from a finite indexed search; unindexed papers or tables could provide stronger coverage.",
+      "The full text of arxiv:2610.28936 was inaccessible in attempted retrieval, though its abstract addresses ordinary domination.",
+      "The ordinary-dominating-set characterization in arxiv:2610.31557 is structurally close, so independent assessment of conceptual distance is useful."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary domination and its exceptional minimum; no exact total-domination or minimal-total-domination set polynomials",
+        "evidence": [
+          "Theorem 1.1 computes ordinary domination number.",
+          "Lemma 2.2 gives closed-neighborhood conditions and is explicitly credited as prior structure.",
+          "The document has no total-domination result in its searched full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.31557",
+        "material_read": "Full available structured text, especially sections 1, 2 (Lemma 2.2 and its conditions), main theorem and conclusion",
+        "method": "Accessible arXiv HTML/text rendering and section search",
+        "title": "The domination number of the 2-token graph of the complete bipartite graph",
+        "trigger": "Same host graph and complete ordinary dominating-set characterization; possible broad subsumption"
+      },
+      {
+        "assessment": "Ordinary domination only for the shared hosts; higher-token work is different",
+        "evidence": [
+          "Proposition 3.1 gives ordinary-domination upper bounds.",
+          "Section 3.1 credits the previously published exact ordinary-domination results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.15124",
+        "material_read": "Abstract, introduction, complete bipartite Section 3.1 (pages 11-12), bibliography and related theorem discussion",
+        "method": "Read accessible PDF text and inspected rendered page 11",
+        "title": "Domination in token graphs of graphs with domination number two",
+        "trigger": "Newest closely relevant two-token biclique domination study"
+      },
+      {
+        "assessment": "Claims exact ordinary domination and higher-token bounds; potential related full details not inspected",
+        "evidence": [
+          "Available abstract specifies domination number, not a total-domination polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.28936",
+        "material_read": "Abstract and index record; full text unavailable in attempted public access",
+        "method": "ArXiv abstract and indexed publication description",
+        "title": "The domination number of the k-token graph of the complete bipartite graph K_m,n",
+        "trigger": "Independent exact ordinary-domination study on same host"
+      },
+      {
+        "assessment": "Johnson graphs are token graphs of complete hosts, not bicliques; no stated implication to bipartite hosts",
+        "evidence": [
+          "The title and cited context identify Johnson graphs as the studied family."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.04675",
+        "material_read": "Citation and topical summary in arxiv:2611.15124 references; direct page inaccessible",
+        "method": "Citation comparison",
+        "title": "Domination and total domination in Johnson graphs",
+        "trigger": "Same total domination concept on token graph of a different host"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4fa1b36d-eec0-4fc1-af3f-80e408cf1591",
+  "value": {
+    "rationale": "Natural exact total-domination invariants on the same standard two-token biclique families recently studied for ordinary domination are determined for all parameter values. The theorem supplies a full all-set polynomial and an exact inclusion-minimal set polynomial, classifies their spanning-star-forest structure, gives an exact minimum set multiplicity and a sharp upper total-domination number. The large gap between minimum and inclusion-minimal maximum (notably for r>=4) is structurally explained, not a small tabulation.",
+    "status": "PASS"
+  }
+}
