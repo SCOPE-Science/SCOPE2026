@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The renewal formula, decaying Sturm-type fundamental solutions, and continuity and flux-jump conditions reconstruct the normalized stationary law. The signs of its two endpoint slopes, together with the strict sign of curvature at every interior critical point, yield an exhaustive classification with equality cases. The subcritical root is unique because every derivative zero of the positive fundamental solution is a strict maximum. A standalone 516-assertion numerical checker compares differential identities, jumps, normalization, and predicted mode regimes. Boundary and zero-noise limits are expressly excluded.
+
+**Originality: PASS, qualified.** Olsen (arXiv:2310.04840) supplies general random-reset moment machinery but no full two-site asymmetric mode theorem. Both closely related published two-site mode results expressly assume balanced reset probabilities and thus establish the special \(p=1/2\) plateau/transition, which this work credits. The new precise \(p\)-dependent mode boundaries and subcritical separation threshold are not implications of those cited balanced statements. One-site point-reset studies have distinct assumptions. An unindexed equivalent calculation is a residual priority risk; inaccessible full text of the two indexed balanced publications limits exhaustive comparison.
+
+**Mathematical value: PASS.** Two physical reset points have an experimentally motivated adjustable allocation of reset events. The complete phase diagram distinguishes minority-site peaks, interior displacement, and fast-clock two-peak coexistence, including sharp equalities and a nontrivial separation frontier. It is a structural classification of all stationary maxima, not an arbitrary numerical parameter slice or a re-evaluation of known symmetric moments.
+
+**Closest literature and limitations.** Olsen (2023), https://arxiv.org/abs/2310.04840; the two published symmetric-reset classifications linked in RESULT.md; Trajanovski et al. (2023), https://arxiv.org/abs/2301.12304. Validity is restricted to one-dimensional OU motion and two atomic resetting targets; no claim of independent validation or publication priority is made.
+
+Self-review: passed. Independent audit: not yet performed.
