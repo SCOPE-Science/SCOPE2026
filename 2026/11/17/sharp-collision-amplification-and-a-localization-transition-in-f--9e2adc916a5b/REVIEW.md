@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is restricted to four real interpolation nodes and fixed \(R>1\). The six continuity/interpolation equations have determinant \(\varepsilon(R-1)(\varepsilon-1)(-R\varepsilon-3R+\varepsilon^2+2\varepsilon+1)/4\). After the divided-difference row regularization the determinant tends to \((R-1)(3R-1)/4\), so the scaled operators converge in norm to a genuine confluent Hermite spline. Its two pieces give the two competing exact extrema. The sign comparison has unique admissible root \(2+\sqrt3\). The standalone checker performs exact-rational constraints and finite-mesh diagnostics, not the asymptotic proof.
+## correctness
 
-## Originality — PASS, qualified
-Greene (2026), arXiv:2610.32044, proves unisolvence and cubic smooth-data convergence on arbitrary meshes; its introduction reports that Powell had shown lack of a uniform operator bound, but neither its statement nor inspected argument gives the leading collision coefficient or its norming-location bifurcation. Published research records were searched for midpoint-knot quadratic splines, coalescing nodes, Lebesgue constants and the algebraic threshold. Closest records concern polynomial interpolation collision tails, periodic linear-spline projection, or quadratic least-squares splines, not this four-node interpolation operator. Powell's relevant 1981 chapters were not available in full, so an older equivalent remains a real priority risk.
+PASS
 
-## Mathematical value — PASS
-The four-node case is the *first nonpolynomial* member of the scheme: one interior knot and four independent data. Because the interpolation is well-posed but arbitrarily ill-conditioned on clustered samples, the sharp leading Lebesgue amplification and the precise location of worst-case noise matter to adaptive-mesh stability and to understanding why smooth-input cubic convergence can coexist with uncontrolled raw-data sensitivity. The algebraic change in norming region at \(2+\sqrt3\) is not implied by the earlier qualitative unboundedness statement.
+The specified C1 two-piece quadratic spline has dimension six and interpolation equations at 0, epsilon, 1, R and two matching conditions at (1+epsilon)/2. Recomputing the exact 6x6 determinant gives epsilon(R-1)(epsilon-1)[-R epsilon-3R+epsilon^2+2epsilon+1]/4, nonzero on 0<epsilon<1<R. Divide the colliding interpolation difference by epsilon, pass to the invertible confluent matrix and obtain the operator-norm limit epsilon I_epsilon -> (y2-y1) g_R with left quadratic t-(4R-1)t^2/(3R-1) and right quadratic (t-1)(t-R)/(3R-1). Its two competing absolute extrema occur at (3R-1)/(2(4R-1)) and (R+1)/2. Their heights give the stated sharp norm coefficient and cross uniquely at R=2+sqrt(3). Uniform convergence of all four Lagrange basis functions gives uniform convergence of Lebesgue functions and correct maximizer localization, including the two-point tie. Independent symbolic determinant and exact rational R=3/2,2,4,6 checks corroborate the algebra. This is fixed-R, epsilon->0 only; no uniform-in-R inference.
 
-## Boundaries and closest literature
-The sharp formula holds as \(\varepsilon\downarrow0\) for each fixed \(R>1\), not for arbitrary simultaneous mesh degenerations. It does not claim a finite-\(\varepsilon\) optimizer or many-node interpolation constant. Greene 2026 and Powell 1981 are closest; detailed pages of the latter could not be inspected. Independent mathematical audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Greene establishes the scheme and cubic smooth-data convergence, with Powell cited for qualitative instability; neither the accessible statement nor any inspected distinct interpolation result supplies the exact rank-one collision operator, sharp R-dependent coefficient or unique localization phase threshold. The proof derives a nontrivial equality comparison rather than an immediate normalization of the known qualitative blowup. Historical priority remains bounded by inaccessible original chapters and current preprint full text.
+
+## value
+
+PASS
+
+PASS: The minimal four-site not-a-knot spline is a canonical boundary case of even-degree spline interpolation. A sharp collision blowup coefficient and the exact geometric switch in the norming location quantify a meaningful failure mode of smooth-data stable-looking schemes under arbitrary noisy nodal data. The fixed-four-node exact instability and phase threshold are mathematically informative rather than simply restating the known nonuniform boundedness observation; the fixed-R restriction is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
