@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Direct polynomial and invariant-subspace computation proves all matrix entries. f decreases strictly. Hub–leaf entries are always positive; distinct-leaf entries have unique cutoff hL, leaf diagonal is positive at hL and decreases, hub diagonal has unique hC; their comparison is the sign of an exact cubic F with a single positive root. This reconstructs all assumptions (integer m>=2, a,b>0, h>=0), boundary equalities, necessity, sufficiency and nonreentry. Standalone verify.py and verify_output.txt were actually run: symbolic identities and 7623 rational matrix-entry checks passed; finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth–Song–Terlaky paper gives general invariance / polynomial steplength framework, not this explicit all-rate star threshold; https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf",
+        "Blanes–Iserles–Macnamara studies graph-Laplacian positive ODEs and alternative integrators, not this end-step phase diagram; https://arxiv.org/abs/2102.08242",
+        "Bidirected-star all-rate result in https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8/RESULT.md is exclusively fourth-order RK."
+      ],
+      "reasoning": "General threshold algorithms may be applied to a specific Q but do not state or mathematically entail the uniform closed-form dichotomy and degree-independent rate frontier without the additional exact entry analysis. RK4 positivity of the identical family has a different stability polynomial and fails by hub–leaf entries, not the hub diagonal/leaf-pair pair of RK3.",
+      "searches": [
+        "cubic Runge Kutta positivity on reversible birth death chains arbitrary rates",
+        "SSPRK(3,3) positivity and Markov 3 states unequal transition rates",
+        "cubic Runge Kutta positivity complete bipartite graphs rate ratio leaf star 2026",
+        "explicit RK3 positivity rate ratios on complete bipartite graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.08242",
+      "https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8/RESULT.md",
+      "arxiv:2102.08242v1 (earliest date confirmed 2021-02-16)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Direct full-document comparison of https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79/RESULT.md (order-three on undirected complete multipartite graphs) and https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8/RESULT.md (order-four on general bidirected stars).",
+        "Primary literature https://arxiv.org/abs/2102.08242 (graph-Laplacian positivity) and https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf (generic invariance thresholds)."
+      ],
+      "reasoning": "The new theorem reduces to a known undirected star family when a=b, but provides the entire independent-rate plane and a rate-ratio transition absent from that special case. The previously described RK4 star result is not a stronger polynomial-order statement; different RK polynomials are not nested positivity claims. The general literature does not give the equality of the two explicit new obstructions, its polynomial or no-reentry proof on this directed family.",
+      "searches": [
+        "third order Runge Kutta positivity on directed weighted star Markov generator heterogeneous inward outward rates",
+        "three state reversible Markov star cubic Taylor stability positivity rate ratio",
+        "homogeneous bidirected star positivity SSPRK3 diagonal versus leaf to leaf",
+        "explicit RK3 positivity rate ratios on complete bipartite graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-mode reversible Markov-star decomposition equivalent to classical three-stage, third-order RK applied to Q; exact equivalence of SSPRK(3,3) endpoint and cubic Taylor polynomial only for linear autonomous systems.",
+        "published-finding corpus closest matching cubic positivity on unweighted complete multipartite graphs: 2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79"
+      ],
+      "reasoning": "Checked aliases: RK3, SSPRK(3,3) linear endpoint, cubic Taylor exponential, star graph, reversible Markov chain, birth–death star, hub/leaf rates. The undirected note treats the equality a=b, which fixes r=1/m and cannot imply the two-parameter crossover for all positive a,b.",
+      "searches": [
+        "third order Runge Kutta positivity on directed weighted star Markov generator heterogeneous inward outward rates",
+        "sharp three state reversible birth death Markov chain third order Runge Kutta positivity eigenvalues hub diagonal outer transition threshold ratio",
+        "three-state symmetric birth death RK3 positivity phase transition 8 r cubed 9 r squared 6 r 16",
+        "three state reversible Markov star cubic Taylor stability positivity rate ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-mathematical repository records: 2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79 and 2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8",
+        "Neither inspected complete RESULT.md contains the cubic r-dependent positive root, two-mechanism comparison or 16r^3+9r^2-3r-4 frontier."
+      ],
+      "reasoning": "The two closest fully inspected published mathematical notes do not tabulate this directed cubic rate frontier or its equality case. Their claims and proofs were compared by implication, including symmetric specialization and change of Runge–Kutta order, rather than by title matching.",
+      "searches": [
+        "sharp three state reversible birth death Markov chain third order Runge Kutta positivity eigenvalues hub diagonal outer transition threshold ratio",
+        "three-state symmetric birth death RK3 positivity phase transition 8 r cubed 9 r squared 6 r 16",
+        "cubic Runge Kutta positivity complete bipartite graphs rate ratio leaf star 2026"
+      ]
+    },
+    "rationale": "Full-text comparisons with the closest cubic-RK undirected complete-multipartite result and bidirected-star fourth-order result, plus primary graph-Laplacian positivity and polynomial-invariance literature, found no coverage of the universal inward/outward rate-ratio switch for completed RK3. The new result is not implied by the undirected star special case or the different RK4 polynomial. Residual older-specialist-literature risk remains and no independent priority certification is claimed.",
+    "residual_risks": [
+      "Historical priority can overlap with specialized older RK positivity work using different vocabulary or parameterization; exhaustive historical search and independent audit not performed.",
+      "Only the accessible own ledger and materially relevant inspected external documents were compared, not every potentially existing manuscript."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different method constructions and broad order barrier; not an exact cubic RK star rate-balance classification",
+        "evidence": "arXiv v1 submitted 2021-02-16 16:01:25 UTC; graph Laplacian motivation and alternate positive integrators; https://arxiv.org/abs/2102.08242",
+        "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+        "material_read": "arXiv abstract and submission history; accessible 2022 open PDF with graph-Laplacian scheme construction and pertinent RK positivity sections, including introduction, graph formulation and later scheme discussion",
+        "method": "Read accessible full text material and inspect PDF page images",
+        "title": "Positivity-preserving methods for population models / ordinary differential equations",
+        "trigger": "Early public motivating numerical positivity source, MSC 65L05 and Markov graph Laplacians"
+      },
+      {
+        "assessment": "General method for sufficient/algorithmic invariance thresholds, not explicit sharp all-m star crossover",
+        "evidence": "Published 2015 DOI 10.3934/dcds.2015.35.2997; https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf",
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf",
+        "material_read": "Open full PDF relevant introduction, Section 3 and the Taylor polynomial and numerical invariance material",
+        "method": "Read extracted PDF sections and inspect PDF page images",
+        "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+        "trigger": "Potentially dominating general root/invariance theory for explicit RK methods"
+      },
+      {
+        "assessment": "Covers equal-direction undirected rates, no arbitrary inward/outward balance or universal r* frontier",
+        "evidence": "Third-order sigma3 depends on undirected multipartition size and singleton diagonal; https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79/RESULT.md",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, spectral reduction, third-order proof, limitations and citations",
+        "method": "Fetched and read primary public mathematical result text",
+        "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+        "trigger": "Same cubic polynomial and star as an undirected special case"
+      },
+      {
+        "assessment": "Different fourth-order endpoint polynomial, only hub–leaf obstruction; does not imply cubic rate switch",
+        "evidence": "RK4 edge-cubic root criterion vs RK3 hub-diagonal/leaf-pair criterion; https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8/RESULT.md",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-an-exact-one-edge-positivity-horizon-for-fourth-order-runge-kutt--17dd482823b8/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, matrix entry formulas and proof",
+        "method": "Fetched and read primary public mathematical result text",
+        "title": "An exact one-edge positivity horizon for fourth-order Runge–Kutta on bidirected stars",
+        "trigger": "Exactly same class of generators, potentially stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e12e6d27-404e-4959-a4b1-77a6e556fc83",
+  "value": {
+    "rationale": "The universal all-m rate-balance frontier rigorously separates failure of hub holding probability from loss of leaf-to-leaf transport in an important standard RK time integrator for reversible nonuniform-stationary Markov systems. It gives the exact maximal safe completed timestep for every positive a,b and arbitrary number of leaves, with dimension-free switch and explicit asymptotic/mechanism interpretation. Such a sharp classification is a useful numerical-analysis boundary and not merely a renamed SSP bound, arbitrary one-off case or known undirected-table recomputation; scope and priority risks stated.",
+    "status": "PASS"
+  }
+}
