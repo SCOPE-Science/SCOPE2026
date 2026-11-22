@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T23:45:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-attraction-shells-and-physical-time-stability-statistics-f--032e32eb1b41/RESULT.md",
+        "Git blob 8c9ec9950c25f72ed99759494ab75d2d578419ca",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-attraction-shells-and-physical-time-stability-statistics-f--032e32eb1b41/checker.py"
+      ],
+      "rationale": "Directly integrate the upper dx/dt=1 flow with Q+=−2x+(x^(2k)sin(2π/x))' and the lower dx/dt=−1 parabola to obtain H_k(s)=G_k(r), H=r²−r^(2k)sin and G=r²+r^(2k)sin. The bound |D_k(x)|/(2|x|)≤2R²+πR<1 with R=2/27 gives unique sewing and a strictly increasing invariant return map H^-1 G. Its fixed points are exactly r_n=2/n, n≥27, and P−id has sign sin(2π/r). Even n≥28 are attracting, odd n repelling; basin (r_(n+1),r_(n−1)) of width 4/(n²−1). Because |dx/dt|=1 in both halves, the physical period is 8/n; P'(r_n)=(1−(−1)^n πr_n^(2k−3))/(1+(−1)^n πr_n^(2k−3)). Probability density on the radius section gives mass 54/(n²−1) and telescoping tail 27/(K−1). The Floquet magnitude n/4 atanh(π(2/n)^(2k−3)) tends to π/2 from above for k=2 and behaves as π2^(2k−5)n^−(2k−4) for k≥3; applying the exact even-grid tail proves the stated rate exponent and constant. Independently checked rational shell telescoping and even/odd multipliers for k=2,3,5 and multiple n.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 Theorem 4 classifies types and displays infinitely many stable sinusoidal cycles; Theorem 6 realizes arbitrary symmetric compact periodic-orbit sets. Neither contains shell widths, exact Floquet rate tail, or probabilities under uniform section-radius sampling.",
+          "The two-zone affine-period-annulus result concerns a different piecewise linear family, not an accumulating sewed centre-focus with this return map."
+        ],
+        "reasoning": "General classification of periodic-orbit zero sets dominates the existence part, but does not logically force the explicit numerical multiplier nor rate-law tail for the chosen physical-speed normalization.",
+        "searches": [
+          "Glendinning et al 2023 Theorem 4 and Theorem 6 full Springer HTML",
+          "Resultary: five spectral edge laws for a two-zone crossing period annulus"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00332-023-09910-4",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-five-spectral-edge-laws-for-a-two-zone-crossing-period-annulus--95dca04b66d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary paper explicitly notes sinusoidal zeros and parity stability, supplying a nontrivial premise but not derivatives of H,G at zeros or the new rate distribution.",
+          "The exact uniform-section law uses telescoping widths that are not supplied by a general closed-orbit realization theorem."
+        ],
+        "reasoning": "The prior theorem does not imply the final quantitative probability/rate law without reconstructing a return map and original physical traversal times; the final statement survives that comparison.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00332-023-09910-4 §4 (17)-(19), Theorems 4,6",
+          "Resultary: sewed focus physical time floquet multiplier attraction basin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted forcing D_k(x) is exactly the derivative of x^(2k)sin(2π/x), the sin example from equations (17)-(19) of the primary paper.",
+          "The first-return map H^-1∘G and the physical-time rates are derived in the audited package, rather than being a new oscillator family."
+        ],
+        "reasoning": "Object identity is explicit; an original claim solely of infinitely many stable cycles would be covered. The actual claim is the quantified attraction-shell, measure and physical-time contraction law.",
+        "searches": [
+          "Resultary: Filippov sewed focus sin 2pi/x return map attraction intervals Floquet rates physical period",
+          "Glendinning Hogan Homer Jeffrey Szalai Section 4 equation 17-19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Section 4 states r=1/n and parity stability but not an indexed list of section basin lengths or a table of Floquet exponents.",
+          "No exact tail table for the sewed-focus physical-time contraction was identified in Resultary searches."
+        ],
+        "reasoning": "An infinite orbit list is already known; the new fact is the induced continuous-radius distribution and rate asymptotics, which cannot be treated as an unmotivated re-tabulation of known cycles.",
+        "searches": [
+          "Resultary: Filippov sewed focus sin 2pi/x return map attraction intervals Floquet rates physical period",
+          "Glendinning 2023 Section 4 sin 2pi x infinite isolated stable cycles"
+        ]
+      },
+      "rationale": "The principal construction and infinitely many alternating-stability cycles are prior (Glendinning et al. 2023, Section 4). The exact complete attraction-shell partition, physical periods/multipliers, and especially the area-vs-section probability and slow-rate dichotomy were not found in that full primary text or relevant published-finding searches; quantitative remainder is best-of-knowledge original.",
+      "residual_risks": [
+        "The closed-orbit construction and alternating stability were already in the 2023 source and cannot be presented as novel.",
+        "Choice of uniform radius is a sampling convention, not an invariant planar probability; hypothetical unindexed direct return-map computations remain priority risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_SAME_MODEL",
+          "evidence": "Section 4 establishes f(1/x)=sin(2π/x) and even/odd attracting/repelling cycles; it does not give exact B_n or physical-rate distribution.",
+          "identifier_or_url": "https://doi.org/10.1007/s00332-023-09910-4",
+          "material_read": "Complete accessible Springer HTML, especially Section 4 equations (17)-(19), Theorems 4 and 6, Section 5",
+          "method": "Read primary full text and inspected same-example derivation",
+          "title": "Uncountably Many Cases of Filippov’s Sewed Focus",
+          "trigger": "Same specific sinusoidal sewed-focus construction and potential complete coverage"
+        },
+        {
+          "assessment": "DIFFERENT_PIECEWISE_FLOW",
+          "evidence": "Affine crossing annulus has different phase organization, not the oscillatory sewed-focus shells.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-five-spectral-edge-laws-for-a-two-zone-crossing-period-annulus--95dca04b66d6",
+          "material_read": "Indexed mathematical statement/summary",
+          "method": "Resultary semantic search",
+          "title": "Five spectral edge laws for a two-zone crossing period annulus",
+          "trigger": "Closest published quantitative piecewise-flow results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/exact-attraction-shells-and-physical-time-stability-statistics-f--032e32eb1b41/RESULT.md"
+      ],
+      "rationale": "An explicit measure on attraction shells and a physically normalized Floquet-rate distribution quantify how a known infinite collection of sinks is encountered by random local initial data. The sharp k=2 versus k≥3 positive-floor/near-neutral dichotomy is a motivated dynamical boundary, distinct from merely recounting zeros of the sinusoidal forcing; the narrow local scope is candid.",
+      "residual_risks": [
+        "Local section (0,2/27), integer k≥2, uniform section radius rather than invariant area; no global phase portrait.",
+        "Previously known countably infinite periodic orbits and parity stability excluded from originality claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local section (0,2/27), integer k≥2, uniform section radius rather than invariant area; no global phase portrait.",
+    "Previously known countably infinite periodic orbits and parity stability excluded from originality claim."
+  ],
+  "schema_version": 1
+}
