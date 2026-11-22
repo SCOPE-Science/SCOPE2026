@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each nonzero deterministic initial error, positivity of the two-state mean-square transfer and Perron–Frobenius give the exact annealed factor. Its characteristic polynomial has determinant (1-c^4)p(1-p). Explicit derivatives show the cost-normalized objective has exactly one maximizer, the positive-coefficient expansion of -log((1+sqrt(1-4z))/2) proves its price/monotonicity bounds, and uniform small-d plus matched c^2 scaling prove the endpoint laws. No computation is substituted for a quantified proof. The package contains a reproducing checker with 2,441 successful exact/numeric assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published record 2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b: per-cost *one-step minimax* contraction on regular-simplex frames; it is not the asymptotic annealed log spectral radius.",
+        "Published record 2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631: compares singleton and full-batch/skip policies at equal expected work, with homogeneous row costs; not a two-price static Bernoulli allocation.",
+        "Published record 2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f: iid sampling optimal one-step worst-direction contraction for clustered rows; different metric and no row prices."
+      ],
+      "reasoning": "The literature on cost-aware Kaczmarz optimization is materially relevant, but the available statements use different cost/control variables and rate criteria. No identified full or summary statement has parameters encompassing both independent row prices and coherence-dependent optimum of the annealed mean-square exponent.",
+      "searches": [
+        "Cost-normalized annealed error exponent heterogeneous per-row computation price optimized Bernoulli sampling two nonorthogonal Kaczmarz lines square-root cost law logarithmic rate",
+        "randomized Kaczmarz two row heterogeneous cost asymptotic annealed mean squared optimal sampling square root cost near parallel angle near orthogonal",
+        "published-finding corpus records 2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b",
+        "2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631",
+        "2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f"
+      ]
+    },
+    "checked_sources": [
+      "Anderson et al., arXiv:2511.20877v1 (2025-11-25), https://arxiv.org/html/2511.20877",
+      "Agaskar, Wang, and Lu (2014), https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+      "Published mathematical record 2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+      "Published mathematical record 2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b",
+      "Published mathematical record 2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631",
+      "Published mathematical record 2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Anderson et al. (2025), Sections 2.1–2.1.1, eqs. (10)–(18): bounds on moments and concentration for randomized projection methods, not optimization by row-specific cost.",
+        "Agaskar et al. (2014), eqs. (5)–(6), (13), (20), exact transfer and per-iteration annealed spectral-radius optimization; text mentions optimization setup overhead rather than two-price per-update costs."
+      ],
+      "reasoning": "The new two-row transfer rate follows directly from the prior general MSE operator, and this dependency is expressly credited. The novel inference is a genuinely different nonlinear fractional objective, including a proof of a unique interior optimum and strict angle-dependent interpolation. Neither per-iteration spectral-radius minimization nor moment concentration entails the cost-normalized optimizing probability without new mathematical analysis.",
+      "searches": [
+        "Cost-normalized annealed error exponent heterogeneous per-row computation price optimized Bernoulli sampling two nonorthogonal Kaczmarz lines square-root cost law logarithmic rate",
+        "randomized Kaczmarz optimal sampling heterogeneous row cost per unit computation asymptotic mean square rate probability two rows",
+        "Anderson et al. 2025 full text sections 2.1, 2.1.1 and discussion",
+        "Agaskar et al. 2014 full text sections 2.2, 2.3, 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agaskar et al. (2014), Section 2.2, Proposition 1 and Section 3, eq. (20): general annealed squared-error transfer and minimization of its spectral radius over row probabilities.",
+        "Published record 2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934: equal-row-cost planar one-step/annealed coincidence; not divided by heterogeneous per-row costs."
+      ],
+      "reasoning": "The 2014 spectral-radius functional supplies a known raw ingredient. Recasting its two-row transfer does not itself produce the maximizer of -log(lambda)/(ap+b(1-p)), whose denominator depends on p, or the strict interior and singular coherence laws. The equal-cost planar sampler is a separate limit with p=1/2. No observed record states an equivalent cost-normalized optimization theorem.",
+      "searches": [
+        "Cost-normalized annealed error exponent heterogeneous per-row computation price optimized Bernoulli sampling two nonorthogonal Kaczmarz lines square-root cost law logarithmic rate",
+        "two row randomized Kaczmarz optimize log Perron eigenvalue divided by average row cost interior sampling probability unique phase boundary coherence",
+        "published-finding corpus records 2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+        "Full paper Agaskar, Wang, and Lu (2014), https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed published records include a planar equal-cost theorem, a simplex one-step cost frontier, and batch work-budget comparisons, identified above.",
+        "The 2014 paper presents a spectral-radius SDP for iteration-optimal sampling, not a two-cost scalar optimizer table."
+      ],
+      "reasoning": "No exact table, closed-form optimizer or equivalent published database entry for the two-price logarithmic cost criterion was found. Negative search results are only a bounded comparison, not proof of novelty.",
+      "searches": [
+        "Cost-normalized annealed error exponent heterogeneous per-row computation price optimized Bernoulli sampling two nonorthogonal Kaczmarz lines square-root cost law logarithmic rate",
+        "two row randomized Kaczmarz optimize log Perron eigenvalue divided by average row cost interior sampling probability unique phase boundary coherence",
+        "randomized Kaczmarz two row heterogeneous cost asymptotic annealed mean squared optimal sampling square root cost near parallel angle near orthogonal",
+        "published-finding corpus published indexed mathematical claims",
+        "Harvard repository full-text PDF Agaskar, Wang, and Lu (2014), https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content"
+      ]
+    },
+    "rationale": "The 2014 paper already gives the complete exact annealed MSE transfer operator and optimizes row probabilities per iteration. This theorem neither reclaims that operator nor equates the present two-row eigenvalue with novelty. The distinct parameter-dependent claim is the unique optimum of the logarithmic exponent divided by heterogeneous per-row mean cost, its strict square-root-price/fair interval, monotone coherence law, and quantified two singular limits. The two most directly relevant primary papers were inspected materially; matched published results have different one-step, equal-cost, or batch-scheduling objectives. No queried claim implies the complete cost-normalized law, subject to unindexed-priority risk.",
+    "residual_risks": [
+      "The 2014 general transfer operator makes the two-row cost-free eigenvalue immediate; distinct mathematical content is limited to the cost-optimized law and asymptotics.",
+      "Published record comparisons identified through search summaries cannot certify absence of results in their complete texts.",
+      "Prior work in operations research or sampling design may contain an equivalent nonlinear fraction and singular-coherence law under different names; database search is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Genuinely relevant motivating source; proves concentration bounds, not optimized heterogeneous-price annealed rate",
+        "evidence": [
+          "https://arxiv.org/abs/2511.20877, v1 dated 2025-11-25",
+          "https://arxiv.org/html/2511.20877, lines 165–250"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.20877",
+        "material_read": "arXiv v1 date page, HTML Sections 2.1–2.1.1 equations (10)–(18), plus context of mean-square/variance distinction",
+        "method": "Primary public full HTML sections inspected directly, including definition of RK and the proof of second-moment variance bounds",
+        "title": "Beyond Expectation: Concentration Inequalities for Randomized Iterative Methods",
+        "trigger": "Recent full mathematical source for random Kaczmarz concentration and mean-square moments"
+      },
+      {
+        "assessment": "Raw eigenvalue and general per-iteration optimum are known; paper does not cover heterogeneous per-row costs divided into the annealed logarithmic exponent or prove the claimed monotonic interpolation",
+        "evidence": [
+          "Agaskar–Wang–Lu, 2014, eqs. (5), (6), (13), (20); Section 3 pp. 4–5"
+        ],
+        "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Five-page primary PDF; detailed reading of Section 2.2 (exact tensor MSE operator), Section 2.3 (annealed vs quenched), Section 3 (optimization (20)), and conclusions",
+        "method": "Open-access PDF text and page images inspected",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Closest primary mathematical source due to full exact MSE and annealed optimizer"
+      },
+      {
+        "assessment": "Cost-normalized one-step worst-direction objective on simplex frames, not annealed long-run two-row heterogeneous-price theorem",
+        "evidence": [
+          "Indexed mathematical record 2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-a-quadratic-cost-frontier-for-minimax-randomized-kaczmarz-sampli--08c3cf76fd5b",
+        "material_read": "Published indexed title and mathematical summary only; no assertion of full text inspection",
+        "method": "Published-search database statement comparison",
+        "title": "A quadratic cost frontier for minimax randomized Kaczmarz sampling on simplex frames",
+        "trigger": "Relevant previous cost-sensitive sampling record"
+      },
+      {
+        "assessment": "Different policy set (singleton/full-batch-or-skip) and equal expected cost; does not state two heterogeneous per-row prices",
+        "evidence": [
+          "Indexed mathematical record 2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631",
+        "material_read": "Published indexed title and theorem summary only; full text not inspected",
+        "method": "Implication comparison of the published summary",
+        "title": "Sharp work-budget phase transition between one-step and asymptotic randomized two-row Kaczmarz",
+        "trigger": "Possible broader cost-constrained two-row result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "14008f5e-88ba-47e4-a69c-c03fbc4b068e",
+  "value": {
+    "rationale": "Row-application cost heterogeneity naturally changes the work allocation in iterative linear solvers. The exact optimizing sampler is a nontrivial strict interior law, quantitatively connecting nearly orthogonal fair sampling to nearly parallel square-root-price sampling; the singular second-order correction identifies the scale on which expense affects the preferred row. This gives a meaningful benchmark for cost-aware stochastic projection while clearly excluding measured wall-clock gains.",
+    "status": "PASS"
+  }
+}

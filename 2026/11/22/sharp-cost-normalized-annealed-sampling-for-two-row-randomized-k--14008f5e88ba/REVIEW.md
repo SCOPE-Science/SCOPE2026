@@ -1,0 +1,11 @@
+# Scientific review: cost-normalized annealed two-row sampling
+
+**Correctness — PASS.** Exact two-row projection geometry produces a strictly positive transfer matrix with trace one and determinant \((1-c^4)p(1-p)\). Perron–Frobenius gives the exact annealed mean-square rate. The derivative numerator has at most one turning point and crosses zero once; the coefficient-positive Catalan logarithm proves the strict square-root-price bound and monotone dependence on row coherence. Uniform compact limits and a singular-scale balance prove both endpoint laws and the \(c^2\) expansion. The standalone `verify.py` succeeds on 2,441 checks including 1,800 rational identities. Its tests are finite support only.
+
+**Originality — PASS, qualified.** The 2014 exact-MSE and annealed spectral-radius optimizer are stronger at the level of generic row-distribution recurrences but optimize *per iteration*, not the stated cost-divided logarithmic exponent. The newly derived cost-sensitive law and coherent limits are neither the uniform optimizer nor the one-step cost minimax allocation of related publications. The motivating 2025 full text develops concentration estimates for iid randomized projections, not a heterogeneous-cost exact sampler. Some published mathematical records have only searchable summaries; historical priority cannot be guaranteed.
+
+**Value — PASS.** Different physical costs for applying two constraints naturally change which rows should be sampled. The strict interior law and its sharp transition between equal sampling and square-root cost allocation quantify a practically motivated bias without claiming wall-time optimality or a general-dimensional algorithm. The orthogonal boundary layer explains why even large cost imbalances favor nearly fair sampling when rows are nearly orthogonal.
+
+**Limitations and risk.** Only exact two-row consistent problems, fixed iid probabilities, and annealed performance normalized by expected cost are covered. A broad older operator formula makes the new derivation accessible, so implicit equivalents are a genuine priority risk. The online searches cannot establish uniqueness of priority.
+
+Self-review: passed. Independent audit: not yet performed.
