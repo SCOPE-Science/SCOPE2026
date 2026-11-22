@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact inversion of the published two-stage tableau yields B and C; W-weighted Hermitian blocks diagonalize exactly, proving strict positivity and an attained coercivity constant in any dimension. Limiting alpha-to-zero forces 9:1 among positive diagonal weights. The Hermitian/skew-Hermitian generalized eigenproblem and simultaneous congruence of (P,Q) give an exact sector whose r derivative is strictly negative and whose two extremes are attained. Scalar pressure compression has strictly negative Euclidean determinant for every admissible parameter. Symbolic identities and 120 matrix tests supplement the infinite-family proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Axelsson, Dravins and Neytcheva, DOI:10.1002/nla.2532, §§4.1–5: field-of-values bounds concern Radau stage-parallel preconditioning for \\(A^{-1}\\otimes M+\tau I\\otimes K\\), not two SPD factors multiplying \\(A^{-1}\\) and \\(A^{-2}\\).",
+        "Leveque et al. (2025), §4: derivation of a two-term Schur approximation but no general weighted numerical-range theorem found."
+      ],
+      "reasoning": "The related single-inverse operator and analysis of its preconditioned spectrum do not imply an exact sharp sector for the combined squared-inverse operator with independently varying spatial matrices. General-purpose simultaneous-congruence and sector lemmas supply standard tools; an unindexed abstract theorem may still subsume the result.",
+      "searches": [
+        "Axelsson Dravins Neytcheva 2024 Radau stage parallel preconditioner field of values",
+        "Radau IIA numerical range pressure Schur complement Kronecker inverse squared matrix symmetric part",
+        "two-stage Radau IIA A inverse square pressure Schur complement diagonal weight 9 1 numerical range"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.03361v1",
+      "https://arxiv.org/abs/2611.03361",
+      "https://arxiv.org/html/2506.04451v1",
+      "https://onlinelibrary.wiley.com/doi/10.1002/nla.2532"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ali and Kirby (2026), Eq. (25): defines the exact same operator but derives neither diagonal weighting uniqueness nor the sharp sector.",
+        "Leveque et al. (2025), Eq. (22): precursor inverse-Schur approximation without weighted coercivity/sector statement.",
+        "Axelsson et al. (2024), Thms 1–2: bounds of a different preconditioned \\(A^{-1}\\otimes M+\tau I\\otimes K\\) operator."
+      ],
+      "reasoning": "The new claim is not that the pressure approximation exists, nor a corollary of a source convergence result. It quantifies a previously unreported universally correct weighted numerical range for the exact two-term surrogate and proves sharpness by simultaneous spatial congruence. Potential implication from a stronger uninspected general theorem remains a residual priority risk.",
+      "searches": [
+        "arXiv:2611.03361 Eq25 full text",
+        "arXiv:2506.04451 section 4 full text",
+        "Axelsson Dravins Neytcheva Theorem 1 Theorem 2 field of values 2024",
+        "Radau IIA numerical range pressure Schur complement Kronecker inverse squared matrix symmetric part"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ali and Kirby, arXiv:2611.03361v1, §5.2, Eq. (25): same two-term operator is given explicitly, but no stated universal stage metric or numerical-range sector.",
+        "Leveque, He and Olshanskii, arXiv:2506.04451v1, §4, Eqs. (21)–(22): precursor under stage-similarity/rearrangement, no exact diagonal sector characterization."
+      ],
+      "reasoning": "The source operator is mathematically identical after identifying positive coefficients and inverse pressure factors; the operator itself is prior art. The assessed claim requires all SPD spatial factors, unique diagonal accretivity, sharp attained complex numerical-range sector, and universal Euclidean indefiniteness, not simply rearranging the source Kronecker formula.",
+      "searches": [
+        "two-stage Radau IIA inverse Butcher matrix squared diagonal stability stage symmetrizer",
+        "Radau IIA numerical range pressure Schur complement Kronecker inverse squared matrix symmetric part",
+        "arXiv:2611.03361 Eq. (25)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit Radau tableau in Ali and Kirby is a standard known table, not new. No reviewed source lists the unique stage accretivity weight together with the exact generalized-eigenvalue sector.",
+        "Mathematical finding-record searches returned differently parameterized Kaczmarz, Radau heat-positivity, and generic matrix-preconditioning results; none had a claim implying this sector theorem."
+      ],
+      "reasoning": "No exact tabulated bound, matrix entry, or matching value was identified that mechanically determines the full sharp noncommuting-SPD formula; this absence is only best-knowledge evidence, not proof of novelty.",
+      "searches": [
+        "two-stage Radau IIA pressure inverse Schur approximation square inverse Butcher 9 1 diagonal symmetrizer exact numerical-range sector noncommuting SPD",
+        "A inverse squared Radau IIA sector angle weighted GMRES two Kronecker sums",
+        "arXiv:2611.03361",
+        "DOI:10.1002/nla.2532"
+      ]
+    },
+    "rationale": "Best-knowledge originality for the sharp, attained sector of the exact two-term Radau inverse-Schur surrogate under arbitrary noncommuting SPD pressure factors, together with uniqueness of its universal diagonal weight. The two-term operator and the original pressure preconditioner are explicitly credited as prior art. Primary full-text sections and published-record searches did not find an implication covering the new quantified theorem. General abstract sectorial matrix results may imply a version; residual risk remains.",
+    "residual_risks": [
+      "A more general, unindexed theorem on weighted numerical ranges of matrix pencils could imply the sharp sector without using these exact words.",
+      "The exact pressure-Schur *operator* is already in 2025–2026 work; no novelty is claimed for its formula or pressure-solver implementation.",
+      "Finite accessible corpus is not an exhaustive priority search; independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE OPERATOR PRIOR: exact two-term inverse-Schur approximation is in Eq. (25), but this material does not present the universal unique diagonal metric, Euclidean indefinite comparison, or attained exact complex numerical-range sector",
+        "evidence": [
+          "arXiv:2611.03361v1 §5.2 Eq. (25), tableau in §3; arXiv abstract v1 submitted 2026-11-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.03361v1",
+        "material_read": "Butcher coefficients, §5.1–§5.2 especially Eqs. (22)–(25), and §6 overview, plus arXiv original submission details",
+        "method": "Accessible primary full HTML; read formulas, hypotheses and preconditioner interpretation",
+        "title": "Scalable Fully Implicit Runge–Kutta Solvers for Time-Dependent Rayleigh–Bénard Convection",
+        "trigger": "Exact same inverse pressure-Schur stage operator"
+      },
+      {
+        "assessment": "Prior structural two-stage pressure preconditioner, but no general two-term sharp stage-weight/sector theorem in inspected corresponding sections",
+        "evidence": [
+          "arXiv:2506.04451v1 §4 Eqs. (19)–(22)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.04451v1",
+        "material_read": "Introduction, §4 preconditioner and Schur complement derivation, Eqs. (19)–(22), and §5 experimental setup",
+        "method": "Accessible primary full HTML; inspected actual derivation instead of relying on abstract",
+        "title": "An Augmented Lagrangian Preconditioner for Navier–Stokes Equations with Runge–Kutta in Time",
+        "trigger": "Earlier source of the inverse pressure-Schur augmentation"
+      },
+      {
+        "assessment": "Numerical-range bounds for distinct stage-parallel preconditioning of the single-inverse tensor system; no exact sector theorem for the double-inverse pressure-Schur surrogate",
+        "evidence": [
+          "DOI:10.1002/nla.2532 §§4–5, Thms 1–2"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2532",
+        "material_read": "Accessible full OA article, §§3–5, especially §4.1 and its Theorems 1–2, assumptions and tensor operators",
+        "method": "Read full HTML relevant sections and theorem statements",
+        "title": "Stage-parallel preconditioners for implicit Runge–Kutta methods of arbitrarily high order, linear problems",
+        "trigger": "Earlier use of complex field of values for Radau stage systems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6fd24a6c-7ad7-4934-8bf2-a5de3cb16c31",
+  "value": {
+    "rationale": "This is a complete structural characterization for a newly used two-term pressure Schur inverse surrogate, not a slice of arbitrary toy parameters: it supplies the unique stage-only norm ensuring positive real numerical range for every spatial discretization, a sharp noncommuting-SPD angular bound determined by the worst generalized pressure mode, and a rigorous contrast with unconditional Euclidean indefiniteness. It clarifies which solver guarantees the surrogate itself can and cannot support; no full preconditioned iteration theorem is claimed.",
+    "status": "PASS"
+  }
+}
