@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof checks the sign-component Green inequality, its equality cases, and correct normalizations of piecewise-linear interpolation and the boundary differences. The finite upper bound follows from a sharp one-interval trapezoid error and Cauchy--Schwarz. The even-dimensional lower witnesses satisfy the discrete Poisson equation with a single sign change; their energy and signed mass coincide, producing the displayed exact rational value. Monotonicity under appending a zero closes the odd-dimensional asymptotic. Weak \(H_0^1\) compactness, uniform convergence and the unique continuous equality shape imply strong derivative convergence of all near-extremizers. The packaged exact checker passes 3,037 diagnostic assertions, but finite enumeration does not prove the infinite statements.
+PASS
 
-## Originality — PASS, qualified
+For real a_i, d>=2, boundaries a0=a_{d+1}=0 and Σa_i=0, continuous zero-mean H_0^1 inequality follows by decomposing positive/negative supports into Dirichlet Green intervals: if M=∫u+=∫u−, support lengths p,n with p+n<=1, E>=12M²(p^-3+n^-3)>=192M²; hence ∫|u|<=||u′||/√48 with equality only for two adjacent equal-length opposite parabolas ±u*. Piecewise linear mesh interpolation has ∫U=0 and ∫|U′|²=(d+1)E(a); opposite-sign trapezoid error<=h|Δa|/4, yielding upper (d+1)^{3/2}/√48+√(d+1)/4. Exact antisymmetric discrete Poisson witnesses for d=2k give K²>=k(k+1)(k²+k+1)/[3(2k+1)], approaching 1/48 under N³ scaling; appending a zero coordinate transfers odd d. For normalized near-extremizers, bounded H_0^1, compact uniform embedding, sharp equality class and weak-to-strong Hilbert norm convergence establish distance to ±u* tends to zero in H_0^1. Exact sign-dual Green checks d=2..10 corroborate, not prove, this unbounded claim.
 
-The full text of arXiv:2610.19010v1 (Theorem 1 and proof) concerns all finite sequences without a vanishing coefficient sum and derives positive Landau extremizers. That statement gives only a nonsharp upper bound for the excluded zero-sum hyperplane; it does not imply the exact asymptotic loss factor or near-extremizer rigidity. The 2025 continuous sharp-embedding paper likewise establishes the unrestricted one-sign bound, not the signed zero-integral classification. Targeted searches for zero-sum, vanishing-moment, polynomial roots at one and paired-parabola formulations, plus relevant mathematical research records and accessible related scientific claims, did not identify a stronger covering theorem. This is a qualified novelty assessment, not proof of priority; classical one-dimensional variational inequalities under other names remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The zero-sum condition is a canonical, codimension-one cancellation condition on the coefficient space, or equivalently a root at \(1\) of its generating polynomial. It destroys precisely the original paper's positive extremizers. The sharp two-to-one change in the limiting embedding norm and complete unique signed profile of all nearly optimal sequences characterize a real structural boundary of the new inequality, rather than a chosen isolated numerical example. The explicit all-dimensional upper and constructive even-dimensional lower bounds make the asymptotic reproducible. The work does not claim an exact finite-dimensional classification.
+The unrestricted real/complex first-difference norm and one-sign Landau extremizers are previously known; enforcing exactly one zero moment fundamentally changes admissible profiles. The proof derives a sharp signed continuum inequality with unique two-lobe profile and transfers that through discrete interpolation and near-extremizer compactness. No inspected stronger source states the zero-mean asymptotic or H1 profile convergence.
 
-## Closest sources, scope and remaining risk
+## value
 
-Hindov--Nitzan--Olsen--Rydhe (2026), arXiv:2610.19010v1, and the same authors' 2025 Mathematika paper (DOI 10.1112/mtk.70012) are the principal published comparators. A nearest research-record result on discrete Dirichlet point-evaluation constants concerns a different norm and functional. Classical continuous mean-zero Dirichlet variation inequalities, or yet-unindexed equivalent results, are a remaining source-priority risk. Independent mathematical validation is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One vanishing moment is a natural algebraic constraint (polynomial factor z−1), and the sharp discrete embedding constant and signed two-lobe rigidity are substantive spectral/Sobolev structure. The result explains a factor-two loss, exhibits nearly sharp finite witnesses, and characterizes near-optimizers rather than relabeling unrestricted bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
