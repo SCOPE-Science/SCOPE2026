@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The connected path plus a positive total sink makes M positive definite even when background loss is zero. The end-to-end cofactor is the invariant k², so concentration minimization is determinant maximization. Strict fixed-middle endpoint balancing reduces to u, strict log-det concavity proves global uniqueness, and exact endpoint derivative signs give F_c=sqrt(v²+4kv)-v with equality correctly at a unique boundary optimum. The quadratic stationarity root and two-room comparison are explicit. The standalone program passed 54,269 supplementary checks; sampling is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General log-determinant concavity of positive definite affine matrices is a known tool; the present proof uses it as such and adds a determinant cofactor identity and exact boundary classification.",
+        "Published research on D-optimal edge conductances has a different feasible intervention: changing graph edges, rather than allocating diagonal pollutant sinks.",
+        "Relevant published three-site stochastic epidemic cure-rate optimization considers extinction time of a stochastic SIS process, not steady transfer of a linear contaminant from one endpoint to another."
+      ],
+      "reasoning": "The general matrix concavity principle covers uniqueness conditional on solving a convex program, but no inspected statement in the relevant application literature or mathematical record explicitly determines this sharp diagonal-budget activation threshold. Edge conductance, SIS cure-time, and single-cleaner placement objectives do not dominate the claim under parameter substitution.",
+      "searches": [
+        "optimal diagonal control of electrical network Green function off diagonal endpoint inverse budget resource allocation",
+        "maximizing determinant diagonally augmented graph Laplacian with vertex weights budget active set path",
+        "matrix inverse entry optimal diagonal entries budget tridiagonal M matrix inverse minimize 1 n endpoint",
+        "optimized placement portable air cleaners three-zone building air pollution source to receptor allocation"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10863606/ (full HTML, methods/results/discussion)",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/2475-8876.12318 (full HTML, including Sections 5–7)",
+      "https://doi.org/10.1080/14733315.2024.2333669 (abstract/highlights only)",
+      "DOI 10.1137/100812483 (abstract: perturbed tridiagonal M-matrix inverse monotonicity, not resource allocation)",
+      "Published mathematical result summaries on weighted-conductance log-determinant optimization, three-site stochastic cure optimization and sensor placement (distinct intervention/criterion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Antonopoulos et al. (2024), DOI 10.3390/pollutants4010003, Equation (1) uses one well-mixed control volume and the paper compares two predefined intervention scenarios.",
+        "Kikumoto and Ooka (2022 online), DOI 10.1002/2475-8876.12318, Sections 5–7 derive a single-cleaner adjoint placement condition and one-dimensional advective example.",
+        "An existing three-room calculation considers the temporal impulse responses of fixed single-cleaner placements, with no free split of the cleaner rate among all rooms."
+      ],
+      "reasoning": "One-zone fixed-intervention calculations cannot imply a unique continuous allocation across three nonuniform communicating compartments; one-dimensional single-position cleaner optimization differs from a three-rate simplex; and transient binary placement inequalities do not determine the steady-state continuous-budget support threshold. The required quantifiers \\(k>0,v\\ge0,F>0\\) and uniqueness/equality-boundary cases are absent from the compared statements.",
+      "searches": [
+        "optimal purification allocation in 3 room chain tridiagonal inverse determinant air cleaner budget",
+        "Study on influence of air cleaner on room dispersion field and its optimal placement using adjoint concentration",
+        "Experimental and Modeled Assessment of Interventions to Reduce PM2.5 in a Residence during a Wildfire Event"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For this model, the off-diagonal Green function is exactly \\(k^2/\\det M\\), so the question is equivalent to a diagonal-sink log-determinant maximization on a three-vertex path.",
+        "Kikumoto and Ooka (2022 online), DOI 10.1002/2475-8876.12318, Sect. 7 study single-cleaner placement in one-dimensional advection, not simultaneous budgeted sinks at all three vertices."
+      ],
+      "reasoning": "The Green-function and matrix-determinant reformulations were explicitly compared. The mathematical identity supplies the reduction but the inspected sources do not state or imply an explicit support-onset threshold for these three simultaneously adjustable rates. A generic strictly concave optimizer alone does not determine its active support or radical formula.",
+      "searches": [
+        "three compartment diffusion path steady source receptor portable air filter allocation 3 rooms determinant log concave sharp onset F_c=sqrt(v^2+4kv)-v",
+        "end to end Green function optimization diagonal killing budget symmetric path 3 vertices source target",
+        "three room chain source exposure endpoint steady state filtration allocation continuous budget equal endpoint filters intermediate onset threshold matrix determinant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The quantitative claim is a real-parameter, all-budget classification, not a finite numerical value, and no inspected catalog or table supplies its support threshold.",
+        "The 2024 experimental study reports only fixed HVAC and PAC alternatives and a single-zone concentration model (DOI 10.3390/pollutants4010003, Sections 3.2 and 5)."
+      ],
+      "reasoning": "An exact matching table or algebraic parameter formula would cover the claim even without a theorem title, but none was identified in the actual searches. This negative search outcome is not treated as a proof of priority; the comparison relies also on the material read in the closest primary articles.",
+      "searches": [
+        "three zone indoor air purifier budget split endpoint equal center threshold clean air delivery rates Laplacian",
+        "three compartment air purification resource allocation exact formula endpoint exposure",
+        "three node path grounded Laplacian end-to-end resolvent optimal rates small budget all endpoint"
+      ]
+    },
+    "rationale": "Inspected full primary literature covers steady single-zone filtration and single-cleaner spatial placement, while the exact simultaneous three-room budget and its unique active-set threshold are not present. Searches explicitly considered Green-function, logdet, path-network and diagonal-allocation equivalents. Some historical-priority uncertainty remains.",
+    "residual_risks": [
+      "Generic convex-optimal experimental design or diagonal M-matrix design literature not found in these searches might imply the special three-room formula.",
+      "Full text of a relevant 2024 multizone ventilation study was inaccessible; available abstract did not suggest coverage but cannot certify absence.",
+      "Primary studies address more realistic flows and fixed physical cleaners; mathematical priority and application relevance should not be confused."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING under the claim: fixed PAC/HVAC scenarios and a single mixed home volume; no three-compartment simplex allocation",
+        "evidence": [
+          "Section 3.2 reports one PAC placed in the same room as the sensor and a single-zone mass balance with fixed cleaning rates.",
+          "Section 5 notes consequences of imperfect mixing, but no three-room optimum or removal-budget onset."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10863606/",
+        "material_read": "Introduction, Sections 3.1–3.2, Tables 3–4, Results and Discussion Section 5, including the explicit single-zone rate equation",
+        "method": "Accessible complete HTML primary text, inspected at publisher mirror",
+        "title": "Experimental and Modeled Assessment of Interventions to Reduce PM2.5 in a Residence during a Wildfire Event",
+        "trigger": "Direct motivating source: steady indoor particulate-removal mass balance and portable cleaner"
+      },
+      {
+        "assessment": "NOT_COVERING: derives positions for one cleaner and a one-dimensional recirculating advective space, not a continuously divisible three-room removal-rate budget",
+        "evidence": [
+          "Section 7 defines one cleaner location within a one-dimensional advective room with stochastic source/receptor positions.",
+          "The article treats single-cleaner placement as the design variable; no three-sink budget threshold is stated."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/2475-8876.12318",
+        "material_read": "Introduction, Sections 2–3, the optimal-placement formulation of Section 5, one-zone reduction Section 6, one-dimensional calculation Section 7, conclusion",
+        "method": "Accessible full HTML original article",
+        "title": "Study on influence of air cleaner on room dispersion field and its optimal placement using adjoint concentration",
+        "trigger": "Closest primary study using source–receptor adjoint concentration and optimal cleaner placement"
+      },
+      {
+        "assessment": "UNRESOLVED_SOURCE_RISK: source addresses multizone contaminant transport but available material does not establish any optimal continuous sink-rate allocation",
+        "evidence": [
+          "Searchable abstract describes airflow transport and compartmentalization rather than a three-room filtration-budget theorem.",
+          "Full-text implication comparison was not possible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/14733315.2024.2333669",
+        "material_read": "Publisher abstract, highlights and introductory text from searchable page; full page fetch was inaccessible",
+        "method": "Abstract/highlights only; full-text request returned access restriction",
+        "title": "Compartmentalization and ventilation system impacts on air and contaminant transport for multifamily buildings",
+        "trigger": "Potentially relevant broader multi-compartment indoor transport study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2566768-d1d9-426d-b28c-6e05855b52ca",
+  "value": {
+    "rationale": "Three rooms is the smallest communicating path with an intermediate room. The model answers a natural policy question—when can any fixed total removal budget profitably be allocated to that transit room rather than split between pollutant source and exposure receptor? It exhibits a sharp baseline-loss-dependent support change absent from the two-room counterpart, a closed-form optimum at every budget and a nontrivial endpoint dominance law. These predictions give an exact low-dimensional benchmark against which numerical multi-zone design tools can be checked; they are not field-calibrated prescriptions.",
+    "status": "PASS"
+  }
+}
