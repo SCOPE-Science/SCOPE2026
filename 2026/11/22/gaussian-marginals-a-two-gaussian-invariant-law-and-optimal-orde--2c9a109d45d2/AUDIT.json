@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact epoch difference maps are strict contractions of the SPD Hessian norm by a factor at most c. Solving a=c^2d+u, d=c^2a+v gives the common marginal variances. Each full epoch output conditioned on its order is a bivariate Gaussian with covariance off-diagonal -ca or -cd, regardless of the input copula, proving the displayed two-Gaussian mixture invariant and uniquely so. Exact Isserlis identity gives mixed cumulant 2p(1-p)c^2(u-v)^2/(1+c^2)^2; trace of the covariance with the Hessian gives the affine objective in p and its strict minimizer. The standalone checker passed the symbolic derivations and independent Gaussian-epoch chain simulation. No infinite conclusion rests only on samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gürbüzbalaban et al. (2018) arXiv HTML full text, Algorithm 1 and sections 2-6; no noise or stationary results",
+        "Safran and Shamir (2021) arXiv HTML full text, model and theorem objectives",
+        "published-finding corpus full scalar quadratic random-reshuffle RESULT.md (ID 2026/11/2/SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5)"
+      ],
+      "reasoning": "The 2018 primary paper studies noiseless exact line-search coordinate updates and transient convergence; the 2021 work analyzes finite-sum reshuffling rates and a different stochastic noise mechanism. The scalar published stochastic reshuffling model has a scalar common epoch multiplier and drift, rather than a vector Gaussian two-coordinate noise oracle. None gives a stronger invariant-law theorem implying all claimed formulas in the present model.",
+      "searches": [
+        "noisy two coordinate Gauss Seidel random reshuffling heteroscedastic gradient noise stationary covariance coordinate marginal order invariant cross covariance",
+        "cyclic versus randomly permuted coordinate descent noisy exact line search unequal noise stationary quadratic energy",
+        "optimal deterministic order noisier coordinate first for steady state quadratic loss noisy randomized permutation coordinate descent",
+        "Randomness and permutations in coordinate descent methods 1803.08200",
+        "Random Shuffling Beats SGD Only After Many Epochs 2106.06880"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1803.08200",
+      "https://arxiv.org/abs/2106.06880",
+      "https://doi.org/10.1080/00949655.2014.968159",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-gaussianity-is-exactly-a-nonorthogonality-graph-compatibility-co--525a6be445a9",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen-Ip (2014) Corollary 2 applies to single-coordinate random scans; Discussion explicitly leaves optimal scan choice unstudied",
+        "Kaczmarz published result full proof gives with-replacement single-row Gaussianity, not full randomized sweep",
+        "Scalar finite-sum result exact risk depends on scalar epoch drift and can prefer random mixing"
+      ],
+      "reasoning": "Earlier general mixtures and covariance-based noise classification are credited. They neither present nor directly imply the noise-dependent optimal fixed order for this independent full-permutation kernel. The main scientific contribution is the explicit full invariant, hidden non-Gaussian copula and strict stationary performance rule in this natural full-sweep optimization model, not Gaussian-mixture algebra in isolation.",
+      "searches": [
+        "exact stationary mixture of two bivariate Gaussians for independent epoch randomized order two coordinate noisy Gauss Seidel updates with unequal Gaussian innovation variances",
+        "optimal deterministic order noisier coordinate first for steady state quadratic loss noisy randomized permutation coordinate descent",
+        "Chen Ip 2014 random-scan two-coordinate mixture theorem",
+        "published-finding corpus Kaczmarz nonorthogonality graph full result",
+        "published-finding corpus scalar random reshuffling full result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen and Ip (2014) Theorem 1, Corollary 2 and Discussion in indexed open full text; DOI 10.1080/00949655.2014.968159",
+        "published-finding corpus published Kaczmarz full RESULT.md (ID 2026/11/8/SCOPE-gaussianity-is-exactly-a-nonorthogonality-graph-compatibility-co--525a6be445a9)"
+      ],
+      "reasoning": "The 2014 mixture statement is for a random single-site Gibbs scan and its fixed scans; the present kernel independently selects one of two full two-coordinate permutations at each epoch, with neither repeated indices nor the same per-step transition. Chen-Ip supplies conceptual mixture precedent, not an implication of the exact stationarity-and-order-optimization statement here. With-replacement Kaczmarz Gaussianity criteria likewise cannot identify the full-epoch two-Gaussian law.",
+      "searches": [
+        "two coordinate random scan Gibbs sampler incompatible conditional variances stationary non Gaussian and fourth cumulant",
+        "exact stationary mixture of two bivariate Gaussians for independent epoch randomized order two coordinate noisy Gauss Seidel updates with unequal Gaussian innovation variances",
+        "Gaussian marginals but non Gaussian joint law for permuted two coordinate Gibbs sampler incompatible noise variance fourth cumulant",
+        "Behavior of the Gibbs Sampler When Conditional Distributions Are Potentially Incompatible Chen Ip 2014"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest IDs 2026/11/8/SCOPE-gaussianity-is-exactly-a-nonorthogonality-graph-compatibility-co--525a6be445a9, 2026/11/2/SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5, 2026/10/25/SCOPE-a-dimension-sharp-reshuffling-reversal-in-euclidean-coordinate-d--1e26d5d8b110, 2026/10/12/SCOPE-sharp-sampling-order-reversal-for-two-coordinate-overrelaxed-des--1370f23f939c",
+        "Verified own prior ledger claims 3640f56f-351b-4d61-a4de-fbc3e52f0825, 3e0e6197-e7df-466e-81a8-88be2db44957, 5c3ce087-5aab-495c-b14d-39657e1c9ffe"
+      ],
+      "reasoning": "No exact invariant joint distribution, mixed fourth cumulant, or noisier-first stationary risk rule was identified in matching published records or accessible own claims. The own results concern finite-epoch noiseless worst-case contraction and resource costs; this observation cannot prove literature-wide uniqueness.",
+      "searches": [
+        "noisy two coordinate Gauss Seidel random reshuffling heteroscedastic gradient noise stationary covariance coordinate marginal order invariant cross covariance",
+        "exact stationary mixture of two bivariate Gaussians for independent epoch randomized order two coordinate noisy Gauss Seidel updates with unequal Gaussian innovation variances",
+        "Gaussian marginals but non Gaussian joint law for permuted two coordinate Gibbs sampler incompatible noise variance fourth cumulant"
+      ]
+    },
+    "rationale": "A fresh coordinate-permutation/noisy-oracle stationary-law question motivated by the verified 2018-03-22 noiseless quadratic-permutation paper. Read its full arXiv HTML along with a related SGD full text, the indexed full text of Chen-Ip (2014), and full published published-finding corpus results for noisy Kaczmarz and scalar reshuffling. Chen-Ip provides a general two-variable incompatible-Gibbs single-site random-scan mixture precursor, but not the full random-permutation epoch model or its exact noisy-first optimal steady-state objective and positive mixed fourth cumulant with invariant Gaussian marginals. The Kaczmarz result concerns iid with-replacement row selection and differs at the transition level; the scalar finite-sum result concerns different additive drift rather than fresh Gaussian coordinate noise. Historical equivalence remains a genuine priority risk.",
+    "residual_risks": [
+      "Chen-Ip (2014) is a substantive earlier mixture precursor; a specialized full-sweep Gaussian incompatible conditional example may imply part of this formula.",
+      "Full publication-precedence searches cannot eliminate unindexed older theorems.",
+      "Independent mathematical peer review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NO covering full stationary noisy-oracle distribution; deterministic/noiseless coordinate update model",
+        "evidence": "Algorithm 1 uses x^+=x-alpha partial_i f e_i without fresh Gaussian perturbation; section 2 lists transient I1,I2,I3 improvement criteria, arXiv v1 2018-03-22",
+        "identifier_or_url": "https://arxiv.org/html/1803.08200v1",
+        "material_read": "Full arXiv HTML (introduction, Algorithm 1, mathematical models, sections 3-6, conclusions and appendices; exact public v1 date verified)",
+        "method": "Read article HTML and compared update equations and convergence criteria with present noise model",
+        "title": "Randomness and Permutations in Coordinate Descent Methods",
+        "trigger": "Same quadratic and permutation coordinate algorithm"
+      },
+      {
+        "assessment": "Finite-epoch rates for finite-sum SGD on commuting quadratic components, not stationary independent Gaussian-coordinate-oracle law",
+        "evidence": "arXiv:2106.06880 §Introduction and model; finite-sum without-replacement convergence bounds",
+        "identifier_or_url": "https://arxiv.org/html/2106.06880v2",
+        "material_read": "Full arXiv HTML: abstract, finite-sum model, theorem statements and proof sections examined",
+        "method": "Compared per-update randomness, parameters, and optimization target",
+        "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+        "trigger": "Alternative shuffled quadratic stochastic optimization model"
+      },
+      {
+        "assessment": "Strong relevant mixture precursor; not the same full-epoch transition or exact noise-order risk; residual precedence risk explicitly retained",
+        "evidence": "Corollary 2 random single-site scan two-variable mixture; Discussion notes optimum fixed-scan comparison not developed",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4572746/",
+        "material_read": "Indexed full-text extract of introduction, theorems 1-3, Corollary 2, Discussion; direct open challenged",
+        "method": "Compared the random single-site transition with independent full-epoch random permutations, and checked whether it optimizes the stationary quadratic risk",
+        "title": "Behavior of the Gibbs Sampler When Conditional Distributions Are Potentially Incompatible",
+        "trigger": "Direct conceptual overlap in scan-order-induced Gaussian mixtures"
+      },
+      {
+        "assessment": "Does not cover full-epoch two-Gaussian invariant or unique stationary order optimizer",
+        "evidence": "Published theorem assumes a single row chosen independently at each iteration, with graph compatibility and directional fourth cumulants",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-gaussianity-is-exactly-a-nonorthogonality-graph-compatibility-co--525a6be445a9",
+        "material_read": "Complete public RESULT.md, including theorem, proofs, exact examples, limitations",
+        "method": "Compared index process (single iid row with replacement) to independently permuted full two-update epochs, and distributional claims",
+        "title": "Gaussianity is exactly a nonorthogonality-graph compatibility condition for noisy randomized Kaczmarz",
+        "trigger": "Fresh Gaussian row-noise invariant Gaussianity with fourth moments"
+      },
+      {
+        "assessment": "Different scalar finite-sum, deterministic component drift, not this fresh two-coordinate Gaussian oracle",
+        "evidence": "Published recurrence X_{k+1}=tX_k+h^2 delta U_k; present maps have rank-one coordinate dependence and continuous Gaussian innovations",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5",
+        "material_read": "Complete public RESULT.md, including hypotheses, exact risk expression and proofs",
+        "method": "Compared scalar component-gradient recursion with planar noise-perturbed coordinate Gauss-Seidel recursion",
+        "title": "Sharp randomized-to-deterministic ordering transition for two-component quadratic reshuffling",
+        "trigger": "Same randomized two-orders over epochs and stationary loss criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c9a109d-45d2-4a93-8ab6-e58172369821",
+  "value": {
+    "rationale": "Noise by coordinate and random reshuffling are motivated numerical optimization design choices. The complete exact epoch invariant sharply separates Gaussian marginals from non-Gaussian dependence, certifies a positive mixed cumulant invisible to univariate checks, and provides a unique, operational noisier-coordinate-first stationary loss rule with exact randomization penalty. This is a structural benchmark in full-sweep stochastic coordinate optimization rather than a narrowly selected numerical instance.",
+    "status": "PASS"
+  }
+}
