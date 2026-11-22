@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+For every length \(n\ge2\), the checksum character filter produces three integer powers of \(-2\) indexed by exact frequency-symbol counts. The factorization is derived directly in RESULT.md, without an unproved analytic lemma. The zero classification is exhaustive: the minimum exponent cannot occur once by parity or three times by nonvanishing, and two minima force the remaining exponent to exceed them by exactly one. Multinomial counting gives the exact nullity; Stirling gives the claimed density. The independent phase-enumeration checker directly confirms every Fourier coefficient and zero count through length nine (29,520 frequencies), but this is corroboration rather than proof for unbounded lengths.
+
+## Originality — PASS under bounded comparison
+Beck and Zaslavsky (arXiv:math/0309331, 2003, Sections 1, 3, 4.1, including Example 3.4) provide classical modular-flow counts and the relevant graph object. Their unsigned flow counts specify the zero-frequency transform but not the complete signed spectrum or which nontrivial frequencies cancel. A published exact alias-spectrum theorem for parity-check Fourier sampling restricts low-degree characters to the entire checksum hyperplane, not counting convolution by its nowhere-zero portion. An inspected harmonic spectrum for fixed-weight slices has a distinct Johnson-matrix object. General MacWilliams/complete-weight-enumerator transforms provide a standard method for the multiplier formula, and no priority is claimed for this reduction. The distinct claim is the exact cancellation criterion and all-length ambient rank and density. Search and coverage were bounded: an unindexed equivalent code-theoretic specialization is a residual risk and no globally definitive priority statement is made.
+
+## Value — PASS
+The full-group inverse problem of recovering arbitrary ternary signals after convolution with a natural nowhere-zero graph-flow support has a genuine and unexpectedly periodic exact answer: infinitely many singular dimensions but asymptotically vanishing lost-mode density, with a closed integer nullity. This is a complete structural classification of a canonical flow family, not a small isolated numerical table or a gain from an arbitrary parameter slice. The theorem deliberately stops short of optimal conditioning in the recoverable subspace or arbitrary graph generalization.
+
+Self-review: passed. Independent audit: not yet performed.
