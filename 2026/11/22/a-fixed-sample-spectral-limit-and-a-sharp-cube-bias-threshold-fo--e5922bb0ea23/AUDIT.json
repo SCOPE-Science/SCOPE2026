@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For \\(d\\ge2n\\) an exact eigenvalue reduction gives \\(T=(\\lambda_{\\max}(G)-n/d)^2/n\\). Joint Gaussian-coordinate and independent biased-sign product central limit theorems produce the zero-diagonal W matrix and its \\(a(J-I)\\) deformation; the latter uses a directly computed covariance and bounded Lindeberg terms. Eigenvalue continuity and null quantile continuity yield exact-calibrated local power; an all-ones Rayleigh quotient gives power one when \\(\\sqrt d\\,\\mu_d^2\\) diverges. For \\(n=2\\), an exact Beta Haar inner-product law and exact Binomial cube-product count yield finite-dimensional critical values and power, agreeing with a shifted folded-normal limit. The standalone checker passed 751 reproducibility assertions, but finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cutting–Paindaveine–Verdebout (2022) uses Bingham trace(S^2), both dimension and sample size diverging, and rotational alternatives.",
+        "Cutting–Paindaveine–Verdebout (2017) investigates high-dimensional Rayleigh and rotationally symmetric alternatives."
+      ],
+      "reasoning": "Neither prior high-dimensional theorem dominates the fixed-sample largest-eigenvalue distribution or independent sign-product cube alternative. General random Gram central limit theorems could supply one ingredient but do not by themselves identify the test-specific calibration or sharp alternative-bias regime.",
+      "searches": [
+        "fixed n high dimension power weak convergence Gram largest eigenvalue rademacher alternative spherical test",
+        "https://doi.org/10.1214/21-AIHP1168",
+        "https://arxiv.org/abs/1502.02120"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.03482v1 (definition, quadratic identity, fixed-d n-infinity theorem, conclusion, references)",
+      "doi:10.1214/21-AIHP1168 (author preprint introduction, test definition and asymptotic regimes)",
+      "arxiv:1502.02120 (abstract and original-source discussion)",
+      "doi:10.3150/25-BEJ1889 (journal abstract/bibliographic record only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source: spectral representation T_{n,2} on page 3, Section 8 explicitly identifies consistency-rate issues for beta=2 as further research.",
+        "High-dimensional Bingham source: different test functional and both \\(n,p\\) diverging in its theorem statements.",
+        "2026 journal printing inspected at abstract/bibliographic level only."
+      ],
+      "reasoning": "A source formula plus standard CLT is not represented as a new matrix theorem; applying it to the precise quadratic test, calibrating exact-null thresholds under singular biased-cube alternatives, and proving the local and strong bias threshold with exact \\(n=2\\) power is the distinct result. No inspected prior statement has assumptions and conclusion sufficient to imply that combined claim directly.",
+      "searches": [
+        "\"The non-null behaviour of the Bingham test\" arxiv Cutting Paindaveine Verdebout",
+        "Borodavka Ebner maximal projection T_{n,2} for spherical uniformity: fixed n, d to infinity, zero diagonal Wigner limit lambda_max for Haar or Rademacher cube directions; exact asymptotic level",
+        "https://doi.org/10.3150/25-BEJ1889"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Borodavka–Ebner Eq. (1.3) defines an operator-norm spectral statistic; Thm. 2.1 studies n growing at fixed dimension.",
+        "The finite-rank Gram matrix gives an equivalent fixed-\\(n\\) representation, but the source does not state its high-dimensional eigenvalue limit."
+      ],
+      "reasoning": "The source definition and spectral identity are covered prior work. The asserted Gaussian Gram law under fixed-\\(n\\) dimension growth plus the alternative-dependent spectral shift and power curve are distinct theorems and do not follow from its fixed-dimension Gaussian-process law without additional argument.",
+      "searches": [
+        "arxiv:2301.03482 Borodavka Ebner quadratic maximal projection uniformity fixed sample dimension increasing Gram eigenvalue",
+        "\"maximal projection\" \"fixed sample\" \"dimension\" uniformity test eigenvalue",
+        "https://arxiv.org/pdf/2301.03482"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source simulations use n=100 examples with non-cube alternatives; no exact \\(n=2\\) Beta/binomial power formula was located in inspected sections.",
+        "Scientific search records returned Gram and spherical projection papers with different objects and no matching statistic-specific table."
+      ],
+      "reasoning": "No checked exact table or database gives the combined \\(n=2\\) finite-dimensional Beta-null/Binomial-alternative power law or its local limit. Search incompleteness is a risk, not proof of global uniqueness.",
+      "searches": [
+        "maximal projection spherical uniformity test β=2 exact null and local power against biased random hypercube directions",
+        "finite observation spherical quadratic maximal-projection test Gram eigenvalue Wigner deformed by rank-one bias cube signs",
+        "https://arxiv.org/pdf/2301.03482"
+      ]
+    },
+    "rationale": "The source article states the quadratic maximal-projection spectral formula but proves fixed-dimensional \\(n\\to\\infty\\) limits, not the fixed-\\(n\\) \\(d\\to\\infty\\) Gram limit and singular product-cube bias threshold. High-dimensional Bingham literature uses Frobenius rather than operator norm and generally assumes both sample size and dimension grow with rotational alternatives. The specific two-point binomial/Beta calibrated power and \\(d^{-1/4}\\) boundary were not located in the checked literature. Generic Gram CLT technology is acknowledged as standard; qualified historical-priority risks remain.",
+    "residual_risks": [
+      "Generic Gaussian Gram matrix central limit arguments predate this result and could imply an equivalent consequence when combined with the source definition.",
+      "The 2026 journal article body was not separately examined; its first public preprint was inspected in detail.",
+      "Some wider random matrix or directional testing papers may cover the same fixed-\\(n\\), singular-cube calibration law despite no direct result being found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the source test and its fixed-dimension large-sample theory, but does not state the fixed-\\(n\\), \\(d\\to\\infty\\) zero-diagonal Gaussian Gram limit or biased-cube detection law.",
+        "evidence": [
+          "arXiv:2301.03482v1, eq. (1.3), Sect. 1, Thm. 2.1, Sect. 8 and references [11], [12]."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.03482",
+        "material_read": "Original 2023 preprint: definition (1.3), quadratic spectral identity on page 3, Theorem 2.1, non-null setup, simulations, closing discussion and cited Bingham predecessors.",
+        "method": "Read primary PDF equations, related theorems and conclusion; visually checked page 3 equation and quadratic spectral representation.",
+        "title": "A general maximal projection approach to uniformity testing on the hypersphere",
+        "trigger": "Original definition of the quadratic maximal-projection test and possible already-known high-dimensional limit."
+      },
+      {
+        "assessment": "Its centered Frobenius-trace Bingham statistic and jointly diverging sample-size/dimension with rotational alternatives do not imply this fixed-\\(n\\) largest-eigenvalue law or cube-binomial power curve.",
+        "evidence": [
+          "Cutting–Paindaveine–Verdebout (2022), introduction, equations (1)–(2), Sections 2–5, DOI:10.1214/21-AIHP1168."
+        ],
+        "identifier_or_url": "https://dipot.ulb.ac.be/dspace/bitstream/2013/320587/3/Paper.pdf",
+        "material_read": "Author preprint introduction, definitions, main asymptotic regime, Bingham test representation and the scopes of the stated results.",
+        "method": "Read full-text extraction of the author preprint; compared the statistic, asymptotic parameters and alternative models with the present claim.",
+        "title": "Testing uniformity on high-dimensional spheres: The non-null behaviour of the Bingham test",
+        "trigger": "Possible dominating high-dimensional spectral/uniformity threshold from the closely related quadratic Bingham procedure."
+      },
+      {
+        "assessment": "Its Rayleigh-statistic/rotational-alternative results are different; full body not inspected for this comparison.",
+        "evidence": [
+          "Cutting–Paindaveine–Verdebout, Ann. Statist. 45 (2017), DOI:10.1214/16-AOS1473."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.02120",
+        "material_read": "Original arXiv abstract and the corresponding discussion in Borodavka–Ebner references/conclusion.",
+        "method": "Compared declared test family, model of alternatives and asymptotic regime from abstract and primary citation.",
+        "title": "Testing uniformity on high-dimensional spheres against monotone rotationally symmetric alternatives",
+        "trigger": "High-dimensional uniformity power and alternative detection thresholds could dominate the present claim."
+      },
+      {
+        "assessment": "The abstract reports the source test and usual large-sample developments but cannot independently establish absence from the unread journal body; residual risk disclosed.",
+        "evidence": [
+          "Bernoulli 32 (2026), 996–1019, DOI:10.3150/25-BEJ1889."
+        ],
+        "identifier_or_url": "https://doi.org/10.3150/25-BEJ1889",
+        "material_read": "Journal bibliographic entry, abstract and references were available. Full article body not directly inspected.",
+        "method": "Compared accessible journal abstract and bibliography against its first-published arXiv preprint.",
+        "title": "A general maximal projection approach to uniformity testing on the hypersphere (2026 journal printing)",
+        "trigger": "Check whether the later published version could cover the claimed boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5922bb0-ea23-41df-a07c-8d97edf11e7d",
+  "value": {
+    "rationale": "For a published spherical-uniformity test, the theorem identifies a sharp dimension-dependent bias threshold and a nontrivial entire local power curve. Even an exactly singular alternative at zero bias is undetected asymptotically; the exact two-observation Beta/Binomial formula and evaluated critical values make the calibration consequence independently reproducible. The result delineates an operational boundary of the operator-norm statistic rather than an arbitrary numerical invariant.",
+    "status": "PASS"
+  }
+}
