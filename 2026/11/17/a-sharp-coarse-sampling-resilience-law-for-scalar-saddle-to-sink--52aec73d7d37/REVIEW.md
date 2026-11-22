@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact one-sided intensity characterization is credited to Yu and Wang, Proposition 3.12. The newly proved part follows from the half-time orbit witnessing \(\mu_h\to1\), the stationarity equation \(f(y_h)=f(x_h)\), and the endpoint-renormalized transit coordinate. Both endpoint asymptotics and the prefactor follow with a proper little-o remainder and no uniqueness assumption on the maximizer. The logistic and cubic exact examples reproduce the exponents and constants; the nonlinear deformation independently checks the transit-dependent prefactor numerically. The computations do not replace the infinite proof.
+PASS
 
-## Originality (PASS within searched evidence)
+PASS: Under f>0 on (0,1), the exact sampled intensity μ_h=max_{[0,1]}(Φ_h(x)-x) follows from the prior scalar barrier theorem and can be reconstructed by upper/lower invariant barriers. Choosing a point on the flow half-way between endpoints proves μ_h→1; hence any maximizer x_h→0 and y_h=Φ_h(x_h)→1. Autonomous scalar flow derivative Φ_h'(x)=f(Φ_h(x))/f(x); at any interior maximum f(x_h)=f(y_h), so λx_h~ν(1-y_h). Time coordinates T(Φ_h(x))-T(x)=h with convergent C2 endpoint logarithmic renormalizations then give κ=λν/(λ+ν), x_h~(ν/(λ+ν))C_f exp(-κh) and 1-y_h~(λ/(λ+ν))C_f exp(-κh). Their sum is 1-μ_h. Checked logistic exact μ_h=tanh(h/4), scaled gap→2; cubic exact gap scaled exp(2h/3)→3/2, agreeing with the stated C_f. No uniqueness assumption or finite numerical inference of general asymptotics is used.
 
-Yu and Wang (2026), arXiv:2608.02933, study small-sampling convergence and prove the exact maximum formula, including an exact cubic example. The cubic case is prior, not independently new. Their inspected general statements and relevant full text do not give the arbitrary-smooth-flow large-sampling exponent and nonlocal coefficient. Meyer and McGehee (2022), DOI:10.1137/20M138689X, develop continuous controlled intensity; only their abstract was compared. Mathematical-record searches used aliases including basin-width saturation, coarse sampling, time-\(h\) maximal flow displacement and hyperbolic endpoint matching; closest records do not cover the claim. Residual risk: specialized earlier scalar-semigroup work, or a result in the full older source, may imply it.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Large observation intervals are an intrinsic complementary regime to the published small-\(h\) sampling theorem. The result locates a sharp saturation boundary for every eligible scalar system and identifies both the joint eigenvalue exponent and an explicitly nonlocal amplitude. The family \(f_\alpha\) proves that fixed local eigenvalues alone cannot recover the amplitude. This is a structural classification for a natural smooth class, not a recomputation of the known cubic benchmark.
+PASS best-of-knowledge: Yu–Wang Proposition 3.12 is a known exact finite-h maximum-displacement reduction, and their cubic §6.1 result already has one special-case coefficient. Their inspected paper emphasizes h→0 sampling convergence and does not supply arbitrary C2 repeller-to-sink h→∞ harmonic-rate law, global transit prefactor or both optimizer endpoint locations. Meyer–McGehee concerns continuous-time bounded control. The current general claim adds a distinct large-h asymptotic for a natural class; possible older scalar semigroup analogues remain a risk.
 
-## Scope and limitations
+## value
 
-Only one-dimensional flows, two hyperbolic equilibria, order-preserving exact sampling and a one-sided basin with adequate upper confinement are covered. There is no assertion about higher-dimensional basins, nonhyperbolic endpoints, noisy exit probability or independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: large sample intervals complement prior fine-sampling resilience laws. The exact deficit exponent couples both endpoint linearizations while C_f contains nonlocal transit geometry. A natural family with identical λ,ν but varied C_f demonstrates substantive information beyond local spectral data; the theorem covers all eligible C2 scalar flows, not just a cubic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

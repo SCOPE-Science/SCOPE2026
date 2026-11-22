@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T14:49:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Under f>0 on (0,1), the exact sampled intensity μ_h=max_{[0,1]}(Φ_h(x)-x) follows from the prior scalar barrier theorem and can be reconstructed by upper/lower invariant barriers. Choosing a point on the flow half-way between endpoints proves μ_h→1; hence any maximizer x_h→0 and y_h=Φ_h(x_h)→1. Autonomous scalar flow derivative Φ_h'(x)=f(Φ_h(x))/f(x); at any interior maximum f(x_h)=f(y_h), so λx_h~ν(1-y_h). Time coordinates T(Φ_h(x))-T(x)=h with convergent C2 endpoint logarithmic renormalizations then give κ=λν/(λ+ν), x_h~(ν/(λ+ν))C_f exp(-κh) and 1-y_h~(λ/(λ+ν))C_f exp(-κh). Their sum is 1-μ_h. Checked logistic exact μ_h=tanh(h/4), scaled gap→2; cubic exact gap scaled exp(2h/3)→3/2, agreeing with the stated C_f. No uniqueness assumption or finite numerical inference of general asymptotics is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu-Wang general h bounds and h→0 expansion",
+          "Meyer-McGehee continuous control framework"
+        ],
+        "reasoning": "A general small-h sampling theorem is not a large-h saturation theorem; the prior cubic exact benchmark is a special case not a source of the arbitrary-flow nonlinear C_f. Continuous control concerns a different perturbation protocol.",
+        "searches": [
+          "scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Resultary: scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Yu Wang 2608.02933 scalar sampled intensity coarse sampling large h exact max",
+          "Meyer McGehee intensity attraction ODE continuous bounded control",
+          "maximum displacement scalar semigroup long time hyperbolic repeller sink harmonic mean"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.cnoctave.top/pdf/2608.02933",
+        "https://arxiv.org/abs/2012.10786",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-sharp-coarse-sampling-resilience-law-for-scalar-saddle-to-sink--52aec73d7d37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yu-Wang Prop.3.12: μ_h=max_{x∈[0,1]}(Φ_h(x)-x)",
+          "Target proof: all maximizers satisfy f(Φ_h(x_h))=f(x_h); log-time matching yields harmonic κ and C_f"
+        ],
+        "reasoning": "The maximizing functional was known, but obtaining its h→∞ expansion requires endpoint localization plus matching both logarithmic divergences. The paper does not state a theorem implying this coefficient in the material read.",
+        "searches": [
+          "scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Resultary: scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Yu Wang 2608.02933 scalar sampled intensity coarse sampling large h exact max",
+          "Meyer McGehee intensity attraction ODE continuous bounded control",
+          "maximum displacement scalar semigroup long time hyperbolic repeller sink harmonic mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu-Wang Prop 3.12 writes the same μ_h as a maximum flow displacement",
+          "Transit coordinate T(Φ_h(x))=T(x)+h is the natural alternate formulation"
+        ],
+        "reasoning": "Known finite-h reduction is equivalent to the definition of intensity but not to the new asymptotic evaluation of its maximum for arbitrary C2 f.",
+        "searches": [
+          "scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Resultary: scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Yu Wang 2608.02933 scalar sampled intensity coarse sampling large h exact max",
+          "Meyer McGehee intensity attraction ODE continuous bounded control",
+          "maximum displacement scalar semigroup long time hyperbolic repeller sink harmonic mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior cubic closed form Eq.(6.2) supplies one exact invariant and its 3/2 scaling constant",
+          "Resultary matching records other than target concern different flow families"
+        ],
+        "reasoning": "The cubic scalar specialization is already covered and expressly credited. A single known example or table does not cover the universal C2 theorem with nonlocal prefactor.",
+        "searches": [
+          "scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Resultary: scalar flow repeller attractor sampled kicks large time max displacement exponential asymptotic transit time harmonic rates",
+          "Yu Wang 2608.02933 scalar sampled intensity coarse sampling large h exact max",
+          "Meyer McGehee intensity attraction ODE continuous bounded control",
+          "maximum displacement scalar semigroup long time hyperbolic repeller sink harmonic mean"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Yu–Wang Proposition 3.12 is a known exact finite-h maximum-displacement reduction, and their cubic §6.1 result already has one special-case coefficient. Their inspected paper emphasizes h→0 sampling convergence and does not supply arbitrary C2 repeller-to-sink h→∞ harmonic-rate law, global transit prefactor or both optimizer endpoint locations. Meyer–McGehee concerns continuous-time bounded control. The current general claim adds a distinct large-h asymptotic for a natural class; possible older scalar semigroup analogues remain a risk.",
+      "reasoning": "PASS best-of-knowledge: Yu–Wang Proposition 3.12 is a known exact finite-h maximum-displacement reduction, and their cubic §6.1 result already has one special-case coefficient. Their inspected paper emphasizes h→0 sampling convergence and does not supply arbitrary C2 repeller-to-sink h→∞ harmonic-rate law, global transit prefactor or both optimizer endpoint locations. Meyer–McGehee concerns continuous-time bounded control. The current general claim adds a distinct large-h asymptotic for a natural class; possible older scalar semigroup analogues remain a risk.",
+      "residual_risks": [
+        "Older monotone scalar semigroup or dynamical reachability literature might contain an equivalent large-h transit-time asymptotic.",
+        "Only selected portions of the older continuous-control paper were technically inspected; no whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers μ_h exact maximum and cubic specialization, not the general large-h two-hyperbolic-endpoint matched-asymptotic theorem in inspected claims",
+          "evidence": [
+            "Proposition 3.12 says μ_h=max(F_h(x)-x)",
+            "Cubic Eq.6.2 is prior; small-h expansion is principal focus"
+          ],
+          "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2608.02933",
+          "material_read": "Full 2026 manuscript searchable text; especially original §3.3 Proposition 3.12 and proof, Corollary 3.14, §6.1 cubic (6.2), abstract, main theorem and illustrative table",
+          "method": "Read primary PDF, checked page 13 visually plus parsed proofs and equations 3.17, 6.2",
+          "title": "From Flows to Maps: Sampling Laws for Attractor Intensity and Bounded-Noise Escape",
+          "trigger": "exact same sampled intensity and scalar barrier formula"
+        },
+        {
+          "assessment": "No direct general sampled large-h coefficient identified in the material read; cannot assert whole-document noncoverage",
+          "evidence": [
+            "SIAM J. Applied Dynamical Systems 21 (2022), 960–981"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.10786",
+          "material_read": "Accessible public abstract, bibliography and selected PDF pages from the primary study; not entire technical body",
+          "method": "Compared continuous-time controlled reachability rather than exact sampled map",
+          "title": "Intensity—A Metric Approach to Quantifying Attractor Robustness in ODEs",
+          "trigger": "continuous-control intensity could dominate discrete-time result"
+        },
+        {
+          "assessment": "Written proof covers all eligible C2 vector fields with a valid upper barrier; package finite diagnostics alone are not a theorem",
+          "evidence": [
+            "T(y)-T(x)=h and f(y)=f(x) at optimizer"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-sharp-coarse-sampling-resilience-law-for-scalar-saddle-to-sink--52aec73d7d37",
+          "material_read": "Complete RESULT.md, AUDIT.json, REVIEW.md, CHECK.py, source metadata and verification",
+          "method": "Independently checked stationary equation, transit-time asymptotic coefficients and exact logistic/cubic examples",
+          "title": "A sharp coarse-sampling resilience law for scalar saddle-to-sink flows",
+          "trigger": "frozen final claim and exact package"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: large sample intervals complement prior fine-sampling resilience laws. The exact deficit exponent couples both endpoint linearizations while C_f contains nonlocal transit geometry. A natural family with identical λ,ν but varied C_f demonstrates substantive information beyond local spectral data; the theorem covers all eligible C2 scalar flows, not just a cubic benchmark.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.cnoctave.top/pdf/2608.02933",
+    "https://arxiv.org/abs/2012.10786",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-sharp-coarse-sampling-resilience-law-for-scalar-saddle-to-sink--52aec73d7d37"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar hyperbolic one-sided basin with upper restoring drift.",
+    "No nonhyperbolic endpoints, higher-dimensional basins, or stochastic exit distribution."
+  ],
+  "residual_risks": [
+    "Older monotone scalar semigroup or dynamical reachability literature might contain an equivalent large-h transit-time asymptotic.",
+    "Only selected portions of the older continuous-control paper were technically inspected; no whole-document exclusion."
+  ],
+  "schema_version": 1
+}
