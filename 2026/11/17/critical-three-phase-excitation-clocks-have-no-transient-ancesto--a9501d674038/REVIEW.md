@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact inverse count follows from the forced sources of target states \(1\) and \(2\), leaving independent binary choices at target-\(0\) vertices, conditioned only on the fixed excited-source set. For a primitive period-three state on a connected \(2r\)-regular graph at threshold \(r\), counting all required cross-phase edges uses at least \(r|A|\) edges, exactly the maximum number of edges induced by active vertices. Equality forces no silent adjacency, no same-phase edges and exactly \(r\) neighbors in each other phase. Every periodic clock therefore has one predecessor in the entire configuration space, proving zero transient attraction. Explicit direct calculations establish the subcritical counterexample, with independent finite checks on several graph families. The result is a proof for all finite graph sizes, not a finite-enumeration extrapolation.
+## correctness
 
-## Originality: PASS (qualified historical priority)
-Prior finite-graph records classify the initially primitive-three states at critical threshold, but their claimed statements concern *periodic membership*, not the ambient one-step inverse fiber and total attraction basin. This inference requires the independent inverse argument. A 1995 primary full text investigates infinite one-dimensional local periodic structures and strong death, and the later 2019/2021 primary full text investigates infinite nearest-neighbor pulse systems with restricted-subshift preimages. Neither inspected theorem gives the graph-independent exact inverse count or global three-cycle non-entry under critical half-degree excitation. Similarity search on clock phase, inverse fibers, threshold and basin found related exact period counts and special-graph basin results but not this all-regular-graph assertion. The original 1993 full text was not accessible, so historical exclusivity cannot be certified.
+PASS
 
-## Mathematical value: PASS
-The result answers a dynamical question left open by merely enumerating periodic clocks: do critical excitation waves acquire new initial conditions during evolution? It proves that every period-three orbit is isolated in the complete state-transition graph for all connected finite even-regular networks, and supplies an exact predecessor formula on arbitrary graphs. The six-vertex subcritical example shows this isolation is a genuine threshold phenomenon, not a tautology of three-phase excitation. It converts a periodic-state count into an exact full basin measure and gives a reusable obstruction to nucleation across infinitely many nonisomorphic networks. It does not claim a complete attractor classification.
+For any full clock target y, each predecessor value for target 2 and 1 is forced (old 1 and 0); its excited sites are therefore precisely y=2. A target-0 vertex independently chooses old2 or old0, old0 valid iff its count of y=2 neighbors is below theta. This proves the exact inverse power of two including external states. For any primitive-three orbit, every vertex is either permanently 0 or cycles all three colors. Active successor contacts require at least r|A| distinct phase-crossing edges, while e(G[A])<=r|A| by 2r-regularity. Equality forces no active-silent boundary and connectedness makes all vertices active; every vertex has r in each opposite phase. Hence each zero vertex has exactly r preceding color-2 neighbors, inverse exponent zero and unique previous clock phase. Reversing the last entrance edge excludes all outside transients. Independently exhausted 3^6 C6² configurations: six critical full clocks, each indegree one; θ=1 source witness in RESULT demonstrates sharp change. Finite enumeration supports, not proves, the all-graph statement.
 
-## Closest literature and residual limitations
-Durrett–Griffeath (1993) addresses excitation models and stable patterns but only its abstract was available; Fisch–Gravner (1995), Sections 1–3, concerns infinite-line behavior and stable periodic objects; Kesseböhmer–Rademacher–Ulbrich (2019/2021), Lemma 3.4, gives invertibility inside particular infinite-line pulse subshifts rather than absence of all ambient incoming edges on arbitrary regular finite graphs. A pre-existing regular-graph three-clock classification is credited, rather than counted as new. An inaccessible historical theorem might still yield the same inverse result; independent expert priority review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: prior published half-degree rigidity theorem already proves the balanced-coloring/initial-clock classification and C_n² initial count. Those are explicitly not credited as novelty. The current separate exact inverse-fiber formula and ambient-basin isolation require a new all-configuration predecessor argument; a balanced internal periodic classification does not imply no external incoming edge. Prior infinite-line pulse-subshift uniqueness is only within an invariant subshift, not all finite-graph configurations. Best knowledge PASS with 1993 full-text access risk.
+
+## value
+
+PASS
+
+The natural question whether a three-cycle can attract nonperiodic states directly affects basin probabilities and recurrence in finite automata. A graph-uniform exact inverse-fiber law plus critical/no-transient isolation and subcritical counterexample is structural and nonroutine despite reusing known half-degree clock rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
