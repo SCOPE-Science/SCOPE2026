@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete graph-to-matching-complex construction is explicit and finite. The three face vectors were independently constructed by recursive matching enumeration and direct edge-subset enumeration. The saved certificate contains, and the standalone checker revalidates, all \(148\) elementary face collapses and all \(148\) triangular fundamental-group eliminations, including spanning-tree connectivity. These deductions give a connected simply connected two-dimensional core in each case, with Euler characteristics \(6,17,27\). The standard integral Hurewicz and Whitehead arguments give precisely \(5,16,26\) two-sphere summands; mod-two boundary-rank calculations independently agree. Every computation is independently replayable from the package without other files.
+## correctness
 
-**Originality — PASS, with residual risk.** The rectangle is explicitly attributed to known rectangular matching-complex work. The claimed additional cylinder and torus results concern graphs \(P_3\square C_3\) and \(C_3\square C_3\) with respectively \(15\) and \(18\) edges, not the \(12\)-edge rectangle. The inspected 2021 primary text defines rectangular graphs by interval adjacency and is retracted; it supplies neither periodic statement nor valid implication to the new claims. Chauhan–Sharma–Shukla (arXiv:2609.27366v1) concerns three-by-length grids and was accessible only through its abstract, so full-text overlap has not been completely excluded. Searches of mathematical records and public literature for the periodic graph names, line-graph independence equivalents, sphere ranks, and broader matching-complex theorems revealed related but not dominating results; absence from an index is not a uniqueness proof. The closest other cylinder calculation concerns \(P_3\square C_5\), not this graph. This evidence supports a best-knowledge originality assessment without implying independent certification.
+PASS
 
-**Mathematical value — PASS.** The three-by-three square is the smallest square grid with genuine length-three cyclic wrap-arounds on either axis. The result gives the first complete integral homotopy comparison across all three nonredundant boundary conditions, with distinct ranks \(5,16,26\), so periodic closure changes topological type rather than only matching counts. The exact, independently reproducible cases provide boundary-condition test data for new topology-of-grid-matching-complex research; this is a natural finite complete classification, not an arbitrary narrow parameter slice or numerical simulation. The theorem is not asserted to extend to arbitrary widths.
+PASS. Independently reconstructed all matchings for all three precisely defined nine-vertex Cartesian products, checked complete face-cardinality vectors (1,12,44,56,18), (1,15,69,107,36), (1,18,99,180,72). Independently fetched complete CERTIFICATE.json and checked each of 25/43/80 elementary collapse pairs against its unique live immediate coface: all valid, with residual f=(12,37,31),(15,62,64),(18,91,100) and no cells above dimension 2. For each surviving complex independently checked the supplied spanning tree has 11/14/17 edges and reaches all vertices; replayed every one of the 26/48/74 triangular fundamental-group generator eliminations and ended with zero generators. Thus each residual complex is connected and simply connected, and Euler characteristics 6/17/27 give rank 5/16/26 free H2; Hurewicz plus homological Whitehead prove the displayed integral wedge-of-S² homotopy types. No claim about longer strips or equivariant actions.
 
-The major novelty risk is undiscovered treatment of these precise periodic graphs, especially in inaccessible full text or under the alias nine-vertex rook graph. There is no claimed equivariant result, arbitrary-width recurrence, or independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. The open 3×n grid theorem is a comparator and does not cover simple-graph cylindrical P3□C3 or doubly periodic C3□C3/K3□K3, both with extra edges and different face sets. Indexed cylinder results with n=5 or 6, and the 3×4 torus are different graph parameters, with no all-n theorem implying these n=3 cases. Priority risk remains for unindexed rook-graph matching-complex homotopy results.
+
+## value
+
+PASS
+
+PASS. Resolves a small canonical boundary-sensitive comparison among open, one-periodic and two-periodic nine-vertex 3-by-3 graphs, where the added wrap-around edges change the exact integral matching-complex homotopy type. The cylinder and torus 16 and 26 sphere counts are natural unknown finite invariants, supported by complete transparent simple-connectivity and collapse certificates, rather than a lookup in an already-known table. A finite theorem need not extend to all n to have value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
