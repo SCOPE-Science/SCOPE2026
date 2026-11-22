@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T08:12:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/rank-constrained-weak-schatten-diagonal-pinching-an-exact-three--a860c3ae7808/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/rank-constrained-weak-schatten-diagonal-pinching-an-exact-three--a860c3ae7808/checker.py"
+      ],
+      "rationale": "PASS: Ky Fan/von Neumann diagonal submajorization bounds k-th largest |A_ii| by H_min(k,r)(q)/k when max_j j^q s_j(A)=1. The normalized output is consequently bounded by max_{1<=k<=n} k^(q-1) H_min(k,r)(q). For k<=r, positive Laplace integral f_k=(1/Gamma(q)) int_0^infty t^(q-1)(1-e^-t)/[k(e^(t/k)-1)]dt strictly increases with k because (e^x-1)/x increases; for k>=r, k^(q-1) H_r monotone by sign(q-1). This yields n^(q-1)H_r for q>1, H_r at q=1, r^(q-1)H_r for q<1. Fourier-unitary conjugation of diag(1,2^-q,...,r^-q) produces sharp flat diagonals on support m. Equality in all Ky Fan and trace-norm duality inequalities forces prescribed singular values, flat nonzero diagonal modulus on support m, and a diagonal-unitary multiple of a positive semidefinite matrix. I independently checked the optimizing finite scalar sequences for q=1/2,1,2,7/3 and n/r=3/1,5/3,7/7. The 22604-case checker source was inspected, not used as proof. Boundary p=1 and r=n correctly included; no p=infinity claim.",
+      "residual_risks": [
+        "Exact formula for canonical finite-dimensional diagonal pinching only; no arbitrary Schur mask, block expectation, or p=infinity.",
+        "No independently repeated full 22604 numerical verification; exact proof covers all integer sizes/ranks and p>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McDonald et al. Theorem 2.3 is a qualitative characterization of Schur patterns for ideals not closed under submajorisation, and Section 4 establishes diagonal submajorization under general hypotheses.",
+          "Kaftal–Weiss develops infinite-dimensional Schur–Horn diagonal characterizations."
+        ],
+        "reasoning": "Neither general pattern membership nor existence of a positive matrix with a given diagonal computes the exact finite (n,r,p) factor or characterizes every equality case. These results supply the majorization and realization steps but not the optimized explicit formula.",
+        "searches": [
+          "https://arxiv.org/abs/2605.07564",
+          "https://arxiv.org/abs/0710.5566",
+          "symmetric operator ideals fully symmetric diagonal pinching Schur operator norms Lorentz weak type"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.07564",
+        "https://arxiv.org/abs/0710.5566",
+        "https://doi.org/10.2307/4097188"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ky Fan provides k a_k<=sum_{j<=min(k,r)} s_j; Schur-Horn supplies admissible flat diagonals.",
+          "The optimizing support changes at q=1, with strict increase of f_k and equality in trace duality needed to determine ALL maximizers."
+        ],
+        "reasoning": "A submajorization theorem alone yields an inequality but does not fix the sharp support index or provide a necessary full equality characterization; the latter requires separate extremal analysis of the rank-constrained weak-norm problem.",
+        "searches": [
+          "https://arxiv.org/abs/2605.07564",
+          "https://arxiv.org/abs/0710.5566",
+          "Schatten weak Lorentz Hardy averaging sharp finite constants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diagonal pinching is conditional expectation onto the diagonal maximal abelian subalgebra; weak Schatten p,∞ corresponds to sequence Lorentz space ℓ_{p,∞}; Ky Fan yields a Hardy averaging sequence bound."
+        ],
+        "reasoning": "Compared the induced symmetric-ideal projection norm, finite Hardy operator constants, and Schur–Horn majorization. These aliases describe ingredients; no full rank-parametrized three-phase exact equality theorem was found.",
+        "searches": [
+          "weak Schatten diagonal pinching Schur majorization rank constrained harmonic constant",
+          "diagonal conditional expectation matrix weak Schatten Lorentz space l_p infinity Ky Fan hardy's inequality exact rank r",
+          "https://arxiv.org/abs/2605.07564",
+          "https://arxiv.org/abs/0710.5566"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing finite Schur-Horn constraints prescribe possible diagonals, but no inspected prior table gives n^(q-1) H_r(q), H_r(1), and r^(q-1) H_r(q) as an exact rank-restricted triple."
+        ],
+        "reasoning": "A matrix size/rank/exponent parametrized formula is the claimed invariant, not an isolated value; searches were for exact operator constants and equality tables rather than merely matching 'Schatten' in titles.",
+        "searches": [
+          "weak Schatten diagonal pinching Schur majorization rank constrained harmonic constant",
+          "weak Lorentz quasi norm diagonal projection constants harmonic rank finite n exact"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the diagonal singular-value weak submajorization is classical and McDonald–Sukochev–Zanin directly study Schur boundedness/submajorisation, but neither their qualitative infinite-ideal pattern classification nor Kaftal–Weiss Schur–Horn diagonal realization gives the rank-budget sharp weak-Schatten multiplier formula and full nonnormal equality classification as a stated or immediate consequence. The finite optimization uses those prior tools nontrivially. Older Lorentz/Hardy sharp-constant literature remains a possible equivalence risk.",
+      "residual_risks": [
+        "The exact operator norm may be implicit in older Hardy–Lorentz conditional-expectation literature; no exhaustive historic priority certificate.",
+        "Formal source checker uses finite numerical witnesses and random matrices and cannot certify all-p equality classification; analytic trace-duality argument was checked instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_INGREDIENT_NOT_FULL_CONSTANT",
+          "evidence": [
+            "Characterizes symmetric-ideal Schur bounded patterns and proves diagonal weak submajorization, not finite-rank exact three-phase constant/equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.07564",
+          "material_read": "arXiv full available text: abstract, theorem 2.3, Section 4 including diagonal submajorization and proof discussion",
+          "method": "arXiv full text on abs page",
+          "title": "Schur bounded patterns and submajorisation",
+          "trigger": "Primary modern result on Schur patterns and diagonal weak submajorization"
+        },
+        {
+          "assessment": "BACKGROUND_PARTIAL_READ",
+          "evidence": [
+            "Schur–Horn existence/majorization is an acknowledged input, no global noncoverage conclusion based on excerpt."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.5566",
+          "material_read": "arXiv abstract and introductory majorization scope; full PDF not independently read",
+          "method": "arXiv abstract/preliminaries",
+          "title": "An infinite-dimensional Schur–Horn theorem and majorization theory with applications to operator ideals",
+          "trigger": "Original diagonal realization theorem may imply witnesses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/rank-constrained-weak-schatten-diagonal-pinching-an-exact-three--a860c3ae7808/RESULT.md",
+        "https://arxiv.org/abs/2605.07564",
+        "https://arxiv.org/abs/0710.5566"
+      ],
+      "rationale": "PASS: The rank budget is natural in low-rank approximation/operator-ideal theory, and the exact amplification of diagonal observation in weak Schatten quasi-norms is a useful sharp invariant. A qualitative boundedness statement would not tell which support is worst or how rank one can diverge for p<1. The phase transition p=1 and all-extremizer classification give mathematical content beyond textbook restatement of Ky Fan/Schur–Horn and are meaningful across all finite ranks.",
+      "residual_risks": [
+        "Exact formula for canonical finite-dimensional diagonal pinching only; no arbitrary Schur mask, block expectation, or p=infinity.",
+        "No independently repeated full 22604 numerical verification; exact proof covers all integer sizes/ranks and p>0."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact formula for canonical finite-dimensional diagonal pinching only; no arbitrary Schur mask, block expectation, or p=infinity.",
+    "No independently repeated full 22604 numerical verification; exact proof covers all integer sizes/ranks and p>0."
+  ],
+  "schema_version": 1
+}

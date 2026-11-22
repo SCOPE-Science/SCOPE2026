@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank-limited diagonal Ky Fan inequality controls every ordered diagonal modulus by a truncated generalized harmonic sum. A Laplace-integral comparison proves the maximizer-index monotonicity for all positive exponents; Fourier conjugation yields attainment, and trace-norm duality gives the necessary positive-operator equality form. The proof covers all complex matrices and the complete stated parameter range. The supplementary checker completed 22,604 finite assertions; they are not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest full-text literature is McDonald–Sukochev–Zanin, arXiv:2605.07564v2, which proves diagonal Schur-pattern boundedness equivalences and majorization, and Kaftal–Weiss, arXiv:0710.5566, which supplies the underlying Schur–Horn framework. Both are credited as prior structural tools. Neither inspected statement gives the exact rank-restricted weak-Schatten factor with its three support strata and all equality cases. A close published strong quasi-Schatten row-column mask concerns a different object. An older equivalent Hardy–Lorentz formulation remains a substantive publication-priority risk; no claim is made that searches establish uniqueness.
+PASS
 
-## Mathematical value — PASS
-The rank restriction measures the smallest matrix complexity capable of making the canonical weak-ideal diagonal extraction large. The exact answer isolates a polynomial dimension defect already at rank one below the endpoint, a logarithmic rank barrier at the endpoint, and a bounded regime above it. It includes full extremizers, not just growth-rate estimates, and resolves every dimension, rank, and positive weak exponent.
+PASS: Ky Fan/von Neumann diagonal submajorization bounds k-th largest |A_ii| by H_min(k,r)(q)/k when max_j j^q s_j(A)=1. The normalized output is consequently bounded by max_{1<=k<=n} k^(q-1) H_min(k,r)(q). For k<=r, positive Laplace integral f_k=(1/Gamma(q)) int_0^infty t^(q-1)(1-e^-t)/[k(e^(t/k)-1)]dt strictly increases with k because (e^x-1)/x increases; for k>=r, k^(q-1) H_r monotone by sign(q-1). This yields n^(q-1)H_r for q>1, H_r at q=1, r^(q-1)H_r for q<1. Fourier-unitary conjugation of diag(1,2^-q,...,r^-q) produces sharp flat diagonals on support m. Equality in all Ky Fan and trace-norm duality inequalities forces prescribed singular values, flat nonzero diagonal modulus on support m, and a diagonal-unitary multiple of a positive semidefinite matrix. I independently checked the optimizing finite scalar sequences for q=1/2,1,2,7/3 and n/r=3/1,5/3,7/7. The 22604-case checker source was inspected, not used as proof. Boundary p=1 and r=n correctly included; no p=infinity claim.
 
-## Limits
-The theorem does not address general Schur masks, block pinching, strong Schatten norms, or infinite-dimensional extremizers. The calculation relies substantively on prior diagonal majorization; its independent priority has not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the diagonal singular-value weak submajorization is classical and McDonald–Sukochev–Zanin directly study Schur boundedness/submajorisation, but neither their qualitative infinite-ideal pattern classification nor Kaftal–Weiss Schur–Horn diagonal realization gives the rank-budget sharp weak-Schatten multiplier formula and full nonnormal equality classification as a stated or immediate consequence. The finite optimization uses those prior tools nontrivially. Older Lorentz/Hardy sharp-constant literature remains a possible equivalence risk.
+
+## value
+
+PASS
+
+PASS: The rank budget is natural in low-rank approximation/operator-ideal theory, and the exact amplification of diagonal observation in weak Schatten quasi-norms is a useful sharp invariant. A qualitative boundedness statement would not tell which support is worst or how rank one can diverge for p<1. The phase transition p=1 and all-extremizer classification give mathematical content beyond textbook restatement of Ky Fan/Schur–Horn and are meaningful across all finite ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
