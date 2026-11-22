@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied `verify.py` is executable with Python 3 and the standard library only: `python3 verify.py`. It enumerates actual cyclic actions on uniform matroid vertices and compares the invariant orbit-support faces with the proposed skeleton, checks reduced homology ranks over \(\mathbb F_2\), and checks all small label-permutation signed Lefschetz traces directly on faces. It also checks a primitive coefficient divisibility pattern. Output from the included script was reproduced:
+## correctness
 
-`UNIFORM_MATROID_ORBIT_EXTERIOR_CHECKS_PASS cases=45 symmetric_actions=12498 signed_trace_checks=12498`
+PASS
 
-These 45 parameter instances, 12,498 symmetry actions, and 12,498 trace comparisons are **finite corroboration only**. They do not prove an exact Ext order for every parameter. The proof of the general theorem rests on the literal orbit-coordinate PL correspondence, a stable contractible subcomplex, exterior contraction, uniqueness of a rational equivariant lift between nonisomorphic hook modules, and an explicit primitive coefficient test. The last three steps prove the exact integer order independently of any finite test.
+PASS: geometric fixed barycentric coordinates on each p-cycle must be constant. Original support condition p*(number of nonzero heavy orbit coordinates)+indicator(apex)>0<=kp gives exactly an S_m-equivariant PL (k-1)-skeleton on vertices 0,1,...,m. Contractible S_m-stable closed star of apex 0 collapses non-equivariantly to C(m,k) oriented heavy k-faces, yielding top homology ∧^k P_m and other reduced groups zero. Augmentation ε:P_m→Z with A=ker ε splits as ordinary abelian lattices; interior contraction gives 0→∧^k A→∧^k P→∧^(k-1)A→0 S_m-equivariantly. Invariant v=sum e_i, ε(v)=m, lifts m times identity via v∧- and kills Ext class. Over Q, the adjacent exterior hook modules ∧^k A_Q and ∧^(k-1) A_Q are inequivalent irreducibles for 2<=k<=m-2, so Hom=0 and rational lift of q identity unique: (q/m)v∧-. On primitive z=(e1-em)∧...∧(e[k-1]-em), its coefficient on e1∧...∧ek equals ±q/m, integral only when m divides q. Thus exact order m and nonsplitting for all parameters, not just finite checked cases; Ext torsion is not homology torsion. Checked source verify.py only corroborates finite orbit faces, signed characters; it cannot by itself prove Ext.
 
-Scientific limitation: the exact order concerns one canonical integral module extension; it is not ordinary homology torsion or a classification of all equivariant homotopy types. Historical literature could contain an equivalent formulation not found during the searches.
+## originality
+
+PASS
+
+PASS with bounded priority risk: known simplex-skeleton wedge and apex-induced exact sequence are explicitly credited; prior all-n universal-apex theorem establishes an extremal cyclic norm extension of order m, not the exact full S_m order for every interior k. The current uniform sharpness argument across all degrees, with specific geometric fixed-space realization, is not obtained by merely substituting extremal k into the prior result. Standard hook irreducibility and integral Ext background acknowledged.
+
+## value
+
+PASS
+
+PASS: the precise additive order in an integral equivariant extension is a natural obstruction to lifting the known rational hook decomposition; its uniform sharp value across every interior degree answers the exact intrinsic integrality question for a canonical permutation lattice. This is independently meaningful even though skeleton homotopy and the natural exact sequence are known; it is not a tiny unmotivated numeral or an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

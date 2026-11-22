@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric subgroup-fixed model follows from actual barycentric orbit coordinates, not merely from invariant simplices. A stable cone collapse gives the entire integral homology module as an oriented heavy-face lattice. Augmentation contraction produces the exact sequence. Invariant-sum wedge lifting proves the class is killed by \(m\); rational hook irreducibility proves uniqueness of any rational lift; a displayed primitive wedge coefficient forces divisibility by \(m\), establishing exact order and non-splitting for every quantified interior degree. The standalone checks corroborate bounded cases but are not used in place of the universal proof.
+## correctness
 
-## Originality — PASS relative to inspected mathematical sources
-Pakianathan–Winfree's 2011 quota-complex result covers the ordinary wedge and critical faces. The published universal-apex higher-independence result covers the canonical exterior-power sequence (in precisely the related simplex-skeleton family) and a boundary-degree cyclic extension obstruction. This finding is **not** the skeleton calculation, the sequence alone, nor that boundary case; it determines the sharp extension class order for the full symmetric group and **every intermediate exterior degree**. The original literature checks considered equivariant exterior powers, matroid homology, related geometric fixed complexes and known order-\(m\) augmentation extensions. The same statement/implication was not located in the inspected material. General integral Specht-module work could contain an equivalent computation and remains a concrete priority risk.
+PASS
 
-## Mathematical value — PASS
-The all-interior-degree exact-order theorem provides a uniform, sharp obstruction to integrally splitting rationally adjacent hook summands of natural topological homology, not merely a dimension or rank computation. The class has unbounded order as the number of orbits grows, despite every ordinary homology group being torsion-free. The connection to geometric fixed-point complexes of uniform matroids explains which canonical topological module realizes this obstruction, while the new content is explicitly restricted to the sharp higher-degree integral obstruction.
+PASS: geometric fixed barycentric coordinates on each p-cycle must be constant. Original support condition p*(number of nonzero heavy orbit coordinates)+indicator(apex)>0<=kp gives exactly an S_m-equivariant PL (k-1)-skeleton on vertices 0,1,...,m. Contractible S_m-stable closed star of apex 0 collapses non-equivariantly to C(m,k) oriented heavy k-faces, yielding top homology ∧^k P_m and other reduced groups zero. Augmentation ε:P_m→Z with A=ker ε splits as ordinary abelian lattices; interior contraction gives 0→∧^k A→∧^k P→∧^(k-1)A→0 S_m-equivariantly. Invariant v=sum e_i, ε(v)=m, lifts m times identity via v∧- and kills Ext class. Over Q, the adjacent exterior hook modules ∧^k A_Q and ∧^(k-1) A_Q are inequivalent irreducibles for 2<=k<=m-2, so Hom=0 and rational lift of q identity unique: (q/m)v∧-. On primitive z=(e1-em)∧...∧(e[k-1]-em), its coefficient on e1∧...∧ek equals ±q/m, integral only when m divides q. Thus exact order m and nonsplitting for all parameters, not just finite checked cases; Ext torsion is not homology torsion. Checked source verify.py only corroborates finite orbit faces, signed characters; it cannot by itself prove Ext.
 
-## Closest results and limits
-The simplex-skeleton and quota-complex homotopy types and canonical exterior sequence are prior results. Previous sharp cyclic obstruction computations concern an extremal degree; previous order-\(m\) augmentation extensions concern different quotient lattices or other graph complexes. The present result neither proves an equivariant wedge splitting nor classifies all uniform-matroid fixed spaces. Literature completeness and independent mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with bounded priority risk: known simplex-skeleton wedge and apex-induced exact sequence are explicitly credited; prior all-n universal-apex theorem establishes an extremal cyclic norm extension of order m, not the exact full S_m order for every interior k. The current uniform sharpness argument across all degrees, with specific geometric fixed-space realization, is not obtained by merely substituting extremal k into the prior result. Standard hook irreducibility and integral Ext background acknowledged.
+
+## value
+
+PASS
+
+PASS: the precise additive order in an integral equivariant extension is a natural obstruction to lifting the known rational hook decomposition; its uniform sharp value across every interior degree answers the exact intrinsic integrality question for a canonical permutation lattice. This is independently meaningful even though skeleton homotopy and the natural exact sequence are known; it is not a tiny unmotivated numeral or an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
