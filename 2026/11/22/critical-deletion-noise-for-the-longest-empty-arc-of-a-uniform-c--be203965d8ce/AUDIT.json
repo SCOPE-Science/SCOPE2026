@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exponential/Dirichlet representation yields the exact finite Beta mean, and every fixed block length has an explicit Erlang tail. Distinct complete retained blocks have disjoint gap interiors; mixed factorial moments give independent marked Poisson limits, and adjacent pairs have negligible contributions. The exact geometric-Erlang mixture controls the infinite tail over block lengths. The global normalization contributes o_P(1), and the equality probability follows from an independent superposition with no ties. The stand-alone checker passed 156 exact finite assertions plus non-proof illustrative simulations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 theorem covers each fixed k-spacing, whereas the present perturbation sums over geometric block lengths k, with non-negligible contributions from all fixed k.",
+        "The 2014 splitting characterization concerns independence of retained/deleted Poisson processes, not nested extreme gaps."
+      ],
+      "reasoning": "A fixed-k result cannot alone supply the jointly marked superposition over all k or the retention event; the geometric-gamma tail bound is necessary to control arbitrarily long runs. Broad general Poisson extreme-process theorems remain a possible implication risk, but no specific dominating statement was identified.",
+      "searches": [
+        "\"longest gap\" \"thinned\" poisson process joint distribution",
+        "\"maximal spacing\" \"thinning\" Gumbel joint",
+        "arXiv:1407.1700",
+        "arXiv:1508.00944"
+      ]
+    },
+    "checked_sources": [
+      "Schlemm, arXiv:1405.6114, first submitted 2014-05-23",
+      "Mijatović–Vysotsky, arXiv:1508.00944, first submitted 2015-08-05",
+      "Nehring, arXiv:1407.1700, first submitted 2014-07-07"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schlemm 2014, main theorem/corollary, determines original maximal gap moments and its Gumbel limit.",
+        "Mijatović–Vysotsky 2015, Theorem 1, gives maximal fixed k-spacings after centering by (k-1) log log n.",
+        "Nehring 2014 studies splitting at the level of point-process law."
+      ],
+      "reasoning": "Neither the marginal largest-gap law nor fixed-k maximal-spacing limits imply the critical mixture factor e^tau-1, the shared-extreme diagonal component, or probability e^(-tau) without further analysis of joint marked deletion runs.",
+      "searches": [
+        "arXiv:1405.6114 Gumbel maximal circle gap",
+        "arXiv:1508.00944 fixed k spacing Watson stationary extremes",
+        "arXiv:1407.1700 thinning Poisson independence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schlemm 2014 gives one maximum Gumbel and finite moments of the Dirichlet gap maximum.",
+        "Mijatović–Vysotsky 2015 treats fixed-order sums of consecutive gaps and a one-sample Gumbel law."
+      ],
+      "reasoning": "One-sample extreme laws do not determine the copula of two maxima computed from a common configuration under independently deleted sites. The new identity identifies the joint exponent measure and the nonzero probability of exact retention of the maximizer.",
+      "searches": [
+        "\"thinning\" \"maximal spacing\" Gumbel joint original thinned",
+        "\"maximal gap\" \"deletion\" \"log n\" random points circle",
+        "\"noise sensitivity\" \"maximal spacing\" random points",
+        "arXiv:1405.6114",
+        "arXiv:1508.00944"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The related indexed items concerned circular Voronoi cell maxima, maximum spacing versus Greenwood statistics, nonadaptive circle coverage, or Matérn-I isolation thinning; none states a deletion-coupled original/retained longest arc law.",
+        "The classical finite Dirichlet maximum distribution is not a joint noisy-coupling table."
+      ],
+      "reasoning": "The present theorem requires two maxima under shared points and an exact-equality asymptotic, which are absent from the compared indexed formulas and marginal spacing tables.",
+      "searches": [
+        "maximal circular spacings under independent point thinning deletion critical 1/log n joint Gumbel extrema",
+        "randomized deletion circular spacings geometric gamma extreme point process",
+        "two correlated uniform spacings sample thinning longest gaps marked Poisson process extremes"
+      ]
+    },
+    "rationale": "Compared with the one-sample Gumbel moments of Schlemm (2014), fixed-k spacing extremes of Mijatović–Vysotsky (2015), and Nehring’s thinning/splitting characterization (2014), the coupled original/thinned joint Gumbel exponent and retention probability e^(-tau) require a new marked-run analysis. No covering published statement was found in the recorded exact/alias searches; a more general historical result remains a candid residual risk.",
+    "residual_risks": [
+      "A more general marked-extreme or nested-sample theorem outside the inspected literature may imply the specific coupled limit.",
+      "The search comparison is best knowledge, not independent historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the original maximum and its Gumbel law, not a coupled post-deletion maximum",
+        "evidence": [
+          "arXiv:1405.6114v1, pp. 1–5, Eq. (2.10), Theorem 2 and Corollary 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.6114",
+        "material_read": "Full-text theorem and proof sections on exact largest-gap moments, exponential/Dirichlet gaps, limiting cumulants and references, plus page images",
+        "method": "Primary PDF text and rendered pages; checked for thinning/deletion/joint-maxima terminology",
+        "title": "Limiting distribution of the maximal distance between random points on a circle: A moments approach",
+        "trigger": "same uniform circular gap maximum and Gumbel scaling"
+      },
+      {
+        "assessment": "Proves the fixed k-spacing extreme Gumbel law; does not treat random independent deletion marks or joint original/retained maxima",
+        "evidence": [
+          "arXiv:1508.00944v1, Theorems 1–2, pp. 1–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.00944",
+        "material_read": "Main theorem, exponential representation, m-dependence proof, adjacent-window extreme estimates, conclusions and references",
+        "method": "Primary PDF text and rendered theorem page; compared k fixed with random geometric deletion-block sizes",
+        "title": "On the weak limit law of the maximal uniform k-spacing",
+        "trigger": "Gamma sums of consecutive spacings, potentially stronger coverage"
+      },
+      {
+        "assessment": "A process-law characterization rather than a result for critical extreme-gap retention in a fixed-size uniform sample",
+        "evidence": [
+          "arXiv:1407.1700v1, Sections 1–3 and multisplitting section"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1700",
+        "material_read": "Abstract, definitions of thinning, splitting characterization and multisplitting discussion",
+        "method": "Primary PDF text and rendered title/abstract page; examined central splitting statements",
+        "title": "A Characterization of the Poisson Process revisited",
+        "trigger": "could reduce thinning-dependent maxima to a known Poisson splitting theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "be203965-d8ce-4ba2-8d67-f61a6dc66604",
+  "value": {
+    "rationale": "The largest empty circular arc is a standard worst-case coverage statistic. A vanishing fraction of independently deleted points changes its maximizer with a nontrivial limiting probability, and the exact stability curve e^(-tau) identifies a sharp robustness threshold. The bivariate distribution calibrates both original and perturbed coverage extremes; the finite block decomposition explains why every fixed deletion-run length contributes.",
+    "status": "PASS"
+  }
+}
