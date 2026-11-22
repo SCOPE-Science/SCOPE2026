@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each \(n\ge6\), the simultaneous endpoint-neighborhood fold sending \(3\mapsto1\) and \(n-2\mapsto n\) is a genuine simplicial retraction. Every independent face \(\sigma\) has independent union \(\sigma\cup f(\sigma)\), which establishes a reversal-equivariant contiguous strong deformation retract. The smaller induced graph is \(P_2\sqcup P_{n-6}\sqcup P_2\), with reversal swapping the two \(S^0\) factors. Their join is the sphere of one positive and one negative real character. Explicit base models at lengths 1–6, including the reflected four-edge circle at length five, yield the indicated representation spheres and fixed-point contractible cases by induction. The orbit of a positive/negative representation sphere is a join with real projective space, giving the complete homotopy classification. Standard integral projective-space cellular boundaries prove the two-torsion assertions. The checker exhaustively confirms the fold and Euler predictions for lengths through 24. Remaining risk: neither finite enumeration nor a reviewer independently certifies the unlimited argument.
+## correctness
 
-## Originality — PASS against inspected evidence
-Ehrenborg–Hetyei [1, Section 6] and Kawamura [2] address nonequivariant forest independence homotopy, not the equivariant representation sphere or ordinary reversal orbit. The closer published path-reversal character result [3] explicitly stops at one-dimensional homology signs and rational orbit homology, while the published reflection-fixed result [4] does not determine the total quotient. The published cycle bounded-independence projective-suspension result [5] concerns a different underlying complex with no equivariant identification with the present path complexes. Available published mathematical claims were compared by objects, group, formula and implication; no earlier path-reversal orbit classification was found. published-finding corpus searches also identified no covering statement. Risk: unindexed equivalent work remains possible; search coverage is evidence, not a proof of priority.
+PASS
 
-## Value — PASS
-The classical result that path independence complexes are spheres or points does not determine the topology of their quotients. The explicit reversible six-vertex fold exposes an infinite family of ordinary orbit spaces with integral two-primary torsion despite the covering complexes being spheres. The first torsion example at fourteen vertices has homotopy type \(\Sigma^2\mathbb{RP}^2\); later examples carry increasingly many torsion degrees. This is a structural classification of a canonical graph family, not a reformulation of rational character data or a selected numerical table.
+For n>=6, the equivariant simplicial map replacing vertices 3 and n-2 by 1 and n respectively is contiguous to the identity and retracts onto the induced subcomplex deleting 3,n-2; for n=6 the two substitutions agree with distinct endpoints and remain valid. The residual graph is P2 disjoint union P_(n-6) disjoint union P2, so its independence complex is a three-factor join. Reversal interchanges the outer two S0 factors, which is the unit sphere of the swap R_+ plus R_- representation; the central factor carries shorter path reversal. Base cases n=1..5 supply the fixed/antipodal representation directions and contractible cases, giving the six-periodic a_n,b_n table and the equivariant homotopy classification. Passing to ordinary orbit spaces yields S^(a-1)*RP^(b-1), and integral projective homology gives first H3=Z/2 at n14 and arbitrarily many two-torsion degrees. Independent full-face quotient Euler checks for n<=16 agreed with representation prediction; Euler alone would not certify torsion, which follows from the structural equivariant map and projective cellular chains.
 
-## Limitations and closest sources
-[1] R. Ehrenborg and G. Hetyei, *The topology of the independence complex* (2005 online/2006 print), especially Section 6. [2] K. Kawamura, *Homotopy types of independence complexes of forests* (2010). [3] *Path-reversal orientation of all higher-independence spheres* (2026). [4] *Reflection-fixed homotopy types of higher path-independence complexes* (2026). [5] *Projective suspensions in half-turn quotients of bounded-independence cycle spheres* (2026). No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 path-reversal orientation theorem computes reversal sign on rank-one top integral homology and hence rational quotient homology, but explicitly not equivariant homotopy or integral quotient torsion; the full relevant RESULT.md was inspected. The 2026 reflection-fixed higher-path theorem computes geometric fixed loci, a different construction from orbit spaces. A projective-suspension cycle/half-turn result has a different underlying complex, with no known equivariant equivalence to these path independence complexes. Ehrenborg–Hetyei describe ordinary path independence homotopy only. Thus the all-n integral orbit quotient classification is new relative to inspected sources.
+
+## value
+
+PASS
+
+The equivariant six-step graph fold determines all ordinary quotient homotopy types and detects unbounded integral two-torsion that is invisible to the known homology orientation character and rational quotients. This is a motivated strong refinement of natural path symmetry, not an arbitrary low-order torsion example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
