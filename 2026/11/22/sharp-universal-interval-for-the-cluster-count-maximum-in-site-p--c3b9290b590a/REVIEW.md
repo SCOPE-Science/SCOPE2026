@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+For all finite connected simple cacti of order at least two and all \(p\in(0,1)\), induced cactus cycle rank is the number of completely retained original cycles. Euler's component identity gives the expectation exactly. Differentiating Bernoulli subset probabilities gives the exact covariance. The derivative polynomial is convex; its endpoint and pure-cycle cases prove a unique interior maximum except for the single edge and triangle. The lower root is controlled by the four-cycle block polynomial, with explicit positive checks for all other cycle lengths, and the upper root by uniformly negative block contributions at \(3/4\). The three-vertex path and four-cycle bouquets prove the sharp endpoints. Exact coefficient checks on 746 finite graphs support but do not replace this proof.
+
+## Originality — PASS (historically qualified)
+Tittmann–Averbouch–Makowsky's 2008/2011 source defines the full induced-subgraph component generating polynomial and a vertex-failure distribution but does not state or prove the cactus-wide unique maximum or the sharp extremal interval. Liao–Hou's 2013/2014 full text discusses graph determination by the polynomial, notably cycles, tadpoles, and friendship graphs, without these percolation threshold inequalities. Related bridge/cactus bond-percolation work concerns a different random experiment and statistics. The comparison covers statements and obvious generating-function implications: the finite moment follows from the earlier framework, but the sharp all-graph sign classification and four-cycle extremality require the additional Euler/convexity/block argument. An older equivalent optimization result not located by the inspected search remains possible.
+
+## Value — PASS
+The number of surviving connected clusters is a basic fragmentation descriptor for unreliable finite networks. The theorem identifies the complete class-wide one-peak dependence transition, makes the maximizer calculable using only cycle lengths and bridge count rather than graph placement, and produces *sharp* universal density bounds. The extremal role of four-cycles distinguishes the result from an obvious triangle-density heuristic and gives an explicit infinite near-extremal family. The bound is not a thermodynamic percolation threshold and should not be interpreted as such.
+
+Self-review: passed. Independent audit: not yet performed.
