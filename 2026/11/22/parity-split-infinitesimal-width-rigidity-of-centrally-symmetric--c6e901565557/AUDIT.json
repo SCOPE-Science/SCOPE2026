@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "All m>=2 and ell>0 follow from the exact zonogon support formula, concavity between facet-normal directions, strict Jensen inequality with equality forced by k=1, explicit derivative of the finite minimum, exact circulant Fourier diagonalization with exhaustive zero-mode proof, and exact odd-sine pairing along the neutral family. The independent standard-library numerical diagnostic passed 9317 comparisons without replacing analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Audet–Hansen–Messine (2009) proves the unrestricted perimeter-1 bound (1/(2n))cot(pi/(2n)) for n-gons, generally strictly above the width of the regular even n-gon.",
+        "Fejes Tóth (2022) describes unresolved equilateral width questions with perimeter constraint.",
+        "Audet–Ninin maximizes a different quantity at fixed unit width, with even-sided noncompactness, rather than the maximum width at fixed perimeter."
+      ],
+      "reasoning": "A stronger numeric upper bound from a larger class is not covering unless it is sharp for the restricted class and has the same equality/stability claim. The unrestricted polygonal constant is not sharp for the equilateral zonogon subclass. The current local one-sided derivative spectrum is not an implication of those global bounds.",
+      "searches": [
+        "equilateral centrally symmetric 2m-gon maximum width perimeter regular polygon, mean chord length stability",
+        "maximal width even-sided equilateral convex polygon with central symmetry diameter perimeter",
+        "minimum width regular centrally symmetric equilateral polygon maximal fixed side lengths theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2202.09920v1",
+      "https://paperity.org/p/11589983/isoperimetric-polygons-of-maximum-width",
+      "https://www.gerad.ca/Charles.Audet/PUB/largeur_GERAD.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-pointwise-width-stability-for-equiangular-polygons-with-pa--dd6fcbc2a54c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-parity-rigidity-and-sharp-area-bounds-for-equilateral-polygons-o--5e01ff137083",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-perimeter-and-concave-gap-energy-laws-for-antipodal-lattic--3a5b20f544e8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 survey lists fixed-perimeter width optimization as a live topic; its section on equilateral polygons does not state a parity-resolved directional derivative formula.",
+        "The 2009 paper does not assert the bound ell*cot(pi/(2m)) as the exact maximum among centrally symmetric equilateral polygons, and its generic upper bound differs.",
+        "The 2026 equiangular stability result treats Wigner-corrected isoperimetric deficit, not first-order minimum-width loss when side directions vary."
+      ],
+      "reasoning": "Classical Jensen concavity suffices for the restricted global maximum once the exact zonogon width formula is set up. This component is not alone asserted novel. The combined theorem additionally classifies every tangent direction at the nonsmooth maximum and proves the exact alternating-family quadratic loss, which is not a direct corollary of any compared statement.",
+      "searches": [
+        "Fourier derivative of minimum width for equilateral centrally symmetric polygons at regular polygon, cotangent eigenvalues",
+        "width maximization fixed perimeter centrally symmetric equilateral 2m-gons regular uniquely optimal via chord energy",
+        "equilateral symmetric polygon width regular maximizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact full 2026/11/1/SCOPE-sharp-pointwise-width-stability-for-equiangular-polygons-with-pa--dd6fcbc2a54c statement controls support widths for equiangular facets, whereas the present theorem keeps lengths equal and varies normal angles.",
+        "The exact full 2026/11/17/SCOPE-parity-rigidity-and-sharp-area-bounds-for-equilateral-polygons-o--5e01ff137083 statement constrains vertex rays and optimizes area, whereas the present theorem optimizes minimum width over all normal directions.",
+        "The Audet–Hansen–Messine 2009 article uses unrestricted side lengths and does not identify the derivative nullspace of the regular equilateral zonogon."
+      ],
+      "reasoning": "A centrally symmetric equilateral polygon is a sum of equal-length segments with freely varying directions. Equiangular polygons instead fix the normal grid and vary segment lengths. Equality in width under these different constraints is not equivalent by a polar or affine transformation: Euclidean side length and Euclidean minimum width are not affine invariants. The odd/even Fourier nullspace classification cannot be inferred from area or support-number stability without an additional proof.",
+      "searches": [
+        "centrally symmetric equilateral convex polygons fixed perimeter maximum minimum width regular polygon equal spacing edge directions maximin sine chord energy",
+        "width maximization fixed perimeter centrally symmetric equilateral 2m-gons regular uniquely optimal via chord energy",
+        "Fourier derivative of minimum width for equilateral centrally symmetric polygons at regular polygon, cotangent eigenvalues",
+        "centrally symmetric equilateral polygon maximum width fixed perimeter regular 2n polygon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible scientific claim texts were compared by object, dimensions, aliases and width/zonogon assertions; no same candidate statement was located.",
+        "Relevant indexed mathematical findings were identified and their closest full scientific RESULT.md statements read.",
+        "No located exact table for the Fourier nullspace or alternating fixed-side-length width family covers the result."
+      ],
+      "reasoning": "Source titles alone do not prove uniqueness. The specific exact objects are the side-direction circulant, its Fourier kernel, and a one-parameter nonlinear width identity. Inspected primary literature and published full statements do not supply those; unindexed or unavailable scientific literature remains a residual priority risk.",
+      "searches": [
+        "centrally symmetric equilateral convex polygons fixed perimeter maximum minimum width regular polygon equal spacing edge directions maximin sine chord energy",
+        "linear rigidity odd half-edge-count and quadratic neutral alternating deformation even half-edge-count of equilateral zonogon minimum width",
+        "indexed exact result 2026/11/1/SCOPE-sharp-pointwise-width-stability-for-equiangular-polygons-with-pa--dd6fcbc2a54c",
+        "indexed exact result 2026/11/17/SCOPE-parity-rigidity-and-sharp-area-bounds-for-equilateral-polygons-o--5e01ff137083"
+      ]
+    },
+    "rationale": "After exact claim and alias comparisons with accessible owned claims, published indexed mathematics, primary source articles and full text of two close indexed results, the parity-dependent one-sided derivative spectrum and exact neutral nonlinear width loss were not found or implied. Classical Jensen maximization is expressly credited and not treated as itself new. Priority remains provisional.",
+    "residual_risks": [
+      "An older monograph or paper on equal-length planar zonotopes might characterize first-variation Fourier nullspaces using different terminology.",
+      "The accessible indexed literature is not an exhaustive historical catalogue; some earlier mathematical publications may be unavailable or unindexed.",
+      "Several lower-ranked published indexed records were compared from their summaries rather than by reading every full text; their stated objects and observables were not a direct match."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets up the motivating problem; records the unrestricted polygonal bounds and remaining problems, but does not provide a zonogon derivative operator or parity kernel",
+        "evidence": [
+          "arXiv:2202.09920v1, paragraphs on width/perimeter and equilateral maxima; first posted 2022-02-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.09920v1",
+        "material_read": "Full accessible HTML text, especially width/perimeter and equilateral discussion through sections on known polygonal extremizers",
+        "method": "Direct reading of entire scientific HTML article and comparison of its extremal assertions to the centrally symmetric fixed-length first-variation statement",
+        "title": "Finite variations on the isoperimetric problem",
+        "trigger": "2022 lead survey identifies fixed-perimeter width optimization and equilateral unsolved directions"
+      },
+      {
+        "assessment": "General polygonal upper bound and many unrestricted sharp cases have different constants and do not imply the specific sharp equilateral central-symmetric result or the infinitesimal classification",
+        "evidence": [
+          "Audet–Hansen–Messine (2009), Theorem 1 and Sections 2–5, DOI 10.1007/s00454-008-9103-9"
+        ],
+        "identifier_or_url": "https://paperity.org/p/11589983/isoperimetric-polygons-of-maximum-width",
+        "material_read": "Accessible full article transcription, pages 45–60 including introductory width definition, general upper-bound theorem and conclusion describing power-of-two cases",
+        "method": "Read article mathematical claims and compare its unrestricted 2m-gon upper bound and equality classes with restricted zonogon optimizer and derivative parity",
+        "title": "Isoperimetric Polygons of Maximum Width",
+        "trigger": "Direct prior study of exactly the perimeter-versus-minimum-width functional"
+      },
+      {
+        "assessment": "Deals with reciprocal minimization and noncompact even-sided examples but not the regular-zonogon maximum or its parity-dependent local stability",
+        "evidence": [
+          "Audet–Ninin (2010/2013), original preprint Abstract and Section 1.1–1.2, page 1 screenshot inspected"
+        ],
+        "identifier_or_url": "https://www.gerad.ca/Charles.Audet/PUB/largeur_GERAD.pdf",
+        "material_read": "Original author-hosted PDF introduction and statements in Sections 1–2; PDF first page visually examined",
+        "method": "Compared max-perimeter of fixed-width odd-sided polygons with max-width of fixed-perimeter centrally symmetric even-sided polygons",
+        "title": "Maximal perimeter, diameter and area of equilateral unit-width convex polygons",
+        "trigger": "Relevant equilateral polygon optimization including even side count"
+      },
+      {
+        "assessment": "Does not cover the variable-normal, equal-edge-length class or the parity split of the one-sided derivative of the global minimum width",
+        "evidence": [
+          "Full RESULT.md, November 1, 2026, sections Finding, Assumptions and scope, Proof, Limitations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-pointwise-width-stability-for-equiangular-polygons-with-pa--dd6fcbc2a54c",
+        "material_read": "Complete public RESULT.md fetched from original publication directory",
+        "method": "Compared hypotheses: prescribed equally spaced normals versus prescribed equal edge lengths; compared inequality target Wigner-corrected area deficit versus minimum width derivative operator",
+        "title": "Sharp pointwise width stability for equiangular polygons with parallel opposite sides",
+        "trigger": "Published closest Fourier-based pointwise widths theorem for opposite-parallel polygon class"
+      },
+      {
+        "assessment": "Does not imply the claimed theorem: free edge directions and widths are not determined by prescribed vertex rays, and the area interval does not imply the width derivative spectrum",
+        "evidence": [
+          "Full RESULT.md, November 17, 2026, sections Finding and Proof"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-parity-rigidity-and-sharp-area-bounds-for-equilateral-polygons-o--5e01ff137083",
+        "material_read": "Complete public RESULT.md fetched from original publication directory",
+        "method": "Compared fixed equally spaced vertex rays and area functional against free side-angle centrally symmetric zonogons and minimum width",
+        "title": "Parity rigidity and sharp area bounds for equilateral polygons on a regular radial grid",
+        "trigger": "Published parity-rigidity theorem for equilateral polygons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6e90156-5557-4b53-8bd4-9912ec263ebf",
+  "value": {
+    "rationale": "A natural finite-width isoperimetric question gains both a complete restricted extremal answer and an exact, all-side-count classification of nonsmooth infinitesimal stability with a parity-dependent neutral deformation and sharp analytic quadratic loss. The result is a family-level structural boundary relevant to perturbing optimal width, not a routine numerical special case. The broader unrestricted question remains open.",
+    "status": "PASS"
+  }
+}
