@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The analytic proof reconstructs the conformal kernel normalization, derives the necessary and sufficient corner integrability cutoff, and proves the three asymptotic regimes by rescaling or a critical logarithmic annulus. The universal logarithmic coefficient is fixed by the angular measure \(\pi\) and the radial ratio \(r^p\). The Mellin moment variance is an exactly summable disk-orthogonality series. Independent finite quadrature tests in `CHECK.py` agree with these predictions; they are not used as an infinite proof.
+
+**Originality — PASS, best-knowledge.** Taskinen's complete 2021 publicly available polygonal-domain paper gives a qualitative boundedness/Carleson equivalence and angle-dependent weighted estimates, not a homogeneous power symbol's exact universal corner profile or logarithmic resonance. Mannersalo's 2018 open preprint uses Whitney-square averages to prove generalized Toeplitz boundedness, not a Mellin-scale Berezin law. The accessible indexed mathematical findings checked under aliases including wedge Berezin Mellin asymptotics, power-symbol threshold and polygon-corner logarithmic response had no equivalent dominating statement. Historical priority remains conditional on unindexed older local-asymptotic work.
+
+**Value — PASS.** The theorem gives a natural quantitative invariant for a boundary singularity where classical smooth-boundary Berezin localization does not apply: the full scale response of corner-distance symbols, exact admissible integrability cutoff, critical resonance, and geometric saturation, with a nonconstant angle-dependent universal profile. It detects finite coherent-state response for singular corner powers even when their ordinary area integral diverges in sufficiently acute corners, without pretending boundedness of a Toeplitz operator.
+
+**Closest literature and limits.** The conformal transformation is standard and credited; the new claim is the full power-law trichotomy. The result does not extend by assertion to curved corners, nonpower symbols, or tangential approaches. No independent mathematical audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
