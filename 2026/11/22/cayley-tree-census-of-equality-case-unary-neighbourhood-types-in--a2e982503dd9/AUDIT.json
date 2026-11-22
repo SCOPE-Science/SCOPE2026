@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "In any forest with m marked vertices, a singleton component contributes no nonsingleton marked-vertex trace and a size-two component duplicates one. With a,b,c marked components of sizes 1,2,>=3, and h outside vertices meeting >=2 marked components, acyclicity of their contracted incidence forest gives h<=a+b+c-1, hence |T|<=m+1+(m-a-b)+h<=2m+c<=2m+floor(m/3). For m=3q equality forces q marked P3 components, h=q-1 outside 2-neighbour vertices whose incidence subdivision contracts to a block tree, and all singleton/empty traces. The converse tree construction has 3q marked points, 3q private leaves, q-1 connectors and one empty-trace vertex, total 7q. Triple and pair traces uniquely decode partitions, centres, tree edges and attachment choices, so the exact formula follows by three-block partitions times 3^q centres times Cayley q^(q-2) times 9^(q-1). Replayed exhaustive checks on <=6 vertices and q=1,2 are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berthe et al., arXiv:2607.16889v1, Section 3 proves a stronger all-m bound for numerical complexity but does not classify all equality families.",
+        "Beaudou et al., arXiv:2501.08895v1, introduction and model definitions discuss general profile bounds for graph classes, not exact equality-family counts."
+      ],
+      "reasoning": "The 2005 identifying-code inequality and the 2026 sharp neighbourhood bound dominate the scalar extremal number but not a necessity classification or family count. Its constructive recipe supplies sufficiency but, as stated, does not assert that every extremal family comes from that recipe; proving equality rigidity closes precisely that implication.",
+      "searches": [
+        "Closed neighborhood shatter function of forests exact number distinct intersections with marked set",
+        "Neighborhood trace class trees closed VC shattering bound 2m",
+        "\"7/3\" \"neighbourhood complexity\" forest equality cases",
+        "\"neighbourhood complexity\" tree exact extremal enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.16889v1: Section 3 full proof and extremal construction",
+      "https://arxiv.org/html/2501.08895v1: introduction and definitions",
+      "Bertrand et al. (2005), 1-identifying codes on trees: full Section 2 and original figures",
+      "A sharp three-level online-shattering law for closed unit balls of finite trees (2026): abstract summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.16889v1, Section 3, lines 137–153: the upper-bound contraction and one family of arbitrary block-tree constructions.",
+        "Same source does not state uniqueness of the triple decomposition or the factorial/Cayley all-family count.",
+        "Existing open-neighbourhood forest and outerplanar trace-family results concern open rather than closed adjacency and do not imply the labelled closed-forest equality-family census."
+      ],
+      "reasoning": "The numerical inequality and existence are covered by prior results. The proposed result refines them to a bidirectional theorem with unique decoding of every extremal family and full counting, not derivable from the bare bound, example or earlier open-neighborhood formulas without new equality analysis.",
+      "searches": [
+        "Closed neighborhood trace complexity forests trees sharp count m marked vertices extremal host equality cases",
+        "All extremal closed-neighborhood trace families forests with 3q marked vertices counted labelled triple partitions and Cayley trees",
+        "In finite forests, for 3q labelled parameters all maximum 7q closed-neighborhood one-variable Boolean trace families have exactly q induced three-vertex paths, connected by q−1 two-neighbor witnesses; their exact count is (3q)!/(2^q q!) * 9^(q−1) * q^(q−2), a Cayley-tree census."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.16889v1, Definition 1 and Section 3, gives the exact same closed-neighbourhood trace invariant but only its sharp maximum and constructive examples.",
+        "The published abstract A sharp three-level online-shattering law for closed unit balls of finite trees (2026) concerns adaptive/shattered support dimension, not the classification of all maximum-size set families."
+      ],
+      "reasoning": "Synonyms checked: closed-neighbourhood trace profile, one-variable quantifier-free type spectrum, maximum forest neighbourhood complexity, equality-case profile families. None of the specifically inspected statements supplies the exact parameter-labelled family census.",
+      "searches": [
+        "Closed neighborhood trace complexity forests trees sharp count m marked vertices extremal host equality cases",
+        "All extremal closed-neighborhood trace families forests with 3q marked vertices counted labelled triple partitions and Cayley trees",
+        "In finite forests, for 3q labelled parameters all maximum 7q closed-neighborhood one-variable Boolean trace families have exactly q induced three-vertex paths, connected by q−1 two-neighbor witnesses; their exact count is (3q)!/(2^q q!) * 9^(q−1) * q^(q−2), a Cayley-tree census.",
+        "closed neighbourhood one-variable Boolean truth types tree equality extremizers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record search returned no exact 3,810,1837080 sequence for saturated closed-neighbourhood families; closest related results concerned forest open-neighbourhood counts and closed-ball shattering.",
+        "Locally enumerated and deduplicated all families on six labelled marks: 810, with q=1 yielding 3."
+      ],
+      "reasoning": "No matching table or exhaustive database record was observed. Absence in a semantic search does not prove absence from all literature. Numerical local checks establish only the computed instances, while the proof counts all q.",
+      "searches": [
+        "Equality cases of sharp 7/3 neighborhood complexity bound trees and caterpillars enumeration of trace systems",
+        "Extremal trace family counts closed neighborhoods forests 3q cube partition center tree",
+        "In finite forests, for 3q labelled parameters all maximum 7q closed-neighborhood one-variable Boolean trace families have exactly q induced three-vertex paths, connected by q−1 two-neighbor witnesses; their exact count is (3q)!/(2^q q!) * 9^(q−1) * q^(q−2), a Cayley-tree census.",
+        "labelled forests neighbourhood trace family exact 810 six marked points"
+      ]
+    },
+    "rationale": "No inspected primary or retrieved published result was found to state or imply the complete necessary-and-sufficient labelled trace-family classification and factorial/Cayley census. The 2026 source already establishes the numerical bound and a sufficient construction and is explicitly excluded from any novelty claim. The distinction between numerical saturation and classification of every attainable family is material; historical priority is provisional.",
+    "residual_risks": [
+      "2026 source construction is very close: exhaustive equality-case necessity and count may be obtainable immediately by readers; value depends on the completeness of this refinement.",
+      "Semantic published-finding corpus queries and sampled primary literature cannot exclude an uninspected published equality classification.",
+      "The full text outside the relevant sections of arXiv:2501.08895v1 has not been inspected line by line.",
+      "The 2005 identifying-code construction is a close historical precursor and could inspire alternative equality decompositions; no labelled census found in its relevant section."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact numerical bound and sufficient block-tree construction COVERED; claimed necessary classification and labelled-family census NOT STATED in the inspected full relevant section",
+        "evidence": [
+          "arXiv:2607.16889v1, Theorem 2 / Section 3, lines 132–153, especially free choices of block tree and marked attachment vertices in lines 148–151."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.16889v1",
+        "material_read": "Full abstract, introduction, definitions, Theorem 2 and its complete Section 3 proof and constructions (HTML lines 37–151); remaining article section headings checked",
+        "method": "Read HTML source and directly compare statements, contraction proof, construction and equality conditions",
+        "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+        "trigger": "Identical forest invariant, optimal 7/3 upper bound, matching construction"
+      },
+      {
+        "assessment": "Introduces general upper bounds, not an identified equality-case labelled-family census in inspected material; uninspected deeper sections are residual prior-art risk",
+        "evidence": [
+          "arXiv:2501.08895v1, Abstract and definitions, lines 29–80."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.08895v1",
+        "material_read": "Abstract, introduction and neighbourhood/profile definitions (HTML lines 29–80); outline and section headings",
+        "method": "Read accessible HTML material and compare invariant and claimed scope",
+        "title": "Profile and neighbourhood complexity of graphs with excluded minors and tree-structured graphs",
+        "trigger": "Potential earlier broader profile-complexity coverage and neighbourhood traces"
+      },
+      {
+        "assessment": "Proves the precursor identifying-code density lower bound and one sequence of achieving trees; no enumeration of all attainable labelled closed-neighbourhood trace families is claimed in the inspected relevant section",
+        "evidence": [
+          "Bertrand, Charon, Hudry and Lobstein, 1-identifying codes on trees (2005), Theorems 1–2, pp.23–24."
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/1-identifying-codes-on-trees-4rw8mu31ee.pdf",
+        "material_read": "Full Section 2, Theorems 1–4 and extremal Figure 2 construction (PDF pages 3–5); abstract and definition of identifying codes; first and fourth pages visually inspected",
+        "method": "Read text extracted from publisher-era paper and visually inspect original PDF pages, compare exact statements and extremal construction",
+        "title": "1-identifying codes on trees",
+        "trigger": "Identifying-code inequality is explicit precursor to the 2026 forest-neighbourhood bound"
+      },
+      {
+        "assessment": "Concerns Littlestone and VC dimension, not enumeration of maximum distinct trace families",
+        "evidence": [
+          "Published mathematical abstract, A sharp three-level online-shattering law for closed unit balls of finite trees (2026-10-26)."
+        ],
+        "identifier_or_url": "A sharp three-level online-shattering law for closed unit balls of finite trees, published 2026-10-26",
+        "material_read": "Published semantic-result title and abstract summary",
+        "method": "Semantic record search and statement/implication comparison of returned abstract",
+        "title": "A sharp three-level online-shattering law for closed unit balls of finite trees",
+        "trigger": "Same closed radius-one balls on trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2e98250-3dd9-48ba-ba24-29a38232cb5e",
+  "value": {
+    "rationale": "The natural graph-neighbourhood type invariant already has a sharp 7/3 numerical bound, but that does not answer which complete parameter-labelled Boolean trace systems realize saturation. The theorem provides the complete rigidity normal form, a 3q-block combinatorial structure, exact all-q number (first values 3,810,1837080) and minimum realization order 7q. This is a non-arbitrary zero-slack extremal classification linked directly to the motivating sharp theorem; no external downstream theorem is required. It does not republish the prior numerical bound as its own claim.",
+    "status": "PASS"
+  }
+}
