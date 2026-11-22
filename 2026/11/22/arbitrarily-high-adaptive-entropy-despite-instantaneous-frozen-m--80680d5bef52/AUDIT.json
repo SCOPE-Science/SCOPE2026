@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Every frozen kernel has identical strictly positive rows, proving unique one-step stationary mixing. The q_m formula is continuous piecewise affine, with q_m(t)-t of sign + to the left of 1/2 and - to the right, proving a unique equilibrium; central derivative 1/2 gives multipliers +/-1/sqrt(2). On disjoint L,R, q_m exchanges intervals, q_m^2|L has m full affine branches onto L and entropy log m. Product and iterate formulas give exact entropy (log m)/2 on invariant KxK for the coupled F_m. Exact Fraction-based checker independently tests endpoints, signs, and branch images for m=2..18; no finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Piliouras–Yu 2022 Theorem 4.6 supplies chaos for exponentiated-gradient learning with large influence and proves existence in the single-agent case.",
+        "A related two-state exact dynamical calculation gives a sharp global-stability/period-two boundary for a smooth rank-one frozen two-state model, but not growing entropy or M-full-branch invariant dynamics.",
+        "Galatolo–Lippi 2026 Theorem 5.2 is a local small-step stability criterion, not an all-step entropy classification."
+      ],
+      "reasoning": "The present assertion is not that chaotic adaptive dynamics is possible: that is prior knowledge. Its added implication is that no finite entropy cap exists even with frozen one-step exact mixing, uniformly positive transition entries, a single locally attracting adaptive equilibrium and one fixed strongly convex quadratic loss. Neither a period-two instability nor Li–Yorke chaos (without quantitative entropy growth) implies unbounded topological entropy across a two-state family.",
+      "searches": [
+        "published-finding corpus: uniformly ergodic Markov transition kernels adaptive learning arbitrarily high entropy chaotic attractor unique equilibrium",
+        "published-finding corpus: sharp global feedback threshold and critical relaxation two-state adaptive Markov",
+        "web: performative prediction chaos strongly convex environment"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.15649v1 (primary HTML relevant sections)",
+      "arxiv:2201.10483v1 (primary HTML relevant sections)",
+      "published-finding corpus semantic search multiple exact model/entropy/alias queries",
+      "Related two-state rank-one feedback stability/period-two claim (comparison by mathematical implication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 initiating paper provides the operator framework, equilibrium reduction and conditional small-step local convergence; no arbitrary m full-branch entropy theorem is stated in the inspected primary sections.",
+        "2022 paper supplies single-agent Li–Yorke chaos for exponentiated gradient with large influence, but not a uniform rank-one two-state kernel with exact frozen one-step mixing and entropy lower bound diverging with m.",
+        "Historical related local two-state rank-one model is globally convergent below a sharp threshold and supports an attracting two-cycle above; this does not cover invariant full m-shifts for all m."
+      ],
+      "reasoning": "Strong existence of chaos or a single 2-cycle does not imply any unbounded quantitative entropy statement, because maps with positive chaos can have bounded entropy and 2-cycle maps can have entropy zero. The new construction simultaneously enforces unique *attracting* equilibrium, maximal frozen mixing and unbounded entropy; its entropy follows from an explicit disjoint two-interval full-shift subsystem.",
+      "searches": [
+        "arxiv:2611.15649v1 Sections 2,5,8.3.3,9",
+        "arxiv:2201.10483v1 Sections 1.2,4.2 Theorem 4.6",
+        "published-finding corpus: frozen mixing adaptive unique equilibrium entropy chaotic two state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Galatolo–Lippi arxiv:2611.15649v1 Section 2.1 gives the coupled μ/θ map; Section 5 restricts to local stability under small positive step and Section 8.3.3 describes finite-rate oscillations.",
+        "Piliouras–Yu arxiv:2201.10483v1 Section 4.2 Theorem 4.6 gives single- and multi-agent Li–Yorke chaos, but under a different distribution/learning construction."
+      ],
+      "reasoning": "The same two-state one-step-reset map under a unit averaged quadratic gradient reduces to a two-step delayed interval map; this equivalence is used in the proof rather than presented as novel. Published general chaos existence does not imply the new quantitative unbounded entropy while preserving a unique locally attracting equilibrium and uniform positive rank-one kernels.",
+      "searches": [
+        "published-finding corpus: unbounded entropy with unique attracting equilibrium and one-step frozen mixing in convex adaptive transfer systems",
+        "published-finding corpus: arbitrary prescribed dynamics full reset Markov model adaptive self-consistent transfer operator gradient",
+        "web: self-consistent transfer operator arbitrarily large entropy adaptive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic results returned papers on finite-state numerical Markov positivity, two-state control instabilities, and interval entropy, but no matching exact m-indexed adaptive entropy bound.",
+        "The interval covering calculation here yields the exact invariant-subsystem entropy ½ log m rather than using a pre-existing numerical entropy table."
+      ],
+      "reasoning": "No finite numerical catalog or exact database entry seen matched the model and entropy statement. This is not an exhaustive database uniqueness certificate; any unindexed equivalent exact construction remains a priority risk.",
+      "searches": [
+        "published-finding corpus: arbitrarily high topological entropy strongly convex adaptive online learning with single two-state Markov kernel one-step mixing",
+        "published-finding corpus: unbounded entropy unique attracting equilibrium one-step frozen mixing",
+        "web: one-step mixing chaos adaptive quadratic"
+      ]
+    },
+    "rationale": "Already known single-agent performative chaos and existing two-state period-two feedback instability are explicitly distinguished. The searched primary sources and published-finding corpus results did not imply the quantitative, unbounded entropy conclusion under uniform frozen one-step mixing and a unique attracting fixed point. Historical equivalent embeddings are a residual risk, not a claim of exhaustive literature uniqueness.",
+    "residual_risks": [
+      "The interval horseshoe embedding is elementary; an unindexed equivalent earlier adaptive-transfer construction could preempt historical novelty.",
+      "The original recent paper assumes stronger regularity in parts of its stability theory; this new continuous piecewise-affine example does not invoke that theorem.",
+      "No claim of independent mathematical or literature validation is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_ONLY; source establishes small-learning-step local stability and numerical oscillations, not this arbitrary-m entropy lower bound",
+        "evidence": [
+          "arxiv:2611.15649v1 lines 116-174, 587-605, 1303-1335, 1368-1380"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.15649v1",
+        "material_read": "Full accessible primary HTML: abstract, introduction/main contributions, equations 1 and 9, Section 5 Theorem 5.2, Section 8.3.3 finite-rate analysis and conclusion; searches for topological entropy and chaos.",
+        "method": "Read relevant HTML sections and full-document term searches",
+        "title": "Autonomous Neural Adaptive Control as a Self-Consistent Transfer Operator",
+        "trigger": "Same coupled distribution/controller dynamics and initiating recent research direction"
+      },
+      {
+        "assessment": "PRIOR_CHAOS_NOT_QUANTITATIVE_COVERAGE; even single-agent Li-Yorke chaos exists there, but no m-indexed one-step frozen Markov entropy classification",
+        "evidence": [
+          "arxiv:2201.10483v1 lines 44-78, 102-120, 200-210"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.10483v1",
+        "material_read": "Primary HTML abstract, introduction, models, Section 4.2 including Theorem 4.6 and its discussion; term search for entropy.",
+        "method": "Inspect relevant original primary full-text portions and theorem statements",
+        "title": "Multi-agent Performative Prediction: From Global Stability and Optimality to Chaos",
+        "trigger": "Potentially stronger prior single-agent chaos theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "80680d5b-ef52-4b18-b6c1-6177bdd52f11",
+  "value": {
+    "rationale": "The new structural counterexample answers a natural limitation of stability results for adaptive transfer systems: even maximal frozen stochastic mixing, uniformly positive transition entries, a fixed strictly convex quadratic loss and a unique locally attracting equilibrium cannot provide any finite topological-entropy bound for the coupled dynamics. The exact m-branch subshift is a quantitative all-m construction, not simply an arbitrary unnamed chaotic map. It separates plant mixing, stationary equilibrium stability and global deterministic dynamical complexity.",
+    "status": "PASS"
+  }
+}
