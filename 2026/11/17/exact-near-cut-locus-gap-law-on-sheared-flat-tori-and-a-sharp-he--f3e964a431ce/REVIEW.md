@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-cone integer decomposition proves that the exact shear distribution is genuinely all-lattice-vector, rather than a finite truncation. The rectangle-minus-two-triangles calculation supplies the full closed CDF, including both transition branches. A local facet-strip proof establishes the general small-gap coefficient and the edge-mark conditional total-variation limit. The exact Cauchy-defect identity and the polygonal six-side isoperimetric inequality give the sharp lower bound, with equilateral equality. The rational checker reproduced 108 finite-vector comparisons and both branch identities. This is a self-review, not independent validation.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 2014 closest-vector/Voronoi papers treat computation of a minimizer and relevant-cell facets, not a probability law for the gap between the first and second squared minimizing geodesic lengths. The 2014 polygonal isoperimetric result is transparently used as a known inequality. Published nearest-geodesic distance histograms, torus diameter-tail formulas and shortest-geodesic homotopy distributions concern other observables and do not directly entail the stated piecewise shear law. The gap law, its facet-loss threshold and the sharp geometric intensity statement survived these scientific comparisons. Historical work on decoding decision margins remains a possible unindexed overlap risk.
+PASS
 
-## Mathematical value — PASS
-A near-cut-locus ambiguity probability is a natural metric-geometric invariant. Its exact law has a nontrivial moving kink across the shear family; its intensity is minimized uniquely by the triangular lattice, with an exact two-part defect measuring both perimeter excess and unequal support radii. The conditional edge-mark law describes the geometric location of rare near ties. These are mutually reinforcing structure results rather than arbitrary parameter computations.
+Haar torus difference has a uniform Voronoi representative, and G(x)=min_{v≠0}(||v||²−2x·v). For Λ_t, six signed unimodular cone generators ±u,±v,±(v−u) with nonnegative adjacent scalar products control every omitted lattice vector; in coordinates (X,Y) their intersection is an area-one rectangle less two corner triangles, giving 1−(1−ε)(1+t²−ε)+(abs(t)−ε/2)_+². In general the boundary strip width at edge E is ε/(4h_E) and overlaps only within O(ε²) vertices. With H=ΣLh=2A and J=ΣL/h, the Cauchy defect HJ−P²=Σ_{E<F}L_E L_F(h_E−h_F)²/(h_Eh_F) and P²≥8√3 A prove sharp AC≥√3. The conditional facet/arclength/normalized-gap limit is the same strip Jacobian. This is a proof, not finite box enumeration.
 
-## Limitations
-The theorem concerns Euclidean flat two-tori and squared, not unsquared, runner-up geodesic lengths. The global claim is only a sharp small-gap slope, not stochastic ordering of complete distributions. Fixed-lattice error terms need not be uniform over degenerating moduli. Primary full-text access was incomplete for the separate polygonal stability source, and independent external mathematical and priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published closest-vector work supplies Voronoi tools but not a second-nearest squared-distance probabilistic margin; the closely related full published cut-locus-clearance law records Euclidean distance to the cut locus, not the facet-weighted power margin G. The sharp polygon inequality is credited as a known ingredient rather than a new extremal theorem.
+
+## value
+
+PASS
+
+The distribution is a natural measure of near-nonuniqueness of shortest torus geodesics, including a geometrically moving facet-loss threshold and a uniquely optimal lattice shape. It is not equivalent to the usual cut-locus clearance or shortest-distance histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

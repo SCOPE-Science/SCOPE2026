@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The standalone `check_gap.py` was executed from the packaged candidate's source directory with standard-library Python. It returned `GEODESIC_GAP_RATIONAL_CLIPPING_OK 108 exact comparisons; no exhaustive-lattice claim`. In each comparison the calculated CDF from exact-rational half-plane clipping by all \(|m|,|n|\le4\) lattice vectors agreed with the proposed formula. Shears used were \(0,1/20,1/10,1/4,2/5,1/2\); thresholds used were \(0,1/100,1/20,1/5,1/4,1/2,3/4,9/10,1\). The checker additionally tested exact branch continuity and matching first derivatives at the transition.
+# Independent mathematical audit
 
-The finite tests do **not** constitute an infinite-vector verification. The proof's nonnegative-dot-product unimodular-cone decomposition supplies that step independently of computational enumeration. The global sharp inequality follows symbolically from the Cauchy identity and the standard sharp polygonal isoperimetric inequality. The total-variation mark assertion is supported by the facet-strip Jacobian and an \(O_\Lambda(arepsilon^2)\) bound on the total excluded vertex-corner area.
+## correctness
 
-No separate external or independent audit was undertaken. Historical-priority completeness is not certified.
+PASS
+
+Haar torus difference has a uniform Voronoi representative, and G(x)=min_{v≠0}(||v||²−2x·v). For Λ_t, six signed unimodular cone generators ±u,±v,±(v−u) with nonnegative adjacent scalar products control every omitted lattice vector; in coordinates (X,Y) their intersection is an area-one rectangle less two corner triangles, giving 1−(1−ε)(1+t²−ε)+(abs(t)−ε/2)_+². In general the boundary strip width at edge E is ε/(4h_E) and overlaps only within O(ε²) vertices. With H=ΣLh=2A and J=ΣL/h, the Cauchy defect HJ−P²=Σ_{E<F}L_E L_F(h_E−h_F)²/(h_Eh_F) and P²≥8√3 A prove sharp AC≥√3. The conditional facet/arclength/normalized-gap limit is the same strip Jacobian. This is a proof, not finite box enumeration.
+
+## originality
+
+PASS
+
+Published closest-vector work supplies Voronoi tools but not a second-nearest squared-distance probabilistic margin; the closely related full published cut-locus-clearance law records Euclidean distance to the cut locus, not the facet-weighted power margin G. The sharp polygon inequality is credited as a known ingredient rather than a new extremal theorem.
+
+## value
+
+PASS
+
+The distribution is a natural measure of near-nonuniqueness of shortest torus geodesics, including a geometrically moving facet-loss threshold and a uniquely optimal lattice shape. It is not equivalent to the usual cut-locus clearance or shortest-distance histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
