@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Under the probability integral transform, the exact two-sided statistic is defined by a selected unweighted KS maximizing rank. A high ratio forces that rank near an endpoint. Only ranks 1 and n can contribute at order t^-2; other configurations require at least two observations in an O(t^-2) endpoint interval and have probability O_n(t^-4). The n! uniform-order-statistic density and n-1 disjoint exact intervals give the lower-corner integral; reflection doubles it. Stable quadratic root yields coefficient 2(n-1)!/n^n and the moment threshold via the tail-integral identity. The included independent checker passed 96 tests; the proof does not use its Monte Carlo as evidence for infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferger arXiv:2207.07947v1 Theorem 2.1 gives one-sided exact finite-n CDF; Theorem 2.3 gives only a two-sided weak limit.",
+        "Ferger pp.5--7 discusses standard and weighted empirical-process supremum results, not a fixed-n two-sided argmax-weighted tail.",
+        "Ferger p.8 explicitly states that the exact null distribution of V_n^* is not known.",
+        "Ferger (2018), Statistics & Probability Letters 134, 63--69, derives a density for a Brownian-bridge maximum normalized by its maximizing point and describes finite-sample tied-down sums only through convergence in distribution; its abstract does not specify this finite-n empirical-distribution test tail."
+      ],
+      "reasoning": "Known general order-statistic and Brownian-bridge argmax methods are ingredients, not identified statements computing this two-corner factorial constant or exact moment threshold. Full exhaustive historical coverage is not established.",
+      "searches": [
+        "two sided argmax location KS normalized finite sample Pareto tail exact factorial",
+        "ratio Kolmogorov Smirnov supremum by variance at argmax infinite variance tail",
+        "Brownian bridge maximum location normalization finite sample polynomial tail Ferger 2022"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2207.07947",
+      "https://arxiv.org/pdf/2207.07947",
+      "https://doi.org/10.1214/23-BJPS564",
+      "https://www.imstat.org/publications/bjps/bjps_37_1/bjps_37_1.pdf",
+      "https://doi.org/10.1016/j.spl.2017.10.008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferger Theorem 2.1 covers one-sided W_n^*, not the two-sided V_n^* before-normalization maximizer.",
+        "Ferger Theorem 2.3 has n->infinity weak convergence, which does not imply finite-n moment finiteness or a t->infinity Pareto tail.",
+        "The 2023 journal version is verified bibliographically as the same work; full material comparisons are grounded in the accessible earlier preprint."
+      ],
+      "reasoning": "A one-sided exact distribution and a two-sided weak limit do not logically imply the displayed fixed-sample two-sided tail coefficient by a direct identity; the new proof integrates the two-sided maximizing-rank selection region. General older joint-law constructions remain a stated priority risk.",
+      "searches": [
+        "exact joint distribution two-sided Kolmogorov Smirnov statistic location of supremum 1988",
+        "Ferger 2023 Exact and asymptotic goodness-of-fit tests 140-154",
+        "Ferger (2022) random argmax studentized Smirnov Wn* Vn* Pareto tail x^-2 infinite variance finite n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferger arXiv:2207.07947v1 pp.4--5 defines V_n^* via the KS maximizing location; pp.10 and 12--14 cover its weak limit and uniformized formula.",
+        "The signed one-sided maximum after its own reweighting is generally not V_n^*, since argmax precedes scaling."
+      ],
+      "reasoning": "Aliases checked: two-sided Ferger V*; location-normalized KS; argmax-weighted empirical-process supremum; maximum/location studentization. The exact two-sided finite-n tail coefficient is not a rephrasing of the one-sided exact CDF.",
+      "searches": [
+        "Ferger (2022) random argmax studentized Smirnov Wn* Vn* Pareto tail x^-2 infinite variance finite n",
+        "Exact tail constant for Ferger two-sided test V_n^* Kolmogorov Smirnov argmax",
+        "argmax weighted KS statistic finite sample heavy tail moment infinite variance",
+        "Ferger empirical process argmax two-sided goodness fit infinite second moment x^-2 tail 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available research-record semantic searches returned adjacent tail and GOF claims, without an identical coefficient or an equivalent fixed-n two-sided theorem.",
+        "The inspected 2022 preprint lists critical-value tables for other statistics but no exact two-sided far-tail constants."
+      ],
+      "reasoning": "No exact record/table located that identifies the two-sided coefficient 2(n-1)!/n^n; absence of a result is not uniqueness proof.",
+      "searches": [
+        "Exact tail constant for Ferger two-sided test V_n^* Kolmogorov Smirnov argmax",
+        "argmax weighted KS statistic finite sample heavy tail moment infinite variance",
+        "Ferger Exact and asymptotic goodness of fit tests 2022 moments tail finite sample"
+      ]
+    },
+    "rationale": "A full reading of the publicly available 2022 preprint identified only an exact one-sided CDF (Theorem 2.1) and a weak two-sided limit (Theorem 2.3), not the claimed fixed-n two-sided Pareto-tail coefficient. The two-sided argmax is chosen before weighting and therefore is not obtained by maximizing the separately weighted one-sided tests. Exact two-corner volume plus an O_n(t^-4) noncorner bound supplies a distinct scientific statement. Targeted published-literature and published-record searches found no theorem with this coefficient; historical-priority risk remains.",
+    "residual_risks": [
+      "A separate earlier general joint maximum/location distribution may imply the specific coefficient after algebra not found in targeted sources.",
+      "The final journal article was not separately read in full; publicly accessible preprint was read materially.",
+      "No independent expert or formal theorem-prover validation was performed.",
+      "Only the publicly available abstract of the 2018 maximum/location Brownian-bridge paper was read; full-text indirect implication is not excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One-sided exact CDF and two-sided weak limit; no fixed-n two-sided far-tail constant or moment spectrum stated.",
+        "evidence": [
+          "arXiv:2207.07947v1, equations (20)-(23), Theorems 2.1-2.3, Appendix Lemma A.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.07947",
+        "material_read": "Full relevant sections: introduction pp.1-8, Theorems 2.1-2.3 pp.8-11, power discussion pp.11-12, Appendix definitions and proof pp.12-14, references.",
+        "method": "Read source text, inspect rendered PDF pages 4, 8, 10 and 12, compare all definitions and theorems",
+        "title": "Exact and asymptotic goodness-of-fit tests based on the maximum and its location of the empirical process",
+        "trigger": "Exact identity of the two-sided statistic and possible coverage by original paper"
+      },
+      {
+        "assessment": "Same work and abstract. No claim that the complete journal version was independently checked for all details.",
+        "evidence": [
+          "Brazilian Journal of Probability and Statistics 37 (2023), 140-154; first arXiv v1 2022-07-16."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/23-BJPS564",
+        "material_read": "Bibliographic metadata and opening abstract/index excerpt only; complete journal article was not obtained as separate readable text.",
+        "method": "Publisher/journal-volume metadata and public bibliographic abstract comparison",
+        "title": "Exact and asymptotic goodness-of-fit tests based on the maximum and its location of the empirical process (journal)",
+        "trigger": "Check later publication and potential updated coverage"
+      },
+      {
+        "assessment": "Distinct Brownian-bridge and change-point weak-limit formulation; no direct finite-n uniform-order-statistic tail coefficient in available material. Full-text coverage remains unresolved.",
+        "evidence": [
+          "2018 Statistics & Probability Letters 134, 63--69, DOI 10.1016/j.spl.2017.10.008, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2017.10.008",
+        "material_read": "Public bibliographic abstract and source description only; full article unavailable in the current review",
+        "method": "Compare reported Brownian-bridge limiting object and tied-down-sum convergence with the fixed-n iid empirical-distribution score",
+        "title": "On the supremum of a Brownian bridge standardized by its maximizing point with applications to statistics",
+        "trigger": "Earlier related maximum/location normalization by the same author, possible general coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1a9e8cd-5a65-4e8f-86a2-84e9209eba72",
+  "value": {
+    "rationale": "The fixed-n two-sided tail determines far-tail null quantiles and shows that variance-based calibration is mathematically invalid at every finite n even though an ordinary n->infinity weak limit exists. The factorial coefficient quantifies why this pathology becomes extremely rare at larger samples. This exact intrinsic extreme-null property of a published two-sided test is a natural motivated invariant, not an arbitrary slice.",
+    "status": "PASS"
+  }
+}
