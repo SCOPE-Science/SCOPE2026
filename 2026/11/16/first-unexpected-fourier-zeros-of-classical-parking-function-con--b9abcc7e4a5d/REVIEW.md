@@ -1,19 +1,21 @@
-# Review of the parking-function Fourier zero classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(1\le n\le5\), the exact cyclotomic reduction checker covers every possible sorted frequency and every admissible preference tuple, with correct orbit multiplicities. A second algorithm evaluates all 7776 fifth-length frequencies directly in the two-dimensional integer representation of sixth roots. Both find 1295 diagonal-annihilator zeros and exactly 360 additional modes. The finite statement requires no numerical tolerance or limiting argument. The proved circular-parking orbit lemma independently supplies the forced-zero mechanism; character diagonalization supplies the rank formula.
+PASS
 
-## Originality — PASS under bounded comparison
+PASS: Pollak circular rotation gives a transversal for the free diagonal action, hence exactly (n+1)^(n-1)-1 forced zeros. Independently enumerated all n^n candidate preference vectors for n<=5 and all multiset classes (2,6,20,70,252). For every orbit, integer residue counts reduced modulo cyclotomic Phi_(n+1) give exact zero/nonzero decisions. n=5 certificate has 252 rows, total orbit weight 7776, 1295 forced zeros plus five extra sorted frequency types of weights (60,60,120,60,60), total 360, rank 6121; independently recalculated and checked original CSV. A finite complete domain suffices for this bounded theorem; no all-n extrapolation is made.
 
-Kostić–Yan's parking-function/Tutte polynomial formulas and The inspected sections of Kung–Yan's Gončarov paper concern univariate sum enumerators; the full original was not accessible, leaving a comparison risk. Rhoades's symmetric-group characters and Gorsky–Mazin–Vazirani's rational parking/affine-permutation bijections address different transforms. The closest indexed results on parking outcome parity, cyclic transversals and cyclic spectral pairs were compared by their group domains and implications. The specific first-extra-zero threshold and five-orbit exact classification were not covered by these inspected statements. The circular-parking forced zeros are recognized as prior structure, not claimed as new. Unlocated specialized prior art remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first non-forced Fourier zeros are a natural recoverability threshold for the canonical parking-preference indicator, rather than an arbitrary finite statistic. The five coordinate-permutation orbits are exact natural symmetry types, and the convolution rank is an intrinsic spectral invariant. The fact that all exceptional modes have nonzero coordinates distinguishes genuine multicoordinate cancellations from zeros forced by the diagonal cyclic transversal.
+PASS for the assigned earliest public research package under best-of-knowledge temporal comparison, with a major explicit exact-duplicate warning. Resultary has a second SCOPE record with precisely the same five exceptional orbits, 360 zeros and rank 6121; its original source Git commit at 2026-11-16T23:40:43Z came AFTER the assigned package source commit at 2026-11-16T23:37:37Z. This is complete current equivalence and duplicated research, but not demonstrated prior to the reviewed earlier claim. Independent authorship, priority and lineage cannot be inferred. Earlier primary parking literature checked by actual statements concerns classical transversals, univariate weight sums or unrelated representations; unread full older material remains risk.
 
-## Limitations
+## value
 
-The results concern lengths one through five, not all lengths, all nonzero eigenvalue values or arbitrary graphical parking functions. No independent external mathematical audit has been performed. The full comparative literature search is bounded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Detecting the first non-diagonal Fourier cancellation is a natural spectral/recoverability threshold for classical parking preferences, with complete orbit classification and canonical exact convolution rank; it is not merely arbitrary small-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
