@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The result is conditional on the verified equality-rigidity theorem in [1]. The tile-to-(edge,face) indexing has precisely two copies per triangular-lattice edge. Contact if and only if shared base endpoint is checked geometrically; hence the graph is the doubled line graph and its degree is 21. The line-graph distance formula reduces every ball after radius zero to lattice edges incident to an explicit six-inequality integer hexagon. Determinant area and boundary-gcd counting plus Pick give its exact vertex count; exterior-neighbor multiplicities give exactly six one-contact sites and \(6k+2\) two-contact sites, yielding the formula for the cut. All quantifiers include every integer radius and the exceptional singleton ball. A separate exact-coordinate checker verifies 11,175 triangle pairs, 61 lattice enumerations, and BFS profiles through radius eight. These computations corroborate but are not used to extrapolate the theorem.
+
+## Originality — PASS (priority provisional)
+Full relevant parts of Yang–Wang arXiv:2611.13664v1 were read, particularly its Theorem 1, Figure 1 and the Section 3.3 equality propagation. It proves local 21-neighbor rigidity, not a full point-contact graph model, all-radius ball enumerator, or edge-cut enumerator; its edge-adjacency graph is a different graph. Friedman–van der Zwaag describe constant-neighbor tilings and pictures without distance profiles. Searches for the aliases 'central triangular subdivision', 'triangular-lattice line graph', and '21-neighbor contact graph' in accessible mathematical literature and record search did not retrieve a stronger statement with these exact formulas. No matching claim was found in the available prior research ledger. However absence from search is not proof of priority, and the original Fejes Tóth article and unindexed computations remain uncertainties.
+
+## Mathematical value — PASS
+The equality-rigidity theorem leaves a unique geometrically extremal tiling; its *full point-contact network* is a natural follow-on invariant, not an arbitrary finite case. The identification with a two-vertex blow-up of the triangular-lattice line graph provides a structural answer, and the sharp exact formulas quantify both the full distance-shell population and contact edges exiting those metric neighborhoods at every radius. In particular degree 21 alone does not imply quadratic growth, the exact coefficients, or the edge-boundary profile. The theorem supplies concrete comparisons for propagation and contact geometry in the extremal tiling; it does not claim general isoperimetric optimality.
+
+## Closest literature and limitations
+Yang–Wang, https://arxiv.org/html/2611.13664v1, establishes the prior uniqueness and degree; Friedman–van der Zwaag, https://erich-friedman.github.io/papers/dihedral/dihedral.html, gives historical examples. Original 1975 Fejes Tóth full text not inspected; priority uncertainty remains. The theorem concerns point-contact graph balls, not shared-side adjacency, and makes no assertion about arbitrary sets' minimal edge boundary.
+
+Self-review: passed. Independent audit: not yet performed.
