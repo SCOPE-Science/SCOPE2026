@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:46:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "K_{3,n} spanning trees use n+2 edges, at least one from each of n right vertices, leaving precisely two surplus incidences. Either one right vertex has degree 3 or two distinct right vertices have degree 2 and different pairs of left vertices; all degree-2 pair choices with equal pairs are disconnected. For signed triples (a_i,b_i,c_i), s_i=a_i+b_i+c_i in +/-1,+/-3 is nonzero. Expanding prod(s_i)Phi(sum (a_ib_i,a_ic_i,b_ic_i)/s_i) gives precisely these tree cases; the diagonal identity Phi(v_i)=a_ib_ic_i/s_i follows from sign squares=1. Under uniformly random Walsh signs, E|s_i|=3/2, so tilting by |s_i|/12 gives eight vectors with weights 1/4 for two all-equal and 1/12 for six others; the exact norm is their absolute quadratic first moment times (3/2)^n. Symmetry gives mean zero and covariance diag 5/9, off -1/9. Bounded independent summands give uniform fourth moment for n^-1/2 sum, hence quadratic uniform integrability in the 3D CLT. In covariance eigenbasis Phi(Z)=(U0^2-U1^2-U2^2)/3 with iid standard Gaussians, and independent beta(1/2,1) ratio gives the exact integral int_0^1|2u^2-1|du=(2sqrt2-1)/3. Endpoint convolution ell1 and ellinfty norms equal the kernel absolute sum. All-n results are analytic, not inferred from finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodall discusses general finite Fourier analysis of graphical/Tutte-Grothendieck invariants, including squared norms and polynomial evaluations rather than this sharp ell1 projection norm.",
+          "Dall-Pfeifle establish polyhedral weighted matrix-tree identities, not the random-sign absolute first moment and asymptotic coefficient.",
+          "Resultary three-character cyclic projection and cubic finite-field fiber examples have other frequency sets, dimensions and distributions."
+        ],
+        "reasoning": "General signed-tree enumeration is a necessary ingredient but is not a sufficient bound or identity to derive the exact K_{3,n} endpoint constant without the specific 3D tilt/limit computation.",
+        "searches": [
+          "https://arxiv.org/abs/0806.4848",
+          "https://arxiv.org/abs/1404.3876",
+          "Resultary: Fourier projection K_3,n spanning trees endpoint L1 norm Gaussian quadratic random signs"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/16/...ed0f0f69de75/RESULT.md and check_k3n.py at source tree 44a59bed45f9ab647ddf2ece379b12cad35ab942",
+        "same record METADATA.json, AUDIT.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md at frozen commit",
+        "https://arxiv.org/abs/0806.4848",
+        "https://arxiv.org/abs/1404.3876",
+        "Resultary: Fourier projection K_3,n spanning trees endpoint L1 norm Gaussian quadratic random signs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matrix-tree theorem gives polynomial W_n at a chosen edge weight; extracting E|W_n| requires additional nonlinearity and probability limit not implied by that theorem.",
+          "Known Fourier ell2/moment identities would determine E W_n^2, not E|W_n| or 3D absolute Gaussian quadratic limit."
+        ],
+        "reasoning": "Neither cited graph polynomial transforms nor unrelated finite-field Fourier projection norm implies the boxed sharp asymptotic constant.",
+        "searches": [
+          "https://arxiv.org/abs/0806.4848",
+          "https://arxiv.org/abs/1404.3876",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-cubic-fiber-splitting-and-the-three-step-walk-constant-in-finite--247d7262c7af"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The endpoint Fourier projection norm is the Lebesgue/ell1 constant 2^(-3n) sum_y |sum_T (-1)^(<y,T>)|, a first absolute moment of signed tree counts.",
+          "Matrix-tree methods encode signed tree polynomials but not their average absolute value over all 2^(3n) edge signs."
+        ],
+        "reasoning": "Compared equivalent Walsh idempotent, signed spanning-tree partition function and projection Lebesgue-constant formulations; none of the inspected broader identities evaluates the required first absolute moment.",
+        "searches": [
+          "Resultary: Fourier projection K_3,n spanning trees endpoint L1 norm Gaussian quadratic random signs",
+          "https://arxiv.org/abs/0806.4848",
+          "https://arxiv.org/abs/1404.3876"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical K_{3,n} spanning-tree count is n^2 3^(n-1), which is a zero-frequency coefficient and does not imply the average of abs Walsh coefficients.",
+          "Finite exact norms for n<=5 were reported and the source checker was inspected; these are checks, not an existing all-n table or asymptotic theorem."
+        ],
+        "reasoning": "No compared table enumerating K_{3,n} absolute Fourier values for every n and yielding the Gaussian constant was found.",
+        "searches": [
+          "Resultary: Fourier projection K_3,n spanning trees endpoint L1 norm Gaussian quadratic random signs",
+          "https://arxiv.org/abs/0806.4848"
+        ]
+      },
+      "rationale": "Graphical Tutte polynomial Fourier and weighted Matrix-Tree methods supply general counting ingredients, not this absolute signed spanning-tree Fourier L1 norm or sharp K_{3,n} Gaussian quadratic limit.",
+      "residual_risks": [
+        "Possible unindexed older explicit signed spanning-tree absolute moment calculation for K_{3,n}; no independent priority guarantee.",
+        "The limit is fixed left-side size 3 and does not give convergence rate or analogous general K_{m,n} constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fourier/Tutte connections, not exact signed-tree absolute first moment on K_{3,n}",
+          "evidence": [
+            "general graphical invariants and Fourier squared/transform identities are not the absolute first moment"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0806.4848",
+          "material_read": "Abstract, graph-invariant Fourier method exposition and available theorem overview",
+          "method": "primary arXiv/published-material inspection",
+          "title": "Graph polynomials and Tutte-Grothendieck invariants: an application of elementary finite Fourier analysis",
+          "trigger": "same Fourier transforms of graphical enumeration"
+        },
+        {
+          "assessment": "tree polynomial enumeration does not evaluate Lebesgue constant asymptotic",
+          "evidence": [
+            "weighted spanning tree polynomial versus 2^-3n sum over all signs of its absolute value"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.3876",
+          "material_read": "Abstract and matrix-tree/weighted enumeration result statements",
+          "method": "primary preprint reading",
+          "title": "A Polyhedral Proof of the Matrix Tree Theorem",
+          "trigger": "general weighted signed tree enumerator potentially dominating exact identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes a natural sharp operator-projection endpoint norm for an explicit growing family of graph-spanning-tree frequency sets. Exact finite-n random-walk representation and a nontrivial covariance-induced Gaussian constant are useful independently of general graph enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible unindexed older explicit signed spanning-tree absolute moment calculation for K_{3,n}; no independent priority guarantee.",
+    "The limit is fixed left-side size 3 and does not give convergence rate or analogous general K_{m,n} constants."
+  ],
+  "schema_version": 1
+}

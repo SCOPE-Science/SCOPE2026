@@ -1,15 +1,21 @@
-# Review of the \(K_{3,n}\) spanning-tree Fourier norm
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete degree-excess classification of spanning trees yields an exact signed polynomial identity, with every case represented once. The tilt is normalized by the exact weight sum twelve, and the eight-vector distribution has explicitly computed covariance. The multivariate central limit theorem is combined with a fourth-moment uniform-integrability bound, not misused as convergence of unbounded moments. The beta-distribution computation evaluates the limiting absolute quadratic moment. An independent full Walsh transform, a combinatorial signed enumerator, a rational Schur determinant formula, and a weighted-walk dynamic program agree in all checked finite cases.
+## correctness
 
-## Originality
-**PASS on a bounded historical comparison.** Goodall (arXiv:0806.4848) develops graphical Fourier methods and \(\ell^2\) Tutte connections, not this absolute signed-tree Fourier norm. Dall–Pfeifle (arXiv:1404.3876) proves general weighted matrix-tree results, but leaves random-sign absolute values and the three-hub Gaussian constant unevaluated. Searches for the same bipartite family, signed spanning-tree generating functions, equivalent Rademacher chaos expectations, and the explicit limiting constant did not reveal a dominating prior calculation. The previously known two-hub complete-bipartite formula does not imply the three-hub Gaussian quadratic form. The possibility of an obscure preexisting equivalent remains.
+PASS
 
-## Mathematical value
-**PASS.** The spanning-tree basis set of a complete bipartite graph is a canonical graphic-matroid frequency set. The theorem identifies, with a nontrivial exact constant, the sharp endpoint amplification in the first fixed-side case that exhibits exponential rather than merely polynomial growth. The change-of-measure and Gaussian quadratic reduction explain that growth structurally, rather than reporting a finite census or a generic determinant formula. This provides a natural point of comparison for larger fixed left-side size and for Walsh norms of other matroid-basis indicators.
+K_{3,n} spanning trees use n+2 edges, at least one from each of n right vertices, leaving precisely two surplus incidences. Either one right vertex has degree 3 or two distinct right vertices have degree 2 and different pairs of left vertices; all degree-2 pair choices with equal pairs are disconnected. For signed triples (a_i,b_i,c_i), s_i=a_i+b_i+c_i in +/-1,+/-3 is nonzero. Expanding prod(s_i)Phi(sum (a_ib_i,a_ic_i,b_ic_i)/s_i) gives precisely these tree cases; the diagonal identity Phi(v_i)=a_ib_ic_i/s_i follows from sign squares=1. Under uniformly random Walsh signs, E|s_i|=3/2, so tilting by |s_i|/12 gives eight vectors with weights 1/4 for two all-equal and 1/12 for six others; the exact norm is their absolute quadratic first moment times (3/2)^n. Symmetry gives mean zero and covariance diag 5/9, off -1/9. Bounded independent summands give uniform fourth moment for n^-1/2 sum, hence quadratic uniform integrability in the 3D CLT. In covariance eigenbasis Phi(Z)=(U0^2-U1^2-U2^2)/3 with iid standard Gaussians, and independent beta(1/2,1) ratio gives the exact integral int_0^1|2u^2-1|du=(2sqrt2-1)/3. Endpoint convolution ell1 and ellinfty norms equal the kernel absolute sum. All-n results are analytic, not inferred from finite checks.
 
-## Source comparisons and limits
-The primary full-text material examined includes Goodall's Fourier and weight-enumerator sections and the Dall–Pfeifle weighted and graphical matrix-tree sections. Classical general tools remain acknowledged as prior. The result does not claim a finite elementary norm formula, a rate, a general fixed-left-side theorem, or historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graphical Tutte polynomial Fourier and weighted Matrix-Tree methods supply general counting ingredients, not this absolute signed spanning-tree Fourier L1 norm or sharp K_{3,n} Gaussian quadratic limit.
+
+## value
+
+PASS
+
+Computes a natural sharp operator-projection endpoint norm for an explicit growing family of graph-spanning-tree frequency sets. Exact finite-n random-walk representation and a nontrivial covariance-induced Gaussian constant are useful independently of general graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
