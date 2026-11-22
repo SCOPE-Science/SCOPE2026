@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Direct diagonalization yields W(t)=Qa f(t)/(r-s) and gas impulse response d f(u)/(r-s); integrating the exact state reset gives the claimed objective. Strict concavity of log f and log L, proved from the tangent inequality and derivatives, gives a unique interior maximizer; implicit differentiation yields strict increase with T; first-order expansions yield the T/3 and peak-time limits with stated coefficients. A separate standard-library checker passed 31536 checks including direct RK4 integration, but the proof does not rely on finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanchini et al., Optimal control of compartmental models: the exact solution, 2022 lawful author preprint, model equation (1) and section 2: dot x=(A+F V(t) G)x with bounded arc-flow control; the criterion involves state integral and controlled flows."
+      ],
+      "reasoning": "The broad optimal-control results concern a different admissible action family: varying matrix flow coefficients in time rather than instantaneously discarding a fixed fraction of one state while holding the dynamics unchanged. Their theorems do not explicitly imply the fixed-one-reset optimum or its uniqueness without an additional argument. Standard linear impulse-response identities are acknowledged as known.",
+      "searches": [
+        "cleaning VOC reservoir removal time optimization difference exponential two modes log concavity",
+        "optimal control impulsive two-compartment adsorption desorption cleanup finite-time cumulative concentration",
+        "Blanchini Bolzern Colaneri De Nicolao Giordano optimal control of compartmental models exact solution"
+      ]
+    },
+    "checked_sources": [
+      "Li et al. 2023, DOI 10.1126/sciadv.adh8263, full primary article (2023-10-13)",
+      "Lei, Jones and Li 2017, DOI 10.1186/s12879-016-2120-z, accessible main article",
+      "Blanchini et al. 2022 lawful preprint/2023 Automatica, DOI 10.1016/j.automatica.2022.110680",
+      "Searches of indexed published research records for adsorption–desorption cleaning, impulse-removal timing, spectral uniqueness and aliases",
+      "Own available current-week claims screened for overlap with prior indoor VOC and cleaning results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li et al. (2023) establish relevant physical mass transfers and empirical effectiveness of cleaning; their claim does not logically determine which single time minimizes a fixed-horizon integral.",
+        "Blanchini et al. (2022 preprint/2023 journal) optimize flow-rate switching controls, not the required fixed-generator instantaneous state reset.",
+        "Lei et al. (2017) consider multiroom contact-pathway pathogen loads and different sampling/cleaning dynamics."
+      ],
+      "reasoning": "Each prior result lacks at least one essential element: single source-free air/surface exchange, instantaneous q-fraction physical removal, and exact finite-horizon airborne exposure integral. No inspected stronger theorem implies all of those elements with the claimed sharp uniqueness and asymptotics.",
+      "searches": [
+        "unique cleaning time spectral two decay rates air surface reservoir gas phase cumulative exposure one surface wipe",
+        "cleaning VOC reservoir removal time optimization difference exponential two modes log concavity",
+        "\"optimal time\" \"surface wiping\" \"indoor\" \"exposure\" volatile organic",
+        "\"two compartment\" \"surface cleaning\" \"optimal\" time integral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al., Science Advances 9 (2023) eadh8263, equations (1)–(2), writes precisely the two-compartment linear adsorption/desorption model; its surface-cleaning Results report experiments rather than a global timing equation.",
+        "Lei et al., BMC Infectious Diseases 17 (2017), 85, optimizes timing of healthcare surface cleaning with contact transmission, not the pulse gas–surface model."
+      ],
+      "reasoning": "We compared the same ODE, the exact instantaneous state reset, the objective integral and the optimizer. Reusing a known ODE is not the claimed novelty; the unique positive-kernel finite-horizon timing theorem and its limits are the claim. The inspected articles do not assert an equivalent statement.",
+      "searches": [
+        "air-surface two compartment smoke VOC adsorption desorption an instantaneous fraction of surface pollution removed time optimal finite-horizon cumulative gas exposure",
+        "unique cleaning time spectral two decay rates air surface reservoir gas phase cumulative exposure one surface wipe",
+        "\"one-time\" surface cleaning two compartment model exposure optimal timing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Online bibliographic queries yielded adsorption-kinetics and indoor purification studies with different objectives; the retrieved published mathematical records closest in meaning concern optimal exponential-mode observation times, stormwater wash-off order and aerosol ventilation budget.",
+        "The full own weekly finding ledger was screened for names, parameter structure, one-time surface resets, air-surface VOC and cumulative exposure optimization, with no identical recoverable result."
+      ],
+      "reasoning": "Neither checked records nor literature yielded a tabulation of the exact spectral clock or objective formula. A negative record lookup is not a proof of historical absence; an older compartmental impulse-control derivation remains a residual risk.",
+      "searches": [
+        "air-surface two compartment smoke VOC adsorption desorption an instantaneous fraction of surface pollution removed time optimal finite-horizon cumulative gas exposure",
+        "Li Link Pandit 2023 smoke VOC surface cleaning optimisation single time",
+        "\"surface\" \"cleaning\" \"optimal time\" \"adsorption\" \"desorption\" air two compartments",
+        "\"instantaneous\" cleaning adsorption desorption exposure optimal time"
+      ]
+    },
+    "rationale": "In the main texts inspected, the experimental smoke-VOC article specifies the underlying gas/surface ODE and confirms cleaning efficacy, while the closest cleaning-timing article addresses a different disease-contact objective, and the broad positive-compartmental control paper optimizes continuously adjustable arc flow rates instead of a single discrete state reset. None supplied the exact unique finite-horizon cleaning clock, its spectral invariance, or two asymptotic laws; online research-record queries found topical but logically different results. Priority is provisional against unexamined older impulse-control and indoor-exposure research.",
+    "residual_risks": [
+      "Classical compartmental impulse-control or environmental-exposure publications not retrieved may already imply or explicitly state the optimizer.",
+      "A sufficiently general uninspected optimal control theorem might reduce to the result as a special case despite different surface terminology.",
+      "No independent external priority or proof audit performed; full publication literature is not exhaustively indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and effect of cleaning already known; inspected source does not state exact single-wipe integrated-exposure clock",
+        "evidence": "Published October 13, 2023; Results provide both mass-balance ODEs, then characterize fast/slow behavior and empirical cleaning benefits",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10575580/",
+        "material_read": "Open-access main article: Results, equations (1)–(2), time scales, cleaning experiments, Discussion, Methods, limitations and reference context",
+        "method": "Full-text HTML sections and equation-level comparison",
+        "title": "The persistence of smoke VOCs indoors: Partitioning, surface cleaning, and air cleaning in a smoke-contaminated house",
+        "trigger": "Identical two-reservoir gas/surface mass balance and direct surface-cleaning experiments"
+      },
+      {
+        "assessment": "Different biological transport/contact-transmission dynamics and target outcome; cannot imply this gas–surface pollutant clock",
+        "evidence": "Ten compartments, high/low-touch cleaning and patient colonization, not two-compartment source-free exposure",
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s12879-016-2120-z",
+        "material_read": "Open-access main article: Abstract, Background, Methods/model overview, intervention descriptions and Results",
+        "method": "Full-text HTML objectives, compartments, intervention and policy comparison",
+        "title": "Exploring surface cleaning strategies in hospital to prevent contact transmission of methicillin-resistant Staphylococcus aureus",
+        "trigger": "Closest surface cleaning time optimization study"
+      },
+      {
+        "assessment": "Continuous bounded arc-flow control with bang-bang switching, not a one-shot state-removal impulse; general context but no explicit dominance",
+        "evidence": "Section 2 specifies dot x=(A+F V(t)G)x with bounded V(t), and state and control integral objective",
+        "identifier_or_url": "https://iris.unitn.it/retrieve/cd15dadf-d327-4a44-9014-aac0cddefec4/Automatica_OptimalControl.pdf",
+        "material_read": "Lawful author preprint PDF: title/abstract, Introduction, model setup, equations (1)–(4), finite-horizon control characterization and concluding context",
+        "method": "PDF page-image inspection plus text of main control formulation and assumptions",
+        "title": "Optimal control of compartmental models: the exact solution",
+        "trigger": "Potential stronger positive-compartmental finite-horizon optimal-control coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6dd0c0e2-f3e5-4f44-b6d3-8921e40da69b",
+  "value": {
+    "rationale": "The motivating 2023 test-house study identifies long-lived VOC reservoirs and physically effective surface removal, so optimizing one cleaning within an exposure window is a natural quantitative decision. The unique clock depends solely on the two measurable uncleaned decay modes, avoiding separate estimation of three physical coefficients and cleaning strength; the 1/3-to-reservoir-peak progression distinguishes short and long exposure windows. This is a meaningful theory benchmark with no field effectiveness or policy calibration asserted.",
+    "status": "PASS"
+  }
+}
