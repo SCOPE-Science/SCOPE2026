@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every 0<a<1, 0<epsilon<1 and every integer n>=1: f_a integrates to 1 and yields a symmetric stationary circle-copula kernel. The uniform-mixture decomposition determines all lag kernels. Character Fourier action establishes rho(n)=(epsilon*r_a)^n and r_a in (0,1). The oscillatory-gamma estimate gives |fhat_a(k)| asymptotic to c(a)k^{-(1-a)} with a positive limiting real phase. Young yields bounded n-fold density when n(1-a)>1; Fejér means diverge when n(1-a)<=1, including odd lags and equality. Even-lag positive Fourier coefficients give the exact relative coefficient; uniform Fourier remainder bounds yield the critical simple pole. Rational and numerical consistency tests in CHECK.py passed. All singular boundary cases and unproved generalizations are explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Longla (2022), Theorem 2.2.3, supplies sufficient bounded-lag and lower-density conditions for eventual psi-mixing, but no exact power-cusp first finite lag.",
+        "Lalancette–Zimmerman (2025), Fourier characteristic-function decomposition and Section 2.2.3 establish parts of the algebraic background.",
+        "Classical generalized Young and Fejér estimates determine the exact singular exponent only after a separate Fourier asymptotic and lag-kernel analysis."
+      ],
+      "reasoning": "The general results establish tools and eventual mixing in broad settings, while the proposed finding identifies a sharp necessary-and-sufficient threshold including equality for every lag, exact even-lag constants, and a Doeblin/relative-mixing separation. Published results inspected do not state a dominating all-parameter theorem yielding these claims immediately without the additional singular-cusp analysis.",
+      "searches": [
+        "psi mixing circle random walks densities unbounded convolution integrability threshold",
+        "convolution of x^{-alpha} density torus bounded iff n(1-alpha)>1",
+        "On Some Mixing Properties of Copula-Based Markov Chains doi:10.1007/s44199-022-00045-1",
+        "copula \"Lalancette\" \"Zimmerman\" \"mixing\" \"Markov\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.04336",
+      "https://arxiv.org/abs/2509.26635",
+      "https://doi.org/10.1007/s44199-022-00045-1",
+      "https://doi.org/10.1007/s11749-026-01003-0 (indexed excerpt only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 article construction implies the validity of the transition density but does not analyze iterations.",
+        "The 2025 follow-up implies circular convolution of lag densities but leaves lagwise psi norms uncomputed.",
+        "Longla (2022) implies eventual psi mixing once a bounded power is established and a lower density is available; it neither supplies the sharp first power nor the exact coefficient.",
+        "The 2026 related title could not be inspected in complete text, and indexed passages mention different finite-memory copulas."
+      ],
+      "reasoning": "The new statement is not a renaming of smoothness, convolution closure, eventual mixing, or Fourier expansion. Its exact necessity at odd/even critical lags uses a positive-phase Fejér divergence, and sufficiency uses the complementary Young condition. Published generic criteria plus the parent family do not directly enumerate the sharp power-cusp thresholds or critical pole.",
+      "searches": [
+        "arXiv:2204.04336 Sections 2-4 and discussion",
+        "arXiv:2509.26635 Sections 2.2.1-2.2.3 and 6",
+        "doi:10.1007/s44199-022-00045-1 Section 2.2",
+        "Copulas, m-dependence, and Markov chains 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lalancette–Zimmerman (2022), Section 2.1, equation (4): density f(sum coordinates modulo one).",
+        "Lalancette–Zimmerman (2025), Section 2.2.3: reflected family closed under copula Markov product, with convolution generator.",
+        "The alternating reflected circle walk is isomorphic to the Markov kernel; its convolution powers are explicitly computed in the new proof."
+      ],
+      "reasoning": "The alternating-circle-walk and reflected-copula formulations were considered as equivalent objects, not different claims. The 2025 convolution closure gives a general structural identity but does not provide the lag-by-lag cusp exponent test, the exact even-lag relative coefficient, or the arbitrarily long Doeblin delay.",
+      "searches": [
+        "copula c(u,v)=f((u+v) mod 1) rho mixing psi mixing convolution Fourier",
+        "sum modulo one copula Lalancette Zimmerman Markov spectral rho mixing 2022 singular copula",
+        "circle random walk powered density x^-alpha mixing delay psi infinite finite time spectral Fourier",
+        "arXiv:2204.04336; arXiv:2509.26635"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The parent copula articles list smoothness, concordance, Fourier and model-inference results, not a table of singular relative-mixing onset indices.",
+        "Search results and related published research records did not identify an exact lag-index table for this generator; search absence is not a proof of novelty."
+      ],
+      "reasoning": "The phenomenon is an infinite family of sharp analytical thresholds rather than a known finite database entry. No table containing the requested lag cutoff or even-lag Fourier norms was identified.",
+      "searches": [
+        "stationary Markov chain with sum modulo one copula singular power density and uniform contamination exact psi coefficient finite lag cutoff n(1-alpha)>1",
+        "Doeblin uniformly ergodic copula chain with infinite psi mixing coefficients for arbitrarily many lags and exact spectral correlation",
+        "Lalancette Zimmerman smooth copulas irregular densities Markov mixing Fourier spectral gap"
+      ]
+    },
+    "rationale": "The parent sum-modulo-one copula and its semigroup/Fourier framework are acknowledged prior. The new target is the exact first finite relative-mixing lag for the power singularity, the exact even-lag coefficients and critical pole, and arbitrarily long infinite-relative-mixing delays despite uniform Doeblin regeneration. Specific published primary materials and semantic near-matches were checked; none inspected states this joint classification. Standard Fourier and generalized Young facts are tools, not claimed discoveries.",
+    "residual_risks": [
+      "Classical circle-random-walk and Riesz-kernel literature may contain a broader implicit smoothing theorem; the explicit sharp lag-plus-Doeblin classification was not located, and historical priority is provisional.",
+      "The full text of the 2026 related copula Markov paper could not be obtained; available snippets do not establish the same object or parameters.",
+      "A semantic search cannot prove global uniqueness or exclude unpublished results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARENT_MODEL_NOT_COVERING: Markov iteration, lagwise psi coefficients and power-cusp threshold not treated",
+        "evidence": "Density is f((sum u_j) mod 1); the paper studies copula smoothness, concordance and irregularity, with no mixing theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2204.04336",
+        "material_read": "arXiv HTML full main text: introduction, Sections 2.1 and 2.2, Section 3 examples and singular generator, Section 4 discussion",
+        "method": "direct article HTML inspection including formula (4), Propositions 1-6 and discussion",
+        "title": "A new family of smooth copulas with arbitrarily irregular densities",
+        "trigger": "Original sum-modulo-one density construction and full arbitrary-generator claim"
+      },
+      {
+        "assessment": "PARTIAL_STRUCTURAL_COVERAGE: convolution closure and Fourier tools already known; no psi lag cutoff stated",
+        "evidence": "Section 2.2.3 states copula-star semigroup convolution identity; article find search for mixing returned no occurrences.",
+        "identifier_or_url": "https://arxiv.org/abs/2509.26635",
+        "material_read": "arXiv HTML introduction, Fourier decomposition around Proposition 3, Section 2.2.3 Markov product, and Section 6 discussion; full-text term search for mixing",
+        "method": "article HTML targeted section inspection and search for mixing/spectral claims",
+        "title": "A Tractable Family of Smooth Copulas with Rotational Dependence: Properties, Inference, and Application",
+        "trigger": "Later paper by original authors extending reflected family and potentially containing stronger convolution results"
+      },
+      {
+        "assessment": "GENERAL_TOOL_NOT_COVERING_SHARP_CUTOFF: sufficient boundedness criterion and examples, not the singular power generator thresholds",
+        "evidence": "Theorem 2.2.3 is a sufficient eventual-mixing theorem, not the exact first finite coefficient; examples include Gaussian, Ali–Mikhail–Haq and FGM.",
+        "identifier_or_url": "https://doi.org/10.1007/s44199-022-00045-1",
+        "material_read": "accessible complete HTML Sections 1.2, 2.2 criteria and examples, particularly Theorem 2.2.3 and its applications",
+        "method": "direct full article HTML inspection of relevant theorems, hypotheses and named copula families",
+        "title": "On Some Mixing Properties of Copula-Based Markov Chains",
+        "trigger": "General theorem potentially dominating any new psi-mixing result"
+      },
+      {
+        "assessment": "ACCESS_LIMITED; no evidence of exact same sum-modulo-one power-kernel theorem in available excerpt",
+        "evidence": "Available indexed discussion concerns finite-memory and idempotent copula examples; the full source remains an originality risk.",
+        "identifier_or_url": "https://doi.org/10.1007/s11749-026-01003-0",
+        "material_read": "search-indexed excerpt only; full text not accessible through retrieval",
+        "method": "search result and attempted direct article access",
+        "title": "Copulas, m-dependence, and Markov chains",
+        "trigger": "Recent general paper with plausible Markov-chain overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a56d69cb-dd15-4ca7-a02e-134a9e6bfd0e",
+  "value": {
+    "rationale": "Exact first finite psi lag is a natural, previously unspecified analytic invariant for stationary copula Markov kernels, measuring worst-case conditional event amplification rather than merely covariance. A complete parameter/lag classification for the natural integrable power-cusp family reveals arbitrarily long infinite-psi plateaus with a fixed Doeblin minorization and arbitrarily small maximal correlation. Explicit even-lag series and critical poles describe the transition, with relevance to dependent-data risk and mixing-based inference. This is structural behavior, not a routine finite table or mere renaming.",
+    "status": "PASS"
+  }
+}
