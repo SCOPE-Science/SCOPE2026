@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A multinomial CLT plus fourth-moment uniform integrability establishes the N^{-1} limiting variance. The finite covariance is v=a(5-9a), c=a(9a-4), and the standard folded-normal absolute-product identity gives V exactly. Under r=(9a-4)/(5-9a), its derivative has numerator H and H double prime equals (1+r)(15+4r-10r^2)/(1-r^2)^{3/2}, strictly positive on (-4/5,1). Exact signs H(-4/5)>0,H(0)<0,H(1)>0 force exactly two zeros and +,-,+ derivative signs; the trial a=1/4 beats the boundary values. The accompanying standard-library checker passed 296 deterministic checks, including exact multinomial finite-N sums; it does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original fixed-bin asymptotic variance formula applies to all positive probability vectors; its symmetric comb closed form is for an even bin count.",
+        "The cyclic companion model includes a third wrap-around edge, changing the objective."
+      ],
+      "reasoning": "A formula giving V for general probability vectors dominates the new coefficient identity but does not, as a stated theorem or direct corollary without additional analysis, establish the sharp global optimizer on a constrained line. The new claim is the full shape classification, not rediscovery of the general variance formula.",
+      "searches": [
+        "comb histogram null variance optimize reference probability distribution three bins folded Gaussian edge differences",
+        "variance optimized over symmetric three cell multinomial roughness asymptotic normal",
+        "\"multinomial\" \"discrete total variation\" \"variance-maximizing\" profile",
+        "arxiv:2611.09592v1, section 4.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2611.09592v1, full accessible body/selected PDF pages",
+      "arxiv:2611.14735v1, abstract and bibliography",
+      "Nabeya 1951 absolute bivariate normal moments, as cited and used in arxiv:2611.09592v1",
+      "Published summaries of histogram large deviation and uniform variance corrections; full text not accessible",
+      "Web title/phrase searches for 3-bin optimal variance and folded-normal equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 general variance theorem fixes p and gives its coefficient.",
+        "The 2026 cyclic-variation paper uses a third adjacent edge and does not establish a two-edge optimizer.",
+        "Classical Hoel and Kamat calculations concern the uniform distribution, not a global constrained parameter classification."
+      ],
+      "reasoning": "The prior general identity could be specialized to compute the objective value at a supplied a, but it does not entail unique global optimality, two turning points, or their sharp characterizations without the independent calculus analysis H double-prime positive with endpoint signs. Published uniform, cyclic and large-deviation cases do not cover these implications.",
+      "searches": [
+        "multinomial discrete total variation Gaussian three-bin variance nonmonotonic mirror symmetric profile maximizer",
+        "\"multinomial\" \"reference-centered\" \"three-bin\" \"maximum\" variance",
+        "arxiv:2611.14735v1",
+        "arxiv:2611.09592v1, general variance and conclusions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2611.09592v1 derives the covariance of absolute Gaussian differences for arbitrary fixed multinomial profiles but does not state its optimization along the three-cell mirror line.",
+        "The bivariate folded-normal identity is historical; obtaining its dependence on this family and globally classifying stationary points is an additional assertion."
+      ],
+      "reasoning": "The equivalent formulation is a two-variable Gaussian with equal variances and a varying correlation tied nonlinearly to its marginal scale. The prior moment formula does not logically imply the number, order or location of turning points without the new convexity and boundary arguments.",
+      "searches": [
+        "multinomial three-bin mirror-symmetric probability profile p=(a,1-2a,a) asymptotic variance centered discrete total variation unique maximum local minimum critical points folded normal",
+        "folded bivariate Gaussian absolute values sum variance three component centered multinomial profile unique global maximizer",
+        "\"three-bin\" \"folded normal\" \"variance\" critical points",
+        "arxiv:2611.09592v1, sections 2 and 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published finding “Sharp fixed-bin large deviations for histogram total variation and alternating comb minimizers” (2026-10-18) analyzes uniform law upper tails, not matched-null variance optimality.",
+        "Closest published finding “Conditioning removes a leading variance term from multinomial histogram roughness” (2026-10-18) treats uniform histograms with growing bin count."
+      ],
+      "reasoning": "No located exact optimizer table or entry has the three-cell mirror-symmetric profile, its two critical points, or its global variance peak. The cited results work in different asymptotic regimes, so their stated claims do not imply this one. Negative search is not treated as proof of uniqueness.",
+      "searches": [
+        "multinomial three-bin mirror-symmetric probability profile p=(a,1-2a,a) asymptotic variance centered discrete total variation unique maximum local minimum critical points folded normal",
+        "comb histogram null variance optimize reference probability distribution three bins folded Gaussian edge differences",
+        "multinomial discrete total variation Gaussian three-bin variance nonmonotonic mirror symmetric profile maximizer",
+        "binomial three-category symmetric endpoint masses centered adjacent absolute deviations null variance local maxima minimum",
+        "\"three-bin\" \"variance\" \"absolute\" \"multinomial\" \"optimal\" histogram"
+      ]
+    },
+    "rationale": "The known general coefficient formula for multinomial histogram variation is explicitly acknowledged, but source inspection finds no reflection-symmetric three-bin global optimization, uniqueness theorem or two-turning-point proof. A cyclic variation statistic and standard uniform-histogram results concern different claims. Searches compared mathematical implications, not just titles; residual risk remains from unlocated historical folded-Gaussian optimization.",
+    "residual_risks": [
+      "An unindexed prior study of optimal folded-Gaussian absolute-sum variance might imply the whole constrained optimization.",
+      "Full texts of the closest published registry summaries were not accessible, so comparison there rests on their reported claim statements.",
+      "The general 2026 variance formula is already known; priority pertains solely to the global optimizer and complete two-turning-point classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_COEFFICIENT_NOT_OPTIMIZATION",
+        "evidence": [
+          "The general theorem gives leading V for arbitrary fixed p. The explicit symmetric comb case uses an even bin count. No complete constrained optimizer/turning-point classification occurs in the inspected three-bin treatment."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.09592",
+        "material_read": "Full accessible paper body, focusing on leading coefficient theorem, §4.2 symmetric combs, §6 three- and four-bin calculations, conclusions and references",
+        "method": "Read full-text sections and inspect PDF page rendering for relevant statements and scope",
+        "title": "Discrete total variation under the multinomial, Part 4: variance under a general distribution",
+        "trigger": "Same null statistic and its general leading variance coefficient, including three bins"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT",
+        "evidence": [
+          "Cyclic total variation adds the endpoint-to-start edge and studies a different variance objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.14735",
+        "material_read": "Accessible abstract and bibliographic material; not a complete full-text originality determination",
+        "method": "Compare definition of cyclic wrap-around statistic to the two-edge linear statistic",
+        "title": "Discrete total variation under the multinomial, Part 5: cyclic total variation",
+        "trigger": "Same authors and nearby three-bin histogram statistic"
+      },
+      {
+        "assessment": "NO_IMPLICATION_FROM_SUMMARY",
+        "evidence": [
+          "Statement concerns sharp upper-tail large-deviation asymptotics of the uniform fixed-bin histogram, not optimizers of the nonuniform leading null variance."
+        ],
+        "identifier_or_url": "Sharp fixed-bin large deviations for histogram total variation and alternating comb minimizers (published 2026-10-18)",
+        "material_read": "Published abstract/claim summary only, not the full proof",
+        "method": "Statement and implication comparison from publication summary",
+        "title": "Sharp fixed-bin large deviations for histogram total variation and alternating comb minimizers",
+        "trigger": "Overlapping histogram total-variation title and discrete multinomial object"
+      },
+      {
+        "assessment": "DIFFERENT_ASYMPTOTIC_REGIME",
+        "evidence": [
+          "Statement concerns uniform multinomial probabilities with simultaneous bin/sample growth and a Poissonization correction."
+        ],
+        "identifier_or_url": "Conditioning removes a leading variance term from multinomial histogram roughness (published 2026-10-18)",
+        "material_read": "Published abstract/claim summary only, not full proof",
+        "method": "Compare asymptotic regime, probability profile and observable",
+        "title": "Conditioning removes a leading variance term from multinomial histogram roughness",
+        "trigger": "Potentially stronger variance statement for the same histogram roughness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "af353afb-8e53-475f-833f-f646f309e347",
+  "value": {
+    "rationale": "The trinomial reflection-symmetric family is the smallest nontrivial matched-reference roughness model with two dependent adjacent increments. Determining its globally worst null Gaussian-scale variance is a natural calibration quantity. The exact optimizer and a previously unrecognized second turning point offer a complete structural classification, with the strict-convex derivative reduction valid for every admissible parameter—not a selected numeric case or a routine substitution. No stronger full-simplex or finite-sample significance is asserted.",
+    "status": "PASS"
+  }
+}
