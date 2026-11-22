@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary real distributional BV inputs, express Df as a finite signed measure and f modulo a constant as an integral of jumps. The explicit response K_alpha has integrated L1 absolute norm E_alpha(s). Tonelli gives the universal bound, attained by one jump. Strict concavity of E_alpha gives the precise unique location and interior equality cases. Evaluating at s=1/2 and differentiating proves unique optimal alpha=1/2. Since binary entropy has second derivative at most -4, the global measure-weighted quadratic error deficit follows; near-midpoint single jumps prove coefficient 1 optimal. CHECKER.py independently tested 18 jump integrals, 420 signed multijump cases, 101 mixture weights, endpoint/reflection and sharp stability. Numerical tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Soria (2010), DOI 10.4064/sm197-1-6, Theorem 5 and Propositions 8-12: restricted Lorentz estimates for the Hardy-minus-identity operator acting on radially decreasing functions, not all BV and not a forward/reflected mixture.",
+        "A. Nekvinda and L. Pick (2011), DOI 10.4171/ZAA/1443, Theorems 3.9-3.17 and Section 5: source-target and duality of Hardy averaging on Banach function spaces.",
+        "S. Lu, D. Yan and F. Zhao (2013), DOI 10.1186/1029-242X-2013-148, sharp Lp and weak estimates on product spaces."
+      ],
+      "reasoning": "These are natural stronger-looking Hardy operator frameworks, but none supplies the candidate BV-to-L1 norm of the *identity defect* of a reflected convex mixture or implies the optimized mixing coefficient and sharp displacement energy. An Lp bound of H does not determine the BV to L1 norm of I-T_alpha.",
+      "searches": [
+        "\"Hardy operator minus the identity\" \"bounded variation\" norm",
+        "\"Hardy\" \"Copson\" \"convex combination\" approximation",
+        "\"Hardy\" \"reverse Hardy\" \"entropy\" \"variation\" step",
+        "weighted symmetrized Hardy Cesaro operator identity defect bounded variation exact L1 norm"
+      ]
+    },
+    "checked_sources": [
+      "https://ems.press/content/serial-article-files/35810",
+      "https://www.impan.pl/shop/en/publication/transaction/download/product/89912",
+      "https://link.springer.com/article/10.1186/1029-242X-2013-148",
+      "https://arxiv.org/abs/2109.03095 (abstract and main theorem: operator superposition rather than fixed convex sum)",
+      "doi:10.4171/ZAA/1443",
+      "doi:10.4064/sm197-1-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An iterated one-sided Cesaro identity-defect formula specializes at the first iterate to the endpoint C_1=e^(-1); reflection yields C_0=e^(-1). These endpoint results alone do not determine the convex-mixture norm.",
+        "Soria (2010, DOI 10.4064/sm197-1-6) concerns one-sided monotone inputs and Lorentz restricted type, not signed arbitrary BV and reflected mixtures.",
+        "Nekvinda--Pick (2011, DOI 10.4171/ZAA/1443) discusses optimal Hardy source/target spaces and the genuine integral associate operator, not the reflection-conjugate mixture."
+      ],
+      "reasoning": "The earlier one-sided scalar C_1 (and C_0 by reflection) bounds convex combinations by C_alpha<=1/e, but this only supplies an upper bound; it does not imply the strict improvement C_1/2=(log 2)/2, the unique minimizer, the location characterization or the sharp global quadratic measure localization. Conversely the new claim contains one-sided constants as non-novel boundary values.",
+      "searches": [
+        "exact sharp integrated L1 error of classical iterated Cesaro H^m on bounded variation step",
+        "\"Optimal bounds of restricted type for the Hardy operator minus the identity\"",
+        "\"Duals of Optimal Spaces for the Hardy Averaging Operator\" PDF",
+        "\"symmetrized Hardy operator\" \"bounded variation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The reflection-conjugated Hardy Rf(x)=(1-x)^(-1)integral_x^1 f is distinct from the Copson integral adjoint C*g(x)=integral_x^1 g(y)/y dy; the searched nomenclature is not mathematically interchangeable.",
+        "Nekvinda--Pick (2011), DOI 10.4171/ZAA/1443, studies H and its associate operator, not the mixture H with its reflection conjugate.",
+        "Direct operator calculation for a jump yields E_alpha(s)=-alpha*s*log(s)-(1-alpha)*(1-s)*log(1-s), whose minimax property is not an equivalent to the cited Lp boundedness statements."
+      ],
+      "reasoning": "The target is a seminorm of I-[alpha H+(1-alpha)R] from real BV modulo constants into L1, minimized over alpha. Existing weighted Hardy/Copson inequalities control different objects. A coincidental entropy or logarithm term alone is not statement implication.",
+      "searches": [
+        "\"bidirectional\" \"Hardy\" averaging operator \"BV\"",
+        "\"reflected Hardy\" \"operator\" \"bounded variation\"",
+        "\"log 2\" \"Hardy\" \"bounded variation\" averaging",
+        "real BV to L1 exact approximation norm of bidirectional Hardy averaging lambda H plus one minus lambda reverse Hardy, Shannon binary entropy minimax"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Soria (2010, DOI 10.4064/sm197-1-6), in the inspected exact restricted-type estimates, does not tabulate the BV-to-integrated-L1 norm for the reflected convex-mixture family.",
+        "Nekvinda--Pick (2011, DOI 10.4171/ZAA/1443), in the inspected exact optimal-domain/duality theorems, does not supply the proposed entropy-mixture table or quantitative midpoint rigidity.",
+        "Lu--Yan--Zhao (2013, DOI 10.1186/1029-242X-2013-148) reports different sharp Lp/weak estimates."
+      ],
+      "reasoning": "No exact database or table matching the target appears in the identified primary literature. Semantic searches were negative, which is only incomplete evidence and not proof of absolute novelty.",
+      "searches": [
+        "Hardy and reverse Hardy prefix suffix average sharp 0.5 log(2) BV L1 norm step function",
+        "optimal convex mixture two one-sided Cesaro averages variation seminorm exact worst jump",
+        "real BV sharp norm of weighted average left right Hardy prefix suffix",
+        "\"symmetrized Hardy operator\" \"bounded variation\""
+      ]
+    },
+    "rationale": "Direct comparison of claims shows the 2010 one-sided Hardy-minus-identity bounds concern radially decreasing cones/Lorentz spaces; the 2011 optimal-domain results concern Hardy mappings between Banach function spaces; the 2013 product-space work concerns Lp/weak-Lp bounds. None inspected states or logically implies the sharp real-BV-to-L1 defect for a fixed convex combination of forward and reflection-conjugate Hardy averages, its unique entropy-minimax choice, or its exact quadratic full-BV localization. Searches under operator aliases and the exact constant found no matching claim. Historical priority is nevertheless conditional on incomplete indexing.",
+    "residual_risks": [
+      "Search results and indexed records may miss earlier equivalent statements under a different name for reflection-conjugate Hardy averages.",
+      "Only the mathematically relevant primary sections were inspected intensively; no exhaustive inspection of all historical Hardy/Cesaro literature is claimed.",
+      "The 2010 historical paper supplies only a year-level public date in inspected materials, whereas the selected 2011 archival lead has the verified September 29 publication day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats source and target spaces, weighted Banach lattice embeddings, associate operator. Does not assert exact all-BV integrated defect for the reflected convex family.",
+        "evidence": [
+          "DOI 10.4171/ZAA/1443",
+          "2011, pp.435--456",
+          "Theorem 3.15 and intro discuss H: Sp_alpha to Tp_alpha."
+        ],
+        "identifier_or_url": "https://ems.press/content/serial-article-files/35810",
+        "material_read": "Lawful full-text PDF, title/abstract, introduction, operator definitions, theorems 3.9--3.17, Section 5 duality context; checked for variation/Copson and claims of identity defect",
+        "method": "Read PDF rendered first page and extracted relevant theorem pages/sections",
+        "title": "Duals of Optimal Spaces for the Hardy Averaging Operator",
+        "trigger": "Historical forward Hardy operator paper with optimality and duality results in the same integral-operator category"
+      },
+      {
+        "assessment": "One-sided radial decreasing cone, Lorentz restricted type, generally unbounded domain; neither all-signed-BV convex mixtures nor entropy minimax or location rigidity.",
+        "evidence": [
+          "DOI 10.4064/sm197-1-6",
+          "2010, pp.69--79",
+          "Theorem 5 and Theorem 13 target different norms."
+        ],
+        "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/89912",
+        "material_read": "Lawful full-text PDF first page, introductory definitions, Lemma 3, Theorem 5, Propositions 8/12, Theorem 13 and references; screened other pages by heading/search",
+        "method": "Read rendered first page and PDF text of target theorem/result sections",
+        "title": "Optimal bounds of restricted type for the Hardy operator minus the identity on the cone of radially decreasing functions",
+        "trigger": "Highly relevant identity-minus-Hardy sharp constants and monotone indicator arguments"
+      },
+      {
+        "assessment": "Product-space Hardy Lp and weak-Lp norms; no two-directional fixed-mixture identity defect on BV.",
+        "evidence": [
+          "DOI 10.1186/1029-242X-2013-148",
+          "Published April 3 2013"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/1029-242X-2013-148",
+        "material_read": "Accessible full HTML introduction, definitions, Hardy inequalities, main object and sharp Lp/weak results description",
+        "method": "Read publisher HTML article content and theorem overview",
+        "title": "Sharp bounds for Hardy type operators on higher-dimensional product spaces",
+        "trigger": "Potential broader Hardy sharp norm that might dominate a one-dimensional model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a2a7c7e-01f9-4a4c-a5c7-134975a6246c",
+  "value": {
+    "rationale": "Selecting a left versus right prefix/suffix averaging policy is a natural choice for reconstructing discontinuous real data. The exact minimax value log(2)/2 differs nontrivially from 1/e of either direction, and the unique optimal balance is not implied by the separate endpoint constants. The sharp quantitative BV stability estimate determines how close the variation measure must be to the unique worst jump location in near-extremizing signals. This is a motivated operator-design invariant, not a renamed one-sided Hardy estimate.",
+    "status": "PASS"
+  }
+}
