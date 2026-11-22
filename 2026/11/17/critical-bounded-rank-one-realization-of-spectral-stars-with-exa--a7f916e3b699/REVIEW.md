@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The compact weighted shift has exact norm powers \(\|S_m^k\|=(k!)^{-1/m}\) and singular values \(n^{-1/m}\). Taylor coefficient matching forces \(\gamma_{mj}=a^j\Gamma(mj)^{1/m}/j!\). Stirling gives the critical square-summability boundary \(|ma|\le1\), including equality; \(\gamma_1=0\) establishes nilpotence of the rank-one perturbation. The resolvent rank-one identity gives the entire secular equation exactly, with simple zeros. Counting roots of a vertical logarithmic lattice proves the sharp \(r^{-m}\) law with bounded remainder and angular rays; rank-one singular-value interlacing gives the density ratio. The included checker passed 26 independent parameter cases, but the infinite claims rest on proof rather than tests.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+PASS: Checked baseline compactness, ||S_m^k||=(k!)^-1/m and singular values n^-1/m. Taylor coefficient matching uniquely forces gamma_(mj)=a^j Gamma(mj)^(1/m)/j!, zero otherwise; Stirling gives (m|a|)^j j^{-(m+1)/(2m)}, squared endpoint j^{-1-1/m} summable, strict overflow divergent. Thus boundedness iff |a|<=1/m. Since gamma_1=0 for m>=2, F^2=0. Resolvent rank-one identity reduces nonzero eigenvalue equation to 1=alpha(e^{a/lambda^m}-1). For alpha=0 or -1 there are none; otherwise logarithm branches L+2pi ik give m distinct roots per admissible k, with simple scalar zeros and algebraic multiplicity one. Counting vertical lattice sites inside a disk of radius |a|r^-m gives m|a|/pi r^-m+O(1). Rank-one approximation inequalities squeeze s_n(A) between shifted singular values of S_m, proving s_n(A)~n^-1/m, ratio and 2m angular rays. Independently checked coefficient ratios and integer lattice counts for m=2,3,5, several interior/endpoint a, three complex/real couplings. These numerics do not prove the infinitely many poles or endpoint boundedness.
 
-The closest primary sources are Hansmann (arXiv:2610.33630, Sections 1–3, full-text HTML), and Tcaciuc (arXiv:1805.03277; 2019 article, Section 2). Hansmann realizes arbitrary discrete spectral configurations by selecting a suitable operator and rank-one perturbation and does not claim the exact spectral stars under a fixed factorial shift, the sharp coefficient functional boundary, or weak-Schatten density. Tcaciuc gives a degree-one exponential exceptional-coupling example; the new construction has all integer orders \(m\ge2\) and an attained exact Hilbert-space feasibility threshold. Related published findings on cyclic companion roots and compact weighted shifts were compared by implications. Equivalent older entire-function constructions remain a qualified publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers a quantitative question arising from spectral-component creation: a single nilpotent rank-one perturbation can turn an empty nonzero spectrum into exactly counted spectral stars whose eigenvalue counting order matches the baseline singular-value order. The realization boundary \(|a|=1/m\) is both sharp and attained; its universal ratio \(1/\pi\), exact \(2m\)-ray distribution, and collapse at the exceptional coupling give a nonroutine structural description beyond qualitative spectral infinitude.
+PASS qualified: Tcaciuc 2018/2019 describes an m=1 factorial-shift degree-one exponential example and exceptional coupling; it does not imply the m>=2 prescribed bounded-functional realization at the sharp Hilbert-space threshold or the weak-Schatten spectral-density formula. Hansmann (2026) allows selection of suitable operators to realize spectral configurations, but the accessible summary does not fix the prescribed factorial background or quantify this exact endpoint. Fixed-background spectral realization is stronger than merely being some special case of unconstrained existence; full Hansmann text was not accessible this run and is recorded as a residual risk.
 
-## Limits and closest literature
+## value
 
-The boundedness threshold applies to the prescribed range \(\mathbb Ce_1\) and secular function, not to arbitrary rank-one operators. Results are asymptotic for fixed parameters. Computational checks are finite. Bibliographic novelty is conditional on available material, and independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: For compact quasinilpotent operators whose baseline nonzero spectrum is empty, creation of spectrally dense 2m-ray stars by one nilpotent rank-one perturbation with the *same counting order as singular values* is quantitatively meaningful. The sharp attained boundedness boundary and universal 1/pi ratio constrain possible realization, while exceptional coupling collapses the spectrum without changing the singular scale. This is beyond a routine degree-one parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
