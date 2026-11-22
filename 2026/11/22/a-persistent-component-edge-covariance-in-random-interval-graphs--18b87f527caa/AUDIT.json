@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Uniform ordered endpoints induce uniform perfect matchings; component boundaries correspond exactly to internally matched prefixes. Conditioning on a prefix cut splits the matching into independent blocks and removes \\(2k(n-k)/3\\) expected edges. Summing this exact decrement gives the covariance. A two-edge overlap calculation yields Var(E)=n(n-1)(2n+1)/45, and joint-cut probabilities and endpoint bounds yield Var(C)=1/n+O(n^-2) and the -sqrt(10)/n correlation. Exhaustive rational checks for 2<=n<=7 agree with the formulas. The proof does not extrapolate finite enumeration to infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scheinerman 1988 established high-probability connectivity in the standard model (as summarized in Diaconis–Holmes–Janson, arXiv:1102.2841, section 2.3).",
+        "An available published component–covered-length covariance for uniformly paired intervals concerns Lebesgue union length, not number of intersecting pairs."
+      ],
+      "reasoning": "High-probability connectivity and unconditional edge density are separate marginals and imply neither the finite covariance formula nor its nonvanishing limit. Covered length depends on endpoint spacings, whereas the graph edge count depends only on endpoint ranks. The accessible alternative interval-service-system model has different sampling and does not subsume uniform independent endpoint pairing.",
+      "searches": [
+        "random interval graph uniform random endpoints components connectivity indecomposable matching number components",
+        "uniformly paired intervals component number covariance edges crossings",
+        "random interval graph connected conditioning edge count constant bias two thirds"
+      ]
+    },
+    "checked_sources": [
+      "Iliopoulos, Random Interval Graphs, arXiv:1507.06275 (HTML full text inspected)",
+      "Scheinerman, Random interval graphs, Combinatorica 8 (1988), DOI:10.1007/BF02189092 (secondary account only; original inaccessible)",
+      "Boucheron and Fernández de la Vega, On the independence number of random interval graphs (2001), DOI:10.1017/S0963548301004813 (abstract)",
+      "Diaconis, Holmes and Janson, Interval graph limits, arXiv:1102.2841 (section excerpt)",
+      "Published component–covered-length covariance for uniformly paired intervals (retrieved summary; different observable)",
+      "Published conditional overlap-edge regression given fixed-point coverage (retrieved exact claim; different conditioning statistic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Iliopoulos sections 3.2-3.3: uniform endpoint order and E[E_n]=n(n-1)/3.",
+        "The published component–covered-length result has a different second statistic and does not recover component–overlap-edge covariance.",
+        "The separate prior conditional edge-regression result given the coverage at a fixed point is not a regression given the number of components."
+      ],
+      "reasoning": "The new covariance requires the probability and conditional edge decrement at each gap that separates components. Neither the prior edge expectation, almost-sure connectivity, point-coverage conditional regression, nor covered-length identity determines these cut-weighted quantities. The prior conditional regression is not a statement about a function of component number. Residual risk: an uninspected exact formula in the original 1988 paper could imply this result.",
+      "searches": [
+        "random interval graph number components and number edges covariance connected 1988 Scheinerman pdf",
+        "random interval graph edge count number connected components covariance exact cutoff matching",
+        "random interval graph components edges negative correlation asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "V. Iliopoulos, Random Interval Graphs, arXiv:1507.06275, sections 3.2-3.3, https://ar5iv.labs.arxiv.org/html/1507.06275",
+        "E. R. Scheinerman, Random interval graphs (1988), DOI:10.1007/BF02189092, bibliographic record and secondary discussion"
+      ],
+      "reasoning": "The endpoint-order and uniform-matching models are equivalent for this statistic, so searches covered both formulations. The accessible complete thesis establishes the matching representation and the separate expected edge count but no covariance with component cuts. Full original Scheinerman text was unavailable; no negative whole-document claim is made about it.",
+      "searches": [
+        "random interval graph overlapping interval edges connected component count covariance exact cutoff matching",
+        "\"random interval graph\" \"component count\" \"edge count\" covariance",
+        "randomly paired endpoints empty-active gap count edge count covariance connectivity rare disconnection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search comparisons included published component–coverage covariance and edge/point-coverage regression; no retrieved exact table or formula supplied the present component–edge covariance.",
+        "Iliopoulos, arXiv:1507.06275, provides mean edges but no joint component/edge table in inspected full text."
+      ],
+      "reasoning": "The matching cut formula was evaluated directly and compared by implication with closest searchable exact results. A missing exact database hit is not proof of universal priority. The inspected primary literature and published records did not show a stronger formula containing this case.",
+      "searches": [
+        "uniform random interval graph edge count number connected components covariance ordered pairing endpoints",
+        "random interval graph connected components edge count covariance randomly paired endpoints",
+        "\"interval graph\" \"components\" \"edges\" \"covariance\" random uniform interval"
+      ]
+    },
+    "rationale": "No equivalent component-count versus overlap-edge-count covariance was found in the actual checked published records and accessible primary texts. Closest sources give the random interval model, edge means, connectivity or component versus covered-length covariance, none of which entails this mixed moment. Original 1988 full text remains unavailable, so priority is qualified.",
+    "residual_risks": [
+      "Scheinerman 1988 original full text was not available, so an unobserved stronger or identical specialization cannot be excluded.",
+      "Search coverage is incomplete across all historical literature; missing keyword matches cannot establish absolute priority.",
+      "Available component–covered-length and fixed-point-coverage results concern different observables and do not settle the new component–edge identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms uniform endpoint-order representation and mean edges, but the inspected material does not include the component–edge covariance formula.",
+        "evidence": [
+          "Sections 3.2–3.3, https://ar5iv.labs.arxiv.org/html/1507.06275#S3.S2",
+          "The thesis reports E[E_n]=n(n-1)/3 and seeks variance-order bounds."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1507.06275",
+        "material_read": "Full HTML section headings; definitions, equivalent random endpoint ordering, edges and variance analysis in sections 3.1–3.3; targeted term searches and conclusions",
+        "method": "Read accessible open full-text HTML and perform targeted component/connected/covariance searches",
+        "title": "Random Interval Graphs",
+        "trigger": "Exact canonical interval-endpoint model, potential source for edge/component moments"
+      },
+      {
+        "assessment": "Provides contextual model and connectivity claims, not a demonstrated mixed covariance identity. Incomplete text inspection is recorded as such.",
+        "evidence": [
+          "Section 2.3 excerpt, https://pmc.ncbi.nlm.nih.gov/articles/PMC4578824/"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1102.2841",
+        "material_read": "Retrieved section 2.3 excerpt summarizing the Scheinerman model and high-probability connectivity; not complete paper",
+        "method": "Open scholarly record and section excerpt",
+        "title": "Interval graph limits",
+        "trigger": "Review of random interval-graph connectivity and edge density"
+      },
+      {
+        "assessment": "Studies greedy independence number and its fluctuations, not the displayed component/edge covariance; no claim of exhaustive non-coverage.",
+        "evidence": [
+          "2001 publisher abstract and model statement, https://doi.org/10.1017/S0963548301004813"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548301004813",
+        "material_read": "Bibliographic entry and abstract; not complete article",
+        "method": "Read publisher abstract",
+        "title": "On the independence number of random interval graphs",
+        "trigger": "An early article in the exact iid endpoint model"
+      },
+      {
+        "assessment": "Material historical-priority risk remains, but the available accounts describe edge-density and connectivity, not an exact component–edge covariance.",
+        "evidence": [
+          "Bibliographic DOI:10.1007/BF02189092; later summary in arXiv:1102.2841, section 2.3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02189092",
+        "material_read": "Bibliographic record and the summary of its model/connectivity in the accessible later literature; original full text not obtained",
+        "method": "Searched for lawful open full text and checked permitted access; no full-text content inferred",
+        "title": "Random interval graphs",
+        "trigger": "Original highly relevant paper likely to discuss connectivity in the exact model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18b87f52-7caa-438c-a949-44c1b5fe5889",
+  "value": {
+    "rationale": "The component count is a fundamental topological descriptor, and edge count is a fundamental density descriptor of the canonical interval graph. The all-n distribution-free exact negative covariance and asymptotic persistence distinguish the full mixed law from the separate connectivity and density results. The exceptional rare event probability is 1/n+O(n^-2), yet covariance approaches -2/3, and the exact covariance with Var(E) and Var(C) yields the sharp -sqrt(10)/n correlation rate. This is a motivated, reusable graph-statistic calibration, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
