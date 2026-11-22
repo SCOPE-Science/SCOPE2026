@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The per-coordinate two-state transition has eigenvalue lambda_d=1-2a/d. Multiplicative returns give u_d(k)=((1+lambda_d^k)/2)^d, and stationary first-entry renewal gives E_pi tau_d = sum_{j=1}^d binom(d,j)/(1-lambda_d^j). For J~Bin(d,1/2), the regularized return Green sum equals E[1_{J>=1}/(1-lambda_d^J)], which tends to 1/(1-e^{-a}), with exponentially negligible off-center tails. Its nonnegative time coefficients converge for each fixed time to e^{-ak}, with the correct limiting total mass, yielding the first-entry exponential Laplace law at scale 2^d. Central binomial Taylor expansion, including a controlled fourth derivative remainder and exponentially small tails, yields coefficient a^2 e^{-a}(3e^{-a}-1)/(2(1-e^{-a})^3); hence the crossover at log 3. The exact geometric residence length follows by independent no-flip steps. The provided checker passed 225 finite rational/numerical tests; the proof supplies the infinite-dimensional steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tanzi–Tenaglia 2026, Hypothesis 1, equation (2.2): a dimension-independent contraction gamma<1 for a fixed one-coordinate chain.",
+        "The present one-coordinate contraction 1-2a/d tends to 1, so their uniform conclusions do not apply with the requisite hypotheses."
+      ],
+      "reasoning": "A broad product-chain quasi-stationary theorem under fixed coordinate contraction does not dominate the dimension-dependent near-identity coordinate regime. Even a generic rare-hit exponential approximation does not yield the explicit signed 1/d coefficient without additional spectral analysis.",
+      "searches": [
+        "arxiv:2609.10178v1 Hypothesis 1 Theorems 2.1-2.2",
+        "high-dimensional product Markov chain quasi-stationary densities coordinate mixing vanishing hole spectral eigenvalue",
+        "exponential rare-hit law product chains spectral renewal extremal index geometric clusters"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.10178",
+      "https://arxiv.org/abs/math/0611242",
+      "https://arxiv.org/abs/1507.05690",
+      "Kemperman (1961), bibliographic mention only",
+      "https://arxiv.org/abs/1709.02359"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tanzi–Tenaglia 2026: a fixed coordinate chain and general small-hole quasi-stationarity, not the varying-speed kernel.",
+        "Černý–Gayrard 2006: simple cube walk, one bit selected per step; external classical first-passage literature acknowledged.",
+        "Nestoridi 2015: fixed-k-bit jump and total-variation mixing cutoff.",
+        "Peixoto–Marcondes 2017: fixed/hitting-set results on nearest-neighbor/lazy walk, lacking the synchronous independent flip product kernel."
+      ],
+      "reasoning": "The candidate theorem is not an instance of the fixed-gap 2026 theorem; neither of the cube-walk papers specifies the independent-flip spectrum and its mean expansion. The renewal identity is standard and acknowledged, but the signed first correction does not follow merely from any of these published statements.",
+      "searches": [
+        "arxiv:2609.10178v1: complete hypotheses/main results/proofs",
+        "arxiv:math/0611242: introduction/main hitting theorems",
+        "arxiv:1507.05690: transition definition/main cutoff theorems",
+        "stationary hypercube corner hitting time mean 2^d / (1-e^-a) exact binomial eigenvalue Green sum",
+        "arxiv:1709.02359: main stopping-time theorems and transition law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Černý–Gayrard 2006/08, Theorems 1.1–1.3: only one coordinate flips at a time, a different return spectrum and short-time clustering.",
+        "Nestoridi 2015: a fixed number k of selected bits flips, rather than a binomial number of independent flips.",
+        "Peixoto–Marcondes 2017, section 2: each step updates only one selected coordinate, not a synchronous independent binomial flip mask."
+      ],
+      "reasoning": "The asynchronous single-bit and fixed-number-of-bits transition kernels are not equivalent to an independent Bernoulli(a/d) flip mask. Identical leading exponential shapes do not determine the exact mean or the first 1/d correction. No equivalent formula for that synchronous kernel was located.",
+      "searches": [
+        "synchronous random walk hypercube simultaneous Bernoulli flips hitting time all zeros exponential high dimensional",
+        "parallel-update hypercube product chains independent bit flips probability a/d rare target hitting time exponential extremal index escape geometric cluster",
+        "arxiv:math/0611242 (passage for nearest-neighbor cube walk)",
+        "arxiv:1709.02359: hypercube stopping times for one-coordinate walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the same flip mechanism and the full coefficient did not yield an indexed exact table of this stationary corner passage law.",
+        "Related indexed results addressed hypercube mixing and reset-assisted hitting, not the present stationary rare-hit correction."
+      ],
+      "reasoning": "No exact database entry or table with the same synchronous Bernoulli flip kernel, mean and 1/d coefficient was found. A negative search is not a uniqueness certificate.",
+      "searches": [
+        "stationary hypercube corner hitting time mean 2^d / (1-e^-a) exact binomial eigenvalue Green sum",
+        "hypercube all-zero rare event persistence parameter critical a/d mean first passage sign crossover log 3 finite-size correction",
+        "hypercube independent coordinate flips a/n stationary corner hitting time extremal index 1-exp(-a)"
+      ]
+    },
+    "rationale": "None of the examined primary texts or retrieved published mathematical records states a passage law for stationary independent simultaneous flips with probability a/d together with the exact binomial spectral mean and the signed finite-size coefficient. Known renewal and spectral identities are credited; the new claim is their critical-dimensional specialization and sign boundary. Priority cannot be guaranteed from a finite search.",
+    "residual_risks": [
+      "General rare-event/extremal-index theorems could imply the leading exponential law after kernel-specific verification.",
+      "Unindexed specialized binomial spectral expansions might already yield the 1/d coefficient.",
+      "Kemperman 1961 primary text was not accessible in full; no priority claim is made beyond examined evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this array because the one-coordinate contraction approaches 1, and the paper does not compute a corner entrance-time asymptotic.",
+        "evidence": [
+          "Hypothesis 1 equation (2.2) requires gamma<1 for the underlying fixed chain; Theorem 2.1 controls conditioned operator spectrum near 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10178",
+        "material_read": "Abstract, introduction, Hypotheses 1–2, Theorems 2.1–2.2, their proof sections and appendix structure in accessible full text",
+        "method": "Read arXiv text, compared operator hypotheses and theorem conclusions",
+        "title": "Stability of quasi-stationary measures in high-dimensional products of mixing Markov chains",
+        "trigger": "Closest recent literature on product chains conditioned to avoid small holes"
+      },
+      {
+        "assessment": "NOT_COVERING for the independent simultaneous-bit flip chain; standard point-hitting context and priority risk noted.",
+        "evidence": [
+          "Equation (1.1)–(1.2) defines the simple cube walk with exactly one bit flipped per step; Theorems 1.1–1.2 concern random target sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0611242",
+        "material_read": "Introduction, walk definition, Theorems 1.1–1.3, related point-hitting discussion and available proof text",
+        "method": "Read accessible arXiv full text and compare transition kernels and scope",
+        "title": "Hitting time of large subsets of the hypercube",
+        "trigger": "Closest classical hypercube hitting-time reference including point hitting"
+      },
+      {
+        "assessment": "NOT_COVERING for the specific stationary entrance and signed mean correction.",
+        "evidence": [
+          "One step chooses exactly k coordinates, with optional laziness; its main result is the cutoff for mixing."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.05690",
+        "material_read": "Introduction, transition definition, main mixing theorems, Fourier and coupling discussion in accessible full text",
+        "method": "Read arXiv full text, compared fixed-k jump with independent binomial flip count",
+        "title": "A non-local random walk on the hypercube",
+        "trigger": "Plausible stronger coverage by a nonlocal cube walk"
+      },
+      {
+        "assessment": "UNRESOLVED historical-priority risk; foundational renewal methods are treated as known.",
+        "evidence": [
+          "Černý–Gayrard explicitly credits Kemperman and earlier point-hitting calculations."
+        ],
+        "identifier_or_url": "Kemperman (1961), University of Chicago Press",
+        "material_read": "Bibliographic attribution and secondary description only; full primary text unavailable",
+        "method": "Tracked historical reference from inspected paper; did not assert a whole-document negative",
+        "title": "The Passage Problem for a Stationary Markov Chain",
+        "trigger": "Historical point-passage formulas cited by Černý–Gayrard"
+      },
+      {
+        "assessment": "NOT_COVERING: each step updates one selected coordinate; no simultaneous independent flips, critical return cluster or signed 1/d mean coefficient.",
+        "evidence": [
+          "Section 2 defines lazy/periodic nearest-neighbor walk with one index selected at each step; paper investigates first self-intersection and hitting of given/random sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.02359",
+        "material_read": "Accessible complete author-posted preprint text: walk definition, section 2 transition rules, introduction and main stopping-time results",
+        "method": "Read author-posted preprint text alongside arXiv bibliographic record, compared update mechanism",
+        "title": "Stopping Times of Random Walks on a Hypercube",
+        "trigger": "Plausible pre-existing hypercube hitting-time theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "93dd688a-2c65-43e0-a8b9-c313d1acc4e5",
+  "value": {
+    "rationale": "The natural stationary target mass 2^-d suggests unit rate on 2^d time, but a/d per-coordinate dynamics creates persistent return clusters and the actual rate is 1-e^-a. The exact spectral expectation and its sign-changing 1/d correction quantify and refine that effect at the natural critical scaling, with a sharp a=log3 boundary for the side of finite-dimensional approach. This answers a motivated rare-passage question in dimension-dependent product dynamics, rather than arbitrary finite-size arithmetic; no uniform crossover or Poisson-cluster process is inferred.",
+    "status": "PASS"
+  }
+}
