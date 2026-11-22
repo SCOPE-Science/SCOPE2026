@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The update is defined for every dimension \\(d\\ge2\\) and field \\(\\mathbb F_{2^s}\\). Ordering vertices by the first cube coordinate gives \\(F=C\\otimes I+I\\otimes N\\), where \\(C^2+C+I=0\\) and \\(N^2=0\\). Direct expansion yields \\(F^2=C^2\\otimes I\\), \\(F^3=I+C^2\\otimes N\\), \\(F^6=I\\), and \\(F^2+I=C\\otimes I\\) invertible. The kernel of N is exactly {(v,(L+I)v)} and has half the base dimension. Consequently \\(\\operatorname{Fix}(F^3)\\) has dimension \\(2^{d-1}\\) and \\(\\operatorname{Fix}(F^2)\\) is zero; the period populations and orbit division follow. N has only size-two nilpotent blocks, each supplying a cyclic companion of \\((t^2+t+1)^2\\). The d=1 boundary is separately identified. Direct exhaustive testing over fields of sizes 2 and 4, plus distinct binary bit-matrix checks through d=8, passed from current source files; finite checks are not a replacement for the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ciandrini et al., arXiv:0809.1526, abstract, Sections II–III and appendix excerpts: general xor matrix dynamics of directed random networks with variable input structure, no explicit hypercube/facet family in searched text.",
+        "Early finite additive cellular automata are described as general linear-algebra methodology, not credited as new in the finding.",
+        "The closest full public cube proofs are for one-site and two-site self-feedback toggles and one missing edge, all with smaller or off-diagonal perturbations and different all-dimension period structure."
+      ],
+      "reasoning": "A general algorithm for an arbitrary finite matrix can in principle be applied here but is not an explicit all-dimensional formula for the face perturbation. An inaccessible large 1984 general article was not declared NOT_COVERING; priority risk is recorded.",
+      "searches": [
+        "web: Ciandrini Maffi Motta Bassetti Cosentino Lagomarsino 2009 feedback topology XOR dynamics arxiv pdf",
+        "web: linear cellular automata finite rings elementary rule 60 90 150 hybrid periodic orbit counts 1995",
+        "published-finding corpus: Parity XOR dynamics on Boolean hypercube with self-feedback on one facet or codimension-one subcube: reversibility and exact period six",
+        "published-finding corpus: Linear Boolean dynamical systems on hypercubes with loops at all vertices of a face, 3-cycle 6-cycle phase"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0809.1526 (preprint v1 2008-09-09; relevant content inspected)",
+      "published mathematical record a9a2b0b84ed9 (full RESULT.md)",
+      "published mathematical record 444c4754c134 (full RESULT.md)",
+      "published mathematical record 4fb7fb6660f5 (full RESULT.md)",
+      "arxiv:2605.11056 (abstract only)",
+      "doi:10.1007/BF01223745 (1984 general methodology; full text retrieval failed due large source)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-site record a9a2b0b84ed9, complete statement and proof: rank-one diagonal perturbation at a single chosen cube vertex, with even d nonbijective and odd d only some components 3,6 periodic.",
+        "Two-site record 444c4754c134, complete statement and proof: exactly two feedback vertices and \\(d\\ge3\\), with adjacency/distance dependence and nontrivial transients for several parity cases.",
+        "One-bond record 4fb7fb6660f5, complete statement and proof: off-diagonal two-site deletion, with even d transient length two and odd d transient length one.",
+        "Here all \\(d\\ge2\\) and all characteristic-two finite fields are bijective with uniform exact order six; full state space decomposes into \\(2^{d-2}\\) cyclic four-dimensional blocks."
+      ],
+      "reasoning": "The geometry and perturbation operator have different rank and support; neither preceding theorem has a quantifier over arbitrary diagonal subsets or a stronger universal form that covers a cube facet. The known general field-linear framework supplies tools but not the claimed quantitative classification.",
+      "searches": [
+        "published-finding corpus query: Parity XOR dynamics on Boolean hypercube with self-feedback on one facet or codimension-one subcube: reversibility and exact period six",
+        "published-finding corpus query: Hyperrectangle graph adjacency over GF(2) diagonal perturbation face projection inverse period six",
+        "web: hypercube graph loops on a face GF2 adjacency characteristic polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Public full RESULT.md: A one-site feedback defect creates periods three and six on Boolean hypercubes (published-finding corpus id a9a2b0b84ed9): exactly one modified vertex, even-dimensional transients and odd-dimensional periods 1,2,3,6.",
+        "Public full RESULT.md: One missing hypercube bond creates six-cycles or four-cycles in binary parity dynamics (published-finding corpus id 4fb7fb6660f5): single removed undirected edge, nilpotent blocks and parity-dependent recurrent clocks.",
+        "Public full RESULT.md: An adjacency threshold for two-site feedback on Boolean hypercube automata (published-finding corpus id 444c4754c134): exactly two self-feedback sites and \\(d\\ge3\\); for a facet in \\(d\\ge3\\) the number of modified sites is at least four.",
+        "Facet feedback modifies \\(2^{d-1}\\) diagonal sites and has rational canonical factors \\((t^2+t+1)^2\\) only, so its all-state periodicity is not the same finite-dimension statement under a relabelling."
+      ],
+      "reasoning": "Aliases tested included face/facet/codimension-one feedback, partial loops, hypercube XOR and characteristic-two neighbor sum. The published single-site and single-edge statements do not permit substituting an entire facet and do not imply the stated canonical form; a failed search does not itself prove novelty.",
+      "searches": [
+        "published-finding corpus: Self-loops on one entire face of Boolean hypercube synchronous neighbor sum XOR exactly period 6",
+        "published-finding corpus: Codimension one facet feedback hypercube GF(2) adjacency orbit census",
+        "web: binary adjacency hypercube with loops on a facet invertible matrix period six",
+        "web: hypercube graph loops on a face GF2 adjacency characteristic polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published records a9a2b0b84ed9, 444c4754c134 and 4fb7fb6660f5 contain exact tables for one-site, two-site and edge-deletion perturbations, but not \\(2^{d-1}\\) facial feedback sites for arbitrary dimension.",
+        "The new formula \\(P_3=q^{2^{d-1}}-1\\), \\(P_6=q^{2^d}-q^{2^{d-1}}\\) and the all-block four-dimensional canonical multiplicity were absent from the inspected one-site, two-site and edge-deletion records."
+      ],
+      "reasoning": "Queried both the exact perturbation and the candidate numerical spectrum; comparison was by object, modification and implication, not title. Search coverage is finite and does not rule out unindexed tables.",
+      "searches": [
+        "published-finding corpus: Uniform loop placement on one cube facet reversible six-cycle binary adjacency",
+        "published-finding corpus: Self-loops on one entire face of Boolean hypercube synchronous neighbor sum XOR exactly period 6",
+        "web: period six Boolean hypercube facet self loops XOR dynamics"
+      ]
+    },
+    "rationale": "The contribution is the exact all-dimension codimension-one face-feedback dynamical law, not the classical linear finite-field method. The closest inspected public one-site cube record modifies a single diagonal entry, yielding nonreversible even-dimensional behavior; the one-bond record modifies two off-diagonal entries, yielding parity-dependent periods and transients. Neither stated theorem includes or implies the face-size diagonal perturbation, its universal invertibility, or its companion-block multiplicity. The early XOR paper supplies general methods for random directed networks, rather than this family-specific classification. Targeted searches found no explicit matching statement; unindexed sources and incomplete broad historical access remain residual priority risks.",
+    "residual_risks": [
+      "No finite database search proves universal priority; specialized older algebraic Boolean-network literature may be unindexed.",
+      "The large 1984 general additive-cellular-automata PDF was not available for complete reading in the retrieval path; no NOT_COVERING assertion is made for its full text.",
+      "Only the abstract of arxiv:2605.11056 was accessible; no broad-coverage exclusion is inferred from that partial access.",
+      "Independent external verification and priority confirmation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_ONLY on inspected material; model is directed random networks with selected inputs, not explicit facet-loop cube family",
+        "evidence": "Section II defines XOR matrix dynamics, Section III gives general relations for periodicity and feedback cores; no hypercube or facet expression found in extracted text search.",
+        "identifier_or_url": "https://arxiv.org/pdf/0809.1526",
+        "material_read": "Abstract, Sections I–III including matrix update and period formulas, later feedback-core discussion and appendix excerpts; figures on pages 3 and 5 visually inspected",
+        "method": "public full PDF text sections and page images; search of extracted text for hypercube/cube/self-loop",
+        "title": "Feedback topology and XOR-dynamics in Boolean networks with varying input structure",
+        "trigger": "earliest archived XOR network dynamics and general period/basin matrix theory"
+      },
+      {
+        "assessment": "DISTINCT_NOT_IMPLYING: one vertex, not a full facet; even d has transients and odd d mixed fixed/two/three/six cycles",
+        "evidence": "Rank-one \\(F=A+ee^{\\mathsf T}\\) and explicit parity-conditioned Jordan forms do not apply to a rank-\\(2^{d-1}\\) facial projection.",
+        "identifier_or_url": "public-record:a9a2b0b84ed9",
+        "material_read": "Complete public RESULT.md, including hypotheses, Jordan proof, statements and limitations",
+        "method": "retrieved and read full repository RESULT.md through read-only public-record retrieval",
+        "title": "A one-site feedback defect creates periods three and six on Boolean hypercubes",
+        "trigger": "same base graph and self-input perturbation; strongest near-object comparison"
+      },
+      {
+        "assessment": "DISTINCT_NOT_IMPLYING: exactly two modified sites, \\(d\\ge3\\); a facet has \\(\\ge4\\) modified sites for every \\(d\\ge3\\)",
+        "evidence": "Published similarity types depend on parity and distance, while the new facial perturbation gives identical four-dimensional companion blocks in all dimensions.",
+        "identifier_or_url": "public-record:444c4754c134",
+        "material_read": "Complete public RESULT.md including all four adjacency/parity cases and proof",
+        "method": "retrieved and read full repository RESULT.md through read-only public-record retrieval",
+        "title": "An adjacency threshold for two-site feedback on Boolean hypercube automata",
+        "trigger": "possibly stronger coverage of heterogeneous self-feedback on cubical vertices"
+      },
+      {
+        "assessment": "DISTINCT_NOT_IMPLYING: one deleted off-diagonal bond, rather than loops at a full facet",
+        "evidence": "Its even d dynamic has a four-dimensional recurrent part with a nilpotent complement and its odd d dynamic has period four; neither is wholly reversible of order six for all d.",
+        "identifier_or_url": "public-record:4fb7fb6660f5",
+        "material_read": "Complete public RESULT.md, including both dimension parity cases, invariant factors, proof and limitations",
+        "method": "retrieved and read full repository RESULT.md through read-only public-record retrieval",
+        "title": "One missing hypercube bond creates six-cycles or four-cycles in binary parity dynamics",
+        "trigger": "same graph and binary neighbor sum with six-step phenomena"
+      },
+      {
+        "assessment": "PARTIAL_ACCESS_UNRESOLVED: abstract gives parity constraints and rank-one updates, not the full face-orbit census; full text not assessed",
+        "evidence": "Abstract focuses on solvability and rank/nullity changes under loop toggling; no period-six claim is visible in the abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.11056",
+        "material_read": "Public abstract only; full text not obtained",
+        "method": "read arXiv abstract/search description and attempted HTML page",
+        "title": "Diagonal parity and loop toggling for symmetric matrices over F2",
+        "trigger": "potential broad diagonal loop modification results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8779035d-2a61-4a26-bac7-4311fa0f0cec",
+  "value": {
+    "rationale": "A codimension-one cube face is an intrinsic geometric perturbation, not an arbitrary slice. Its simultaneous feedback replaces two opposite parity phases of the unmodified cube (two-step extinction and reversible involution) with the same fully reversible order-six network. The exact four-dimensional invariant modules and all primitive orbit populations across every dimension and every characteristic-two finite field give a complete natural family classification and clarify how spatially extended feedback changes global dynamics. This is more than a check of a few finite examples or a rephrased general matrix identity.",
+    "status": "PASS"
+  }
+}
