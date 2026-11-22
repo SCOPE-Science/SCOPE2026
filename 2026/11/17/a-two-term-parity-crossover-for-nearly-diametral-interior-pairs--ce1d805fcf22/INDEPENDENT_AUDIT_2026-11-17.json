@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T18:09:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For normalized interior-area points and δ=2π/n, the exact polygon polar boundary r(u)=cos(δ/2)/cos[δ({u}−1/2)] gives (1−r)/δ²=h(u)+δ²k(u)+O(δ⁴), confirmed independently from the cosine series. On D>2−δ²t, radial deficits z1,z2≤t and angular offset w is bounded by an O_T(1) constant; thus the distance Taylor remainder is uniform on a compact localization box, not asserted globally. The exact cosine law yields the defect S+w²/4−δ²[Sw²/8+w⁴/192]+O_T(δ⁴); at its leading boundary S=t−w²/4 the correction becomes tw²/8−5w⁴/192. Integrating the radial two-simplex with Jacobian (1−δ²(H+s1+s2)) gives (B²/2)+δ²[BQ−HB²/2−B³/3], and the exact angular normalization 2π²/A_n²=2+(2/3)δ²+O(δ⁴) yields Fσ+δ²Jσ+O_T(δ⁴). Uniformity at B=0 follows from the Lipschitz derivative of (x_+)². The even local diamond and the two odd minimizers of G give the respective 4/3 and 128/27 quartic onset constants, with exact odd threshold 1/16; the simple 0≤h≤1/8 comparison gives the 32/15 disk envelope. Compact measure convergence yields conditional four-dimensional volume uniformity, and barycentric slack gives Dirichlet(1,1,1). Independent SymPy expansion checked h and k and the exact defect coefficient; source script uses 4D deterministic Sobol/quadrature but is only bounded numerical corroboration, not an infinite proof. Scope excludes t growing with n and boundary-arclength sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäsel gives complete fixed-n distributions for interior pair distances; Pure et al give a general computational/analytical framework for pair distances in polygons."
+        ],
+        "reasoning": "A complete finite-n distribution mathematically determines the probabilities, and may allow extraction of the present asymptotic; inspected main results do not state this bounded-t, both-parity δ² correction and conditioning theorem. This is a priority risk, not a misleading no-coverage claim.",
+        "searches": [
+          "Bäsel 2012 arXiv:1204.2707 full regular polygon distance distribution",
+          "Pure–Durrani–Tong–Pan arXiv:1903.07757 arbitrary polygon distance distributions"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-split-polygon-to-circle-crossover-for-almost-diametral-bo--f64acf954997",
+        "https://arxiv.org/pdf/1204.2707",
+        "https://arxiv.org/abs/1903.07757",
+        "SCOPE frozen RESULT.md / verify_area_polygon_crossover.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior boundary theorem implies Fσ via Fσ=2Hσ(4t), but supplies no order-δ² error or radial conditional distribution. Bäsel complete fixed-n CDF is stronger in unscaled n but does not explicitly prove the claimed uniform asymptotic estimate."
+        ],
+        "reasoning": "The novelty must be limited to quantitative double scaling and marked geometry, not the qualitative parity split or leading coefficient alone.",
+        "searches": [
+          "Published boundary crossover Resultary 2026-11-08 RESULT.md read in full",
+          "Bäsel 2012 full interior-point distribution PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boundary arclength uses G_boundary=4G_interior and Hσ; exact double-integration relation Fσ(t)=2Hσ(4t). The two sampling measures differ for finite n."
+        ],
+        "reasoning": "The leading profile is a radial integral of established boundary law, but no direct formula for the explicit J correction or conditional radial allocations follows from the boundary limit without separately deriving its second-order geometry.",
+        "searches": [
+          "Resultary: regular polygon interior pair distance near diameter parity two-term finite-n correction conditional geometry",
+          "Bäsel arXiv:1204.2707 exact interior distance distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the present self-record and multiple related polygon diameter/spherical-depth records, notably the boundary chord profile rather than a table of Jσ."
+        ],
+        "reasoning": "No separate published exact table encountered for the same Jσ correction; lack of result is not novelty proof.",
+        "searches": [
+          "Resultary semantic query near diametral interior pair area-uniform polygon two term parity",
+          "Published parity boundary arclength profile 2026-11-08"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for explicit δ²Jσ and a uniform O_T(δ⁴) remainder and interior-area conditional four-dimensional law, not for polygon parity or the leading radial integral viewed in isolation. Full prior boundary-arclength theorem determines its Hσ, and the exact identity Fσ''(t)=2Hσ(4t), with zero initial conditions, already determines the leading Fσ. Bäsel's exact fixed-n interior distance law determines every finite-n probability and in principle its asymptotic consequences, so a previous explicit uniform expansion could cover the claim; the inspected main theorem does not formulate this scaling or its conditional law. Search cannot establish historical uniqueness.",
+      "residual_risks": [
+        "Complete fixed-n distribution of Bäsel could implicitly yield an equivalent two-term uniform expansion; inspected scope is insufficient to certify priority across all works.",
+        "Pure et al full paper not read; unindexed polygon-distance asymptotics possible.",
+        "The leading Fσ is mathematically implied by established boundary arclength profile, so only Jσ and marked law support originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_LEADING_PROFILE_NOT_SECOND_CORRECTION",
+          "evidence": [
+            "Theorem uses boundary-arclength pairs and Hσ; scaling G_boundary=4G_interior; explicitly no uniform finite-n error is provided."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-split-polygon-to-circle-crossover-for-almost-diametral-bo--f64acf954997",
+          "material_read": "Complete published RESULT.md including definitions, proof, sharp onsets and limitations",
+          "method": "GitHub file content via Resultary/2026 at main",
+          "title": "Parity-split polygon-to-circle crossover for almost-diametral boundary chords",
+          "trigger": "Identical regular polygons/parity regime, different sampling"
+        },
+        {
+          "assessment": "BROADER_FINITE_N_CDF_PARTIAL_RELATION",
+          "evidence": [
+            "Fixed n law determines the original probabilities but does not explicitly formulate a two-term n→∞ near-diameter correction or conditional radial budgets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1204.2707",
+          "material_read": "Primary arXiv full PDF (19 pages) and the fixed-polygon point-distance distribution theorem, introductory scope and numerical formula material",
+          "method": "Web PDF extracted text and visual screenshot",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Exact fixed-n area-uniform polygon pair-distance distribution"
+        },
+        {
+          "assessment": "RELATED_NOT_FULLY_INSPECTED",
+          "evidence": [
+            "General pair-distance distribution method, no verified direct claimed higher correction; full text gap remains."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.07757",
+          "material_read": "Abstract, publication description and analytical computational framework accessible online; not full PDF",
+          "method": "Web article and abstract",
+          "title": "Distance Distribution Between Two Random Nodes in Arbitrary Polygons",
+          "trigger": "Potential general polygon distance framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exact quantitative finite-side corrections at a singular parity-dependent diameter endpoint, together with the conditional geometric distribution and sharp odd/no-threshold dichotomy, answer a natural random-point geometry question beyond the already-covered leading boundary chord law. The uniform O_T(δ⁴) control is needed to distinguish finite-polygon probabilities with the same disk limit; the Dirichlet shares reveal a robust four-dimensional geometry. The finite-n distribution existing in the literature does not by itself make the nontrivial uniform second term an arbitrary table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-split-polygon-to-circle-crossover-for-almost-diametral-bo--f64acf954997",
+    "https://arxiv.org/pdf/1204.2707",
+    "https://arxiv.org/abs/1903.07757",
+    "SCOPE frozen RESULT.md / verify_area_polygon_crossover.py",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-two-term-parity-crossover-for-nearly-diametral-interior-pairs--ce1d805fcf22/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/a-two-term-parity-crossover-for-nearly-diametral-interior-pairs--ce1d805fcf22/verify_area_polygon_crossover.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only area-uniform independent interior points, circumradius one, and fixed bounded t; no simultaneous growing-t result.",
+    "Asymptotic conditional law requires t strictly above the appropriate parity threshold.",
+    "Prior leading Fσ is implied by published arclength boundary law; exact uniform second correction and conditional geometry are distinct."
+  ],
+  "residual_risks": [
+    "Complete fixed-n distribution of Bäsel could implicitly yield an equivalent two-term uniform expansion; inspected scope is insufficient to certify priority across all works.",
+    "Pure et al full paper not read; unindexed polygon-distance asymptotics possible.",
+    "The leading Fσ is mathematically implied by established boundary arclength profile, so only Jσ and marked law support originality."
+  ],
+  "schema_version": 1
+}
