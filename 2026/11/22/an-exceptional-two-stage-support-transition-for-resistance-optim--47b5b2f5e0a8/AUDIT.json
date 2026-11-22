@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "The all-edge exact objective is strictly convex on connected graph allocations, so its optimum is unique and symmetric under S3×S_{n-3}. The three nonzero eigenvalue classes are derived exactly. On the positive face, stationarity yields X^2=n(3(m+1)/r-2m), Y^2=rX^2; the exit thresholds compare as rC-rA=(m^3+4m^2-6m-18)/(2m(m+2)(m+3)), whose sign flips between m=2 and m=3. On remaining faces the full KKT slacks establish 9/5, 45/23, and n(n-2)/((n-3)(n-1)). Symbolic full-matrix spectral checks and numerical full-edge KKT replay passed (3007 counted finite checks). Finite computations are only corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2006/2008 general convex ERMP and network-wide KKT theory, not an explicit optimizer for this three-orbit tariff.",
+        "Johnson–Chertkov 2010 general convex price-weighted model plus nonlinear sparsification algorithm, not closed support thresholds.",
+        "Related 2026 cost-convexity paper, arXiv:2610.03627: abstract discusses convexity exponents and possible edge deletion but does not specify this graph; full text inaccessible in attempted route."
+      ],
+      "reasoning": "A general algorithm or strict convexity theorem establishes that the special case is solvable in principle but does not logically give the exact two-stage K5 support classification. No retrieved general published result states an analytic formula encompassing this price geometry with those phase inequalities; inaccessible 2026 full text is a noted residual coverage risk.",
+      "searches": [
+        "published-finding corpus: optimal total effective resistance priced triangle complete graph K_n conductances edge deletion",
+        "published-finding corpus: Kirchhoff index minimization on complete graph with expensive triangle edges optimal conductance threshold",
+        "published-finding corpus: A-optimal resistance design complete graph priced star triangle matching multi-edge 3-cycle",
+        "web: edge weight optimization Kirchhoff index complete graph planted triangle cost class",
+        "web fast: \"complete graph\" \"priced triangle\" \"effective resistance\" optimal conductance"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://arxiv.org/abs/1004.2285",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-priced-complete-tripartite-resistance-design-has-an-exact-shortc--93a220470d32",
+      "https://arxiv.org/abs/2610.03627",
+      "https://doi.org/10.1007/s13278-023-01137-1",
+      "2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128",
+      "2026/11/2/SCOPE-priced-complete-tripartite-resistance-design-has-an-exact-shortc--93a220470d32",
+      "2026/10/26/SCOPE-a-sharp-single-price-deletion-threshold-for-d-optimal-complete-g--75c0841ce157",
+      "2026/11/2/SCOPE-sharp-worst-pair-resistance-design-for-complete-graphs-with-pric--78a63c5af6f2",
+      "2026/10/12/SCOPE-the-matching-price-deletion-frontier-for-resistance-optimal-bala--203ba798113c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Perfect matching clique result: for a designated disjoint matching in K_{2m}, only two symmetry classes; one marked-class deletion threshold N^2/(N^2-2N+2).",
+        "Priced K_{m,m,m}: three independent vertex groups and two cross-edge price classes; there are no within-group edges to instantiate a marked triangle.",
+        "Ghosh–Boyd–Saberi uniform-price K_n optimum is a common-weight specialization at r=1, not a broader priced-class classification."
+      ],
+      "reasoning": "The marked-edge triangle is not a matching (it has degree two at its three vertices). K_n cannot be obtained from K_{m,m,m} while preserving all available within-part edges, and changing parameters does not create the third edge orbit. None of those theorems has premises that subsume the new class. Their shared convex machinery is acknowledged as prior rather than passed off as novel.",
+      "searches": [
+        "published-finding corpus: Kirchhoff index minimization on complete graph with expensive triangle edges optimal conductance threshold",
+        "published-finding corpus: triangular clique tariff unpriced edge disappears before expensive edges optimal total effective resistance",
+        "published-finding corpus: optimal total effective resistance priced triangle complete graph K_n conductances edge deletion",
+        "web: complete graph three node clique expensive edge conductance optimized total effective resistance phase transitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi (MTNS 2006), Sections I–V: graph conductance budget and strict convexity; complete graph addressed for equal prices.",
+        "Johnson–Chertkov arXiv:1004.2285, Introduction and Section III: arbitrary linear edge-cost optimization but no closed triangle-class support classification.",
+        "Targeted published-finding corpus semantic results listed by identifier in checked_sources, with no same three-edge tariff statement."
+      ],
+      "reasoning": "The objective can be called A-optimal Laplacian design, Kirchhoff-index minimization, total effective resistance, or trace pseudoinverse minimization; the source comparisons use all those aliases. The exact claim concerns all independent conductances on K_n, one marked three-clique, two orthogonal within-part spectra, and a K5 unmarked-edge deletion at 9/5 followed by triangle deletion at 45/23. The inspected sources do not contain that statement or a parameter-identical reduction.",
+      "searches": [
+        "published-finding corpus: optimal total effective resistance priced triangle complete graph K_n conductances edge deletion",
+        "published-finding corpus: Kirchhoff index minimization on complete graph with expensive triangle edges optimal conductance threshold",
+        "published-finding corpus: A-optimal resistance design complete graph priced star triangle matching multi-edge 3-cycle",
+        "web: complete graph three node clique expensive edge conductance optimized total effective resistance phase transitions",
+        "published-finding corpus: Unrestricted resistance optimal complete graph with marked triangle K5 cheaper edge deletion r 9/5 45/23",
+        "published-finding corpus: K_n marked clique of size 3 all edge conductance design Kirchhoff trace pseudoinverse KKT support transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus hits were indexed by claims and compared; no 9/5 or 45/23 three-orbit pricing table was returned.",
+        "Direct comparison of the public full matching-priced theorem and public full tripartite theorem found different thresholds for different graphs.",
+        "Two final published-finding corpus semantic queries after the complete claim was fixed returned nearby matching-price, windmill and split-graph records, but no implication-equivalent marked-triangle conductance design."
+      ],
+      "reasoning": "No exact tabulation for this optimization was recovered. Unit-conductance resistance tables are insufficient: the theorem varies every edge weight with heterogeneous prices and determines which weights vanish; a published table of fixed graph resistances would not imply the optimum.",
+      "searches": [
+        "published-finding corpus: complete graph K5 expensive triangle edges ordinary complement edge first deleted before surcharge triangle Kirchhoff index",
+        "published-finding corpus: support cascade price threshold 9/5 45/23 complete graph resistance conductance optimization",
+        "web fast: \"K_5\" \"triangle\" \"conductance\" \"Kirchhoff index\" optimization"
+      ]
+    },
+    "rationale": "Seven actual published-finding corpus searches and additional targeted literature searches were compared by graph equivalence and theorem implication. The fully inspected perfect-matching clique theorem has only two price orbits and no unmarked complementary class; the fully inspected complete-tripartite theorem has a different base graph with no within-part edges. Both apply the same general convex method, but neither asserts or implies the two K5 boundaries or the n>=6 disappearance of the exceptional phase. Ghosh–Boyd–Saberi establish the convex problem and equal-price complete-graph endpoint, not these heterogeneous triangle tariffs. The analytic KKT calculation is genuinely additional, though unindexed antecedents cannot be excluded.",
+    "residual_risks": [
+      "Unindexed or differently formulated historical exact A-optimal design examples may already contain the specific K5 thresholds.",
+      "Recent arXiv:2610.03627 full text could not be opened in available routes; its abstract alone cannot exclude a relevant appendix.",
+      "No human or independent mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_ONLY",
+        "evidence": "MTNS 2006 proceedings record July 24–28; describes fixed graph all-edge conductance optimization, and examples such as barbell, without a price-marked triangle phase diagram.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Conference front matter, introduction, electrical-resistance formulation, convexity/KKT description and analytical examples and their scope",
+        "method": "Author-hosted primary PDF with textual sections and visual first-page inspection",
+        "title": "Minimizing Effective Resistance of a Graph (2006 conference version)",
+        "trigger": "Earliest directly relevant focal work and archived source date"
+      },
+      {
+        "assessment": "NOT_COVERING_SPECIFIC_CLAIM",
+        "evidence": "Section 6 complete graph is uniform-cost, Section 5 examples are trees/wheels/barbells; no distinguished three-edge clique price threshold.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Abstract, introduction, sections describing strict convexity and KKT, analytic examples in Section 5 including barbell and wheel, Section 6 equal-price complete graph",
+        "method": "Author-hosted full PDF text, targeted passages and visual page inspection",
+        "title": "Minimizing Effective Resistance of a Graph (extended paper)",
+        "trigger": "Most plausible historically broad coverage by principal framework paper"
+      },
+      {
+        "assessment": "GENERAL_PRICED_METHOD_NOT_EXACT_PHASE_DIAGRAM",
+        "evidence": "Section III defines arbitrary positive linear conductance prices; Section IV uses nonlinear sparsity heuristics; no complete graph with triangle surcharge is classified.",
+        "identifier_or_url": "https://arxiv.org/html/1004.2285v2",
+        "material_read": "Full HTML paper, especially Introduction, Section III linear edge pricing, Section IV algorithm/sparsity framing",
+        "method": "arXiv primary full HTML opened and inspected",
+        "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+        "trigger": "Price-weighted resistance framework and possible sparse-network coverage"
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_MARKED_EDGE_GEOMETRY",
+        "evidence": "Theorem assumes disjoint perfect matching; two edge orbits and one matched-edge support cutoff. Here marked triangle edges meet, and an unmarked complement edge is deleted first on K5.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128",
+        "material_read": "Complete RESULT.md including finding, proof, verification, relationship to prior work and limitations",
+        "method": "Public repository file retrieved directly",
+        "title": "A sharp matching-price transition in resistance-optimized complete networks",
+        "trigger": "Same complete-graph resistance objective, heterogeneous price class"
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_GRAPH_AND_EDGE_SET",
+        "evidence": "Graph K_{m,m,m} has no within-part edges and two edge orbits; no priced triangle interior to a complete graph.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-priced-complete-tripartite-resistance-design-has-an-exact-shortc--93a220470d32",
+        "material_read": "Complete RESULT.md, statement, spectral reduction, proof and scope",
+        "method": "Public repository file retrieved directly",
+        "title": "Priced complete-tripartite resistance design: exact edge deletion and the critical price window",
+        "trigger": "Three-community price phase theorem on closely related general objective"
+      },
+      {
+        "assessment": "ACCESS_LIMIT_UNRESOLVED_COMPARISON_RISK",
+        "evidence": "The available abstract studies exponent-dependent cost convexity and edge condensation, without naming complete-graph triangle tariffs; no full-text exclusion claim is made.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+        "material_read": "Abstract and indexed synopsis only; direct primary full-text route failed",
+        "method": "arXiv metadata and secondary indexed synopsis; attempted arXiv PDF and HTML retrieval",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Very recent work on conductance price-law architectures"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47b5b2f5-e0a8-4f1c-bcb6-b7621df22635",
+  "value": {
+    "rationale": "The marked triangle is a natural minimal nonmatching surcharge motif with three inequivalent edge classes. Its exact all-budget graph-design phase diagram has a motivated structural surprise: on K5 an ordinary-cost edge becomes zero at r=9/5 while the more expensive triangle edges remain active until r=45/23; on every K_n with n>=6 this support cascade is impossible. This nontrivial comparison of which actual links are purchased is not a mere numerical constant or a fixed-topology resistance table, and is useful in understanding network sparsification under heterogeneous marginal costs.",
+    "status": "PASS"
+  }
+}
