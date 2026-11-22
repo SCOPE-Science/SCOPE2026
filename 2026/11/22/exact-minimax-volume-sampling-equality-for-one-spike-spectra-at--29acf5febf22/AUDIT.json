@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs the exact Schur complement via Sherman–Morrison for every real unit spike eigenvector and every positive a,b. The resulting trace error strictly decreases with selected spike mass; top-k averaging with strict equality cases characterizes all maximizing orientations. Direct elementary symmetric polynomial calculation gives the same DPP expectation. An independent rational Gaussian elimination checker passes 2,586 finite equalities, used only as a reproducibility test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/2602.05394v1 (section 4.2, Problem 4.7, formulas (15)–(17))",
+        "https://arxiv.org/abs/2407.01698 (sections 2 and 5, appendix C)",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/cpa.22234 (appendix C.4)",
+        "The 2026 conference-style subset-selection work https://arxiv.org/abs/2610.08576 concerns a pseudoinverse-coefficient norm and deterministic derandomized volume sampling, not the worst-orientation Nyström trace-error equality."
+      ],
+      "reasoning": "General determinant-sampling expectation formula and bound x<=y do not imply equality; an extremizing orientation must be shown. The known k=n-1 arbitrary-spectrum equality does not entail interior k. General low-rank guarantees and k-DPP bounds allow strict slack and therefore do not cover the new all-interior spike attainment theorem.",
+      "searches": [
+        "rank one perturbation identity optimal Nyström deterministic column subset selection determinant volume sampling worst spectral orientation",
+        "spiked covariance worst-case Nyström approximation equal k-DPP subset selection exact sharp trace formula",
+        "For a rank-one spiked matrix K=aI+b vvT the worst orthogonal eigenbasis maximizes optimal k-column Nyström trace error exactly at flat spike coordinates, equalling (k+1)e_{k+1}/e_k for every interior k"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2602.05394v1 (section 4.2, Problem 4.7, formulas (15)–(17))",
+      "https://arxiv.org/abs/2407.01698 (sections 2 and 5, appendix C)",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/cpa.22234 (appendix C.4)",
+      "https://arxiv.org/abs/2610.08576",
+      "Published result: Sharp orientation sensitivity of two-step randomly pivoted Cholesky on a three-dimensional rank-one spike",
+      "Published result: Sharp one-fifth trace-error gap between sequential Cholesky pivots and two-point determinant sampling on correlation kernels"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/pdf/2602.05394v1 (section 4.2, Problem 4.7, formulas (15)–(17))",
+        "https://arxiv.org/abs/2407.01698 (sections 2 and 5, appendix C)",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/cpa.22234 (appendix C.4)",
+        "The closest published rank-one-spike randomized Cholesky finding has n=3,k=2 and expected error for a fixed random pivot rule; the current finding has all n>=4 and all 2<=k<=n-2 and optimizes the chosen subset."
+      ],
+      "reasoning": "Amsel et al. prove equality only when k=n-1 and leave other k unresolved. The matrix K=aI+bvvT has exactly known residual a(n-k)+ab(1-s)/(a+bs) for selected spike mass s. The top-k mass inequality proves a unique class of orientations attaining x=y for each interior k. Existing expectation identities explain y but do not yield this min-max attainment without the strict mass argument.",
+      "searches": [
+        "For a rank-one spiked matrix K=aI+b vvT the worst orthogonal eigenbasis maximizes optimal k-column Nyström trace error exactly at flat spike coordinates, equalling (k+1)e_{k+1}/e_k for every interior k",
+        "Exact equality minimax optimal column subset selection and determinant volume sampling error for spectra with one distinct eigenvalue and n-1 equal eigenvalues; characterization flat eigenvector",
+        "worst orthogonal orientation of positive definite matrix optimal single-column Nyström subset selection equals volume sampling expected trace error all eigenvalues Schur Horn balancing K² diagonal / K diagonal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/2602.05394v1 (section 4.2, Problem 4.7, formulas (15)–(17))",
+        "Published three-dimensional rank-one-spike randomized pivot Cholesky result: two-pivot expected error, not an optimal subset minimax",
+        "Published three-point correlation-kernel determinant-sampling versus pivot-Cholesky comparison: not worst eigenbasis optimal selection"
+      ],
+      "reasoning": "Changing from a random two-pivot algorithm to an exact best subset changes expectation/minimization quantifiers. For n=3,k=2, the rank-one result would fall at the known k=n-1 edge, whereas the new n>=4,2<=k<=n-2 range excludes that edge. No identified equivalence establishes the full interior equalities or all maximizing eigenvector orientations.",
+      "searches": [
+        "For a rank-one spiked matrix K=aI+b vvT the worst orthogonal eigenbasis maximizes optimal k-column Nyström trace error exactly at flat spike coordinates, equalling (k+1)e_{k+1}/e_k for every interior k",
+        "Exact equality minimax optimal column subset selection and determinant volume sampling error for spectra with one distinct eigenvalue and n-1 equal eigenvalues; characterization flat eigenvector",
+        "Amsel Baumann Beckman Bürgisser 2026 Problem 4.7 rank one spectral spike equality x_k(lambda) y_k(lambda)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/pdf/2602.05394v1 (section 4.2, Problem 4.7, formulas (15)–(17))",
+        "https://arxiv.org/abs/2407.01698 (sections 2 and 5, appendix C)",
+        "Target is a continuum of matrices indexed by n,k,a,b, rather than a discrete tabulated constant"
+      ],
+      "reasoning": "No exact mathematical table or database record of this four-parameter equality or all flat-eigenvector equality cases was found. Published numerical/pivoting comparisons are not a table of the same exact orientation-minimax invariant; search failure is not a novelty proof.",
+      "searches": [
+        "Exact equality minimax optimal column subset selection and determinant volume sampling error for spectra with one distinct eigenvalue and n-1 equal eigenvalues; characterization flat eigenvector",
+        "Amsel Baumann Beckman Bürgisser 2026 Problem 4.7 rank one spectral spike equality x_k(lambda) y_k(lambda)",
+        "x_k lambda y_k lambda volume sampling optimal subset selection spike spectra problem 4.7 2026"
+      ]
+    },
+    "rationale": "A 2026 published open-question source states the same spectral minimax invariant and equality only for the excluded endpoint. The new theorem gives an exact all-interior equality and every maximizing orientation for the one-spike family. Full primary open-problem source and accessible closely related low-rank works were read. The all-parameter priority status is not independently certified.",
+    "residual_risks": [
+      "Possible classical unlocated explicit one-spike special-case equality from older determinant/column-selection literature; a negative search is not conclusive.",
+      "Published eigenbasis orientation results for different losses or randomized algorithms are not exhaustive historical coverage.",
+      "No independent expert validation of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper establishes general-spectrum equality only at k=n-1 and explicitly says other k unclear; no one-spike interior solution in the inspected section.",
+        "evidence": [
+          "https://arxiv.org/pdf/2602.05394v1#page=34",
+          "https://arxiv.org/abs/2602.05394v1 first publicly submitted 2026-02-05"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.05394v1 (section 4.2, Problem 4.7, formulas (15)–(17))",
+        "material_read": "Full Section 4.2 in the original v1 PDF, including definitions (15)–(17) and the endpoint proof.",
+        "method": "Read primary PDF section and inspected the actual PDF page image.",
+        "title": "Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop",
+        "trigger": "Direct Problem 4.7 matches both new invariants and normalization."
+      },
+      {
+        "assessment": "General k-DPP expectation and selection performance results; no full interior rank-one eigenbasis minimax equality found in relevant sections.",
+        "evidence": [
+          "https://arxiv.org/abs/2407.01698",
+          "Appendix C expectation formula and symmetric polynomial identities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.01698 (sections 2 and 5, appendix C)",
+        "material_read": "Abstract, introduction, error analysis section 5, and Appendix C on elementary symmetric polynomials and DPP expectation in full accessible text.",
+        "method": "Read accessible arXiv full article and searched for spike/eigenbasis/expectation terminology.",
+        "title": "Column and row subset selection using nuclear scores: algorithms and theory for Nyström approximation, CUR decomposition, and graph Laplacian reduction",
+        "trigger": "Same kernel Nyström trace criterion, DPP expected error, and optimal subset selection."
+      },
+      {
+        "assessment": "Analyzes expected random-pivot and DPP low-rank guarantees, not max-over-eigenbasis min-over-subsets exact one-spike formula.",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/cpa.22234 (appendix C.4)",
+          "2024-12-04 first online publication"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/cpa.22234 (appendix C.4)",
+        "material_read": "Accessible full-text introduction and Appendix C, particularly C.3 and C.4.",
+        "method": "Read primary full article in lawful open-access HTML.",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Related stochastic Nyström methods, pivot error and DPP bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "29acf5fe-bf22-41b8-8052-cca0918e19ff",
+  "value": {
+    "rationale": "The full interior subset-size regime of an explicitly stated 2026 numerical linear-algebra question has a sharp equality solution for the canonical one-spike covariance/kernel spectrum. The exact maximizer class gives a constructive spectral tightness witness for every dimension, rank, and spike strength, not just one selected numerical case. The one-spike restriction is a genuine structural family; no general-spectrum claim is made.",
+    "status": "PASS"
+  }
+}
