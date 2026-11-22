@@ -1,0 +1,11 @@
+# Review of the planar free-corner substitution theorem
+
+**Correctness — PASS.** Exact root-decoding and \(q_{n+1}=2q_n^4\) prove the block-count rate. The finite-index entropy inequality bounds all invariant measures; a Haar-phase independent-corner construction attains the bound. Equality forces iid fair conditional corners at every depth. Since the probability that a given site has no assigned free ancestor through depth \(n\) is \((3/4)^n\), all finite-dimensional maximizing distributions are uniquely determined. The phase-witness argument is rigorous: eight of thirty-two blocks of each root distinguish each wrong phase, and disjoint blocks are conditionally independent. This implies a measurable dyadic factor and nonmixing. The periodic-extension construction covers every admissible patch. Finite reverse enumeration provides independent checks but is not substituted for infinite-scale proof.
+
+**Originality — PASS, with a specific access limitation.** The directly related 2026 planar paper proves general entropy correspondence and periodic-point dichotomy, but its accessible abstract does not mention the concrete rule, uniqueness of the maximizing measure, or recoverability of a Haar dyadic factor. Its full text was unavailable. The 2026 measure-classification theorem inspected in full concerns one-dimensional random substitutions; the 2026 planar diffraction abstract covers a structurally different substitution family. Priority is provisional, not independently certified.
+
+**Value — PASS.** The exact planar example separates intrinsic ergodicity from mixing by exhibiting a measurable odometer obstruction while retaining dense periodic points, with a quantitative entropy and a constructive description of the unique maximizing process. Neither entropy evaluation alone nor the elementary substitution definition alone is the claimed contribution.
+
+**Limits.** The conclusion is for this specified binary free-corner system and a single maximizing measure; no universal classification, all-measures mixing statement, or topological recognizability is asserted. Direct comparison to the unavailable full 2026 planar source remains the principal priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
