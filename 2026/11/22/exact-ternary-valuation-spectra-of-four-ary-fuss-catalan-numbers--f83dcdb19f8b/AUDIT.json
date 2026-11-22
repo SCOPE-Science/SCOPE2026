@@ -1,0 +1,175 @@
+{
+  "correctness": {
+    "rationale": "Exact Kummer-to-carry equivalence for n+3n; a six-state transfer with correct terminal carry is derived, and exact matrix inversion yields D(t,z) and numerator. Differentiation and partial fractions give all-depth moments, a three-state maximal-path transfer gives a cubic recurrence, and primitive Perron spectral perturbation proves Gaussian convergence. A separately runnable standard-library checker verifies 29824 precise finite identities; finite tests are not substituted for the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat–Grabner (2001) provides general block-additive transfer and asymptotic distributions for rows of Pascal triangle; Sections 1–3 of https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "Krattenthaler–Müller (arxiv:1508.02580; 2025 full open journal), Section 7 explicitly assumes Fuss–Catalan arity k=p^h: arity 4 is not a power of p=3",
+        "Kauers–Krattenthaler–Müller (arxiv:1107.2015) deals with mod-2^k behavior, and arity powers of two; different valuation prime",
+        "published-finding corpus arity-three prime-three exact histogram differs, with denominator degree two and variance r/6+O(1)"
+      ],
+      "reasoning": "The general digital counting framework can in principle be specialized, so method novelty is not claimed. But the inspected works do not provide the explicit four-ary ternary-ray rational function, exact all-depth moment corrections, or cubic extremal law, and the results for different arities/primes are not statements dominating these formulas.",
+      "searches": [
+        "published-finding corpus: three-adic valuations histogram four-ary Fuss Catalan order four full spectrum",
+        "published-finding corpus: ternary digit carry distribution of quaternary Fuss-Catalan numbers exact t generating function",
+        "Web full primary: Barat Grabner Distribution of Binomial Coefficients and Digital Functions, author PDF",
+        "Web full primary: Krattenthaler Müller method mod p^k recursive sequences, Section 7"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0010148",
+      "doi:10.1112/S0024610701002630",
+      "JIS:2009:09.7.5",
+      "arxiv:1107.2015",
+      "arxiv:1508.02580",
+      "published-finding corpus 2026/11/8 fca5ba9f3d60",
+      "published-finding corpus 2026/11/8 38f9bdc99cfd",
+      "Public OEIS four-ary sequence overview (catalog lookup only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stănică arxiv:math/0010148 Corollary 7 classifies arity4 values modulo4, and arity p^q results concern modulus p^q, not our arity4 modulo powers of three",
+        "Sury JIS 12 (2009) Theorem 2 concerns arity p and modulus p, not p+1 and full valuation weights",
+        "Published prime-relative theorem gives p∤F_p(n) iff neighboring p-adic digits sum ≤p−1; for p=3 gives exactly coefficient of t^0",
+        "Published ternary-arity theorem claims GF (1-tz)/(1-2(1+t)z+(1+t+t²)z²) with variance r/6+O(1), which is not the four-ary generating function with variance 2r/3+O(1)"
+      ],
+      "reasoning": "Neither the same-object zero-valuation theorem nor the related other-arity weighted theorem logically implies the complete weighted distribution or exact high-valuation extremal recurrence. The new statement is not a corollary of a prior parameter substitution; the combinatorial carry transducer for addition n+3n differs from that for n+2n.",
+      "searches": [
+        "Full Stănică 2000 arxiv math/0010148 PDF: introduction; Theorem 4; Corollary 7; higher prime-power sections",
+        "Full Sury 2009 JIS paper: Theorem 2; generalized Catalan recurrence",
+        "Full published published-finding corpus: Prime-relative Fuss–Catalan nondivisibility, Finding/Proof/Limitations",
+        "Full published published-finding corpus: Exact ternary valuation spectra of ternary Fuss–Catalan numbers, Finding/Proof/Limitations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kummer carry equivalence: ν_3(C_4(n))=number of carries in n+3n; Stănică arxiv:math/0010148, Theorem 3, p.5",
+        "Nearest prime-relative published theorem counts only zero-carry indices in same p=3, arity4 case; published-finding corpus 2026/11/8/...fca5ba9f3d60/RESULT.md, Finding and Proof 1",
+        "Direct searches above returned no complete weighted valuation generating function; negative search alone does not prove uniqueness"
+      ],
+      "reasoning": "Exact same parameter p=3, arity4 in the prime-relative nondivisibility theorem supplies the zero-valuation coefficient P_r(0), but neither the positive-valuation coefficients, exact rational weighted generating function, variance, normal limit, nor top-valuation cubic recurrence. Kummer alone gives an algorithm, not these explicit evaluated quantities.",
+      "searches": [
+        "published-finding corpus: exact three-adic valuations histogram four-ary Fuss Catalan order four C_4(n) binom(4n,n)/(3n+1) over ternary intervals",
+        "published-finding corpus: number of carries in n plus 3n ternary valuation distribution exactly",
+        "Web: 3-adic valuations 4-ary Fuss Catalan binomial 4n n 3n+1 distribution generating function ternary blocks",
+        "OEIS/web: 3-adic valuation of binomial 4n n Fuss Catalan"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard four-ary Fuss–Catalan sequence is indexed as OEIS A002293 in an online enumerative overview, but direct OEIS page access returned HTTP 403",
+        "Source database and published-finding corpus semantic searches did not produce an exact ternary histogram table for the specified sequence"
+      ],
+      "reasoning": "No verified existing table with this complete bivariate polynomial family was located. OEIS access was partial, so neither all databases nor all implicit tables have been exhaustively ruled out. The published zero-value subsequence is explicitly acknowledged and not passed off as new.",
+      "searches": [
+        "Web: OEIS A002293 four ary Fuss Catalan 3-adic valuations",
+        "Web: OEIS 3-adic valuation A002293 valuation sequence valuation binomial 4n n 3n+1",
+        "published-finding corpus: (4n choose n)/(3n+1) 3-adic valuation rational bivariate generating function",
+        "Web: 3-adic valuation of binomial 4n n Fuss Catalan"
+      ]
+    },
+    "rationale": "Primary literature on prime-power arity, general digit functions and prime-arity divisibility does not state the present evaluated weighted arity-four, prime-three family. Closest same-object published-finding corpus theorem provides only the zero-valuation coefficient, and closest fully weighted theorem is for arity three with genuinely different GF, moments and extremal count. Historical implicit equivalence risk remains.",
+    "residual_risks": [
+      "The digital block-transfer method can yield similar rational generating functions after specialization; unlocated equivalent specializations may exist.",
+      "Full search of OEIS individual entries was blocked (HTTP 403); web and primary-text searches and published published-finding corpus records were checked.",
+      "Scientific same-model review is not an independent historical-priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; four-ary case studies divisibility modulo four at prime two, whereas prime-three weighted block enumeration is absent",
+        "evidence": [
+          "Abstract pp.2-3 explicitly restricts prime-power parameter and divisibility questions",
+          "Corollary 7, PDF p.9, classifies F(4,n) modulo 4 only"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0010148",
+        "material_read": "Introduction and definitions, Kummer Theorem 3, Theorem 4, Corollary 7, following value table and higher-prime-power theorem sections, including PDF page images",
+        "method": "Full searchable primary PDF with targeted theorem/page inspection",
+        "title": "p^q-Catalan Numbers and Squarefree Binomial Coefficients",
+        "trigger": "Arity four and p-adic divisibility are directly studied"
+      },
+      {
+        "assessment": "METHODIC PREDECESSOR; general counting transfer techniques, not the explicit four-ary one-ray exact rational/higher valuation extremal law",
+        "evidence": [
+          "Section 1 scope is Pascal-triangle valuation counts over n and k, not C_4(n) on one ray",
+          "Section 2 contains general block-additive method already acknowledged as prior"
+        ],
+        "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "material_read": "Introduction, complete statement of Section 2 block functions and recurrence matrices, Section 3 stated Pascal triangle counting objective, author PDF page images",
+        "method": "Full PDF text and screenshot inspection, mathematical-object comparison",
+        "title": "Distribution of Binomial Coefficients and Digital Functions",
+        "trigger": "General block-additive digit distribution techniques might dominate an exact carry result"
+      },
+      {
+        "assessment": "NOT_COVERING; prime arity equals divisor prime and valuation zero only",
+        "evidence": [
+          "Theorem 2, PDF p.3, states prime-p divisibility classification for C_p(n)"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Sury/sury31.pdf",
+        "material_read": "Seven-page PDF: introduction, exact recursion and Theorem 2, Kummer proof sections and page images",
+        "method": "Primary full PDF textual theorem and page inspection",
+        "title": "Generalized Catalan Numbers: Linear Recursion and Divisibility",
+        "trigger": "Classical generalized Catalan divisibility theorem"
+      },
+      {
+        "assessment": "NOT_COVERING; modular prime two and selected arities, not ternary valuation histogram",
+        "evidence": [
+          "Introduction pp.3–5 limits original results to mod-2^k and indicates possible later prime extensions"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i2p37/pdf",
+        "material_read": "Introduction, Section 6 and Section 13 descriptions, application scope and original PDF images",
+        "method": "Searchable full journal PDF with section-level checks",
+        "title": "A method for determining the mod-2^k behaviour of recursive sequences, with applications to subgroup counting",
+        "trigger": "Fuss–Catalan prime-power congruences may contain an exact theorem"
+      },
+      {
+        "assessment": "NOT_COVERING; arity restricted to p^h, does not include 4 for p=3",
+        "evidence": [
+          "Section 7 opening explicitly assumes k=p^h for the Fuss–Catalan arity"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01195-0",
+        "material_read": "Full open access article introduction and Section 7 including Corollary 22",
+        "method": "Publisher open full text, checked hypotheses and parameter comparisons",
+        "title": "A method for determining the mod-p^k behaviour of recursive sequences",
+        "trigger": "Later published general prime-power Fuss–Catalan congruences"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE only; exact zero-valuation coefficient already known, higher valuation distribution and extremal multiplicity new relative to this source",
+        "evidence": [
+          "Statement p∤F_p(n) iff neighboring digits ≤p−1, but no valuation j>0 histogram",
+          "Limitations explicitly disclaim complete prime-power residue distribution"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+        "material_read": "Full public RESULT.md, Finding, complete four-step proof, relationship, limitations",
+        "method": "Public repository file read via GitHub",
+        "title": "Prime-relative Fuss–Catalan nondivisibility: exact spectra and p-adic dimension",
+        "trigger": "Exact arity four at prime three, high overlap risk"
+      },
+      {
+        "assessment": "NOT_COVERING; arity 3, variance r/6, unique maximum, different valuation carry mechanism",
+        "evidence": [
+          "GF denominator degree two in z rather than four",
+          "Mean/variance and extremal multiplicity differ from arity four"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-ternary-valuation-spectra-of-ternary-fuss-catalan-numbers--38f9bdc99cfd",
+        "material_read": "Full public RESULT.md with theorem, digital proof, moment derivation and limitations",
+        "method": "Public repository file read via GitHub",
+        "title": "Exact ternary valuation spectra of ternary Fuss–Catalan numbers",
+        "trigger": "Same prime and weighted GF but arity three, possible general implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f83dcdb1-9f8b-4875-bd7f-b95069de0835",
+  "value": {
+    "rationale": "A natural, previously studied ternary nondivisibility family is upgraded to a complete all-depth valuation classification; precise variance 2r/3+O(1), Gaussian fluctuations and a sharp cubic top-multiplicity law distinguish it from other Fuss–Catalan families. The precise invariant is motivated by arithmetic divisibility of four-ary tree counts, not a manufactured parameter slice; no broad downstream result is claimed.",
+    "status": "PASS"
+  }
+}
