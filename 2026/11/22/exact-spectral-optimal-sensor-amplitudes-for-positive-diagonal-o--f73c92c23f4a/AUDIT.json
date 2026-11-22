@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For \\(A=\\operatorname{diag}(a_1,\\ldots,a_n)\\) with positive distinct modes, the finite kernel \\(C=VV^{\\mathsf T}\\) is strictly totally positive by generalized Vandermonde determinants and Cauchy–Binet, so \\(H=EC^{-1}E\\) is symmetric positive definite and strictly positive entrywise. All sensor phases cancel by unitary congruence. For a positive unit amplitude vector \\(d\\), the inverse Gram spectral radius is at least \\(d^{\\mathsf T}D^{-1}HD^{-1}d=\\boldsymbol 1^{\\mathsf T}H\\boldsymbol 1=L\\). Setting \\(d_i^2=(H\\boldsymbol1)_i/L\\) makes \\(D^{-1}HD^{-1}d=Ld\\); the Perron–Frobenius theorem identifies \\(L\\) as the largest eigenvalue. Equality in the Rayleigh quotient forces \\(d_i^2=r_i/L\\). Rank-deficient boundaries are treated separately. The exact rational checker passes 885 assertions, including principal-minor positive-semidefinite certificates and the explicit three-mode example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wan–Roy–Saberi (2008) Lemma A.5 and Theorem A.6 handle a nonnegative matrix spectral radius under a linear gain sum plus optional box constraints",
+        "Optimal Dynamical Frames considers frame-index and Parseval-generation properties"
+      ],
+      "reasoning": "Rewriting the problem as minimizing the largest eigenvalue of D^{-1} H D^{-1} entails a reciprocal-square constraint on positive diagonal entries, not the network article’s sum-of-gains budget. Its theorem is not an immediate implication; general Perron/Rayleigh ingredients are acknowledged. A more abstract scaling theorem might still subsume the algebraic lemma.",
+      "searches": [
+        "positive definite totally positive matrix optimal diagonal congruence scaling maximize minimum eigenvalue row sums inverse sign",
+        "maximize smallest eigenvalue diagonal congruence inverse row sums",
+        "A new focus in the science of networks towards methods for design Theorem A.6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.17137v1",
+      "https://arxiv.org/html/2506.00567v3",
+      "https://arxiv.org/abs/2610.31278",
+      "https://doi.org/10.1098/rspa.2007.0050",
+      "Published research findings returned for the actual E-optimal/frame/sensor equivalence queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Giribet–Feldberg (2026) defines observability Gram and analyzes forcing-correction reconstruction without optimizing free sensor magnitudes",
+        "Wu (2026) explicitly keeps generators fixed and optimizes time sampling",
+        "Published two-mode actuator result addresses condition number for two modes rather than arbitrary n and minimum-eigenvalue for every finite horizon"
+      ],
+      "reasoning": "Neither the full observability framework nor fixed-generator time-weight optimization entails the displayed exact unit-sensor E-optimal allocation. D-optimal or condition-number optima need not optimize λmin. The proof uses strict total positivity and Perron–Frobenius equality, absent from the inspected prior implications.",
+      "searches": [
+        "E-optimal observation single scalar sensor arbitrary finite number distinct stable positive diagonal modes consecutive finite horizon optimum inverse Gram row sums checkerboard sign Vandermonde",
+        "https://arxiv.org/html/2611.17137v1",
+        "https://arxiv.org/abs/2610.31278"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Checked semigroup sampling, E-optimal observability, Vandermonde matrix row weighting and equivalent lower singular-value formulations",
+        "Frame-index results in arXiv:2506.00567 optimize generator count rather than finite Gram spectral margin"
+      ],
+      "reasoning": "The exact object is maximum of a finite-horizon Gramian smallest eigenvalue under unit norm of one freely chosen generator; aliases such as E-optimal sensing and singular-value frame design were compared. No located published statement proved its exact all-dimensional normalized inverse-row-sum allocation. A generic result may use different terminology; absence of search hits is not evidence of uniqueness.",
+      "searches": [
+        "exact optimal scalar dynamical sampling sensor for diagonal real distinct eigenvalues finite horizon maximizes smallest eigenvalue observability Gram Vandermonde inverse checkerboard alternating sign row sums",
+        "E optimal observability frame lower bound single sensor diagonal operator total positive Gram generalized Vandermonde",
+        "E optimal row weighting Vandermonde sampling matrix optimal smallest singular value all positive diagonal scaling inverse checkerboard",
+        "Vandermonde E-optimal row scaling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical research records checked for exact sensor/frame coefficients and closest D-optimal star sensing, 2-mode condition-optimal actuation and cyclic sensor allocation",
+        "The three-mode rational value 1/2097 and weights (597,1045,455)/2097 were not among located tabulated results"
+      ],
+      "reasoning": "No located published numerical table or exact finite-sensor enumeration supplied the all-mode law or the three-mode instance. Database searching alone cannot certify nonexistence; the theorem is continuous and all-dimensional, not merely a table entry.",
+      "searches": [
+        "exact optimal scalar dynamical sampling sensor for diagonal real distinct eigenvalues finite horizon maximizes smallest eigenvalue observability Gram Vandermonde inverse checkerboard alternating sign row sums",
+        "E-optimal observation single scalar sensor arbitrary finite number distinct stable positive diagonal modes consecutive finite horizon optimum inverse Gram row sums checkerboard sign Vandermonde",
+        "optimal sensor weights smallest eigenvalue observability Gramian diagonal dynamics Vandermonde inverse alternating signs E optimal"
+      ]
+    },
+    "rationale": "The precise all-dimension, all-admissible-horizon finite spectral E-optimal unit sensor result was compared against the focal observability paper, optimal frame-index work, temporal-sampling optimization, classical positive-network spectral scaling, relevant published mathematical-result summaries; none inspected entails the claim under its unit sensor energy and finite horizon hypotheses. Classical total positivity/Perron ingredients are credited. Residual risk: an older generic inverse-congruence scaling result could imply it.",
+    "residual_risks": [
+      "An older generic spectral diagonal-congruence scaling theorem under reciprocal power budget may cover the algebraic lemma without using dynamical-sampling terminology.",
+      "A published paper on sensor design not indexed in the searches might contain an equivalent all-mode allocation; literature search does not establish universal novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines dynamical-frame recovery and Gramian but does not give a global optimal single-sensor modal amplitude allocation",
+        "evidence": [
+          "arXiv v1 header 12 Nov 2026; finite orbit gram and frame formulation; Section 7.3 Vandermonde aliasing; Section 7.5 design discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.17137v1",
+        "material_read": "Abstract, introduction, frame Gramian and reconstruction sections, convolution aliasing example, design discussions and conclusions",
+        "method": "Read HTML mathematical text and relevant displayed formulas",
+        "title": "Augmented Dynamical Sampling under unmodeled Forcing",
+        "trigger": "Most recent motivation; finite observability Gram and frame lower-bound analysis"
+      },
+      {
+        "assessment": "Optimizes the number of generating vectors and Parseval existence; no all-mode finite-horizon E-optimal unit sensor amplitude vector",
+        "evidence": [
+          "Introduction Theorems 1.1 and 1.2, description of frame index and minimal sets of generators"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.00567v3",
+        "material_read": "Abstract, introduction and main result statements about frame index, Parseval orbit construction and minimal generators",
+        "method": "Read full relevant HTML sections and theorem statements",
+        "title": "Optimal Dynamical Frames",
+        "trigger": "Plausible dominance due to the words optimal and frame"
+      },
+      {
+        "assessment": "Operator and generating vectors are held fixed; temporal sample sets and temporal weights vary, rather than the generating vector",
+        "evidence": [
+          "22 Oct 2026 public posting; abstract and introduction repeatedly explicitly keep generating vectors fixed"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.31278",
+        "material_read": "Abstract, introduction, definitions and main results describing fixed generators and variable temporal sampling",
+        "method": "Read accessible arXiv parsed full-text excerpts and statements",
+        "title": "Optimal weighted sampling of positive and normal operator orbits",
+        "trigger": "Recent optimal weighted sampling and condition-number results for positive operator orbits"
+      },
+      {
+        "assessment": "Spectral radius minimization of positive diagonal gain times nonnegative network under linear gain budget differs from the reciprocal-square sensor constraint; techniques are related but not a direct implication",
+        "evidence": [
+          "Lemma A.5 optimizes gain values under a linear sum constraint; Theorem A.6 adds individual box limits"
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2007.0050",
+        "material_read": "Design formulation and Appendix A Lemma A.5 / Theorem A.6 as publicly accessible extracted text",
+        "method": "Compare objective, resource constraint and matrix variables with inverse Gram scaling",
+        "title": "A new focus in the science of networks: towards methods for design",
+        "trigger": "Potential general nonnegative diagonal spectral radius optimization theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f73c92c2-3f4a-4753-9ee2-ef56f2444a72",
+  "value": {
+    "rationale": "For an evolving diagonal state measured by a single unit-energy sensor, \\(\\lambda_{\\min}\\) controls the worst-direction inverse noise amplification. The result solves a natural exact E-optimal frame design problem in arbitrary dimension and all finite observable horizons, with a unique allocation and rational computable formula. This does not follow from D-optimality or condition-number minimization. The three-mode example demonstrates genuinely nonuniform weights and a sharp finite-horizon bound.",
+    "status": "PASS"
+  }
+}
