@@ -1,19 +1,21 @@
-# Review — Delayed complete-Pick failure in two-root fractional Schur products
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The domain is the open unit disk, with fixed \(0<a<1\), \(0<b<1\). The factors are complete Pick by positive-coefficient feature representations; the first factor makes the product radial kernel irreducible with strictly positive coefficients. The normalized complete-Pick criterion reduces the decision to the coefficients of \(1-(1-t)^a(1-t^2)^b\). The nonstandard step is uniform transfer from the two fixed unit-circle singularities \(t=1,-1\), including a factor \(b\) in the remainder from \(t=-1\). The argument explicitly derives this factor from reciprocal-Gamma zeros, supplies both error exponents, and handles the potential integer exponent at \(t=1\) in the fixed-parameter assertion. Taking \(bn^a\to x\) proves the signed parity limit; a small-index compactness argument and uniform tail margin prove the first-negative-index equivalent. The Hardy endpoint is separately checked by a three-term expansion. The extracted exact-arithmetic checker passes 2,551 checks and is not confused with proof of the infinite statement.
+PASS
 
-## Originality (PASS, best-knowledge)
+The normalized complete Pick coefficient test applies to 1-1/K because the first factor has strictly positive Taylor coefficients and the second is a complete-Pick pullback by z->z^2, even though it identifies opposite points. For F_b(t)=(1-t)^(a+b)(1+t)^b, c_n=-[t^n]F_b. The two unit-circle branch points contribute A(b)n^(-a-b-1) and (-1)^n B(b)n^(-b-1), where A=-2^b/Gamma(-a-b) and B=-2^(a+b)/Gamma(-b). For fixed b the (-1)^n term dominates, giving infinitely many negative odd coefficients; for small b, B~2^a b and A->a/Gamma(1-a). The uniform remainder O(n^(-a-b-2)+b n^(-b-2)) yields n^(a+1)c_n -> a/Gamma(1-a)+(-1)^n 2^a x for bn^a ->x, and a split finite-prefix/uniform-margin argument locates first obstruction N_a(b)~[a/(2^a Gamma(1-a)b)]^(1/a). Separate exact rational coefficient recurrence reproduced N_(1/2)(1/100)=403 and N_(1/2)(1/200)=1603; a=1 yields exactly 3. Finite coefficients corroborate but cannot establish infinite signs or uniform transfer bounds.
 
-The primary 2026-05-20 source's Section 3 characterizes multiplicative functionals for Schur products of two complete Pick kernels (Theorem 3.2); it does not determine whether the products are themselves complete Pick, nor a first negative reciprocal coefficient. The 2018 factorization literature supplies function-space structure rather than a finite-test obstruction scale. The close public monomial-defect classification is for \((1-st^m)(1-t)^{-\gamma}\); a separate inspected historical claim is for a finite rational pole \([(1-t)^a(1-\tau t^m)]^{-1}\) and has a positive small-amplitude complete-Pick interval. Neither contains the present fractional branch point at \(t=-1\), and neither implies the \(b^{-1/a}\) delayed detection law. Exact-formula and equivalent-asymptotic searches of indexed sources and primary literature produced no covering statement. Residual risk: the coefficient asymptotics may have appeared in older unindexed analytic-combinatorics or kernel sources; search noncoverage is not proof of universal priority.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-This addresses a natural obstruction to permanence of complete Pick interpolation under Schur products, precisely the class singled out in the 2026 motivating paper. It goes beyond the elementary qualitative failure: every fixed finite Pick-coefficient check is eventually inconclusive at small perturbation, and the theorem computes the sharp polynomial degree of the first witness, including its constant and parity profile. The contrast with positive stability for small finite monomial poles identifies the mathematically responsible change: a new singularity exactly on the boundary. The problem's object and invariant are canonical, not an arbitrary finite instance or unsupported downstream application.
+The published sparse resolvent-factor criterion K=((1-t)^alpha(1-tau t^m))^-1 has integer pole power and amplitude tau. At tau=1, m=2 it yields failure at a fixed early index, but does not cover fractional b->0 and N~C b^(-1/a). Published monomial-defect studies place 1-st^m in the numerator, a different perturbation. Bhattacharyya et al 2026 analyze functionals for given Schur factorizations, not when the product remains complete Pick. Thus no checked source implies the delayed sharp witness asymptotic.
 
-## Closest literature and limitations
+## value
 
-Bhattacharyya–Jaikishan–Kumar (arXiv:2605.21808v1), Section 3, is the most relevant motivating primary text. Aleman–Hartz–McCarthy–Richter (2018) provides complete-Pick factorization background. Agler–McCarthy (2000) supplies the established coefficient criterion. The published monomial-defect classification is a close but non-dominating explicit specialization in a different family. No uniform claim at the endpoint \(a\to1\) is made, and the exact finite first-negative index is not closed-form. There has been no independent verification or universal priority proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Schur products of individually complete Pick kernels need not retain complete-Pick interpolation. The exact singular-perturbation scale of the FIRST negative reciprocal coefficient quantifies why arbitrarily deep finite checks may fail to detect the defect; parity-dependent two-endpoint asymptotics explain the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

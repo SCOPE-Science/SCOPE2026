@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T21:47:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized complete Pick coefficient test applies to 1-1/K because the first factor has strictly positive Taylor coefficients and the second is a complete-Pick pullback by z->z^2, even though it identifies opposite points. For F_b(t)=(1-t)^(a+b)(1+t)^b, c_n=-[t^n]F_b. The two unit-circle branch points contribute A(b)n^(-a-b-1) and (-1)^n B(b)n^(-b-1), where A=-2^b/Gamma(-a-b) and B=-2^(a+b)/Gamma(-b). For fixed b the (-1)^n term dominates, giving infinitely many negative odd coefficients; for small b, B~2^a b and A->a/Gamma(1-a). The uniform remainder O(n^(-a-b-2)+b n^(-b-2)) yields n^(a+1)c_n -> a/Gamma(1-a)+(-1)^n 2^a x for bn^a ->x, and a split finite-prefix/uniform-margin argument locates first obstruction N_a(b)~[a/(2^a Gamma(1-a)b)]^(1/a). Separate exact rational coefficient recurrence reproduced N_(1/2)(1/100)=403 and N_(1/2)(1/200)=1603; a=1 yields exactly 3. Finite coefficients corroborate but cannot establish infinite signs or uniform transfer bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/11/17/SCOPE-sharp-complete-pick-threshold-for-a-sparse-schur-factor-of-a-fra--689b335e92f3 full RESULT: sparse integer-pole 1/(1-tau t^m) and first bad m+1, not fractional exponent b with a branch at -1.",
+          "Resultary 2026/11/8/SCOPE-sharp-complete-pick-phase-diagram-for-monomial-defects-of-power--a614d1883358 studies a numerator defect."
+        ],
+        "reasoning": "Neither parameter family includes b in (0,1) except limiting b=1 and neither has the small-b moving first obstruction N~C b^(-1/a).",
+        "searches": [
+          "fractional Schur product two branch complete Pick negative coefficients first obstruction index b inverse power",
+          "fractional Schur product two branch complete Pick negative coefficients first obstruction index b inverse power"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md and CHECK.py tree 3be21fd94b4c4b87f9a159be1878d062efd7887c",
+        "arXiv:2605.21808v1",
+        "Resultary:2026/11/17/SCOPE-sharp-complete-pick-threshold-for-a-sparse-schur-factor-of-a-fra--689b335e92f3",
+        "Resultary:2026/11/8/SCOPE-sharp-complete-pick-phase-diagram-for-monomial-defects-of-power--a614d1883358",
+        "Agler–McCarthy JFA 2000"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bhattacharyya, Jaikishan, Kumar arXiv:2605.21808v1 section 3 Theorem 3.2 addresses multiplicative linear functionals on an assumed product; Aleman–Hartz–McCarthy–Richter concerns factorizations induced by complete-Pick factors."
+        ],
+        "reasoning": "Neither theorem asserts that the whole product is complete Pick or gives negative odd reciprocal coefficients. A generic transfer theorem makes the analytic method available, but the family-specific uniform b-dependent remainder and sharp first-index crossing are not stated there.",
+        "searches": [
+          "fractional Schur product two branch complete Pick negative coefficients first obstruction index b inverse power",
+          "complete Pick Schur products two fractional factors (1-z)^alpha (1-z^2)^beta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The criterion is equivalent to nonnegative coefficients of 1-(1-t)^a(1-t^2)^b; the investigated obstruction is the first positive coefficient of its reciprocal branch product.",
+          "Agler–McCarthy normalized complete Pick characterization is the general equivalence, not a computed family phase diagram."
+        ],
+        "reasoning": "A general kernel criterion is insufficient to calculate the delayed threshold. The two-branch coefficient asymptotics at t=±1 are the specific new content.",
+        "searches": [
+          "fractional Schur product two branch complete Pick negative coefficients first obstruction index b inverse power",
+          "complete Pick kernel product (1-z w)^(-a) (1-(z w)^2)^(-b) negative reciprocal coefficients delayed obstruction asymptotic",
+          "complete Pick product (1-z)^(-a) (1-z^2)^(-b) coefficient first negative asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational checker source matches recurrence and independent arithmetic finds N=403 and 1603 for two b values; published earlier sparse-kernel exact tables involve different factor exponents."
+        ],
+        "reasoning": "No table in the checked primary/Resultary sources reports all b-dependent first-negative indices or their asymptotic. The two tested entries are not claimed novel independently of the all-parameter theorem.",
+        "searches": [
+          "complete Pick kernel product (1-z w)^(-a) (1-(z w)^2)^(-b) negative reciprocal coefficients delayed obstruction asymptotic",
+          "Resultary fractional complete Pick delayed negative odd coefficients"
+        ]
+      },
+      "rationale": "The published sparse resolvent-factor criterion K=((1-t)^alpha(1-tau t^m))^-1 has integer pole power and amplitude tau. At tau=1, m=2 it yields failure at a fixed early index, but does not cover fractional b->0 and N~C b^(-1/a). Published monomial-defect studies place 1-st^m in the numerator, a different perturbation. Bhattacharyya et al 2026 analyze functionals for given Schur factorizations, not when the product remains complete Pick. Thus no checked source implies the delayed sharp witness asymptotic.",
+      "reasoning": "The published sparse resolvent-factor criterion K=((1-t)^alpha(1-tau t^m))^-1 has integer pole power and amplitude tau. At tau=1, m=2 it yields failure at a fixed early index, but does not cover fractional b->0 and N~C b^(-1/a). Published monomial-defect studies place 1-st^m in the numerator, a different perturbation. Bhattacharyya et al 2026 analyze functionals for given Schur factorizations, not when the product remains complete Pick. Thus no checked source implies the delayed sharp witness asymptotic.",
+      "residual_risks": [
+        "Full original Agler–McCarthy article was not read here; the general coefficient criterion is established independently, but obscure special cases cannot be absolutely excluded.",
+        "Uniform two-Hankel-contour transfer theorem is sketched analytically in the source, not supplied as an independent machine-checked contour certificate.",
+        "Sharp index equivalent is for fixed 0<a<1 as b down to 0, not uniform at a=0 or a=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_SAME_CONCLUSION",
+          "evidence": "Classifies functionals for products rather than preservation of complete Pick and its earliest negative coefficient.",
+          "identifier_or_url": "https://arxiv.org/html/2605.21808v1",
+          "material_read": "Section 3 and Theorem 3.2 with surrounding assumptions and factorization characterizations",
+          "method": "arXiv full-text HTML",
+          "title": "Multiplicative linear functionals on reproducing kernel Hilbert spaces",
+          "trigger": "2026 paper on Schur products of complete-Pick kernels"
+        },
+        {
+          "assessment": "DISTINCT_POWER_AND_AMPLITUDE",
+          "evidence": "Second factor 1/(1-tau t^m), fractional perturbation b=0+ absent; at tau=1,m=2 integer exponent gives immediate n=3, not delayed n~b^-1/a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-complete-pick-threshold-for-a-sparse-schur-factor-of-a-fra--689b335e92f3",
+          "material_read": "Entire RESULT.md including theorem, coefficient-ratio proof, endpoints and limitations",
+          "method": "GitHub full-text reading",
+          "title": "Sharp complete-Pick threshold for a sparse Schur factor of a fractional Hardy kernel",
+          "trigger": "Similar Schur-product kernel and sharp coefficient threshold"
+        },
+        {
+          "assessment": "CLASSICAL_INPUT_NOT_FULL_TEXT_READ",
+          "evidence": "Only the positivity criterion is used; no claim that full article lacks special coefficient results.",
+          "identifier_or_url": "https://doi.org/10.1006/jfan.2000.3600",
+          "material_read": "Criterion and theorem as cited by source; independent full article not retrieved",
+          "method": "Secondary theorem-level comparison and bibliographic source",
+          "title": "Complete Nevanlinna-Pick kernels (Agler–McCarthy, 2000)",
+          "trigger": "General normalized reciprocal criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Schur products of individually complete Pick kernels need not retain complete-Pick interpolation. The exact singular-perturbation scale of the FIRST negative reciprocal coefficient quantifies why arbitrarily deep finite checks may fail to detect the defect; parity-dependent two-endpoint asymptotics explain the mechanism.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md and CHECK.py tree 3be21fd94b4c4b87f9a159be1878d062efd7887c",
+    "arXiv:2605.21808v1",
+    "Resultary:2026/11/17/SCOPE-sharp-complete-pick-threshold-for-a-sparse-schur-factor-of-a-fra--689b335e92f3",
+    "Resultary:2026/11/8/SCOPE-sharp-complete-pick-phase-diagram-for-monomial-defects-of-power--a614d1883358",
+    "Agler–McCarthy JFA 2000"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full original Agler–McCarthy article was not read here; the general coefficient criterion is established independently, but obscure special cases cannot be absolutely excluded.",
+    "Uniform two-Hankel-contour transfer theorem is sketched analytically in the source, not supplied as an independent machine-checked contour certificate.",
+    "Sharp index equivalent is for fixed 0<a<1 as b down to 0, not uniform at a=0 or a=1."
+  ],
+  "residual_risks": [
+    "Full original Agler–McCarthy article was not read here; the general coefficient criterion is established independently, but obscure special cases cannot be absolutely excluded.",
+    "Uniform two-Hankel-contour transfer theorem is sketched analytically in the source, not supplied as an independent machine-checked contour certificate.",
+    "Sharp index equivalent is for fixed 0<a<1 as b down to 0, not uniform at a=0 or a=1."
+  ],
+  "schema_version": 1
+}
