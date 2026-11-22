@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The exact reproducibility script is `verify_dihedral_cycle.py`, requiring Python 3.10 or newer and `sympy==1.14.0` (see `requirements.txt`). Run `python verify_dihedral_cycle.py` with no arguments in a directory containing the script. It reads no external files and makes no network requests. The corresponding complete output is in `verification_output.txt`.
+## correctness
 
-The script enumerates all nonempty independent sets of each cycle \(C_n\) for \(3\le n\le13\), forms every strictly nested nonempty-face chain, and computes its full dihedral orbit. Distinct ranks prevent inversions and fix the quotient-cell orientations. It then performs deterministic elementary collapses using the unique-coface test in descending dimension, constructs the remaining exact integer chain complexes, checks consecutive boundary products are zero, and computes each integer Smith normal form. It also independently computes the Euler characteristic through signed fixed-face enumeration and Burnside averaging, checking agreement with the quotient-cell alternated count.
+PASS
 
-Every positive Smith invariant factor is one. For the two cases that do not collapse entirely, the residual cell counts are \((9,35,52,26)\) at \(n=11\) and \((14,64,100,50)\) at \(n=13\). The respective nonzero boundary ranks are \((8,27,25)\) and \((13,51,49)\), proving the claimed integral homology. Fundamental-group triviality follows from a separate theoretical fixed-point argument and Armstrong's theorem, not from the numerical output alone.
+Each nonempty independent edge subset yields a vertex of the barycentric subdivision, and rank-ordered flag orbits form regular quotient cells with alternating face maps. Independently regenerated flag orbits and free face collapses for all 3≤n≤13; all source initial and final orbit-cell counts match. Independently reconstructed exact integer boundary matrices for n=11,13; Smith nonzero factors all 1, ranks (8,27,25) and (13,51,49), and ∂²=0. The other nine quotient complexes genuinely collapse to one vertex. For n=11,13, classical Ind(C_n)≃S³; odd-cycle reflections fix singleton vertices and generate D_n; Armstrong gives trivial quotient π1. H3=Z and other reduced homology zero imply S³ by Hurewicz/Whitehead. This is an exhaustive finite classification, not extrapolation beyond 13.
 
-The verification is exhaustive over the specified finite range, but it does not certify any larger size, a PL homeomorphism, an independent review or uniqueness in the mathematical literature.
+## originality
+
+PASS
+
+Best-of-knowledge original exact integral/full homotopy classification of full dihedral quotients for natural cycle matching complexes in the homological-dimension-three window; nearby cyclic quotient lens-space, full dihedral nonmatching complexes and nonequivariant cycle independence theorems do not imply the stated eleven quotient types.
+
+## value
+
+PASS
+
+A complete natural finite homotopy classification through the first degree-three stage, upgrading elementary/rational information to true integral and π1-controlled homotopy and distinguishing exceptional 11,13 lengths, is a reusable exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
