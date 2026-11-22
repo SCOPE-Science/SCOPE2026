@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each parent v, disjoint child supports give rho_v and exactly diagonal W*W. From the polar formula, the one-step column energy is bounded by a_v^(1-t)(sum_child a_u)^t <= (1-t)a_v+t sum_child a_u for all p>0, including zero columns. The child-sum map Q is a positive l1 contraction by unique parenthood. Thus a_n<=((1-t)I+tQ)^n a_0; Tonelli gives sum_v Q^k a_0(v)=sum_{depth>=k}a_0(v), yielding the binomial tail. Dominated convergence proves zero limit; the Chernoff bound proves the depth-tail rate, while constant finite paths attain energy (L-n)/L. A standalone checker passed 30516 finite assertions, not used for the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanković Theorem 5.5 assumes membership in a strictly smaller Schatten class, while this statement assumes only the target class.",
+        "Bala Theorem 2.4 proves operator norm convergence and does not imply convergence in a stronger Schatten topology.",
+        "Altwaijry et al. sections 2–4 study inequalities/equality, with no iterated tree-depth law."
+      ],
+      "reasoning": "These broader operator classes have weaker convergence modes or stronger hypotheses, so none of their inspected conclusions implies endpoint convergence for all rooted-tree shifts in precisely their own S_p class.",
+      "searches": [
+        "generalized Aluthge transform weighted shift on trees Schatten p convergence quasinilpotent",
+        "iterated Aluthge Schatten norm weighted shifts branching trees",
+        "arXiv:2611.07728v1, Theorem 5.5",
+        "arXiv:2602.07916v1, Theorem 2.4",
+        "DOI:10.3934/cpaa.2024078"
+      ]
+    },
+    "checked_sources": [
+      "Stanković 2026 arXiv:2611.07728v1 full text",
+      "Trepkowski 2014 arXiv:1401.4415v1 full text",
+      "Bala 2026 arXiv:2602.07916v1 full text",
+      "Altwaijry et al. 2024 DOI:10.3934/cpaa.2024078 full text",
+      "Endpoint Schatten convergence for bilateral shifts and weighted partial permutations (2026) indexed summary only",
+      "Sharp two-scale convergence of Aluthge iterates on finite-branch weighted trees (2026) indexed summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Trepkowski establishes exact one-step tree edge weights but no asymptotic Schatten p-depth theorem.",
+        "Stanković covers finite-dimensional direct sums and nonbranching path components; the example with noncommuting W*W,WW* rules out reduction to those components.",
+        "General one-step Schatten norm contraction does not imply decay to zero in the same p-norm."
+      ],
+      "reasoning": "The new proof requires an estimate on branched column energies, a positive depth-transport contraction and summation across all ancestors. The inspected priors leave this actual conclusion unproved.",
+      "searches": [
+        "arXiv:1401.4415v1, Theorem 4.1",
+        "arXiv:2611.07728v1, Proposition 5.8, Corollary 5.9",
+        "iterated Aluthge Schatten norm weighted shifts branching trees",
+        "DOI:10.3934/cpaa.2024078, sections 2–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stanković Proposition 5.8 uses one orthonormal path and scalar binomial products; Corollary 5.9 permits orthogonal direct sums of paths or finite blocks.",
+        "The branching shift with unequal child outgoing norms has noncommuting W*W and WW*, unlike sums of unilateral paths; when injective and quasinilpotent it cannot contain a nonzero finite block, and the chosen polynomial-logarithmic weights yield S_p but no smaller S_q."
+      ],
+      "reasoning": "Path-binomial formulas are closely related but do not supply the branching-column inequality or the depth-tail estimate; the operator class properly extends the verified cases.",
+      "searches": [
+        "Schatten p-norm convergence iterated Aluthge transforms compact weighted shifts on rooted branching directed trees with binomial depth tail",
+        "\"Aluthge\" \"Schatten\" \"directed trees\" iterates",
+        "arXiv:2611.07728v1, Proposition 5.8 and Corollary 5.9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closely related indexed statements: Endpoint Schatten convergence for bilateral shifts and weighted partial permutations (2026); Sharp two-scale convergence of Aluthge iterates on finite-branch weighted trees (2026).",
+        "The first is restricted to weighted partial permutations (no genuine multi-child branching); the second concerns operator norm on noncompact infinite rays."
+      ],
+      "reasoning": "The claimed object is an analytic infinite-dimensional theorem, not a numerical table. The actual indexed statement/alias searches uncovered no complete equivalent source. This absence is evidence of a bounded search, not proof of uniqueness.",
+      "searches": [
+        "Schatten p-norm convergence iterated Aluthge transforms compact weighted shifts on rooted branching directed trees with binomial depth tail",
+        "Aluthge Schatten one step binomial depth transport tree edge weights",
+        "Aluthge transform iterates Schatten class p equal endpoint arbitrary tree without cycles",
+        "\"Aluthge transform\" \"rooted tree\" \"Schatten\" convergence"
+      ]
+    },
+    "rationale": "Stanković 2026 Proposition 5.8 treats unilateral path shifts and Corollary 5.9 their direct sums with finite blocks; an explicitly constructed injective, quasinilpotent, noncommuting-moduli branching shift in S_p but in no smaller S_q is outside that direct-sum class and also fails Theorem 5.5 assumptions. Trepkowski 2014 Theorem 4.1 is a one-step formula; Bala 2026 is operator-norm, not same-class Schatten, convergence. The initial-depth binomial estimate and endpoint limit for genuine branching are not implications of these inspected statements. Relevant 2024 inequalities do not identify the iterated limit. Searches for exact and equivalent assertions produced no matching published theorem; residual bibliographic risks remain.",
+    "residual_risks": [
+      "A broader unindexed general theorem on same-class convergence for quasinilpotent compact operators could subsume this specialized statement.",
+      "The two related indexed findings were compared by published statements/summaries, not their complete text; their described hypotheses do not dominate the current theorem.",
+      "The proof handles rooted trees with unique parents and cannot be transferred unchanged to graph shifts with merging children."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PATH_ONLY_AND_DIRECT_SUM_NOT_COVERING_BRANCHING",
+        "evidence": [
+          "The paper explicitly defines unilateral shift as successive e_k to e_(k+1).",
+          "Its equal-class result is Proposition 5.8 on that class, then Corollary 5.9 on orthogonal sums."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.07728",
+        "material_read": "Full text, especially Sections 4–5, Theorem 5.5, Remark 5.7, Proposition 5.8 and Corollary 5.9",
+        "method": "Open-access preprint full text and PDF text",
+        "title": "Singular values of iterated Aluthge transforms of compact operators",
+        "trigger": "Exact same Schatten endpoint and scalar shift class"
+      },
+      {
+        "assessment": "ONE_STEP_FORMULA_NOT_ITERATED_ENDPOINT",
+        "evidence": [
+          "Theorem 4.1 gives child weight lambda times (norm_child/norm_parent)^t.",
+          "Its principal results concern formulas and unbounded-domain phenomena rather than fixed-class decay."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.4415",
+        "material_read": "Full HTML preprint, Sections 2–4 and Theorem 4.1, plus relevant later statements",
+        "method": "Open-access preprint full text",
+        "title": "Aluthge transforms of weighted shifts on directed trees",
+        "trigger": "Exactly the same weighted tree operator and one-step transform"
+      },
+      {
+        "assessment": "OPERATOR_NORM_NOT_SCHATTEN_ENDPOINT",
+        "evidence": [
+          "Theorem 2.4 establishes operator-norm convergence of compact iterates to a normal compact limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.07916",
+        "material_read": "Full HTML preprint, introduction and Theorems 2.2–2.4",
+        "method": "Open-access preprint full text",
+        "title": "The iterated Aluthge Transforms of compact operators",
+        "trigger": "General compact operator convergence might dominate a specialized claim"
+      },
+      {
+        "assessment": "NORM_INEQUALITY_EQUALITY_NOT_DEPTH_ITERATES",
+        "evidence": [
+          "Section 2 treats one-transform norm inequalities; Sections 3–4 treat equality conditions, without an iterated rooted-tree decay theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/cpaa.2024078",
+        "material_read": "Open-access institutional PDF parsed full text, theorems and discussion in Sections 2–4",
+        "method": "Institutional open-access PDF text",
+        "title": "Schatten p-norm related to some Transforms of Operators",
+        "trigger": "Schatten-class inequality or iterative theorem might dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3fb895fa-478e-49ab-8ea1-9edcbb6f8a4d",
+  "value": {
+    "rationale": "Equal-Schatten-class convergence is a genuine boundary case in Stanković 2026; the explicit quantitative depth-tail law handles all countable rooted trees with arbitrary branching and weights, including injective examples outside the cited finite-block/unilateral-path direct-sum class and outside the smaller-Schatten-class hypothesis of the general convergence theorem. The bound translates vertex-depth distributions into convergence rates and the finite-path construction proves no norm-only rate can hold; these are meaningful structural controls beyond operator-norm convergence.",
+    "status": "PASS"
+  }
+}
