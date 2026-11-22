@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T12:59:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Bernoulli augmentation coupling K~Bin(n,x), U~Bernoulli(x) takes X=K/n and Y=(K+U)/(n+1). Direct conditioning gives E|X-Y|=2x(1-x)/(n+1). Each path moves from a degree-n trough to an adjacent degree-(n+1) tent peak. The explicit continuous tent spline has slope +1 on [j/n,(j+1)/(n+1)] and -1 on [(j+1)/(n+1),(j+1)/n], so h(Y)-h(X)=|X-Y| on every atom and coupling is W1 optimal by its matching 1-Lipschitz witness. At any interior x all 2(n+1) atoms have positive probability. Equality in the two triangle inequalities forces the same oriented maximal increment on every adjacent interlacing interval; endpoint saturation then forces linearity between knots, giving exactly +/-h plus constants, including n=1. Independent rational arithmetic reconstructed cumulative-distribution W1 for n=1..9 at x=2/5, matching the formula, and source verify_bernstein.py checks 184 rational instances; neither finite check substitutes for the coupling proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier centered-cell result allows arbitrary weakly continuous mean-preserving nu_x and non-centered laws for its pointwise norm, and minimizes over all centered laws. It says the Bernoulli case is previously established."
+        ],
+        "reasoning": "A general theorem with a free jitter probability law dominates the 2-point Bernoulli specialization, including the universal tent potential. The pointwise extremizer uniqueness follows directly from the atomwise equality conditions.",
+        "searches": [
+          "Resultary: consecutive degree Bernstein polynomials Lipschitz Wasserstein distance rigid Kantorovich potential binomial distributions",
+          "Published centered-cell Bernstein comparison all jitter distributions, 2026-11-17"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-centered-cell-bernstein-comparison-and-its-parity-dependen--5166dd5d5596",
+        "https://www.math.uni-luebeck.de/mitarbeiter/prestin/ps/bernstein2.pdf",
+        "https://doi.org/10.1016/0021-9045(87)90087-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take nu_x=(1-x)delta0+xdelta1 in Q_{n,nu}. One obtains the Bin(n+1,x) law; formula (1) gives E|K/n-U|/(n+1)=2x(1-x)/(n+1). Its universal spline is the submitted spline up to sign and constants."
+        ],
+        "reasoning": "This explicit substitution proves the full advertised norm, W1 (by sharp common potential), and common maximizer. Interior-point rigidity is elementary complementary slackness, not a separately valuable theorem.",
+        "searches": [
+          "Resultary: centered-cell Bernstein comparison optimal jitter",
+          "Published centered-cell Bernstein comparison, equations (1), Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published theorem (1) states the exact Lipschitz discrepancy for every jitter law nu_x and exhibits one universal 1-Lipschitz polygonal extremizer. Section 4 explicitly takes nu_x=(1-x)delta0+xdelta1, yielding B_{n+1} and 2x(1-x)/(n+1)."
+        ],
+        "reasoning": "Identify its Q_{n,nu} with B_{n+1} for this exact law. The submitted pointwise norm and common potential are not merely analogous but literally the same special case.",
+        "searches": [
+          "Resultary: consecutive degree Bernstein polynomials Lipschitz Wasserstein distance rigid Kantorovich potential binomial distributions",
+          "Published Sharp centered-cell Bernstein comparison and its parity-dependent minimax constants, Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Not a finite table problem: the published identity is an exact all-degree theorem, so computing examples n=1..23 does not create a new invariant."
+        ],
+        "reasoning": "The coverage is algebraic and parameter-uniform, making exact database lookup unnecessary; the table check is inapplicable as separate originality evidence.",
+        "searches": [
+          "Resultary: adjacent Bernstein degree W1 norm table classical operators",
+          "Gonska Prestin Tachev Zhou 2012 Hölder Bernstein approximation",
+          "published centered-cell comparison (1)"
+        ]
+      },
+      "rationale": "The result is covered in its principal sharp coefficient and universal extremizer by an already published broader theorem: Sharp centered-cell Bernstein comparison and its parity-dependent minimax constants (Resultary, 2026-11-17), Finding (1) and Proof 1, for arbitrary one-cell jitter laws. Its Section 4 explicitly identifies the Bernoulli law nu_x=(1-x)delta_0+x delta_1 as B_{n+1}, stating the same exact 2x(1-x)/(n+1) discrepancy as a previously established special case. Rigidity of the potential at a single interior x is not separately stated there but follows by the routine equality case of its universal pointwise-sharp coupling for positive Bernoulli weights. The submission offers no independently substantial original remainder. The shared public date does not establish intellectual chronology; rejection is a mathematical coverage judgment, not attribution.",
+      "residual_risks": [
+        "Same-day public records do not establish chronological authorship; this is a mathematical coverage rejection only.",
+        "The published general theorem does not explicitly state uniqueness of this specialization, but the uniqueness proof is a straightforward equality case and is not a substantive surviving advance.",
+        "Original Brown–Elliott–Paget full paper was inaccessible, but explicit earlier published broad coverage is decisive regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING the main exact difference and common spline; the special Bernoulli law is expressly credited as already established",
+          "evidence": [
+            "Finding equation (1) general jitter W1 norm; Proof 1 common witness; Section 4 Bernoulli nu_x gives B_{n+1} and 2x(1-x)/(n+1)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-centered-cell-bernstein-comparison-and-its-parity-dependen--5166dd5d5596",
+          "material_read": "Complete published RESULT.md including Finding, equations (1)–(8), Sections 1–4 proof and Relationship to prior work",
+          "method": "Connected published GitHub primary RESULT.md inspected in full",
+          "title": "Sharp centered-cell Bernstein comparison and its parity-dependent minimax constants",
+          "trigger": "Direct same-law broader published claim"
+        },
+        {
+          "assessment": "Proves Lipschitz preservation and approximation, not needed for rejection since covering published theorem is decisive",
+          "evidence": [
+            "Gonska–Prestin–Tachev–Zhou, Lemmas 2–4, classical preservation of Lip seminorm"
+          ],
+          "identifier_or_url": "https://www.math.uni-luebeck.de/mitarbeiter/prestin/ps/bernstein2.pdf",
+          "material_read": "Available author-manuscript text: introductory Bernstein operator theorems, Hölder Lipschitz approximation estimates and proofs; page screenshot retrieval was unavailable",
+          "method": "Primary author PDF parsed text, theorem-level comparison",
+          "title": "Simultaneous approximation by Bernstein operators in Hölder norms",
+          "trigger": "Potential classical degree comparison prior"
+        },
+        {
+          "assessment": "No whole-document noncoverage claim; prior exact original contents remain an additional historical-priority issue",
+          "evidence": [
+            "Brown–Elliott–Paget 1987 preservation cited in Gonska et al."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(87)90087-6",
+          "material_read": "Bibliographic record and re-statement through 2012 article; original full article inaccessible",
+          "method": "Secondary theorem attribution plus publisher bibliographic comparison",
+          "title": "Lipschitz constants for the Bernstein polynomials of a Lipschitz continuous function",
+          "trigger": "Foundational 1987 Bernstein-Lipschitz result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact coefficient and universal extremizer would be useful if new, but both are explicit special cases of a published general interpolation comparison. The only additional uniqueness phrasing is immediate equality saturation along a finite chain of interlacing grid intervals once all Bernoulli outcomes have positive weights. That routine equality case does not supply a motivated independent gap under the same value standard. Correctness and reproducibility are not novelty or value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every n>=1 and x in [0,1], W1(n^-1 Bin(n,x),(n+1)^-1 Bin(n+1,x))=2x(1-x)/(n+1), yielding the exact global Lipschitz norm 1/[2(n+1)]; a universal interlacing tent spline attains it at every x and all pointwise maximizers at one interior x are +/- that spline plus a constant.",
+  "limitations": [
+    "Same-day public records do not establish chronological authorship; this is a mathematical coverage rejection only.",
+    "The published general theorem does not explicitly state uniqueness of this specialization, but the uniqueness proof is a straightforward equality case and is not a substantive surviving advance.",
+    "Original Brown–Elliott–Paget full paper was inaccessible, but explicit earlier published broad coverage is decisive regardless."
+  ],
+  "schema_version": 1
+}
