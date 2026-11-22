@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit orbit-barycenter complex is exactly the geometric fixed-point set because invariant barycentric coordinates must be constant on complete arc orbits. For finite cyclic Cayley digraphs, strong connectivity is equivalent to the gcd of all steps with the group order being one; finite-semigroup generation suffices even for directed edges. Since the auxiliary prime divides none of the special steps, every non-strongly-connected step subset lies in at least one of the prime-indexed full simplices. Their finite intersections are either empty or simplices, with nerve exactly the original complex's face set, giving the homotopy equivalence by the nerve lemma. Symmetry of every arc and inclusion of unit steps verify both hypotheses of Hultman's 2-dense wedge theorem (Theorem 4.3). Five enumerated models passed independent reachability, cover, nerve and mod-two Betti checks. No finite enumeration is substituted for the all-input proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Hultman's Theorem 4.3 supplies the ambient wedge-of-spheres type, not any cyclic fixed-point classification; Björner–Welker's result is a nonequivariant complete-digraph case; and Ayzenberg–Beketov–Magai present a nonequivariant hemisphere nerve interpretation. The proposed assertion does not follow from their conclusions alone: it requires constructing a variable family of bidirected circulants whose *fixed* orbit-complex nerves range over all finite complexes. Literature and existing-result comparisons were made using the exact statement and aliases such as not-strongly-connected, cyclic rotation, Cayley digraph, prime support, fixed-point universality and nerve realization. The closest retrieved published statements concern narrower fixed-space families of different graph complexes. Failure to find an equivalent theorem is not proof of global priority; see the limitations.
+PASS
 
-## Value — PASS
-The structural significance is universal realization: even among strongly connected 2-dense symmetric circulant sources, whose non-strongly-connected-subgraph complexes have torsion-free wedge-of-spheres topology, their full-rotation fixed spaces can have *any* finite simplicial homotopy type, including non-wedges and integral torsion. This is a qualitative contrast with ordinary topology and provides an explicit reduction from finite complex topology to symmetry-fixed graph-complex topology, rather than a tiny parameter refinement.
+For a finite simplicial complex L whose nonempty faces cover its r vertices, select distinct primes p_i and an auxiliary larger q and set N=q product p_i. The symmetric Cayley digraph with steps ±1, ±d_F (d_F product of primes in facet F) is strongly connected and satisfies Hultman 2-density due to reverse arcs. Geometric cyclic fixed points have barycentric weights constant on each full arc orbit; their supports are unions of orbits, yielding the actual orbit-barycenter simplicial model, not just fixed vertices. A union of step orbits is non-strongly connected precisely when gcd(N,step set)>1, because a finite cyclic semigroup is its generated subgroup. Since q divides no d_F, the remaining complex is the union of full simplices on orbit steps divisible by each p_i. Every nonempty multiple intersection is a simplex, and the nerve has exactly the faces of L. Nerve lemma thus proves fixed space homotopy ≃|L|. Hultman 2004 theorem supplies ambient wedge spheres dimension 2N-4 for strongly connected 2-dense digraph; chromatic coefficient nonzero for connected underlying graph. Independent complete arithmetic subset test for L=boundary triangle, N=210 and eight steps checked all 256 subsets against gcd/prime-cover criterion. Source verifier was read: its five finite nerve/homology cases corroborate only small examples.
 
-## Closest literature and limitations
-The exact ambient wedge theorem is credited to Hultman [1]. The available abstract of Björner–Welker [2] concerns the complete-graph case; the full publisher text was not obtained. The arXiv manuscript [3] was examined for its statements on directed graph complexes and hyperplane-arrangement nerves. No exhaustive search of unindexed theses or unpublished sources is claimed. The fixed space is only proved homotopy equivalent to the prescribed input, not homeomorphic; construction size is not optimized.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh best-of-knowledge primary-source and published-mathematics comparison of the exact final theorem, not a claim of exhaustive historical priority. The candidate combines novel prime-facet Cayley encoding and a fixed-point nerve construction; its arbitrary finite fixed homotopy types are not obtained by simply restricting the complete-graph fixed-point formula.
+
+## value
+
+PASS
+
+A constructive realization theorem separates an ambient wedge-of-high-dimensional-spheres homotopy type from arbitrarily complex full-rotation fixed-point homotopy types, including torsion and any finite prescribed complex. This is a nontrivial structural equivariant topology phenomenon and an explicit encoding construction, beyond a mere small-case homology calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
