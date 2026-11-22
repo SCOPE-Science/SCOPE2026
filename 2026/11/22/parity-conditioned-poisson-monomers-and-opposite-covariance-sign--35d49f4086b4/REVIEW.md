@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The enumeration of matchings by the three uncovered-site counts follows from selecting unmatched vertices, grouping each occupied shore by its edge-partner shore, and bijectively matching the three pairs. For fixed total deficit \(R=2j+arepsilon\), each exact Gibbs weight is the parity-conditioned Poisson reference weight multiplied by three explicit factorial ratios and, for odd order, one bounded activity prefactor. The factorial ratios lie in \([0,1]\) and have all-size quadratic error bounds, yielding the displayed total-variation inequalities. A uniform factorial envelope permits convergence of first and second factorial moments; conditional multinomial splitting gives distinct-part and distinct-site covariance limits of opposite signs. In particular, the two-site result includes two vertices on the same shore, for which the relevant observable is \(U_i(U_i-1)\), not \(U_i^2\). An independent finite-state recurrence and the exact formula agree for \(1\le n\le5\); the standalone checker passed 344785 supplementary assertions. The infinite theorem is supported by the written proof, not inferred from finite experiments.
+
+## Originality — PASS, provisional
+
+The 1970 Heilmann–Lieb paper gives general equilibrium monomer–dimer foundations, and the examined 2016 mean-field review treats mainly complete-graph finite-density regimes, not the near-perfect \(K_{n,n,n}\) parity-conditioned joint law. OEIS A297527 identifies maximum matching totals but does not supply nonmaximal three-shore distributions. The inspected 2025 path-tree analysis concerns \(K_{1,s,t}\), not the present balanced graph and scaling law. The 2015 arXiv paper could be read only at abstract level; a full-text comparison was not available. Existing complete-bipartite results constrain the difference of two monomer counts exactly; a third independent shore creates a different parity-only constraint, so the earlier bipartite Bessel law cannot imply the three-shore covariance sign change. The relevant recorded tripartite dimer *adsorption* findings analyze irreversible greedy kinetics, not an equilibrium Gibbs matching measure. Actual research-record queries targeted aliases, parity-conditioned Poisson limits, matching tables, spatial covariance, and complete tripartite matchings. No dominating previously established claim was identified in the sources examined. A larger unexamined source, and a potentially equivalent unrecognized matching-generating-function specialization, remain historical-priority risks.
+
+## Mathematical value — PASS
+
+Near-perfect matchings in dense multipartite gases are a canonical high-activity regime. Their spatial vacancy correlations need not have the same sign as on bipartite graphs. The result gives an exact joint limiting distribution with an explicit all-size error bound and proves a sharp even/odd reversal of the leading connected pair correlation for both within-shore and between-shore sites. These are physically meaningful spatial observables and an infinite-family structural distinction, not a routine recounting of maximum matchings.
+
+## Closest literature and limits
+
+Heilmann and Lieb, *Physical Review Letters* 24 (1970), DOI 10.1103/PhysRevLett.24.1412, foundational matching gas; Alberici et al., arXiv:1506.04241, mean-field complete-graph limit theorem (abstract examined); Alberici et al., arXiv:1612.09181, mean-field review (available full text inspected); OEIS A297527, maximum matching enumeration; Ma, *Applied Mathematics* 16 (2025), DOI 10.4236/am.2025.167030, a different tripartite path-tree matching polynomial. The result assumes fixed \(c>0\), exact balancing and uniform dimer activity; it does not assert covariance signs at arbitrary finite \(n\) or universal phase transitions. The literature investigation is bounded and historical priority is not independently established.
+
+Self-review: passed. Independent audit: not yet performed.
