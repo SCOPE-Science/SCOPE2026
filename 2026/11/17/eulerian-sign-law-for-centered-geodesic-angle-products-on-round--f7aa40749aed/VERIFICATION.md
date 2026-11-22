@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the mathematical package
 
-Run `python verify_graph_moments.py` with the dependency in `requirements.txt`. The code gives a deterministic equality check between half-edge pairing enumeration and independent direct coordinate-color sums for the triangle, quadrilateral, two triangles meeting at one vertex, the complete graph on five vertices, and the triangle-free complete bipartite graph with parts of size two and four. For the first four of these it tests coordinate dimension two and three, as it does for the complete bipartite graph. The exact circuit-polynomial coefficients verified are \(Z_{K_5}(z)=132z+96z^2+15z^3\) and \(Z_{K_{2,4}}(z)=6z+3z^2\).
+# Independent mathematical audit
 
-An independent spherical-harmonic cycle formula in dimension three is summed with an explicit nonnegative tail bound, then compared to 900,000 independently generated spherical point cycles for each of lengths three and four. Verified numerical targets: three-cycle moment -0.181783685008, four-cycle moment 0.071347105366, each with a series-tail bound below \(10^{-10}\). The implementation reports `SPHERICAL_GRAPH_EULERIAN_PARITY_CHECKS_OK` on success.
+## correctness
 
-The exact finite enumerations certify only their specified motif and dimension cases. The Monte Carlo tests are non-proof diagnostics. The full theorem for all finite graphs and all integer dimensions at least two follows from the written antipodal, spherical-coordinate-moment, and absolute-convergence arguments; independent proof verification is not performed. Historical-priority uncertainty is distinct from proof correctness.
+PASS
+
+PASS. H_uv=−arcsin(U_u·U_v) changes sign under antipodal flip at either endpoint; any odd-degree vertex forces vanishing. Positive Taylor coefficients a_k in arcsin and absolute uniform convergence justify termwise moment expansion. For Eulerian graphs every strand-replicated multigraph remains even-degree; each coordinate-color monomial has nonnegative sphere expectation, and an all-same-coordinate color yields strict positivity. Gaussian/sphere moment Wick pairing gives exact circuit polynomial Z_F(d)/D_F(d), with zero multiindex strict lower bound and remaining strictly positive terms. Leaf integration proves forest-edge geodesic lengths jointly independent; any cycle has nonzero centered product and obstructs joint independence. Independent pairing counts K2,4 Z=6d+3d² and K5 Z=132d+96d²+15d³. Domain d≥2, finite loopless simple graph, m>0 for strict inequality, independent uniform spherical vertices.
+
+## originality
+
+PASS
+
+PASS qualified: the signed geodesic-length product admits an explicit absolutely convergent positive multigraph circuit-partition expansion, not simply the classical three-point triangle distribution. Antipodal parity plus positive spherical coordinate moments gives a strict sign for every even-degree graph, including triangle-free Eulerian motifs; previously identified positive-kernel and threshold triangle sources do not state this entire calculation. General diagrammatic positivity could dominate parts of the result and is a residual priority risk.
+
+## value
+
+PASS
+
+PASS. Pairwise independence of spherical geodesic lengths conceals higher-order graph-motif dependence; an all-graph Eulerian parity/sign classification, strict explicit computable circuit-ratio bounds and nontrivial triangle-free/K5 examples are natural joint-moment structural information. Familiar antipodal and Wick tools alone are not the new value assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

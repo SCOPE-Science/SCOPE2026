@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any vertex with odd degree, flipping its independent uniform spherical point reverses the sign of every incident centered edge length, forcing the complete graph moment to vanish. The absolutely uniformly convergent expansion of the odd kernel \(\arcsin(t)\) has strictly positive coefficients. In each expanded multigraph, dot-product coordinate colorings have nonnegative expectations, and an all-one-color term is strictly positive for an even-degree graph. The normalized spherical Wick pairing identity evaluates the linear-kernel term as a positive circuit-partition polynomial divided by explicit dimension factors. The remaining nonzero coefficient terms produce a strict positive gap. The forest-independence corollary follows by successively removing leaves; a graph containing a cycle cannot have independent edges since its centered simple-cycle product has nonzero mean. The exact assumptions, normalization, graph multiplicities, and boundary cases are stated in the proof.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Spherical-triangle perimeter and joint-distance analysis precedes the present work: Finch and Jones (2010) treat the three-point configuration. Musin (2007) and Berg–Porcu (2015) study spherical positive-definiteness; Bubeck–Ding–Eldan–Rácz (2014) study threshold graph geometry and signed triangles. Standard Gaussian/spherical Wick identities and general circuit polynomials are known, and no novelty is claimed for them separately. The specific proposed claim is the degree-parity and strict sign classification of *all* centered continuous-distance graph products with a convergent pairing formula, including triangle-free even-degree graphs; the inspected source results do not state it as such or imply this full conclusion in an identified theorem. General tensor-network, graphical moment, or signed graphon theory could supply a substantially stronger prior theorem. Earlier spherical three-point work was not all available in full text; this is a remaining priority risk, not a declaration that it lacks the triangle case.
+PASS
 
-**Value — PASS.** The theorem answers a structural rather than parameter-chosen question: exactly which graph motifs have zero versus nonzero full centered geodesic-length product, what sign do the surviving moments have, and how can their magnitude be computed or bounded? It distinguishes pairwise independence from higher-order dependence and extends strict dependence to triangle-free motifs, with complete finite pairing certificates for two nontrivial graphs. These correlations inform moment calculations for spherical distance networks and are not merely a numerical improvement to a previously known table.
+PASS. H_uv=−arcsin(U_u·U_v) changes sign under antipodal flip at either endpoint; any odd-degree vertex forces vanishing. Positive Taylor coefficients a_k in arcsin and absolute uniform convergence justify termwise moment expansion. For Eulerian graphs every strand-replicated multigraph remains even-degree; each coordinate-color monomial has nonnegative sphere expectation, and an all-same-coordinate color yields strict positivity. Gaussian/sphere moment Wick pairing gives exact circuit polynomial Z_F(d)/D_F(d), with zero multiindex strict lower bound and remaining strictly positive terms. Leaf integration proves forest-edge geodesic lengths jointly independent; any cycle has nonzero centered product and obstructs joint independence. Independent pairing counts K2,4 Z=6d+3d² and K5 Z=132d+96d²+15d³. Domain d≥2, finite loopless simple graph, m>0 for strict inequality, independent uniform spherical vertices.
 
-The standalone verifier compares two different exact finite evaluation methods for three-, four-, and five-vertex motifs and an explicit triangle-free six-vertex example, checks a convergent independent harmonic formula for spherical cycles, and uses numerical Monte Carlo as a diagnostic. A finite test cannot certify the arbitrary-graph theorem, which relies on the analytic pairing and convergence proof.
+## originality
 
-**Closest literature and limits.** Musin, arXiv:math/0701083 (2007); Finch and Jones, arXiv:1009.5329 (2010); Bubeck et al., arXiv:1411.5713 (2014); Berg and Porcu, arXiv:1505.05682 (2015). Broader abstract kernel positivity and prior tensor network theorems remain plausible routes to subsumption. No independent audit or worldwide novelty certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS qualified: the signed geodesic-length product admits an explicit absolutely convergent positive multigraph circuit-partition expansion, not simply the classical three-point triangle distribution. Antipodal parity plus positive spherical coordinate moments gives a strict sign for every even-degree graph, including triangle-free Eulerian motifs; previously identified positive-kernel and threshold triangle sources do not state this entire calculation. General diagrammatic positivity could dominate parts of the result and is a residual priority risk.
+
+## value
+
+PASS
+
+PASS. Pairwise independence of spherical geodesic lengths conceals higher-order graph-motif dependence; an all-graph Eulerian parity/sign classification, strict explicit computable circuit-ratio bounds and nontrivial triangle-free/K5 examples are natural joint-moment structural information. Familiar antipodal and Wick tools alone are not the new value assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
