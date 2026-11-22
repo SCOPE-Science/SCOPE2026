@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T15:59:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every real x decomposes exactly into the constant vector plus signed prefix step vectors u^(t) weighted by adjacent differences, with V(x) their coefficient l1 norm. C_n fixes constants, is positive and preserves nonincreasing sequences; for any power the step output has first coordinate one and variation 1-sum_{j<=t}(C_n^m)_{n j}. Positivity makes t=1 uniquely largest for m>=1 and equality forces the other step coefficients zero; m=0 excluded from rigidity. The Markov interpretation of C_n as uniform downward transitions has absorbing state one and hitting PGF f_n(z)=z prod_{j=2}^n (j-1)/(j-z), via first-step recursion (j-z) f_j=(j-1) f_{j-1}. Thus 1-(C_n^m)_{n1}=Pr(T_n>m) for all n,m. Each G_j has mean 1/(j-1), variance j/(j-1)^2, absolute centered third moment O(1/j); Berry–Esseen for independent triangular array yields error O((log n)^-1/2) because total third moment O(log n) and s_n^2=log n+O(1). Independently exact-rational recomputation for n=2..8 and m=0..6 reproduced each matrix-power last-row entry, the geometric convolution and every step sharp norm. Finite checks corroborate; the all-n statement follows from exact algebra and Berry–Esseen.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akhmedov–Başar 2008 Theorem 3.1 analyzes an infinite sequence-space bv_p operator, including initial-coordinate control; the current finite quotient seminorm has constant nullspace.",
+          "Adell–Lekuona sharp estimates address fixed-space sup norm or alternative functional setups; no checked theorem directly implies uniform n,m distributional cutoff."
+        ],
+        "reasoning": "The underlying Cesàro operator is shared, but the operator norms, dimension limits, and test directions differ. A full stronger result could potentially imply the hitting law, but no inspected statement covers all three of sharp norm, rigidity and cutoff.",
+        "searches": [
+          "finite Cesaro prefix averaging powers path total variation sharp norm Gaussian mixing cutoff hitting time independent geometric",
+          "Akhmedov Basar finite and infinite Cesaro operator bv_p norm spectral powers",
+          "Adell Lekuona Proposition 2.3 supremum Cesaro iterates"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1090/S0002-9939-09-10127-2",
+        "https://www.researchgate.net/publication/243067145_Rates_of_convergence_for_the_iterates_of_Cesaro_operators",
+        "doi:10.18926/mjou/33130",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adell–Lekuona kernels can supply entries of C_n^m; only with a separate sharp V operator-norm reduction, an exact absorbing-chain factorization and a growing-dimension limit does the stated theorem follow.",
+          "Gini amplification theorem is in a different seminorm and treats one C_n application, although it independently mentions the known one-step path contraction."
+        ],
+        "reasoning": "Prior works provide essential machinery and the trivial m=1 special case, but do not logically entail the combined theorem by mere statement; original contribution is the sharp m-dependent path variation cutoff, not general Cesàro power theory.",
+        "searches": [
+          "finite Cesaro prefix averaging powers path total variation sharp norm Gaussian mixing cutoff hitting time independent geometric",
+          "Adell Lekuona 2010 Rates of convergence for the iterates of Cesaro operators Proposition 2.3",
+          "Resultary 2026/11/17 Sharp logarithmic Gini amplification by finite Cesaro averaging full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adell–Lekuona (2009/2010) establishes Cesàro power integral/binomial mixture formulas and sup-norm estimates, different from the path-variation quotient norm and joint growing-n transition.",
+          "The pure-death downward chain hitting process gives an equivalent statement to the last-row entry; independent geometric factorization appears by exact PGF recursion."
+        ],
+        "reasoning": "Equivalent norm and hitting-time formulations were explicitly compared against earlier Cesàro powers; kernel representations alone do not assert the path-variation extremizer classification or Gaussian cutoff.",
+        "searches": [
+          "finite Cesaro prefix averaging powers path total variation sharp norm Gaussian mixing cutoff hitting time independent geometric",
+          "Adell Lekuona rates of convergence iterates Cesaro operators probabilistic representation 2009",
+          "finite Cesaro Markov chain downward uniform path variation norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full published 2026/11/17 Gini finding gives one-step norm ((n+1) H_n-2n)/(n-1) for pairwise variation, and explicitly contrasts adjacent-path one-step contraction 1-1/n.",
+          "The audited current theorem gives every positive power in path variation plus a continuous Gaussian cutoff, not a finite pretabulated invariant."
+        ],
+        "reasoning": "The one-step path norm L_{n,1}=1-1/n is already standard/covered; the whole m-dependent survival law, unique power extremizers and Gaussian window have additional nontrivial content.",
+        "searches": [
+          "finite Cesaro prefix averaging powers path total variation sharp norm Gaussian mixing cutoff hitting time independent geometric",
+          "Resultary 2026/11/17 SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96",
+          "finite Cesaro powers last row inverse harmonic values OEIS Markov chain hitting law"
+        ]
+      },
+      "rationale": "Adell and Lekuona supply earlier power kernels and mixture formulas, potentially enough to recover the Markov marginal, and Akhmedov–Başar treat infinite bv_p. The audited new contribution is the combined finite path-variation operator norm, unique extremizers and joint dimension/power Gaussian window. The separate Resultary Gini-variation theorem for the same C_n has a complete-graph seminorm and one application, so does not dominate this path-power cutoff.",
+      "residual_risks": [
+        "Prior Markov-chain or probabilistic Cesàro literature may contain equivalent independent-geometric hitting factorization or cutoff under non-operator terminology.",
+        "The one-step variation norm is already covered and is not separately claimed original.",
+        "The source literature comparison for the older Akhmedov–Başar paper relies on cited Theorem 3.1 and bibliographic material, not an independently audited full PDF."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier Cesàro power entries and sup norm estimates are acknowledged; no path-variation operator norm plus Gaussian joint cutoff theorem asserted",
+          "evidence": [
+            "Theorem 1.3 fixed-space rates; Proposition 2.3 mixture representation for power entries"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/243067145_Rates_of_convergence_for_the_iterates_of_Cesaro_operators; doi:10.1090/S0002-9939-09-10127-2",
+          "material_read": "Full publicly readable author-uploaded text, including problem setting, Theorem 1.3, Proposition 2.3, proofs and formula discussion",
+          "method": "Full-text HTML read and compared operator norm/sequence topology and asymptotics",
+          "title": "Rates of convergence for the iterates of Cesàro operators",
+          "trigger": "Same operator powers and potentially dominating probabilistic formula"
+        },
+        {
+          "assessment": "Covers one-step pairwise variation and records the path one-step special case; no powers or Gaussian cutoff",
+          "evidence": [
+            "Finding formula Gini one-step gain; limitation explicitly excludes all iterates"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md",
+          "material_read": "Entire RESULT.md, statement, path-variation comparison, multi-step exclusions and proof",
+          "method": "Connected GitHub fetch of complete published scientific text",
+          "title": "Sharp logarithmic Gini amplification by finite Cesàro averaging",
+          "trigger": "Exact same matrix, alternative natural seminorm and known one-step path norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite path-variation power norm and its random hitting-time representation identify a nontrivial dimension-dependent mixing scale and sharp extremizers for a canonical averaging operator. A Gaussian cutoff after log n steps with sqrt(log n) window is a meaningful natural asymptotic; it is not a routine restatement of fixed-dimensional spectral convergence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1090/S0002-9939-09-10127-2",
+    "https://www.researchgate.net/publication/243067145_Rates_of_convergence_for_the_iterates_of_Cesaro_operators",
+    "doi:10.18926/mjou/33130",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-sharp-logarithmic-gini-amplification-by-finite-ces-ro-averaging--f64323950b96/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For finite prefix Cesàro averaging C_n on the real n-path, its sharp power norm in adjacent-edge total variation is the survival probability of T_n=1+sum_{j=2}^n independent geometric G_j; all m>=1 nonconstant extremizers are first-coordinate spikes modulo constants, and norm decay undergoes a uniform Gaussian cutoff centered at H_{n-1}+1 with width sqrt(log n).",
+  "limitations": [
+    "Scope exactly as defined in the final theorem; cited source-access and priority risks do not constitute a mathematical impossibility proof.",
+    "Finite checks corroborate analytic or complete finite-state certificates; logs and bounded numerics alone are not infinite proofs.",
+    "Publication withheld pending verified neutralization of existing operational source metadata."
+  ],
+  "residual_risks": [
+    "Prior Markov-chain or probabilistic Cesàro literature may contain equivalent independent-geometric hitting factorization or cutoff under non-operator terminology.",
+    "The one-step variation norm is already covered and is not separately claimed original.",
+    "The source literature comparison for the older Akhmedov–Başar paper relies on cited Theorem 3.1 and bibliographic material, not an independently audited full PDF."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the finite-Cesàro path-variation cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the exact operator seminorm of the uniform finite prefix-Cesàro matrix on adjacent-edge variation, at every dimension and every nonnegative integer power, together with the joint dimension/iteration Gaussian profile. The path-step decomposition is an identity, the Cesàro matrix preserves monotonicity, and strict last-row positivity gives both the sharp norm and all equality cases for positive powers. The Markov first-step recursion is solved from the correct base case at state two. The resulting factors are exactly the generating functions of independent zero-based geometric laws. Their elementary first, second and third-moment estimates meet the hypotheses of the non-identically distributed Berry–Esseen theorem. Exact rational matrix/step/chain comparisons and signed-vector diagnostics were executed from the standalone checker. The finite checks corroborate, but do not replace, the proof for arbitrary dimensions.
+## correctness
 
-## Originality — PASS, qualified
-Adell–Lekuona (2009 electronic publication; 2010 print) explicitly derive a probabilistic representation of iterated discrete Cesàro averaging, so the general iteration kernel and access to its matrix entries are established prior knowledge. Their Proposition 2.3 and fixed-space convergence estimates do **not** state the norm in the finite *path-variation quotient*, identify all its extremizers, or prove the joint \(n,m\) Gaussian operator-norm cutoff. Akhmedov–Başar (2008) compute the norm and spectrum of the infinite Cesàro operator on \(bv_p\), with a different boundary-sensitive norm, not the finite adjacent-difference quotient and not a dimension-dependent cutoff. Other indexed comparisons for finite Cesàro defect/self-commutator or Cesàro sequence-space shift norms concern other maps and norms. The checked published literature and mathematical-record searches revealed no statement covering the combined theorem. Residual risk: an older absorption-time law or probabilistic Cesàro calculation might imply the Gaussian transition under an unindexed name. This is a same-model, not independent, assessment of priority.
+PASS
 
-## Mathematical value — PASS
-A classical averaging operator is norm-one on some infinite variation sequence spaces, yet each finite path-variation quotient contracts at positive powers. The result exactly quantifies how iteration count must scale with dimension before contraction occurs: a logarithmic center and Gaussian square-root-log window, with a universal profile and unique norming direction. Such a uniform finite-section rate is not supplied by fixed-space convergence estimates. The result is a natural, mathematically motivated structural theorem, not merely a finite table, numerical observation or parameter substitution.
+Every real x decomposes exactly into the constant vector plus signed prefix step vectors u^(t) weighted by adjacent differences, with V(x) their coefficient l1 norm. C_n fixes constants, is positive and preserves nonincreasing sequences; for any power the step output has first coordinate one and variation 1-sum_{j<=t}(C_n^m)_{n j}. Positivity makes t=1 uniquely largest for m>=1 and equality forces the other step coefficients zero; m=0 excluded from rigidity. The Markov interpretation of C_n as uniform downward transitions has absorbing state one and hitting PGF f_n(z)=z prod_{j=2}^n (j-1)/(j-z), via first-step recursion (j-z) f_j=(j-1) f_{j-1}. Thus 1-(C_n^m)_{n1}=Pr(T_n>m) for all n,m. Each G_j has mean 1/(j-1), variance j/(j-1)^2, absolute centered third moment O(1/j); Berry–Esseen for independent triangular array yields error O((log n)^-1/2) because total third moment O(log n) and s_n^2=log n+O(1). Independently exact-rational recomputation for n=2..8 and m=0..6 reproduced each matrix-power last-row entry, the geometric convolution and every step sharp norm. Finite checks corroborate; the all-n statement follows from exact algebra and Berry–Esseen.
 
-## Boundaries and priority risks
-The proof is specific to uniform prefix averages and unweighted adjacent variation. It does not establish a corresponding cutoff for arbitrary stochastic matrices, weighted means, or other graph geometries. The cited 2009 paper already develops probabilistic representations for these same Cesàro iterates; publication review should assess carefully whether its representation, or an earlier equivalent Markov-chain representation, has been used previously to state a joint finite-section cutoff.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adell and Lekuona supply earlier power kernels and mixture formulas, potentially enough to recover the Markov marginal, and Akhmedov–Başar treat infinite bv_p. The audited new contribution is the combined finite path-variation operator norm, unique extremizers and joint dimension/power Gaussian window. The separate Resultary Gini-variation theorem for the same C_n has a complete-graph seminorm and one application, so does not dominate this path-power cutoff.
+
+## value
+
+PASS
+
+The exact finite path-variation power norm and its random hitting-time representation identify a nontrivial dimension-dependent mixing scale and sharp extremizers for a canonical averaging operator. A Gaussian cutoff after log n steps with sqrt(log n) window is a meaningful natural asymptotic; it is not a routine restatement of fixed-dimensional spectral convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

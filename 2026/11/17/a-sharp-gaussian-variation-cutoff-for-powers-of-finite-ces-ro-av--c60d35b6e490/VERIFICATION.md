@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Exact reproducibility checks
+# Independent mathematical audit
 
-Execute `python verify_cesaro.py` with standard Python 3. No third-party packages or external documents are required.
+## correctness
 
-The script uses `fractions.Fraction` in all asserted equalities. It independently constructs prefix-Cesàro matrices and their powers, compares the lowest-first matrix entry with an independently convolved geometric survival probability, verifies the exact path-step upper bound and strict maximizers, checks generating functions and moments, and tests general signed finite inputs. Expected successful output:
+PASS
 
-```
-EXACT_GEO_CDF_MATRIX_ENTRY_AND_ALL_STEP_EXTREMIZERS_PASSED 450
-EXACT_GEOMETRIC_PGF_MEAN_VARIANCE_IDENTITIES_PASSED 18
-EXACT_GENERAL_SIGNED_VARIATION_INEQUALITIES_PASSED 5430
-ALL_FINITE_CESARO_VARIATION_CHECKS_PASSED
-```
+Every real x decomposes exactly into the constant vector plus signed prefix step vectors u^(t) weighted by adjacent differences, with V(x) their coefficient l1 norm. C_n fixes constants, is positive and preserves nonincreasing sequences; for any power the step output has first coordinate one and variation 1-sum_{j<=t}(C_n^m)_{n j}. Positivity makes t=1 uniquely largest for m>=1 and equality forces the other step coefficients zero; m=0 excluded from rigidity. The Markov interpretation of C_n as uniform downward transitions has absorbing state one and hitting PGF f_n(z)=z prod_{j=2}^n (j-1)/(j-z), via first-step recursion (j-z) f_j=(j-1) f_{j-1}. Thus 1-(C_n^m)_{n1}=Pr(T_n>m) for all n,m. Each G_j has mean 1/(j-1), variance j/(j-1)^2, absolute centered third moment O(1/j); Berry–Esseen for independent triangular array yields error O((log n)^-1/2) because total third moment O(log n) and s_n^2=log n+O(1). Independently exact-rational recomputation for n=2..8 and m=0..6 reproduced each matrix-power last-row entry, the geometric convolution and every step sharp norm. Finite checks corroborate; the all-n statement follows from exact algebra and Berry–Esseen.
 
-All four lines were observed from the included script before packaging. The program verifies finite cases only (dimensions \(2\)–\(10\), powers \(0\)–\(9\) for the main identity and step cases, and selected signed vectors and moments), and is **not** an exhaustive test over all real signals or all dimensions. The proof of the unrestricted exact norm, uniqueness, independent-geometric factorization, and Berry–Esseen cutoff is in `RESULT.md`. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Adell and Lekuona supply earlier power kernels and mixture formulas, potentially enough to recover the Markov marginal, and Akhmedov–Başar treat infinite bv_p. The audited new contribution is the combined finite path-variation operator norm, unique extremizers and joint dimension/power Gaussian window. The separate Resultary Gini-variation theorem for the same C_n has a complete-graph seminorm and one application, so does not dominate this path-power cutoff.
+
+## value
+
+PASS
+
+The exact finite path-variation power norm and its random hitting-time representation identify a nontrivial dimension-dependent mixing scale and sharp extremizers for a canonical averaging operator. A Gaussian cutoff after log n steps with sqrt(log n) window is a meaningful natural asymptotic; it is not a routine restatement of fixed-dimensional spectral convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
