@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The minimal-empty-intersection lemma rules out all additional higher faces beyond the exceptional \(r\)-simplices. The restricted-cover nerve square identifies each attaching map, rather than guessing from Euler characteristics, and the skeleton matching proves the integral wedge formula. Finite exhaustive face and mod-two rank tests provide independent small-parameter corroboration. The theorem is nonequivariant and no finite test is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with remaining risk.** Huber–Schnider define higher flagification and prove low-degree transpose duality; their already-known \(r=2,n=4\) tetrahedral example is expressly not novel. Their inspected statement and proof do not determine the entire higher-rank uniform incidence family. The closest additional published rank-selected finite-space neighborhood nerve classifies a different object in degree \(k-1\), so it does not imply the degree-\(r\) transpose-Dowker attaching theorem. Unindexed equivalent work remains a bibliographic risk; unsuccessful search is not proof of absolute novelty.
+PASS
 
-**Mathematical value — PASS.** Arbitrarily large higher-dimensional defects show the exact guaranteed homological range is best possible for **every** higher-flagification arity. The structural cell-attachment classification is a natural extension of the original discrepancy and is not obtained from the earlier one-case example by a parameter substitution.
+From the actual RESULT.md, D_X is the (r-1)-skeleton on n point vertices, hence its r-flagification is a simplex. For D_Y on the r-subsets, minimal Helly obstruction with all r-fold intersections nonempty has exactly r+1 members A_i=T\{x_i}; an additional r-subset meeting all relevant pairs of T would duplicate one A_i. Thus F_r(D_Y) attaches exactly one r-simplex for each |T|=r+1. The standard vertex-star simplex cover of D_Y has nerve skel_(r-1) Delta^(n-1), and its restriction to each attaching boundary has nerve boundary Delta_T; the natural compatible nerve equivalences preserve attaching maps. The pushout is skel_r Delta^(n-1); acyclic simplex matching gives integral wedge of binom(n-1,r+1) S^r, for every r>=2,n>=r+2. Direct combinatorial small-case checks confirmed four sample exceptional-face counts, but no finite check is substituted for the integral homotopy argument.
 
-The result does not address general relations, integral equivariance, or arbitrary persistence diagrams. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This extends the previously documented r=2,n=4 tetrahedral incidence witness to a full uniform-incidence family in all higher arities and exact arbitrary homology rank. Prior Huber--Schnider lower-degree duality does not imply the first failing degree, and ordinary Dowker duality applies before nonlinear flagification. Resultary semantic search returned no stronger alternate same-family theorem besides the audited result; primary full-text comparison is limited by access and remains a named risk.
+
+## value
+
+PASS
+
+A sharp infinite arity-parameter counterfamily identifying exactly the first degree of failure of the higher-flagified duality bound, with arbitrarily large integral obstruction ranks, is a mathematically motivated boundary classification rather than a small single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
