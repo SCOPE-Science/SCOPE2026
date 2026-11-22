@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies a locally constant permutation character on every invariant unordered pair; the trivial character gives precisely the configurations on the common fixed subtree. Every nontrivial character reduces to the free involution on the difference between two nested convex fixed subtrees. Each complementary branch is convex, and no branch can be invariant under the involution without containing a fixed arc midpoint, so nontrivial sectors are disjoint unions of contractible components. The classical two-strand tree Morse complex supplies the only possible circle wedge, with the stated degree formula. Edge reversals, a singleton fixed subtree, noncyclic subgroups, and empty sectors are covered. A finite independent sample check supports, but does not prove, the set-theoretic decomposition.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Farley–Sabalka gives the underlying configuration-space Morse model and circle rank, not the subgroup-fixed spaces. Rourke–Sanderson develops equivariant configurations on manifolds and scanning equivalences, not this tree fixed-locus theorem. The closest publicly indexed tree result determines the complete rational automorphism character of ambient first homology, which does not determine fixed-point components or their homotopy types. Searches for equivalent formulations, index-two stabilizers, and general dominating classifications yielded no identified implication. The relevant indexed tree representation result was accessible through its summary only; this is a stated residual risk and cannot establish absolute priority.
+PASS
 
-**Mathematical value — PASS.** A uniform explicit topological classification for **all** subgroups of **all** finite tree automorphism groups is a natural fixed-space problem distinct from ambient homology representations. The formula identifies every connected component, whether it has loops, and its exact integral homology, using only subgroup fixed subtrees and index-two characters. A five-arm star already has an involution-fixed locus homotopy equivalent to a circle plus an isolated point, behavior invisible from a nonequivariant circle-wedge count.
+A fixed unordered pair determines a unique locally constant H→C2 interchange character; the trivial sector is UConf_2(F) for the H-fixed subtree F, nontrivial χ has kernel K and is (X^K\F)/C2 via x↦{x,gx}. Finite-group isometric fixed sets of a tree are nonempty convex subtrees. An involution with fixed subtree F cannot preserve any component of X^K\F: the midpoint of a segment joining x and gx would be a fixed point inside that component. Branch pairs are homeomorphic to open contractible subtrees, and UConf_2(F) for nondegenerate F is connected with free rank β(F)=∑_v binom(deg_F(v)-1,2) in H1 by the two-strand Farley–Sabalka cell count. F a singleton gives empty trivial sector. Pair-count and no higher homology follow. The theorem is for unordered two points only and uses geometric, not only vertex, fixed sets.
 
-Primary literature: Farley–Sabalka (arXiv:math/0410539, Sections 3–4) and Rourke–Sanderson (2000, Sections 1–4). Closest relevant indexed result: *The full automorphism character of two-point configuration spaces of finite trees* (2026-11-01). Scientific limitation: finite trees, two unordered distinct particles only; no independent external mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Farley–Sabalka Morse theory supplies the ordinary two-strand wedge rank. The prior complete tree-automorphism character determines the rational H1 action, not the geometric fixed locus. Comparing their statements shows that they do not imply the character-indexed clopen sectors or number of fixed configurations components. Originality is bounded by the specific literature inspected.
+
+## value
+
+PASS
+
+A uniform and explicit component decomposition of all subgroup fixed loci for two unlabeled agents on arbitrary finite trees reveals equivariant spatial information invisible to the nonequivariant graph-braid rank or the rational character of the ambient H1. It identifies precisely when loops persist, and computes both component counts and integral H1 ranks from fixed subtrees. These are natural invariants of tree configuration spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

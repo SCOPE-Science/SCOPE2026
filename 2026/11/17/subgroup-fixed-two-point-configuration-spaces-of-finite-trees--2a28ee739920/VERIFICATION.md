@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The program `verify_tree_fixed.py` enumerates the six nonisomorphic trees on six vertices, their graph automorphisms and 194 generated subgroup actions. It subdivides each edge once to sample its endpoints and midpoint. For each subgroup it enumerates all invariant unordered distinct sample-vertex pairs and computes the action on their two points. It independently constructs fixed subsets of sample vertices for each occurring index-two kernel and verifies that every nontrivial pair is obtained from exactly one exchanged orbit of complementary subtrees, and that the remaining pairs are precisely unordered pairs of globally fixed sample points. The observed output is included verbatim in `verify_tree_fixed_output.txt`.
+## correctness
 
-The finite calculation examines 2,014 invariant sampled pairs (213 with nontrivial swap). It does not verify arbitrary points in an edge or the full homotopy classification; the proof uses convexity, unique arc midpoints, and the cited ordinary two-particle tree theorem. The program is not a proof of the infinite statement, and no external audit has been performed.
+PASS
+
+A fixed unordered pair determines a unique locally constant H→C2 interchange character; the trivial sector is UConf_2(F) for the H-fixed subtree F, nontrivial χ has kernel K and is (X^K\F)/C2 via x↦{x,gx}. Finite-group isometric fixed sets of a tree are nonempty convex subtrees. An involution with fixed subtree F cannot preserve any component of X^K\F: the midpoint of a segment joining x and gx would be a fixed point inside that component. Branch pairs are homeomorphic to open contractible subtrees, and UConf_2(F) for nondegenerate F is connected with free rank β(F)=∑_v binom(deg_F(v)-1,2) in H1 by the two-strand Farley–Sabalka cell count. F a singleton gives empty trivial sector. Pair-count and no higher homology follow. The theorem is for unordered two points only and uses geometric, not only vertex, fixed sets.
+
+## originality
+
+PASS
+
+The original Farley–Sabalka Morse theory supplies the ordinary two-strand wedge rank. The prior complete tree-automorphism character determines the rational H1 action, not the geometric fixed locus. Comparing their statements shows that they do not imply the character-indexed clopen sectors or number of fixed configurations components. Originality is bounded by the specific literature inspected.
+
+## value
+
+PASS
+
+A uniform and explicit component decomposition of all subgroup fixed loci for two unlabeled agents on arbitrary finite trees reveals equivariant spatial information invisible to the nonequivariant graph-braid rank or the rational character of the ambient H1. It identifies precisely when loops persist, and computes both component counts and integral H1 ranks from fixed subtrees. These are natural invariants of tree configuration spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
