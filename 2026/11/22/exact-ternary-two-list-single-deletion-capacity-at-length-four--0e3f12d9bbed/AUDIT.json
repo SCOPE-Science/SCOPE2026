@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Define distinct output shadow D(w) by four deletions. Verify ten orbits under alphabet relabeling and reversal, totaling all 81 inputs, with exact rational inequality sum_{y in D(w)}lambda(y)+mu(w)>=1. Output weights sum to 75/8, input slacks to 21/8, giving |C|<=171/8<22. A listed 21-word code gives exactly two distinct source words for every one of the 27 outputs. Its three conflict-shadow pairs have a triangle, proving the indicated nondecomposability. The embedded verifier reproduces all rational and finite checks without solver dependence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kiah--Wei--Zeng, arXiv:2609.21395v2, Theorem 28, states |C| <= L q^(n-t) / sum_{i=0}^t binomial(r+1-t,i) + q sum_{i=0}^{r-1} binomial(n-1,i)(q-1)^i.",
+        "At q=3,n=4,t=1,L=2, r=1,2,3 yield 30,39,70.5 respectively, none implying |C|<=21.",
+        "Lin arXiv:2609.26650 abstract states bounds for binary codes, not ternary exact finite n=4."
+      ],
+      "reasoning": "The strongest directly inspected general theorem lacks the requisite sharpness even when specialized exactly. Asymptotic binary coding bounds cannot imply this exact small ternary capacity.",
+      "searches": [
+        "arXiv:2609.21395v2 Theorem 28 Section 7.1 PDF full text",
+        "arXiv:2609.26650v1 abstract",
+        "short blocklength list-decodable deletion ternary q=3 n=4"
+      ]
+    },
+    "checked_sources": [
+      "Kiah--Wei--Zeng (2026), arXiv:2609.21395v2 Sections 1 and 7.1, Theorem 28",
+      "Lin (2026), arXiv:2609.26650v1 abstract",
+      "Published ternary length-four unique-deletion optimum 11 (2026-10-04, indexed summary)",
+      "Published binary two-list single-deletion finite spectrum (2026-11-02, indexed summary)",
+      "Published ternary length-five covering minimum 21 (2026-10-04, indexed summary)",
+      "Exact current-collection claim/parameter search through accessible earlier records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unique-deletion ternary maximum 11 bounds each uniquely decodable subcode but not all two-list codes, which need not be two-colorable.",
+        "Theorem 28 has best bound 30 here, whereas the new proof establishes an upper bound 171/8 < 22.",
+        "Published nondecomposable optimum at binary length seven concerns a different alphabet and length."
+      ],
+      "reasoning": "Neither a special case of a broader sharp theorem nor a trivial sum of known unique-decoding maxima is present; in fact the witness has a conflict triangle that prevents partition into two unique-decoding classes.",
+      "searches": [
+        "exact optimal ternary length-four two-list single-deletion code size 21",
+        "nondecomposable ternary two-list single deletion code length four triangle",
+        "arXiv:2609.21395v2 Section 7.1 Theorem 28",
+        "published-finding corpus 2026/11/2/SCOPE-first-nondecomposable-two-list-single-deletion-codebooks-at-leng--fcf59d2e1812"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The problem is equivalently 0--1 column packing in the 27-by-81 length-four-to-three deletion incidence matrix, with every row sum bounded by two.",
+        "Exact source-record searches for twofold deletion coverings and nondecomposable ternary two-list codes identified no equivalent 21-word maximum."
+      ],
+      "reasoning": "Reversal and alphabet relabeling preserve the 2-list incidence constraint; packing versus a twofold covering is distinguished by maximizing codebook size. The displayed witness is simultaneously a twofold-exact cover, but existing covering-minimum claims at other lengths are not equivalent.",
+      "searches": [
+        "exact optimal ternary length-four two-list single-deletion code size 21",
+        "21 codewords ternary length four list size two one deletion",
+        "minimum ternary 4 word one deletion double cover 27 received triples twice each 21 codewords",
+        "perfect twofold deletion incidence covering code 3 symbols block length 4",
+        "nondecomposable ternary two-list single deletion code length four triangle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest ternary length-four table gives unique-decoding max 11.",
+        "A ternary length-five single-deletion covering table gives minimum 21 for a different problem.",
+        "No searched source explicitly tabulated the requested q=3,n=4,t=1,L=2 maximum."
+      ],
+      "reasoning": "The coincident numerical value 21 in a length-five covering result is not the same incidence optimization. Search absence is evidence of no identified coverage only, not proof of novelty.",
+      "searches": [
+        "exact optimal ternary length-four two-list single-deletion code size 21",
+        "21 codewords ternary length four list size two one deletion",
+        "fractional shadow packing 171/8 two-list ternary words four",
+        "list size two ternary single deletion capacity at length four 21 exact",
+        "ternary four single deletion list size two maximum code 21 length 4",
+        "\"list-decodable\" \"ternary\" \"length 4\" \"21\" deletion",
+        "published-finding corpus id 2026/10/4/SCOPE-exact-ternary-length-four-single-deletion-code-size--6adacbb5cb97",
+        "published-finding corpus id 2026/10/4/SCOPE-exact-ternary-length-five-single-deletion-covering-number--fc12c4f98e83"
+      ]
+    },
+    "rationale": "The four-coordinate ternary two-list deletion incidence optimum is not the uniquely decodable capacity, binary list capacity, or a deletion-covering number. The accessible full-text of arXiv:2609.21395v2 gives a general run-counting upper bound of at best 30 at these parameters, so it cannot imply the sharp bound 21. The independently derived rational certificate and 21-word, two-fold-exact witness provide the exact missing finite invariant; relevant unindexed tables remain a priority risk.",
+    "residual_risks": [
+      "A nonindexed small-block list-code table might already state 21 or an equivalent hypergraph packing optimum.",
+      "The full text of Lin arXiv:2609.26650 and the two relevant published mathematical-record pages could not be retrieved; no whole-document noncoverage is asserted for those sources.",
+      "The inspected revised source paper (arXiv:2609.21395v2) was materially read only in relevant sections and searched for exact parameters; novelty is best-knowledge rather than priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides asymptotic-rate theorems and a general finite-length list converse, but no sharp ternary length-four list-two table; its finite converse specializes to a bound of 30.",
+        "evidence": [
+          "arXiv:2609.21395v2, page i and pages 26--27, Theorem 28; first public v1 was 2026-09-18"
+        ],
+        "identifier_or_url": "https://arxiv.cnoctave.top/pdf/2609.21395",
+        "material_read": "Full public preprint PDF contents and title page, definitions (Section 1), structure and relevant Section 7.1, including Theorem 28 and its proof; keyword search for q=3 and n=4",
+        "method": "PDF page screenshot and structured full-text navigation",
+        "title": "Exponentially Larger Deletion-Correcting Codes and Constant-List-Decodable Insertion-Deletion Codes",
+        "trigger": "Same list-decoding error channel and generic finite-length converses"
+      },
+      {
+        "assessment": "Explicitly binary and asymptotic in the inspected material; cannot conclude anything about an unseen table, but no positive coverage of ternary n=4 was found.",
+        "evidence": [
+          "arXiv:2609.26650v1 dated 2026-09-22; abstract binary length n fixed deletion k and list t"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+        "material_read": "Official bibliographic abstract and additional publicly displayed extract; full preprint PDF was not retrieved",
+        "method": "Abstract / public bibliographic text, with failed alternative PDF access",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Closely related 2026 fixed-list deletion-coding research"
+      },
+      {
+        "assessment": "States unique-code optimum 11, a genuinely different constraint from list size two.",
+        "evidence": [
+          "Indexed public summary: optimum 11 and structural obstruction to 12"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ternary-length-four-single-deletion-code-size--6adacbb5cb97",
+        "material_read": "Published title and indexed summary; repository full text unavailable",
+        "method": "Mathematical-record semantic search and implication check",
+        "title": "Exact ternary length-four single-deletion code size",
+        "trigger": "Exactly matching alphabet/blocklength/deletion budget but unique decoding"
+      },
+      {
+        "assessment": "Binary code of length seven; cannot imply ternary length-four optimum or witness.",
+        "evidence": [
+          "Indexed public summary: binary list-two optimum 33 at n=7 and nondecomposability"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-first-nondecomposable-two-list-single-deletion-codebooks-at-leng--fcf59d2e1812",
+        "material_read": "Published title and indexed summary; repository full text unavailable",
+        "method": "Mathematical-record semantic search and alphabet-specific comparison",
+        "title": "First nondecomposable two-list single-deletion codebooks at length seven",
+        "trigger": "Nondecomposable list-two code comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0e3f12d9-bbed-42e9-be54-47565c0edf34",
+  "value": {
+    "rationale": "The finite optimum determines a natural, previously uncalibrated fixed-list deletion capacity at the smallest nontrivial ternary scale: the list-two size is 21, strictly less than twice the known uniquely decodable maximum 11. An explicit perfect twofold received-word cover attains the bound despite having a nonbipartite conflict triangle, showing that optimal list decoding is not merely partitioned unique decoding. The fractional upper certificate makes the result an exact structural benchmark, not a routine sample count.",
+    "status": "PASS"
+  }
+}
