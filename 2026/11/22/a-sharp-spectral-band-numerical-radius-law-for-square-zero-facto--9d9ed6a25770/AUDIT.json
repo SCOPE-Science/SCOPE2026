@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the exact rank-one radius, reduces any nonzero square-zero factor to a norm-matched rank-one nilpotent for each test vector, and applies a positive spectral polynomial inequality. Approximate extreme spectral vectors establish optimality when endpoints are not eigenvalues. Strict concavity proves uniqueness, and endpoint asymptotics and attainment are checked. The bundled deterministic numerical checker passed 9,000 tests but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benabdi et al. (2022), entire four-page article: best constant 3sqrt(3)/4 for positive A and unrestricted B, without controlling inf spectrum A.",
+        "Gau, Huang and Wu (2008), Proposition 2 and Theorem 3: commute-assuming product inequalities with square-zero/idempotent first factor.",
+        "Bhunia, Jana and Paul (2021), Section 3: bounds for general products using modulus/powers rather than exact fixed spectral endpoints."
+      ],
+      "reasoning": "The unrestricted 2022 theorem has broader B but weaker constant whenever m>0, so it does not imply a sharp C(m/M); conversely the new theorem excludes non-square-zero B and is not a blanket sharpening of it. The 2008 commutation requirements do not hold for the two-dimensional extremizers, and its inequalities cannot imply an excess above one here. General 2021 estimates do not determine this optimization.",
+      "searches": [
+        "numerical radius of product positive definite matrix nilpotent matrix spectral interval sharp inequality",
+        "w(AB) w(B) positive A nilpotent B eigenvalues condition number sharp",
+        "numerical radius product positive invertible operator spectral gap minimum eigenvalue condition number and nilpotent rank one extremizer",
+        "positive spectral band mI <= A <= MI numerical radius w(AB) optimal constant 3sqrt3/4",
+        "doi:10.7153/oam-02-08",
+        "arxiv:2106.13949v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2102.01953v1",
+      "arxiv:2106.13949v1",
+      "doi:10.2298/FIL2204337B",
+      "doi:10.7153/oam-02-08"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "When r=0 the new formula reduces exactly to the established 2022 constant; this portion alone has no novelty.",
+        "For r>0 the exact C(r) is strictly less than 3sqrt(3)/4, so the universal theorem cannot give the claimed best refined constant.",
+        "The 2008 inequalities assume commutation; the present sharp factors are generally noncommuting.",
+        "The scalar optimum t_r, its unique extremizer and endpoint-eigenspace criterion follow from a new fixed-spectrum reduction, not from the quoted universal sharpness example."
+      ],
+      "reasoning": "The single claim is the full fixed-positive-factor sharp spectrum-only curve for square-zero B, including endpoint attainability. Earlier universal r=0 coverage is explicitly excluded from the novelty claim in isolation; the fixed-r>0 interpolation and optimizer statement is not a mere special case of earlier sharp constants.",
+      "searches": [
+        "doi:10.2298/FIL2204337B theorem 2.2 sharp example",
+        "doi:10.7153/oam-02-08 proposition 2 commuting square-zero",
+        "arxiv:2102.01953v1 theorem 2.12 product",
+        "arxiv:2106.13949v1 section 3 numerical radius product",
+        "numerical radius w(AB) positive A noncommuting square-zero B sharp spectral condition interval",
+        "extremal nilpotent square zero B and positive definite A numerical radius product optimal condition number function",
+        "product operator rank-one nilpotent B positive A spectral endpoints variance Kantorovich and sharp numerical radius"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The ratio for a rank-one square-zero second factor equals ||Au||+||Au-<Au,u>u||, normalized by ||A||.",
+        "The alternative spectral-variance formulation uses A^2 <= (m+M)A-mMI and is equivalent to the scalar profile F_r(t).",
+        "Benabdi et al. 2022 Theorem 2.2 gives only the r=0 uniform bound for arbitrary B."
+      ],
+      "reasoning": "Explicitly tested rank-one nilpotents, square-zero blocks, endpoint spectral variance, condition number, spectral floor and product-radius aliases; no retrieved literature or indexed claim identifies the spectral-band optimizer or endpoint eigenvalue attainment. The r=0 endpoint itself is known and not claimed separately as new.",
+      "searches": [
+        "sharp numerical radius inequality product positive operator square-zero nilpotent positive spectral bounds minimum eigenvalue condition number 2021 2022",
+        "numerical radius of product positive definite matrix nilpotent matrix spectral interval sharp inequality",
+        "w(AB) w(B) positive A nilpotent B eigenvalues condition number sharp",
+        "arxiv:2102.01953v1",
+        "doi:10.2298/FIL2204337B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed results on rank-one generalized q/rho radii, nilpotent shifts and Kantorovich-style spiked products concern different functions/objects.",
+        "No numerical table is needed or used: all parameter values are consequences of an analytic unique-maximizer formula."
+      ],
+      "reasoning": "Direct source, parameter-function, numerical-constant, spectral-ratio and nilpotent-product searches produced no known exact table/formula for C(r). A nonmatch is not proof of novelty; the comparisons are by object and implication.",
+      "searches": [
+        "numerical radius w(AB) positive A noncommuting square-zero B sharp spectral condition interval",
+        "extremal nilpotent square zero B and positive definite A numerical radius product optimal condition number function",
+        "product operator rank-one nilpotent B positive A spectral endpoints variance Kantorovich and sharp numerical radius",
+        "numerical radius square-zero product exact spectral band sharp table formula"
+      ]
+    },
+    "rationale": "The 2022 universal sharp positive-product bound has no nonzero-spectral-minimum dependence, and the 2008 square-zero result assumes commuting factors with the square-zero factor first. The exact best curve for all noncommuting square-zero second factors, fixed positive A, arbitrary Hilbert dimension, and endpoint attainment are not implied by either. Searches for synonymous spectral-band, condition-number, quadratic/nilpotent and numerical-radius formulations found no equivalent claim. Closely related accessible papers and indexed records were compared by their assumptions and implications, not their titles. Historical-priority uncertainty remains.",
+    "residual_risks": [
+      "Historical priority in specialized noncommuting quadratic-product inequalities not indexed by the searches remains uncertain.",
+      "A modern semidefinite-dual numerical-radius framework may imply the function after nontrivial specialization; no exact identical statement was identified.",
+      "Published-record semantic indexing is not an exhaustive novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the universal constant, not the full spectrum-dependent sharp function",
+        "evidence": "Theorem 2.2 and the explicit 2x2 final example; no lower-eigenvalue parameter in its claim.",
+        "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2022/36-4/36-4-20-16114.pdf",
+        "material_read": "Full four-page PDF (pp. 1337–1340), especially Lemma 2.1, Theorem 2.2 and final extremizer",
+        "method": "Full text and page images",
+        "title": "On the Inequality w(AB) ≤ c||A||w(B) where A is a Positive Operator",
+        "trigger": "Direct predecessor: sharp positive-product constant and rank-one nilpotent example"
+      },
+      {
+        "assessment": "Treats commuting quadratic first factors, not a noncommuting positive-times-square-zero product with optimal spectral-band dependence",
+        "evidence": "Proposition 2 requires A square-zero and AB=BA; our first factor is positive.",
+        "identifier_or_url": "https://files.ele-math.com/articles/oam-02-08.pdf",
+        "material_read": "Introduction, Proposition 1, Proposition 2, Theorem 3 and assumptions on pp. 137–139",
+        "method": "Public PDF text with first-page image",
+        "title": "Numerical Radius Inequalities for Square-zero and Idempotent Operators",
+        "trigger": "Plausible antecedent using exactly square-zero factors"
+      },
+      {
+        "assessment": "General bounds for products and commutators under other constraints, no C(r) interpolation",
+        "evidence": "Theorem 2.12 assumes |A|B=B*|A|; Theorem 3.2 concerns four-factor commutator-type sums.",
+        "identifier_or_url": "https://arxiv.org/html/2102.01953v1",
+        "material_read": "Full HTML sections 1–3, especially Theorem 2.12 and Theorem 3.2",
+        "method": "Lawful open-access full text",
+        "title": "Furtherance of Numerical Radius Inequalities of Hilbert Space Operators",
+        "trigger": "Date-verified source in the numerical-radius-product problem family"
+      },
+      {
+        "assessment": "General modulus and norm inequalities, not a sharp positive-spectral-interval square-zero constant",
+        "evidence": "Its Section 3 uses bounds on w(B*A) in terms of operator moduli rather than exact optimization over square-zero factors.",
+        "identifier_or_url": "https://arxiv.org/abs/2106.13949",
+        "material_read": "HTML abstract, introduction, Section 3 including Theorems 3.3 and 3.5",
+        "method": "Lawful open-access HTML full text",
+        "title": "Refined inequalities for the numerical radius of Hilbert space operators",
+        "trigger": "Potential stronger product inequalities in primary MSC 47A12"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9d9ed6a2-5770-4a5e-8cf8-f75a591617e3",
+  "value": {
+    "rationale": "It solves a natural sharp, dimension-independent spectral-conditioning refinement of the universal positive-product numerical-radius inequality for the whole square-zero class, with an optimal constant determined by exactly two spectral numbers. The result characterizes extremizer existence and gives critical singular/nearly scalar expansions, not an arbitrary parameter slice or a routine restatement of the known unconditioned constant.",
+    "status": "PASS"
+  }
+}
