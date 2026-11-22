@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Parity phase expansion gives the exact Kronecker-delta Gram factorization and a disjoint perfect matching with edge magnitude s; all eigenvalues and inverse follow algebraically, with the singular case and finite checks explicitly addressed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alberti et al., Section 5.1 Theorem 5.1, controls sensor errors for general shifted nodes, rather than singular values of structured 2D interpolation matrices.",
+        "Yu–Townsend treats one-dimensional generic perturbed Fourier grids by operator-norm inequalities; neither its 1D bound nor convergence theorem determines the crossed 2D spectrum."
+      ],
+      "reasoning": "These more general perturbation settings provide upper/lower stability bounds, but do not imply exactly equal spectral multiplicities, grid-size invariance, rank-halving at the double singular perturbation, or fast paired inverse. A general exact diagonalization could imply the claim; no such applicable theorem was found.",
+      "searches": [
+        "arxiv:2611.19755v1 Section 5.1 sensor placement",
+        "arxiv:2202.04722 Sections 1–2.1 nonuniform DFT",
+        "Fourier frame periodic checkerboard jitter samples two dimensional critical grid rank singular values"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.19755v1",
+      "https://arxiv.org/abs/2202.04722",
+      "https://arxiv.org/abs/1612.04018",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-a-parity-law-and-sharp-staggering-for-one-defect-two-grid-fourie--a2fb2866e9f4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-exact-all-size-stability-of-alternately-jittered-periodic-cubic--3a9a11c2c3e2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating 2026 paper's Section 5.1 calls separate displacements measurement errors and derives pointwise error bounds, not exact reconstruction spectra.",
+        "The 2022 paper gives Kadec-style 1D bounds for arbitrary shifts, not a 2D crossed periodic sample construction.",
+        "Paired 2D Fourier frequency Gram blocks and the exact matching inverse follow from the new direct parity calculation."
+      ],
+      "reasoning": "A statement about small additive sampling errors does not force this exact nonperturbative spectrum. One-dimensional frequency-matrix bounds cannot yield sharp equality for the two-dimensional crossed perturbation. The present proof supplies missing special structure.",
+      "searches": [
+        "arxiv:2611.19755v1 full-text §§3 and 5",
+        "arxiv:2202.04722 full-text introduction and §2",
+        "two dimensional Fourier interpolation alternating stagger row column checkerboard sensor displacements singular spectrum condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Numerical and analytic equivalence to a pairwise-matched two-frequency Gram system shown in RESULT.md; related published spectral examples on period-two spline collocation and derivative banks concern other measurement operators."
+      ],
+      "reasoning": "The result can equivalently be expressed as a Hermitian involution Gram perturbation or exact two-level Fourier-frame bounds. Indexed searches for both checkerboard jitter and two-bank Fourier spectra returned no statement for this crossed 2D trigonometric grid.",
+      "searches": [
+        "checkerboard alternating coordinate shear sampling grid two dimensional discrete Fourier matrix exactly two singular values sine product even periodic",
+        "two dimensional Fourier interpolation alternating stagger row column checkerboard sensor displacements singular spectrum condition number",
+        "Fourier frame periodic checkerboard jitter samples two dimensional critical grid rank singular values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results on staggered Fourier-Hermite interpolation, periodic cubic-spline collocation and 2D checkerboard Fourier Riesz spectra have different matrices or objectives; no exact N-by-N crossed sensor-jitter table was identified."
+      ],
+      "reasoning": "The claim is an all-even-grid formula, not a special finite table. No indexed table or direct matching theorem was located; database incompleteness remains a risk.",
+      "searches": [
+        "checkerboard alternating coordinate shear sampling grid two dimensional discrete Fourier matrix exactly two singular values sine product even periodic",
+        "two dimensional Fourier interpolation alternating stagger row column checkerboard sensor displacements singular spectrum condition number",
+        "Fourier frame periodic checkerboard jitter samples two dimensional critical grid rank singular values",
+        "Exact tight Fourier sampling nonuniform sheared grids row-wise arbitrary jitter horizontal translates Fourier orthogonality tensor products",
+        "Spectrality layered lattice row shifts independently each row Fourier basis complete unitary sampling matrix",
+        "\"checkerboard\" \"Fourier\" \"jitter\" \"singular values\" sampling",
+        "\"alternating\" \"shear\" \"Fourier\" \"sampling matrix\"",
+        "\"period-two\" \"jitter\" \"two-dimensional\" Fourier interpolation frame"
+      ]
+    },
+    "rationale": "The two inspected primary papers address sensor displacement as error or generic 1D interpolation bounds, not the 2D crossed alternating grid's exact two-level spectrum, rank transition, and matched inverse; indexed nearby results use different matrices. Older Floquet generalizations remain a bibliographic risk.",
+    "residual_risks": [
+      "An older general biperiodic NUDFT/Floquet block-diagonalization may imply this special spectrum even if not indexed under checkerboard-jitter aliases.",
+      "Austin–Trefethen full article was not directly inspected, so only its scope and abstract support an inapplicability comparison; earlier 2D follow-on work might exist.",
+      "Same-model algebra review is not independent mathematical certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete Fourier interpolation singular spectrum; only measurement-error guarantees for separate sensor moves",
+        "evidence": [
+          "arXiv v1 first public 2026-11-15; §5.1 Theorem 5.1 uses pointwise error controlled by C1 norm and offsets."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.19755v1",
+        "material_read": "Full HTML introduction, Section 3 discrete Fourier energy, Section 5.1 Theorem 5.1 and Section 5.2 context",
+        "method": "Direct open and targeted full-text Section 5.1 inspection",
+        "title": "Fourier Ratio Bounds and Sensitivity to Sensor Placement",
+        "trigger": "Same 2D grid and independently relocated sensors"
+      },
+      {
+        "assessment": "NOT_COVERING: one-dimensional generic perturbed grids and Kadec-type estimates, not the exact 2D bidirectional parity spectrum",
+        "evidence": [
+          "§2 Corollary 2.3 and §2.1 Corollary 2.5 provide uniform *bounds*, not singular-value multiplicities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+        "material_read": "Full parsed text introduction and §§2, 2.1 including the bound, proof, and conditioning discussion",
+        "method": "Direct primary full-text inspection",
+        "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+        "trigger": "Potential stronger uniform NUDFT stability result"
+      },
+      {
+        "assessment": "Plausibly related perturbation topic, but abstract specifies one-dimensional interpolation convergence and does not establish the 2D checkerboard spectrum; full text risk retained",
+        "evidence": [
+          "2016 arXiv preprint abstract states convergence for arbitrary one-dimensional perturbed points, not exact 2D singular values."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+        "material_read": "ArXiv abstract and Oxford repository metadata; full article not inspected",
+        "method": "Search and abstract/metadata comparison",
+        "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+        "trigger": "Earlier foundational sample-perturbation literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b92877e4-3b25-48c5-8f53-cfbaf2e15d63",
+  "value": {
+    "rationale": "A natural coupled sensor-grid perturbation has grid-size-independent sharp frame bounds throughout the full nonperturbative displacement domain, unitary one-way limits, exact rank-halving at paired collisions, and an efficient four-FFT inverse; these resolve a concrete stability design problem, beyond routine small-jitter estimates.",
+    "status": "PASS"
+  }
+}
