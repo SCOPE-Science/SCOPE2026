@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T08:56:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a pure degree ell scalar spherical-harmonic space, the diagonal squared intensities F_m(z²)=(2ell+1)/(4pi)*(ell-m)!/(ell+m)!*(1-u)^m[P_ell^(m)(sqrt u)]² are degree<=ell polynomials in u=z². Their respective exact zero order m at u=1 makes F_0,...,F_ell a basis of P_ell. Summing positive tight-frame diagonals and the spherical addition theorem forces a positive quadrature exact through ell for measure dnu=du/(2sqrt u), so a rule with s distinct squared heights cannot have 2s<=ell (nonzero squared node polynomial has positive integral and zero node sum). Gaussian Jacobi r=ceil((ell+1)/2) nodes give equality, and 2ell+1 uniform longitudes cancel all different m. At the minimal r, orthogonality of monic node polynomial forces unique pi_r for odd ell, or pi_r+c pi_(r-1) for even ell, with explicitly computed endpoint-root c interval; Lagrange-squared exactness ensures weights positive. Independently checked the r=2 Jacobi endpoints and ell=2 equal-weight example; inspected check_ring_sampling.py and full RESULT.md. Finite sample Gram tests in script do not substitute for all-ell proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nafees full-band L² sampling is not universal pure-degree positive tight minimality",
+          "Spin-one degree14 is neither scalar nor all degrees"
+        ],
+        "reasoning": "No retrieved broader theorem explicitly dominates all scalar ell sharp counts and even/odd minimal design classification. Classical quadrature generality is a proof tool, not a stated spherical sampling theorem.",
+        "searches": [
+          "pure degree spherical harmonics positive tight sampling minimal absolute latitude rings Jacobi quadrature",
+          "https://discovery.ucl.ac.uk/id/eprint/10084133/1/1709.02497v1.pdf",
+          "Resultary:2026/11/16/SCOPE-sharp-fourteen-latitude-tight-sampling-for-pure-spin-one-spheric--ed61748f91dd"
+        ]
+      },
+      "checked_sources": [
+        "https://discovery.ucl.ac.uk/id/eprint/10084133/1/1709.02497v1.pdf",
+        "Resultary:2026/11/16/SCOPE-sharp-hemispheric-latitude-ring-sampling-for-a-single-spherical--b6513baa9cee",
+        "Resultary:2026/11/16/SCOPE-sharp-fourteen-latitude-tight-sampling-for-pure-spin-one-spheric--ed61748f91dd",
+        "GitHub frozen package RESULT.md, check_ring_sampling.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spherical harmonic addition formula and positive quadrature supply standard ingredients",
+          "Basis F_m, lower-bound squared polynomial, parity-dependent quasi-orthogonal parameter proof establish claimed sharp all-degree theorem"
+        ],
+        "reasoning": "The final theorem uses standard pieces to prove a distinct sharp extremal statement and a complete family; prior full-band sampling paper does not imply it with its stated hypotheses.",
+        "searches": [
+          "pure degree spherical harmonics positive tight sampling minimal absolute latitude rings Jacobi quadrature",
+          "https://discovery.ucl.ac.uk/id/eprint/10084133/1/1709.02497v1.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical full-band spherical sampling via iso-latitude rings",
+          "Exact-degree positivity uses squared heights and polynomial intensity basis"
+        ],
+        "reasoning": "Low-pass harmonic reconstruction and pure-degree tight frames have different testing spaces; the latter can use fewer distinct absolute latitudes than degree-by-degree full-band interpolation.",
+        "searches": [
+          "pure degree spherical harmonics positive tight sampling minimal absolute latitude rings Jacobi quadrature",
+          "https://discovery.ucl.ac.uk/id/eprint/10084133/1/1709.02497v1.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known Gaussian-Jacobi quadrature nodes/weights, moment sequence 1/(2k+1)",
+          "Current minimum arbitrary-positive-sampler lower bound and even-ell family not matched in an independent table"
+        ],
+        "reasoning": "Known Jacobi tables provide construction nodes, but do not on their own state that no arbitrary angular point frame can use fewer absolute heights or classify all minimal separated rings.",
+        "searches": [
+          "pure degree spherical harmonics positive tight sampling minimal absolute latitude rings Jacobi quadrature",
+          "2026/11/16/SCOPE-sharp-hemispheric-latitude-ring-sampling-for-a-single-spherical--b6513baa9cee"
+        ]
+      },
+      "rationale": "Standard Gauss--Jacobi quadrature and spherical addition formula are clear prior inputs. Nafees et al. address optimal-dimension full bandlimited reconstruction, not positive tight frames of exactly one ell degree with minimal absolute latitude and complete parity-dependent quasi-orthogonal family. Resultary spin-one degree14 tight latitude result concerns spin-weighted sections and a different lower bound; it is not a dominating scalar all-degree theorem.",
+      "residual_risks": [
+        "Classical specialized pure-degree cubature/tight-frame theorems could express the same lower bound using different polynomial or design terminology.",
+        "Minimum is absolute latitude count, not globally fewest sample points; even-degree classification excludes equator/poles by hypothesis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The reference reconstructs all low-pass degrees up to L with L² samples and optimized interpolation/stability; it does not prove the minimum number of absolute heights for a single fixed degree or the even-degree positive quasi-Gauss family",
+          "evidence": [
+            "Whole-band interpolation requires cross-degree exactness",
+            "Current pure-degree tight equality needs radial moments only through degree ell and distinct |z| counting"
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10084133/1/1709.02497v1.pdf",
+          "material_read": "Full open-access accepted manuscript PDF including scheme construction, bandlimited spherical-harmonic sampling and latitude optimization",
+          "method": "Read entire five-page PDF text and inspected sampling setup and formula page screenshot",
+          "title": "Optimal-Dimensionality Sampling on the Sphere: Improvements and Variations",
+          "trigger": "Established iso-latitude ring sampling may dominate pure exact-degree positive tight designs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact-degree harmonic space is a natural irreducible spectral band and absolute latitude is a meaningful sampling resource. A universal positive-frame lower bound valid for arbitrary longitude arrangements, attained on one hemisphere, plus exhaustive minimal interior radial-rule classification supplies a practical sharp design rather than a routine Gauss quadrature relabeling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://discovery.ucl.ac.uk/id/eprint/10084133/1/1709.02497v1.pdf",
+    "Resultary:2026/11/16/SCOPE-sharp-hemispheric-latitude-ring-sampling-for-a-single-spherical--b6513baa9cee",
+    "Resultary:2026/11/16/SCOPE-sharp-fourteen-latitude-tight-sampling-for-pure-spin-one-spheric--ed61748f91dd",
+    "GitHub frozen package RESULT.md, check_ring_sampling.py"
+  ],
+  "disposition": "passed",
+  "limitations": "Classical specialized pure-degree cubature/tight-frame theorems could express the same lower bound using different polynomial or design terminology. Minimum is absolute latitude count, not globally fewest sample points; even-degree classification excludes equator/poles by hypothesis.",
+  "residual_risks": [
+    "Classical specialized pure-degree cubature/tight-frame theorems could express the same lower bound using different polynomial or design terminology.",
+    "Minimum is absolute latitude count, not globally fewest sample points; even-degree classification excludes equator/poles by hypothesis."
+  ],
+  "schema_version": 1
+}
