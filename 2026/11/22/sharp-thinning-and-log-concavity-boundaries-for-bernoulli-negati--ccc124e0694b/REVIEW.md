@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof derives the unique logarithmic pgf coefficients \(\lambda_k\) for every positive integer, not merely a sampled range. Their even-degree signs yield both directions of the additive-infinite-divisibility criterion. The classical binomial-thinning criterion is applied to all canonical coefficients; a parity split and monotone ratios show why a single second-index inequality determines the infinite sequence. The log-concavity boundary follows from negative-binomial coefficient ratios for \(\nu\ge1\) and a Stirling asymptotic with a strictly positive eventual second log-difference for \(0<\nu<1\). Exact-fraction diagnostics support, but do not replace, those proofs. Boundary inequalities and the open parameter domain are stated explicitly.
+
+## Originality — PASS (qualified, narrowed claim)
+Letac, Malouche and Maurer (2002) treat **this same** Bernoulli–negative-binomial convolution and its real convolution powers. Therefore its additive-infinite-divisibility boundary is not claimed to be new. The new claim is confined to the sharp condition for **binomial-thinning self-decomposability** and the full real-shape condition for **global mass log-concavity**. Ong--Sim--Liu--Srivastava (2023) makes the unrestricted log-concavity assertion, whereas the analysis here proves a strict eventual failure at every shape below one. Steutel--van Harn (1979) supplies the general canonical criterion. The related Ben Salah (2021) article includes Bernoulli plus negative binomial in an abstract about real powers, but its full text was not available for definitive structural comparison; this is a stated residual priority risk, not a claim of noncoverage. The 2002 full article was read through its openly accessible text, including the Jørgensen-set conclusions.
+
+## Value — PASS
+A model introduced specifically for under-, equi- and overdispersed count data has mathematically distinct regimes for compound-Poisson clustering, thinning-stationary factorization, and strong unimodality. The theorem supplies new sharp thinning and log-concavity inequalities, explains how to distinguish thinning stationarity from mere additive infinite divisibility, and identifies the missing parameter restriction in a published reliability/shape argument. These two natural structural cutoffs matter for specification of the dispersion-flexible model.
+
+## Limits and closest literature
+The conclusion concerns the univariate Bernoulli-convolved negative-binomial family with strictly interior parameters, not all negative-binomial mixtures. Exact computations have finite ranges; the infinite results depend on the displayed analytic proof. The additive-infinite-divisibility classification for this exact family was already studied in 2002 and is explicitly treated as prior art. The general compound-Poisson and thinning criteria are classical. The original distribution family has overlapping earlier parameterizations; a residual possibility of earlier equivalent specialized phase boundaries remains.
+
+Self-review: passed. Independent audit: not yet performed.
