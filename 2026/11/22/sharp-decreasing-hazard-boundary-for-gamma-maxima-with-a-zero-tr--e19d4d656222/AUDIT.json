@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The zero-truncated Poisson probability-generating function establishes the survivor and hazard. The gamma Mills-ratio integral has a sign-controlled derivative. The exact log-hazard derivative has positive prefactor times \\(V(\\lambda Q_\\alpha)-(1+m_\\alpha')\\), with \\(V\\) strictly increasing. As \\(t\\downarrow0\\), \\(m_\\alpha'\\sim(1-\\alpha)\\Gamma(\\alpha)t^{-\\alpha}\\) for \\(0<\\alpha<1\\); as \\(t\\to\\infty\\), \\(m_\\alpha'\\sim(1-\\alpha)t^{-2}\\) and \\(Q_\\alpha\\sim t^{\\alpha-1}e^{-t}/\\Gamma(\\alpha)\\). The inverse-rate quotient diverges at both ends, hence its strictly positive minimum is attained. Analyticity handles equality and the intermediate sign reversal. Numerical checks independently corroborate the derivative identity but never substitute for the infinite-domain proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alkarni and Oraby (2012), Section 2 Theorem 2.1 defines the minimum of truncated-Poisson many lifetimes, not the maximum.",
+        "Glaser-type ageing criteria provide tools, not the explicit global parameter boundary.",
+        "Publicly indexed MOPHL and alpha-power Lomax phase results use different distributions."
+      ],
+      "reasoning": "The 2012 general zero-truncated Poisson lifetime class uses minima (not the maximum); substituting a gamma baseline produces a different survival distribution. The full 2023 source is the closest mathematical model and does not contain the exact global threshold.",
+      "searches": [
+        "\"A compound class of Poisson and lifetime distributions\" hazard monotonicity sufficient",
+        "\"Poisson\" \"maximum\" \"gamma\" \"hazard\" shape",
+        "maximum of zero-truncated Poisson number of gamma lifetimes hazard decreasing and nonmonotone condition"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mdpi.com/2227-7390/11/11/2584",
+      "https://www.mdpi.com/2073-8994/16/4/417",
+      "https://www.naturalspublishing.com/files/published/9nus61d51q1186.pdf",
+      "https://ph02.tci-thaijo.org/index.php/thaistat/article/view/251065"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Niyomdecha and Srisuradetchai (2023), Section 3.2 explicitly gives the hazard and Glaser-type conditions involving age and parameters; no global Poisson-intensity DFR boundary is stated.",
+        "Srisuradetchai and Niyomdecha (2024) examine MLE/Bayesian estimation, posterior calculations, simulation and coverage; no global hazard-boundary theorem.",
+        "Alkarni and Oraby (2012), Section 2 Theorem 2.1 defines the minimum of truncated-Poisson many lifetimes, not the maximum."
+      ],
+      "reasoning": "The original density/hazard and classical gamma survival are reused. Their publication establishes the function but does not logically state the global DFR iff condition or existence of a parameter-only cutoff. General minimum-composition results do not dominate maxima; follow-up estimation cannot imply the exact all-parameter derivative classification.",
+      "searches": [
+        "Complementary Gamma Zero Truncated Poisson distribution CGZTP sharp DFR IFR hazard global monotonicity lambda critical alpha",
+        "maximum of zero-truncated Poisson number of gamma lifetimes hazard decreasing and nonmonotone condition",
+        "\"CGZTP\" \"hazard\" \"threshold\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Niyomdecha and Srisuradetchai (2023), Section 3.2 explicitly gives the hazard and Glaser-type conditions involving age and parameters; no global Poisson-intensity DFR boundary is stated.",
+        "Srisuradetchai and Niyomdecha (2024) examine MLE/Bayesian estimation, posterior calculations, simulation and coverage; no global hazard-boundary theorem."
+      ],
+      "reasoning": "The candidate concerns the maximum with ZTP sample size and an exact intensity threshold; equivalent gamma-Mills and gamma-survival representations were tested against original formulas, which only give hazard expressions and age-specific sufficient checks.",
+      "searches": [
+        "\"CGZTP\" \"hazard\" \"threshold\"",
+        "\"Complementary Gamma Zero-Truncated Poisson\" \"decreasing\" \"condition\"",
+        "Complementary Gamma Zero Truncated Poisson distribution CGZTP sharp DFR IFR hazard global monotonicity lambda critical alpha",
+        "maximum of zero-truncated Poisson number of gamma lifetimes hazard decreasing and nonmonotone condition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact gamma-maximum parameter-boundary table was identified in the inspected mathematical publications.",
+        "Published hazard tables in the 2012 minimum-compounded work are not for the maximum."
+      ],
+      "reasoning": "The exact scalar minimization and threshold are analytic, not an indexed finite numerical constant; absence of search matches is supporting evidence only, not proof of novelty.",
+      "searches": [
+        "Complementary Gamma Zero Truncated Poisson distribution CGZTP sharp DFR IFR hazard global monotonicity lambda critical alpha",
+        "Gamma Poisson maxima exact threshold decreasing failure rate 0<alpha<1",
+        "\"Complementary Gamma Zero Truncated Poisson\" \"decreasing\" \"condition\""
+      ]
+    },
+    "rationale": "Compared exact distributional identities and logical implications, not titles. The 2023 source derives the hazard but not the attained sharp, global DFR versus nonmonotone threshold; the 2024 follow-up studies inference; the 2012 class composes minima rather than maxima. Semantic public-research searches returned related hazard classifications for non-equivalent models. Priority is provisional given the broad classical literature.",
+    "residual_risks": [
+      "Historical priority is not certified by search: broad unretrieved compounding/ageing literature may contain an equivalent model-specific parameter theorem.",
+      "The journal abstract for the separately published gamma-minimum paper was inspected; its complete text was not necessary for the clearly different max construction.",
+      "The variational cutoff does not establish uniqueness of the minimizing argument or of subsequent hazard turning points."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL PRIOR: origin establishes hazard formula, not sharp global DFR boundary.",
+        "evidence": [
+          "Niyomdecha and Srisuradetchai (2023), Section 3.2 explicitly gives the hazard and Glaser-type conditions involving age and parameters; no global Poisson-intensity DFR boundary is stated.",
+          "Published 5 June 2023; article lists MSC 62F10, 62E10, 60E05."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/11/11/2584",
+        "material_read": "Open-access HTML material: abstract, background, model definition, exact survival/hazard in Section 3.2, related condition discussion, table of contents and conclusions.",
+        "method": "Direct full-text HTML reading and comparison of formula, age-dependent criterion and target parameter iff statement.",
+        "title": "Complementary Gamma Zero-Truncated Poisson Distribution and Its Application",
+        "trigger": "Same maximum-of-gamma random sample model"
+      },
+      {
+        "assessment": "INFERENCE PRIOR: no exact global rate/shape phase boundary found.",
+        "evidence": [
+          "Srisuradetchai and Niyomdecha (2024) examine MLE/Bayesian estimation, posterior calculations, simulation and coverage; no global hazard-boundary theorem.",
+          "Published 2 April 2024."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/16/4/417",
+        "material_read": "Open-access HTML material: introduction, likelihoods, Bayesian estimation, table headings, conclusion and Appendix A.",
+        "method": "Direct full-text reading and searching for hazard thresholds, DFR and monotonicity results.",
+        "title": "Bayesian Inference for the Gamma Zero-Truncated Poisson Distribution with an Application to Real Data",
+        "trigger": "Same model by originating authors, plausible extension"
+      },
+      {
+        "assessment": "NOT_COVERING: compounding uses minimum, unlike the candidate maximum.",
+        "evidence": [
+          "Alkarni and Oraby (2012), Section 2 Theorem 2.1 defines the minimum of truncated-Poisson many lifetimes, not the maximum."
+        ],
+        "identifier_or_url": "https://www.naturalspublishing.com/files/published/9nus61d51q1186.pdf",
+        "material_read": "Original lawful OA PDF, especially p.46 Theorem 2.1 and p.48 hazard formula, with page-image verification of p.46.",
+        "method": "Direct paper text and page-image inspection, identifying explicit min operator and comparing it with max.",
+        "title": "A compound class of Poisson and lifetime distributions",
+        "trigger": "Potentially dominating general truncated-Poisson compounding theorem"
+      },
+      {
+        "assessment": "Different random variable by construction; full-text priority risk retained.",
+        "evidence": [
+          "Journal abstract explicitly defines minimum of the gamma variables, whereas the claim is for maximum."
+        ],
+        "identifier_or_url": "https://ph02.tci-thaijo.org/index.php/thaistat/article/view/251065",
+        "material_read": "Author/article metadata, abstract and references on journal record; full paper not materially read.",
+        "method": "Journal abstract inspection only; no whole-document noncoverage inference.",
+        "title": "Gamma Zero-Truncated Poisson Distribution with the Minimum Compounded Function",
+        "trigger": "Same gamma and ZTP components"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e19d4d65-6222-4401-9fac-a02fbd09d627",
+  "value": {
+    "rationale": "The sharp phase boundary classifies decreasing-failure-rate versus interior-reversal regimes over the full three-parameter lifetime family motivated by hazard flexibility; proves the classification is invariant to rate/time scaling and gives a rigorous existence condition for both local min and max when the threshold is exceeded. A meaningful reliability-model selection criterion, not a simple reparameterization or isolated numerical instance.",
+    "status": "PASS"
+  }
+}
