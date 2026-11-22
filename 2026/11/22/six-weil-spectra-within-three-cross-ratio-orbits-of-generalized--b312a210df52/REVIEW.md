@@ -1,0 +1,11 @@
+# Mathematical review: six Weil spectra of the characteristic-thirteen generalized Legendre pencil
+
+**Correctness (PASS).** All eleven coefficient parameters \(\lambda\in\mathbb F_{13}\setminus\{0,1\}\) define smooth genus-three plane quartics. An exact fourth-power fiber count in each of the first three extension degrees, independently replayed with two polynomial presentations of the extension fields, produces all table entries. Newton identities and the genus-three functional equation recover the entire numerator, whose elliptic factorizations are checked by integer polynomial multiplication. The three anharmonic orbits are enumerated exactly. The proof does not extrapolate beyond eleven parameters.
+
+**Originality (PASS, qualified).** Goodson's full scientific Section 5 treats this identical family and develops period/character-sum formulas, but the inspected sections do not display a characteristic-thirteen six-type table or its branch-orbit stratification. Prior inert-prime work explicitly excludes the split characteristic and zeta functions. Newton polygon and mass-formula papers provide coarser invariants, though their entire appendices were not fully inspected and an unpublished or unindexed explicit table remains a priority risk. The exact claim is not generic geometry or the formula for rational points; it is the complete arithmetic Weil-isogeny refinement of all three rational anharmonic branch orbits.
+
+**Value (PASS).** The quartic pencil is a natural and well-studied cyclic-cover family, and the classical sixfold branch anharmonic action creates a motivated question about which rational forms in a given geometric branch orbit share the same Frobenius class. Every one of its three characteristic-thirteen rational anharmonic orbits splits into precisely two distinct isogeny types; the equianharmonic pair has the particularly sharp \(28\)-versus-\(4\) point-count separation. This complete natural arithmetic classification is more than an isolated example or a routine normalization fact.
+
+Independent limitations: The work does not classify unmarked isomorphism classes, and broader unpublished tables might already contain the same census. It remains subject to external validation.
+
+Self-review: passed. Independent audit: not yet performed.
