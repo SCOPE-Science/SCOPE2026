@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For each triple with sorted internal transformed edge weights a≤b≤c, its three thresholds are b,c,c, yielding conditional probability (1-b)^(n-3)(1-c)^(2n-6); integration gives exact expectation. Distinct closed triples cannot intersect. For fixed disjoint families the cross-family edge-factor tends to 1 under n-scaling and an integrable e^[-(b+2c)/2] majorant establishes joint factorial-moment measures. The total intensity equals 1/18 and the finite checker exhaustively reproduces n=4. Limits are proven analytically, not inferred from experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cooper-Frieze 1995 Lemma 6 isolated triangle Poisson intensity 0.00415239",
+        "published-finding corpus 2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8"
+      ],
+      "reasoning": "Isolated-component Poisson law has a stronger event and a smaller limiting intensity; it cannot imply all closed directed triangles or the edge-mark law. One-neighbor mutual matching laws omit the second-neighbor choice; geometric nearest-neighbor theorems have different dependent edge weights.",
+      "searches": [
+        "published-finding corpus: bidirected triangle sink strongly connected component in random symmetric two nearest neighbor digraph Poisson mean 1/18 marked edge length distribution",
+        "Web: random 2 nearest neighbor graph closed triangles mutually top two edges expected 1/18 Poisson"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.cmu.edu/~af1p/Texfiles/ok.pdf",
+      "https://doi.org/10.1017/S0963548300001711",
+      "https://arxiv.org/abs/1406.0716",
+      "published-finding corpus 2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8",
+      "published-finding corpus 2026/10/26/SCOPE-reciprocal-cycles-repel-every-longer-directed-cycle-in-fixed-out--6f007fa898a3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cooper-Frieze pp.1,18–19: model, isolated cycles and Poisson for isolated triangular components",
+        "Ball arXiv:1406.0716 Introduction and Thms 1–2: geometric reciprocal graph connectivity"
+      ],
+      "reasoning": "Every isolated triangle is a closed directed sink, but most closed sinks can have incoming arcs: the new statistic strictly contains the prior component count and cannot be reconstructed from it. The difference of rates 1/18 vs 0.00415239 substantiates the non-implication; the marked law is further structure not addressed by those papers.",
+      "searches": [
+        "published-finding corpus: Poisson random measure fully mutual two nearest neighbor triangles intensity one eighteenth uniform symmetric link complete graph",
+        "published-finding corpus: bidirected triangle sink strongly connected component in random symmetric two nearest neighbor digraph Poisson mean 1/18 marked edge length distribution",
+        "Web: Cooper Frieze On the connectivity random k-th nearest neighbour graphs 1995"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cooper-Frieze DOI 10.1017/S0963548300001711 §model and §isolated cycles",
+        "Ball arXiv:1406.0716 §1 and §2"
+      ],
+      "reasoning": "Checked names: closed out-neighborhood, reciprocal two-neighbor triangle, directed three-vertex sink SCC, absorbing reciprocal triple. Geometric mutual-neighbor graph and undirected isolated components are not equivalent to a directed closed triple with incoming arcs permitted.",
+      "searches": [
+        "published-finding corpus: Poisson random measure fully mutual two nearest neighbor triangles intensity one eighteenth uniform symmetric link complete graph",
+        "published-finding corpus: complete reciprocally linked triads of 2-nearest neighbors expected number sink strongly connected component"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest ID 2026/11/8/SCOPE-exact-mutual-nearest-neighbor-component-law-in-symmetric-random--f51047a8a8b8",
+        "Cooper-Frieze 1995 Table/section isolated cycles gives 0.00415239, not 1/18"
+      ],
+      "reasoning": "No exact intensity 1/18 or triple-mark process located. This is an evidence-limited comparison, not a proof of uniqueness; published adjacent models contain distinct constants.",
+      "searches": [
+        "published-finding corpus: symmetric independent uniform random weighted K_n k=2 outgoing closed triple count",
+        "published-finding corpus: closed triangle fully reciprocal two-nearest neighbors symmetric random edge weights exact Poisson limit",
+        "Web: random symmetric nearest neighbor digraph mutual top-two triples Poisson closed triangles"
+      ]
+    },
+    "rationale": "Cooper–Frieze (1995, full text sections on model and isolated cycles) counts connected isolated 2-nearest-neighbor components, rather than closed directed 3-sinks with possible incoming edges. Its isolated-triangle limit 0.00415239 is incompatible with, and does not entail, the new 1/18 count and three-weight intensity. Ball (2014) uses geometric dependent distances and logarithmically growing k. Published reciprocal one-neighbor pair formula and independent k-out directed cycle results have different neighbor-selection dependence/outdegree. Multiple published-finding corpus and literature queries found no direct stronger coverage. A general marked Poisson theorem could recover the limit but no such applicable result with the explicit intensity was identified.",
+    "residual_risks": [
+      "An unlocated general rare-motif theorem might imply part of the Poisson convergence, though no explicit same marked measure was found.",
+      "The 1995 source is a dated manuscript and journal article; its earliest public exact calendar day was not verified. The selected archival first-public day is verified from the 2014 arXiv version."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: isolated undirected components with absence of incoming arcs, not all directed closed triangle sinks; parameter 0.00415239 rather than 1/18",
+        "evidence": [
+          "Printed p.1 specifies iid Uniform edge lengths and k shortest incident edges",
+          "Printed p.19 numerical intensity ν3≈0.00415239; p.18 discusses isolated cycle factorial moments"
+        ],
+        "identifier_or_url": "https://www.math.cmu.edu/~af1p/Texfiles/ok.pdf",
+        "material_read": "Page 1 model and the proofs of isolated-cycle Poisson convergence and isolated-three-cycle intensity on printed pages 18–19",
+        "method": "Read full-text PDF page images",
+        "title": "On the connectivity of random k-th nearest neighbour graphs",
+        "trigger": "Exact same symmetric independent edge-weight graph and known isolated triangles"
+      },
+      {
+        "assessment": "NOT_COVERING: Euclidean spatial-distance, Poisson point placement and k around log n, not iid complete-link weights or fixed-k triangle marks",
+        "evidence": [
+          "arXiv submission June 3, 2014",
+          "§1 defines mutual neighborhood on spatial Poisson points; Theorems 1–2 concern large-k connectivity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.0716",
+        "material_read": "Full-text HTML introduction, model definitions, and theorem statements for connectivity thresholds",
+        "method": "Read accessible arXiv full-text HTML; PDF retrieval was unavailable",
+        "title": "A strict undirected model for the k-nearest neighbour graph",
+        "trigger": "Reciprocal k-nearest-neighbor network interpretation and verified 2014 public date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e830854-cd30-47cc-82e6-ed2176ca4190",
+  "value": {
+    "rationale": "The smallest absorbing strongly connected motif in a directed two-neighbor network is a complete bidirected triangle. Counting those cores without disallowing incoming arrows measures directed local trapping, rather than undirected graph disconnection. Its exact finite-size mean, nondegenerate Poisson count and joint three-edge weight intensity allow multi-threshold estimates for reciprocal-cluster strength; the older isolated-component frequency does not determine this quantity.",
+    "status": "PASS"
+  }
+}
