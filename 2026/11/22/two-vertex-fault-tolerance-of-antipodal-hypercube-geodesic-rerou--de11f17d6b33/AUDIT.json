@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "One-intermediate-vertex shortest-path change equals adjacent-position swap of coordinate permutations. The proof exhausts every two-fault coordinate orbit of Q4, separately verifies zero/one fault, and inducts for n>=5. Each permitted first-letter fiber reduces to a <=2-fault instance in dimension n-1 and is connected. Suffix counting excludes at most 2/(n-2)<1 of suffix orders for every first-letter pair whose two-element prefix is not forbidden. The first-letter bridge graph is K_(n-r) with <=2-r edges removed, connected for n>=5. Q3 witness two isolated paths. Both implementations passed their own exhaustive checks; these computations certify base and tests, not the infinite induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gajjar et al. Theorem 5 at https://link.springer.com/article/10.1007/s00453-024-01263-y minimizes rerouting changes between paths in the intact cube, not after two faults.",
+        "Bonsma 2013 at https://research.utwente.nl/en/publications/the-complexity-of-rerouting-shortest-paths addresses general PSPACE-completeness and easy graph classes; accessible abstract does not assert all-two-fault cube connectivity.",
+        "Bousquet et al. IPEC 2024 abstract at https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.IPEC.2024.23 concerns parameterized shortest-path reconfiguration, not the stated uniform robustness."
+      ],
+      "reasoning": "A shortest reconfiguration algorithm in intact Q_n cannot be run through arbitrary forbidden prefixes without proof. General complexity and class-algorithm statements do not imply connectedness of every two-faulted antipodal cube. No stronger all-two-fault implication was identified in available material.",
+      "searches": [
+        "hypercube shortest path reconfiguration with two forbidden intermediate vertices disconnected components",
+        "All shortest paths of Boolean hypercube between antipodes avoiding any two internal vertices remain connected by single-vertex rerouting permutations adjacent transpositions",
+        "\"shortest path reconfiguration\" \"forbidden\" hypercube vertices",
+        "\"hypercube\" \"reconfiguration\" \"faulty vertices\" \"shortest paths\""
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s00453-024-01263-y",
+      "https://arxiv.org/pdf/1705.09385",
+      "https://research.utwente.nl/en/publications/the-complexity-of-rerouting-shortest-paths",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.IPEC.2024.23",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-forty-minimum-geodesic-transversals-of-the-four-dimensional-cube--e937d60d04fd",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-four-way-rerouting-cliques-and-sharp-diameter-for-johnson-graph--ff72776dd5d5",
+      "https://arxiv.org/abs/2112.07499"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gajjar et al., Algorithm 2/Theorem 5, https://link.springer.com/article/10.1007/s00453-024-01263-y gives a path in the intact Cayley graph.",
+        "Asplund et al., Proposition 27, https://arxiv.org/pdf/1705.09385 supplies the intact Cayley description.",
+        "A preceding accessible result for ONE forbidden cube vertex guarantees connectivity of that one-vertex-deleted path graph; it does not address two simultaneous vertices."
+      ],
+      "reasoning": "The present statement quantifies over every pair of distinct faulty intermediate cube vertices simultaneously and all surviving paths. Unfaulted and one-fault connectivity do not imply this quantified two-fault statement; the induction provides the additional conclusion. The dimension-three example shows a new sharp threshold. No earlier result above entails the final claim.",
+      "searches": [
+        "Two faulty forbidden intermediate bitstrings monotone hypercube geodesic rerouting always connected for dimension four or larger",
+        "Gallery connectivity maximal chains Boolean lattice with two deleted ranks vertices adjacent swap",
+        "hypercube shortest paths rerouting avoid two failed nodes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Asplund et al. 2017, Proposition 27 at https://arxiv.org/pdf/1705.09385 identifies the fault-free rerouting graph with the adjacent-transposition Cayley graph.",
+        "Gajjar et al. 2021/2024, Observation 2 at https://link.springer.com/article/10.1007/s00453-024-01263-y identifies a single reroute with adjacent letter swap."
+      ],
+      "reasoning": "The new graph is the induced subgraph of the permutation Cayley graph on words avoiding two specified proper prefix sets, equivalently diamond-connected maximal chains avoiding two Boolean lattice elements. The earlier papers establish the correspondence, not connectivity of this induced graph after two arbitrary forbidden elements. Search of these aliases found no theorem with that consequence.",
+      "searches": [
+        "All permutations avoiding two prescribed prefix sets form connected induced subgraph of adjacent-transposition Cayley graph S_n n>=4, hypercube shortest paths two faulty intermediate vertices",
+        "Boolean lattice maximal chain graph after removing two elements remains connected via diamond flips",
+        "permutation graph avoiding prefixes marked vertices boolean lattice linear extensions adjacent swap two blocked states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published hit https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-forty-minimum-geodesic-transversals-of-the-four-dimensional-cube--e937d60d04fd enumerates minimum geodesic transversals in Q4, a different hitting set invariant.",
+        "Published hit https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-four-way-rerouting-cliques-and-sharp-diameter-for-johnson-graph--ff72776dd5d5 classifies Johnson-graph rerouting, not cube with forbidden intermediate vertices.",
+        "Exact indexed published-finding corpus searches returned no match on the theorem; this is absence of a match, not mathematical proof of novelty."
+      ],
+      "reasoning": "The Q4 geodesic-transversal count and Johnson-graph rerouting results have different state spaces/parameters. The present dimension-four fault-orbit table and infinite-dimensional fault-connectivity assertion were not found in the indexed tables; one cannot infer global novelty from indexed search alone.",
+      "searches": [
+        "Hypercube monotone geodesic rerouting graph avoiding two forbidden vertices shortest path connectivity faults",
+        "Shortest path reconfiguration in faulted hypercube with deletion of any two internal vertices and sharp n=3 obstruction",
+        "Hypercube shortest path reconfiguration two deleted vertices two forbidden prefix sets reliability exact",
+        "two forbidden subsets full chains adjacent swaps connected"
+      ]
+    },
+    "rationale": "The exact arbitrary-two-fault connectivity theorem and sharp dimension threshold were not identified in the accessible literature, indexed published mathematical findings, or readable historical claim statements. The strongest applicable published results establish the unfaulted permutohedral graph and shortest rerouting, and an earlier accessible theorem treats one forbidden internal vertex only. These do not imply two-fault robustness. One-fault connectivity is logically insufficient, as removing an additional vertex can disconnect a configuration graph. Unindexed or stronger unpublished equivalence remains a residual risk.",
+    "residual_risks": [
+      "Unindexed equivalence of Boolean-lattice diamond-connected maximal chains after two forbidden elements cannot be excluded.",
+      "Accessible 2013 and 2024 general-algorithm abstracts were not reviewed at theorem/appendix level; neither is decisive positive coverage on the evidence read.",
+      "A stronger general theorem from outside the indexed sources could subsume the result; absent a documented implication, originality is best-knowledge rather than independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unconstrained hypercube and exact sorting metric; no two-fault theorem identified in inspected material",
+        "evidence": [
+          "Section 5.4, Observation 2 and Theorem 5 at https://link.springer.com/article/10.1007/s00453-024-01263-y",
+          "arxiv:2112.07499 first public 2021-12-14"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-024-01263-y",
+        "material_read": "Open-access full-text HTML, especially Section 5.4 (Definition 10, Observation 2, Algorithm 2 and Theorem 5), abstract and conclusions; searched the full-text index for faulty/deleted/avoid language",
+        "method": "Opened author/journal full text and examined relevant theorem statements and their proof",
+        "title": "Reconfiguring Shortest Paths in Graphs",
+        "trigger": "Exact hypercube geodesic rerouting definitions and algorithms"
+      },
+      {
+        "assessment": "Proposition 27 is for the intact cube and establishes the permutation correspondence, not two-vertex fault tolerance",
+        "evidence": [
+          "Proposition 27 at https://arxiv.org/pdf/1705.09385",
+          "arxiv:1705.09385 v1 date 2017-05-25"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1705.09385",
+        "material_read": "Original 16-page full PDF accessible; abstract/introduction, Proposition 27 and surrounding pages 2 and 13 directly inspected, searches of PDF for fault/delete and related terms",
+        "method": "Read PDF text and visually inspected rendered pages 2 and 13",
+        "title": "Reconfiguration graphs of shortest paths",
+        "trigger": "Prior exact Cayley interpretation of cube path graph"
+      },
+      {
+        "assessment": "General complexity and special easy graph class results; coverage of exact faulted hypercube remains unverified outside abstract",
+        "evidence": [
+          "Institutional scholarly record https://research.utwente.nl/en/publications/the-complexity-of-rerouting-shortest-paths"
+        ],
+        "identifier_or_url": "https://research.utwente.nl/en/publications/the-complexity-of-rerouting-shortest-paths",
+        "material_read": "Article abstract and institutional record only; no full theorem/appendix text examined",
+        "method": "Read abstract and source bibliographic metadata",
+        "title": "The complexity of rerouting shortest paths",
+        "trigger": "General shortest-path rerouting theory plausibly stronger than special case"
+      },
+      {
+        "assessment": "No precise two-fault hypercube connectivity statement in abstract; residual full-text coverage risk remains",
+        "evidence": [
+          "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.IPEC.2024.23"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.IPEC.2024.23",
+        "material_read": "Publisher page abstract and bibliographic context only",
+        "method": "Read accessible abstract and bibliographic information",
+        "title": "Parameterized Shortest Path Reconfiguration",
+        "trigger": "Possible general 2024 structural theorem with implication for faults"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "de11f17d-6b33-4442-8170-d606330ee9a8",
+  "value": {
+    "rationale": "A canonical n-dimensional network retains reachability among all minimum-hop routes under ANY two failed intermediate nodes, with a sharp Q3 boundary. Unlike ordinary fault-tolerant connectivity, this is connectivity of the full optimum-route configuration space under single-node changes. The proof isolates exactly why n>=5 bridges always exist and supplies the finite n4 threshold. It is a meaningful infinite structural robustness result rather than a routine count.",
+    "status": "PASS"
+  }
+}
