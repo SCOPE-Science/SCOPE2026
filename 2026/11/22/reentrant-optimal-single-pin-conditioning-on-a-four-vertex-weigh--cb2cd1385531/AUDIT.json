@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The strictly positive graph-pinning energy proves SPD. The exact tridiagonal determinant recurrence has degree four. Forty-eight pairwise disjoint rational endpoint sign changes isolate the complete spectra for the twelve matrices. Nine strict rational comparisons between certified upper and lower condition-number bounds prove the three unique global winners. A grounded-principal-minor comparison proves that site 2 uniquely wins for all sufficiently large gains: its grounded minimum is 1, and explicit test vectors show each competing grounded minimum is below 1. Continuity proves two distinct winner changes and robustness under small perturbations. Limits: gain transitions are not isolated exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jafarizadeh (2024), Sections IV, VII-E and Remark 14: a weighted path with a single pin is a special case of a general network eigenratio optimization with independently variable link weights and pinning parameters.",
+        "Shafi, Arcak and El Ghaoui (2010), abstract and introductory formulation: edge and node weighting are optimized against Laplacian eigenvalue constraints."
+      ],
+      "reasoning": "These analytical formulations include a comparable spectral objective but optimize design degrees of freedom not allowed here. An optimum with free link weights and gain does not imply fixed-weight site rankings at three different externally set gains; no stated theorem constrains or excludes this return. This comparison expressly does not claim that the general placement problem is new.",
+      "searches": [
+        "https://doi.org/10.1109/ACCESS.2024.3520735",
+        "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+        "optimal grounded path Laplacian diagonal pin location spectral condition number eigenvalue ratio"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1103/PhysRevE.91.012803",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4828652/",
+      "https://doi.org/10.1109/ACCESS.2024.3520735",
+      "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Orouskhani et al. (2016), Task 3 and Table 3, acknowledge that joint gain and position optimization can alter selected nodes.",
+        "Jafarizadeh (2024), Remark 14 gives a solution of a free-weight single-pinned path design rather than comparison of four fixed weighted-site eigenratios across fixed gain levels."
+      ],
+      "reasoning": "Neither prior observation implies a return to the original unique best site at a third, larger gain. The theorem relies on nine certified strict inequalities for a graph with conductances (1,25,5); it is a new specific nonmonotone boundary example on inspected evidence, not an assertion that pinning optimization or gain sensitivity itself is new.",
+      "searches": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4828652/",
+        "https://doi.org/10.1109/ACCESS.2024.3520735",
+        "feedback gain changing best single driver vertex on weighted path for pinning controllability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jalili, Askari Sichani and Yu (2015), Secs. III–V, define the same augmented-Laplacian extreme-eigenvalue ratio as a controllability measure and use an evolutionary placement search.",
+        "Orouskhani, Jalili and Yu (2016), Tasks 1–4, separately and jointly optimize pin locations, gain and link weights; changing gains can change chosen driver nodes."
+      ],
+      "reasoning": "The eigenratio studied in both prior works is mathematically identical to the quantity here for one pin; qualitative gain dependence was already known, and is not claimed as new. Neither inspected account proves an exact two-to-four-to-two return on a fixed weighted four-path at prescribed gains. The exact finite certificate gives an explicit, stronger nonmonotone order pattern.",
+      "searches": [
+        "\"condition number\" \"pinning\" \"gain\" \"switch\" \"weighted path\" Laplacian",
+        "\"pinning controllability\" \"weighted path\" \"condition number\" location gain",
+        "https://doi.org/10.1103/PhysRevE.91.012803",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4828652/"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An exact comparison was made against available indexed public mathematical findings on reentrant two-leader pinning, weighted four-path D-optimal sensing, spectral conditioning under diagonal scaling, and pinning optimization.",
+        "The primary 2015 and 2016 papers report numerical experiments for general networks rather than a complete table of fixed-weight four-path eigenratio winners at the three specified gains."
+      ],
+      "reasoning": "No checked exact table or database cell implies the stated three winner inequalities. The closest reentrant leader reports use two pins, a different graph, or inverse-trace objective; the closest weighted-four-path report uses a D-optimal sensor determinant. Index completeness is not assumed, so absence of a match is only supporting evidence.",
+      "searches": [
+        "exact rational reentrant optimal single pin eigenratio of weighted path with four vertices changing gain twice",
+        "nonmonotone best grounding vertex spectral condition number weighted path positive diagonal pinning gain",
+        "https://doi.org/10.1103/PhysRevE.91.012803"
+      ]
+    },
+    "rationale": "The objective and general gain-sensitive pinning optimization already appear in 2015 and 2016 studies; those are expressly not claimed new. Exact fixed-weight four-path winner reentrance (2 at gain 10, 4 at 50, back to 2 at 500 and eventually forever), with a rational reproducible certificate, grounded-matrix asymptotics and perturbation robustness, is not implied by the closest inspected statements, including the later free-weight spectral design theory. Incomplete index and some article coverage leave publication priority risk.",
+    "residual_risks": [
+      "Search and accessible literature are not exhaustive; an unindexed identical four-path example could exist.",
+      "The 2015 article was inspected through an author-posted text extraction and publisher metadata, rather than a direct full publisher PDF.",
+      "Openly accessible related weighted-network optimization results include much broader variable-weight design, but do not mathematically imply the prescribed fixed-parameter site ranking."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "same condition-number objective is prior; no fixed weighted four-path three-gain reentry classification in examined material",
+        "evidence": [
+          "2015 journal date 2015-01-05 verified on publisher record",
+          "author text states eigenratio and differential-evolution optimal placement in general model networks"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.012803",
+        "material_read": "publisher abstract and author-posted article text including its objective, model-network experiments and conclusions",
+        "method": "read accessible author-posted article extraction and publisher record",
+        "title": "Optimal pinning controllability of complex networks: Dependence on network structure",
+        "trigger": "same spectral objective and location search"
+      },
+      {
+        "assessment": "qualitative location sensitivity to gain already covered, but exact robust return on fixed weighted 4-path not stated",
+        "evidence": [
+          "Published 2016-04-12",
+          "Tasks 1–3 treat driver selection and feedback gains; Task 4 adjusts edge weights, a different feasible set"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4828652/",
+        "material_read": "full open-access article, abstract, methods, Tasks 1–4, results and discussion including gain-location comparison and Table 3",
+        "method": "read open-access HTML body and relevant equations/sections",
+        "title": "Optimizing Dynamical Network Structure for Pinning Control",
+        "trigger": "optimizes both drivers and feedback gains on the same augmented-Laplacian eigenratio"
+      },
+      {
+        "assessment": "optimizes link weights and feedback parameters; does not imply the fixed-weight externally fixed-gain ranking return",
+        "evidence": [
+          "Section VII-E and Remark 14 explicitly give optimally weighted singly pinned path special case",
+          "the feasible set includes variable weighted links and gains rather than just choosing which of four coordinates receives a prescribed gain"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ACCESS.2024.3520735",
+        "material_read": "author-posted full-text extraction, methods Sections IV–V, Section VII-E generic stars and Remark 14 singly pinned paths, related numerical results",
+        "method": "read public author-posted text and compare feasible parameters and mathematical objective",
+        "title": "Achieving Network Stability via Optimal Pinning Control in Weighted Complex Networks",
+        "trigger": "highly relevant stronger spectral optimization for weighted paths with pins"
+      },
+      {
+        "assessment": "weighted spectral design objectives but not the fixed weighted single-pin site return",
+        "evidence": [
+          "introduces node and edge weights to optimize upper and lower graph Laplacian eigenvalue constraints"
+        ],
+        "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+        "material_read": "first-page screenshot, abstract, introduction and spectral optimization formulation",
+        "method": "inspected author-hosted PDF text and first-page image",
+        "title": "Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+        "trigger": "general spectral conditioning via node and edge weighting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb2cd138-5531-487b-95ec-c0a0c4a5272a",
+  "value": {
+    "rationale": "The strict reentrant winner and eventual return for every sufficiently large gain of the exact pinning eigenratio show failure of a natural monotone optimal-site ranking as feedback strength changes. It is an open-set property and a tiny exact regression test for numerical pin-placement algorithms, not merely a computed isolated equality or arbitrary scalar invariant. Its scope is a finite counterexample; no universal phase diagram or minimality is asserted.",
+    "status": "PASS"
+  }
+}
