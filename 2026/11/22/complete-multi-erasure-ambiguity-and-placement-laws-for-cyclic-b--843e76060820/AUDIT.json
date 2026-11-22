@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For any nonempty erasure mask, retained edges form e disjoint paths. Each path has exactly one doubleton reading (all sums one), with 2^v-2 singleton readings; all other inputs give unique outputs. Tensoring components proves complete powers-of-two list histogram. The strict inequality (2^(v+1)-1)^2>(2^v-1)(2^(v+2)-1) gives sharp balanced/unbalanced masks; counting masks with a marked erased edge gives the n/e coefficient extraction. The exact count of cyclic nonadjacent e-subsets gives birthday threshold exp(-c^2). Standalone Python checked 2,032 masks and 1,396,040 source instances for all n=3..10; it is evidence, not infinite proof. Boundary cases e=2, e=n, isolated paths and the e>n/2 threshold are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete cyclic-read theorem describes fibers with no missing reads and their gcd-based residue classes.",
+        "The known-position one-erasure theorem states its domain as exactly one missing read coordinate; e>=2 remains outside it.",
+        "Sporring–Darkner study linear contiguous reads at every position, not cyclic arbitrary masks."
+      ],
+      "reasoning": "Both public cyclic records are more general in alphabet/window width but strictly less general in read-erasure pattern. They do not imply the exact multi-component mask dependence without additional graph decomposition and counting. The path lemma itself is not presented as new.",
+      "searches": [
+        "all masks of erased edges in binary ring edge sum measurement reconstructibility balanced placement",
+        "cyclic length-two weighted read channel multiple missing observations known erasure positions exact image size segments",
+        "multiple erased cyclic weighted reads h 2 erasures capacity product 2 power minus one",
+        "published_result:9ee0bce770fc",
+        "published_result:21136e4ec91c"
+      ]
+    },
+    "checked_sources": [
+      "Sporring & Darkner, Reconstructing Binary Signals from Local Histograms, Entropy 24(3), 433, DOI:10.3390/e24030433, full accessible HTML, sections 2-4 including width-two Section 4.3.",
+      "Yerushalmi, Etzion & Yaakobi, The Capacity of the Weighted Read Channel, arXiv:2401.15368v1, abstract and arXiv submission record inspected, no full manuscript.",
+      "Exact fiber and constant-weight capacity laws for cyclic binary weighted reads, public result identifier 21136e4ec91c, complete RESULT.md examined.",
+      "Exact capacity and ambiguity of one-erased cyclic weighted reads, public result identifier 9ee0bce770fc, complete RESULT.md examined.",
+      "Public abstract: Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels, https://authors.library.caltech.edu/records/g86g2-92h26"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Noncyclic path one-doubleton result implies only the local factor; no arbitrary cyclic erasure-mask census or sensor placement optimization is provided.",
+        "Single erasure e=1 is covered by a published result and is outside the new theorem domain.",
+        "The 2024 weighted-read abstract treats an unpunctured noncyclic channel."
+      ],
+      "reasoning": "The result is assembled from a credited path theorem plus new mask decomposition, exact partition of fiber types, cyclic composition averaging, strict placement optimization and random-mask threshold. The published results do not expressly dominate the combined all-e>=2 statement. Its elementary local ingredient increases the risk of implicit unindexed coverage, recorded below.",
+      "searches": [
+        "known location multiple erased adjacent pair sum circular binary signal number distinct outputs exact optimal erasure placement fibers",
+        "all masks of erased edges in binary ring edge sum measurement reconstructibility balanced placement",
+        "doi:10.3390/e24030433",
+        "published_result:9ee0bce770fc",
+        "arxiv:2401.15368v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Graph interpretation: deleting indexed pair-sum readings deletes edges from a cycle and leaves disjoint path components, not the same as erasing source symbols or observing ordered symbol-pairs.",
+        "The 2022 noncyclic width-two local-histogram path lemma has one doubleton; our result fixes all cyclic multi-erasure masks."
+      ],
+      "reasoning": "Aliases edge-sum graph measurement, local-histogram metameric classes, and cyclic weighted reads were compared at the level of their observation maps and inverse-fiber implications. Their one-path theorem is explicitly reused, but no theorem stating all-mask spectra, extrema and threshold was identified.",
+      "searches": [
+        "known location multiple erased adjacent pair sum circular binary signal number distinct outputs exact optimal erasure placement fibers",
+        "binary cyclic length two Hamming weight reads erasure mask path component product capacity full inverse-fiber distribution",
+        "random erased weighted local histograms adjacent pairs binary exact generating function number output readouts",
+        "doi:10.3390/e24030433",
+        "published_result:21136e4ec91c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned related full and one-erasure observations, not all-mask n/e coefficient or birthday transition.",
+        "The 2022 complete paper contains tables for noncyclic fully observed widths and Section 4.3, not a table of all cyclic e-erasure patterns."
+      ],
+      "reasoning": "The asserted exact all-mask coefficient polynomial and sharp optimal-placement formulas for e>=2 were not present in inspected tables or indexed findings. No claim is made that database search proves uniqueness.",
+      "searches": [
+        "known location multiple erased adjacent pair sum circular binary signal number distinct outputs exact optimal erasure placement fibers",
+        "binary cyclic length two Hamming weight reads erasure mask path component product capacity full inverse-fiber distribution",
+        "random erased weighted local histograms adjacent pairs binary exact generating function number output readouts",
+        "binary sequences adjacent pair sums missing measurements erasure reconstruction",
+        "doi:10.3390/e24030433"
+      ]
+    },
+    "rationale": "Claims only the complete e>=2 cyclic pair-sum erasure-mask inverse-fiber and placement/aggregate laws; the path lemma and one erasure case are credited as prior. Published full cyclic weighted reads do not treat missing coordinates; known one-erasure read theorem treats exactly one. No relevant exact all-mask theorem or identical square-root singleton-readout threshold was found in published-finding corpus queries or inspected primary work. Remaining possible implicit graph-theoretic equivalence is disclosed; a failed search alone is not priority proof.",
+    "residual_risks": [
+      "Path doubleton fact is known, making multi-component factorization susceptible to an implicit elementary corollary in older graph-tomography or sensor-erasure literature.",
+      "The full manuscript of arXiv:2401.15368v1 was not read; its abstract does not decisively settle all possible comparisons.",
+      "Search cannot exclude unindexed sources, alternate graph measurement terminology, or new publications after the inspected date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALREADY_COVERS_PATH_LEMMA; NOT_COVERING_SPECIFIED_MULTIPLE_CYCLIC_ERASURES",
+        "evidence": "Section 4.3 establishes exactly one doubleton all-one local-histogram class for a linear path, which is cited as prior. Sections 2 and 3 define complete noncyclic local windows; no known erased cyclic edges.",
+        "identifier_or_url": "https://www.mdpi.com/1099-4300/24/3/433",
+        "material_read": "Accessible full HTML Introduction, Sections 2, 3, 4.1-4.4, with detailed reading of Section 4.3 and tables",
+        "method": "read full primary webpage and compare domain and implications",
+        "title": "Reconstructing Binary Signals from Local Histograms",
+        "trigger": "Same binary width-two local count and inverse-fiber ambiguity"
+      },
+      {
+        "assessment": "COVERS_ONE_ERASURE_ONLY",
+        "evidence": "The prior formula is explicitly for one read coordinate missing, and its Limitations section excludes multiple erased positions.",
+        "identifier_or_url": "published_result:9ee0bce770fc",
+        "material_read": "Complete public RESULT.md, including proof, assumptions, relationship to prior and stated limitations",
+        "method": "read public result full text and compare e=1 consequences to new domain e>=2",
+        "title": "Exact capacity and ambiguity of one-erased cyclic weighted reads",
+        "trigger": "Plausible same objects and known erasure location"
+      },
+      {
+        "assessment": "COVERS_NO_ERASURES_ONLY",
+        "evidence": "All n unit-shift cyclic read coordinates retained; the limitations exclude missing read positions and corrupted weights.",
+        "identifier_or_url": "published_result:21136e4ec91c",
+        "material_read": "Complete public RESULT.md including all formulas and limitations",
+        "method": "read public result full text and inspect output map and implication",
+        "title": "Exact fiber and constant-weight capacity laws for cyclic binary weighted reads",
+        "trigger": "Same cyclic binary integer sum operator"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY_FULL_TEXT_NOT_READ",
+        "evidence": "The abstract defines length-l windows with shift delta and discusses capacity; it does not address arbitrary cyclic known erasure masks, but full-text absence is a qualified priority risk.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.15368",
+        "material_read": "arXiv submission metadata, title, author names, complete abstract; experimental HTML request inaccessible",
+        "method": "inspected abstract and access path, did not infer whole-document absence",
+        "title": "The Capacity of the Weighted Read Channel",
+        "trigger": "Weighted-read capacity literature from middle source window"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVATION",
+        "evidence": "The channel exposes ordered adjacent symbol pairs, rather than their integer sums; its coding-distance claims do not dominate the inverse-fiber assertions.",
+        "identifier_or_url": "https://authors.library.caltech.edu/records/g86g2-92h26",
+        "material_read": "public abstract only",
+        "method": "compare observation type",
+        "title": "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels",
+        "trigger": "Potential alias symbol-pair channel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "843e7606-0820-40ae-9afe-5a17d6970666",
+  "value": {
+    "rationale": "For a physically natural known-location read-erasure model, gives a complete all-length inverse-list census, exact best/worst sensor loss placements, exact expected loss across masks, and a sharp birthday-scale transition at e≈sqrt(n) where the existence of even one unique readout disappears. These facts are naturally motivated by robust finite sensing and zero-error coding, not an arbitrary parameter slice; the fact that a path ingredient is known is credited.",
+    "status": "PASS"
+  }
+}
