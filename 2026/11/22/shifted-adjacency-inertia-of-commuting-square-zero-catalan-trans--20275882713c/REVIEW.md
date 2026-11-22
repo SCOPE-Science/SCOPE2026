@@ -1,0 +1,15 @@
+# Scientific review: shifted adjacency inertia of square-zero Catalan transformations
+
+## Correctness — PASS
+The proof identifies the square-zero maps by their initial one-fiber and verifies \(|S_n|=2^{n-2}\). For two square-zero maps, one of their two compositions must equal the absorbing zero, so commutation is equivalent to mutual zero-product and then to intersection of their interval types. All interval types are represented, yielding the exact congruence-invariant factorization \(A_n+I=XH_pX^{\mathsf T}\). A spanning family of singleton/adjacent-pair rows of \(H_p\), together with the nonsingular principal block whose Schur complement is \(-I_{p-1}\), yields exactly \(p\) positive and \(p-1\) negative directions. The boundary \(n=3\) is included. A separate executable checker directly enumerates and verifies the identity and inertia through \(n=10\). The finite checks corroborate but do not prove the unrestricted claim.
+
+## Originality — PASS, with specified residual priority risk
+The closest primary work is Toker's 2021 complete zero-divisor graph study, including Lemma 4.1's mutual-zero product condition and clique/chordal results. Those findings imply a convenient description of adjacencies but do not provide the claimed \(-1\)-eigenvalue multiplicity, exact shifted rank, or positive/negative inertia. Korkmaz–Ayık count generators of nilpotent subsemigroups rather than adjacency spectrum. The public exact-generator-rank treatment concerns the same \(S_n\) but distinct algebraic invariants. The full text of the public complete-discrete-interval logical study concerns first-order rank-three equivalence and not spectral matrix inertia; the public mutual-inverse matrix-inertia study concerns a different relation and a larger transformation monoid. Exact claim and alias searches returned no dominating result. Nevertheless, a more general published theorem on interval-intersection matrix rank or inertia may subsume this application; this is a real historical-priority risk rather than a uniqueness certificate.
+
+## Value — PASS
+The square-zero ideal is a canonical nilpotent stratum of the Catalan monoid with exponentially many elements. The theorem explains why its commuting graph has a shifted adjacency matrix of rank exactly \(2n-5\), identifies its entire inertia rather than just a bound, and detects a large, exactly quantified \(-1\) eigenspace. The proof isolates a reusable boundary-row mechanism via a negative identity Schur complement. This is a natural semigroup spectral invariant, not a sporadic enumeration or immediate restatement of known degree and clique parameters.
+
+## Limitations and closest literature
+The result is confined to the square-zero subsystem and to the real shifted adjacency inertia. The exact remaining eigenvalues are not determined. Novelty assessment covers targeted primary literature, the relevant public research records and semantic claim searches, not every published graph-spectrum theorem. The finite checker has no claim to exhaustive proof of all chain lengths.
+
+Self-review: passed. Independent audit: not yet performed.
