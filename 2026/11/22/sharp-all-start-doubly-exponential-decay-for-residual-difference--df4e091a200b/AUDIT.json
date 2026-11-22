@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Exact B^2/B^3 computation produces e_{k+1}=e_k/(κ^4e_{k-1}²) and e_1=1/e_0. Rescaling yields a solved second-order log recurrence with amplitude identity C²=4L²+16(t+L/2)²/7. Exact multiplier products and bounded log-sum-exp errors establish the scaled phase series and its positive minimum; irrational rotation proves double-exponential rate with no exceptional mixed start. Standalone 417 finite checks independently replay direct rational iterates and late logarithmic profiles; numerical tests are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus alternating steps full RESULT.md (2026/11/8/0e04302e58f6): every mixed start, but alternating BB1/BB2 rules, not RD-only.",
+        "Yang–Yuan arXiv:2608.07839 and arXiv:2609.12084 abstracts: R-linear universal upper envelope and Lyapunov identity, not exact all-start fast rate.",
+        "Xu arXiv:2611.02743 PDF pages 5–7: convergence analysis explicitly restricted to DR after defining both rules."
+      ],
+      "reasoning": "The closest published stronger-looking all-start theorem applies to an alternating method whose update maps differ on every odd iteration; neither statement implies that the fixed pure short method avoids its exceptional orbit. General BB2 geometric upper bounds are logically compatible with an exceptional geometric start, whereas this theorem rules one out under the specified initialization.",
+      "searches": [
+        "short Barzilai Borwein BB2 pure residual difference RD steepest descent initialization all starting ratios doubly exponential log periodic phase profile sharp amplitude",
+        "The Sharp Worst-Case Asymptotic Rate Barzilai Borwein BB2 two eigenvalues matched initialization 2026 Yang Yuan",
+        "Lyapunov Functions R-Linear Convergence BB2 Yang Yuan 2026"
+      ]
+    },
+    "checked_sources": [
+      "Xu arXiv:2611.02743v1 full PDF",
+      "published-finding corpus alternating BB1/BB2 full RESULT.md (0e04302e58f6)",
+      "published-finding corpus BB1 log-periodic profile full RESULT.md (80f835ec743a)",
+      "Yang–Yuan arXiv:2608.07839 abstract",
+      "Yang–Yuan arXiv:2609.12100 abstract",
+      "Yang–Yuan arXiv:2609.12084 abstract",
+      "Raydan thesis Chapter 5 searchable excerpt",
+      "arXiv:2010.12130 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu source (14),(17) establishes short-step algebra but derives later two-mode convergence only for DR.",
+        "published-finding corpus BB1 phase theorem includes slow geometric balanced trajectories, so its matched initialization cannot imply their absence under pure RD.",
+        "published-finding corpus alternating BB theorem's parity forcing differs from pure RD recurrence; its all-start conclusion does not transfer without a separate first-step analysis.",
+        "Raydan thesis Chapter 5 discusses R-superlinear two-eigenvalue BB convergence but contains exceptional linear examples for different starts."
+      ],
+      "reasoning": "Known BB2 R-superlinear generic behavior does not imply all-start sharp log √2 speed. The proof establishes for the fixed first step the new positive-amplitude identity C²=4L²+16(t+L/2)²/7; without that constraint the common log recurrence has zero-amplitude slow orbits. The sharp startup result is a different quantified statement, not a simple rewording of the prior BB1 or alternating-method theorems.",
+      "searches": [
+        "pure BB2 residual difference method two eigenvalues doubly exponential convergence no exceptional balanced start long step warm start",
+        "short Barzilai Borwein BB2 pure residual difference RD steepest descent initialization all starting ratios doubly exponential log periodic phase profile sharp amplitude",
+        "BB2 method two dimensional quadratic R-superlinear doubly exponential residual rate singular values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xu arXiv:2611.02743v1 Section 3.1 formulas (14),(17) identify RD with BB2 and give B^2/B^3 representation.",
+        "published-finding corpus BB1 profile full RESULT.md (2026/11/8/80f835ec743a) explicitly applies to matched BB1, and lists BB2 as outside its scope.",
+        "Yang–Yuan arXiv:2609.12100 abstract states a conjugacy of fixed positive spectral-weight delayed rules with BB1."
+      ],
+      "reasoning": "The RD ratio becomes a standard BB1 log recurrence after the nontrivial rescaling z=κ²e. But the first SD step induces log states (2L+t,2L−t), not the balanced/standard matched BB1 states (t,−t). The new initial-data constraint enforces C≥2L, with exact minimizer. Conjugacy of dynamics alone does not state that initial constraint or its sharp amplitude result; potential implicit equivalent coverage remains a residual risk.",
+      "searches": [
+        "pure BB2 residual difference method two eigenvalues doubly exponential convergence no exceptional balanced start long step warm start",
+        "short Barzilai Borwein BB2 two dimensional quadratic scaled residual recurrence κ^2 ε k+1 / ε k−1^2",
+        "Barzilai Borwein BB2 two-dimensional quadratic superlinear convergence short step exact BB2 convergence properties 2 eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned the two matched-BB1/alternating-BB findings as closest, with no exact pure RD amplitude table or claimed two-eigenvalue boundary.",
+        "The closest published mathematical-result records contain no exact pure RD amplitude table or equivalent identity."
+      ],
+      "reasoning": "This is an analytic infinite-iteration result, not a finite tabulated invariant. No database/table covers its exact amplitude minimizer to the extent of the accessible records; absent searches alone are not a novelty proof.",
+      "searches": [
+        "BB2 delayed spectral method sharp universal log periodic gradient envelope two eigenvalues balanced ratio",
+        "BB2 delayed Rayleigh two eigenvalues exact log ratio amplitude gap warm start no balanced linear orbit pure short step",
+        "Xin Xu 2611.02743 RD convergence exact superlinear all-start two singular values"
+      ]
+    },
+    "rationale": "The inspected primary Xu paper gives RD formula but proves its two-level result only for DR. Full current published BB1-profile and alternating BB1/BB2 findings do not cover pure short RD with an initial SD step. The new claim includes a sharp strictly positive all-start log-oscillation amplitude C≥2 log κ and its unique minimizer, yielding universal fast decay without alternation; general BB2 R-linear bounds and the known spectral-weight conjugacy do not state this precise initialized classification. Caveat: the conjugacy makes uninspected implicit prior coverage possible; research novelty is qualified, not certified.",
+    "residual_risks": [
+      "Full older 2D BB2 literature and unavailable arXiv:2608.07839 and 2609.12100 PDFs could contain an implicit transformed-initialization corollary",
+      "The phase profile for the common BB log recurrence follows an already published BB1 profile method; novelty is specifically the pure RD initial-data constraint and sharp positive amplitude gap",
+      "No comprehensive expert historical-priority review or independent audit has been performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines RD and BB2 correspondence; analyzes the DR two-mode case, not the pure RD sharp amplitude and asymptotic",
+        "evidence": [
+          "PDF p.5 explicitly: 'In what follows ... convergence analysis ... equipped with α^DR'; theorem 3.5 uses DR."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.02743",
+        "material_read": "PDF pp. 2–7 equations and convergence proofs, closing discussion pp. 10–11; p. 5 visually inspected",
+        "method": "Full-text and page inspection",
+        "title": "Two-point residual step size gradient methods for linear systems",
+        "trigger": "Motivating RD rule and exact two-active-singular-value setup"
+      },
+      {
+        "assessment": "NOT covering pure RD: requires alternating long/short steps, whereas proposed rule applies short step on every delayed iteration",
+        "evidence": [
+          "RESULT.md definition α_k uses long at odd k and short at even k; proof's forcing c_k alternates between 0 and -2L."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6",
+        "material_read": "Entire RESULT.md including assumptions, proof, relationship to prior work",
+        "method": "Full publicly available RESULT.md text inspection",
+        "title": "Alternating long–short spectral steps eliminate the balanced two-mode slowdown",
+        "trigger": "Same exponent and all-start conclusion might subsume pure RD"
+      },
+      {
+        "assessment": "NOT stated for BB2; covers matched BB1. Universal series structure is reused and explicitly credited; distinct RD startup amplitude and pure-RD all-start assertion not established there",
+        "evidence": [
+          "The theorem's α_0 and α_k are BB1; limitations explicitly state no BB2 result."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+        "material_read": "Entire RESULT.md, including assumptions, proof, and limitations",
+        "method": "Full publicly available RESULT.md text inspection",
+        "title": "A universal log-periodic gradient envelope for two-mode Barzilai–Borwein descent",
+        "trigger": "Could cover new scaled-log residual profile"
+      },
+      {
+        "assessment": "States sharp R-linear worst-case and envelope for both pure rules, not exact all-start scaled-log limit; full text inaccessible for decisive appendix cross-check",
+        "evidence": [
+          "Abstract explicitly gives gradient root-factor bound (b-a)/(b+a) for either fixed rule."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.07839",
+        "material_read": "Public abstract; PDF retrieval attempt unavailable",
+        "method": "Abstract review; full PDF request unsuccessful",
+        "title": "The Sharp Worst-Case Asymptotic Rate of the Barzilai–Borwein Method in R^d and Hilbert Spaces",
+        "trigger": "Possible stronger BB2 rate theorem"
+      },
+      {
+        "assessment": "General weighted-BB conjugacy indicates implicit derivability risk, but no stated exact SD-initialized amplitude gap in accessible material",
+        "evidence": [
+          "Abstract explicitly states conjugacy and global R-linear growth radius, not full double-log profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.12100",
+        "material_read": "Public abstract; full PDF request unavailable",
+        "method": "Abstract review; full PDF request unsuccessful",
+        "title": "R-Linear Convergence of Barzilai-Borwein Methods on Strictly Convex Quadratics via Closed-Cone Homogeneous Dynamics",
+        "trigger": "Spectral-weight conjugacy could implicitly subsume pure short-step analysis"
+      },
+      {
+        "assessment": "Classical 2D superlinear rates are acknowledged; full text not excluded and retains historical-priority risk",
+        "evidence": [
+          "Chapter 5 describes (3,2)-step Q-quadratic behavior and exceptional geometric initial states."
+        ],
+        "identifier_or_url": "https://camo.ici.ro/books/thesis/raydan.pdf",
+        "material_read": "Search-extracted chapter opening and theorem summary; full thesis not read",
+        "method": "Publisher-hosted PDF search preview",
+        "title": "Convergence Rate for the 2 Eigenvalues Case (thesis Chapter 5)",
+        "trigger": "Classical two-dimensional Barzilai–Borwein fast rate and exceptional behavior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "df4e091a-200b-4efc-9c53-d4c73188fae8",
+  "value": {
+    "rationale": "The motivating pure RD residual solver has no corresponding two-spectral convergence theorem in its source. Its usual one-step residual-SD warm start has a sharp positive amplitude gap for every mixed starting residual; this means it avoids the exceptionally slow balanced orbit of matched long-step BB without adding alternating controls. The exact optimizer in initial spectral energy measures a natural best-case oscillatory amplitude and quantifies startup robustness for this canonical numerical linear algebra problem.",
+    "status": "PASS"
+  }
+}
