@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The standard-library code exhaustively builds each permitted word for n=1,...,9, defines deletion shadows by all possible single deletions, and searches every compatible clique with a sound greedy proper-coloring pruning bound. It verifies the complete optimum vector (1,2,2,3,3,6,6,10,13), a thirteen-word witness, and all ten VT residue counts at n=9 (11,10,12,12,10,11,10,12,12,10). An independent incidence-MILP implementation confirms n=7,8,9, without serving as proof. Finite enumeration is exhaustive for the explicitly finite domain, not a claim for all lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni--Kiyavash 2012 §V defines (d,k) codes with singleton 1-runs and guarded boundary 0-runs, and derives general fractional-transversal bounds.",
+        "The 2020 paper defines maximum run length for both bit symbols but studies encoder design and a general redundancy inequality at lengths >=14, not a sharp nine-bit capacity."
+      ],
+      "reasoning": "The broad unrestricted or guarded-source upper bounds do not imply 13: even unrestricted n=9 deletion capacity is much larger. General encoder existence yields lower bounds, not a matching constrained upper bound. Non-overlapping codes are different synchronization constraints.",
+      "searches": [
+        "Non-asymptotic Upper Bounds for Deletion Correcting Codes arxiv 1211.3128",
+        "maximum size q-ary nonoverlapping cross-bifix-free codes length four exact formula classification",
+        "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code arxiv 2012.13536"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1211.3128",
+      "https://doi.org/10.1109/TIT.2017.2661747",
+      "https://arxiv.org/abs/2012.13536",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-single-deletion-optima-for-the-2-infty-rll-source-through--b6865f2f1099",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 hypergraph reduction is an optimization framework but does not solve this exact 110-word instance.",
+        "The 2017 VT-partition bound guarantees some feasible intersection; it does not imply all constrained optima lie in one syndrome, and the candidate directly refutes such an inference at length nine.",
+        "The 2020 algorithm provides an encodable code and its redundancy, not equality for this finite maximum."
+      ],
+      "reasoning": "A general subset-of-VT construction and a nonsharp upper bound do not logically entail exact constrained capacity or the first failing length. The new exhaustive upper certificate is needed for the upper bound 13; listing syndrome counts alone establishes only 12 as the largest conventional intersection.",
+      "searches": [
+        "arxiv:1211.3128 constrained-source deletion packing upper bounds",
+        "doi:10.1109/TIT.2017.2661747 VT intersection run length limited Lemma 3",
+        "arxiv:2012.13536 optimal RLL-SIDC redundancy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schoeny et al., 2017, §V-B defines words with each run <=f(n) and builds VT intersections, but does not assert their finite extremality.",
+        "Takemoto--Nozaki 2020, §IV-E bounds redundancy of an encodable construction, without finite optimum n=9."
+      ],
+      "reasoning": "Equivalent objects are binary source strings excluding both length-three homopolymers, under arbitrary one-symbol deletion. A generic (d,k) recording constraint or a fixed-redundancy family is not an exact maximum over this finite source. No inspected theorem asserts the candidate equality or first strict VT gap.",
+      "searches": [
+        "maximum-run-length-two single deletion codes first failure of intersection with Varshamov Tenengolts syndrome",
+        "run length limited binary single deletion correcting codes no 000 no 111 length nine maximum thirteen Varshamov Tenengolts",
+        "arxiv:2012.13536 Section IV-E",
+        "doi:10.1109/TIT.2017.2661747 Section V-B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus item 2026/10/13/SCOPE-exact-single-deletion-optima-for-the-2-infty-rll-source-through--b6865f2f1099 concerns a guarded minimum-zero-run (2,infinity) source; its first four-word optimum is at length eleven.",
+        "Published published-finding corpus item 2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082 concerns constant Hamming weight, not the no-000/no-111 source.",
+        "No matching exact run-two n=9 13-versus-12 entry was returned by the targeted scientific record/literature searches."
+      ],
+      "reasoning": "The nearest indexed tables concern differently constrained sources. Search absence alone is not proof of novelty; comparison relies on material differences in the domain and established theorems.",
+      "searches": [
+        "exact 13 size binary 9 bit one deletion error correcting with no 000 and no 111; VT largest 12",
+        "RLL run at most two single deletion correction exact n=9 size 13",
+        "\"run-length\" \"deletion\" \"length 9\" \"13\" code",
+        "run-two bounded homopolymer binary deletion shadow packing length nine capacity"
+      ]
+    },
+    "rationale": "Three accessible primary works were inspected at their definition, result and relevant bound sections. They introduce deletion-shadow optimization, maximal-run-limited VT intersections, and efficient RLL indel constructions, but their theorems do not give the sharp n=9 run-two capacity 13 or the first n=9 standard-VT restricted gap. Indexed related exact findings use different source restrictions or channels; historical priority remains qualified.",
+    "residual_risks": [
+      "Unindexed historical code-size tables or supplementary material may already record the exact n=9 value and VT-class comparison.",
+      "The much earlier RLL coding literature, including Bours (1994), was identified through references but its full text was not inspected. It might contain a relevant finite table.",
+      "The bounded published-finding corpus semantic searches cannot establish exhaustive uniqueness, and the two closest indexed records use different constraints."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: only general bounds and guarded (d,k) source; no sharp n=9 maximum-run-two table",
+        "evidence": [
+          "§V defines singleton 1-runs, guarded zero-run endpoints and a lower zero-run bound; this is a different word set."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Title, abstract, Section I, Section V on constrained sources and its RLL definitions, and pertinent references",
+        "method": "Public full-text PDF text with visual inspection of first page and page 12",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Fundamental deletion-shadow optimization and RLL source comparison"
+      },
+      {
+        "assessment": "Does not imply sharp constant-run-two nine-bit optimum or VT first-gap length",
+        "evidence": [
+          "§V-B explicitly defines longest 0/1 runs and uses intersection with VT codes as a constructive ingredient in burst codes."
+        ],
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2017/04/28_Burst_Deletions_IT17.pdf",
+        "material_read": "Section II-B definition of VT; Section V-B RLL-VT definitions and construction",
+        "method": "Public complete PDF text search and reading of relevant sections with page-image inspection",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Defines maximum-run-limited source and VT syndrome intersection for decoding"
+      },
+      {
+        "assessment": "The principal results concern encodability and general lower redundancy bounds, not the exact 110-word source optimum",
+        "evidence": [
+          "§IV-E takes an unconstrained general upper bound to derive a lower redundancy bound; theorem 4 concerns constructed-code overhead for n>=14."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.13536",
+        "material_read": "Abstract, introductions, Section IV-D run-limit proof, Section IV-E redundancy bounds, conclusions",
+        "method": "Public full-text PDF text search and reading of relevant sections with page-image inspection",
+        "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+        "trigger": "Highly relevant RLL indel construction and potential dominance of finite capacity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f5acf090-9fbf-4223-895b-3decd4e8cff3",
+  "value": {
+    "rationale": "Run-ceiling-two binary coding is a natural constraint in storage and synchronization. Exact one-deletion capacity determines a concrete short-block payload limit, and the first n=9 failure of the standard VT-syndrome restriction exposes a structural optimality boundary: ordinary VT subclasses are optimal for all shorter allowed lengths but lose a whole codeword at nine. This is not a mere longer entry of an arbitrary table; its distinction is a motivated limitation of a classical construction. No general downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
