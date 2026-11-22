@@ -1,0 +1,11 @@
+# Scientific review of the sparse spherical kernel theorem
+
+**Correctness — PASS.** The positive feature series converges uniformly. A zero Gram form forces all \(u\)-moments and all height-weighted moments to vanish. Two Vandermonde inversions separate distinct projections, and each projected fiber has one or two points with distinct heights, completing the all-finite-sites proof. Harmonicity, azimuthal orders and an explicit signed zonal witness prove the exact spectral counts and failure of universality. The finite checker has 266 successful diagnostics; it is auxiliary and does not prove the infinite assertions.
+
+**Originality — PASS, best-knowledge.** The finite atomic-measure criterion is already Theorem 1 of Guella–Jäger (arXiv:2205.07396) and is credited. Its Theorem 4 near-complete harmonic sufficient condition does not apply to this kernel: the selected high-degree harmonics vanish at the north pole. Buhmann–Jäger (arXiv:2105.02586) treats stronger full-block conditions and does not state the sparse rational two-ladder construction. Searches of related published claims returned spherical Poisson positivity and harmonic sampling results, not the present structural example. A close 2020 two-sphere kernel characterization was accessible in abstract but not substantively read, so priority remains provisional.
+
+**Value — PASS.** The closed rational covariance has exact two-per-degree nonzero complex harmonic support and four real modes at each sufficiently high degree, despite strict positive definiteness for arbitrarily many sites. The same construction fails continuous-function universality, as witnessed by the degree-two zonal harmonic. This isolates a meaningful boundary between finite interpolation strictness and approximation power, and shows how little harmonic occupancy a nonisotropic strictly positive-definite kernel can require. No global optimality claim is made.
+
+**Residual scientific limits.** Only the two-sphere is treated; the sparse support is not proved minimal among every possible kernel. Historical priority remains a best-knowledge assessment; one earlier plausible source was accessible only by abstract. The results have not undergone independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
