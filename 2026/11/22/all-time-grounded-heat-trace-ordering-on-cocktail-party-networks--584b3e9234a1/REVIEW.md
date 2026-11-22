@@ -1,0 +1,19 @@
+# Review: all-time grounded heat-trace ordering on cocktail-party networks
+
+## Correctness — PASS
+
+The exact domain is the connected unit-weight graph \(K_{2m}\setminus M_m\), integer \(m\ge2\), leader budget \(1\le k<2m\), all \(t>0\), and nonnegative common screening \(\mu\). Every leader set belongs to an automorphism orbit labelled by its count \(r\) of missing pairs wholly among followers. Replacing one singleton follower by the mate of another changes only one follower–follower adjacency and does not change any grounded diagonal. The interpolation \(A_\theta=A_0+\theta(E_{uv}+E_{vu})\) remains positive definite and \(-A_\theta\) remains Metzler; the \(uv\) matrix-exponential entry is strictly positive at all finite positive times before the endpoint. The exact trace derivative is therefore strictly negative. Every nongrouped placement admits this exchange, and the grouped ones form a single orbit, proving necessity, sufficiency and strict ranking. The gamma integral and finite time integration prove the spectral corollaries without exchanging sign or limits improperly. The stated optimal spectra were reconstructed from invariant pair modes and a two-dimensional quotient. The bundled checker passes 7,401 finite tests and exact small-case characteristic polynomials, not replacing the infinite proof.
+
+## Originality — PASS on inspected evidence, with residual risk
+
+The nearest *Exhaustive-community optimal leaders on balanced multipartite networks* covers the all-budget grouping conclusion at the first inverse moment and zero screening for at least three matching pairs; the two-pair case is a four-cycle. Its full RESULT.md was read, including the theorem and pair-transfer argument: it does not show pointwise heat-trace ordering, screened inverse powers, the complete strict ordering of all competitor orbits, or transient all-horizon optimality. These are the actual new claim, not an alleged novelty of the previously solved grouping special case. Primary sources on leader selection, joint centrality and one-dimensional optimal placement were inspected for the same graph and objective; they do not state the all-time theorem. Other published-finding corpus searches included the matching-complement, cocktail-party, transient heat and inverse-power aliases. Unindexed equivalent work and general heat-semigroup comparison theorems may provide a different derivation, and are the remaining priority risk.
+
+## Value — PASS
+
+Stationary inverse-trace optimality does not determine the sign of the heat-trace gap at each time. The strict all-time comparison certifies that *the same leader sets* optimize every finite control-noise horizon and every positive spectral inverse order, rather than only one asymptotic or first-moment criterion. For a natural fault-pattern family (complete graphs with a failed perfect matching), it also provides the full strict orbit ranking, exact optimizer multiplicities and readily evaluated eigenvalues; the result can guide horizon-independent intervention design. The value is the stronger simultaneous spectral and transient guarantee, not an elementary restatement of the known first-inverse special case.
+
+## Closest prior statements and limitations
+
+The first-inverse theorem in the published balanced multipartite study is a strict weaker special case, with exactly matching network and placement when each part has two vertices and there are at least three parts. The general original 2013 leader-selection work defines grounded inverse-trace coherence; its selection methods and the 2014 follow-ups do not give this heat-trace hierarchy. The proof relies on uniform conductances and fixed original degree diagonals, and no independent audit or worldwide novelty certification is claimed. The computational checks are finite corroboration only.
+
+Self-review: passed. Independent audit: not yet performed.
