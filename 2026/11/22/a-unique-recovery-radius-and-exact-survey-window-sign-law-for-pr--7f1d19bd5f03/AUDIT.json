@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For all positive F0,N0,mu,a,h,d,n, the local equilibrium exists uniquely by a positive loss derivative. Implicit differentiation gives P'/P = Q[n-(d-n)ahS]/[(1+ahS)J] with Q,J>0. When n<d, S decreases from S0 to 0, giving exactly one interior minimum iff ahS0>n/(d-n); other parameters give strictly increasing P. An exact source-to-R comparison yields sign[(1-e^{-nR})+(e^{-dR}-e^{-nR})ahS0]. The cutoff Y(R) increases strictly from n/(d-n) to infinity, proving exactly one returning radius if and only if there is an interior minimum, all equalities handled. An independently run standard-library checker passed 3614 finite supplemental assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1111/j.0022-0477.2004.00914.x",
+        "https://doi.org/10.1086/591687",
+        "https://doi.org/10.1016/j.tpb.2009.08.001",
+        "https://doi.org/10.1111/j.1365-2745.2012.01978.x"
+      ],
+      "reasoning": "The original model is identical on the locally steady exponential case; its published equation 8 constrains a peak of establishment density and cannot imply the distinct derivative-sign and return-radius statement for the survival fraction. The 2008/2009 papers use broader mobile-predator PDEs but the full inspected results concern movement and recruitment shapes, not a theorem whose specialization implies this exact cutoff. The 2012 simulation model also lacks the required analytic implication.",
+      "searches": [
+        "Nathan Casagrandi 2004 Janzen Connell Holling II seed survivorship non-monotone U-shaped distance decline then recovery predator exponential source",
+        "Janzen Connell Nathan Casagrandi McCanny seed survival exponentially decaying seed/predator density endpoint comparison finite observation radius exact crossing"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/j.0022-0477.2004.00914.x",
+      "https://doi.org/10.1111/j.1365-2745.2012.01978.x",
+      "https://doi.org/10.1086/591687",
+      "https://doi.org/10.1016/j.tpb.2009.08.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nathan & Casagrandi 2004 full text, modelling and Results §§ identifying recruitment patterns, Appendix 1: https://doi.org/10.1111/j.0022-0477.2004.00914.x",
+        "Mari et al. 2008 full text pp. 694-711, introduction, equations and discussion: https://doi.org/10.1086/591687",
+        "Mari et al. 2009 full text pp. 229-240, models and discussion: https://doi.org/10.1016/j.tpb.2009.08.001"
+      ],
+      "reasoning": "The source paper asserts near-parent establishment behavior and compares P(0) with P(R95) using a numerical tolerance. That does not imply that P has at most one strict interior trough, that P(R)=P(0) has at most one positive root, or its exact monotone threshold Y(R). The mobile-predator papers admit related functional responses but no stated theorem covering the frozen exponential predator special case. Thus the new quantified conclusion is not a known corollary of the checked source claims.",
+      "searches": [
+        "exact unique minimum survivorship under exponential seed shadow predator distribution Holling type II predator satiation",
+        "A sharp unique recovery radius of seed survivorship in Holling-II predator satiation model"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nathan & Casagrandi 2004, eqns 6-8 and survivorship-window discussion: https://doi.org/10.1111/j.0022-0477.2004.00914.x",
+        "Mari et al. 2008, model and Results: https://doi.org/10.1086/591687"
+      ],
+      "reasoning": "Reexpressed the statement as an exact endpoint sign for P(R)-P(0), a global one-minimum law, and a unique intensity threshold. Nathan-Casagrandi analyze an establishment near-source criterion and numerical finite-window recruitment categories. No equivalent quantified exact return-radius theorem found in inspected passages; generic U-shaped survival sketches do not entail strict global uniqueness or an analytic crossing radius.",
+      "searches": [
+        "A sharp unique recovery radius of seed survivorship in Holling-II predator satiation model",
+        "Nathan Casagrandi 2004 fixed exponential seed shadow predator Holling II equilibrium survival is U-shaped unique minimum returns to origin value at unique distance formula",
+        "McCanny pattern seed survival declines distance then rises far field turning point Janzen Connell 2004"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nathan & Casagrandi 2004, Fig. 5 finite-window parameter map and 95th-percentile threshold 0.05: https://doi.org/10.1111/j.0022-0477.2004.00914.x",
+        "Beckman et al. 2012 grouped finite-radius spatial simulations: https://doi.org/10.1111/j.1365-2745.2012.01978.x"
+      ],
+      "reasoning": "The original published finite-window numerical category table uses a tolerance and a selected radial quantile; it is not an exact symbolic table of all radius crossings. No existing exact database or table of the same quantified Y(R) threshold was identified in the bounded searches.",
+      "searches": [
+        "seed escape fraction increasing decreasing with distance observation window cutoff McCanny curve",
+        "finite observation radius 95 percentile seed survivorship sign reversal Janzen-Connell McCanny exact cutoff source to endpoint equal threshold"
+      ]
+    },
+    "rationale": "A focused equivalence and implication comparison with the complete original model and three relevant primary studies did not locate the exact unique survivorship trough plus finite-survey return-radius classification. The model, generic survival formulas and qualitative spatial recruitment classes are pre-existing. Historical priority is provisional rather than established by absence of search hits.",
+    "residual_risks": [
+      "An unlocated historic treatment of this pre-existing equilibrium model may have independently stated the global one-minimum or exact return-radius identity.",
+      "The 2004 paper contains numerical classification over finite windows; detailed unpublished algebra or supplementary materials not captured in inspected published text could preempt historical priority.",
+      "The theorem does not extend to dynamic predator movement, other kernel families or physiological population dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model and approximate finite-radius categories; no stated unique global survival trough or sharp Y(R) return law",
+        "evidence": "Equation 7 and surrounding survival definition; Results identifying recruitment patterns and eq 8; 95th-percentile and ±0.05 criteria; Appendix 1",
+        "identifier_or_url": "https://doi.org/10.1111/j.0022-0477.2004.00914.x",
+        "material_read": "Complete lawful Wiley HTML full text, equations 1-8, Results, Appendix 1 and figure classification discussion",
+        "method": "Read primary full text and compared equilibrium variables, survival versus establishment quantifiers and finite-radius criteria",
+        "title": "A simple mechanistic model of seed dispersal, predation and plant establishment: Janzen-Connell and beyond",
+        "trigger": "Identical original governing local seed-predation equation and fixed exponential predator field"
+      },
+      {
+        "assessment": "Spatial simulation and recruitment categories, not exact return-radius formula for specified exponential local equilibrium",
+        "evidence": "Different dispersal/seedling model and simulation-based categories rather than an analytic cutoff",
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2745.2012.01978.x",
+        "material_read": "Lawfully accessible full Journal of Ecology HTML, model, simulations, main Results",
+        "method": "Direct comparison of simulated recruitment classifications with static Holling-II equilibrium assumptions",
+        "title": "The interacting effects of clumped seed dispersal and distance- and density-dependent mortality on seedling recruitment patterns",
+        "trigger": "Later work on finite observation radii and density-dependent spatial seed survival"
+      },
+      {
+        "assessment": "Studies taxis/diffusion of predators and recruitment patterns; no stated Y(R) uniqueness or fixed-field endpoint identity",
+        "evidence": "pp. 694-697 motivate extension beyond fixed exponentially distributed predators; pp. 701-707 present PDE/simulation-based movement and recruitment results",
+        "identifier_or_url": "https://doi.org/10.1086/591687",
+        "material_read": "Lawfully available 19-page full-text transcription, introduction, seed/predator PDE, Results, discussion and references",
+        "method": "Read complete article transcription and inspected whether an exact fixed-exponential-predator survivor endpoint classification is given",
+        "title": "Movement Strategies of Seed Predators as Determinants of Plant Recruitment Patterns",
+        "trigger": "Close conceptual follow-up by original model authors"
+      },
+      {
+        "assessment": "Distinct mobile central-place predator dynamics and multiple-source scenarios; no stated exact fixed-field finite-radius crossing theorem",
+        "evidence": "pp. 229-231 model eqns 1-2 with dynamic predator N and Holling-II feeding; Results analyze central-place Janzen-Connell patterns",
+        "identifier_or_url": "https://doi.org/10.1016/j.tpb.2009.08.001",
+        "material_read": "Lawfully available full-text transcription of pp. 229-240, methods, analysis and discussion",
+        "method": "Inspected 2D coupled predator PDE, spatial configurations and asserted recruitment conclusions",
+        "title": "Central-place seed foraging and vegetation patterns",
+        "trigger": "Follow-up predator movement model with exponential seed sources"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f1d19bd-5f03-45ee-b31f-ce9e2a6ae06f",
+  "value": {
+    "rationale": "Nathan and Casagrandi explicitly classify finite-window survival trends at a 95th-percentile seed radius using a tolerance; whether the same ecological site changes apparent survival direction when the survey radius is extended is mathematically and operationally motivated. The theorem supplies a sharp necessary/sufficient condition for a survival trough, proves unique eventual recovery, and identifies the unique exact return radius and source-intensity threshold. This is substantive structure beyond generic local curvature or numeric sampling. It provides an idealized interpretation benchmark, without forecasting field outcomes.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The unique equilibrium exists because its right-hand side is strictly increasing. Implicit differentiation gives the exact sign of the survival derivative. When predators decay more slowly than seed input, seed density decreases strictly and crosses the critical saturation value at most once; the endpoint comparison follows by evaluating the increasing equilibrium map at a scaled source density. A strict derivative inequality proves the cutoff function increases from its critical limiting value to infinity. All boundary cases are covered. The analytic proof, not diagnostic enumeration, establishes the theorem. A standalone standard-library checker returned 3,614 supplemental assertions.
+
+## Originality — PASS (best-knowledge comparison)
+The 2004 Nathan–Casagrandi full text and appendix prove an establishment-pattern criterion and use a finite 95th-percentile survivorship comparison. They do not state the global one-trough theorem or the explicit source-to-endpoint crossing law. The 2012 Beckman–Neuhauser–Muller-Landau full text uses a different simulation model and finite-radius pattern groups. The full-text transcriptions of the 2008 and 2009 Mari and coauthors studies were examined: they use explicitly evolving predator densities and assess movement-derived recruitment configurations rather than the exact fixed-predator exponential survey-window cutoff. The accessible mathematical research summaries and comparable published results did not supply a stronger theorem covering the same model. These are bounded priority checks, not an assertion that the complete literature has been exhausted.
+
+## Value — PASS
+A natural ecological question is whether apparent near-parent predator satiation persists across the sampling domain. The prior published analysis adopts finite cutoffs and a tolerance, yet a source-to-radius classification may change when observation extends farther away. The result supplies exact necessary and sufficient conditions, a unique trough, a unique endpoint recovery radius, and a sharp source-intensity threshold that make this dependence testable in the idealized model. It is a structural constraint on spatial sampling interpretation, not merely a numerical example or a field prediction.
+
+## Closest sources and limitations
+Nathan & Casagrandi (2004), DOI 10.1111/j.0022-0477.2004.00914.x, is the exact parent model. Beckman et al. (2012), DOI 10.1111/j.1365-2745.2012.01978.x, supplies the closest distinct simulation-based classification. Mari et al. (2008), DOI 10.1086/591687, and Mari et al. (2009), DOI 10.1016/j.tpb.2009.08.001, have accessible full-text transcriptions; the outstanding risk is unlocated historical equivalent mathematical work, not access to these two papers. The theorem excludes nonexponential kernels, dynamic predators and subsequent life stages. No independent literature certification or empirical validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
