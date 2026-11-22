@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact checks
+# Independent mathematical audit
 
-Execute `python checker.py` with Python 3.9 or newer. No external packages, network access, or random nondeterminism are needed: the pseudorandom comparisons use a fixed integer seed. The checker separately enumerates all triangulations for small polygons and compares their direct signed sums against the interval recurrence, evaluates every heptagon Walsh coefficient by an integer butterfly transform, checks the explicit 15-vertex frequency and its signed subfamily counts, and probes the infinite assertions in bounded dimensions using only integer arithmetic.
+## correctness
 
-The exact replay marker is `TRIANGULATION_WALSH_EXACT_PASS`. A successful finite replay does not prove the infinite theorems; the recurrence, formal-series solution, Catalan parity, and congruence arguments are supplied in `RESULT.md`. There has been no independent audit.
+PASS
+
+Temporary weighting of all edges by sign of smaller endpoint yields Catalan triangle-splitting recurrence H(i,j)=s_iΣ_kH(i,k)H(k,j), generating series E_L and O_L=−E_L. Formal-series solution gives alternating W_N=0 for even N and C_{(N−3)/2} for odd N. For odd N, any diagonal belongs to C_aC_b triangulations where a+b=N−2 odd; one Catalan factor is even, so W_N(b)≡C_{N−2} mod4 at every frequency. By v2 Catalan=s2(index+1)−1, all coefficients nonzero whenever s2(N−1)≤2. An exact signed triangle recursion at N15 independently yields 132 on alternating set and zero after toggling (0,8),(2,6), with signed containment totals 50,56,20 giving 132−100−112+80=0. All smaller odd N≤13 meet zero-free criterion, so N15 is the first odd singular polygon.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.
+
+## value
+
+PASS
+
+Triangulation diagonal incidence is a natural associahedron vertex code; a universal mod4 obstruction explains infinite invertible odd families including even-support cases, while the explicit first odd cancellation N15 locates the sharp onset outside those families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

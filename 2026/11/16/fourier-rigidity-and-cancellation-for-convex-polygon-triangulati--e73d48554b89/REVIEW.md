@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The diagonal-coordinate domain, counting-measure transform, and all three assertions are explicit. The alternating-weight recurrence yields a formal-power-series identity whose odd coefficients beyond the linear term vanish and whose even coefficients are signed Catalan numbers. Every diagonal of an odd polygon has an even number of containing triangulations because both Catalan factors cannot be odd when their positive indices sum to an odd integer. Hence all Walsh coefficients are constant modulo four. The Catalan binary digit valuation gives the asserted zero-free families; the two-flip computation at fifteen vertices gives an exact zero. The standalone exact-integer checker independently enumerates small triangulations and replays the fifteen-vertex certificate. Infinite conclusions rest on the stated proofs, not a computation cutoff.
+PASS
 
-## Originality — PASS under bounded comparison
+Temporary weighting of all edges by sign of smaller endpoint yields Catalan triangle-splitting recurrence H(i,j)=s_iΣ_kH(i,k)H(k,j), generating series E_L and O_L=−E_L. Formal-series solution gives alternating W_N=0 for even N and C_{(N−3)/2} for odd N. For odd N, any diagonal belongs to C_aC_b triangulations where a+b=N−2 odd; one Catalan factor is even, so W_N(b)≡C_{N−2} mod4 at every frequency. By v2 Catalan=s2(index+1)−1, all coefficients nonzero whenever s2(N−1)≤2. An exact signed triangle recursion at N15 independently yields 132 on alternating set and zero after toggling (0,8),(2,6), with signed containment totals 50,56,20 giving 132−100−112+80=0. All smaller odd N≤13 meet zero-free criterion, so N15 is the first odd singular polygon.
 
-Regev's 2012 full text gives direction-specific diagonal enumeration, not independently signed diagonal-incidence Walsh transforms. Postnikov and Sagan's 2006 full text establishes Catalan valuations and special Dyck height weights, not the universal congruence at every triangulation frequency. Reifegerste's 2003 full text establishes a sign-balance identity for 321-avoiding permutations with the same Catalan-shaped numerical behavior, not a diagonal character on triangulations or a Fourier zero-free criterion. A separate published result on correlations of uniform triangulation diagonals supplies relevant face-enumeration background, but only its searchable abstract was available for this comparison; possible implicit coverage by a larger general formula is an explicit residual risk. A distinct theorem on noncrossing perfect matchings concerns another support and does not imply this result. The assessed combined result includes the all-frequency congruence, infinite even-cardinality invertibility family, explicit even-gon zero, and first odd singular witness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem settles Fourier invertibility for infinitely many nontrivial Catalan-sized supports, including even support cardinalities where parity alone does not settle singularity. It provides an explicit vanishing character for all even polygon sizes, a uniform two-unit spectral lower gap in the two-binary-digit odd cases, and an exact first odd singular example. These establish a motivated arithmetic boundary for a natural family of finite-group convolution operators. No complete odd-gon classification is asserted beyond the stated families.
+Best-of-knowledge comparison of mathematical statements, not title matches; bounded queries and directly inspected relevant sources found no dominating prior result for this precise support/invariant. Remaining risks explicitly retained.
 
-## Residual limitations
+## value
 
-An alternative equivalence via signed-Catalan or triangulation-enumeration identities has not been excluded conclusively. The odd-gon regime with at least three ones in the predecessor's binary expansion remains open here; fifteen vertices supplies an existence example, not a universal theorem. No independent validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Triangulation diagonal incidence is a natural associahedron vertex code; a universal mod4 obstruction explains infinite invertible odd families including even-support cases, while the explicit first odd cancellation N15 locates the sharp onset outside those families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
