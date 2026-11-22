@@ -1,19 +1,21 @@
-# Mathematical review: sharp total-variation occupation law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial flow with \(P(x)=1+\gamma x+\alpha x^2\) and \(\alpha>\gamma^2/4\) has exact first integral \(H=y^2/2+\int_0^x t^3/P(t)\,dt\). Positivity of \(P\), monotone branches of the potential and its quadratic growth establish one global periodic oval per positive energy. The time density and period formulas retain original physical time. The energy-shell change of variables gives \(W(v)=|x_-(v)|^{-3}+x_+(v)^{-3}=c v^{-3/2}+O(v^{-2})\), with \(c=1/(\sqrt2\alpha^{3/2})\). Splitting off this tail and integrating its Abel transform exactly proves \(J(E)-C=O(\log E/E)\), where \(C=2\pi/\sqrt{4\alpha-\gamma^2}\). The normalized-density comparison proves \(d_{\mathrm{TV}}=2c/(C\sqrt E)+O(\log E/E)\) without needing numerical extrapolation. The accompanying standard-library checker passed after extraction from the proposed contents, but its finite samples are only diagnostics.
+PASS
 
-## Originality — PASS within accessible evidence
+The positive quadratic P permits a global conserved Hamiltonian H=y^2/2+V(x), Vprime=x^3/P. V has two monotone branches, grows quadratically and yields a unique regular energy oval for each E>0. Original-time change of variables gives f_E=1_(V<E)/(J P sqrt(1-V/E)), T=sqrt(2/E)J, W(v)=x_+(v)^(-3)+|x_-(v)|^(-3). Its tail is c v^(-3/2)+O(v^-2), c=1/(sqrt(2) alpha^(3/2)); the Abel transform of the leading tail from v=1 is exactly 2c sqrt(1-1/E), cancelling the otherwise misleading E^(-1/2) normalization error. Remainder yields J-C=O(log E/E), C=2pi/sqrt(Delta). Outside-turning-point Cauchy tail Q/C=2c/(C sqrt(E))+O(E^-1); upper/lower L1 comparison gives the sharp TV coefficient, not just weak convergence. Independently computed turning-point tail for alpha=gamma=1 at E=100,1000,10000: scaled masses .3909077177,.3899998483,.3898651104 converge to predicted .3898484006. Infinite assertions rely on explicit analytic bounds, not the three values.
 
-The closest primary article, Corbera–Valls (2024), classifies existence of global nilpotent centers in a cubic family containing this subfamily. The inspected abstract, equations (3) and (5), Theorem 2, proof sections, appendices and references do not give the claimed time-occupation density or the total-variation asymptotic. The companion 2024 article studies systems reversible with respect to the other axis. Dias–Llibre–Valls (2018) classifies canonical polynomial Hamiltonian phase portraits rather than this noncanonical time sampling. Previously published records involving Cauchy occupation for a *different* cubic center with restoring force linear in position have logarithmic, not algebraic, convergence scales, and do not imply this formula. Searches by exact equations, total variation, equivalent Abel formulations and period asymptotics identified no direct covering theorem. A general Abelian asymptotic result might reduce part of the proof, and unindexed equivalent results cannot be excluded; there is no claim of independent priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The original classification isolates a natural whole coefficient region of nilpotent global centers but does not quantify high-energy time statistics. A total-variation limit controls all measurable observables, significantly stronger than weak convergence. The asymmetry coefficient changes the *location and scale* of the limiting Cauchy law while the exact quantitative error has a discriminant-dependent prefactor; the event outside the dynamically accessible interval attains the sharp first-order error. The exact physical-period coefficient and its substantially smaller correction isolate the Abel cancellation that determines the rate. This is a motivated analytical characterization across a complete open parameter region, not a single numerical example.
+The source family and global-center classification were established by Corbera–Valls (2024), but the inspected Theorem 2 and phase-portrait proof do not derive the original-time occupation law, Abel cancellation, or sharp total-variation coefficient. Closest published Cauchy occupations use different cubic vector fields and convergence scales; no prior found that mathematically implies this formula for ydot=-x^3. This is qualified best-of-knowledge originality, not proof of absence.
 
-## Closest literature and limitations
+## value
 
-The primary article is M. Corbera and C. Valls (2024), Results in Mathematics 79, article 129, DOI 10.1007/s00025-024-02163-x, first publicly available 2024-04-13. See also F. S. Dias, J. Llibre and C. Valls (2018), DOI 10.1016/j.matcom.2017.06.002, and Corbera–Valls (2024) on the opposite reversibility axis, DOI 10.1007/s12215-024-01046-y. The theorem is for fixed \(\alpha>\gamma^2/4\), \(\gamma\ne0\); neither uniformity near the boundary nor the finite-energy exact maximizer is claimed. Mathematical priority is subject to a further human literature assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp physical-time invariant probability law and rate for a structurally natural non-symmetric nilpotent global center are meaningful quantitative orbit statistics; the maximizing outside-turning-point event and scale distinguish true physical time from Hamiltonian reparametrization. This is not a routine consequence of the known phase portrait.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
