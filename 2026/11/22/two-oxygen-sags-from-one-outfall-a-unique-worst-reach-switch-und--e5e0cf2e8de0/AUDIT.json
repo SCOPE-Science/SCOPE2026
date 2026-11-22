@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "For positive C1 strictly decreasing log-concave input, the filtered ratio \\(U/f\\) strictly increases by monotone fractional hazard. \\((e^{rt}D')'=e^{rt}f'<0\\) establishes uniqueness of a peak on each constant-rate reach and treats equality. One interface produces a derivative jump \\((b-c)U(d)>0\\). Positive-solution comparison as interface moves yields a strictly decreasing downstream peak height; its values straddle the fixed upstream peak, giving one global-worst-site crossover. The exponential example and the strict bracket 1.091575--1.091576 were checked with exact rational remainder enclosures in verify.py; randomized computations are supplementary and not a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D'Agostino--Eberl (2025) proves upper/lower estimates for variable and nonlinear parameters, which do not pin down the number and ordering of local minima in a single specified coefficient-step family.",
+        "Wu--Yu (2021) studies channel-shape-induced spatial DO redistribution numerically, and Pathak et al. (2022) model reach-specific nonlinear oxygen processes; neither inspected article states the asserted sharp phase diagram.",
+        "The published two-outfall mathematical result adds a fresh BOD source at its second location while keeping reaeration coefficients fixed; the published aerator-placement result imposes an instantaneous deficit reset. These mechanisms differ from the proposed continuous-state, removal-rate jump."
+      ],
+      "reasoning": "A broader published hydraulic or general coefficient-variable model is not itself the same analytic extremum theorem. The mathematical two-outfall result is not a dominating special case because it changes the forcing, rather than the downstream coefficient. The aerator result changes the state, unlike this theorem. General scalar comparison theorems supply useful proof machinery, not the specialized sharp interface and unique-worst-switch statements.",
+      "searches": [
+        "https://doi.org/10.1137/23M1616406",
+        "https://doi.org/10.1155/2021/6663696",
+        "https://doi.org/10.1002/lno.12079",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939",
+        "river dissolved oxygen sag two minima varying reaeration rates reaches no additional pollutant outfall analytical exact threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1155/2021/6663696",
+      "https://doi.org/10.1002/lno.12079",
+      "https://doi.org/10.1137/23M1616406",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939",
+      "https://doi.org/10.1080/02626667.2022.2138402"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two-outfall model adds an independent positive delayed oxygen-demand source and retains one constant reaeration coefficient. In this theorem the source is unchanged and the coefficient decreases, so matching one derivative jump at the interface cannot match subsequent trajectories.",
+        "The aerator-placement result has \\(D(d+) = qD(d-)\\) for \\(0<q<1\\); here \\(D(d+)=D(d-)\\) and the slope jumps upward by \\((b-c)U(d)>0\\).",
+        "The constant-coefficient Streeter--Phelps result supplies one peak; the hazard-general ratio monotonicity and global switch across moving interfaces are additional logical claims."
+      ],
+      "reasoning": "Even a reparameterization that equates a one-sided derivative at one interface fails to preserve the continuous downstream solution because the exponent/kernel changes from \\(b\\) to \\(c\\). An instantaneous oxygen reset is discontinuous and is excluded by the new hypotheses. The inspected primary papers support physical motivation and known governing equations, but no cited theorem entails the combined quantified new conclusion. Classical calculus and comparison are acknowledged as proof techniques, not claimed as invented.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939",
+        "https://doi.org/10.1137/23M1616406",
+        "https://doi.org/10.1155/2021/6663696",
+        "double oxygen sag without second pollutant discharge changing reaeration coefficient river"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The classical oxygen-deficit form \\(D'=\\phi-rD\\) and the equivalent dissolved-oxygen concentration \\(C=C_s-D\\) have the same locations with opposite extremum type.",
+        "The 2025 variable-parameter river-quality paper treats time-varying coefficients via differential-inequality bounds, but its inspected comparison propositions and sag examples do not present a one-interface two-minimum criterion.",
+        "The 2021 and 2022 river papers treat hydrodynamic/reach variation without the stated general log-concave-input critical-ratio theorem."
+      ],
+      "reasoning": "An oxygen-deficit maximum is a dissolved-oxygen minimum at the same location. The research question was searched under both sag/minimum wording, varying reaeration, and piecewise decay. Existing constant-rate one-sag formulas give only the local building block. Their application separately to two reaches does not by itself assert the strict monotone ratio and unique global-worst boundary switch. No matching full-text theorem was located in inspected sources.",
+      "searches": [
+        "river dissolved oxygen sag two minima varying reaeration rates reaches no additional pollutant outfall analytical exact threshold",
+        "piecewise constant reaeration coefficient oxygen sag river unique multiple critical points reach boundary analytical",
+        "Single biochemical oxygen load with monotonically decreasing log concave oxygen demand and piecewise aeration coefficients: two oxygen sag minima and exactly one global worst-sag location switch as boundary moves",
+        "Single pollution outfall with stepwise change reaeration coefficient creates two DO minima and a unique global minimum switch",
+        "https://doi.org/10.1137/23M1616406"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published exact oxygen-sag result identified a reentrant two-outfall load-separation critical function, not a reaeration discontinuity.",
+        "The closest published aerator result gave a finite-reach placement threshold under fractional deficit reset, not the persistent two-sag and unique worst-location law.",
+        "No inspected published table or database entry supplied the example critical interface \\(d_*\\) or the general hazard condition."
+      ],
+      "reasoning": "The inspected records compare objects and quantifiers rather than matching titles. The present theorem applies to every strictly decreasing log-concave oxygen-consumption input and every \\(0<c<b\\). The located exact numerical tables and phase laws use different boundary operations or forcing and cannot directly supply the critical ratio \\(f/U\\), the two-max window, or the unique worst-site shift. Search coverage is finite and does not establish historical uniqueness.",
+      "searches": [
+        "Streeter Phelps river two oxygen deficit maxima single outfall changing reaeration rate step heterogeneity threshold",
+        "oxygen sag two minima single pollution outfall reach boundary reaeration coefficient decrease sharp classification",
+        "Single pollution outfall with stepwise change reaeration coefficient creates two DO minima and a unique global minimum switch",
+        "\"oxygen sag\" \"reaeration\" \"two minima\" river downstream",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939"
+      ]
+    },
+    "rationale": "Closest mathematical and primary scientific sources were compared by governing equation, boundary mechanism, parameter scope and logical implications. The two-outfall result adds BOD and the aerator result resets the state, whereas the present model changes only the downstream loss coefficient with unchanged input. Inspected 2021, 2022 and 2025 articles do not supply the quantified monotone-hazard phase theorem or unique global-worst-site switch; coverage remains finite with older engineering-source priority risk.",
+    "residual_risks": [
+      "Older reach-by-reach Streeter--Phelps engineering manuals may contain a substantially equivalent two-reach classification or worst-site switch; no priority certification is claimed.",
+      "The full Arora--Keshari (2022) article was not accessible; only its abstract and bibliographic metadata were checked.",
+      "Specializations of more general nonautonomous scalar-ODE optimization theorems may imply the result without sharing its vocabulary; the searched published-finding corpus records and selected primary literature were finite."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports motivating spatially heterogeneous aeration and empirical complexity, but gives neither the log-concave oxygen-demand ratio law nor a sharp two-peak/unique-worst-site mathematical classification.",
+        "evidence": [
+          "First published 2021-02-08",
+          "Section 4.1--4.2 analyses reaeration coefficient changes and redistributed DO",
+          "Section 5 emphasizes numerical transport and geometric change rather than one-outfall closed-form extremum counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2021/6663696",
+        "material_read": "Full accessible article: abstract, introduction, model equations, numerical experiment setup, sudden expansion/shrinkage results and concluding section.",
+        "method": "Read openly accessible publisher HTML and inspected governing equations, results for altered cross-sections, and conclusions.",
+        "title": "Numerical Investigation of Dissolved Oxygen Transportation through a Coupled SWE and Streeter--Phelps Model",
+        "trigger": "Single-discharge DO dynamics with sudden channel cross-section and reaeration changes (closest motivating hydrodynamic experiment)."
+      },
+      {
+        "assessment": "More realistic nonlinear numerical water-quality model, not the claimed general two-reach step-rate analytic theorem.",
+        "evidence": [
+          "First published 2022-04-13",
+          "Methods DO reaeration law \\(F=k_{rea}(O_{sat}-C_{DO})\\)",
+          "14 locks and weirs and six treatment works in the modeled Thames reach."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/lno.12079",
+        "material_read": "Full accessible article: abstract, aims, modeling approach and detailed methods, DO consumption/reaeration equations, river case discussion.",
+        "method": "Read publisher HTML sections on multiple reaches, oxygen flux and BOD kinetics.",
+        "title": "High-resolution water-quality and ecosystem-metabolism modeling in lowland rivers",
+        "trigger": "Reach-specific oxygen depletion and reaeration in a real river network."
+      },
+      {
+        "assessment": "Provides scalar differential-inequality machinery, not a monotone-hazard/stepwise-coefficient two-maxima or worst-switch theorem.",
+        "evidence": [
+          "DO and BOD transport equations allow variable coefficients",
+          "Time-dependent-parameter section notes its upper estimate supplies no detailed dynamics for the unknown solution."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1616406",
+        "material_read": "Accessible full-text sections 2 and 3, constant-coefficient solutions, variable-parameter comparison propositions, nonlinear no-source subcase and limitations.",
+        "method": "Read article HTML equations, propositions 3--5, oxygen-sag discussion and variable-parameter conclusions.",
+        "title": "Uncertainty Analysis of a Simple River Quality Model Using Differential Inequalities",
+        "trigger": "Mathematical treatment of oxygen-sag systems with time-dependent reaeration coefficients, potentially broader coverage."
+      },
+      {
+        "assessment": "Second pollutant input with constant reaeration generates a different kernel and source jump; no coefficient decrease or moving global-worst-site theorem.",
+        "evidence": [
+          "Theorem model \\(D(t)=A[g(t)+k\\mathbf1_{t\\ge s}g(t-s)]\\)",
+          "Result explicitly excludes nonconstant reaction coefficients."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+        "material_read": "Entire publicly accessible RESULT.md including theorem, assumptions, proof, related work and limitations.",
+        "method": "Read public primary result text in repository.",
+        "title": "Reentrant double-sag regimes for two separated biochemical oxygen-demand sources",
+        "trigger": "The most similar published mathematical double oxygen-sag phase diagram."
+      },
+      {
+        "assessment": "Studies abrupt removal \\(D(s+)=qD(s-)\\) and optimal aerator installation; no decrease of downstream reaeration coefficient and no two-sag site crossover theorem.",
+        "evidence": [
+          "Theorem assumes fixed \\(0<q<1\\) deficit-reset fraction",
+          "Location optimized over finite reach length, not a fixed natural coefficient interface."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939",
+        "material_read": "Entire publicly accessible RESULT.md including theorem, exact formula, proof, relationships and limitations.",
+        "method": "Read public primary result text in repository.",
+        "title": "Finite-reach saturation and a quadratic placement law for one fractional river aerator",
+        "trigger": "Potentially stronger one-interface minmax oxygen-sag optimization literature."
+      },
+      {
+        "assessment": "Available abstract addresses ANN coefficient estimation, not the proposed theorem, but unseen details remain a priority risk.",
+        "evidence": [
+          "Accepted author manuscript appeared online 2022-10-27 according to publisher record",
+          "Full paper unavailable for claim-level exclusion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/02626667.2022.2138402",
+        "material_read": "Publisher abstract and bibliographic metadata; full article request returned an access error.",
+        "method": "Searched publisher/OA bibliographic pages and attempted open article; full text not available in this inspection.",
+        "title": "Modelling re-aeration of rivers using predictive models and developed ANN models under varying hydrodynamic conditions",
+        "trigger": "Recent same-topic empirical estimation of reaeration across river conditions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5e0cf2e-8de0-41c9-8146-4692cf6e574a",
+  "value": {
+    "rationale": "The number of oxygen minima is not determined by the number of pollutant sources in a reach-heterogeneous river. The theorem proves an exact, hazard-general two-sag window and a unique switch in which site gives worst modeled oxygen deficit even when two local minima persist at every sufficiently late interface. This is a natural interpretation/monitoring benchmark for locally varying reaeration and is neither a textbook fixed-reach sag calculation nor a numerical grid observation. Its simplified assumptions and lack of field calibration are stated.",
+    "status": "PASS"
+  }
+}
