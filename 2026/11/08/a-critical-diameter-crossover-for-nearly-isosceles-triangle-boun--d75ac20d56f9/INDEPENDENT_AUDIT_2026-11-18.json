@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T21:43:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 0<c<1 and lambda>=0 and sufficiently large N, six distinct oriented endpoint arcs of total perimeter 2+c+o(1) have multinomial avoidance probabilities converging to six independent Exp(rate 1/P) gaps. Strictly positive first-order directional derivatives of Euclidean distance around the two and only two diametral vertex pairs AB and AC localize maximizers at O_p(1/N) endpoint offsets; convexity plus local Taylor expansion makes the deficit the minimum of these projected gaps up to o_p(1/N). The apex projections U=min(X,aY), V=min(Y,aX) share two independent Exp(1/P) ray gaps with a=1-c²/2; the B,C endpoint projections are independent Exp(beta) with beta=(1+2/c)/P=1/c. The AC side length contributes exactly lambda/N, yielding min(U+B,lambda+V+C). The joint survivor is exp[-(max(u,v/a)+max(v,u/a))/P], its marginal rate is kappa=(1+1/a)/P=(2-c)/(2-c²), and integration over v/u in [0,a],[a,1/a],[1/a,infty] gives E[UV]*kappa²=1+2a-a² and Corr=a(2-a). Conditioning on U,V proves the claimed CDF. For t<=lambda only U+B contributes; at lambda+h, the extra channel has mass kappa beta exp(-beta lambda)h²/2+O(h³), since on V<=h one has U<=h/a. At lambda=0, both channels yield total kappa beta t²+O(t³), with overlap order at least t³. For lambda_N→infty=o(N), the second channel is pushed out on every bounded scale. Excludes c=1 and boundary degenerations. Independent analytic survival integration and QMC checks verify rates, correlation, and one-channel CDF at three c values; independent finite geometry checks corroborate rather than replace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schrempp, Limit laws for the diameter ... smoothly bounded set (arXiv:1709.03706), Section 6.1: finite multiple-axis theorem assumes 2k distinct poles and states that Appel et al. (2002) required different major axes to have no shared vertex (lines 491-529).",
+          "Appel–Najim–Russo (Adv. Appl. Probab. 34, 2002) accessible abstract: area-uniform samples in compact planar region; Schrempp introduction identifies unique-axis hypotheses and finite multiple-axis extension with disjoint endpoints.",
+          "Mayer–Molchanov arxiv:math/0605289 studies ball and sphere-supported samples; Jammalamadaka–Janson arxiv:1211.0822 assumes spherical symmetry."
+        ],
+        "reasoning": "The strongest relevant published frameworks use interior area/volumetric models or disjoint diameter endpoint sets, not singular perimeter sampling at a shared apex under changing triangle geometry. Smooth or area-density results do not entail the rate-1/P six half-edge minima or the exact lambda/N crossover. The Appel 2002 full text was not obtained; no whole-document noncoverage is asserted.",
+        "searches": [
+          "random polygon boundary sample diameter weak limit nearly equal diametral sides correlated Poisson extrema curvature second-derivative jump",
+          "Schrempp arxiv:1709.03706 section 6.1 Several major axes, especially Condition 7 and Theorem 6.1",
+          "Appel Najim Russo Limit laws diameter random point set 2002 doi:10.1239/aap/1019160946 unique major axis boundary",
+          "Mayer Molchanov arxiv:math/0605289 full HTML intro"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches for triangle-boundary diameter, near-tied sides, and Poisson crossover (three actual queries above)",
+        "W. Lao 2010 official KIT PDF, Chapter 5 Section 5.2 and p.104/106 screenshots",
+        "Published Resultary/2026 shared-apex Poisson interior triangle theorem, full RESULT (2026-10-25)",
+        "Published Resultary/2026 diameter-graph area-polygon theorem, full RESULT (2026-11-01)",
+        "M. Schrempp, arXiv:1709.03706, introduction and multiple-axis Section 6.1",
+        "Mayer and Molchanov, arXiv:math/0605289, title abstract and introduction",
+        "Jammalamadaka and Janson, arXiv:1211.0822, abstract and introduction",
+        "Appel, Najim, Russo 2002 DOI 10.1239/aap/1019160946 abstract and comparison in Schrempp; institutional full text blocked"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Audited theorem: N(1-M_N) => min(min(X,aY)+B,lambda+min(Y,aX)+C), a=1-c^2/2, beta=1/c, all independent except shared X,Y, plus lambda-threshold second derivative jump kappa beta exp(-beta lambda).",
+          "Lao equilateral law uses N/3 scaling with three diametral vertices; not the c<1 two-chord geometry.",
+          "Area sampling yields 2-dimensional Poisson cones and sqrt(n) scaling (published Resultary full RESULT); perimeter sampling yields 1-dimensional half-edge gaps and N scaling.",
+          "Schrempp Theorem 6.1 requires disjoint poles, while both candidate diameter edges share A."
+        ],
+        "reasoning": "Neither the exact earlier equilateral formula nor the more general area-uniform, disjoint-pole or smooth-boundary theorems have hypotheses that imply the candidate limit. Generic Poisson convergence motivates the proof but does not alone deliver the explicit shared-apex law, its covariance, the lambda shift, or the second-derivative jump. A stronger undiscovered boundary-sampling theorem remains an explicit risk.",
+        "searches": [
+          "Lao 2010 Chapter 5 pp. 101-111 and Appendix D.2; Theorem 5.2",
+          "Schrempp arxiv:1709.03706 introduction and Section 6.1",
+          "Resultary full RESULT 2026/10/25/ffbcbcec4b8e and 2026/11/01/6a01e893119f",
+          "Jammalamadaka Janson arxiv:1211.0822 introductory assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lao, Some weak limit laws (2010), Theorem 5.2 on PDF p.104, explicitly specifies fixed equilateral triangle of circumradius 1 and three equal diametral pairs; proof pp.104-107 and Appendix D.2.",
+          "Resultary, Shared-apex Poisson coupling for near-tied triangle diameters (published 2026-10-25), full RESULT: area-uniform points, Poisson minima with quadratic void exponent and sqrt(n)-scaled deficit.",
+          "Audited RESULT: arc-length-uniform boundary samples, 0<c<1, exactly two diametral sides, linear endpoint gap intensity and N-scaled deficit."
+        ],
+        "reasoning": "Area-uniform and arclength-uniform probability laws are singular and yield different local Poisson dimensions, scales and exponents. A fixed equilateral triangle has three equally long edges, rather than two near-tied ones; substituting c=1 is outside the claim, so its law does not imply a positive lambda threshold or the stated cusp. No matching equivalent formulation was identified after full mathematical comparisons.",
+        "searches": [
+          "maximal pairwise Euclidean distance from random points uniformly sampled on triangle boundary, near isosceles two longest sides with 1/n splitting crossover exponential endpoint gaps",
+          "geometric probability maximum interpoint distance boundary uniform isosceles triangle near tie limiting distribution",
+          "Wei Lao Some weak limit laws diameter random point sets Chapter 5.2 Theorem 5.2, KIT full PDF pages 104-107",
+          "Resultary semantic hits 2026/11/08/d75ac20d56f9 and 2026/10/25/ffbcbcec4b8e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranked the candidate itself, 2026/11/08/d75ac20d56f9; it is excluded as independent prior art.",
+          "The 2026/11/01 diameter-graph polygon theorem, full RESULT, covers FIXED convex polygons sampled by AREA with sqrt(n) scaling and vertex-cone Rayleigh costs; published 2026/10/25 shared-apex triangle theorem also uses area sampling.",
+          "The 2026/11/08 7f674d2377d7 record concerns maximum TRIANGLE AREA from perimeter samples rather than pairwise sample diameter."
+        ],
+        "reasoning": "The inspected exact-result records concern different measures or extrema, and their formulas cannot simply specialize to the perimeter-uniform, N-dependent two-side sample-diameter law. Index nonappearance alone does not certify novelty; it is evaluated alongside the actual theorem content.",
+        "searches": [
+          "maximal pairwise Euclidean distance from random points uniformly sampled on triangle boundary, near isosceles two longest sides with 1/n splitting crossover exponential endpoint gaps",
+          "random polygon boundary sample diameter weak limit nearly equal diametral sides correlated Poisson extrema curvature second-derivative jump",
+          "geometric probability maximum interpoint distance boundary uniform isosceles triangle near tie limiting distribution",
+          "Resultary hits 2026/11/01/6a01e893119f, 2026/10/25/ffbcbcec4b8e, 2026/11/08/7f674d2377d7"
+        ]
+      },
+      "rationale": "No searched, materially compared prior statement supplies the fixed 0<c<1 perimeter-uniform triangular array with side split lambda/N, dependent apex exponential minima, the complete crossover, or its interior second-derivative jump. Wei Lao (2010), Theorem 5.2, proves the fixed equilateral three-diameter case; the published near-tied triangular result of October 25, 2026 samples triangle INTERIORS at sqrt(n) scale. Schrempp (2017), Section 6.1, explicitly requires disjoint poles for its finite multiple-major-axis setting and smooth area-density assumptions, excluding the shared apex and singular boundary measure. The inaccessible 2002 Appel–Najim–Russo article remains a genuine named priority risk, but its accessible abstract and Schrempp comparison describe area samples and nonshared endpoints; they are not positive coverage evidence. Originality is best-of-knowledge, not certified exhaustiveness.",
+      "residual_risks": [
+        "The complete Appel–Najim–Russo (2002) article could not be inspected owing to disconnected institutional VPN, although its described hypotheses are substantially different.",
+        "A previously unindexed general theorem for triangular arrays of boundary-sampled polygon diameters may recover this result as a corollary.",
+        "Resultary index does not guarantee exhaustive priority; other literature and independent external verification remain unchecked.",
+        "The comparison does not claim the entirety of Jammalamadaka–Janson (2012) or Mayer–Molchanov (2006) proofs is noncovering; only stated hypotheses and read portions support current distinctions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full relevant fixed-equilateral theorem is close but not the nonregular 0<c<1, lambda/N crossover; appendix was not used to claim broader noncoverage.",
+          "evidence": [
+            "PDF p.104 explicitly states equilateral triangle with circumradius 1.",
+            "PDF pp.106-107 use six corner gaps and three competing vertex pairs; no varying side-length family."
+          ],
+          "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000019800/105664897",
+          "material_read": "Chapter 5 table of contents, Section 5.2 at PDF pp.101-111 including full Theorem 5.2 and the corner-gap derivation and proof; PDF page screenshots p.104 and p.106; appendix D.2 identified in contents, not fully re-read this run.",
+          "method": "Official KIT 164-page PDF extracted text, searched passages and rendered screenshots using web page 104 and 106.",
+          "title": "Some weak limit laws for the diameter of random point sets in bounded regions",
+          "trigger": "Direct perimeter-uniform random-triangle sample diameter theorem"
+        },
+        {
+          "assessment": "Mathematically distinct interior-uniform sqrt(n) problem; full statement does not include boundary arclength samples or N-rate exponential cusp.",
+          "evidence": [
+            "Theorem explicitly samples area in triangle T_n with split delta/sqrt(n).",
+            "Joint apex survivor uses area of sublevel triangles, yielding quadratic rather than linear void exponents."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-shared-apex-poisson-coupling-for-near-tied-triangle-diameters--ffbcbcec4b8e/RESULT.md",
+          "material_read": "Entire RESULT.md including theorem, assumptions, Poisson cone proof, verification and literature.",
+          "method": "Read exact published GitHub RESULT file via authorized read-only GitHub repository connector.",
+          "title": "Shared-apex Poisson coupling for near-tied triangle diameters",
+          "trigger": "Near-identical geometric near-tie and shared-apex language"
+        },
+        {
+          "assessment": "Arbitrary FIXED convex polygons but exclusively area-uniform points and sqrt(n) scaling; does not apply to singular perimeter measure or N-dependent geometry.",
+          "evidence": [
+            "Theorem assumes area-uniform independent samples with area A>0.",
+            "Small deficit law starts t^4/6 times corner parameters instead of boundary t^2; c.f. different sample support."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-diameter-graph-poisson-limits-for-random-samples-in-convex-polyg--6a01e893119f/RESULT.md",
+          "material_read": "Entire RESULT.md including full claim, Poisson proof, dependence and scope.",
+          "method": "Read exact published GitHub RESULT file via read-only GitHub connector.",
+          "title": "Diameter-graph Poisson limits for random samples in convex polygons",
+          "trigger": "Potential broader arbitrary-convex-polygon diameter theorem with shared endpoints"
+        },
+        {
+          "assessment": "Multiple-axis result requires disjoint poles and smooth area-density; its own prior-art discussion rules out shared-vertex cases under cited Appel framework.",
+          "evidence": [
+            "Section 6.1 says each pole belongs to one pair and that Appel 2002 required different axes to have no vertex in common.",
+            "Introduction states distribution has Lebesgue density and support with locally smooth boundary; candidate law is singular arclength."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.03706",
+          "material_read": "HTML full-text introduction, prior-work assumptions, Sections 6 and 6.1 several major axes, Condition 6/7, Theorem 6.1 discussion and relation to Appel 2002.",
+          "method": "Read arXiv HTML extracted mathematical text, including lines 491-529 of Section 6.1.",
+          "title": "Limit laws for the diameter of a set of random points from a distribution supported by a smoothly bounded set",
+          "trigger": "Published generalization to multiple major axes might cover shared vertices"
+        },
+        {
+          "assessment": "The inspected model is unit ball/sphere, not a triangular boundary or near-tied diameters; no whole-document negative claim.",
+          "evidence": [
+            "Opening theorem states unit-ball sample and spherical-symmetry cases; intro discusses Appel et al unique longest chord."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0605289",
+          "material_read": "ArXiv HTML abstract and main introduction, including distributional geometry hypotheses and discussion of unique-chord predecessors.",
+          "method": "Read open arXiv HTML source, not full section-by-section theorem proof.",
+          "title": "A limit theorem for the maximal interpoint distance of a random sample in the unit ball",
+          "trigger": "Early foundational diameter limit theorem"
+        },
+        {
+          "assessment": "No applicability demonstrated beyond spherical symmetry; incomplete inspection retained as a risk, not represented as full-text exclusion.",
+          "evidence": [
+            "Main-result introduction requires iid spherically symmetric vectors in R^d."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.0822",
+          "material_read": "ArXiv HTML title, abstract, introduction and precise spherical-symmetry assumption; not full later proofs.",
+          "method": "Read accessible arXiv HTML.",
+          "title": "Asymptotic distribution of the maximum interpoint distance in a sample of random vectors with a spherically symmetric distribution",
+          "trigger": "Potential broad maximum-distance extreme-value principle"
+        },
+        {
+          "assessment": "Potential priority risk remains; accessible material describes area-uniform compact regions and a disjoint-endpoint framework, not candidate perimeter law; no whole-text noncoverage asserted.",
+          "evidence": [
+            "2002 Advances in Applied Probability volume 34 issue 1 pp.1-10 and Cambridge abstract.",
+            "Schrempp Section 6.1 attributes to Appel et al the requirement that distinct major axes have no vertex in common."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1019160946",
+          "material_read": "Cambridge journal metadata and abstract, ResearchGate abstract, later detailed mathematical description in Schrempp 2017 Section 6.1; full 2002 paper inaccessible.",
+          "method": "Searched for arXiv/preprint/OA full text first, then attempted authorized institutional retrieval; VPN disconnected (no bypass).",
+          "title": "Limit laws for the diameter of a random point set",
+          "trigger": "Earliest plausible general planar-diameter source; cited by Lao and Schrempp"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nondegenerate triangle diameter has two adjacent competing maximizers that remain coupled through the shared apex. Asking how a deterministic perturbation of their lengths competes with random order-1/N nearest-endpoint gaps is a natural geometric-probability scaling problem, not a hand-picked numerical slice. The exact joint law, nontrivial positive apex correlation, critical 1/N crossover and measurable second-derivative discontinuity at lambda>0 provide a new phase-boundary description. The zero-split doubled small-tail coefficient is an exact structural endpoint classification; it is neither an elementary corollary of the equilateral c=1 result nor just a Monte Carlo fact. No unsupported claim about downstream theorems is required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No quantitative finite-N convergence rate, no uniform c→0 or c→1 estimate; c=1 has three competitive longest sides and is explicitly outside scope.",
+    "The separate 2002 Appel–Najim–Russo primary paper full text was inaccessible despite lawful OA/arXiv search and authorized Oxford retrieval request; VPN disconnected, no access bypass.",
+    "Independent finite computations are sanity checks rather than proofs of convergence; universal part relies on the supplied analytic Poisson-gap and Euclidean localization arguments.",
+    "No human mathematical referee or exhaustive historical priority certification."
+  ],
+  "schema_version": 1
+}
