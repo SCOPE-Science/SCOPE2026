@@ -1,19 +1,21 @@
-# Scientific review: cycle-prism perfect-matching Walsh multipliers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The decomposition into common paired-horizontal matchings plus two even-cycle opposite-rail matchings is exact. Its signed transfer formula includes all edge-sign gauge factors and the two exceptional terms. Fibonacci edge-incidence counts prove the four-divisibility statement; the six seed sharpness witnesses, two singularity witnesses, and four six-site identity words establish all-length upper bounds and zeros. Standalone exact-integer checks independently reproduce complete short-length Walsh transforms and the constructive identities. The finite tests are not used as proof of the universal statements.
+PASS
 
-## Originality
+The matching decomposition into paired horizontal cycle dimers and, at even n, precisely two opposite alternating rail matchings is bijective. Setting y_i=a_i b_i r_i r_{i+1}, the signed sum equals (product r_i)tr(product [[1,y_i],[1,0]]) plus the two possible alternating-rail signs; their product is product y_i. Lucas parity forces odd multipliers when 3∤n; for 6|n the total count and every single-edge incidence count are even, so all amplitudes vanish mod4 by character expansion. Six exact base-length sign words attain the 1/2/4 bounds, two zero seeds give 3|n cancellation, and four length-six identity transfer blocks preserve trace and product sign for every larger n, proving all-order sharpness. Distinct y and freely chosen r,a yield at least 2^(2n)4^k zero frequencies. Independently recomputed four block products and two zero seeds from actual Python-code formulas. Exhaustive short transforms in package corroborate but do not prove all n.
 
-PASS under bounded priority comparison. A prior all-sign classification for independent sets on cycles already implies the odd-prism part, which is not claimed separately as novel. The even-prism terms, exact mod-four spectral gap, inverse stability, and independent zero-family construction require additional arguments. The 2014 full paper by Brauch–Kézdy–Snevily concerns DFT-based matching detection through different Fourier data; the 2020 Lekshmi–West work explicitly announces unsigned matching counts. The latter full text was inaccessible, so possible earlier signed-dimer treatments remain a documented historical-priority risk, not an asserted impossibility.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exact smallest nonzero Fourier multiplier of the perfect-matching edge-incidence indicator is a natural spectral stability invariant for convolution. The difference between a two-unit gap at odd singular prism lengths and a four-unit gap at even singular lengths is not inferred from matching counts and captures a genuine cyclic even-boundary effect. The theorem gives a complete infinite-family invertibility and pseudoinverse norm classification, and explicit growing null-frequency families.
+A bipartite matching-detection Fourier transform is not the Boolean Walsh transform of fixed graph perfect-matching incidence masks. Even prisms have extra rail alternations with product coupling absent in simple cycle signed matching counts. Unsigned totals and detection uncertainty do not dominate sharp signed all-frequency minima. An older signed dimer transfer solution could in principle already contain the result; the relevant 2020 paper full text was not available in this run. Prior unsigned prism enumeration does not force the individual signs or sharp nonzero amplitudes. The odd-cycle signed classification is already covered elsewhere, yet even-prism alternating-rail analysis supplies a genuinely additional component.
 
-## Scientific limitations
+## value
 
-The theorem does not compute complete zero multiplicities or endpoint Banach-space inverse norms, and makes no claim concerning general cylinder or twisted-ladder graph families. The priority search was not exhaustive; independent validation remains to be performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp Boolean Fourier invertibility and pseudoinverse spectral gaps for a natural infinite graph family; even-prism alternating rails create a new mod-four obstruction not reducible to the prior odd-cycle signed matching problem. Exact sign-block propagation and an exponential zero family are coherent structural information, not an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

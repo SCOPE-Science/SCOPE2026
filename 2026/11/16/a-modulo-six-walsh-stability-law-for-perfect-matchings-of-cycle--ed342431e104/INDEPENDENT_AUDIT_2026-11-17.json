@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T02:47:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The matching decomposition into paired horizontal cycle dimers and, at even n, precisely two opposite alternating rail matchings is bijective. Setting y_i=a_i b_i r_i r_{i+1}, the signed sum equals (product r_i)tr(product [[1,y_i],[1,0]]) plus the two possible alternating-rail signs; their product is product y_i. Lucas parity forces odd multipliers when 3∤n; for 6|n the total count and every single-edge incidence count are even, so all amplitudes vanish mod4 by character expansion. Six exact base-length sign words attain the 1/2/4 bounds, two zero seeds give 3|n cancellation, and four length-six identity transfer blocks preserve trace and product sign for every larger n, proving all-order sharpness. Distinct y and freely chosen r,a yield at least 2^(2n)4^k zero frequencies. Independently recomputed four block products and two zero seeds from actual Python-code formulas. Exhaustive short transforms in package corroborate but do not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lekshmi–West, arXiv:2003.09602, gives unsigned perfect-matching counts N_n=L_n+2*1_{2|n}; this is W_n(0) only.",
+          "Brauch et al. 2014 full 15-page paper, §5 Theorem 4 is a support/uncertainty bound in a different transform, not an exact Walsh minimum."
+        ],
+        "reasoning": "Unsigned totals and detection uncertainty do not dominate sharp signed all-frequency minima. An older signed dimer transfer solution could in principle already contain the result; the relevant 2020 paper full text was not available in this run.",
+        "searches": [
+          "The Number of Perfect Matchings in Möbius Ladders and Prisms arxiv 2003.09602",
+          "Fourier transform of signed perfect matching prism ladder zero coefficients"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/ars/Volume%20114/volume-114-paper-43.pdf",
+        "https://arxiv.org/abs/2003.09602",
+        "Resultary search for cycle prism signed perfect-matching Boolean Fourier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The result implies the unsigned Lucas-type count as k=0 but not vice versa; Fourier inverse/pseudoinverse stability is a substantially finer fact.",
+          "The separate even-rail contribution produces the four-divisibility spectral gap for 6|n and nonvanishing in other congruence classes."
+        ],
+        "reasoning": "Prior unsigned prism enumeration does not force the individual signs or sharp nonzero amplitudes. The odd-cycle signed classification is already covered elsewhere, yet even-prism alternating-rail analysis supplies a genuinely additional component.",
+        "searches": [
+          "Brauch Kezdy Snevily Combinatorial Nullstellensatz DFT Perfect Matchings 2014 pdf",
+          "Lekshmi West prisms perfect matching count 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odd-prism signed transfer specializes to signed independent sets/matchings of a cycle; this odd part is not presented as separately new.",
+          "Brauch–Kézdy–Snevily (2014), Theorems 2–5 and 4 concern DFT on a circular-lock polynomial, matching detection and uncertainty, not all ±1 edge sign sums of prism perfect matchings."
+        ],
+        "reasoning": "A bipartite matching-detection Fourier transform is not the Boolean Walsh transform of fixed graph perfect-matching incidence masks. Even prisms have extra rail alternations with product coupling absent in simple cycle signed matching counts.",
+        "searches": [
+          "cycle prism perfect matchings edge incidence Walsh spectrum zero frequencies inverse norm modulo six (Resultary)",
+          "signed monomer dimer partition function ladder prism Boolean Fourier zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds a complete Walsh spectrum of K8 matchings, not prism matchings, and a mod-six edge open-packing census for prisms, not their dimer Walsh multipliers.",
+          "Full-spectrum n=3..7 verification in the package concerns finite checks, not a known table for all n."
+        ],
+        "reasoning": "An exact all-n zero/magnitude classification is not inferred from existing perfect-matching count sequences or a finite database; no matching exact record found.",
+        "searches": [
+          "cycle prism perfect matching edge incidence Walsh spectrum zero frequency table",
+          "Resultary perfect matching eight vertex orbit Walsh spectrum prism mod 6"
+        ]
+      },
+      "rationale": "A bipartite matching-detection Fourier transform is not the Boolean Walsh transform of fixed graph perfect-matching incidence masks. Even prisms have extra rail alternations with product coupling absent in simple cycle signed matching counts. Unsigned totals and detection uncertainty do not dominate sharp signed all-frequency minima. An older signed dimer transfer solution could in principle already contain the result; the relevant 2020 paper full text was not available in this run. Prior unsigned prism enumeration does not force the individual signs or sharp nonzero amplitudes. The odd-cycle signed classification is already covered elsewhere, yet even-prism alternating-rail analysis supplies a genuinely additional component.",
+      "residual_risks": [
+        "The prism-specific 2020 enumeration full text was inaccessible; an additional signed-matching identity in it has not been ruled out.",
+        "Earlier signed dimer/ladder transfer literature may encode the result under different language.",
+        "Exponential lower bound does not equal exact count of vanishing frequencies.",
+        "Oxford academic access for primary prism enumeration paper blocked by disconnected VPN; full text remains uninspected and priority provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DFT of a circular-lock polynomial for detection, matroid rank and support uncertainty; not the fixed prism Boolean edge-incidence Walsh spectrum",
+          "evidence": "Theorem 4 bounds product of matching count and number of opening rotations by n^n, not least Walsh multiplier.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20114/volume-114-paper-43.pdf",
+          "material_read": "15-page primary PDF: introduction, theorem 2 proof around p.466, theorem 4 p.471 and concluding discussion; PDF page images",
+          "method": "inspected actual PDF screenshots pages 0,5,10; compared hypotheses and characters",
+          "title": "The Combinatorial Nullstellensatz and DFT on Perfect Matchings in Bipartite Graphs",
+          "trigger": "closest Fourier/perfect-matching title"
+        },
+        {
+          "assessment": "The abstract states the exact unsigned prism total; could contain other signed statements not inspected. Inaccessible plausible source alone does not imply scientific rejection.",
+          "evidence": "arXiv:2003.09602 abstract gives F_{n-1}+F_{n+1}+2 for even prisms; Oxford full-text retrieval blocked by disconnected VPN.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.09602",
+          "material_read": "ArXiv and OA index abstract, author/date, exact unsigned counting claim; arXiv full PDF inaccessible, no independent full-text examination",
+          "method": "searched arXiv PDF and lawful OA alternatives; after no full text obtained, authorized Oxford paper fetch returned vpn_disconnected (job c1e1bd0214b9965ab0223281174fdf50), no retry or bypass",
+          "title": "The Number of Perfect Matchings in Möbius Ladders and Prisms",
+          "trigger": "exact graph family and unsigned perfect matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp Boolean Fourier invertibility and pseudoinverse spectral gaps for a natural infinite graph family; even-prism alternating rails create a new mod-four obstruction not reducible to the prior odd-cycle signed matching problem. Exact sign-block propagation and an exponential zero family are coherent structural information, not an arbitrary small census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://combinatorialpress.com/article/ars/Volume%20114/volume-114-paper-43.pdf",
+    "https://arxiv.org/abs/2003.09602",
+    "Resultary search for cycle prism signed perfect-matching Boolean Fourier"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the Boolean edge-incidence Walsh transform of all perfect matchings of the simple prism C_n × K_2, n>=3, zeros exist exactly when 3 divides n; the smallest nonzero amplitude is 1,2,4 according to n mod6, with explicit exponential zero families at singular lengths.",
+  "limitations": [
+    "No sharp l1/l∞ inverse norms or exact full zero-multiplicity census."
+  ],
+  "residual_risks": [
+    "The prism-specific 2020 enumeration full text was inaccessible; an additional signed-matching identity in it has not been ruled out.",
+    "Earlier signed dimer/ladder transfer literature may encode the result under different language.",
+    "Exponential lower bound does not equal exact count of vanishing frequencies.",
+    "Oxford academic access to the 2020 prism enumeration full text blocked by disconnected VPN; no bypass or repeat attempt made."
+  ],
+  "schema_version": 1
+}

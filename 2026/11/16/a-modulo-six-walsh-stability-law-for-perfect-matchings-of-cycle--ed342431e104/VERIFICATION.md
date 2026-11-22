@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility checks
+# Independent mathematical audit
 
-Run `python prism_walsh_verifier.py` with the Python standard library. The checker independently generates the prism edge sets and all perfect matchings for \(3\le n\le7\), computes full Walsh–Hadamard transforms over \(2^{3n}\) edge characters, and compares exact minimal positive amplitudes and zero existence to the theorem.
+## correctness
 
-Observed matching counts for lengths \(3,4,5,6,7\): `4, 9, 11, 20, 29`. Observed zero-frequency counts: `192, 0, 0, 124928, 0`. Observed least positive magnitudes: `2, 1, 1, 4, 1`. All four six-site identity words, the six sharpness seed words, both zero seed words, signed transfer formula and six-site extension passed direct integer tests. All \(2^{2n}\) prescribed sign assignments at the zero seeds for \(n=3,6\) were individually checked. Witness propagation was checked through length \(201\).
+PASS
 
-Successful run ends with the exact output marker `PRISM_WALSH_EXACT_TESTS_PASS`. The universal statement depends on the written transfer/number-theoretic argument, not on the finite tests. Neither the current package nor its checks constitutes an independent mathematical audit.
+The matching decomposition into paired horizontal cycle dimers and, at even n, precisely two opposite alternating rail matchings is bijective. Setting y_i=a_i b_i r_i r_{i+1}, the signed sum equals (product r_i)tr(product [[1,y_i],[1,0]]) plus the two possible alternating-rail signs; their product is product y_i. Lucas parity forces odd multipliers when 3∤n; for 6|n the total count and every single-edge incidence count are even, so all amplitudes vanish mod4 by character expansion. Six exact base-length sign words attain the 1/2/4 bounds, two zero seeds give 3|n cancellation, and four length-six identity transfer blocks preserve trace and product sign for every larger n, proving all-order sharpness. Distinct y and freely chosen r,a yield at least 2^(2n)4^k zero frequencies. Independently recomputed four block products and two zero seeds from actual Python-code formulas. Exhaustive short transforms in package corroborate but do not prove all n.
+
+## originality
+
+PASS
+
+A bipartite matching-detection Fourier transform is not the Boolean Walsh transform of fixed graph perfect-matching incidence masks. Even prisms have extra rail alternations with product coupling absent in simple cycle signed matching counts. Unsigned totals and detection uncertainty do not dominate sharp signed all-frequency minima. An older signed dimer transfer solution could in principle already contain the result; the relevant 2020 paper full text was not available in this run. Prior unsigned prism enumeration does not force the individual signs or sharp nonzero amplitudes. The odd-cycle signed classification is already covered elsewhere, yet even-prism alternating-rail analysis supplies a genuinely additional component.
+
+## value
+
+PASS
+
+Sharp Boolean Fourier invertibility and pseudoinverse spectral gaps for a natural infinite graph family; even-prism alternating rails create a new mod-four obstruction not reducible to the prior odd-cycle signed matching problem. Exact sign-block propagation and an exponential zero family are coherent structural information, not an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
