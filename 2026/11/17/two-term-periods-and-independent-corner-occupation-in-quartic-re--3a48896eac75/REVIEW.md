@@ -1,15 +1,21 @@
-# Scientific review: two-term periods and independent corner occupation
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes a common energy normalization and retains original physical time throughout. The polynomial antiderivative in logit coordinates is checked independently; it gives both endpoint slopes and both asymptotic intercepts exactly. Strict positivity of each payoff derivative ensures two proper strictly convex potential wells with a unique regular oval for every nonminimal energy. The derivative of enclosed canonical area is the original-time period, and its inverse-branch representation produces a convolution of positive, decreasing, integrable defects. That structure verifies the full constant correction, not only leading growth. The same branch resolution and the uniformly bounded time spent in finite-logit strips prove the four-corner weak law. All parameters meeting the stated hypotheses are covered. Numerical period integrations and symbolic identities corroborate, but are not substituted for, the proof. No claim is made about total-variation convergence or random initial-condition sampling.
+## correctness
 
-## Originality — PASS within inspected evidence
-Gasull, Gouveia and Santana, *On the limit cycles of a quartic model for evolutionary stable strategies* (arXiv:2410.15354v1, October 20, 2024), prove separable center facts and limit-cycle counts. Their relevant Proposition 2 gives a conserved Hamiltonian after rescaling, but does not derive the physical-time high-energy period intercept or four-corner time measures. A published two-term quartic period calculation (October 11, 2026) concerns a distinct vector field with self-coordinate factors and its own specified energy; it neither implies the new quadratic cross-payoff coefficients nor the four-corner product law. A published exact random-initial-area period distribution (November 8, 2026) treats a cubic symmetric replicator center and a fundamentally different probability experiment. The abstract of Villadelprat and Zhang (2020) addresses separable Hamiltonian period monotonicity, critical orbits, and boundary limits; full text could not be checked, so a broadly equivalent period result remains a real unresolved priority risk. Search coverage does not establish global uniqueness, and general coarea/convolution tools are acknowledged as known.
+PASS
 
-## Mathematical value — PASS
-For cyclic two-strategy population games, the approach to pure strategies along long-period orbits determines observable residence statistics. The exact four-corner weights and their factorization separate endpoint-payoff effects from the interior shape of quadratic payoff functions. The second period term, under a fixed physical energy calibration, is a distinguishable nonlinear correction depending on payoff curvature. This is more informative than qualitative existence of a center or a leading-period estimate and makes concrete long-orbit predictions across a natural six-parameter polynomial class. The result does not address noisy estimation, boundary initialization, or perturbed nonconservative games.
+PASS: The logit transform is exactly canonical in physical time: p-dot=F(sigma(q)), q-dot=-G(sigma(p)), conserved H=V(p)+W(q) with V(0)=W(0)=0. Under increasing quadratic cross-payoffs with opposing endpoint signs, V,W are proper strictly convex potentials, so each noncentral level is one periodic oval. Direct antiderivative of G(sigma(p)) gives both slopes and beta intercepts and widths U_V(s)=As-B+o(1), U_W(s)=Cs-D+o(1). Coarea period T(E) is the convolution of branch-width derivatives, with positive decreasing integrable inverse-slope defects; the defect convolution vanishes while its one-body integrals cancel the potential minima, yielding T(E)=AC E-BC-AD+o(1). Four branch-arc travel times E/(a_i b_j)+O(1) and bounded time spent in compact logit strips give weak (not TV) independent Bernoulli corner law. The checker source symbolically differentiates potentials and runs bounded high-E trajectories, not a substitute for these all-E estimates.
 
-## Closest literature and unresolved comparison
-The closest inspected full texts are the originating arXiv preprint and two openly published mathematical statements: the prior quartic period-growth theorem and the symmetric area-sampled period-distribution theorem. Their hypotheses and conclusions were compared for implication rather than title alone. The full 2020 separable-Hamiltonian period paper was not accessible through available routes; its abstract alone cannot certify that its complete results do not include a dominating general theorem. Other unindexed general period-asymptotic or corner-concentration statements also remain possible. The finding is not presented as independently verified or publication-priority certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Gasull-Gouveia-Santana 2024 establish center/integrability for related quartic invariant square systems but not the exact physical period intercept or four-corner residence law. An October 11 quartic center period result uses a different vector field and normalization, and a November 8 period-distribution result samples initial area rather than physical time on fixed ovals. The 2026 Fonda-Garrione-Sfecci full open article supplies generic period-map convolution and inverse-period machinery, not this two-term/logit-corner classification. Villadelprat-Zhang 2020 is relevant and accessible only by abstract/metadata, so its full priority risk remains.
+
+## value
+
+PASS
+
+PASS: Long-period oscillations and residence near pure-strategy corners are natural observables for cyclic population games. The explicit product Bernoulli occupation weights distinguish endpoint payoffs from internal quadratic terms, whereas the physical-time period intercept senses curvature and calibrated Hamiltonian energy; this is a motivated six-parameter classification, not a generic claim of integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

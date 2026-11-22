@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic. The attached script `scripts/check_replicator_corner_law.py` independently differentiates the explicit logit potential, checks the Hamiltonian first integral symbolically, and tests the two-term period and corner time weights by numerical trajectory integration. The exact inverse-branch coarea convolution, integrability of the derivative defects, and weak-measure limit are mathematical arguments, not consequences of finite calculations.
+## correctness
 
-For the example \(F(y)=-1+3.5y-0.5y^2\), \(G(x)=-2+5.2x-0.2x^2\), direct integration with event-based first return reports absolute period errors near \(4.28\times10^{-3}\), \(4.41\times10^{-6}\), and \(3.7\times10^{-9}\) at energies \(10\), \(25\), and \(50\) relative to \(1.25E+7.060638472266\ldots\). The last value approaches the integration tolerance. Measured four-quadrant physical-time fractions at energy \(50\) agree to within \(0.002\) with theoretical limits \((0.4,0.2,4/15,2/15)\).
+PASS
 
-To reproduce, install dependencies from `requirements.txt` and execute `python scripts/check_replicator_corner_law.py`. Expected terminating marker: `REPLICATOR_CORNER_PERIOD_CHECK_OK`. The finite experiments do not prove the \(E\to\infty\) theorem, rule out earlier mathematics, or provide independent audit.
+PASS: The logit transform is exactly canonical in physical time: p-dot=F(sigma(q)), q-dot=-G(sigma(p)), conserved H=V(p)+W(q) with V(0)=W(0)=0. Under increasing quadratic cross-payoffs with opposing endpoint signs, V,W are proper strictly convex potentials, so each noncentral level is one periodic oval. Direct antiderivative of G(sigma(p)) gives both slopes and beta intercepts and widths U_V(s)=As-B+o(1), U_W(s)=Cs-D+o(1). Coarea period T(E) is the convolution of branch-width derivatives, with positive decreasing integrable inverse-slope defects; the defect convolution vanishes while its one-body integrals cancel the potential minima, yielding T(E)=AC E-BC-AD+o(1). Four branch-arc travel times E/(a_i b_j)+O(1) and bounded time spent in compact logit strips give weak (not TV) independent Bernoulli corner law. The checker source symbolically differentiates potentials and runs bounded high-E trajectories, not a substitute for these all-E estimates.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Gasull-Gouveia-Santana 2024 establish center/integrability for related quartic invariant square systems but not the exact physical period intercept or four-corner residence law. An October 11 quartic center period result uses a different vector field and normalization, and a November 8 period-distribution result samples initial area rather than physical time on fixed ovals. The 2026 Fonda-Garrione-Sfecci full open article supplies generic period-map convolution and inverse-period machinery, not this two-term/logit-corner classification. Villadelprat-Zhang 2020 is relevant and accessible only by abstract/metadata, so its full priority risk remains.
+
+## value
+
+PASS
+
+PASS: Long-period oscillations and residence near pure-strategy corners are natural observables for cyclic population games. The explicit product Bernoulli occupation weights distinguish endpoint payoffs from internal quadratic terms, whereas the physical-time period intercept senses curvature and calibrated Hamiltonian energy; this is a motivated six-parameter classification, not a generic claim of integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
