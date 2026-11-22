@@ -1,0 +1,11 @@
+# Scientific review: Cayley nine-line divisor arithmetic
+
+**Correctness — PASS.** The six coordinate edges and three diagonal lines are described by explicit equations; direct intersections give four triple-axis points and nine ordinary nodes, with no hidden branches in characteristic greater than three. The normalization sequence gives the integral cycle character lattice, and a fundamental-cycle basis yields the five integer Frobenius matrices. The exact checker verifies all five orbit profiles, characteristic polynomials and split-model finite-field censuses. The extension formulas are symbolic consequences of Frobenius normalization gluing; finitely many computations are not used to prove an infinite assertion.
+
+**Originality — PASS, provisional.** Searches of published related records and inspection of Heath-Brown's Cayley-cubic paper, Hassett's rational-surfaces discussion, Amram–Dettweiler–Friedman–Teicher's singularity-complement paper and the complete Cayley line-Hilbert-scheme result did not reveal this integral generalized-Jacobian classification or its all-twist zeta formulas. The Hilbert-scheme result proves a stronger statement about the *nonreduced scheme of geometric lines* but does not imply the gluing torus or arithmetic of their reduced union. Prior classical geometry and standard exact sequences are not claimed as discoveries. An unindexed historical treatment may still cover some formulas.
+
+**Mathematical value — PASS.** The full nine-line divisor is the natural boundary excluded in rational-point counting on this classical cubic. Its arithmetic Picard torus and zeta functions distinguish coordinate-permutation twists and directly measure degeneration/gluing and finite-field rational-point behavior. The three-cycle case with one rational point despite nine geometric components is an especially concrete arithmetic boundary phenomenon.
+
+**Limits.** Characteristic greater than three and coordinate-permutation twists only; the matrix cokernel is exact but no separate closed Smith-normal-form classification is asserted. Historical priority and mathematical correctness have not been independently validated.
+
+Self-review: passed. Independent audit: not yet performed.
