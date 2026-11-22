@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The convex-gauge fiber formula follows directly from the triangle's three defining halfplanes. The complete polar list consists of eight normals selected from 27 candidate normals; all 200 distinct-candidate edge-support inequalities are certified on a real parameter interval using exact Bernstein coefficients, not finite sampling. Shoelace area yields the displayed rational four-volume. The fixed-area maximum follows from a factored positive derivative; the \(C^2\)/non-\(C^3\) assertion follows from exact one-sided derivatives. The checker also constructs original four-dimensional halfspace vertices at rational parameters. The symbolic proof does not claim the full four-dimensional face lattice.
+
+**Originality (PASS, best-knowledge with residual historical uncertainty).** Choi and Choi's new primary containment-polytope paper concerns silhouette and maximum-scale algorithms. A directly relevant 2026 self-containment note already proves the fiber-gauge identity and an all-triangle result when source and target coincide; the self-case and methods are credited. Its assumptions exclude unequal right-triangle targets and do not imply the all-aspect volume, transition and extremum. Related rectangle targets have different facet geometry. Exact formula, aliases, reductions and published records were compared; no implication-equivalent law was identified. Unindexed historical computations and the 1998 source's unavailable full text remain priority risks.
+
+**Mathematical value (PASS).** This is a complete natural two-parameter geometric invariant for four-dimensional containment of one fixed right-isosceles triangle into any right-triangle target, with a unique shape extremizer and an octagon/pentagon combinatorial change inducing a precisely quantified differentiability transition. It answers a motivated volume question for the recently studied containment polytope rather than a fine-tuned finite numerical instance.
+
+**Limits.** The theorem concerns orientation-preserving similarities and the stated parameter-space measure; it does not cover arbitrary source polygons or prove global novelty. Independent mathematical review is absent.
+
+Self-review: passed. Independent audit: not yet performed.
