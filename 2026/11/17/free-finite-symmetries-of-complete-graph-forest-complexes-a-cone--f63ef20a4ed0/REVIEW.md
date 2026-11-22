@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The group-action fixed-point barycentric triangulation is a standard affine identification. The substantive lemma is verified directly: each admissible edge orbit is either one cross-orbit perfect matching or one within-orbit involution matching; quotient cycles lift to cycles, while a quotient forest yields disjoint copies. In each tree component one internal matching adds disjoint connections and two add at least as many edges as initial connected pieces, necessarily creating a cycle. This exactly matches forests of the stated coned multigraph. Graphic-matroid shellability and the exponential forest enumeration establish the integral homotopy and multiplicity statements, including empty and coloop boundaries. Direct enumeration provides additional, non-proving checks.
+PASS
 
-## Originality — PASS relative to the inspected sources
+For a free H-action on m copies of its regular set, each between-orbit edge orbit is a k=|H|-edge perfect matching, indexed by relative group element; admissible within-orbit edge orbits occur exactly for nontrivial involutions, giving s per base orbit. A selected set of inter-orbit matchings lifts a quotient multigraph B to a k-sheeted cover; if B has a cycle, repeating monodromy yields a lifted cycle, and if B is a forest it lifts to k disjoint tree copies. On a lifted component an internal involution matching adds k/2 edges among copies and is acyclic, while two such matchings add k edges to k initial components, forcing a cycle. This is exactly the forest condition in Q_{m;k,s}, with s apex parallels and k off-apex parallels. Fixed barycentric coordinates are constant on each edge orbit, making a PL isomorphism of the geometric fixed set with F(Q). Graphic-matroid shellability then gives wedge spheres of rank-1 dimension, and signed forest enumeration by labelled tree components yields the stated exponential formula. Independent direct finite graphic-matroid counts gave b=2 for (m,k,s)=(2,2,1), 2 for (2,3,0), 4 for (2,4,1), 24 for (2,4,3), matching examples. Universal statement follows from the orbit-cover proof, not these small checks.
 
-Full-text passages of the 2014/2015 matroid shellability paper, 2012 Tutte survey, 2014 group-labelled biased-graph paper, and 2020 weighted/coned-forest paper were compared with the precise fixed-space implication. These establish, respectively, the ordinary matroid homotopy consequence, Tutte manipulations, gain-graph cycle notions, and coned-graph weighted forests; none of those inspected claims identifies the free-action fixed orbit-face complex with the complete coned multigraph using the involution count. The closest indexed related findings concern matching complexes under involutions, full matching complexes on bipartite boards, and nonequivariant forest-complex automorphism characters, not this group-free graphic-forest construction. Literature searches cannot prove first discovery. Older graph-cover literature remains the principal residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural and otherwise enormous graphic-matroid fixed-space problem collapses for **all finite groups** to a much smaller concrete graphic matroid with exactly three numerical parameters. The theorem classifies the homotopy dimension and integral Betti rank in every case, including the parity-triggered dimension shift and a sharp dependence on the number of involutions. Its model is useful for subsequent study of fixed-space topology and normalizer actions, even where no downstream application is asserted. These are structural results, not an arbitrary finite census or a recomputation of a known Tutte table.
+The earlier general finite regular-graph-cover fixed-forest theorem identifies fixed spaces with quotient forests only when group actions are free on graph edges, excluding edge inversions. For odd-order H on K_U that special case gives s=0, which is acknowledged as covered. For even H, involutions invert/stabilize within-orbit undirected edges and violate the prior hypothesis; these produce the new apex model, s-dependent classification, and C4-versus-Klein-four distinction. General matroid shellability is a standard postidentification input, not a coverage of the fixed-point model.
 
-## Limitations and literature relationship
+## value
 
-Classical matroid shellability, ordinary Tutte evaluations, and coned-graph rooted-forest combinatorics are prior work and not claimed as discoveries. Nonfree actions and residual normalizer representations are outside the theorem. An equivalent description in older covering-graph or equivariant-matroid literature cannot be excluded without an independent expert literature audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The PL homeomorphism identifies actual geometric fixed points of the natural complete-graph forest matroid under all free finite vertex symmetries. The involution count s is a sharp and intrinsically meaningful group invariant: groups of equal order can have distinct fixed-space ranks, e.g. C4 versus C2×C2. The explicit multigraph model and sphere counts give a reusable natural group-action classification beyond a routine Tutte evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
