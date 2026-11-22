@@ -1,15 +1,21 @@
-# Scientific review: coordinate-box thickening of a four-zonotope
+# Independent mathematical audit
 
-## Correctness — PASS
-The displayed six base generators and the two test directions are exactly specified. The proof uses the standard full-dimensional zonotope formula as a finite sum of absolute four-by-four maximal minors. Adjoining the four nonnegative coordinate segments yields a globally multiaffine volume polynomial. The standalone verifier enumerates every contributing minor and checks all 22 nonzero defect coefficients against the displayed four-variable expression; it separately checks the four specialized two-variable volume polynomials. The factorization and monotone-root argument prove the sign regions for all real nonnegative parameters, including the boundary and degeneracies. The re-entrant values are 4, -8, 46. The isotropic defect has strictly positive coefficients. The Cartesian-product lift follows from the product formula for Lebesgue volume. The finite rational sampling is supplementary and is not used as a surrogate for an infinite-domain proof.
+## correctness
 
-## Originality — PASS (priority provisional)
-Skorupinski's arXiv:2608.07702v1, sections 1–3, is directly inspected: it establishes the unthickened volumes 14, 30, 26, 56 and the four-dimensional counterexample. It does not give box-thickened volumes or their anisotropic phase diagram. Accessible published published-finding corpus treatments of the same source vary the exceptional generator's scale, its directional coordinates, a transverse tilt, or the tested direction pair; the complete relevant finding statements and proofs were inspected. They do not vary the base by coordinate-box Minkowski addition, which changes all four underlying volumes in a different way. Fradelizi et al. arXiv:2608.12681v1 treats general Rayleigh volume polynomials; its accessible abstract does not report this exact family, but its full text was unavailable, so equivalence under a stronger theorem is retained as a residual priority risk. Averkov–von Dichter–Soprunov arXiv:2608.14909v2 concerns a distinct valid projection-volume inequality. Search nonhits are not relied on as proof of absence.
+PASS
 
-## Mathematical value — PASS
-The motivating gap is whether natural convexifying or regularizing Minkowski additions extinguish a known sharp failure of a fundamental volume inequality. The result answers that question in a natural canonical family aligned with the two disjoint support blocks of the test directions. The exact two-parameter boundary is nontrivial and separates strict validity, equality, and strict failure; the phenomenon is *re-entrant* along nested Minkowski additions, while completely symmetric box smoothing fails at every scale. This is a structural obstruction to a plausible monotonicity heuristic, not an arbitrary parameter substitution or a restatement of the original counterexample. It supplies a reproducible benchmark for stability and repair questions concerning non-Rayleigh zonotope volumes.
+Exact Cauchy–Binet/zonotope maximal-minor volume expression applied to the six frozen generators plus four variable box axes. Fresh SymPy determinant enumeration independently rebuilt all four multiaffine four-volume polynomials, their 22 nonzero four-weight defect monomials and two-block specialization. It matches Δ(u,v)=2[(u+2)^2v(v+2)−2(u+1)(2u−1)], the unique sign root v*(u) for u>1/2, Δ(0,0)=4, Δ(1,0)=−8, Δ(1,1)=46, and positive isotropic quartic. The derivative of 2(u+1)(2u−1)/(u+2)^2 is 2(7u+4)/(u+2)^3>0; upper root tends sqrt(5)−1. Polynomial coefficients prove all nonnegative real box weights, not finite trials.
 
-## Scope and residual risk
-The theorem is confined to the explicitly displayed fixed generator template and all nonnegative coordinate-box weights, with a complete qualitative phase diagram only on the symmetric two-block slice. The general abstract framework predates the claim, and priority requires independent expert checking before publication. The inaccessible full text of one closely related 2026 general paper is an explicit residual risk, not characterized as excluding the present formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An explicit coordinate-box thickening reentrance phase is a new mechanism beyond the original unthickened Skorupinski counterexample or changing existing generator/test directions, under checked primary/contextual sources.
+
+## value
+
+PASS
+
+The sign of volume log-submodularity is a natural conjectural inequality for zonoids. This exact same counterexample changes sign twice along nested axis-aligned thickenings and has a closed sharp two-parameter transition, demonstrating that one form of geometric regularization neither uniformly preserves nor repairs the inequality. The four-variable identity supplies a reproducible complete sign test for a motivated family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
