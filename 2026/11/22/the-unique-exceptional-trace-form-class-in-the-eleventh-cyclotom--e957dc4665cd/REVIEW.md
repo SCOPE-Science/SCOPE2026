@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The argument uses precisely the necessary hypotheses in Chang's Corollary 4.9 and Proposition 5.2: every nonunit minimum has the form \(\pi\varepsilon\), and the associated five cyclotomic units are also minima. Its five equality conditions yield a linear system in five **real embedding weights**, without replacing algebraic weights by arbitrary numerical samples. The quotient-ring computation in `check.py` establishes \(\det(MM^{\mathsf T})=75625\), so this system has the unique constant solution. Embedding equality forces the resulting scaling constant to be rational. Chang's Lemma 5.5 and Proposition 3.4 prove the reference minimum \(10\) and its attainability, furnishing the converse and excluding false numerical extrapolation. The exact script was run successfully; the full infinite minimum property comes from the cited theorem, not the script.
+
+## Originality
+**PASS with residual risk.** The paper by Chang (arXiv:2611.15432v1) was read through its main theorem, Sections 4.4 and 5.1–5.3, and the discussion. It identifies a possible shape for each nonunit minimum but does not assert that the **weight permitting one** is unique modulo units and positive rationals. The 2025 Porter–Ling–Sarti–Leibak article was inspected, including its trace-form setup and original reference-weight proof; it supplies the construction without a uniqueness locus in conductor eleven. Sigrist's 2000 full article was inspected through its classification tables and discussion: it classifies five cyclotomic perfect forms but does not directly state this weight-orbit theorem. The latter classification and its separately maintained complete data remain the strongest risk of an equivalent implicit earlier result. Searches of published mathematical result records for weight rigidity, nonunit minima, normal-basis trace arguments, and the exact exceptional locus returned no directly covering statement. This is a best-evidence originality assessment, not proof of uniqueness in all literature.
+
+## Mathematical value
+**PASS.** A recently established field-wide weak unit-reducibility result left a natural geometric boundary question: which positive trace forms actually *fail strong* unit reducibility by admitting a nonunit minimum? The finding answers it for **every** totally positive weight in a degree-five positive cone, locating all such forms on a single unit-norm orbit of rational rays. The new normal-basis/Gram rigidity mechanism is substantive and eliminates continuous families of candidate exceptional weights, a structural classification beyond a numerical extremum or isolated example.
+
+## Scope and risks
+The result is conditional only on stated published mathematical theorems, not an unverified software search. The Gram determinant is independently reproducible with rational arithmetic. Prior computational tabulations of cyclotomic perfect forms might imply the same statement upon further analysis; the review cannot certify absence of every such implication. No independent mathematical audit has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
