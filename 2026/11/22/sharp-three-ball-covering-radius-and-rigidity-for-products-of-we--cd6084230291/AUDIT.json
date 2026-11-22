@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "An exact isometry to binary weighted square gives all distances. Every strict-subthreshold ball lies in a six-point fiber envelope and three such sets cannot cover a fourth fiber. Three centers attain the threshold. Two-ball impossibility follows from 8/9-point ball overlap. The optimizer counts for p>1 follow from fiber incidence and 560-case exact integer-mask enumeration, with orbit group order 128.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cieliebak and Cieliebak Lemma 3.5 proves the sum-metric lower bound for unweighted four-cycle × arbitrary Y.",
+        "Mertens abstract covers Cartesian torus grid and nonperiodic king grid domination polynomials, not weighted product metric radii."
+      ],
+      "reasoning": "Neither theorem dominates the two-weight p-product covering radius or the 32/96 equality count. The unweighted boundary and the graph combinatorial setting are credited as context.",
+      "searches": [
+        "https://arxiv.org/html/2611.15599v1 sections 1-3",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens2/mertens12.html",
+        "minimum dominating triples strong product C4 C4 toroidal king graph 32 96 3 coverings",
+        "product metric four point cycle unequal edge lengths counterexample Vizing covering inequality p>1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.15599v1",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens2/mertens12.html",
+      "https://oeis.org/A350815",
+      "published-finding corpus semantic record queries listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 3.4 establishes existence of three equal-edge covering balls for radius between 2^{1/p} and 2, but does not assert optimality across weights or classify all triples.",
+        "New proof uses unequal long-short bit fibers, a six-point strict-radius obstruction, and exact equal-weight orbit enumeration."
+      ],
+      "reasoning": "The prior square construction is included as a strict special case; no inspected source implies the two-weight sharp radius and its optimizer phase transition. Historical priority is therefore provisional.",
+      "searches": [
+        "https://arxiv.org/html/2611.15599v1 Example 3.4 and Lemma 3.5",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens2/mertens12.html",
+        "alternating weighted four cycle product three ball covering radius l_p a b rectangular cycle",
+        "4 cycle metric rectangle weighted 4 point product radius 3 centers l_p covering conjecture counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Weighted alternating four-cycle is a weighted binary Hamming square; its two-fold product is a sixteen-point weighted product metric.",
+        "Example 3.4 gives the equal-edge three-center construction, not its weighted sharp-radius classification."
+      ],
+      "reasoning": "The weighted metric isometrically corresponds to two long-bit and two short-bit positions with coupled ℓp distances; the uniform square is a one-parameter specialization, not an implication for all unequal positive weights or optimizer counts.",
+      "searches": [
+        "alternating weighted four cycle product three ball covering radius l_p a b rectangular cycle",
+        "4 cycle metric rectangle weighted 4 point product radius 3 centers l_p covering conjecture counterexample",
+        "https://arxiv.org/html/2611.15599v1 Example 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A350815 concerns minimum dominating sets in the ordinary finite nonperiodic king graph, unlike the toroidal king neighborhood on C4 × C4.",
+        "The standalone code verifies 560 triples with exact sixteen-bit masks."
+      ],
+      "reasoning": "The accessible table concerns a different graph and does not determine weighted p-dependent covering radii. Absence of a matching table does not rule out unpublished counts.",
+      "searches": [
+        "minimum dominating triples strong product C4 C4 toroidal king graph 32 96 3 coverings",
+        "dominating sets 4 x 4 toroidal king graph 96 subsets",
+        "https://oeis.org/A350815"
+      ]
+    },
+    "rationale": "The initial square counterexample in Cieliebak and Cieliebak is properly credited, as is the separate Mertens graph-domination literature. Neither inspected statement yields the two-parameter sharp radius, complementarity classification, or symmetry-jump count. Accessible historical claims and five targeted mathematical-record queries had no equivalent result; historical priority not independently certified.",
+    "residual_risks": [
+      "Unindexed older weighted cycle covering calculations could share some exact cases.",
+      "The Mertens 2024 full paper was not inspected; only its journal abstract and scope were compared; its full results could contain related finite counts.",
+      "Same-model review is not independent originality certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Equal-edge special case and sum-metric boundary are prior; weighted theorem and equality classification not stated there.",
+        "evidence": [
+          "Example 3.4 (four equal cycle edges), Lemma 3.5 (sum-metric noncoverage for r<2), Sections 1-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.15599v1",
+        "material_read": "Full HTML of introduction, basic observations and Section 3 including Example 3.4 and Lemma 3.5",
+        "method": "Primary-source HTML inspection and statement/implication comparison",
+        "title": "Covering numbers of metric spaces",
+        "trigger": "Direct source for the four-cycle product counterexample"
+      },
+      {
+        "assessment": "Cartesian torus and nonperiodic king grid are different from the toroidal king product; full-text priority overlap remains a named limitation.",
+        "evidence": [
+          "2024 journal abstract distinguishes torus graph and king graph, lists domination-polynomial computations"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens2/mertens12.html",
+        "material_read": "Journal HTML title, abstract, related OEIS sequence links; complete paper not accessed",
+        "method": "Journal abstract and exact graph-family comparison",
+        "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+        "trigger": "Possible dominating-set table for king-grid or toroidal configurations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd608423-0291-43c5-ac0d-27c174381ad7",
+  "value": {
+    "rationale": "Establishes a complete sharp metric covering law for an entire nonuniform two-parameter geometric family that deforms a canonical conjecture counterexample, proves a parameter-independent optimizer rigidity form, and explains the exact 32-to-96 symmetry jump plus endpoint p=1. The precise radius and extremizers are a structurally motivated benchmark, not a table substitution.",
+    "status": "PASS"
+  }
+}
