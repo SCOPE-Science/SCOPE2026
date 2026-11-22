@@ -1,12 +1,21 @@
-# Mathematical review: irrational-frequency transitivity
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The transition rule is rigorously used with additive discrepancy. Irrationality removes every finite-prefix equality; the terminal phase after a freely selected zero-run is a dense irrational rotation. The proof handles both possible first symbols of the desired target prefix, including its initial-only transition. Every pair of language words can be embedded in one admissible finite word. The finite checker corroborates 7,468 concrete ordered pairs but does not establish the infinite claim.
+## correctness
 
-## Originality (O): PASS within inspected evidence
-The source directly defining the system and proving rational classifications is Reyes (2026), arXiv:2611.10995v1; its Question 7.1 leaves transitivity outside that family open. The 2023 Becker--Baraviera accessible abstract and first printed page cover nonfinite type and entropy, not irrational transitivity. Targeted semantic and historical-claim comparisons found no equivalent assertion. The complete Becker--Baraviera full text was not accessible, and residual historical-priority risk remains; database search is not a uniqueness proof.
+PASS
 
-## Mathematical value (V): PASS
-This resolves the motivating topological-transitivity question on all irrational frequencies, rather than incrementing a finite computation. The dense phase restart is a meaningful structural distinction from rational cases. No uniform bridge bound, mixing or intrinsic ergodicity is inferred.
+Let irrational p in (0,1), beta=p/(1-p), and D(w)=beta|w|_0-|w|_1. Every tested nonempty prefix discrepancy is nonzero, because beta is irrational for any prefix containing zero, while an all-one prefix has negative integer discrepancy. After any admissible prefix append its forced ones if needed, then free zeros and floor(d)+1 ones to produce e in (-1,0). Adding m zeros and floor(e+beta m)+1 ones yields e_m={e+beta*m}-1 dense in (-1,0) by irrational rotation, and every forced transition is legal. An admissible target prefix starting zero can be inserted after the closing one with e_m close to 0-, while a target starting one can overlap the closing one with e_m close to -1+; in either case all finite strict sign tests survive a small constant offset. By Reyes Lemma 2.7 the language consists of factors of admissible prefixes, so arbitrary u,v concatenate with an admissible bridge. No mixing or specification is claimed. The logical edge cases of one-letter target and last-one forced transition are handled; a finite checker is only corroboration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after searches for identical and stronger implications, exact records, primary material, and same-object aliases; relevant previous methods are acknowledged. Non-soficity and failure of specification do not imply transitivity; rational classifications do not imply the irrational dense-restart result. The unavailable full Becker–Baraviera paper remains a genuine priority risk, not an assumed negative.
+
+## value
+
+PASS
+
+The irrational set is the uncountable parameter regime left open by the rational transitivity/nontransitivity classifications. An explicit dense-restart construction proves a global topological property for every irrational critical density, including very poorly approximable parameters. It is structurally distinct from finite rational discrepancy graphs, and does not claim unjustified uniform bridge bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
