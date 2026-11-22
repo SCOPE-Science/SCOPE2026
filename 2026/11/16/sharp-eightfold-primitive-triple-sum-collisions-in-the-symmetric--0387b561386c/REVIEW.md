@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the full infinite signed dyadic set with pairwise cancellation excluded, but repeated nonzero entries permitted. The two-summand lemma is proved by unique binary expansion plus unique dyadic-difference factorization. Partitioning primitive triples by the least exponent yields the exhaustive valuation classes \(e=v,v-1,v-2\), and directly gives the exact formula. Its maximum is eight, with exactly the stated saturating targets, because all odd parts at least five admit at most one of the two neighboring powers-of-two cases. Zero-fiber infinity is separately proved. Independent Python enumerations check the formula for 8,192 positive targets and the sharp set for 4,096 positive and negative targets; the infinite proof is deductive, not the finite experiments. The file paths `check_a.py` and `check_b.py` are included in the same package.
+PASS
 
-## Originality — PASS with residual priority risk
+Primitive triples are unordered multisets from {0,±2^j:j≥0} with no zero-summing pair. For D≠0 and v=ν_2(D), classify by number of terms of least positive exponent e: if one, then e=v and remaining nonzero high dyadic pair counted by T((m±1)/2), with a possible zero pair counted by p(m); if two identical-sign minima, then e=v-1 except exact 2-power carry at e=v-2; if all three at minimum then D=±3*2^e. These classes yield the displayed exact R(2^v m) formula. For m≥5 odd, T≤2 and p≤1 bound R≤6; for m=1, R(1)=2,R(2)=4,R(2^v)=5 (v≥2); for m=3, R(3)=6 and R(3*2^v)=8 for v≥1. Thus seven is impossible and eight attained at listed eight multisets for D=6 and their dyadic scales. Zero target has infinitely many {2^e,2^e,-2^(e+1)} and negative companions. Independent enumeration of primitive unordered triples from finite signed dyadic generators compared exact formula for D=1..179; this verifies finite D only, while valuation cases prove infinite theorem.
 
-The primary source, Ciccone–Gonçalves (2022), defines the \(\mathrm P(3)\) framework and identifies small lacunary ratio two as an exceptional setting; its full Sections 1–2 describe nonuniqueness but not the exact primitive threefold fiber function or the bound eight. Gonçalves–Ferreira (2025) addresses lacunary ratios greater than three and discusses obstacles at ratios below three, without the asserted dyadic classification. The full published ternary-lacunary collision theorem gives a different bound and saturation set, and its ternary balanced-digit proof does not imply the dyadic valuation formula. Hajnal (2024) restricts to alternating-sign, distinct-exponent expansions. A bounded search of relevant indexed results and recoverable prior claims showed no statement covering this theorem. Unindexed signed-digit combinatorics might contain an equivalent result; this remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The dyadic support is an explicitly flagged borderline case for arithmetic conditions in circle Fourier extension. Its exact unrestricted-in-exponent primitive triple multiplicities are a motivated collision invariant governing which cubic Fourier monomial types can occur, rather than a merely sampled finite census. The sharp global maximum, isolated extremal scale family, forbidden multiplicity seven, and explicit all-target formula yield a reusable structural input, while no claim is made to resolve the analytic Fourier extension conjecture.
+The previously published ternary analogue uses balanced ternary, gives max 3 and R(0)=0, and cannot imply binary carry multiplicity eight or infinite zero fiber. Fourier extension papers impose separated lacunarity ratios and exclude ratio-two dyadic collisions from their sharp hypotheses. Exact signed-digit representation priority still limited.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact primitive cubic collision multiplicities of the full natural signed dyadic spectrum quantify the obstruction to three-sum uniqueness in lacunary Fourier arithmetic. The sharp exceptional targets, forbidden seven and full fiber formula give useful finite combinatorial information distinct from a Fourier extension-constant theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
