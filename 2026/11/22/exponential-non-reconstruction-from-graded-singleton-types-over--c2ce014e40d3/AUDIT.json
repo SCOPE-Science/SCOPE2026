@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For any admissible ultrametric extension vector the least distance j and a chosen nearest parameter b force f(a)=max(j,d(a,b)); conversely this defines a valid vector. This bijects complete one-types with all radius-j balls, graded by cardinality. Choose m distinct partitions of size t; their unordered selection determines pairwise nonisometric trees; at fixed outer-ball sizes the polynomial has at most p(n) possible level-one histograms. The injection from subsets of {2,...,k+1} gives p(t)>=2^k>=n^2, binomial and partition Euler-product estimates give F(n)>=exp(m log n-pi sqrt(2n/3)), and t=O(log^2 n) implies exp(Omega(n/log n)). All assumptions and edge conditions (n>=t, residual r<t) are stated. The separately implemented direct distance-vector counting algorithm confirmed the correspondence for all 220 ultrametric isometry types through size 7; all 223 order-8 hierarchies were grouped by signature. Numerical data are verification only, not the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen Van Thé 2007, sections 1–2, provides tree/finite ultrametric equivalence and the countable homogeneous setting.",
+        "The published 2026 distance-aware colour refinement theorem proves two rounds are isometry-complete; its first-round per-point colours encode both the inner and outer cluster sizes, unlike the marginal polynomial.",
+        "The published 2026 ultrametric one-type feasibility matrix result identifies total counts and ranks by levelwise ball numbers, not exponential nonisometry fibers."
+      ],
+      "reasoning": "Checked plausible stronger coverage. A stronger identifying invariant does not bound ambiguity of a strictly coarser one from below. Known total type counts and matrix invariants are coarser or different and provide no lower bound on fibers with all ball-size marginals fixed. No dominating result was observed.",
+      "searches": [
+        "pigeonhole asymptotic lower bound reconstruction rooted dendrogram same level block-size histogram",
+        "distance-aware colour refinement finite ultrametrics two rounds eight point first collision one-round histogram",
+        "published note published:2026/10/18/SCOPE-distance-aware-colour-refinement-on-finite-ultrametrics-two-roun--4e36345f61be",
+        "published note published:cc0fbcfb-3a13-479a-95f1-a2a2e89e5cf1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0710.2347 PDF (relevant introduction and tree correspondence)",
+      "arxiv:2208.11770 original PDF (relevant ultrametric section, Example 3.20, Figure 5)",
+      "published distance-aware colour refinement ultrametric RESULT.md full text",
+      "published finite-arity ultrametric claim 9a251e70-0cfe-480e-b1c1-0c003c42cc36",
+      "published one-type feasibility-matrix claim cc0fbcfb-3a13-479a-95f1-a2a2e89e5cf1",
+      "published-finding corpus semantic searches on marginal ultrametric types, nested partitions and asymptotic fibers",
+      "web literature search on identical dendrogram ball-size histograms and rooted-tree profile counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new construction selects m distinct size-t partitions with p(t)>=n^2, producing binom(p(t),m) different three-level isometry types while at most p(n) level-one histograms occur.",
+        "The prior source gives the five-point ambiguity and an all-arity count formula depending only on levelwise cluster counts; no quantitative multiplicity lower bound is stated.",
+        "The known barcode pair is one example, not a family with exp(Omega(n/log n)) members of a single graded-type fiber."
+      ],
+      "reasoning": "A finite collision or its naive repeated padding is not logically sufficient for an exp(Omega(n/log n)) nonisomorphic-fiber lower bound: repeated identical gadgets yield only polynomially many unordered choices. The new proof uses a growing library of distinguishable local refinements together with a partition-number bound; these are genuinely additional deductions rather than a corollary of the earlier numerical examples alone.",
+      "searches": [
+        "exponential ambiguity fibers ultrametric hierarchical partition ball size marginals histogram isometry types",
+        "pigeonhole asymptotic lower bound reconstruction rooted dendrogram same level block-size histogram",
+        "graded one point type counts ultrametric spaces inverse reconstruction many isometry types",
+        "published note published:9a251e70-0cfe-480e-b1c1-0c003c42cc36",
+        "published note published:2026/10/18/SCOPE-distance-aware-colour-refinement-on-finite-ultrametrics-two-roun--4e36345f61be",
+        "arxiv:2208.11770 Example 3.20"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The invariant is the separate multiset of cluster sizes at each of three nested ball levels, equivalently marginal child-size statistics of a three-level dendrogram.",
+        "The published finite-arity ultrametric spectrum result explicitly supplies all levelwise ball-size marginals to its five-point collision, but its claim ends at the finite threshold."
+      ],
+      "reasoning": "Re-expressed the proposed theorem as a lower bound on fibers of paired integer partitions under forgotten nesting, not merely type terminology. The source supports equivalence of descriptions but not a quantitative exp(Omega(n/log n)) fiber theorem.",
+      "searches": [
+        "exponential ambiguity fibers ultrametric hierarchical partition ball size marginals histogram isometry types",
+        "graded one point type counts ultrametric spaces inverse reconstruction many isometry types",
+        "ultrametric rooted tree hierarchical partition reconstruction from size profile multiset at each level",
+        "published note published:9a251e70-0cfe-480e-b1c1-0c003c42cc36"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct exhaustive checker finds 27 unlabeled three-level ultrametrics and 26 graded signatures at order 5; at order 8 there are 223 types and 192 graded signatures.",
+        "Mémoli–Zhou Example 3.20 gives the already-known five-point nonisometric pair with the same verbose Rips barcode; its ball hierarchy matches the size-(2,3) marginal collision."
+      ],
+      "reasoning": "Small finite collisions and a table through eight points are explicitly treated as verification and earlier context, not novelty. Published five-point examples do not give the growing n-parameter lower bound; no exact database in the searched sources covers the claimed asymptotic fibers.",
+      "searches": [
+        "homogeneous ultrametric three distances nonalgebraic singleton types graded by minimal distance number closest points ball size polynomial",
+        "finite ultrametric two-level hierarchy marginal ball size profiles reconstruct isometry collision first five points exponential fibers",
+        "published note published:9a251e70-0cfe-480e-b1c1-0c003c42cc36",
+        "arxiv:2208.11770 Example 3.20"
+      ]
+    },
+    "rationale": "An exact all-size lower bound of exp(Omega(n/log n)) is established for fibers of the complete nearest-distance/nearest-count type polynomial. The previously established ball/type correspondence and five-point nonrigidity are excluded from the novelty claim. The earlier published all-arity type-spectrum theorem says that tuple-type counts depend on numbers of balls and gives a five-point ambiguity even with levelwise sizes supplied; it does not state or imply this quantitative rate without the new distinct-partition construction. A published two-round colour-refinement reconstruction theorem has a strictly stronger, vertex-correlated invariant, and Mémoli–Zhou give a five-point barcode witness, not an asymptotic count. Actual searches and inspected relevant material yielded no decisive coverage. Residual risk: historical multilevel-tree histogram literature could contain an equivalent asymptotic counting bound.",
+    "residual_risks": [
+      "Equivalent exponential lower bounds could be implicit or explicit in unindexed combinatorial literature on multilevel dendrogram histograms or degree sequences.",
+      "Only relevant regions, not all pages, of long primary sources were inspected; their whole-document absence of a covering result is not certified.",
+      "No external independent priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers existence, trees, convex orderings and Ramsey degrees. No result on fixed graded singleton-type marginal fibers or their exponential multiplicity identified in the inspected material.",
+        "evidence": [
+          "arxiv:0710.2347 v1 dated 2007-10-11, pages 1–3; the tree correspondence is explicit in Section 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0710.2347",
+        "material_read": "Original v1 introduction, definitions and the beginning of Section 2 tree–ball correspondence, with PDF page image and theorem statements; targeted sections sufficient for the relevant framework comparison.",
+        "method": "Primary arXiv PDF text, sections 1–2 and displayed tree construction on PDF page 3; inspected introduction and theorem list.",
+        "title": "Ramsey degrees of finite ultrametric spaces, ultrametric Urysohn spaces and dynamics of their isometry groups",
+        "trigger": "Archive-era foundational work on the same finite ultrametric trees and homogeneous universal structures."
+      },
+      {
+        "assessment": "Supplies a preexisting five-point nonisometric collision with identical verbose barcode. The quantitative all-size graded singleton type fiber bound is not stated in the inspected sections.",
+        "evidence": [
+          "Example 3.20 displays two five-point hierarchical distance matrices with two outer balls of sizes 2 and 3 and the same inner-ball size marginals."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.11770",
+        "material_read": "Relevant subsections of Section 3 concerning ultrametrics, Example 3.20 and Figure 5 on PDF pages 21–22, including the two 5x5 distance matrices; not represented as whole-document novelty clearance.",
+        "method": "Original OA arXiv PDF text, indexed example search, diagram screenshot page 22.",
+        "title": "Ephemeral Persistence Features and the Stability of Filtered Chain Complexes",
+        "trigger": "An exact same-size five-point ultrametric collision could be historically covered."
+      },
+      {
+        "assessment": "The first-round colour histogram correlates an inner ball size with its surrounding outer ball size at each vertex, hence is strictly richer than separate global level-size histograms. No all-size lower bound on fibers of the coarser graded singleton polynomial is given.",
+        "evidence": [
+          "The published theorem identifies every h=3 ultrametric after two rounds and counts a unique first one-round collision at eight points."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-distance-aware-colour-refinement-on-finite-ultrametrics-two-roun--4e36345f61be",
+        "material_read": "Complete RESULT.md including statements, nested-ball decoding proof, exact eight-point first one-round collision, verification, relationship and limitations.",
+        "method": "Public repository source, full text via file fetch.",
+        "title": "Distance-aware colour refinement on finite ultrametrics: two rounds suffice and eight points first defeat one",
+        "trigger": "Same ambient family and reconstruction-from-histograms theme."
+      },
+      {
+        "assessment": "Already covers whole tuple-arity sequence as a function of levelwise cluster counts and the exact five-point collision after ball-size marginals are supplied. Does not claim the many-base asymptotic fiber lower bound.",
+        "evidence": [
+          "Claim explicitly states the five-point pair and gives the first six tuple counts; quantitative large fibers absent from its assertion."
+        ],
+        "identifier_or_url": "published:9a251e70-0cfe-480e-b1c1-0c003c42cc36",
+        "material_read": "Complete recoverable claim, not old proof or audit, examined strictly for overlap.",
+        "method": "Prior original private ledger claim search and implication comparison.",
+        "title": "Finite-arity saturation and the first hidden-nesting collision of ultrametric type counts",
+        "trigger": "Closest historical research claim on higher-arity ultrametric types and the first hidden nesting collision."
+      },
+      {
+        "assessment": "Its integral congruence and type-count formula depend on the number of balls at each level, but contain no nonisometry-fiber growth bound.",
+        "evidence": [
+          "Claim gives N=sum c_j and congruence normal forms for M_s; no graded histogram reconstruction theorem."
+        ],
+        "identifier_or_url": "published:cc0fbcfb-3a13-479a-95f1-a2a2e89e5cf1",
+        "material_read": "Complete recoverable prior claim only, for deduplication.",
+        "method": "Private ledger claim extraction and implication test.",
+        "title": "Integral congruence of ultrametric one-type distance-feasibility matrices",
+        "trigger": "Nearby prior foundational result about one-type counts over ultrametric bases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c2ce014e-40d3-4e02-97d4-be839d98cc1d",
+  "value": {
+    "rationale": "Exact type-spectrum inversion is naturally motivated by which information named finite parameters retain. The theorem gives an all-n quantitative rate for the largest isometry fiber of a mathematically natural two-variable distribution, retaining all per-radius ball-size partitions but erasing nesting. The exponential nonreconstruction is a substantial structural obstruction stronger than a finite witness, with a constructive method and explicit finite-n lower bound; no downstream theorem is required.",
+    "status": "PASS"
+  }
+}
