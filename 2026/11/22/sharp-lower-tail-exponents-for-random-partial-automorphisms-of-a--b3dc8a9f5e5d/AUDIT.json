@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For each \\(n\\), \\(c\\le\\min(r,n-r+1)\\le\\lceil n/2\\rceil\\). Every fixed domain/image pair admits at most \\(2^c c!\\) induced-path isomorphisms and there are \\(4^n\\) ordered pairs. One fixed independent set of k vertices gives k! distinct maps for every \\(0\\le k\\le h\\). These yield both finite factorial probability sandwiches and Stirling gives exact scaled logarithmic rates. Inequalities \\(c\\le n-r+1\\) and \\(2c+e\\le n+1\\) give the high rank and induced-edge tails. An independent brute-force map enumerator agrees with run-type enumeration for all \\(n\\le6\\); all \\(n\\le20\\) tested cases satisfy the finite bounds. The infinite theorem follows from the proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The crown partial-automorphism paper has half-factorial logarithmic cardinality growth but deals with alternating crown posets, not undirected paths, and no linear component-deficit probability rate.",
+        "The path groupoid decomposition is more general in representation-ring coefficients but does not give asymptotic random-element statistics."
+      ],
+      "reasoning": "A theorem about a crown poset does not imply a corresponding random-map result for an undirected path, where component orientation, type signatures, and constraints differ. General groupoid representations determine exact multiplicities but their statement does not dominate the new path probability law.",
+      "searches": [
+        "partial automorphism monoids of paths: log cardinality n log n /2, asymptotic dominated by independent-set partial bijections",
+        "PAut(P_n) finite undirected path partial automorphism monoid large-deviation probabilities of component number domain rank logarithmic speed n log n",
+        "2026/11/8/SCOPE-rank-polynomial-and-half-factorial-growth-of-finite-crown-partia--5cf963fdeacf",
+        "2026/11/2/SCOPE-matrix-block-decomposition-and-an-euler-spectrum-for-path-partia--e10bdab97d3d"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1506.02093 Definition 2.2 and ideal section",
+      "arxiv:2101.12468 sections 1–2, especially Theorem 2.1",
+      "public path semigroup-algebra RESULT.md source in source_inspections",
+      "public crown partial-automorphism RESULT.md source in source_inspections",
+      "current published-finding corpus semantic comparisons for the actual queries listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chih–Plessas (2015) construct the graph induced-isomorphism inverse semigroup and its ideal theory.",
+        "Dimitrova–Fernandes–Koppitz–Quinteiro (2021) study precisely the finite undirected path monoid and derive cardinalities and its Green relations.",
+        "The path-algebra block decomposition supplies all run-type multiplicities, which implies finite count structure but does not establish the \\(n\\log n\\) probability limit.",
+        "The crown result proves its own half-factorial total-growth law, with distinct objects and no path rarity exponent."
+      ],
+      "reasoning": "The final claim does not include a finite-count novelty assertion. Existing structural/classification theorems are enough to motivate the model and could be used in alternative proofs of the factorial bound, but the sharp event-level asymptotic is not explicitly contained in their proved statements. An earlier unrecognized application of a general random partial-isomorphism result remains the main coverage risk.",
+      "searches": [
+        "arxiv:1506.02093 Definition 2.2",
+        "arxiv:2101.12468 Theorem 2.1",
+        "matrix block decomposition Euler spectrum of path partial automorphism monoid of P_n cardinality rank independent sets random asymptotics",
+        "partial automorphism monoid path: exact lower-tail exponent (alpha - 1/2) n log n for component count and support rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dimitrova et al., arxiv:2101.12468 Theorem 2.1 explicitly enumerates all elements by binary domain strings; an added domain-size marker recovers finite rank counts.",
+        "The path inverse-semigroup-algebra decomposition gives \\(m_n(\\mathbf a)\\) and component automorphism groups exactly, but gives no uniform probabilistic tail laws."
+      ],
+      "reasoning": "The groupoid/multiset formulas are equivalent descriptions of the *finite* partial-automorphism counts and are credited as prior work. The new claim is instead the sharp large-deviation limit for component and rank deficits under uniform probability, proved by upper and lower factorial bounds at \\(n\\log n\\) scale. Neither inspected text states the limit or near-independence conclusion.",
+      "searches": [
+        "rank distribution of partial graph isomorphisms between induced subgraphs of paths, counting all permutations by component lengths, nonextendible maps",
+        "matrix block decomposition Euler spectrum of path partial automorphism monoid of P_n cardinality rank independent sets random asymptotics",
+        "arxiv:2101.12468 Theorem 2.1, full text, section 2",
+        "2026/11/2/SCOPE-matrix-block-decomposition-and-an-euler-spectrum-for-path-partia--e10bdab97d3d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned a path monoid algebra decomposition, a crown exact-rank result and unrelated random transformation laws, but no exact path-domain component-tail record.",
+        "The 2021 Theorem 2.1 gives exact finite total counts in a summation, not a numerical table or asymptotic deficit-rate identity."
+      ],
+      "reasoning": "An exact table of finite path cardinalities is acknowledged and does not itself state the scaled log probability limits. Absence of a retrieved matching database record is only bounded evidence, not a proof of publication priority.",
+      "searches": [
+        "PAut(P_n) finite undirected path partial automorphism monoid large-deviation probabilities of component number domain rank logarithmic speed n log n",
+        "random partial induced graph automorphism of path P_n almost independent support rank converges to half path length",
+        "partial automorphism monoid path: exact lower-tail exponent (alpha - 1/2) n log n for component count and support rank",
+        "\"PAut(P_n)\" asymptotic cardinality distribution rank",
+        "partial automorphism monoid path graph asymptotic growth rank typical size random induced graph isomorphisms path"
+      ]
+    },
+    "rationale": "Statement-level comparison against the 2015 construction, the 2021 exact path count (Theorem 2.1), a complete path-algebra result, and a crown half-factorial study identifies their full finite enumeration and structural classification as prior work. The retained novelty is the sharp \\(n\\log n\\) component/rank left-tail exponent and induced-domain near-independence, neither asserted by those sources. This is best-knowledge priority subject to explicitly documented residual risks.",
+    "residual_risks": [
+      "A different probabilistic or analytic paper might have already extracted the same \\(n\\log n\\) path component/rank large-deviation exponents from the known exact cardinality formula.",
+      "Other general weighted groupoid enumeration results could imply the rates after a nontrivial specialization; not every publication or thesis was accessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the model but does not give a random uniform path automorphism rank/component deficit law",
+        "evidence": "Definition 2.2 introduces Iisg(G) from induced-subgraph isomorphisms; paper characterizes ideals, not path random ranks",
+        "identifier_or_url": "https://arxiv.org/abs/1506.02093",
+        "material_read": "Primary open-access HTML sections 1–2 and ideal-theory passages, especially Definition 2.2, composition and induced-subgraph ideal statements",
+        "method": "Primary open-access article read in HTML",
+        "title": "Graphs and Their Associated Inverse Semigroups",
+        "trigger": "Earliest archival definition and classification of the inverse semigroup of induced graph isomorphisms"
+      },
+      {
+        "assessment": "Exact finite cardinality formula fully credited; no asymptotic probability or exact lower-tail rate stated",
+        "evidence": "Theorem 2.1 sums over binary domain patterns using run count, length and component reversals; no asymptotic/probability passage found",
+        "identifier_or_url": "https://arxiv.org/abs/2101.12468",
+        "material_read": "Primary open-access HTML introduction, Section 1 Green-relations passages, Section 2 Cardinality, Theorem 2.1 and its proof, plus targeted full-text searches for asymptot/random/probability",
+        "method": "Primary open-access full article read in HTML",
+        "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+        "trigger": "Same exact finite path inverse monoid and plausible domination by cardinality formula"
+      },
+      {
+        "assessment": "More general semigroup-algebra result and type multiplicities but no random partial-map tail exponents or concentration",
+        "evidence": "m_n(a) and G_a are supplied explicitly; only simple-module Euler product is claimed novel and no closed asymptotic is asserted",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-matrix-block-decomposition-and-an-euler-spectrum-for-path-partia--e10bdab97d3d/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, proof, relationship to prior work and limitations",
+        "method": "Exact public repository source file fetched via read-only GitHub connector",
+        "title": "Matrix-block decomposition and an Euler spectrum for path partial-automorphism algebras",
+        "trigger": "Highly overlapping path object with run-multinomial classification"
+      },
+      {
+        "assessment": "Crown posets differ from paths and the asymptotic statement concerns total size and extendibility, not path component deficit or domain left tails",
+        "evidence": "States log-cardinality exponent one-half and logarithmic rarity of globally extendible crown maps, no event-level path law",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-rank-polynomial-and-half-factorial-growth-of-finite-crown-partia--5cf963fdeacf/RESULT.md",
+        "material_read": "Finding, component classification, logarithmic asymptotics proof, relationship to prior work and limitations in the public RESULT.md",
+        "method": "Exact public repository source file fetched via read-only GitHub connector",
+        "title": "Rank polynomial and half-factorial growth of finite crown partial-automorphism monoids",
+        "trigger": "Closest logarithmic cardinality growth for a similarly structured partial-automorphism inverse monoid"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b3dc8a9f-5e5d-4540-8618-0fc4ed9f57d0",
+  "value": {
+    "rationale": "The component count stratifies induced-subgraph isomorphism types of an inverse monoid, and domain cardinality is its canonical rank. This identifies dominant large-path local symmetries and gives sharp rare-event probabilities for every fixed linear deficit, rather than merely a finite counting exercise or a previously known overall cardinality. It explains concentration on almost-independent supports, a structural asymptotic law for a natural infinite family.",
+    "status": "PASS"
+  }
+}
