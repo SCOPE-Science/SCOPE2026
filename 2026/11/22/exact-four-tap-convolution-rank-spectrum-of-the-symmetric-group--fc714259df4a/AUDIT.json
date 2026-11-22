@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "The finite claim has exact and exhaustive quantification. C11 enumeration constructs the 24 permutations, all 10,626 distinct four-subsets, and full 24x24 regular convolution matrices. Every square minor has determinant <=2^24 in absolute value by Hadamard, so one rank computation modulo prime 1000000007 is exactly the characteristic-zero rank. Subgroup order is computed by exact closure. Independent Python SymPy rational ranks on 34 translation/inversion orbits cover every support and reproduce counts; explicit irreducible 1+1+2+3+3 block ranks reproduce the same orbit ranks and yield 18 profiles. Actual programs and expected outputs were replayed from their delivered file content. No numerical inference or unexamined case is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alagic–Russell, arxiv:math/0608702, Theorem 2 and finite-group §3.3: 4 rank(T)>=24, giving rank>=6 and the known subgroup equality mechanism, but no other ranks or counts.",
+        "Pinner, arxiv:1806.10239, Theorem 1.1: possible integer values of the determinant for arbitrary integer coefficients, not Fourier block ranks at every four-unit support.",
+        "Siemons–Zalesski Theorem 1.1: character criterion for central connecting sets; noncentral directed four-sets excluded by hypotheses."
+      ],
+      "reasoning": "General rank uncertainty, arbitrary integer determinant values and conjugacy-invariant graph singularity do not give multiplicities of individual rank deficiencies on unrestricted four-element supports. The subgroup-bound sharp case (rank six) is explicitly acknowledged as earlier and is not the sole novelty claim.",
+      "searches": [
+        "unweighted four element Cayley convolution on symmetric group S4 exact nullities",
+        "S4 sum of four group elements regular representation convolution exact rank distribution group determinant",
+        "arxiv:math/0608702",
+        "arxiv:1806.10239",
+        "doi:10.1007/s10801-018-0860-0"
+      ]
+    },
+    "checked_sources": [
+      "Alagic–Russell, arxiv:math/0608702, first public 2006-08-28, Theorem 2 and §3.3",
+      "Pinner, arxiv:1806.10239, first public 2018-06-26, Theorem 1.1 and §2",
+      "Siemons–Zalesski, DOI 10.1007/s10801-018-0860-0, first published 2018-11-30, §1–2",
+      "S4 irreducible-degree and character table: https://people.maths.bris.ac.uk/~matyd/GroupNames/1/S4.html",
+      "Public finite-group rank-result summaries at the two cited published-finding corpus GitHub research IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General uncertainty and four-point support imply only rank >=6; 42 rank-six instances are the classical subgroup extremizers.",
+        "The published S4 group determinant factors are zero simultaneously for all seven singular rank values 6,9,12,15,18,20,21; one must additionally compute block nullities, classify 34 orbits and count support realizations.",
+        "The complete new rank formula is resolved by exact finite enumeration and independently checked orbit computation: 42,144,576,1008,2856,1728,3024,1248."
+      ],
+      "reasoning": "A stronger available theorem would need to imply the exact rank and multiplicity distribution without a new case analysis. Neither the uncertainty inequality nor the existing determinant-value or central-graph theorems do so. The finite enumeration is mathematically additional information, despite relying on standard group representation tools.",
+      "searches": [
+        "exact Fourier rank spectra three point supports symmetric group S4 convolution group algebra nonabelian",
+        "four term unit coefficient convolution Cayley group S4 rank nullity classification quartic",
+        "unweighted four element Cayley convolution on symmetric group S4 exact nullities",
+        "S4 sum of four group elements regular representation convolution exact rank distribution group determinant",
+        "symmetric group 4 Cayley four-regular matrix singularity full rank nullity 10626",
+        "four-subset convolution S4 rank 6 9 12 15 18 20 21 24",
+        "arxiv:math/0608702",
+        "arxiv:1806.10239",
+        "doi:10.1007/s10801-018-0860-0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Four-tap left convolution is a 24-by-24 integer Cayley operator and its complex rank equals the rank-weighted group Fourier support (Alagic–Russell, Theorem 2).",
+        "Pinner, arxiv:1806.10239, §2 gives the S4 group determinant and the five irreducible determinant factors; this detects zero determinant, not the 34 orbits or the 18 separate rank profiles.",
+        "Siemons–Zalesski restrict to inverse-closed conjugacy-invariant connecting sets; arbitrary four-subsets here generally fail both restrictions."
+      ],
+      "reasoning": "The group-determinant/Cayley adjacency/regular-representation formulations were compared. The former two are equivalent in this finite group at the linear-algebra level, but known general factorization and singularity tests do not state the complete four-indicator rank distribution. Seven distinct singular ranks all map to the same zero determinant, illustrating strictly more information than integer determinant values alone.",
+      "searches": [
+        "exact Fourier rank spectra three point supports symmetric group S4 convolution group algebra nonabelian",
+        "four term unit coefficient convolution Cayley group S4 rank nullity classification quartic",
+        "symmetric group S4 Cayley digraph four generators adjacency matrix nullity rank 24 spectral classification",
+        "S4 four-element subsets group algebra zero divisor rank convolution four terms",
+        "S4 connected Cayley graphs four generators singular adjacency spectrum classification",
+        "arxiv:1806.10239",
+        "doi:10.1007/s10801-018-0860-0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus public ID 2026/11/16/SCOPE-complete-three-tap-fourier-rank-spectrum-on-odd-prime-dihedral-g--eb09d9b17153 concerns odd-prime dihedral groups, not S4.",
+        "published-finding corpus public ID 2026/11/8/SCOPE-balanced-four-tap-generalized-dihedral-convolution-three-nullity--d4787ab578c7 concerns generalized dihedral groups and balanced two-plus-two supports.",
+        "published-finding corpus public ID 2026/11/16/SCOPE-optimal-short-cycle-fourier-sampling-on-symmetric-groups-a-tight--d40a2240864b concerns standard Fourier block sampling and condition numbers, not group-algebra convolution ranks.",
+        "Pinner group determinant article includes representation factorization but does not tabulate ranks of all four-indicator supports."
+      ],
+      "reasoning": "Actual targeted searches identified close but different group or operator questions; no accessible exact table with the 10,626-support histogram or 34 rank orbits was found. The public index summaries of the closest related records were available; their full repository contents were not accessible, so this is a bounded comparison rather than a uniqueness proof.",
+      "searches": [
+        "S4 sum of four group elements regular representation convolution exact rank distribution group determinant",
+        "symmetric group 4 Cayley four-regular matrix singularity full rank nullity 10626",
+        "four-subset convolution S4 rank 6 9 12 15 18 20 21 24",
+        "classification singular 4 regular directed Cayley digraphs symmetric group S4 spectra rank",
+        "rank of sum four permutation matrices regular representation S4 all four element subsets convolution",
+        "S4 four-element subsets group algebra zero divisor rank convolution four terms",
+        "\"S4\" \"Cayley\" \"rank\" \"four\" adjacency",
+        "\"S_4\" \"four\" \"Cayley digraph\" \"singular\"",
+        "\"S4\" \"nullity\" \"4-regular\" \"Cayley\"",
+        "rank of group determinant four terms symmetric group S4",
+        "published-finding corpus published rank spectra on finite nonabelian groups",
+        "arxiv:1806.10239"
+      ]
+    },
+    "rationale": "The closest general rank-support bound (2006) explains only rank >=6 and subgroup equality, which is acknowledged. The S4 determinant-factorization and integer determinant-value classification (2018) gives no full rank-defect census; central inverse-closed Cayley graph singularity literature excludes most supports by hypotheses. Targeted record and literature searches did not identify the complete four-support rank distribution, 15 H-by-rank cells, 34 orbits or 18 rank profiles. Residual risk: undiscovered pre-existing finite tables or consequences of detailed group-determinant computations.",
+    "residual_risks": [
+      "An obscure existing table of rank or nullity of all 4-unit group-algebra elements on S4 may exist outside indexed materials.",
+      "Full text of the close published dihedral research records was not accessible; only their public titles and complete search summaries were compared, though the group families are different.",
+      "The explicit S4 determinant factorization is a close conceptual precursor and may make portions of the census simpler to derive; present novelty is the exact all-support rank and orbit multiplicity classification, not generic representation factorization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partial coverage: rank >=6 and equality on subgroup cosets; not the seven larger ranks, distributions, or full support census.",
+        "evidence": [
+          "https://arxiv.org/abs/math/0608702 (v1 2006-08-28)",
+          "https://arxiv.org/html/math/0608702v2 (Theorem 2, §3.3)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0608702v2",
+        "material_read": "Full HTML Introduction, Theorem 2, Fourier-block definitions, §3.2–3.3 finite group consequences; submission chronology on arXiv abstract",
+        "method": "Read primary HTML article and mathematical results; compared the quantifiers and sharp subgroup case to exact four-unit S4 rank table",
+        "title": "Uncertainty Principles for Compact Groups",
+        "trigger": "Closest general rank-weighted Fourier-support theorem, and archive-date provenance"
+      },
+      {
+        "assessment": "Strong conceptual predecessor and a potentially helpful derivation route, but does not assert this exact rank census; leaves residual historical priority risk.",
+        "evidence": [
+          "https://arxiv.org/abs/1806.10239 (initial 2018-06-26)",
+          "§1 Theorem 1.1, §2 factorization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.10239",
+        "material_read": "Primary HTML introduction, Theorem 1.1, §2 explicit S4 group-determinant factorization into two linears, one quadratic and two cubics, and §3 proof outline",
+        "method": "Compared symbolic determinant factorization to individual matrix-block ranks; determinant zero is coarser than exact rank, and no four-unit support rank multiplicity table appears.",
+        "title": "The integer group determinants for the symmetric group of degree four",
+        "trigger": "Directly same group and arbitrary integer group-algebra coefficients; strongest plausible covering reference"
+      },
+      {
+        "assessment": "Different restricted operator class and singularity only; cannot cover unrestricted rank multiplicities.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s10801-018-0860-0 (published 2018-11-30, §1)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10801-018-0860-0",
+        "material_read": "Open-access HTML Introduction, §1 Theorems 1.1–1.9, and §2 graph-operator definitions",
+        "method": "Checked specific hypotheses inverse-closed, no identity, generates G, union of conjugacy classes against unrestricted four-subsets.",
+        "title": "Remarks on singular Cayley graphs and vanishing elements of simple groups",
+        "trigger": "Plausible Cayley-operator singularity classification"
+      },
+      {
+        "assessment": "Different hypotheses and does not state same-object classification; unexamined details remain possible, not used to certify whole-document noncoverage.",
+        "evidence": [
+          "Public research record ID 2026/11/16/SCOPE-complete-three-tap-fourier-rank-spectrum-on-odd-prime-dihedral-g--eb09d9b17153"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-complete-three-tap-fourier-rank-spectrum-on-odd-prime-dihedral-g--eb09d9b17153",
+        "material_read": "Public search record title and full summary; complete repository text inaccessible",
+        "method": "Compared group family (dihedral) and three-tap support against symmetric-group four-tap support",
+        "title": "Complete three-tap Fourier-rank spectrum on odd-prime dihedral groups",
+        "trigger": "Nearby finite-group rank classification in published records"
+      },
+      {
+        "assessment": "Group is of generalized-dihedral type over odd-order abelian subgroup; S4 is not such a group. No direct implication identified from summary, with full-text access limitation recorded.",
+        "evidence": [
+          "Public research record ID 2026/11/8/SCOPE-balanced-four-tap-generalized-dihedral-convolution-three-nullity--d4787ab578c7"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-balanced-four-tap-generalized-dihedral-convolution-three-nullity--d4787ab578c7",
+        "material_read": "Public title and full search summary; complete repository text inaccessible",
+        "method": "Compared group family and support balance against unrestricted S4 subsets",
+        "title": "Balanced four-tap generalized-dihedral convolution: three nullity strata and a sharp quadratic spectral gap",
+        "trigger": "Closest equal four-support-size search result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fc714259-df4a-412b-bba9-7fcb1419d89f",
+  "value": {
+    "rationale": "This is a canonical complete nonabelian Fourier-rank problem on S4, the smallest symmetric group with 1,1,2,3,3 irreducible dimensions. Four unweighted taps produce eight exact ranks, a 34-orbit classification and a genuinely exceptional rank-20 stratum appearing only for full difference subgroup. It quantifies invertible and noninvertible convolution codebooks on the whole natural support family, beyond the universal rank lower bound or determinant-zero condition. Exact finite cases and precise invariants are motivated, not arbitrary slices or routine substitution. Only this finite group, unit coefficients and complex rank are claimed.",
+    "status": "PASS"
+  }
+}
