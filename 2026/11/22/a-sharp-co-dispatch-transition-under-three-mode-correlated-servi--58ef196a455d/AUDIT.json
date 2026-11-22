@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every T>0, u,v,w>0 with u+v+w<=1 and nonnegative gap fractions summing to one, an actual operating configuration has random-arrival mean wait equal to the sum of squared realized cyclic gaps divided by 2T. Taking the four-mode expectation yields the exact stated quadratic. Symmetrization c=d strictly lowers the objective unless already equal; w>0 guarantees strict convexity on the entire feasible simplex. Solving the reduced stationary equations gives positive a,c,d and a possibly negative b. The sign of b is precisely the sign of w(u+v+w)-uv. When it is negative, setting b=0 yields a positive boundary point with zero tangent derivative and interior one-sided derivative 2[uv-w(u+v+w)]/(4u+3v+3w)>0. Convex KKT conditions establish global uniqueness. Substitution yields the radical transition and rational benchmark. Standard-library exact-rational checker independently evaluates 165 positive rational parameter triples and candidate schedules; no finite test is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1049/iet-its.2019.0725: fixed trip sequences, availability/boarding capacity constraints, nonconvex dispatching optimization, not the exact zero-headway correlated service-mode phase.",
+        "https://doi.org/10.3390/pr11020574: stochastic travel-time coordination formulated and solved by sample-average mixed-integer programming, not exact correlated trip-existence modes.",
+        "Earlier independent-service mathematical result 823a3384-8ec8-4e13-a9b3-6a5ef8ed7179 and two-candidate correlated result 5690be0c-1bb0-4d68-ad4d-4e4598ea12cf, compared by assumptions and implications."
+      ],
+      "reasoning": "A generic timetable optimizer could numerically accommodate such scenarios, but the inspected work does not state or prove their exact activation boundary. The independent result cannot include these strongly correlated operating modes; the correlated two-candidate result has too few candidate gaps to imply the three-optional four-mode formula. Broad stochastic-programming formulations alone are not asserted to prove novelty or lack of novelty.",
+      "searches": [
+        "bus timetable scheduling optimal departure times stochastic cancellations minimize expected passenger waiting time buses",
+        "bus scheduling considering trip-varying travel times vehicle availability capacity full model",
+        "public transit expected waiting time random headways correlation cancellations optimized timetable"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1287/trsc.1060.0170",
+      "https://doi.org/10.1049/iet-its.2019.0725",
+      "https://doi.org/10.3390/pr11020574",
+      "https://doi.org/10.1080/15472450.2019.1681992",
+      "823a3384-8ec8-4e13-a9b3-6a5ef8ed7179",
+      "5690be0c-1bb0-4d68-ad4d-4e4598ea12cf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier record 823a3384-8ec8-4e13-a9b3-6a5ef8ed7179 assumes independent operation and gives universally positive headways for independently operating vehicles.",
+        "Earlier record 5690be0c-1bb0-4d68-ad4d-4e4598ea12cf optimizes the phase of two candidate departures with within-period Bernoulli dependence and interperiod independence. It has no guaranteed anchor with three optional departures.",
+        "This theorem allows correlated patterns that are not independent: if u,v,w>0 the first two optional-service indicators can never be jointly present except in the all-operate mode."
+      ],
+      "reasoning": "Neither prior statement implies the positive-w clustering boundary or the complete four-gap minimizer. Merely applying the classical headway identity leaves a new, fully solved joint-law constrained optimization; the trivial identity is not claimed as the new result.",
+      "searches": [
+        "An order-invariant optimal timetable for independently cancelled transit services",
+        "Correlation-driven optimal phase of two unreliable periodic transit departures",
+        "correlated cancellations co-location three optional bus departures joint operating scenarios threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A positive w means the all-three-operate configuration occurs with positive probability, yet the optimum has b=0 for uv>=w(u+v+w). This must be compared to unreliable-service scheduling, bunching and randomized service frequency, not only the same terminology.",
+        "https://doi.org/10.1049/iet-its.2019.0725 (accessible full article, especially Sections 3–6)",
+        "https://doi.org/10.3390/pr11020574 (accessible full article, Sections 2–5)"
+      ],
+      "reasoning": "Searches returned stochastic travel-time and timetable-coordination optimizers, but not a matching all-or-nothing joint status optimization with the stated four modes and exact transition. General headway-squared waiting identities are shared and explicitly credited, rather than mistaken for novelty.",
+      "searches": [
+        "correlated bus departure cancellation optimal departure spacing stochastic timetable joint service reliability expected wait",
+        "randomly canceled buses joint cancellations optimal schedules deterministic frequency uniform arrival",
+        "periodic headway scheduling Bernoulli service cancellation correlated reliability simultaneous departure optimized"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected earlier mathematical records with IDs 823a3384-8ec8-4e13-a9b3-6a5ef8ed7179 and 5690be0c-1bb0-4d68-ad4d-4e4598ea12cf: their recorded statements give, respectively, independent service optimization and correlated two-candidate optimization.",
+        "Literature search found no table or exact closed-form boundary in the specified three-mode family."
+      ],
+      "reasoning": "The exact threshold is a formula over the entire positive three-parameter simplex, not an empirical frequency or a published numerical lookup table. Absence of matches is limited negative evidence; the stronger positive distinction comes from inspecting the actual available claims and papers.",
+      "searches": [
+        "stochastic skipped services optimized departure times departure phase periodic cycles correlation",
+        "public transit schedule departures simultaneous cancelled optimal passenger waiting",
+        "three optional departures anchor periodic timetable mixed operating scenarios cluster departures optimal spacings"
+      ]
+    },
+    "rationale": "Completed statement-level comparison distinguishes the result from earlier independent-cancellation timetables (which require independent service operation) and earlier correlated schedules with only two optional departures. In the accessible full-text bus-planning papers, operations are modeled through stochastic travel time, vehicle capacity or transfer coordination; neither contains the specified joint operating-pattern law, explicit uv=w(u+v+w) activation boundary, or proof of a positive-cooccurrence co-dispatch region. Targeted literature and mathematical-record searches did not identify a theorem that implies the complete result. This is an informed but non-independent priority assessment, subject to the recorded residual risk.",
+    "residual_risks": [
+      "Full text of Zhao et al. (2006) and the specific 2019 rolling-rescheduling paper was not inspected; the latter has an indexed headway-squared objective but no demonstrated equivalent boundary.",
+      "Classical robust timetabling, stochastic service planning or quadratic scenario-optimization treatments may imply this specific low-dimensional boundary without stating it in the same form.",
+      "The classification fixes a particular three-mode support of the jointly operating candidates and does not characterize all possible correlated service laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Optimizes schedule slack under random travel time, not an explicitly identified correlated all-or-nothing three-candidate pattern. Full text unavailable, retained as a priority limitation.",
+        "evidence": [
+          "Published online 2006-11-01",
+          "Abstract describes a D/G/c queue and optimal slack for stochastic travel times"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/trsc.1060.0170",
+        "material_read": "Bibliographic record and paper abstract only; entire paper not accessible in the completed inspection",
+        "method": "Public abstract and online-first citation record",
+        "title": "Optimal Slack Time for Schedule-Based Transit Operations",
+        "trigger": "Archive-dated transport service-reliability motivation and closest older timetabling study"
+      },
+      {
+        "assessment": "NOT_COVERING the stated three-mode exact optimizer. Considers a different realistic scheduling problem: fixed trip duties, capacity limitations, uncertain travel times and heuristic solution.",
+        "evidence": [
+          "Section 3 explicitly models trips and passenger waits as scheduling variables",
+          "Section 4 includes vehicle circulation and capacity rather than an all-or-nothing correlated joint law",
+          "Sections 5–6 use reformulation and computational heuristics"
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/iet-its.2019.0725",
+        "material_read": "Accessible full HTML article: introduction, standard BSP formulation Section 3, proposed constraints Section 4, reformulation, experiments and conclusions",
+        "method": "Read full-text HTML and compared model variables and objective to joint binary service pattern",
+        "title": "Bus scheduling considering trip-varying travel times, vehicle availability and capacity",
+        "trigger": "Broad current bus scheduling theory with waiting-time objective and possible coverage"
+      },
+      {
+        "assessment": "NOT_COVERING exact correlated operating-mode activation threshold: optimizes bus-to-bus transfer under random travel time using sampled mixed-integer programs.",
+        "evidence": [
+          "Section 3 random travel-time vector, connecting-bus identification and transfer waiting equations",
+          "Section 4 replaces expectation with Monte Carlo sample averages"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/pr11020574",
+        "material_read": "Accessible full HTML: introduction, problem description, Sections 3–5 including model and solution method",
+        "method": "Read HTML formulations and stochastic inputs; compared random delay model with presence/absence outcomes",
+        "title": "Multi-Objective Bus Timetable Coordination Considering Travel Time Uncertainty",
+        "trigger": "Recent stochastic departure-offset scheduling and potential broader claim"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT, not treated as proof of noncoverage. The accessible material targets continuous delays and rolling-rescheduling, but exact general implications were not fully checked.",
+        "evidence": [
+          "Indexed Section 2.1 states the sum-of-squared-headways waiting-time formula",
+          "Indexed abstract describes constraints and sequential hill-climbing solution",
+          "Full primary page returned access refusal"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/15472450.2019.1681992",
+        "material_read": "Indexed abstract and reproduced indexed Section 2.1 objective; full article fetch was denied",
+        "method": "Read indexed primary excerpts; attempted full HTML retrieval",
+        "title": "Bus rescheduling in rolling horizons for regularity-based services",
+        "trigger": "Closest indexed headway-squared waiting-time representation in related schedule design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58ef196a-455d-488e-a2fd-bac10ea77911",
+  "value": {
+    "rationale": "The nonlinear-looking policy decision of whether to bunch or spread service is governed by an exact and nontrivial correlation-dependent algebraic threshold, with positive all-service probability on both sides. The fully classified three-parameter operating law corresponds to alternation between one optional vehicle, a pair of other optional vehicles, and a simultaneous full-service contingency. At equal partial-mode weights the natural phase boundary is 3-2sqrt(2), and a rational benchmark produces 11.5179% lower expected waiting time than uniform nominal departures. Unlike a routine reparameterization, the finding makes clear when full nominal frequency should be deliberately reduced by co-dispatch even though every candidate is sometimes present, with an exact unique optimizer and sensitivity boundary. Its value is as a transparent mathematical benchmark, not a field recommendation.",
+    "status": "PASS"
+  }
+}
