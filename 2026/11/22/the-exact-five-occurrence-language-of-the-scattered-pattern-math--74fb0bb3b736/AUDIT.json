@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "A six-prefix descending subsequence recurrence saturated at six is exact for the decision equal-to-five. The two-core expression is recognized independently by an epsilon-NFA. A 126-state exhaustive product-automaton certificate verifies transition closure and acceptance equality on every reachable state, so induction on input length proves the infinite language identity. Reproduced CHECKER.py with CERTIFICATE.tsv, including 252 edges, and all binary words of lengths 6 through 16. Unique decomposition yields 2 binomial(n-5,3); finite checks alone are not used for the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bruda proves eventual polynomiality and a degree-four upper bound for this six-letter three-run pattern; the paper raises the sharp-degree criterion and does not state this exact degree-three result.",
+        "Tian gives a general primitive-pattern enumeration framework. It may permit computation of the specialization, but the inspected section does not state or directly entail the explicit two-core regular language.",
+        "Menon–Singh classify explicit cases through multiplicity four only."
+      ],
+      "reasoning": "General counting algorithms produce individual coefficients, but are not the same mathematical statement as the all-length structural language and sharp degree. Checked whether existing bounds or stronger cases directly imply the formula; they do not in the material inspected. Remains a risk that a published general expression specializes algebraically to it.",
+      "searches": [
+        "Bruda 2026 B_001100(n,5) 2 binomial n-5 3 polynomial sharpness degree drop",
+        "\"001100\" \"B\" \"n\" \"5\" subsequence frequency",
+        "arxiv:2607.02578v1 theorem 1.4 section 4.2",
+        "arxiv:2507.03205v1 section 5",
+        "scattered 001100 frequency five two primitive cores degree deficiency polynomial"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.02578",
+      "https://arxiv.org/abs/2306.07870",
+      "https://arxiv.org/html/2507.03205v1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-binary-language-with-five-scattered-copies-of-0011--e52ec49baf88/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For 0011 at multiplicity five the indexed result gives 1^u0 1^v0101 0^s1 0^t and binomial(n-3,3); ours is 001100 at multiplicity five and gives two eight-symbol cores.",
+        "The word 00110100 has five copies of 001100 but only three copies of 0011; the word 001011 has five copies of 0011 and zero copies of 001100.",
+        "Bruda upper bound degree at most four does not entail exact degree three or language regular-expression structure."
+      ],
+      "reasoning": "The closest published specialized theorem does not cover the pattern, and concrete counterexamples demonstrate no identity or direct reduction between the accepted word languages. The general bounds and algorithms are acknowledged as background and do not contain this exact specialization in the sections inspected.",
+      "searches": [
+        "001100 110011 reversal complement five scattered subsequence occurrences B(n,5) exact regular expression two cores degree drop",
+        "2026/11/8/SCOPE-exact-binary-language-with-five-scattered-copies-of-0011--e52ec49baf88/RESULT.md",
+        "arxiv:2607.02578v1",
+        "arxiv:2507.03205v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed title/summary or searched web item gave the same two-core regular language or exact frequency-five enumerator for the six-letter pattern; this is negative search evidence, not uniqueness proof.",
+        "The related complete classification for pattern 0011 has core 001011 and is not equivalent to the pattern 001100.",
+        "A final overlap search on the complete paired-core statement again returned the indexed 0011 multiplicity-five result as nearest; its pattern and formula differ."
+      ],
+      "reasoning": "Reversal sends 001100 to itself and swaps the two cores, so it is already included; complement sends it to 110011 and is a symmetry not a separate novelty claim. Contiguous occurrence and distinct-scattered-subsequence counts differ from embedding multiplicities. Searched pattern, alias, core strings and binomial expression. No claim of proven worldwide priority.",
+      "searches": [
+        "001100 exactly five scattered occurrences 001100 two core skeleton 00101100 00110100 degree three enumeration",
+        "001100 110011 reversal complement five scattered subsequence occurrences B(n,5) exact regular expression two cores degree drop",
+        "\"00101100\" \"00110100\" subsequence 001100",
+        "\"001100\" \"five occurrences\" scattered subsequences",
+        "exact five 001100 subsequence occurrences 00101100 00110100 regular language 2 binomial n-5 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Menon–Singh explicit tables/formulas concern k <= 4.",
+        "Relevant indexed result at 2026/11/8 concerning 0011 at k=5 has a different length enumeration and word language."
+      ],
+      "reasoning": "No exact B_001100(n,5) formula, data table, or both shortest eight-letter cores were found in sources checked; no inference from absence of a database hit alone.",
+      "searches": [
+        "001100 exactly five scattered occurrences 001100 two core skeleton 00101100 00110100 degree three enumeration",
+        "Bruda 2026 B_001100(n,5) 2 binomial n-5 3 polynomial sharpness degree drop",
+        "\"001100\" 5 binomial subsequence frequency",
+        "arxiv:2306.07870 subsequence frequency table"
+      ]
+    },
+    "rationale": "Exact all-length two-core language for three-run pattern 001100 at frequency five and its sharp degree-three count are not implied by the inspected general polynomial bound, k<=4 explicit formulas, primitive-word machinery, or distinct exact 0011 five-frequency result. Claim-level comparison and actual queried records are detailed below.",
+    "residual_risks": [
+      "Unindexed exact frequency-five enumeration or equivalent formula for pattern 001100 may exist.",
+      "A general primitive-pattern enumeration could algebraically specialize to this exact expression without stating it; no priority claim beyond inspected evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General eventual polynomiality and degree bound; no exact 001100 multiplicity-five language found.",
+        "evidence": [
+          "Theorem 1.4 gives the upper bound ell-r+1; Section 4.2 discusses when equality is sharp."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.02578",
+        "material_read": "Full-text HTML including Theorem 1.4 and Section 4.2, with the first public submission date checked.",
+        "method": "Compared pattern length/run count, sharpness hypotheses and explicit examples.",
+        "title": "Enumerating binary words restricted by subsequence frequency",
+        "trigger": "Same fixed-positive-frequency subsequence enumeration and degree-sharpness issue."
+      },
+      {
+        "assessment": "Does not directly cover multiplicity five.",
+        "evidence": [
+          "Inspected explicit treatment concerns k=0,1,2,3,4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "HTML and the formula sections enumerating fixed multiplicities through four.",
+        "method": "Checked stated multiplicity range and pattern families against 001100 at five.",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Potential exact enumeration of low fixed positive subsequence counts."
+      },
+      {
+        "assessment": "General machinery is relevant, but no direct specialized closed formula found; possible algorithmic specialization is recorded as a risk.",
+        "evidence": [
+          "The inspected primitive-word framework counts occurrence multiplicities through decomposition, not this particular closed-form language."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.03205v1",
+        "material_read": "Accessible full-text HTML, notably Sections 4 and 5 for primitive-word enumeration.",
+        "method": "Compared the output of the general method to an all-length exact two-core regular language.",
+        "title": "Counting occurrences of a pattern in a binary word",
+        "trigger": "Broad general theorem and primitive-words method potentially subsuming special cases."
+      },
+      {
+        "assessment": "Related two-run 0011 theorem does not imply three-run 001100 claim.",
+        "evidence": [
+          "0011-language has one primitive six-symbol core and binomial(n-3,3) length count.",
+          "Explicit words 00110100 and 001011 separate the two languages."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-binary-language-with-five-scattered-copies-of-0011--e52ec49baf88/RESULT.md",
+        "material_read": "Entire primary RESULT.md including definitions, four-step proof, exact language and relationship to prior work.",
+        "method": "Compared literal subsequence patterns and explicit language implications, using two witnesses separating pattern frequencies.",
+        "title": "Exact binary language with five scattered copies of 0011",
+        "trigger": "Closest indexed exact language at the same occurrence frequency five."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "74fb0bb3-b736-4f41-a66d-c252f87cc531",
+  "value": {
+    "rationale": "This natural shortest binary pattern with three runs of length two lies beyond explicit frequencies zero through four and gives a strict degree-three case under the general degree-four upper bound. The exact language and two primitive cores identify all words, not merely sample counts, informing the open question of tight degree bounds. The contribution is limited to this one pattern and frequency.",
+    "status": "PASS"
+  }
+}
