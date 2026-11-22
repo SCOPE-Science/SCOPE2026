@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is analytic; the included `CHECK.py` provides independent finite checks of its formulas. Execute from the extracted package directory using `python CHECK.py` with SymPy and NumPy installed.
+## correctness
 
-Observed result:
+PASS
 
-`CHECK_OK symbolic_Fourier_eigenbases=5 angular_exact_identities=6 singular_boundary_tests=3`
+The five real Gaussian-polynomial Fourier +1 modes (degree 0 and 4) span the space after f(0)=0. Finite negative area forces nonnegative angular quartic leading coefficient B; zeros of B have even order 2m and the identity A=2B+Bʺ/2 implies A/B~m(2m−1)/t², forcing infinite negative area. For B>0 polar area is 〈A_+/B〉 and periodic integration by parts yields exactly 2+1/2〈(Bʹ/B)²〉+〈(-A)_+/B〉; equality requires constant B, hence no anisotropic modes. The local quadratic coefficient 1/4 follows from this identity. Symbolic CHECK.py basis and identity code inspected; analytic proof carries continuum quantifier.
 
-The checker exactly computes Fourier transforms of the five polynomial-times-Gaussian basis elements through differentiation and exactly verifies \(A=2B+B''/2\). Its six positive-angular-polynomial area calculations use a dense angular quadrature, including a case in which \(A\) is negative on a short angular arc and the positive-part correction is needed. Three asymptotic-scale tests check the singular boundary mechanism. Quadrature cannot establish the sharp inequality or equality conditions for all real parameters; those follow by integration by parts and the explicit zero-order argument in RESULT.md.
+## originality
 
-Scientific limitations: the claim applies only to planar degree-at-most-four real Gaussian-polynomial \(+1\) Fourier eigenfunctions vanishing at zero. It does not settle the general definite-set uncertainty principle. Independent audit has not been performed.
+PASS
+
+The full nonradial first fourth-Hermite band receives a sharp negative-area optimizer and exact positive angular deficit; related Fourier positivity and sign-radius papers do not imply this result in inspected text.
+
+## value
+
+PASS
+
+The degree-four +1 planar Hermite band is the first natural complete nontrivial Fourier-eigenfunction testing ground for the new definite-set area question. Proving a radial extremum over every nonradial mode and an exact Fisher-information deficit is a meaningful structural and quantitative classification, not just a radial test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
