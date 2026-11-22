@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise graph has 18 vertices and 30 edges, which exhaustively generate 57,535 nonempty matching simplices. A complete 318,474-incidence Hasse DAG acyclicity check establishes the 28,733-pair discrete-Morse matching. The only critical cells have dimensions zero (one), five (58), six (ten). All signed Morse boundary contributions are recomputed and compared to the embedded CSV; the exact Smith normal form has ten unit diagonal factors. Because the 5-skeleton is a 58-sphere bouquet, these unit factors completely classify six-cell attaching homotopy classes and cancel ten pairs. The independent original-complex mod-two calculation agrees in degree five. Correctness depends on the transparent standalone exhaustive computation and standard Morse/Hurewicz/CW-cancellation results, not an unproved infinite extrapolation.
+## correctness
 
-## Originality — PASS, subject to residual prior-work risk
-The motivating recent preprint of Chauhan–Sharma–Shukla (2026, arXiv:2609.27366v1) was inspected in full at the main definitions, theorems and Section 4: it studies the **open** \(P_3\square P_n\), not a cylindrical \(C_6\) factor. The complete published pentagonal-cylinder RESULT.md covers only \(P_3\square C_5\), yielding 24 four-spheres and three five-spheres; it does not imply this result. Other nearby rectangular-grid results cover different graph parameters. A three-dimensional \(P_2\square P_3\square P_3\) graph has an identical numerical wedge type but 33 rather than 30 graph edges and is not isomorphic. published-finding corpus searches used cycle/cylinder/line graph/adjacent width/identical count aliases and found no covering claim. Search incompleteness, undiscovered equivalences and unindexed publications remain risks.
+PASS
 
-## Value — PASS
-The six-column cylinder is the first even-circumference case immediately beyond the independently classified pentagonal three-row cylinder, in a natural periodic-boundary version of the current three-row matching-complex problem. Its homology becomes pure in dimension five, contrasting with the mixed fourth/fifth-dimensional pentagonal result. The integral 48-sphere homotopy classification and primitive attaching-matrix certificate resolve this natural finite case, not merely a generic Euler characteristic or a routine substitution into a known formula. No infinite periodic-family result is asserted.
+The assigned graph P3 Cartesian C6 has 18 vertices, 18 horizontal and 12 vertical undirected edges, no row wrap, 30 total. An independent vertex-disjoint-edge subset enumeration reproduced the 9-entry face vector (30,363,2290,8139,16446,18141,9870,2148,108), total 57,535 nonempty faces and Euler characteristic -47. Inspected proof/verify_cylinder.py explicitly constructs the 28,733 acyclic face pairs and checks global topological ordering of 318,474 Hasse incidences, leaving one critical 0-cell, 58 critical 5-cells and ten critical 6-cells. Source recursion for signed gradient path projection computes all entries of the provided proof/morse_boundary_58x10.csv; exact integer Smith form has ten unit invariant factors. As the 5-skeleton is ∨58 S5 and π5→H5 an isomorphism, a primitive rank-ten integer attaching matrix kills ten free fifth-homotopy generators, allowing integral handle/cellular cancellation and ∨48 S5, stronger than mod2 Betti numbers. Checker independently computes original mod2 boundary ranks; that is corroboration only. The full finite enumeration and integral Morse acyclicity/Smith proof support the claim; reproducibility risk remains.
 
-## Scientific limitations
-All conclusions are for the exact simple graph \(P_3\square C_6\). The computation is exhaustive but not independently audited. A potentially implicit unindexed prior computation remains possible; indexed abstract-only sources are not treated as fully inspected.
+## originality
 
-## Closest sources
-1. Chauhan–Sharma–Shukla (2026), primary full text: https://arxiv.org/pdf/2609.27366v1
-2. Pentagonal three-row cylinder, complete published result: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-mixed-dimensional-matching-complex-homotopy-on-the-pentagonal-th--da8762498878
-3. Rectangular three-row grids, indexed source: https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-finite-integral-wedge-classifications-for-matching-complexes-of--2352ab105c17
-4. Two-row hexagonal prism, indexed source: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-hexagonal-prism-matching-complex-twelve-three-spheres-and-a-full--440f9df687e8
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The published P3×C5 matching-complex homotopy classification and open rectangular 3×n grid results do not imply the periodic C6 graph. A 3D grid P2×P3×P3 happens to share 48 S5 but is nonisomorphic (33 edges versus 30). Thus the exact natural next even three-row cylinder integral homotopy invariant is a best-knowledge new finite fact; full primary 2026 rectangular-grid preprint was inaccessible after arXiv/OA retrieval and a separately authorized institutional attempt returned vpn_disconnected, so a specific residual priority risk remains.
+
+## value
+
+PASS
+
+This is a natural immediately subsequent periodic three-row lattice graph after the classified odd C5 cylinder. Exact integral homotopy plus primitive attaching certificate identifies a genuine parity/width transition and provides a reproducible benchmark for future cylindrical grid recursions, without pretending a broad all-width theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

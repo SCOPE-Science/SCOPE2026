@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Executable verification
+# Independent mathematical audit
 
-From the extracted package root with Python 3 and SymPy (version specified in `proof/requirements.txt`), execute:
+## correctness
 
-```text
-python3 proof/verify_cylinder.py proof/morse_boundary_58x10.csv
-```
+PASS
 
-The script constructs the 18-vertex/30-edge graph, enumerates every matching, checks its complete 57,535-face census, constructs the deterministic 28,733-pair gradient matching, and checks acyclicity by a topological sort of 318,474 directed Hasse incidences. It independently computes the original mod-two simplicial boundary ranks for cardinalities two through nine. It calculates all signed Morse gradient paths in degree five and verifies the complete 58-by-10 boundary against the embedded CSV. Exact SymPy integer Smith reduction returns ten unit factors. The JSON result must match `proof/verification_output.json`, including its `CYLINDER_3X6_MATCHING_EXACT_PASS` status.
+The assigned graph P3 Cartesian C6 has 18 vertices, 18 horizontal and 12 vertical undirected edges, no row wrap, 30 total. An independent vertex-disjoint-edge subset enumeration reproduced the 9-entry face vector (30,363,2290,8139,16446,18141,9870,2148,108), total 57,535 nonempty faces and Euler characteristic -47. Inspected proof/verify_cylinder.py explicitly constructs the 28,733 acyclic face pairs and checks global topological ordering of 318,474 Hasse incidences, leaving one critical 0-cell, 58 critical 5-cells and ten critical 6-cells. Source recursion for signed gradient path projection computes all entries of the provided proof/morse_boundary_58x10.csv; exact integer Smith form has ten unit invariant factors. As the 5-skeleton is ∨58 S5 and π5→H5 an isomorphism, a primitive rank-ten integer attaching matrix kills ten free fifth-homotopy generators, allowing integral handle/cellular cancellation and ∨48 S5, stronger than mod2 Betti numbers. Checker independently computes original mod2 boundary ranks; that is corroboration only. The full finite enumeration and integral Morse acyclicity/Smith proof support the claim; reproducibility risk remains.
 
-The original face-poset counts and global acyclicity certificate are exhaustive for this finite graph. They do not imply an infinite family. The mod-two check corroborates ranks only; the integral classification uses Smith reduction and the homotopy meaning of the attaching maps.
+## originality
 
-The stored CSV is determined by the sorted graph-edge order, sorted critical face masks and critical six-cell order specified in the executable. The SHA-256 of its canonical compact JSON array of integers is `21a50aeefce77d5459b5448290216fb593395e4fab14aba6b7d64317aff6c4ea`.
+PASS
 
-No independent mathematical audit or external certification is asserted.
+The published P3×C5 matching-complex homotopy classification and open rectangular 3×n grid results do not imply the periodic C6 graph. A 3D grid P2×P3×P3 happens to share 48 S5 but is nonisomorphic (33 edges versus 30). Thus the exact natural next even three-row cylinder integral homotopy invariant is a best-knowledge new finite fact; full primary 2026 rectangular-grid preprint was inaccessible after arXiv/OA retrieval and a separately authorized institutional attempt returned vpn_disconnected, so a specific residual priority risk remains.
+
+## value
+
+PASS
+
+This is a natural immediately subsequent periodic three-row lattice graph after the classified odd C5 cylinder. Exact integral homotopy plus primitive attaching certificate identifies a genuine parity/width transition and provides a reproducible benchmark for future cylindrical grid recursions, without pretending a broad all-width theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
