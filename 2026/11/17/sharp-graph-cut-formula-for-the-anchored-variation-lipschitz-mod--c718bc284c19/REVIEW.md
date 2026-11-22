@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The global secant slope of a Lipschitz scalar function lies between its essential derivative extrema. Convexity reduces every diagonal slope selection to an endpoint mask. A root-path estimate bounds each cut-edge difference by the anchored input norm, giving the exact maximum-cut upper bound. At a maximum cut, a constant perturbation between two differentiability-level base signals reproduces the two extreme derivatives and saturates the bound. Affine degeneracy, sign of slopes, root placement, exact hinge attainment, quantifiers and domain assumptions are addressed in the proof. The self-contained rational checks cover labelled connected graphs through four vertices; they do not replace the unrestricted argument.
+## correctness
 
-## Originality — PASS, with priority risk
-Inspected accessible full primary texts on Schramm–Korenblum variation (2013) and bounded κΦ-variation superposition (2014) treat continuity and local Lipschitz mapping criteria in other variation spaces, not the exact finite graph anchored norm. The closest separate graph-Sobolev positive-part result concerns quadratic vertex-plus-Dirichlet energy and spectral cuts, rather than an anchored \(\ell^1\) graph-variation coefficient. The reduction to maximum cut is not a renaming of these results: their hypotheses, norms and quantitative consequences differ, and no stated result implies this exact identity. Query coverage cannot prove priority; possible unindexed finite graph superposition formulations remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The sharp coefficient answers the complete natural problem for any connected graph and any globally Lipschitz scalar nonlinearity. It provides an exact nonlinear stability measure, exposes noncontractivity of pointwise clipping when comparing two signals despite ordinary one-point variation contraction, gives explicit path/cycle/clique cases and a dimension-growth obstruction, and connects exact evaluation to maximum-cut hardness. This is a structural all-graph characterization rather than an arbitrary numerical example or routine computation.
+Every coordinate secant slope of g is in [a,b] by absolute continuity, so Sg(x)-Sg(y)=diag(s)(x-y). For fixed increment h, convexity in each slope reduces the bound to masks with slopes in {a,b}. On edges of equal slope the contribution is at most m|hu-hv|; on cut edges it is <=m|hu-hv|+(b-a)|h_v|. A rooted path from r to v gives |h_v|<=|h_r|+sum_edges|grad h|=||h||_{G,r}, hence the upper modulus is m+(b-a)|cut|<=m+(b-a)maxcut. For the lower bound choose a maximum cut with coordinate base levels at differentiability points where slopes approach a,b, orient the root toward a derivative near absolute m, then add the same infinitesimal constant epsilon at every vertex. The input anchored norm is epsilon; the quotient approaches |g’(t_root)|+(b-a)maxcut. At a=b, g is affine and formula reduces to |a|; ReLU and absolute value have finite exact witnesses on strict affine regions. Graph family formulas follow from exact maxcut counts. The NP-hard reduction from general MAX-CUT to connected graphs uses bridging components and color-flip freedom. Independent three-vertex path ReLU pair attained exactly ratio 3, consistent with 1+maxcut=3.
 
-## Scope and outstanding risks
-Unweighted edges, an anchored vertex, finite graphs and real scalar functions are essential to the stated identity. The graph-Sobolev comparison uses different geometry. General weighted-edge or unanchored versions are not asserted. The MaxCut complexity reduction invokes classical known hardness, not a new hardness proof. A close but unknown older exact graph-variation superposition result could affect historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: established bounded-variation Nemytskii mapping/local regularity theorems and graph-Sobolev ReLU truncation estimates do not state the exact two-input anchored finite-graph l1-variation/maxcut modulus. MAX-CUT hardness is classical and not claimed as new; the precise composition-operator identity is the novel relationship.
+
+## value
+
+PASS
+
+The exact nonlinear Lipschitz modulus and its graph maxcut characterization show that pointwise nonexpansive nonlinearities may have unbounded two-input variation gain. It resolves an exact natural stability question in graph signal processing, supplies sharp family coefficients, and converts complexity of the operator modulus into classical graph combinatorics; this is more than a textbook composition theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T10:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every coordinate secant slope of g is in [a,b] by absolute continuity, so Sg(x)-Sg(y)=diag(s)(x-y). For fixed increment h, convexity in each slope reduces the bound to masks with slopes in {a,b}. On edges of equal slope the contribution is at most m|hu-hv|; on cut edges it is <=m|hu-hv|+(b-a)|h_v|. A rooted path from r to v gives |h_v|<=|h_r|+sum_edges|grad h|=||h||_{G,r}, hence the upper modulus is m+(b-a)|cut|<=m+(b-a)maxcut. For the lower bound choose a maximum cut with coordinate base levels at differentiability points where slopes approach a,b, orient the root toward a derivative near absolute m, then add the same infinitesimal constant epsilon at every vertex. The input anchored norm is epsilon; the quotient approaches |g’(t_root)|+(b-a)maxcut. At a=b, g is affine and formula reduces to |a|; ReLU and absolute value have finite exact witnesses on strict affine regions. Graph family formulas follow from exact maxcut counts. The NP-hard reduction from general MAX-CUT to connected graphs uses bridging components and color-flip freedom. Independent three-vertex path ReLU pair attained exactly ratio 3, consistent with 1+maxcut=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published sharp graph-Sobolev truncation result uses sum vertex squares plus quadratic edge Dirichlet energy, has operator norm tied to a cut-Schur spectral quantity, and involves weights/gamma."
+        ],
+        "reasoning": "It does not dominate the exact anchored edge-l1 two-input modulus; no norm-uniform comparison recovers the maximum-cut formula at equality.",
+        "searches": [
+          "rooted graph total variation Lipschitz superposition Nemytskii scalar positive part maximum cut",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-weighted-degree-bound-and-bipartite-rigidity-for-graph-sob--1700b3de04ff"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2013/284389",
+        "https://doi.org/10.1155/2014/606307",
+        "https://doi.org/10.1145/800119.803884",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-weighted-degree-bound-and-bipartite-rigidity-for-graph-sob--1700b3de04ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-input contraction under g for edge differences alone does not bound two-input anchored graph TV with sharp maxcut; the slopes can be different at opposite vertices of the cut.",
+          "A quadratic energy estimate has a different norm and extremizer geometry."
+        ],
+        "reasoning": "The constant-perturbation lower witness requires independent assignment of extremal slopes across a maximum cut, not supplied by generic local bounded-variation mapping results.",
+        "searches": [
+          "rooted graph total variation Lipschitz superposition Nemytskii scalar positive part maximum cut",
+          "https://doi.org/10.1155/2014/606307",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-weighted-degree-bound-and-bipartite-rigidity-for-graph-sob--1700b3de04ff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Schramm–Korenblum and kappa-Phi bounded-variation composition work examines function-space mapping and local Lipschitz regularity.",
+          "The requested modulus measures two separate graph signals in a finite anchored edge-l1 norm with a global maximum-cut correction."
+        ],
+        "reasoning": "The earlier Banach function-space superposition criteria are not algebraically the same as the rooted graph exact operator norm, and no inspected implication yields the cut coefficient.",
+        "searches": [
+          "rooted graph total variation Lipschitz superposition Nemytskii scalar positive part maximum cut",
+          "https://doi.org/10.1155/2013/284389",
+          "https://doi.org/10.1155/2014/606307"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Maximum-cut numerical tables and NP-hardness are preexisting, but the operator norm formula m+(b-a)maxcut applies to all graphs and scalar Lipschitz g."
+        ],
+        "reasoning": "Even an exact maxcut database would determine sample graph constants only after the new equality, not prove the all-G/all-g operator identity. The classical complexity reduction is credited.",
+        "searches": [
+          "rooted graph total variation Lipschitz superposition Nemytskii scalar positive part maximum cut",
+          "https://doi.org/10.1145/800119.803884"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: established bounded-variation Nemytskii mapping/local regularity theorems and graph-Sobolev ReLU truncation estimates do not state the exact two-input anchored finite-graph l1-variation/maxcut modulus. MAX-CUT hardness is classical and not claimed as new; the precise composition-operator identity is the novel relationship.",
+      "residual_risks": [
+        "Priority is best-of-knowledge only: a finite graph total-variation Nemytskii bound may be unindexed in a graph signal or functional-analysis source.",
+        "Only connected simple unit-weight finite graphs with a single anchored absolute value; no assertion for unanchored seminorm or vector-valued g.",
+        "A derivative essential extremum need not be realized at a finite point; the general sharp modulus is a supremum not necessarily an attained pair."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Function-space BV superposition mapping results differ from exact anchored graph two-point norm.",
+          "evidence": "Theorem controls composition properties on a function space, not the number of crossing edges of a finite maximum cut.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/284389",
+          "material_read": "Accessible article material including core mapping and Lipschitz characterization, rather than a finite graph formula.",
+          "method": "Public OA journal article text.",
+          "title": "The Composition Operator and the Space of the Functions of Bounded Variation in Schramm-Korenblum’s Sense",
+          "trigger": "Bounded-variation superposition may be a stronger general theorem"
+        },
+        {
+          "assessment": "Provides regularity conditions but not the finite graph maxcut coefficient.",
+          "evidence": "The domain is continuous BV-type function space and local operator bounds, unlike rooted finite graph exact global two-input modulus.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/606307",
+          "material_read": "Accessible article theorem 17 and proof on κΦ-variation.",
+          "method": "Public OA journal article text.",
+          "title": "Locally Lipschitz Composition Operators in Space of the Functions of Bounded κΦ-Variation",
+          "trigger": "Possible general Nemytskii Lipschitz result"
+        },
+        {
+          "assessment": "Distinct Hilbert graph-Sobolev metric; does not imply rooted edge-l1 cut constant.",
+          "evidence": "Exact published modulus has (1+gamma Delta)/sqrt(1+2gamma Delta), not 1+maxcut(G).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-weighted-degree-bound-and-bipartite-rigidity-for-graph-sob--1700b3de04ff",
+          "material_read": "Full public RESULT.md, including block-Schur operator norm and proof.",
+          "method": "Read GitHub RESULT.md via connector at source blob e32af38bfa1fc29aae76a72edbfb2bee6c108366.",
+          "title": "Sharp weighted-degree bound and bipartite rigidity for graph-Sobolev truncation",
+          "trigger": "Same ReLU operation on graph signals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact nonlinear Lipschitz modulus and its graph maxcut characterization show that pointwise nonexpansive nonlinearities may have unbounded two-input variation gain. It resolves an exact natural stability question in graph signal processing, supplies sharp family coefficients, and converts complexity of the operator modulus into classical graph combinatorics; this is more than a textbook composition theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite connected unweighted simple graph G, anchor vertex r and globally Lipschitz real scalar g with essential derivative extremes a,b, the sharp two-input Lipschitz modulus of coordinatewise superposition in anchored graph variation is m+(b-a)maxcut(G), m=max(|a|,|b|). In particular ReLU gives 1+maxcut and absolute value 1+2maxcut, with NP-hard exact determination on arbitrary connected graphs.",
+  "limitations": [
+    "Priority is best-of-knowledge only: a finite graph total-variation Nemytskii bound may be unindexed in a graph signal or functional-analysis source.",
+    "Only connected simple unit-weight finite graphs with a single anchored absolute value; no assertion for unanchored seminorm or vector-valued g.",
+    "A derivative essential extremum need not be realized at a finite point; the general sharp modulus is a supremum not necessarily an attained pair."
+  ],
+  "schema_version": 1
+}

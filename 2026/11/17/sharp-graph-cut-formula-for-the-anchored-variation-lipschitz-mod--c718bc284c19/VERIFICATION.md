@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` (Python 3, standard library) from the directory containing these files. The checker independently computes maximum cuts of all connected labelled graphs on two through four vertices, compares the exact rooted-variation norm of each diagonal slope mask on all ternary increments for four rational derivative ranges, checks the explicit extremizing constant perturbation for basic graph families through twelve vertices, and tests an approximate sharp smooth case.
+## correctness
 
-Expected successful output ends with `ALL_ANCHORED_GRAPH_VARIATION_CHECKS_PASS`. A direct replay on the packaged checker succeeded. Finite increment checks do not by themselves prove the sharp global modulus for all real signals. The proof in `RESULT.md` supplies both inequalities for every connected finite simple graph and every globally Lipschitz scalar function. The nonattainment possibility for smooth functions remains expressly allowed. Independent external audit has not been performed.
+PASS
+
+Every coordinate secant slope of g is in [a,b] by absolute continuity, so Sg(x)-Sg(y)=diag(s)(x-y). For fixed increment h, convexity in each slope reduces the bound to masks with slopes in {a,b}. On edges of equal slope the contribution is at most m|hu-hv|; on cut edges it is <=m|hu-hv|+(b-a)|h_v|. A rooted path from r to v gives |h_v|<=|h_r|+sum_edges|grad h|=||h||_{G,r}, hence the upper modulus is m+(b-a)|cut|<=m+(b-a)maxcut. For the lower bound choose a maximum cut with coordinate base levels at differentiability points where slopes approach a,b, orient the root toward a derivative near absolute m, then add the same infinitesimal constant epsilon at every vertex. The input anchored norm is epsilon; the quotient approaches |g’(t_root)|+(b-a)maxcut. At a=b, g is affine and formula reduces to |a|; ReLU and absolute value have finite exact witnesses on strict affine regions. Graph family formulas follow from exact maxcut counts. The NP-hard reduction from general MAX-CUT to connected graphs uses bridging components and color-flip freedom. Independent three-vertex path ReLU pair attained exactly ratio 3, consistent with 1+maxcut=3.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: established bounded-variation Nemytskii mapping/local regularity theorems and graph-Sobolev ReLU truncation estimates do not state the exact two-input anchored finite-graph l1-variation/maxcut modulus. MAX-CUT hardness is classical and not claimed as new; the precise composition-operator identity is the novel relationship.
+
+## value
+
+PASS
+
+The exact nonlinear Lipschitz modulus and its graph maxcut characterization show that pointwise nonexpansive nonlinearities may have unbounded two-input variation gain. It resolves an exact natural stability question in graph signal processing, supplies sharp family coefficients, and converts complexity of the operator modulus into classical graph combinatorics; this is more than a textbook composition theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
