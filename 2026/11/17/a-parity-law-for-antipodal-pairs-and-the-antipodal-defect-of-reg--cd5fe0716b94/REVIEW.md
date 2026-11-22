@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex-pair count separates the always-opposite cap-to-cap pairs from the same-cap candidates. Odd polygons contribute two near-antipodal partners per vertex; in the even case, only diametric pairs survive because opposite edge widths \(2R\cos(\pi/n)\) are strictly smaller than the staggered other-layer width \(2R\). The explicitly calculated lateral facet normal sets show \(n\) opposite triangle pairs exactly for odd \(n\). Applying Phat's published local defect formula gives \(7n-1\) versus \(2n-1\) and algebraically determines the edge-midpoint pair count. These arguments work at every positive height and radius. A separate numerical supporting-normal implementation passed all 39 recorded integer equalities for \(3\le n\le15\); its finite tests are not the universal proof.
+## correctness
 
-## Originality — PASS, provisional priority
-The motivating June 12, 2026 paper of Kieu Gia Thinh Phat establishes the *general* defect and local formula, not an explicitly accessible antiprism census. The closest retrieved published result enumerates antipodal pairs of affine polygonal prisms, which have quadrilateral lateral facets and do not contain the present regular antiprism family. Actual mathematical-record searches under antiprism, antipodal vertex pair, antipodal defect, edge-midpoint pairs and topology aliases returned no explicit equivalent formula. Full text of Phat's 45-page preprint could not be inspected; its abstract was checked and the attempted institutional route reported unavailable access. An uninspected antiprism example there or in older geometry literature is a residual priority risk. The universal general formula is credited, and the claimed new component is the explicit \(A_n,B_n\) census plus parity-specific specialization, not the general identity or homology theory.
+PASS
 
-## Mathematical value — PASS
-Regular antiprisms are a natural test family for an invariant measuring exact parallel supports. Odd order gives central inversion and opposite lateral triangular facets; even order does not. The resulting sharp linear parity gap in an integral second-homology rank, together with full vertex and edge-midpoint antipodal counts valid for arbitrary aspect ratio, differentiates the family from known prism results and exhibits a structured geometric mechanism, not a numerical or arbitrary slice.
+Cap-to-cap opposite-support vertex pairs contribute n². The projected regular n-gon support intervals give 2n same-layer pairs for odd n and n for even n; vertical translation of support planes is possible for all positive h. Lateral triangle supporting normals U_j=(cos(2jπ/n),sin(2jπ/n),q), L_j=(cos((2j+1)π/n),sin((2j+1)π/n),−q), q=R(1−cos(π/n))/(2h), have exact opposite pairing in odd n and none in even n. The cited Phat local face-pair defect identity then gives δ=(2n−1)+5n odd or 2n−1 even; B follows from defining δ. Anisotropic scaling preserves opposite supporting faces. Independently checked antipodal normal angle pairing n=3..19; full numeric verifier is supporting evidence not an all-n proof.
 
-## Scope and risks
-No claim is made for irregular or skew antiprisms. The published local identity and homology consequence are prior results. Numerical verification uses floating support feasibility, and independent mathematical auditing has not been performed. The inaccessible full primary text leaves historical priority provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Universal defect/local normal-fan theorem of Phat and its homological consequence are prior; claimed contribution is the exact complete regular-antiprism vertex and edge pair census and parity transition. Published exact convex polygonal PRISM formula is not an affine specialization (quadrilateral side facets versus staggered triangular belt). Full 45-page Phat manuscript was inaccessible by arXiv/OA routes and authorized Oxford returned VPN disconnected; its possible antiprism section remains an important explicit priority risk, not itself grounds for failure.
+
+## value
+
+PASS
+
+Antipodal vertex/edge-midpoint counts and corresponding square-complex Betti rank are natural explicit invariants of a symmetric polytope family, with a qualitative parity jump in opposite triangular facets and robustness to height perturbation. Exact infinite-family counts could be cited in antipodal-defect comparisons; this is more than a tiny arbitrary numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
