@@ -1,0 +1,15 @@
+# Scientific review: curvature-vertex bifurcation of a circular trefoil
+
+## Correctness — PASS
+The object is the standard smooth embedded \((2,3)\) ring-torus curve with \(R>1\). Its curvature-squared derivative is computed exactly and reduced by the map \(c\mapsto(1+c)/(1-c)\) to a quintic with six explicit coefficient polynomials. The first two coefficients are strictly positive, while the other four have unique ordered positive parameter zeros. Descartes' rule yields a global *unique* interior critical cosine below the threshold and none above it. Endpoint signs give the six-versus-twelve count and an implicit-function expansion gives the pair-splitting coefficient. The zero-curvature exception at \(R=13/4\) is handled as a strict, nondifferentiable local minimum. Arithmetic and direct differential checks ran from the packaged checker. Risks: the large polynomial expansion should be independently checked; finite numerical evaluations alone do not prove its identity, but the algebra is explicitly reproducible.
+
+## Originality — PASS, subject to independent historical priority
+Closest literature: Oberti and Ricca (2016), *On torus knots and unknots*, DOI:10.1142/S021821651650036X, Sections 2–6, is unusually close: it contains the same standard parametrization, graphical curvature profiles and the *different* inflection threshold \(\lambda=4/13\). It does not state the exact vertex-count phase boundary \(\lambda=0.098997\ldots\), the cubic equation or the square-root collision. Starostin and van der Heijden (2014), DOI:10.1088/1742-6596/544/1/012007, study elastic braid equilibria rather than the fixed circular trefoil. Searches of related mathematical records and available prior claims found no stated equivalent. Risks: the fact that one source already plots two peaks means the new result refines an observed effect; an unindexed calculation might have anticipated the exact threshold. The comparison is about implications and source content, not merely title dissimilarity.
+
+## Value — PASS
+The number and type of local curvature extrema of the simplest nontrivial knot's canonical embedded representative are motivated geometric descriptors relevant to bending distributions. The theorem identifies a non-obvious threshold very close to a thin torus, distinct from the established inflection threshold, and fully classifies the extrema over the entire ring-torus family. It gives a quantitative square-root normal form at the transition. This is a natural, complete shape classification rather than an arbitrary isolated numeric evaluation. It is not a theorem about minimum-energy knots or all torus knot types.
+
+## Reproducibility and boundaries
+Run `python3 check_trefoil_curvature.py` in the extracted package. The numerical checker is supplementary to the exact sign/Descartes proof. The analysis requires \(R>1\) and the stated canonical embedding. No external mathematical verification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
