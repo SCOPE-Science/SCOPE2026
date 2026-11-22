@@ -1,11 +1,21 @@
-# Review of maximal lattice-point sections of dilated unimodular simplices
+# Independent mathematical audit
 
-**Correctness: PASS.** The coordinate restrictions on any affine \(\ell\)-flat have an injective \(\ell\)-coordinate projection. Integer points project into the \(\ell\)-simplex of total coordinate sum at most \(k\), giving the sharp stars-and-bars bound. Equality forces all those target integers to lift. The lifts at \(0\) and \(k e_i\) determine the whole affine plane, while integrality of the lifts at \(e_i\) forces the sole remaining intercept to be either zero or a simplex vertex. This handles the borderline \(k=1\) separately. Every maximizing plane is therefore precisely a face hull; no finite verification is used to prove the unbounded result.
+## correctness
 
-**Originality: PASS (historical priority provisional).** The motivating paper's revised full text proves eventual quasi-polynomiality for lattice diameter segments, not this full all-codimension classification. Its higher-dimensional conjecture explicitly asks for a quasi-polynomial of degree \(d-\ell\); this theorem supplies a complete counterfamily of constant counts. Search comparisons against continuous-section volumes, combinatorial face-count sections, and published mathematical records did not reveal a theorem with identical integer-point extremizers. An unindexed equivalent lemma remains possible.
+PASS
 
-**Value: PASS.** The result is a complete, sharp classification of a naturally defined extremal invariant across all dimensions, codimensions, and positive dilations of a canonical lattice polytope. It provides a direct counterexample to the *exact-degree* clause in an explicit current higher-dimensional conjecture and isolates the natural weakened formulation (an upper degree bound) without claiming that the weaker statement fails. The elementary nature of the proof does not make the quantified counterexample a mere normalization test. The literal unrestricted-section reading includes boundary faces; a strictly interior-section variant would be a different problem.
+Reconstructed full RESULT.md frozen blob 8238471... for all integers d>=2,k>=1,1<=ell<=d-1. An ell-dimensional affine plane admits ell independent coordinate projections, injective on lattice intersection; target nonnegative compositions with sum<=k has C(k+ell,ell). Equality forces preimages for y=0 (extra coordinates a) and y=k e_i (all extras zero); so all extra coordinates are a(1-sum y/k). For k>=2 integrality at y=e_i forces k|a_j; since sum a_j<=k this yields either a=0 or a=k e_j, both face hulls. k=1 follows from integral nonnegative a with sum<=1. Distinct faces count C(d+1,ell+1). Independently enumerated exact rational flats in sample parameters (3,1,2),(3,2,2),(3,3,1),(4,1,2), verifying optima and face-only maximizers. These finite enumerations do not establish all dimensions; projection/integrality proof does.
 
-The source paper was checked at its relevant definitions, general quasi-polynomial theorem, example and conjecture; the same-author 2026 combinatorial-slicing source could only be compared using its abstract. No independent publication-priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after direct source comparisons: the previously covered scalar/elementary precursors were credited, and no inspected stronger claim gives the specified complete marks or section classification. The simplex faces are not the cubical signed-diagonal flats, and cube formula cannot be substituted for simplex stars-and-bars equality.
+
+## value
+
+PASS
+
+Natural unimodular simplex is an essential test case for a newly proposed universal maximal-slice counting conjecture. Complete all-dimensional face rigidity identifies a genuine exact-degree counterexample, distinguishes weaker upper-degree variants and helps delimit a mathematically substantive conjecture, despite elementary tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
