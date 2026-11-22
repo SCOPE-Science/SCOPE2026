@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:42:55.598087Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Point evaluations continuous when s>1/2, positive Fourier weights make Σ invertible; reproducing-kernel minimum H^s energy is vᵀΣ⁻¹v. For 0<s<1, subordination of κ²−∂² produces a positive off-diagonal jump kernel, so the min/max lattice energy inequality is strict for basis-data interpolants whose difference changes sign at two sample sites. The resulting inequality is precisely 2Q_ij<0. At s=1, the minimizer on each circular arc solves −f″+κ²f=0 and the arc Dirichlet energy has cross-term −κ/(π sinh κℓ), giving Q_ij=−κ/(2π)∑(sinh κℓ_a)⁻¹ on cycle-neighbors and zero elsewhere. Four-point DFT gives Q_13=[S_0⁻¹+S_2⁻¹−2S_1⁻¹]/16 and limit (2^(2s−1)−2)/[16(1−2^(−2s))ζ(2s)]>0 for every s>1. Independent four-site high-precision checks at s=.75,1,1.25,1.7,2.2 corroborate limits; finite truncation at s=1 is not claimed exact. All quantifiers are resolved analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heat-semigroup subordination and M-matrix trace mechanisms are general known tools; their standard forms do not state the necessary four-site supercritical obstruction together with exact endpoint and arbitrary-site iff classification."
+        ],
+        "reasoning": "General Markovian Dirichlet-form arguments imply much of the s<1 direction, and novelty is not claimed for the machinery; inspected broader theories do not directly provide the combined two-sided sharp classification.",
+        "searches": [
+          "fractional circular Matern covariance inverse finite-sample precision matrix negative off diagonal arbitrary irregular circle locations 1/2<s<=1 sign",
+          "arxiv:1808.05159 semigroup fractional powers",
+          "arxiv:2201.12856"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.12856",
+        "https://arxiv.org/abs/1808.05159",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-alternating-precision-of-sampled-order-two-circular-mat-rn--c11d579e2abe/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huang–Li order-one equal-grid CAR and order-two approximation do not derive negative precision for all irregular s<1 or a four-site positive Q_13 for every s>1.",
+          "The published exact s=2 alternating sign theorem has no universal s threshold or arbitrary-site result."
+        ],
+        "reasoning": "Known facts are proper special cases or proof tools, not statements dominating both directions of the submitted theorem; an older general total-positivity/trace theorem may still give an equivalent formulation.",
+        "searches": [
+          "fractional circular Matern covariance inverse finite-sample precision matrix negative off diagonal arbitrary irregular circle locations 1/2<s<=1 sign",
+          "arxiv:2201.12856",
+          "Resultary SCOPE-exact-alternating-precision-of-sampled-order-two-circular-mat-rn--c11d579e2abe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At s=2 the earlier exact alternating theorem only covers equispaced grids, n≥3; the present result is uniform in arbitrary sites with sharp s iff threshold, and at s>1 only asserts some κ witness.",
+          "Huang–Li 2022 order-one CAR identification is confined to an order/grid case."
+        ],
+        "reasoning": "Equispaced order-two and order-one CAR are special parameter/subconfiguration checks, not equivalent to all fractional s and arbitrary irregular sample sets; possible general trace-Dirichlet operator equivalence remains a stated priority risk.",
+        "searches": [
+          "fractional circular Matern covariance inverse finite-sample precision matrix negative off diagonal arbitrary irregular circle locations 1/2<s<=1 sign",
+          "Huang and Li arXiv:2201.12856 §§2–3",
+          "Resultary: exact alternating precision sampled order-two circular Matern"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database is relevant to the universal irrational exponent κ/site quantifiers. The explicit four-point residue-sum expression is derived, not a preexisting tabulated matrix."
+        ],
+        "reasoning": "An exact numerical/table entry could at most cover one choice of four sites and s and would not prove the stated general characterization; the relevant specific s=1/s=2 cases are credited.",
+        "searches": [
+          "fractional circular Matern covariance inverse finite-sample precision matrix negative off diagonal arbitrary irregular circle locations 1/2<s<=1 sign",
+          "Huang–Li Appendices A–B",
+          "Resultary circular precision corpus"
+        ]
+      },
+      "rationale": "Best-of-knowledge original scope after positive mathematical implication comparisons, not inferred from mere negative search. Equispaced order-two and order-one CAR are special parameter/subconfiguration checks, not equivalent to all fractional s and arbitrary irregular sample sets; possible general trace-Dirichlet operator equivalence remains a stated priority risk. General Markovian Dirichlet-form arguments imply much of the s<1 direction, and novelty is not claimed for the machinery; inspected broader theories do not directly provide the combined two-sided sharp classification. Known facts are proper special cases or proof tools, not statements dominating both directions of the submitted theorem; an older general total-positivity/trace theorem may still give an equivalent formulation.",
+      "residual_risks": [
+        "Older total-positivity and trace Dirichlet-form results could give an equivalent general precision-sign principle in other terminology; not completely exhaustively searched.",
+        "The finite DFT truncation has small s=1 numerical residue but the endpoint zeros follow exactly from arc calculus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports s=1 regular-grid CAR and s=2 approximation; does not state universal irregular fractional precision sign trichotomy",
+          "evidence": "Section 3 Remark 3.1 s=1 CAR; Remark 3.4 order-two CAR approximation",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12856",
+          "material_read": "Open complete 19-page PDF; relevant spectral definition, §§2–3, Remarks 3.1 and 3.4 and appendices consulted",
+          "method": "PDF full text and page inspection",
+          "title": "The Circular Matérn Covariance Function and its Link to Markov Random Fields on the Circle",
+          "trigger": "Identical circular Fourier Matérn covariance model and precision/Markov claims"
+        },
+        {
+          "assessment": "Sharp equispaced order-two alternating signs, not all irregular fractional s",
+          "evidence": "Finding specifies equally spaced order two and n≥3; does not imply 1/2<s<1 claim",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-alternating-precision-of-sampled-order-two-circular-mat-rn--c11d579e2abe/RESULT.md",
+          "material_read": "Complete RESULT.md, theorem, spectral assumptions, proof and limitations",
+          "method": "Published result full text",
+          "title": "Exact alternating precision of sampled order-two circular Matérn fields",
+          "trigger": "Same covariance at s=2 and precision sign"
+        },
+        {
+          "assessment": "General fractional operator methods are credited and cannot alone validate originality of the compound finite-precision assertion",
+          "evidence": "Classical spectral fractional-power heat-kernel representation",
+          "identifier_or_url": "https://arxiv.org/abs/1808.05159",
+          "material_read": "Semigroup background consulted at result and equation level; not a full primary novelty check",
+          "method": "Open-access reference search and available text",
+          "title": "What is a fractional Laplacian?",
+          "trigger": "Known heat semigroup/subordination mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal sign boundary for inverses of an irregular sampled covariance identifies when all Gaussian partial correlations are positive versus when higher smoothness can create positive precision interactions; an exact Markov/local endpoint and a minimal explicit violation matter for Gaussian graphical inference and fractional Sobolev trace forms. This is not a numerical or normalization-only result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2201.12856",
+    "https://arxiv.org/abs/1808.05159",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-alternating-precision-of-sampled-order-two-circular-mat-rn--c11d579e2abe/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For s>1/2 the circular Fourier Matérn finite-sample precision has all off-diagonal entries nonpositive for every distinct finite site set and every κ>0 iff s≤1: strict negativity for 1/2<s<1; exactly cycle-neighbor couplings at s=1, and a positive opposite pair on a four-site equally spaced circle for every s>1 at small κ.",
+  "limitations": "Applies to the Fourier-periodic one-dimensional covariance, s>1/2, κ>0, noiseless distinct samples; no higher-dimensional, noisy or general geodesic covariance extension.",
+  "residual_risks": [
+    "Older total-positivity and trace Dirichlet-form results could give an equivalent general precision-sign principle in other terminology; not completely exhaustively searched.",
+    "The finite DFT truncation has small s=1 numerical residue but the endpoint zeros follow exactly from arc calculus."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Supports s=1 regular-grid CAR and s=2 approximation; does not state universal irregular fractional precision sign trichotomy",
+      "evidence": "Section 3 Remark 3.1 s=1 CAR; Remark 3.4 order-two CAR approximation",
+      "identifier_or_url": "https://arxiv.org/pdf/2201.12856",
+      "material_read": "Open complete 19-page PDF; relevant spectral definition, §§2–3, Remarks 3.1 and 3.4 and appendices consulted",
+      "method": "PDF full text and page inspection",
+      "title": "The Circular Matérn Covariance Function and its Link to Markov Random Fields on the Circle",
+      "trigger": "Identical circular Fourier Matérn covariance model and precision/Markov claims"
+    },
+    {
+      "assessment": "Sharp equispaced order-two alternating signs, not all irregular fractional s",
+      "evidence": "Finding specifies equally spaced order two and n≥3; does not imply 1/2<s<1 claim",
+      "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/16/SCOPE-exact-alternating-precision-of-sampled-order-two-circular-mat-rn--c11d579e2abe/RESULT.md",
+      "material_read": "Complete RESULT.md, theorem, spectral assumptions, proof and limitations",
+      "method": "Published result full text",
+      "title": "Exact alternating precision of sampled order-two circular Matérn fields",
+      "trigger": "Same covariance at s=2 and precision sign"
+    },
+    {
+      "assessment": "General fractional operator methods are credited and cannot alone validate originality of the compound finite-precision assertion",
+      "evidence": "Classical spectral fractional-power heat-kernel representation",
+      "identifier_or_url": "https://arxiv.org/abs/1808.05159",
+      "material_read": "Semigroup background consulted at result and equation level; not a full primary novelty check",
+      "method": "Open-access reference search and available text",
+      "title": "What is a fractional Laplacian?",
+      "trigger": "Known heat semigroup/subordination mechanism"
+    }
+  ]
+}
