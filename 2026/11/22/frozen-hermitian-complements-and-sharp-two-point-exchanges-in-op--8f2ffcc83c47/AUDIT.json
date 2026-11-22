@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Constructed PG(2,4) in GF(4) by homogeneous coordinates; both independent programs exhaust all 2^21 point masks and all one/two swaps. Python additionally verifies all five incidence-preserving generators and checks their orbits exhaust all three static types, making BFS from one state per class sufficient for global eccentricities. Python and C++17 agree on counts 11480, degree types, 281 components, 90720 edges, radius/diameter 8 of mobile component, and full two-swap connectivity with radius 4/diameter 5. Cartesian-product corollary follows from independent 12-point shore bounds. Boundaries: no assertion beyond the specified plane and exchange rules.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Suzuki–Mouawad–Nishimura, arXiv:1401.5714, Sections 2–5 (https://arxiv.org/pdf/1401.5714), examines ordinary domination and addition/deletion with size cap k, not two-fold blocking sets of PG(2,4).",
+        "De Beule et al. EJC 23(2) (2016) Theorems 1.5–1.8 on blocking-set constructions, not optimum-exchange components (https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i2p5/pdf/)."
+      ],
+      "reasoning": "General graph-reconfiguration and multiple-blocking-set bounds do not identify this 11480-state optimum solution graph. The graph and two-exchange threshold are not an automatic corollary of the general results as stated.",
+      "searches": [
+        "web: 2014 reconfiguration problems token jumping vertex subsets solution graph Kamiński Medvedev Milanič",
+        "web: \"token jumping\" \"blocking sets\" finite projective plane",
+        "published-finding corpus: double total dominating sets order four projective plane reconfiguration 280 isolated 11480"
+      ]
+    },
+    "checked_sources": [
+      "https://backoffice.biblio.ugent.be/download/521804/1874798",
+      "https://biblio.ugent.be/publication/521804",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i2p5/pdf/",
+      "https://arxiv.org/pdf/1401.5714",
+      "https://doi.org/10.1137/090777001",
+      "https://doi.org/10.1016/j.ejc.2019.01.004",
+      "published-finding corpus: 2026/10/25/SCOPE-the-six-regular-exchange-graph-of-minimum-nontrivial-ternary-pro--2ff15d411d81",
+      "published-finding corpus: 2026/11/2/SCOPE-sharp-three-point-exchange-connectivity-and-geodesic-multiplicit--3d506c83b9c0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Govaerts thesis Theorem A.2.1 and Corollary A.2.2, pp.124–128: geometric three-type classification; 2016 EJC paper covers further constructive double-blocking results.",
+        "Independent exhaustive point exchange computation in verify.py/verify.cpp: 280 frozen, 11200 connected, radius/diameter 8; budget two radius 4/diameter 5."
+      ],
+      "reasoning": "The old full geometric classification is strong static information and could facilitate a new computation; it does not state an exchange-graph adjacency law or the resulting finite distances. This result explicitly credits all preexisting optimizer types and claims only the calculated adjacency, component, threshold and distance geometry. No stronger inspected prior statement was found that subsumes them.",
+      "searches": [
+        "web: Govaerts Penttila double blocking PG(2,4) theorem paper 2005",
+        "web: \"exchange graph\" \"double blocking\" projective",
+        "published-finding corpus: minimal 2-fold blocking sets Hermitian unital complements frozen token jumping"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Govaerts thesis Appendix A.2 (https://backoffice.biblio.ugent.be/download/521804/1874798) identifies all three static types; graph-theoretic equivalent uses two independent point/line shores.",
+        "Henning–Yeo 2010 DOI 10.1137/090777001 defines double total domination and strong transversals."
+      ],
+      "reasoning": "Two-fold blocking sets are shorewise strong transversals of the projective incidence graph; complementing the 12-point set produces a nine-point configuration with line intersections at most three. Both static descriptions are covered by older work. The new assertion is a graph of optimal exchanges on the same configurations, so rewording the old types alone does not state or imply its exact connectivity, radius or diameter without a new comparison calculation.",
+      "searches": [
+        "published-finding corpus: minimal double blocking twelve point sets PG(2,4) one point exchange graph reconfiguration unital isolated",
+        "web: \"reconfiguration\" \"double blocking sets\" projective plane",
+        "web: \"one-point\" \"double blocking sets\" projective"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Govaerts (2003) Corollary 6.7.4 and Appendix A.2 give the *known* secant profiles (9,9,0,3), (10,6,3,2), and (12,0,9,0).",
+        "published-finding corpus closest different problem IDs: 2026/10/25/SCOPE-the-six-regular-exchange-graph-of-minimum-nontrivial-ternary-pro--2ff15d411d81 (order-three single blocking), 2026/11/2/SCOPE-sharp-three-point-exchange-connectivity-and-geodesic-multiplicit--3d506c83b9c0 (order-four hyperovals)."
+      ],
+      "reasoning": "The cited static secant table and three geometric types are prior coverage and specifically excluded from priority. Retrieved indexed exchange results concern different feasibility objects (minimum simple blocking or hyperoval arc), and no retrieved table contains the exact double-blocking exchange graph or its distances.",
+      "searches": [
+        "published-finding corpus: projective plane order four double blocking sets optimal supports and reconfiguration",
+        "web: PG(2,4) double blocking sets of size 12 all classify",
+        "web: reconfiguration double blocking sets PG(2,4) exchange graph 280 11200"
+      ]
+    },
+    "rationale": "Inspected Govaerts 2003 full relevant Appendix A.2, which already covers the 12-point minimum and its three geometry types; these are explicitly excluded from the new assertion. The complete exchange graph, 280 frozen Hermitian-complement states, sharp two-exchange connectivity and distances are not stated in the inspected primary texts. Closest indexed published-finding corpus exchange problems concern single blocking sets in PG(2,3) or PG(2,4) hyperovals; neither has the same feasible family or adjacency relation. Priority remains qualified by historical access limits; a failed search alone is not proof.",
+    "residual_risks": [
+      "A specialized unindexed historical enumeration of one-/two-point exchanges among double-blocking 12-sets could predate this result.",
+      "Henning–Yeo (2010) full text was not inspected; accessible abstract does not suggest direct coverage.",
+      "Only accessible own previous-week files, current-week ledger, and selected older historical files were deduplicated; some historical parts remain inaccessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS minimum size, all three static geometric types and secant types, but does not state one-/two-exchange adjacency graph or distances",
+        "evidence": [
+          "Theorem A.2.1; Corollary A.2.2; Corollary 6.7.4; Remark A.2.3."
+        ],
+        "identifier_or_url": "https://backoffice.biblio.ugent.be/download/521804/1874798",
+        "material_read": "Appendix A.2, pp.124–128; theorem and corollary in chapter 6, pp.117–118; thesis front matter",
+        "method": "Full-text PDF inspection of theorem and proof, with page-image confirmation of p.124",
+        "title": "Classifications of Blocking Set Related Structures in Galois Geometries",
+        "trigger": "Most plausible identical twelve-point optimizer family and secant profiles"
+      },
+      {
+        "assessment": "GENERAL construction results in planes, no specific exchange graph on twelve-point optimizers of PG(2,4)",
+        "evidence": [
+          "Theorems 1.5–1.8, introduction pp.1–4."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i2p5/pdf/",
+        "material_read": "Introduction, preliminaries, main theorem statements 1.5–1.8, including page four confirmed by image",
+        "method": "Accessible complete 21-page PDF, text and page-image inspection of relevant main claims",
+        "title": "Blocking and Double Blocking Sets in Finite Planes",
+        "trigger": "2016 primary full text includes both blocking and double blocking constructions"
+      },
+      {
+        "assessment": "Uses add/delete adjacency for ordinary dominating sets up to budget k; not optimum simultaneous exchanges of double total dominating sets",
+        "evidence": [
+          "Definitions D_k(G), Sections 2–5, Theorem 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+        "material_read": "Introduction, Section 2, theorem summaries and algorithmic scope Sections 3–5",
+        "method": "Primary preprint full PDF with screenshot of p.3 and text inspection",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Plausible general domination reconfiguration framework that could cover graph-theoretic reformulation"
+      },
+      {
+        "assessment": "Provides definitions and general graph bounds; full text not inspected, residual prior-coverage uncertainty recorded",
+        "evidence": [
+          "2010 abstract: Fano plane is exceptional extremal 3-uniform hypergraph, not order-four two-fold blocking reconfiguration."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/090777001",
+        "material_read": "Published abstract and bibliographic metadata, not full article",
+        "method": "Journal public abstract and institutional bibliographic description",
+        "title": "Strong Transversals in Hypergraphs and Double Total Domination in Graphs",
+        "trigger": "Original terminology and strong transversals linked to double total domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f2ffcc8-3c47-4239-9048-53497fa3fa0b",
+  "value": {
+    "rationale": "A natural finite incidence design with a known nontrivial three-type optimum classification exhibits a striking qualitative separation between 280 rigid Hermitian-complement states and a large mobile sector. The sharp simultaneous-exchange budget two and exact graph radii/diameters have significance for feasibility-preserving relocation of strong transversals and double-total dominators, and provide a geometric obstruction not visible from static minimum size or orbit counts alone. This is a complete classification of a motivated finite optimization solution space, not an arbitrary slice or an incremental score.",
+    "status": "PASS"
+  }
+}
