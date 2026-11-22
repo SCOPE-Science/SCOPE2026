@@ -1,11 +1,21 @@
-# Scientific review: universal four-edge-stratified area law
+# Independent mathematical audit
 
-**Correctness — PASS.** For an arbitrary parallelogram, an affine map takes arclength-uniform samples on specified edges to independently uniform edge fractions on the unit square. The shoelace identity expresses normalized area as one-half plus one-half the product of two independent triangular differences. The product-density integral gives the full density and exact CDF; its even moments and the fourth- and fifth-order tail terms follow directly. The near-maximum event is exactly one of two symmetric four-deficit domains, converging under scaling to a four-simplex. Uniform conditional measures yield the stated five-component Dirichlet weak limit, with no appeal to finite enumeration. The bundled checker completed successfully; it is corroboration, not a proof or independent audit.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Nguyen–Volkov's 2015 work defines the identical polygon-edge sampling operation, but studies long-run flatness and random matrix products. The later published quadrilateral-subdivision paper proves a one-step conditional second-moment operator; its entire `RESULT.md` was inspected, and it does not give the full probability density, fourth-order extreme tails, or the marked conditional limit. Mean and variance are acknowledged as prior deductions. The 2016 mathematics discussion on exactly four square-side points asks for the first two moments and gives an elementary mean calculation. Other published polygon-boundary results concern perimeter-iid, not edge-stratified sampling. Generic product-density and simplex-conditioning methods remain a historical-priority risk; the searches are evidence of noncoverage, not proof of global novelty.
+PASS
 
-**Value — PASS.** A one-point-per-edge random quadrilateral is a natural single-step observable in polygon subdivision and edge-stratified geometric sampling. The complete affine-universal law answers all area-threshold questions, identifies a genuine interior logarithmic density spike, and gives a sharp quartic rare-area rate, its second coefficient, and the geometry of each exceptionally large sample through a joint Dirichlet limit. Those are stronger than previously recorded mean/variance statements and support exact benchmarking and rare-event sampling. The statement does not rely on an arbitrary parameter slice or a numerical table.
+The affine reduction from any parallelogram to a square preserves independent uniform side parameters. Direct shoelace computation gives T=[1+(U-W)(V-Z)]/2; independent differences have triangular densities 1-|x|. The exact product convolution integrates to f_T(t)=-4(1+|2t-1|)log|2t-1|-8(1-|2t-1|). Integrating the density yields the stated survival function and centered moments. Independently expanding the exact survival in SymPy gives 4 eps^4/3+32 eps^5/15+16 eps^6/5+O(eps^7), confirming both stated tail coefficients. Conditioning on T>1-eps forces X,Y same sign near ±1; four endpoint deficits, scaled by 2eps, lie in the region sum_i x_i-2eps(x1+x2)(x3+x4)<1. Dominated convergence of constant density on the bounded region gives the uniform 4-simplex and five-part Dirichlet(1,1,1,1,1) slack law. Reflection swaps signs with exact 1/2 probability. Package verify.py source checked: Monte Carlo/endpoint-bias diagnostics only; none are used as infinite proof.
 
-**Sources compared and limits.** Nguyen & Volkov, arXiv:1506.04942 (first public 2015-06-16); Volkov, arXiv:1112.0932 (2011-12-05); *Exact second-moment spectrum and intermittency in random quadrilateral subdivision* (published 2026-11-01); Mathematics Stack Exchange question 2044074 (2016-12-04). Relevant original mathematical sections and the complete published second-moment result were inspected. Nonindexed derivations of a triangular-product density, or general rare-conditioning lemmas specialized to this square model, remain possible prior coverage. The result and priority have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh best-of-knowledge primary-source and published-mathematics comparison of the exact final theorem, not a claim of exhaustive historical priority. Knowing the first two moments does not imply a probability density or endpoint tail. General polygon iteration convergence does not imply either asymptotic conditional shape theorem.
+
+## value
+
+PASS
+
+The exact full area distribution, shape-independent logarithmic singularity and marked conditional rare-event geometry of a natural one-point-per-edge random polygon are mathematically motivated distributional invariants. The fifth-order endpoint coefficient and five-dimensional Dirichlet mark carry information not supplied by the classical mean or variance alone, and are useful for geometric probability and subdivision models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

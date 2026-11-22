@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T20:15:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine reduction from any parallelogram to a square preserves independent uniform side parameters. Direct shoelace computation gives T=[1+(U-W)(V-Z)]/2; independent differences have triangular densities 1-|x|. The exact product convolution integrates to f_T(t)=-4(1+|2t-1|)log|2t-1|-8(1-|2t-1|). Integrating the density yields the stated survival function and centered moments. Independently expanding the exact survival in SymPy gives 4 eps^4/3+32 eps^5/15+16 eps^6/5+O(eps^7), confirming both stated tail coefficients. Conditioning on T>1-eps forces X,Y same sign near ±1; four endpoint deficits, scaled by 2eps, lie in the region sum_i x_i-2eps(x1+x2)(x3+x4)<1. Dominated convergence of constant density on the bounded region gives the uniform 4-simplex and five-part Dirichlet(1,1,1,1,1) slack law. Reflection swaps signs with exact 1/2 probability. Package verify.py source checked: Monte Carlo/endpoint-bias diagnostics only; none are used as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen–Volkov studies polygon iteration and limiting shape; Resultary 2026-11-01 computes the second-moment recurrence.",
+          "Dirichlet near-maximal random triangle laws concern area-uniform triangles or different edge samples."
+        ],
+        "reasoning": "General iteration asymptotics and a second-moment recurrence do not determine the full one-step law or its endpoint conditional mark distributions; neighboring geometric sampling models differ.",
+        "searches": [
+          "Nguyen Volkov universal result consecutive random subdivision polygons 2015",
+          "Volkov random geometric subdivisions 2011",
+          "Resultary random quadrilateral subdivision second-moment"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1506.04942",
+        "https://arxiv.org/abs/1112.0932",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-second-moment-spectrum-and-intermittency-in-random-quadril--6188c52bc8e5",
+        "https://math.stackexchange.com/questions/2044074"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known E[T]=1/2 and Var(T)=1/144 are only low moments.",
+          "The product-triangular identity yields an entire density and a conditional five-parameter Dirichlet limit."
+        ],
+        "reasoning": "Knowing the first two moments does not imply a probability density or endpoint tail. General polygon iteration convergence does not imply either asymptotic conditional shape theorem.",
+        "searches": [
+          "Resultary: exact second-moment spectrum intermittency random quadrilateral subdivision",
+          "Nguyen Volkov random subdivision polygon edge point area"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The transformation T=(1+(U-W)(V-Z))/2 identifies the claim with a product of two independent symmetric triangular variables.",
+          "Nguyen–Volkov arXiv:1506.04942 studies the same one-per-side Markov subdivision mechanism, but its main results concern repeated transformations."
+        ],
+        "reasoning": "Aliases include side-stratified random polygon area, shoelace product triangular, affine parallelogram invariance. Shared sampling model is not an exact single-step full density or marked-extreme-area theorem.",
+        "searches": [
+          "Resultary semantic: uniform random point on each side parallelogram quadrilateral area distribution product triangular variables extreme marked Dirichlet",
+          "Web: random points four sides square quadrilateral area distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-second-moment-spectrum-and-intermittency-in-random-quadril--6188c52bc8e5",
+          "Math StackExchange 2016 side-point quadrilateral area mean and variance"
+        ],
+        "reasoning": "The exact one-step variance 1/144 and mean 1/2 are pre-existing and not credited as new. No inspected exact-table result provides this complete density plus marked high-tail law.",
+        "searches": [
+          "Resultary semantic: random side points square quadrilateral area density product of triangular distributions mean variance and Dirichlet rare corner"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge primary-source and published-mathematics comparison of the exact final theorem, not a claim of exhaustive historical priority. Knowing the first two moments does not imply a probability density or endpoint tail. General polygon iteration convergence does not imply either asymptotic conditional shape theorem.",
+      "residual_risks": [
+        "A classical recreational-probability note may have published the triangular-product complete density without modern terminology.",
+        "The elementary density computation is short; value rests especially on the sharp two-term rare tails and conditional joint marks.",
+        "The conditional limit is weak convergence as eps tends to zero, not exact Dirichlet law at fixed eps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same underlying random operation but no complete parallelogram single-step area density or corner-slack law in reviewed claims",
+          "evidence": "Nguyen–Volkov (2015) polygon subdivision/shape-collapse results",
+          "identifier_or_url": "https://arxiv.org/abs/1506.04942",
+          "material_read": "Public full-text HTML, setup and principal polygon-iteration theorems, limiting behavior",
+          "method": "Inspected accessible full text and relevant theorem/proof sections",
+          "title": "A universal result for consecutive random subdivision of polygons",
+          "trigger": "Same independent four-side subdivision operation"
+        },
+        {
+          "assessment": "Covers one-step variance and repeated second-moment spectral growth, not density or marked extreme law",
+          "evidence": "2026-11-01 result describes second-moment recurrence; candidate correctly credits 1/144",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-second-moment-spectrum-and-intermittency-in-random-quadril--6188c52bc8e5",
+          "material_read": "Resultary published finding and explicit one-step second-moment scope",
+          "method": "Inspected accessible full text and relevant theorem/proof sections",
+          "title": "Exact second-moment spectrum and intermittency in random quadrilateral subdivision",
+          "trigger": "Exact earlier moment result for same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact full area distribution, shape-independent logarithmic singularity and marked conditional rare-event geometry of a natural one-point-per-edge random polygon are mathematically motivated distributional invariants. The fifth-order endpoint coefficient and five-dimensional Dirichlet mark carry information not supplied by the classical mean or variance alone, and are useful for geometric probability and subdivision models.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1506.04942",
+    "https://arxiv.org/abs/1112.0932",
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-second-moment-spectrum-and-intermittency-in-random-quadril--6188c52bc8e5",
+    "https://math.stackexchange.com/questions/2044074"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A classical recreational-probability note may have published the triangular-product complete density without modern terminology.",
+    "The elementary density computation is short; value rests especially on the sharp two-term rare tails and conditional joint marks.",
+    "The conditional limit is weak convergence as eps tends to zero, not exact Dirichlet law at fixed eps.",
+    "Independent bounded checks corroborate only their stated calculations, not an external or formal proof certificate.",
+    "Publication transport is not_ready due to unsanitized potentially public provenance; separate from the completed scientific disposition."
+  ],
+  "residual_risks": [
+    "A classical recreational-probability note may have published the triangular-product complete density without modern terminology.",
+    "The elementary density computation is short; value rests especially on the sharp two-term rare tails and conditional joint marks.",
+    "The conditional limit is weak convergence as eps tends to zero, not exact Dirichlet law at fixed eps."
+  ],
+  "schema_version": 1
+}

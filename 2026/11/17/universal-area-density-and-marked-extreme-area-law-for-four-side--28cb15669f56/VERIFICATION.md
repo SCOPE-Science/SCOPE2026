@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The area identity follows exactly from a four-vertex shoelace calculation. Independent triangular-product integration gives the density and survival formula, and a fourth-order Taylor expansion gives the two-term rare-event law. A uniform-on-a-converging-region argument gives the conditional five-component Dirichlet limit. The standalone numerical checker `verify.py` tests nine survival thresholds, the shoelace identity and variance, the product-density integral, endpoint ratios, and five conditional coordinate means with an independent four-deficit rejection sampler. Its fixed-seed execution completed with `FOUR_SIDE_QUADRILATERAL_AREA_LAW_OK`.
+# Independent mathematical audit
 
-Numerical experiments are finite and do not establish the asymptotic results. No independent mathematical audit has been performed. Historical priority is provisional, especially for nonindexed expository formulas for products of triangular random variables.
+## correctness
+
+PASS
+
+The affine reduction from any parallelogram to a square preserves independent uniform side parameters. Direct shoelace computation gives T=[1+(U-W)(V-Z)]/2; independent differences have triangular densities 1-|x|. The exact product convolution integrates to f_T(t)=-4(1+|2t-1|)log|2t-1|-8(1-|2t-1|). Integrating the density yields the stated survival function and centered moments. Independently expanding the exact survival in SymPy gives 4 eps^4/3+32 eps^5/15+16 eps^6/5+O(eps^7), confirming both stated tail coefficients. Conditioning on T>1-eps forces X,Y same sign near ±1; four endpoint deficits, scaled by 2eps, lie in the region sum_i x_i-2eps(x1+x2)(x3+x4)<1. Dominated convergence of constant density on the bounded region gives the uniform 4-simplex and five-part Dirichlet(1,1,1,1,1) slack law. Reflection swaps signs with exact 1/2 probability. Package verify.py source checked: Monte Carlo/endpoint-bias diagnostics only; none are used as infinite proof.
+
+## originality
+
+PASS
+
+Fresh best-of-knowledge primary-source and published-mathematics comparison of the exact final theorem, not a claim of exhaustive historical priority. Knowing the first two moments does not imply a probability density or endpoint tail. General polygon iteration convergence does not imply either asymptotic conditional shape theorem.
+
+## value
+
+PASS
+
+The exact full area distribution, shape-independent logarithmic singularity and marked conditional rare-event geometry of a natural one-point-per-edge random polygon are mathematically motivated distributional invariants. The fifth-order endpoint coefficient and five-dimensional Dirichlet mark carry information not supplied by the classical mean or variance alone, and are useful for geometric probability and subdivision models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
