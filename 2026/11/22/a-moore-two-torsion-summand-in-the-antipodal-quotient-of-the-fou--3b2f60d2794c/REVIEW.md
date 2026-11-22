@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The quotient is constructed using equivariant stellar subdivisions of every setwise invariant face rather than incorrectly identifying vertices in the original simplicial complex. An exhaustive standalone verifier independently checks the complete graph and 742 faces, 30 invariant faces, 24,530 refined faces, 12,414 quotient cells, all signed boundary compositions, 6,100 genuine free-face topological collapses, 104 exact integer unit-pivot chain cancellations, the surviving Smith factor two, and the 73 Tietze eliminations proving simple connectivity of the original complex. Armstrong's theorem gives simple connectivity of the quotient, and standard simply connected three-complex attachment theory lifts the integral chain determination to a Moore-and-spheres homotopy type. Nonstandard finite facts are reconstructed from scratch. A limitation is that this is exhaustive for one finite object, not a general theorem about all cubes.
+
+## Originality — PASS relative to examined sources
+The closest full-text prior records prove the nonequivariant integral symmetry module and rational character on the same complex, but not the integral cellular chain of its geometric orbit quotient. The rational invariant third-homology rank three is already implied and not claimed as novel. The earlier group-action literature applies to different theta/hypergraph quotients. Another full-text record treats an antipodal Rips quotient of the same sixteen vertices but with a different simplex condition and free rather than nonfree action. Exact source, parameter and implication comparisons are documented in AUDIT.json. Searches do not prove global publication uniqueness; potential unindexed equivalents remain a risk.
+
+## Value — PASS
+The object is canonical—the first nontrivial sixteen-vertex hypercube independence complex under central bit-complement symmetry. Earlier work determined the complete integral upstairs homology representation and rational invariant rank, leaving an interesting genuinely integral and nonfree-orbit question. The result detects a new two-primary Moore summand, shows explicitly how it coexists with three rationally predicted three-spheres, and gives the full geometric-quotient homotopy type. It is not a cosmetic reparameterization or a small incremental Betti count. Its immediate scope is a single natural finite example, with no implication asserted for higher dimensions.
+
+Self-review: passed. Independent audit: not yet performed.
