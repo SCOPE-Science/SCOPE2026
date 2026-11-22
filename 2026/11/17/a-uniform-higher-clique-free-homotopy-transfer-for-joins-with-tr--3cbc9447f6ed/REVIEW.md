@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact face decomposition distinguishes center cardinalities at the forbidden-clique threshold, including the boundary cases where the center clique is too small. Collapsing the contractible first piece is valid because inclusions of subcomplexes are cofibrations. The relative quotient decomposes into one iterated unreduced suspension per center subset of the prescribed cardinality. These suspensions are sufficiently connected to nullhomotope each remaining cell attachment, proving the integral homotopy wedge for all stated graphs. The independent finite mod-two checker passed all 675 cases (470 at the newly covered thresholds; 205 at the known four-clique-free benchmark); computation corroborates rather than proves the unrestricted claim.
+PASS
 
-## Originality — PASS, residual risk stated
+PASS. For nonempty finite triangle-free H and t≥5, write k=t−2≥3 and S for s clique vertices. For a face containing j center vertices, all H subsets are allowed for j≤k−1, only independent H subsets when j=k, and only the empty H subset when j=k+1. Thus X=L_{k−2}*Δ_H ∪ L_{k−1}*Ind(H) ∪ L_k, an exact face decomposition (L_r is the r-skeleton of Δ_S). For s<k, X is a full simplex and both binomial coefficients vanish. For s≥k, A=L_{k−2}*Δ_H is contractible since H nonempty; the simplicial inclusion is a CW cofibration, so X≃X/A. Relative to A, each k-center face F contributes a quotient (Δ_F*I)/(∂Δ_F*I)≃Σ^k|I|; distinct k-face blocks meet in collapsed A. For k≥3 the wedge of these iterated suspensions is (k−1)-connected for arbitrary nonempty I, so boundary S^{k−1} maps of the binomial(s,k+1) new k-cells are null, each adding an S^k. The result is an actual nonequivariant integral homotopy wedge, including possible shifted torsion, not just an F2 Betti equality. Independently checked exact graph/clique face construction and mod-two reduced homology for three nontrivial sample joins H=P3,C4,C5 and correct center ranges; the source verifier enumerates broader finite families, but these cannot certify integral torsion or infinite parameters. The proof, rather than a log, supplies that. t=4 is explicitly excluded as previously published.
 
-The full text of the November 1, 2026 published *Double-suspension splitting for four-clique-free complexes of clique joins* was read: it proves exactly the \(t=4\) case, which is prior work and explicitly not claimed as new. Its limitations explicitly leave arbitrary higher forbidden-clique sizes untreated. The present theorem establishes the simultaneous \(t\geq5\) statement using center skeleta of variable dimension and nullity of higher attaching spheres. The Ghosh–Selvaraja primary paper proves shellability/decomposability, not this homotopy formula. An all-threshold equivariant classification is also known for the special case of edgeless \(H\) (complete split graphs); this known subclass is not an originality claim here. The older forbidden-triangle result addresses yet another threshold. No covering higher-threshold result was found, but an implicit extension of prior methods or unindexed equivalence remains a real originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem provides a natural, uniform structural transfer at every threshold strictly above the known four-clique-free case, for arbitrary triangle-free input graphs. It transfers mixed-dimensional and torsion integral homology through predictable suspension shifts, with an independent central-clique sphere term. The two distinct nonzero dimensions for cycle-six input demonstrate information beyond a face-count or a fixed-threshold routine calculation.
+Best-of-knowledge PASS for the variable forbidden-clique threshold t≥5 classification with arbitrary nonempty triangle-free H, and integral homotopy/torsion transfer. A published 2026-11-01 theorem proves exactly the k=2 (t=4) case by the same contractible-subcomplex, cofiber and cell-attachment method; it is a decisive close predecessor, not an unrelated result. A published complete-split-graph result covers arbitrary thresholds when H is edgeless and must be excluded from novelty. The earlier proofs suggest a natural higher-skeleton extension, yet do not themselves state or prove the k≥3 universal theorem for arbitrary H; a generalized polyhedral-join decomposition might cover it in another terminology and remains a residual priority risk.
 
-## Closest literature and limits
+## value
 
-Motivation: R. Ghosh and S. Selvaraja, *Shellability in Clique-Free Complexes of Graphs*, arXiv:2602.09623 (2026-02-10). Closest predecessor: *Double-suspension splitting for four-clique-free complexes of clique joins* (2026-11-01), full RESULT.md inspected; its exact \(t=4\) theorem is excluded here. The older forbidden-triangle clique-join record addresses \(t=3\). The splitting is nonequivariant; no automorphism module, shellability assertion, or result for graphs containing triangles is claimed. A possible unindexed or implicit all-threshold generalization remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A uniform homotopy classification for every higher forbidden-clique threshold and arbitrary triangle-free graph joins transfers the full integral independence-complex homology, including torsion, to a natural family of clique-avoidance complexes. This is a structural theorem over infinitely many orders and graph families, not merely a numeric extrapolation of the known k=2 cases or an arbitrary finite slice. The boundary cases s<k and H disconnected are resolved within a single formula, while the nontrivial topology of Ind(H) survives in precise suspension degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
