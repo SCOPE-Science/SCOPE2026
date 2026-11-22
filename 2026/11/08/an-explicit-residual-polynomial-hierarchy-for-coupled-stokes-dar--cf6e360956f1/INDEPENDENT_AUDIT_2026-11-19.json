@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-11-19",
+  "audited_at_utc": "2026-11-19T04:45:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 8a0e473d52788445efbbf4f93cfb2197345bd362",
+        "Frozen verify.py Git blob fceb8d74679d4f60a6535f7f9877e3b15bb5760b",
+        "Git tree ada560694cc8b82045dfe69a2b400db406c445f9",
+        "https://arxiv.org/abs/2610.34692",
+        "/mnt/data/worker07_independent_check.py (local independent bounded tests)"
+      ],
+      "rationale": "With Ad nonsingular, B full row rank and H(S1)>0, S1 and S2 are accretive/invertible since H(S1^-1)=S1^-T H(S1) S1^-1>0 and H(S2)=B H(S1^-1) B^T>0. For mu=lambda_min H(S2)>0, the resolvent bound ||E||_2 <=alpha/(mu+alpha)<1 follows by the quadratic form. Exact multiplication of K and Q_alpha^-1 gives T=[[I,0,0],[X,-I,0],[0,E Z,I-E]]. Directly I-T^2 has last row [-E ZX,E^2 Z,E(2I-E)] and no other nonzero rows. Multiplying this row successively by I-T proves for every m>=2 the exact p_m(T) last row [-E^(m-1)ZX,E^m Z,E^(m-1)(2I-E)]. Since p_m(0)=1, it is a valid candidate in exact unrestarted right-preconditioned GMRES, and its norm yields ||r_m|| <= M_alpha [alpha/(mu+alpha)]^(m-1) ||r0||. Identical argument from each restarted-cycle residual gives the per-cycle factor, not a guarantee of one-cycle contraction for all m and alpha. Fixed matrices yield bounded M_alpha as alpha->0. The example d=v=p=1, Ad=As=B=1,G=0,r0=(1,1,1) has exact least-squares squared residual 2alpha^2/(1+alpha+alpha^2), hence sharp two-step alpha order. Independent random nonsymmetric accretive tests verified 576 matrix-polynomial identities for sizes 3–11 and m=2..7 with maximum Frobenius error 6.58e-14, plus exact symbolic scalar residual identity. Finite checks supplement, not replace, the all-m matrix induction.",
+      "residual_risks": [
+        "The proof is exact-arithmetic with ideal stationary Q_alpha; computed inverses and roundoff may change practical GMRES behavior.",
+        "No mesh-independent mu or M_alpha lower/upper bounds are claimed, nor bounds for inexact or flexible blocks.",
+        "The alpha power is sharp only at m=2, not proven optimal for m>2; the displayed bound may be noncontractive for short restart lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Southworth Sections 2.2, 3.2, Theorem 3.8 give general two-block Schur GMRES comparisons, not this full 3-by-3 coupled preconditioner or its scalar sharpness.",
+          "Greif–He Section 4 M1/M2/M3 spectral classes include fixed golden-ratio roots; Beik–Benzi Section 1 equations (3)–(6) use different constraint/augmented blocks."
+        ],
+        "reasoning": "The standard GMRES minimization theorem and accretive resolvent estimate are prior general machinery. They support the proof but do not by themselves instantiate the precise E-power identity or exhibit its exact dimension-three sharp lower bound. A broader reblocking argument could reproduce the upper bound and is retained as a priority/elementarity risk, not invented away.",
+        "searches": [
+          "Resultary: block triangular preconditioned double saddle point Schur spectral clustering GMRES finite step residual rate",
+          "https://arxiv.org/abs/1911.02664",
+          "https://arxiv.org/html/2208.12357v2",
+          "https://link.springer.com/article/10.1007/s00211-021-01267-8"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.34692",
+        "https://arxiv.org/abs/1911.02664",
+        "https://arxiv.org/html/2208.12357v2",
+        "https://link.springer.com/article/10.1007/s00211-021-01267-8",
+        "https://doi.org/10.1137/15M1032156",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-explicit-residual-polynomial-hierarchy-for-coupled-stokes-dar--cf6e360956f1",
+        "Resultary: GMRES residual polynomial convergence exact regularized coupled block preconditioner Stokes Darcy nonnormal three block Q alpha",
+        "Resultary: block triangular preconditioned double saddle point Schur spectral clustering GMRES finite step residual rate",
+        "Resultary: ideal Stokes Darcy preconditioner residual convergence second iteration alpha"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chao–Li Section 5.2 explicitly: nonnormality prevents extracting a rigorous GMRES convergence curve from the eigenvalues and no rigorous rate is claimed.",
+          "The assigned result takes that same T, proves p_2(T) last-row E factors, obtains p_m(T) by multiplication with I-T and the resolvent bound ||E||<=alpha/(mu+alpha).",
+          "Southworth Theorem 3.8 establishes general right Schur-minimization inequalities; Greif–He Section 4.1 and Beik–Benzi explicit matrices concern distinct preconditioners."
+        ],
+        "reasoning": "Chao–Li spectral clustering alone cannot logically imply Euclidean GMRES bounds for a nonnormal matrix; the stronger available data are the actual full block identity, from which the new explicit polynomial and induction derive the bound. General GMRES polynomial admissibility alone cannot specify a successful p_m without this computation. The source theorem plus standard algebra can make derivation accessible, so the novelty is narrow and explicitly qualified: concrete model-specific degree-by-degree identity, certified rate and sharp alpha exponent, not a new general GMRES principle.",
+        "searches": [
+          "Resultary: GMRES residual polynomial convergence exact regularized coupled block preconditioner Stokes Darcy nonnormal three block Q alpha",
+          "Resultary: block triangular preconditioned double saddle point Schur spectral clustering GMRES finite step residual rate",
+          "https://arxiv.org/abs/2610.34692",
+          "https://arxiv.org/abs/1911.02664",
+          "https://arxiv.org/html/2208.12357v2",
+          "https://link.springer.com/article/10.1007/s00211-021-01267-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chao–Li Theorem 8 Eq. (15) plus Theorem 9 Eq. (17) give exactly the block shape T=[[I,0,0],[X,-I,0],[0,E Z,I-E]], but no p_m formula and no numerical rate.",
+          "Southworth Theorem 3.8 uses (1-t) times Schur polynomials, but current p_m also annihilates the -1 block, requiring its (1-t^2) factor and a specific E-power last row."
+        ],
+        "reasoning": "The algebraic aliases are right-preconditioned GMRES of the ideal coupled three-block system, equivalently a nested Schur reduction plus a polynomial annihilator of +1 and -1. We compared exact operators and normalizations; no examined primary statement explicitly equates to the whole residual hierarchy. The generic Schur framework overlaps in method, not in this concrete exact conclusion; the possibility of a routine unindexed corollary remains acknowledged.",
+        "searches": [
+          "Resultary: GMRES residual polynomial convergence exact regularized coupled block preconditioner Stokes Darcy nonnormal three block Q alpha",
+          "Resultary: ideal Stokes Darcy preconditioner residual convergence second iteration alpha",
+          "https://arxiv.org/abs/2610.34692",
+          "https://arxiv.org/abs/1911.02664"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search placed the identical assigned November 8 finding first; other returned preconditioning and GMRES entries concern different matrices/problems, not an earlier formula for this exact Q_alpha.",
+          "Searches of primary and survey material identify the older block identities and generic residual polynomial bounds; no exact all-m p_m matrix row or alpha-order two-step obstruction located."
+        ],
+        "reasoning": "This is an exact symbolic operator identity, not an empirical database or finite coefficient table. An exact prior table would have to evaluate the same p_m on the same T (or a mathematically equivalent reblocking). No such table appeared in the checked records, but negative searches are not a proof of priority.",
+        "searches": [
+          "Resultary: GMRES residual polynomial convergence exact regularized coupled block preconditioner Stokes Darcy nonnormal three block Q alpha",
+          "Resultary: block triangular preconditioned double saddle point Schur spectral clustering GMRES finite step residual rate",
+          "Resultary: ideal Stokes Darcy preconditioner residual convergence second iteration alpha",
+          "web search: \"GMRES\" \"Stokes-Darcy\" \"residual polynomial\" preconditioner",
+          "web search: block preconditioner 3 by 3 residual polynomial GMRES convergence estimates Schur complement"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS. Chao–Li (October 2026) explicitly supplies the exact KQ_alpha^-1 block and the Moebius Schur transform, not an analytic GMRES-rate theorem; it expressly cautions against inferring a nonnormal convergence rate from eigenvalues. The reviewed contribution is the concrete polynomial p_m=(1-t^2)(1-t)^(m-2), its exact last-row E^(m-1) expression and a Euclidean all-iteration and restarted-cycle bound with sharp two-step alpha order. Southworth–Sivas–Rhebergen supply general 2-by-2 Schur GMRES machinery but not the complete three-block specialized formula or lower witness. Greif–He and Beik–Benzi use different preconditioners. Search absence is not proof of novelty; a non-obvious generic 2-block theorem instantiation or unindexed paper remains a residual historical risk.",
+      "residual_risks": [
+        "Earlier Chao–Li Theorem 8 and Theorem 9 already provide the essential exact block form; the remaining polynomial derivation is short, and another general block-Krylov theorem may make it an unstated corollary.",
+        "Full text of Chidyagwai–Ladenheim–Szyld 2016 was not inspected; abstract does not allow a whole-paper NOT_COVERING verdict.",
+        "No mesh-uniform, inexact/flexible or floating-point rate is proved; symbolic parameter alpha estimates are for a fixed finite-dimensional system.",
+        "Search results are not exhaustive; unindexed equivalent calculations may predate this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Premise and ideal preconditioner are prior, but the primary work limits itself to spectral clusters and expressly makes no rigorous GMRES convergence-rate claim. It does not present the residual-polynomial hierarchy, explicit all-m Euclidean bound or scalar two-step lower witness.",
+          "evidence": [
+            "Theorem 8, Eq. (15): K Q_alpha^-1 has diagonal blocks I,-I, BR^-1B^T and coupling alpha B R^-1; Theorem 9, Eq. (17): BR^-1B^T=S2(S2+alpha I)^-1.",
+            "Section 5.2, following spectral clusters, explicitly says nonnormality prevents determining the GMRES convergence curve and makes no rigorous rate claim.",
+            "Lemma 5 and Lemma 6 give invertibility and accretivity assumptions that coincide with the present analytic setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.34692",
+          "material_read": "Full available arXiv converted HTML with focus on Section 4.2, Lemmas 5–6, Theorems 8–9, Proposition 12 and the conclusion of Section 5.2 (including the explicit GMRES-rate caveat).",
+          "method": "Read theorem statements, their block proofs, algebraic definitions, spectral clustering and explicit nonnormality discussion in the primary preprint.",
+          "title": "An efficient coupled block preconditioner for the Marker-and-Cell discretization of the Stokes–Darcy equations",
+          "trigger": "Identical K and ideal coupled Q_alpha, including the regularized second Schur complement"
+        },
+        {
+          "assessment": "Establishes general GMRES minimization/Schur-complement equivalence and supplies polynomial technique. A regrouping may be used to derive bounds but its displayed theorems do not give this specific three-block matrix polynomial, exact alpha order for every m, nor 3D sharp lower example.",
+          "evidence": [
+            "Theorem 3.8 and Proof 3.9 discuss right block-triangular preconditioning and consistent polynomials q(t)=(1-t)phi(t).",
+            "Current coupled (v,p) block in Q_alpha is not Schur-approximating triangular in those two blocks; explicit second reduction and E-power induction are still required."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.02664",
+          "material_read": "Full arXiv converted text including Sections 2.2 and 3.1–3.3, especially Theorems 3.1, 3.6 and 3.8 and their polynomial analyses.",
+          "method": "Compared exact preconditioner pattern, 2-block Schur matrix and right-minimizing polynomial inequalities against current three-block coupled Q_alpha and its surviving E-power row.",
+          "title": "On fixed-point, Krylov, and 2 x 2 block preconditioners for nonsymmetric problems",
+          "trigger": "Strong plausible general reblocking/Schur GMRES theorem"
+        },
+        {
+          "assessment": "Its M1/M2/M3 use exact/approximate Schur complements in a different configuration and have eigenvalues including (-1±sqrt(5))/2; they are not Chao–Li regularized Q_alpha and yield no identical E-power residual polynomial.",
+          "evidence": [
+            "Section 4 Theorem 4.1 gives eigenvalues 1,-1,(-1±sqrt(5))/2 for M1, distinct from the mu/(mu+alpha) branch of the assigned Q_alpha.",
+            "Its Section 4 compares M1/M2/M3 preconditioning, not the later coupled regularization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2208.12357v2",
+          "material_read": "Full arXiv v2 HTML, particularly Sections 3.5 and 4.1–4.2 and related preconditioner formulas (M1,M2,M3) and spectral theorems, plus numerical GMRES results and conclusions.",
+          "method": "Compared actual block matrices and eigenvalue branches, including the fixed golden-ratio roots, not only title/abstract.",
+          "title": "Block Preconditioners for the Marker-and-Cell Discretization of the Stokes–Darcy Equations",
+          "trigger": "Earlier primary paper on the same MAC discretization and double saddle-point structure, including ideal preconditioners"
+        },
+        {
+          "assessment": "Earlier formulations retain different signs and block placements, including P_conT and augmented P_r. Its FOV analysis may yield other GMRES bounds, but the same Q_alpha and all-degree p_m identity were not present in material inspected.",
+          "evidence": [
+            "Section 1 equations (3)–(6) show constraint and augmented variants with blocks A11,A22 and B; P_r involves rB^TQ^-1 B, not scalar regularization of the final constraint in Q_alpha."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-021-01267-8",
+          "material_read": "Accessible full-text Springer article, introduction/formulation, Section 2 explicit constraint/triangular/augmented-Lagrangian preconditioners, Sections 2–3 spectral/FOV results and outline of numerical conclusions.",
+          "method": "Compared matrices (3)–(6) and their assumptions to Q_alpha; searched analytic convergence mechanisms for the exact same scalar-regularized block.",
+          "title": "Preconditioning techniques for the coupled Stokes–Darcy problem: spectral and field-of-values analysis",
+          "trigger": "Earlier full 3-by-3 Stokes–Darcy exact-preconditioner analysis potentially stronger than the assigned statement"
+        },
+        {
+          "assessment": "Different preconditioner family; no assertion about whole-text noncoverage. Full-text access and any hidden specialized polynomial result remain residual risks.",
+          "evidence": [
+            "SIAM J. Sci. Comput. 38 (2016), A668–A690 abstract: indefinite constraint preconditioning with spectral and field-of-values mesh-independent bounds."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/15M1032156",
+          "material_read": "Publisher abstract and precise bibliographic description; full paper not inspected.",
+          "method": "Compared abstracted indefinite constraint-preconditioner family and FOV/mesh estimates with the specific ideal coupled Q_alpha.",
+          "title": "Constraint Preconditioning for the Coupled Stokes--Darcy System",
+          "trigger": "Related exact preconditioner and possible broad FOV estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.34692",
+        "https://arxiv.org/abs/1911.02664",
+        "Frozen RESULT.md blob 8a0e473d52788445efbbf4f93cfb2197345bd362"
+      ],
+      "rationale": "The model-specific problem is natural: spectral clustering of the same nonnormal, fully coupled ideal Stokes–Darcy preconditioner does not control GMRES by itself, as its introducing paper explicitly observes. The exact residual-polynomial hierarchy supplies a usable quantitative all-iteration bound and a sufficient restarted-cycle contraction criterion, and the three-dimensional witness shows that the first alpha-order improvement after two steps is genuinely sharp. These establish a motivated finite-dimensional structural fact about algorithmic convergence beyond generic eigenvalue information, while transparently excluding mesh-uniform and inexact-preconditioner claims. The proof is short and uses standard algebra, but the exact model-dependent formula and sharp obstruction are not merely a renamed known table or an arbitrary parameter slice.",
+      "residual_risks": [
+        "For coarse grids or ill-conditioned block solves, the explicit constant M_alpha may be large; the result alone is not a practical robustness theorem.",
+        "Its mathematical value is a narrow exact ideal-preconditioner benchmark rather than a new general Krylov method or universally optimal rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned source tree ada560694cc8b82045dfe69a2b400db406c445f9 and all seven files in its Git tree",
+    "https://arxiv.org/abs/2610.34692",
+    "https://arxiv.org/abs/1911.02664",
+    "https://arxiv.org/html/2208.12357v2",
+    "https://link.springer.com/article/10.1007/s00211-021-01267-8",
+    "https://doi.org/10.1137/15M1032156",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-explicit-residual-polynomial-hierarchy-for-coupled-stokes-dar--cf6e360956f1",
+    "Resultary: GMRES residual polynomial convergence exact regularized coupled block preconditioner Stokes Darcy nonnormal three block Q alpha",
+    "Resultary: block triangular preconditioned double saddle point Schur spectral clustering GMRES finite step residual rate",
+    "Resultary: ideal Stokes Darcy preconditioner residual convergence second iteration alpha"
+  ],
+  "disposition": "passed",
+  "final_claim": {
+    "disposition": "passed",
+    "original_scope": "For any finite real nonsingular Ad, full-row-rank B, and H(S1)>0, any alpha>0 and all m>=2, p_m(t)=(1-t^2)(1-t)^(m-2) yields the exact last-block-row matrix polynomial for right-preconditioned T_alpha, the Euclidean GMRES rate M_alpha[alpha/(mu+alpha)]^(m-1), a restarted-cycle bound and a dimension-three two-step alpha-order sharpness witness.",
+    "reason": "The frozen mathematical claim survives all three axes unchanged; prior coupled preconditioner block and standard GMRES polynomial framework are explicitly credited.",
+    "title": "An explicit residual-polynomial hierarchy for coupled Stokes–Darcy block preconditioning"
+  },
+  "limitations": [
+    "Scientific PASS is qualified and independent of publication readiness; earlier model preconditioner and general Krylov framework receive priority credit.",
+    "Source package has operational run provenance in METADATA.json and AUDIT.json and a malformed control character in VERIFICATION.md; publication withheld pending complete neutral sanitization and source-state reconciliation.",
+    "Only exact ideal preconditioning, positive-real second Schur complement and right GMRES are proved; no practical or mesh-uniform generalization."
+  ],
+  "schema_version": 1
+}

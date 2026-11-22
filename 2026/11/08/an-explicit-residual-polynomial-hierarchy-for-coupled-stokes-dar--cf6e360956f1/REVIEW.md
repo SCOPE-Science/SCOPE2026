@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Direct block inversion gives T=[[I,0,0],[X,-I,0],[0,EZ,I-E]]. The base identity I-T^2 is an exact last-block-row expression, and multiplication by I-T proves its formula for all m>=2. Positive definiteness of H(S1) and full row rank of B imply H(S2)>0; the accretive resolvent yields ||E||<=alpha/(mu+alpha)<1. GMRES minimizes over polynomials normalized at zero, proving its residual estimate and per-restart contraction. The exact scalar Gram determinant yields ||r2||^2=2 alpha^2/(1+alpha+alpha^2), validating the O(alpha) sharp order. Finite numerical and symbolic checks are supplementary.
+## correctness
 
-The independent route from the matrix definitions to the residual polynomials and exact scalar example is set out in RESULT.md. `verify.py` passed 3,119 supplementary checks. Neither finite tests nor bibliographic searches are substitutes for proof.
+PASS
 
-## Originality — PASS (qualified)
-The 2026 Chao–Li Theorem 8 supplies the block form and spectra but expressly declines to derive a GMRES rate because the matrix is nonnormal. The new statement uses that given form to derive a degree-by-degree last-row polynomial identity, an all-m right-preconditioned GMRES bound, a restarted-cycle guarantee, and a sharp two-step order example. Southworth–Sivas–Rhebergen 2020 prove broad two-block GMRES/Schur-complement relationships, but inspected relevant sections do not state this explicit three-block polynomial identity. Greif–He 2023 and Beik–Benzi 2022 treat different exact preconditioner families. Published mathematical-record searches produced no statement implying the exact formula. Novelty remains provisional against unindexed equivalents and alternative block regroupings.
+With Ad nonsingular, B full row rank and H(S1)>0, S1 and S2 are accretive/invertible since H(S1^-1)=S1^-T H(S1) S1^-1>0 and H(S2)=B H(S1^-1) B^T>0. For mu=lambda_min H(S2)>0, the resolvent bound ||E||_2 <=alpha/(mu+alpha)<1 follows by the quadratic form. Exact multiplication of K and Q_alpha^-1 gives T=[[I,0,0],[X,-I,0],[0,E Z,I-E]]. Directly I-T^2 has last row [-E ZX,E^2 Z,E(2I-E)] and no other nonzero rows. Multiplying this row successively by I-T proves for every m>=2 the exact p_m(T) last row [-E^(m-1)ZX,E^m Z,E^(m-1)(2I-E)]. Since p_m(0)=1, it is a valid candidate in exact unrestarted right-preconditioned GMRES, and its norm yields ||r_m|| <= M_alpha [alpha/(mu+alpha)]^(m-1) ||r0||. Identical argument from each restarted-cycle residual gives the per-cycle factor, not a guarantee of one-cycle contraction for all m and alpha. Fixed matrices yield bounded M_alpha as alpha->0. The example d=v=p=1, Ad=As=B=1,G=0,r0=(1,1,1) has exact least-squares squared residual 2alpha^2/(1+alpha+alpha^2), hence sharp two-step alpha order. Independent random nonsymmetric accretive tests verified 576 matrix-polynomial identities for sizes 3–11 and m=2..7 with maximum Frobenius error 6.58e-14, plus exact symbolic scalar residual identity. Finite checks supplement, not replace, the all-m matrix induction.
 
-Comparison of mathematical implications: Chao–Li provides precisely the needed block matrix but does not state the family of GMRES bounds; generic two-block polynomial/Schur theorems provide technique rather than the stated explicit three-block formula. Retrieved published records with similar terms address other preconditioners or different polynomial constructions. Residual risk: an unindexed special case or a reblocking of an older general theorem could imply the claim.
+## originality
 
-## Value — PASS
-For a nonsymmetric coupled Stokes–Darcy matrix, eigenvalue clustering alone gives no quantitative GMRES residual bound, a gap explicitly flagged in the 2026 motivating work. The exact polynomial hierarchy turns the regularization parameter into a provable rate after two iterations, supplies a rigorous restarted GMRES criterion for the ideal preconditioner, and quantifies a nonremovable first-order obstruction at two steps. The constants are not asserted uniform over mesh or physical parameters, and no inexact-preconditioner conclusions are made.
+PASS
 
-## Closest literature and material limitations
-- Z. Chao and T. Li, arXiv:2610.34692v1 (2026-10-26), Theorem 8 and nonnormality discussion: closest premise, block identity and spectra, no quantitative GMRES residual bound stated.
-- B. S. Southworth, A. A. Sivas and S. Rhebergen, arXiv:1911.02664 (2020), introduction and results concerning two-by-two block-preconditioned GMRES: general mathematical framework, no same explicit identity seen.
-- C. Greif and Y. He, DOI:10.1137/22M1518384 (2023): Stokes–Darcy MAC system, different preconditioners, available abstract and source discussion.
-- F. P. A. Beik and M. Benzi, DOI:10.1007/s00211-021-01267-8 (2022): exact Stokes–Darcy three-block preconditioners with differing block matrices, accessible full HTML article inspected by matrix formulation and conclusions.
-- P. Chidyagwai, S. Ladenheim and D. B. Szyld, DOI:10.1137/15M1032156 (2016): different constraint preconditioner; publisher abstract accessible but full paper not obtained.
+Qualified best-of-knowledge PASS. Chao–Li (October 2026) explicitly supplies the exact KQ_alpha^-1 block and the Moebius Schur transform, not an analytic GMRES-rate theorem; it expressly cautions against inferring a nonnormal convergence rate from eigenvalues. The reviewed contribution is the concrete polynomial p_m=(1-t^2)(1-t)^(m-2), its exact last-row E^(m-1) expression and a Euclidean all-iteration and restarted-cycle bound with sharp two-step alpha order. Southworth–Sivas–Rhebergen supply general 2-by-2 Schur GMRES machinery but not the complete three-block specialized formula or lower witness. Greif–He and Beik–Benzi use different preconditioners. Search absence is not proof of novelty; a non-obvious generic 2-block theorem instantiation or unindexed paper remains a residual historical risk.
 
-Boundaries: the exact idealized model, real finite-dimensional matrices, accretivity, full row rank, exact arithmetic; no uniform mesh claim. Historical-priority risk is not eliminated by any database search.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model-specific problem is natural: spectral clustering of the same nonnormal, fully coupled ideal Stokes–Darcy preconditioner does not control GMRES by itself, as its introducing paper explicitly observes. The exact residual-polynomial hierarchy supplies a usable quantitative all-iteration bound and a sufficient restarted-cycle contraction criterion, and the three-dimensional witness shows that the first alpha-order improvement after two steps is genuinely sharp. These establish a motivated finite-dimensional structural fact about algorithmic convergence beyond generic eigenvalue information, while transparently excluding mesh-uniform and inexact-preconditioner claims. The proof is short and uses standard algebra, but the exact model-dependent formula and sharp obstruction are not merely a renamed known table or an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
