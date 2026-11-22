@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "evidence": [
+      "Four-case symbolic proof in RESULT.md",
+      "verify_prism.cpp (direct graph check n=2..6)",
+      "verify_prism.py (independent fixed-total convolution n=4..9)"
+    ],
+    "limits": [
+      "Finite checks corroborate rather than certify all n; statement limited to n>=4 and this exact graph family."
+    ],
+    "rationale": "For arbitrary n>=4 the closed-neighborhood condition reduces exactly to two layer-sum inequalities. All cases are partitioned by existence of low labels on either clique. The light/light case has only layer totals 3 or4 and is counted exhaustively by four allowed ordered pairs; both mixed cases are conditioned on light weight 0,1,2; high/high labels are unrestricted. Disjoint cases give every coefficient. A direct graph-neighborhood C++ checker exhausts 4^(2n) assignments for n<=6, and an independently formulated exact 16-state layer-total convolution matches the formula through n=9. The arbitrary-n proof does not rely on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 square rook perfect-double-Italian theorem applies to K_n Cartesian K_n for n>=3, not K_2 Cartesian K_n for n>=4",
+        "2023 foundational paper treats complete multipartite graphs, but a matched two-clique prism is not complete multipartite for n>=4",
+        "2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0"
+      ],
+      "reasoning": "No inspected general product theorem implies the complete prism coefficient identity; a separate complete-prism lower-bound result for the weaker invariant supplies no perfect upper-bound coverage.",
+      "searches": [
+        "published-finding corpus: perfect double Italian domination rectangular rook graph K_m square K_n m != n complete bipartite line graph polynomial optimal labelings",
+        "published-finding corpus: perfect double Italian domination rectangular grid rook graphs row and column sums",
+        "published-finding corpus: perfect double Italian domination line graph complete bipartite K_{m,n}",
+        "published-finding corpus: perfect double Italian domination polynomial K_n Cartesian K_2 clique prism three weight bands gaps"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "https://doi.org/10.1080/09728600.2023.2218457",
+        "title": "Perfect double Italian domination of a graph"
+      },
+      {
+        "identifier": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2/RESULT.md",
+        "title": "Roman {3}-domination of complete prisms"
+      },
+      {
+        "identifier": "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0/RESULT.md",
+        "title": "Perfect double Italian domination of square rook graphs"
+      },
+      {
+        "identifier": "https://doi.org/10.1155/jom/1900923",
+        "title": "Perfect Roman {3}-Domination in Graphs: Complexity and Bound of Perfect Roman {3}-Domination Number of Trees"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Roman {3} on the prism: only inequalities A+y_i>=3 and B+x_i>=3; its n=4 minimum is 5, conflicting with the perfect minimum 6",
+        "Square-rook PDID: graph K_n Cartesian K_n, excludes factor K_2 for n>=4",
+        "2024 exact PR3D: f=0 requires open sum exactly3, f=1 exactly2"
+      ],
+      "reasoning": "The upper bound <=4 is a genuinely new constraint versus Roman {3}; the resulting three-band polynomial and gap are not corollaries of a lower-only theorem. The square-rook case does not specialize to the unequal 2-by-n board. The exact PR3D condition would exclude some allowed functions and cannot yield the interval enumeration.",
+      "searches": [
+        "published-finding corpus: perfect double Italian domination perfect double roman functions complete prism K_n cartesian K_2",
+        "published-finding corpus: perfect double Italian domination polynomial K_n Cartesian K_2 clique prism three weight bands gaps",
+        "GitHub direct full RESULT.md: 2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2",
+        "GitHub direct full RESULT.md: 2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "K_n Cartesian K_2 = two cliques joined by a perfect matching = complete prism = rectangular rook graph with one factor K_2",
+        "2023 definition of interval PDID, DOI 10.1080/09728600.2023.2218457",
+        "2024 perfect Roman {3} requires exact sums and is a different invariant"
+      ],
+      "reasoning": "The equivalent graph naming and invariant synonyms were explicitly searched; the exact-sum convention cannot silently replace the upper-bounded interval definition.",
+      "searches": [
+        "published-finding corpus: perfect double Italian domination perfect double roman functions complete prism K_n cartesian K_2",
+        "published-finding corpus: perfect double Italian weight enumerator complete prism two cliques joined matching",
+        "published-finding corpus: perfect double Italian dominating functions K_2 square K_n full polynomial",
+        "web: \"perfect double Italian\" \"complete prism\" OR \"two cliques\"",
+        "web: \"perfect double Italian\" \"cartesian product\" \"complete\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest ranked search entries include Roman {3} complete prisms, independently Italian complete prisms, and square-rook PDID, but not a complete-prism interval-PDID weight polynomial",
+        "2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2",
+        "2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0"
+      ],
+      "reasoning": "Compared the entire claimed polynomial and its three weight bands with named database results; none displays the same coefficients or equivalent object/invariant. Search absence alone cannot prove global priority.",
+      "searches": [
+        "published-finding corpus: perfect double Italian complete prism matching-joined complete graphs exact labeling count binomial n choose 3 square plus n cubed",
+        "published-finding corpus: PDIDF full weight enumerator two cliques joined by perfect matching K_n square K_2",
+        "web: \"perfect double Italian domination polynomial\" \"clique prism\"",
+        "web: \"K_n square K_2\" \"perfect double Italian\""
+      ]
+    },
+    "rationale": "The exact complete interval-PDID polynomial, its binomial-and-cubic minimizer count and two growing forbidden-weight gaps are not implied by the closest published same-graph Roman {3} result (which lacks the upper bound) or by the same-invariant square-rook result (which concerns unequal graph family). Direct full-text mathematical comparisons and multiple semantic/source-alias searches found no dominating theorem. This is a provisional best-knowledge priority judgment, not a uniqueness or independence certificate.",
+    "residual_risks": [
+      "Semantic indexing of independent historical computations may be incomplete; a differently named complete-prism counting result could have escaped the searches.",
+      "The 2023 PDF was materially inspected through accessible parsed pages and targeted searches, but publisher screenshot retrieval failed, so the visual layout of unparsed portions was not independently reviewed.",
+      "Independent external mathematical audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the closed-neighborhood interval [3,4] for low labels. Inspected statements do not give a complete-prism polynomial or the two missing weight bands.",
+        "evidence": [
+          "PDF lines 186-199: definition, scope; lines 199-282: standard graph results; publisher PDF targeted prism/cartesian searches returned no match",
+          "Published online 2023-06-21; article DOI 10.1080/09728600.2023.2218457"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2023.2218457",
+        "material_read": "Open-access PDF text: definition and scope, specific-value propositions for paths/cycles/complete multipartite graphs, section outline and following graph examples; targeted full-text searches for prism, cartesian, product",
+        "method": "Opened publisher full-text PDF with parsed text and inspected relevant mathematical statements, plus exact-term searches; screenshot retrieval was unavailable",
+        "title": "Perfect double Italian domination of a graph",
+        "trigger": "Original PDID interval definition and possible graph-family coverage"
+      },
+      {
+        "assessment": "Its Roman {3} condition has only lower bounds; it permits extra functions excluded by the PDID upper bound. It proves a different minimum count and no full PDID weight enumerator.",
+        "evidence": [
+          "For n=4 Roman {3} minimum 5, while new perfect interval minimum is 6",
+          "For n>=6 the Roman {3} minimum count is C(n+2,3)^2 versus proposed PDID C(n,3)^2+n^3",
+          "2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2/RESULT.md",
+        "material_read": "Full RESULT.md, including assumptions, proof, exact lower-bound inequalities, n=4/5 exceptions, optimum counts, and limitations",
+        "method": "Directly fetched repository RESULT.md and compared each defining implication",
+        "title": "Roman {3}-domination of complete prisms",
+        "trigger": "Same graph family and four-symbol Roman {3} labels"
+      },
+      {
+        "assessment": "Its graphs are K_n Cartesian K_n with n>=3; the theorem explicitly excludes unequal rectangular products, including K_2 Cartesian K_n for n>=4.",
+        "evidence": [
+          "Proves square-rook minimum 2n and a labeled 2-regular bipartite multigraph enumeration, rather than the prism full weight polynomial",
+          "2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0/RESULT.md",
+        "material_read": "Full RESULT.md, including definition, theorem, proof of row/column-sum classification, references and limitations",
+        "method": "Direct repository-file fetch and comparison of graph families and theorem quantifiers",
+        "title": "Perfect double Italian domination of square rook graphs",
+        "trigger": "Exact same labeling invariant, Cartesian-product rook graph"
+      },
+      {
+        "assessment": "Requires exact open-neighborhood sums 3 for label 0 and 2 for label 1; is not equivalent to the interval PDID condition. No complete-prism polynomial supplied in inspected material.",
+        "evidence": [
+          "Publisher article 2024-12-24, Sec. 4 considers cycles, paths and complete multipartite graph families",
+          "PR3D exact-sum definition is stricter and different from PDID interval definition"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/jom/1900923",
+        "material_read": "Accessible full-text HTML: definition, article outline, and Section 4 specific graph families (cycles, paths, multipartite, regular, planar and split); targeted prism search",
+        "method": "Opened the publisher full-text page and inspected its definitions and family statements",
+        "title": "Perfect Roman {3}-Domination in Graphs: Complexity and Bound of Perfect Roman {3}-Domination Number of Trees",
+        "trigger": "Near synonym whose stricter definition could create a hidden implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53deb773-367e-42d0-96aa-70d25680fc53",
+  "value": {
+    "evidence": [
+      "Natural complete classification of the 4-label Roman-type invariant on K_n Cartesian K_2",
+      "Low-band, mixed-band and high-band algebraic decomposition with all coefficients and gaps",
+      "Comparison with the known weaker Roman {3} complete-prism family"
+    ],
+    "rationale": "This is a complete exact weight enumerator for a natural infinite vertex-transitive graph family rather than a relabeling of the known scalar domination minimum. It reveals a sharp change at n=4 versus weaker Roman {3}, the motivated optimizer count C(n,3)^2+n^3, and two linearly growing forbidden-weight intervals for n>=5. The light/heavy structural dichotomy explains why the spectrum is split into three full bands, yielding nontrivial support information useful to related defense-enumerator and graph-product studies.",
+    "status": "PASS"
+  }
+}
