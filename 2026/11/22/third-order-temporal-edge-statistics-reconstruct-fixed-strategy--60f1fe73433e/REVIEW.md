@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The one-edge kernel has invariant Bernoulli probability \(\pi=p/(p+q)\) and centered-spin eigenvalue \(r=1-p-q\). Conditional independence of the incident-edge flips implies the exact monomial eigenvalue formula for every edge subset, and the orthogonal stationary product basis yields the lag-one observation identities. For two edges the incident/disjoint gap is strictly \(\omega(1-r)^2/N\); for three mutually adjacent edges the triangle/claw gap is strictly \(\omega(1-r)^3/N\). Whitney's classical theorem reconstructs all other simple-graph components. The seven-vertex witness has exactly equal projected chains on any one or two observed edge IDs but different incidence of the first three; it is edge-labelled rather than unlabelled nonisomorphism. The independent exact-rational checker exercises both full 64-state chains and every nonempty monomial relation; it supports but does not replace the general proof.
+
+## Originality — PASS, subject to historical scope
+Betz, Fu and Masuda (arXiv:2611.11029v1, Sections 2–6) introduce the vertex-clock environmental process and analyze mean-field and pair-approximation dynamics, not this post-consensus inverse observation-order classification. Whitney (1932) supplies the classical graph reconstruction theorem. Shandilya and Timme (2011) develop a general inverse method for continuous-state ODE trajectories, which neither entails this particular stochastic stationary observation formula nor establishes its sharp edge-variable order. Published covariance-based graph reconstruction work for a vertex-threshold random subgraph and for noisy-voter networks concerns different random mechanisms. The edge-labelled third-order threshold and matched-parameter indistinguishability witness remain distinct from those claims, although broader unindexed theory might imply the specialization. No publication-priority certification is asserted.
+
+## Value — PASS
+The theorem is a natural exact identifiability classification: it states which observable correlation order suffices to reconstruct every pairwise interaction network from edge-environment time series and supplies a sharp impossibility case for lower-order observations under exactly matched demographic and transition parameters. This resolves a genuine structural ambiguity that simple pairwise network observations cannot distinguish in disconnected populations. It also isolates a concrete information requirement for identifying social contact structure independently of strategy payoffs.
+
+## Scientific limitations
+Infinite stationary-law temporal expectations and distinct persistent edge observations are needed. A finite-sample confidence bound or robustness to unknown rates is not proved. The method works only once strategies are unanimously fixed, not during mixed evolution. The two witness graphs are isomorphic when their edge labels are forgotten. General mathematical graph reconstruction and product-kernel eigenanalysis are prior work, and unindexed priority risk remains.
+
+Self-review: passed. Independent audit: not yet performed.
