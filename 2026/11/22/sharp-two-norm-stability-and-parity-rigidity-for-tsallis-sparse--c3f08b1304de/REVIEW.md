@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The original normalizations were checked against both Tsallis entropy papers. The positive-support KKT Hessian yields the stated Jacobian, whose positive-semidefinite sign norm reduces exactly to a two-block harmonic mean; Jensen, strict one-variable convexity, a positive balanced-size derivative, and an interior attaining perturbation prove both global upper and lower bounds. Analytic boundary behavior for \(\alpha=2\) and \(n=1\) is explicit. The separate packaged checker passed 11,040 supplementary assertions; finite assertions are not presented as a universal proof.
+
+**Originality — PASS, with residual priority risk.** The 2018 source establishes the Tsallis regularized prediction family, and the 2019 source explicitly gives the same separable-entropy Jacobian; neither part is claimed as new. Review of their materially relevant definitions, proofs and appendices did not identify the sharp \(\ell_\infty\)-to-\(\ell_1\) optimization, parity formula, or unique interior extremizer. Sparsemax, general convex-smoothness, and softmax same-exponent norm bounds are weaker or concern different measurements and do not imply the full statement as published. Related indexed mathematical records on the simplex projector and softmax concern cyclic variation or score-diameter-constrained exponential maps, not this Tsallis-family cross norm. An earlier equivalent in differently indexed convex-duality literature remains plausible.
+
+**Mathematical value — PASS.** This resolves a natural sharp robustness constant for a widely used sparse probability mapping, not a chosen numerical instance. The exponent-dependent law gives a precise crossover from dimension-free softmax behavior to linearly growing sparsemax sensitivity, and the odd/even strictness and two-block equality geometry identify extremal score configurations for any dimension. Exact sharpness matters to stability estimates for probability predictions and to designing dimension-dependent perturbation budgets. No downstream theorem is asserted as established.
+
+The central priority risk is an equivalent cross-norm calculation hidden in conjugate-smoothness or generalized sparsemax literature. The work is not independently validated and does not establish compositional bounds.
+
+Self-review: passed. Independent audit: not yet performed.

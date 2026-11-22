@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers, endpoint conventions, and entropy scaling were reconstructed. Positive-support KKT differentiation gives a PSD weighted-centering Jacobian. Its cross-norm is exactly a maximum sign cut. Block Jensen, strict convexity in group mass, and a strictly monotonic balanced-size relaxation prove the formula. Full-support positive probabilities are realizable, giving sharp finite-difference witnesses; convex-dual gradient Lipschitz regularity permits line integration. The 11040 deterministic supplementary checks from verify.py are supportive, not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019 derivative theorem is a general structural Jacobian formula, not a dimension-optimized heterogeneous operator-norm theorem.",
+        "Nair (2025), arxiv:2510.23012, optimizes same-exponent norm pairs for ordinary softmax; its stated 1/2 result does not cover an entmax family or an infinity-to-one norm.",
+        "Sparsemax (2016) is the alpha=2 endpoint and cannot by itself determine alpha strictly between 1 and 2."
+      ],
+      "reasoning": "The general derivative result is strictly more general in map class but weaker in the requested quantitative conclusion. Softmax and sparsemax endpoint statements do not determine the interpolation because the maximizing probabilities and exponent-dependent grouping change with alpha. Neither a published stronger cross-norm theorem nor an implication yielding the claimed formula was located.",
+      "searches": [
+        "sparsemax Jacobian sharp infinity to one norm simplex projection optimal balanced sign partition",
+        "softmax sparsemax generalized Tsallis exact stability Lipschitz modulus dimension-dependent",
+        "softmax 1/2-Lipschitz all ell_p norms arxiv:2510.23012",
+        "arxiv:1602.02068 sparsemax"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1805.09717",
+      "https://arxiv.org/pdf/1905.05702",
+      "https://arxiv.org/abs/2510.23012",
+      "https://arxiv.org/abs/1602.02068 (endpoint reference, original full text not inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 work defines the Tsallis map and discusses structural smoothness without optimizing the specified heterogeneous norm.",
+        "The 2019 work proves the Jacobian identity and threshold representation; the present proof uses these as starting points, not claimed innovations.",
+        "The 2025 same-exponent softmax bound has a different quantified statement; the softmax limiting cross norm is 1 rather than the equal-exponent 1/2 bound."
+      ],
+      "reasoning": "A prior statement only implies the claimed formula if it bounds and attains the infinity-to-one norm uniformly over every simplex output for each alpha and dimension. The inspected theorems do not state those quantifiers, nor provide the optimized two-block mass split or the strict odd-n deficit. The new finite-dimensional optimization is therefore not a restatement or direct special case of a known stronger claim in the checked evidence.",
+      "searches": [
+        "arxiv:1805.09717 main text and appendices",
+        "arxiv:1905.05702 Appendix B Proposition 2 and Appendix C Lemma 2",
+        "alpha entmax Tsallis Fenchel Young sharp Lipschitz infinity to one operator norm dimension parity",
+        "softmax sparsemax generalized Tsallis exact stability Lipschitz modulus dimension-dependent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peters et al. (2019), Appendix B Proposition 2, explicitly supplies the rank-one-corrected diagonal Jacobian but no global cross-norm evaluation was identified in the relevant derivative and algorithm sections.",
+        "Blondel et al. (2018), Section 4, fixes the Tsallis normalization and discusses sparse prediction; the inspected main text does not give the sharp cross norm."
+      ],
+      "reasoning": "The identical Hessian and Jacobian expressions are admitted as established. A formula for the full two-norm modulus also needs supremum over every simplex output and every sign partition, a balanced cardinality reduction, and an attaining score perturbation. No statement equivalent to all those quantified claims was found in inspected material; a differently indexed conjugate-smoothness formulation remains possible.",
+      "searches": [
+        "alpha entmax Tsallis Fenchel Young sharp Lipschitz infinity to one operator norm dimension parity",
+        "alpha-entmax smoothness under l infinity input and l one output Fenchel Young conjugate",
+        "arxiv:1905.05702 Appendix B Proposition 2",
+        "arxiv:1805.09717 Tsallis entropy Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed simplex-projection claim optimizes cyclic total-variation, a different input/output metric from maximum-score to total-probability error.",
+        "A bounded-logit Gibbs claim optimizes an exponentially normalized mapping with restricted score diameter, not the Tsallis map and unrestricted scores."
+      ],
+      "reasoning": "A search of available mathematical records for exact tables or bounds did not identify this all-alpha, all-dimension cross-norm constant. The closest indexed records do not compute its object and norm pair. Lack of a match is search evidence, not a mathematical priority proof.",
+      "searches": [
+        "alpha entmax Tsallis Fenchel Young sharp Lipschitz infinity to one operator norm dimension parity",
+        "sparsemax Jacobian sharp infinity to one norm simplex projection optimal balanced sign partition",
+        "published finding: Sharp cyclic-variation amplification of Euclidean simplex projection",
+        "published finding: Partition discrepancy governs bounded-logit Gibbs stability"
+      ]
+    },
+    "rationale": "The primary 2018 Tsallis definition and 2019 derivative theorem are acknowledged. No checked source states the exact global infinity-to-one entmax modulus for all alpha and n, its balanced extremizer, or the parity law. Published same-exponent and simplex-cyclic-variation bounds have non-equivalent metric quantifiers. Historical priority remains conditional on unindexed equivalent formulations.",
+    "residual_risks": [
+      "An equivalent formula may be implicit in generalized sparsemax conjugate-smoothness work under different normalization or functional-analysis terminology.",
+      "The 2016 original sparsemax full text and the 2025 softmax norm paper full body were not comprehensively read; available relevance assessment only covers their described endpoint or same-exponent scope.",
+      "No exhaustive human priority search or independent mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the family and qualitative smoothness; no sharp infinity-to-one global modulus or parity law identified in the materially relevant text.",
+        "evidence": [
+          "arxiv:1805.09717, Section 4 and Eq. (7), main text Section 3; public submission 2018-05-24"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1805.09717",
+        "material_read": "Main-text Sections 3–6, Tsallis entropy definition and proof sections located using full-PDF text searches; first public date checked at arXiv abstract record.",
+        "method": "Full-text PDF text inspection and visual examination of the displayed Tsallis family, its normalization and regularized map; full-PDF search for exact Lipschitz norm terminology",
+        "title": "Learning Classifiers with Fenchel-Young Losses: Generalized Entropies, Margins, and Algorithms",
+        "trigger": "Primary public introduction of the Tsallis probability mapping and its structural smoothness"
+      },
+      {
+        "assessment": "Provides the precise Jacobian and KKT threshold, both treated as prior. No theorem establishing its globally optimized infinity-to-one norm and balanced cut was identified in these sections.",
+        "evidence": [
+          "arxiv:1905.05702, Appendix B Proposition 2, Appendix C Lemma 2; public submission 2019-05-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.05702",
+        "material_read": "Definition in Section 3 and Appendix B pp. 11–13, specifically Proposition 2 and its proof, plus Appendix C threshold formula.",
+        "method": "Rendered PDF page inspection and corresponding full-text formula comparison",
+        "title": "Sparse Sequence-to-Sequence Models",
+        "trigger": "Highly relevant same-object paper with differentiable alpha-entmax and exact Jacobian"
+      },
+      {
+        "assessment": "Same-exponent softmax statement is not covering the heterogeneous infinity-to-one all-alpha claim; an uninspected body remains a limited risk.",
+        "evidence": [
+          "arxiv:2510.23012 abstract: identical input/output ell_p norm bounds for ordinary softmax"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.23012",
+        "material_read": "ArXiv abstract and stated quantitative theorem scope; complete body not inspected.",
+        "method": "Abstract comparison of the same-exponent norm pair to the cross norm",
+        "title": "Softmax is 1/2-Lipschitz: A tight bound across all ell_p norms",
+        "trigger": "Possible stronger prior softmax Lipschitz theorem"
+      },
+      {
+        "assessment": "Defines the alpha=2 special case; full-body priority comparison remains residual risk, but special endpoint alone cannot imply all interior alpha statements.",
+        "evidence": [
+          "arxiv:1602.02068 and explicit 2018 Tsallis-paper sparsemax discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.02068",
+        "material_read": "Historical endpoint identified through 2018 and 2019 paper references; original full text not independently inspected in this run.",
+        "method": "Special-case theorem and derivative implication comparison; not treated as a complete text check",
+        "title": "From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification",
+        "trigger": "Original special endpoint at alpha 2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c3f08b13-04de-4e29-9261-3ba6de39a97a",
+  "value": {
+    "rationale": "A natural robust prediction operator now has a complete exact cross-norm law in every finite dimension and throughout a nontrivial entropy interpolation. The exponent-driven shift from softmax dimension independence to sparsemax linear growth, with strict odd-dimension losses and explicit worst-case probability blocks, supports exact perturbation budgeting and identifies structural equality geometry; neither routine renaming nor isolated numeric computation.",
+    "status": "PASS"
+  }
+}
