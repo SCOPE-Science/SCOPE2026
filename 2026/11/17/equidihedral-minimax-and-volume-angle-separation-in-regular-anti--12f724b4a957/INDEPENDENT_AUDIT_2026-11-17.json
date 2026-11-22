@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T22:10:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and positive t=h/r, the vertex coordinates and two facet-normal orbits reconstruct every one of 4n interior dihedral angles. Exterior angles alpha=acos(q/sqrt(t^2+q^2)) strictly increase, beta=acos((ct^2-q^2)/(t^2+q^2)) strictly decrease, and their single crossing yields t_E=q*sqrt(1+2c)/c and Phi_min=acos(-c/(1+c)). Equating base and slant edges independently yields t_U=sqrt(2q(1+2c)), while maximizing h(R^2-h^2/4) yields t_V=sqrt(2). Exact algebra compares these at n=3 and n>=4; cosine Taylor expansions establish the n->infinity scales and pi/3 penalty. This is an analytic all-n proof; 261044 reported finite float assertions are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wang–Yu build unrestricted polyhedra with small dihedrals, not a sharp minimum constrained to an antiprism family.",
+          "The published regular bipyramid equidihedral optimization concerns two apices and n triangular faces, whereas a regular antiprism has two n-gonal base faces and 2n lateral triangles."
+        ],
+        "reasoning": "Neither broader existence theorem nor the related bipyramid optimum implies the antiprism-specific formula or separation from uniform/volume optima.",
+        "searches": [
+          "Li Wang Yu infinitely many convex polytopes dihedral pi/2+delta arxiv 2611.09021",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-two-phase-dihedral-minimax-and-equidihedral-rigidity-of-re--f1951a545e4b"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e445181e127b2110093a44c41a607a46ab3f47e9/2026/11/17/equidihedral-minimax-and-volume-angle-separation-in-regular-anti--12f724b4a957/RESULT.md",
+        "https://vixra.org/pdf/2305.0150v1.pdf",
+        "https://mathworld.wolfram.com/Antiprism.html",
+        "https://arxiv.org/abs/2611.09021",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-two-phase-dihedral-minimax-and-equidihedral-rigidity-of-re--f1951a545e4b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimax minimizer t_E is smaller than t_U and t_V for every n>=4; known uniform formulas evaluate only t_U.",
+          "A theorem asserting existence of unconstrained polytopes with angles near pi/2 cannot specialize to a sharp antiprism lower envelope approaching 2pi/3."
+        ],
+        "reasoning": "Prior statements are on either a fixed uniform shape, a different polytope, or a wider existence class with no implication for constrained exact optimization.",
+        "searches": [
+          "https://vixra.org/pdf/2305.0150v1.pdf",
+          "https://arxiv.org/abs/2611.09021",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-two-phase-dihedral-minimax-and-equidihedral-rigidity-of-re--f1951a545e4b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conventional uniform/edge-equal antiprism has t_U=sqrt(2(1-c)(1+2c)); for n>=4 it differs strictly from t_E=(1-c)sqrt(1+2c)/c.",
+          "MathWorld and Rajpoot treat equilateral lateral facets, not the unrestricted positive-height minimum of max interior angle."
+        ],
+        "reasoning": "An edge-uniformity characterization is not equivalent to angle-equalization or minimax; their aspect ratios coincide only for the octahedron.",
+        "searches": [
+          "regular antiprism dihedral minimax equidihedral optimize height",
+          "Rajpoot 2023 Mathematical analysis of regular n-gonal right antiprism",
+          "https://mathworld.wolfram.com/Antiprism.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known formulas and numerical diagrams for edge-uniform antiprisms address one height t_U; no independently identified table of all-height minimax aspect ratios was found."
+        ],
+        "reasoning": "No identified exact table determines the simultaneously equidihedral minimizer and all-n asymptotic gap; absence from limited databases is not definitive historical novelty.",
+        "searches": [
+          "regular antiprism dihedral maximum numerical table equal angles",
+          "Rajpoot 2023 regular n-gonal right antiprism dihedral angle formula"
+        ]
+      },
+      "rationale": "The exact equidihedral minimax and three-selector height separation across every polygon order is not implied by references for equilateral/uniform antiprisms or by unrestricted convex-polytope dihedral constructions. Exact full-parameter optimization is elementary after identifying the two normal orbits, but a nontrivial complete extremal classification remains distinguishable from known fixed-shape formulas. Best-of-knowledge, subject to historical equivalent-minimax formulations.",
+      "residual_risks": [
+        "The 2023 right-antiprism PDF was materially inspected only at relevant pages rather than read completely; uninspected sections could contain equivalent minimax formulas.",
+        "An older geometry/dihedral tabulation under a different terminology may give the optimum without using the word equidihedral."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Addresses the equilateral-faced edge-uniform realization; sampled relevant pages do not establish an all-height minimax theorem. Other uninspected pages remain a priority risk."
+          ],
+          "identifier_or_url": "https://vixra.org/pdf/2305.0150v1.pdf",
+          "material_read": "Title/introduction and displayed uniform-shape angle/volume comparison formulas including late formula table; not all 33 pages",
+          "method": "Open-access PDF and selected page screenshots",
+          "title": "Mathematical analysis of regular n-gonal right antiprism",
+          "trigger": "Same polyhedron and dihedral formulas"
+        },
+        {
+          "assessment": "NOT_IMPLYING_CLAIM",
+          "evidence": [
+            "Unrestricted convex polyhedron existence is not an exact regular-antiprism one-parameter minimax result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09021",
+          "material_read": "Six-page arXiv manuscript scope and construction as indexed in paper and abstract, plus comparison of class and quantifier",
+          "method": "Lawful arXiv search and paper comparison",
+          "title": "Infinitely many convex polytopes with dihedral angles bounded above by pi/2+delta",
+          "trigger": "Potential dominating dihedral-angle result"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": [
+            "Defines conventional equilateral-face shape; does not compare arbitrary h/r optimizers."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/Antiprism.html",
+          "material_read": "Geometry definitions and right/uniform antiprism discussion",
+          "method": "Web article text",
+          "title": "Antiprism",
+          "trigger": "Standard definition and uniform-edge condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies the globally best dihedral balancing shape in a classical natural infinite family and gives exact separation between three intrinsically motivated shape selectors. The robust pi/3 limiting angular penalty for uniform and maximum-volume designs is a mathematically interpretable nonvanishing distinction, not merely a small numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to right regular half-step antiprisms, n>=3, positive heights and fixed circumsphere only for the volume statement.",
+    "Asymptotic limiting infimum at n=infinity is not an attained finite-n shape.",
+    "Historical priority for equivalent balance-angle optimizations is not exhaustively settled."
+  ],
+  "schema_version": 1
+}
