@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The full proof checks all facet equations through polar duality, both apex signs, and the equal-radius constraint on every original vertex. The first two-step formula is exact; the four-step formula follows by substituting the inverted aspect ratio. The strict two-step resonance condition is \(h=a\), and \(0<\Gamma<1\) follows for all positive parameters with \(R\ge a\).
+## correctness
 
-The included `verify_pedal.py` independently enumerates facet hyperplanes using numerical convex hulls, projects the origin onto these planes, and compares the unordered predicted and actual vertex sets for both a regular pentagonal prism and a nonregular tetrahedral-base prism. It reports floating-point residuals and tests them at tolerance \(2\times10^{-6}\). Finite diagnostics are not proofs for unrestricted dimension or parameters. There is no independent mathematical audit or external certification.
+PASS
+
+The first facet-foot hull is precisely the polar double pyramid conv(a²B°×{0},(0,±h)). Its facets have normals (v/a²,±1/h) for vertices v of B. Uniform |v|=R makes every normal square length R²/a⁴+1/h², giving rho² and exactly the Cartesian-product D² formula; no simplicial triangulation of facets is used. Scaling yields t→1/t and the displayed multiplier after four iterations. For t≠1 the D² base/height multipliers differ; for regular n-gon n≥5 the odd bipyramids have n+2 vertices and even prisms 2n vertices, excluding odd-step homothety. Distinct facet planes were independently reconstructed via convex hull for a regular pentagon; maximum vertex-set errors for D²,D⁴ were 7.8e-11,3.7e-11. Finite diagnostics corroborate, while polar face correspondence proves arbitrary dimensions and positive parameters.
+
+## originality
+
+PASS
+
+The known exact two-step return for bicentric originals does not apply to generic right prisms that lack an insphere; an earlier four-step rectangular-box statement excludes regular n-gonal prism bases with n≥5. The new general polar-prism normalization and t↔1/t classification survive these premises, with risk of an unindexed general pedal theorem.
+
+## value
+
+PASS
+
+The exact aspect-ratio inversion and primitive four-step return in arbitrary bicentric-base prisms is a structural dynamical lemma for the facet-foot transform, not simply recomputing a known bicentric two-step shape or a rectangular box. The sharp resonance h=a, quantitative contraction, and n≥5 non-box family naturally extend a known return problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

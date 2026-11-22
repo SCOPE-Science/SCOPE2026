@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The facet equations of the first polar-bipyramid pedal are independently derived from the prism facets and base polar. Since every original base vertex has norm \(R\), the mixed facet normals of the first pedal all have common squared norm \(R^2/a^4+1/h^2\). Their feet yield an exact Cartesian-product second pedal. Reapplying the same formula after the aspect ratio inversion proves the four-step multiplier for all \(m\ge2\), every admissible base, and every \(h>0\). The positivity and strict contraction inequalities are proved symbolically. Direct convex-hull diagnostic checks corroborate two explicit non-box families; they are not substituted for the universal proof.
+PASS
 
-## Originality — PASS, priority provisional
+The first facet-foot hull is precisely the polar double pyramid conv(a²B°×{0},(0,±h)). Its facets have normals (v/a²,±1/h) for vertices v of B. Uniform |v|=R makes every normal square length R²/a⁴+1/h², giving rho² and exactly the Cartesian-product D² formula; no simplicial triangulation of facets is used. Scaling yields t→1/t and the displayed multiplier after four iterations. For t≠1 the D² base/height multipliers differ; for regular n-gon n≥5 the odd bipyramids have n+2 vertices and even prisms 2n vertices, excluding odd-step homothety. Distinct facet planes were independently reconstructed via convex hull for a regular pentagon; maximum vertex-set errors for D²,D⁴ were 7.8e-11,3.7e-11. Finite diagnostics corroborate, while polar face correspondence proves arbitrary dimensions and positive parameters.
 
-Closest: M. Zwierzyński, "When Pedal Shapes Come Back: a Complex Story," arXiv:2611.01247v1, first submitted 2026-10-31, https://arxiv.org/html/2611.01247v1. Proposition 4.1 already proves the bicentric two-step homothety, and Proposition 4.2 already proves the four-step homothety of all centered rectangular boxes. Both are expressly excluded as standalone novelties. The new claim is a structural four-step dynamical classification of **prisms built over bicentric bases**, including regular pentagonal prisms and nonregular four-dimensional prisms, with an exact two-step aspect-reciprocity law and sharp half-height resonance. The primary full text, nearby facet/pedal literature, and mathematical research records were searched under prism/bipyramid/pedal/duality/iteration aliases. No exact or stronger covering theorem was identified. General polytopal polarity could make the result accessible to specialists; undetected stronger work remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-In contrast to an arbitrary numerical instance, the result completely describes an infinite-dimensional family of iterated metric constructions and supplies a closed rational shape evolution. It isolates the natural geometric boundary between two-step and primitive four-step homothety, and expands known return examples beyond rectangular boxes to n-gonal prisms for every \(n\ge5\) and nonregular higher-dimensional bases. The dimension-independent inversion mechanism can help identify further return classes.
+The known exact two-step return for bicentric originals does not apply to generic right prisms that lack an insphere; an earlier four-step rectangular-box statement excludes regular n-gonal prism bases with n≥5. The new general polar-prism normalization and t↔1/t classification survive these premises, with risk of an unindexed general pedal theorem.
 
-## Limits
+## value
 
-The structural statement is restricted to bicentric bases, does not extend the known two-step return beyond its published scope, and does not assert that arbitrary polyhedra return. The independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact aspect-ratio inversion and primitive four-step return in arbitrary bicentric-base prisms is a structural dynamical lemma for the facet-foot transform, not simply recomputing a known bicentric two-step shape or a rectangular box. The sharp resonance h=a, quantitative contraction, and n≥5 non-box family naturally extend a known return problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
