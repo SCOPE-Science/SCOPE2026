@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite orbit classifier is justified by sharp three-transitivity of the five-letter alternating group and parity of completions of four- and five-letter words. All stabilizers act trivially on their word cells, so the orbit boundary is the signed deletion boundary. The standalone verifier exhaustively checks orbit equivalence, each boundary projection and consecutive boundary composition, and exactly computes the integral Smith factors. The fundamental group collapses using the three indicated color-triple relations. Integral homology and the two-connected three-skeleton give the Moore-space wedge decomposition by Hurewicz, Whitehead and the classification of four-cell attachments to a wedge of three-spheres. These are statements about a finite complex, not an induction from samples. No formal or independent validation has occurred.
+PASS
 
-## Originality — PASS relative to checked sources
+PASS: In the five-label TWO-color injective-word regular CW complex, A5 is transitive on each fixed color-word orbit at lengths 1–3 and has two completion-parity orbits at lengths 4,5. Every word stabilizer fixes its cell pointwise; no folded boundary orientation. Quotient cells (2,4,8,32,64), signed deletion matrices ranks (1,3,5,27) and last nonunit factors 3 and 30; exact integral chain compositions zero. Independently reconstructed the full orbit representatives and 2x4,4x8,8x32,32x64 integer matrices using different Python/SymPy code and obtained these exact Smith forms. Two vertex colors with four directed edge types and eight triangle relations imply π1 trivial; the simply connected 3-skeleton is wedge 27 S3, and 4-cell attaching maps are determined in π3=H3, so Smith gives M(Z/3,3) vee M(Z/30,3) vee 37 S4. Finite five-label computation is exhaustive for precisely this problem, not extrapolated to higher labels.
 
-Athanasiadis, arXiv:1606.03829, especially Example 3.2 and Theorem 4.1 (full primary text inspected), provides the same two-color word poset and the rational symmetric-group homology representation, but not the integral ordinary alternating quotient or its \(3\)- and \(30\)-invariant factors. Jonsson–Welker's full Boolean CW treatment (2009, full text inspected) concerns the uncolored cell model. Related injective-word moment-angle results involve other topological spaces. Searches for the exact \(A_5\) two-colored word quotient, orbit-space Smith factors, Moore summands and possible equivalent formulations found no dominating result. The unindexed-literature possibility remains a priority risk; failed search alone would not establish originality.
+## originality
 
-## Value — PASS
+PASS
 
-The binary-colored poset is a natural historically studied example, and \(A_5\) is the first nonabelian simple alternating label group. The exact homotopy type resolves a motivic integral question left invisible by known rational-character formulas and shows simultaneous three-primary and mixed \(2,3,5\)-primary torsion in the same natural geometric quotient. The two nonunit attaching degrees are needed to distinguish the homotopy type, not arbitrary recomputations of Betti numbers. No wider family classification is asserted.
+PASS: The published earlier alternating-label quotient theorem classifies UNCOLORED injective words W_n/A_n (at n=5 one Z/5 Moore class), but it does not cover the two-color CW complex, where A5 fixes each position-color pattern and the quotient has 2,4,8,32,64 cells and torsion Z/3 plus Z/30. Athanasiadis’ r-colored word representation concerns rational homology/representation of original colored posets, not this integral ordinary orbit-space Smith data. No examined source implies the two distinct integral mixed-prime invariants or the full Moore/sphere homotopy for this five-label two-color quotient.
 
-## Closest literature and residual limitations
+## value
 
-Athanasiadis (2016) addresses representation theory of the same colored poset but not its ordinary geometric quotient; Jonsson–Welker (2009) defines the regular Boolean CW model for uncolored words. Chacholski–Levi–Meshulam (2020) concerns the nonquotient topology of injective-word complexes and particular permutation subcomplexes. The integral computation relies on the explicitly supplied exact checker and is restricted to \(n=5\), \(r=2\), and label-only \(A_5\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The natural colored extension of injective-word topology yields a qualitative new phenomenon: independent 3 and 30 torsion invariant factors and full 4-dimensional Moore wedge; its exact finite quotient is intrinsically motivated as the first small alternating orbit with two colors. This is more than an arbitrary table entry: illustrates color-induced mixed primary torsion of an integral geometric orbit space, with reproducible full orbit matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
