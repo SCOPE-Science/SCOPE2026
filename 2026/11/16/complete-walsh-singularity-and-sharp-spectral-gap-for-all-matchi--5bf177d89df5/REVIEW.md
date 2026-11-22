@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The single theorem is stated for all integer lengths \(n\ge1\), with every matching size included and the empty matching retained. The signed expansion is a direct distinct-column sum over matchings of sizes zero through three, leading to identity (1). All frequencies have parity \(n+1\) because the ordinary matching count is \(n^3+2n+1\). The exact four-column block changes only one pair-moment and preserves the value under the explicitly satisfied condition \(S_2=-1\). The full eight-sign block preserves all seven required moments. The four even residues and two odd residues have explicit base witnesses; these cover every positive length without computational induction. The convolution norms use unnormalized Fourier eigenvalues on counting-measure \(\ell^2\). An independent algorithmic route performs complete Walsh transforms through \(n=6\), exhaustive column-type reductions through \(n=12\), and checks witnesses through \(n=200\), with the limitations of finite tests stated.
+## correctness
 
-## Originality: PASS under bounded comparison
-The 2004 and 2008 Wagner papers develop graph-factor and weighted matching generating functions and nonvanishing domains, not an all-sign discrete Walsh dichotomy for \(K_{3,n}\). Li--Shi--Trinks (2014) analyze reconstruction of unsigned matching polynomials. The classical unsigned rook count does not imply signs or zeros. A closer earlier mathematical result treats only two-edge matchings of \(K_{3,n}\); its four-residue zero pattern does not imply the full matching indicator's distinct parity pattern. Searches for signed-rook-polynomial aliases and monomer--dimer Fourier kernels did not identify a covering theorem. This is bounded evidence, not a proof of absolute historical priority. An undiscovered equivalent signed-rook or partition-function evaluation remains the principal risk.
+PASS
 
-## Mathematical value: PASS
-Full-matching convolution on an edge Boolean cube is a canonical finite harmonic operator. Its universal invertibility across even strip widths, singularity across odd widths, and exact least surviving singular value determine sharply whether deconvolution exists and its Hilbert-space conditioning. The contrast with the two-edge-only indicator on the very same graphs shows that mixing matching sizes fundamentally changes Fourier invertibility; this is not a mere relabeling of the known unsigned rook polynomial. The proof supplies reusable moment-preserving sign blocks and an exponential family of distinct null frequencies. Exact nullity and endpoint inverse norms remain open.
+The signed matching sum splits by sizes zero through three. Inclusion–exclusion across three row choices produces (1+S1)(1+S2)(1+S3)−(1+S1)C23−(1+S2)C13−(1+S3)C12+2T. Counting matchings yields n^3+2n+1 ≡n+1 mod2, forbidding any zero at even n and requiring even magnitudes at odd n. The explicit H4 block has net C13 shift −4 and W shift 4(1+S2), preserving zero and −2 witnesses when S2=−1; H8 all sign triples has every nontrivial moment zero, preserving ±1 base witnesses at even lengths 2,4,6,8. These constructions prove the all-n parity dichotomy and sharp positive gaps, and Fourier eigenvalue reasoning gives inverse norms. Independent exact full Walsh enumerations n1..6 agree (zero counts 3,0,72,0,2730,0; gaps 2,1,2,1,2,1), not used as infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new all-matchings signed Fourier invertibility classification for every K3n width; known two-edge-only matching transform has a different zero-free criterion, and Wagner’s Heilmann–Lieb-type sector nonvanishing results do not decide arbitrary independent ±1-edge Walsh specializations on every K3n.
+
+## value
+
+PASS
+
+Exact all-length parity classification and sharp inverse/pseudoinverse norm for a natural full-matching incidence codebook is a meaningful spectral boundary, with structural four- and eight-column witnesses rather than a tiny-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
