@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The unconditional risk is a four-pattern erasure mixture of exact Gaussian conditional quadratic losses. The segment formula is independently reconstructed from conditional bridge covariance, and the proof handles all ordered sites including ties and endpoints. The location/spacings decomposition gives a strict centering proof for smaller separations and a derivative certificate excluding all larger separations; the remaining quadratic first-order condition has exactly one admissible root. The packaged checker confirms the symbolic factorizations and performs 14,000 supplementary random comparisons. Boundary at zero reliability is explicitly excluded from uniqueness.
+
+**Originality — PASS, qualified.** General quadratic Gaussian goal-oriented design (Neuberger et al., arXiv:2411.07532v1, Theorems 3.1–3.2), available deterministic \(p=1\) Brownian energy design, and Brownian-bridge path reconstruction with observation erasures do not state or imply the present all-\(p\) unique two-point nonlinear energy optimum. Tsirpitzi et al. (2023, §4 and Theorem 4.1) optimize a different pathwise/linear prediction loss. The Gaussian-risk identity and the fully delivered \(p=1\) boundary are not claimed new. An earlier unknown exact erasure calculation remains a residual priority risk, and an independent literature audit has not occurred.
+
+**Value — PASS.** The result gives a nontrivial exact reliability-sensitive design for estimating a physically meaningful quadratic path energy, rather than reconstructing the path itself. The strict distinctness at every \(p>0\), monotone exact separation, and rational \(p=1/2\) design are informative beyond either full-delivery design or generic posterior-covariance formulas. The scope is deliberately limited to exactly two nonadaptive, exact, independently erased values of a pinned standard bridge.
+
+Self-review: passed. Independent audit: not yet performed.
