@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-17",
+  "audited_at_utc": "2026-11-17T20:04:43.405866Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 iid points on S¹ with f_eta(theta)=(1+eta cos(theta))/(2pi), eta in [0,1), minimal enclosing radius <1 iff a unique circular gap exceeds pi. A uniquely defined complementary arc anchor theta has mass density n f_eta(theta) p_eta(theta)^{n-1} with p_eta=(1-b sin theta)/2, b=2eta/pi. Expanding even sine powers and integrating f cos-derivative gives exactly the finite P(E) polynomial. The end slack S has conditional survival (1-q_eta(theta,s)/p_eta(theta))^{n-1}, with q_eta integral over the far endpoint sector; differentiating yields a joint density. Fixed eta>0 Laplace expansion at theta=-pi/2 gives stated sqrt(n) Gaussian anchor, p_*^{n-1} probability and independent rate-1 exponential slack on n/(pi+2eta) scale. For eta=lambda/n, uniform p expansion gives exp[-(2lambda/pi)sin theta], normalizer I0(2lambda/pi), and independent exponential slack. Joint density convergence plus unit limiting mass triggers Scheffe total-variation convergence. Geometric diameter-chord formula R=cos(S/2), C=sin(S/2)e^{i(theta+pi/2-S/2)} gives weak center/radius limits. Numerical checker source inspected; finite polynomial/quadrature and conditional simulations are not proofs of asymptotic TV. All claims restrict to fixed eta>0 or fixed lambda, not other varying rates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The marked Wendel theorem allows general symmetric ovals/densities and gives a conditional exponential hull clearance but expressly requires pi-periodic density.",
+          "Three-point stability yields a deficit bound, not high-n conditional orientation distribution.",
+          "Holst–Hüsler is a plausible circle coverage/spacing source; only abstract available, not a whole-paper negative claim."
+        ],
+        "reasoning": "These broader sampling contexts cover related events or n=3, but checked material does not dominate the cosine-modulated n→infinity conditional Gaussian-to-von-Mises center law.",
+        "searches": [
+          "Resultary 2026/10/25 Marked Wendel law convex order",
+          "Resultary 2026/11/8 optimal fourth-root symmetry stability three-point semicircle probability",
+          "Holst Hüsler 1984 On the random coverage of the circle"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob c76c2469c96498d11a98cc486db6378c45d4bbcc",
+        "Frozen check_anisotropic_mec.py blob ab73e260ace44678303b2c03717fce3247355cd7",
+        "https://journals.msp.org/mscand/article/download/2688/2687/2719 (1962 Wendel scanned original)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-i--6fc92189d743/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-fourth-root-symmetry-stability-for-the-three-point-semic--02dfcc175f2f/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symmetry f(theta+pi)=f(theta) used in Wendel and 2026 marked Wendel; it fails for f_eta with eta>0, and anchor p_eta depends on theta.",
+          "The weak window eta=lambda/n retains nontrivial exp[-(2lambda/pi)sin theta] weighting not obtained by setting eta=0 after a symmetric theorem."
+        ],
+        "reasoning": "Prior symmetric conditional clearance and three-point inequality cannot imply the non-antipodal fixed/modulated conditional angle–gap TV law; the new theta-dependent Laplace analysis is needed.",
+        "searches": [
+          "Wendel 1962 symmetric halfspace probability",
+          "2026/10/25 Marked Wendel law conditional symmetric clearance",
+          "2026/11/8 three-point stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wendel proves symmetric-halfspace probability; eta>0 violates antipodal symmetry f(theta+pi)=f(theta).",
+          "The 2026/10/25 marked result is for symmetric f and conditional hull distance D_n, rather than directional enclosing-disk center C_n under nonsymmetric cosine f."
+        ],
+        "reasoning": "Only eta=0 count and the common anchor method coincide. The directional anisotropy interpolation and normal/von-Mises conditional orientation are not equivalent to symmetric Wendel clearance.",
+        "searches": [
+          "Resultary cosine modulated anisotropic circle random points semicircle containment conditional orientation von Mises Gaussian crossover minimum enclosing disk",
+          "Wendel 1962 A Problem in Geometric Probability",
+          "Resultary 2026/10/25 Marked Wendel law convex order random inscribed polygons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At eta=0 exact probability reduces n/2^{n-1}, a known table/value.",
+          "The submitted exact eta-polynomial has positive b^{2k} coefficients and is checked numerically against the anchor integral; its novelty is not asserted as solely the symmetric count."
+        ],
+        "reasoning": "Classical exact counts do not supply the conditional joint marks or the anisotropy window, and no inspected exact table covers the full orientation-density transition.",
+        "searches": [
+          "Wendel 1962 circle exact probability n/2^{n-1}",
+          "Resultary anisotropic semicircle conditional marks",
+          "2026/11/8 three-point semicircle stability"
+        ]
+      },
+      "rationale": "Wendel 1962 proves the distribution-free semicircle probability for centrally symmetric laws; the assigned eta=0 case is already known. The complete 2026/10/25 marked Wendel theorem treats centrally symmetric boundary density and hull-to-center clearance; its assumptions exclude eta>0 cosine modulation and its variable is Euclidean hull distance, not minimum enclosing disk center. The 2026/11/8 three-point symmetry stability theorem treats n=3 probability deficit, not the n→infinity anisotropic conditioned marks and 1/n orientation transition. The new fixed-anisotropy Gaussian localization versus weak-anisotropy von Mises crossover with independent slack and TV joint law survives these comparisons.",
+      "residual_risks": [
+        "Holst–Hüsler 1984 On the random coverage of the circle was available at abstract level only; no full-text exclusion of alternative equivalent orientation laws.",
+        "An unindexed theorem for general nonsymmetric semicircle anchor large deviations might imply the specific cosine critical window; literature priority is best-of-knowledge.",
+        "TV convergence applies to absolutely continuous anchor–gap coordinates, not the weak ray-supported limit of the center; thresholds exclude eta=1 and unspecified intermediate windows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS eta=0 Wendel baseline, not the non-antipodally symmetric cosine-weighted mark law.",
+          "evidence": "On S^1 for n sample points yields n/2^{n-1} semicircle probability under symmetry.",
+          "identifier_or_url": "https://journals.msp.org/mscand/article/download/2688/2687/2719",
+          "material_read": "Original 1962 scanned PDF page 1 visually inspected; formula (1) for hemispheres and rotationally symmetric assumptions",
+          "method": "Open PDF and screenshot first page; no uninspected pages claimed",
+          "title": "A Problem in Geometric Probability",
+          "trigger": "Classical baseline semicircle probability"
+        },
+        {
+          "assessment": "COVERS symmetric hull miss clearance; does not cover anisotropic eta>0 conditional enclosing disk center or 1/n orientation crossover.",
+          "evidence": "Explicit f(theta+pi)=f(theta) hypothesis, conditional T density f and nD exponential-mixture law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-i--6fc92189d743/RESULT.md",
+          "material_read": "Entire 9940-character RESULT.md, theorem, assumption symmetry and proof of exponential clearance and anchor",
+          "method": "Complete GitHub source file inspected, blob a10751fadf17e3ead9ffbbd810bb9666436c5f06",
+          "title": "Marked Wendel law and convex-order optimal sampling for random inscribed polygons",
+          "trigger": "Most relevant predecessor conditional marked geometry"
+        },
+        {
+          "assessment": "Addresses n=3 deficit, not large-sample conditional direction.",
+          "evidence": "Exact Δ(f)=3∫f(G-1/2)^2 and TV stability for n=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-fourth-root-symmetry-stability-for-the-three-point-semic--02dfcc175f2f/RESULT.md",
+          "material_read": "Entire RESULT.md including three-point exact deficit and fourth-root regularity theorem",
+          "method": "Complete GitHub source file, blob 192e9d824a7e953ea90e67a28c459fd3be9cb4d5",
+          "title": "Optimal fourth-root symmetry stability for the three-point semicircle probability",
+          "trigger": "Nonsymmetric density prior for the same event"
+        },
+        {
+          "assessment": "Not used for whole-document NOT_COVERING; full-work priority remains a named residual risk.",
+          "evidence": "Circle coverage/random gaps overlap conceptually with semicircle anchor events.",
+          "identifier_or_url": "https://doi.org/10.2307/3213620",
+          "material_read": "Bibliographic abstract only; full text not retrieved",
+          "method": "Indexed abstract access, NOT a full text review",
+          "title": "On the random coverage of the circle",
+          "trigger": "Plausible older circle-coverage extreme-spacing paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditional shape of a rare center-exclusion/minimum-enclosing-disk event is a natural stochastic-geometry invariant. This result provides an explicit exact finite probability and, beyond classical symmetric Wendel counts, a sharp crossover at eta∼1/n in conditional center direction, with nontrivial normal/Bessel/von-Mises and exponential marks and observable radius/center scalings. These are motivated asymptotic regimes, not arbitrary parameter slices.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob c76c2469c96498d11a98cc486db6378c45d4bbcc",
+    "Frozen check_anisotropic_mec.py blob ab73e260ace44678303b2c03717fce3247355cd7",
+    "https://journals.msp.org/mscand/article/download/2688/2687/2719 (1962 Wendel scanned original)",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-i--6fc92189d743/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-fourth-root-symmetry-stability-for-the-three-point-semic--02dfcc175f2f/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Holst–Hüsler 1984 On the random coverage of the circle was available at abstract level only; no full-text exclusion of alternative equivalent orientation laws.",
+    "An unindexed theorem for general nonsymmetric semicircle anchor large deviations might imply the specific cosine critical window; literature priority is best-of-knowledge.",
+    "TV convergence applies to absolutely continuous anchor–gap coordinates, not the weak ray-supported limit of the center; thresholds exclude eta=1 and unspecified intermediate windows."
+  ],
+  "schema_version": 1
+}
