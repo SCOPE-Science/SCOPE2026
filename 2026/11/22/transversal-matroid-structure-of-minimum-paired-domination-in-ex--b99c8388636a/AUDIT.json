@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "proof_limits": "Theorem applies only to C5(1,1,1,a,b) with a,b>=1, ordinary paired domination and one-vertex fixed-size replacement.",
+    "rationale": "An all-order proof excludes any 2-vertex paired-dominating set, derives the complete 13-pattern occupancy classification, proves equivalence with a 4-role bipartite matching presentation, then applies the standard transversal-matroid theorem. Counting patterns yields \\(N(a,b)=a^2b+ab^2+a^2+ab+b^2\\). Basis exchange proves exact shortest exchange distances and explicit constructions attain the diameter min(4,a+b-1). Independent direct Python and C++17 programs checked 50,832 and 94,941 selected four-subsets respectively, including every small boundary and full basis exchange for a=b=5. Finite checks are corroborative; the all-order proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Henning–McCoy–Southey, Discrete Applied Mathematics 170 (2014), Section 2 and Theorem 2: F_n is one extremal family attaining the edge bound for gamma_pr=4.",
+        "Brualdi–Dinolt (1972) treats recognition and presentations of arbitrary transversal matroids, not paired domination in this graph family.",
+        "Cambridge Matroids: A Geometric Introduction, Chapter 7 states the standard bipartite-matching construction of transversal matroids."
+      ],
+      "reasoning": "Neither the edge-extremal classification nor general transversal-matroid theory gives the new four-role family representation. Their combination only covers the claim if the nontrivial 13-pattern equivalence is separately proved. That equivalence is the present contribution. The 2014 publisher PDF could not be inspected in full, so a hidden stronger classification remains a documented risk rather than an excluded possibility.",
+      "searches": [
+        "\"Graphs with maximum size and given paired-domination number\" \"minimum paired-dominating sets\"",
+        "\"Graphs with maximum size and given paired-domination number\" pdf Henning McCoy Southey",
+        "\"paired domination\" \"blow-up\" \"cycle\" \"matroid\"",
+        "doi:10.1016/j.dam.2014.01.019",
+        "doi:10.1016/0095-8956(72)90041-X"
+      ]
+    },
+    "checked_sources": [
+      "Henning–McCoy–Southey (2014), doi:10.1016/j.dam.2014.01.019, accessible substantive passages",
+      "Haynes–Slater (1998), paired-domination original definition, publisher abstract",
+      "Brualdi–Dinolt (1972), transversal-matroid presentations, abstract",
+      "SageMath transversal-matroid reference documentation",
+      "Published record 2026/10/25/SCOPE-paired-domination-slides-of-triangular-graphs-as-square-bouquet--371270f6d358",
+      "Published record 2026/11/8/SCOPE-super-domination-of-clique-blowups-through-irredundance-with-exa--daabd3b5104c",
+      "Published record 2026/10/26/SCOPE-minimum-paired-domination-in-two-subset-kneser-graphs--785c37304582"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Public mathematical-result record 2026/10/25/SCOPE-paired-domination-slides-of-triangular-graphs-as-square-bouquet--371270f6d358 studies triangular graphs L(K_n), not C5 clique blowups.",
+        "Public mathematical-result record 2026/11/8/SCOPE-super-domination-of-clique-blowups-through-irredundance-with-exa--daabd3b5104c studies super domination, not paired domination, with a different selection property.",
+        "Public mathematical-result record 2026/10/26/SCOPE-minimum-paired-domination-in-two-subset-kneser-graphs--785c37304582 studies KG(n,2), not this F_n family.",
+        "https://doi.org/10.1016/j.dam.2014.01.019 Theorem 2 gives edge extremizers and the scalar minimum only."
+      ],
+      "reasoning": "The queried records have differing underlying graphs, domination notions or parameter sets. No reductions from those results to the F_n four-role transversal representation were identified. The original extremal theorem is strictly less informative than the claim and does not automatically imply it.",
+      "searches": [
+        "paired domination minimum paired dominating sets complement Petersen graph reconfiguration optimal configurations exceptional extremal graph",
+        "paired domination triangular graphs line graphs complete graphs T(n) complement Petersen extremal optimal four sets",
+        "minimum paired domination maximum size graphs F_n Henning McCoy Southey reconfiguration all minimum placements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1016/j.dam.2014.01.019 defines the exact C5(1,1,1,a,b) object and gives the edge-extremal characterization; the stated theorem concerns extremal graph size and gamma_pr=4.",
+        "https://doc.sagemath.org/html/en/reference/matroids/sage/matroids/transversal_matroid.html defines an independent set as one admitting a matching into auxiliary roles; this general definition does not supply the new class-to-role map.",
+        "The new role map is x0:{1}, x1:{2,3}, x2:{1,4}, A:{2,4}, B:{3,4}; the exact 13 allowed occupancy patterns are proved in RESULT.md."
+      ],
+      "reasoning": "The search considered the alternative terms minimum paired-dominating configurations, matching transversals, matroid bases, token-jump geodesicity and clique blowups. A general matching-matroid theorem implies exchange after, not before, identifying the graph-specific feasible family. No equivalent class-to-role classification was found.",
+      "searches": [
+        "\"paired dominating\" \"transversal matroid\"",
+        "\"paired-domination\" \"basis exchange\" graph",
+        "\"C5(1,1,1\" paired dominating sets",
+        "minimum paired dominating sets of extremal 5-cycle clique blow-up C5(1,1,1,a,b) form bases of a transversal matroid exact count and isometric exchange distance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results for exact occupancy counts and \\(a^2b+ab^2+a^2+ab+b^2\\) did not return a published graph-family enumeration.",
+        "The new count arises from 13 explicitly classified occupancy patterns, not from a lookup table."
+      ],
+      "reasoning": "No exact published table with the same objects and two free clique-size parameters was identified; search absence does not establish exhaustive historical uniqueness.",
+      "searches": [
+        "\"minimum paired dominating sets\" \"cycle blowup\" count",
+        "\"C_5(1,1,1\" \"paired\"",
+        "paired domination extremal graphs blowups 5 cycles F_n G_n minimum sets counting",
+        "paired dominating sets matroid base exchange graph 5-cycle blow-up two cliques spanning tree polynomial"
+      ]
+    },
+    "rationale": "The closest 2014 extremal paired-domination theorem identifies the two-parameter family and its scalar optimum, but it does not by logical implication determine the collection of all minimum sets, their transversal-matroid presentation, their polynomial count or their exchange metric. The result is not a relabelling of that parameter: the four-role matching representation is established by a new exhaustive symbolic classification. Public and mathematical-result searches comparing object, parameters and equivalent notions did not reveal this conclusion. The inaccessible full publisher PDF and unindexed equivalents remain explicit priority risks.",
+    "residual_risks": [
+      "Full publisher PDF of the closest 2014 source was not obtained; incomplete source inspection prevents a whole-document NOT_COVERING claim.",
+      "An unindexed earlier matroid-base characterization or enumeration of the same F_n family may exist.",
+      "Some earlier mathematical-result records outside accessible indexes could contain an equivalent fact; checked histories are not a mathematical uniqueness guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies family and scalar gamma_pr=4; no new transversal role map, optimizer census or exchange metric in the inspected substantive passages. Whole-document exclusion not claimed.",
+        "evidence": [
+          "Section 2 F_n definition C5(1,1,1,a,b)",
+          "Theorem 2 equality characterization for gamma_pr=4",
+          "DOI 10.1016/j.dam.2014.01.019"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.01.019",
+        "material_read": "Accessible rendered Section 1 definitions, Section 2 graph-family construction, Section 3 extremal Theorem 2, and limited later textual excerpts; publisher full PDF not obtained",
+        "method": "Full-text passages exposed by indexed article rendering; targeted searches for the paper, arXiv and lawful OA versions; direct publisher URL could not be accessed",
+        "title": "Graphs with maximum size and given paired-domination number",
+        "trigger": "Exact same graph family and invariant; potential direct coverage"
+      },
+      {
+        "assessment": "Introduces paired domination, bounds and complexity. Abstract does not imply minimum-set matroid structure on F_n; full paper not used to exclude any possible special case.",
+        "evidence": [
+          "Networks 32 (1998), 199–206; original definition of paired domination"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1097-0037(199810)32:3%3C199::AID-NET4%3E3.0.CO;2-F",
+        "material_read": "Publisher abstract and reference information",
+        "method": "Publisher landing-page inspection",
+        "title": "Paired-domination in graphs",
+        "trigger": "Original invariant definition and possible general optimizer result"
+      },
+      {
+        "assessment": "Confirms that sets matchable into roles form a matroid; does not imply the particular graph-specific matching equivalence.",
+        "evidence": [
+          "Ground-set subsets independent iff they match into the auxiliary set system"
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/matroids/sage/matroids/transversal_matroid.html",
+        "material_read": "Definition and matching-based construction, example code and independent-set interpretation",
+        "method": "Documentation page inspected",
+        "title": "Transversal matroids — Matroid Theory",
+        "trigger": "Check exact standard theorem used for basis exchange"
+      },
+      {
+        "assessment": "General recognition/presentation theory, no graph paired-domination classification stated.",
+        "evidence": [
+          "Brualdi–Dinolt (1972), transversal-matroid presentations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0095-8956(72)90041-X",
+        "material_read": "Journal abstract and basic statement",
+        "method": "Publisher bibliographic and abstract inspection",
+        "title": "Characterizations of transversal matroids and their presentations",
+        "trigger": "Potential dominating general theorem for the new matroid identification"
+      },
+      {
+        "assessment": "Different graph family L(K_n) and restricted tight orders; no claimed implication about the five-cycle blowup.",
+        "evidence": [
+          "At n=3k+1 minimum paired dominating sets in triangular graphs are star packings; not the present C5 blowup family"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-paired-domination-slides-of-triangular-graphs-as-square-bouquet--371270f6d358",
+        "material_read": "Published result title and semantic search summary, not full package",
+        "method": "Semantic result index",
+        "title": "Paired-domination slides of triangular graphs as square-bouquet token swaps",
+        "trigger": "Closest mathematical-result hit sharing paired domination and exchange"
+      },
+      {
+        "assessment": "Super-domination invariant and inclusion-minimal selectors; cannot imply paired domination matching constraints by statement.",
+        "evidence": [
+          "Bijection with irredundant sets for super domination, not matching-backed paired domination"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-super-domination-of-clique-blowups-through-irredundance-with-exa--daabd3b5104c",
+        "material_read": "Published result title and semantic search summary, not full package",
+        "method": "Semantic result index",
+        "title": "Super domination of clique blowups through irredundance, with exact cyclic enumerators",
+        "trigger": "Closest hit sharing clique blowups and cyclic bases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b99c8388-636a-4454-8e41-5f8476681778",
+  "value": {
+    "rationale": "The two-parameter F_n family is singled out as an exceptional edge-extremal paired-domination equality family in a 2014 classification. Identifying all optima as rank-four transversal-matroid bases yields an unbounded family with exact optimizer counts, shortest possible exchange paths, sharp diameter and greedy weighted optimal placement. These conclusions do not follow from the known scalar parameter. Generic minimum paired-domination configurations do not form matroid bases, as an explicit C7 counterexample demonstrates. This is a structural and motivated family classification rather than a sample-size or numerical-increment exercise.",
+    "status": "PASS"
+  }
+}
