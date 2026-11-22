@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Complete finite proof: the cuboctahedron is explicitly generated as L(Q_3), with 12 vertices and 24 edges. All 495 candidate 4-sets fail edge resolution; exactly 168 of 792 5-sets resolve, proving edim=5. Both stand-alone independent implementations reproduce these totals with distinct adjacency constructions (cube-edge incidence versus Euclidean cuboctahedron) and distinct resolution predicates (unique distance signatures versus all edge-pair witness masks). Every basis incidentally covers exactly seven cube corners; 21 leave each specific corner uncovered. A slide exchanges two adjacent cube edges, so it changes cube-edge support on only one cube bipartition class; it cannot switch which bipartition class has the single uncovered corner. Complete enumeration of all 168 bases and their pairwise legal moves yields connected jump graph (948 edges, every eccentricity 5) and two 84-state slide components (360 total edges, every within-component eccentricity 6), matching the parity classes. Independent BFS implementations calculate all connected components and all 14028 jump pair distances and 6972 finite slide pair distances. A coordinate bit flip proves the two slide components are isomorphic. The vertex-metric comparison is independently exhausted (96 3-bases, connected slide graph radius 7 diameter 8). No infinite extension is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yi arXiv:2103.07375 pp.1–11 defines edge-resolving functions, studies dimension/fractional dimension, nonmonotonicity and general families; parsed text checks find no cuboctahedron, line graph or cube-specific optimizer theorem.",
+        "Avis–Hoang arXiv:2203.16861 pp.1–4 and its abstract define TS_k for independent sets, not minimal edge-resolving sets, so its connectivity/realizability propositions do not imply these numbers.",
+        "Hakanen–Junnila–Laihonen–Yero (2026), https://doi.org/10.1016/j.dam.2025.08.054, studies forced/void edge-basis vertices in general, not the complete cuboctahedral exchange and slide graph."
+      ],
+      "reasoning": "The literature covers general edge metric dimension, independent-set token sliding, and existence of forced/void edge-basis vertices. None of their displayed theorems, hypotheses, or stated graph families provide a stronger theorem specializing to exact 168 bases, 84+84 slide components and radius 6. The 2026 general article was consulted as a comparison rather than an eligible guiding source.",
+      "searches": [
+        "\"edge metric dimension\" \"line graph of\" cube",
+        "\"On the edge dimension and fractional edge dimension of graphs\" arXiv 2103.07375",
+        "\"On Reconfiguration Graphs of Independent Sets under Token Sliding\" arXiv 2203.16861",
+        "\"On the vertices belonging to all edge metric bases\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2103.07375",
+      "https://arxiv.org/pdf/2203.16861",
+      "https://mathworld.wolfram.com/CuboctahedralGraph.html",
+      "https://doi.org/10.1016/j.dam.2025.08.054",
+      "published-finding corpus ID 2026/11/8/SCOPE-edge-metric-bases-of-the-heawood-graph-and-octagonal-slide-recon--d4a919fbecfd9 (indexed synopsis only)",
+      "published-finding corpus ID 2026/11/8/SCOPE-complete-edge-metric-basis-mobility-of-the-chv-tal-graph--cde749ff7c82 (indexed synopsis only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General definitions and graph-family results in Yi (2021) do not supply enumeration or move graphs for L(Q_3).",
+        "Avis–Hoang (2022) considers independent sets, so its general realizability statements do not cover optimizer edge-resolution predicates on L(Q_3).",
+        "published-finding corpus 2026/11/8/SCOPE-edge-metric-bases-of-the-heawood-graph-and-octagonal-slide-recon--d4a919fbecfd9 has coincident 168 optima but 21 disjoint eight-cycles rather than two 84-vertex components; no graph isomorphism or implication exists from this count alone.",
+        "published-finding corpus 2026/11/8/SCOPE-complete-edge-metric-basis-mobility-of-the-chv-tal-graph--cde749ff7c82 instead finds connected sliding on a different 12-vertex graph."
+      ],
+      "reasoning": "The new claim identifies exact graph, resolving predicate, complete optimum family, component invariant and sharp path metrics. Different predicates or base graphs do not imply it, nor does the generic fact that token-slide graphs may be disconnected. The cited comparisons were checked at statement rather than title level.",
+      "searches": [
+        "\"edge metric basis reconfiguration cuboctahedral line graph cube edge resolving sensors minimum token jumping sliding\"",
+        "\"cuboctahedron edge resolving minimum landmarks 5 168 basis two disconnected token sliding components\"",
+        "\"edge metric basis optimal set exchange reconfiguration line graph cube cuboctahedron\"",
+        "\"edge metric dimension\" \"reconfiguration graph\" token",
+        "\"cuboctahedron\" \"reconfiguration\" \"resolving\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/11/8/SCOPE-edge-metric-bases-of-the-heawood-graph-and-octagonal-slide-recon--d4a919fbecfd9 describes 168 edge-metric bases of the Heawood graph but a 21-cycle component structure, not the cuboctahedron.",
+        "published-finding corpus 2026/11/8/SCOPE-complete-edge-metric-basis-mobility-of-the-chv-tal-graph--cde749ff7c82 describes edge-metric bases on the Chvátal graph, which has different adjacencies and remains slide-connected.",
+        "MathWorld https://mathworld.wolfram.com/CuboctahedralGraph.html explicitly identifies the cuboctahedral graph as L(Q_3), a relevant graph alias absent from matching exact edge-basis results."
+      ],
+      "reasoning": "Aliases cuboctahedron, cuboctahedral graph, rectified cube and line graph L(Q_3) were searched. No equivalent optimum edge-resolving classification or two-parity slide decomposition was found. The equality of an unrelated 168-basis count is not a theorem about the same object.",
+      "searches": [
+        "\"edge metric basis reconfiguration cuboctahedral line graph cube edge resolving sensors minimum token jumping sliding\"",
+        "\"cuboctahedral graph L(Q3) line graph of cube 168 edge metric bases 84 components missing bipartition parity\"",
+        "\"cuboctahedral\" \"edge metric\" dimension",
+        "\"cuboctahedron\" \"edge metric dimension\"",
+        "\"line graph\" \"edge metric dimension\" cube hypercube Q3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Cuboctahedral Graph entry gives 12 vertices, 24 edges, diameter 3, automorphism order 48 and L(Q_3) description but no edge metric basis count.",
+        "published-finding corpus cuboctahedral exact records 2026/10/11/SCOPE-the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa and 2026/11/1/SCOPE-cuboctahedral-two-independence-thirty-two-three-spheres-and-the--490b97e2f079 concern cut or independence complexes, not edge-metric bases."
+      ],
+      "reasoning": "Both primary graph-table and published semantic database checks were run for the exact graph name, line-graph alias and numeric configuration counts. No table for the present invariant was recovered; absence of a result cannot establish unique priority.",
+      "searches": [
+        "\"cuboctahedral\" \"edge metric\" dimension",
+        "\"cuboctahedron\" \"edge metric dimension\"",
+        "\"cuboctahedral graph\" \"resolving\" \"edge metric\"",
+        "\"cuboctahedron edge resolving minimum landmarks 5 168 basis two disconnected token sliding components\"",
+        "\"edge metric basis optimal set exchange reconfiguration line graph cube cuboctahedron\""
+      ]
+    },
+    "rationale": "No covering exact statement was located after actual published-finding corpus, accessible own-ledger and public literature searches. The closest primary paper by Yi (2021) develops the edge-metric concept and general bounds, not an L(Q_3) optimizer/reconfiguration classification. Avis and Hoang (2022) analyze token-sliding graphs under the independent-set predicate, which cannot imply the distinct edge-resolution feasibility set. The public MathWorld cuboctahedron entry fixes the base graph only. Indexed edge-metric results on the Heawood (168 optima with 21 eight-cycles) and Chvátal graphs apply to nonisomorphic base graphs, with no reduction asserting the 2x84 parity decomposition here. Distinct cuboctahedral topology and matching-complex articles have unrelated predicates. Novelty assessed on exact statements and implication, not matching titles or counts; plausible unindexed historical priority remains a residual risk.",
+    "residual_risks": [
+      "Public and indexed semantic search cannot exclude unpublished, pre-indexed, or differently titled historical equivalent finite calculations.",
+      "Several related articles and indexed records were screened at synopsis or theorem level, not independently audited line by line; an equivalent result hidden in an appendix is a residual priority risk.",
+      "No independent human review or formal proof assistant verification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General dimension/fractional dimension results; no stated L(Q_3) edge-basis reconfiguration classification detected",
+        "evidence": [
+          "https://arxiv.org/pdf/2103.07375, pp.1, 3–6, 11",
+          "https://arxiv.org/abs/2103.07375, first posted 2021-03-12"
+        ],
+        "identifier_or_url": "arXiv:2103.07375; https://arxiv.org/pdf/2103.07375",
+        "material_read": "Fourteen-page PDF, title/abstract, defining introduction, sections with theorems 2.3–2.11 and fractional edge dimensions, plus whole-document text searches for cuboctahedron, hypercube, cube, line graph",
+        "method": "rendered PDF page and page-tagged parsed text, theorem and whole-text term comparisons",
+        "title": "On the edge dimension and fractional edge dimension of graphs",
+        "trigger": "direct relevant definition and possible covering graph-family classification"
+      },
+      {
+        "assessment": "Focus on independent-set token sliding and its realization; no covering edge-resolving optimum theorem",
+        "evidence": [
+          "https://arxiv.org/pdf/2203.16861, pp.1–5",
+          "https://arxiv.org/abs/2203.16861, first posted 2022-03-31"
+        ],
+        "identifier_or_url": "arXiv:2203.16861; https://arxiv.org/pdf/2203.16861",
+        "material_read": "Seventeen-page PDF title, abstract and introduction, page 2 geometric example, section 4 line-graph definitions and whole-document searches for cuboctahedron and edge-metric terminology",
+        "method": "rendered PDF pages, page-tagged parsed text, predicate/theorem comparison",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "structural token-slide reconfiguration theory which might dominate claim"
+      },
+      {
+        "assessment": "Confirms graph model but contains no minimum edge-resolving configurations or move-graph distances",
+        "evidence": [
+          "https://mathworld.wolfram.com/CuboctahedralGraph.html"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/CuboctahedralGraph.html",
+        "material_read": "Complete brief online entry covering 12 vertices, 24 edges, L(Q_3) characterization, diameter, group size and references",
+        "method": "full HTML text inspection",
+        "title": "Cuboctahedral Graph",
+        "trigger": "exact graph identity and possible table of known invariants"
+      },
+      {
+        "assessment": "Studies edge-basis forced/void vertices and realizability, not explicit cuboctahedral basis movement; no direct domination found in inspected material",
+        "evidence": [
+          "https://doi.org/10.1016/j.dam.2025.08.054"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2025.08.054",
+        "material_read": "Accessible full HTML article title, abstract, definitions, displayed theorem/lemma examples and graph family scope; not a full line-by-line audit",
+        "method": "HTML theorem/statement and graph-parameter comparison",
+        "title": "On the vertices belonging to all edge metric bases",
+        "trigger": "potentially stronger result about all edge metric bases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "804e8474-ca70-450f-b0f1-cad82728189b",
+  "value": {
+    "rationale": "This is a complete classification of all minimum edge-failure-localizing landmark sets and of both local/global movement geometries for the canonical cuboctahedral graph. It exposes a structural bipartition-parity obstruction forcing two equal 84-state optimal slide components, yet jump moves connect all optima. Comparing vertex-resolving landmarks on the identical graph, whose minimum slide graph is connected, isolates the mathematical source of different local mobility. Exact sizes, all-pairs shortest distances and stabilizer-orbit data are natural reusable benchmarks for fault-localization and sensor relocation; the parity invariant is a meaningful explanatory lemma rather than an arbitrary table entry. Scope is one graph and neither unproved generalization nor downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
