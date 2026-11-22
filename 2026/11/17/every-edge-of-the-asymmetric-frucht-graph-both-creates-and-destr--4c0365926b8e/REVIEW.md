@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a finite census over nineteen explicit twelve-vertex graphs and every one of the 4,096 labelled binary configurations on each. Two independently implemented algorithms give identical exact rows: one follows each trajectory using neighbor counts and incumbent ties, while the other constructs the graph from an LCF encoding and peels the complete Boolean-majority functional graph. The local tie/self-substitution lemma is verified algebraically in RESULT.md. All reachable cycles have lengths one or two; all entry times and unanimous basin set differences are computed exactly. The full scripts and exact outputs permit reproduction without any external dependency. Risk: these are finite exhaustive certificates, not a claim about larger graphs; any arithmetic error shared by both scripts would be a residual risk, reduced by their different graph encodings and dynamic algorithms.
+PASS
 
-## Originality — PASS (best available evidence)
+PASS. The specified 12-vertex labeled Frucht graph has 18 undirected edges; each of 19 maps has exactly 2^12=4096 states. Local majority with tie retention at endpoints of an edge deletion is exactly median(self,other_neighbor_1,other_neighbor_2). Direct independently written edge-list program constructs every successor, for each initial state finds its first t satisfying F^(t+2)=F^t, and counts unanimous outcomes; this reproduces all 18 published gained/lost rows, original basin 1240, 12 fixed and 268 primitive-two phase states, initial max t=7, deletion max t=8, basin 866..1478, 11 net positives/7 negatives, every deletion both adds and loses states. State enumeration is exhaustive for this finite domain, not extrapolation. Full source of both differing original checks read and local rule verified; no claim for other graphs.
 
-The 2014 majority-dynamics preprint of Benjamini et al. studies general and random networks and establishes no Frucht-specific one-edge basin response. The 2015 voting-time preprint of Kaaser et al. gives general bounds, not the exact labelled Frucht census. A related indexed mathematical finding about Frucht graph edge deletions concerns matching-complex homotopy, not majority dynamics. Another about an edge defect in complete bipartite graphs concerns a different graph family. Published descriptions of the Frucht graph provide its structure but no majority basins. Direct searches for the graph, update, parameters, and candidate cardinalities found no equivalent statement. Residual risk: not all historical or unindexed writing is accessible, and absence of a database match is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Frucht graph is a canonical cubic network with no spatial automorphism allowing edge classes to be merged. Instead of an unmotivated one-edge example, the classification covers every one of its eighteen edge removals, including the full gain/loss decomposition of the consensus basin. Each deletion both creates and destroys successful initial conditions, yet the net sign varies, showing nonlocal dependence not dictated simply by the deleted edge's triangle membership. The sharp, complete relaxation cutoff accompanies the basin data and permits exact comparisons with graph-majority sensitivity models. It is a natural finite dynamical invariant with no asserted extension to arbitrary graphs.
+PASS qualified: both exact prior gain/loss phenomena on minimal five-vertex graphs and complete all-edge Chvátal classifications concern different graphs/quantified facts. This complete 19-system census proves that every edge of the 12-vertex asymmetric cubic Frucht graph gives two-sided consensus-basin changes, with eleven total gains versus seven losses, sharp eight-update entry cutoff. It is a natural complete finite invariant with independent exhaustive recomputation.
 
-## Source/uncertainty limits
+## value
 
-Primary sources actually inspected include arXiv:1405.2486 (definitions, theorem statements, consensus and regular-graph sections) and arXiv:1508.03519 (definitions, voting-time theorem, introduction and relevant result statements). Graph identity checked against the Frucht description in MathWorld. Full scientific result documents for the closest indexed one-edge majority defect theorem on complete bipartite graphs and for the Frucht matching-complex edge-deletion census were also retrieved and inspected: neither implies this different labelled majority-basin census. Unindexed historical priority remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Frucht is a natural asymmetric cubic graph, so classifying every one of its eighteen edge perturbations is a complete intrinsic sensitivity census rather than an arbitrary slice. The two-sided membership changes with opposite net directions, exact 19-map basins and sharp transient cutoff characterize finite majority behavior not implied by mere existence of a paradox.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
