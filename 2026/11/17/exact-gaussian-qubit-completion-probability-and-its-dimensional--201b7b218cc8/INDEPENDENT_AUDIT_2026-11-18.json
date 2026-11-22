@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T01:10:39.385879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the all-m,n joint-moment event (not merely pointwise positivity) and checked it against Tian Theorem 4.1 for noncommuting 2x2 matrices. For A/||A||=rI+(1-r)P and B/||B||=sI+(1-s)Q, D has positive trace r+s and determinant rs-(1-r)(1-s)tr(PQ). Independent Haar complex lines give tr(PQ) uniform on [0,1]. Square 2x2 complex Wishart ordered eigenvalues imply f_R(r)=6(1-r)^2/(1+r)^4; using odds t=r/(1-r) gives 6/(1+2t)^4, and rational integration of min(1,ts) yields (24-28log2)/81. The partial fractions were checked independently numerically against the integral. Dimension 1 C=0 exponential-measure representation. For d>=3 Tian Eq(5.3) forces off-diagonal B_23=0 in an A-eigenbasis on a probability-one simple-spectrum/cyclicity event, a null event under the positive-definite Wishart density. This is almost surely not deterministic impossibility. Inspected RESULT.md blob 4b5a4daa86c9b2078bb3dfb01f5c6b88e9e540ba and Tian original PDF.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian establishes generic higher-dimensional noncompletion; candidate quantifies it as probability zero for a specified absolutely continuous complex Wishart ensemble.",
+          "A distinct record studies total-variation discontinuity of a 2x2 completion POVM, not success frequency."
+        ],
+        "reasoning": "The d>=3 zero consequence alone is covered as a generic statement, but the exact nontrivial d=2 logarithmic probability and conditional ratio law are not implied numerically by Tian absent new spectral integration; unchanged claim combines both.",
+        "searches": [
+          "Resultary search: Wishart Ginibre qubit joint Hausdorff moment positive completion simultaneous bilinear resolvent probability log2",
+          "arXiv:2611.03081 Section 5",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-total-variation-jump-for-unique-bilinear-resolvent-joint--3b321b9e0369"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-gaussian-qubit-completion-probability-and-its-dimensional--201b7b218cc8",
+        "https://arxiv.org/pdf/2611.03081",
+        "https://arxiv.org/abs/1504.00222",
+        "https://arxiv.org/abs/2011.07362",
+        "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-total-variation-jump-for-unique-bilinear-resolvent-joint--3b321b9e0369"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tian Thm4.1 and 5.1 give a deterministic completion test and matrix rigidity, not the exact independent-square-Wishart probability.",
+          "Candidate integrates conditional min(1,rs/[(1-r)(1-s)]) against two independent f_R to obtain (24-28log2)/81."
+        ],
+        "reasoning": "The published deterministic theorem implies generic collapse but not its nontrivial low-dimensional measure without the candidate spectral calculation; Wishart sum/difference spectral work does not use norm-normalized simultaneous Hausdorff completion.",
+        "searches": [
+          "Resultary search: Wishart Ginibre qubit joint Hausdorff moment positive completion simultaneous bilinear resolvent probability log2",
+          "Tian Theorem 4.1, Theorem 5.1, Eq 5.3",
+          "Kumar et al arXiv:1504.00222; Kumar-Charan arXiv:2011.07362"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tian 4.1 gives noncommuting qubit completion iff A/||A||+B/||B|| >= I and unique C.",
+          "Candidate integrates this criterion for independent square complex Wisharts, yielding (24-28 log2)/81; Tian does not state that ensemble probability."
+        ],
+        "reasoning": "The random matrix event is an application of the deterministic positive-completion theorem, but exact success measure over complex Wishart eigenvectors and eigenvalues is a separate numerical invariant, not identical to the criterion.",
+        "searches": [
+          "Resultary search: Wishart Ginibre qubit joint Hausdorff moment positive completion simultaneous bilinear resolvent probability log2",
+          "James Tian arXiv:2611.03081 Theorems 4.1, 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wishart jpdf proportional to (L-l)^2 exp(-L-l), hence f_R(r)=6(1-r)^2/(1+r)^4; line overlap U is uniform [0,1].",
+          "No indexed prior table of the normalized bilateral positivity event for these two independent matrices was found."
+        ],
+        "reasoning": "Ordinary eigenvalue tables give only marginal ingredients and do not tabulate this exact simultaneous completion probability.",
+        "searches": [
+          "Resultary search: Wishart Ginibre qubit joint Hausdorff moment positive completion simultaneous bilinear resolvent probability log2",
+          "complex Wishart eigenvalue ratio density and Haar line overlaps",
+          "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-total-variation-jump-for-unique-bilinear-resolvent-joint--3b321b9e0369"
+        ]
+      },
+      "rationale": "Tian gives exact deterministic completion classification and generic higher-dimensional nonexistence; the low-dimensional random success distribution, Haar-overlap conditional law, and logarithmic constant remain nontrivial new best-of-knowledge consequences rather than a prior number lookup.",
+      "residual_risks": [
+        "Unindexed normalized Wishart overlap probability may have been calculated under another statistical phrasing.",
+        "No claim of independent review of Tian’s deep completion classification from first principles; its precisely stated theorem is accepted as published input."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DETERMINISTIC_CRITERION_ONLY",
+          "evidence": [
+            "Theorem 4.1: A/||A||+B/||B|| >=I iff completion; unique C. Theorem 5.1 imposes spectrum rigidity; no complex-Wishart closed probability calculation in inspected text."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03081",
+          "material_read": "Full introduction and the actual statements/proofs of Theorem 4.1, Theorem 5.1, and equation (5.3), including normality/cyclicity conditions",
+          "method": "Lawful arXiv PDF with page screenshots and extracted theorem text",
+          "title": "Joint Moments of Bilinear Resolvents",
+          "trigger": "Exactly same operator moment problem and noncommuting qubit criterion"
+        },
+        {
+          "assessment": "DISTINCT_RANDOM_MATRIX_OBSERVABLE",
+          "evidence": [
+            "Ordinary unnormalized sum spectra are different from a norm-normalized bilinear-resolvent joint Hausdorff completion event."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.00222",
+          "material_read": "Abstract/source context, not complete paper",
+          "method": "Open abstract/indexed description",
+          "title": "On the Exact and Approximate Eigenvalue Distribution for Sum of Wishart Matrices",
+          "trigger": "Possible stronger Wishart distribution coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Calculates an exact probability for a natural random noncommuting operator-moment completion event, with a sharp dimensional phase collapse and a conditional distributional criterion. The d=2 logarithmic success constant answers a meaningful exact invariant unavailable from the deterministic existence classification alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-gaussian-qubit-completion-probability-and-its-dimensional--201b7b218cc8",
+    "https://arxiv.org/pdf/2611.03081",
+    "https://arxiv.org/abs/1504.00222",
+    "https://arxiv.org/abs/2011.07362",
+    "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-sharp-total-variation-jump-for-unique-bilinear-resolvent-joint--3b321b9e0369"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific correctness is based on reconstructed analytic proof; bounded independent tests do not establish universal claims by themselves.",
+    "Best-of-knowledge originality retains specific primary-literature and indexing risks recorded in source_inspections and residual_risks.",
+    "Package METADATA.json contains a public operational scope_run_id requiring sanitation. All possible public files must be inspected before any publication; no full verified replacement or source-tree guards prepared."
+  ],
+  "schema_version": 1
+}

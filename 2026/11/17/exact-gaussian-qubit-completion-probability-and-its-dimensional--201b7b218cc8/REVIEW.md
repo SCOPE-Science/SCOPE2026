@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The output event is exactly the positive-completion problem defined in reference [1] for positive-definite matrices. Theorems 4.1 and 5.1 of [1] were read at the substantive proof level, including their uniqueness/positivity conclusions and scalar moment construction; there is no assumption that ordinary matrix positivity alone implies a joint moment representation. In the qubit calculation the trace/determinant conditions, Haar complex-line overlap distribution and ordered complex-Wishart ratio Jacobian were recomputed. The intermediate one-dimensional conditional integral was derived by splitting at the hyperbola boundary. Exact rational partial fractions give the final logarithmic value. The higher-dimensional part uses the explicitly necessary off-diagonal scalarity condition, not just the source's open-dense nonexistence assertion; absolute continuity upgrades the conclusion to almost surely. The claim excludes commutation and eigenvalue-collision null events correctly. `CHECKER.py` provides separate numerical and exact-rational diagnostics. Residual scientific dependence: the primary paper's operator-valued moment completion theorems are cited inputs, not independently reproved in full here.
+## correctness
 
-## Originality — PASS (best-knowledge literature comparison)
-The new computed invariant is the probability of existence for the independent complex-square-Ginibre ensemble, and its sharp dimension law; neither source [1]'s deterministic matrix criterion nor its generic topological nonexistence statement supplies the nontrivial \((24-28\log2)/81\) probability. Historical mathematical findings were inspected for mathematical implication, including a nearby Kubo–Ando two-qubit example and random-matrix positivity/sketching records, none of which determines the present normalized bilinear-resolvent event. published-finding corpus queries covered the full source name, random Wishart positive completion, qubit normalized positive sums and exact logarithmic constant; no equivalent or stronger covering result was identified. Sum/difference Wishart literature [2,3] uses different unnormalized spectral events. An older formula expressed as positivity of two operator-norm-normalized Wishart matrices could nonetheless cover the calculation and remains a publication-priority risk. This is best-knowledge originality, not an independence claim.
+PASS
 
-## Mathematical value — PASS
-The positive-completion problem is a new natural simultaneous moment-compatibility question for two noncommuting positive operators. Its solvability is generic nowhere in higher dimensions, but that topological distinction alone does not quantify random behavior. The chosen Gaussian ensemble is the canonical unitarily invariant model for positive random matrices, and dimension two is the unique size with positive noncommuting solvability probability. The exact fraction, conditional angular law, and zero-versus-positive transition precisely quantify the robustness and rarity of this compatibility property in the most natural benchmark model. The invariant is not an arbitrary numerical constant or a restatement of the source criterion. No claim is made about arbitrary ensembles or the distribution of the completing operator.
+Reconstructed the all-m,n joint-moment event (not merely pointwise positivity) and checked it against Tian Theorem 4.1 for noncommuting 2x2 matrices. For A/||A||=rI+(1-r)P and B/||B||=sI+(1-s)Q, D has positive trace r+s and determinant rs-(1-r)(1-s)tr(PQ). Independent Haar complex lines give tr(PQ) uniform on [0,1]. Square 2x2 complex Wishart ordered eigenvalues imply f_R(r)=6(1-r)^2/(1+r)^4; using odds t=r/(1-r) gives 6/(1+2t)^4, and rational integration of min(1,ts) yields (24-28log2)/81. The partial fractions were checked independently numerically against the integral. Dimension 1 C=0 exponential-measure representation. For d>=3 Tian Eq(5.3) forces off-diagonal B_23=0 in an A-eigenbasis on a probability-one simple-spectrum/cyclicity event, a null event under the positive-definite Wishart density. This is almost surely not deterministic impossibility. Inspected RESULT.md blob 4b5a4daa86c9b2078bb3dfb01f5c6b88e9e540ba and Tian original PDF.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Tian gives exact deterministic completion classification and generic higher-dimensional nonexistence; the low-dimensional random success distribution, Haar-overlap conditional law, and logarithmic constant remain nontrivial new best-of-knowledge consequences rather than a prior number lookup.
+
+## value
+
+PASS
+
+Calculates an exact probability for a natural random noncommuting operator-moment completion event, with a sharp dimensional phase collapse and a conditional distributional criterion. The d=2 logarithmic success constant answers a meaningful exact invariant unavailable from the deterministic existence classification alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
