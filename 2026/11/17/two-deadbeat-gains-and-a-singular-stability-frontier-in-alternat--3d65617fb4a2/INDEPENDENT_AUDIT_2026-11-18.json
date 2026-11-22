@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-18",
+  "audited_at_utc": "2026-11-18T19:49:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact solution on each unit cell with sampled self-consistency z=q*y/(1+c*(1-q)) gives M0=r−uc and Mtheta=(r−wc)/(1+vc); the two-step multiplier P=M0*Mtheta governs all mesh states, with bounded within-cell propagation. Completing a square proves (1+vc)(P+r)=uw(c−r/u)^2+r(1+r)−wr²/u>0 for all c>=0,theta in [0,1]; so P>−r>−1. For theta<1, the strictly upward quadratic for P−1 has exactly one positive root c*, giving the iff stability region; at theta=1 w=0 and all finite gains stable. Both numerator factors vanish at c1=r/u and c2=r/w when 0<theta<1; the global trajectory vanishes from t=1 or t=2 respectively. As theta->1, w~alpha*r*(1−theta) and w*c*->1+r, hence (1−theta)g*->1+e^alpha. Rational case r=1/2,q=3/4 gives P=(1−c)(2−c)/(2(4+c)) with roots 1,2, threshold 6; independently checked by exact fractions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song and Liu 2012 covers alternately retarded/advanced arguments at interval endpoints and stability of numerical RK methods; Torres Naranjo and Castillo 2026 treat general periodic Hopfield systems using sufficient attractivity criteria."
+        ],
+        "reasoning": "Neither examined theorem asserts the full exact continuous scalar gain domain for an interior second sample, two deadbeat gains, or the theta->1 singular law; generic sufficient criteria are weaker than the sharp necessary-and-sufficient boundary.",
+        "searches": [
+          "Resultary semantic search: alternating advanced retarded piecewise constant differential equation two deadbeat gains singular Floquet stability bound",
+          "https://link.springer.com/article/10.1186/1029-242X-2012-290",
+          "https://arxiv.org/abs/2610.36560"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: alternating advanced retarded piecewise constant differential equation two deadbeat gains singular Floquet stability bound",
+        "https://link.springer.com/article/10.1186/1029-242X-2012-290",
+        "https://arxiv.org/abs/2610.36560",
+        "Pinned RESULT.md and verify.py; independent exact Fraction example, completed-square identity and analytic differentiation; Resultary Floquet search; Song and Liu 2012 full OA article; Torres Naranjo-Castillo 2026 available abstract."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For theta=1 the first-retarded second-right-endpoint special case is covered by older alternating-argument theory and explicitly excluded from novelty; theta=0 is retarded-square."
+        ],
+        "reasoning": "Novelty assessed only for 0<theta<1 exact interpolation, second extinction root and singular approach, which are not immediate corollaries of an endpoint-only theorem.",
+        "searches": [
+          "Resultary semantic search: alternating advanced retarded piecewise constant differential equation two deadbeat gains singular Floquet stability bound",
+          "https://link.springer.com/article/10.1186/1029-242X-2012-290",
+          "https://arxiv.org/abs/2610.36560"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-cell solutions are a generalized piecewise-constant argument (EPCA/DEPCAG) with a period-two scalar Floquet multiplier."
+        ],
+        "reasoning": "Equivalent time-discrete transfer maps exist for fixed endpoint alternation, but they have only one finite deadbeat root and no variable advanced fraction theta in their results.",
+        "searches": [
+          "Resultary semantic search: alternating advanced retarded piecewise constant differential equation two deadbeat gains singular Floquet stability bound",
+          "https://link.springer.com/article/10.1186/1029-242X-2012-290",
+          "https://arxiv.org/abs/2610.36560"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database of the two-sample interior theta/g phase diagram with exact c* and both deadbeat roots was located; numerical RK stability regions are different objects."
+        ],
+        "reasoning": "Rational example c1=1,c2=2,c*=6 confirms a real distinct phenomenon rather than a known endpoint table.",
+        "searches": [
+          "Resultary semantic search: alternating advanced retarded piecewise constant differential equation two deadbeat gains singular Floquet stability bound",
+          "https://link.springer.com/article/10.1186/1029-242X-2012-290",
+          "https://arxiv.org/abs/2610.36560"
+        ]
+      },
+      "rationale": "The completed best-of-knowledge review compares the exact theorem (not just title) with the closest published records and primary source statements. Novelty assessed only for 0<theta<1 exact interpolation, second extinction root and singular approach, which are not immediate corollaries of an endpoint-only theorem. Access and priority risks are explicitly retained.",
+      "residual_risks": [
+        "Earlier scalar DEPCAG literature may independently derive the same phase-dependent two-step gain multiplier.",
+        "Generalized Hopfield primary full theorem body was not read, so exact hidden specialization cannot be ruled out from snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Endpoint alternating case known; interior sample phase variable and double deadbeat gain not covered",
+          "evidence": [
+            "Their discrete/numerical RK stability treatment differs from exact scalar phase-dependent continuous multiplier"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/1029-242X-2012-290",
+          "material_read": "Full public OA HTML, definitions and main stability/theoretical setting reviewed",
+          "method": "Springer public article full text inspected",
+          "title": "M. Song and M. Liu, Numerical stability and oscillation of the Runge-Kutta methods for differential equations with piecewise continuous arguments alternately of retarded and advanced type",
+          "trigger": "Same alternating retarded/advanced class at boundary phase"
+        },
+        {
+          "assessment": "No justified complete-body NOT_COVERING assertion; generic sufficient theory risk remains",
+          "evidence": [
+            "Explicit complete necessary-and-sufficient two-factor scalar frontier not located in available material"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.36560",
+          "material_read": "Abstract and published model/claims; full theorem body not obtained in this audit",
+          "method": "arXiv public bibliographic/abstract reading",
+          "title": "Torres Naranjo and Castillo Apolonio, Periodic Solutions and Exponential Attractivity in Hopfield-Type Neural Networks with Generalized Piecewise Constant Arguments",
+          "trigger": "Broad generalized alternating advanced sample and attraction framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete sharp gain-phase stability diagram, two finite-extinction gains and singular disappearance of the gain ceiling are motivated bifurcation phenomena for alternating advanced/retarded sampling. The facts distinguish simple one-period and endpoint cases and can inform hybrid-control theory without requiring a nonlinear generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only scalar linear inhibitory feedback, two equal-length cells and theta∈[0,1]. No nonlinear or arbitrary-mesh stability, no uniform rates as g->infinity.",
+  "schema_version": 1
+}

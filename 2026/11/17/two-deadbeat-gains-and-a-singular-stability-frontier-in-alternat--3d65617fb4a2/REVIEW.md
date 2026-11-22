@@ -1,19 +1,21 @@
-# Scientific review: alternating sampled-feedback stability
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The initial-value equation is well posed on every cell because the self-consistency denominator is strictly positive. Exact integration gives the one-cell factors, and their product is the full physical two-cell Floquet multiplier. The completed-square inequality proves the strict universal lower bound; an upward quadratic with a negative constant term has exactly one positive stability crossing. An exact derivative with respect to the sample location proves strict growth of the stability budget. The numerator factorization gives precisely two distinct deadbeat gains for interior phases. A singular expansion proves the endpoint coefficient, and exact rational arithmetic checks the stated witness. The standalone numerical checker corroborates the algebra but is not substituted for proof.
+PASS
 
-## Originality (O): PASS within inspected evidence
+Exact solution on each unit cell with sampled self-consistency z=q*y/(1+c*(1-q)) gives M0=r−uc and Mtheta=(r−wc)/(1+vc); the two-step multiplier P=M0*Mtheta governs all mesh states, with bounded within-cell propagation. Completing a square proves (1+vc)(P+r)=uw(c−r/u)^2+r(1+r)−wr²/u>0 for all c>=0,theta in [0,1]; so P>−r>−1. For theta<1, the strictly upward quadratic for P−1 has exactly one positive root c*, giving the iff stability region; at theta=1 w=0 and all finite gains stable. Both numerator factors vanish at c1=r/u and c2=r/w when 0<theta<1; the global trajectory vanishes from t=1 or t=2 respectively. As theta->1, w~alpha*r*(1−theta) and w*c*->1+r, hence (1−theta)g*->1+e^alpha. Rational case r=1/2,q=3/4 gives P=(1−c)(2−c)/(2(4+c)) with roots 1,2, threshold 6; independently checked by exact fractions.
 
-The most directly relevant 2012 Song–Liu paper already treats the endpoint-alternating equation, so that case is explicitly excluded as a novelty claim. The 2026 Torres Naranjo–Castillo Apolonio paper admits generalized interior sampling and develops sufficient estimates, but its inspected theorem and examples do not give the sharp two-period gain frontier, two distinct finite-time-extinction gains, or the reciprocal endpoint law. Published single-phase gain-stability studies cover constant sampling phases rather than an alternating two-step product. The joint interior-phase structure, not the elementary single-cell formula, is the novelty claim. Historical priority for other mixed-argument scalar equations cannot be absolutely excluded.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The result solves a natural design question left open by sufficient-condition approaches: how sharp closed-loop stability and exact finite-time cancellation change when one sample in an alternating inhibitory feedback schedule moves continuously from delayed to advanced observation. Two physically distinct deadbeat gains exist for every genuine interior advanced phase and merge at the retarded endpoint, while the stable gain budget diverges at the advanced endpoint with an exact coefficient. This sharp instability-versus-cancellation classification is useful for assessing periodic sampling protocols and is not a mere normalization or single isolated parameter check.
+The completed best-of-knowledge review compares the exact theorem (not just title) with the closest published records and primary source statements. Novelty assessed only for 0<theta<1 exact interpolation, second extinction root and singular approach, which are not immediate corollaries of an endpoint-only theorem. Access and priority risks are explicitly retained.
 
-## Closest literature and scope
+## value
 
-The 2012 exact endpoint-alternating model limits novelty to interior phases. The 2026 generalized piecewise-argument source provides the motivation and ambient class. Single-phase gain-independent sampling thresholds are related but insufficient to determine the two-step product. The model is linear, scalar, and nonimpulsive; broader networks and nonlinearities are unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp gain-phase stability diagram, two finite-extinction gains and singular disappearance of the gain ceiling are motivated bifurcation phenomena for alternating advanced/retarded sampling. The facts distinguish simple one-period and endpoint cases and can inform hybrid-control theory without requiring a nonlinear generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
