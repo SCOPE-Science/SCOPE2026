@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Independent reconstruction from the Gram kernel gives the exact row integral. Convexity in the scalar evaluation basis value reduces all rows to endpoints. A strict support-variance identity makes both endpoint kernels have exactly one sign-changing zero; the antiderivative then proves both branch formulas for every positive rate. The small-rate derivatives follow from uniform kernel Taylor expansions at simple zeros and give ±4/27; the large-rate explicit expansions give the logarithmic boundary layer and the opposite row tending to one. The checker passed 243 supplementary tests; no finite sampling substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kayumov proves the mesh-independent envelope three for symmetric-exponent exponential splines, not the exact finite-lambda formula or the logarithmic approach rate for the zero-and-negative-exponent pair.",
+        "Themistoclakis--Van Barel prove order-optimal Lebesgue growth for higher-degree polynomial projections on spheres; their discrete spherical projectors do not contain the interval two-exponential projector as a specialization."
+      ],
+      "reasoning": "A universal upper envelope of three would neither specify the finite-rate norm nor the boundary-layer coefficient. The spectral and geometric hypotheses of spherical polynomial projectors are different. The candidate is not claimed to improve the known general mesh-independent bound.",
+      "searches": [
+        "arxiv:math/0408418 Theorem 1 and Theorem 2; entire rendered thesis sections on exponential L-splines",
+        "arxiv:1808.03530 Theorems 3.1--3.3 and proofs",
+        "arxiv:1806.00439 Theorems 2.3--2.4 and proofs",
+        "sharp L infinity norm projection span 1 exponential decay exp(-lambda t) on interval least squares endpoint"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1806.00439 (full rendered)",
+      "arxiv:1808.03530 (full rendered)",
+      "arxiv:math/0408418 (full rendered)",
+      "arxiv:1809.00200 (abstract only)",
+      "2026/11/8/SCOPE-sharp-exterior-leverage-for-arbitrary-two-frequency-exponential--f0ac9e5102c3",
+      "2026/10/18/SCOPE-a-sharp-small-aperture-correction-for-three-mode-least-squares-p--078fe2a01265",
+      "2026/11/2/SCOPE-sharp-four-node-mass-exact-exponential-sbp-quadrature-and-bounda--187e0851884f",
+      "2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior row-integral identity is a standard general principle; the new work evaluates it for a nonsymmetric exponential family and derives two opposite endpoint expansions, including the explicit logarithmic layer.",
+        "Kayumov exact constant three is over a mesh/parameter family, and does not yield a rate-dependent formula even on the special one-interval model.",
+        "The exterior leverage result bounds a squared L2 evaluation norm, and the short-aperture trigonometric result has a three-dimensional symmetric span, so neither implies the rate-dependent L1 kernel integral."
+      ],
+      "reasoning": "Prior general projection machinery is acknowledged as an ingredient. The claimed output is a concrete sharp parameter law and singular-rate correction not established by any inspected stronger statement; incomplete specialist indexing remains a real priority risk.",
+      "searches": [
+        "arxiv:math/0408418 Theorem 1 versus exact finite-interval fixed-decay norm",
+        "arxiv:1806.00439 norm of least squares projections",
+        "arxiv:1808.03530 equations for kernel row Lebesgue constants",
+        "published-finding corpus f0ac9e5102c3 exterior leverage; 078fe2a01265 short-interval trigonometric projector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-rate operator is the L2 projector onto the kernel of D(D+lambda) on one interval; the Gram representation reduces its norm to two log-uniform kernel rows. Kayumov arXiv:math/0408418 discusses D^2-alpha^2 and unequal opposite-sign exponent splines but does not state this D(D+lambda) fixed-rate expression.",
+        "published-finding corpus search returned exterior evaluation leverage for two exponential modes (f0ac9e5102c3), a different L2 point-evaluation problem, rather than the uniform-noise L-infinity norm of the projector."
+      ],
+      "reasoning": "Equivalent bases {1,(1-exp(-lambda t))/lambda} and {1,exp(-lambda t)} were checked. An exterior L2 leverage estimate does not imply an integral of the absolute reproducing kernel over the input interval. No exact equivalent formula was identified; this is not a proof of absence.",
+      "searches": [
+        "two-dimensional real orthogonal projection onto exponential Chebyshev system span 1 exp lambda t exact Lebesgue constant",
+        "exponentially decaying basis fit L infinity norm uniform interval as rate tends to infinity 3",
+        "rank two least squares projector exponential function endpoint norm log uniform distribution high rate",
+        "arxiv:math/0408418 sections 1.1-1.3: second-order exponential L-splines"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus items concern symmetric trigonometric three-mode projectors, periodic splines, exponential SBP quadrature, and exterior leverage. Their titles/summaries and implication comparisons do not supply the two-branch log-uniform integral or its high-rate correction.",
+        "The retrieved primary articles contain general kernel row formulas and broad bounds rather than a table of the specific exponential-rate constants."
+      ],
+      "reasoning": "No exact tabulated finite-rate values or dominating theorem with these objects were found. Search coverage is limited and no database-uniqueness inference is made.",
+      "searches": [
+        "sharp L infinity norm projection span 1 exponential decay exp(-lambda t) on interval least squares endpoint",
+        "exponential polynomial two dimensional subspace least squares projection Lebesgue constant exponential regression",
+        "orthogonal projector span {1, e^-x} uniform interval norm positivity overshoot",
+        "arxiv:1806.00439 kernel Lebesgue constant formulas",
+        "arxiv:1808.03530 least squares projection kernel"
+      ]
+    },
+    "rationale": "Best-knowledge originality after actual semantic record queries, owned-claim comparison, and substantive examination of the three closest primary full-text works. The known sharp mesh-uniform constant three is not claimed as new; the precise two-endpoint formula, the log boundary-layer scale, and the initial 4/27 slope are not logical consequences of the inspected general bounds. Residual specialist-literature priority risk remains.",
+    "residual_risks": [
+      "Older specialized exponential-Chebyshev and L-spline references beyond the accessible rendered work may contain an equivalent one-cell computation.",
+      "The 2018 matrix perturbation paper was accessed only at abstract level and is not treated as definitively noncovering.",
+      "A database/semantic search cannot establish historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "different discrete spherical polynomial spaces; no fixed interval exponential two-mode branch or rate law",
+        "evidence": [
+          "Sections 1-3 and display (42) evaluate finite-node sums of absolute kernel values for spherical polynomial spaces; not the interval exponential kernel."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.00439",
+        "material_read": "arXiv rendered full text, introduction, principal theorems, proofs including kernel equation (42)",
+        "method": "read the arXiv HTML full-text rendering and compare operator domain, basis, norm and rate parameter",
+        "title": "Uniform approximation on the sphere by least squares polynomials",
+        "trigger": "2018 public source establishing kernel-row Lebesgue norm and its approximation significance"
+      },
+      {
+        "assessment": "spherical polynomial near-best approximation bounds do not imply the exponential one-interval exact formula",
+        "evidence": [
+          "Theorem 3.3 and equation (24) estimate discrete kernel sums at growth order; no exponential-decay parameter."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.03530",
+        "material_read": "arXiv rendered full text, introduction, Theorems 3.1-3.3 and proof sections 4.1-4.2",
+        "method": "read the arXiv HTML rendering and compare the geometry and spectral degree parameters",
+        "title": "Optimal Lebesgue constants for least squares polynomial approximation on the (hyper)sphere",
+        "trigger": "closely related norm of least-squares orthogonal projectors"
+      },
+      {
+        "assessment": "existing mesh-uniform three is acknowledged; not an explicit rate-dependent row-integral norm or logarithmic layer for zero exponent",
+        "evidence": [
+          "Sections 1.1-1.3 distinguish symmetric exponent exact universal envelope from unequal opposite-sign exponent uniform boundedness."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+        "material_read": "arXiv full rendered text: problem formulation, operator definitions, results for symmetric and opposite-sign exponential generators, contextual theorem statements",
+        "method": "read thesis HTML rendering, contrast D(D+lambda) fixed single-cell with D^2-alpha^2 general knots and D-lambda1,D-lambda2 both nonzero",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "nearest primary treatment of exact three bound for exponential spline projection"
+      },
+      {
+        "assessment": "matrix-column-space perturbation bounds appear different; full text not inspected, so not classified as definitively noncovering",
+        "evidence": [
+          "Abstract describes general matrix perturbations rather than exact fixed-basis L-infinity norms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.00200",
+        "material_read": "original arXiv abstract and bibliographic/submission details only; full-text comparison not used to exclude coverage",
+        "method": "read abstract and metadata",
+        "title": "On the perturbation of an L2-orthogonal projection",
+        "trigger": "same class of projections and uniform perturbation concern"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "939a27f6-792e-4468-9ddc-62669a7ee4a2",
+  "value": {
+    "rationale": "Continuous exponential-mode least-squares fitting is a natural stable/unstable linear approximation operator. The norm controls worst-case bounded measurement error and the exact negative part controls positivity loss. The result gives a complete rate-dependent computable constant (not merely an upper bound), pinpoints the boundary layer at log(2lambda)/lambda, and quantifies an asymmetry: the sharp gain changes from 5/3 to nearly three despite the model space staying dimension two. This is more than an arbitrary finite example or a recomputation of the known general envelope.",
+    "status": "PASS"
+  }
+}
