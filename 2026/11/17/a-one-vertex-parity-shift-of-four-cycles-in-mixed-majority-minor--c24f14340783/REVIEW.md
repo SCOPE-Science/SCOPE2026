@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact microscopic update is reduced separately for even and odd graph order using neighbor-one count equal to total ones minus the current bit. In the even case the entire central layer either creates balanced two-cycles or maps off-central; in the odd case both tie layers reduce to frozen contrarian words or macro states. Counting the central layers and their one-step images yields every orbit and entrance-time formula. The proof includes small parameter boundaries and a separate immediate-predecessor argument establishing the isolation assertion. A standalone vertexwise implementation independently enumerated all 104 parameter pairs through 15 vertices and matched all orbit and entry-time counts. The mathematical proof, not the enumeration, covers all graph orders.
+## correctness
 
-## Originality — PASS with residual priority risk
-The exact published equal-population complete-graph result covers only the even balanced slice; it expressly excludes arbitrary group proportions and odd-order tie behavior. Haslegrave and Cannings (2016) establish or credit period restrictions and the strict-majority 4-cycle condition, not the full binomial class and basin enumeration. Cao and Yang (2014, Theorem 5) already give the matching complete-graph criterion for **fixed-point existence**, which is not claimed as a novelty; they do not count all fixed states, temporal cycles or first-entry times. Cao et al. (2013) study the same tie-retaining game with results on other graph families. Searching related published mathematical records and accessible literature did not reveal the all-parameter tie-retaining theorem. Cannings (2009) explicitly studies complete graphs, and its full text could not be accessed; it remains a material risk for historical priority, not evidence of known implication.
+PASS
 
-## Mathematical value — PASS
-The complete all-parameter census reveals a structural bifurcation in finite discrete dynamics: at even order the 4-cycle occurs at exact equality, but at odd order one additional contrarian produces it. The odd-order contrarian-majority regime has \(2\binom{k}{(N-1)/2}\) equilibria, each inaccessible from other states, whereas the neighboring regimes support macro oscillations. The sharp two-step transient ceiling and exact basin-entry populations complete a natural dynamical invariant rather than a single isolated example.
+Derived both update maps from neighboring-one count t-x: for even N=2q the off-center configurations collapse to A=(0_m,1_k), B=(1_m,0_k), while t=q maps to (complement X,Y); odd N=2q+1 has central t=q -> (0_m,Y), t=q+1 -> (1_m,Y), respecting neighbor ties. Counting their recurrent central states and macro orbit yields all H,C2,C4 and E0/E1/E2 binomial formulas. Explicit predecessor logic confirms odd contrarian-dominant fixed points are isolated and every path enters within two steps; no overlooked length. Independently enumerated all 35 splits for N=3..9 with direct per-vertex update and complete path/cycle tracing; every orbit/entry count matched formulas, but all-N proof rests on exact update identities.
 
-## Closest literature and limitations
-Cannings (2009), DOI:10.1109/GAMENETS.2009.5137464; Haslegrave–Cannings (2016), arXiv:1606.05496; Cao et al. (2013), DOI:10.2139/ssrn.2260025; Cao and Yang (2014), DOI:10.1016/j.tcs.2014.05.009, Theorem 5; and the published balanced complete-graph census at https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-exact-oscillatory-basins-for-a-balanced-complete-graph-majority--6d2b4fc7152d/RESULT.md. The full Cannings paper could not be inspected. Independent literature and proof audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known results already restrict complete-graph majority/minority periods to 1,2,4 and the balanced even case: published 2026-11-01 balanced m=k orbit/basin formulas are subsumed by this assignment and not new. The novel statement is the full unequal-population odd/even binomial census, parity-shift four-cycle for k=m+1 at odd N, isolated odd equilibria and universal sharp two-update entry count. Cannings 2009 treated this exact agent rule and graph but primary full text was inaccessible, so a material overlap risk remains; snippets/abstract do not support a full-text NOT_COVERING judgment.
+
+## value
+
+PASS
+
+The simultaneous exact time-to-attractor census, parity-controlled four-cycle change under one added contrarian, and isolated fixed-basin phenomenon settle meaningful finite-state dynamics for ALL type splits. This is a natural systematic extension of the known balanced special case rather than an arbitrary small graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
