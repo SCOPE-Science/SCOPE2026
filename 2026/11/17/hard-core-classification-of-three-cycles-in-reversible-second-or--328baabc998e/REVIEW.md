@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Rule 54 normalization was checked directly against Wolfram's eight-bit truth table and an independent truth-table program. The third-iterate condition gives the three simultaneous equations \(p_i=x_{t,i-1}\lor x_{t,i+1}\). A zero-parity site forces both neighbors to be all-zero columns and propagates around the connected ring; otherwise the odd-parity one-hot or all-one columns satisfy the equation exactly when defects do not occur at displacement two. The converse reconstructs a valid orbit. The step-two graph has one or two cycles according to parity of the circumference; the independence-polynomial trace formula proves the weighted enumeration at all lengths. The only temporal fixed points are the two constant pairs. Independent exhaustive dynamics through circumference ten and an independent temporal-history graph through circumference twenty-four match the proof. The scripts are reproducing checks, not substitutes for the infinite theorem.
+## correctness
 
-## Originality — PASS, with bounded historical risk
-Actual mathematical-record queries and accessible source inspections were compared by the configuration space and update equation, not by the shared name “Rule 54.” Wolfram 1983 states the general reversible-memory construction and Rule 54 separately; Toffoli–Margolus 1990 and Vlasov 2013 state construction results. Buča–Klobas–Prosen 2021 analyze the staggered RCA54 model and its time-states, which use a different local update prescription and state space. The full 2014 glider/tiling paper studies ordinary synchronous Rule 54 rather than the two-register memory map. Published indexed one-step image findings for synchronous Rule 54 describe predecessor sets, not the third-iterate sector of this two-row memory map. No inspected statement implies the all-circumference three-cycle hard-core classification. Historical priority remains limited by unindexed works and the impossibility of exhaustively reading every source.
+PASS
 
-## Value — PASS
-The classification reveals an exact and non-obvious interaction constraint in a nonlinear, globally reversible automaton: temporal three-cycles are equivalent to a three-color hard-core gas on a graph that splits into two parity classes on even rings. It determines the entire defect-count generating polynomial, a strict period-three orbit census, a new spatial-entropy rate, and a strong even–odd structural difference, for every ring circumference rather than a small computational window. These are natural dynamical invariants of a canonical reversible completion of an elementary cellular automaton.
+For n>=3 the third-iterate fixed state corresponds bijectively to three successive temporal rows. Rule54 update forces parity of each column equal to the OR of neighboring row bits. Either parity zero everywhere yields uniform-zero history, or parity one everywhere requires columns 001,010,100,111, and defect columns cannot occupy spatial sites distance two. Converse reconstructs exact R^3 fixed states. Three independent one-hot colors give polynomial H_n(w)=1+s_n(w) for odd n, 1+s_(n/2)(w)^2 for even n, s0=2,s1=1,s_m=s_(m-1)+3w*s_(m-2). This yields (H_n(1)-2)/3 primitive temporal three-orbits and entropy log((1+sqrt13)/2). Independent brute-force rings n3..8 yielded 11,50,62,101,338,962 fixed states; analytical bijection proves all n.
 
-## Scientific limitations
-Only third-iterate fixed states, not the full temporal orbit spectrum, are classified; no equivalence is asserted with the distinct staggered RCA54. The novelty conclusion is a best-knowledge assessment using checked published and archival material, not a formal uniqueness guarantee. No independent external validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
+
+## value
+
+PASS
+
+Motivated complete period-three structural classification of canonical reversible second-order Rule54, yielding an exact weighted distribution, all-ring orbit census and entropy rather than a small-state numerical list. A precise reusable invariant beyond generic transfer-matrix computability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

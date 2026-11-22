@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-18.md",
+      "INDEPENDENT_AUDIT_2026-11-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The exact all-ring theorem follows from the three-time parity equation and the independence polynomial of the step-two graph, as detailed in `RESULT.md`. Exhaustive programs corroborate the rule normalization and the finite-size specialization; they do not purport to prove an infinite assertion by enumerating finitely many states.
+## correctness
 
-Run `python3 verify_direct.py` for direct third-iterate evolution of every binary pair on each cyclic ring of length 3 through 10, checking the complete distribution over the number of temporal one-hot columns. Its standard output is reproduced exactly in `direct.out`.
+PASS
 
-Run `python3 verify_transfer.py` for an independent local truth-table expansion, cyclic transfer graph, recurrent-component test, and exact graph traces through length 24. Its standard output is reproduced exactly in `transfer.out`.
+For n>=3 the third-iterate fixed state corresponds bijectively to three successive temporal rows. Rule54 update forces parity of each column equal to the OR of neighboring row bits. Either parity zero everywhere yields uniform-zero history, or parity one everywhere requires columns 001,010,100,111, and defect columns cannot occupy spatial sites distance two. Converse reconstructs exact R^3 fixed states. Three independent one-hot colors give polynomial H_n(w)=1+s_n(w) for odd n, 1+s_(n/2)(w)^2 for even n, s0=2,s1=1,s_m=s_(m-1)+3w*s_(m-2). This yields (H_n(1)-2)/3 primitive temporal three-orbits and entropy log((1+sqrt13)/2). Independent brute-force rings n3..8 yielded 11,50,62,101,338,962 fixed states; analytical bijection proves all n.
 
-Both checks use only standard Python 3 and were executed from the embedded source code. No probabilistic approximation or external proof service is needed. Mathematical review is same-model only; independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual statement/implications, including relevant primary material and related published records; residual priority limitations stated.
+
+## value
+
+PASS
+
+Motivated complete period-three structural classification of canonical reversible second-order Rule54, yielding an exact weighted distribution, all-ring orbit census and entropy rather than a small-state numerical list. A precise reusable invariant beyond generic transfer-matrix computability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
