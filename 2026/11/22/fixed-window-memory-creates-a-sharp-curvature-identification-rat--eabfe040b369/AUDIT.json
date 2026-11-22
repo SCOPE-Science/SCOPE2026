@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Equation (3) of the primary source reduces exactly to the positive scalar recurrence; an invariant interval prevents zero divisions, and l-step contraction proves all fixed-l global limits. The feedback derivative has first row -a/l, giving P_l; the determinant and l-step infinity-norm bound yield universal root inequalities, and the l=2 discriminant proves the sharp crossover. Deterministic finite checker passed separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2602.13620 Lemma 2.5 bounds the optimization residual for all window choices, but does not give local feedback eigenvalues or window-dependent identification rate.",
+        "2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2: public summary of exact l=1 identification on two endpoint eigenspaces."
+      ],
+      "reasoning": "General residual convergence and fixed-parameter GD bounds do not imply the exact local characteristic roots or the one-to-two-window crossover. A general delay theorem could reproduce the spectral calculation, but no explicit dominating published result covering this application was verified.",
+      "searches": [
+        "residual ratio geometric window adaptive GD Hu Pollock Xue Zhu characteristic lambda^ell + (a/ell) sum lambda^j spectral radius tends one fixed window size",
+        "residual smoothing window length slows local curvature parameter identification rate to one geometric averaging gradient descent Hessian",
+        "adaptive gradient geometric mean ratio l window scalar diagonal quadratic companion characteristic spectral radius sharp two-step transition"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2602.13620",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2602.13620 supplies l=1 analysis and l=5 numerical experiments, not the full delay characteristic polynomial or its all-window bounds.",
+        "2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2 states an l=1 curvature identification recurrence; it does not imply l>=2 identification spectrum."
+      ],
+      "reasoning": "The new claim specializes the published algorithm to a retained eigenray and derives properties of its fixed-window feedback linearization. Neither a general optimization-iterate rate bound nor the l=1 formula implies the l>=2 characteristic roots, the a=1/2 reversal or the l-to-infinity near-unit spectral law.",
+      "searches": [
+        "Hu Pollock Xue Zhu adaptive gradient descent residual geometric mean window l=2 local parameter convergence complex characteristic roots sharp threshold 1/2",
+        "residual ratio geometric window adaptive GD Hu Pollock Xue Zhu characteristic lambda^ell + (a/ell) sum lambda^j spectral radius tends one fixed window size",
+        "residual smoothing window length slows local curvature parameter identification rate to one geometric averaging gradient descent Hessian",
+        "Sections 2.1 and 3.1 of https://arxiv.org/abs/2602.13620",
+        "2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Algorithm 1 and equation (3) of https://arxiv.org/abs/2602.13620 define the finite geometric-mean window; the present statement is equivalent to the full-lag smooth map linearization, not the l=1 scalar equation."
+      ],
+      "reasoning": "The source fixed-window update has exactly the derived lag-l companion and the one-history-step formula is its l=1 specialization. Searches of equivalent delay, characteristic, and curvature-identification formulations did not identify the l>=2 companion spectrum.",
+      "searches": [
+        "Hu Pollock Xue Zhu adaptive gradient descent residual geometric mean window l=2 local parameter convergence complex characteristic roots sharp threshold 1/2",
+        "geometric-average adaptive stepsize alpha_(k+1)=1+sqrt((1-a alpha_k)(1-a alpha_(k-1))) global convergence scalar quadratic",
+        "2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulation of r_l(a) or the a=1/2 crossing was present in the inspected source https://arxiv.org/abs/2602.13620; the closest indexed record covers l=1."
+      ],
+      "reasoning": "The result is a feedback spectral law, not a database count. The available mathematical index returned no exact table or same-parameter all-l result; database silence is not proof of priority.",
+      "searches": [
+        "adaptive gradient method geometric average last two residual ratios one-step versus two-step memory root modulus sqrt a over 2 local asymptotic",
+        "adaptive gradient geometric mean ratio l window scalar diagonal quadratic companion characteristic spectral radius sharp two-step transition",
+        "2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2"
+      ]
+    },
+    "rationale": "Direct comparison with the source full HTML (algorithm/equation (3), Lemma 2.5, Theorem 2.7, and Section 3.1) and targeted published-record searches identified no covering assertion for the fixed-l feedback companion, exact crossover, and length-asymptotic spectral slowdown. Closest record is l=1; full text unavailable and priority remains qualified.",
+    "residual_risks": [
+      "General linear delay-difference equation literature may contain equivalent companion spectral estimates under another formulation.",
+      "The closest published mathematical record was accessible only through its scientific summary, not full text.",
+      "This is an invariant-eigenspace local feedback result; it is not a statement for arbitrary mixed starting spectra or changing windows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALGORITHM_PREEXISTS_NO_COVERING_FIXED_WINDOW_SPECTRAL_STATEMENT",
+        "evidence": "Source Eq. (3) supplies same estimator; Lemma 2.5 gives general residual convergence; Theorem 2.7 treats l=1; figures examine l=1,5,k but do not state the present l-dimensional spectral law.",
+        "identifier_or_url": "https://arxiv.org/abs/2602.13620",
+        "material_read": "Source HTML abstract, Introduction, full Section 2.1 including Algorithm 1/equation (3)/Theorem 2.7, and Section 3.1 including l=1,5,k experiments",
+        "method": "Direct reading of the public arXiv HTML full-text sections",
+        "title": "An adaptive framework for first-order gradient methods",
+        "trigger": "Exact originating geometric-residual estimator and plausible theoretical overlap"
+      },
+      {
+        "assessment": "SUMMARY_COMPARISON_ONLY_REMAINING_PRIORITY_RISK",
+        "evidence": "Summary gives q_(k+1)=1-mu-mu q_k on l=1, matching r_1=mu, without a result for any fixed l>=2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2",
+        "material_read": "Published title and scientific summary, not full record",
+        "method": "Published mathematical-result search; full GitHub record attempted but unavailable",
+        "title": "Exact alternating identification on two endpoint spectra",
+        "trigger": "Closest published l=1 adaptive residual-ratio identification claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eabfe040-b369-484e-9c29-30a9cffd7eac",
+  "value": {
+    "rationale": "Smoothing window length is a natural parameter of the source algorithm. The proved all-window spectral squeeze and a=1/2 two-window crossing show a nontrivial reversal and an arbitrarily slow memory-induced calibration response despite fixed target and safe optimizer convergence. This is meaningful for selecting residual smoothing windows, with precise scope limits, not a mere parameter substitution.",
+    "status": "PASS"
+  }
+}
