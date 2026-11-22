@@ -1,17 +1,21 @@
-# Scientific review: surface-area condensation for complete-split graphical zonotopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for every integer \(p\ge3\), \(q\ge2\), in the unweighted inherited Euclidean metric. The graph-cut facet criterion gives exactly \((2^p-2)2^q+2q\) *directed* facet cuts. Orthogonal decomposition of a cut face, together with the Euclidean spanning-tree volume identity and the independently established complete-split tree enumerator, gives its exact area. Binomial reweighting and interior Taylor estimates yield the fixed-clique \(q^{-3/2}\) correction. Symmetric endpoint domination and a summable Stirling majorant prove the large-clique coefficient limit. The independent convex-hull calculation checks \(156\) small-parameter facet instances and \(4\) graph spanning-tree counts. Direct numerical tests verify representative leading coefficients. Finite experiments are corroboration, not a substitute for the arguments.
+## correctness
 
-## Originality — PASS (priority provisional)
-Mark Dukes's complete-split-graph paper gives the spanning-tree enumerator, not Euclidean facet area. Padrol–Pilaud–Poullot give a general graphical-zonotope face structure and deformation cone, not this family's metric area distribution. The existing general graph cut-face volume principle makes the exact finite formula *computable* but does not state or directly evaluate the family-specific binomial asymptotic or the nested Poisson-edge constant. A comparison for the distinct complete-bipartite graph \(K_{2,q}\) has the same concentration exponent, but does not yield the varying coefficient \(A_p\) for clique size \(p\ge3\), its exact area spectrum, or \(\lim_{p\to\infty}A_p/p^{3/2}\). Search coverage cannot establish absolute historical priority; equivalent unindexed work is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The number of peripheral-singleton facets is only \(2q\), whereas other facets number \((2^p-2)2^q\), yet those \(2q\) facets take all but an explicitly quantified \(q^{-3/2}\) area share. The finding classifies a complete natural Euclidean boundary invariant for a standard graph-derived polytope family and uncovers a nontrivial dependence on clique size: \(A_3=3\sqrt2\), \(A_4=3\sqrt3+3/2\), and a convergent Poisson-edge limiting series. These are not results about arbitrary parameter slices; they describe the complete canonical family at fixed clique size and its coefficient family. The Poisson coefficient needs an endpoint-dominated asymptotic argument beyond direct tree counting.
+Connected cuts with both induced sides connected classify all facets of a connected graphical zonotope; their Euclidean facet measures are sqrt(|S||T|) times the product of induced spanning-tree counts. The complete-split graph has exactly 2q peripheral-singleton directed facets and (2^p-2)2^q clique-splitting facets with the stated expressions. Matrix-tree gives τ(K_a∨I_b)=(a+b)^(a-1)a^(b-1), including a=1/b=0 boundary. Reweight the split-cut sum by T∼Bin(q,k/p), derive fixed-p expectation q^(p-1)(constant+O_p(q^-1)); divide by the 2q singleton area to obtain A_p q^-3/2+O_p(q^-5/2). For p→∞ express A_p/p^1.5 as two symmetric endpoint sums of binomial mass b_(p,k)/[k(1-k/p)]^1.5, dominate by O(k^-2) and use b_(p,k)→e^-k k^k/k!. This gives C*=∑ e^-j j^(j-3/2)/j!, not a simultaneous two-parameter limit.
 
-The publicly accessible complete RESULT.md for the separate *Vertex-degree distribution and connected simple stratum of complete-split graphical zonotopes* was compared against this area claim: it proves degree enumerators and connectivity, not Euclidean facet areas. The published complete-multipartite circumsphere and complete-bipartite covariance theorems were likewise inspected in full and establish different metric invariants, neither implying this asymptotic.
+## originality
 
-## Closest literature and limitations
-Dukes, arXiv:2006.08006 (v1 dated 2020-06-14), §3.3, Proposition 3.8, Corollary 3.9; Padrol, Pilaud, Poullot, arXiv:2111.12422, graphical-zonotope face-lattice results and deformation-cone theorem (open access journal HTML). The ordinary graph-zonotope volume/tree identity is classical. No claim is made about weighted edges or simultaneous growth of the clique and independent-set parameters. Historical originality remains subject to independent literature assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical spanning-tree/connected-cut results supply the necessary finite formula framework. The directly related published K_(2,q) complete-bipartite area theorem establishes the same concentration exponent for a different graph with coefficient 2; it does not contain the complete-split clique area spectra A_p for p≥3 or the endpoint C*. Primary Padrol–Pilaud–Poullot covers combinatorial normal fans/deformation cones, while Dukes gives the tree count. No strong source directly covers the two-level asymptotic; unknown equivalent work remains possible.
+
+## value
+
+PASS
+
+This computes the complete intrinsic facet-area spectrum for a natural two-parameter family of graphical zonotopes, not just a combinatorial face count. A vanishing exponentially small fraction of singleton facets captures almost all boundary area, with a sharp family-dependent q^-3/2 deficit and an explicit nontrivial endpoint-Poisson limit as clique size grows. These results illuminate the mathematically meaningful contrast between uniform facet sampling and surface-area sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
