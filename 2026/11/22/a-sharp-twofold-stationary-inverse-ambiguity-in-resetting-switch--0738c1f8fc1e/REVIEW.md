@@ -1,0 +1,23 @@
+# Scientific review
+
+## Correctness — PASS
+
+The specified full-renewal Markov-modulated Brownian process has a stationary exponential-age resolvent. Direct matrix inversion gives the stated \((1+Ak^2)/(1+Bk^2+Ck^4)\) characteristic function. The even-moment recurrence reconstructs its three coefficients from normalized moments of orders two, four and six because the denominator \(u_2-u_1^2=\theta(1-\theta)(D_1-D_0)^2/[r(r+\alpha+\beta)]\) is strictly positive. Every inverse candidate is a root of one proved quadratic, so the sharp one-or-two bound is exhaustive. Substituting each root establishes both necessity and sufficiency of the physical positivity inequalities. The nontrivial branch exists precisely at the displayed strict threshold. Holding the second and fourth moments fixed while perturbing the internal stationary occupation proves an open continuum of fourth-order indistinguishable models. Independent interval-conditioning proves covariance decay \(e^{-rt}\), giving exact temporal recovery.
+
+The attached `verify.py` independently solves the two-phase Markov moment hierarchy in exact rational arithmetic and tests the dual transform; 906 assertions over 81 valid parameter points succeeded. This program does not by itself prove the infinitely many allowed parameters; the explicit inequalities, inverse construction and moment identities do. The example with \(D_0=1,D_1=3\) was verified exactly. No dependence on an unavailable computation or historical package is required.
+
+## Originality — PASS, with remaining source-access risk
+
+Bressloff (2020), DOI 10.1088/1751-8121/ab97e0, is the indispensable same-model antecedent: its accessible abstract and first page explicitly give the forward two-exponential NESS. That result is excluded from the asserted contribution. The new claim is the sharp global inverse identification theorem, not another expression for the NESS. Its strong feature is equivalence of the **complete** one-time distribution under different physical reset and state-switch rates, coupled with a sharp feasibility boundary and a one-lag temporal diagnostic. Source searches for parameter duality, rate aliasing, inverse identification, and switching-reset equivalence did not reveal a statement with that implication. The nearest mathematical records either treat diffusivity switching **without resetting**, a **harmonically confined** switching medium, or two reset protocols compared at the **same rates**, rather than a duality of different positive parameter triples for one full-reset protocol.
+
+The full text of Bressloff (2020) was not available via the consulted lawful open source or institutional access; only its publication first page/abstract was materially inspected. Accordingly, this source's uninspected interior could contain implicit coverage. Bressloff (2024), DOI 10.1103/PhysRevE.109.024103, was available in full and relevant sections were inspected; its truncated switching/first-passage theory does not present this inverse fold. Originality is accepted on the comparison performed with the **explicit unresolved priority risk**; lack of a search hit is not treated as proof of novelty.
+
+## Mathematical value — PASS
+
+For partially observed transport with known state diffusivities, a unique inverse fit from a static positional profile is a natural experimental and mathematical question. The result shows a sharp structural identifiability obstruction that survives observation of **all** stationary positional moments, pinpoints exactly when the obstruction exists, and proves that a measured positive-time covariance resolves it. The sixth-order finite observation cutoff and fourth-order continuum are nontrivial boundaries, not parameter substitution. This is a complete natural inverse classification with a directly motivated observable consequence; it does not claim finite-sample statistical efficiency or a new forward stationary formula.
+
+## Closest literature and limitations
+
+Bressloff (2020): forward two-state Poisson resetting and NESS, first passage and optimized resetting; full paper not inspected. Bressloff (2024): truncated switching and first-passage bounds, not this inverse problem. Published mathematical records on switching-diffusivity inverse moments and covariance camouflage have different dynamics or observables. All inverse formulas assume known distinct positive diffusivities, positive switching and reset rates, complete phase-and-position renewal, and exact stationary observations; external experimental validation and independent audit remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
