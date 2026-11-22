@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The zonotope perimeter identity holds for each direction; the conditional-azimuth inversion gives an exact CDF. Lagrange equations classify the only critical values (6 axes, 12 face diagonals, 8 space diagonals). Independent exact tangent-Hessian calculations yield coefficients -sqrt(2) and sqrt(2)-1 at the saddles, and -sqrt(6)/4 at maxima. Local coarea/Morse expansion gives 12/(4pi sqrt(2-sqrt(2))) times log(1/|p-p*|), with bounded remainder. Standard spherical cap areas give endpoint coefficients. A checker compared 160 independently constructed convex hull perimeters and numerical CDF and coefficient estimates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vickers & Brown (2001), pp.297-303, provide numerical joint area–perimeter plots and discuss stationary contours but not the exact marginal singular coefficient.",
+        "Finch (2012), pp.4 and 9, provides moment calculations, not a sharp density caustic.",
+        "Published record title Haar-random planar projection perimeter moments of all orthotopes reports exact moments and high-dimensional variance, not an entire CDF."
+      ],
+      "reasoning": "Exact moments and numerical joint-density plots do not explicitly determine or prove the local logarithmic coefficient; although the random variable is specified by known formulas, extracting the saddle residue requires a separate local coarea analysis. A sufficiently detailed analytical joint-density theorem could dominate the claim; none was identified in accessible relevant full text.",
+      "searches": [
+        "unit cube projected perimeter interior singular logarithmic density at face diagonal",
+        "perimeter distribution of Haar random orthographic cube shadow logarithmic critical point",
+        "Haar-random planar projection perimeter moments of all orthotopes"
+      ]
+    },
+    "checked_sources": [
+      "Finch, arXiv:1203.2464v1, March 12 2012",
+      "Vickers and Brown, DOI:10.1098/rspa.2000.0667, published 2001",
+      "Published research record: Haar-random planar projection perimeter moments of all orthotopes (indexed summary)",
+      "Published research record: The logarithmic perimeter singularity of random central triaxial-ellipsoid sections (indexed summary)",
+      "Published research record: The exact random-brightness law and logarithmic saddle for a cubic constant-width body (indexed summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Vickers & Brown 2001 explicitly say their joint probability surface plots are numerical and have been smoothed (section 4).",
+        "Finch 2012 equation (section 5) supplies the integrand and expected squared periwidth, but not its density.",
+        "The new proof classifies all critical normals and computes the local quadratic Jacobian; none is a stated conclusion of those sources."
+      ],
+      "reasoning": "Known first and second moments, endpoint bounds, numerical joint plots, and one-dimensional width laws do not imply the stated exact analytic logarithmic expansion without additional saddle-point analysis. The pre-existing formula defines the object but does not give this explicit density residue.",
+      "searches": [
+        "cube girth random projection perimeter interior logarithmic singularity face diagonal van Hove density",
+        "random cube projected planar perimeter sharp near minimal or maximal tail",
+        "random cube projected perimeter girth 2+2sqrt2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finch 2012 formula for cube periwidth is exactly 2 sum sqrt(1-n_i^2) (arXiv:1203.2464v1, p.9).",
+        "Published directional width of cube concerns sum |n_i|, not the planar projected perimeter; central-section perimeter measures an intersection, not a projection."
+      ],
+      "reasoning": "The projection-perimeter identity is acknowledged prior work; the claimed sharp marginal log singularity and coefficient are not a relabeling of cube line-width or central-section statistics. The singularity follows from twelve spherical saddles not resolved by a moment formula.",
+      "searches": [
+        "unit cube periwidth marginal probability density near 2+2sqrt2",
+        "girth Haar random cube PDF face diagonal critical value",
+        "perimeter distribution of Haar random orthographic cube shadow logarithmic critical point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic literature results matched cube-projection second moments, cube central-section extremes, and an ellipsoid section-perimeter logarithm, with distinct objects or statistics.",
+        "No exact cube-girth coefficient or identical cube-plane-projection marginal was returned by the actual queries."
+      ],
+      "reasoning": "Search does not establish uniqueness. The closest analytic logarithmic perimeter record treats central sections of strictly triaxial ellipsoids rather than random planar projections of a cube; its saddle coefficient is not the same invariant.",
+      "searches": [
+        "unit cube periwidth marginal probability density near 2+2sqrt2",
+        "unit cube projected perimeter interior singular logarithmic density at face diagonal",
+        "cube girth random projection perimeter interior logarithmic singularity face diagonal van Hove density",
+        "random unit cube shadow perimeter saddle log density 2 plus 2 square root two",
+        "The logarithmic perimeter singularity of random central triaxial-ellipsoid sections"
+      ]
+    },
+    "rationale": "Best-knowledge originality of the sharp cube-girth marginal caustic and its exact residue, not of the pre-existing cube projection formula. Full relevant mathematical portions of Finch 2012 and Vickers–Brown 2001 were inspected; the former gives moments, the latter a numerical smoothed joint density rather than this exact singular coefficient. Actual semantic comparisons returned related but nonimplicative cube widths, central-section perimeters, and moments.",
+    "residual_risks": [
+      "Earlier numerical joint-density literature can conceal the same singularity without explicitly stating its coefficient; a priority review of all specialized projection-density sources remains desirable.",
+      "The full file of a later published orthotope moment record was not accessible, only its indexed summary.",
+      "No independent proof audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "IDENTITY_AND_MOMENTS_PRIOR_NOT_CAUSTIC",
+        "evidence": "Section 5, displayed formula pw=2(sqrt(1-x^2)+sqrt(1-y^2)+sqrt(1-z^2)); section 2.2 gives mean 3pi/2 and squared moment; no marginal log singularity or residue stated.",
+        "identifier_or_url": "https://arxiv.org/pdf/1203.2464",
+        "material_read": "Introduction, three-dimensional cube moment table, section 5 calculation and references, including pp.1-5 and pp.9-13",
+        "method": "Accessible full PDF text, with visual inspection of mathematical pages 4 and 11",
+        "title": "Planar Projections and Second Intrinsic Volume",
+        "trigger": "Exactly the same cube perimeter random variable and dated archival source"
+      },
+      {
+        "assessment": "NUMERICAL_JOINT_DENSITY_PLOTS_NOT_SHARP_MARGINAL",
+        "evidence": "Section 4 says numerical joint-density plotting required smoothing; the cube figure 18 shows stationary joint curves, and the text states the perimeter and area formulas, but does not supply the logarithmic marginal coefficient.",
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2000.0667",
+        "material_read": "Full relevant text of section 4 on simultaneous measurements and the cuboid/cube subsection, pp.297–303; the opening summary and references",
+        "method": "Accessible parsed full-paper PDF text; screenshot service returned 403 and so no visual PDF claim is made",
+        "title": "The distribution of projected area and perimeter of convex, solid particles",
+        "trigger": "Historical same-cube joint area–perimeter distribution, plausible dominating coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43d06d46-ab51-4b0b-9505-79799456107b",
+  "value": {
+    "rationale": "The natural marginal shadow-perimeter law had earlier exact moments and numerical joint plots, but the geometry of its interior critical density was not resolved in inspected sources. The new unique logarithmic saddle and explicit positive residue are a structural feature of isotropic orientation measurement, and the exact one-dimensional CDF with endpoint exponents makes a calibratable model rather than a routine moment recomputation.",
+    "status": "PASS"
+  }
+}
