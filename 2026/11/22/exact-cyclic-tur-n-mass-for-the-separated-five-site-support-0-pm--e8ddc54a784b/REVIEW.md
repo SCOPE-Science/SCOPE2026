@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The finite Fourier positivity criterion reduces the unrestricted complex objective to two real-even variables by symmetrization. The candidate cubic is exactly normalized, has no forbidden second harmonic, and is nonnegative on the entire cyclic frequency grid by a complete three-residue bracketing argument. A positive combination of its two active Fourier constraints bounds the objective for every feasible pair; strict positivity of both multipliers and a nonzero determinant give uniqueness. The parity, three-divisibility and large-odd-order consequences follow algebraically. The standalone checker corroborated the formulas with 18,055 assertions and an independent small-order LP vertex enumeration. Risk: finite tests do not replace proof; complex optimizer-face classification is not claimed.
+
+## Originality — PASS relative to inspected evidence
+The closest same-support finite-grid result is a discrete Carathéodory–Fejér problem maximizing only the first cosine coefficient, whereas the present objective is the sum of the first and third coefficients; their distinct contact geometries prevent a direct implication. The closest finite cyclic Turán mass result uses \(\{0,\pm1,\pm4\}\) and a modulus-five locking mechanism, not \(\{0,\pm1,\pm3\}\). The foundational 2003 full text computes the corresponding *infinite* integer-group odd-gap constant of two, not the finite odd-quotient excess. The 2026 motivating paper solves a three-interval continuous problem and uses finite-support approximations in \(\mathbb Z\), not this exact cyclic five-site law. Material scientific sections of all four sources were inspected. Risk: an equivalent result may exist in older circulant-graph theta or discrete Turán literature; no exhaustive priority claim is made.
+
+## Value — PASS
+The result supplies an exact all-modulus invariant for a canonical disconnected five-point support, a strict parity obstruction to transferring the integer-group bound, a unique explicit real-even optimizer at every odd modulus, and a sharp three-divisibility transition in its coefficient support. Its closed formula and asymptotic distinguish finite cyclic harmonics from the continuous problem. This is a natural extremal classification, not an arbitrary small parameter computation. Risk: it does not extend to arbitrary gaps or classify all complex optimizer faces.
+
+Self-review: passed. Independent audit: not yet performed.
