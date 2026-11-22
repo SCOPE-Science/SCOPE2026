@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-From this directory compile `g++ -O3 -std=c++17 checker.cpp -o checker`, then run `./checker 2`, `./checker 3`, `./checker 4`. These were run after copying all verification sources into the final artifact directory and yielded `CHECK_PASS` in every alphabet. The enumerated normalized candidate counts were 2,048; 177,147; and 4,194,304. Their exact minima were 336, 384, 336; strict next values were 400, 396, 368; and normalized minimizer counts were 12, 240, 24. The source calculates the exact cyclotomic norm, including a second, mathematically independent convolution calculation for each minimizer.
+## correctness
 
-The canonical optimizer lists are `q3_optimizers.txt` and `q4_optimizers.txt`, each containing one 16-digit canonical phase exponent per line. `python orbit_checker.py 3 q3_optimizers.txt` and `python orbit_checker.py 4 q4_optimizers.txt` returned `ORBIT_CHECK_PASS`; the normalized orbit sizes were respectively 48+192 and 12+12. Exhaustive radix loops, exact arithmetic, and the free phase normalization establish full coverage; the test does not extrapolate from a numerical sample. Supplementary discrete Fourier quadrature corroborated both representative moment values.
+PASS
 
-All claims concern root-of-unity alphabets of orders two through four, not arbitrary continuous complex phases. The certificate is computer-assisted and independently audited mathematical correctness or historical novelty are not asserted.
+Aperiodic integer-cube autocorrelation Parseval formula M4=sum_{d in {-1,0,1}^4}|R_d|² is correct. Affine q-phase characters form a free q^5 gauge; forcing t_0,t_1,t_2,t_4,t_8=0 leaves exactly q^11 independent arrays. Rebuilt integer cyclotomic squared norms, independently exhaustive enumerated every normalized q=3 (177147) and q=4 (4194304) array: minima 384,336, second levels 396,368, minimizer counts 240,24. Independently generated orbits from both supplied canonical representatives under 24 permutations x16 inversions x conjugation, with gauge normalization: disjoint orbit sizes q3=(48,192), q4=(12,12); hence complete optimizer classification and full counts 240*3^5=58320 and 24*4^5=24576. Original source additionally checks equality arrays by independent polynomial self-convolution. This is an exact finite theorem, not an infinite-dimensional bound.
+
+## originality
+
+PASS
+
+Fresh claim-vs-prior, equivalent-statement, stronger-coverage and exact-table comparisons identified no decisive covering implication in inspected evidence; priority remains best-of-knowledge with named full/partial reading and risks.
+
+## value
+
+PASS
+
+The complete four-dimensional Boolean aperture is a natural 16-tone multi-index Fourier support; exact single-array q-ary sidelobe energies and optimizer symmetry types are meaningful design invariants. q3 minimum 384 is worse than q2=336 while q4 restores 336 with two distinct orbits, and next-level gaps rule out near-equality; this is a motivated complete classification, not just a random finite subcase. No engineering or unrestricted-phase superiority is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

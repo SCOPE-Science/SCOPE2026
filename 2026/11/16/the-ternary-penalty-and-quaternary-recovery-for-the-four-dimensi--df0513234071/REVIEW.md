@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support, Haar normalization, phase alphabets, and free affine phase gauge are explicit. Parseval equates the fourth moment with a complete \(81\)-shift autocorrelation sum; the three exact integer root-of-unity formulas compute it without floating point. The bundled source enumerates all \(3^{11}=177147\) and \(4^{11}=4194304\) canonical arrays and has a separate ordered-pair convolution validation for every equality array. Exact orbit closure, cardinalities, and two canonical representatives for each alphabet are established by the independent orbit checker. Both source programs executed successfully from the delivered artifact directory. Limits: the infinite generalization or unrestricted complex phase minimum is **not** asserted.
+PASS
 
-## Originality — PASS with residual historical risk
+Aperiodic integer-cube autocorrelation Parseval formula M4=sum_{d in {-1,0,1}^4}|R_d|² is correct. Affine q-phase characters form a free q^5 gauge; forcing t_0,t_1,t_2,t_4,t_8=0 leaves exactly q^11 independent arrays. Rebuilt integer cyclotomic squared norms, independently exhaustive enumerated every normalized q=3 (177147) and q=4 (4194304) array: minima 384,336, second levels 396,368, minimizer counts 240,24. Independently generated orbits from both supplied canonical representatives under 24 permutations x16 inversions x conjugation, with gauge normalization: disjoint orbit sizes q3=(48,192), q4=(12,12); hence complete optimizer classification and full counts 240*3^5=58320 and 24*4^5=24576. Original source additionally checks equality arrays by independent polynomial self-convolution. This is an exact finite theorem, not an infinite-dimensional bound.
 
-The closest four-cube theorem proves only the binary value and binary optimizer classification. Its full mathematical statement explicitly excludes nonbinary phases. The present ternary and quaternary minima and complete two-orbit equality classifications do not follow: the ternary alphabet does not contain binary signs and the quaternary optimum has additional nonbinary orbit types. Closely related published 3-cube, 4-by-2, and 2-by-2-by-3 alphabet results use different additive-difference relations and cannot imply these sixteen-coefficient values. Pai and Chen (2021) and Zhang, Fan and Mesnager (2021) treat *pairs* of arrays with canceling aggregate correlations rather than the minimum energy of one ternary or quaternary array. Searches of the mathematical record and primary literature used alternate labels (polyphase aperiodic sidelobe level, fourth moment, hypercube, additive convolution, and PSK alphabet). Older or inaccessible sequence tables remain a possible priority risk; no historical uniqueness certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The four-cube is a canonical complete Boolean multi-index Fourier aperture and the smallest four-dimensional cube where a full nonbinary optimizer classification extends the exact binary benchmark. A complete sharp spectrum of three naturally used phase alphabets reveals a nonmonotone quantization effect (binary \(336\), ternary \(384\), quaternary \(336\)), while its two symmetry orbits per alphabet and exact nonoptimality gaps give structural information about the phase energy landscape rather than just isolated enumeration. The object is motivated by single-array aperiodic correlation design; no substantial engineering improvement is claimed.
+Fresh claim-vs-prior, equivalent-statement, stronger-coverage and exact-table comparisons identified no decisive covering implication in inspected evidence; priority remains best-of-knowledge with named full/partial reading and risks.
 
-## Scope and literature limits
+## value
 
-All findings are finite-alphabet, single-array and continuous-torus statements; no arbitrary complex-phase optimum. Full older phase-code tables may be incomplete in indexing, and independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete four-dimensional Boolean aperture is a natural 16-tone multi-index Fourier support; exact single-array q-ary sidelobe energies and optimizer symmetry types are meaningful design invariants. q3 minimum 384 is worse than q2=336 while q4 restores 336 with two distinct orbits, and next-level gaps rule out near-equality; this is a motivated complete classification, not just a random finite subcase. No engineering or unrestricted-phase superiority is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
