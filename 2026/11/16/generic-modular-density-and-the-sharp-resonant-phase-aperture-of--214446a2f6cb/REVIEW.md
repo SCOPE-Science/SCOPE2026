@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The entire argument is reconstructed in `RESULT.md`. The model equation \(1=u e^{i\phi}+\kappa u^q e^{i\eta}\) is equivalent to the geometric modulus condition; existence follows from the continuous ratio, and Rouché moves each isolated torus-model zero to genuine zeros after equidistributed imaginary translations. Kronecker--Weyl in a three-torus gives positive density in each nonresonant modular arc; the two-torus version yields the exact resonant closure and positive density in its interior. The stationary quadratic has one positive root, determines a unique minimum and yields the sharp edge expansion. Finite numerical diagnostics passed but do not replace these analytic proofs. The argument permits multiple zeros without relying on simplicity.
+PASS
 
-## Originality
+For 0<beta<alpha with beta/alpha irrational and a,b nonzero, normalizing u=|a|exp(alpha x) and q=beta/alpha gives the phase equation |1-u e^{i phi}|=kappa u^q. A model zero 1=U+V with U,V nonzero can be transferred to actual zeros by torus phase recurrence and Rouche on zero-isolating disks. Choosing h with 1,h alpha/(2pi),h beta/(2pi),h/L rationally independent for nonresonant L yields positive-frequency 3-torus visits and disjoint disks, proving liminf N_J(T)/T>0 for all open arcs. Resonant closure is exactly the geometric feasibility region via both actual-zero necessity and model-transfer sufficiency. Minimization derivative (1-q)u^2+(2q-1)c u-q has one positive zero; H_q strictly decreases, H_q(-1)=q^(-q)(1-q)^(q-1), with envelope derivative -K_q q(1-q), giving the sharp square-root missing arc. Independent sampled stationary-root, monotonicity and endpoints checks passed; these finite diagnostics do not prove recurrence or infinite zero counts. RESULT.md, CHECK.py and precise assigned tree inspected.
 
-**PASS relative to inspected literature, with priority caveats.** Podesta's 2026 paper explicitly leaves modular imaginary-height density as an open question while analyzing a related geometric phase function. That geometric feasibility analysis may already imply part of the minimizer/threshold formula; the new comparison is instead about the distribution of *genuine zero residues*, including co-countably many dense periods with positive lower linear counts, an exact resonant forbidden arc and its square-root closure threshold. Moreno (1973), Podesta's February 2026 paper, and Mas--Sepulcre (2019) concern vertical-strip or real/linear projections, not these modular phase sets. An unpublished follow-up by the motivating author or an older almost-periodic divisor theorem could overlap; no independent historical priority search can eliminate every such risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** An explicit 2026 question about density of imaginary parts modulo a period motivates the first half. The resonant half adds a natural obstruction and complete phase diagram at a fundamental oscillation period: exact forbidden arcs for weak second terms, full-circle threshold for stronger terms and a sharp square-root closing law. Positive linear visiting density is stronger than topological density and gives a quantitative recurrence conclusion without demanding an explicit optimal density constant. The two halves show why the choice of period matters, a distinction hidden by ordinary vertical zero counts.
+As of this review, Podesta (15 April 2026) explicitly presents density of imaginary zero heights modulo L as an open problem and reserves its solution for future work; its geometric phase feasibility propositions do not establish actual-zero modular density. Moreno and later real-part projection work address a different coordinate, and generic vertical mean zero density does not imply positive lower frequency in each modular arc. The present joint generic-versus-resonant and sharp edge theorem appears not covered in bounded searches; residual older almost-periodic results remain a priority risk.
 
-## Closest sources and limits
+## value
 
-The most important comparison is Podesta, *Monatshefte für Mathematik* 210 (2026), introduction and Proposition 1, DOI 10.1007/s00605-026-02174-6. Moreno's original 1973 article contains a Kronecker--Weyl/Rouché mechanism for the closure of real projections; this proof leverages a new independent modular coordinate and identifies a resonant failure of full-circle coverage. Mas and Sepulcre's 2019 linear-projection results likewise do not directly provide a quotient-circle classification. Publication priority is provisional. No sharp constant for the positive lower visiting density, higher-term analogue, or uniform angular distribution is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question whether imaginary zero heights are dense modulo an arbitrary period was explicitly posed in current primary literature. Distinguishing a co-countable full-circle regime from a resonant sharp excluded arc is structural, and the positive lower linear visiting frequency is stronger than topological density. The exact threshold and square-root boundary quantify a natural resonance, rather than a superficial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

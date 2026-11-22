@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-17.md",
+      "INDEPENDENT_AUDIT_2026-11-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-A standalone standard-library script `CHECK.py` was executed on the packaged scientific formulas, yielding:
+## correctness
 
-`CHECK_OK q_samples=6 stationary_grid=1542 tangency_samples=4 asymptotic_sweeps=18`
+PASS
 
-It tests the positive-root stationarity identity on 1,542 parameter-grid points, sampled monotonicity and endpoints, trial-point lower-bound comparisons, the predicted square-root asymptotics, and exact rational coalescent identities at the model double zero. The script can be rerun with `python3 CHECK.py` from the directory containing it.
+For 0<beta<alpha with beta/alpha irrational and a,b nonzero, normalizing u=|a|exp(alpha x) and q=beta/alpha gives the phase equation |1-u e^{i phi}|=kappa u^q. A model zero 1=U+V with U,V nonzero can be transferred to actual zeros by torus phase recurrence and Rouche on zero-isolating disks. Choosing h with 1,h alpha/(2pi),h beta/(2pi),h/L rationally independent for nonresonant L yields positive-frequency 3-torus visits and disjoint disks, proving liminf N_J(T)/T>0 for all open arcs. Resonant closure is exactly the geometric feasibility region via both actual-zero necessity and model-transfer sufficiency. Minimization derivative (1-q)u^2+(2q-1)c u-q has one positive zero; H_q strictly decreases, H_q(-1)=q^(-q)(1-q)^(q-1), with envelope derivative -K_q q(1-q), giving the sharp square-root missing arc. Independent sampled stationary-root, monotonicity and endpoints checks passed; these finite diagnostics do not prove recurrence or infinite zero counts. RESULT.md, CHECK.py and precise assigned tree inspected.
 
-The main claims have *analytic* rather than finite computational proofs. Their essential steps are the triangular phase equation, Kronecker--Weyl equidistribution on two- and three-tori, Rouché's theorem on disjoint translated zero disks, unique positive stationary root of a quadratic, and the envelope derivative at the resonance boundary. No computational experiment establishes an assertion about all irrational ratios or infinitely many zeros by itself.
+## originality
 
-The originality assessment compares the actual assertion about genuine zero heights modulo a length with published work on real projections and geometric phase feasibility; an independent publication-priority audit has not been performed.
+PASS
+
+As of this review, Podesta (15 April 2026) explicitly presents density of imaginary zero heights modulo L as an open problem and reserves its solution for future work; its geometric phase feasibility propositions do not establish actual-zero modular density. Moreno and later real-part projection work address a different coordinate, and generic vertical mean zero density does not imply positive lower frequency in each modular arc. The present joint generic-versus-resonant and sharp edge theorem appears not covered in bounded searches; residual older almost-periodic results remain a priority risk.
+
+## value
+
+PASS
+
+The question whether imaginary zero heights are dense modulo an arbitrary period was explicitly posed in current primary literature. Distinguishing a co-countable full-circle regime from a resonant sharp excluded arc is structural, and the positive lower linear visiting frequency is stronger than topological density. The exact threshold and square-root boundary quantify a natural resonance, rather than a superficial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
