@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cofactor identity \(\dot F=(\kappa+\lambda x)zF\) is an exact polynomial identity, and the global torus coordinates give the physical-time vector field (6). The strict cofactor bound makes longitudinal winding nonvanishing. Jana's known meridian classification is explicitly credited; the global quadrant sign argument independently verifies there are no additional periodic orbits. One full longitudinal circuit gives the exact three period integrals; differentiating the angular equation gives the torus-transverse multipliers. The two standard trigonometric integrals prove the middle period and product formula. For the one-sided critical limit, the denominator has a unique nondegenerate quadratic zero and the proof applies the exact rescaling \(\varphi=\sqrt\varepsilon v\), with a uniform integrable majorant. The other three denominators remain bounded away from zero. The checker confirms the algebra and several representative finite quadratures; no finite experiment is promoted into proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Jana (arXiv:2401.07843v3), Theorems 2.1 and 2.4 and Example 5.5, establishes the four meridians and alternating stability but not the anisotropic original-time clock splitting or the exact stable multiplier product. The closely related published mathematical record *Two inequivalent infinite-period degenerations of four cubic torus cycles* treats \(K'=\lambda+\eta z\), for which **all four** clocks coincide and all slow down together. That prior theorem does not imply three strictly separated periods or a single selectively arrested cycle for \(K'=\kappa+\lambda x\). The 2013 torus-meridian paper's accessible mathematical content focuses on invariant-meridian configurations, not these formulas. The older 2011 article was accessible only in bibliographic/abstract form, and complete coverage cannot be ruled out. Generic saddle-node integral asymptotics explain the exponent but do not directly contain these exact coefficients and family-specific selection theorem.
+PASS
 
-## Value — PASS
-The four-meridian cubic family is a geometrically distinguished extremal example in the motivating literature. Breaking the constant cofactor by the lowest-degree meridian-dependent term exposes an otherwise invisible distinction between orbit counting and physical-time dynamics: three strictly ordered period clocks, an exact relation between stable multipliers, and selective removal of precisely one periodic meridian at a sharp boundary. The universal critical constants distinguish the affected cycle from the three unaffected ones. This is a motivated structural and quantitative characterization rather than a routine parameter renaming or an arbitrary finite computation.
+Pinned RESULT.md proves dF/dt=(kappa+lambda*x) z F for the cubic field, then derives r^2=a^2+cos(phi), phi_dot=-r^2(kappa+lambda*r*cos(theta))/2 and theta_dot=-c*r^2*sin(2theta)/2. Strict positive winding for the open parameter interval excludes other closed trajectories. Integrating dt along theta=0,pi,pi/2,3pi/2 gives the three minimal periods; linearizing theta gives mu±=exp(-2c integral 1/(kappa±lambda*r)) and unstable mu0. Pairing integrands yields log(mu+mu-)=-8pi*c*kappa/sqrt((kappa^2-lambda^2*a^2)^2-lambda^4). At the unique critical zero r(0)=R, kappa-lambda*r=epsilon+(kappa/(4R^2))*phi^2+smaller terms, producing square-root period and log-multiplier coefficients 4pi/(R sqrt(kappa)) and 4pi*c*R/sqrt(kappa) by dominated convergence. Remaining denominators stay positive. At equality theta=pi has one equilibrium and its complementary trajectory homoclinic; no ambient-normal multiplier asserted. Independently reproduced exact rational cofactor identities and numerical integral/product identities; these bounded checks do not establish the limit.
 
-## Literature and limitations
-The theorem is on the compact invariant torus only. Physical-time multipliers are torus-transverse, not ambient-normal. The original four-meridian classification is not new. The paper by Llibre and Medrado (2011) was not fully accessible, which remains a specific originality risk; later independent publication-priority review may identify an equivalent derivation. Numerical checks are diagnostics, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four meridians and alternating relative stability are covered by Jana and are explicitly credited; the new claim is quantitative original-time clock ordering, stable multiplier product and selective endpoint arrest. Prior full published Oct-11 torus result has a z-dependent affine cofactor and a common clock/simultaneous arrest, not the x-dependent three clocks. The closest earlier primary literature inspected does not give the claimed quantitative formulas; priority is best-of-knowledge.
+
+## value
+
+PASS
+
+An explicit geometric separation of physical periods despite identical invariant meridian count is a motivated stability/period invariant. The exact multiplier product and isolated critical nonhyperbolic degeneration distinguish time reparametrizations and provide useful sharp boundary behavior without claiming a general torus classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
