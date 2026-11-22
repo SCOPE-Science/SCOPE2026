@@ -1,0 +1,17 @@
+# Scientific review of the two-stage dispersion transition
+
+## Correctness — PASS
+The stationary phase distribution is explicitly normalized, the finite-state Poisson corrector is constructed as a cyclic difference, and its martingale bracket gives the exact diffusion coefficient. The derivative and homogeneous-baseline difference factor into quadratics whose discriminants are strictly controlled by the same monotone drive parameter \(1<y_n<n\). Thus the five-/six-stage barriers and all boundary multiplicities follow analytically for every admissible rate, without relying on finite parameter enumeration. The independent rational-state checker verifies the formula on separately solved finite systems. The proof assumes strictly positive bidirectional rates, one common-direction departure-speed defect, and infinite unwrapped displacement.
+
+## Originality — PASS with residual publication-priority risk
+Derrida (1983) supplies a general closed diffusion expression for arbitrary periodic hopping rates. Thus the rational diffusion formula is a specialization and is **not** claimed new; its two-tier global shape classification is the claim under review. The all-period published formula is mathematically strong enough to permit this specialization but does not directly state the unique drive thresholds for noise reentrance at five stages or absolute noise enhancement at six stages. Kanada, Shinagawa and Sasaki (2018) treat diffusion enhancement for potential-switching Brownian motors and extended stepping durations, not a single-site common-departure-rate defect; inspection covered their model, diffusion laws, mechanism, and concluding qualification. Searches for periodic one-defect reentrant dispersion, molecular-motor Fano fluctuations, and critical stage counts returned closely related but differently scoped Markov-ring spectra, interacting transport, and counting-noise studies, not a directly covering classification. Broader unpublished or implicit derivations remain possible; independent priority assessment is warranted.
+
+## Mathematical value — PASS
+A single slowed kinetic step is a natural microscopic bottleneck, and long-time displacement variance is a physically distinct observable from mean drift. The complete result distinguishes (i) strict monotone suppression, (ii) a reentrant minimum–maximum pair, and (iii) genuine increase of absolute dispersion above the uniform reference. The two successive minimum stage counts and exact bias thresholds identify when these mechanisms first become possible, despite mean speed always falling. The mathematical value is the structural all-size phase diagram, not mere substitution into a known transport formula, and it does not claim experimental or thermodynamic superiority.
+
+## Sources, scope, and risks
+- B. Derrida, *Velocity and Diffusion Constant of a Periodic One-Dimensional Hopping Model*, J. Stat. Phys. 31 (1983), equations (46)–(50), including its homogeneous and random-rate application sections. https://www.lps.ens.fr/~derrida/PAPIERS/1983/jsp1983-vitesse.pdf
+- R. Kanada, R. Shinagawa and K. Sasaki, *Diffusion Enhancement of Brownian Motors Revealed by a Solvable Model*, first public 2018-05-21, arXiv:1805.07870; Phys. Rev. E 98, 062110. https://link.aps.org/accepted/10.1103/PhysRevE.98.062110
+- Remaining risks: a narrowly scoped older kinetic-defect study not located in the search; implicit derivability from the general 1983 formula; ideal Markov one-particle assumptions.
+
+Self-review: passed. Independent audit: not yet performed.
